@@ -260,3 +260,56 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
 export function emptyState(text) {
   return html`<p class="empty">${text}</p>`;
 }
+
+/**
+ * A context note: how a place actually behaves, as opposed to what it requires.
+ *
+ * The presentation carries the same weight as the data rule behind it. Three
+ * things are deliberate and none is decoration:
+ *
+ *   The attribution is inside the note, not in a footnote. A student who reads
+ *   only the first line still learns who is talking.
+ *
+ *   The confidence is stated in words rather than implied by styling. "One
+ *   source says this" is information; a slightly paler background is not.
+ *
+ *   A contested note shows the counterpoint in the same block, at the same
+ *   size. Showing a disagreement from one side only is worse than not showing
+ *   it, because the reader gets the confidence without the doubt.
+ */
+export function contextNote(n) {
+  if (!n) return '';
+  const CONFIDENCE = {
+    'widely-reported': 'Several sources agree on this',
+    'single-source': 'One source says this — worth knowing, worth checking',
+    contested: 'Sources disagree, and the disagreement is the useful part',
+  };
+  return html`<aside class="context" aria-label="Context, not a requirement">
+    <p class="context__kind">Context, not a rule</p>
+    <h3 class="context__topic">${n.topic}</h3>
+    <div class="context__body">${md(n.text)}</div>
+    ${n.counterpoint
+      ? html`<div class="context__counter">
+          <p class="context__counter-label">Others disagree</p>
+          ${md(n.counterpoint)}
+        </div>`
+      : ''}
+    ${n.whatThisIsNot ? html`<p class="context__not"><strong>Not to be confused with:</strong> ${n.whatThisIsNot}</p>` : ''}
+    <footer class="context__foot">
+      <span class="context__who">${n.attribution}</span>
+      <span class="context__confidence">${CONFIDENCE[n.confidence] || n.confidence}</span>
+    </footer>
+  </aside>`;
+}
+
+/** A run of context notes, with nothing rendered when there are none. */
+export function contextNotes(list, { title = 'What it is actually like' } = {}) {
+  const notes = (list || []).filter(Boolean);
+  if (!notes.length) return '';
+  return html`<div class="context-set">
+    <h2 class="context-set__title">${title}</h2>
+    <p class="context-set__lede">These are observations rather than rules — the things people who have
+    watched students go through this tend to say. Nothing here decides whether you can apply.</p>
+    ${notes.map(contextNote)}
+  </div>`;
+}

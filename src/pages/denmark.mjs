@@ -2,9 +2,10 @@ import { html, raw, md, plural, truncate } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
-  stamp, dataTable, emptyState, pager, accordion, requirementLine, tags,
+  stamp, dataTable, emptyState, pager, accordion, requirementLine, tags, contextNotes,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
+import { contextFor } from '../lib/canonical.mjs';
 
 /* --- Denmark hub ---------------------------------------------------------- */
 
@@ -99,12 +100,17 @@ ${hero({
 
         <h2 id="danish">The Danish-language problem</h2>
         <p>This is the single biggest constraint on studying in Denmark with an IB, and it is easy to miss
-        because it is rarely stated as a headline. The University of Copenhagen teaches essentially all of its
-        bachelor's degrees in Danish. Aalborg has historically taught four in English. Most of the English-taught
+        because it is rarely stated as a headline. The University of Copenhagen puts it plainly on its own
+        bachelor page: 78 programmes, <em>all</em> taught in Danish. Aalborg has historically taught four in English. Most of the English-taught
         provision sits at Copenhagen Business School, Southern Denmark, the IT University, Roskilde and the
         university colleges.</p>
         <p>If you took Danish A1 or Danish A Literature — at either level — you are fine. If you did not, and the
         programme is taught in Danish, you will need the <em>Studieprøven</em> language test or an equivalent.</p>
+
+        ${contextNotes([
+          ...contextFor(site.graph, 'destination', 'dk'),
+          ...contextFor(site.graph, 'application-system', 'dk-optagelse'),
+        ])}
 
         <h2 id="money">What it costs</h2>
         <p>Nothing, if you are an EU, EEA or Swiss citizen: Danish higher education charges no tuition. Everyone

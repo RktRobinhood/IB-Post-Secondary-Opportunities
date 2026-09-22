@@ -1044,3 +1044,83 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
   .card, .note, .stats { break-inside: avoid; border-color: #bbb; }
   .section { padding-block: 1rem; }
 }
+
+/* --- Context notes ---------------------------------------------------------
+ *
+ * Deliberately unlike a requirement block, because the entire point of the type
+ * is that a student can tell at a glance which one they are reading. Sand
+ * rather than pine, a dashed rule rather than a solid one, and the word
+ * "Context, not a rule" stated rather than implied — the visual difference
+ * carries the meaning for someone skimming, and the words carry it for someone
+ * who cannot see the styling at all.
+ */
+.context-set { margin: var(--s7) 0; }
+.context-set__title { margin-bottom: var(--s2); }
+.context-set__lede {
+  color: var(--ink-soft);
+  font-size: .9375rem;
+  max-width: 62ch;
+  margin-bottom: var(--s5);
+}
+
+.context {
+  /* Paper rather than sand. The first version used --sand-tint, which is within
+     a shade of --warn-tint, so a context note and a genuine warning looked the
+     same — the opposite of the point. The dashed rule and the stated label do
+     the identifying work; the background only needs to say "aside". */
+  border: 1px dashed var(--rule-strong);
+  background: var(--paper-2);
+  border-radius: var(--radius);
+  padding: var(--s5);
+  margin: var(--s5) 0;
+}
+.context__kind {
+  font-family: var(--font-ui, inherit);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .6875rem;
+  font-weight: 600;
+  color: var(--ink-mute);
+  margin: 0 0 var(--s2);
+}
+.context__topic {
+  font-size: 1.125rem;
+  margin: 0 0 var(--s3);
+}
+.context__body { font-size: .9375rem; }
+.context__body > :last-child { margin-bottom: 0; }
+
+.context__counter {
+  margin-top: var(--s4);
+  padding-left: var(--s4);
+  border-left: 3px solid var(--rule-strong);
+  font-size: .9375rem;
+}
+.context__counter-label {
+  font-weight: 600;
+  margin: 0 0 var(--s1);
+  color: var(--ink-soft);
+}
+
+.context__not {
+  margin-top: var(--s4);
+  font-size: .875rem;
+  color: var(--ink-soft);
+}
+
+.context__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s4);
+  align-items: baseline;
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--rule);
+  font-size: .8125rem;
+}
+.context__who { font-weight: 600; color: var(--ink-soft); }
+.context__confidence { color: var(--ink-mute); font-style: italic; }
+
+@media (max-width: 40rem) {
+  .context { padding: var(--s4); }
+}

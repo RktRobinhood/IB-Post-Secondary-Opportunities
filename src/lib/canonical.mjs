@@ -34,7 +34,7 @@ async function readDir(dir) {
 }
 
 export async function loadCanonical() {
-  const [destinations, places, institutions, programmes, opportunities, systems, routes, evidenceFiles] =
+  const [destinations, places, institutions, programmes, opportunities, systems, routes, contextNotes, evidenceFiles] =
     await Promise.all([
       readDir(path.join(DATA, 'destinations')),
       readDir(path.join(DATA, 'places')),
@@ -43,6 +43,7 @@ export async function loadCanonical() {
       readDir(path.join(DATA, 'opportunities')),
       readDir(path.join(DATA, 'application-systems')),
       readDir(path.join(DATA, 'application-routes')),
+      readDir(path.join(DATA, 'context-notes')),
       readDir(path.join(DATA, 'evidence')),
     ]);
 
@@ -61,6 +62,7 @@ export async function loadCanonical() {
     opportunities: index(opportunities),
     applicationSystems: index(systems),
     applicationRoutes: index(routes),
+    contextNotes: index(contextNotes),
     evidence,
   };
 
@@ -272,4 +274,17 @@ function fieldLabel(key) {
 }
 function typeLabel(key) {
   return TYPE_LABELS[key] || 'Institution';
+}
+
+/**
+ * Every context note attached to a thing.
+ *
+ * Ordered by how much weight they deserve, so the best-supported observation is
+ * read first and a contested one is never the first thing a student sees.
+ */
+export function contextFor(graph, kind, id) {
+  const weight = { 'widely-reported': 0, 'single-source': 1, contested: 2 };
+  return [...(graph.contextNotes?.values() || [])]
+    .filter((n) => n.appliesTo?.kind === kind && n.appliesTo?.id === id)
+    .sort((a, b) => (weight[a.confidence] ?? 9) - (weight[b.confidence] ?? 9));
 }
