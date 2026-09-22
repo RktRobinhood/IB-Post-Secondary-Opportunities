@@ -986,6 +986,28 @@ figcaption a { color: inherit; }
 }
 .stamp--stale::before { background: var(--warn); }
 
+.freshness {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink-mute);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--s3) var(--s4);
+  margin: var(--s5) 0;
+  font-size: .8125rem;
+  color: var(--ink-soft);
+  background: var(--paper-2);
+}
+.freshness--ok { border-left-color: var(--ok); }
+.freshness--warn { border-left-color: var(--warn); background: var(--warn-tint); }
+.freshness__line { margin: 0; }
+.freshness__line + .freshness__line { margin-top: var(--s2); }
+.freshness__line--warn { color: var(--warn); font-weight: 500; }
+
+.timeline > li[data-provisional="true"] .timeline__when::after {
+  content: " · provisional";
+  color: var(--warn);
+  font-weight: 400;
+}
+
 /* --- 20. Details / accordion --------------------------------------------- */
 
 details.acc {

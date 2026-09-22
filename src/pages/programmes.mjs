@@ -2,9 +2,10 @@ import { html, raw, md, plural, truncate, listSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
-  stamp, dataTable, emptyState, pager, tags, requirementLine,
+  stamp, dataTable, emptyState, pager, tags, requirementLine, freshness,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
+import { evidenceStatus } from '../lib/canonical.mjs';
 
 /* --- A Danish institution -------------------------------------------------- */
 
@@ -188,6 +189,10 @@ ${hero({
 export function programme(site, p, inst) {
   const pic = picture(site, p.id) || picture(site, inst.id);
   const req = p.entryRequirements;
+  const opp = site.graph?.opportunities?.get(p.opportunityId || p.id);
+  const ev = site.graph ? evidenceStatus(site.graph, opp?.evidence) : null;
+  const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
+  const provisionalDates = (route?.milestones || []).filter((m) => m.provisional).length;
 
   const body = html`
 ${hero({
@@ -209,6 +214,15 @@ ${hero({
 
     <div class="layout-aside">
       <div class="prose">
+        ${ev
+          ? freshness({
+              intake: opp?.intake,
+              checkedAt: ev.checkedAt || opp?.meta?.dataAsOf,
+              level: ev.level,
+              provisional: provisionalDates,
+            })
+          : ''}
+
         <h2 id="requirements">Entry requirements</h2>
         ${req
           ? html`
@@ -572,7 +586,7 @@ export function timeline(site) {
     { date: '2027-07-05', when: '5 July 2027', title: 'Denmark: documentation deadline, 12:00', body: 'Everything except your IB results must be uploaded by now. You can also still reorder your priorities until this moment.' },
     { date: '2027-07-06', when: '6 July 2027', title: 'IB results released', body: 'If you registered for the IB results service, your results travel directly to the institutions you named.' },
     { date: '2027-07-28', when: '28 July 2027', title: 'Denmark: offers and cut-offs published', body: 'You get your answer, and every programme\'s quota 1 cut-off average is published. Vacant places appear the same week.' },
-    { date: '2027-08-05', when: 'Early August 2027', title: 'Accept your place', body: 'Then housing, then CPR registration, then a bank account — in that order, because each depends on the last.' },
+    { date: '2027-08-05', when: 'Early August 2027', provisional: true, title: 'Accept your place', body: 'Then housing, then CPR registration, then a bank account — in that order, because each depends on the last.' },
   ];
 
   const body = html`
@@ -589,7 +603,7 @@ ${hero({
       <div class="prose">
         <ul class="timeline">
           ${events.map(
-            (e) => html`<li data-date="${e.date}">
+            (e) => html`<li data-date="${e.date}"${e.provisional ? raw(' data-provisional="true"') : ''}>
               <div class="timeline__when">${e.when}${e.key ? html`<br><span data-countdown="${e.date}"></span>` : ''}</div>
               <div class="timeline__what">
                 <h4>${e.title}</h4>
@@ -603,7 +617,9 @@ ${hero({
         ${note(
           `Dates for the 2027 cycle are published at different times by different countries. Where a country
           had not yet published its 2027 dates when this was checked, its own page says so and shows the most
-          recent published date instead.`,
+          recent published date instead. Anything marked **provisional** is carried over from the previous
+          cycle because the authority has not yet republished it — the day and month have been stable for
+          years, but the year has not been confirmed.`,
           { title: 'About these dates' }
         )}
         ${note(

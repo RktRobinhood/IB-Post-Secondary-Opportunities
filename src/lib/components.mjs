@@ -1,4 +1,4 @@
-import { html, raw, md, truncate } from './html.mjs';
+import { html, raw, md, truncate, plural } from './html.mjs';
 import { url } from './layout.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
@@ -211,6 +211,50 @@ export function requirementLine(entry) {
     parts.push('one of: ' + entry.oneOf.map((group) => group.map(fmt).join(' + ')).join(' / '));
   }
   return parts.join(' — ');
+}
+
+/**
+ * Says how much weight a page's facts can carry: which intake they describe,
+ * when they were last read, and whether any of it is inherited from a previous
+ * cycle rather than confirmed for this one.
+ *
+ * Deliberately plain rather than reassuring. A student who is about to act on a
+ * deadline should be able to tell in one glance whether it has been confirmed.
+ */
+export function freshness({ intake, checkedAt, level = 'verified', reviewBy, provisional = 0 } = {}) {
+  const LABEL = {
+    verified: ['ok', 'Checked against the source'],
+    'needs-review': ['', 'Read from the source, not yet checked by a person'],
+    stale: ['warn', 'Past its review date'],
+    superseded: ['warn', 'Superseded and not yet replaced'],
+    unavailable: ['warn', 'The source could not be reached'],
+    conflicting: ['warn', 'Sources disagree'],
+    none: ['warn', 'No source recorded'],
+  };
+  const [kind, label] = LABEL[level] || LABEL.verified;
+
+  const pretty = (d) =>
+    d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : null;
+
+  return html`<aside class="freshness freshness--${kind || 'plain'}">
+    <p class="freshness__line">
+      <strong>${label}.</strong>
+      ${checkedAt ? html` Last read ${pretty(checkedAt)}.` : ''}
+      ${intake ? html` Describes the ${intake.replace('-', ' ')} intake.` : ''}
+    </p>
+    ${provisional
+      ? html`<p class="freshness__line freshness__line--warn">
+          ${plural(provisional, 'date on this page is', 'dates on this page are')} carried over from the previous
+          cycle because the authority has not yet published this one. Treat ${provisional === 1 ? 'it' : 'them'}
+          as indicative and check before you rely on ${provisional === 1 ? 'it' : 'them'}.
+        </p>`
+      : ''}
+    ${reviewBy && reviewBy < new Date().toISOString().slice(0, 10)
+      ? html`<p class="freshness__line freshness__line--warn">
+          This was due for review on ${pretty(reviewBy)} and has not been re-checked.
+        </p>`
+      : ''}
+  </aside>`;
 }
 
 export function emptyState(text) {

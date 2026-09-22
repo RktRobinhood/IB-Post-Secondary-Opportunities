@@ -1,0 +1,94 @@
+{
+  "title": "How long a claim stays trustworthy",
+  "schemaVersion": "1.0",
+  "dataAsOf": "2026-09-22",
+  "note": "Different facts age at different speeds. A deadline is wrong the moment a portal republishes its calendar; a university's founding year is not going to move. These intervals decide when scripts/freshness.mjs starts complaining, and they are deliberately short for anything a student could act on and be harmed by.",
+
+  "intervals": [
+    {
+      "claimType": "application-deadline",
+      "reviewEveryDays": 90,
+      "hardStop": "Any deadline for an intake must be re-verified before that intake's application window opens.",
+      "consequenceIfWrong": "A student misses the only round. This is the single most damaging thing the site can get wrong.",
+      "matches": ["milestones", "rounds", "deadlines"]
+    },
+    {
+      "claimType": "entry-requirement",
+      "reviewEveryDays": 180,
+      "hardStop": "Re-verify for each intake. Subject and grade requirements change between admission years.",
+      "consequenceIfWrong": "A student applies without a subject they needed, or rules themselves out of something they qualified for.",
+      "matches": ["requirements", "entryRequirements", "officialRequirementsText"]
+    },
+    {
+      "claimType": "grade-conversion",
+      "reviewEveryDays": 120,
+      "hardStop": "The Danish Agency republishes its IB conversion table by 1 March each year for that summer's intake. Re-verify every March.",
+      "consequenceIfWrong": "Every eligibility result and every score estimate shifts.",
+      "matches": ["conversionTable", "gradeConversion", "ibRecognition"]
+    },
+    {
+      "claimType": "tuition",
+      "reviewEveryDays": 180,
+      "hardStop": "Fee tables are published per academic year. A figure without a stated year is not usable.",
+      "consequenceIfWrong": "A student budgets for the wrong number, possibly by thousands.",
+      "matches": ["cost", "tuition", "feeContext", "fee"]
+    },
+    {
+      "claimType": "programme-availability",
+      "reviewEveryDays": 180,
+      "hardStop": "Re-verify for each intake. Programmes close, and English-taught programmes switch language.",
+      "consequenceIfWrong": "A student plans around a programme that no longer exists or is no longer in English. This has already happened once in our data — UTokyo's PEAK closed after the 2026 intake.",
+      "matches": ["programmes", "language", "englishTaughtBachelors"]
+    },
+    {
+      "claimType": "living-cost",
+      "reviewEveryDays": 365,
+      "hardStop": null,
+      "consequenceIfWrong": "A budget is out by a manageable margin. Annoying, not dangerous.",
+      "matches": ["livingContext", "livingCostMonthly"]
+    },
+    {
+      "claimType": "institution-description",
+      "reviewEveryDays": 730,
+      "hardStop": null,
+      "consequenceIfWrong": "Prose reads slightly out of date.",
+      "matches": ["about", "knownFor", "character", "founded", "students"]
+    },
+    {
+      "claimType": "immigration",
+      "reviewEveryDays": 180,
+      "hardStop": "Visa rules and post-study work routes change with government policy, sometimes mid-cycle.",
+      "consequenceIfWrong": "A student chooses a country partly for a work route that has since been shortened or withdrawn. The UK Graduate Route is the live example.",
+      "matches": ["residency", "workRights", "visa"]
+    },
+    {
+      "claimType": "funding",
+      "reviewEveryDays": 180,
+      "hardStop": "Grant rates are set annually and eligibility rules change. Danish SU changes on 1 January 2027 for this cohort.",
+      "consequenceIfWrong": "A student plans a budget around money they will not receive.",
+      "matches": ["funding", "scholarships", "su"]
+    }
+  ],
+
+  "defaultReviewEveryDays": 180,
+
+  "rollover": {
+    "note": "The annual rollover moves the site from one IB session and university intake to the next. It is a checklist, not a script, because most steps need a person to read a page and decide.",
+    "currentIntake": "2027-autumn",
+    "currentSession": "May 2027",
+    "nextIntake": "2028-autumn",
+    "nextSession": "May 2028",
+    "triggerMonth": "September",
+    "steps": [
+      "Bump targetIntake on every Destination and create the new intake's Opportunities. Opportunity ids carry the intake, so the previous cycle's records stay intact and comparable.",
+      "Re-verify every Application Milestone. Any date carried over from the previous cycle must be marked provisional: true until the authority republishes it.",
+      "Re-verify every entry requirement against the programme's own page for the new admission year.",
+      "Re-fetch the grade conversion table. Denmark publishes the new one by 1 March.",
+      "Re-check tuition for the new academic year, and remove any figure whose year cannot be established.",
+      "Confirm each English-taught programme is still running and still in English.",
+      "Run scripts/freshness.mjs --rollover to list every date-bound claim that has not been touched.",
+      "Run scripts/watch-sources.mjs to find pages that changed since they were last read.",
+      "Archive the previous cycle's dist/data.json so a student who acted on it can see what they saw."
+    ]
+  }
+}

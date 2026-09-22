@@ -2,7 +2,7 @@ import { html, raw, md, plural, truncate, listSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
-  tags, stamp, dataTable, emptyState, pager, accordion,
+  tags, stamp, dataTable, emptyState, pager, accordion, freshness,
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER } from '../lib/data.mjs';
 
@@ -293,6 +293,12 @@ ${hero({
     ])}
     <div class="layout-aside">
       <div class="prose">
+        ${freshness({
+          intake: c.targetIntake ? '2027-autumn' : null,
+          checkedAt: c.dataAsOf,
+          level: c.sources.length ? 'needs-review' : 'none',
+          provisional: c.deadlines.filter((d) => /not yet published|indicative|re-check/i.test(`${d.year || ''} ${d.notes || ''}`)).length,
+        })}
         <p class="lede">${c.summary}</p>
 
         ${c.whyConsider.length
