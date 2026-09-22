@@ -249,6 +249,7 @@ Known gaps, all recorded in the data rather than hidden:
 | [`docs/FRESHNESS.md`](docs/FRESHNESS.md) | Review intervals, conflicts, and the annual rollover |
 | [`docs/DECISION_FRAMEWORK.md`](docs/DECISION_FRAMEWORK.md) | Why fit is more than eligibility |
 | [`docs/TRUST_AND_GOVERNANCE.md`](docs/TRUST_AND_GOVERNANCE.md) | Corrections, privacy, editorial independence |
+| [`docs/IMAGE_STANDARD.md`](docs/IMAGE_STANDARD.md) | The one shape every hosted photograph takes |
 | [`CONTEXT.md`](CONTEXT.md) | The vocabulary — what an Opportunity is, what a Requirement is not |
 
 ---

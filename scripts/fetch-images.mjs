@@ -25,6 +25,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { EXT, normalise } from './lib/image-standard.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const IMG_DIR = path.join(ROOT, 'src', 'assets', 'img', 'places');
@@ -252,6 +253,13 @@ function creditFrom(title, info) {
   };
 }
 
+/**
+ * Download, then normalise to docs/IMAGE_STANDARD.md before anything touches
+ * the disk. We ask Commons for a thumbnail slightly wider than we store so the
+ * 16:10 crop has pixels to work with, and never write the response body
+ * straight out — that is how the back catalogue ended up with five PNGs
+ * wearing a .jpg extension and a 5 MB file behind a letterbox crop.
+ */
 async function download(info, outPath) {
   const src = info.thumburl || info.url;
   const res = await fetch(src, { headers: UA });
@@ -260,8 +268,9 @@ async function download(info, outPath) {
   if (!/^image\/(jpeg|png|webp)/.test(type)) throw new Error(`unexpected content-type ${type}`);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length < 8000) throw new Error('file suspiciously small');
-  await fs.writeFile(outPath, buf);
-  return buf.length;
+  const stored = await normalise(buf);
+  await fs.writeFile(outPath, stored.data);
+  return stored;
 }
 
 /* --- what needs a picture ------------------------------------------------- */
@@ -338,7 +347,7 @@ async function main() {
   const misses = [];
 
   for (const t of wanted) {
-    const file = `${t.key}.jpg`;
+    const file = `${t.key}${EXT}`;
     const dest = path.join(IMG_DIR, file);
 
     if (!REFRESH && picks[t.key] && (await exists(dest))) { kept++; continue; }
@@ -352,19 +361,21 @@ async function main() {
         failed++;
         continue;
       }
-      const bytes = await download(best.info, dest);
+      const stored = await download(best.info, dest);
       picks[t.key] = {
         ...creditFrom(best.title, best.info),
         kind: t.kind,
         subject: t.label,
         src: `/assets/img/places/${file}`,
-        width: best.info.thumbwidth || best.info.width,
-        height: best.info.thumbheight || best.info.height,
-        bytes,
+        // What we actually stored, not what Commons served. The manifest has
+        // to describe the file on disk or the templates emit wrong dimensions.
+        width: stored.width,
+        height: stored.height,
+        bytes: stored.bytes,
         score: best.score,
         fetched: new Date().toISOString().slice(0, 10),
       };
-      console.log(` ${String(Math.round(bytes / 1024)).padStart(4)} KB  ${picks[t.key].file.slice(0, 52)}`);
+      console.log(` ${String(Math.round(stored.bytes / 1024)).padStart(4)} KB  ${picks[t.key].file.slice(0, 52)}`);
       got++;
       await fs.writeFile(PICKS, JSON.stringify(picks, null, 2));
     } catch (err) {

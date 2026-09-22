@@ -22,8 +22,12 @@
     "geocode": "node scripts/geocode.mjs",
     "images": "node scripts/fetch-images.mjs",
     "images:official": "node scripts/fetch-official-images.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
     "test:eligibility": "node scripts/test-eligibility.mjs",
     "test": "node scripts/validate.mjs && node scripts/test-eligibility.mjs && node src/build.mjs && node scripts/check.mjs",
     "release-check": "node scripts/release-check.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
   }
 }
