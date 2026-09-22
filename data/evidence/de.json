@@ -1,0 +1,49 @@
+[
+  {
+    "id": "ev-kmk-ib-agreement",
+    "sourceUrl": "https://www.kmk.org/zab/fileadmin/Dateien/pdf/ZAB/Hochschulzugang_Beschluesse_der_KMK/aktuell/283_Vereinb_Anerkenn_Int_Baccalaureate_Diploma-2023-06-15_Liste1__2026-03-26_Liste2-2026-05-22.pdf",
+    "sourcePage": "https://www.kmk.org/zab/zentralstelle-fuer-auslaendisches-bildungswesen/allgemeines-zur-anerkennung/veroeffentlichungen-und-beschluesse/hochschulzugang.html",
+    "publisher": "Kultusministerkonferenz, Zentralstelle für ausländisches Bildungswesen (KMK ZAB)",
+    "publisherType": "qualification-body",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read during the country research; the document and its index page were both confirmed live on 2026-09-22.",
+    "claim": "The KMK agreement of 10.03.1986 in the version of 15.06.2023 sets which IB subject combinations give German university entrance, and it is a subject rule rather than a points rule.",
+    "interpretation": "This is the single most decision-relevant document in Europe for an IB student, and it is decided years before the application: it governs which six subjects you take, not how well you do in them. A student who takes the wrong combination cannot fix it with points, and cannot fix it at all after choosing. The document is a PDF, so nothing automated here can re-read it — it needs a person before each cycle, and the annexes carry their own separate revision dates.",
+    "supports": [
+      {
+        "entity": "de",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  },
+  {
+    "id": "ev-hochschulstart-termine",
+    "sourceUrl": "https://www.hochschulstart.de/bewerben-beobachten/termine",
+    "publisher": "Stiftung für Hochschulzulassung (hochschulstart.de)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "automated",
+    "claim": "For medicine, dentistry, veterinary medicine and pharmacy, applicants whose school-leaving certificate is dated after 15 January of the application year apply by 15 July; those with an earlier certificate apply by 31 May.",
+    "interpretation": "An IB candidate receiving results in early July falls into the later group, so 15 July is their deadline and 31 May is not — but a student who took a gap year falls into the earlier group and 31 May is. Those two sentences decide the year for a would-be medic, and the distinction is invisible unless someone points it out. Dates recorded are the published 2026 ones; the 2027 dates are not yet published.",
+    "supports": [
+      {
+        "entity": "de-hochschulstart-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  }
+]

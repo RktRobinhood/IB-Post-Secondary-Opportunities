@@ -1,0 +1,33 @@
+{
+  "id": "de-hochschulstart",
+  "name": "hochschulstart.de",
+  "localName": "Stiftung für Hochschulzulassung",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "de",
+    "authority": "Stiftung für Hochschulzulassung",
+    "area": "Germany"
+  },
+  "portalUrl": "https://www.hochschulstart.de/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Medicine, dentistry, veterinary medicine and pharmacy nationally, and a coordination role for some other restricted programmes.",
+    "excludes": "Most bachelor programmes, which are applied for through uni-assist or the university’s own portal. There is no single German application, and assuming otherwise is the most common structural mistake made about the country."
+  },
+  "choiceRules": {
+    "limit": 6,
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "For the centrally allocated programmes. Everything outside them is applied for separately and independently, with no shared limit."
+  },
+  "identityRequirement": "An account on the portal. Applicants with a foreign qualification normally also need a uni-assist preliminary review.",
+  "decisionModel": "Places in the centrally allocated subjects are split between a grade quota, an additional-aptitude quota and university-specific selection procedures, which weigh grades alongside tests such as the TMS and sometimes relevant work. Outside those subjects, each university decides for itself, and a numerus clausus applies wherever demand exceeds places.",
+  "replyModel": "Central allocation runs in coordinated rounds with fixed reply windows; outside it, each institution sets its own.",
+  "evidence": [
+    "ev-hochschulstart-termine"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22"
+  }
+}

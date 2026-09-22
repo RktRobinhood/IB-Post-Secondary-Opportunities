@@ -1,0 +1,83 @@
+{
+  "id": "de-hochschulstart-2027",
+  "destination": "de",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to Germany for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "de-hochschulstart",
+  "portalUrl": "https://www.hochschulstart.de/",
+  "choiceLimit": 6,
+  "choicesRanked": true,
+  "milestones": [
+    {
+      "id": "ms-subjects",
+      "type": "personal",
+      "label": "Check the KMK subject rule against your IB choices",
+      "date": "2025-09-01",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Not a deadline anyone sets, and the most important date on this page. The rule governs which six subjects you take, so it has to be checked while those are still changeable. Nothing later can repair it.",
+      "evidence": [
+        "ev-kmk-ib-agreement"
+      ]
+    },
+    {
+      "id": "ms-uniassist",
+      "type": "document",
+      "label": "Start the uni-assist preliminary review",
+      "date": "2027-03-01",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Foreign qualifications are normally checked by uni-assist before a university will consider the application, and the check takes weeks. Starting it late is a common and avoidable way to miss an institutional deadline.",
+      "evidence": []
+    },
+    {
+      "id": "ms-medicine-gap",
+      "type": "submit",
+      "label": "Medicine and neighbours close — for applicants with an earlier certificate",
+      "date": "2027-05-31",
+      "consequence": "hard",
+      "provisional": true,
+      "audience": "any",
+      "note": "This deadline applies if your school-leaving certificate predates 16 January of the application year, which for an IB candidate means you took a gap year. Straight from the Diploma, this is not your deadline.",
+      "evidence": [
+        "ev-hochschulstart-termine"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Early July, which is what places an IB candidate in the later medicine group rather than the earlier one.",
+      "evidence": []
+    },
+    {
+      "id": "ms-medicine-new",
+      "type": "submit",
+      "label": "Medicine and neighbours close — for applicants with a 2027 certificate",
+      "date": "2027-07-15",
+      "consequence": "hard",
+      "provisional": true,
+      "audience": "any",
+      "note": "The deadline for a student applying straight from the May 2027 session. Roughly a week after results, so the paperwork has to be ready before they arrive.",
+      "evidence": [
+        "ev-hochschulstart-termine"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-hochschulstart-termine"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2027-02-01",
+    "notes": [
+      "Every date here is carried from the published 2026 cycle and marked provisional. hochschulstart publishes the 2027 dates in spring 2027.",
+      "Non-medicine deadlines are set per university and are not on this route; 15 July is a common institutional pattern but is not a national rule."
+    ]
+  }
+}

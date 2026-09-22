@@ -330,7 +330,18 @@ export function destination(site, c, { prev, next }) {
   // when it is absent.
   const canonical = site.graph?.destinations?.get(c.code) || null;
   const landscape = canonical?.sectorLandscape || null;
-  const notes = canonical ? contextFor(site.graph, 'destination', c.code) : [];
+  // A note about the application system is a note about applying here, and the
+  // destination page is where someone reads about applying here. Collecting
+  // them at the point of display rather than duplicating the note keeps one
+  // observation in one place.
+  const notes = canonical
+    ? [
+        ...contextFor(site.graph, 'destination', c.code),
+        ...(canonical.applicationSystems || []).flatMap((id) =>
+          contextFor(site.graph, 'application-system', id)
+        ),
+      ]
+    : [];
 
   const pic = picture(site, c.code, { prefer: 'commons' });
   const art = artDirection(c.artDirection);

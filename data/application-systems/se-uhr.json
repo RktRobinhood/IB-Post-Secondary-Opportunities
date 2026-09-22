@@ -1,0 +1,33 @@
+{
+  "id": "se-uhr",
+  "name": "University Admissions",
+  "localName": "Antagning.se / Universityadmissions.se",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "se",
+    "authority": "Universitets- och högskolerådet (Swedish Council for Higher Education)",
+    "area": "Sweden"
+  },
+  "portalUrl": "https://www.universityadmissions.se/en/",
+  "coverage": {
+    "extent": "comprehensive",
+    "includes": "Publicly funded universities and university colleges, for courses and full programmes alike.",
+    "excludes": "A small number of private providers."
+  },
+  "choiceRules": {
+    "limit": 20,
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "Choices are ranked and the ranking matters: you are admitted to the highest-ranked option that accepts you, and the rest are dropped. The authority is explicit that how you rank affects your result, so ranking by genuine preference costs nothing and ranking tactically can cost a place."
+  },
+  "identityRequirement": "An account on the portal. EU, EEA and Swiss applicants must document their citizenship to be exempt from fees, by a deadline of its own.",
+  "decisionModel": "Eligibility first, then competition on a number. Applicants who meet the requirements are ranked on a merit value derived from their school results, and places are allocated down that ranking. There is no motivation letter and no interview on the overwhelming majority of programmes, which makes Swedish admission unusually predictable and unusually unforgiving — there is nothing to add to a weak number.",
+  "replyModel": "Results are published on a fixed date for everyone. In the first round, bachelor results appear on 8 April 2027; in the second, on 9 July with replies due by 16 July.",
+  "evidence": [
+    "ev-ua-se-autumn-dates"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22"
+  }
+}

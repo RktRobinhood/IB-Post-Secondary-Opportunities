@@ -1,0 +1,121 @@
+{
+  "id": "se",
+  "iso2": "se",
+  "name": "Sweden",
+  "adjective": "Swedish",
+  "scope": "europe",
+  "region": "Nordic",
+  "capital": "Stockholm",
+  "currency": "SEK",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Free, mechanical and mostly in Swedish",
+  "summary": "Sweden runs one national portal, one national ranking, and no tuition for EU, EEA and Swiss citizens. Admission is unusually mechanical: meet the requirements and your place is decided by a number, with no motivation letter and no interview for the overwhelming majority of programmes. The catch is supply. English-taught bachelor programmes are a small share of the total, and they concentrate in the admissions round that closes in January — six months before the IB publishes results.",
+  "whyConsider": [
+    "No tuition for EU, EEA and Swiss citizens, at any institution.",
+    "Selection is transparent and impersonal: no essay, no interview, no reference. What you did is what counts.",
+    "For a Danish student the practical distance is small and Nordic mobility is well established."
+  ],
+  "watchOuts": [
+    "The first admissions round closes on 15 January 2027 with documents due 1 February, and that is the round carrying the English-taught programmes. The second round is later but the authority says many English-taught programmes are no longer available in it.",
+    "Both of those fall long before IB results on 6 July. Establish early, in writing, how the programme you want will handle results that arrive after its documentation deadline.",
+    "Most Swedish bachelor programmes are taught in Swedish. The English-taught set is real and it is a minority.",
+    "The authority describes its own subject equivalences as estimates. Treat any IB-to-Swedish subject mapping as a guide, and confirm with the programme."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "No national minimum is published. A full IB Diploma gives general eligibility in its own right; individual Course Results do not.",
+    "subjectLevelRule": "General entry needs completed upper secondary education, English to the level of Swedish English 6, and mathematics to the level of Mathematics 1a/1b/1c. Specific requirements are set per programme and matched subject by subject.",
+    "evidence": [
+      "ev-ua-se-bachelor-requirements"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "A minority of the total, concentrated in the first admissions round. Sweden is far more English-taught at master's level than at bachelor's.",
+    "englishProof": "English to the level of Swedish English 6. An IB Diploma taught in English normally satisfies it; confirm against the programme.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition fee, and no application fee.",
+      "evidence": [
+        "ev-ua-se-bachelor-requirements"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Tuition is charged and an application fee applies, with a deadline of its own. Amounts not established here; check the programme.",
+      "evidence": [
+        "ev-ua-se-autumn-dates"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Sweden divides its institutions by research rights rather than by vocation, which is a different cut from the Danish or Dutch one and catches people out. A universitet may award doctorates across the board; a högskola is a university college that may not, or may only in named areas — but it teaches bachelor degrees of the same standing, and several are highly regarded. Alongside both sit the specialist arts institutions and, distinctively Nordic, the folkhögskola.",
+    "routes": [
+      {
+        "localName": "universitet",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Full research universities with general doctoral rights — Lund, Uppsala, Stockholm, Gothenburg, Umeå and others. Three-year bachelor, then a one- or two-year master.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "högskola",
+        "englishName": "university college",
+        "kind": "applied",
+        "what": "Awards bachelor and usually master degrees, with limited or no doctoral rights. The distinction is about research permissions rather than about the quality of the teaching, and several högskolor are strong in their fields. Often more applied and more regional.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "The name translates badly. It is not a secondary school and not a lesser institution; it is a university college with a narrower research remit."
+      },
+      {
+        "localName": "konstnärlig högskola",
+        "englishName": "specialist arts institution",
+        "kind": "specialist",
+        "what": "Art, design, music, film, dance and drama, admitting largely on portfolio or audition with their own calendars. Konstfack, the Royal Institute of Art and the Stockholm University of the Arts are the best known.",
+        "ibAccessible": "partly",
+        "englishTaught": "some",
+        "note": "Not researched in detail here."
+      },
+      {
+        "localName": "folkhögskola",
+        "englishName": "folk high school",
+        "kind": "college",
+        "what": "A Nordic institution with no equivalent in most systems: a year or more of non-degree study, often residential, sometimes to fill a qualification gap and sometimes simply to work out what you want. It is not higher education and it is not a waste of a year, and it is one reason a Swedish or Danish student taking time out is not doing the same thing as a British student on a gap year.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "Recorded because it is a real and commonly-taken route that no international guidance mentions. Mostly taught in Swedish."
+      }
+    ],
+    "evidence": [
+      "ev-ua-se-bachelor-requirements"
+    ]
+  },
+  "applicationSystems": [
+    "se-uhr"
+  ],
+  "evidence": [
+    "ev-ua-se-bachelor-requirements",
+    "ev-ua-se-autumn-dates"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-10-16",
+    "notes": [
+      "Re-check when the first admissions round opens on 16 October 2026, which is when the 2027 course catalogue becomes visible.",
+      "Not captured: the merit-value (meritvärde) conversion used to rank IB applicants. Sweden selects on a number, so that table is the single most valuable missing artefact for this destination.",
+      "Programme-level records not yet created."
+    ]
+  }
+}
