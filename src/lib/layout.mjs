@@ -84,6 +84,7 @@ const FOOTER = [
     title: 'About',
     links: [
       { href: '/about/', label: 'About this site' },
+      { href: '/counsellors/', label: 'For counsellors' },
       { href: '/glossary/', label: 'Glossary' },
       { href: '/faq/', label: 'Questions' },
       { href: '/trust/', label: 'Trust and corrections' },
@@ -195,6 +196,7 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
 <div class="drawer" id="drawer" data-open="false">
   ${NAV.map((n) => html`<a href="${url(n.href)}">${n.label}</a>`)}
   <a href="${url('/about/')}">About this site</a>
+  <a href="${url('/counsellors/')}">For counsellors</a>
 </div>
 
 <main id="main">

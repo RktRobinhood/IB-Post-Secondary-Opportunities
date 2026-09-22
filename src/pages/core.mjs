@@ -15,7 +15,17 @@ import { contextFor } from '../lib/canonical.mjs';
 /* --- Home ---------------------------------------------------------------- */
 
 export function home(site) {
-  const heroPic = picture(site, 'dk-ku') || picture(site, 'se') || picture(site, 'de');
+  // 'dk-ku' was a guess at the University of Copenhagen's key and never matched
+  // anything — the Danish institutions use bare ids, and Copenhagen's is 'ucph'.
+  // So the home page quietly fell through to the Swedish country picture, which
+  // for a while was a stock-market index chart. Wrong key, wrong fallback,
+  // wrong picture, and nothing anywhere failed.
+  const heroPic =
+    picture(site, 'ucph') ||
+    picture(site, 'dtu') ||
+    picture(site, 'aau') ||
+    picture(site, 'se') ||
+    picture(site, 'de');
   const europeCount = site.europe.length;
   const worldCount = site.world.length;
   const instCount =

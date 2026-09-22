@@ -174,6 +174,18 @@ function score({ title, info }, query, isPrimary) {
   const cats0 = cleanHtml(meta.Categories?.value);
   if (/Documents|Diplomas|Certificates|Manuscripts|Paintings|Engravings|Portraits/i.test(cats0)) return -1;
 
+  // Some files give nothing away in the filename and everything away in the
+  // description. "OMX Stockholm 30.png" is a stock-market index chart, it is
+  // named like a place, it passed every test above, and it spent a while as the
+  // hero photograph on the home page of a site for seventeen-year-olds.
+  //
+  // So the description and categories are read too, for the things that are
+  // plainly not photographs of somewhere.
+  const blurb = `${cleanHtml(meta.ImageDescription?.value)} ${cats0}`;
+  const NOT_A_PLACE =
+    /daily closings|stock (?:market|index|exchange chart)|share price|\bindex\b[^.]{0,20}\b(?:chart|graph|value)|histogram|scatter|pie chart|bar chart|line graph|infographic|schematic|floor ?plan|organisational chart|timeline of|population pyramid/i;
+  if (NOT_A_PLACE.test(blurb)) return -1;
+
   let s = 0;
   const ratio = w / h;
   if (ratio < 1.1) s -= 45;                         // portraits crop badly in a hero
