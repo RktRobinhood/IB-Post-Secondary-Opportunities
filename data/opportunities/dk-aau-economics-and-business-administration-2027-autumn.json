@@ -1,0 +1,231 @@
+{
+  "id": "dk-aau-economics-and-business-administration-2027-autumn",
+  "programme": "dk-aau-economics-and-business-administration",
+  "institution": "dk-aau",
+  "destination": "dk",
+  "place": "dk-aalborg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "7.5",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-en-aau-dk-1xg0wsc"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at B level",
+      "subject": "Mathematics",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 5 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History at B level",
+            "subject": "History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-1xg0wsc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History of Ideas at B level",
+            "subject": "History of Ideas",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-1xg0wsc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-1xg0wsc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Social Studies at B level",
+            "subject": "Social Studies",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-1xg0wsc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt5-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "International Economics at B level",
+            "subject": "International Economics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-1xg0wsc"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "other",
+      "mandatory": true,
+      "label": "40 study places in 2026.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    },
+    {
+      "id": "req-extra-2",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Quota 2 holds 20 per cent of places.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Upper secondary school exam. English B. Mathematics B. History B or History of Ideas B or Contemporary History B or Social Studies B or International Economics B.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-aau-dk-1xg0wsc"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-en-aau-dk-1xg0wsc"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
+    ]
+  }
+}

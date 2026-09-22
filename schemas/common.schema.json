@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Shared definitions",
+  "description": "Types reused across every entity. Nothing here is an entity in its own right.",
+
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 2,
+      "maxLength": 96,
+      "description": "Lowercase kebab-case. Stable for the life of the record — renaming one breaks saved student plans."
+    },
+
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Calendar date, YYYY-MM-DD."
+    },
+
+    "url": {
+      "type": "string",
+      "pattern": "^https?://.+",
+      "maxLength": 2048
+    },
+
+    "intake": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(autumn|spring|summer|winter|rolling)$",
+      "description": "The admission cycle an Opportunity begins in, e.g. 2027-autumn."
+    },
+
+    "applicantGroup": {
+      "enum": ["eu-eea-ch", "nordic", "domestic", "non-eu", "any"],
+      "description": "Who a rule applies to. 'any' means the rule does not vary by group."
+    },
+
+    "feeStatus": {
+      "enum": ["no-fee", "eu-eea-rate", "international-rate", "means-tested", "unknown"]
+    },
+
+    "verificationState": {
+      "enum": ["verified", "needs-review", "superseded", "unavailable"],
+      "description": "Our confidence that the evidence is current and supports the claim. Not a claim about truth."
+    },
+
+    "coordinatePrecision": {
+      "enum": ["campus", "institution", "city", "region", "unknown"],
+      "description": "How precisely the coordinates locate the thing. A city-centre fallback must never be drawn as an exact campus."
+    },
+
+    "danishLevel": {
+      "enum": ["A", "B", "C"],
+      "description": "Danish upper-secondary subject level. A is highest. These are levels of study, not grades."
+    },
+
+    "ibLevel": {
+      "enum": ["HL", "SL", "any"]
+    },
+
+    "consequence": {
+      "enum": ["hard", "equal-consideration", "priority", "rolling", "indicative", "personal"],
+      "description": "What actually happens if a milestone is missed. 'hard' means the door closes."
+    },
+
+    "evidenceRef": {
+      "type": "string",
+      "pattern": "^ev-[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Reference to an Evidence record id."
+    },
+
+    "evidenceRefs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceRef" },
+      "description": "Every consequential claim should carry at least one."
+    },
+
+    "money": {
+      "type": "object",
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": { "type": "number", "minimum": 0 },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "period": { "enum": ["year", "semester", "month", "programme", "once"] },
+        "approximate": { "type": "boolean" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "localisedText": {
+      "type": "object",
+      "description": "Official wording kept verbatim alongside a plain-English rendering.",
+      "required": ["text"],
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "language": { "type": "string", "pattern": "^[a-z]{2}$" },
+        "official": { "type": "boolean", "description": "True when this is the source's exact wording." }
+      },
+      "additionalProperties": false
+    },
+
+    "recordMeta": {
+      "type": "object",
+      "description": "Present on every canonical record.",
+      "required": ["schemaVersion", "dataAsOf"],
+      "properties": {
+        "schemaVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+        "dataAsOf": { "$ref": "#/$defs/isoDate" },
+        "reviewBy": { "$ref": "#/$defs/isoDate" },
+        "maintainer": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

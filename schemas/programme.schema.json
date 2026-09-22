@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "programme.schema.json",
+  "title": "Programme",
+  "description": "A named course of study leading to a credential. One Programme becomes several Opportunities when its intake, campus, language or admissions rules differ.",
+  "type": "object",
+  "required": ["id", "institution", "name", "credential", "meta"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "institution": { "$ref": "common.schema.json#/$defs/id" },
+    "name": { "type": "string", "minLength": 2 },
+    "localName": { "type": "string" },
+    "credential": {
+      "type": "object",
+      "required": ["level"],
+      "properties": {
+        "level": { "enum": ["bachelor", "professional-bachelor", "academy-profession", "top-up", "integrated-master", "foundation", "other"] },
+        "title": { "type": "string", "description": "As awarded, e.g. 'BSc in Engineering'." },
+        "ects": { "type": "integer", "minimum": 30, "maximum": 400 },
+        "years": { "type": "number", "minimum": 0.5, "maximum": 8 }
+      },
+      "additionalProperties": false
+    },
+    "field": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": {
+          "enum": [
+            "engineering", "computing", "natural-sciences", "mathematics",
+            "business", "economics", "social-sciences", "law", "humanities",
+            "languages", "education", "health", "medicine", "veterinary",
+            "agriculture-environment", "design-architecture", "arts-music",
+            "sport", "hospitality-tourism", "interdisciplinary", "other"
+          ]
+        },
+        "secondary": { "type": "array", "items": { "type": "string" } },
+        "keywords": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "summary": { "type": "string", "description": "One or two plain sentences. A seventeen-year-old should finish it knowing whether this is for them." },
+    "description": { "type": "string" },
+    "structure": {
+      "type": "object",
+      "description": "Learning fit — how the degree actually works, which matters as much as whether you qualify.",
+      "properties": {
+        "teachingStyle": { "type": "string" },
+        "assessment": { "type": "string" },
+        "placement": { "type": "string" },
+        "studyAbroad": { "type": "string" },
+        "flexibility": { "type": "string" },
+        "specialisations": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "official": { "$ref": "common.schema.json#/$defs/url" },
+        "curriculum": { "$ref": "common.schema.json#/$defs/url" },
+        "admissions": { "$ref": "common.schema.json#/$defs/url" }
+      },
+      "additionalProperties": false
+    },
+    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

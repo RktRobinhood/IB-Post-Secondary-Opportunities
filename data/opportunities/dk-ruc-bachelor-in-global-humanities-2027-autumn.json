@@ -1,0 +1,197 @@
+{
+  "id": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
+  "programme": "dk-ruc-bachelor-in-global-humanities",
+  "institution": "dk-ruc",
+  "destination": "dk",
+  "place": "dk-roskilde",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Second Foreign Language at B level",
+      "subject": "Second Foreign Language",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 3 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History at B level",
+            "subject": "History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-ruc-dk-kp2j8"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History of Ideas at B level",
+            "subject": "History of Ideas",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-ruc-dk-kp2j8"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-ruc-dk-kp2j8"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "other",
+      "mandatory": true,
+      "label": "The second foreign language must be at Danish B level if it is a continued language, or Danish A level if you began it from scratch; it cannot be English or your school's language of instruction.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    },
+    {
+      "id": "req-extra-2",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Guaranteed admission in 2026 for applicants who met all requirements and had a Danish-converted GPA of at least 8.5.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    },
+    {
+      "id": "req-extra-3",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Guaranteed admission is not open to applicants with non-EU/EEA qualifications.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "English at Danish B-level. History or History of Ideas or Contemporary History at Danish B-level. One additional language — either a beginner's language at Danish A-level or an advanced language at Danish B-level. The additional language cannot be English or the language of instruction of your upper secondary education.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ruc-dk-kp2j8"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Non-EU tuition at institution level: Entry September 2026: Global Humanities and Social Sciences EUR 10,000 per year (EUR 5,000 per semester, EUR 30,000 for the full degree); Natural Sciences EUR 16,000 per year (EUR 8,000 per semester, EUR 48,000 for the full degree). Application fee EUR 200. EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}

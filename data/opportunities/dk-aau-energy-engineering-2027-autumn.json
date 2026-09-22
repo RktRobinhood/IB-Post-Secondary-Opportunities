@@ -1,0 +1,234 @@
+{
+  "id": "dk-aau-energy-engineering-2027-autumn",
+  "programme": "dk-aau-energy-engineering",
+  "institution": "dk-aau",
+  "destination": "dk",
+  "place": "dk-esbjerg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at A level, minimum grade 4",
+      "subject": "Mathematics",
+      "level": "A",
+      "minGrade": 4,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 3 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-dbb308"
+            ]
+          },
+          {
+            "id": "req-alt1-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Chemistry at C level",
+            "subject": "Chemistry",
+            "level": "C",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-dbb308"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-dbb308"
+            ]
+          },
+          {
+            "id": "req-alt2-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Biotechnology at A level",
+            "subject": "Biotechnology",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-dbb308"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Geoscience at A level",
+            "subject": "Geoscience",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-dbb308"
+            ]
+          },
+          {
+            "id": "req-alt3-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Chemistry at C level",
+            "subject": "Chemistry",
+            "level": "C",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-dbb308"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Quota 2 holds 20 per cent of places and counts documented relevant work experience or supplementary education of up to 12 months.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    },
+    {
+      "id": "req-extra-2",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Specialisations chosen during the programme: Dynamic Systems, Thermal Processes.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Upper secondary school exam. English B. Mathematics A with a minimum average grade of 4.0. Physics B and Chemistry C, or Physics B and Biotechnology A, or Geoscience A and Chemistry C.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-aau-dk-dbb308"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-en-aau-dk-dbb308"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
+    ]
+  }
+}

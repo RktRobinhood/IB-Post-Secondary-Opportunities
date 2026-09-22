@@ -1,0 +1,129 @@
+{
+  "id": "dk-itu-data-science-2027-autumn",
+  "programme": "dk-itu-data-science",
+  "institution": "dk-itu",
+  "destination": "dk",
+  "place": "dk-copenhagen",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "5.9",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-en-itu-dk-2ox9v8"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at A level, minimum grade 6",
+      "subject": "Mathematics",
+      "level": "A",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-2ox9v8"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level, minimum grade 6",
+      "subject": "English",
+      "level": "B",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-2ox9v8"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "other",
+      "mandatory": true,
+      "label": "100 study places in 2026; 595 applicants, of whom 417 applied in quota 2.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-2ox9v8"
+      ]
+    },
+    {
+      "id": "req-extra-2",
+      "kind": "essay",
+      "mandatory": true,
+      "label": "A motivational cover letter is recommended for quota 2 applicants.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-2ox9v8"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "A qualifying examination certificate equal to a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish A-level with an average mark of at least 6. English corresponding to the Danish B-level with an average mark of at least 6 (no grade requirement if you have passed English at Danish A-level).",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-itu-dk-2ox9v8"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-itu-dk-2ox9v8"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-en-itu-dk-2ox9v8"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Non-EU tuition at institution level: EUR 8,250 per semester, EUR 49,500 for the full three-year programme (2026 admission). Application fee EUR 150. No scholarships are available at bachelor's level."
+    ]
+  }
+}

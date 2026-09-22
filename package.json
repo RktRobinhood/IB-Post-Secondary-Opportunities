@@ -1,0 +1,20 @@
+{
+  "name": "ib-post-secondary-opportunities",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "A guide to English-taught post-secondary opportunities for IB Diploma students.",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node src/build.mjs",
+    "dev": "node scripts/serve.mjs --watch",
+    "validate": "node scripts/validate.mjs",
+    "check": "node scripts/check.mjs",
+    "check:links": "node scripts/check.mjs --external",
+    "migrate:dk": "node scripts/migrate-denmark.mjs",
+    "images": "node scripts/fetch-images.mjs",
+    "images:official": "node scripts/fetch-official-images.mjs",
+    "test": "node scripts/validate.mjs && node src/build.mjs && node scripts/check.mjs"
+  }
+}

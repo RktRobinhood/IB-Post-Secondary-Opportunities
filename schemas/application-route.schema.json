@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "application-route.schema.json",
+  "title": "Application Route",
+  "description": "The path a particular applicant uses to apply for a particular Opportunity in a particular intake. One Opportunity can have several routes — central, direct, international, special-category — with different rounds, fees and deadlines. This is why a single 'apply here' link on an institution is not good enough.",
+  "type": "object",
+  "required": ["id", "destination", "intake", "applicantGroup", "channel", "meta"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "destination": { "$ref": "common.schema.json#/$defs/id" },
+    "appliesTo": {
+      "type": "array",
+      "description": "Opportunity ids. Empty means it applies to every Opportunity in the destination.",
+      "items": { "$ref": "common.schema.json#/$defs/id" }
+    },
+    "intake": { "$ref": "common.schema.json#/$defs/intake" },
+    "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+    "label": { "type": "string" },
+    "channel": { "enum": ["application-system", "direct", "agent", "consortium", "other"] },
+    "applicationSystem": { "$ref": "common.schema.json#/$defs/id" },
+    "portalUrl": { "$ref": "common.schema.json#/$defs/url" },
+    "choiceLimit": { "type": "integer", "minimum": 1 },
+    "choicesRanked": { "type": "boolean", "description": "Where true, ordering changes the outcome and the student needs telling." },
+    "fee": { "$ref": "common.schema.json#/$defs/money" },
+
+    "rounds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "label": { "type": "string" },
+          "opens": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "closes": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "decisionBy": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "consequence": { "$ref": "common.schema.json#/$defs/consequence" },
+          "note": { "type": "string" },
+          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "milestones": {
+      "type": "array",
+      "description": "Dated events, not only deadlines. Opening, result, reply and deposit dates all matter.",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label", "consequence"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "type": { "enum": ["open", "submit", "document", "signature", "test", "fee", "result", "reply", "deposit", "visa", "enrolment", "personal"] },
+          "label": { "type": "string" },
+          "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "endDate": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "timeOfDay": { "type": "string", "pattern": "^[0-2][0-9]:[0-5][0-9]$", "description": "Kept because 12:00 and 23:59 are very different promises." },
+          "timeZone": { "type": "string", "description": "As published. Never silently converted." },
+          "consequence": { "$ref": "common.schema.json#/$defs/consequence" },
+          "audience": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+          "provisional": {
+            "type": "boolean",
+            "description": "True when inherited from a previous cycle. A provisional date must never be shown as a confirmed one."
+          },
+          "note": { "type": "string" },
+          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "submissionItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "itemType"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "label": { "type": "string" },
+          "itemType": { "enum": ["document", "result", "payment", "choice", "action", "signature", "biometrics"] },
+          "responsibleParty": { "enum": ["student", "school", "institution", "authority", "third-party"] },
+          "destinationOfItem": { "type": "string", "description": "Where it actually has to arrive — often not the portal." },
+          "format": { "type": "string" },
+          "dependsOn": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/id" } },
+          "dueMilestone": { "$ref": "common.schema.json#/$defs/id" },
+          "note": { "type": "string" },
+          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "supplementarySteps": { "type": "array", "items": { "type": "string" } },
+    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

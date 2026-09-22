@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "place.schema.json",
+  "title": "Place",
+  "description": "A located point the map can move to. Coordinate precision is recorded so a city-centre fallback is never drawn as an exact campus.",
+  "type": "object",
+  "required": ["id", "destination", "name", "coordinates", "coordinatePrecision", "meta"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "destination": { "$ref": "common.schema.json#/$defs/id" },
+    "name": { "type": "string" },
+    "localName": { "type": "string" },
+    "kind": { "enum": ["campus", "city", "region", "country"] },
+    "parent": { "$ref": "common.schema.json#/$defs/id" },
+    "coordinates": {
+      "type": "object",
+      "required": ["lat", "lon"],
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lon": { "type": "number", "minimum": -180, "maximum": 180 }
+      },
+      "additionalProperties": false
+    },
+    "coordinatePrecision": { "$ref": "common.schema.json#/$defs/coordinatePrecision" },
+    "character": {
+      "type": "string",
+      "description": "What it is actually like to live there, honestly. Two or three sentences."
+    },
+    "population": { "type": "integer", "minimum": 0 },
+    "costIndex": {
+      "type": "object",
+      "description": "Relative cost of living, for comparison within a destination.",
+      "properties": {
+        "rentMonthly": { "$ref": "common.schema.json#/$defs/money" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

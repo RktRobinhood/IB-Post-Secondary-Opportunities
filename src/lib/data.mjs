@@ -8,6 +8,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify } from './html.mjs';
+import { loadCanonical } from './canonical.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -76,7 +77,7 @@ const FLAGS = {
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, dkInstitutions, topics, conversion, images, officialImages, glossary, faq] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -86,7 +87,13 @@ export async function load() {
       readJson(path.join(DATA, 'official-images.json'), {}),
       readJson(path.join(DATA, 'glossary.json'), { terms: [] }),
       readJson(path.join(DATA, 'faq.json'), { questions: [] }),
+      loadCanonical(),
     ]);
+
+  // Denmark is the pilot: its pages render from the canonical entity graph.
+  // The research files under data/dk stay as the input the migration reads, and
+  // are only used directly if the migration has not been run yet.
+  const dkInstitutions = canonical.institutions.length ? canonical.institutions : legacyDk;
 
   for (const c of countries) {
     c.flag = FLAGS[c.code] || '';
@@ -123,6 +130,8 @@ export async function load() {
     world: countries.filter((c) => c.scope === 'worldwide'),
     dkInstitutions,
     programmes,
+    graph: canonical.graph,
+    fromCanonical: canonical.institutions.length > 0,
     topics: Object.fromEntries(topics.map((t) => [slugify(t.title || 'topic'), t])),
     topicList: topics,
     conversion,
@@ -142,9 +151,17 @@ export async function load() {
  *   2. a freely licensed Wikimedia Commons photograph we host ourselves;
  *   3. nothing, and the template falls back to a typographic panel.
  */
-export function picture(site, key, { prefer = 'official' } = {}) {
-  const official = site.officialImages?.[key];
-  const commons = site.images?.[key];
+export function picture(site, key, { prefer = 'official', also = [] } = {}) {
+  // Canonical institution ids are namespaced (dk-dtu) while the image scripts
+  // were seeded from the older bare ids (dtu). Try both rather than re-fetching
+  // several hundred photographs to rename them.
+  const keys = [key, ...also, String(key ?? '').replace(/^[a-z]{2}-/, '')].filter(Boolean);
+  // A record with no usable address is worse than no record: it renders an
+  // <img src="/"> that 404s. Treat it as absent.
+  const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
+
+  const official = pick(site.officialImages, 'url');
+  const commons = pick(site.images, 'src');
 
   if (prefer === 'official' && official) {
     return {

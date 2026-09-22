@@ -1,0 +1,145 @@
+{
+  "id": "dk-itu-global-business-informatics-2027-autumn",
+  "programme": "dk-itu-global-business-informatics",
+  "institution": "dk-itu",
+  "destination": "dk",
+  "place": "dk-copenhagen",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "7.3",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-en-itu-dk-1exxjuv"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at B level, minimum grade 6",
+      "subject": "Mathematics",
+      "level": "B",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level, minimum grade 6",
+      "subject": "English",
+      "level": "B",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    },
+    {
+      "id": "req-all-3",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Danish at A level",
+      "subject": "Danish",
+      "level": "A",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "other",
+      "mandatory": true,
+      "label": "71 study places in 2026; 92 per cent of those admitted had Danish qualifications.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    },
+    {
+      "id": "req-extra-2",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Danish A must be passed even though teaching is in English.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "A qualifying examination certificate that can be equated with a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish B-level with an average mark of at least 6. English corresponding to the Danish B-level with an average mark of at least 6. Danish at A level is a requirement. No required mark but the subject must be passed. You must be proficient in oral and written English, as the programme is taught in English.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-itu-dk-1exxjuv"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-en-itu-dk-1exxjuv"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Non-EU tuition at institution level: EUR 8,250 per semester, EUR 49,500 for the full three-year programme (2026 admission). Application fee EUR 150. No scholarships are available at bachelor's level."
+    ]
+  }
+}

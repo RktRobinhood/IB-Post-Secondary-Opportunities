@@ -1,0 +1,111 @@
+{
+  "id": "dk",
+  "iso2": "dk",
+  "name": "Denmark",
+  "adjective": "Danish",
+  "scope": "europe",
+  "region": "Nordics",
+  "capital": "Copenhagen",
+  "currency": "DKK",
+  "membership": { "eu": true, "eea": true, "nordic": true, "schengen": true },
+  "targetIntake": "2027-autumn",
+
+  "tagline": "One deadline, one portal, no tuition — and a conversion table that decides everything",
+  "summary": "Denmark is the default option for most IB students at a Danish gymnasium, and the one where the rules are knowable in advance. An IB Diploma of 24 points or more opens every programme in the country, provided you also hold the specific subjects each one names. The two things that actually decide your application are the official conversion tables and the language a programme is taught in — most Danish bachelor's degrees are taught in Danish, and the English-taught set is smaller than people expect.",
+
+  "whyConsider": [
+    "No tuition at all for EU, EEA and Swiss citizens, and SU on top if you are a Danish citizen.",
+    "One application, one portal, one deadline, up to eight ranked choices.",
+    "The conversion from IB points to the Danish grade average is published, so you can work out where you stand before you apply.",
+    "You can apply before you have results — your IB coordinator sends them directly through the IB's results service.",
+    "Several strong English-taught programmes sit in cities far cheaper than Copenhagen."
+  ],
+  "watchOuts": [
+    "The deadline is 12:00 noon on 15 March, not midnight, and it applies to every IB holder including those who took the IB in Denmark.",
+    "Most bachelor's degrees are taught in Danish and require Danish at A level. The English-taught set is concentrated in a handful of institutions.",
+    "Universities must cut academic bachelor intake by roughly ten per cent across 2025–2029, so older cut-off figures understate how competitive some programmes now are.",
+    "The SU reform taking effect on 1 January 2027 cuts the grant frame for higher education from 70 to 58 portions and limits SU to the prescribed length of your programme.",
+    "Some institutions still require a signature page printed, signed by hand and sent separately. It is never uploaded, and the application is incomplete without it."
+  ],
+
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "24 points with a full IB Diploma gives access to every higher education programme, subject to the programme's own subject requirements. A Diploma does not need a grade of 3 in every subject — a 2 may appear where the IB awarded the Diploma. DP Course Results need at least 18 points, grade 3 in all six subjects and at least three at HL, and reach university bachelor's degrees only with supplementary subjects or a retake.",
+    "subjectLevelRule": "HL generally becomes Danish A level and SL becomes B level. Both post-2019 mathematics courses count identically: Analysis and Approaches HL and Applications and Interpretation HL are both Mathematics A; both SL courses are Mathematics B. Global Politics has no fixed equivalence and is assessed institution by institution.",
+    "gradeConversion": "Total points convert to the Danish 7-point grade average using a table re-issued each year and published by 1 March for that summer's intake.",
+    "conversionScale": "dk-7-point",
+    "conversionTable": [
+      { "ib": 18, "local": 2.4 }, { "ib": 19, "local": 2.7 }, { "ib": 20, "local": 3.0 },
+      { "ib": 21, "local": 3.3 }, { "ib": 22, "local": 3.7 }, { "ib": 23, "local": 4.0 },
+      { "ib": 24, "local": 4.4 }, { "ib": 25, "local": 4.7 }, { "ib": 26, "local": 5.2 },
+      { "ib": 27, "local": 5.6 }, { "ib": 28, "local": 6.0 }, { "ib": 29, "local": 6.4 },
+      { "ib": 30, "local": 6.9 }, { "ib": 31, "local": 7.3 }, { "ib": 32, "local": 7.7 },
+      { "ib": 33, "local": 8.1 }, { "ib": 34, "local": 8.5 }, { "ib": 35, "local": 8.9 },
+      { "ib": 36, "local": 9.3 }, { "ib": 37, "local": 9.7 }, { "ib": 38, "local": 10.0 },
+      { "ib": 39, "local": 10.4 }, { "ib": 40, "local": 10.7 }, { "ib": 41, "local": 11.0 },
+      { "ib": 42, "local": 11.3 }, { "ib": 43, "local": 11.6 }, { "ib": 44, "local": 12.0 },
+      { "ib": 45, "local": 12.7 }
+    ],
+    "notes": [
+      "Single subject grades convert separately and only where a programme sets a minimum: IB 7 is 12, 6 is 10, 5 is 7, 4 is 4, 3 is 02, 2 is 00 and 1 is -3.",
+      "Where a subject was taken at several levels, the highest grade at or above the required level counts. A grade at a lower level than required does not count at all.",
+      "If you retook to improve a result that already qualified you, Denmark converts your original result, not the improved one. The letter at the bottom left of the diploma says which it is.",
+      "Studieprøven is not an upper-secondary subject, so it can meet a language requirement but never a subject grade requirement."
+    ],
+    "evidence": ["ev-ufsn-ib-eksaminer", "ev-ufsn-ib-karakterer", "ev-ufsn-ib-fagniveauer"]
+  },
+
+  "language": {
+    "englishTaughtBachelors": "A small, concentrated set — most degrees are taught in Danish",
+    "englishProof": "Any IB English satisfies the English requirement. English A1, A2 or B at HL, and English A1 or A2, A Literature or A Language and Literature at SL, all count as Danish English A; English B SL counts as English B. No IELTS or TOEFL is needed.",
+    "localLanguageRequired": false,
+    "notes": [
+      "For Danish-taught programmes you need Danish at A level. Danish A1 or Danish A Literature at either level satisfies it; Danish A1 SL sits above the Studieprøven test and is normally accepted.",
+      "If you took Danish B HL or Danish ab initio, whether it substitutes for Danish A is decided by each institution. Ask in writing."
+    ]
+  },
+
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition. Also free for holders of permanent residence, or temporary residence that can lead to it.",
+      "evidence": ["ev-studyindenmark-fees"]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Tuition is charged, plus a DKK 3,060 residence permit fee and proof of DKK 7,426 per month of self-support.",
+      "typicalRange": "EUR 6,000–16,000 per year",
+      "priceYear": "not stated by the source",
+      "evidence": ["ev-studyindenmark-fees", "ev-siri-higher-education"]
+    }
+  ],
+
+  "livingContext": {
+    "livingCostMonthly": { "amount": 11000, "currency": "DKK", "period": "month", "approximate": true, "note": "Midpoint of the official DKK 8,450–13,700 range. Copenhagen sits at the top of it; Esbjerg, Sønderborg and Aalborg well below." },
+    "livingCostYear": "no year stated by the source",
+    "housing": "Danish universities have no tradition of campus accommodation. Most students live in kollegier, often some distance from campus, or rent privately. Start months before you arrive and contact your institution the moment you are accepted — August and September are the worst possible time to arrive without a room.",
+    "healthcare": "Once you have a CPR number you receive a health card automatically and healthcare is free. Choose insurance group 1, as 98% of residents do: an assigned GP, free consultations, referrals to specialists. Dental care and physiotherapy are not covered.",
+    "workRights": "EU, EEA, Nordic and Swiss citizens can work without restriction. Others get a limited permit: 90 hours a month from September to May and full-time in June, July and August.",
+    "residency": "EU and EEA citizens apply to SIRI for an EU registration certificate within three months of arriving, bringing a passport and letter of admission. Then a CPR number from your municipality, then a health card, then a bank account and NemKonto — each step depends on the one before it.",
+    "funding": [
+      "SU, the state education grant: DKK 7,426 per month before tax in 2026 for a student living away from home, with a loan of up to DKK 3,799 on top.",
+      "Non-Danish EU citizens must first obtain equal-treatment status, in practice by working 10–12 hours a week for at least ten continuous weeks and continuing while receiving SU.",
+      "Students on a non-EU study residence permit may not claim SU or housing benefit, and doing so can cost them the permit."
+    ],
+    "evidence": ["ev-su-satser-2026", "ev-studyindenmark-budget", "ev-siri-higher-education"]
+  },
+
+  "applicationSystems": ["dk-optagelse"],
+  "evidence": ["ev-ufsn-ib-eksaminer", "ev-dimensionering"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2027-03-01",
+    "notes": [
+      "The grade-average conversion table is republished by 1 March each year. This record must be re-verified then.",
+      "Programme-level requirements live on each Opportunity, not here."
+    ]
+  }
+}

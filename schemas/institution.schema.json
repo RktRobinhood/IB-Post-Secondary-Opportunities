@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "institution.schema.json",
+  "title": "Institution",
+  "description": "The accredited organisation that owns or awards a Programme.",
+  "type": "object",
+  "required": ["id", "destination", "name", "type", "meta"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "destination": { "$ref": "common.schema.json#/$defs/id" },
+    "name": { "type": "string", "minLength": 2 },
+    "shortName": { "type": "string" },
+    "localName": { "type": "string", "description": "The institution's name in its own language." },
+    "type": {
+      "enum": [
+        "research-university", "technical-university", "business-school", "university-college",
+        "business-academy", "art-academy", "music-conservatoire", "liberal-arts-college",
+        "university-of-applied-sciences", "other"
+      ]
+    },
+    "founded": { "type": "integer", "minimum": 1000, "maximum": 2100 },
+    "places": {
+      "type": "array",
+      "description": "Campuses, in the order a student would think of them.",
+      "items": { "$ref": "common.schema.json#/$defs/id" }
+    },
+    "about": { "type": "string", "description": "Two or three concrete, non-promotional sentences." },
+    "knownFor": { "type": "array", "items": { "type": "string" } },
+    "students": { "type": "integer", "minimum": 0 },
+    "links": {
+      "type": "object",
+      "properties": {
+        "website": { "$ref": "common.schema.json#/$defs/url" },
+        "admissions": { "$ref": "common.schema.json#/$defs/url" },
+        "ibPage": { "$ref": "common.schema.json#/$defs/url" },
+        "wikipedia": { "$ref": "common.schema.json#/$defs/url" }
+      },
+      "additionalProperties": false
+    },
+    "codes": {
+      "type": "object",
+      "description": "Identifiers a student has to type into a portal.",
+      "properties": {
+        "ibResultsService": { "type": "string" },
+        "ucas": { "type": "string" },
+        "sat": { "type": "string" },
+        "act": { "type": "string" },
+        "optagelseArea": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "languageOfInstruction": {
+      "type": "object",
+      "description": "Institution-level availability is context, never proof that a given Programme is taught in English.",
+      "properties": {
+        "primary": { "type": "string" },
+        "englishTaughtUndergraduate": { "enum": ["none", "few", "some", "many", "all", "unknown"] },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "media": {
+      "type": "array",
+      "description": "A logo identifies; it does not license. Permission is never inferred from public visibility.",
+      "items": {
+        "type": "object",
+        "required": ["assetType", "url", "usageBasis"],
+        "properties": {
+          "assetType": { "enum": ["photo", "logo", "illustration", "video"] },
+          "url": { "$ref": "common.schema.json#/$defs/url" },
+          "sourcePage": { "$ref": "common.schema.json#/$defs/url" },
+          "owner": { "type": "string" },
+          "usageBasis": {
+            "enum": ["open-graph-linked", "free-licence-hosted", "permission-granted", "fair-dealing", "unknown"],
+            "description": "open-graph-linked: the institution's own share image, hot-linked from its server. free-licence-hosted: a freely licensed file we host and credit."
+          },
+          "licence": { "type": "string" },
+          "licenceUrl": { "$ref": "common.schema.json#/$defs/url" },
+          "retrievedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+          "alt": { "type": "string" },
+          "focalPoint": { "type": "string", "pattern": "^[0-9]{1,3}% [0-9]{1,3}%$" },
+          "hotlinkRestricted": { "type": "boolean" },
+          "expiresAt": { "$ref": "common.schema.json#/$defs/isoDate" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "support": {
+      "type": "object",
+      "description": "Explorable without a student disclosing anything about themselves.",
+      "properties": {
+        "accessibility": { "type": "string" },
+        "academic": { "type": "string" },
+        "language": { "type": "string" },
+        "wellbeing": { "type": "string" },
+        "careers": { "type": "string" },
+        "internationalStudents": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

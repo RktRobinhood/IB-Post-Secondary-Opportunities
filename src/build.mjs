@@ -15,6 +15,18 @@ import * as dk from './pages/denmark.mjs';
 import * as prog from './pages/programmes.mjs';
 import * as meta from './pages/meta.mjs';
 import { slugify } from './lib/html.mjs';
+import { execFileSync } from 'node:child_process';
+
+const SCHEMA_VERSION = '1.0';
+
+/** The commit the data came from, so an export can be traced back to a diff. */
+function dataRevision() {
+  try {
+    return execFileSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: ROOT }).toString().trim();
+  } catch {
+    return 'unversioned';
+  }
+}
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -64,39 +76,83 @@ function favicon() {
 `;
 }
 
-/** A plain-text export of the whole dataset, so the data is usable without scraping the site. */
+/**
+ * A public export of the whole dataset.
+ *
+ * The structured data is a product in its own right, so it ships with the
+ * provenance a reader needs to judge it: which schema shaped it, which commit
+ * produced it, which intake it describes, and how much of it is actually
+ * verified rather than merely present.
+ */
 function dataDump(site) {
+  const counts = { verified: 0, needsReview: 0, superseded: 0, unavailable: 0, conflicting: 0 };
+  for (const ev of site.graph?.evidence?.values() || []) {
+    if ((ev.conflictsWith || []).length) counts.conflicting++;
+    else if (ev.verificationState === 'verified') counts.verified++;
+    else if (ev.verificationState === 'needs-review') counts.needsReview++;
+    else if (ev.verificationState === 'superseded') counts.superseded++;
+    else if (ev.verificationState === 'unavailable') counts.unavailable++;
+  }
+
+  const g = site.graph || {};
   return JSON.stringify(
     {
-      generated: new Date().toISOString(),
-      cycle: SITE.cycle,
-      countries: site.countries.map((c) => ({
+      schemaVersion: SCHEMA_VERSION,
+      dataRevision: dataRevision(),
+      generatedAt: new Date().toISOString(),
+      targetIntake: SITE.cycle.intake,
+      licence: 'CC BY 4.0. Photographs carry their own terms — see /credits/.',
+      disclaimer:
+        'Admission rules change every year. Confirm anything consequential with the institution before acting on it.',
+
+      recordCounts: {
+        destinations: g.destinations?.size || 0,
+        places: g.places?.size || 0,
+        institutions: g.institutions?.size || 0,
+        programmes: g.programmes?.size || 0,
+        opportunities: g.opportunities?.size || 0,
+        applicationSystems: g.applicationSystems?.size || 0,
+        applicationRoutes: g.applicationRoutes?.size || 0,
+        evidence: g.evidence?.size || 0,
+        countryProfiles: site.countries.length,
+      },
+      evidenceCounts: counts,
+
+      /* Canonical entities, for anyone building on this. */
+      canonical: {
+        destinations: [...(g.destinations?.values() || [])],
+        places: [...(g.places?.values() || [])],
+        institutions: [...(g.institutions?.values() || [])],
+        programmes: [...(g.programmes?.values() || [])],
+        opportunities: [...(g.opportunities?.values() || [])],
+        applicationSystems: [...(g.applicationSystems?.values() || [])],
+        applicationRoutes: [...(g.applicationRoutes?.values() || [])],
+        evidence: [...(g.evidence?.values() || [])],
+      },
+
+      /* Country profiles that have not yet migrated to the entity model. */
+      countryProfiles: site.countries.map((c) => ({
         code: c.code,
         name: c.name,
         scope: c.scope,
         region: c.region,
-        dataAsOf: c.dataAsOf,
-        tagline: c.tagline,
-        tuitionEuEea: c.costs?.tuitionEuEea ?? null,
-        englishTaughtBachelors: c.language?.englishTaughtBachelors ?? null,
+        dataAsOf: c.dataAsOf || null,
+        targetIntake: c.targetIntake || null,
+        tagline: c.tagline || null,
+        summary: c.summary || null,
+        ibRecognition: c.ibRecognition || null,
+        language: c.language || null,
+        costs: c.costs || null,
         deadlines: c.deadlines,
-        institutions: c.institutions.map((i) => ({ name: i.name, city: i.city, website: i.website })),
-      })),
-      denmark: site.dkInstitutions.map((i) => ({
-        id: i.id,
-        name: i.name,
-        city: i.city,
-        dataAsOf: i.dataAsOf,
-        programmes: i.programmes.map((p) => ({
-          id: p.id,
-          name: p.name,
-          degree: p.degree,
-          field: p.field,
-          campus: p.campus,
-          url: p.url,
-          entryRequirements: p.entryRequirements ?? null,
-          requirementsText: p.requirementsText ?? null,
+        institutions: c.institutions.map((i) => ({
+          name: i.name,
+          shortName: i.shortName || null,
+          city: i.city || null,
+          type: i.type || null,
+          website: i.website || null,
+          englishBachelors: i.englishBachelors || null,
         })),
+        sources: c.sources,
       })),
     },
     null,

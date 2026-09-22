@@ -1,0 +1,179 @@
+{
+  "id": "dk-aau-applied-industrial-electronics-2027-autumn",
+  "programme": "dk-aau-applied-industrial-electronics",
+  "institution": "dk-aau",
+  "destination": "dk",
+  "place": "dk-esbjerg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "All admitted",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-en-aau-dk-10ya3vh"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at A level, minimum grade 4",
+      "subject": "Mathematics",
+      "level": "A",
+      "minGrade": 4,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 2 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-10ya3vh"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Geoscience at A level",
+            "subject": "Geoscience",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-aau-dk-10ya3vh"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "other",
+      "mandatory": true,
+      "label": "AAU states: \"From 2027, the programme is restricted in admission. This means that you as an applicant are not sure of being offered a study place on the programme, even if you meet the admission requirements and apply on time.\"",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    },
+    {
+      "id": "req-extra-2",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Specialisations chosen during the programme: Industrial Electronics, IT and Cyber Systems.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Upper secondary school exam. English B. Mathematics A with a minimum average grade of 4.0. Physics B or Geoscience A.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-en-aau-dk-10ya3vh"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-en-aau-dk-10ya3vh"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
+    ]
+  }
+}

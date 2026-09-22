@@ -1,0 +1,153 @@
+[
+  {
+    "id": "ev-ufsn-ib-eksaminer",
+    "sourceUrl": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/lande-og-eksaminer/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "excerpt": "Elever med et IB Diploma med 24 point eller mere kan søge ind på alle videregående uddannelser i Danmark, forudsat at de opfylder eventuelle specifikke adgangskrav.",
+    "claim": "An IB Diploma of 24 points or more gives access to every higher education programme in Denmark, subject to programme-specific requirements.",
+    "supports": [{ "entity": "dk", "field": "ibRecognition.minimumPoints" }],
+    "verificationState": "verified",
+    "verifiedBy": "manual",
+    "interpretation": "Select 'International Baccalaureate' in the country/examination dropdown. The page was last edited 2026-01-07. Note the Agency is explicit that a full Diploma need not contain a grade of 3 in every subject — a 2 may appear where the IB's own conditions for awarding the Diploma were met. Several Danish university pages state the stricter rule; that rule applies to DP Course Results, not to a Diploma.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-03-01" }
+  },
+  {
+    "id": "ev-ufsn-ib-karakterer",
+    "sourceUrl": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/lande-og-eksaminer/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "excerpt": "Omregningsskalaen for det aktuelle års sommeroptag vil være tilgængelig senest 1. marts det pågældende år og være gældende frem til udgangen af februar året efter.",
+    "claim": "IB total points convert to the Danish 7-point grade average via a table re-issued annually and published by 1 March for that summer's intake.",
+    "supports": [
+      { "entity": "dk", "field": "ibRecognition.conversionTable" },
+      { "entity": "dk", "field": "ibRecognition.gradeConversion" }
+    ],
+    "verificationState": "verified",
+    "verifiedBy": "manual",
+    "interpretation": "The table recorded here is labelled 'Statistisk omregning 2026' and the page was last edited 2026-01-23. It applies to graduates up to and including 2019 and from 2023 onwards, which includes the May 2027 session. Because a fresh table appears by 1 March 2027, this record must be re-verified then and is provisional until it is.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-03-01" }
+  },
+  {
+    "id": "ev-ufsn-ib-fagniveauer",
+    "sourceUrl": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/lande-og-eksaminer/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "excerpt": "Fagniveauvurderingerne er udarbejdet af Børne- og Undervisningsministeriet, Afdelingen for Gymnasiale Uddannelser.",
+    "claim": "The official mapping of IB subjects and levels onto Danish A, B and C levels, including both post-2019 mathematics courses.",
+    "supports": [{ "entity": "dk", "field": "ibRecognition.subjectLevelRule" }],
+    "verificationState": "verified",
+    "verifiedBy": "manual",
+    "interpretation": "This is the table the university pages defer to but do not reproduce. It is the only source found that covers Mathematics: Analysis and Approaches and Applications and Interpretation — both HL map to Mathematics A, both SL to Mathematics B. It also states plainly that Global Politics has no fixed equivalence and is decided institution by institution.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-06-01" }
+  },
+  {
+    "id": "ev-ufsn-adgang-frister",
+    "sourceUrl": "https://ufsn.dk/english/education/admission-and-guidance/how-to-apply-for-a-higher-education-programme-in-denmark/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "excerpt": "15 March at 12 noon (CET) applies to applicants with an international upper secondary education including International Baccalaureate (IB) – irrespective of whether the diploma is from a school in Denmark or outside Denmark.",
+    "claim": "IB applicants must apply by 15 March at 12:00 noon CET, whether applying in quota 1 or quota 2, and whether the IB was taken in Denmark or abroad.",
+    "supports": [
+      { "entity": "dk-optagelse-international-2027", "field": "milestones" },
+      { "entity": "dk", "field": "applicationSystems" }
+    ],
+    "verificationState": "needs-review",
+    "verifiedBy": "manual",
+    "interpretation": "The source states the day and month but not the admission year; Danish national deadlines have been stable for many years. Treated as provisional for 2027 until the Agency publishes dates carrying that year.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2026-12-01" }
+  },
+  {
+    "id": "ev-ufsn-kvoter",
+    "sourceUrl": "https://ufsn.dk/english/education/admission-and-guidance/how-to-apply-for-a-higher-education-programme-in-denmark/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "excerpt": "Applicants applying before the deadline 15 March, will automatically be considered in quota 1 as well if their grade point average can be converted to the Danish 7-point grading scale.",
+    "claim": "IB applicants who apply by 15 March are automatically considered in quota 1 as well as quota 2.",
+    "supports": [{ "entity": "dk-optagelse", "field": "decisionModel" }],
+    "verificationState": "verified",
+    "verifiedBy": "manual",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+  },
+  {
+    "id": "ev-su-satser-2026",
+    "sourceUrl": "https://www.su.dk/satser/videregaaende-uddannelser-satser-for-su-til-udeboende",
+    "publisher": "Uddannelses- og Forskningsstyrelsen (SU)",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "effectiveFrom": "2026-01-01",
+    "effectiveTo": "2026-12-31",
+    "claim": "The 2026 SU grant for a higher-education student living away from home is DKK 7,426 per month before tax.",
+    "supports": [{ "entity": "dk", "field": "livingContext.funding" }],
+    "verificationState": "verified",
+    "verifiedBy": "manual",
+    "interpretation": "This is the 2026 rate. The rate for 2027 will differ, and the SU reform taking effect on 1 January 2027 reduces the total grant frame for higher education from 70 to 58 portions for anyone starting a new programme on or after 1 July 2025 — which includes this cohort.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+  },
+  {
+    "id": "ev-studyindenmark-fees",
+    "sourceUrl": "https://studyindenmark.dk/study-options/tuition-fees-and-scholarships",
+    "publisher": "Study in Denmark",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "excerpt": "USD 8,000-21,000 / Euro 6,000-16,000 (DKK 45,000-120,000).",
+    "claim": "Higher education is free for EU/EEA and Swiss citizens; other students pay roughly EUR 6,000–16,000 per year.",
+    "supports": [{ "entity": "dk", "field": "feeContext" }],
+    "verificationState": "needs-review",
+    "verifiedBy": "manual",
+    "interpretation": "The page attaches no academic year to this range, and its own USD, EUR and DKK figures are not mutually consistent at current rates. Usable as an order of magnitude only; the institution is the authority for its own fee.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2026-12-01" }
+  },
+  {
+    "id": "ev-studyindenmark-budget",
+    "sourceUrl": "https://studyindenmark.dk/live-in-denmark/bank-budget",
+    "publisher": "Study in Denmark",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-22",
+    "claim": "A student budget in Denmark runs to roughly DKK 8,450–13,700 per month.",
+    "supports": [{ "entity": "dk", "field": "livingContext.livingCostMonthly" }],
+    "verificationState": "needs-review",
+    "verifiedBy": "manual",
+    "interpretation": "The source publishes component ranges but no total and no year; the total here is our arithmetic on its own figures. Its lowest rent figure of DKK 3,000 is optimistic for Copenhagen.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-06-01" }
+  },
+  {
+    "id": "ev-siri-higher-education",
+    "sourceUrl": "https://www.nyidanmark.dk/en-GB/Applying/Study/Higher%20education",
+    "publisher": "Styrelsen for International Rekruttering og Integration (SIRI)",
+    "publisherType": "ministry",
+    "retrievedAt": "2026-09-22",
+    "claim": "Non-EU students need a study residence permit costing DKK 3,060, must show DKK 7,426 per month of self-support, and may work 90 hours a month from September to May plus full-time in June, July and August.",
+    "supports": [
+      { "entity": "dk", "field": "livingContext.residency" },
+      { "entity": "dk", "field": "livingContext.workRights" }
+    ],
+    "verificationState": "verified",
+    "verifiedBy": "manual",
+    "interpretation": "SIRI's page was last updated 2026-09-15 and supersedes Study in Denmark's own pages, which still quote a retired 20-hours-a-week rule.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+  },
+  {
+    "id": "ev-dimensionering",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/eurypedia/denmark/national-reforms-higher-education",
+    "publisher": "Eurydice",
+    "publisherType": "other",
+    "retrievedAt": "2026-09-22",
+    "claim": "Danish universities must reduce academic bachelor intake by about ten per cent across 2025–2029 compared with the 2018–2022 average.",
+    "supports": [{ "entity": "dk", "field": "watchOuts" }],
+    "verificationState": "needs-review",
+    "verifiedBy": "manual",
+    "interpretation": "Eurydice is a reliable secondary source but not the responsible authority. The underlying instrument is the 2023 political agreement on university education and its April 2024 implementation. Worth replacing with the ministry's own page before this claim is relied on.",
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+  }
+]

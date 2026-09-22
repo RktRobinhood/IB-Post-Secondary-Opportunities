@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "destination.schema.json",
+  "title": "Destination",
+  "description": "A country or admissions jurisdiction whose rules, costs and application process apply to the Opportunities inside it.",
+  "type": "object",
+  "required": ["id", "name", "scope", "meta"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id", "description": "ISO 3166-1 alpha-2, lowercase, plus a jurisdiction suffix where one country has several (e.g. be-fl)." },
+    "iso2": { "type": "string", "pattern": "^[a-z]{2}$" },
+    "name": { "type": "string" },
+    "adjective": { "type": "string" },
+    "scope": { "enum": ["europe", "worldwide"] },
+    "region": { "type": "string" },
+    "capital": { "type": "string" },
+    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "membership": {
+      "type": "object",
+      "properties": {
+        "eu": { "type": "boolean" },
+        "eea": { "type": "boolean" },
+        "nordic": { "type": "boolean" },
+        "schengen": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "tagline": { "type": "string", "maxLength": 90 },
+    "summary": { "type": "string" },
+    "whyConsider": { "type": "array", "items": { "type": "string" } },
+    "watchOuts": { "type": "array", "items": { "type": "string" } },
+
+    "ibRecognition": {
+      "type": "object",
+      "description": "How the national system reads an IB Diploma. Programme-level rules live on the Opportunity, not here.",
+      "properties": {
+        "accepted": { "type": "boolean" },
+        "minimumPoints": { "type": "string" },
+        "subjectLevelRule": { "type": "string" },
+        "gradeConversion": { "type": "string" },
+        "conversionTable": {
+          "type": "array",
+          "description": "Where the destination publishes an explicit IB-to-local mapping.",
+          "items": {
+            "type": "object",
+            "required": ["ib", "local"],
+            "properties": {
+              "ib": { "type": ["number", "string"] },
+              "local": { "type": ["number", "string"] },
+              "note": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "conversionScale": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+      },
+      "additionalProperties": false
+    },
+
+    "language": {
+      "type": "object",
+      "properties": {
+        "englishTaughtBachelors": { "type": "string" },
+        "englishProof": { "type": "string" },
+        "localLanguageRequired": { "type": "boolean" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "livingContext": {
+      "type": "object",
+      "properties": {
+        "livingCostMonthly": { "$ref": "common.schema.json#/$defs/money" },
+        "livingCostYear": { "type": "string" },
+        "housing": { "type": "string" },
+        "healthcare": { "type": "string" },
+        "workRights": { "type": "string" },
+        "residency": { "type": "string" },
+        "funding": { "type": "array", "items": { "type": "string" } },
+        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+      },
+      "additionalProperties": false
+    },
+
+    "feeContext": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["applicantGroup"],
+        "properties": {
+          "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+          "feeStatus": { "$ref": "common.schema.json#/$defs/feeStatus" },
+          "summary": { "type": "string" },
+          "typicalRange": { "type": "string" },
+          "priceYear": { "type": "string" },
+          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "applicationSystems": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/id" } },
+    "targetIntake": { "$ref": "common.schema.json#/$defs/intake" },
+    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

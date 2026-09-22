@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence.schema.json",
+  "title": "Evidence",
+  "description": "A source-backed claim. Evidence is what separates this product from a blog: every consequential fact points at a page, a date and a verification state. 'Not recorded' is never the same as 'not required'.",
+  "type": "object",
+  "required": ["id", "sourceUrl", "publisher", "retrievedAt", "verificationState", "supports"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^ev-[a-z0-9]+(-[a-z0-9]+)*$" },
+    "sourceUrl": { "$ref": "common.schema.json#/$defs/url" },
+    "sourcePage": {
+      "$ref": "common.schema.json#/$defs/url",
+      "description": "The human-readable page, when sourceUrl is a PDF or API response."
+    },
+    "publisher": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Who is responsible for the rule — the institution, ministry, agency or portal. Not the aggregator that repeated it."
+    },
+    "publisherType": {
+      "enum": ["institution", "national-agency", "ministry", "application-portal", "qualification-body", "aggregator", "other"],
+      "description": "Aggregators help discovery but must not be the final authority for an admissions rule."
+    },
+    "retrievedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "effectiveFrom": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "effectiveTo": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "appliesToIntake": { "$ref": "common.schema.json#/$defs/intake" },
+    "appliesToApplicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+    "excerpt": {
+      "type": "string",
+      "maxLength": 1200,
+      "description": "A short faithful quotation, or a structured restatement. Keeping the official wording lets a counsellor audit our interpretation."
+    },
+    "claim": {
+      "type": "string",
+      "description": "What we take the source to establish, in one plain sentence."
+    },
+    "supports": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Which record and field this evidence backs. Lets the freshness report find every claim that depends on a changed page.",
+      "items": {
+        "type": "object",
+        "required": ["entity", "field"],
+        "properties": {
+          "entity": { "type": "string", "description": "Record id, e.g. opp-dk-dtu-general-engineering-2027." },
+          "field": { "type": "string", "description": "Dotted path within that record, e.g. requirements[2].threshold." }
+        },
+        "additionalProperties": false
+      }
+    },
+    "verificationState": { "$ref": "common.schema.json#/$defs/verificationState" },
+    "verifiedBy": { "type": "string", "description": "Who confirmed it. 'automated' is allowed, but not for a consequential rule." },
+    "conflictsWith": {
+      "type": "array",
+      "items": { "$ref": "common.schema.json#/$defs/evidenceRef" },
+      "description": "Other Evidence making an incompatible claim. A conflict downgrades the public result to Needs review; it must never silently resolve to the more permissive reading."
+    },
+    "interpretation": {
+      "type": "string",
+      "description": "Why we read the source this way, especially where it is ambiguous or contradicts another official page."
+    },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

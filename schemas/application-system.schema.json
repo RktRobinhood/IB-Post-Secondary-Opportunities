@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "application-system.schema.json",
+  "title": "Application System",
+  "description": "A shared admissions process or portal used by several institutions within a jurisdiction — optagelse.dk, UCAS, Studielink, Samordna opptak. Coverage is rarely total, and saying so is the useful part.",
+  "type": "object",
+  "required": ["id", "name", "jurisdiction", "meta"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "name": { "type": "string" },
+    "localName": { "type": "string" },
+    "jurisdiction": {
+      "type": "object",
+      "required": ["authorityType"],
+      "properties": {
+        "authorityType": { "enum": ["national", "state-province", "sector", "consortium", "institutional"] },
+        "destination": { "$ref": "common.schema.json#/$defs/id" },
+        "authority": { "type": "string" },
+        "area": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "portalUrl": { "$ref": "common.schema.json#/$defs/url" },
+    "coverage": {
+      "type": "object",
+      "description": "What the system actually covers. Norway's central service excludes English-taught programmes entirely — exactly the sort of gap a student must not discover in March.",
+      "properties": {
+        "extent": { "enum": ["comprehensive", "partial", "optional", "unknown"] },
+        "includes": { "type": "string" },
+        "excludes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "choiceRules": {
+      "type": "object",
+      "properties": {
+        "limit": { "type": "integer", "minimum": 1 },
+        "ranked": { "type": "boolean" },
+        "offersReceived": { "enum": ["one", "many", "unknown"] },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "identityRequirement": {
+      "type": "string",
+      "description": "MitID, BankID, a portal account — the thing to sort out long before the deadline."
+    },
+    "fee": { "$ref": "common.schema.json#/$defs/money" },
+    "sharedSteps": { "type": "array", "items": { "type": "string" } },
+    "decisionModel": { "type": "string" },
+    "replyModel": { "type": "string" },
+    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}
