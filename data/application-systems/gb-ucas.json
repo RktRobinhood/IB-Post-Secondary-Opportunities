@@ -1,0 +1,33 @@
+{
+  "id": "gb-ucas",
+  "name": "UCAS",
+  "localName": "Universities and Colleges Admissions Service",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "gb",
+    "authority": "UCAS",
+    "area": "United Kingdom"
+  },
+  "portalUrl": "https://www.ucas.com/",
+  "coverage": {
+    "extent": "comprehensive",
+    "includes": "Almost every undergraduate course at almost every UK university and college.",
+    "excludes": "Music, dance and drama at conservatoires, which use UCAS Conservatoires; and degree apprenticeships, which go through the employer."
+  },
+  "choiceRules": {
+    "limit": 5,
+    "ranked": false,
+    "offersReceived": "many",
+    "note": "Five choices, unranked, and every one may make an offer. Only four may be medicine, dentistry or veterinary medicine. One personal statement is sent to all five, which is the constraint that shapes the whole application: it has to work for every course you name, so five unrelated subjects produce a statement that argues for none of them."
+  },
+  "identityRequirement": "A UCAS Hub account, and an academic reference from the school before the application can be sent.",
+  "decisionModel": "Universities decide individually and mostly make conditional offers, expressed in IB points and usually naming Higher Level grades. Some courses add an admissions test or an interview. An application received by the equal consideration date is guaranteed to be looked at; one after it may still be considered against remaining places.",
+  "replyModel": "Hold one firm choice and one insurance choice, the insurance normally with a lower offer. When results arrive in July the firm choice is confirmed if its conditions are met, the insurance if not, and Clearing exists for anyone holding neither.",
+  "evidence": [
+    "ev-ucas-dates-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22"
+  }
+}

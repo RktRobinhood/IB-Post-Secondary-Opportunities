@@ -1,0 +1,116 @@
+{
+  "id": "gb-ucas-2027",
+  "destination": "gb",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to the UK for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "gb-ucas",
+  "portalUrl": "https://www.ucas.com/",
+  "choiceLimit": 5,
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "UCAS applications open",
+      "date": "2026-05-12",
+      "consequence": "indicative",
+      "note": "You can register and start writing. Nothing reaches a university yet.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-submittable",
+      "type": "open",
+      "label": "Completed applications can be submitted",
+      "date": "2026-09-01",
+      "consequence": "indicative",
+      "note": "A reference from the school is required before anything can be sent, so the school’s internal deadline is earlier than every date on this page.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-oxbridge",
+      "type": "submit",
+      "label": "Oxford, Cambridge, medicine, dentistry and veterinary medicine close",
+      "date": "2026-10-15",
+      "timeOfDay": "18:00",
+      "timeZone": "Europe/London",
+      "consequence": "equal-consideration",
+      "audience": "any",
+      "note": "Thirteen months before the course starts. Admissions tests for these courses register earlier still, and the registration deadline is not the test date.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-main",
+      "type": "submit",
+      "label": "Equal consideration date for most courses",
+      "date": "2027-01-13",
+      "timeOfDay": "18:00",
+      "timeZone": "Europe/London",
+      "consequence": "equal-consideration",
+      "audience": "any",
+      "note": "The 13th for 2027 entry, where 2026 entry used the 14th. The date moves between cycles, so a figure remembered from a sibling’s year is worth re-checking.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-extra",
+      "type": "open",
+      "label": "Extra opens",
+      "date": "2027-02-25",
+      "consequence": "indicative",
+      "note": "For anyone who used all five choices and holds no offer: one further choice at a time.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "The point of the conditional offer. Universities confirm or release places against results that have only just arrived, which is what the whole UK calendar is built around.",
+      "evidence": []
+    },
+    {
+      "id": "ms-clearing",
+      "type": "open",
+      "label": "Clearing opens",
+      "date": "2027-07-02",
+      "consequence": "rolling",
+      "note": "For applicants holding no offer, or whose results missed their conditions. Runs on vacancies, so it rewards moving quickly.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-final",
+      "type": "submit",
+      "label": "Final date for 2027 entry applications",
+      "date": "2027-09-23",
+      "timeOfDay": "18:00",
+      "timeZone": "Europe/London",
+      "consequence": "hard",
+      "note": "After this the cycle is closed.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-ucas-dates-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-10-01"
+  }
+}

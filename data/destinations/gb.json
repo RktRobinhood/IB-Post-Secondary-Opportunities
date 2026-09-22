@@ -1,0 +1,119 @@
+{
+  "id": "gb",
+  "iso2": "gb",
+  "name": "United Kingdom",
+  "adjective": "British",
+  "scope": "europe",
+  "region": "British Isles",
+  "capital": "London",
+  "currency": "GBP",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "The system built for the IB, at the price of leaving the EU",
+  "summary": "The UK is the one destination whose admissions process assumes from the outset that applicants do not yet have their results. Universities make conditional offers expressed in IB points — \"36 overall including 6,6,5 at Higher Level\" — and confirm them in July when the results arrive. For an IB student that removes the single most awkward problem in European admissions. What it introduced instead is cost: since Brexit an EU citizen pays the international fee, and there is no EU rate to fall back on.",
+  "whyConsider": [
+    "Conditional offers in IB points solve the July problem outright. Nowhere else in Europe is the process designed around results that have not arrived yet.",
+    "One application, five choices, one personal statement, one reference — for almost every undergraduate course in the country.",
+    "Three-year bachelor degrees in England, Wales and Northern Ireland, so the total cost of a degree is less lopsided against the annual fee than it first looks."
+  ],
+  "watchOuts": [
+    "An EU citizen pays the international fee. There is no EU rate, no home-fee status and, for most students, no access to UK student loans. This is the thing that decides whether the UK is realistic.",
+    "Oxford, Cambridge, medicine, dentistry and veterinary medicine all close on 15 October 2026 — more than a year before the course starts, and before most students have thought about applying at all.",
+    "Admissions tests for those courses register earlier still, and the registration deadline is not the test date.",
+    "Scotland runs four-year degrees and a separate system; Wales and Northern Ireland differ again on fees and support. \"The UK\" is four systems sharing one application portal."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "No national minimum. Offers are made per course in IB points and usually name Higher Level subject grades as well — 36 points including 6,6,5 at HL is a typical competitive offer, and the range across the sector is wide.",
+    "subjectLevelRule": "Set per course and normally expressed as HL subject grades rather than as a national rule. Where a subject is essential it is named, and it is almost always required at Higher Level.",
+    "evidence": [
+      "ev-ucas-dates-2027"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "All of it.",
+    "englishProof": "Set per university. An IB Diploma taught in English, or IB English A or B at a stated grade, is normally accepted in place of a test. Confirm with the university, because visa rules and university rules are not the same rules.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "Since Brexit, EU, EEA and Swiss citizens pay the international fee, the same as any other overseas applicant. Amounts vary by university and by subject and are not established here; check the course page.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "The international fee, as before.",
+      "evidence": [
+        "ev-ucas-dates-2027"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Almost every UK undergraduate course, at almost every institution, is applied for through one portal — which makes the sector look more uniform than it is. Underneath sit universities of very different ages and purposes, specialist conservatoires and art schools, further education colleges teaching degrees under a university’s validation, and degree apprenticeships that are jobs first. And the UK is four education systems, not one: Scotland’s degrees are four years and its fee and qualification rules are its own.",
+    "routes": [
+      {
+        "localName": "university",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Three-year bachelor degrees in England, Wales and Northern Ireland, four in Scotland, and specialised from the first term — you apply to read a subject rather than to a college in general. That suits a student who already knows, and suits a student who does not rather less than the Scottish or Dutch alternatives.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "Scottish university",
+        "englishName": "Scottish university",
+        "kind": "research",
+        "what": "A separate system inside the same portal. Four-year honours degrees with a broader first two years, closer to a liberal-arts structure, and distinct fee and funding rules. For a student who wants to keep options open a while longer, this is the closest thing in the UK to what they are after.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "conservatoire",
+        "englishName": "conservatoire",
+        "kind": "specialist",
+        "what": "Music, dance and drama, with their own application route (UCAS Conservatoires) and their own calendar. Admission is by audition, and grades matter far less than the audition does.",
+        "ibAccessible": "partly",
+        "englishTaught": "common",
+        "note": "Applied for separately from the main UCAS scheme. Not researched in detail here."
+      },
+      {
+        "localName": "degree apprenticeship",
+        "englishName": "degree apprenticeship",
+        "kind": "professional",
+        "what": "A paid job with a degree attached, funded by the employer, with no tuition fee to the apprentice. Applied for through the employer rather than UCAS, on the employer’s timetable.",
+        "ibAccessible": "rarely",
+        "englishTaught": "common",
+        "note": "Almost always restricted to UK residents, so rarely open to an applicant from Denmark. Recorded so that the restriction is visible rather than discovered late."
+      }
+    ],
+    "evidence": [
+      "ev-ucas-dates-2027"
+    ]
+  },
+  "applicationSystems": [
+    "gb-ucas"
+  ],
+  "evidence": [
+    "ev-ucas-dates-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-10-01",
+    "notes": [
+      "Re-check before 15 October 2026, which is the first deadline that can cost a student the year.",
+      "Not established: tuition figures, which vary by university and subject; and admissions-test registration deadlines, which are earlier than the test dates and are set by the test providers rather than by UCAS.",
+      "Programme-level records not yet created."
+    ]
+  }
+}
