@@ -1,0 +1,126 @@
+{
+  "id": "ie",
+  "iso2": "ie",
+  "name": "Ireland",
+  "adjective": "Irish",
+  "scope": "europe",
+  "region": "British Isles",
+  "capital": "Dublin",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": false
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "The only English-speaking country left in the EU",
+  "summary": "Ireland is English-speaking, inside the EU, and converts an IB Diploma into a single number more precisely than anywhere else: a published table turns the overall score into CAO points, and courses fill strictly by points in descending order. For an eligible EU student there is no tuition, though there is a substantial annual student contribution that the phrase \"free fees\" tends to obscure. The catch is the calendar — applications close on 1 February, earlier than most of Europe.",
+  "whyConsider": [
+    "English-taught throughout, inside the EU, with EU fee treatment for eligible students.",
+    "The conversion from IB to CAO points is published, so the standard for a course is a number you can look up rather than a judgement you have to guess at.",
+    "One application, up to twenty choices, and a free Change of Mind window that lets you rewrite the list entirely up to 1 July."
+  ],
+  "watchOuts": [
+    "Applications close on 1 February at 17:00 — earlier than the Netherlands, Denmark or the UK’s main date. The discounted fee needs an application by 20 January.",
+    "\"Free fees\" means no tuition and a student contribution you still pay every year. Budget for it.",
+    "Free Fees eligibility depends on residence history, not just citizenship. Check your own case rather than assuming an EU passport settles it.",
+    "Change of Mind closes 1 July and IB results arrive on 6 July, so the list cannot be adjusted after results. Which offer round an IB applicant falls into is not yet established here.",
+    "Dublin rents are among the highest in Europe and student accommodation is genuinely scarce."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "A full Diploma of at least 24 points. For an honours (Level 8) bachelor the usual matriculation route additionally wants three Higher Level subjects at grade 5 with three Standard Level at grade 4, though some courses accept a lighter combination. Beyond that threshold, entry is decided by converted points.",
+    "subjectLevelRule": "An agreed table maps IB subject grades onto Irish Leaving Certificate grades for meeting subject requirements — Higher Level IB 7 to H1 and so on down, Standard Level to the O grades. Individual courses name the subjects they need.",
+    "evidence": [
+      "ev-cao-timetable"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "All of it.",
+    "englishProof": "An IB Diploma taught in English is normally accepted. Confirm per institution.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Irish is a requirement for entry to some programmes at the National University of Ireland institutions, with exemptions that normally cover an applicant educated outside Ireland. Check whether the exemption applies to you rather than assuming it does."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "No tuition under the Free Fees Initiative for eligible students on a first undergraduate degree, plus an annual student contribution and a small institutional levy. Eligibility depends on residence history as well as citizenship.",
+      "evidence": [
+        "ev-hea-free-fees"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Full international tuition, set by each institution. Not established here.",
+      "evidence": [
+        "ev-hea-free-fees"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Ireland reorganised its sector recently and the vocabulary has not caught up: most of the institutes of technology have merged into Technological Universities, so guidance written a few years ago describes institutions that no longer exist under those names. Underneath that, the structure is a familiar one — universities, technological universities, specialist colleges and further education, with the last of these far more useful to an international applicant than it first appears.",
+    "routes": [
+      {
+        "localName": "university",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The traditional universities — Trinity, UCD, UCC, Galway, Maynooth, DCU, Limerick. Level 8 honours bachelor degrees of three or four years depending on the subject, decided on CAO points.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "technological university",
+        "englishName": "technological university",
+        "kind": "applied",
+        "what": "Formed by merging the institutes of technology, and now awarding degrees up to doctoral level. More applied and more regional, strong in engineering, computing, business and the health professions, and usually with lower points requirements for comparable subjects.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "If you are reading guidance that mentions an \"Institute of Technology\", it is probably describing one of these under its old name."
+      },
+      {
+        "localName": "Post-Leaving Certificate course",
+        "englishName": "further education course",
+        "kind": "college",
+        "what": "One or two years of vocational study at a further education college, with its own qualifications — and, importantly, reserved places on degree courses for students who complete one. A recognised second route into a degree for anyone who did not get the points first time.",
+        "ibAccessible": "partly",
+        "englishTaught": "common",
+        "note": "Applied for directly rather than through CAO. Not researched in detail here, and worth knowing exists."
+      },
+      {
+        "localName": "specialist college",
+        "englishName": "specialist college",
+        "kind": "specialist",
+        "what": "Art, design, music and drama at institutions such as NCAD and the Royal Irish Academy of Music, admitting on portfolio or audition alongside points.",
+        "ibAccessible": "partly",
+        "englishTaught": "common",
+        "note": "Not researched in detail here."
+      }
+    ],
+    "evidence": [
+      "ev-cao-timetable"
+    ]
+  },
+  "applicationSystems": [
+    "ie-cao"
+  ],
+  "evidence": [
+    "ev-cao-timetable",
+    "ev-hea-free-fees"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Dates are the published 2026-entry timetable and are marked provisional; CAO publishes the next cycle in autumn.",
+      "UNRESOLVED: which offer round an IB applicant falls into. Round A on 6 July covers non-standard categories; Round 1 on 26 August follows Leaving Certificate results. Not inferred.",
+      "Not established: the student contribution figure for 2027/28, and non-EU tuition.",
+      "Programme-level records not yet created."
+    ]
+  }
+}

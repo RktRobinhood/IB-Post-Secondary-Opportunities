@@ -125,7 +125,13 @@ function slug(s) {
   return String(s ?? '')
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/ø/gi, 'o').replace(/æ/gi, 'ae').replace(/å/gi, 'aa')
-    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64);
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+    // Trim AFTER truncating as well. Stripping the trailing hyphen first and
+    // then slicing can put one back, which is how a place ended up with the id
+    // "fr-paris-plus-campuses-in-dijon-le-havre-menton-nancy-poitiers-and-" and
+    // failed the id pattern. Long "city" strings listing several campuses are
+    // common enough that this is not a rare edge.
+    .slice(0, 64).replace(/-+$/, '');
 }
 
 async function main() {

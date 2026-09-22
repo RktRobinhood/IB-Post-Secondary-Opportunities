@@ -1,0 +1,118 @@
+{
+  "id": "ie-cao-2027",
+  "destination": "ie",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to Ireland for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "ie-cao",
+  "portalUrl": "https://www.cao.ie/",
+  "choiceLimit": 20,
+  "choicesRanked": true,
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "CAO applications open",
+      "date": "2026-11-05",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Dublin",
+      "consequence": "indicative",
+      "provisional": true,
+      "evidence": [
+        "ev-cao-timetable"
+      ]
+    },
+    {
+      "id": "ms-discount",
+      "type": "fee",
+      "label": "Discounted application fee closes",
+      "date": "2027-01-20",
+      "timeOfDay": "17:00",
+      "timeZone": "Europe/Dublin",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Applying after this costs more. Not a barrier, and a needless cost.",
+      "evidence": [
+        "ev-cao-timetable"
+      ]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "Normal closing date",
+      "date": "2027-02-01",
+      "timeOfDay": "17:00",
+      "timeZone": "Europe/Dublin",
+      "consequence": "hard",
+      "provisional": true,
+      "audience": "any",
+      "note": "Early by European standards. Late applications reopen in March at a higher fee and cannot be used for every course.",
+      "evidence": [
+        "ev-cao-timetable"
+      ]
+    },
+    {
+      "id": "ms-changeofmind-open",
+      "type": "open",
+      "label": "Change of Mind opens",
+      "date": "2027-05-05",
+      "timeOfDay": "12:00",
+      "timeZone": "Europe/Dublin",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Free, and it lets you rewrite the list entirely — which is why the 1 February deadline is less frightening than it looks.",
+      "evidence": [
+        "ev-cao-timetable"
+      ]
+    },
+    {
+      "id": "ms-changeofmind-close",
+      "type": "reply",
+      "label": "Change of Mind closes",
+      "date": "2027-07-01",
+      "timeOfDay": "17:00",
+      "timeZone": "Europe/Dublin",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "The last chance to change what you are applying for, five days before IB results. The list you hold on this date is the list that is scored.",
+      "evidence": [
+        "ev-cao-timetable"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "After Change of Mind has closed. Which CAO offer round an IB applicant falls into is not established — ask CAO directly.",
+      "evidence": []
+    },
+    {
+      "id": "ms-round1",
+      "type": "result",
+      "label": "Round 1 offers",
+      "date": "2027-08-26",
+      "timeOfDay": "14:00",
+      "timeZone": "Europe/Dublin",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Follows Leaving Certificate results in late August. Later rounds fill courses that remain open.",
+      "evidence": [
+        "ev-cao-timetable"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-cao-timetable"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "All dates carried from the published 2026-entry timetable and marked provisional."
+    ]
+  }
+}

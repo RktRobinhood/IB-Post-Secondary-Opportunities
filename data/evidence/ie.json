@@ -1,0 +1,49 @@
+[
+  {
+    "id": "ev-cao-timetable",
+    "sourceUrl": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+    "publisher": "Central Applications Office (CAO)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read against the source page, 2026-09-22. The published timetable is the 2026-entry one; CAO had not published 2027.",
+    "claim": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
+    "excerpt": "5th November 2025 (12:00) CAO online application facility opens. 20th January 2026 (17:00) Apply online by this date to avail of the discounted application fee of €35. 1st February (17:00) Normal closing date for applications. […] 1st May (17:00) Closing date for late applications. 5th May (12:00) Online Change of Mind facility becomes available (Free). […] 1st July (17:00) Change of Mind closes. 6th July (10:00) Round A offers for certain Non-Standard categories of applicants. […] 21st August Current year Leaving Certificate results issued. 26th August (14:00) Round 1 offers.",
+    "interpretation": "Two things an IB applicant needs from this. The 1 February closing date is early by European standards and it is a real one. And Change of Mind — the free window in which an Irish applicant may reorder or replace their entire list — closes on 1 July, five days before IB results. Which offer round an IB applicant falls into is NOT established here: Round A on 6 July covers \"certain Non-Standard categories\" and Round 1 on 26 August follows Irish results. That is the question to put to CAO directly rather than to infer.",
+    "supports": [
+      {
+        "entity": "ie-cao-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  },
+  {
+    "id": "ev-hea-free-fees",
+    "sourceUrl": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
+    "publisher": "Higher Education Authority (HEA)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "automated",
+    "claim": "Eligible EU, EEA, Swiss and UK students on a first undergraduate degree pay no tuition under the Free Fees Initiative, but do pay an annual student contribution.",
+    "interpretation": "\"Free fees\" does not mean free. The student contribution is a separate annual charge that every eligible student pays, and it is the largest predictable cost of an Irish degree after rent. Eligibility also depends on residence history rather than citizenship alone, which is the condition most often missed.",
+    "supports": [
+      {
+        "entity": "ie",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  }
+]
