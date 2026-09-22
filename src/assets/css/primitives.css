@@ -430,3 +430,36 @@
   display: inline-flex; align-items: center; gap: var(--s2);
   font-size: .75rem; color: var(--ink-mute);
 }
+
+/* A place with nothing in the current filter set stays visible but recedes —
+   disappearing markers make the map feel broken rather than filtered. */
+.world__place[data-dim="true"] .world__dot,
+.world__list a[data-dim="true"] {
+  opacity: .28;
+}
+.world__list a[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--ink);
+  background: var(--accent-tint);
+}
+.chip--inline { padding: .1rem .5rem; font-size: .75rem; }
+
+.shell__active button {
+  border: 0;
+  background: none;
+  padding: 0 0 0 .2em;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1em;
+  line-height: 1;
+}
+.shell__active button:hover { color: var(--accent); }
+
+/* The selected place's programmes are marked in the list, so the connection
+   between the two views is visible rather than implied. */
+.prog[data-place][data-focus="true"] {
+  background: var(--accent-tint);
+  margin-inline: calc(var(--s4) * -1);
+  padding-inline: var(--s4);
+  border-radius: var(--radius);
+}

@@ -6,7 +6,7 @@ import {
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
-import { evidenceBlock, preparationPath, STATE } from '../lib/primitives.mjs';
+import { evidenceBlock, preparationPath, filterQuestion, STATE } from '../lib/primitives.mjs';
 
 /* --- A Danish institution -------------------------------------------------- */
 
@@ -355,6 +355,22 @@ export function programmesIndex(site) {
     .map((i) => ({ id: i.id, name: i.shortName || i.name }));
   const campuses = [...new Set(site.programmes.map((p) => p.campus).filter(Boolean))].sort();
 
+  // Places the map can light up, joined to the programmes that sit there.
+  const placeIndex = {};
+  for (const p of site.programmes) {
+    if (!p.placeId) continue;
+    const place = site.graph?.places?.get(p.placeId);
+    if (!place) continue;
+    placeIndex[p.placeId] ||= {
+      id: place.id,
+      name: place.name,
+      lat: place.coordinates.lat,
+      lon: place.coordinates.lon,
+      precision: place.coordinatePrecision,
+      character: place.character || null,
+    };
+  }
+
   const index = site.programmes.map((p) => ({
     id: p.id,
     name: p.name,
@@ -363,9 +379,9 @@ export function programmesIndex(site) {
     institution: p.institutionName,
     field: p.field || 'Other',
     campus: p.campus || '',
+    placeId: p.placeId || '',
     degree: p.degree || '',
     ects: p.ects || null,
-    years: p.years || null,
     restricted: !!p.restrictedAdmission,
     cutoff: p.quota1Cutoff?.gpa || null,
     summary: truncate(p.summary || '', 170),
@@ -379,31 +395,40 @@ ${hero({
   variant: 'plain',
   eyebrow: 'Denmark',
   title: 'Every English-taught programme',
-  lede: `${plural(site.programmes.length, 'undergraduate degree')} you can take in English in Denmark, with the exact subjects each one requires.`,
+  lede: `${plural(site.programmes.length, 'undergraduate degree')} you can take in English in Denmark. Filter them, or follow the map — both show the same set.`,
 })}
 
-<section class="section">
+<section class="section section--tight">
   <div class="wrap wrap--wide">
     ${crumbs([{ href: '/denmark/', label: 'Denmark' }, { label: 'Programmes' }])}
 
+    <div id="prog-map"></div>
+    <noscript>${STATE.noMap()}</noscript>
+
     <form class="filters" id="prog-filters" role="search" aria-label="Filter programmes">
       <div class="filters__row">
-        <div class="field">
-          <label for="f-q">Search</label>
-          <input type="search" id="f-q" placeholder="engineering, Odense, data…" autocomplete="off">
+        <div class="field filter-q" data-field="q">
+          <label for="f-q">Search for anything</label>
+          <input type="search" id="f-q" data-filter="q" placeholder="engineering, Odense, data…" autocomplete="off">
         </div>
-        <div class="field">
-          <label for="f-field">Field</label>
-          <select id="f-field"><option value="">Any field</option>${fields.map((f) => html`<option>${f}</option>`)}</select>
-        </div>
-        <div class="field">
-          <label for="f-inst">Institution</label>
-          <select id="f-inst"><option value="">Any institution</option>${institutions.map((i) => html`<option value="${i.id}">${i.name}</option>`)}</select>
-        </div>
-        <div class="field">
-          <label for="f-campus">City or campus</label>
-          <select id="f-campus"><option value="">Anywhere</option>${campuses.map((c) => html`<option>${c}</option>`)}</select>
-        </div>
+        ${filterQuestion({
+          id: 'f-field',
+          question: 'What do you want to study?',
+          field: 'field',
+          options: fields.map((f) => ({ value: f, label: f })),
+        })}
+        ${filterQuestion({
+          id: 'f-inst',
+          question: 'Anywhere in particular?',
+          field: 'inst',
+          options: institutions.map((i) => ({ value: i.id, label: i.name })),
+        })}
+        ${filterQuestion({
+          id: 'f-campus',
+          question: 'Which city?',
+          field: 'campus',
+          options: campuses.map((c) => ({ value: c, label: c })),
+        })}
       </div>
       <div class="chips">
         <button type="button" class="chip" id="f-open" aria-pressed="false">Open admission only</button>
@@ -412,7 +437,11 @@ ${hero({
       </div>
     </form>
 
-    <p class="result-count" id="prog-count" role="status" aria-live="polite"></p>
+    <div class="shell__bar">
+      <p class="result-count" id="prog-count" role="status" aria-live="polite" style="margin:0"></p>
+      <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
+    </div>
+
     <ul class="prog-list" id="prog-results"></ul>
     <noscript>
       <p class="empty">Filtering needs JavaScript. Every programme is also listed on its institution's page —
@@ -421,7 +450,8 @@ ${hero({
   </div>
 </section>
 
-<script type="application/json" id="programme-data">${raw(JSON.stringify(index))}</script>`;
+<script type="application/json" id="programme-data">${raw(JSON.stringify(index))}</script>
+<script type="application/json" id="place-data">${raw(JSON.stringify(placeIndex))}</script>`;
 
   return page({
     title: 'Find a degree in Denmark',
