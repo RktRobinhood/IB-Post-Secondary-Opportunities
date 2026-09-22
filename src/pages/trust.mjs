@@ -40,22 +40,23 @@ ${hero({
         <p class="lede">Tell us. A wrong deadline can cost a student a year, and the people most likely to
         spot one are the people using the site.</p>
 
-        ${cfg.corrections.contactEmail
-          ? html`<p><strong>Email <a href="mailto:${cfg.corrections.contactEmail}">${cfg.corrections.contactEmail}</a></strong> —
-              no account needed. Say which page, what looks wrong, and a link to the official page if you have one.</p>`
-          : note(
-              `**No email address has been set yet**, so the only reporting route right now is GitHub, which needs
-              a free account. That is a gap, it is recorded as one, and the release checklist fails until a
-              monitored address is added. In the meantime: ${cfg.corrections.counsellorRoute}`,
-              { kind: 'warn', title: 'An honest gap' }
-            )}
+        <p><strong><a href="${cfg.corrections.issuesUrl}" rel="noopener">Open an issue on the repository</a></strong>
+        — that is the reporting route, and it is a deliberate choice rather than a default. An issue is public,
+        so you can see it was received; threaded, so a question about it has somewhere to go; and linked to the
+        commit that fixes it, so you can check the fix rather than take our word for it. An inbox is none of
+        those things.</p>
 
-        <p>You can also
-        <a href="${cfg.corrections.issuesUrl}" rel="noopener">open an issue on the repository</a>, which needs a
-        free GitHub account. ${cfg.corrections.counsellorRoute}</p>
+        <p>It needs a free GitHub account, which is the real cost of that choice. If you do not have one and do
+        not want one: ${cfg.corrections.counsellorRoute}</p>
+
+        ${cfg.corrections.contactEmail
+          ? html`<p>You can also email
+              <a href="mailto:${cfg.corrections.contactEmail}">${cfg.corrections.contactEmail}</a>.</p>`
+          : ''}
 
         <p>Useful things to include, none of them required: the page, what looks wrong, the official page that
-        says otherwise, and the intake you are applying for. Please do not send anything about yourself.</p>
+        says otherwise, and the intake you are applying for. Please do not put anything about yourself in an
+        issue — it is public, and nothing about you is needed to fix a wrong deadline.</p>
 
         <h3>What happens then</h3>
         ${dataTable({

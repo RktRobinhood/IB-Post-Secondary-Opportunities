@@ -43,12 +43,19 @@ async function main() {
   else block('No target intake in the export', 'A student cannot tell which admission year this describes.');
 
   /* --- Corrections can be reported without an account ---------------------- */
-  if (cfg?.corrections?.contactEmail) {
+  const route = cfg?.corrections?.route;
+  if (route === 'github' && cfg?.corrections?.issuesUrl) {
+    ok('Corrections route declared: public issue tracker');
+    advise(
+      'Reporting a mistake needs a free GitHub account',
+      'A deliberate choice — an issue is public, threaded and linked to its fix. The counsellor route covers students who do not want an account, and the trust page says so plainly.'
+    );
+  } else if (cfg?.corrections?.contactEmail) {
     ok('A correction address exists that does not require an account');
   } else {
     block(
-      'No correction address',
-      'Reporting a wrong deadline currently requires a GitHub account. Set corrections.contactEmail in data/site-config.json to a monitored school address.'
+      'No corrections route',
+      'Set corrections.route in data/site-config.json, with either a monitored address or a public issue tracker.'
     );
   }
   if (cfg?.corrections?.issuesUrl) ok('A public issue tracker is linked');
