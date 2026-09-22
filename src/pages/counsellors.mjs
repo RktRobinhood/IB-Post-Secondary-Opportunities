@@ -29,7 +29,7 @@ export function counsellors(site) {
     countries.find((c) => c.code === code)?.name ||
     code;
   const deepCountries = [...new Set(opportunities.map((o) => o.destination))].map(nameFor).sort();
-  const researched = destinations.filter((d) => d.sectorLandscape).map((d) => d.name);
+  const researched = destinations.filter((d) => d.sectorLandscape).map((d) => d.name).sort();
   const instCount =
     (site.dkInstitutions?.length || 0) + countries.reduce((n, c) => n + (c.institutions?.length || 0), 0);
 
