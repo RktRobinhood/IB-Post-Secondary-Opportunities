@@ -83,7 +83,18 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
         external ? raw(' rel="noopener"') : ''
       }>${title}</a></h3>
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
-      ${tags ? html`<ul class="tags">${tags.map((t) => html`<li class="tag">${t}</li>`)}</ul>` : ''}
+      ${tags?.length
+        ? html`<ul class="tags">${tags.map((t) =>
+            // A tag may be a plain string, or {label, mod} where the modifier
+            // separates a claim about our coverage from a description of the
+            // place. Two identical pills, one saying "we researched this" and
+            // one saying "few courses in English", read as the same kind of
+            // thing and are not.
+            typeof t === 'string'
+              ? html`<li class="tag">${t}</li>`
+              : html`<li class="tag tag--${t.mod || 'brand'}">${t.label}</li>`
+          )}</ul>`
+        : ''}
       ${meta?.length ? html`<div class="card__foot">${meta.map((m) => html`<span>${m}</span>`)}</div>` : ''}
     </div>
   </article>`;

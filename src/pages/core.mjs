@@ -187,6 +187,17 @@ function countryCard(site, c) {
   if (eu) meta.push(truncate(eu.value, 42));
   if (c.institutions.length) meta.push(plural(c.institutions.length, 'institution'));
 
+  // Coverage here is uneven and looks uniform, which is the worst combination.
+  // A country researched to the point of having its sector, its deadlines and
+  // its application system recorded sits beside one that has a profile and some
+  // links, and nothing on the card says which is which. So it says which.
+  const canonical = site.graph?.destinations?.get(c.code);
+  const depth = canonical?.sectorLandscape
+    ? [...(site.graph.opportunities?.values() || [])].some((o) => o.destination === c.code)
+      ? 'Programmes recorded'
+      : 'Researched in depth'
+    : null;
+
   return card({
     href: c.href,
     title: c.name,
@@ -194,7 +205,10 @@ function countryCard(site, c) {
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     flag: c.flag,
     meta,
-    tags: englishOffer ? [truncate(englishOffer, 36)] : null,
+    tags: [
+      depth ? { label: depth, mod: 'brand' } : null,
+      englishOffer ? truncate(englishOffer, 36) : null,
+    ].filter(Boolean),
   });
 }
 
