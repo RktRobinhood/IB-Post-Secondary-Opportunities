@@ -100,12 +100,15 @@ npm test             # validate, run the eligibility scenarios, build, check
 | Command | What it does |
 | --- | --- |
 | `npm run validate` | Records against schemas, and every cross-reference. Fails with the file and the field. |
-| `npm run test:eligibility` | 45 scenarios against the eligibility engine. |
+| `npm run test:eligibility` | 49 scenarios against the eligibility engine. |
+| `npm run test:probes` | Guards on the source-matching logic, including the negative cases. |
 | `npm run check` | The built site: structure, internal links, images, accessibility basics. |
 | `npm run check:links` | The above, plus every outbound link. |
 | `npm run freshness` | What can no longer be trusted, and why. |
 | `npm run rollover` | Every date-bound claim needing re-verification for the next intake. |
 | `npm run watch:sources` | Which source pages have changed since they were last read. |
+| `npm run verify` | Re-read every cited source and report whether it still carries the claim. |
+| `npm run verify:write` | The same, recording the finding and the supporting quotation on each record. |
 | `npm run migrate:dk` | Regenerate the Danish entity records from `data/dk/`. |
 | `npm run images` | Find and self-host a freely licensed photograph per institution. |
 | `npm run images:official` | Collect each institution's own Open Graph image to link to. |
@@ -181,9 +184,17 @@ are different things, computed separately. Historical cut-offs are shown as
 context and explicitly labelled *not a prediction*.
 
 **Automation discovers; people verify.** `watch-sources.mjs` can tell you a page
-changed and which claims rest on it. It cannot edit a requirement or mark
-anything verified. A machine signing off an admissions rule is the one failure
-this product cannot afford.
+changed and which claims rest on it. `verify-evidence.mjs` can re-read every
+cited source and quote the supporting sentence onto the record. Neither can edit
+a requirement or mark anything verified. A machine signing off an admissions
+rule is the one failure this product cannot afford.
+
+The distinction is not pedantry. An automated check confirms that "Matematik A"
+is still printed on the page it came from; it cannot notice that the page now
+means something different by it. So the two are reported as separate numbers and
+never merged — currently **7 records signed off by a person, 99 with their source
+re-read**, and the site says so on `/trust/` rather than quoting the flattering
+one.
 
 **Conflicts are never resolved to the permissive claim.** Both are kept, linked,
 and the public result is held back.
