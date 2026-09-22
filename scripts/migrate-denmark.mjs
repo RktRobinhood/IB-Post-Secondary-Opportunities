@@ -44,6 +44,22 @@ const PLACES = {
   'vejle': { name: 'Vejle', lat: 55.709, lon: 9.5357 },
   'slagelse': { name: 'Slagelse', lat: 55.4028, lon: 11.354 },
   'horsens': { name: 'Horsens', lat: 55.8607, lon: 9.8503 },
+  'foulum': { name: 'Foulum', lat: 56.4939, lon: 9.5686 },
+};
+
+/* Campus names that are really a district of a city we already know. UCPH's
+   four campuses are all in Copenhagen; naming them separately on a map would
+   imply a precision we do not have. */
+const CAMPUS_ALIASES = {
+  'city-campus': 'copenhagen',
+  'north-campus': 'copenhagen',
+  'south-campus': 'copenhagen',
+  'frederiksberg-campus': 'frederiksberg',
+  'lyngby-campus': 'kongens-lyngby',
+  'campus-horsens': 'horsens',
+  'aarhus-c': 'aarhus',
+  'aarhus-n': 'aarhus',
+  'aarhus-v': 'aarhus',
 };
 
 const CITY_CHARACTER = {
@@ -74,6 +90,7 @@ function slug(s) {
 
 function placeIdFor(campus, fallbackCity) {
   const s = slug(campus || fallbackCity || '');
+  if (CAMPUS_ALIASES[s]) return `dk-${CAMPUS_ALIASES[s]}`;
   if (PLACES[s]) return `dk-${s}`;
   // "Campus Horsens", "Lyngby Campus", "Aarhus C" and similar.
   for (const key of Object.keys(PLACES)) {
@@ -235,6 +252,85 @@ function classifyExtra(text) {
   return { as: 'note' };
 }
 
+/**
+ * Programme and Opportunity ids, resolved against every programme at an
+ * institution rather than one at a time.
+ *
+ * Two real cases turned up in the Danish data and they resolve differently:
+ *   - SDU teaches Software Engineering in both Vejle and Sønderborg. That is
+ *     ONE Programme with TWO Opportunities, so the campus belongs in the
+ *     Opportunity id, not the Programme id.
+ *   - SDU teaches Mechatronics as both a BSc and a BEng. Those are genuinely
+ *     TWO Programmes, so the credential belongs in the Programme id.
+ *
+ * Without this, one silently overwrote the other on disk.
+ */
+function assignIds(instId, programmes) {
+  const byName = new Map();
+  for (const p of programmes) {
+    const key = slug(p.name);
+    if (!byName.has(key)) byName.set(key, []);
+    byName.get(key).push(p);
+  }
+
+  const assigned = new Map();
+  for (const [nameSlug, group] of byName) {
+    const degrees = new Set(group.map((p) => degreeToken(p.degree)));
+    const splitByDegree = group.length > 1 && degrees.size > 1;
+
+    for (const [i, p] of group.entries()) {
+      const progId = splitByDegree
+        ? `${instId}-${nameSlug}-${degreeToken(p.degree)}`
+        : group.length > 1 && !splitByDegree && !p.campus
+          ? `${instId}-${nameSlug}-${i + 1}`
+          : `${instId}-${nameSlug}`;
+
+      // Distinguish opportunities of the same programme by campus.
+      const needsCampus = group.length > 1 && !splitByDegree && !!p.campus;
+      const oppId = needsCampus
+        ? `${progId}-${slug(p.campus)}-${INTAKE}`
+        : `${progId}-${INTAKE}`;
+
+      assigned.set(p, { progId, oppId });
+    }
+  }
+
+  /* Whatever the heuristics decided, two records must never share an id — one
+     would silently overwrite the other on disk. Suffix any remaining duplicate
+     in a stable order so re-running produces the same result. */
+  const usedProg = new Map();
+  const usedOpp = new Set();
+  for (const p of programmes) {
+    const entry = assigned.get(p);
+    if (usedProg.has(entry.progId) && usedProg.get(entry.progId) !== p) {
+      let n = 2;
+      while (usedProg.has(`${entry.progId}-${n}`)) n++;
+      entry.progId = `${entry.progId}-${n}`;
+      entry.oppId = `${entry.progId}-${INTAKE}`;
+    }
+    usedProg.set(entry.progId, p);
+
+    if (usedOpp.has(entry.oppId)) {
+      let n = 2;
+      while (usedOpp.has(`${entry.progId}-${n}-${INTAKE}`)) n++;
+      entry.oppId = `${entry.progId}-${n}-${INTAKE}`;
+    }
+    usedOpp.add(entry.oppId);
+  }
+
+  return assigned;
+}
+
+function degreeToken(degree) {
+  const d = String(degree || '').toLowerCase();
+  if (/diplomingeni|beng|bachelor of engineering/.test(d)) return 'beng';
+  if (/bsc|bachelor of science/.test(d)) return 'bsc';
+  if (/ba|bachelor of arts/.test(d)) return 'ba';
+  if (/academy profession/.test(d)) return 'ap';
+  if (/top-?up/.test(d)) return 'topup';
+  return 'bachelor';
+}
+
 /* --- main ------------------------------------------------------------------ */
 
 async function main() {
@@ -332,9 +428,9 @@ async function main() {
     });
 
     /* Programmes and Opportunities */
+    const idMap = assignIds(instId, inst.programmes || []);
     for (const p of inst.programmes || []) {
-      const progId = `${instId}-${slug(p.name)}`;
-      const oppId = `${progId}-${INTAKE}`;
+      const { progId, oppId } = idMap.get(p);
       const placeId = placeIdFor(p.campus, inst.city);
       if (placeId) usedPlaces.add(placeId);
       else if (p.campus) warnings.push(`${file}: programme "${p.name}" has unknown campus "${p.campus}"`);

@@ -1,0 +1,223 @@
+{
+  "id": "dk-au-economics-and-business-administration-2027-autumn",
+  "programme": "dk-au-economics-and-business-administration",
+  "institution": "dk-au",
+  "destination": "dk",
+  "place": "dk-aarhus",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Converted-GPA floor of 6.0 to be assessed in quota 1.",
+        "evidence": [
+          "ev-bachelor-au-dk-w0tjrz"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "Quota 2 subjects: English B, Mathematics B, and History B or History of Ideas B or Social Studies B or Contemporary History B or International Economics B.",
+        "evidence": [
+          "ev-bachelor-au-dk-w0tjrz"
+        ]
+      }
+    ],
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "9.2",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-bachelor-au-dk-w0tjrz"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-w0tjrz"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at B level",
+      "subject": "Mathematics",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-w0tjrz"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 5 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History at B level",
+            "subject": "History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-w0tjrz"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History of Ideas at B level",
+            "subject": "History of Ideas",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-w0tjrz"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Social Studies at B level",
+            "subject": "Social Studies",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-w0tjrz"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-w0tjrz"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt5-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "International Economics at B level",
+            "subject": "International Economics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-w0tjrz"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-w0tjrz"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics B. History B or History of Ideas B or Social Studies B or Contemporary History B or International Economics B. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-bachelor-au-dk-w0tjrz"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-bachelor-au-dk-w0tjrz"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-bachelor-au-dk-w0tjrz"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Standby cut-off 2026: 8.6.",
+      "Admission area number on optagelse.dk: 22615.",
+      "Non-EU tuition at institution level: Academic year 2026/2027, per year (60 ECTS): EUR 13,000 for Cognitive Science and for Economics and Business Administration in both Aarhus and Herning; EUR 17,300 for Computer Science, Data Science and IT Product Development. Application fee EUR 150 (DKK 1,125) per applicant, payable by 15 March and refunded only if you enrol and are still enrolled on 1 October. AU states: \"Aarhus University does not offer scholarships for any of our Bachelor's degree programmes.\" EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}

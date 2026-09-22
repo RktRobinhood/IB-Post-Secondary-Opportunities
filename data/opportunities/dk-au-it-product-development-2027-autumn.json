@@ -1,0 +1,126 @@
+{
+  "id": "dk-au-it-product-development-2027-autumn",
+  "programme": "dk-au-it-product-development",
+  "institution": "dk-au",
+  "destination": "dk",
+  "place": "dk-aarhus",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Overall converted GPA of 6.0 and a grade of at least 6.0 in Mathematics A to be assessed in quota 1.",
+        "evidence": [
+          "ev-bachelor-au-dk-12s3rs2"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "Standby cut-off 2026: 6.9 — far below the quota 1 cut-off of 10.1, so ticking standby is worth doing here.",
+        "evidence": [
+          "ev-bachelor-au-dk-12s3rs2"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "Quota 2 subjects: English B and Mathematics A.",
+        "evidence": [
+          "ev-bachelor-au-dk-12s3rs2"
+        ]
+      }
+    ],
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "10.1",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-bachelor-au-dk-12s3rs2"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-12s3rs2"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at A level, minimum grade 6",
+      "subject": "Mathematics",
+      "level": "A",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-12s3rs2"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics A. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 and a minimum GPA of 6.0 in Mathematics A on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-bachelor-au-dk-12s3rs2"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-bachelor-au-dk-12s3rs2"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-bachelor-au-dk-12s3rs2"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Admission area number on optagelse.dk: 22128.",
+      "AU advises Danish applicants to also apply for the Danish-taught It-Produktudvikling.",
+      "Non-EU tuition at institution level: Academic year 2026/2027, per year (60 ECTS): EUR 13,000 for Cognitive Science and for Economics and Business Administration in both Aarhus and Herning; EUR 17,300 for Computer Science, Data Science and IT Product Development. Application fee EUR 150 (DKK 1,125) per applicant, payable by 15 March and refunded only if you enrol and are still enrolled on 1 October. AU states: \"Aarhus University does not offer scholarships for any of our Bachelor's degree programmes.\" EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}

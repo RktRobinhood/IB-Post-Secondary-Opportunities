@@ -1,0 +1,205 @@
+{
+  "id": "dk-au-cognitive-science-2027-autumn",
+  "programme": "dk-au-cognitive-science",
+  "institution": "dk-au",
+  "destination": "dk",
+  "place": "dk-aarhus",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Converted-GPA floor of 6.0 to be assessed in quota 1 at all.",
+        "evidence": [
+          "ev-bachelor-au-dk-gzxj8x"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "Quota 2 subjects (the ones whose grades form your quota 2 average): English B, Mathematics B, and History B or History of Ideas B or Social Studies B or Contemporary History B.",
+        "evidence": [
+          "ev-bachelor-au-dk-gzxj8x"
+        ]
+      }
+    ],
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "10.7",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-bachelor-au-dk-gzxj8x"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-gzxj8x"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at B level",
+      "subject": "Mathematics",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-gzxj8x"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 4 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History at B level",
+            "subject": "History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-gzxj8x"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History of Ideas at B level",
+            "subject": "History of Ideas",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-gzxj8x"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Social Studies at B level",
+            "subject": "Social Studies",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-gzxj8x"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-bachelor-au-dk-gzxj8x"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-gzxj8x"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics B. History B or History of Ideas B or Social Studies B or Contemporary History B. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-bachelor-au-dk-gzxj8x"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-bachelor-au-dk-gzxj8x"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-bachelor-au-dk-gzxj8x"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Standby cut-off 2026: 10.5.",
+      "Admission area number on optagelse.dk: 22419. Teaching starts in week 35.",
+      "Non-EU tuition at institution level: Academic year 2026/2027, per year (60 ECTS): EUR 13,000 for Cognitive Science and for Economics and Business Administration in both Aarhus and Herning; EUR 17,300 for Computer Science, Data Science and IT Product Development. Application fee EUR 150 (DKK 1,125) per applicant, payable by 15 March and refunded only if you enrol and are still enrolled on 1 October. AU states: \"Aarhus University does not offer scholarships for any of our Bachelor's degree programmes.\" EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}

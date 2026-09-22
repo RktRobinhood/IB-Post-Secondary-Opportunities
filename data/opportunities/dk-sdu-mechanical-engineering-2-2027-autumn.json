@@ -1,0 +1,261 @@
+{
+  "id": "dk-sdu-mechanical-engineering-2-2027-autumn",
+  "programme": "dk-sdu-mechanical-engineering-2",
+  "institution": "dk-sdu",
+  "destination": "dk",
+  "place": "dk-sonderborg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Quota 1 GPA floor of 5.0 on the Danish scale.",
+        "evidence": [
+          "ev-sdu-dk-1y1logc"
+        ]
+      }
+    ],
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "All qualified applicants accepted",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-sdu-dk-1y1logc"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-1y1logc"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at A level",
+      "subject": "Mathematics",
+      "level": "A",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-1y1logc"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 4 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          },
+          {
+            "id": "req-alt1-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Chemistry at C level",
+            "subject": "Chemistry",
+            "level": "C",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          },
+          {
+            "id": "req-alt2-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Biotechnology at A level",
+            "subject": "Biotechnology",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Geoscience at A level",
+            "subject": "Geoscience",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          },
+          {
+            "id": "req-alt3-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Chemistry at C level",
+            "subject": "Chemistry",
+            "level": "C",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Geoscience at A level",
+            "subject": "Geoscience",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          },
+          {
+            "id": "req-alt4-2",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Biotechnology at A level",
+            "subject": "Biotechnology",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-1y1logc"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-1y1logc"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "In addition you must have passed: English level B. Mathematics level A. And one of: Physics level B and Chemistry level C; Physics level B and Biotechnology level A; Geoscience level A and Chemistry level C; Geoscience level A and Biotechnology level A.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-sdu-dk-1y1logc"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-sdu-dk-1y1logc"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-sdu-dk-1y1logc"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "65 expected places; 51 admitted in 2026.",
+      "Non-EU tuition at institution level: Set per programme and paid a full year in advance: EUR 17,300 per year for the engineering and IT programmes (Artificial Intelligence, Computer Science, Electronics, Engineering Innovation and Business, Interactive Technology Engineering, Mechanical, Mechatronics, Software Engineering, and the three BEng programmes) and EUR 15,000 per year for European Studies, Economics and Business Administration (Sønderborg) and Market and Management Anthropology. Application fee EUR 200 per applicant regardless of how many programmes you apply for. EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}

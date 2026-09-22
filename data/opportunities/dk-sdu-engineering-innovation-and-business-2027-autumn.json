@@ -1,0 +1,161 @@
+{
+  "id": "dk-sdu-engineering-innovation-and-business-2027-autumn",
+  "programme": "dk-sdu-engineering-innovation-and-business",
+  "institution": "dk-sdu",
+  "destination": "dk",
+  "place": "dk-sonderborg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Quota 1 GPA floor of 7.0 on the Danish scale.",
+        "evidence": [
+          "ev-sdu-dk-3s8yw7"
+        ]
+      }
+    ],
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "All qualified applicants accepted",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-sdu-dk-3s8yw7"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-3s8yw7"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at A level",
+      "subject": "Mathematics",
+      "level": "A",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-3s8yw7"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 2 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-3s8yw7"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Geoscience at A level",
+            "subject": "Geoscience",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-3s8yw7"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-3s8yw7"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "In addition you must have passed: English level B. Mathematics level A. Physics level B or Geoscience level A. Course levels refer to the Danish high school system: A is advanced, B is intermediate, and C is beginner level.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-sdu-dk-3s8yw7"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-sdu-dk-3s8yw7"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-sdu-dk-3s8yw7"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "65 expected places; 58 admitted in 2026.",
+      "Non-EU tuition at institution level: Set per programme and paid a full year in advance: EUR 17,300 per year for the engineering and IT programmes (Artificial Intelligence, Computer Science, Electronics, Engineering Innovation and Business, Interactive Technology Engineering, Mechanical, Mechatronics, Software Engineering, and the three BEng programmes) and EUR 15,000 per year for European Studies, Economics and Business Administration (Sønderborg) and Market and Management Anthropology. Application fee EUR 200 per applicant regardless of how many programmes you apply for. EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}

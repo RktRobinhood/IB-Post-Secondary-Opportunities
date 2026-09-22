@@ -1,0 +1,198 @@
+{
+  "id": "dk-sdu-market-and-management-anthropology-2027-autumn",
+  "programme": "dk-sdu-market-and-management-anthropology",
+  "institution": "dk-sdu",
+  "destination": "dk",
+  "place": "dk-odense",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Quota 1 GPA floor of 7.0 on the Danish scale.",
+        "evidence": [
+          "ev-sdu-dk-utuhqy"
+        ]
+      }
+    ],
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "8.7",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-sdu-dk-utuhqy"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-all-1",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-utuhqy"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at B level",
+      "subject": "Mathematics",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-utuhqy"
+      ]
+    },
+    {
+      "id": "req-oneof",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "One of 4 accepted subject combinations",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History at B level",
+            "subject": "History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-utuhqy"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Social Studies at B level",
+            "subject": "Social Studies",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-utuhqy"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History of Ideas at B level",
+            "subject": "History of Ideas",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-utuhqy"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-sdu-dk-utuhqy"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-utuhqy"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "In addition you must have passed: English level B. Mathematics level B. History level B or Social Sciences level B or History of Ideas level B or Contemporary History level B.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-sdu-dk-utuhqy"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-sdu-dk-utuhqy"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-sdu-dk-utuhqy"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Compulsory fieldwork abroad in a country of your choice.",
+      "40 expected places; 48 admitted in 2026. It has the highest 2026 cut-off of any SDU English-taught bachelor's degree.",
+      "Non-EU tuition at institution level: Set per programme and paid a full year in advance: EUR 17,300 per year for the engineering and IT programmes (Artificial Intelligence, Computer Science, Electronics, Engineering Innovation and Business, Interactive Technology Engineering, Mechanical, Mechatronics, Software Engineering, and the three BEng programmes) and EUR 15,000 per year for European Studies, Economics and Business Administration (Sønderborg) and Market and Management Anthropology. Application fee EUR 200 per applicant regardless of how many programmes you apply for. EU/EEA and Swiss citizens pay nothing."
+    ]
+  }
+}
