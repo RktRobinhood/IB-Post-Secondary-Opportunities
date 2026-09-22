@@ -51,6 +51,56 @@
     },
     "verificationState": { "$ref": "common.schema.json#/$defs/verificationState" },
     "verifiedBy": { "type": "string", "description": "Who confirmed it. 'automated' is allowed, but not for a consequential rule." },
+    "role": {
+      "enum": ["claim", "reference"],
+      "description": "'claim' (the default) backs a specific published statement. 'reference' is a page consulted while building a record — an admissions hub, a key-figures report — which has no single sentence to match. A reference is still checked: it must stay live and stay about the same institution. The distinction exists so that citing background reading does not require inventing a claim to justify it."
+    },
+    "sourceCheck": {
+      "type": "object",
+      "description": "The result of re-opening the source and looking for the claim. NOT sign-off: this is produced by scripts/verify-evidence.mjs, and verificationState only becomes 'verified' when a person reads the excerpt and agrees. Its value is that it puts the supporting wording next to the claim, which turns review from a research task into a reading task.",
+      "required": ["checkedAt", "outcome"],
+      "properties": {
+        "checkedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "outcome": {
+          "enum": ["supported", "partial", "unsupported"],
+          "description": "supported: every consequential part was found. partial: some was, or the source cannot be read automatically. unsupported: nothing was found, or the page is gone."
+        },
+        "reason": { "type": "string" },
+        "method": { "type": "string" },
+        "excerpt": { "type": "string", "maxLength": 1200 },
+        "claims": {
+          "type": "array",
+          "description": "One entry per claim this record backs, since a single page often supports several.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": { "type": "string" },
+              "entity": { "type": "string" },
+              "decisive": { "type": "boolean", "description": "Whether this claim sets the record's outcome. Entry requirements do; a paraphrased description does not." },
+              "outcome": { "enum": ["supported", "partial", "unsupported"] },
+              "reason": { "type": "string" },
+              "excerpt": { "type": ["string", "null"], "maxLength": 1200 },
+              "details": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "requirement": { "type": "string" },
+                    "role": { "enum": ["required", "one-of", "informational"] },
+                    "found": { "type": "boolean" },
+                    "matched": { "type": ["string", "null"] },
+                    "weak": { "type": "boolean", "description": "Matched across a table layout rather than in a single phrase, so the excerpt is worth a closer read." }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "conflictsWith": {
       "type": "array",
       "items": { "$ref": "common.schema.json#/$defs/evidenceRef" },

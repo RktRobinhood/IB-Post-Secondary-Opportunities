@@ -91,6 +91,38 @@ async function main() {
     block(`${unsourcedRequirements} mandatory requirement(s) with no source`, 'Entry requirements decide whether a student can apply at all.');
   } else ok('Every mandatory entry requirement has a source');
 
+  /* --- Notes masquerading as requirements ---------------------------------- */
+  //
+  // A note filed as a mandatory requirement is silent and expensive. The engine
+  // cannot evaluate prose, so it returns "unknown", and a student who meets
+  // every actual condition is shown "Needs review" instead of "Meets". It
+  // happened twice: once with capacity facts ("24 study places in 2026") and
+  // once with an explanatory paragraph about grade conversion on CBS. Both read
+  // perfectly well on the page, which is exactly why nobody spots them.
+  //
+  // The tell is shape, not content: a requirement is a label, a note is prose.
+  let proseRequirements = [];
+  for (const f of await listJson(path.join(DATA, 'opportunities'))) {
+    const o = await readJson(path.join(DATA, 'opportunities', f));
+    const walk = (rules) => {
+      for (const r of rules || []) {
+        const label = r.label || '';
+        const readsLikeProse = label.length > 120 || /\.\s+[A-Z]/.test(label);
+        if (r.mandatory !== false && readsLikeProse) {
+          proseRequirements.push(`${o.id}: "${label.slice(0, 70)}…"`);
+        }
+        for (const alt of r.alternatives || []) walk(alt);
+      }
+    };
+    walk(o.requirements);
+  }
+  if (proseRequirements.length) {
+    block(
+      `${proseRequirements.length} requirement(s) look like notes, not conditions`,
+      `The engine cannot evaluate prose, so these silently downgrade a qualifying student to "Needs review". Move the text to the requirement's note field. First: ${proseRequirements[0]}`
+    );
+  } else ok('No explanatory notes are filed as mandatory requirements');
+
   /* --- Provisional dates are marked, not disguised ------------------------- */
   let provisional = 0;
   let undatedMilestones = 0;

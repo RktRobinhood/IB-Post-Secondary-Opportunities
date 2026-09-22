@@ -8,11 +8,20 @@
     "appliesToIntake": "2027-autumn",
     "excerpt": "Elever med et IB Diploma med 24 point eller mere kan søge ind på alle videregående uddannelser i Danmark, forudsat at de opfylder eventuelle specifikke adgangskrav.",
     "claim": "An IB Diploma of 24 points or more gives access to every higher education programme in Denmark, subject to programme-specific requirements.",
-    "supports": [{ "entity": "dk", "field": "ibRecognition.minimumPoints" }],
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "ibRecognition.minimumPoints"
+      }
+    ],
     "verificationState": "verified",
     "verifiedBy": "manual",
     "interpretation": "Select 'International Baccalaureate' in the country/examination dropdown. The page was last edited 2026-01-07. Note the Agency is explicit that a full Diploma need not contain a grade of 3 in every subject — a 2 may appear where the IB's own conditions for awarding the Diploma were met. Several Danish university pages state the stricter rule; that rule applies to DP Course Results, not to a Diploma.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-03-01" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-03-01"
+    }
   },
   {
     "id": "ev-ufsn-ib-karakterer",
@@ -24,13 +33,23 @@
     "excerpt": "Omregningsskalaen for det aktuelle års sommeroptag vil være tilgængelig senest 1. marts det pågældende år og være gældende frem til udgangen af februar året efter.",
     "claim": "IB total points convert to the Danish 7-point grade average via a table re-issued annually and published by 1 March for that summer's intake.",
     "supports": [
-      { "entity": "dk", "field": "ibRecognition.conversionTable" },
-      { "entity": "dk", "field": "ibRecognition.gradeConversion" }
+      {
+        "entity": "dk",
+        "field": "ibRecognition.conversionTable"
+      },
+      {
+        "entity": "dk",
+        "field": "ibRecognition.gradeConversion"
+      }
     ],
     "verificationState": "verified",
     "verifiedBy": "manual",
     "interpretation": "The table recorded here is labelled 'Statistisk omregning 2026' and the page was last edited 2026-01-23. It applies to graduates up to and including 2019 and from 2023 onwards, which includes the May 2027 session. Because a fresh table appears by 1 March 2027, this record must be re-verified then and is provisional until it is.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-03-01" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-03-01"
+    }
   },
   {
     "id": "ev-ufsn-ib-fagniveauer",
@@ -41,11 +60,20 @@
     "appliesToIntake": "2027-autumn",
     "excerpt": "Fagniveauvurderingerne er udarbejdet af Børne- og Undervisningsministeriet, Afdelingen for Gymnasiale Uddannelser.",
     "claim": "The official mapping of IB subjects and levels onto Danish A, B and C levels, including both post-2019 mathematics courses.",
-    "supports": [{ "entity": "dk", "field": "ibRecognition.subjectLevelRule" }],
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "ibRecognition.subjectLevelRule"
+      }
+    ],
     "verificationState": "verified",
     "verifiedBy": "manual",
     "interpretation": "This is the table the university pages defer to but do not reproduce. It is the only source found that covers Mathematics: Analysis and Approaches and Applications and Interpretation — both HL map to Mathematics A, both SL to Mathematics B. It also states plainly that Global Politics has no fixed equivalence and is decided institution by institution.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-06-01" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-06-01"
+    }
   },
   {
     "id": "ev-ufsn-adgang-frister",
@@ -57,13 +85,107 @@
     "excerpt": "15 March at 12 noon (CET) applies to applicants with an international upper secondary education including International Baccalaureate (IB) – irrespective of whether the diploma is from a school in Denmark or outside Denmark.",
     "claim": "IB applicants must apply by 15 March at 12:00 noon CET, whether applying in quota 1 or quota 2, and whether the IB was taken in Denmark or abroad.",
     "supports": [
-      { "entity": "dk-optagelse-international-2027", "field": "milestones" },
-      { "entity": "dk", "field": "applicationSystems" }
+      {
+        "entity": "dk-optagelse-international-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "dk",
+        "field": "applicationSystems"
+      }
     ],
     "verificationState": "needs-review",
     "verifiedBy": "manual",
     "interpretation": "The source states the day and month but not the admission year; Danish national deadlines have been stable for many years. Treated as provisional for 2027 until the Agency publishes dates carrying that year.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2026-12-01" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2026-12-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: milestones — 4 of 8 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…The offer will be at the highest possible priority. Application deadlines: The application deadlines are 15 March, 12 noon (CET) and 5 July, 12 noon (CET). These dates Optagelse.dk closes at 12 noon (CET). 15 March, 12…",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "dk-optagelse-international-2027",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…The offer will be at the highest possible priority. Application deadlines: The application deadlines are 15 March, 12 noon (CET) and 5 July, 12 noon (CET). These dates Optagelse.dk closes at 12 noon (CET). 15 March, 12…",
+          "details": [
+            {
+              "requirement": "Applications close — 2027-03-15 12:00",
+              "role": "required",
+              "found": true,
+              "matched": "15 March",
+              "weak": false
+            },
+            {
+              "requirement": "Signature page must reach the institution — 2027-03-15 12:00",
+              "role": "required",
+              "found": true,
+              "matched": "15 March",
+              "weak": false
+            },
+            {
+              "requirement": "Documentation deadline — 2027-07-05 12:00",
+              "role": "required",
+              "found": true,
+              "matched": "5 July",
+              "weak": false
+            },
+            {
+              "requirement": "Accept your place — 2027-08-05",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Optagelse.dk opens for the 2027 intake — 2027-02-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Offers and quota 1 cut-offs published — 2027-07-28",
+              "role": "informational",
+              "found": true,
+              "matched": "28 July",
+              "weak": false
+            },
+            {
+              "requirement": "Ask your IB coordinator to register you for the IB results service — 2027-03-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "applicationSystems",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/10 content words present)",
+          "excerpt": "…application will not be taken into consideration if you do not fulfil the entry requirements. All applicants must fulfill the entry requirements no later than 5th of July. If you do not fulfil the specific entry…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-ufsn-kvoter",
@@ -74,10 +196,19 @@
     "appliesToIntake": "2027-autumn",
     "excerpt": "Applicants applying before the deadline 15 March, will automatically be considered in quota 1 as well if their grade point average can be converted to the Danish 7-point grading scale.",
     "claim": "IB applicants who apply by 15 March are automatically considered in quota 1 as well as quota 2.",
-    "supports": [{ "entity": "dk-optagelse", "field": "decisionModel" }],
+    "supports": [
+      {
+        "entity": "dk-optagelse",
+        "field": "decisionModel"
+      }
+    ],
     "verificationState": "verified",
     "verifiedBy": "manual",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-01-15"
+    }
   },
   {
     "id": "ev-su-satser-2026",
@@ -88,11 +219,20 @@
     "effectiveFrom": "2026-01-01",
     "effectiveTo": "2026-12-31",
     "claim": "The 2026 SU grant for a higher-education student living away from home is DKK 7,426 per month before tax.",
-    "supports": [{ "entity": "dk", "field": "livingContext.funding" }],
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "livingContext.funding"
+      }
+    ],
     "verificationState": "verified",
     "verifiedBy": "manual",
     "interpretation": "This is the 2026 rate. The rate for 2027 will differ, and the SU reform taking effect on 1 January 2027 reduces the total grant frame for higher education from 70 to 58 portions for anyone starting a new programme on or after 1 July 2025 — which includes this cohort.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-01-15"
+    }
   },
   {
     "id": "ev-studyindenmark-fees",
@@ -102,11 +242,38 @@
     "retrievedAt": "2026-09-22",
     "excerpt": "USD 8,000-21,000 / Euro 6,000-16,000 (DKK 45,000-120,000).",
     "claim": "Higher education is free for EU/EEA and Swiss citizens; other students pay roughly EUR 6,000–16,000 per year.",
-    "supports": [{ "entity": "dk", "field": "feeContext" }],
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "feeContext"
+      }
+    ],
     "verificationState": "needs-review",
     "verifiedBy": "manual",
     "interpretation": "The page attaches no academic year to this range, and its own USD, EUR and DKK figures are not mutually consistent at current rates. Usable as an order of magnitude only; the institution is the authority for its own fee.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2026-12-01" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2026-12-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Tuition Fees Skip to main content Skip to navigation Skip to footer Study in Denmark Plan Your…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "Tuition Fees Skip to main content Skip to navigation Skip to footer Study in Denmark Plan Your…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-studyindenmark-budget",
@@ -115,11 +282,38 @@
     "publisherType": "national-agency",
     "retrievedAt": "2026-09-22",
     "claim": "A student budget in Denmark runs to roughly DKK 8,450–13,700 per month.",
-    "supports": [{ "entity": "dk", "field": "livingContext.livingCostMonthly" }],
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "livingContext.livingCostMonthly"
+      }
+    ],
     "verificationState": "needs-review",
     "verifiedBy": "manual",
     "interpretation": "The source publishes component ranges but no total and no year; the total here is our arithmetic on its own figures. Its lowest rent figure of DKK 3,000 is optimistic for Copenhagen.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-06-01" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-06-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…of living expenses then these will depend on your lifestyle and habits. But to give you an idea of average monthly expenses here is a rough budget: TYPE APPROXIMATE COST OF LIVING PER MONTH Rent Varies from 3000-6,500…",
+      "claims": [
+        {
+          "field": "livingContext.livingCostMonthly",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "…of living expenses then these will depend on your lifestyle and habits. But to give you an idea of average monthly expenses here is a rough budget: TYPE APPROXIMATE COST OF LIVING PER MONTH Rent Varies from 3000-6,500…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-siri-higher-education",
@@ -129,13 +323,23 @@
     "retrievedAt": "2026-09-22",
     "claim": "Non-EU students need a study residence permit costing DKK 3,060, must show DKK 7,426 per month of self-support, and may work 90 hours a month from September to May plus full-time in June, July and August.",
     "supports": [
-      { "entity": "dk", "field": "livingContext.residency" },
-      { "entity": "dk", "field": "livingContext.workRights" }
+      {
+        "entity": "dk",
+        "field": "livingContext.residency"
+      },
+      {
+        "entity": "dk",
+        "field": "livingContext.workRights"
+      }
     ],
     "verificationState": "verified",
     "verifiedBy": "manual",
     "interpretation": "SIRI's page was last updated 2026-09-15 and supersedes Study in Denmark's own pages, which still quote a retired 20-hours-a-week rule.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-01-15"
+    }
   },
   {
     "id": "ev-dimensionering",
@@ -144,10 +348,37 @@
     "publisherType": "other",
     "retrievedAt": "2026-09-22",
     "claim": "Danish universities must reduce academic bachelor intake by about ten per cent across 2025–2029 compared with the 2018–2022 average.",
-    "supports": [{ "entity": "dk", "field": "watchOuts" }],
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "watchOuts"
+      }
+    ],
     "verificationState": "needs-review",
     "verifiedBy": "manual",
     "interpretation": "Eurydice is a reliable secondary source but not the responsible authority. The underlying instrument is the 2023 political agreement on university education and its April 2024 implementation. Worth replacing with the ministry's own page before this claim is relied on.",
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-22", "reviewBy": "2027-01-15" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22",
+      "reviewBy": "2027-01-15"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…the lowest percentage (6.5 and 6.7 per cent respectively). The reduction of student intake will be adapted every five years based on the demographic development to ensure that the number of study places at the universities…",
+      "claims": [
+        {
+          "field": "watchOuts",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…the lowest percentage (6.5 and 6.7 per cent respectively). The reduction of student intake will be adapted every five years based on the demographic development to ensure that the number of study places at the universities…",
+          "details": []
+        }
+      ]
+    }
   }
 ]

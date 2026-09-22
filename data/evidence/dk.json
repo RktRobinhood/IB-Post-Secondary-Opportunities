@@ -17,6 +17,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bachelor's programmes at Aalborg University - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Bachelor's programmes at Aalborg University - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -45,6 +63,71 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Applied Industrial Electronics - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "Applied Industrial Electronics - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-aau-applied-industrial-electronics",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…Admitted Quota in 2026 September Study start Apply for admission See admission requirements What you learn You learn how to make electronics and programming that can control everything from robotic arms to machines.…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-aau-applied-industrial-electronics-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…at Aalborg University Esbjerg, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum average grade of 4.0 Physics B or Geoscience A Please note that A, B and C…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -73,6 +156,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Chemical Engineering and Biotechnology - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Chemical Engineering and Biotechnology - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-aau-chemical-engineering-and-biotechnology",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…and Biotechnology The programme in Chemical Engineering and Biotechnology prepares you to work in both chemistry and biotechnology, combining the two disciplines to create new and better opportunities for people and the…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-aau-chemical-engineering-and-biotechnology-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "8 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Chemical Engineering and Biotechnology, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum grade of 4,0 in average And one of the following combinations: Physics B and…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry B",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -101,6 +277,92 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Economics and Business Administration - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Economics and Business Administration - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-aau-economics-and-business-administration",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Economics and Business Administration - Bachelor degree - Aalborg University Jump to content Aalborg…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-aau-economics-and-business-administration-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "7 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…Administration at Aalborg University, you need the following qualifications: Upper secondary school exam English B Mathematics B History B or History of Ideas B or Contemporary History B or Social Studies B or…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Social Studies B",
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -129,6 +391,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Energy Engineering - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "Energy Engineering - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-aau-energy-engineering",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Energy Engineering - Bachelor degree - Aalborg University Jump to content Aalborg…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-aau-energy-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "8 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…at Aalborg University Esbjerg, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum average grade of 4.0 And one of the following combinations: Physics B and…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry C",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry C",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -143,13 +498,14 @@
     "supports": [
       {
         "entity": "dk-aau",
-        "field": "about"
+        "field": "links.ibPage"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
-    }
+    },
+    "claim": "Aalborg University publishes a dedicated page on how it treats the International Baccalaureate."
   },
   {
     "id": "ev-en-aau-dk-1mkufzz",
@@ -162,14 +518,15 @@
     "verifiedBy": "automated",
     "supports": [
       {
-        "entity": "dk-aau",
-        "field": "about"
+        "entity": "dk",
+        "field": "feeContext"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
-    }
+    },
+    "claim": "Aalborg University states who pays tuition and who does not."
   },
   {
     "id": "ev-en-aau-dk-13dz0rp",
@@ -189,6 +546,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "About Aalborg University - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "About Aalborg University - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -209,6 +584,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bachelor at Aarhus University Aarhus University logo For students For PhDs For employees Departments and…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "Bachelor at Aarhus University Aarhus University logo For students For PhDs For employees Departments and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -229,6 +622,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "International Baccalaureate (IB) Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "International Baccalaureate (IB) Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -249,6 +660,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Learn about quota 1 and 2 Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Learn about quota 1 and 2 Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -269,6 +698,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Deadlines and important dates to remember when applying at AU Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Deadlines and important dates to remember when applying at AU Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -289,6 +736,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Standby and preapproved admission at Aarhus University Aarhus University logo For students For PhDs For employees Departments and…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Standby and preapproved admission at Aarhus University Aarhus University logo For students For PhDs For employees Departments and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -309,6 +774,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Tuition fees and application fee at Aarhus University Aarhus University logo For students For PhDs For employees Departments and…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "Tuition fees and application fee at Aarhus University Aarhus University logo For students For PhDs For employees Departments and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -322,14 +805,15 @@
     "verifiedBy": "automated",
     "supports": [
       {
-        "entity": "dk-au",
-        "field": "about"
+        "entity": "dk",
+        "field": "feeContext"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
-    }
+    },
+    "claim": "Aarhus University publishes its bachelor tuition fees for 2026–2027."
   },
   {
     "id": "ev-bachelor-au-dk-gzxj8x",
@@ -357,6 +841,85 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bachelor's degree programme in Cognitive Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Bachelor's degree programme in Cognitive Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-au-cognitive-science",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…Degree Programme About the programme Quota 1 2026: 10,7 ( Standby: 10,5) Language : English | Place of study : Aarhus | Commencement : Week 35 Admissions area number : 22419 What is Cognitive Science about? In the…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-au-cognitive-science-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "6 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics B History B or History of Ideas B or Social Studies B or Contemporary History B B-level is the…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Social Studies B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -385,6 +948,57 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Computer Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "Computer Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-au-computer-science",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Computer Science Aarhus University logo For students For PhDs For…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-au-computer-science-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -413,6 +1027,57 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Data Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "Data Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-au-data-science",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you apply. Grade…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-au-data-science-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -441,6 +1106,57 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "IT Product Development Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "IT Product Development Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-au-it-product-development",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…and new interaction techniques - starting from scratch. You will also gain a solid foundation in core computer science topics such as software development, algorithms, programming, and data analysis. No prior…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-au-it-product-development-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -469,6 +1185,92 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bachelor's degree programme in Economics and Business Administration Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Bachelor's degree programme in Economics and Business Administration Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-au-economics-and-business-administration",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Bachelor's degree programme in Economics and Business Administration Aarhus University logo For students For PhDs For employees Departments and…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-au-economics-and-business-administration-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "7 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics B History B or History of Ideas B or Social Studies B or Contemporary History B or…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Social Studies B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -497,6 +1299,92 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bachelor's degree in Economics and Business Administration in Herning Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "Bachelor's degree in Economics and Business Administration in Herning Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-au-economics-and-business-administration-herning",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…demand is not always directly reflected in the accounts and how companies can respond accordingly. At the same time, you will learn to translate your analyses into concrete, actionable recommendations, such as adjusting…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-au-economics-and-business-administration-herning-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "6 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…refers to the subject level in the Danish upper secondary school with A being the highest level possible): English B Mathematics B History B or History of Ideas B or Contemporary History B or Social Science B or…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -517,6 +1405,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Aarhus University - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Aarhus University - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -537,6 +1443,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…the programme BSc in International Business BSc in International Business and Politics The BSc IBP teaches you how economic and political forces shape a globalising world - and how companies adjust their business…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…the programme BSc in International Business BSc in International Business and Politics The BSc IBP teaches you how economic and political forces shape a globalising world - and how companies adjust their business…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -557,6 +1481,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…counsellor Documentation Check the documentation you need to upload You must upload documentation for everything you want us to consider in the assessment of your application. It is your responsibility to ensure that all…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…counsellor Documentation Check the documentation you need to upload You must upload documentation for everything you want us to consider in the assessment of your application. It is your responsibility to ensure that all…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -585,6 +1527,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…From AI and data analytics to social media and e-commerce platforms, businesses need to think digitally in everything they do. On BSc DM, you learn how to navigate this complexity and use digital tools and data to make better…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…From AI and data analytics to social media and e-commerce platforms, businesses need to think digitally in everything they do. On BSc DM, you learn how to navigate this complexity and use digital tools and data to make better…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-cbs-business-administration-and-digital-management",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "BSc in Business Administration and Digital Management | CBS - Copenhagen Business School Skip to main…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -613,6 +1648,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…are interested in working with services through the lens of business administration. That includes everything from customer satisfaction, quality and marketing to finance, accounting, strategy and management – all of…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…are interested in working with services through the lens of business administration. That includes everything from customer satisfaction, quality and marketing to finance, accounting, strategy and management – all of…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-cbs-business-administration-and-service-management",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (12/12 content words present)",
+          "excerpt": "…that academically builds on the bachelor’s degree. If you start BSc SEM in 2026 and complete it within the standard time, the natural progression in 2029 is MSc in Economics and Business Administration in General Management…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -641,6 +1769,106 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "partial",
+      "reason": "3 claims checked; weakest: requirements — 4 of 9 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…with your new friends at Nexus café or at a BSc SOC party! Julie “ Don’t put pressure on yourself to have everything figured out right away. Use the first semester to explore, make mistakes and get to know…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…with your new friends at Nexus café or at a BSc SOC party! Julie “ Don’t put pressure on yourself to have everything figured out right away. Use the first semester to explore, make mistakes and get to know…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-cbs-business-administration-and-sociology",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "BSc in Business Administration and Sociology | CBS - Copenhagen Business School Skip to main content Close Study…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "4 of 9 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B with min. 6.0 grade average History, Social…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics B must be passed with a minimum grade of 6.0 on the Danish scale, which is an IB grade of 5. IB Mathematics at HL satisfies this automatically, because a subject passed at A level fulfils any B-level grade requirement.",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -669,6 +1897,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…of advice before starting is not to stress about all the opportunities – there will be plenty of time for everything. In the beginning I felt I had to take part in every event and apply for every student job, but that quickly…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…of advice before starting is not to stress about all the opportunities – there will be plenty of time for everything. In the beginning I felt I had to take part in every event and apply for every student job, but that quickly…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-cbs-international-business",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…programmes BSc in International Business BSc in International Business BSc IB gives you a broad understanding of business economics and strategy in a global context. You learn how companies identify…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-cbs-international-business-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -697,6 +2018,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…while others are more abstract and theoretical. It can be challenging to enjoy or do equally well in everything, since we all have different interests. And that’s completely okay, it’s part of figuring out what you like…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…while others are more abstract and theoretical. It can be challenging to enjoy or do equally well in everything, since we all have different interests. And that’s completely okay, it’s part of figuring out what you like…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-cbs-international-business-and-politics",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…align with who you are, how you like to work, and what you are good at. Maths as a tool In about half of the mandatory courses in BSc IBP you will use maths as a tool. You will not use maths that is complicated…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…talk to our staff. We look forward to seeing you! 29 January 2027 24 February 2027 Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -725,6 +2139,99 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…formats, the grading scale and the academic calendar very different from what you are used to. Read about everything you need to know as an international student studying at CBS at Internationals students Entry…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-cbs",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…formats, the grading scale and the academic calendar very different from what you are used to. Read about everything you need to know as an international student studying at CBS at Internationals students Entry…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-cbs-international-shipping-and-trade",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…providers worldwide. Questions such as whether to invest in large vessels that can carry more cargo or smaller ships that can access more ports illustrate the complex decisions managers face in balancing strategy,…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -745,7 +2252,8 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
-    }
+    },
+    "role": "reference"
   },
   {
     "id": "ev-dtu-dk-kfn1l0",
@@ -765,6 +2273,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…choose DTU? Get your degree from one of the world's leading universities in the areas of the technical and the natural sciences. Shortcuts Course…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-dtu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…choose DTU? Get your degree from one of the world's leading universities in the areas of the technical and the natural sciences. Shortcuts Course…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -789,6 +2315,33 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…solutions to real-life challenges. Here, you learn to collaborate, communicate, and apply the learned technical skills. The General Engineering programme is international, with all courses taught in English, and…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-dtu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…solutions to real-life challenges. Here, you learn to collaborate, communicate, and apply the learned technical skills. The General Engineering programme is international, with all courses taught in English, and…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-dtu-general-engineering",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…(BSc) in General Engineering DTU offers an interdisciplinary study programme that focuses on the broad and general engineering competences. The programme provides you with a solid grounding in mathematics,…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -813,6 +2366,69 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: about — page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-dtu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-dtu-general-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "5 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…subjects. The specific admission requirements for the BSc in General Engineering are (Danish levels): Mathematics A-level English B-level Physics B-level Chemistry B-level English language requirement (Refer to the…",
+          "details": [
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Chemistry B",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency (IELTS Academic 6.5, Cambridge C1 Advanced/C2 Proficiency 180, or TOEFL iBT 88). IB diploma holders and native speakers from the listed countries are exempt.",
+              "role": "required",
+              "found": true,
+              "matched": "English language requirement",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -833,6 +2449,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…English test. Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-dtu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…English test. Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -853,6 +2487,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-dtu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -873,6 +2525,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…via bank transfer Go to your local bank and arrange a payment to: Name of Account Holder: Technical University of Denmark Address of Account Holder: Anker Engelunds Vej 1, Building 101A 2800 Kgs.…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-dtu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…via bank transfer Go to your local bank and arrange a payment to: Name of Account Holder: Technical University of Denmark Address of Account Holder: Anker Engelunds Vej 1, Building 101A 2800 Kgs.…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -893,6 +2563,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…/ Professional Education / Master in IT Management Master in IT Management ITU / Professional Education / Single subjects Single subjects ITU / Professional Education / Short courses Short courses ITU / Professional…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…/ Professional Education / Master in IT Management Master in IT Management ITU / Professional Education / Single subjects Single subjects ITU / Professional Education / Short courses Short courses ITU / Professional…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -921,6 +2609,57 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-itu-data-science",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (12/12 content words present)",
+          "excerpt": "…is a widespread lack of professionals with the know-how to harvest intelligence from this data. During the three-year programme, you will get extensive teaching in the technical subjects mathematics and statistics for data…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-itu-data-science-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…qualifying examination certificate equal to a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish A-level with an average mark of at least 6 on the Danish 7-point marking scale of the marks included in the subject…",
+          "details": [
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at A level",
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -949,6 +2688,71 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-itu-global-business-informatics",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…for an MSc programme Student Life What is it like to study at ITU? Ask a student Campus Student organisations Study start Special Educational Support (SPS) Study and Career Guidance Career Possibilities with an IT…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-itu-global-business-informatics-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…examination certificate that can be equated with a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish B-level with an average mark of at least 6 on the Danish 7-point marking scale of the marks included in the subject…",
+          "details": [
+            {
+              "requirement": "Mathematics at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Danish at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Danish A",
+              "weak": false
+            },
+            {
+              "requirement": "Danish A must be passed even though teaching is in English.",
+              "role": "required",
+              "found": true,
+              "matched": "Danish language requirement",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -969,6 +2773,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…craft of software development and how to gain an overview of complex systems: How software is structured, built, and programmed, how different components interact, and how solutions are developed in teams. Artificial…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…craft of software development and how to gain an overview of complex systems: How software is structured, built, and programmed, how different components interact, and how solutions are developed in teams. Artificial…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -989,6 +2811,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1009,6 +2849,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…grade: 7.72-8.66 = 7 Danish grade* *Please note, the grade conversion scale might change every third year around 1 March. International Baccalaureate - IB Diploma If your qualifying exam is an International Baccalaureate…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…grade: 7.72-8.66 = 7 Danish grade* *Please note, the grade conversion scale might change every third year around 1 March. International Baccalaureate - IB Diploma If your qualifying exam is an International Baccalaureate…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1029,6 +2887,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…/ Professional Education / Master in IT Management Master in IT Management ITU / Professional Education / Single subjects Single subjects ITU / Professional Education / Short courses Short courses ITU / Professional…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…/ Professional Education / Master in IT Management Master in IT Management ITU / Professional Education / Single subjects Single subjects ITU / Professional Education / Short courses Short courses ITU / Professional…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1049,6 +2925,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…/ Professional Education / Master in IT Management Master in IT Management ITU / Professional Education / Single subjects Single subjects ITU / Professional Education / Short courses Short courses ITU / Professional…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…/ Professional Education / Master in IT Management Master in IT Management ITU / Professional Education / Single subjects Single subjects ITU / Professional Education / Short courses Short courses ITU / Professional…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1069,6 +2963,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…projects History The history of the IT University The IT University of Copenhagen is Denmark’s youngest university. It first opened its doors in August 1999 in the Nordvest district of Copenhagen. Here, you can…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-itu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…projects History The history of the IT University The IT University of Copenhagen is Denmark’s youngest university. It first opened its doors in August 1999 in the Nordvest district of Copenhagen. Here, you can…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1089,6 +3001,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bacheloruddannelser Skip to main content Roskilde University Bachelor Master Visiting students Research Collaboration News Open sub menu items Close…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "Bacheloruddannelser Skip to main content Roskilde University Bachelor Master Visiting students Research Collaboration News Open sub menu items Close…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1113,6 +3043,33 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "International Bachelor in Natural Sciences (int) | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "International Bachelor in Natural Sciences (int) | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-ruc-international-bachelor-in-natural-sciences",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…laboratory exercises, computational exercises in small groups, attend joint lectures, academic seminars, and spend time in the students' own lounge areas after classes. If you are interested, there are plenty of…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1137,6 +3094,33 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "International Bachelor in Social Sciences (int) | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "International Bachelor in Social Sciences (int) | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-ruc-international-bachelor-in-social-sciences",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…fields of social sciences including geography, political science and international relations. During the first year on International Bachelor in Social Sciences, you will have courses in political science, sociology,…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1161,6 +3145,33 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Bachelor in Global Humanities (int) | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Bachelor in Global Humanities (int) | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        },
+        {
+          "field": "summary",
+          "entity": "dk-ruc-bachelor-in-global-humanities",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…vibrant social community and academic network of students from Denmark and from around the world. From your first day at RUC you will belong to a team of approximately 80 fellow RUC-students in your 'house'. Bachelor in…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1193,6 +3204,208 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "partial",
+      "reason": "4 claims checked; weakest: requirements — 4 of 5 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Specific admission requirements | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "Specific admission requirements | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-ruc-international-bachelor-in-natural-sciences-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "11 of 11 recorded requirement(s) found on the page",
+          "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Biology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biology at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics at C level",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-ruc-international-bachelor-in-social-sciences-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "5 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History at B level",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas at B level",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "4 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Second Foreign Language at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History at B level",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History at B level",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1213,6 +3426,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Guaranteed admission for qualified applicants | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Guaranteed admission for qualified applicants | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1233,6 +3464,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Step 1: Application deadlines bachelor | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Step 1: Application deadlines bachelor | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1253,6 +3502,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Step 4: Application fee and tuition fees | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "Step 4: Application fee and tuition fees | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1273,6 +3540,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "About Roskilde University | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ruc",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "About Roskilde University | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1293,6 +3578,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Language and Culture Study business, language and culture — and learn how to create real value across borders in international companies. Admission GPA in 2025: All qualified applicants accepted…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-sdu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…Language and Culture Study business, language and culture — and learn how to create real value across borders in international companies. Admission GPA in 2025: All qualified applicants accepted…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1313,6 +3616,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…for contact information on employees Directory Finding your way at the University of Southern Denmark…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-sdu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…for contact information on employees Directory Finding your way at the University of Southern Denmark…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1333,7 +3654,8 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
-    }
+    },
+    "role": "reference"
   },
   {
     "id": "ev-sdu-dk-7off5",
@@ -1353,6 +3675,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…for contact information on employees Directory Finding your way at the University of Southern Denmark…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-sdu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…for contact information on employees Directory Finding your way at the University of Southern Denmark…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1373,6 +3713,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…for contact information on employees Directory Finding your way at the University of Southern Denmark…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-sdu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…for contact information on employees Directory Finding your way at the University of Southern Denmark…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1386,14 +3744,15 @@
     "verifiedBy": "automated",
     "supports": [
       {
-        "entity": "dk-sdu",
-        "field": "about"
+        "entity": "dk",
+        "field": "feeContext"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
-    }
+    },
+    "claim": "The University of Southern Denmark states its bachelor tuition fees and who is exempt."
   },
   {
     "id": "ev-sdu-dk-1l138r8",
@@ -1414,6 +3773,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…life Contact The term artificial intelligence (AI) refers to machines capable of performing tasks that typically require human intelligence. Far from being a distant vision of…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-artificial-intelligence",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…life Contact The term artificial intelligence (AI) refers to machines capable of performing tasks that typically require human intelligence. Far from being a distant vision of…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1435,6 +3812,39 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-artificial-intelligence-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1456,6 +3866,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (11/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…foundation behind computers and software, developing the methods that make them function. The field is broad, covering programming, algorithms and data structures, computability, artificial intelligence, operating…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-computer-science",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…foundation behind computers and software, developing the methods that make them function. The field is broad, covering programming, algorithms and data structures, computability, artificial intelligence, operating…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1477,6 +3905,39 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-computer-science-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1498,6 +3959,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Software Engineering (Vejle) - BSc in Engineering - Read all about the programme online!…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-software-engineering",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "Software Engineering (Vejle) - BSc in Engineering - Read all about the programme online!…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1519,6 +3998,39 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-software-engineering-vejle-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1540,6 +4052,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Interactive Technology Engineering - BSc in Engineering - Read all about the programme online!…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-interactive-technology-engineering",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Interactive Technology Engineering - BSc in Engineering - Read all about the programme online!…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1561,6 +4091,53 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-interactive-technology-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1582,6 +4159,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (10/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Software Engineering (Sønderborg) - BSc in Engineering - Read all about the programme online!…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-software-engineering-2",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "Software Engineering (Sønderborg) - BSc in Engineering - Read all about the programme online!…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1603,6 +4198,39 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-software-engineering-2-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1624,6 +4252,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…more Show less Why choose Mechatronics? Mechatronics is for you if you want to make mechanics, electronics and software work together. On the programme, you learn to develop technologies that can sense,…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-mechatronics",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…more Show less Why choose Mechatronics? Mechatronics is for you if you want to make mechanics, electronics and software work together. On the programme, you learn to develop technologies that can sense,…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1645,6 +4291,53 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-mechatronics-sonderborg-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1666,6 +4359,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (10/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…products. Along the way, you work with modern tools such as 3D modelling and simulation and learn to combine classical engineering disciplines with new technologies and sustainable product development. The programme also gives…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-mechanical-engineering",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…products. Along the way, you work with modern tools such as 3D modelling and simulation and learn to combine classical engineering disciplines with new technologies and sustainable product development. The programme also gives…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1687,6 +4398,81 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "8 of 8 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-mechanical-engineering-sonderborg-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "8 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology level A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1708,6 +4494,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…SDU. Read more Library Materials and facilities Search all resources Resources Search all ressources Electronic journals (BrowZine) Journals A-Z Search for Theses Online and printed journals Databases Newspapers and…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-electronics",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…SDU. Read more Library Materials and facilities Search all resources Resources Search all ressources Electronic journals (BrowZine) Journals A-Z Search for Theses Online and printed journals Databases Newspapers and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1729,6 +4533,53 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-electronics-sonderborg-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1750,6 +4601,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (11/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Engineering, Innovation and Business - BSc in Engineering - Read all about the programme online!…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-engineering-innovation-and-business",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Engineering, Innovation and Business - BSc in Engineering - Read all about the programme online!…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1771,6 +4640,53 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-engineering-innovation-and-business-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1792,6 +4708,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "BEng in Mechatronics (Sønderborg) - Read all about the programme online!…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-mechatronics-2",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "BEng in Mechatronics (Sønderborg) - Read all about the programme online!…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1813,6 +4747,53 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-mechatronics-2-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1834,6 +4815,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "BEng in Mechanical Engineering (Sønderborg) - Read all about the programme online!…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-mechanical-engineering-2",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "BEng in Mechanical Engineering (Sønderborg) - Read all about the programme online!…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1855,6 +4854,95 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "10 of 10 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-mechanical-engineering-2-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "10 of 10 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology level A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology level A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1876,6 +4964,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (12/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…BEng electronics engineering programme in Sønderborg, you will combine strong technical understanding with hands-on project work. You will learn how to design and programme electronic circuits and systems – and how to make…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-electronics-2",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (12/12 content words present)",
+          "excerpt": "…BEng electronics engineering programme in Sønderborg, you will combine strong technical understanding with hands-on project work. You will learn how to design and programme electronic circuits and systems – and how to make…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1897,6 +5003,53 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics B or Geoscience A Course levels refer to the Danish high school system: A is…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-electronics-2-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics B or Geoscience A Course levels refer to the Danish high school system: A is…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1918,6 +5071,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…issues in the business world A bachelor's programme in Economics and Business Administration contains a broad range of business economics subjects, including marketing, accounting, finance, and organisation. It…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-economics-and-business-administration",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…issues in the business world A bachelor's programme in Economics and Business Administration contains a broad range of business economics subjects, including marketing, accounting, finance, and organisation. It…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1939,6 +5110,74 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "5 of 7 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-economics-and-business-administration-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "5 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History level B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas level B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History level B",
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1960,6 +5199,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…introducing approaches from political science, cultural studies, history, and economics. The programme is interdisciplinary and aims at providing the student with theoretical understanding, factual knowledge, and analytical abilities…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-european-studies",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…introducing approaches from political science, cultural studies, history, and economics. The programme is interdisciplinary and aims at providing the student with theoretical understanding, factual knowledge, and analytical abilities…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -1981,6 +5238,67 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "5 of 6 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…you must hold a qualifying upper secondary school degree , and you must have passed the following courses: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-european-studies-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "5 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…you must hold a qualifying upper secondary school degree , and you must have passed the following courses: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History level B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas level B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History level B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2002,6 +5320,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Market and Management Anthropology Skip to main…",
+      "claims": [
+        {
+          "field": "summary",
+          "entity": "dk-sdu-market-and-management-anthropology",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "Market and Management Anthropology Skip to main…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2023,6 +5359,67 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "5 of 6 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "dk-sdu-market-and-management-anthropology-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "5 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History level B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas level B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History level B",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -2043,6 +5440,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…is a bachelor’s degree? A bachelor’s degree programme is structured for three years of full-time study. Most students choose to continue with a master’s program, which is typically two years long. Check out sneak peeks…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ucph",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…is a bachelor’s degree? A bachelor’s degree programme is structured for three years of full-time study. Most students choose to continue with a master’s program, which is typically two years long. Check out sneak peeks…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2063,6 +5478,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…about late diplomas Please note that this does not apply to applicants who have just completed single-subject courses/supplementary courses. Qualifying examination When we receive your application, we assess…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ucph",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…about late diplomas Please note that this does not apply to applicants who have just completed single-subject courses/supplementary courses. Qualifying examination When we receive your application, we assess…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2083,6 +5516,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and admission Entrance qualifications Part-time master’s degree New opportunities for master's degrees Important dates and deadlines Statistics and figures Study start Study choice Submenu for \"Study choice\" Find areas…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ucph",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…and admission Entrance qualifications Part-time master’s degree New opportunities for master's degrees Important dates and deadlines Statistics and figures Study start Study choice Submenu for \"Study choice\" Find areas…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2103,6 +5554,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and admission Entrance qualifications Part-time master’s degree New opportunities for master's degrees Important dates and deadlines Statistics and figures Study start Study choice Submenu for \"Study choice\" Find areas…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ucph",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…and admission Entrance qualifications Part-time master’s degree New opportunities for master's degrees Important dates and deadlines Statistics and figures Study start Study choice Submenu for \"Study choice\" Find areas…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2123,6 +5592,24 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…for society Updated with 2025-figures. Figures are updated in April/May with the figures from the most recent calendar year. Communication University of Copenhagen Nørregade 10 1165 København…",
+      "claims": [
+        {
+          "field": "about",
+          "entity": "dk-ucph",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…for society Updated with 2025-figures. Figures are updated in April/May with the figures from the most recent calendar year. Communication University of Copenhagen Nørregade 10 1165 København…",
+          "details": []
+        }
+      ]
     }
   }
 ]
