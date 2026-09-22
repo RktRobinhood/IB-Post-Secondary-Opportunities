@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "context-note.schema.json",
+  "title": "Context note",
+  "description": "How a place actually behaves, which is not written in any rulebook. 'Here the interview is a formality.' 'Here applying in the first round genuinely matters.' 'Here the personal statement is about the subject, not about you.' This is often the most useful thing a counsellor can tell a student, and it is not a rule: nobody published it as policy, no authority will confirm it, and it can be true this year and wrong the next. It therefore gets its own record type rather than being smuggled into a field that implies more certainty than it has. A context note is always shown with its attribution and never presented as a requirement.",
+  "type": "object",
+  "required": ["id", "appliesTo", "topic", "text", "attribution", "confidence", "evidence"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^ctx-[a-z0-9]+(-[a-z0-9]+)*$" },
+
+    "appliesTo": {
+      "type": "object",
+      "description": "What this is about. A destination for national culture, an application route for how a particular process behaves, an institution where it is specific to one place, and a field of study where the culture differs by subject more than by country — medicine and art school being the obvious cases.",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "enum": ["destination", "application-route", "application-system", "institution", "field"] },
+        "id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "topic": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 80,
+      "description": "A short heading a student can scan, e.g. 'What the interview is actually for'."
+    },
+
+    "text": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 1400,
+      "description": "The observation itself, written as an observation. It must not read as an instruction: if the honest phrasing is 'you must' or 'it is required', then it is a rule and belongs in requirements with an authoritative source behind it. scripts/test-sourcing.mjs enforces this, because the distinction collapses the moment nobody is checking."
+    },
+
+    "attribution": {
+      "type": "string",
+      "minLength": 4,
+      "description": "Who says so, in the words shown to the reader — 'Roskilde's own guidance', 'a 2026 counsellor briefing'. Always displayed. A context note without a visible source is a rumour with good typography."
+    },
+
+    "confidence": {
+      "enum": ["widely-reported", "single-source", "contested"],
+      "description": "widely-reported: several independent sources say the same thing. single-source: one source says it and it is worth knowing, shown more tentatively. contested: sources disagree, and the disagreement is itself the useful information, so both sides are shown."
+    },
+
+    "appliesToIntake": { "$ref": "common.schema.json#/$defs/intake" },
+
+    "applicantGroup": {
+      "$ref": "common.schema.json#/$defs/applicantGroup",
+      "description": "Where the observation only holds for some applicants. A great deal of second-hand guidance is accurate for the cohort it was written about and wrong for ours."
+    },
+
+    "counterpoint": {
+      "type": "string",
+      "maxLength": 800,
+      "description": "Required in spirit whenever confidence is 'contested': what the other sources say. Recorded here rather than resolved, because resolving a cultural disagreement by picking the more encouraging side is exactly the failure this type exists to prevent."
+    },
+
+    "whatThisIsNot": {
+      "type": "string",
+      "maxLength": 400,
+      "description": "Optional, and valuable where a note sits close to a real rule — 'this is not the deadline; the deadline is 15 March'."
+    },
+
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "common.schema.json#/$defs/evidenceRef" },
+      "description": "At least one source. Secondary classes are allowed and expected here — that is the point of the type — but a note with no source at all is not publishable."
+    },
+
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

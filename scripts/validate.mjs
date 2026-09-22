@@ -13,6 +13,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
 import { assessSourcing, claimKindForField, isAuthoritative, CLAIM_KIND } from '../src/lib/source-classes.mjs';
+import { checkContextNote } from '../src/lib/context-voice.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCHEMA_DIR = path.join(ROOT, 'schemas');
@@ -29,6 +30,7 @@ const SINGULAR = {
   opportunities: 'opportunity',
   'application-systems': 'application-system',
   'application-routes': 'application-route',
+  'context-notes': 'context-note',
 };
 
 /** Which folder holds which entity, and which schema validates it. */
@@ -40,6 +42,7 @@ const COLLECTIONS = [
   { dir: 'opportunities', schema: 'opportunity.schema.json', kind: 'Opportunity' },
   { dir: 'application-systems', schema: 'application-system.schema.json', kind: 'Application System' },
   { dir: 'application-routes', schema: 'application-route.schema.json', kind: 'Application Route' },
+  { dir: 'context-notes', schema: 'context-note.schema.json', kind: 'Context Note' },
 ];
 
 async function readJson(file) {
@@ -214,6 +217,16 @@ async function main() {
           );
         }
       }
+    }
+  }
+
+  /* --- Context notes may not speak like rules -------------------------------
+   * The reasoning lives next to the rule it enforces, in
+   * src/lib/context-voice.mjs, so the two cannot drift apart. */
+  for (const f of await listJson(path.join(DATA, 'context-notes'))) {
+    const { value } = await readJson(path.join(DATA, 'context-notes', f));
+    for (const note of [value].flat().filter((n) => n && n.id)) {
+      for (const problem of checkContextNote(note)) sourcingErrors.push(problem);
     }
   }
 

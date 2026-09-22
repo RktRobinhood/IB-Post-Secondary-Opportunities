@@ -214,10 +214,10 @@ function normaliseRequirements(p, evidenceRef) {
 function classifyExtra(text) {
   const t = String(text);
 
-  if (/\d[\d,. ]*\s*(study )?places|applicants,? of whom|per cent of those admitted|admitted had/i.test(t)) {
+  if (/\b\d[\d,. ]*\s*(study )?places\b|applicants,? of whom|per cent of those admitted|admitted had/i.test(t)) {
     return { as: 'capacity' };
   }
-  if (/^specialisations?|specialisations? chosen/i.test(t)) {
+  if (/^specialisations?\b|specialisations? chosen/i.test(t)) {
     return { as: 'note' };
   }
   if (/guaranteed admission/i.test(t)) {
@@ -232,7 +232,7 @@ function classifyExtra(text) {
   if (/quota\s*[12]/i.test(t)) {
     return { as: 'selection', type: /work experience|supplementary/i.test(t) ? 'work-experience' : 'gpa' };
   }
-  if (/GPA|grade point average|minimum grade requirement|average of at least/i.test(t)) {
+  if (/\bGPA\b|grade point average|minimum grade requirement|average of at least/i.test(t)) {
     return { as: 'selection', type: 'gpa' };
   }
   if (/recommended/i.test(t) && /letter|essay|portfolio/i.test(t)) {
@@ -240,14 +240,14 @@ function classifyExtra(text) {
   }
 
   // Genuine conditions of entry.
-  if (/motivational (cover )?letter|motivational essay|essay/i.test(t)) return { as: 'requirement', kind: 'essay' };
+  if (/motivational (cover )?letter|motivational essay|\bessay\b/i.test(t)) return { as: 'requirement', kind: 'essay' };
   if (/IELTS|TOEFL|Cambridge|English proficiency|language proficiency|Studiepr(ø|oe)ven|must be passed/i.test(t)) {
     return { as: 'requirement', kind: 'language-general' };
   }
   if (/portfolio/i.test(t)) return { as: 'requirement', kind: 'portfolio' };
   if (/audition/i.test(t)) return { as: 'requirement', kind: 'audition' };
   if (/interview/i.test(t)) return { as: 'requirement', kind: 'interview' };
-  if (/admission test|entrance (test|exam)|test/i.test(t)) return { as: 'requirement', kind: 'test' };
+  if (/admission test|entrance (test|exam)|\btest\b/i.test(t)) return { as: 'requirement', kind: 'test' };
 
   return { as: 'note' };
 }
@@ -323,9 +323,9 @@ function assignIds(instId, programmes) {
 
 function degreeToken(degree) {
   const d = String(degree || '').toLowerCase();
-  if (/diplomingeni|beng|bachelor of engineering/.test(d)) return 'beng';
-  if (/bsc|bachelor of science/.test(d)) return 'bsc';
-  if (/ba|bachelor of arts/.test(d)) return 'ba';
+  if (/diplomingeni|\bbeng\b|bachelor of engineering/.test(d)) return 'beng';
+  if (/\bbsc\b|bachelor of science/.test(d)) return 'bsc';
+  if (/\bba\b|bachelor of arts/.test(d)) return 'ba';
   if (/academy profession/.test(d)) return 'ap';
   if (/top-?up/.test(d)) return 'topup';
   return 'bachelor';

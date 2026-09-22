@@ -4288,7 +4288,7 @@
     "claim": "Software Engineering is offered by University of Southern Denmark.",
     "supports": [
       {
-        "entity": "dk-sdu-software-engineering-2",
+        "entity": "dk-sdu-software-engineering-sonderborg",
         "field": "summary"
       }
     ],
@@ -4305,7 +4305,7 @@
       "claims": [
         {
           "field": "summary",
-          "entity": "dk-sdu-software-engineering-2",
+          "entity": "dk-sdu-software-engineering-sonderborg",
           "decisive": false,
           "outcome": "supported",
           "reason": "page is on-topic for this claim (10/12 content words present)",
@@ -4328,7 +4328,7 @@
     "claim": "Published entry requirements for Software Engineering.",
     "supports": [
       {
-        "entity": "dk-sdu-software-engineering-2-2027-autumn",
+        "entity": "dk-sdu-software-engineering-sonderborg-2027-autumn",
         "field": "requirements"
       }
     ],
@@ -4345,7 +4345,7 @@
       "claims": [
         {
           "field": "requirements",
-          "entity": "dk-sdu-software-engineering-2-2027-autumn",
+          "entity": "dk-sdu-software-engineering-sonderborg-2027-autumn",
           "decisive": true,
           "outcome": "supported",
           "reason": "2 of 2 recorded requirement(s) found on the page",
@@ -4847,7 +4847,7 @@
     "claim": "Mechatronics is offered by University of Southern Denmark.",
     "supports": [
       {
-        "entity": "dk-sdu-mechatronics-2",
+        "entity": "dk-sdu-mechatronics-beng",
         "field": "summary"
       }
     ],
@@ -4864,7 +4864,7 @@
       "claims": [
         {
           "field": "summary",
-          "entity": "dk-sdu-mechatronics-2",
+          "entity": "dk-sdu-mechatronics-beng",
           "decisive": false,
           "outcome": "supported",
           "reason": "page is on-topic for this claim (6/12 content words present)",
@@ -4887,7 +4887,7 @@
     "claim": "Published entry requirements for Mechatronics.",
     "supports": [
       {
-        "entity": "dk-sdu-mechatronics-2-2027-autumn",
+        "entity": "dk-sdu-mechatronics-beng-2027-autumn",
         "field": "requirements"
       }
     ],
@@ -4904,7 +4904,7 @@
       "claims": [
         {
           "field": "requirements",
-          "entity": "dk-sdu-mechatronics-2-2027-autumn",
+          "entity": "dk-sdu-mechatronics-beng-2027-autumn",
           "decisive": true,
           "outcome": "supported",
           "reason": "4 of 4 recorded requirement(s) found on the page",
@@ -4956,7 +4956,7 @@
     "claim": "Mechanical Engineering is offered by University of Southern Denmark.",
     "supports": [
       {
-        "entity": "dk-sdu-mechanical-engineering-2",
+        "entity": "dk-sdu-mechanical-engineering-beng",
         "field": "summary"
       }
     ],
@@ -4973,7 +4973,7 @@
       "claims": [
         {
           "field": "summary",
-          "entity": "dk-sdu-mechanical-engineering-2",
+          "entity": "dk-sdu-mechanical-engineering-beng",
           "decisive": false,
           "outcome": "supported",
           "reason": "page is on-topic for this claim (5/12 content words present)",
@@ -4996,7 +4996,7 @@
     "claim": "Published entry requirements for Mechanical Engineering.",
     "supports": [
       {
-        "entity": "dk-sdu-mechanical-engineering-2-2027-autumn",
+        "entity": "dk-sdu-mechanical-engineering-beng-2027-autumn",
         "field": "requirements"
       }
     ],
@@ -5013,7 +5013,7 @@
       "claims": [
         {
           "field": "requirements",
-          "entity": "dk-sdu-mechanical-engineering-2-2027-autumn",
+          "entity": "dk-sdu-mechanical-engineering-beng-2027-autumn",
           "decisive": true,
           "outcome": "supported",
           "reason": "10 of 10 recorded requirement(s) found on the page",
@@ -5107,7 +5107,7 @@
     "claim": "Electronics is offered by University of Southern Denmark.",
     "supports": [
       {
-        "entity": "dk-sdu-electronics-2",
+        "entity": "dk-sdu-electronics-beng",
         "field": "summary"
       }
     ],
@@ -5124,7 +5124,7 @@
       "claims": [
         {
           "field": "summary",
-          "entity": "dk-sdu-electronics-2",
+          "entity": "dk-sdu-electronics-beng",
           "decisive": false,
           "outcome": "supported",
           "reason": "page is on-topic for this claim (12/12 content words present)",
@@ -5147,7 +5147,7 @@
     "claim": "Published entry requirements for Electronics.",
     "supports": [
       {
-        "entity": "dk-sdu-electronics-2-2027-autumn",
+        "entity": "dk-sdu-electronics-beng-2027-autumn",
         "field": "requirements"
       }
     ],
@@ -5164,7 +5164,7 @@
       "claims": [
         {
           "field": "requirements",
-          "entity": "dk-sdu-electronics-2-2027-autumn",
+          "entity": "dk-sdu-electronics-beng-2027-autumn",
           "decisive": true,
           "outcome": "supported",
           "reason": "4 of 4 recorded requirement(s) found on the page",
@@ -5587,37 +5587,25 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
-    "verifiedBy": "automated",
+    "verificationState": "verified",
+    "verifiedBy": "Read against the source page, 2026-09-22.",
     "supports": [
       {
         "entity": "dk-ucph",
         "field": "about"
+      },
+      {
+        "entity": "ctx-dk-language-reality",
+        "field": "culture"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "sourceCheck": {
-      "checkedAt": "2026-09-22",
-      "outcome": "supported",
-      "reason": "page is on-topic for this claim (5/12 content words present)",
-      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…is a bachelor’s degree? A bachelor’s degree programme is structured for three years of full-time study. Most students choose to continue with a master’s program, which is typically two years long. Check out sneak peeks…",
-      "claims": [
-        {
-          "field": "about",
-          "entity": "dk-ucph",
-          "decisive": false,
-          "outcome": "supported",
-          "reason": "page is on-topic for this claim (5/12 content words present)",
-          "excerpt": "…is a bachelor’s degree? A bachelor’s degree programme is structured for three years of full-time study. Most students choose to continue with a master’s program, which is typically two years long. Check out sneak peeks…",
-          "details": []
-        }
-      ]
-    },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "claim": "The University of Copenhagen teaches all 78 of its bachelor programmes in Danish.",
+    "excerpt": "Kickstart your career at UCPH and explore 78 bachelor’s degree programmes - all are taught in Danish."
   },
   {
     "id": "ev-ku-dk-vs4t0j",
@@ -5774,5 +5762,28 @@
       ]
     },
     "sourceClass": "institutional-guidance"
+  },
+  {
+    "id": "ev-en-aau-dk-pbl",
+    "sourceUrl": "https://www.en.aau.dk/education/problem-based-learning",
+    "publisher": "Aalborg University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read against the source page, 2026-09-22.",
+    "claim": "Aalborg University teaches through problem-based project work, with each semester built around a large group assignment.",
+    "excerpt": "The study method at Aalborg University (AAU) is called problem based project work, or “The Aalborg Model for Problem Based Learning (PBL)”... Each semester, you will work closely together with a group of fellow students on a large written assignment. You will also follow more traditional instruction.",
+    "supports": [
+      {
+        "entity": "ctx-dk-aau-pbl",
+        "field": "culture"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
   }
 ]
