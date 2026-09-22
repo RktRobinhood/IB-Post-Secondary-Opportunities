@@ -12,6 +12,15 @@
   },
   "admission": {
     "restricted": true,
+    "selection": [
+      {
+        "type": "work-experience",
+        "description": "Quota 2 holds 20 per cent of places and counts up to 12 months of documented relevant work experience or supplementary education.",
+        "evidence": [
+          "ev-en-aau-dk-s4tafy"
+        ]
+      }
+    ],
     "historicalCutoffs": [
       {
         "intake": "2026-autumn",
@@ -176,32 +185,6 @@
       "evidence": [
         "ev-en-aau-dk-s4tafy"
       ]
-    },
-    {
-      "id": "req-extra-1",
-      "kind": "other",
-      "mandatory": true,
-      "label": "24 study places in 2026.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-aau-dk-s4tafy"
-      ]
-    },
-    {
-      "id": "req-extra-2",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Quota 2 holds 20 per cent of places and counts up to 12 months of documented relevant work experience or supplementary education.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-aau-dk-s4tafy"
-      ]
     }
   ],
   "officialRequirementsText": [
@@ -239,6 +222,7 @@
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
     "notes": [
+      "24 study places in 2026.",
       "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
     ]
   }

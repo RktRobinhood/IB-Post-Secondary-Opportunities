@@ -11,7 +11,16 @@
     "fullyInLanguage": true
   },
   "admission": {
-    "restricted": true
+    "restricted": true,
+    "selection": [
+      {
+        "type": "work-experience",
+        "description": "Quota 2 holds 20 per cent of places and counts documented relevant work experience or supplementary education of up to 12 months.",
+        "evidence": [
+          "ev-en-aau-dk-dbb308"
+        ]
+      }
+    ]
   },
   "requirements": [
     {
@@ -165,32 +174,6 @@
       "evidence": [
         "ev-en-aau-dk-dbb308"
       ]
-    },
-    {
-      "id": "req-extra-1",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Quota 2 holds 20 per cent of places and counts documented relevant work experience or supplementary education of up to 12 months.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-aau-dk-dbb308"
-      ]
-    },
-    {
-      "id": "req-extra-2",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Specialisations chosen during the programme: Dynamic Systems, Thermal Processes.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-aau-dk-dbb308"
-      ]
     }
   ],
   "officialRequirementsText": [
@@ -228,6 +211,7 @@
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
     "notes": [
+      "Specialisations chosen during the programme: Dynamic Systems, Thermal Processes.",
       "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
     ]
   }

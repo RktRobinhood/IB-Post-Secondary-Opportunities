@@ -1,297 +1,257 @@
-/* Subject checker.
+/* The subject checker.
  *
- * Takes the six IB subjects a student actually has, converts them to Danish
- * levels using the Agency's published table (emitted into the page by the
- * build), and tests them against every programme's requirements.
+ * This is a thin shell around src/lib/eligibility.mjs — the same module the
+ * build and the tests use. There is one implementation of the rules, so what a
+ * student is told here is exactly what the test suite asserts.
  *
- * Two rules do most of the work and are worth stating plainly:
- *   - A higher Danish level satisfies a lower requirement. Mathematics A meets
- *     a Mathematics B requirement; the reverse is not true.
- *   - A requirement is only "met" if the level is high enough AND any minimum
- *     grade is reached, after converting the IB grade to the Danish scale.
+ * The Student Profile lives in this browser and nowhere else. No account, no
+ * request, no identifying field.
  */
+import {
+  assessAll, buildSubjectIndex, convertAverage, convertProfile, OUTCOME,
+} from './eligibility.js';
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
-const SUBJECTS = JSON.parse(document.getElementById('planner-subjects').textContent);
-const PROGRAMMES = JSON.parse(document.getElementById('planner-programmes').textContent);
-const CONVERSION = JSON.parse(document.getElementById('planner-conversion').textContent);
+const json = (id) => JSON.parse(document.getElementById(id).textContent);
 
-const LEVEL_RANK = { A: 3, B: 2, C: 1 };
+const SUBJECTS = json('planner-subjects');
+const OPPORTUNITIES = json('planner-opportunities');
+const EVIDENCE = json('planner-evidence');
+const CONVERSION = json('planner-conversion');
 
-/**
- * Programme requirements name Danish school subjects; the conversion table
- * groups some of them together. This reconciles the two vocabularies.
- */
-const ALIASES = {
-  'Business and economics subjects': [
-    'International Economics', 'Business Economics', 'Economics', 'Marketing', 'Afsætning',
-  ],
-  'Computing / IT / programming': ['Information Technology', 'Communication and IT', 'Computer Science'],
-  'Danish as a second language': ['Danish'],
-  Geography: ['Geography'],
+const subjectIndex = buildSubjectIndex(SUBJECTS);
+const STORAGE_KEY = 'ibp-profile-v2';
+
+/** Roll an Opportunity's evidence references up into one status. */
+function evidenceStatus(refs) {
+  const records = (refs || []).map((r) => EVIDENCE[r]).filter(Boolean);
+  if (!records.length) return { level: 'none', label: 'No source recorded', records: [] };
+  if (records.some((r) => r.conflicts)) return { level: 'conflicting', label: 'Sources disagree', records };
+  const states = new Set(records.map((r) => r.state));
+  if (states.has('unavailable')) return { level: 'unavailable', label: 'Source unavailable', records };
+  if (states.has('superseded')) return { level: 'superseded', label: 'Superseded', records };
+  const checkedAt = records.map((r) => r.retrievedAt).filter(Boolean).sort().at(-1);
+  const today = new Date().toISOString().slice(0, 10);
+  if (records.some((r) => r.reviewBy && r.reviewBy < today)) {
+    return { level: 'stale', label: 'Past its review date', checkedAt, records };
+  }
+  if (states.has('needs-review')) return { level: 'needs-review', label: 'Not yet checked by a person', records, checkedAt };
+  return { level: 'verified', label: 'Verified', checkedAt, records };
+}
+
+const options = {
+  conversion: CONVERSION,
+  subjectIndex,
+  evidenceStatus,
+  dataVersion: document.querySelector('meta[name="data-revision"]')?.content || null,
 };
 
-/** Subjects a programme may ask for that the official table does not map. */
-const UNMAPPED_WARNING = {
-  'Social Studies':
-    'Denmark publishes no fixed equivalence for Social Studies. If you took Global Politics, each institution decides case by case — ask its admissions office in writing before 15 March.',
-  Geoscience:
-    'The handbook lists no IB equivalent for Geoscience A. IB Geography HL is not automatically accepted; you would normally need a Danish supplementary course.',
+const show = {
+  [OUTCOME.MEETS]: true,
+  [OUTCOME.POSSIBLE]: true,
+  [OUTCOME.NEEDS_REVIEW]: true,
+  [OUTCOME.DOES_NOT_MEET]: false,
 };
 
-/* --- Convert the student's subjects ---------------------------------------- */
+/* --- Reading the form ------------------------------------------------------- */
 
-const state = { picks: [], total: null, show: { yes: true, near: true, no: false } };
-
-function danishGrade(ibGrade) {
-  const row = CONVERSION.single.find((r) => r.ib === Number(ibGrade));
-  return row ? row.dk : null;
-}
-
-function danishAverage(points) {
-  const row = CONVERSION.average.find((r) => r.ib === Number(points));
-  return row ? row.dk : null;
-}
-
-/** The student's Danish subject levels, keeping the best level for each subject. */
-function heldSubjects() {
-  const held = new Map();
-  for (const pick of state.picks) {
-    if (!pick.subject) continue;
-    const entry = SUBJECTS.find((s) => s.ib === pick.subject);
-    if (!entry) continue;
-
-    const names = [entry.danish, ...(ALIASES[entry.danish] || [])];
-    for (const name of names) {
-      const existing = held.get(name);
-      const rank = LEVEL_RANK[entry.level] || 0;
-      if (!existing || rank > existing.rank) {
-        held.set(name, { level: entry.level, rank, ib: pick.subject, grade: pick.grade || null });
-      } else if (existing && rank === existing.rank && pick.grade && Number(pick.grade) > Number(existing.grade || 0)) {
-        existing.grade = pick.grade;
-      }
-    }
+function readProfile() {
+  const subjects = [];
+  for (let n = 1; n <= 6; n++) {
+    const subject = document.querySelector(`.p-subject[data-slot="${n}"]`)?.value || '';
+    const level = document.querySelector(`.p-level[data-slot="${n}"]`)?.value || 'HL';
+    const grade = document.querySelector(`.p-grade[data-slot="${n}"]`)?.value || '';
+    if (subject) subjects.push({ subject, level, grade: grade ? Number(grade) : null });
   }
-  return held;
-}
-
-/** Test one requirement against what the student holds. */
-function testRequirement(req, held) {
-  const have = held.get(req.subject);
-  if (!have) {
-    return {
-      ok: false,
-      why: UNMAPPED_WARNING[req.subject]
-        ? `${req.subject} ${req.level} — ${UNMAPPED_WARNING[req.subject]}`
-        : `You do not have ${req.subject} at any level.`,
-      soft: !!UNMAPPED_WARNING[req.subject],
-    };
-  }
-  const needed = LEVEL_RANK[req.level] || 0;
-  if (have.rank < needed) {
-    return { ok: false, why: `${req.subject}: you have ${have.level} level, this needs ${req.level}.` };
-  }
-  if (req.minGrade) {
-    const dk = have.grade ? danishGrade(have.grade) : null;
-    if (dk === null) {
-      return { ok: true, why: `${req.subject} ${req.level} needs a minimum Danish grade of ${req.minGrade} — add your grade to check.`, unknown: true };
-    }
-    if (dk < Number(req.minGrade)) {
-      return { ok: false, why: `${req.subject}: your ${have.ib} grade converts to ${dk}, below the required ${req.minGrade}.` };
-    }
-  }
-  return { ok: true };
-}
-
-/** Evaluate a whole programme: 'yes', 'near' (one thing missing) or 'no'. */
-function evaluate(p, held) {
-  const misses = [];
-  const caveats = [];
-
-  for (const req of p.entry?.all || []) {
-    const r = testRequirement(req, held);
-    if (!r.ok) misses.push(r.why);
-    else if (r.why) caveats.push(r.why);
-  }
-
-  const groups = p.entry?.oneOf || [];
-  if (groups.length) {
-    let best = null;
-    for (const group of groups) {
-      const groupMisses = [];
-      for (const req of group) {
-        const r = testRequirement(req, held);
-        if (!r.ok) groupMisses.push(r.why);
-        else if (r.why) caveats.push(r.why);
-      }
-      if (!best || groupMisses.length < best.length) best = groupMisses;
-      if (groupMisses.length === 0) break;
-    }
-    if (best && best.length) misses.push(...best);
-  }
-
+  const total = Number(document.getElementById('p-total').value);
   return {
-    status: misses.length === 0 ? 'yes' : misses.length === 1 ? 'near' : 'no',
-    misses,
-    caveats,
+    subjects,
+    totalPoints: Number.isFinite(total) && total >= 18 && total <= 45 ? total : null,
+    applicantGroup: document.getElementById('p-group')?.value || null,
+    holdsDiploma: true,
+    languages: [],
   };
+}
+
+function save(profile) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(profile)); } catch {}
+}
+
+function restore() {
+  let saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch { return; }
+  if (!saved) return;
+  (saved.subjects || []).forEach((entry, i) => {
+    const n = i + 1;
+    const s = document.querySelector(`.p-subject[data-slot="${n}"]`);
+    const l = document.querySelector(`.p-level[data-slot="${n}"]`);
+    const g = document.querySelector(`.p-grade[data-slot="${n}"]`);
+    if (s && entry.subject) s.value = entry.subject;
+    if (l && entry.level) l.value = entry.level;
+    if (g && entry.grade) g.value = String(entry.grade);
+  });
+  if (saved.totalPoints) document.getElementById('p-total').value = saved.totalPoints;
+  if (saved.applicantGroup) document.getElementById('p-group').value = saved.applicantGroup;
 }
 
 /* --- Rendering -------------------------------------------------------------- */
 
-const converted = document.getElementById('p-converted');
-const results = document.getElementById('p-results');
-const count = document.getElementById('p-count');
+const esc = (s) =>
+  String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-function escapeHtml(s) {
-  return String(s ?? '').replace(/[&<>"']/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
-  );
-}
+const els = {
+  converted: document.getElementById('p-converted'),
+  results: document.getElementById('p-results'),
+  count: document.getElementById('p-count'),
+};
 
-function renderConverted(held) {
-  const chosen = state.picks.filter((p) => p.subject).length;
+const BADGE = {
+  [OUTCOME.MEETS]: ['tag--ok', 'Meets published requirements'],
+  [OUTCOME.POSSIBLE]: ['tag--sand', 'Possible with action'],
+  [OUTCOME.NEEDS_REVIEW]: ['tag--warn', 'Needs review'],
+  [OUTCOME.DOES_NOT_MEET]: ['', 'Does not currently meet'],
+};
+
+const MATCH_CLASS = {
+  [OUTCOME.MEETS]: 'yes',
+  [OUTCOME.POSSIBLE]: 'near',
+  [OUTCOME.NEEDS_REVIEW]: 'near',
+  [OUTCOME.DOES_NOT_MEET]: 'no',
+};
+
+function renderConverted(profile) {
+  const chosen = profile.subjects.length;
   if (!chosen) {
-    converted.innerHTML = 'Your Danish levels will appear here.';
+    els.converted.innerHTML = 'Your Danish levels will appear here.';
     return;
   }
+  const { held, unmappedSubjects } = convertProfile(profile, subjectIndex);
 
-  const rows = [...held.entries()]
-    .filter(([name]) => !Object.values(ALIASES).flat().includes(name) || held.size < 4)
+  const chips = [...held.entries()]
     .sort((a, b) => a[0].localeCompare(b[0]))
-    .map(([name, v]) => `<span class="tag tag--brand">${escapeHtml(name)} ${v.level}</span>`);
+    .map(([name, v]) => `<span class="tag tag--brand">${esc(name)} ${v.level}</span>`);
 
-  const avg = state.total ? danishAverage(state.total) : null;
+  const avg = profile.totalPoints ? convertAverage(profile.totalPoints, CONVERSION.average) : null;
 
-  converted.innerHTML = `
+  els.converted.innerHTML = `
     <span style="flex-basis:100%"><strong>${chosen} of 6 subjects entered</strong></span>
-    ${rows.join(' ')}
+    ${chips.join(' ')}
     ${avg !== null
-      ? `<span style="flex-basis:100%;margin-top:.5rem">${state.total} points converts to a Danish average of <strong>${avg.toFixed(1)}</strong>.</span>`
+      ? `<span style="flex-basis:100%;margin-top:.5rem">${profile.totalPoints} points converts to a Danish average of <strong>${avg.toFixed(1)}</strong>.</span>`
+      : ''}
+    ${unmappedSubjects.length
+      ? `<span style="flex-basis:100%;margin-top:.5rem;color:var(--warn)">
+           ${unmappedSubjects.map((u) => `${esc(u.name)} ${esc(u.level)} has no published Danish equivalent.`).join(' ')}
+         </span>`
       : ''}`;
 }
 
-function card(p, verdict) {
-  const badge =
-    verdict.status === 'yes'
-      ? '<span class="tag tag--ok">You qualify</span>'
-      : verdict.status === 'near'
-        ? '<span class="tag tag--sand">One subject short</span>'
-        : '<span class="tag">Not eligible</span>';
+function rule(entry, mark) {
+  return `<li>${mark} ${esc(entry.message)}</li>`;
+}
+
+function renderCard({ opportunity, assessment }) {
+  const d = opportunity.display;
+  const [badgeClass, badgeLabel] = BADGE[assessment.outcome];
+  const ev = assessment.provenance.evidence;
+
+  const explanation = [
+    ...assessment.matched.map((e) => rule(e, '<span aria-hidden="true">✓</span>')),
+    ...assessment.gaps.map((e) => rule(e, '<span aria-hidden="true">✗</span>')),
+    ...assessment.unknowns.map((e) => rule(e, '<span aria-hidden="true">?</span>')),
+  ].join('');
 
   return `
-  <li class="prog" data-match="${verdict.status}">
+  <li class="prog" data-match="${MATCH_CLASS[assessment.outcome]}">
     <div>
-      <h3 class="prog__name"><a href="${BASE}${p.href}">${escapeHtml(p.name)}</a></h3>
+      <h3 class="prog__name"><a href="${BASE}${d.href}">${esc(d.name)}</a></h3>
       <p class="prog__meta">
-        <span><strong>${escapeHtml(p.institution)}</strong></span>
-        ${p.campus ? `<span>${escapeHtml(p.campus)}</span>` : ''}
-        <span>${escapeHtml(p.field)}</span>
+        <span><strong>${esc(d.institution)}</strong></span>
+        ${d.campus ? `<span>${esc(d.campus)}</span>` : ''}
+        ${d.degree ? `<span>${esc(d.degree)}</span>` : ''}
       </p>
-      ${p.requirements ? `<p class="prog__req"><strong>Requires:</strong> ${escapeHtml(p.requirements)}</p>` : ''}
-      ${verdict.misses.length
-        ? `<ul style="margin:.5rem 0 0;padding-left:1.1em;font-size:.875rem;color:var(--ink-soft)">
-             ${verdict.misses.map((m) => `<li>${escapeHtml(m)}</li>`).join('')}
-           </ul>`
-        : ''}
-      ${verdict.caveats.length
-        ? `<p class="prog__req" style="color:var(--warn)">${verdict.caveats.map(escapeHtml).join(' ')}</p>`
-        : ''}
+      <details class="acc" style="border:0">
+        <summary style="font-family:var(--sans);font-size:.9375rem;padding:.35rem 1.6rem .35rem 0">
+          Why this result
+        </summary>
+        <ul style="margin:.25rem 0 0;padding-left:1.2em;font-size:.875rem;color:var(--ink-soft);line-height:1.6">
+          ${explanation || '<li>No requirements are recorded for this programme yet.</li>'}
+          ${assessment.dataIssues.map((i) => `<li><strong>${esc(i)}</strong></li>`).join('')}
+        </ul>
+      </details>
     </div>
     <div class="prog__side">
-      <p>${badge}</p>
-      ${p.restricted
-        ? `<p><small>Restricted admission${p.cutoff ? ` — cut-off ${escapeHtml(p.cutoff)}` : ''}. Meeting the requirements is not the same as getting a place.</small></p>`
-        : `<p><small>Open admission — meet the requirements and you are in.</small></p>`}
+      <p><span class="tag ${badgeClass}">${badgeLabel}</span></p>
+      <p><small>
+        ${assessment.selection.restricted
+          ? `Restricted admission${assessment.selection.historicalCutoffs.length
+              ? ` — most recent cut-off ${esc(assessment.selection.historicalCutoffs[0].value)} (${esc(assessment.selection.historicalCutoffs[0].intake.split('-')[0])} intake, not a prediction)`
+              : ''}.`
+          : 'Open admission: meeting the requirements is enough.'}
+      </small></p>
+      <p><small>
+        ${ev ? `Evidence: ${esc(ev.label.toLowerCase())}${ev.checkedAt ? `, checked ${esc(ev.checkedAt)}` : ''}. ` : ''}
+        Intake ${esc(assessment.provenance.intake || '')}.
+      </small></p>
+      ${d.official ? `<p><small><a href="${esc(d.official)}" rel="noopener nofollow">Check the official page</a></small></p>` : ''}
     </div>
   </li>`;
 }
 
 function render() {
-  const held = heldSubjects();
-  renderConverted(held);
+  const profile = readProfile();
+  save(profile);
+  renderConverted(profile);
 
-  const chosen = state.picks.filter((p) => p.subject).length;
-  if (chosen < 2) {
-    count.textContent = 'Choose at least two subjects to see which programmes you qualify for.';
-    results.innerHTML = '';
+  if (profile.subjects.length < 2) {
+    els.count.textContent = 'Choose at least two subjects to see where you stand.';
+    els.results.innerHTML = '';
     return;
   }
 
-  const scored = PROGRAMMES.map((p) => ({ p, v: evaluate(p, held) }));
-  const order = { yes: 0, near: 1, no: 2 };
-  const visible = scored
-    .filter(({ v }) => state.show[v.status])
-    .sort((a, b) => order[a.v.status] - order[b.v.status] || a.p.name.localeCompare(b.p.name));
+  const results = assessAll(profile, OPPORTUNITIES, options);
+  const tally = {};
+  for (const r of results) tally[r.assessment.outcome] = (tally[r.assessment.outcome] || 0) + 1;
 
-  const n = { yes: 0, near: 0, no: 0 };
-  for (const { v } of scored) n[v.status]++;
+  const visible = results.filter((r) => show[r.assessment.outcome]);
 
-  count.innerHTML =
-    `<b>${n.yes}</b> you qualify for · <b>${n.near}</b> one subject short · <b>${n.no}</b> not eligible` +
-    (chosen < 6 ? ` <span style="color:var(--warn)">(only ${chosen} of 6 subjects entered)</span>` : '');
+  els.count.innerHTML =
+    `<b>${tally[OUTCOME.MEETS] || 0}</b> meet the published requirements · ` +
+    `<b>${tally[OUTCOME.POSSIBLE] || 0}</b> possible with action · ` +
+    `<b>${tally[OUTCOME.NEEDS_REVIEW] || 0}</b> need review · ` +
+    `<b>${tally[OUTCOME.DOES_NOT_MEET] || 0}</b> not currently met` +
+    (profile.subjects.length < 6
+      ? ` <span style="color:var(--warn)">(only ${profile.subjects.length} of 6 subjects entered)</span>`
+      : '');
 
-  results.innerHTML = visible.length
-    ? visible.map(({ p, v }) => card(p, v)).join('')
-    : `<li class="empty">Nothing to show with those filters on.</li>`;
+  els.results.innerHTML = visible.length
+    ? visible.map(renderCard).join('')
+    : '<li class="empty">Nothing to show with those filters on.</li>';
 }
 
-/* --- Wiring ----------------------------------------------------------------- */
+/* --- Wiring ------------------------------------------------------------------ */
 
-function readForm() {
-  state.picks = [1, 2, 3, 4, 5, 6].map((n) => ({
-    subject: document.querySelector(`.p-subject[data-slot="${n}"]`)?.value || '',
-    grade: document.querySelector(`.p-grade[data-slot="${n}"]`)?.value || '',
-  }));
-  const total = Number(document.getElementById('p-total').value);
-  state.total = Number.isFinite(total) && total >= 18 && total <= 45 ? total : null;
-  save();
-}
-
-function save() {
-  try {
-    localStorage.setItem('ibp-planner', JSON.stringify({ picks: state.picks, total: state.total }));
-  } catch {}
-}
-
-function restore() {
-  try {
-    const saved = JSON.parse(localStorage.getItem('ibp-planner') || 'null');
-    if (!saved?.picks) return;
-    saved.picks.forEach((pick, i) => {
-      const n = i + 1;
-      const s = document.querySelector(`.p-subject[data-slot="${n}"]`);
-      const g = document.querySelector(`.p-grade[data-slot="${n}"]`);
-      if (s && pick.subject) s.value = pick.subject;
-      if (g && pick.grade) g.value = pick.grade;
-    });
-    if (saved.total) document.getElementById('p-total').value = saved.total;
-  } catch {}
-}
-
-document.getElementById('picker')?.addEventListener('change', () => { readForm(); render(); });
-document.getElementById('picker')?.addEventListener('input', (e) => {
-  if (e.target.id === 'p-total') { readForm(); render(); }
-});
-document.getElementById('picker')?.addEventListener('submit', (e) => e.preventDefault());
+const form = document.getElementById('picker');
+form?.addEventListener('change', render);
+form?.addEventListener('input', (e) => { if (e.target.id === 'p-total') render(); });
+form?.addEventListener('submit', (e) => e.preventDefault());
 
 document.getElementById('p-reset')?.addEventListener('click', () => {
   for (const el of document.querySelectorAll('.p-subject, .p-grade')) el.value = '';
+  for (const el of document.querySelectorAll('.p-level')) el.value = 'HL';
   document.getElementById('p-total').value = '';
-  try { localStorage.removeItem('ibp-planner'); } catch {}
-  readForm();
+  try { localStorage.removeItem(STORAGE_KEY); } catch {}
   render();
 });
 
 for (const chip of document.querySelectorAll('[data-show]')) {
   chip.addEventListener('click', () => {
     const key = chip.dataset.show;
-    state.show[key] = !state.show[key];
-    chip.setAttribute('aria-pressed', String(state.show[key]));
+    show[key] = !show[key];
+    chip.setAttribute('aria-pressed', String(show[key]));
     render();
   });
 }
 
 restore();
-readForm();
 render();

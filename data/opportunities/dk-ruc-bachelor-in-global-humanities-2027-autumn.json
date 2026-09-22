@@ -11,7 +11,23 @@
     "fullyInLanguage": true
   },
   "admission": {
-    "restricted": true
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Guaranteed admission in 2026 for applicants who met all requirements and had a Danish-converted GPA of at least 8.5.",
+        "evidence": [
+          "ev-ruc-dk-kp2j8"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "Guaranteed admission is not open to applicants with non-EU/EEA qualifications.",
+        "evidence": [
+          "ev-ruc-dk-kp2j8"
+        ]
+      }
+    ]
   },
   "requirements": [
     {
@@ -115,45 +131,6 @@
       "evidence": [
         "ev-ruc-dk-kp2j8"
       ]
-    },
-    {
-      "id": "req-extra-1",
-      "kind": "other",
-      "mandatory": true,
-      "label": "The second foreign language must be at Danish B level if it is a continued language, or Danish A level if you began it from scratch; it cannot be English or your school's language of instruction.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-ruc-dk-kp2j8"
-      ]
-    },
-    {
-      "id": "req-extra-2",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Guaranteed admission in 2026 for applicants who met all requirements and had a Danish-converted GPA of at least 8.5.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-ruc-dk-kp2j8"
-      ]
-    },
-    {
-      "id": "req-extra-3",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Guaranteed admission is not open to applicants with non-EU/EEA qualifications.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-ruc-dk-kp2j8"
-      ]
     }
   ],
   "officialRequirementsText": [
@@ -191,6 +168,7 @@
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
     "notes": [
+      "The second foreign language must be at Danish B level if it is a continued language, or Danish A level if you began it from scratch; it cannot be English or your school's language of instruction.",
       "Non-EU tuition at institution level: Entry September 2026: Global Humanities and Social Sciences EUR 10,000 per year (EUR 5,000 per semester, EUR 30,000 for the full degree); Natural Sciences EUR 16,000 per year (EUR 8,000 per semester, EUR 48,000 for the full degree). Application fee EUR 200. EU/EEA and Swiss citizens pay nothing."
     ]
   }

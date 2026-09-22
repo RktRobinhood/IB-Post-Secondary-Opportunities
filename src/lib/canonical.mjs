@@ -77,11 +77,15 @@ export function resolveEvidence(graph, refs) {
 }
 
 /**
- * Is a claim safe to present as current?
+ * How much weight a claim can carry.
  *
- * Needs-review, superseded and unavailable all mean "do not state this as fact".
- * A conflict between sources means the same: the product shows the conflict and
- * downgrades, rather than silently preferring the more permissive reading.
+ * `conflicting`, `unavailable`, `superseded`, `stale` and `none` all mean the
+ * product should decline to state the claim — and in particular a conflict is
+ * never resolved by quietly preferring the more permissive source.
+ *
+ * `needs-review` is weaker: a source was read and recorded, but no person has
+ * signed it off. That is worth showing beside the claim, not worth refusing to
+ * show the claim at all.
  */
 export function evidenceStatus(graph, refs) {
   const records = resolveEvidence(graph, refs);
@@ -93,13 +97,18 @@ export function evidenceStatus(graph, refs) {
   const states = new Set(records.map((r) => r.verificationState));
   if (states.has('unavailable')) return { level: 'unavailable', label: 'Source unavailable', records };
   if (states.has('superseded')) return { level: 'superseded', label: 'Superseded', records };
-  if (states.has('needs-review')) return { level: 'needs-review', label: 'Needs review', records };
 
-  const newest = records
-    .map((r) => r.retrievedAt)
-    .filter(Boolean)
-    .sort()
-    .at(-1);
+  const newest = records.map((r) => r.retrievedAt).filter(Boolean).sort().at(-1);
+
+  // Past its own review date is stale, whatever its verification state says.
+  const today = new Date().toISOString().slice(0, 10);
+  if (records.some((r) => r.meta?.reviewBy && r.meta.reviewBy < today)) {
+    return { level: 'stale', label: 'Past its review date', checkedAt: newest, records };
+  }
+
+  if (states.has('needs-review')) {
+    return { level: 'needs-review', label: 'Not yet checked by a person', checkedAt: newest, records };
+  }
   return { level: 'verified', label: 'Verified', checkedAt: newest, records };
 }
 

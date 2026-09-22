@@ -77,7 +77,7 @@ const FLAGS = {
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -88,6 +88,7 @@ export async function load() {
       readJson(path.join(DATA, 'glossary.json'), { terms: [] }),
       readJson(path.join(DATA, 'faq.json'), { questions: [] }),
       loadCanonical(),
+      readJson(path.join(DATA, 'ib-subjects.json'), { subjects: [] }),
     ]);
 
   // Denmark is the pilot: its pages render from the canonical entity graph.
@@ -131,6 +132,7 @@ export async function load() {
     dkInstitutions,
     programmes,
     graph: canonical.graph,
+    ibSubjects: ibSubjects.subjects || [],
     fromCanonical: canonical.institutions.length > 0,
     topics: Object.fromEntries(topics.map((t) => [slugify(t.title || 'topic'), t])),
     topicList: topics,

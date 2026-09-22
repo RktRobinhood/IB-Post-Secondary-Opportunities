@@ -15,6 +15,7 @@
     "migrate:dk": "node scripts/migrate-denmark.mjs",
     "images": "node scripts/fetch-images.mjs",
     "images:official": "node scripts/fetch-official-images.mjs",
-    "test": "node scripts/validate.mjs && node src/build.mjs && node scripts/check.mjs"
+    "test:eligibility": "node scripts/test-eligibility.mjs",
+    "test": "node scripts/validate.mjs && node scripts/test-eligibility.mjs && node src/build.mjs && node scripts/check.mjs"
   }
 }

@@ -27,6 +27,12 @@ export function setGuides(list) {
   GUIDES = list;
 }
 
+/** The commit the data came from, surfaced so a result can be traced back. */
+let REVISION = '';
+export function setRevision(value) {
+  REVISION = value || '';
+}
+
 /** Root-relative link that respects the GitHub Pages project path. */
 export function url(path = '/') {
   if (/^(https?:)?\/\//.test(path) || path.startsWith('mailto:') || path.startsWith('#')) return path;
@@ -132,6 +138,7 @@ export function page(o) {
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <meta name="color-scheme" content="light dark">
+${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
 <meta name="theme-color" content="#0F302C" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FBF7F0" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="website">

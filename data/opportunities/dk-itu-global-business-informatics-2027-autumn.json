@@ -12,6 +12,7 @@
   },
   "admission": {
     "restricted": true,
+    "capacityNote": "71 study places in 2026; 92 per cent of those admitted had Danish qualifications.",
     "historicalCutoffs": [
       {
         "intake": "2026-autumn",
@@ -78,21 +79,8 @@
       ]
     },
     {
-      "id": "req-extra-1",
-      "kind": "other",
-      "mandatory": true,
-      "label": "71 study places in 2026; 92 per cent of those admitted had Danish qualifications.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-itu-dk-1exxjuv"
-      ]
-    },
-    {
       "id": "req-extra-2",
-      "kind": "other",
+      "kind": "language-general",
       "mandatory": true,
       "label": "Danish A must be passed even though teaching is in English.",
       "applicability": {

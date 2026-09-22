@@ -127,9 +127,18 @@ async function main() {
   const dataFile = path.join(DIST, 'data.json');
   try {
     const data = JSON.parse(await fs.readFile(dataFile, 'utf8'));
-    if (!data.countries?.length) fail('data.json', 'no countries');
-    for (const c of data.countries) {
+    if (!data.schemaVersion) fail('data.json', 'no schemaVersion — the export must say what shaped it');
+    if (!data.dataRevision) fail('data.json', 'no dataRevision — the export must be traceable to a commit');
+    if (!data.countryProfiles?.length && !data.canonical?.destinations?.length) {
+      fail('data.json', 'no destinations or country profiles');
+    }
+    for (const c of data.countryProfiles || []) {
       if (!c.dataAsOf) warn('data.json', `${c.code} has no dataAsOf`);
+    }
+    // An export where nothing is verified is a research dump, not a publication.
+    const ev = data.evidenceCounts || {};
+    if ((ev.verified || 0) === 0 && (data.recordCounts?.evidence || 0) > 0) {
+      warn('data.json', 'no evidence is marked verified');
     }
   } catch {
     fail('data.json', 'missing or unparseable');

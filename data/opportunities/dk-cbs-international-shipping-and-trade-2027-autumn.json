@@ -1,11 +1,11 @@
 {
-  "id": "dk-ruc-international-bachelor-in-social-sciences-2027-autumn",
-  "programme": "dk-ruc-international-bachelor-in-social-sciences",
-  "institution": "dk-ruc",
+  "id": "dk-cbs-international-shipping-and-trade-2027-autumn",
+  "programme": "dk-cbs-international-shipping-and-trade",
+  "institution": "dk-cbs",
   "destination": "dk",
-  "place": "dk-roskilde",
+  "place": "dk-frederiksberg",
   "intake": "2027-autumn",
-  "startMonth": "August",
+  "startMonth": "September",
   "language": {
     "instruction": "English",
     "fullyInLanguage": true
@@ -15,23 +15,27 @@
     "selection": [
       {
         "type": "gpa",
-        "description": "A minimum grade requirement applies: either an overall GPA of 6.0 on the Danish 7-point scale, or an average of 4.0 across English and Mathematics.",
+        "description": "Motivational essay counts in the quota 2 assessment, subject to the three-month rule. With a 50/50 quota split this programme puts more weight on quota 2 than any other CBS bachelor.",
         "evidence": [
-          "ev-ruc-dk-kp2j8"
+          "ev-cbs-dk-1vcdg48"
         ]
       },
       {
         "type": "gpa",
-        "description": "Guaranteed admission in 2026 for applicants who met all requirements and had a Danish-converted GPA of at least 9.0.",
+        "description": "75 study places in 2026, split 50 per cent quota 1 and 50 per cent quota 2. 1,189 applications in 2026, up 32 per cent on 2025.",
         "evidence": [
-          "ev-ruc-dk-kp2j8"
+          "ev-cbs-dk-1vcdg48"
         ]
-      },
+      }
+    ],
+    "historicalCutoffs": [
       {
-        "type": "gpa",
-        "description": "Guaranteed admission is not open to applicants with non-EU/EEA qualifications.",
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "10.2",
+        "scale": "dk-7-point",
         "evidence": [
-          "ev-ruc-dk-kp2j8"
+          "ev-cbs-dk-1vcdg48"
         ]
       }
     ]
@@ -41,20 +45,38 @@
       "id": "req-all-1",
       "kind": "ib-subject",
       "mandatory": true,
-      "label": "English at B level",
+      "label": "English at A level",
       "subject": "English",
-      "level": "B",
+      "level": "A",
       "operator": "at-least",
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-ruc-dk-kp2j8"
+        "ev-cbs-dk-1vcdg48"
       ]
     },
     {
       "id": "req-all-2",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "English at B level, minimum grade 6",
+      "subject": "English",
+      "level": "B",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-cbs-dk-1vcdg48"
+      ]
+    },
+    {
+      "id": "req-all-3",
       "kind": "ib-subject",
       "mandatory": true,
       "label": "Mathematics at B level",
@@ -66,14 +88,14 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-ruc-dk-kp2j8"
+        "ev-cbs-dk-1vcdg48"
       ]
     },
     {
       "id": "req-oneof",
       "kind": "subject-combination",
       "mandatory": true,
-      "label": "One of 4 accepted subject combinations",
+      "label": "One of 5 accepted subject combinations",
       "operator": "one-of",
       "alternatives": [
         [
@@ -90,13 +112,31 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-ruc-dk-kp2j8"
+              "ev-cbs-dk-1vcdg48"
             ]
           }
         ],
         [
           {
             "id": "req-alt2-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "International Economics at B level",
+            "subject": "International Economics",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-1vcdg48"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
             "kind": "ib-subject",
             "mandatory": true,
             "label": "Social Studies at B level",
@@ -108,25 +148,7 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-ruc-dk-kp2j8"
-            ]
-          }
-        ],
-        [
-          {
-            "id": "req-alt3-1",
-            "kind": "ib-subject",
-            "mandatory": true,
-            "label": "Contemporary History at B level",
-            "subject": "Contemporary History",
-            "level": "B",
-            "operator": "at-least",
-            "applicability": {
-              "intake": "2027-autumn",
-              "applicantGroup": "any"
-            },
-            "evidence": [
-              "ev-ruc-dk-kp2j8"
+              "ev-cbs-dk-1vcdg48"
             ]
           }
         ],
@@ -144,7 +166,25 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-ruc-dk-kp2j8"
+              "ev-cbs-dk-1vcdg48"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt5-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-1vcdg48"
             ]
           }
         ]
@@ -154,13 +194,13 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-ruc-dk-kp2j8"
+        "ev-cbs-dk-1vcdg48"
       ]
     }
   ],
   "officialRequirementsText": [
     {
-      "text": "English at Danish B-level. Mathematics at Danish B-level. History or Social Science or Contemporary History or History of Ideas at Danish B-level. You must also meet one of the following minimum grade requirements: a grade point average of at least 6.0 on the Danish 7-point grading scale from your entry qualification, or an average of at least 4.0 on the Danish 7-point grading scale in English and Mathematics combined.",
+      "text": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "language": "en",
       "official": true
     }
@@ -171,7 +211,7 @@
       "feeStatus": "no-fee",
       "priceYear": "2026/27",
       "evidence": [
-        "ev-ruc-dk-kp2j8"
+        "ev-cbs-dk-1vcdg48"
       ]
     },
     {
@@ -179,7 +219,7 @@
       "feeStatus": "international-rate",
       "priceYear": "2026/27",
       "evidence": [
-        "ev-ruc-dk-kp2j8"
+        "ev-cbs-dk-1vcdg48"
       ]
     }
   ],
@@ -187,13 +227,15 @@
     "dk-optagelse-international-2027"
   ],
   "evidence": [
-    "ev-ruc-dk-kp2j8"
+    "ev-cbs-dk-1vcdg48"
   ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
     "notes": [
-      "Non-EU tuition at institution level: Entry September 2026: Global Humanities and Social Sciences EUR 10,000 per year (EUR 5,000 per semester, EUR 30,000 for the full degree); Natural Sciences EUR 16,000 per year (EUR 8,000 per semester, EUR 48,000 for the full degree). Application fee EUR 200. EU/EEA and Swiss citizens pay nothing."
+      "Compulsory exchange semester in year two and a compulsory internship in a shipping company in year three.",
+      "Admission area number on optagelse.dk: 13280.",
+      "Non-EU tuition at institution level: EUR 6,500 per semester (EUR 13,000 per year), or DKK 49,000 per semester (DKK 98,000 per year), for bachelor programmes. Application fee EUR 150 (approximately DKK 1,125) per applicant per admission round, payable by 15 March at 12.00 CET. EU/EEA and Swiss citizens pay neither."
     ]
   }
 }

@@ -11,7 +11,23 @@
     "fullyInLanguage": true
   },
   "admission": {
-    "restricted": true
+    "restricted": true,
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "Guaranteed admission in 2026 for applicants who met all requirements and had a Danish-converted GPA of at least 2.0.",
+        "evidence": [
+          "ev-ruc-dk-kp2j8"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "Guaranteed admission is not open to applicants with non-EU/EEA qualifications.",
+        "evidence": [
+          "ev-ruc-dk-kp2j8"
+        ]
+      }
+    ]
   },
   "requirements": [
     {
@@ -206,32 +222,6 @@
           }
         ]
       ],
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-ruc-dk-kp2j8"
-      ]
-    },
-    {
-      "id": "req-extra-1",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Guaranteed admission in 2026 for applicants who met all requirements and had a Danish-converted GPA of at least 2.0.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-ruc-dk-kp2j8"
-      ]
-    },
-    {
-      "id": "req-extra-2",
-      "kind": "other",
-      "mandatory": true,
-      "label": "Guaranteed admission is not open to applicants with non-EU/EEA qualifications.",
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"

@@ -398,40 +398,55 @@ ${hero({
 
 export function planner(site) {
   const conv = site.conversion;
+  const subjects = site.ibSubjects || [];
 
-  // The subject list the picker offers, built from the official mapping so it
-  // can never drift from the conversion table.
-  const ibSubjects = [];
-  for (const m of conv?.subjectLevels?.map || []) {
-    for (const ibName of m.ib) {
-      ibSubjects.push({ ib: ibName, danish: m.danish, level: m.level });
-    }
+  const groups = [];
+  for (const subject of subjects) {
+    let g = groups.find((x) => x.name === subject.group);
+    if (!g) { g = { name: subject.group, items: [] }; groups.push(g); }
+    g.items.push(subject);
   }
-  const unique = [...new Map(ibSubjects.map((s) => [s.ib, s])).values()].sort((a, b) =>
-    a.ib.localeCompare(b.ib)
-  );
 
-  const progIndex = site.programmes
-    .filter((p) => p.entryRequirements)
-    .map((p) => ({
-      id: p.id,
-      name: p.name,
-      href: p.href,
-      institution: p.institutionName,
-      field: p.field || 'Other',
-      campus: p.campus || '',
-      restricted: !!p.restrictedAdmission,
-      cutoff: p.quota1Cutoff?.gpa || null,
-      entry: p.entryRequirements,
-      requirements: requirementLine(p.entryRequirements),
-    }));
+  // The engine runs in the browser against the same canonical records the build
+  // uses, so a result shown to a student is never a second implementation.
+  const opportunities = [...(site.graph?.opportunities?.values() || [])].map((o) => {
+    const prog = site.graph.programmes.get(o.programme) || {};
+    const inst = site.graph.institutions.get(o.institution) || {};
+    const place = site.graph.places.get(o.place);
+    return {
+      id: o.id,
+      intake: o.intake,
+      meta: o.meta,
+      evidence: o.evidence || [],
+      requirements: o.requirements || [],
+      admission: o.admission || {},
+      officialRequirementsText: o.officialRequirementsText || [],
+      display: {
+        name: prog.name || o.id,
+        href: `/programmes/${o.id}/`,
+        institution: inst.shortName || inst.name || '',
+        institutionHref: `/universities/${inst.id}/`,
+        campus: place?.name || '',
+        field: prog.field?.primary || 'other',
+        degree: prog.credential?.title || '',
+        official: prog.links?.official || null,
+      },
+    };
+  });
+
+  const evidenceIndex = Object.fromEntries(
+    [...(site.graph?.evidence?.values() || [])].map((e) => [
+      e.id,
+      { state: e.verificationState, retrievedAt: e.retrievedAt, reviewBy: e.meta?.reviewBy || null, url: e.sourceUrl, publisher: e.publisher, conflicts: (e.conflictsWith || []).length },
+    ])
+  );
 
   const body = html`
 ${hero({
   variant: 'plain',
   eyebrow: 'Tool',
   title: 'Will my subjects get me in?',
-  lede: 'Enter the six subjects and levels on your IB Diploma. This converts them into Danish levels using the official table, then checks them against every English-taught programme in Denmark.',
+  lede: 'Enter the six subjects on your IB Diploma and the level you are taking each at. This converts them using the Danish Agency\'s official table, then checks them against every English-taught programme in Denmark — and shows its reasoning for each one.',
 })}
 
 <section class="section">
@@ -446,7 +461,15 @@ ${hero({
               <span class="picker__num">${n}</span>
               <select aria-label="Subject ${n}" data-slot="${n}" class="p-subject">
                 <option value="">Choose a subject…</option>
-                ${unique.map((s) => html`<option value="${s.ib}">${s.ib}</option>`)}
+                ${groups.map(
+                  (g) => html`<optgroup label="${g.name}">
+                    ${g.items.map((x) => html`<option value="${x.id}">${x.name}</option>`)}
+                  </optgroup>`
+                )}
+              </select>
+              <select aria-label="Level for subject ${n}" data-slot="${n}" class="p-level">
+                <option value="HL">HL</option>
+                <option value="SL">SL</option>
               </select>
               <select aria-label="Grade for subject ${n}" data-slot="${n}" class="p-grade">
                 <option value="">Grade</option>
@@ -455,12 +478,23 @@ ${hero({
             </div>`
           )}
           <div class="field">
-            <label for="p-total">Total points, including TOK and EE bonus</label>
+            <label for="p-total">Predicted total, including the TOK and EE bonus</label>
             <input type="number" id="p-total" min="18" max="45" step="1" placeholder="e.g. 34" inputmode="numeric">
           </div>
-          <div class="chips">
-            <button type="button" class="chip" id="p-reset">Start again</button>
+          <div class="field">
+            <label for="p-group">Your fee status</label>
+            <select id="p-group">
+              <option value="eu-eea-ch">EU, EEA or Swiss citizen</option>
+              <option value="non-eu">Outside the EU/EEA</option>
+              <option value="">Prefer not to say</option>
+            </select>
           </div>
+          <div class="chips">
+            <button type="button" class="chip" id="p-reset">Clear and start again</button>
+          </div>
+          <p style="font-size:.8125rem;color:var(--ink-mute);margin:0">
+            Nothing here leaves your browser. It is stored on this device only, and the button above erases it.
+          </p>
         </form>
         <div class="converted" id="p-converted" role="status" aria-live="polite">
           Your Danish levels will appear here.
@@ -469,20 +503,29 @@ ${hero({
 
       <div>
         <p class="result-count" id="p-count" role="status" aria-live="polite">
-          Choose your subjects to see which programmes you qualify for.
+          Choose at least two subjects to see where you stand.
         </p>
         <div class="chips" style="margin-bottom:var(--s5)">
-          <button type="button" class="chip" data-show="yes" aria-pressed="true">Qualify</button>
-          <button type="button" class="chip" data-show="near" aria-pressed="true">One subject short</button>
-          <button type="button" class="chip" data-show="no" aria-pressed="false">Do not qualify</button>
+          <button type="button" class="chip" data-show="meets" aria-pressed="true">Meets requirements</button>
+          <button type="button" class="chip" data-show="possible-with-action" aria-pressed="true">Possible with action</button>
+          <button type="button" class="chip" data-show="needs-review" aria-pressed="true">Needs review</button>
+          <button type="button" class="chip" data-show="does-not-currently-meet" aria-pressed="false">Does not currently meet</button>
         </div>
         <ul class="prog-list" id="p-results"></ul>
 
         ${note(
-          `This is a guide, not a decision. It applies the Agency's published subject table, but individual
-          universities make their own assessments — Global Politics is the clearest example, and several
-          institutions read it differently. If a programme matters to you and the answer here is borderline,
-          email its admissions office before 15 March and ask for it in writing.`,
+          `Four outcomes, and they mean exactly what they say. **Meets published requirements** means every
+          recorded mandatory rule is satisfied for the 2027 intake. **Possible with action** means one rule is
+          not met but could plausibly be before the deadline. **Does not currently meet** means more than one
+          rule is unmet. **Needs review** means the data is missing, unverified, or the rule is one no tool can
+          check — an essay, an interview, a language document.`,
+          { title: 'What the four outcomes mean' }
+        )}
+
+        ${note(
+          `This checks published requirements. It does not predict whether you will be offered a place — for
+          programmes with restricted admission, meeting the requirements is where the competition starts, not
+          where it ends. Past cut-offs are shown as context and are never used as a rule.`,
           { kind: 'warn', title: 'What this cannot tell you' }
         )}
       </div>
@@ -490,15 +533,17 @@ ${hero({
   </div>
 </section>
 
-<script type="application/json" id="planner-subjects">${raw(JSON.stringify(unique))}</script>
-<script type="application/json" id="planner-programmes">${raw(JSON.stringify(progIndex))}</script>
+<script type="application/json" id="planner-subjects">${raw(JSON.stringify(subjects))}</script>
+<script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
+<script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
 <script type="application/json" id="planner-conversion">${raw(
     JSON.stringify({ average: conv?.gradeAverage?.table || [], single: conv?.singleGrade?.table || [] })
   )}</script>`;
 
   return page({
     title: 'Check my subjects',
-    description: 'Enter your IB subjects and levels to see which English-taught Danish degrees you qualify for — and which you are one subject short of.',
+    description:
+      'Enter your IB subjects, levels and grades to see which English-taught Danish degrees you meet the published requirements for — with the reasoning for every rule.',
     path: '/planner/',
     section: '/planner/',
     body,

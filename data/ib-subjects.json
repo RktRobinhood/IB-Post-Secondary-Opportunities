@@ -1,0 +1,315 @@
+{
+  "title": "IB Diploma Programme subjects, and what they count as in Denmark",
+  "dataAsOf": "2026-09-22",
+  "schemaVersion": "1.0",
+  "note": "data/ib-conversion.json holds the Agency's table as published, in its own wording. This file is the machine-readable form the subject checker uses: one entry per real IB subject, with what each level counts as. Where the Agency lists no equivalent, `maps` is empty and `unmapped` explains why — never guessed.",
+  "evidence": ["ev-ufsn-ib-fagniveauer"],
+
+  "subjects": [
+    {
+      "id": "english-a-literature",
+      "name": "English A: Literature",
+      "group": "Studies in language and literature",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "English", "level": "A" }], "SL": [{ "subject": "English", "level": "A" }] },
+      "note": "Any IB English A satisfies Danish English A at either level."
+    },
+    {
+      "id": "english-a-lang-lit",
+      "name": "English A: Language and Literature",
+      "group": "Studies in language and literature",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "English", "level": "A" }], "SL": [{ "subject": "English", "level": "A" }] }
+    },
+    {
+      "id": "english-b",
+      "name": "English B",
+      "group": "Language acquisition",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "English", "level": "A" }], "SL": [{ "subject": "English", "level": "B" }] },
+      "note": "English B at HL counts as Danish English A; at SL it counts as English B."
+    },
+    {
+      "id": "danish-a-literature",
+      "name": "Danish A: Literature",
+      "group": "Studies in language and literature",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Danish", "level": "A" }], "SL": [{ "subject": "Danish", "level": "A" }] },
+      "note": "Formally Danish A1 SL maps to Danish B, but universities normally accept it for a Danish A requirement because it sits above the Studieprøven test."
+    },
+    {
+      "id": "danish-a-lang-lit",
+      "name": "Danish A: Language and Literature",
+      "group": "Studies in language and literature",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Danish", "level": "A" }], "SL": [{ "subject": "Danish", "level": "A" }] }
+    },
+    {
+      "id": "danish-b",
+      "name": "Danish B",
+      "group": "Language acquisition",
+      "levels": ["HL", "SL"],
+      "maps": {
+        "HL": [{ "subject": "Danish as a second language", "level": "A" }],
+        "SL": [{ "subject": "Danish as a second language", "level": "B" }]
+      },
+      "note": "Danish B is a foreign-language subject. Whether it can replace Danish A as the language requirement is decided by each institution — ask in writing."
+    },
+    {
+      "id": "language-a-other",
+      "name": "Another language A (Literature or Language and Literature)",
+      "group": "Studies in language and literature",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Second Foreign Language", "level": "A" }], "SL": [{ "subject": "Second Foreign Language", "level": "A" }] },
+      "note": "The Agency rates a Language A in French, German, Italian or Spanish as above any level offered in Danish upper secondary school."
+    },
+    {
+      "id": "language-b-other",
+      "name": "Another language B (French, German, Spanish, Italian…)",
+      "group": "Language acquisition",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Second Foreign Language", "level": "A" }], "SL": [{ "subject": "Second Foreign Language", "level": "A" }] },
+      "note": "For French, German, Italian and Spanish, a B course counts as Danish continuation-language A. For Chinese, Japanese, Russian, Arabic and Turkish it counts as beginner-language A."
+    },
+    {
+      "id": "language-ab-initio",
+      "name": "Language ab initio",
+      "group": "Language acquisition",
+      "levels": ["SL"],
+      "maps": { "SL": [{ "subject": "Second Foreign Language", "level": "A" }] },
+      "note": "Counts as Danish beginner-language A for French, German, Italian and Spanish. Danish ab initio is a special case and equates to nothing on the Danish-as-a-second-language ladder."
+    },
+
+    {
+      "id": "mathematics-aa",
+      "name": "Mathematics: Analysis and Approaches",
+      "group": "Mathematics",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Mathematics", "level": "A" }], "SL": [{ "subject": "Mathematics", "level": "B" }] },
+      "note": "Denmark treats both mathematics courses identically. Several other countries do not — Norway counts AA SL as R1+R2 but AI SL only as S1+S2."
+    },
+    {
+      "id": "mathematics-ai",
+      "name": "Mathematics: Applications and Interpretation",
+      "group": "Mathematics",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Mathematics", "level": "A" }], "SL": [{ "subject": "Mathematics", "level": "B" }] },
+      "note": "Equivalent to Analysis and Approaches for Danish admission purposes."
+    },
+
+    {
+      "id": "physics",
+      "name": "Physics",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Physics", "level": "A" }], "SL": [{ "subject": "Physics", "level": "B" }] }
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Chemistry", "level": "A" }], "SL": [{ "subject": "Chemistry", "level": "B" }] }
+    },
+    {
+      "id": "biology",
+      "name": "Biology",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Biology", "level": "A" }], "SL": [{ "subject": "Biology", "level": "B" }] }
+    },
+    {
+      "id": "computer-science",
+      "name": "Computer Science",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": {
+        "HL": [{ "subject": "Information Technology", "level": "A" }],
+        "SL": [{ "subject": "Information Technology", "level": "B" }]
+      }
+    },
+    {
+      "id": "digital-society",
+      "name": "Digital Society (formerly ITGS)",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": {
+        "HL": [{ "subject": "Information Technology", "level": "A" }],
+        "SL": [{ "subject": "Information Technology", "level": "B" }]
+      },
+      "note": "The Agency's table lists ITGS, the subject Digital Society replaced."
+    },
+    {
+      "id": "design-technology",
+      "name": "Design Technology",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "The Agency's table lists no Danish equivalent for Design Technology. Ask the admissions office whether it can meet a science requirement."
+    },
+    {
+      "id": "sports-science",
+      "name": "Sports, Exercise and Health Science",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "No Danish equivalent is published. It is unlikely on its own to meet a science requirement."
+    },
+    {
+      "id": "ess",
+      "name": "Environmental Systems and Societies",
+      "group": "Sciences",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "The Agency publishes no equivalent for Environmental Systems and Societies. Do not assume it meets a Biology or Geography requirement — ask in writing."
+    },
+
+    {
+      "id": "history",
+      "name": "History",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "History", "level": "A" }], "SL": [{ "subject": "History", "level": "B" }] },
+      "note": "May appear on your diploma as History Europe, History Asia and so on. It is the same subject for this purpose."
+    },
+    {
+      "id": "economics",
+      "name": "Economics",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": {
+        "HL": [
+          { "subject": "International Economics", "level": "A" },
+          { "subject": "Business Economics", "level": "A" },
+          { "subject": "Economics", "level": "A" }
+        ],
+        "SL": [
+          { "subject": "International Economics", "level": "B" },
+          { "subject": "Business Economics", "level": "B" },
+          { "subject": "Economics", "level": "B" }
+        ]
+      },
+      "note": "The Agency groups the Danish business and economics subjects together, so Economics covers whichever of them a programme names."
+    },
+    {
+      "id": "business-management",
+      "name": "Business Management",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": {
+        "HL": [
+          { "subject": "International Economics", "level": "A" },
+          { "subject": "Business Economics", "level": "A" },
+          { "subject": "Economics", "level": "A" }
+        ],
+        "SL": [
+          { "subject": "International Economics", "level": "B" },
+          { "subject": "Business Economics", "level": "B" },
+          { "subject": "Economics", "level": "B" }
+        ]
+      }
+    },
+    {
+      "id": "psychology",
+      "name": "Psychology",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Psychology", "level": "A" }], "SL": [{ "subject": "Psychology", "level": "B" }] }
+    },
+    {
+      "id": "philosophy",
+      "name": "Philosophy",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Philosophy", "level": "A" }], "SL": [{ "subject": "Philosophy", "level": "B" }] }
+    },
+    {
+      "id": "geography",
+      "name": "Geography",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Geography", "level": "B" }], "SL": [{ "subject": "Geography", "level": "B" }] },
+      "note": "The Agency's table maps Geography SL to Danish Geography B and lists no A-level equivalent, so HL is recorded at B as well. Geography does not substitute for Geoscience A."
+    },
+    {
+      "id": "global-politics",
+      "name": "Global Politics",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "Global Politics has no fixed Danish equivalence, and that is the Agency's own position rather than a gap in our data. It goes far deeper into international politics than Danish Social Studies A but omits the sociology and economics the Danish subject covers. Copenhagen has accepted Global Politics HL as Social Studies B; Aarhus accepts it only in combination with Economics. Write to the admissions office before 15 March and ask for a written assessment."
+    },
+    {
+      "id": "anthropology",
+      "name": "Social and Cultural Anthropology",
+      "group": "Individuals and societies",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+    {
+      "id": "world-religions",
+      "name": "World Religions",
+      "group": "Individuals and societies",
+      "levels": ["SL"],
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+
+    {
+      "id": "visual-arts",
+      "name": "Visual Arts",
+      "group": "The arts",
+      "levels": ["HL", "SL"],
+      "maps": {
+        "HL": [{ "subject": "Visual Arts", "level": "A" }, { "subject": "Design", "level": "A" }],
+        "SL": [{ "subject": "Visual Arts", "level": "B" }, { "subject": "Design", "level": "B" }]
+      }
+    },
+    {
+      "id": "music",
+      "name": "Music",
+      "group": "The arts",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Music", "level": "A" }], "SL": [{ "subject": "Music", "level": "B" }] }
+    },
+    {
+      "id": "theatre",
+      "name": "Theatre",
+      "group": "The arts",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Drama", "level": "A" }], "SL": [{ "subject": "Drama", "level": "B" }] }
+    },
+    {
+      "id": "film",
+      "name": "Film",
+      "group": "The arts",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+    {
+      "id": "dance",
+      "name": "Dance",
+      "group": "The arts",
+      "levels": ["HL", "SL"],
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+
+    {
+      "id": "latin",
+      "name": "Latin",
+      "group": "Language acquisition",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Latin", "level": "A" }], "SL": [{ "subject": "Latin", "level": "B" }] }
+    },
+    {
+      "id": "classical-greek",
+      "name": "Classical Greek",
+      "group": "Language acquisition",
+      "levels": ["HL", "SL"],
+      "maps": { "HL": [{ "subject": "Classical Greek", "level": "A" }], "SL": [{ "subject": "Classical Greek", "level": "B" }] }
+    }
+  ]
+}

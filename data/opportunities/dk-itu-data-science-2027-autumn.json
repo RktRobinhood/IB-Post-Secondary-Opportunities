@@ -12,6 +12,16 @@
   },
   "admission": {
     "restricted": true,
+    "capacityNote": "100 study places in 2026; 595 applicants, of whom 417 applied in quota 2.",
+    "selection": [
+      {
+        "type": "gpa",
+        "description": "A motivational cover letter is recommended for quota 2 applicants.",
+        "evidence": [
+          "ev-en-itu-dk-2ox9v8"
+        ]
+      }
+    ],
     "historicalCutoffs": [
       {
         "intake": "2026-autumn",
@@ -53,32 +63,6 @@
       "minGrade": 6,
       "gradeScale": "dk-7-point",
       "operator": "at-least",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-itu-dk-2ox9v8"
-      ]
-    },
-    {
-      "id": "req-extra-1",
-      "kind": "other",
-      "mandatory": true,
-      "label": "100 study places in 2026; 595 applicants, of whom 417 applied in quota 2.",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-en-itu-dk-2ox9v8"
-      ]
-    },
-    {
-      "id": "req-extra-2",
-      "kind": "essay",
-      "mandatory": true,
-      "label": "A motivational cover letter is recommended for quota 2 applicants.",
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"

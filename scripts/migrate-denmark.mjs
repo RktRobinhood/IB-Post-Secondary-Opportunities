@@ -179,22 +179,60 @@ function normaliseRequirements(p, evidenceRef) {
     });
   }
 
-  for (const [i, extra] of (p.extraRequirements || []).entries()) {
-    out.push({
-      id: `req-extra-${i + 1}`,
-      kind: /essay|motivation/i.test(extra) ? 'essay'
-        : /test|exam/i.test(extra) ? 'test'
-        : /portfolio/i.test(extra) ? 'portfolio'
-        : /interview/i.test(extra) ? 'interview'
-        : 'other',
-      mandatory: true,
-      label: extra,
-      applicability,
-      ...(evidenceRef ? { evidence: [evidenceRef] } : {}),
-    });
+  return out;
+}
+
+/**
+ * The research files collect everything an admissions page says under one
+ * `extraRequirements` list: real extra requirements, but also capacity figures,
+ * quota shares, specialisation names and guaranteed-admission thresholds.
+ *
+ * Treating all of that as mandatory requirements is what made every Danish
+ * programme come back as "Needs review" — the engine correctly refused to judge
+ * "24 study places in 2026". So each line is classified, and only the ones that
+ * are genuinely conditions of entry become Requirements. The rest become
+ * selection factors, capacity notes or plain notes, and the published paragraph
+ * is preserved verbatim either way.
+ */
+function classifyExtra(text) {
+  const t = String(text);
+
+  if (/\d[\d,. ]*\s*(study )?places|applicants,? of whom|per cent of those admitted|admitted had/i.test(t)) {
+    return { as: 'capacity' };
+  }
+  if (/^specialisations?|specialisations? chosen/i.test(t)) {
+    return { as: 'note' };
+  }
+  if (/guaranteed admission/i.test(t)) {
+    return { as: 'selection', type: 'gpa' };
+  }
+  if (/restricted in admission|adgangsbegr(æ|ae)nsning/i.test(t)) {
+    return { as: 'capacity' };
+  }
+  if (/application fee/i.test(t)) {
+    return { as: 'note' };
+  }
+  if (/quota\s*[12]/i.test(t)) {
+    return { as: 'selection', type: /work experience|supplementary/i.test(t) ? 'work-experience' : 'gpa' };
+  }
+  if (/GPA|grade point average|minimum grade requirement|average of at least/i.test(t)) {
+    return { as: 'selection', type: 'gpa' };
+  }
+  if (/recommended/i.test(t) && /letter|essay|portfolio/i.test(t)) {
+    return { as: 'selection', type: /portfolio/i.test(t) ? 'portfolio' : 'essay' };
   }
 
-  return out;
+  // Genuine conditions of entry.
+  if (/motivational (cover )?letter|motivational essay|essay/i.test(t)) return { as: 'requirement', kind: 'essay' };
+  if (/IELTS|TOEFL|Cambridge|English proficiency|language proficiency|Studiepr(ø|oe)ven|must be passed/i.test(t)) {
+    return { as: 'requirement', kind: 'language-general' };
+  }
+  if (/portfolio/i.test(t)) return { as: 'requirement', kind: 'portfolio' };
+  if (/audition/i.test(t)) return { as: 'requirement', kind: 'audition' };
+  if (/interview/i.test(t)) return { as: 'requirement', kind: 'interview' };
+  if (/admission test|entrance (test|exam)|test/i.test(t)) return { as: 'requirement', kind: 'test' };
+
+  return { as: 'note' };
 }
 
 /* --- main ------------------------------------------------------------------ */
@@ -332,6 +370,29 @@ async function main() {
       });
 
       const requirements = normaliseRequirements(p, reqEv);
+      const selection = [];
+      const capacityNotes = [];
+      const plainNotes = [];
+
+      for (const [i, extra] of (p.extraRequirements || []).entries()) {
+        const verdict = classifyExtra(extra);
+        if (verdict.as === 'requirement') {
+          requirements.push({
+            id: `req-extra-${i + 1}`,
+            kind: verdict.kind,
+            mandatory: true,
+            label: extra,
+            applicability: { intake: INTAKE, applicantGroup: 'any' },
+            ...(reqEv ? { evidence: [reqEv] } : {}),
+          });
+        } else if (verdict.as === 'selection') {
+          selection.push({ type: verdict.type, description: extra, ...(reqEv ? { evidence: [reqEv] } : {}) });
+        } else if (verdict.as === 'capacity') {
+          capacityNotes.push(extra);
+        } else {
+          plainNotes.push(extra);
+        }
+      }
 
       out.opportunities.push({
         id: oppId,
@@ -344,6 +405,8 @@ async function main() {
         language: { instruction: p.language || 'English', fullyInLanguage: true },
         admission: {
           restricted: !!p.restrictedAdmission,
+          ...(capacityNotes.length ? { capacityNote: capacityNotes.join(' ') } : {}),
+          ...(selection.length ? { selection } : {}),
           ...(p.quota1Cutoff?.gpa
             ? {
                 historicalCutoffs: [
@@ -375,7 +438,9 @@ async function main() {
         meta: {
           schemaVersion: SCHEMA_VERSION,
           dataAsOf: p.verified || inst.dataAsOf || TODAY,
-          ...(inst.tuitionNonEu ? { notes: [`Non-EU tuition at institution level: ${inst.tuitionNonEu}`] } : {}),
+          ...(plainNotes.length || inst.tuitionNonEu
+            ? { notes: [...plainNotes, ...(inst.tuitionNonEu ? [`Non-EU tuition at institution level: ${inst.tuitionNonEu}`] : [])] }
+            : {}),
         },
       });
     }

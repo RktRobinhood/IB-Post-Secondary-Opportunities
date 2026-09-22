@@ -1,9 +1,9 @@
 {
-  "id": "dk-aau-economics-and-business-administration-2027-autumn",
-  "programme": "dk-aau-economics-and-business-administration",
-  "institution": "dk-aau",
+  "id": "dk-cbs-business-administration-and-sociology-2027-autumn",
+  "programme": "dk-cbs-business-administration-and-sociology",
+  "institution": "dk-cbs",
   "destination": "dk",
-  "place": "dk-aalborg",
+  "place": "dk-frederiksberg",
   "intake": "2027-autumn",
   "startMonth": "September",
   "language": {
@@ -15,9 +15,16 @@
     "selection": [
       {
         "type": "gpa",
-        "description": "Quota 2 holds 20 per cent of places.",
+        "description": "Motivational essay counts in the quota 2 assessment, subject to the three-month rule.",
         "evidence": [
-          "ev-en-aau-dk-1xg0wsc"
+          "ev-cbs-dk-1fawbnk"
+        ]
+      },
+      {
+        "type": "gpa",
+        "description": "100 study places in 2026, split 60 per cent quota 1 and 40 per cent quota 2. 1,234 applications in 2026.",
+        "evidence": [
+          "ev-cbs-dk-1fawbnk"
         ]
       }
     ],
@@ -25,10 +32,10 @@
       {
         "intake": "2026-autumn",
         "quota": "Quota 1",
-        "value": "7.5",
+        "value": "9.8",
         "scale": "dk-7-point",
         "evidence": [
-          "ev-en-aau-dk-1xg0wsc"
+          "ev-cbs-dk-1fawbnk"
         ]
       }
     ]
@@ -38,32 +45,52 @@
       "id": "req-all-1",
       "kind": "ib-subject",
       "mandatory": true,
-      "label": "English at B level",
+      "label": "English at A level",
       "subject": "English",
-      "level": "B",
+      "level": "A",
       "operator": "at-least",
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-aau-dk-1xg0wsc"
+        "ev-cbs-dk-1fawbnk"
       ]
     },
     {
       "id": "req-all-2",
       "kind": "ib-subject",
       "mandatory": true,
-      "label": "Mathematics at B level",
-      "subject": "Mathematics",
+      "label": "English at B level, minimum grade 6",
+      "subject": "English",
       "level": "B",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
       "operator": "at-least",
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-aau-dk-1xg0wsc"
+        "ev-cbs-dk-1fawbnk"
+      ]
+    },
+    {
+      "id": "req-all-3",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics at B level, minimum grade 6",
+      "subject": "Mathematics",
+      "level": "B",
+      "minGrade": 6,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-cbs-dk-1fawbnk"
       ]
     },
     {
@@ -87,67 +114,13 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-1xg0wsc"
+              "ev-cbs-dk-1fawbnk"
             ]
           }
         ],
         [
           {
             "id": "req-alt2-1",
-            "kind": "ib-subject",
-            "mandatory": true,
-            "label": "History of Ideas at B level",
-            "subject": "History of Ideas",
-            "level": "B",
-            "operator": "at-least",
-            "applicability": {
-              "intake": "2027-autumn",
-              "applicantGroup": "any"
-            },
-            "evidence": [
-              "ev-en-aau-dk-1xg0wsc"
-            ]
-          }
-        ],
-        [
-          {
-            "id": "req-alt3-1",
-            "kind": "ib-subject",
-            "mandatory": true,
-            "label": "Contemporary History at B level",
-            "subject": "Contemporary History",
-            "level": "B",
-            "operator": "at-least",
-            "applicability": {
-              "intake": "2027-autumn",
-              "applicantGroup": "any"
-            },
-            "evidence": [
-              "ev-en-aau-dk-1xg0wsc"
-            ]
-          }
-        ],
-        [
-          {
-            "id": "req-alt4-1",
-            "kind": "ib-subject",
-            "mandatory": true,
-            "label": "Social Studies at B level",
-            "subject": "Social Studies",
-            "level": "B",
-            "operator": "at-least",
-            "applicability": {
-              "intake": "2027-autumn",
-              "applicantGroup": "any"
-            },
-            "evidence": [
-              "ev-en-aau-dk-1xg0wsc"
-            ]
-          }
-        ],
-        [
-          {
-            "id": "req-alt5-1",
             "kind": "ib-subject",
             "mandatory": true,
             "label": "International Economics at B level",
@@ -159,7 +132,61 @@
               "applicantGroup": "any"
             },
             "evidence": [
-              "ev-en-aau-dk-1xg0wsc"
+              "ev-cbs-dk-1fawbnk"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Social Studies at B level",
+            "subject": "Social Studies",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-1fawbnk"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "History of Ideas at B level",
+            "subject": "History of Ideas",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-1fawbnk"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt5-1",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Contemporary History at B level",
+            "subject": "Contemporary History",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-1fawbnk"
             ]
           }
         ]
@@ -169,13 +196,26 @@
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-aau-dk-1xg0wsc"
+        "ev-cbs-dk-1fawbnk"
+      ]
+    },
+    {
+      "id": "req-extra-1",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Mathematics B must be passed with a minimum grade of 6.0 on the Danish scale, which is an IB grade of 5. IB Mathematics at HL satisfies this automatically, because a subject passed at A level fulfils any B-level grade requirement.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-cbs-dk-1fawbnk"
       ]
     }
   ],
   "officialRequirementsText": [
     {
-      "text": "Upper secondary school exam. English B. Mathematics B. History B or History of Ideas B or Contemporary History B or Social Studies B or International Economics B.",
+      "text": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B with a minimum grade of 6.0. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "language": "en",
       "official": true
     }
@@ -186,7 +226,7 @@
       "feeStatus": "no-fee",
       "priceYear": "2026/27",
       "evidence": [
-        "ev-en-aau-dk-1xg0wsc"
+        "ev-cbs-dk-1fawbnk"
       ]
     },
     {
@@ -194,7 +234,7 @@
       "feeStatus": "international-rate",
       "priceYear": "2026/27",
       "evidence": [
-        "ev-en-aau-dk-1xg0wsc"
+        "ev-cbs-dk-1fawbnk"
       ]
     }
   ],
@@ -202,14 +242,14 @@
     "dk-optagelse-international-2027"
   ],
   "evidence": [
-    "ev-en-aau-dk-1xg0wsc"
+    "ev-cbs-dk-1fawbnk"
   ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
     "notes": [
-      "40 study places in 2026.",
-      "Non-EU tuition at institution level: Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing."
+      "Admission area number on optagelse.dk: 13075.",
+      "Non-EU tuition at institution level: EUR 6,500 per semester (EUR 13,000 per year), or DKK 49,000 per semester (DKK 98,000 per year), for bachelor programmes. Application fee EUR 150 (approximately DKK 1,125) per applicant per admission round, payable by 15 March at 12.00 CET. EU/EEA and Swiss citizens pay neither."
     ]
   }
 }

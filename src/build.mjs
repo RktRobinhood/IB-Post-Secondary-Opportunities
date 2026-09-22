@@ -9,7 +9,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { load, validate } from './lib/data.mjs';
-import { setBase, setGuides, url, SITE } from './lib/layout.mjs';
+import { setBase, setGuides, setRevision, url, SITE } from './lib/layout.mjs';
 import * as core from './pages/core.mjs';
 import * as dk from './pages/denmark.mjs';
 import * as prog from './pages/programmes.mjs';
@@ -175,6 +175,8 @@ async function main() {
       `${site.programmes.length} programmes · ${Object.keys(site.images).length + Object.keys(site.officialImages).length} images`
   );
 
+  setRevision(dataRevision());
+
   setGuides(
     site.topicList.map((t) => ({
       href: `/guides/${slugify(t.slug || t.title || 'guide')}/`,
@@ -249,6 +251,12 @@ async function main() {
 
   /* Assets */
   await copyDir(ASSETS, path.join(DIST, 'assets'));
+  // The eligibility engine is shared between the build, the tests and the
+  // browser. Copying it rather than duplicating it is the whole point.
+  await fs.copyFile(
+    path.join(ROOT, 'src', 'lib', 'eligibility.mjs'),
+    path.join(DIST, 'assets', 'js', 'eligibility.js')
+  );
   await fs.writeFile(path.join(DIST, 'assets', 'img', 'favicon.svg'), favicon());
   await fs.writeFile(path.join(DIST, 'data.json'), dataDump(site));
 
