@@ -390,7 +390,7 @@ ${hero({
           }))
         )}
 
-        <h2 id="access">What gets you in</h2>
+        <h2 id="access">What qualifies you</h2>
         ${dataTable({
           caption: c.access.summary,
           head: ['What you hold', 'Gives access to', 'Detail'],
@@ -423,7 +423,7 @@ ${hero({
             <li><a href="#single">Single grades</a></li>
             <li><a href="#subjects">Subjects and levels</a></li>
             <li><a href="#special">The awkward cases</a></li>
-            <li><a href="#access">What gets you in</a></li>
+            <li><a href="#access">What qualifies you</a></li>
             <li><a href="#danish-language">Danish language</a></li>
           </ul>
         </nav>

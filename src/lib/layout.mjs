@@ -46,6 +46,7 @@ const NAV = [
   { href: '/world/', label: 'Worldwide' },
   { href: '/programmes/', label: 'Find a degree' },
   { href: '/planner/', label: 'Check my subjects' },
+  { href: '/prepare/', label: 'Preparing' },
   { href: '/timeline/', label: 'Deadlines' },
 ];
 
@@ -73,6 +74,7 @@ const FOOTER = [
     links: [
       { href: '/denmark/apply/', label: 'Applying in Denmark' },
       { href: '/denmark/money/', label: 'Money and SU' },
+      { href: '/prepare/', label: 'CAS, the EE and what counts' },
     ],
     // Topic guides are appended at build time from whatever is in data/topics,
     // so the footer never links to a guide that was not generated.

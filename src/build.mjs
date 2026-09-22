@@ -14,6 +14,7 @@ import * as core from './pages/core.mjs';
 import * as dk from './pages/denmark.mjs';
 import * as prog from './pages/programmes.mjs';
 import * as meta from './pages/meta.mjs';
+import { prepare } from './pages/prepare.mjs';
 import { slugify } from './lib/html.mjs';
 import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
@@ -253,6 +254,7 @@ async function main() {
   await write('/programmes/', prog.programmesIndex(site));
   await write('/planner/', prog.planner(site));
   await write('/timeline/', prog.timeline(site));
+  await write('/prepare/', prepare(site));
 
   /* Guides */
   for (const topic of site.topicList) {

@@ -8,6 +8,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { findPromises } from './lib/no-promises.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -125,6 +126,9 @@ async function main() {
       warn(rel, 'the word "null" appears in visible text');
     }
     if (/&amp;(amp|lt|gt|quot);/.test(html)) warn(rel, 'double-escaped entity');
+
+    /* The site must never promise the reader an outcome. */
+    for (const problem of findPromises(html)) fail(rel, problem);
 
     /* Accessibility basics */
     if (!/class="skip-link"/.test(html)) warn(rel, 'no skip link');

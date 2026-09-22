@@ -114,6 +114,15 @@ async function main() {
     }
   }
 
+  /* A Place may belong to a country that has not migrated to a Destination
+     record yet. Those country profiles are still a real destination, so their
+     codes count — otherwise geocoding a country would break the build until
+     someone migrated it, which is exactly backwards. */
+  for (const f of await listJson(path.join(DATA, 'countries'))) {
+    const { value } = await readJson(path.join(DATA, 'countries', f));
+    if (value?.code) ids.destination.add(value.code);
+  }
+
   /* Cross-references */
   const check = (rel, field, id, pool, label) => {
     if (id && !pool.has(id)) refErrors.push(`${rel} → ${field}: no ${label} with id "${id}"`);
