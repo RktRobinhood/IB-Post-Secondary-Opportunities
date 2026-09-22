@@ -59,7 +59,17 @@ async function main() {
     })
   );
 
-  console.log(`\nChecking ${pages.length} pages…\n`);
+  /* A project-site build prefixes every link with the repository path. Read it
+     back off the page rather than requiring the checker to be told. */
+  let base = '';
+  if (pages.length) {
+    const first = await fs.readFile(pages[0], 'utf8');
+    const m = first.match(/<html[^>]*data-base="([^"]*)"/);
+    if (m && m[1] && m[1] !== '/') base = m[1].replace(/\/$/, '');
+  }
+  const unbase = (href) => (base && href.startsWith(base + '/') ? href.slice(base.length) : href);
+
+  console.log(`\nChecking ${pages.length} pages${base ? ` (base "${base}")` : ''}…\n`);
 
   const externalLinks = new Set();
 
@@ -88,7 +98,7 @@ async function main() {
       const attrs = m[1];
       if (!/\balt\s*=/.test(attrs)) fail(rel, 'an <img> has no alt attribute');
       const src = (attrs.match(/\bsrc="([^"]+)"/) || [])[1];
-      if (src && src.startsWith('/') && !assets.has(src)) fail(rel, `image not found: ${src}`);
+      if (src && src.startsWith('/') && !assets.has(unbase(src))) fail(rel, `image not found: ${src}`);
     }
 
     /* Links */
@@ -103,7 +113,7 @@ async function main() {
         continue;
       }
       if (href.startsWith('/')) {
-        const clean = href.split('#')[0].split('?')[0];
+        const clean = unbase(href.split('#')[0].split('?')[0]);
         if (!routes.has(clean) && !assets.has(clean)) fail(rel, `broken internal link: ${href}`);
       }
     }

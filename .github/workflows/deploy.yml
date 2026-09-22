@@ -1,0 +1,67 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only one deployment at a time; a queued run supersedes an older one rather
+# than racing it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The export records the commit it came from.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # No dependencies to install. The whole toolchain is Node's standard
+      # library, which is why there is no lockfile and no npm ci step.
+
+      - name: Validate the entity records
+        run: node scripts/validate.mjs
+
+      - name: Run the eligibility scenarios
+        run: node scripts/test-eligibility.mjs
+
+      - name: Report data freshness
+        run: node scripts/freshness.mjs
+
+      - name: Build
+        env:
+          SITE_BASE: /IB-Post-Secondary-Opportunities
+          SITE_ORIGIN: https://rktrobinhood.github.io
+        run: node src/build.mjs
+
+      - name: Check the built site
+        run: node scripts/check.mjs
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
