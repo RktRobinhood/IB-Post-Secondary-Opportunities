@@ -4,67 +4,228 @@
   "title": "Programme",
   "description": "A named course of study leading to a credential. One Programme becomes several Opportunities when its intake, campus, language or admissions rules differ.",
   "type": "object",
-  "required": ["id", "institution", "name", "credential", "meta"],
+  "required": [
+    "id",
+    "institution",
+    "name",
+    "credential",
+    "meta"
+  ],
   "properties": {
-    "id": { "$ref": "common.schema.json#/$defs/id" },
-    "institution": { "$ref": "common.schema.json#/$defs/id" },
-    "name": { "type": "string", "minLength": 2 },
-    "localName": { "type": "string" },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "institution": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "localName": {
+      "type": "string"
+    },
     "credential": {
       "type": "object",
-      "required": ["level"],
+      "description": "What the qualification is, on three axes kept deliberately apart: a coarse cross-country LEVEL for comparing, the LOCAL TITLE as actually awarded, and the SECTOR in the local system’s own vocabulary. The reasoning is in src/lib/credentials.mjs. Presentation may branch on structure and comparableLevel, which are finite and cross-country, and may never branch on a country.",
+      "required": [
+        "comparableLevel"
+      ],
       "properties": {
-        "level": { "enum": ["bachelor", "professional-bachelor", "academy-profession", "top-up", "integrated-master", "foundation", "other"] },
-        "title": { "type": "string", "description": "As awarded, e.g. 'BSc in Engineering'." },
-        "ects": { "type": "integer", "minimum": 30, "maximum": 400 },
-        "years": { "type": "number", "minimum": 0.5, "maximum": 8 }
+        "comparableLevel": {
+          "enum": [
+            "foundation",
+            "short-cycle",
+            "top-up",
+            "bachelor",
+            "integrated-long"
+          ],
+          "description": "Coarse on purpose. A student comparing four countries needs to know whether this is the normal first degree, shorter than one, or the long one ending at master’s level — not a twenty-value ladder."
+        },
+        "structure": {
+          "enum": [
+            "standard",
+            "integrated-long",
+            "short-cycle",
+            "top-up",
+            "foundation",
+            "apprenticeship",
+            "audition-or-portfolio"
+          ],
+          "description": "How the programme is built, which changes a student’s decision more than its name does."
+        },
+        "localTitle": {
+          "type": "string",
+          "description": "Exactly as awarded, in the local language. “Diplomingeniør”, not “professional bachelor of engineering”. This is what the certificate says and what an employer will be shown."
+        },
+        "localTitleEn": {
+          "type": "string",
+          "description": "An English rendering shown BESIDE the local title, never instead of it."
+        },
+        "abbreviation": {
+          "type": "string",
+          "description": "BSc, BEng, LLB, and so on, where one is used."
+        },
+        "sector": {
+          "type": "object",
+          "description": "What kind of institution, in its own terms. A Fachhochschule is not a university, not a polytechnic and not a college, and flattening it into any of those loses what a student needs to understand.",
+          "properties": {
+            "local": {
+              "type": "string",
+              "description": "The local sector name: erhvervsakademi, Fachhochschule, grande école."
+            },
+            "en": {
+              "type": "string"
+            },
+            "kind": {
+              "enum": [
+                "research",
+                "applied",
+                "specialist",
+                "professional",
+                "college"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "eqf": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8,
+          "description": "European Qualifications Framework level, where the country publishes one."
+        },
+        "ects": {
+          "type": "integer",
+          "minimum": 30,
+          "maximum": 400
+        },
+        "years": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 8
+        },
+        "title": {
+          "type": "string",
+          "description": "Deprecated: superseded by localTitle and localTitleEn. Kept so older records still validate."
+        },
+        "level": {
+          "enum": [
+            "bachelor",
+            "professional-bachelor",
+            "academy-profession",
+            "top-up",
+            "integrated-master",
+            "foundation",
+            "other"
+          ],
+          "description": "Deprecated: the original Denmark-shaped enum, superseded by comparableLevel."
+        }
       },
       "additionalProperties": false
     },
     "field": {
       "type": "object",
-      "required": ["primary"],
+      "required": [
+        "primary"
+      ],
       "properties": {
         "primary": {
           "enum": [
-            "engineering", "computing", "natural-sciences", "mathematics",
-            "business", "economics", "social-sciences", "law", "humanities",
-            "languages", "education", "health", "medicine", "veterinary",
-            "agriculture-environment", "design-architecture", "arts-music",
-            "sport", "hospitality-tourism", "interdisciplinary", "other"
+            "engineering",
+            "computing",
+            "natural-sciences",
+            "mathematics",
+            "business",
+            "economics",
+            "social-sciences",
+            "law",
+            "humanities",
+            "languages",
+            "education",
+            "health",
+            "medicine",
+            "veterinary",
+            "agriculture-environment",
+            "design-architecture",
+            "arts-music",
+            "sport",
+            "hospitality-tourism",
+            "interdisciplinary",
+            "other"
           ]
         },
-        "secondary": { "type": "array", "items": { "type": "string" } },
-        "keywords": { "type": "array", "items": { "type": "string" } }
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
-    "summary": { "type": "string", "description": "One or two plain sentences. A seventeen-year-old should finish it knowing whether this is for them." },
-    "description": { "type": "string" },
+    "summary": {
+      "type": "string",
+      "description": "One or two plain sentences. A seventeen-year-old should finish it knowing whether this is for them."
+    },
+    "description": {
+      "type": "string"
+    },
     "structure": {
       "type": "object",
       "description": "Learning fit — how the degree actually works, which matters as much as whether you qualify.",
       "properties": {
-        "teachingStyle": { "type": "string" },
-        "assessment": { "type": "string" },
-        "placement": { "type": "string" },
-        "studyAbroad": { "type": "string" },
-        "flexibility": { "type": "string" },
-        "specialisations": { "type": "array", "items": { "type": "string" } }
+        "teachingStyle": {
+          "type": "string"
+        },
+        "assessment": {
+          "type": "string"
+        },
+        "placement": {
+          "type": "string"
+        },
+        "studyAbroad": {
+          "type": "string"
+        },
+        "flexibility": {
+          "type": "string"
+        },
+        "specialisations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
     "links": {
       "type": "object",
       "properties": {
-        "official": { "$ref": "common.schema.json#/$defs/url" },
-        "curriculum": { "$ref": "common.schema.json#/$defs/url" },
-        "admissions": { "$ref": "common.schema.json#/$defs/url" }
+        "official": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "curriculum": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "admissions": {
+          "$ref": "common.schema.json#/$defs/url"
+        }
       },
       "additionalProperties": false
     },
-    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
-    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+    "evidence": {
+      "$ref": "common.schema.json#/$defs/evidenceRefs"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/recordMeta"
+    }
   },
   "additionalProperties": false
 }

@@ -1124,3 +1124,37 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
 @media (max-width: 40rem) {
   .context { padding: var(--s4); }
 }
+
+/* --- The shape of a country's system --------------------------------------- */
+.landscape { margin: var(--s7) 0; }
+.landscape__summary { max-width: 68ch; color: var(--ink-soft); }
+.landscape__routes { list-style: none; padding: 0; margin: var(--s5) 0 0; display: grid; gap: var(--s4); }
+
+.route {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--s5);
+  background: var(--paper);
+}
+.route__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2) var(--s3); }
+/* The local name leads, at heading weight. The English gloss is smaller and
+   beside it, never instead of it — a Danish student should recognise the word
+   they will actually encounter. */
+.route__name { margin: 0; font-size: 1.125rem; }
+.route__en { color: var(--ink-mute); font-size: .875rem; }
+.route__what { margin: var(--s3) 0 0; font-size: .9375rem; max-width: 68ch; }
+.route__note { margin: var(--s3) 0 0; font-size: .875rem; color: var(--ink-soft); }
+
+.route__flags { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.flag {
+  font-size: .75rem;
+  padding: .2em .6em;
+  border-radius: 100px;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-soft);
+}
+.flag--ok { background: var(--ok-tint); border-color: var(--ok); color: var(--ok); }
+.flag--warn { background: var(--warn-tint); border-color: var(--warn); color: var(--warn); }
+.flag--mute { background: var(--paper-2); }
+
+@media (max-width: 40rem) { .route { padding: var(--s4); } }

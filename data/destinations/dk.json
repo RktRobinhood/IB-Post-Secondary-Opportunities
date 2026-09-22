@@ -7,12 +7,15 @@
   "region": "Nordics",
   "capital": "Copenhagen",
   "currency": "DKK",
-  "membership": { "eu": true, "eea": true, "nordic": true, "schengen": true },
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
   "targetIntake": "2027-autumn",
-
   "tagline": "One deadline, one portal, no tuition — and a conversion table that decides everything",
   "summary": "Denmark is the default option for most IB students at a Danish gymnasium, and the one where the rules are knowable in advance. An IB Diploma of 24 points or more opens every programme in the country, provided you also hold the specific subjects each one names. The two things that actually decide your application are the official conversion tables and the language a programme is taught in — most Danish bachelor's degrees are taught in Danish, and the English-taught set is smaller than people expect.",
-
   "whyConsider": [
     "No tuition at all for EU, EEA and Swiss citizens, and SU on top if you are a Danish citizen.",
     "One application, one portal, one deadline, up to eight ranked choices.",
@@ -27,7 +30,6 @@
     "The SU reform taking effect on 1 January 2027 cuts the grant frame for higher education from 70 to 58 portions and limits SU to the prescribed length of your programme.",
     "Some institutions still require a signature page printed, signed by hand and sent separately. It is never uploaded, and the application is incomplete without it."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": "24 points with a full IB Diploma gives access to every higher education programme, subject to the programme's own subject requirements. A Diploma does not need a grade of 3 in every subject — a 2 may appear where the IB awarded the Diploma. DP Course Results need at least 18 points, grade 3 in all six subjects and at least three at HL, and reach university bachelor's degrees only with supplementary subjects or a retake.",
@@ -35,16 +37,118 @@
     "gradeConversion": "Total points convert to the Danish 7-point grade average using a table re-issued each year and published by 1 March for that summer's intake.",
     "conversionScale": "dk-7-point",
     "conversionTable": [
-      { "ib": 18, "local": 2.4 }, { "ib": 19, "local": 2.7 }, { "ib": 20, "local": 3.0 },
-      { "ib": 21, "local": 3.3 }, { "ib": 22, "local": 3.7 }, { "ib": 23, "local": 4.0 },
-      { "ib": 24, "local": 4.4 }, { "ib": 25, "local": 4.7 }, { "ib": 26, "local": 5.2 },
-      { "ib": 27, "local": 5.6 }, { "ib": 28, "local": 6.0 }, { "ib": 29, "local": 6.4 },
-      { "ib": 30, "local": 6.9 }, { "ib": 31, "local": 7.3 }, { "ib": 32, "local": 7.7 },
-      { "ib": 33, "local": 8.1 }, { "ib": 34, "local": 8.5 }, { "ib": 35, "local": 8.9 },
-      { "ib": 36, "local": 9.3 }, { "ib": 37, "local": 9.7 }, { "ib": 38, "local": 10.0 },
-      { "ib": 39, "local": 10.4 }, { "ib": 40, "local": 10.7 }, { "ib": 41, "local": 11.0 },
-      { "ib": 42, "local": 11.3 }, { "ib": 43, "local": 11.6 }, { "ib": 44, "local": 12.0 },
-      { "ib": 45, "local": 12.7 }
+      {
+        "ib": 18,
+        "local": 2.4
+      },
+      {
+        "ib": 19,
+        "local": 2.7
+      },
+      {
+        "ib": 20,
+        "local": 3
+      },
+      {
+        "ib": 21,
+        "local": 3.3
+      },
+      {
+        "ib": 22,
+        "local": 3.7
+      },
+      {
+        "ib": 23,
+        "local": 4
+      },
+      {
+        "ib": 24,
+        "local": 4.4
+      },
+      {
+        "ib": 25,
+        "local": 4.7
+      },
+      {
+        "ib": 26,
+        "local": 5.2
+      },
+      {
+        "ib": 27,
+        "local": 5.6
+      },
+      {
+        "ib": 28,
+        "local": 6
+      },
+      {
+        "ib": 29,
+        "local": 6.4
+      },
+      {
+        "ib": 30,
+        "local": 6.9
+      },
+      {
+        "ib": 31,
+        "local": 7.3
+      },
+      {
+        "ib": 32,
+        "local": 7.7
+      },
+      {
+        "ib": 33,
+        "local": 8.1
+      },
+      {
+        "ib": 34,
+        "local": 8.5
+      },
+      {
+        "ib": 35,
+        "local": 8.9
+      },
+      {
+        "ib": 36,
+        "local": 9.3
+      },
+      {
+        "ib": 37,
+        "local": 9.7
+      },
+      {
+        "ib": 38,
+        "local": 10
+      },
+      {
+        "ib": 39,
+        "local": 10.4
+      },
+      {
+        "ib": 40,
+        "local": 10.7
+      },
+      {
+        "ib": 41,
+        "local": 11
+      },
+      {
+        "ib": 42,
+        "local": 11.3
+      },
+      {
+        "ib": 43,
+        "local": 11.6
+      },
+      {
+        "ib": 44,
+        "local": 12
+      },
+      {
+        "ib": 45,
+        "local": 12.7
+      }
     ],
     "notes": [
       "Single subject grades convert separately and only where a programme sets a minimum: IB 7 is 12, 6 is 10, 5 is 7, 4 is 4, 3 is 02, 2 is 00 and 1 is -3.",
@@ -52,9 +156,12 @@
       "If you retook to improve a result that already qualified you, Denmark converts your original result, not the improved one. The letter at the bottom left of the diploma says which it is.",
       "Studieprøven is not an upper-secondary subject, so it can meet a language requirement but never a subject grade requirement."
     ],
-    "evidence": ["ev-ufsn-ib-eksaminer", "ev-ufsn-ib-karakterer", "ev-ufsn-ib-fagniveauer"]
+    "evidence": [
+      "ev-ufsn-ib-eksaminer",
+      "ev-ufsn-ib-karakterer",
+      "ev-ufsn-ib-fagniveauer"
+    ]
   },
-
   "language": {
     "englishTaughtBachelors": "A small, concentrated set — most degrees are taught in Danish",
     "englishProof": "Any IB English satisfies the English requirement. English A1, A2 or B at HL, and English A1 or A2, A Literature or A Language and Literature at SL, all count as Danish English A; English B SL counts as English B. No IELTS or TOEFL is needed.",
@@ -64,13 +171,14 @@
       "If you took Danish B HL or Danish ab initio, whether it substitutes for Danish A is decided by each institution. Ask in writing."
     ]
   },
-
   "feeContext": [
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "no-fee",
       "summary": "No tuition. Also free for holders of permanent residence, or temporary residence that can lead to it.",
-      "evidence": ["ev-studyindenmark-fees"]
+      "evidence": [
+        "ev-studyindenmark-fees"
+      ]
     },
     {
       "applicantGroup": "non-eu",
@@ -78,12 +186,20 @@
       "summary": "Tuition is charged, plus a DKK 3,060 residence permit fee and proof of DKK 7,426 per month of self-support.",
       "typicalRange": "EUR 6,000–16,000 per year",
       "priceYear": "not stated by the source",
-      "evidence": ["ev-studyindenmark-fees", "ev-siri-higher-education"]
+      "evidence": [
+        "ev-studyindenmark-fees",
+        "ev-siri-higher-education"
+      ]
     }
   ],
-
   "livingContext": {
-    "livingCostMonthly": { "amount": 11000, "currency": "DKK", "period": "month", "approximate": true, "note": "Midpoint of the official DKK 8,450–13,700 range. Copenhagen sits at the top of it; Esbjerg, Sønderborg and Aalborg well below." },
+    "livingCostMonthly": {
+      "amount": 11000,
+      "currency": "DKK",
+      "period": "month",
+      "approximate": true,
+      "note": "Midpoint of the official DKK 8,450–13,700 range. Copenhagen sits at the top of it; Esbjerg, Sønderborg and Aalborg well below."
+    },
     "livingCostYear": "no year stated by the source",
     "housing": "Danish universities have no tradition of campus accommodation. Most students live in kollegier, often some distance from campus, or rent privately. Start months before you arrive and contact your institution the moment you are accepted — August and September are the worst possible time to arrive without a room.",
     "healthcare": "Once you have a CPR number you receive a health card automatically and healthcare is free. Choose insurance group 1, as 98% of residents do: an assigned GP, free consultations, referrals to specialists. Dental care and physiotherapy are not covered.",
@@ -94,11 +210,19 @@
       "Non-Danish EU citizens must first obtain equal-treatment status, in practice by working 10–12 hours a week for at least ten continuous weeks and continuing while receiving SU.",
       "Students on a non-EU study residence permit may not claim SU or housing benefit, and doing so can cost them the permit."
     ],
-    "evidence": ["ev-su-satser-2026", "ev-studyindenmark-budget", "ev-siri-higher-education"]
+    "evidence": [
+      "ev-su-satser-2026",
+      "ev-studyindenmark-budget",
+      "ev-siri-higher-education"
+    ]
   },
-
-  "applicationSystems": ["dk-optagelse"],
-  "evidence": ["ev-ufsn-ib-eksaminer", "ev-dimensionering"],
+  "applicationSystems": [
+    "dk-optagelse"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-eksaminer",
+    "ev-dimensionering"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
@@ -106,6 +230,59 @@
     "notes": [
       "The grade-average conversion table is republished by 1 March each year. This record must be re-verified then.",
       "Programme-level requirements live on each Opportunity, not here."
+    ]
+  },
+  "sectorLandscape": {
+    "summary": "Denmark does not have one higher education sector but five, and they are genuinely different institutions rather than tiers of the same one. The Agency names them as universities, university colleges, business academies, institutions in architecture and art, and maritime educational institutions. Almost everything an IB student is told about Denmark concerns the first of those, which is a shame, because for some people the answer is one of the others. A reform is currently under way across the whole sector except maritime programmes, so structures that have been stable for years may not stay that way.",
+    "routes": [
+      {
+        "localName": "universitet",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The eight research universities, and the route almost every IB student is shown. A three-year bachelor followed by a two-year kandidat (master’s), taught by people doing research in the subject. Academic in emphasis rather than vocational: you will read a great deal and write a great deal, and the first job comes after the master’s rather than after the bachelor.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "The English-taught bachelor programmes listed on this site are almost all here. Most university bachelor programmes are still taught in Danish."
+      },
+      {
+        "localName": "professionshøjskole",
+        "englishName": "university college",
+        "kind": "applied",
+        "what": "Where Denmark trains nurses, teachers, social workers, midwives and a good deal of its engineering. The qualification is a professionsbachelor, typically three and a half to four years including a substantial paid or assessed placement, and it is designed to put you into the profession rather than into a master’s. If you already know you want to do the job rather than study the subject, this is the route that does that, and it is the one nobody mentions.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "The overwhelming majority of professionsbachelor programmes are taught in Danish, which is the practical barrier rather than the entry requirements."
+      },
+      {
+        "localName": "erhvervsakademi",
+        "englishName": "business academy",
+        "kind": "college",
+        "what": "Short, applied, two to two and a half years, leading to an erhvervsakademiuddannelse — an academy profession degree. Strongly vocational: multimedia design, computer science, marketing management, construction. Crucially it is not a dead end, because a one-to-one-and-a-half-year top-up converts it into a full professionsbachelor, so you can commit to two years rather than four and decide later.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Some business academies, particularly in Copenhagen, teach in English. This is the least-known route open to an IB student and the one worth checking if a four-year commitment at eighteen feels like too much."
+      },
+      {
+        "localName": "institutioner inden for arkitektur og kunst",
+        "englishName": "institutions in architecture and art",
+        "kind": "specialist",
+        "what": "The architecture schools, design schools, art academies, conservatoires and the film school. Admission runs on portfolio or audition, and grades matter far less than at a university — this is the one part of the Danish system where the usual logic of this site inverts. Preparation means a body of work built over months, not a supplementary course.",
+        "ibAccessible": "partly",
+        "englishTaught": "some",
+        "note": "Entry is competitive in a different way from grade cut-offs, and each school publishes its own brief. A general portfolio satisfies none of them well."
+      },
+      {
+        "localName": "maritime uddannelsesinstitutioner",
+        "englishName": "maritime educational institutions",
+        "kind": "professional",
+        "what": "Training for navigation, marine engineering and shipping, regulated separately from the rest of the sector and explicitly outside the current reform. A genuine route into a global industry that Denmark happens to be very good at, and one almost no IB student considers.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not yet researched in detail here. Recorded because it exists and is named by the Agency, not because we can currently advise on it."
+      }
+    ],
+    "evidence": [
+      "ev-ufsn-he-system"
     ]
   }
 }

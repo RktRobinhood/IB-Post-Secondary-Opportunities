@@ -313,3 +313,54 @@ export function contextNotes(list, { title = 'What it is actually like' } = {}) 
     ${notes.map(contextNote)}
   </div>`;
 }
+
+/**
+ * How a country's post-secondary system is actually organised.
+ *
+ * Renders entirely from the record, including the local names, so it works for
+ * a country whose categories nobody here has heard of. There is no branch on a
+ * destination anywhere in this function, and scripts/test-credentials.mjs fails
+ * if one appears — the moment a template starts saying "if France", the data
+ * model has stopped carrying the meaning and the fix belongs there.
+ */
+export function sectorLandscape(landscape, { destinationName = 'this country' } = {}) {
+  if (!landscape?.routes?.length) return '';
+
+  const ACCESS = {
+    yes: { label: 'Open to IB', cls: 'ok' },
+    partly: { label: 'Partly open to IB', cls: 'warn' },
+    rarely: { label: 'Rarely open to IB', cls: 'warn' },
+    unknown: { label: 'Not yet checked', cls: 'mute' },
+  };
+  const ENGLISH = {
+    common: 'Often taught in English',
+    some: 'Some English-taught',
+    rare: 'Rarely English-taught',
+    none: 'Not taught in English',
+    unknown: 'Language of instruction not yet checked',
+  };
+
+  return html`<div class="landscape">
+    <h2 id="landscape">The shape of ${destinationName}'s system</h2>
+    <p class="landscape__summary">${landscape.summary}</p>
+    <ul class="landscape__routes">
+      ${landscape.routes.map((r) => {
+        const access = ACCESS[r.ibAccessible] || ACCESS.unknown;
+        return html`<li class="route">
+          <div class="route__head">
+            <h3 class="route__name" lang="">${r.localName}</h3>
+            ${r.englishName && r.englishName.toLowerCase() !== r.localName.toLowerCase()
+              ? html`<span class="route__en">${r.englishName}</span>`
+              : ''}
+          </div>
+          <p class="route__what">${r.what}</p>
+          <div class="route__flags">
+            <span class="flag flag--${access.cls}">${access.label}</span>
+            <span class="flag flag--mute">${ENGLISH[r.englishTaught] || ENGLISH.unknown}</span>
+          </div>
+          ${r.note ? html`<p class="route__note">${r.note}</p>` : ''}
+        </li>`;
+      })}
+    </ul>
+  </div>`;
+}

@@ -4,23 +4,58 @@
   "title": "Destination",
   "description": "A country or admissions jurisdiction whose rules, costs and application process apply to the Opportunities inside it.",
   "type": "object",
-  "required": ["id", "name", "scope", "meta"],
+  "required": [
+    "id",
+    "name",
+    "scope",
+    "meta"
+  ],
   "properties": {
-    "id": { "$ref": "common.schema.json#/$defs/id", "description": "ISO 3166-1 alpha-2, lowercase, plus a jurisdiction suffix where one country has several (e.g. be-fl)." },
-    "iso2": { "type": "string", "pattern": "^[a-z]{2}$" },
-    "name": { "type": "string" },
-    "adjective": { "type": "string" },
-    "scope": { "enum": ["europe", "worldwide"] },
-    "region": { "type": "string" },
-    "capital": { "type": "string" },
-    "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id",
+      "description": "ISO 3166-1 alpha-2, lowercase, plus a jurisdiction suffix where one country has several (e.g. be-fl)."
+    },
+    "iso2": {
+      "type": "string",
+      "pattern": "^[a-z]{2}$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "adjective": {
+      "type": "string"
+    },
+    "scope": {
+      "enum": [
+        "europe",
+        "worldwide"
+      ]
+    },
+    "region": {
+      "type": "string"
+    },
+    "capital": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
     "membership": {
       "type": "object",
       "properties": {
-        "eu": { "type": "boolean" },
-        "eea": { "type": "boolean" },
-        "nordic": { "type": "boolean" },
-        "schengen": { "type": "boolean" }
+        "eu": {
+          "type": "boolean"
+        },
+        "eea": {
+          "type": "boolean"
+        },
+        "nordic": {
+          "type": "boolean"
+        },
+        "schengen": {
+          "type": "boolean"
+        }
       },
       "additionalProperties": false
     },
@@ -28,94 +63,289 @@
       "type": "object",
       "description": "Visual variety only. Nothing here can reorder, hide or re-rank information — a destination may look different, but the same question is answered in the same place on every page.",
       "properties": {
-        "accent": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
-        "accentDark": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
-        "pattern": { "enum": ["none", "latitude", "grid", "wave"] },
-        "focal": { "type": "string", "pattern": "^[0-9]{1,3}% [0-9]{1,3}%$" }
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "accentDark": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "pattern": {
+          "enum": [
+            "none",
+            "latitude",
+            "grid",
+            "wave"
+          ]
+        },
+        "focal": {
+          "type": "string",
+          "pattern": "^[0-9]{1,3}% [0-9]{1,3}%$"
+        }
       },
       "additionalProperties": false
     },
-    "tagline": { "type": "string", "maxLength": 90 },
-    "summary": { "type": "string" },
-    "whyConsider": { "type": "array", "items": { "type": "string" } },
-    "watchOuts": { "type": "array", "items": { "type": "string" } },
-
+    "tagline": {
+      "type": "string",
+      "maxLength": 90
+    },
+    "summary": {
+      "type": "string"
+    },
+    "whyConsider": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "watchOuts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "ibRecognition": {
       "type": "object",
       "description": "How the national system reads an IB Diploma. Programme-level rules live on the Opportunity, not here.",
       "properties": {
-        "accepted": { "type": "boolean" },
-        "minimumPoints": { "type": "string" },
-        "subjectLevelRule": { "type": "string" },
-        "gradeConversion": { "type": "string" },
+        "accepted": {
+          "type": "boolean"
+        },
+        "minimumPoints": {
+          "type": "string"
+        },
+        "subjectLevelRule": {
+          "type": "string"
+        },
+        "gradeConversion": {
+          "type": "string"
+        },
         "conversionTable": {
           "type": "array",
           "description": "Where the destination publishes an explicit IB-to-local mapping.",
           "items": {
             "type": "object",
-            "required": ["ib", "local"],
+            "required": [
+              "ib",
+              "local"
+            ],
             "properties": {
-              "ib": { "type": ["number", "string"] },
-              "local": { "type": ["number", "string"] },
-              "note": { "type": "string" }
+              "ib": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "local": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "note": {
+                "type": "string"
+              }
             },
             "additionalProperties": false
           }
         },
-        "conversionScale": { "type": "string" },
-        "notes": { "type": "array", "items": { "type": "string" } },
-        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        "conversionScale": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/evidenceRefs"
+        }
       },
       "additionalProperties": false
     },
-
     "language": {
       "type": "object",
       "properties": {
-        "englishTaughtBachelors": { "type": "string" },
-        "englishProof": { "type": "string" },
-        "localLanguageRequired": { "type": "boolean" },
-        "notes": { "type": "array", "items": { "type": "string" } }
+        "englishTaughtBachelors": {
+          "type": "string"
+        },
+        "englishProof": {
+          "type": "string"
+        },
+        "localLanguageRequired": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       },
       "additionalProperties": false
     },
-
     "livingContext": {
       "type": "object",
       "properties": {
-        "livingCostMonthly": { "$ref": "common.schema.json#/$defs/money" },
-        "livingCostYear": { "type": "string" },
-        "housing": { "type": "string" },
-        "healthcare": { "type": "string" },
-        "workRights": { "type": "string" },
-        "residency": { "type": "string" },
-        "funding": { "type": "array", "items": { "type": "string" } },
-        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        "livingCostMonthly": {
+          "$ref": "common.schema.json#/$defs/money"
+        },
+        "livingCostYear": {
+          "type": "string"
+        },
+        "housing": {
+          "type": "string"
+        },
+        "healthcare": {
+          "type": "string"
+        },
+        "workRights": {
+          "type": "string"
+        },
+        "residency": {
+          "type": "string"
+        },
+        "funding": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/evidenceRefs"
+        }
       },
       "additionalProperties": false
     },
-
     "feeContext": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["applicantGroup"],
+        "required": [
+          "applicantGroup"
+        ],
         "properties": {
-          "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
-          "feeStatus": { "$ref": "common.schema.json#/$defs/feeStatus" },
-          "summary": { "type": "string" },
-          "typicalRange": { "type": "string" },
-          "priceYear": { "type": "string" },
-          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+          "applicantGroup": {
+            "$ref": "common.schema.json#/$defs/applicantGroup"
+          },
+          "feeStatus": {
+            "$ref": "common.schema.json#/$defs/feeStatus"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "typicalRange": {
+            "type": "string"
+          },
+          "priceYear": {
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          }
         },
         "additionalProperties": false
       }
     },
-
-    "applicationSystems": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/id" } },
-    "targetIntake": { "$ref": "common.schema.json#/$defs/intake" },
-    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
-    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+    "applicationSystems": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
+    },
+    "targetIntake": {
+      "$ref": "common.schema.json#/$defs/intake"
+    },
+    "evidence": {
+      "$ref": "common.schema.json#/$defs/evidenceRefs"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/recordMeta"
+    },
+    "sectorLandscape": {
+      "type": "object",
+      "description": "How this country’s post-secondary system is actually organised, in its own vocabulary. Needed because the category names do not translate: telling a Danish student about \"colleges\", or a French student about \"professional bachelors\", describes nothing they can recognise. Also the only place the non-university routes get named, and most IB students are never told those exist.",
+      "required": [
+        "summary",
+        "routes"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 60,
+          "maxLength": 1200,
+          "description": "How the system divides up, in two or three sentences, using the local names."
+        },
+        "routes": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The kinds of institution, each under its own local name.",
+          "items": {
+            "type": "object",
+            "required": [
+              "localName",
+              "what"
+            ],
+            "properties": {
+              "localName": {
+                "type": "string",
+                "description": "What it is called there: universitet, Fachhochschule, grande école."
+              },
+              "englishName": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "research",
+                  "applied",
+                  "specialist",
+                  "professional",
+                  "college"
+                ]
+              },
+              "what": {
+                "type": "string",
+                "minLength": 30,
+                "maxLength": 900,
+                "description": "What studying there is actually like, and who it suits."
+              },
+              "ibAccessible": {
+                "enum": [
+                  "yes",
+                  "partly",
+                  "rarely",
+                  "unknown"
+                ],
+                "description": "Whether an IB diploma opens this route, which is a different question from whether the route exists."
+              },
+              "englishTaught": {
+                "enum": [
+                  "common",
+                  "some",
+                  "rare",
+                  "none",
+                  "unknown"
+                ]
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 600
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/evidenceRef"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
   },
   "additionalProperties": false
 }

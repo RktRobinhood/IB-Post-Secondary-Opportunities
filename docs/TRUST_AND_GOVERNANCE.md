@@ -31,6 +31,50 @@ Automation can discover pages, extract candidate facts, compare versions, and fl
 - Preserve conflicting or ambiguous evidence for review instead of asking a model to choose silently.
 - Record the tool or process that produced imported data when useful for auditing.
 - Never fabricate a missing field from patterns in other institutions or previous Intakes.
+- A secondary source may never be the sole basis for a consequential claim. See **What a source is allowed to establish** below; it is enforced by the validator rather than left to judgement.
+
+## What a source is allowed to establish
+
+Denmark was researched almost entirely from rule-owners. The Agency publishes the conversion tables; each university publishes its own entry requirements; both are the final word on their own subject. That situation does not survive contact with the rest of the world.
+
+Most of the genuinely useful writing about applying to Italy, or Japan, or Hungary comes from people who are accurate, culturally informed, and **not authoritative** — other IB schools' counselling pages, government promotion agencies, counsellor association briefings. Refusing to use those sources would mean writing nothing outside Denmark. Using them carelessly would mean publishing rumour with the same typography as law.
+
+So every Evidence record carries a `sourceClass`, and the classes differ in what they are permitted to establish.
+
+| Class | Authoritative? | May establish |
+|---|---|---|
+| The body that sets the rule | yes | anything |
+| The authority that runs the process | yes | anything |
+| Qualification recognition body | yes | anything |
+| An institution's own guidance | yes | anything about itself |
+| Government study-promotion agency | no | procedure, description, culture |
+| Another school's counselling guidance | no | procedure, culture |
+| Counsellor professional body | no | procedure, culture |
+| Encyclopaedic reference | no | description only |
+| Commercial course aggregator | no | description only |
+
+**A secondary source may establish context, may point us at the official page, and may never on its own make a consequential claim verified.** A consequential claim is anything that decides an application: entry requirements, deadlines, fees, quotas, qualification conversion.
+
+Three properties of this rule matter more than the table:
+
+**It is mechanical, not editorial.** `npm run validate` fails. It is not a paragraph in this document that a tired person can forget at midnight, and it does not depend on anyone remembering that StudyinDenmark is a promotion agency rather than the ministry.
+
+**The question is asked per claim, not per record.** A promotion agency cited *alongside* the rule-owner is useful, and is often the clearer explanation of the two. A promotion agency cited *alone* for who pays tuition is the problem. The classes behind each claim are pooled, and one authoritative source is enough while ten secondary ones are not.
+
+**The claim kind is derived from the field, never hand-labelled.** A label someone must remember to set correctly is a label that will be wrong on exactly the records where it matters most. `requirements` is consequential whatever anyone types.
+
+`src/lib/source-classes.mjs` holds the matrix, including what goes wrong when each class is over-trusted. Those cautions are drawn from things that have actually happened here rather than written in the abstract — the promotion-agency caution exists because StudyinDenmark is government-run, looks authoritative, and its programme catalogue is missing several Danish universities outright.
+
+### When two secondary sources disagree
+
+Do not resolve it. Two schools' guidance pages disagreeing about how a system behaves is normal, and it usually means the honest answer is "it depends", or that the two schools' students are in genuinely different situations — a different passport, a bilateral agreement, a different qualification.
+
+Record it as a context note with `confidence: "contested"` and both readings, or do not publish it. Picking the more encouraging side is the single most tempting failure available here, and the validator refuses a contested note that shows only one side.
+
+### Context is not a lower grade of rule
+
+A cultural observation gets its own record type rather than a weaker requirement. It always shows its attribution, it states its confidence in words, and it may not be phrased as an obligation — the validator rejects "you must" in a context note. If the honest phrasing really is "you must", it is a rule, and it belongs in `requirements` behind an authoritative source, which is a higher bar on purpose.
+
 
 ## Corrections and feedback
 

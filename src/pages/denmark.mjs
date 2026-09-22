@@ -2,7 +2,7 @@ import { html, raw, md, plural, truncate } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
-  stamp, dataTable, emptyState, pager, accordion, requirementLine, tags, contextNotes,
+  stamp, dataTable, emptyState, pager, accordion, requirementLine, tags, contextNotes, sectorLandscape,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { contextFor } from '../lib/canonical.mjs';
@@ -106,6 +106,8 @@ ${hero({
         university colleges.</p>
         <p>If you took Danish A1 or Danish A Literature — at either level — you are fine. If you did not, and the
         programme is taught in Danish, you will need the <em>Studieprøven</em> language test or an equivalent.</p>
+
+        ${sectorLandscape(site.graph.destinations.get('dk')?.sectorLandscape, { destinationName: 'Denmark' })}
 
         ${contextNotes([
           ...contextFor(site.graph, 'destination', 'dk'),
