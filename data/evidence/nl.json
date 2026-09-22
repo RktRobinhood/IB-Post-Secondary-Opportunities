@@ -1,0 +1,143 @@
+[
+  {
+    "id": "ev-nuffic-ib-level",
+    "sourceUrl": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/level-of-the-ib-diplomas",
+    "publisher": "Nuffic (Dutch ENIC-NARIC)",
+    "publisherType": "qualification-body",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in a browser, 2026-09-22. The page is JavaScript-rendered and returns nothing to a plain fetch.",
+    "claim": "Nuffic compares the full IB Diploma to a Dutch VWO diploma, and DP Course Results to vwo-deelcertificaten for the subjects passed.",
+    "excerpt": "Diploma of the International Baccalaureate — a VWO diploma. Bilingual Diploma of the International Baccalaureate — a VWO diploma. DP Course result — VWO modular certificates (vwo-deelcertificaten) for the subjects with a pass. Career-related Programme Certificate — at least a HAVO diploma.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  },
+  {
+    "id": "ev-nuffic-ib-grades",
+    "sourceUrl": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/grades-and-study-results",
+    "publisher": "Nuffic (Dutch ENIC-NARIC)",
+    "publisherType": "qualification-body",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in a browser, 2026-09-22.",
+    "claim": "Nuffic describes the IB grading scale and the diploma requirements but publishes no conversion from IB points to the Dutch 1–10 scale.",
+    "excerpt": "Students must have completed at least one subject from each subject group with a pass. Of the subjects listed above, at least 3 and a maximum of 4 subjects have been taken at Higher Level (HL). Students must have completed the 3 DP Core subjects with a pass. They must have achieved a total score of at least 24 points.",
+    "interpretation": "The absence is the finding. Denmark publishes an official IB-to-Danish conversion table and every Danish cut-off is expressed in it. The Netherlands has no equivalent, because Dutch admission is not built on a converted average: you either hold a qualifying diploma or you do not, and where demand exceeds places the institution runs its own selection. A student moving between the two systems should not expect a Dutch equivalent of the Danish table to exist somewhere unfound.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  },
+  {
+    "id": "ev-rijksoverheid-aanmelden",
+    "sourceUrl": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating",
+    "publisher": "Rijksoverheid (Government of the Netherlands)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in a browser, 2026-09-22.",
+    "claim": "Applications go through Studielink: 1 May for regular programmes, 15 January for numerus fixus, at most two numerus fixus applications, and only one for medicine, dentistry, dental hygiene, physiotherapy or midwifery. Studielink needs a DigiD.",
+    "excerpt": "Studenten moeten zich uiterlijk op 1 mei aanmelden bij Studielink voor de studie van hun keuze. […] Voor opleidingen met een numerus fixus geldt een uiterste aanmelddatum van 15 januari. Studenten kunnen zich bij Studielink voor maximaal 2 numerus fixus-opleidingen aanmelden. Voor de opleidingen geneeskunde, mondzorgkunde, fysiotherapie, verloskunde en tandheelkunde kan een student zich maar bij 1 hogeschool of universiteit aanmelden. […] Let op: voor het aanmelden bij Studielink is een DigiD nodig.",
+    "interpretation": "The Dutch-language government page lists five single-application programmes — geneeskunde, mondzorgkunde, fysiotherapie, verloskunde, tandheelkunde. The English-language promotion site lists four and omits verloskunde (midwifery). Where the two disagree the government page governs, which is the whole reason source class is recorded.",
+    "supports": [
+      {
+        "entity": "nl-studielink",
+        "field": "choiceRules"
+      },
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  },
+  {
+    "id": "ev-duo-collegegeld",
+    "sourceUrl": "https://duo.nl/particulier/tuition-fees.jsp",
+    "publisher": "DUO (Dienst Uitvoering Onderwijs)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in a browser, 2026-09-22.",
+    "claim": "The statutory tuition fee for 2026–2027 is €2,694. The 2027–2028 figure is not yet published.",
+    "excerpt": "In the 2026-2027 academic year, the statutory tuition fees are €2.694,-.",
+    "interpretation": "This is the 2026–27 figure and this site targets 2027–28 entry. The statutory fee is set annually by government and has risen most years, so the figure is recorded as the latest published rather than as the fee a 2027 entrant will pay. It is marked provisional for that reason.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    }
+  },
+  {
+    "id": "ev-studyinnl-apply",
+    "sourceUrl": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+    "publisher": "Study in NL (Nuffic)",
+    "publisherType": "other",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-22",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "automated",
+    "claim": "Selection for numerus fixus programmes runs between 15 January and 15 April, ranking numbers are issued on 15 April, and an offer must be accepted within two weeks.",
+    "excerpt": "If the number of students who apply exceeds the number of available places, a selection will take place between 15 January and 15 April. […] Applicants in the selection procedure will receive a ranking number via Studielink on 15 April. […] If you are offered a place, you have to accept this place via Studielink within two weeks.",
+    "interpretation": "A promotion agency, so it may explain how the process works and may not on its own establish a deadline. The 15 January and 1 May deadlines here rest on the government page; these procedural dates are carried from this source and marked as needing an authoritative check.",
+    "supports": [
+      {
+        "entity": "nl-studielink",
+        "field": "decisionModel"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-22"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…the institution of your choice whether you are required to register via Studielink. Some institutions use a different method to register students from abroad! If you need help creating a Studielink account, adding your…",
+      "claims": [
+        {
+          "field": "decisionModel",
+          "entity": "nl-studielink",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "…the institution of your choice whether you are required to register via Studielink. Some institutions use a different method to register students from abroad! If you need help creating a Studielink account, adding your…",
+          "details": []
+        }
+      ]
+    }
+  }
+]

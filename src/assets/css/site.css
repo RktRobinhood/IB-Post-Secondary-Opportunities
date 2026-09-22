@@ -651,14 +651,21 @@ table.data tbody tr:last-child td { border-bottom: 0; }
 table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
 /* Definition-style fact list */
-.facts { margin: var(--s5) 0; border-top: 1px solid var(--rule); }
+/* Measured against its own width, not the window's.
+   The label column is 13rem, which is right in the main column and absurd in a
+   narrow sidebar — a viewport media query gave the same 13rem to both, and the
+   value was left wrapping one word per line on the destination pages. A
+   container query asks the question that actually matters: how much room does
+   THIS block have? Browsers without container query support get the stacked
+   layout, which is the mobile one and reads fine. */
+.facts { margin: var(--s5) 0; border-top: 1px solid var(--rule); container-type: inline-size; }
 .facts > div {
   display: grid; gap: var(--s1) var(--s5);
   grid-template-columns: minmax(0, 1fr);
   padding: var(--s4) 0;
   border-bottom: 1px solid var(--rule);
 }
-@media (min-width: 40rem) {
+@container (min-width: 30rem) {
   .facts > div { grid-template-columns: 13rem minmax(0, 1fr); }
 }
 .facts dt {

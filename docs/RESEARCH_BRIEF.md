@@ -1,0 +1,186 @@
+# Researching a destination
+
+This is the brief a per-country research pass runs against. It exists because
+fan-out research without a defined shape returns prose nobody can ingest and
+nobody can trust, and because the interesting failures in this repository have
+all come from the same place: a fact that was *nearly* right, recorded in a
+field that implied it was certain.
+
+Denmark took weeks and produced 37 programmes. That pace does not scale to
+thirty countries, and it does not have to, because the value added here is not
+discovering these facts — thousands of students solve this problem every year
+and several kinds of organisation publish their working. The value is
+collating, dating, reconciling and presenting it in one place. That argues for a
+broad pass across many destinations, which in turn argues for this document.
+
+## The rule that shapes everything else
+
+**A secondary source may establish context, may point you at the official page,
+and may never on its own make a consequential claim verified.**
+
+You will be reading a great deal of material written by people who are accurate,
+culturally informed and not authoritative. Use it. Record it as what it is. The
+classes and what each may establish are in
+[TRUST_AND_GOVERNANCE.md](TRUST_AND_GOVERNANCE.md#what-a-source-is-allowed-to-establish),
+and `npm run validate` enforces them, so a mistake here fails the build rather
+than reaching a student.
+
+## Order of work
+
+Do these in order. Each stage answers questions the next one depends on, and
+the ordering is also cheapest-first: stages 1–3 can rule a destination out
+before anyone spends a day on programme-level research.
+
+### 1. Does the IB get you in at all?
+
+| Question | Acceptable sources |
+|---|---|
+| Is a full IB Diploma recognised as a qualifying secondary education? | recognition body, official rule-owner |
+| Is there a minimum total-points requirement? | recognition body, official rule-owner |
+| How do IB grades convert to the local scale, if they do? | recognition body only |
+| Are DP Course Results treated differently from the full Diploma? | recognition body, official rule-owner |
+| Does the IB need legalisation, apostille or translation? | admissions authority, official rule-owner |
+
+If the conversion table is published, capture it in full and verbatim. Do not
+summarise a conversion table. Denmark's is the single most valuable artefact in
+this repository and no university reproduces it correctly — several publish
+wrong versions, which is exactly why the recognition body is the only
+permitted source for this row.
+
+### 2. Can they afford it, and may they stay?
+
+| Question | Acceptable sources |
+|---|---|
+| Tuition for an EU/EEA citizen; for everyone else | official rule-owner, admissions authority |
+| Is the fee per year or per programme, and can it rise mid-degree? | official rule-owner |
+| Residence permit or registration requirements, and cost | official rule-owner |
+| Proof-of-funds threshold, if any | official rule-owner |
+| Realistic monthly living cost, and in which cities | promotion agency, official rule-owner |
+| Work rights during study | official rule-owner |
+
+Record the price year with every figure. A fee with no year attached is worse
+than no fee at all, because it looks current.
+
+### 3. How does applying actually work?
+
+| Question | Acceptable sources |
+|---|---|
+| Central portal or direct to institution? | admissions authority |
+| Deadlines, with time of day and time zone | admissions authority, official rule-owner |
+| How many choices, and are they ranked? | admissions authority |
+| What happens between applying and results | admissions authority |
+| How results arrive when the IB publishes in July | admissions authority, official rule-owner |
+| Selection mechanism where demand exceeds places | official rule-owner |
+
+The July problem is the one to get right and the one most often skated over.
+Most European deadlines fall months before the IB releases results on 6 July,
+and every system has a different answer — conditional offers, predicted grades,
+a results service, or a late round. Find that answer explicitly.
+
+### 4. What is the sector actually made of?
+
+Fill `sectorLandscape` on the Destination. Use local names. This is the only
+place non-university routes get named, and most IB students are never told they
+exist.
+
+Ask specifically: what is the institution type nobody mentions to foreigners?
+Denmark's answer was the erhvervsakademi — two years rather than four, topping
+up to a full degree later. Nearly every country has one.
+
+Mark `ibAccessible: "unknown"` and say so rather than guessing. A route recorded
+as existing and unresearched is useful; a route confidently mis-described is
+not, and a route omitted is invisible.
+
+### 5. Cultural context
+
+Only now, and only as context notes. This is where second-hand sources earn
+their place: the things people who have watched students go through it tend to
+say. See the type's rules — always attributed, confidence stated, never phrased
+as an obligation.
+
+Good prompts: what do foreign applicants reliably get wrong here? What is the
+interview or test actually for? What does "selection" mean in practice? Where do
+people apply who did not get their first choice?
+
+### 6. Programmes, last
+
+Only for destinations that survived stages 1–3. Programme-level research is the
+most expensive stage and the fastest to go stale, so it is not where a pass
+starts.
+
+For each: entry requirements with the official wording kept, the language of
+instruction, the campus, the intake, and the source page for each requirement.
+
+## Use the real vocabulary
+
+Many fields are controlled vocabularies, and guessing at them is the single most
+likely way to produce output that needs hand-repair. Print them:
+
+```bash
+npm run vocab                 # all 39
+npm run vocab -- feeStatus    # one field
+```
+
+They are generated from `schemas/`, so they cannot drift out of date the way a
+list copied into this document would.
+
+This section exists because the first destination researched against this brief
+produced nine schema errors, and every one was an invented enum value — "most"
+where the schema wanted "partial", "several" where it wanted "many", "reduced"
+where it wanted "eu-eea-rate". The research was sound; the vocabulary was made
+up, because the brief said what to find out and never said what the permitted
+answers were.
+
+A related rule: **where the honest answer is that something does not exist,
+leave the field out rather than filling it with a sentence saying so.** The
+Netherlands has no IB-to-Dutch conversion table, and `conversionTable` is
+absent for that reason, with the explanation in the recognition record and a
+context note. A field whose value is the string "None" validates, reads badly,
+and is invisible to anything counting what is missing.
+
+## Output shape
+
+Records go in `data/`, one file per record, named after its id:
+
+- `destinations/<iso2>.json` — including `sectorLandscape`
+- `places/<iso2>-<city>.json`
+- `institutions/<id>.json`
+- `programmes/<id>.json` — with the cross-country `credential` model
+- `opportunities/<programme>-<intake>.json`
+- `application-systems/` and `application-routes/`
+- `context-notes/<id>.json`
+- `evidence/<iso2>.json` — an array, every record carrying `sourceClass`
+
+**Output must validate without hand-editing.** If it does not, the brief or the
+schema is wrong, and fixing the output by hand hides which.
+
+Run, in order:
+
+```bash
+npm run validate
+npm run verify -- --file <iso2>.json
+npm test
+```
+
+## Recording what you could not find
+
+This matters more than it sounds. A gap recorded as a gap is useful; a gap that
+looks like an absence of a requirement is dangerous, because a reader cannot
+tell "this country has no subject requirements" from "we did not check".
+
+So: leave the field empty, and say in `watchOuts` or a context note what was not
+established and why. Never infer a missing figure from a neighbouring country,
+from another institution, or from a previous intake.
+
+If a page is JavaScript-rendered, a PDF, or in a language nobody on the project
+reads, that is a finding. Record it. Several of this repository's most useful
+notes are of exactly that form.
+
+## Definition of done
+
+- Stages 1–3 answered, or the destination explicitly parked with the reason.
+- Every consequential claim carries an authoritative source.
+- `sectorLandscape` names every route, including the ones we cannot yet advise on.
+- `npm run validate` and `npm test` pass with no hand-editing of generated output.
+- `npm run verify` reports the new evidence as supported, or the exceptions are
+  understood and written down.

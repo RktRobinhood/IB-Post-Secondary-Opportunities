@@ -1,0 +1,34 @@
+{
+  "id": "nl-studielink",
+  "name": "Studielink",
+  "localName": "Studielink",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "nl",
+    "authority": "Studielink, on behalf of the Dutch higher education institutions",
+    "area": "Netherlands"
+  },
+  "portalUrl": "https://www.studielink.nl/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Publicly funded research universities and universities of applied sciences.",
+    "excludes": "Some institutions handle applicants from abroad through their own systems instead, and private institutions are outside it. Check with the institution before assuming Studielink is the route."
+  },
+  "choiceRules": {
+    "limit": 2,
+    "ranked": false,
+    "offersReceived": "many",
+    "note": "The limit of two applies to numerus fixus programmes specifically, and only one may be used where the programme is medicine, dentistry, dental hygiene, physiotherapy or midwifery. Non-selective programmes are not rationed in the same way, and choices are not ranked against each other as they are in Denmark — each application is decided on its own."
+  },
+  "identityRequirement": "A DigiD, the Dutch digital identity, which the government says takes about five days to obtain. This is the step most likely to catch out an applicant living outside the Netherlands.",
+  "decisionModel": "Two different things happen depending on the programme. A non-selective programme admits anyone holding a qualifying diploma, which is an entitlement rather than a competition. A numerus fixus programme runs a selection between 15 January and 15 April on criteria the institution sets itself, and issues each applicant a ranking number on 15 April.",
+  "replyModel": "An offered place must be accepted through Studielink within two weeks, or it passes automatically to the next-ranked applicant. That is a short window, and it falls months before IB results.",
+  "evidence": [
+    "ev-rijksoverheid-aanmelden",
+    "ev-studyinnl-apply"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22"
+  }
+}

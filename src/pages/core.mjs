@@ -3,12 +3,14 @@ import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
   tags, stamp, dataTable, emptyState, pager, accordion, freshness,
+  sectorLandscape, contextNotes,
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER } from '../lib/data.mjs';
 import {
   worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, STATE,
 } from '../lib/primitives.mjs';
 import { DIMENSIONS, assessDestination, coverageSummary, COVERAGE } from '../lib/dimensions.mjs';
+import { contextFor } from '../lib/canonical.mjs';
 
 /* --- Home ---------------------------------------------------------------- */
 
@@ -311,6 +313,15 @@ export function worldIndex(site) {
 /* --- A single destination -------------------------------------------------- */
 
 export function destination(site, c, { prev, next }) {
+  // A country profile and a canonical Destination record are two different
+  // things: most countries have only the first. Where the second exists it
+  // carries the researched sector landscape and the context notes, so it is
+  // looked up rather than assumed, and everything below renders nothing at all
+  // when it is absent.
+  const canonical = site.graph?.destinations?.get(c.code) || null;
+  const landscape = canonical?.sectorLandscape || null;
+  const notes = canonical ? contextFor(site.graph, 'destination', c.code) : [];
+
   const pic = picture(site, c.code, { prefer: 'commons' });
   const art = artDirection(c.artDirection);
 
@@ -379,6 +390,10 @@ ${hero({
           ? html`<h2 id="watch">What to watch for</h2>
               <ul class="crosses">${c.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>`
           : ''}
+
+        ${landscape ? sectorLandscape(landscape, { destinationName: c.name }) : ''}
+
+        ${contextNotes(notes)}
 
         ${c.ibRecognition
           ? html`<h2 id="ib">How your IB is read here</h2>
@@ -481,6 +496,7 @@ ${hero({
             ${[
               c.whyConsider.length && ['#why', 'Why it might suit you'],
               c.watchOuts.length && ['#watch', 'What to watch for'],
+              landscape && ['#landscape', `The shape of ${c.name}'s system`],
               c.ibRecognition && ['#ib', 'How your IB is read'],
               c.application?.steps?.length && ['#apply', 'How applying works'],
               c.deadlines.length && ['#deadlines', 'Deadlines'],

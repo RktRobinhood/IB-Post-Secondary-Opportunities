@@ -1,0 +1,85 @@
+{
+  "id": "nl-studielink-2027",
+  "destination": "nl",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to the Netherlands for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "nl-studielink",
+  "portalUrl": "https://www.studielink.nl/",
+  "choiceLimit": 2,
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-digid",
+      "type": "document",
+      "label": "Obtain a DigiD, if you need one",
+      "date": "2026-12-01",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Not an official deadline. The government says a DigiD takes about five days, and Studielink needs one. How a non-resident obtains it is not yet established here, so allow far longer than five days and ask your institution early.",
+      "evidence": [
+        "ev-rijksoverheid-aanmelden"
+      ]
+    },
+    {
+      "id": "ms-fixus",
+      "type": "submit",
+      "label": "Numerus fixus applications close",
+      "date": "2027-01-15",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "Two numerus fixus programmes at most, and only one where it is medicine, dentistry, dental hygiene, physiotherapy or midwifery. Missing this does not cost you the year, but it does cost you every selective programme in it.",
+      "evidence": [
+        "ev-rijksoverheid-aanmelden"
+      ]
+    },
+    {
+      "id": "ms-ranking",
+      "type": "result",
+      "label": "Ranking numbers issued",
+      "date": "2027-04-15",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Selection runs between 15 January and 15 April and every applicant receives a ranking number through Studielink. Carried from the promotion agency rather than the government page, so treat the exact date as indicative.",
+      "evidence": [
+        "ev-studyinnl-apply"
+      ]
+    },
+    {
+      "id": "ms-regular",
+      "type": "submit",
+      "label": "Applications close for everything else",
+      "date": "2027-05-01",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "Applying by 1 May carries an entitlement to admission for a non-selective programme you are qualified for. Apply after it and the institution may refuse you. Some institutions set earlier dates of their own.",
+      "evidence": [
+        "ev-rijksoverheid-aanmelden"
+      ]
+    },
+    {
+      "id": "ms-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Both Dutch deadlines fall well before this. How each institution handles a conditional place pending results is set per institution and is not yet established here.",
+      "evidence": []
+    }
+  ],
+  "evidence": [
+    "ev-rijksoverheid-aanmelden"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "The 15 January and 1 May deadlines are on the government page. The selection window and ranking date come from the promotion agency and need an authoritative confirmation."
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "nl",
+  "iso2": "nl",
+  "name": "Netherlands",
+  "adjective": "Dutch",
+  "scope": "europe",
+  "region": "Western Europe",
+  "capital": "Amsterdam",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "The most English-taught system in Europe, and the one changing fastest",
+  "summary": "For twenty years the Netherlands has been the default answer for a Danish IB student who wanted an English-taught degree in Europe: hundreds of bachelor programmes taught entirely in English, three years rather than four, a low statutory fee, and an application process that runs through one portal. All of that is still true and the first part of it is contracting, because a law now going through requires bachelor programmes to be taught mainly in Dutch unless the institution can justify otherwise. Universities have already begun converting and capping English tracks.",
+  "whyConsider": [
+    "By far the widest English-taught bachelor provision in continental Europe, at both research universities and universities of applied sciences.",
+    "A full IB Diploma is compared by Nuffic to a VWO diploma, which is the qualification that opens a research university bachelor.",
+    "One portal, two deadlines, and a genuinely national process rather than institution-by-institution applications.",
+    "The statutory tuition fee is low by international standards and the same at every publicly funded institution."
+  ],
+  "watchOuts": [
+    "The internationalisation law is the thing to watch. Check in autumn 2026 that the specific programme you want will still be taught in English in September 2027 — not that the university still offers English-taught programmes, but that yours does.",
+    "Numerus fixus is not a formality. You may apply to at most two selective programmes in a year, and to only one if it is medicine, dentistry, dental hygiene, physiotherapy or midwifery. That is a real constraint on strategy and it is decided in January.",
+    "Studielink requires a DigiD, which is the Dutch digital identity and takes about five days to obtain. How a non-resident applicant obtains one, and whether their institution instead uses its own route, is not yet established here and should be checked early.",
+    "Housing in the university cities is severe. Several institutions warn applicants not to arrive without a confirmed room.",
+    "There is no national IB-to-Dutch grade conversion. If you are coming from the Danish system, do not go looking for one."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "A full IB Diploma requires 24 points, and that is the floor rather than a target: individual programmes and numerus fixus selection routinely expect considerably more. Nuffic publishes no national minimum score, and there is no national IB-to-Dutch conversion table at all — the conversionTable field is deliberately absent rather than unfilled.",
+    "subjectLevelRule": "Nuffic compares the full IB Diploma to a Dutch VWO diploma, the qualification that gives access to a research university bachelor. Programmes requiring specific subjects — mathematics and physics for engineering, mathematics for economics and econometrics — normally want them at Higher Level, and each university publishes its own list. Check the programme page rather than a national rule, because there is not one.",
+    "evidence": [
+      "ev-nuffic-ib-level",
+      "ev-nuffic-ib-grades"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "Extensive by European standards and contracting. The count published today may not hold for 2027 entry.",
+    "englishProof": "Set per programme, not nationally. IB English A or English B at Higher Level is commonly accepted, and many programmes waive a test for anyone who completed an entirely English-taught secondary education such as the IB. Confirm on the programme page.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Dutch is not required for an English-taught programme, and is worth some effort anyway: the housing market, part-time work and student life all open up with it."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "The statutory fee (wettelijk collegegeld), the same at every publicly funded institution. €2,694 for 2026–27; the 2027–28 figure is set annually by government and is not yet published.",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "The institutional fee, set by each institution and substantially higher than the statutory rate. Not established here for 2027–28; check the institution directly.",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "The Netherlands divides higher education in two, and the division matters more than almost anything else a student will read about the country. Research universities (universiteit, WO) and universities of applied sciences (hogeschool, HBO) are parallel systems with different entry qualifications, different lengths, and different purposes — not a ranking. An IB Diploma opens both. Most English-language advice describes only the first.",
+    "routes": [
+      {
+        "localName": "universiteit",
+        "englishName": "research university",
+        "kind": "research",
+        "what": "The WO route. A three-year bachelor followed by a one- or two-year master, academic in emphasis and taught by researchers. This is what an IB Diploma is compared to in Dutch terms, and what nearly all English-language guidance is describing.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "hogeschool",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "The HBO route. Four years rather than three, including a substantial placement and often a second one, and built around doing the work rather than studying the discipline. Strong in engineering, business, hotel and event management, design, health and teaching. An IB Diploma is more than sufficient for entry, and Dutch students reach it from HAVO — one level below the VWO an IB compares to.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Habitually described as the lesser option, which misreads it. It is the more vocational option, and for a student who wants to be employable in the subject rather than continue to a master, it is frequently the better one."
+      },
+      {
+        "localName": "university college",
+        "englishName": "liberal arts and sciences college",
+        "kind": "college",
+        "what": "Small selective honours colleges attached to research universities — Amsterdam, Utrecht, Leiden, Maastricht and others. Broad liberal-arts first year narrowing later, taught in English, usually residential, and closer to a US liberal-arts college than anything else in Europe. They select on more than grades and they charge more than the statutory fee.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Often a strong fit for an IB student, precisely because the breadth-then-depth structure resembles the Diploma."
+      },
+      {
+        "localName": "kunstacademie / conservatorium",
+        "englishName": "art academy and conservatoire",
+        "kind": "specialist",
+        "what": "Art, design, music, dance and theatre, admitting on portfolio or audition. Grades are secondary and the entry process runs on a different calendar and different terms from everything else here.",
+        "ibAccessible": "partly",
+        "englishTaught": "some",
+        "note": "Not researched in detail here. Recorded because it exists and because a student who needs it will not find it in the ordinary listings."
+      }
+    ],
+    "evidence": [
+      "ev-nuffic-ib-level"
+    ]
+  },
+  "applicationSystems": [
+    "nl-studielink"
+  ],
+  "evidence": [
+    "ev-nuffic-ib-level",
+    "ev-rijksoverheid-aanmelden"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Re-check in autumn 2026: the statutory fee for 2027–28, and whether the internationalisation law has been passed and what it does to English-taught provision.",
+      "Not yet established: how a non-resident applicant obtains a DigiD, or whether institutions route them differently. This is a practical blocker rather than an academic one.",
+      "Programme-level records not yet created. Stages 1–3 of the research brief are done; stage 6 is not."
+    ]
+  }
+}

@@ -32,7 +32,8 @@
     "test:sourcing": "node scripts/test-sourcing.mjs",
     "test:chars": "node scripts/test-no-control-chars.mjs",
     "test:credentials": "node scripts/test-credentials.mjs",
-    "migrate:credentials": "node scripts/migrate-credentials.mjs"
+    "migrate:credentials": "node scripts/migrate-credentials.mjs",
+    "vocab": "node scripts/vocab.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"
