@@ -25,7 +25,6 @@
     "Non-EU students: from 11 June 2026 a study residence permit limits you to 15 hours of paid work per week, and new rules also tighten study-progress requirements.",
     "Stockholm School of Economics also demands an SAT, ACT or ITB-Business score on top of the IB - that is unusual for Sweden and needs a year's notice."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": "No national minimum points figure is published. A full IB Diploma awarded 2021 or later gives general eligibility (grundlaggande behorighet) in its own right; individual Course Results do not.",
@@ -40,10 +39,12 @@
       "Rules differ by award year. The 2021-and-later ruleset is the one that applies to a May 2027 Diploma."
     ]
   },
-
   "application": {
     "centralised": true,
-    "portal": { "name": "University Admissions (universityadmissions.se / antagning.se)", "url": "https://www.universityadmissions.se/en/" },
+    "portal": {
+      "name": "University Admissions (universityadmissions.se / antagning.se)",
+      "url": "https://www.universityadmissions.se/en/"
+    },
     "deadlines": [
       {
         "label": "First admission round opens (autumn 2027)",
@@ -113,7 +114,6 @@
     ],
     "selectionNotes": "Selection is almost entirely by number. A third or more of places on each programme go to the grade groups (BI/BII), where you are ranked on your converted merit value, and a further share goes to applicants ranked on the Swedish national aptitude test (hogskoleprovet), which is sat in Swedish. IB students normally compete in BI. A small number of programmes - art, design, music, architecture - add portfolios or auditions, and Stockholm School of Economics requires an SAT, ACT or ITB-Business score."
   },
-
   "language": {
     "englishTaughtBachelors": "Limited. Lund University lists ten English-taught bachelor's programmes, Jonkoping University lists seven, and KTH lists one. Most Swedish bachelor's degrees are taught in Swedish; English dominates at master's level.",
     "englishProof": "You need Swedish English 6 / English Level 2. An IB English A (HL or SL), English B HL, or English B SL taught in English exceeds this and meets the higher English 7. English B SL taught in another language meets English 6. Without an IB English course, IELTS Academic 6.5 with no section below 5.5, or TOEFL iBT total 90 with 20 in writing (for results up to 20 January 2026) / total 4.5 on the new 1-6 scale with no section below 4 (for results from 21 January 2026), are accepted.",
@@ -124,7 +124,6 @@
       "Everyday life in Swedish cities runs comfortably in English, but municipal paperwork does not always."
     ]
   },
-
   "costs": {
     "tuitionEuEea": {
       "value": "No tuition fee. Citizens of the EU, EEA and Switzerland are exempt from both the application fee and tuition, but must document their citizenship to get the exemption.",
@@ -148,7 +147,6 @@
       "Euro conversions use the ECB reference rate of 11.2750 SEK per EUR on 21 September 2026 and will drift."
     ]
   },
-
   "funding": [
     "Danish SU: Danish students can in many cases take Danish SU abroad for a full degree in the EU/EEA. This is decided by the Danish authorities, not the Swedish ones - check the SU rules yourself, we have not verified the current conditions here.",
     "CSN (the Swedish student finance agency) is the route for those with a settled connection to Sweden; eligibility for an EU citizen who moves purely to study is restricted and must be checked directly with CSN.",
@@ -159,7 +157,6 @@
   "residency": "As an EU/EEA citizen you do not need a residence permit for Sweden - you have a right of residence as a student. In practice you register with Skatteverket to get a personnummer, which you need for almost everything from a bank account to a doctor's appointment, and that normally requires an intended stay of at least 12 months. Non-EU citizens must apply to Migrationsverket for a residence permit for higher education studies, showing admission, health insurance for courses under a year, and at least 10,656 SEK per month (2026 figure) for the permit period; the fee is 1,500 SEK.",
   "housing": "Not allocated by the universities. Each city has its own student housing foundation with a credit-day queue - SSSB in Stockholm, AF Bostader and LU Accommodation in Lund, SGS in Gothenburg, Uppsalahem in Uppsala. You earn one credit day per day in the queue, so joining early is the whole game; SSSB waits are commonly quoted in the hundreds of days. Most large universities give no housing guarantee. Register in the queue as soon as a city is on your shortlist, well before you apply.",
   "healthcare": "As a Danish EU citizen, carry your EU health insurance card for necessary care. Once you register with Skatteverket and get a personnummer you use the normal Swedish system with the usual patient fees. Non-EU students must hold comprehensive health insurance for studies under one year; for longer permits they are normally covered once registered.",
-
   "institutions": [
     {
       "name": "Lund University",
@@ -171,7 +168,12 @@
       "admissionsUrl": "https://www.lunduniversity.lu.se/admissions/bachelors-and-masters-studies/entry-requirements",
       "ibPageUrl": null,
       "englishBachelors": "Ten English-taught bachelor's programmes open to international students",
-      "notableFields": ["International Business", "Development Studies", "Physics", "Biomedicine"],
+      "notableFields": [
+        "International Business",
+        "Development Studies",
+        "Physics",
+        "Biomedicine"
+      ],
       "note": "The closest big Swedish university to Denmark - about 45 minutes from Copenhagen by train - and the one with the widest English-taught bachelor's list.",
       "wikipedia": "https://en.wikipedia.org/wiki/Lund_University"
     },
@@ -185,7 +187,12 @@
       "admissionsUrl": "https://www.uu.se/en/study/bachelors-studies/application/entry-requirements",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Social sciences", "Life sciences", "Law", "Humanities"],
+      "notableFields": [
+        "Social sciences",
+        "Life sciences",
+        "Law",
+        "Humanities"
+      ],
       "note": "The oldest university in the Nordics, with a student-nation social life that is unlike anywhere else in Scandinavia.",
       "wikipedia": "https://en.wikipedia.org/wiki/Uppsala_University"
     },
@@ -199,7 +206,12 @@
       "admissionsUrl": "https://www.su.se/english/education/how-to-apply",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Economics", "Political science", "Environmental science", "Psychology"],
+      "notableFields": [
+        "Economics",
+        "Political science",
+        "Environmental science",
+        "Psychology"
+      ],
       "note": "Strong in social sciences and sits inside a national park in the middle of the capital, though most bachelor teaching is in Swedish.",
       "wikipedia": "https://en.wikipedia.org/wiki/Stockholm_University"
     },
@@ -213,7 +225,11 @@
       "admissionsUrl": "https://www.kth.se/en/studies/bachelor",
       "ibPageUrl": null,
       "englishBachelors": "One: BSc Information and Communication Technology",
-      "notableFields": ["Information and communication technology", "Engineering", "Architecture"],
+      "notableFields": [
+        "Information and communication technology",
+        "Engineering",
+        "Architecture"
+      ],
       "note": "Sweden's leading technical university, but at bachelor level it teaches in English on exactly one programme.",
       "wikipedia": "https://en.wikipedia.org/wiki/KTH_Royal_Institute_of_Technology"
     },
@@ -227,7 +243,12 @@
       "admissionsUrl": "https://www.chalmers.se/en/education/",
       "ibPageUrl": null,
       "englishBachelors": "Not verified for bachelor's. Chalmers states that its two-year master's programmes are taught entirely in English; check bachelor-level language before applying.",
-      "notableFields": ["Engineering", "Architecture", "Maritime studies", "Computer science"],
+      "notableFields": [
+        "Engineering",
+        "Architecture",
+        "Maritime studies",
+        "Computer science"
+      ],
       "note": "Sweden's other big engineering school, closely tied to Gothenburg's automotive and maritime industries.",
       "wikipedia": "https://en.wikipedia.org/wiki/Chalmers_University_of_Technology"
     },
@@ -241,7 +262,12 @@
       "admissionsUrl": "https://www.gu.se/en/study-in-gothenburg/apply",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Business", "Marine sciences", "Fine arts", "Education"],
+      "notableFields": [
+        "Business",
+        "Marine sciences",
+        "Fine arts",
+        "Education"
+      ],
       "note": "A broad university spread across Sweden's second city, with unusually strong art and design schools attached.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Gothenburg"
     },
@@ -255,7 +281,12 @@
       "admissionsUrl": "https://www.hhs.se/en/education/bsc/admission/international-applicant/",
       "ibPageUrl": "https://www.hhs.se/en/education/bsc/admission/international-applicant/do-you-meet-the-diploma-requirements-list-of-countriesdiplomas/",
       "englishBachelors": "Two: Business and Economics, and Retail Management",
-      "notableFields": ["Business", "Economics", "Retail management", "Finance"],
+      "notableFields": [
+        "Business",
+        "Economics",
+        "Retail management",
+        "Finance"
+      ],
       "note": "Small, private and very selective: it asks for at least 31 IB points but says 39 or above is usually needed, plus an SAT of 1300, ACT 28 or ITB-Business 112.",
       "wikipedia": "https://en.wikipedia.org/wiki/Stockholm_School_of_Economics"
     },
@@ -269,7 +300,12 @@
       "admissionsUrl": "https://ju.se/en/study-at-ju/application-and-admission.html",
       "ibPageUrl": null,
       "englishBachelors": "Seven English-taught bachelor's programmes across business, engineering, health and communication",
-      "notableFields": ["International business", "Marketing", "Mechanical engineering", "Prosthetics and orthotics"],
+      "notableFields": [
+        "International business",
+        "Marketing",
+        "Mechanical engineering",
+        "Prosthetics and orthotics"
+      ],
       "note": "A smaller foundation university in a lakeside town that punches above its weight on English-taught bachelor's, especially through its international business school.",
       "wikipedia": "https://en.wikipedia.org/wiki/J%C3%B6nk%C3%B6ping_University"
     },
@@ -283,7 +319,12 @@
       "admissionsUrl": "https://liu.se/en/education/application-and-admission",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Engineering", "Computer science", "Medicine", "Design"],
+      "notableFields": [
+        "Engineering",
+        "Computer science",
+        "Medicine",
+        "Design"
+      ],
       "note": "Known for problem-based, project-heavy teaching and a campus culture built around student-run engineering work.",
       "wikipedia": "https://en.wikipedia.org/wiki/Link%C3%B6ping_University"
     },
@@ -297,7 +338,12 @@
       "admissionsUrl": "https://www.umu.se/en/education/application-and-admission/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Design", "Environmental science", "Medicine", "Computing science"],
+      "notableFields": [
+        "Design",
+        "Environmental science",
+        "Medicine",
+        "Computing science"
+      ],
       "note": "Far north, dark in winter, and home to one of Europe's most respected industrial design schools.",
       "wikipedia": "https://en.wikipedia.org/wiki/Ume%C3%A5_University"
     },
@@ -311,7 +357,12 @@
       "admissionsUrl": "https://mau.se/en/study-education/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Urban studies", "International relations", "Media technology", "Health"],
+      "notableFields": [
+        "Urban studies",
+        "International relations",
+        "Media technology",
+        "Health"
+      ],
       "note": "Twenty minutes over the bridge from Copenhagen, young, practical and very international in outlook.",
       "wikipedia": "https://en.wikipedia.org/wiki/Malm%C3%B6_University"
     },
@@ -325,7 +376,12 @@
       "admissionsUrl": "https://www.ltu.se/en/education",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Engineering", "Space engineering", "Mining", "Music"],
+      "notableFields": [
+        "Engineering",
+        "Space engineering",
+        "Mining",
+        "Music"
+      ],
       "note": "Arctic-adjacent technical university with a space campus in Kiruna and close ties to Sweden's heavy industry.",
       "wikipedia": "https://en.wikipedia.org/wiki/Lule%C3%A5_University_of_Technology"
     },
@@ -339,7 +395,12 @@
       "admissionsUrl": "https://www.slu.se/en/education/programmes-courses/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Veterinary medicine", "Forestry", "Landscape architecture", "Environmental science"],
+      "notableFields": [
+        "Veterinary medicine",
+        "Forestry",
+        "Landscape architecture",
+        "Environmental science"
+      ],
       "note": "The place to look if you want animals, forests, food systems or landscape rather than a conventional science degree.",
       "wikipedia": "https://en.wikipedia.org/wiki/Swedish_University_of_Agricultural_Sciences"
     },
@@ -353,34 +414,131 @@
       "admissionsUrl": "https://education.ki.se/bachelors-masters-studies",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Medicine", "Biomedicine", "Public health", "Nursing"],
+      "notableFields": [
+        "Medicine",
+        "Biomedicine",
+        "Public health",
+        "Nursing"
+      ],
       "note": "World-famous for medical research and it awards the Nobel Prize in Medicine; check the language of instruction on each bachelor programme page, because we could not confirm it and most Swedish health degrees are taught in Swedish.",
       "wikipedia": "https://en.wikipedia.org/wiki/Karolinska_Institute"
     }
   ],
-
   "sources": [
-    { "title": "University Admissions - Autumn semester key dates and deadlines", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/", "retrieved": "2026-09-22" },
-    { "title": "Stockholm University - Important application dates (autumn 2027)", "url": "https://www.su.se/english/education/how-to-apply/important-dates", "retrieved": "2026-09-22" },
-    { "title": "Antagning.se - Rakna ut ditt meritvarde, IB-examen 2021 och framat (IB to meritvarde conversion table)", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/rakna-ut-ditt-meritvarde/", "retrieved": "2026-09-22" },
-    { "title": "Antagning.se - Grundlaggande behorighet, IB-examen 2021 och framat", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/grundlaggande-behorighet/", "retrieved": "2026-09-22" },
-    { "title": "Antagning.se - Sarskild behorighet, IB-examen 2021 och framat", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-22" },
-    { "title": "University Admissions - For IB diplomas 2021 and later", "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/for-ib-diplomas-2021-and-later/", "retrieved": "2026-09-22" },
-    { "title": "University Admissions - IB studies: documents and IB Result Service", "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/", "retrieved": "2026-09-22" },
-    { "title": "UHR - Meritvardering av IB-examen", "url": "https://www.uhr.se/syv/hogskola-med-utlandska-meriter/internationell-baccalaureate-ib/meritvardering/", "retrieved": "2026-09-22" },
-    { "title": "UHR - Urvalsgrupper for sokande med IB-examen", "url": "https://www.uhr.se/syv/hogskola-med-utlandska-meriter/internationell-baccalaureate-ib/urvalsgrupper/", "retrieved": "2026-09-22" },
-    { "title": "University Admissions - Bachelor's entry requirements", "url": "https://www.universityadmissions.se/en/entry-requirements/bachelors-requirements/", "retrieved": "2026-09-22" },
-    { "title": "University Admissions - English language requirements", "url": "https://www.universityadmissions.se/en/entry-requirements/english-language-requirements/", "retrieved": "2026-09-22" },
-    { "title": "University Admissions - Who is required to pay fees?", "url": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/", "retrieved": "2026-09-22" },
-    { "title": "University Admissions - Fees and scholarships", "url": "https://www.universityadmissions.se/en/support-centre/fees-and-scholarships/", "retrieved": "2026-09-22" },
-    { "title": "Uppsala University - Tuition fees for bachelor's students", "url": "https://www.uu.se/en/study/bachelors-studies/fees", "retrieved": "2026-09-22" },
-    { "title": "Uppsala University - Entry requirements for bachelor's studies", "url": "https://www.uu.se/en/study/bachelors-studies/application/entry-requirements", "retrieved": "2026-09-22" },
-    { "title": "Lund University - Money and living costs", "url": "https://www.lunduniversity.lu.se/student-life/before-you-arrive/money-and-living-costs", "retrieved": "2026-09-22" },
-    { "title": "Lund University - Bachelor's degree studies (English-taught list)", "url": "https://www.lunduniversity.lu.se/study/study-opportunities-lund-university/bachelors-degree-studies", "retrieved": "2026-09-22" },
-    { "title": "KTH - Bachelor's programmes", "url": "https://www.kth.se/en/studies/bachelor", "retrieved": "2026-09-22" },
-    { "title": "Jonkoping University - Study at JU", "url": "https://ju.se/en/study-at-ju.html", "retrieved": "2026-09-22" },
-    { "title": "Stockholm School of Economics - Diploma requirements by country", "url": "https://www.hhs.se/en/education/bsc/admission/international-applicant/do-you-meet-the-diploma-requirements-list-of-countriesdiplomas/", "retrieved": "2026-09-22" },
-    { "title": "Swedish Migration Agency - Residence permit for higher education studies", "url": "https://www.migrationsverket.se/en/you-want-to-apply/study/higher-education.html", "retrieved": "2026-09-22" },
-    { "title": "ECB euro foreign exchange reference rates (21 September 2026)", "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "University Admissions - Autumn semester key dates and deadlines",
+      "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Stockholm University - Important application dates (autumn 2027)",
+      "url": "https://www.su.se/english/education/how-to-apply/important-dates",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Antagning.se - Rakna ut ditt meritvarde, IB-examen 2021 och framat (IB to meritvarde conversion table)",
+      "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/rakna-ut-ditt-meritvarde/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Antagning.se - Grundlaggande behorighet, IB-examen 2021 och framat",
+      "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/grundlaggande-behorighet/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Antagning.se - Sarskild behorighet, IB-examen 2021 och framat",
+      "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University Admissions - For IB diplomas 2021 and later",
+      "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/for-ib-diplomas-2021-and-later/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University Admissions - IB studies: documents and IB Result Service",
+      "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UHR - Meritvardering av IB-examen",
+      "url": "https://www.uhr.se/syv/hogskola-med-utlandska-meriter/internationell-baccalaureate-ib/meritvardering/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UHR - Urvalsgrupper for sokande med IB-examen",
+      "url": "https://www.uhr.se/syv/hogskola-med-utlandska-meriter/internationell-baccalaureate-ib/urvalsgrupper/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University Admissions - Bachelor's entry requirements",
+      "url": "https://www.universityadmissions.se/en/entry-requirements/bachelors-requirements/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University Admissions - English language requirements",
+      "url": "https://www.universityadmissions.se/en/entry-requirements/english-language-requirements/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University Admissions - Who is required to pay fees?",
+      "url": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University Admissions - Fees and scholarships",
+      "url": "https://www.universityadmissions.se/en/support-centre/fees-and-scholarships/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Uppsala University - Tuition fees for bachelor's students",
+      "url": "https://www.uu.se/en/study/bachelors-studies/fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Uppsala University - Entry requirements for bachelor's studies",
+      "url": "https://www.uu.se/en/study/bachelors-studies/application/entry-requirements",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Lund University - Money and living costs",
+      "url": "https://www.lunduniversity.lu.se/student-life/before-you-arrive/money-and-living-costs",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Lund University - Bachelor's degree studies (English-taught list)",
+      "url": "https://www.lunduniversity.lu.se/study/study-opportunities-lund-university/bachelors-degree-studies",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "KTH - Bachelor's programmes",
+      "url": "https://www.kth.se/en/studies/bachelor",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Jonkoping University - Study at JU",
+      "url": "https://ju.se/en/study-at-ju.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Stockholm School of Economics - Diploma requirements by country",
+      "url": "https://www.hhs.se/en/education/bsc/admission/international-applicant/do-you-meet-the-diploma-requirements-list-of-countriesdiplomas/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Swedish Migration Agency - Residence permit for higher education studies",
+      "url": "https://www.migrationsverket.se/en/you-want-to-apply/study/higher-education.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ECB euro foreign exchange reference rates (21 September 2026)",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#2E6F8E",
+    "pattern": "latitude",
+    "focal": "50% 45%"
+  }
 }

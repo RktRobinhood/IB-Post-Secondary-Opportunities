@@ -38,7 +38,10 @@
   },
   "application": {
     "centralised": false,
-    "portal": { "name": "University of Luxembourg admission portal", "url": "https://www.uni.lu/en/admissions/bachelor-master/" },
+    "portal": {
+      "name": "University of Luxembourg admission portal",
+      "url": "https://www.uni.lu/en/admissions/bachelor-master/"
+    },
     "deadlines": [
       {
         "label": "Applications open for the 2027-2028 academic year",
@@ -121,7 +124,12 @@
       "admissionsUrl": "https://www.uni.lu/en/admissions/bachelor-master/",
       "ibPageUrl": null,
       "englishBachelors": "A small multilingual bachelor portfolio; several programmes involve English alongside French or German",
-      "notableFields": ["Law", "Finance and Economics", "Computer Science", "Educational Sciences"],
+      "notableFields": [
+        "Law",
+        "Finance and Economics",
+        "Computer Science",
+        "Educational Sciences"
+      ],
       "note": "The country's only public university, built on a redeveloped steelworks site at Belval, with a compulsory semester abroad in every bachelor's degree.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Luxembourg"
     },
@@ -135,7 +143,11 @@
       "admissionsUrl": "https://www.lunex.lu/admissions/",
       "ibPageUrl": null,
       "englishBachelors": "English-taught bachelor's in physiotherapy, sport and exercise science and health management",
-      "notableFields": ["Physiotherapy", "Sport and Exercise Science", "International Sport Management"],
+      "notableFields": [
+        "Physiotherapy",
+        "Sport and Exercise Science",
+        "International Sport Management"
+      ],
       "note": "A private, fully English-taught health and sport university - the most straightforward English-language bachelor route in Luxembourg, but it charges private tuition.",
       "wikipedia": "https://en.wikipedia.org/wiki/LUNEX_University"
     },
@@ -149,7 +161,10 @@
       "admissionsUrl": "https://www.shu.lu/",
       "ibPageUrl": null,
       "englishBachelors": "Primarily a graduate business school; check whether any undergraduate provision applies to you",
-      "notableFields": ["Business Administration", "Finance"],
+      "notableFields": [
+        "Business Administration",
+        "Finance"
+      ],
       "note": "The Luxembourg campus of an American university, teaching in English and focused on business; verify its current undergraduate offer directly, as the provision is mainly at master's level.",
       "wikipedia": "https://en.wikipedia.org/wiki/Sacred_Heart_University"
     },
@@ -163,7 +178,10 @@
       "admissionsUrl": "https://miamioh.edu/luxembourg/",
       "ibPageUrl": null,
       "englishBachelors": "Study-abroad provision for Miami University students rather than a standalone degree route",
-      "notableFields": ["Liberal Arts", "European Studies"],
+      "notableFields": [
+        "Liberal Arts",
+        "European Studies"
+      ],
       "note": "An American university campus in a Luxembourg chateau; included for completeness - it is a study-abroad centre, not a normal entry point for a Danish IB student.",
       "wikipedia": "https://en.wikipedia.org/wiki/Miami_University"
     },
@@ -177,16 +195,45 @@
       "admissionsUrl": "https://www.bbi-edu.eu/",
       "ibPageUrl": null,
       "englishBachelors": "English-taught hospitality and tourism management bachelor's",
-      "notableFields": ["Hospitality Management", "Tourism Management", "Events"],
+      "notableFields": [
+        "Hospitality Management",
+        "Tourism Management",
+        "Events"
+      ],
       "note": "A small private hospitality school in the north of the country teaching in English, with placements built into the programme; confirm accreditation and fees directly.",
       "wikipedia": null
     }
   ],
   "sources": [
-    { "title": "University of Luxembourg - Bachelor and Master admissions (2027-2028 applications open 1 February 2027)", "url": "https://www.uni.lu/en/admissions/bachelor-master/", "retrieved": "2026-09-22" },
-    { "title": "Guichet.lu - Enrolling at the University of Luxembourg", "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html", "retrieved": "2026-09-22" },
-    { "title": "Guichet.lu - Doing a semester abroad from the University of Luxembourg (compulsory mobility semester, waivers and exemptions)", "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/semestre-mobilite.html", "retrieved": "2026-09-22" },
-    { "title": "Guichet.lu - Higher or post-secondary education (financial aid, recognition of diplomas, working and studying)", "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures.html", "retrieved": "2026-09-22" },
-    { "title": "University of Luxembourg - Financial support and cost of living", "url": "https://www.uni.lu/life-en/financial-support/", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "University of Luxembourg - Bachelor and Master admissions (2027-2028 applications open 1 February 2027)",
+      "url": "https://www.uni.lu/en/admissions/bachelor-master/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Guichet.lu - Enrolling at the University of Luxembourg",
+      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Guichet.lu - Doing a semester abroad from the University of Luxembourg (compulsory mobility semester, waivers and exemptions)",
+      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/semestre-mobilite.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Guichet.lu - Higher or post-secondary education (financial aid, recognition of diplomas, working and studying)",
+      "url": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Luxembourg - Financial support and cost of living",
+      "url": "https://www.uni.lu/life-en/financial-support/",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#5A6B8A",
+    "pattern": "none",
+    "focal": "50% 45%"
+  }
 }

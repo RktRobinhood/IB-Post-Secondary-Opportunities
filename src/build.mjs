@@ -15,6 +15,7 @@ import * as dk from './pages/denmark.mjs';
 import * as prog from './pages/programmes.mjs';
 import * as meta from './pages/meta.mjs';
 import { slugify } from './lib/html.mjs';
+import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
 
 const SCHEMA_VERSION = '1.0';
@@ -275,6 +276,9 @@ async function main() {
     path.join(DIST, 'assets', 'js', 'eligibility.js')
   );
   await fs.writeFile(path.join(DIST, 'assets', 'img', 'favicon.svg'), favicon());
+  // Motion tokens are generated from src/lib/motion.mjs so the stylesheet and
+  // the documented purpose of each token cannot drift apart.
+  await fs.writeFile(path.join(DIST, 'assets', 'css', 'motion.css'), motionCss());
   await fs.writeFile(path.join(DIST, 'data.json'), dataDump(site));
 
   /* GitHub Pages must not run Jekyll over this. */

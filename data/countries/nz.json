@@ -26,7 +26,6 @@
     "The job market is small. Post-study work rights are generous but there are simply fewer graduate employers than in Australia or Canada.",
     "Only eight universities, so if your subject is niche your choice may come down to one or two places."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": "24 points with the full IB Diploma awarded - this is the national University Entrance equivalence threshold, not an entry guarantee. Individual programmes require more.",
@@ -39,23 +38,41 @@
       "Some programmes also require a portfolio, audition or interview."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "Apply directly to each university - there is no central admissions system", "url": null },
+    "portal": {
+      "name": "Apply directly to each university - there is no central admissions system",
+      "url": null
+    },
     "deadlines": [
-      { "label": "Semester 1 2028 (main intake)", "date": "Late February 2028", "year": "2028 intake",
+      {
+        "label": "Semester 1 2028 (main intake)",
+        "date": "Late February 2028",
+        "year": "2028 intake",
         "notes": "The main New Zealand intake. Applications generally open mid-year the year before. Exact 2028 teaching dates had not been published at the time of writing - check each university's academic calendar.",
-        "source": null },
-      { "label": "Semester 2 2027 (mid-year intake)", "date": "July 2027", "year": "2027 intake",
+        "source": null
+      },
+      {
+        "label": "Semester 2 2027 (mid-year intake)",
+        "date": "July 2027",
+        "year": "2027 intake",
         "notes": "The fastest route from a May 2027 IB session. Not all degrees admit mid-year - engineering, health and most professional programmes are Semester 1 only. Verify per degree.",
-        "source": null },
-      { "label": "Programmes with early closing dates", "date": null, "year": "2027/2028 intake",
+        "source": null
+      },
+      {
+        "label": "Programmes with early closing dates",
+        "date": null,
+        "year": "2027/2028 intake",
         "notes": "Some limited-entry programmes - medicine-track health sciences, architecture, fine arts, nursing - close months before the general deadline and may require a portfolio or interview. Check the specific programme page.",
-        "source": null },
-      { "label": "Fee Paying Student Visa application", "date": "After you accept an offer and pay fees", "year": "2027/2028 intake",
+        "source": null
+      },
+      {
+        "label": "Fee Paying Student Visa application",
+        "date": "After you accept an offer and pay fees",
+        "year": "2027/2028 intake",
         "notes": "You apply once you have an offer of place and evidence of funds. The visa can be granted for up to 4 years.",
-        "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/" }
+        "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/"
+      }
     ],
     "steps": [
       "Decide between a July 2027 mid-year start and a February 2028 start, and check whether your chosen degree has a mid-year intake at all.",
@@ -68,7 +85,6 @@
     ],
     "selectionNotes": "Entry is score-based against published thresholds for most degrees, with a small number of limited-entry programmes using portfolios, auditions, interviews or a competitive first-year selection. There is no personal statement culture and no national ranking system. Meeting University Entrance gets you into the university; meeting the programme score gets you into the degree."
   },
-
   "language": {
     "englishTaughtBachelors": "All of it. Every New Zealand university degree is taught in English.",
     "englishProof": "For IB students the University Entrance literacy requirement itself does the work: English as Language A - literature or language and literature at SL or HL, or English Language B at HL with a minimum grade of 5, satisfies it at the University of Auckland. Universities may still ask for IELTS or TOEFL in some cases; typical minimums are IELTS 6.0-6.5. Not verified per university.",
@@ -78,12 +94,23 @@
       "Immigration New Zealand may have its own English evidence requirements separate from the university's - check the visa page."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "Not applicable - New Zealand has no EU/EEA fee category. Danish students pay international fees.", "year": "2026", "source": null },
-    "tuitionNonEu": { "value": "Verified example, University of Auckland: international undergraduate fees for 2026 range from NZD 40,225 for a Bachelor of Arts (excluding performance and science-based courses) up to NZD 86,561 for later years of Medicine and Surgery, for a full-time year of 120 points. Indicative 2027 figures published by Auckland run from about NZD 42,236 upwards, roughly 5% higher than 2026. All students also pay a Student Services Fee of about NZD 1,132.80 a year. Other universities are broadly similar or somewhat cheaper; individual figures were not verified for this guide.", "year": "2026 (verified) and 2027 (indicative)", "source": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html" },
+    "tuitionEuEea": {
+      "value": "Not applicable - New Zealand has no EU/EEA fee category. Danish students pay international fees.",
+      "year": "2026",
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": "Verified example, University of Auckland: international undergraduate fees for 2026 range from NZD 40,225 for a Bachelor of Arts (excluding performance and science-based courses) up to NZD 86,561 for later years of Medicine and Surgery, for a full-time year of 120 points. Indicative 2027 figures published by Auckland run from about NZD 42,236 upwards, roughly 5% higher than 2026. All students also pay a Student Services Fee of about NZD 1,132.80 a year. Other universities are broadly similar or somewhat cheaper; individual figures were not verified for this guide.",
+      "year": "2026 (verified) and 2027 (indicative)",
+      "source": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html"
+    },
     "applicationFee": null,
-    "livingCostMonthly": { "value": "Immigration New Zealand requires NZD 20,000 for each year of tertiary study, or NZD 1,667 a month for courses shorter than a year - about NZD 1,667 a month. That is the visa minimum, not a realistic Auckland or Wellington budget.", "year": "2026", "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/" },
+    "livingCostMonthly": {
+      "value": "Immigration New Zealand requires NZD 20,000 for each year of tertiary study, or NZD 1,667 a month for courses shorter than a year - about NZD 1,667 a month. That is the visa minimum, not a realistic Auckland or Wellington budget.",
+      "year": "2026",
+      "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/"
+    },
     "notes": [
       "The NZD 20,000 is living costs only and sits on top of full tuition, which you must also pay or show.",
       "The Fee Paying Student Visa costs from NZD 850. Search results also reported an International Visitor Conservation and Tourism Levy of NZD 100, which we could not confirm on the official page - check immigration.govt.nz.",
@@ -91,7 +118,6 @@
       "Auckland and Wellington are the expensive cities; Dunedin, Palmerston North, Hamilton and Christchurch are considerably cheaper."
     ]
   },
-
   "funding": [
     "University international excellence scholarships. Every New Zealand university offers entrance scholarships to strong international undergraduates, usually a partial fee reduction awarded on your admission score. Amounts were not verified for this guide - check each university's scholarship page, because several have deadlines earlier than the admission deadline.",
     "The New Zealand Excellence Awards and similar government-backed schemes target specific countries and regions; eligibility for Danish students was not verified.",
@@ -104,7 +130,6 @@
   "residency": "You need a Fee Paying Student Visa. You apply after you have an offer of place and have paid or arranged tuition, and you must show NZD 20,000 per year of living costs, good health and good character. The visa costs from NZD 850 and can be granted for up to 4 years, normally matching the period of study you have paid for, or until your passport expires if that is sooner. Source: https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
   "housing": "First-year students are strongly encouraged into university halls of residence, and most universities guarantee a place if you apply by their deadline - take it, because private renting from Denmark is difficult and the halls are where you meet people. Otago is famous for its all-in residential first year in Dunedin. Auckland and Wellington private rents are high; Dunedin, Hamilton, Palmerston North and Christchurch are much more affordable.",
   "healthcare": "International students on a student visa are generally not entitled to publicly funded healthcare in New Zealand, so Immigration New Zealand requires acceptable medical and travel insurance for the whole period of study, and universities normally arrange or sell a compliant policy. The EHIC and the Danish yellow card are not valid. Budget for insurance as a separate annual cost.",
-
   "institutions": [
     {
       "name": "University of Auckland",
@@ -116,7 +141,11 @@
       "admissionsUrl": "https://www.auckland.ac.nz/en/study.html",
       "ibPageUrl": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
       "englishBachelors": "The largest and broadest offering in the country, including conjoint (double) degrees that combine two bachelor's in about four to five years.",
-      "notableFields": ["Engineering", "Biomedical Science", "Business"],
+      "notableFields": [
+        "Engineering",
+        "Biomedical Science",
+        "Business"
+      ],
       "note": "Publishes its guaranteed-entry IB scores openly - 26 for Arts and most Sciences, 28 for Biomedical Science, 32 for Engineering (Honours) - so you can tell before you apply whether your predicted score is enough.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Auckland"
     },
@@ -130,7 +159,11 @@
       "admissionsUrl": "https://www.otago.ac.nz/study",
       "ibPageUrl": "https://www.otago.ac.nz/study/entry-requirements/admission-from-international-baccalaureate",
       "englishBachelors": "New Zealand's oldest university, with a famously residential first year and the country's strongest health sciences pathway.",
-      "notableFields": ["Health Sciences and Medicine", "Dentistry", "Zoology"],
+      "notableFields": [
+        "Health Sciences and Medicine",
+        "Dentistry",
+        "Zoology"
+      ],
       "note": "The closest thing in the southern hemisphere to a self-contained university town - almost the whole city revolves around the campus. Medicine and dentistry are entered by competitive selection after a Health Sciences First Year, not directly from school.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Otago"
     },
@@ -144,7 +177,11 @@
       "admissionsUrl": "https://www.wgtn.ac.nz/study",
       "ibPageUrl": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
       "englishBachelors": "Three-year bachelor's degrees in the capital, with strong law, public policy and creative writing.",
-      "notableFields": ["Law and Public Policy", "Creative Writing", "Geophysics and Seismology"],
+      "notableFields": [
+        "Law and Public Policy",
+        "Creative Writing",
+        "Geophysics and Seismology"
+      ],
       "note": "States the national IB rule plainly - Diploma with 24 points minimum, any mathematics, English through Language A at SL or HL or Language B at HL - and being in the capital gives unusual access to government internships.",
       "wikipedia": "https://en.wikipedia.org/wiki/Victoria_University_of_Wellington"
     },
@@ -158,7 +195,11 @@
       "admissionsUrl": "https://www.canterbury.ac.nz/study",
       "ibPageUrl": "https://www.canterbury.ac.nz/study/getting-started/admission-and-enrolment/admission-pathways/ib-international-baccalaureate-diploma",
       "englishBachelors": "Traditional campus university with the country's largest engineering school and a well-known forestry programme.",
-      "notableFields": ["Civil and Natural Resources Engineering", "Forestry Science", "Antarctic Studies"],
+      "notableFields": [
+        "Civil and Natural Resources Engineering",
+        "Forestry Science",
+        "Antarctic Studies"
+      ],
       "note": "Two hours from the Southern Alps and the main academic gateway to Antarctic research; engineering here is the most established in New Zealand.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Canterbury"
     },
@@ -172,7 +213,11 @@
       "admissionsUrl": "https://www.massey.ac.nz/study/",
       "ibPageUrl": "https://www.massey.ac.nz/study/entry-requirements-to-study-at-massey/",
       "englishBachelors": "Three campuses plus the largest distance-learning operation in New Zealand; unusually strong in agriculture, veterinary science and aviation.",
-      "notableFields": ["Veterinary Science", "Agriculture and Horticulture", "Aviation"],
+      "notableFields": [
+        "Veterinary Science",
+        "Agriculture and Horticulture",
+        "Aviation"
+      ],
       "note": "Home to New Zealand's only veterinary school and a pilot training programme that leads to a commercial licence; Palmerston North is cheap and unglamorous, which some students find perfect.",
       "wikipedia": "https://en.wikipedia.org/wiki/Massey_University"
     },
@@ -186,7 +231,11 @@
       "admissionsUrl": "https://www.waikato.ac.nz/study/",
       "ibPageUrl": "https://www.waikato.ac.nz/study/entry-requirements/",
       "englishBachelors": "Mid-sized, with a management school and a well-regarded computing and mathematical sciences faculty.",
-      "notableFields": ["Computer Science", "Management", "Maori and Indigenous Studies"],
+      "notableFields": [
+        "Computer Science",
+        "Management",
+        "Maori and Indigenous Studies"
+      ],
       "note": "Lower entry thresholds and lower living costs than Auckland, an hour and a half down the road; the machine learning group has an international reputation well beyond the university's overall ranking.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Waikato"
     },
@@ -200,7 +249,11 @@
       "admissionsUrl": "https://www.aut.ac.nz/study",
       "ibPageUrl": "https://www.aut.ac.nz/study/entry-requirements",
       "englishBachelors": "Practice-focused degrees with compulsory work placements in many programmes; New Zealand's youngest university.",
-      "notableFields": ["Sport and Exercise Science", "Communication Studies", "Hospitality and Tourism"],
+      "notableFields": [
+        "Sport and Exercise Science",
+        "Communication Studies",
+        "Hospitality and Tourism"
+      ],
       "note": "The applied alternative in Auckland: lower entry scores than the University of Auckland, more industry placement, and a sport science department with a genuinely strong research record.",
       "wikipedia": "https://en.wikipedia.org/wiki/Auckland_University_of_Technology"
     },
@@ -214,7 +267,11 @@
       "admissionsUrl": "https://www.lincoln.ac.nz/study/",
       "ibPageUrl": "https://www.lincoln.ac.nz/study/entry-requirements/",
       "englishBachelors": "New Zealand's smallest university, specialising entirely in land, food and environment.",
-      "notableFields": ["Agricultural Science", "Landscape Architecture", "Environmental Management"],
+      "notableFields": [
+        "Agricultural Science",
+        "Landscape Architecture",
+        "Environmental Management"
+      ],
       "note": "Under 3,000 students and completely focused on land-based science - if you want agronomy, viticulture or land management this is the best fit in the country, and if you do not, it will feel very narrow.",
       "wikipedia": "https://en.wikipedia.org/wiki/Lincoln_University_(New_Zealand)"
     },
@@ -228,7 +285,11 @@
       "admissionsUrl": "https://www.unitec.ac.nz/international",
       "ibPageUrl": null,
       "englishBachelors": "Applied bachelor's degrees in construction, computing, design and social practice, with lower entry requirements than the universities.",
-      "notableFields": ["Construction Management", "Computing", "Architectural Technology"],
+      "notableFields": [
+        "Construction Management",
+        "Computing",
+        "Architectural Technology"
+      ],
       "note": "A realistic option if your IB total lands below the university thresholds but you still want a recognised New Zealand bachelor's degree and the post-study work rights that come with it - confirm the degree is at level 7 so the Post Study Work Visa applies.",
       "wikipedia": "https://en.wikipedia.org/wiki/Unitec_Institute_of_Technology"
     },
@@ -242,17 +303,45 @@
       "admissionsUrl": "https://www.op.ac.nz/international",
       "ibPageUrl": null,
       "englishBachelors": "Hands-on bachelor's degrees in design, engineering technology, nursing and occupational therapy.",
-      "notableFields": ["Design (Communication and Fashion)", "Occupational Therapy", "Engineering Technology"],
+      "notableFields": [
+        "Design (Communication and Fashion)",
+        "Occupational Therapy",
+        "Engineering Technology"
+      ],
       "note": "Small, studio-based teaching in the cheapest student city in New Zealand; a practical alternative to a research university if you want to make things rather than study theory.",
       "wikipedia": "https://en.wikipedia.org/wiki/Otago_Polytechnic"
     }
   ],
-
   "sources": [
-    { "title": "University of Auckland - International Baccalaureate entry requirements and guaranteed entry scores (2027)", "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html", "retrieved": "2026-09-22" },
-    { "title": "Victoria University of Wellington - International Baccalaureate admission", "url": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate", "retrieved": "2026-09-22" },
-    { "title": "University of Auckland - Undergraduate international tuition fees", "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html", "retrieved": "2026-09-22" },
-    { "title": "Immigration New Zealand - Fee Paying Student Visa", "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/", "retrieved": "2026-09-22" },
-    { "title": "Immigration New Zealand - Post Study Work Visa", "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/post-study-work-visa", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "University of Auckland - International Baccalaureate entry requirements and guaranteed entry scores (2027)",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Victoria University of Wellington - International Baccalaureate admission",
+      "url": "https://www.wgtn.ac.nz/study/apply-enrol/admissions/international-baccalaureate",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Auckland - Undergraduate international tuition fees",
+      "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Immigration New Zealand - Fee Paying Student Visa",
+      "url": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Immigration New Zealand - Post Study Work Visa",
+      "url": "https://www.immigration.govt.nz/new-zealand-visas/visas/visa/post-study-work-visa",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#2F6B5E",
+    "pattern": "wave",
+    "focal": "50% 45%"
+  }
 }

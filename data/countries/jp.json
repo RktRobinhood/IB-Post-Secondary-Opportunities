@@ -28,7 +28,6 @@
     "Denmark's SU does not follow you to Japan on the same terms as an EU/EEA country. Check with su.dk early; a full degree outside the EU/EEA has separate rules.",
     "Japanese universities generally want documents apostilled and sometimes notarised, and a Certificate of Eligibility must be obtained before the student visa. Start three months before travel."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -41,15 +40,41 @@
       "Minimum point scores were not published on any page we could read. Treat anything quoted elsewhere as unverified."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "No central portal — apply direct to each university", "url": "https://www.studyinjapan.go.jp/en/" },
+    "portal": {
+      "name": "No central portal — apply direct to each university",
+      "url": "https://www.studyinjapan.go.jp/en/"
+    },
     "deadlines": [
-      { "label": "Waseda English-based undergraduate programmes (six schools)", "date": "8 January – 10 February", "year": "2026 cycle for September 2026 entry; 2027 dates expected to follow the same pattern but were not published at the time of research", "notes": "One application window covering the School of Political Science and Economics, School of Social Sciences, SILS, School of Culture Media and Society, and the two Science and Engineering schools.", "source": "https://www.waseda.jp/inst/admission/en/undergraduate/english/" },
-      { "label": "Kyoto University iUP, October 2027 enrolment", "date": null, "year": "October 2027 entry", "notes": "Application guidelines for October 2027 enrolment were published on 1 July 2026. The exact deadline was not stated on the page we read — download the guidelines from the iUP site.", "source": "https://www.iup.kyoto-u.ac.jp/" },
-      { "label": "University of Tokyo PEAK", "date": "Closed permanently", "year": "Final intake September 2026", "notes": "PEAK is no longer recruiting. Do not include it in a 2027 shortlist.", "source": "http://peak.c.u-tokyo.ac.jp/" },
-      { "label": "MEXT scholarship, embassy recommendation route", "date": null, "year": "2027 entry", "notes": "Applications normally open through the Japanese embassy in the spring of the year before enrolment. Deadline not verified — contact the Embassy of Japan in Denmark in early 2026.", "source": "https://www.studyinjapan.go.jp/en/" }
+      {
+        "label": "Waseda English-based undergraduate programmes (six schools)",
+        "date": "8 January – 10 February",
+        "year": "2026 cycle for September 2026 entry; 2027 dates expected to follow the same pattern but were not published at the time of research",
+        "notes": "One application window covering the School of Political Science and Economics, School of Social Sciences, SILS, School of Culture Media and Society, and the two Science and Engineering schools.",
+        "source": "https://www.waseda.jp/inst/admission/en/undergraduate/english/"
+      },
+      {
+        "label": "Kyoto University iUP, October 2027 enrolment",
+        "date": null,
+        "year": "October 2027 entry",
+        "notes": "Application guidelines for October 2027 enrolment were published on 1 July 2026. The exact deadline was not stated on the page we read — download the guidelines from the iUP site.",
+        "source": "https://www.iup.kyoto-u.ac.jp/"
+      },
+      {
+        "label": "University of Tokyo PEAK",
+        "date": "Closed permanently",
+        "year": "Final intake September 2026",
+        "notes": "PEAK is no longer recruiting. Do not include it in a 2027 shortlist.",
+        "source": "http://peak.c.u-tokyo.ac.jp/"
+      },
+      {
+        "label": "MEXT scholarship, embassy recommendation route",
+        "date": null,
+        "year": "2027 entry",
+        "notes": "Applications normally open through the Japanese embassy in the spring of the year before enrolment. Deadline not verified — contact the Embassy of Japan in Denmark in early 2026.",
+        "source": "https://www.studyinjapan.go.jp/en/"
+      }
     ],
     "steps": [
       "In September 2026, build a spreadsheet of every English-taught programme you are interested in, with its intake month and its own deadline. There is no central portal and no shared calendar.",
@@ -62,7 +87,6 @@
     ],
     "selectionNotes": "Selection is document-based and often interview-based rather than exam-based for English-taught programmes: transcript, predicted grades, personal statement, references and sometimes an online interview. This suits IB students who write well. The competitive bar at Kyoto, Waseda's Political Science and Economics, and Keio is high; APU, Akita and several regional programmes are more accessible."
   },
-
   "language": {
     "englishTaughtBachelors": "Limited but real — roughly forty fully English-taught bachelor's degrees nationally, concentrated at Waseda (six schools), Keio, Sophia, ICU, Tohoku, Kyushu, Tsukuba, APU and Akita. The single largest programme, UTokyo PEAK, has closed.",
     "englishProof": "IB English A or B is normally accepted. Where a test is required the usual bars are IELTS or TOEFL iBT, but specific scores were not verified from official pages in this research.",
@@ -73,12 +97,23 @@
       "APU and ICU are formally bilingual: you take courses in both languages as your Japanese improves."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "Japan charges the same tuition to all nationalities — there is no EU/non-EU split. See tuitionNonEu.", "year": null, "source": null },
-    "tuitionNonEu": { "value": null, "year": null, "source": null },
+    "tuitionEuEea": {
+      "value": "Japan charges the same tuition to all nationalities — there is no EU/non-EU split. See tuitionNonEu.",
+      "year": null,
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "applicationFee": null,
-    "livingCostMonthly": { "value": null, "year": null, "source": null },
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "notes": [
       "We could not read a single official Japanese tuition table during this research — the relevant pages are PDFs or JavaScript-rendered and did not return content. Every figure is therefore null.",
       "The structure to expect: national universities charge a one-off admission fee plus an annual tuition fee, both set nationally. Private universities (Waseda, Keio, Sophia, ICU, APU) charge considerably more and vary by faculty, with science and engineering highest.",
@@ -86,7 +121,6 @@
       "Tokyo living costs are high; Beppu (APU), Akita and Sendai (Tohoku) are dramatically cheaper."
     ]
   },
-
   "funding": [
     "MEXT (Monbukagakusho) Undergraduate Scholarship — the Japanese government scholarship, applied for through the Embassy of Japan in Copenhagen roughly a year before entry. It covers tuition, pays a monthly stipend and includes airfare, and normally includes a preparatory Japanese-language year. Amounts were not verified in this research.",
     "University-recommendation MEXT places — some universities nominate their own admitted students. Ask each admissions office whether it holds MEXT quota places.",
@@ -100,33 +134,338 @@
   "residency": "Non-visa-waiver process regardless of EU citizenship. The university applies for a Certificate of Eligibility on your behalf once you accept an offer; you then take it to the Embassy of Japan in Copenhagen for a Student visa. On arrival you receive a residence card and must register at the local municipal office within 14 days and enrol in National Health Insurance.",
   "housing": "Most English-taught programmes guarantee or strongly prioritise first-year places in a university dormitory or international house, which is by far the easiest route and usually cheaper than the private market. APU houses all first-year international students in AP House. Private renting in Japan involves key money, guarantor requirements and agency fees that are difficult to navigate from abroad — take the dormitory.",
   "healthcare": "Enrolment in Japan's National Health Insurance is compulsory for anyone staying more than three months and is arranged at the municipal office when you register. It covers roughly 70% of medical costs; students typically add the university's own supplementary cover. Your Danish EHIC does not apply in Japan.",
-
   "institutions": [
-    { "name": "University of Tokyo", "shortName": "UTokyo", "city": "Tokyo", "type": "Research university", "founded": 1877, "website": "https://www.u-tokyo.ac.jp/en/", "admissionsUrl": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_english.html", "ibPageUrl": null, "englishBachelors": "None for 2027 entry. PEAK, the liberal-arts English programme at Komaba, states that September 2026 was its final intake. The Global Science Course is a third-year transfer route requiring two years of prior university study abroad.", "notableFields": ["Law", "Engineering", "Physics", "Japan studies"], "note": "Japan's most prestigious university, and as of 2027 entry effectively closed to English-speaking school-leavers. Worth planning towards as a master's destination instead.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tokyo" },
-    { "name": "Kyoto University", "shortName": "Kyoto U", "city": "Kyoto", "type": "Research university", "founded": 1897, "website": "https://www.kyoto-u.ac.jp/en", "admissionsUrl": "https://www.iup.kyoto-u.ac.jp/", "ibPageUrl": null, "englishBachelors": "iUP — a 4.5-year route: six months of intensive preparatory Japanese, then four years of undergraduate study across a range of faculties. No Japanese required at the start.", "notableFields": ["Science", "Engineering", "Agriculture", "Medicine"], "note": "The most interesting Japanese option for an IB student in 2027: guidelines for October 2027 enrolment were published in July 2026, and fee waivers plus monthly scholarships are on offer. Kyoto has more Nobel laureates than any other Asian university.", "wikipedia": "https://en.wikipedia.org/wiki/Kyoto_University" },
-    { "name": "Waseda University", "shortName": "Waseda", "city": "Tokyo", "type": "Research university", "founded": 1882, "website": "https://www.waseda.jp/top/en/", "admissionsUrl": "https://www.waseda.jp/inst/admission/en/undergraduate/english/", "ibPageUrl": null, "englishBachelors": "Six schools: Political Science and Economics, Social Sciences, International Liberal Studies (SILS), Culture Media and Society, Fundamental Science and Engineering, Creative Science and Engineering. SILS and Culture Media and Society also take April entrants.", "notableFields": ["Political science and economics", "International liberal studies", "Engineering", "Media and culture"], "note": "The widest English-taught choice in Japan by a distance, under one application window that ran 8 January to 10 February in the last cycle — late enough to use settled predicted grades. Scholarships are decided from the admission result with no separate application.", "wikipedia": "https://en.wikipedia.org/wiki/Waseda_University" },
-    { "name": "Keio University", "shortName": "Keio", "city": "Tokyo", "type": "Research university", "founded": 1858, "website": "https://www.keio.ac.jp/en/", "admissionsUrl": "https://www.keio.ac.jp/en/admissions/", "ibPageUrl": null, "englishBachelors": "PEARL (Programme in Economics for Alliances, Research and Leadership) in the Faculty of Economics, and GIGA (Global Information and Governance Academic) in Environment and Information Studies at Shonan Fujisawa. Details not verified from an official page in this research.", "notableFields": ["Economics", "Law", "Medicine", "Policy management"], "note": "Japan's oldest private university and Waseda's historic rival, with the strongest corporate alumni network in the country. PEARL is a genuine English-medium economics degree; GIGA is a technology-and-policy hybrid on the Shonan Fujisawa campus.", "wikipedia": "https://en.wikipedia.org/wiki/Keio_University" },
-    { "name": "Sophia University", "shortName": "Sophia", "city": "Tokyo", "type": "Research university", "founded": 1913, "website": "https://www.sophia.ac.jp/eng/", "admissionsUrl": "https://www.sophia.ac.jp/eng/admissions/", "ibPageUrl": null, "englishBachelors": "Faculty of Liberal Arts (FLA), plus English-taught science and engineering and Sustainable Development programmes. Programme list not verified from an official page.", "notableFields": ["Liberal arts", "International relations", "Global studies", "Green science and engineering"], "note": "A Jesuit university in central Tokyo whose Faculty of Liberal Arts has taught entirely in English since the 1940s — the longest-running English-medium undergraduate faculty in Japan. Small, central and internationally minded.", "wikipedia": "https://en.wikipedia.org/wiki/Sophia_University" },
-    { "name": "Tohoku University", "shortName": "Tohoku", "city": "Sendai", "type": "Research university", "founded": 1907, "website": "https://www.tohoku.ac.jp/en/", "admissionsUrl": "https://www.tohoku.ac.jp/en/admissions/", "ibPageUrl": null, "englishBachelors": "Future Global Leadership (FGL) — three English-taught undergraduate courses: Advanced Molecular Chemistry, Applied Marine Biology, and International Mechanical and Aerospace Engineering. Details not verified from an official page.", "notableFields": ["Materials science", "Marine biology", "Mechanical and aerospace engineering", "Disaster science"], "note": "The strongest English-taught science and engineering option at a Japanese national university, in Sendai — a comfortable, affordable city far cheaper than Tokyo. FGL is small and specialised: three courses, not a faculty.", "wikipedia": "https://en.wikipedia.org/wiki/Tohoku_University" },
-    { "name": "International Christian University", "shortName": "ICU", "city": "Mitaka, Tokyo", "type": "Research university", "founded": 1953, "website": "https://www.icu.ac.jp/en/", "admissionsUrl": "https://www.icu.ac.jp/en/admissions/", "ibPageUrl": null, "englishBachelors": "A single bilingual Bachelor of Arts in Liberal Arts with 31 majors; you declare your major at the end of second year. Entry is possible in April or September.", "notableFields": ["Liberal arts", "Linguistics", "Politics and international studies", "Environmental studies"], "note": "The closest thing Japan has to a small American liberal-arts college: one degree, 31 majors, taught bilingually, on a wooded campus in western Tokyo. The declare-late structure is unusually forgiving for an IB student who is not yet sure.", "wikipedia": "https://en.wikipedia.org/wiki/International_Christian_University" },
-    { "name": "Ritsumeikan Asia Pacific University", "shortName": "APU", "city": "Beppu, Ōita", "type": "Research university", "founded": 2000, "website": "https://en.apu.ac.jp/home/", "admissionsUrl": "https://en.apu.ac.jp/home/admissions/", "ibPageUrl": null, "englishBachelors": "Three colleges, all offering fully English-taught degrees: Asia Pacific Studies (APS), International Management (APM, AACSB-accredited) and Sustainability and Tourism (ST). April and September intakes.", "notableFields": ["Asia Pacific studies", "International management", "Sustainability and tourism", "Development"], "note": "About half the student body is international, from ninety-odd countries — the most genuinely multinational campus in Japan. Beppu is a hot-spring town on Kyushu, which makes it cheap and beautiful but remote. Tuition-reduction scholarships are awarded at admission.", "wikipedia": "https://en.wikipedia.org/wiki/Ritsumeikan_Asia_Pacific_University" },
-    { "name": "Akita International University", "shortName": "AIU", "city": "Akita", "type": "Research university", "founded": 2004, "website": "https://web.aiu.ac.jp/en/", "admissionsUrl": "https://web.aiu.ac.jp/en/admissions/", "ibPageUrl": null, "englishBachelors": "All teaching is in English. Bachelor of Arts in Global Business, Global Studies, or Japan Studies (Global Connectivity). A year abroad is compulsory for every student.", "notableFields": ["Global business", "Global studies", "Japan studies", "English-medium liberal arts"], "note": "A tiny public university in northern Japan where every class is in English and every student must spend a year at a partner university abroad. Famous in Japan for its 24-hour library and for graduate employment rates that embarrass far larger institutions.", "wikipedia": "https://en.wikipedia.org/wiki/Akita_International_University" },
-    { "name": "Kyushu University", "shortName": "Kyudai", "city": "Fukuoka", "type": "Research university", "founded": 1911, "website": "https://www.kyushu-u.ac.jp/en/", "admissionsUrl": "https://www.kyushu-u.ac.jp/en/admission/", "ibPageUrl": null, "englishBachelors": "International Undergraduate Programmes in Engineering and in Bioresource and Bioenvironment, taught in English. Not verified from an official page in this research.", "notableFields": ["Engineering", "Bioresource sciences", "Medicine", "Design"], "note": "A large national university in Fukuoka, the most liveable big city in Japan and the closest to the Asian mainland. Its English engineering track is one of the few at a national university outside Tohoku.", "wikipedia": "https://en.wikipedia.org/wiki/Kyushu_University" },
-    { "name": "University of Tsukuba", "shortName": "Tsukuba", "city": "Tsukuba, Ibaraki", "type": "Research university", "founded": 1973, "website": "https://www.tsukuba.ac.jp/en/", "admissionsUrl": "https://www.tsukuba.ac.jp/en/admission/", "ibPageUrl": null, "englishBachelors": "Bachelor's Programme in Global Issues (BPGI) and the Interdisciplinary Global Studies track, both taught in English. Not verified from an official page.", "notableFields": ["Global issues", "Sport science", "Life and environmental sciences", "Informatics"], "note": "Japan's purpose-built science city, an hour north of Tokyo, with the highest concentration of research institutes in the country. Strong in sport science — it trains a large share of Japan's Olympic coaches.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tsukuba" },
-    { "name": "Temple University, Japan Campus", "shortName": "TUJ", "city": "Tokyo", "type": "Research university", "founded": 1982, "website": "https://www.tuj.ac.jp/", "admissionsUrl": "https://www.tuj.ac.jp/ug/admissions", "ibPageUrl": null, "englishBachelors": "All undergraduate degrees are taught in English — it is an American university operating in Tokyo, awarding a US Temple University degree.", "notableFields": ["International business studies", "Communication studies", "Art", "Asian studies"], "note": "The oldest and largest foreign university campus in Japan, on a purpose-built site in Sangenjaya. Useful if you want an American-style degree and the option to transfer to Philadelphia, but it charges American tuition.", "wikipedia": "https://en.wikipedia.org/wiki/Temple_University_Japan_Campus" },
-    { "name": "Hokkaido University", "shortName": "Hokudai", "city": "Sapporo", "type": "Research university", "founded": 1876, "website": "https://www.global.hokudai.ac.jp/", "admissionsUrl": "https://www.oia.hokudai.ac.jp/", "ibPageUrl": null, "englishBachelors": "Integrated Science Program (ISP) in the Modern Japanese Studies and science faculties, taught in English. Not verified from an official page.", "notableFields": ["Agriculture and fisheries", "Environmental earth science", "Veterinary medicine", "Modern Japanese studies"], "note": "Founded on an American land-grant model and still the leading Japanese university for agriculture, fisheries and cold-region science. Sapporo is spacious and snowy, and the campus is the most beautiful in Japan.", "wikipedia": "https://en.wikipedia.org/wiki/Hokkaido_University" },
-    { "name": "Nagoya University", "shortName": "Meidai", "city": "Nagoya", "type": "Research university", "founded": 1939, "website": "https://en.nagoya-u.ac.jp/", "admissionsUrl": "https://admissions.g30.nagoya-u.ac.jp/", "ibPageUrl": null, "englishBachelors": "The G30 International Programs — English-taught bachelor's degrees in Automotive Engineering, Chemistry, Physics, Biological Science, Economics and Japan-in-Asia Cultural Studies. Not verified from an official page.", "notableFields": ["Automotive engineering", "Physics", "Chemistry", "Economics"], "note": "Nagoya's G30 programme is one of the broadest English-taught offerings at a Japanese national university, and it sits in the middle of Japan's car industry — Toyota's home region. Six Nobel laureates in the sciences since 2000.", "wikipedia": "https://en.wikipedia.org/wiki/Nagoya_University" },
-    { "name": "Osaka University", "shortName": "Handai", "city": "Osaka", "type": "Research university", "founded": 1931, "website": "https://www.osaka-u.ac.jp/en", "admissionsUrl": "https://www.osaka-u.ac.jp/en/admissions", "ibPageUrl": null, "englishBachelors": "A small number of English-taught undergraduate tracks in the School of Human Sciences and in chemistry/biology. Not verified from an official page.", "notableFields": ["Immunology", "Engineering", "Human sciences", "Foreign studies"], "note": "One of Japan's strongest research universities, particularly in immunology and robotics, in a city with a reputation for being blunter and friendlier than Tokyo. English-taught bachelor provision is thin — check carefully before counting on it.", "wikipedia": "https://en.wikipedia.org/wiki/Osaka_University" }
+    {
+      "name": "University of Tokyo",
+      "shortName": "UTokyo",
+      "city": "Tokyo",
+      "type": "Research university",
+      "founded": 1877,
+      "website": "https://www.u-tokyo.ac.jp/en/",
+      "admissionsUrl": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_english.html",
+      "ibPageUrl": null,
+      "englishBachelors": "None for 2027 entry. PEAK, the liberal-arts English programme at Komaba, states that September 2026 was its final intake. The Global Science Course is a third-year transfer route requiring two years of prior university study abroad.",
+      "notableFields": [
+        "Law",
+        "Engineering",
+        "Physics",
+        "Japan studies"
+      ],
+      "note": "Japan's most prestigious university, and as of 2027 entry effectively closed to English-speaking school-leavers. Worth planning towards as a master's destination instead.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tokyo"
+    },
+    {
+      "name": "Kyoto University",
+      "shortName": "Kyoto U",
+      "city": "Kyoto",
+      "type": "Research university",
+      "founded": 1897,
+      "website": "https://www.kyoto-u.ac.jp/en",
+      "admissionsUrl": "https://www.iup.kyoto-u.ac.jp/",
+      "ibPageUrl": null,
+      "englishBachelors": "iUP — a 4.5-year route: six months of intensive preparatory Japanese, then four years of undergraduate study across a range of faculties. No Japanese required at the start.",
+      "notableFields": [
+        "Science",
+        "Engineering",
+        "Agriculture",
+        "Medicine"
+      ],
+      "note": "The most interesting Japanese option for an IB student in 2027: guidelines for October 2027 enrolment were published in July 2026, and fee waivers plus monthly scholarships are on offer. Kyoto has more Nobel laureates than any other Asian university.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Kyoto_University"
+    },
+    {
+      "name": "Waseda University",
+      "shortName": "Waseda",
+      "city": "Tokyo",
+      "type": "Research university",
+      "founded": 1882,
+      "website": "https://www.waseda.jp/top/en/",
+      "admissionsUrl": "https://www.waseda.jp/inst/admission/en/undergraduate/english/",
+      "ibPageUrl": null,
+      "englishBachelors": "Six schools: Political Science and Economics, Social Sciences, International Liberal Studies (SILS), Culture Media and Society, Fundamental Science and Engineering, Creative Science and Engineering. SILS and Culture Media and Society also take April entrants.",
+      "notableFields": [
+        "Political science and economics",
+        "International liberal studies",
+        "Engineering",
+        "Media and culture"
+      ],
+      "note": "The widest English-taught choice in Japan by a distance, under one application window that ran 8 January to 10 February in the last cycle — late enough to use settled predicted grades. Scholarships are decided from the admission result with no separate application.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Waseda_University"
+    },
+    {
+      "name": "Keio University",
+      "shortName": "Keio",
+      "city": "Tokyo",
+      "type": "Research university",
+      "founded": 1858,
+      "website": "https://www.keio.ac.jp/en/",
+      "admissionsUrl": "https://www.keio.ac.jp/en/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "PEARL (Programme in Economics for Alliances, Research and Leadership) in the Faculty of Economics, and GIGA (Global Information and Governance Academic) in Environment and Information Studies at Shonan Fujisawa. Details not verified from an official page in this research.",
+      "notableFields": [
+        "Economics",
+        "Law",
+        "Medicine",
+        "Policy management"
+      ],
+      "note": "Japan's oldest private university and Waseda's historic rival, with the strongest corporate alumni network in the country. PEARL is a genuine English-medium economics degree; GIGA is a technology-and-policy hybrid on the Shonan Fujisawa campus.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Keio_University"
+    },
+    {
+      "name": "Sophia University",
+      "shortName": "Sophia",
+      "city": "Tokyo",
+      "type": "Research university",
+      "founded": 1913,
+      "website": "https://www.sophia.ac.jp/eng/",
+      "admissionsUrl": "https://www.sophia.ac.jp/eng/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "Faculty of Liberal Arts (FLA), plus English-taught science and engineering and Sustainable Development programmes. Programme list not verified from an official page.",
+      "notableFields": [
+        "Liberal arts",
+        "International relations",
+        "Global studies",
+        "Green science and engineering"
+      ],
+      "note": "A Jesuit university in central Tokyo whose Faculty of Liberal Arts has taught entirely in English since the 1940s — the longest-running English-medium undergraduate faculty in Japan. Small, central and internationally minded.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sophia_University"
+    },
+    {
+      "name": "Tohoku University",
+      "shortName": "Tohoku",
+      "city": "Sendai",
+      "type": "Research university",
+      "founded": 1907,
+      "website": "https://www.tohoku.ac.jp/en/",
+      "admissionsUrl": "https://www.tohoku.ac.jp/en/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "Future Global Leadership (FGL) — three English-taught undergraduate courses: Advanced Molecular Chemistry, Applied Marine Biology, and International Mechanical and Aerospace Engineering. Details not verified from an official page.",
+      "notableFields": [
+        "Materials science",
+        "Marine biology",
+        "Mechanical and aerospace engineering",
+        "Disaster science"
+      ],
+      "note": "The strongest English-taught science and engineering option at a Japanese national university, in Sendai — a comfortable, affordable city far cheaper than Tokyo. FGL is small and specialised: three courses, not a faculty.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Tohoku_University"
+    },
+    {
+      "name": "International Christian University",
+      "shortName": "ICU",
+      "city": "Mitaka, Tokyo",
+      "type": "Research university",
+      "founded": 1953,
+      "website": "https://www.icu.ac.jp/en/",
+      "admissionsUrl": "https://www.icu.ac.jp/en/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "A single bilingual Bachelor of Arts in Liberal Arts with 31 majors; you declare your major at the end of second year. Entry is possible in April or September.",
+      "notableFields": [
+        "Liberal arts",
+        "Linguistics",
+        "Politics and international studies",
+        "Environmental studies"
+      ],
+      "note": "The closest thing Japan has to a small American liberal-arts college: one degree, 31 majors, taught bilingually, on a wooded campus in western Tokyo. The declare-late structure is unusually forgiving for an IB student who is not yet sure.",
+      "wikipedia": "https://en.wikipedia.org/wiki/International_Christian_University"
+    },
+    {
+      "name": "Ritsumeikan Asia Pacific University",
+      "shortName": "APU",
+      "city": "Beppu, Ōita",
+      "type": "Research university",
+      "founded": 2000,
+      "website": "https://en.apu.ac.jp/home/",
+      "admissionsUrl": "https://en.apu.ac.jp/home/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "Three colleges, all offering fully English-taught degrees: Asia Pacific Studies (APS), International Management (APM, AACSB-accredited) and Sustainability and Tourism (ST). April and September intakes.",
+      "notableFields": [
+        "Asia Pacific studies",
+        "International management",
+        "Sustainability and tourism",
+        "Development"
+      ],
+      "note": "About half the student body is international, from ninety-odd countries — the most genuinely multinational campus in Japan. Beppu is a hot-spring town on Kyushu, which makes it cheap and beautiful but remote. Tuition-reduction scholarships are awarded at admission.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ritsumeikan_Asia_Pacific_University"
+    },
+    {
+      "name": "Akita International University",
+      "shortName": "AIU",
+      "city": "Akita",
+      "type": "Research university",
+      "founded": 2004,
+      "website": "https://web.aiu.ac.jp/en/",
+      "admissionsUrl": "https://web.aiu.ac.jp/en/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "All teaching is in English. Bachelor of Arts in Global Business, Global Studies, or Japan Studies (Global Connectivity). A year abroad is compulsory for every student.",
+      "notableFields": [
+        "Global business",
+        "Global studies",
+        "Japan studies",
+        "English-medium liberal arts"
+      ],
+      "note": "A tiny public university in northern Japan where every class is in English and every student must spend a year at a partner university abroad. Famous in Japan for its 24-hour library and for graduate employment rates that embarrass far larger institutions.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Akita_International_University"
+    },
+    {
+      "name": "Kyushu University",
+      "shortName": "Kyudai",
+      "city": "Fukuoka",
+      "type": "Research university",
+      "founded": 1911,
+      "website": "https://www.kyushu-u.ac.jp/en/",
+      "admissionsUrl": "https://www.kyushu-u.ac.jp/en/admission/",
+      "ibPageUrl": null,
+      "englishBachelors": "International Undergraduate Programmes in Engineering and in Bioresource and Bioenvironment, taught in English. Not verified from an official page in this research.",
+      "notableFields": [
+        "Engineering",
+        "Bioresource sciences",
+        "Medicine",
+        "Design"
+      ],
+      "note": "A large national university in Fukuoka, the most liveable big city in Japan and the closest to the Asian mainland. Its English engineering track is one of the few at a national university outside Tohoku.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Kyushu_University"
+    },
+    {
+      "name": "University of Tsukuba",
+      "shortName": "Tsukuba",
+      "city": "Tsukuba, Ibaraki",
+      "type": "Research university",
+      "founded": 1973,
+      "website": "https://www.tsukuba.ac.jp/en/",
+      "admissionsUrl": "https://www.tsukuba.ac.jp/en/admission/",
+      "ibPageUrl": null,
+      "englishBachelors": "Bachelor's Programme in Global Issues (BPGI) and the Interdisciplinary Global Studies track, both taught in English. Not verified from an official page.",
+      "notableFields": [
+        "Global issues",
+        "Sport science",
+        "Life and environmental sciences",
+        "Informatics"
+      ],
+      "note": "Japan's purpose-built science city, an hour north of Tokyo, with the highest concentration of research institutes in the country. Strong in sport science — it trains a large share of Japan's Olympic coaches.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tsukuba"
+    },
+    {
+      "name": "Temple University, Japan Campus",
+      "shortName": "TUJ",
+      "city": "Tokyo",
+      "type": "Research university",
+      "founded": 1982,
+      "website": "https://www.tuj.ac.jp/",
+      "admissionsUrl": "https://www.tuj.ac.jp/ug/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "All undergraduate degrees are taught in English — it is an American university operating in Tokyo, awarding a US Temple University degree.",
+      "notableFields": [
+        "International business studies",
+        "Communication studies",
+        "Art",
+        "Asian studies"
+      ],
+      "note": "The oldest and largest foreign university campus in Japan, on a purpose-built site in Sangenjaya. Useful if you want an American-style degree and the option to transfer to Philadelphia, but it charges American tuition.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Temple_University_Japan_Campus"
+    },
+    {
+      "name": "Hokkaido University",
+      "shortName": "Hokudai",
+      "city": "Sapporo",
+      "type": "Research university",
+      "founded": 1876,
+      "website": "https://www.global.hokudai.ac.jp/",
+      "admissionsUrl": "https://www.oia.hokudai.ac.jp/",
+      "ibPageUrl": null,
+      "englishBachelors": "Integrated Science Program (ISP) in the Modern Japanese Studies and science faculties, taught in English. Not verified from an official page.",
+      "notableFields": [
+        "Agriculture and fisheries",
+        "Environmental earth science",
+        "Veterinary medicine",
+        "Modern Japanese studies"
+      ],
+      "note": "Founded on an American land-grant model and still the leading Japanese university for agriculture, fisheries and cold-region science. Sapporo is spacious and snowy, and the campus is the most beautiful in Japan.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hokkaido_University"
+    },
+    {
+      "name": "Nagoya University",
+      "shortName": "Meidai",
+      "city": "Nagoya",
+      "type": "Research university",
+      "founded": 1939,
+      "website": "https://en.nagoya-u.ac.jp/",
+      "admissionsUrl": "https://admissions.g30.nagoya-u.ac.jp/",
+      "ibPageUrl": null,
+      "englishBachelors": "The G30 International Programs — English-taught bachelor's degrees in Automotive Engineering, Chemistry, Physics, Biological Science, Economics and Japan-in-Asia Cultural Studies. Not verified from an official page.",
+      "notableFields": [
+        "Automotive engineering",
+        "Physics",
+        "Chemistry",
+        "Economics"
+      ],
+      "note": "Nagoya's G30 programme is one of the broadest English-taught offerings at a Japanese national university, and it sits in the middle of Japan's car industry — Toyota's home region. Six Nobel laureates in the sciences since 2000.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Nagoya_University"
+    },
+    {
+      "name": "Osaka University",
+      "shortName": "Handai",
+      "city": "Osaka",
+      "type": "Research university",
+      "founded": 1931,
+      "website": "https://www.osaka-u.ac.jp/en",
+      "admissionsUrl": "https://www.osaka-u.ac.jp/en/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "A small number of English-taught undergraduate tracks in the School of Human Sciences and in chemistry/biology. Not verified from an official page.",
+      "notableFields": [
+        "Immunology",
+        "Engineering",
+        "Human sciences",
+        "Foreign studies"
+      ],
+      "note": "One of Japan's strongest research universities, particularly in immunology and robotics, in a city with a reputation for being blunter and friendlier than Tokyo. English-taught bachelor provision is thin — check carefully before counting on it.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Osaka_University"
+    }
   ],
-
   "sources": [
-    { "title": "University of Tokyo — Undergraduate Programs in English (PEAK and GSC)", "url": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_english.html", "retrieved": "2026-09-22" },
-    { "title": "PEAK — University of Tokyo (notice of final recruitment)", "url": "http://peak.c.u-tokyo.ac.jp/", "retrieved": "2026-09-22" },
-    { "title": "Kyoto University International Undergraduate Program (iUP)", "url": "https://www.iup.kyoto-u.ac.jp/", "retrieved": "2026-09-22" },
-    { "title": "Waseda University — English-based Undergraduate Programs", "url": "https://www.waseda.jp/inst/admission/en/undergraduate/english/", "retrieved": "2026-09-22" },
-    { "title": "Waseda SILS — Tuition, Dormitories and Scholarships", "url": "https://www.waseda.jp/fire/sils/en/applicants/tuition/", "retrieved": "2026-09-22" },
-    { "title": "Ritsumeikan APU — Admissions", "url": "https://en.apu.ac.jp/home/admissions/", "retrieved": "2026-09-22" },
-    { "title": "Study in Japan (JASSO/MEXT official portal) — Scholarships", "url": "https://www.studyinjapan.go.jp/en/planning/scholarships/", "retrieved": "2026-09-22" },
-    { "title": "University of Tokyo — Undergraduate Admissions routes", "url": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_admissions.html", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "University of Tokyo — Undergraduate Programs in English (PEAK and GSC)",
+      "url": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_english.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "PEAK — University of Tokyo (notice of final recruitment)",
+      "url": "http://peak.c.u-tokyo.ac.jp/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Kyoto University International Undergraduate Program (iUP)",
+      "url": "https://www.iup.kyoto-u.ac.jp/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Waseda University — English-based Undergraduate Programs",
+      "url": "https://www.waseda.jp/inst/admission/en/undergraduate/english/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Waseda SILS — Tuition, Dormitories and Scholarships",
+      "url": "https://www.waseda.jp/fire/sils/en/applicants/tuition/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Ritsumeikan APU — Admissions",
+      "url": "https://en.apu.ac.jp/home/admissions/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Japan (JASSO/MEXT official portal) — Scholarships",
+      "url": "https://www.studyinjapan.go.jp/en/planning/scholarships/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Tokyo — Undergraduate Admissions routes",
+      "url": "https://www.u-tokyo.ac.jp/en/prospective-students/undergraduate_admissions.html",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#8E4A52",
+    "pattern": "wave",
+    "focal": "50% 45%"
+  }
 }

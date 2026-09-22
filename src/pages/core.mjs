@@ -5,6 +5,9 @@ import {
   tags, stamp, dataTable, emptyState, pager, accordion, freshness,
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER } from '../lib/data.mjs';
+import {
+  worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, STATE,
+} from '../lib/primitives.mjs';
 
 /* --- Home ---------------------------------------------------------------- */
 
@@ -182,8 +185,31 @@ function countryCard(site, c) {
   });
 }
 
+/** A country's position on the map: the mean of the places we actually know. */
+function centroid(c) {
+  const pts = c.places?.map((p) => p.coordinates).filter(Boolean) || [];
+  if (!pts.length) return null;
+  return {
+    lat: pts.reduce((n, p) => n + p.lat, 0) / pts.length,
+    lon: pts.reduce((n, p) => n + p.lon, 0) / pts.length,
+  };
+}
+
 function countryIndex(site, { scope, title, lede, eyebrow, path: pagePath, heroKey }) {
   const list = scope === 'europe' ? site.europe : site.world;
+
+  const mapPlaces = list
+    .map((c) => ({ c, pos: centroid(c) }))
+    .filter((x) => x.pos)
+    .map(({ c, pos }) => ({
+      id: c.code,
+      name: `${c.flag} ${c.name}`,
+      lat: pos.lat,
+      lon: pos.lon,
+      href: c.href,
+      count: c.institutions.length,
+      precision: 'region',
+    }));
   const byRegion = new Map();
   for (const c of list) {
     if (!byRegion.has(c.region)) byRegion.set(c.region, []);
@@ -203,6 +229,19 @@ ${hero({
   lede,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
 })}
+
+${mapPlaces.length
+  ? html`<section class="section section--tight">
+      <div class="wrap wrap--wide">
+        ${worldWindow({
+          places: mapPlaces,
+          id: `index-${scope}`,
+          activeLayer: 'Destinations covered',
+          caption: 'Each light is a destination. Follow one, or read down the list.',
+        })}
+      </div>
+    </section>`
+  : ''}
 
 <section class="section">
   <div class="wrap">
@@ -272,17 +311,35 @@ export function worldIndex(site) {
 
 export function destination(site, c, { prev, next }) {
   const pic = picture(site, c.code, { prefer: 'commons' });
+  const art = artDirection(c.artDirection);
+
+  // Institutions that have a resolved location become lights on the map. The
+  // list beneath it is the same set, and is what a keyboard or screen reader
+  // uses — the picture is an enhancement of the list, never a replacement.
+  const mapPlaces = c.institutions
+    .filter((i) => i.coords)
+    .map((i) => ({
+      id: i.key,
+      name: i.shortName || i.name,
+      lat: i.coords.lat,
+      lon: i.coords.lon,
+      href: null,
+      precision: i.coordinatePrecision,
+      count: 1,
+    }));
   const eu = money(c.costs?.tuitionEuEea);
   const nonEu = money(c.costs?.tuitionNonEu);
   const living = money(c.costs?.livingCostMonthly);
 
   const body = html`
+${raw(`<div style="${art.style}">`)}
 ${hero({
   eyebrow: `${c.flag} ${c.region}`,
   title: c.name,
   lede: c.tagline,
-  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
+  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
   variant: pic ? undefined : 'plain',
+  aside: patternLayer(art.pattern),
 })}
 
 <section class="section">
@@ -300,6 +357,17 @@ ${hero({
           provisional: c.deadlines.filter((d) => /not yet published|indicative|re-check/i.test(`${d.year || ''} ${d.notes || ''}`)).length,
         })}
         <p class="lede">${c.summary}</p>
+
+        ${mapPlaces.length
+          ? html`<div style="margin-bottom:var(--s7)">
+              ${worldWindow({
+                places: mapPlaces,
+                id: `map-${c.code}`,
+                activeLayer: `Institutions in ${c.name}`,
+                caption: `${plural(mapPlaces.length, 'institution')} with a resolved location.`,
+              })}
+            </div>`
+          : ''}
 
         ${c.whyConsider.length
           ? html`<h2 id="why">Why it might suit you</h2>
@@ -321,7 +389,17 @@ ${hero({
               ])}
               ${(c.ibRecognition.notes || []).length
                 ? html`<ul>${(c.ibRecognition.notes || []).map((n) => html`<li>${n}</li>`)}</ul>`
-                : ''}`
+                : ''}
+              ${evidenceBlock({
+                claim: `How ${c.name} reads an IB Diploma.`,
+                records: (c.sources || []).slice(0, 6).map((s) => ({
+                  sourceUrl: s.url,
+                  publisher: s.title || s.url,
+                  retrievedAt: s.retrieved || c.dataAsOf,
+                  verificationState: 'needs-review',
+                })),
+                summary: 'These are the pages this section was written from. None has been signed off by a person yet, so confirm anything consequential at the source.',
+              })}`
           : ''}
 
         ${c.application?.steps?.length
@@ -437,7 +515,8 @@ ${c.institutions.length
 
 <section class="section">
   <div class="wrap">${pager({ prev, next })}</div>
-</section>`;
+</section>
+${raw('</div>')}`;
 
   return page({
     title: c.name,

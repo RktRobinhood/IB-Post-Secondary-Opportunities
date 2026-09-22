@@ -40,7 +40,10 @@
   },
   "application": {
     "centralised": true,
-    "portal": { "name": "Parcoursup", "url": "https://www.parcoursup.gouv.fr/" },
+    "portal": {
+      "name": "Parcoursup",
+      "url": "https://www.parcoursup.gouv.fr/"
+    },
     "deadlines": [
       {
         "label": "Parcoursup — registration and wishes open",
@@ -118,7 +121,11 @@
       "source": "https://www.etudiant.gouv.fr/en/tuition-fees-france-1489"
     },
     "applicationFee": "Sciences Po charges €150, non-refundable and waived only for refugees. ESCP charges €80 for the BSc in Management. Parcoursup itself is free.",
-    "livingCostMonthly": { "value": null, "year": null, "source": null },
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "notes": [
       "The CVEC (Contribution de vie étudiante et de campus) is €105 for 2026/27, is paid online at cvec.etudiant.gouv.fr, and you cannot complete enrolment without the attestation. Scholarship holders and refugees are exempt but still need an exemption attestation.",
       "Sciences Po's fee depends on the tax household's resources, not on nationality: an EEA family below roughly €42,000 combined income pays nothing, and the ceiling applies only at very high incomes. Figures beyond the €0–€14,900 range were not verified on an official page.",
@@ -150,7 +157,13 @@
       "admissionsUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
       "ibPageUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
       "englishBachelors": "Several English-track undergraduate programmes across the regional campuses",
-      "notableFields": ["Political Science", "Economics", "History", "Sociology", "Law"],
+      "notableFields": [
+        "Political Science",
+        "Economics",
+        "History",
+        "Sociology",
+        "Law"
+      ],
       "note": "The obvious target for an IB student who wants social sciences in English, with a published route for foreign diplomas, a remote interview worth half the score, and income-based fees down to zero.",
       "wikipedia": "https://en.wikipedia.org/wiki/Sciences_Po"
     },
@@ -164,7 +177,12 @@
       "admissionsUrl": "https://programmes.polytechnique.edu/en/bachelor/bachelor-of-science",
       "ibPageUrl": null,
       "englishBachelors": "Bachelor of Science, taught entirely in English, with double majors in Mathematics & Physics, Mathematics & Computer Science, or Mathematics & Economics",
-      "notableFields": ["Mathematics", "Physics", "Computer Science", "Economics"],
+      "notableFields": [
+        "Mathematics",
+        "Physics",
+        "Computer Science",
+        "Economics"
+      ],
       "note": "France's most famous engineering school; its three-year English-taught Bachelor is small, extremely mathematical, and about 80% international.",
       "wikipedia": "https://en.wikipedia.org/wiki/%C3%89cole_Polytechnique"
     },
@@ -178,7 +196,11 @@
       "admissionsUrl": "https://escp.eu/programmes/bachelor-in-management-bsc",
       "ibPageUrl": null,
       "englishBachelors": "BSc in Management, taught mainly in English across three campuses in three countries",
-      "notableFields": ["Management", "Finance", "Entrepreneurship"],
+      "notableFields": [
+        "Management",
+        "Finance",
+        "Entrepreneurship"
+      ],
       "note": "You spend the three years on three different European campuses; €20,800 a year for European students in the 2027 intake, €26,800 for non-Europeans, plus an €80 application fee.",
       "wikipedia": "https://en.wikipedia.org/wiki/ESCP_Business_School"
     },
@@ -192,7 +214,11 @@
       "admissionsUrl": "https://www.essec.edu/en/program/bachelor-s-programs/",
       "ibPageUrl": null,
       "englishBachelors": "Global BBA, available with an English track",
-      "notableFields": ["Business Administration", "Finance", "Marketing"],
+      "notableFields": [
+        "Business Administration",
+        "Finance",
+        "Marketing"
+      ],
       "note": "One of France's top three business schools; its four-year Global BBA is a common route for international school-leavers, but fees and deadlines could not be verified during research.",
       "wikipedia": "https://en.wikipedia.org/wiki/ESSEC_Business_School"
     },
@@ -206,7 +232,11 @@
       "admissionsUrl": "https://www.edhec.edu/en/programmes",
       "ibPageUrl": null,
       "englishBachelors": "BBA Global Business, taught in English",
-      "notableFields": ["Business Administration", "Finance", "Marketing"],
+      "notableFields": [
+        "Business Administration",
+        "Finance",
+        "Marketing"
+      ],
       "note": "Strong in finance, with campuses in Lille and Nice; fees and deadlines could not be verified during research.",
       "wikipedia": "https://en.wikipedia.org/wiki/EDHEC_Business_School"
     },
@@ -220,7 +250,11 @@
       "admissionsUrl": "https://em-lyon.com/en/programmes",
       "ibPageUrl": null,
       "englishBachelors": "Global BBA with English-taught tracks",
-      "notableFields": ["Business Administration", "Entrepreneurship", "Marketing"],
+      "notableFields": [
+        "Business Administration",
+        "Entrepreneurship",
+        "Marketing"
+      ],
       "note": "Lyon is a far cheaper city than Paris, and emlyon's BBA is heavily international; fees were not verified during research.",
       "wikipedia": "https://en.wikipedia.org/wiki/EM_Lyon_Business_School"
     },
@@ -234,7 +268,12 @@
       "admissionsUrl": "https://www.aup.edu/admissions/undergraduate",
       "ibPageUrl": "https://www.aup.edu/admissions/undergraduate/financial-aid/ib-diploma-scholarships",
       "englishBachelors": "The entire undergraduate curriculum is taught in English, on a US liberal-arts model",
-      "notableFields": ["International Relations", "Communications", "Business Administration", "Comparative Literature"],
+      "notableFields": [
+        "International Relations",
+        "Communications",
+        "Business Administration",
+        "Comparative Literature"
+      ],
       "note": "A small English-language liberal-arts college in central Paris that runs dedicated IB Diploma scholarships; tuition figures could not be read from the official page during research.",
       "wikipedia": "https://en.wikipedia.org/wiki/American_University_of_Paris"
     },
@@ -248,7 +287,12 @@
       "admissionsUrl": "https://www.sorbonne-universite.fr/en/education/admissions",
       "ibPageUrl": null,
       "englishBachelors": "Very limited at bachelor level; most licence teaching is in French",
-      "notableFields": ["Medicine", "Physics", "Mathematics", "Humanities"],
+      "notableFields": [
+        "Medicine",
+        "Physics",
+        "Mathematics",
+        "Humanities"
+      ],
       "note": "Formed in 2018 from Paris-Sorbonne and Pierre-et-Marie-Curie; the classic €178-a-year French public university, if your French is up to it.",
       "wikipedia": "https://en.wikipedia.org/wiki/Sorbonne_University"
     },
@@ -262,7 +306,12 @@
       "admissionsUrl": "https://www.universite-paris-saclay.fr/en/admission",
       "ibPageUrl": null,
       "englishBachelors": "Limited at bachelor level; an international bachelor track exists in the sciences",
-      "notableFields": ["Mathematics", "Physics", "Biology", "Computer Science"],
+      "notableFields": [
+        "Mathematics",
+        "Physics",
+        "Biology",
+        "Computer Science"
+      ],
       "note": "France's highest-ranked research university, especially in mathematics and physics, on a large science campus south of Paris.",
       "wikipedia": "https://en.wikipedia.org/wiki/Paris-Saclay_University"
     },
@@ -276,7 +325,12 @@
       "admissionsUrl": "https://psl.eu/en/education/admissions",
       "ibPageUrl": null,
       "englishBachelors": "A small multidisciplinary bachelor offer, partly in English",
-      "notableFields": ["Sciences", "Economics", "Humanities", "Arts"],
+      "notableFields": [
+        "Sciences",
+        "Economics",
+        "Humanities",
+        "Arts"
+      ],
       "note": "A collegiate university grouping ENS, Dauphine, Mines Paris and others, with a small and highly selective undergraduate programme.",
       "wikipedia": "https://en.wikipedia.org/wiki/Paris_Sciences_et_Lettres_University"
     },
@@ -290,7 +344,12 @@
       "admissionsUrl": "https://www.univ-grenoble-alpes.fr/english/study/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Some English-taught bachelor tracks, including an international bachelor programme",
-      "notableFields": ["Physics", "Computer Science", "Environmental Sciences", "Engineering"],
+      "notableFields": [
+        "Physics",
+        "Computer Science",
+        "Environmental Sciences",
+        "Engineering"
+      ],
       "note": "A strong science university in the Alps, with lower rents than Paris and skiing an hour away.",
       "wikipedia": "https://en.wikipedia.org/wiki/Grenoble_Alpes_University"
     },
@@ -304,21 +363,71 @@
       "admissionsUrl": "https://en.unistra.fr/education/admission",
       "ibPageUrl": null,
       "englishBachelors": "Limited at bachelor level; some English-taught European and international tracks",
-      "notableFields": ["Chemistry", "European Studies", "Law", "Medicine"],
+      "notableFields": [
+        "Chemistry",
+        "European Studies",
+        "Law",
+        "Medicine"
+      ],
       "note": "A major research university on the German border, in a bilingual city that is also home to the European Parliament.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Strasbourg"
     }
   ],
   "sources": [
-    { "title": "Service-Public — cost of enrolment in higher education (droits d'inscription 2026-2027 and CVEC)", "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2", "retrieved": "2026-09-22" },
-    { "title": "CVEC — official payment portal (€105 for 2026-2027, who pays, who is exempt)", "url": "https://cvec.etudiant.gouv.fr/", "retrieved": "2026-09-22" },
-    { "title": "Étudiant.gouv — tuition fees in France, including differentiated fees for non-EU students", "url": "https://www.etudiant.gouv.fr/en/tuition-fees-france-1489", "retrieved": "2026-09-22" },
-    { "title": "Campus France — Parcoursup 2026 (opening date, who must use it)", "url": "https://www.campusfrance.org/en/parcoursup-2026-your-best-companion-for-an-overview-of-the-25000-training-courses-in-france", "retrieved": "2026-09-22" },
-    { "title": "Parcoursup — official calendar page (not accessible during research; check for the 2027 dates)", "url": "https://www.parcoursup.gouv.fr/calendrier", "retrieved": "2026-09-22" },
-    { "title": "Sciences Po — undergraduate admissions for applicants from foreign secondary schools, 2027 intake dates", "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/", "retrieved": "2026-09-22" },
-    { "title": "Sciences Po — tuition fees for academic year 2026-2027", "url": "https://www.sciencespo.fr/students/en/fees-funding/tuition-fees/", "retrieved": "2026-09-22" },
-    { "title": "École Polytechnique — Bachelor of Science programme and fees", "url": "https://programmes.polytechnique.edu/en/bachelor/bachelor-of-science", "retrieved": "2026-09-22" },
-    { "title": "ESCP Business School — Bachelor in Management (BSc), 2027 intake fees", "url": "https://escp.eu/programmes/bachelor-in-management-bsc", "retrieved": "2026-09-22" },
-    { "title": "Ministère de l'Enseignement supérieur — DAP 'dossier vert' for first enrolment in a licence, 2026-2027", "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "Service-Public — cost of enrolment in higher education (droits d'inscription 2026-2027 and CVEC)",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CVEC — official payment portal (€105 for 2026-2027, who pays, who is exempt)",
+      "url": "https://cvec.etudiant.gouv.fr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Étudiant.gouv — tuition fees in France, including differentiated fees for non-EU students",
+      "url": "https://www.etudiant.gouv.fr/en/tuition-fees-france-1489",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Campus France — Parcoursup 2026 (opening date, who must use it)",
+      "url": "https://www.campusfrance.org/en/parcoursup-2026-your-best-companion-for-an-overview-of-the-25000-training-courses-in-france",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Parcoursup — official calendar page (not accessible during research; check for the 2027 dates)",
+      "url": "https://www.parcoursup.gouv.fr/calendrier",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Sciences Po — undergraduate admissions for applicants from foreign secondary schools, 2027 intake dates",
+      "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Sciences Po — tuition fees for academic year 2026-2027",
+      "url": "https://www.sciencespo.fr/students/en/fees-funding/tuition-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "École Polytechnique — Bachelor of Science programme and fees",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/bachelor-of-science",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ESCP Business School — Bachelor in Management (BSc), 2027 intake fees",
+      "url": "https://escp.eu/programmes/bachelor-in-management-bsc",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Ministère de l'Enseignement supérieur — DAP 'dossier vert' for first enrolment in a licence, 2026-2027",
+      "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#5B5E9E",
+    "pattern": "none",
+    "focal": "50% 45%"
+  }
 }

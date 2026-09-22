@@ -5,7 +5,8 @@ import {
   stamp, dataTable, emptyState, pager, tags, requirementLine, freshness,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { evidenceStatus } from '../lib/canonical.mjs';
+import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
+import { evidenceBlock, preparationPath, STATE } from '../lib/primitives.mjs';
 
 /* --- A Danish institution -------------------------------------------------- */
 
@@ -278,6 +279,30 @@ ${hero({
           { label: 'Starts', value: p.startMonth },
           { label: 'Field', value: p.field },
         ])}
+
+        ${route?.milestones?.length
+          ? html`<h2 id="deadlines">Deadlines for this intake</h2>
+              <ul class="timeline">
+                ${route.milestones
+                  .filter((m) => ['submit', 'signature', 'document', 'result', 'reply'].includes(m.type))
+                  .map(
+                    (m) => html`<li data-date="${m.date || ''}"${m.provisional ? raw(' data-provisional="true"') : ''}>
+                      <div class="timeline__when">${m.date || 'Date not published'}${m.timeOfDay ? html`<br>${m.timeOfDay} ${m.timeZone || ''}` : ''}</div>
+                      <div class="timeline__what">
+                        <h4>${m.label}</h4>
+                        ${m.note ? md(m.note) : ''}
+                        ${m.consequence === 'hard' ? html`<p><small>Missing this closes the door for this intake.</small></p>` : ''}
+                      </div>
+                    </li>`
+                  )}
+              </ul>`
+          : ''}
+
+        ${evidenceBlock({
+          claim: `Entry requirements and admission rules for ${p.name}.`,
+          records: site.graph ? resolveEvidence(site.graph, opp?.evidence) : [],
+          summary: 'Open this to see the exact page each rule came from, when it was read, and whether a person has checked it.',
+        })}
 
         <h2 id="check">Does your IB fit?</h2>
         <p>The subject checker converts your six IB subjects into Danish levels and tells you whether they

@@ -44,6 +44,27 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && drawer?.dataset.open === 'true') navToggle.click();
 });
 
+/* --- Motion preference ---------------------------------------------------- */
+
+/* The operating-system setting is respected by the stylesheet. This is the
+   in-product control on top of it, because "I usually want motion but not on
+   this page, on this train" is a real preference. */
+const motionToggle = document.getElementById('motion-toggle');
+if (motionToggle) {
+  const reduced = () => root.getAttribute('data-motion') === 'reduced';
+  const paintMotion = () => {
+    motionToggle.checked = reduced();
+    motionToggle.setAttribute('aria-label', reduced() ? 'Turn motion back on' : 'Reduce motion');
+  };
+  motionToggle.addEventListener('change', () => {
+    const next = motionToggle.checked ? 'reduced' : 'full';
+    root.setAttribute('data-motion', next);
+    try { localStorage.setItem('ibp-motion', next); } catch {}
+    paintMotion();
+  });
+  paintMotion();
+}
+
 /* --- Deadline states ----------------------------------------------------- */
 
 /* Timeline entries carry an ISO date; mark what has passed and what is next so

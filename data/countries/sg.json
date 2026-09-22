@@ -29,7 +29,6 @@
     "Singapore is expensive to live in — housing off campus in particular. Campus accommodation is the realistic option and is not guaranteed for all years.",
     "Denmark's SU works differently for a full degree outside the EU/EEA. Check su.dk early."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -42,13 +41,27 @@
       "IB English A or B is normally accepted as proof of English. Confirm with each university."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "No central portal — each autonomous university runs its own application", "url": "https://www.moe.gov.sg/" },
+    "portal": {
+      "name": "No central portal — each autonomous university runs its own application",
+      "url": "https://www.moe.gov.sg/"
+    },
     "deadlines": [
-      { "label": "NUS, NTU, SMU, SUTD international applications for the August intake", "date": null, "year": "August 2027 intake", "notes": "Application windows for international qualification holders typically open in the autumn and close in the winter or early spring before the August intake. Exact 2027 dates were not readable from official pages — check each university from September 2026.", "source": "https://www.ntu.edu.sg/admissions/undergraduate" },
-      { "label": "MOE Tuition Grant election", "date": "At the point of application", "year": "2027 intake", "notes": "NTU states that international students access the grant by indicating they are opting for it in the online admission application form. This is the moment the three-year service obligation is chosen.", "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants" }
+      {
+        "label": "NUS, NTU, SMU, SUTD international applications for the August intake",
+        "date": null,
+        "year": "August 2027 intake",
+        "notes": "Application windows for international qualification holders typically open in the autumn and close in the winter or early spring before the August intake. Exact 2027 dates were not readable from official pages — check each university from September 2026.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate"
+      },
+      {
+        "label": "MOE Tuition Grant election",
+        "date": "At the point of application",
+        "year": "2027 intake",
+        "notes": "NTU states that international students access the grant by indicating they are opting for it in the online admission application form. This is the moment the three-year service obligation is chosen.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants"
+      }
     ],
     "steps": [
       "From September 2026, check the international admissions page of each of NUS, NTU, SMU and SUTD. There is no shared portal and no shared deadline.",
@@ -61,7 +74,6 @@
     ],
     "selectionNotes": "Admission is competitive and largely academic, with interviews and aptitude tests layered on for selective programmes. NUS and NTU are the two largest and most selective; SMU is specialised in business, law, economics, social science and computing; SUTD is small, design-led and takes a distinctive kind of applicant."
   },
-
   "language": {
     "englishTaughtBachelors": "All of them. English is the medium of instruction across the entire Singapore higher education system.",
     "englishProof": "IB English A or B is normally accepted; some universities may still ask for IELTS or TOEFL. Not verified.",
@@ -71,12 +83,23 @@
       "You will hear Singlish everywhere and pick it up whether you want to or not. It is not a barrier."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "Singapore does not differentiate by EU status — the categories are Singapore Citizen, Singapore Permanent Resident and International Student. A Danish student is an International Student. See tuitionNonEu.", "year": null, "source": null },
-    "tuitionNonEu": { "value": "NTU, for students accepted in 2026, with the tuition fee fixed at the 2026 rate for the whole degree: International Student with the MOE Tuition Grant roughly SGD 21,400–21,800 per year; International Student without the grant SGD 36,350 (non-lab) to SGD 40,600 (lab-based) per year, inclusive of 9% GST. Medicine, non-subsidised only, SGD 91,250 per year for non-ASEAN internationals. Renaissance Engineering, non-subsidised only, SGD 32,000. NUS, SMU and SUTD figures could not be verified.", "year": "AY2026/27, fixed for the degree duration", "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees/accepted-programme-offer-in-2026" },
+    "tuitionEuEea": {
+      "value": "Singapore does not differentiate by EU status — the categories are Singapore Citizen, Singapore Permanent Resident and International Student. A Danish student is an International Student. See tuitionNonEu.",
+      "year": null,
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": "NTU, for students accepted in 2026, with the tuition fee fixed at the 2026 rate for the whole degree: International Student with the MOE Tuition Grant roughly SGD 21,400–21,800 per year; International Student without the grant SGD 36,350 (non-lab) to SGD 40,600 (lab-based) per year, inclusive of 9% GST. Medicine, non-subsidised only, SGD 91,250 per year for non-ASEAN internationals. Renaissance Engineering, non-subsidised only, SGD 32,000. NUS, SMU and SUTD figures could not be verified.",
+      "year": "AY2026/27, fixed for the degree duration",
+      "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees/accepted-programme-offer-in-2026"
+    },
     "applicationFee": null,
-    "livingCostMonthly": { "value": null, "year": null, "source": null },
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "notes": [
       "The NTU table distinguishes lab-based from non-lab programmes and ASEAN from other international students. Read it directly rather than relying on a single headline figure — and note that the published table's lab/non-lab labelling is worth double-checking against the PDF.",
       "The single most important number is the difference between the two columns: roughly SGD 15,000–19,000 a year, or SGD 60,000–75,000 over a four-year degree. That is what the three-year service obligation is worth.",
@@ -85,7 +108,6 @@
       "Living costs were not verified. Campus accommodation is considerably cheaper than the private rental market, which is one of the most expensive in Asia."
     ]
   },
-
   "funding": [
     "MOE Tuition Grant — the main subsidy, and the main commitment. International students opt in on the admission application form and then sign a Tuition Grant Agreement contractually obliging them to work in a Singapore entity for three years after graduation. It roughly halves the fee. NTU's grant covers tuition only for the normal duration of the programme, and transfer students get a reduced entitlement.",
     "Without the grant, you pay the full non-subsidised fee and carry no obligation. This is the right choice if you intend to return to Europe after graduating.",
@@ -98,27 +120,280 @@
   "residency": "EU citizenship gives no advantage. Once you accept an offer, the university sponsors your Student's Pass application through ICA's SOLAR system, which must be completed before you travel. On arrival you complete formalities at ICA and receive the pass. Danish citizens do not need a visa to enter Singapore as a visitor, but you cannot study on a visitor pass.",
   "housing": "Campus accommodation — halls of residence at NUS and NTU, the residential colleges, and SUTD's housing — is the only sensible first-year option and is allocated separately from the admission. It is not guaranteed for all four years at every university, and some allocate by a points system based on participation in campus activities. The private market in Singapore is expensive and usually means a room in a shared HDB flat. Apply for housing the day your offer arrives.",
   "healthcare": "International students are normally required to be covered by the university's own medical insurance scheme, charged as a compulsory fee alongside tuition. Singapore's healthcare is excellent but not free at the point of use, and your Danish EHIC does not apply. Check what the university scheme actually covers — it is usually hospitalisation rather than routine care.",
-
   "institutions": [
-    { "name": "National University of Singapore", "shortName": "NUS", "city": "Singapore (Kent Ridge)", "type": "Research university", "founded": 1905, "website": "https://www.nus.edu.sg/", "admissionsUrl": "https://www.nus.edu.sg/oam/apply-to-nus/international-qualifications", "ibPageUrl": "https://www.nus.edu.sg/oam/apply-to-nus/international-qualifications/international-baccalaureate-diploma", "englishBachelors": "All programmes, across a comprehensive range of faculties.", "notableFields": ["Computing", "Engineering", "Business", "Law"], "note": "Asia's most highly ranked university and the broadest in Singapore, on a large hillside campus in the west. NUS College is the honours college that succeeded the closed Yale-NUS. Fee figures could not be verified — get them from admissions in writing.", "wikipedia": "https://en.wikipedia.org/wiki/National_University_of_Singapore" },
-    { "name": "Nanyang Technological University", "shortName": "NTU", "city": "Singapore (Jurong West)", "type": "Research university", "founded": 1991, "website": "https://www.ntu.edu.sg/", "admissionsUrl": "https://www.ntu.edu.sg/admissions/undergraduate", "ibPageUrl": null, "englishBachelors": "All programmes: engineering, science, business (Nanyang Business School), humanities, medicine (Lee Kong Chian) and education.", "notableFields": ["Engineering", "Materials science", "Business", "Communication studies"], "note": "The one Singapore university whose fee table we could read in full: internationals pay roughly SGD 21,400–21,800 a year with the Tuition Grant, or SGD 36,350–40,600 without, fixed at the year-of-entry rate for the whole degree. Its Renaissance Engineering Programme is a four-and-a-half-year engineering-plus-business degree with a year overseas.", "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Technological_University" },
-    { "name": "Singapore Management University", "shortName": "SMU", "city": "Singapore (Bras Basah)", "type": "Research university", "founded": 2000, "website": "https://www.smu.edu.sg/", "admissionsUrl": "https://www.smu.edu.sg/admissions/undergraduate", "ibPageUrl": null, "englishBachelors": "Business Management, Accountancy, Economics, Law, Information Systems, Computing and Social Sciences.", "notableFields": ["Business management", "Accountancy", "Law", "Information systems"], "note": "Built on the Wharton model — seminar-style teaching, city-centre campus, compulsory internships and a strong finance and consulting pipeline. The most American-feeling of the Singapore universities and the best fit if you want business rather than engineering.", "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Management_University" },
-    { "name": "Singapore University of Technology and Design", "shortName": "SUTD", "city": "Singapore (Upper Changi)", "type": "Technical university", "founded": 2009, "website": "https://www.sutd.edu.sg/", "admissionsUrl": "https://www.sutd.edu.sg/admissions/undergraduate/", "ibPageUrl": null, "englishBachelors": "Architecture and Sustainable Design, Engineering Product Development, Engineering Systems and Design, Computer Science and Design, and Design and Artificial Intelligence.", "notableFields": ["Design-led engineering", "Computer science and design", "Architecture", "AI"], "note": "Founded in collaboration with MIT. Every student takes a common design-centred first year before choosing a pillar rather than a department, and the curriculum is project-based throughout. Small, unusual, and the most distinctive engineering education in Asia.", "wikipedia": "https://en.wikipedia.org/wiki/Singapore_University_of_Technology_and_Design" },
-    { "name": "Singapore Institute of Technology", "shortName": "SIT", "city": "Singapore (Punggol)", "type": "University of applied sciences", "founded": 2009, "website": "https://www.singaporetech.edu.sg/", "admissionsUrl": "https://www.singaporetech.edu.sg/admissions", "ibPageUrl": null, "englishBachelors": "Applied degrees in engineering, health and social sciences, infocomm technology, food technology and hospitality — many with an integrated work-study year.", "notableFields": ["Applied engineering", "Hospitality business", "Occupational therapy", "Food technology"], "note": "Singapore's applied-sciences university, built around long industry placements and a new campus in Punggol. Its intake is overwhelmingly domestic polytechnic graduates, so check international eligibility before investing effort.", "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Institute_of_Technology" },
-    { "name": "Singapore University of Social Sciences", "shortName": "SUSS", "city": "Singapore (Clementi)", "type": "Research university", "founded": 2005, "website": "https://www.suss.edu.sg/", "admissionsUrl": "https://www.suss.edu.sg/full-time-undergraduate", "ibPageUrl": null, "englishBachelors": "Social sciences, business, law, human development and early childhood education, with both full-time and part-time routes.", "notableFields": ["Social work", "Early childhood education", "Business analytics", "Law"], "note": "The sixth autonomous university, focused on social impact and lifelong learning. Its part-time and flexible structure is unusual, but its full-time intake is small and mostly domestic.", "wikipedia": "https://en.wikipedia.org/wiki/Singapore_University_of_Social_Sciences" },
-    { "name": "LASALLE College of the Arts", "shortName": "LASALLE", "city": "Singapore (Rochor)", "type": "Art/Design/Music academy", "founded": 1984, "website": "https://www.lasalle.edu.sg/", "admissionsUrl": "https://www.lasalle.edu.sg/admissions", "ibPageUrl": null, "englishBachelors": "BA (Hons) degrees across fine art, design, film, animation, fashion, music, dance and theatre, validated by Goldsmiths, University of London.", "notableFields": ["Fine art", "Fashion", "Film", "Design communication"], "note": "Singapore's leading art school, in a striking black-glass canyon of a building near Bugis. Degrees are awarded by Goldsmiths, which makes them portable back to Europe. Portfolio and audition entry.", "wikipedia": "https://en.wikipedia.org/wiki/LASALLE_College_of_the_Arts" },
-    { "name": "Nanyang Academy of Fine Arts", "shortName": "NAFA", "city": "Singapore (Bencoolen)", "type": "Art/Design/Music academy", "founded": 1938, "website": "https://www.nafa.edu.sg/", "admissionsUrl": "https://www.nafa.edu.sg/admissions", "ibPageUrl": null, "englishBachelors": "Degrees in art, design, music, dance and theatre, delivered through the University of the Arts Singapore alliance with LASALLE.", "notableFields": ["Music performance", "Dance", "3D design", "Theatre"], "note": "The older of Singapore's two art academies, now federated with LASALLE into the University of the Arts Singapore. Particularly strong in music and Chinese-influenced visual art.", "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Academy_of_Fine_Arts" },
-    { "name": "James Cook University Singapore", "shortName": "JCU Singapore", "city": "Singapore (Sims Drive)", "type": "Research university", "founded": 2003, "website": "https://www.jcu.edu.sg/", "admissionsUrl": "https://www.jcu.edu.sg/apply-now", "ibPageUrl": null, "englishBachelors": "Australian JCU degrees in business, psychology, IT, environmental science and aquaculture, taught on the Singapore campus.", "notableFields": ["Psychology", "Business", "Aquaculture and environmental science", "Information technology"], "note": "An Australian university's full branch campus, awarding the same degree as Townsville. Trimester structure means you can finish a bachelor's in two years. No MOE Tuition Grant applies — it is not an autonomous university.", "wikipedia": "https://en.wikipedia.org/wiki/James_Cook_University_Singapore" },
-    { "name": "Curtin Singapore", "shortName": "Curtin Singapore", "city": "Singapore (Jurong East)", "type": "Research university", "founded": 2008, "website": "https://curtin.edu.sg/", "admissionsUrl": "https://curtin.edu.sg/admission/", "ibPageUrl": null, "englishBachelors": "Curtin University (Australia) degrees in business, commerce, marketing, mass communication and management.", "notableFields": ["Commerce", "Marketing", "Mass communication", "Management"], "note": "Another Australian branch campus, business-focused and with a trimester structure that compresses the degree. A pragmatic route into an Australian qualification without moving to Australia.", "wikipedia": "https://en.wikipedia.org/wiki/Curtin_Singapore" },
-    { "name": "DigiPen Institute of Technology Singapore", "shortName": "DigiPen Singapore", "city": "Singapore (one-north)", "type": "Technical university", "founded": 2008, "website": "https://singapore.digipen.edu/", "admissionsUrl": "https://singapore.digipen.edu/admissions", "ibPageUrl": null, "englishBachelors": "BS in Computer Science in Real-Time Interactive Simulation, BA in Game Design, BFA in Digital Art and Animation, BS in Computer Science and Game Design.", "notableFields": ["Game programming", "Game design", "Digital art and animation", "Real-time simulation"], "note": "The Asian campus of the American institute that effectively invented the games-programming degree. Tiny, intense, and the most credible games education in the region. Degrees are awarded by DigiPen in the United States.", "wikipedia": "https://en.wikipedia.org/wiki/DigiPen_Institute_of_Technology" },
-    { "name": "Singapore Institute of Management (SIM Global Education)", "shortName": "SIM GE", "city": "Singapore (Clementi)", "type": "Business school", "founded": 1964, "website": "https://www.sim.edu.sg/", "admissionsUrl": "https://www.sim.edu.sg/admissions", "ibPageUrl": null, "englishBachelors": "External degrees awarded by partner universities including the University of London, RMIT, the University of Birmingham and the University at Buffalo.", "notableFields": ["Business", "Banking and finance", "Computer science", "Psychology"], "note": "Not a university in its own right — it delivers partner universities' degrees in Singapore. Useful if you want a British or Australian degree at Singapore prices, but you are not getting a Singapore university qualification and no MOE Tuition Grant applies.", "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Institute_of_Management" },
-    { "name": "ESSEC Business School Asia-Pacific", "shortName": "ESSEC Asia-Pacific", "city": "Singapore (Nepal Hill)", "type": "Business school", "founded": 2005, "website": "https://www.essec.edu/en/campus/asia-pacific/", "admissionsUrl": "https://www.essec.edu/en/admissions/", "ibPageUrl": null, "englishBachelors": "The ESSEC Global BBA can be taken partly or largely on the Singapore campus, with the degree awarded by ESSEC in France.", "notableFields": ["Business administration", "Luxury brand management", "Finance", "Hospitality"], "note": "A French grande école running a full Asian campus, which means a European degree with an Asian base and the option to move between Cergy, Rabat and Singapore. Worth considering if you want Asia without leaving the European qualification framework.", "wikipedia": "https://en.wikipedia.org/wiki/ESSEC_Business_School" }
+    {
+      "name": "National University of Singapore",
+      "shortName": "NUS",
+      "city": "Singapore (Kent Ridge)",
+      "type": "Research university",
+      "founded": 1905,
+      "website": "https://www.nus.edu.sg/",
+      "admissionsUrl": "https://www.nus.edu.sg/oam/apply-to-nus/international-qualifications",
+      "ibPageUrl": "https://www.nus.edu.sg/oam/apply-to-nus/international-qualifications/international-baccalaureate-diploma",
+      "englishBachelors": "All programmes, across a comprehensive range of faculties.",
+      "notableFields": [
+        "Computing",
+        "Engineering",
+        "Business",
+        "Law"
+      ],
+      "note": "Asia's most highly ranked university and the broadest in Singapore, on a large hillside campus in the west. NUS College is the honours college that succeeded the closed Yale-NUS. Fee figures could not be verified — get them from admissions in writing.",
+      "wikipedia": "https://en.wikipedia.org/wiki/National_University_of_Singapore"
+    },
+    {
+      "name": "Nanyang Technological University",
+      "shortName": "NTU",
+      "city": "Singapore (Jurong West)",
+      "type": "Research university",
+      "founded": 1991,
+      "website": "https://www.ntu.edu.sg/",
+      "admissionsUrl": "https://www.ntu.edu.sg/admissions/undergraduate",
+      "ibPageUrl": null,
+      "englishBachelors": "All programmes: engineering, science, business (Nanyang Business School), humanities, medicine (Lee Kong Chian) and education.",
+      "notableFields": [
+        "Engineering",
+        "Materials science",
+        "Business",
+        "Communication studies"
+      ],
+      "note": "The one Singapore university whose fee table we could read in full: internationals pay roughly SGD 21,400–21,800 a year with the Tuition Grant, or SGD 36,350–40,600 without, fixed at the year-of-entry rate for the whole degree. Its Renaissance Engineering Programme is a four-and-a-half-year engineering-plus-business degree with a year overseas.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Technological_University"
+    },
+    {
+      "name": "Singapore Management University",
+      "shortName": "SMU",
+      "city": "Singapore (Bras Basah)",
+      "type": "Research university",
+      "founded": 2000,
+      "website": "https://www.smu.edu.sg/",
+      "admissionsUrl": "https://www.smu.edu.sg/admissions/undergraduate",
+      "ibPageUrl": null,
+      "englishBachelors": "Business Management, Accountancy, Economics, Law, Information Systems, Computing and Social Sciences.",
+      "notableFields": [
+        "Business management",
+        "Accountancy",
+        "Law",
+        "Information systems"
+      ],
+      "note": "Built on the Wharton model — seminar-style teaching, city-centre campus, compulsory internships and a strong finance and consulting pipeline. The most American-feeling of the Singapore universities and the best fit if you want business rather than engineering.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Management_University"
+    },
+    {
+      "name": "Singapore University of Technology and Design",
+      "shortName": "SUTD",
+      "city": "Singapore (Upper Changi)",
+      "type": "Technical university",
+      "founded": 2009,
+      "website": "https://www.sutd.edu.sg/",
+      "admissionsUrl": "https://www.sutd.edu.sg/admissions/undergraduate/",
+      "ibPageUrl": null,
+      "englishBachelors": "Architecture and Sustainable Design, Engineering Product Development, Engineering Systems and Design, Computer Science and Design, and Design and Artificial Intelligence.",
+      "notableFields": [
+        "Design-led engineering",
+        "Computer science and design",
+        "Architecture",
+        "AI"
+      ],
+      "note": "Founded in collaboration with MIT. Every student takes a common design-centred first year before choosing a pillar rather than a department, and the curriculum is project-based throughout. Small, unusual, and the most distinctive engineering education in Asia.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Singapore_University_of_Technology_and_Design"
+    },
+    {
+      "name": "Singapore Institute of Technology",
+      "shortName": "SIT",
+      "city": "Singapore (Punggol)",
+      "type": "University of applied sciences",
+      "founded": 2009,
+      "website": "https://www.singaporetech.edu.sg/",
+      "admissionsUrl": "https://www.singaporetech.edu.sg/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "Applied degrees in engineering, health and social sciences, infocomm technology, food technology and hospitality — many with an integrated work-study year.",
+      "notableFields": [
+        "Applied engineering",
+        "Hospitality business",
+        "Occupational therapy",
+        "Food technology"
+      ],
+      "note": "Singapore's applied-sciences university, built around long industry placements and a new campus in Punggol. Its intake is overwhelmingly domestic polytechnic graduates, so check international eligibility before investing effort.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Institute_of_Technology"
+    },
+    {
+      "name": "Singapore University of Social Sciences",
+      "shortName": "SUSS",
+      "city": "Singapore (Clementi)",
+      "type": "Research university",
+      "founded": 2005,
+      "website": "https://www.suss.edu.sg/",
+      "admissionsUrl": "https://www.suss.edu.sg/full-time-undergraduate",
+      "ibPageUrl": null,
+      "englishBachelors": "Social sciences, business, law, human development and early childhood education, with both full-time and part-time routes.",
+      "notableFields": [
+        "Social work",
+        "Early childhood education",
+        "Business analytics",
+        "Law"
+      ],
+      "note": "The sixth autonomous university, focused on social impact and lifelong learning. Its part-time and flexible structure is unusual, but its full-time intake is small and mostly domestic.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Singapore_University_of_Social_Sciences"
+    },
+    {
+      "name": "LASALLE College of the Arts",
+      "shortName": "LASALLE",
+      "city": "Singapore (Rochor)",
+      "type": "Art/Design/Music academy",
+      "founded": 1984,
+      "website": "https://www.lasalle.edu.sg/",
+      "admissionsUrl": "https://www.lasalle.edu.sg/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "BA (Hons) degrees across fine art, design, film, animation, fashion, music, dance and theatre, validated by Goldsmiths, University of London.",
+      "notableFields": [
+        "Fine art",
+        "Fashion",
+        "Film",
+        "Design communication"
+      ],
+      "note": "Singapore's leading art school, in a striking black-glass canyon of a building near Bugis. Degrees are awarded by Goldsmiths, which makes them portable back to Europe. Portfolio and audition entry.",
+      "wikipedia": "https://en.wikipedia.org/wiki/LASALLE_College_of_the_Arts"
+    },
+    {
+      "name": "Nanyang Academy of Fine Arts",
+      "shortName": "NAFA",
+      "city": "Singapore (Bencoolen)",
+      "type": "Art/Design/Music academy",
+      "founded": 1938,
+      "website": "https://www.nafa.edu.sg/",
+      "admissionsUrl": "https://www.nafa.edu.sg/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "Degrees in art, design, music, dance and theatre, delivered through the University of the Arts Singapore alliance with LASALLE.",
+      "notableFields": [
+        "Music performance",
+        "Dance",
+        "3D design",
+        "Theatre"
+      ],
+      "note": "The older of Singapore's two art academies, now federated with LASALLE into the University of the Arts Singapore. Particularly strong in music and Chinese-influenced visual art.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Academy_of_Fine_Arts"
+    },
+    {
+      "name": "James Cook University Singapore",
+      "shortName": "JCU Singapore",
+      "city": "Singapore (Sims Drive)",
+      "type": "Research university",
+      "founded": 2003,
+      "website": "https://www.jcu.edu.sg/",
+      "admissionsUrl": "https://www.jcu.edu.sg/apply-now",
+      "ibPageUrl": null,
+      "englishBachelors": "Australian JCU degrees in business, psychology, IT, environmental science and aquaculture, taught on the Singapore campus.",
+      "notableFields": [
+        "Psychology",
+        "Business",
+        "Aquaculture and environmental science",
+        "Information technology"
+      ],
+      "note": "An Australian university's full branch campus, awarding the same degree as Townsville. Trimester structure means you can finish a bachelor's in two years. No MOE Tuition Grant applies — it is not an autonomous university.",
+      "wikipedia": "https://en.wikipedia.org/wiki/James_Cook_University_Singapore"
+    },
+    {
+      "name": "Curtin Singapore",
+      "shortName": "Curtin Singapore",
+      "city": "Singapore (Jurong East)",
+      "type": "Research university",
+      "founded": 2008,
+      "website": "https://curtin.edu.sg/",
+      "admissionsUrl": "https://curtin.edu.sg/admission/",
+      "ibPageUrl": null,
+      "englishBachelors": "Curtin University (Australia) degrees in business, commerce, marketing, mass communication and management.",
+      "notableFields": [
+        "Commerce",
+        "Marketing",
+        "Mass communication",
+        "Management"
+      ],
+      "note": "Another Australian branch campus, business-focused and with a trimester structure that compresses the degree. A pragmatic route into an Australian qualification without moving to Australia.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Curtin_Singapore"
+    },
+    {
+      "name": "DigiPen Institute of Technology Singapore",
+      "shortName": "DigiPen Singapore",
+      "city": "Singapore (one-north)",
+      "type": "Technical university",
+      "founded": 2008,
+      "website": "https://singapore.digipen.edu/",
+      "admissionsUrl": "https://singapore.digipen.edu/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "BS in Computer Science in Real-Time Interactive Simulation, BA in Game Design, BFA in Digital Art and Animation, BS in Computer Science and Game Design.",
+      "notableFields": [
+        "Game programming",
+        "Game design",
+        "Digital art and animation",
+        "Real-time simulation"
+      ],
+      "note": "The Asian campus of the American institute that effectively invented the games-programming degree. Tiny, intense, and the most credible games education in the region. Degrees are awarded by DigiPen in the United States.",
+      "wikipedia": "https://en.wikipedia.org/wiki/DigiPen_Institute_of_Technology"
+    },
+    {
+      "name": "Singapore Institute of Management (SIM Global Education)",
+      "shortName": "SIM GE",
+      "city": "Singapore (Clementi)",
+      "type": "Business school",
+      "founded": 1964,
+      "website": "https://www.sim.edu.sg/",
+      "admissionsUrl": "https://www.sim.edu.sg/admissions",
+      "ibPageUrl": null,
+      "englishBachelors": "External degrees awarded by partner universities including the University of London, RMIT, the University of Birmingham and the University at Buffalo.",
+      "notableFields": [
+        "Business",
+        "Banking and finance",
+        "Computer science",
+        "Psychology"
+      ],
+      "note": "Not a university in its own right — it delivers partner universities' degrees in Singapore. Useful if you want a British or Australian degree at Singapore prices, but you are not getting a Singapore university qualification and no MOE Tuition Grant applies.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Institute_of_Management"
+    },
+    {
+      "name": "ESSEC Business School Asia-Pacific",
+      "shortName": "ESSEC Asia-Pacific",
+      "city": "Singapore (Nepal Hill)",
+      "type": "Business school",
+      "founded": 2005,
+      "website": "https://www.essec.edu/en/campus/asia-pacific/",
+      "admissionsUrl": "https://www.essec.edu/en/admissions/",
+      "ibPageUrl": null,
+      "englishBachelors": "The ESSEC Global BBA can be taken partly or largely on the Singapore campus, with the degree awarded by ESSEC in France.",
+      "notableFields": [
+        "Business administration",
+        "Luxury brand management",
+        "Finance",
+        "Hospitality"
+      ],
+      "note": "A French grande école running a full Asian campus, which means a European degree with an Asian base and the option to move between Cergy, Rabat and Singapore. Worth considering if you want Asia without leaving the European qualification framework.",
+      "wikipedia": "https://en.wikipedia.org/wiki/ESSEC_Business_School"
+    }
   ],
-
   "sources": [
-    { "title": "NTU — Tuition Grants (MOE Tuition Grant Scheme and the three-year service obligation)", "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants", "retrieved": "2026-09-22" },
-    { "title": "NTU — Tuition fees for students accepted in 2026", "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees/accepted-programme-offer-in-2026", "retrieved": "2026-09-22" },
-    { "title": "NTU — Undergraduate financial matters", "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters", "retrieved": "2026-09-22" },
-    { "title": "Ministry of Education Singapore", "url": "https://www.moe.gov.sg/", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "NTU — Tuition Grants (MOE Tuition Grant Scheme and the three-year service obligation)",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NTU — Tuition fees for students accepted in 2026",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees/accepted-programme-offer-in-2026",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NTU — Undergraduate financial matters",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Ministry of Education Singapore",
+      "url": "https://www.moe.gov.sg/",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#2E7A72",
+    "pattern": "grid",
+    "focal": "50% 45%"
+  }
 }

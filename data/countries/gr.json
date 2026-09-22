@@ -25,7 +25,6 @@
     "Deadlines are set programme by programme; there is no single national deadline for these English-taught routes",
     "Several basic facts - the foreign-nationals quota, work rights, student housing and whether Greek-taught public study is free for EU citizens - could not be verified from official sources and need checking"
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": "Set per programme. The University of Athens MD in English requires at least 36 points overall. Its BA in Archaeology, History and Literature of Ancient Greece asks for an 'indicative average grade' of 70% or equivalent.",
@@ -37,17 +36,27 @@
       "Whether DOATAP or another recognition step is required for an IB Diploma was not confirmed on the pages read."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "Study in Greece (@SiG application platform) and the Ministry's programme finder", "url": "https://apply.studyingreece.edu.gr/" },
+    "portal": {
+      "name": "Study in Greece (@SiG application platform) and the Ministry's programme finder",
+      "url": "https://apply.studyingreece.edu.gr/"
+    },
     "deadlines": [
-      { "label": "University of Athens - BA in Archaeology, History and Literature of Ancient Greece", "date": "1 August", "year": "2026-2027 entry; the autumn 2027 date was not published on 2026-09-22 - expect the same and re-check",
+      {
+        "label": "University of Athens - BA in Archaeology, History and Literature of Ancient Greece",
+        "date": "1 August",
+        "year": "2026-2027 entry; the autumn 2027 date was not published on 2026-09-22 - expect the same and re-check",
         "notes": "Same deadline for visa-required and non-visa applicants.",
-        "source": "https://baag.uoa.gr/admission-fees/" },
-      { "label": "University of Athens - MD programme in English", "date": null, "year": "Not published on the pages read on 2026-09-22",
+        "source": "https://baag.uoa.gr/admission-fees/"
+      },
+      {
+        "label": "University of Athens - MD programme in English",
+        "date": null,
+        "year": "Not published on the pages read on 2026-09-22",
         "notes": "The admission requirements page refers to 'the deadline of applications' and allows predicted scores if results arrive later, but does not state the date. Contact medicen@uoa.gr.",
-        "source": "https://medicen.uoa.gr/admission-requirements/" }
+        "source": "https://medicen.uoa.gr/admission-requirements/"
+      }
     ],
     "steps": [
       "Decide which route you are taking. For a Danish IB student there are effectively two: an English-taught programme at a public university, or a private English-language college such as ACG/Deree.",
@@ -59,7 +68,6 @@
     ],
     "selectionNotes": "The English-taught programmes select on your IB result, English proof and, for medicine, an admissions test. Greek-taught public places are allocated through the Panhellenic examinations, with a separate quota for foreign nationals administered by the Ministry - the mechanics of that quota could not be verified from an official page and must be checked with the Ministry before relying on it."
   },
-
   "language": {
     "englishTaughtBachelors": "Few. The Ministry's portal advertises 'over 200 study programs taught in English', but that count is dominated by master's programmes. At undergraduate level, the confirmed English-taught programmes at the University of Athens are the BA in Archaeology, History and Literature of Ancient Greece, the MD programme in English, and the MPharm integrated master in Pharmacy. Aristotle University lists 41 undergraduate programmes but none were confirmed as English-taught. The International Hellenic University's undergraduate programmes are listed only in Greek; its 26 English-language programmes are all master's.",
     "englishProof": "Set per programme. University of Athens MD: TOEFL 80, IELTS 7.5 overall with at least 6.5 in each component, or Cambridge FCE at B2. BA in Ancient Greece: TOEFL 88 (with minimum 17 Listening, 17 Writing, 18 Reading, 20 Speaking), IELTS 6.5 overall with at least 5.5 in each component, or Cambridge FCE at B2. Native speakers are exempt. Whether IB English A or B is accepted in place of a test was not confirmed on the pages read.",
@@ -70,7 +78,6 @@
       "You will need some Greek for everyday life outside the university, especially outside Athens."
     ]
   },
-
   "costs": {
     "tuitionEuEea": {
       "value": "The English-taught programmes charge the same fee to EU and non-EU students. University of Athens MD in English: EUR 17,000 a year, with the page stating 'Tuition fees for the academic year 2026-2027 for EU and non-EU citizens are EUR 17.000'. University of Athens BA in Archaeology, History and Literature of Ancient Greece: EUR 6,000 a year, paid in two instalments in June and January. Whether Greek-taught public bachelor study is free for EU citizens could not be verified from an official page read on 2026-09-22.",
@@ -83,14 +90,17 @@
       "source": "https://medicen.uoa.gr/tuition-fees/"
     },
     "applicationFee": null,
-    "livingCostMonthly": { "value": null, "year": null, "source": null },
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "notes": [
       "The Athens MD requires a non-refundable EUR 5,000 deposit, then EUR 12,000 split across September and January.",
       "Monthly living costs in Athens or Thessaloniki were not published on any official page read on 2026-09-22 and need checking before use.",
       "Private college fees, including ACG/Deree, were not published on the pages read."
     ]
   },
-
   "funding": [
     "No scholarship scheme aimed at EU bachelor applicants was verified from an official page. ACG/Deree advertises a merit scholarship for EU students but the amounts were not published on the pages read.",
     "Danish SU for a full degree abroad requires programme approval by Uddannelses- og Forskningsstyrelsen - check with your studievejleder.",
@@ -100,7 +110,6 @@
   "residency": "As a Danish EU citizen you have the right to live and study in Greece and will normally register locally for stays over three months. Non-EU students need a student visa and residence permit. The specific Greek procedures, documents and timescales could not be verified from an official page on 2026-09-22 - the Study in Greece visa page directs non-EU students to a third-party visa service rather than setting out the rules.",
   "housing": null,
   "healthcare": "As an EU citizen bring your EU health insurance card for necessary care in the Greek public system. Detailed requirements for students, and what non-EU students must arrange, were not published on the pages read on 2026-09-22.",
-
   "institutions": [
     {
       "name": "National and Kapodistrian University of Athens",
@@ -112,7 +121,12 @@
       "admissionsUrl": "https://en.uoa.gr/studies/undergraduate_programs",
       "ibPageUrl": "https://medicen.uoa.gr/admission-requirements/",
       "englishBachelors": "Three confirmed: BA in Archaeology, History and Literature of Ancient Greece; MD programme in English; MPharm integrated master in Pharmacy",
-      "notableFields": ["Medicine", "Classics and Archaeology", "Pharmacy", "Law"],
+      "notableFields": [
+        "Medicine",
+        "Classics and Archaeology",
+        "Pharmacy",
+        "Law"
+      ],
       "note": "The oldest university in Greece and the only one with a real English-taught undergraduate offering - the MD at EUR 17,000 a year and the Ancient Greece BA at EUR 6,000.",
       "wikipedia": "https://en.wikipedia.org/wiki/National_and_Kapodistrian_University_of_Athens"
     },
@@ -126,7 +140,12 @@
       "admissionsUrl": "https://auth.gr/en/ugrad-en/",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed. AUTh lists 41 undergraduate programmes but no English-taught bachelor was identified on the pages read.",
-      "notableFields": ["Engineering", "Medicine", "Law", "Agriculture"],
+      "notableFields": [
+        "Engineering",
+        "Medicine",
+        "Law",
+        "Agriculture"
+      ],
       "note": "The largest university in Greece and in the Balkans, but admission runs through the Ministry of Education and teaching is in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/Aristotle_University_of_Thessaloniki"
     },
@@ -140,7 +159,12 @@
       "admissionsUrl": "https://www.uoc.gr/en",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Physics", "Biology", "Medicine", "Philosophy"],
+      "notableFields": [
+        "Physics",
+        "Biology",
+        "Medicine",
+        "Philosophy"
+      ],
       "note": "Research-strong, especially in physics and the life sciences through its links with FORTH, but bachelor teaching is in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Crete"
     },
@@ -154,7 +178,12 @@
       "admissionsUrl": "https://www.ntua.gr/en/",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Civil Engineering", "Architecture", "Electrical Engineering", "Naval Architecture"],
+      "notableFields": [
+        "Civil Engineering",
+        "Architecture",
+        "Electrical Engineering",
+        "Naval Architecture"
+      ],
       "note": "Greece's leading engineering school, with five-year integrated diploma degrees - but taught in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/National_Technical_University_of_Athens"
     },
@@ -168,7 +197,12 @@
       "admissionsUrl": "https://www.aueb.gr/en",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Economics", "Management Science", "Informatics", "Marketing"],
+      "notableFields": [
+        "Economics",
+        "Management Science",
+        "Informatics",
+        "Marketing"
+      ],
       "note": "The main economics and business university in Greece, with a strong research reputation in economics.",
       "wikipedia": "https://en.wikipedia.org/wiki/Athens_University_of_Economics_and_Business"
     },
@@ -182,7 +216,12 @@
       "admissionsUrl": "https://www.ihu.gr/",
       "ibPageUrl": null,
       "englishBachelors": "None. Its undergraduate programmes are listed only in Greek; its 26 English-language programmes are master's.",
-      "notableFields": ["Economics", "Engineering", "Health Sciences", "Design"],
+      "notableFields": [
+        "Economics",
+        "Engineering",
+        "Health Sciences",
+        "Design"
+      ],
       "note": "The name promises more than the undergraduate reality - the English teaching here is at master's level, through its University Center for International Study Programs.",
       "wikipedia": "https://en.wikipedia.org/wiki/International_Hellenic_University"
     },
@@ -196,7 +235,12 @@
       "admissionsUrl": "https://www.aegean.gr/en",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Environment", "Marine Sciences", "Cultural Technology", "Tourism"],
+      "notableFields": [
+        "Environment",
+        "Marine Sciences",
+        "Cultural Technology",
+        "Tourism"
+      ],
       "note": "Spread across six Aegean islands, which is unusual and appealing, but teaching is in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Aegean"
     },
@@ -210,7 +254,12 @@
       "admissionsUrl": "https://www.upatras.gr/en/",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Engineering", "Medicine", "Computer Engineering", "Chemistry"],
+      "notableFields": [
+        "Engineering",
+        "Medicine",
+        "Computer Engineering",
+        "Chemistry"
+      ],
       "note": "A large research university in the Peloponnese, strongest in engineering and computer engineering.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Patras"
     },
@@ -224,7 +273,12 @@
       "admissionsUrl": "https://www.uoi.gr/en/",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Medicine", "Materials Science", "Chemistry", "Philosophy"],
+      "notableFields": [
+        "Medicine",
+        "Materials Science",
+        "Chemistry",
+        "Philosophy"
+      ],
       "note": "In the mountains of Epirus, with a well-regarded medical school and a very low cost of living.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Ioannina"
     },
@@ -238,7 +292,12 @@
       "admissionsUrl": "https://www.acg.edu/admissions/undergraduate-admissions/",
       "ibPageUrl": null,
       "englishBachelors": "All undergraduate programmes are taught in English, awarding BA and BSc degrees across three schools",
-      "notableFields": ["Business and Economics", "Psychology", "Communication", "Computer Science"],
+      "notableFields": [
+        "Business and Economics",
+        "Psychology",
+        "Communication",
+        "Computer Science"
+      ],
       "note": "Private, American-accredited (NEASC) and entirely English-taught, with separate admission tracks for Greek, EU, North American and other applicants; tuition was not published on the pages read.",
       "wikipedia": "https://en.wikipedia.org/wiki/American_College_of_Greece"
     },
@@ -252,7 +311,12 @@
       "admissionsUrl": "https://www.asfa.gr/",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed; teaching is in Greek",
-      "notableFields": ["Fine Art", "Painting", "Sculpture", "Art Theory"],
+      "notableFields": [
+        "Fine Art",
+        "Painting",
+        "Sculpture",
+        "Art Theory"
+      ],
       "note": "Greece's national art school, with entry by portfolio and entrance examination, taught in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/Athens_School_of_Fine_Arts"
     },
@@ -266,25 +330,86 @@
       "admissionsUrl": "https://www.unipi.gr/unipi/en/",
       "ibPageUrl": null,
       "englishBachelors": "None confirmed on the pages read",
-      "notableFields": ["Maritime Studies", "Banking and Finance", "Industrial Management", "Digital Systems"],
+      "notableFields": [
+        "Maritime Studies",
+        "Banking and Finance",
+        "Industrial Management",
+        "Digital Systems"
+      ],
       "note": "Known above all for maritime studies and shipping, which fits the port city it sits in.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Piraeus"
     }
   ],
-
   "sources": [
-    { "title": "Study in Greece - official national portal", "url": "https://www.studyingreece.edu.gr/", "retrieved": "2026-09-22" },
-    { "title": "Study in Greece - Student application", "url": "https://studyingreece.edu.gr/student-application/", "retrieved": "2026-09-22" },
-    { "title": "Ministry of Education - Study programmes finder", "url": "https://studies.minedu.gov.gr", "retrieved": "2026-09-22" },
-    { "title": "National and Kapodistrian University of Athens - English site", "url": "https://en.uoa.gr/", "retrieved": "2026-09-22" },
-    { "title": "NKUA - MD Programme in English", "url": "https://medicen.uoa.gr/", "retrieved": "2026-09-22" },
-    { "title": "NKUA - MD Programme in English, admission requirements", "url": "https://medicen.uoa.gr/admission-requirements/", "retrieved": "2026-09-22" },
-    { "title": "NKUA - MD Programme in English, tuition fees 2026-2027", "url": "https://medicen.uoa.gr/tuition-fees/", "retrieved": "2026-09-22" },
-    { "title": "NKUA - BA in Archaeology, History and Literature of Ancient Greece", "url": "https://baag.uoa.gr/", "retrieved": "2026-09-22" },
-    { "title": "NKUA - BA in Ancient Greece, admission and fees", "url": "https://baag.uoa.gr/admission-fees/", "retrieved": "2026-09-22" },
-    { "title": "Aristotle University of Thessaloniki - Undergraduate studies", "url": "https://auth.gr/en/ugrad-en/", "retrieved": "2026-09-22" },
-    { "title": "International Hellenic University", "url": "https://www.ihu.gr/", "retrieved": "2026-09-22" },
-    { "title": "The American College of Greece - Undergraduate admissions", "url": "https://www.acg.edu/admissions/undergraduate-admissions/", "retrieved": "2026-09-22" },
-    { "title": "Founding years and institution types are taken from the English Wikipedia article linked in each institution's wikipedia field, not from a fetched university page.", "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Greece", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "Study in Greece - official national portal",
+      "url": "https://www.studyingreece.edu.gr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Greece - Student application",
+      "url": "https://studyingreece.edu.gr/student-application/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Ministry of Education - Study programmes finder",
+      "url": "https://studies.minedu.gov.gr",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "National and Kapodistrian University of Athens - English site",
+      "url": "https://en.uoa.gr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NKUA - MD Programme in English",
+      "url": "https://medicen.uoa.gr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NKUA - MD Programme in English, admission requirements",
+      "url": "https://medicen.uoa.gr/admission-requirements/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NKUA - MD Programme in English, tuition fees 2026-2027",
+      "url": "https://medicen.uoa.gr/tuition-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NKUA - BA in Archaeology, History and Literature of Ancient Greece",
+      "url": "https://baag.uoa.gr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "NKUA - BA in Ancient Greece, admission and fees",
+      "url": "https://baag.uoa.gr/admission-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Aristotle University of Thessaloniki - Undergraduate studies",
+      "url": "https://auth.gr/en/ugrad-en/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "International Hellenic University",
+      "url": "https://www.ihu.gr/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "The American College of Greece - Undergraduate admissions",
+      "url": "https://www.acg.edu/admissions/undergraduate-admissions/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Founding years and institution types are taken from the English Wikipedia article linked in each institution's wikipedia field, not from a fetched university page.",
+      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Greece",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#3E7A8F",
+    "pattern": "wave",
+    "focal": "50% 45%"
+  }
 }

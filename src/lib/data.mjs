@@ -110,6 +110,19 @@ export async function load() {
     c.funding = asArray(c.funding);
     c.sources = asArray(c.sources);
     c.deadlines = asArray(c.application?.deadlines);
+
+    // Join institutions to their Place records so any page can draw a map.
+    c.places = [];
+    const seenPlace = new Set();
+    for (const inst of c.institutions) {
+      const place = inst.place ? canonical.graph.places.get(inst.place) : null;
+      inst.coords = place?.coordinates || null;
+      inst.coordinatePrecision = place?.coordinatePrecision || null;
+      if (place && !seenPlace.has(place.id)) {
+        seenPlace.add(place.id);
+        c.places.push(place);
+      }
+    }
   }
 
   for (const inst of dkInstitutions) {

@@ -26,7 +26,6 @@
     "Reykjavik University publishes undergraduate tuition of ISK 1,794,000 a year for non-EEA students while its bachelor teaching is in Icelandic and one department says it does not accept applications from abroad. Email admissions@ru.is before assuming any English route exists.",
     "Living costs are Copenhagen-level or above. A realistic floor is around ISK 184,000 a month, and Reykjavík's official minimum-support benchmark is ISK 247,572."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -42,16 +41,48 @@
       "Request your transcript through the IB website and have it sent to transcript@hi.is."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "None. Study in Iceland states there is no central admissions system — you apply directly to each university. Háskólanám.is is a programme catalogue only.", "url": "https://www.island.is/en/university-studies/search" },
+    "portal": {
+      "name": "None. Study in Iceland states there is no central admissions system — you apply directly to each university. Háskólanám.is is a programme catalogue only.",
+      "url": "https://www.island.is/en/university-studies/search"
+    },
     "deadlines": [
-      { "label": "University of Iceland, international applicants (undergraduate and master's)", "date": "1 February", "year": "recurring annual date; 2027-specific dates not yet published", "notes": "Supporting documents due the same day. The application period opens in mid-December. This is the safe deadline for a Danish applicant.", "source": "https://english.hi.is/study/apply-overview/application-deadline" },
-      { "label": "University of Iceland, Icelandic and Nordic citizens, undergraduate autumn start", "date": "5 June", "year": "recurring annual date", "notes": "The deadline page lists this as open to Nordic citizens, which would include Danes. The FAQ page instead frames it as being for international students already legally resident in Iceland. The two official pages conflict — apply by 1 February and confirm with admission@hi.is.", "source": "https://english.hi.is/study/apply-overview/application-deadline" },
-      { "label": "Reykjavik University, EU/EEA residents, autumn", "date": "30 April", "year": "recurring annual cycle", "notes": "Applications open 5 February. Non-EU/EEA applicants have a much earlier deadline of 31 January and are admitted to the autumn semester only.", "source": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines" },
-      { "label": "University of Akureyri, EU/EEA and Icelandic applicants", "date": "5 June", "year": "recurring annual cycle", "notes": "The window opens at the beginning of March. Non-EEA applicants must apply by 1 March for Polar Law and 1 April for everything else, and pay a 50-euro application fee.", "source": "https://www.unak.is/english/study/application/applications" },
-      { "label": "Registration fee payment, University of Iceland and Akureyri", "date": "4 July", "year": "recurring annual date", "notes": "Late payment carries a 15 percent surcharge. The fee is non-refundable with no exemptions.", "source": "https://english.hi.is/study/apply/university-fees" }
+      {
+        "label": "University of Iceland, international applicants (undergraduate and master's)",
+        "date": "1 February",
+        "year": "recurring annual date; 2027-specific dates not yet published",
+        "notes": "Supporting documents due the same day. The application period opens in mid-December. This is the safe deadline for a Danish applicant.",
+        "source": "https://english.hi.is/study/apply-overview/application-deadline"
+      },
+      {
+        "label": "University of Iceland, Icelandic and Nordic citizens, undergraduate autumn start",
+        "date": "5 June",
+        "year": "recurring annual date",
+        "notes": "The deadline page lists this as open to Nordic citizens, which would include Danes. The FAQ page instead frames it as being for international students already legally resident in Iceland. The two official pages conflict — apply by 1 February and confirm with admission@hi.is.",
+        "source": "https://english.hi.is/study/apply-overview/application-deadline"
+      },
+      {
+        "label": "Reykjavik University, EU/EEA residents, autumn",
+        "date": "30 April",
+        "year": "recurring annual cycle",
+        "notes": "Applications open 5 February. Non-EU/EEA applicants have a much earlier deadline of 31 January and are admitted to the autumn semester only.",
+        "source": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines"
+      },
+      {
+        "label": "University of Akureyri, EU/EEA and Icelandic applicants",
+        "date": "5 June",
+        "year": "recurring annual cycle",
+        "notes": "The window opens at the beginning of March. Non-EEA applicants must apply by 1 March for Polar Law and 1 April for everything else, and pay a 50-euro application fee.",
+        "source": "https://www.unak.is/english/study/application/applications"
+      },
+      {
+        "label": "Registration fee payment, University of Iceland and Akureyri",
+        "date": "4 July",
+        "year": "recurring annual date",
+        "notes": "Late payment carries a 15 percent surcharge. The fee is non-refundable with no exemptions.",
+        "source": "https://english.hi.is/study/apply/university-fees"
+      }
     ],
     "steps": [
       "Accept early that your realistic target is one programme: International Studies in Education, BA at the University of Iceland. Check its page before you plan anything else.",
@@ -64,7 +95,6 @@
     ],
     "selectionNotes": "Admission at the University of Iceland is by matriculation examination or equivalent, with requirements varying by faculty. International Studies in Education is capped at 60 students, split roughly 30 international and 30 domestic, and if oversubscribed it ranks on prior study, relevant work experience, CV and personal statement rather than on grades alone. Reykjavik University assesses each applicant individually on grades, further education, work experience, extracurricular participation and stated interests, and requires two references on institutional letterhead plus a letter of intent of at most 300 words."
   },
-
   "language": {
     "englishTaughtBachelors": "One, verified: International Studies in Education, BA at the University of Iceland, 180 ECTS over three years, whose page states that all teaching is in English. The University of Iceland publishes no list of English-taught bachelor's degrees, so treat one as a verified floor rather than a certainty. Reykjavik University, Akureyri, Bifröst and the Agricultural University have none. The Iceland University of the Arts and Hólar do not publish a language of instruction, so theirs is unknown.",
     "englishProof": "Not required at all if you hold an IB Diploma — the University of Iceland's IB page says so directly. Its Denmark page also accepts a Danish studentereksamen, HHX or HTX with English. Reykjavik University, for its English-taught graduate provision, asks for TOEFL iBT 91, IELTS Academic 6.5, DAAD B2 or Cambridge B2.",
@@ -77,12 +107,23 @@
       "If you are serious about Iceland, the honest routes are: take the one English BA; learn Icelandic to B2 or C1 first; or do your bachelor's elsewhere and come here for a master's, where English provision is far broader."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "No tuition at six of the seven universities — only a registration fee of ISK 100,000 per year (about 720 euros), or ISK 75,000 for a spring start. The University of Iceland raised this from ISK 75,000 in February 2026, the first increase since 2014. Reykjavik University is the exception and charges real tuition: ISK 656,000 per year for EEA undergraduates, about 4,726 euros.", "year": "2026/27", "source": "https://english.hi.is/study/apply/university-fees" },
-    "tuitionNonEu": { "value": "Reykjavik University charges ISK 1,794,000 per year, about 12,925 euros, for non-EEA undergraduates. The University of Iceland will begin charging non-EEA tuition in autumn 2027 — this cohort — but the amount per ECTS has not been set. The Iceland University of the Arts began charging non-EEA tuition in autumn 2026, also at an unpublished amount.", "year": "2026/27 and 2027/28", "source": "https://english.hi.is/study/apply/university-fees" },
+    "tuitionEuEea": {
+      "value": "No tuition at six of the seven universities — only a registration fee of ISK 100,000 per year (about 720 euros), or ISK 75,000 for a spring start. The University of Iceland raised this from ISK 75,000 in February 2026, the first increase since 2014. Reykjavik University is the exception and charges real tuition: ISK 656,000 per year for EEA undergraduates, about 4,726 euros.",
+      "year": "2026/27",
+      "source": "https://english.hi.is/study/apply/university-fees"
+    },
+    "tuitionNonEu": {
+      "value": "Reykjavik University charges ISK 1,794,000 per year, about 12,925 euros, for non-EEA undergraduates. The University of Iceland will begin charging non-EEA tuition in autumn 2027 — this cohort — but the amount per ECTS has not been set. The Iceland University of the Arts began charging non-EEA tuition in autumn 2026, also at an unpublished amount.",
+      "year": "2026/27 and 2027/28",
+      "source": "https://english.hi.is/study/apply/university-fees"
+    },
     "applicationFee": "None for EEA citizens at the University of Iceland. Non-EEA applicants pay a processing fee of ISK 20,000 at the University of Iceland, ISK 16,000 at Reykjavik University (covering two applications, deducted from tuition if admitted), 135 euros at Bifröst and 50 euros at Akureyri. The Iceland University of the Arts charges ISK 5,000 per application to everyone.",
-    "livingCostMonthly": { "value": "A realistic floor of about ISK 184,000 per month excluding books, roughly 1,326 euros. Reykjavík City's official minimum support benchmark is ISK 247,572, about 1,784 euros. Housing with utilities starts at ISK 100,000, food at ISK 56,000, transport at ISK 6,000.", "year": "undated — the University of Iceland does not state which year these figures are for", "source": "https://english.hi.is/study/living-iceland/living-costs-reykjavik" },
+    "livingCostMonthly": {
+      "value": "A realistic floor of about ISK 184,000 per month excluding books, roughly 1,326 euros. Reykjavík City's official minimum support benchmark is ISK 247,572, about 1,784 euros. Housing with utilities starts at ISK 100,000, food at ISK 56,000, transport at ISK 6,000.",
+      "year": "undated — the University of Iceland does not state which year these figures are for",
+      "source": "https://english.hi.is/study/living-iceland/living-costs-reykjavik"
+    },
     "notes": [
       "Exchange rate used throughout: 1 euro = 138.80 ISK, taken from the Central Bank of Iceland on 22 September 2026. The Bank's page did not date the rate, so treat conversions as indicative.",
       "Registration fees are service fees, not tuition. They cover services beyond teaching and are non-refundable with no exemptions.",
@@ -90,7 +131,6 @@
       "Student housing at Stúdentagarðar ranges from ISK 109,755 for an unfurnished 24 square metre room to about ISK 187,461 for a central studio. Electricity, heating and laundry are included in most houses. Base rents rose 2 percent in September 2025 and 5.25 percent in September 2026, so budget for annual increases."
     ]
   },
-
   "funding": [
     "Danish SU for a full degree abroad, at DKK 7,426 a month before tax for students living away from home in 2026. Because Iceland is a Nordic country, SU covers the prescribed programme length plus up to twelve extra months rather than the four-year cap that applies elsewhere. Apply through minSU Fast Track no later than the first month you want support for, and document your progress twice a year.",
     "Menntasjóður námsmanna, the Icelandic student loan fund, appears to be directly open to you. Its rules list being a citizen of Denmark, Finland, Norway or Sweden as a standalone qualifying condition, with no work or residency requirement attached — unlike other EEA citizens, who must work at least 40 hours a month in Iceland. This is more generous than most Nordic funds, so confirm it with the fund before relying on it.",
@@ -103,37 +143,251 @@
   "residency": "As a Nordic citizen you have a separate, simpler track with Registers Iceland (Þjóðskrá) rather than the Directorate of Immigration. You are entitled to apply for legal domicile registration if you intend to stay three months or longer, and required to if you stay six months or longer. Registering gets you a kennitala, the Icelandic ID number, which you need for a bank account, a housing contract and health registration. Non-EEA students need a student residence permit costing ISK 70,000, applied for by 1 July for the autumn semester, and usually granted six months at a time.",
   "housing": "Student housing for University of Iceland students is run by Félagsstofnun stúdenta through studentagardar.is. Applications are accepted year-round, and new students starting in the autumn can apply from 1 May — though one FS page says 1 June and another says 1 May, so check both. FS publishes no waiting-list data. Reykjavík's private rental market is tight and expensive, so apply the day you are admitted. Rent includes electricity, heating and, in most houses, laundry. Reykjavik University publishes no student housing information.",
   "healthcare": "As a Nordic student you have the easiest position of anyone: Study in Iceland says Nordic students need only confirmation of insurance in their home country, such as a health insurance card. Bring your Danish EHIC and present it with your passport at medical visits. There is a widely repeated claim that Icelandic Health Insurance only begins after six months of legal domicile. That could not be confirmed on any official page, though the fact that Menntasjóður lends up to ISK 550,000 a year for health insurance costs suggests a real gap exists. Non-EU students must have insurance in place before arrival.",
-
   "institutions": [
-    { "name": "University of Iceland", "shortName": "HÍ", "city": "Reykjavík", "type": "Research university", "founded": 1911, "website": "https://english.hi.is/", "admissionsUrl": "https://english.hi.is/study/apply/admission-requirements", "ibPageUrl": "https://english.hi.is/international-baccalaureate", "englishBachelors": "1 verified — International Studies in Education, BA (180 ECTS, capped at 60 students). The university publishes no list, so one is a floor rather than a certainty.", "notableFields": ["Icelandic studies", "Geology and earth sciences", "Health sciences", "Education"], "note": "Iceland's oldest and largest university, around 14,000 students across five schools, and the only one with a dedicated IB page. It is also the only place in the country with a verified English-taught bachelor's degree. Non-EEA students starting in autumn 2027 will be the first cohort ever charged tuition here.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Iceland" },
-    { "name": "Reykjavik University", "shortName": "RU", "city": "Reykjavík", "type": "Research university", "founded": 1998, "website": "https://www.ru.is/en/", "admissionsUrl": "https://www.ru.is/en/namid/um-namid/saekja-um", "ibPageUrl": null, "englishBachelors": "None. RU's own programme filter, set to undergraduate plus taught in English, returns no results. Individual programme pages state 'Taught in Icelandic. Proficiency in Icelandic is a requirement.'", "notableFields": ["Computer science", "Engineering", "Business and law", "Sport science and psychology"], "note": "Iceland's largest private university and the only one charging real tuition, yet every bachelor's degree is taught in Icelandic — and the Computer Science department states outright that applications from abroad are not accepted. Its English-language admissions machinery is aimed at master's students. Email admissions@ru.is before assuming otherwise.", "wikipedia": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk_University" },
-    { "name": "University of Akureyri", "shortName": "UNAK", "city": "Akureyri", "type": "Research university", "founded": 1987, "website": "https://www.unak.is/english", "admissionsUrl": "https://www.unak.is/english/study/application/admission-requirements", "ibPageUrl": null, "englishBachelors": "None. Study in Iceland states that Polar Law is the only full-time programme taught in English at Akureyri, and Polar Law is a master's.", "notableFields": ["Nursing and health sciences", "Natural resource sciences", "Polar and Arctic law", "Marine and coastal studies"], "note": "Iceland's second university, in the capital of the north, with around 2,850 students and about half of them studying at a distance. Its Arctic and polar law specialism is genuinely distinctive — but that is a master's, and there is no English-taught bachelor's here.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Akureyri" },
-    { "name": "Bifröst University", "shortName": "Bifröst", "city": "Bifröst, Borgarbyggð", "type": "Research university", "founded": 1918, "website": "https://www.bifrost.is/english/study", "admissionsUrl": "https://ugla.bifrost.is/namsumsoknir/index.php", "ibPageUrl": null, "englishBachelors": "None. Bifröst states that the primary language of instruction is Icelandic, with a selection of individual courses in English. Non-Icelandic speakers need Icelandic at B2.2 for business and social science, C1.2 for law.", "notableFields": ["Business", "Law", "Social sciences", "Online and flexible learning"], "note": "A small rural university in west Iceland, founded on the model of Ruskin College, Oxford, and heavily online. It has abolished tuition entirely and now charges only the ISK 100,000 registration fee. But no full bachelor's degree is available in English. Its application deadlines could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/Bifr%C3%B6st_University" },
-    { "name": "Agricultural University of Iceland", "shortName": "LbhÍ", "city": "Hvanneyri", "type": "Research university", "founded": 2005, "website": "https://www.lbhi.is/en", "admissionsUrl": "https://www.lbhi.is/en/education/undergraduate-studies", "ibPageUrl": null, "englishBachelors": "None. Its own page states the language of instruction is Icelandic, only occasionally English or Scandinavian, though most textbooks are in English or Scandinavian languages.", "notableFields": ["Agricultural science", "Natural and environmental science", "Equine science", "Landscape architecture and forest science"], "note": "Five bachelor's degrees of 180 ECTS each, including equine science and landscape architecture, which are hard to find elsewhere — but all taught in Icelandic. Entry expects level 2 natural sciences, level 3 English and level 2 mathematics alongside a matriculation examination. Fees and deadlines could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/Agricultural_University_of_Iceland" },
-    { "name": "Iceland University of the Arts", "shortName": "LHÍ", "city": "Reykjavík", "type": "Art/Design/Music academy", "founded": 1998, "website": "https://www.lhi.is/en", "admissionsUrl": "https://www.lhi.is/en/namsframbod/", "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Fine art and design", "Filmmaking and acting", "Contemporary dance", "Music and composition"], "note": "The only university-level arts degrees in Iceland — thirteen bachelor's programmes covering architecture, fine art, fashion and product design, film, acting, dance and music, with around 600 students. It does not publish a language of instruction for any of them, so whether any is taught in English is unknown. It started charging tuition to non-EEA students in autumn 2026 at an unpublished amount, and charges ISK 5,000 per application. Portfolio or audition requirements are likely but unconfirmed.", "wikipedia": "https://en.wikipedia.org/wiki/Iceland_University_of_the_Arts" },
-    { "name": "Hólar University", "shortName": "Hólar", "city": "Hólar í Hjaltadal", "type": "Research university", "founded": 2007, "website": "https://hi.is/holar", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Aquaculture and fish biology", "Equine studies", "Tourism studies"], "note": "A tiny specialist university on the site of a cathedral school dating to 1106, with three niches you will not find together anywhere else: fish biology, horses and tourism. It appears to have been absorbed into the University of Iceland — holar.is now redirects to hi.is/holar and HÍ lists it as an affiliated university — but the national portals still list it separately and the effective date and legal form of that merger could not be confirmed. Its fees, deadlines and language of instruction are all unverified.", "wikipedia": "https://en.wikipedia.org/wiki/H%C3%B3lar_University_College" }
+    {
+      "name": "University of Iceland",
+      "shortName": "HÍ",
+      "city": "Reykjavík",
+      "type": "Research university",
+      "founded": 1911,
+      "website": "https://english.hi.is/",
+      "admissionsUrl": "https://english.hi.is/study/apply/admission-requirements",
+      "ibPageUrl": "https://english.hi.is/international-baccalaureate",
+      "englishBachelors": "1 verified — International Studies in Education, BA (180 ECTS, capped at 60 students). The university publishes no list, so one is a floor rather than a certainty.",
+      "notableFields": [
+        "Icelandic studies",
+        "Geology and earth sciences",
+        "Health sciences",
+        "Education"
+      ],
+      "note": "Iceland's oldest and largest university, around 14,000 students across five schools, and the only one with a dedicated IB page. It is also the only place in the country with a verified English-taught bachelor's degree. Non-EEA students starting in autumn 2027 will be the first cohort ever charged tuition here.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Iceland",
+      "place": "is-reykjavik"
+    },
+    {
+      "name": "Reykjavik University",
+      "shortName": "RU",
+      "city": "Reykjavík",
+      "type": "Research university",
+      "founded": 1998,
+      "website": "https://www.ru.is/en/",
+      "admissionsUrl": "https://www.ru.is/en/namid/um-namid/saekja-um",
+      "ibPageUrl": null,
+      "englishBachelors": "None. RU's own programme filter, set to undergraduate plus taught in English, returns no results. Individual programme pages state 'Taught in Icelandic. Proficiency in Icelandic is a requirement.'",
+      "notableFields": [
+        "Computer science",
+        "Engineering",
+        "Business and law",
+        "Sport science and psychology"
+      ],
+      "note": "Iceland's largest private university and the only one charging real tuition, yet every bachelor's degree is taught in Icelandic — and the Computer Science department states outright that applications from abroad are not accepted. Its English-language admissions machinery is aimed at master's students. Email admissions@ru.is before assuming otherwise.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk_University",
+      "place": "is-reykjavik"
+    },
+    {
+      "name": "University of Akureyri",
+      "shortName": "UNAK",
+      "city": "Akureyri",
+      "type": "Research university",
+      "founded": 1987,
+      "website": "https://www.unak.is/english",
+      "admissionsUrl": "https://www.unak.is/english/study/application/admission-requirements",
+      "ibPageUrl": null,
+      "englishBachelors": "None. Study in Iceland states that Polar Law is the only full-time programme taught in English at Akureyri, and Polar Law is a master's.",
+      "notableFields": [
+        "Nursing and health sciences",
+        "Natural resource sciences",
+        "Polar and Arctic law",
+        "Marine and coastal studies"
+      ],
+      "note": "Iceland's second university, in the capital of the north, with around 2,850 students and about half of them studying at a distance. Its Arctic and polar law specialism is genuinely distinctive — but that is a master's, and there is no English-taught bachelor's here.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Akureyri",
+      "place": "is-akureyri"
+    },
+    {
+      "name": "Bifröst University",
+      "shortName": "Bifröst",
+      "city": "Bifröst, Borgarbyggð",
+      "type": "Research university",
+      "founded": 1918,
+      "website": "https://www.bifrost.is/english/study",
+      "admissionsUrl": "https://ugla.bifrost.is/namsumsoknir/index.php",
+      "ibPageUrl": null,
+      "englishBachelors": "None. Bifröst states that the primary language of instruction is Icelandic, with a selection of individual courses in English. Non-Icelandic speakers need Icelandic at B2.2 for business and social science, C1.2 for law.",
+      "notableFields": [
+        "Business",
+        "Law",
+        "Social sciences",
+        "Online and flexible learning"
+      ],
+      "note": "A small rural university in west Iceland, founded on the model of Ruskin College, Oxford, and heavily online. It has abolished tuition entirely and now charges only the ISK 100,000 registration fee. But no full bachelor's degree is available in English. Its application deadlines could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Bifr%C3%B6st_University"
+    },
+    {
+      "name": "Agricultural University of Iceland",
+      "shortName": "LbhÍ",
+      "city": "Hvanneyri",
+      "type": "Research university",
+      "founded": 2005,
+      "website": "https://www.lbhi.is/en",
+      "admissionsUrl": "https://www.lbhi.is/en/education/undergraduate-studies",
+      "ibPageUrl": null,
+      "englishBachelors": "None. Its own page states the language of instruction is Icelandic, only occasionally English or Scandinavian, though most textbooks are in English or Scandinavian languages.",
+      "notableFields": [
+        "Agricultural science",
+        "Natural and environmental science",
+        "Equine science",
+        "Landscape architecture and forest science"
+      ],
+      "note": "Five bachelor's degrees of 180 ECTS each, including equine science and landscape architecture, which are hard to find elsewhere — but all taught in Icelandic. Entry expects level 2 natural sciences, level 3 English and level 2 mathematics alongside a matriculation examination. Fees and deadlines could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Agricultural_University_of_Iceland",
+      "place": "is-hvanneyri"
+    },
+    {
+      "name": "Iceland University of the Arts",
+      "shortName": "LHÍ",
+      "city": "Reykjavík",
+      "type": "Art/Design/Music academy",
+      "founded": 1998,
+      "website": "https://www.lhi.is/en",
+      "admissionsUrl": "https://www.lhi.is/en/namsframbod/",
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Fine art and design",
+        "Filmmaking and acting",
+        "Contemporary dance",
+        "Music and composition"
+      ],
+      "note": "The only university-level arts degrees in Iceland — thirteen bachelor's programmes covering architecture, fine art, fashion and product design, film, acting, dance and music, with around 600 students. It does not publish a language of instruction for any of them, so whether any is taught in English is unknown. It started charging tuition to non-EEA students in autumn 2026 at an unpublished amount, and charges ISK 5,000 per application. Portfolio or audition requirements are likely but unconfirmed.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Iceland_University_of_the_Arts",
+      "place": "is-reykjavik"
+    },
+    {
+      "name": "Hólar University",
+      "shortName": "Hólar",
+      "city": "Hólar í Hjaltadal",
+      "type": "Research university",
+      "founded": 2007,
+      "website": "https://hi.is/holar",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Aquaculture and fish biology",
+        "Equine studies",
+        "Tourism studies"
+      ],
+      "note": "A tiny specialist university on the site of a cathedral school dating to 1106, with three niches you will not find together anywhere else: fish biology, horses and tourism. It appears to have been absorbed into the University of Iceland — holar.is now redirects to hi.is/holar and HÍ lists it as an affiliated university — but the national portals still list it separately and the effective date and legal form of that merger could not be confirmed. Its fees, deadlines and language of instruction are all unverified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/H%C3%B3lar_University_College",
+      "place": "is-holar-i-hjaltadal"
+    }
   ],
-
   "sources": [
-    { "title": "University of Iceland — International Baccalaureate", "url": "https://english.hi.is/international-baccalaureate", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — Denmark country guidelines", "url": "https://english.hi.is/denmark", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — application deadlines", "url": "https://english.hi.is/study/apply-overview/application-deadline", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — university fees, including non-EEA tuition from autumn 2027", "url": "https://english.hi.is/study/apply/university-fees", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — higher registration fees next academic year (13 February 2026)", "url": "https://english.hi.is/news/higher-registration-fees-university-iceland-next-academic-year", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — International Studies in Education, BA", "url": "https://english.hi.is/international-studies-education/ba", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — language of instruction", "url": "https://english.hi.is/study/study-information/language-instruction", "retrieved": "2026-09-22" },
-    { "title": "University of Iceland — living costs in Reykjavík", "url": "https://english.hi.is/study/living-iceland/living-costs-reykjavik", "retrieved": "2026-09-22" },
-    { "title": "Study in Iceland — admission requirements (no central admissions system)", "url": "https://study.iceland.is/study-in-iceland/admission-requirements", "retrieved": "2026-09-22" },
-    { "title": "Study in Iceland — universities in Iceland", "url": "https://study.iceland.is/study-in-iceland/universities-in-iceland", "retrieved": "2026-09-22" },
-    { "title": "Study in Iceland — health care", "url": "https://study.iceland.is/living-in-iceland/health-care", "retrieved": "2026-09-22" },
-    { "title": "Reykjavik University — application dates and deadlines", "url": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines", "retrieved": "2026-09-22" },
-    { "title": "Reykjavik University — tuition fees 2026/27", "url": "https://www.ru.is/en/namid/um-namid/skolagjold", "retrieved": "2026-09-22" },
-    { "title": "University of Akureyri — applications and deadlines", "url": "https://www.unak.is/english/study/application/applications", "retrieved": "2026-09-22" },
-    { "title": "Bifröst University — tuition and fees", "url": "https://www.bifrost.is/english/study/tuition_fees", "retrieved": "2026-09-22" },
-    { "title": "Iceland University of the Arts — fees", "url": "https://www.lhi.is/en/about-lhi/free/", "retrieved": "2026-09-22" },
-    { "title": "Menntasjóður námsmanna — new borrowers and eligibility", "url": "https://www.menntasjodur.is/namsmenn/nyir-lantakendur/", "retrieved": "2026-09-22" },
-    { "title": "Stúdentagarðar — student housing and rents", "url": "https://www.studentagardar.is/", "retrieved": "2026-09-22" },
-    { "title": "Registers Iceland — moving to Iceland as a Nordic national", "url": "https://www.skra.is/english/people/change-of-address/moving-to-iceland/i-am-a-nordic-national/", "retrieved": "2026-09-22" },
-    { "title": "SU — studies abroad", "url": "https://www.su.dk/english/studies-abroad", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "University of Iceland — International Baccalaureate",
+      "url": "https://english.hi.is/international-baccalaureate",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — Denmark country guidelines",
+      "url": "https://english.hi.is/denmark",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — application deadlines",
+      "url": "https://english.hi.is/study/apply-overview/application-deadline",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — university fees, including non-EEA tuition from autumn 2027",
+      "url": "https://english.hi.is/study/apply/university-fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — higher registration fees next academic year (13 February 2026)",
+      "url": "https://english.hi.is/news/higher-registration-fees-university-iceland-next-academic-year",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — International Studies in Education, BA",
+      "url": "https://english.hi.is/international-studies-education/ba",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — language of instruction",
+      "url": "https://english.hi.is/study/study-information/language-instruction",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Iceland — living costs in Reykjavík",
+      "url": "https://english.hi.is/study/living-iceland/living-costs-reykjavik",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Iceland — admission requirements (no central admissions system)",
+      "url": "https://study.iceland.is/study-in-iceland/admission-requirements",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Iceland — universities in Iceland",
+      "url": "https://study.iceland.is/study-in-iceland/universities-in-iceland",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Iceland — health care",
+      "url": "https://study.iceland.is/living-in-iceland/health-care",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Reykjavik University — application dates and deadlines",
+      "url": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Reykjavik University — tuition fees 2026/27",
+      "url": "https://www.ru.is/en/namid/um-namid/skolagjold",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Akureyri — applications and deadlines",
+      "url": "https://www.unak.is/english/study/application/applications",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Bifröst University — tuition and fees",
+      "url": "https://www.bifrost.is/english/study/tuition_fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Iceland University of the Arts — fees",
+      "url": "https://www.lhi.is/en/about-lhi/free/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Menntasjóður námsmanna — new borrowers and eligibility",
+      "url": "https://www.menntasjodur.is/namsmenn/nyir-lantakendur/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Stúdentagarðar — student housing and rents",
+      "url": "https://www.studentagardar.is/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Registers Iceland — moving to Iceland as a Nordic national",
+      "url": "https://www.skra.is/english/people/change-of-address/moving-to-iceland/i-am-a-nordic-national/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "SU — studies abroad",
+      "url": "https://www.su.dk/english/studies-abroad",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#4A6C7A",
+    "pattern": "wave",
+    "focal": "50% 45%"
+  }
 }

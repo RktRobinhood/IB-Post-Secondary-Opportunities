@@ -41,7 +41,10 @@
   },
   "application": {
     "centralised": true,
-    "portal": { "name": "UNEDasiss (accreditation) then each region's preinscripción system", "url": "https://unedasiss.uned.es/" },
+    "portal": {
+      "name": "UNEDasiss (accreditation) then each region's preinscripción system",
+      "url": "https://unedasiss.uned.es/"
+    },
     "deadlines": [
       {
         "label": "UNEDasiss accreditation application window",
@@ -111,7 +114,11 @@
       "source": null
     },
     "applicationFee": "UNEDasiss charges per service requested (accreditation, admission-grade calculation, each PCE subject). The official price table is published as an image and could not be read during research, so no euro figure is given here. UNEDasiss states fees are payable even if a service is later refused, and are not reducible or waivable.",
-    "livingCostMonthly": { "value": null, "year": null, "source": null },
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "notes": [
       "The UC3M price page states those rates apply to EU students and Spanish nationals. Non-EU pricing is set by each autonomous region and was not verified during research, so it is left blank rather than guessed.",
       "Private universities — IE, Navarra, ESADE, Deusto, Comillas — publish their own fees, typically many times the public rate. Those figures could not be fetched from their official pages during research and are deliberately left out.",
@@ -140,7 +147,13 @@
       "admissionsUrl": "https://www.ie.edu/university/admissions/",
       "ibPageUrl": null,
       "englishBachelors": "Almost the entire bachelor portfolio is taught in English",
-      "notableFields": ["Business Administration", "International Relations", "Data and Business Analytics", "Design", "Law"],
+      "notableFields": [
+        "Business Administration",
+        "International Relations",
+        "Data and Business Analytics",
+        "Design",
+        "Law"
+      ],
       "note": "The most international private option in Spain, with its own admission test and interview rather than the UNEDasiss cut-off route; fees were not verifiable during research.",
       "wikipedia": "https://en.wikipedia.org/wiki/IE_University"
     },
@@ -154,7 +167,12 @@
       "admissionsUrl": "https://www.uc3m.es/bachelor-degree/admission",
       "ibPageUrl": null,
       "englishBachelors": "A substantial English-taught offer including Economics, International Studies, Aerospace Engineering and Data Science",
-      "notableFields": ["Economics", "International Studies", "Aerospace Engineering", "Data Science and Engineering"],
+      "notableFields": [
+        "Economics",
+        "International Studies",
+        "Aerospace Engineering",
+        "Data Science and Engineering"
+      ],
       "note": "The clearest value-for-money option in Spain: English-taught degrees at public prices of roughly €1,000–€1,250 a year.",
       "wikipedia": "https://en.wikipedia.org/wiki/Charles_III_University_of_Madrid"
     },
@@ -168,7 +186,13 @@
       "admissionsUrl": "https://www.upf.edu/web/graus/en/admissions",
       "ibPageUrl": null,
       "englishBachelors": "Some fully English-taught bachelors, including Global Studies",
-      "notableFields": ["Economics", "Political Science", "Global Studies", "Biomedical Sciences", "Communication"],
+      "notableFields": [
+        "Economics",
+        "Political Science",
+        "Global Studies",
+        "Biomedical Sciences",
+        "Communication"
+      ],
       "note": "Small, research-intensive and consistently the top-ranked Spanish university for economics and social science.",
       "wikipedia": "https://en.wikipedia.org/wiki/Pompeu_Fabra_University"
     },
@@ -182,7 +206,13 @@
       "admissionsUrl": "https://www.unav.edu/en/admission-and-financial-aid",
       "ibPageUrl": "https://www.unav.edu/admision-y-ayudas/grado/bachillerato-internacional-ib",
       "englishBachelors": "A limited English-taught offer, with several bilingual degrees",
-      "notableFields": ["Medicine", "Communication", "Economics", "Engineering", "Philosophy"],
+      "notableFields": [
+        "Medicine",
+        "Communication",
+        "Economics",
+        "Engineering",
+        "Philosophy"
+      ],
       "note": "Private, Catholic, strongly ranked for Medicine and Communication, and one of the few Spanish universities with a published IB-specific admission pathway.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Navarra"
     },
@@ -196,7 +226,11 @@
       "admissionsUrl": "https://www.esade.edu/bachelor/en/admissions",
       "ibPageUrl": null,
       "englishBachelors": "English-taught bachelor in Business Administration, plus bilingual law and AI-focused degrees",
-      "notableFields": ["Business Administration", "Law", "Artificial Intelligence for Business"],
+      "notableFields": [
+        "Business Administration",
+        "Law",
+        "Artificial Intelligence for Business"
+      ],
       "note": "A well-regarded private business and law school with its own admission process, entrance test and interview.",
       "wikipedia": "https://en.wikipedia.org/wiki/ESADE"
     },
@@ -210,7 +244,12 @@
       "admissionsUrl": "https://www.uab.cat/web/study-abroad/undergraduate-1345667292964.html",
       "ibPageUrl": null,
       "englishBachelors": "A small number of English-taught bachelors",
-      "notableFields": ["Biotechnology", "Veterinary Medicine", "Business", "Communication"],
+      "notableFields": [
+        "Biotechnology",
+        "Veterinary Medicine",
+        "Business",
+        "Communication"
+      ],
       "note": "A large public research university on a self-contained campus outside Barcelona, cheaper to live near than the city centre.",
       "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Barcelona"
     },
@@ -224,7 +263,12 @@
       "admissionsUrl": "https://www.deusto.es/en/home/estudios/admision",
       "ibPageUrl": null,
       "englishBachelors": "Several English-taught and trilingual bachelors, mainly in business and international relations",
-      "notableFields": ["International Relations", "Business Administration", "Law", "Engineering"],
+      "notableFields": [
+        "International Relations",
+        "Business Administration",
+        "Law",
+        "Engineering"
+      ],
       "note": "A private Jesuit university in the Basque Country with a strong international-relations tradition and a genuinely different city to live in.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Deusto"
     },
@@ -238,7 +282,12 @@
       "admissionsUrl": "https://www.comillas.edu/en/admission/",
       "ibPageUrl": null,
       "englishBachelors": "English-taught and bilingual bachelors in business, law and international relations",
-      "notableFields": ["Business Administration", "Law", "International Relations", "Engineering"],
+      "notableFields": [
+        "Business Administration",
+        "Law",
+        "International Relations",
+        "Engineering"
+      ],
       "note": "Madrid's other well-known private business-and-law school, with a strong record for graduate employment in Spain.",
       "wikipedia": "https://en.wikipedia.org/wiki/Comillas_Pontifical_University"
     },
@@ -252,7 +301,12 @@
       "admissionsUrl": "https://www.uam.es/uam/en/estudios/acceso-admision",
       "ibPageUrl": null,
       "englishBachelors": "A limited English-taught offer",
-      "notableFields": ["Medicine", "Physics", "Economics", "Law"],
+      "notableFields": [
+        "Medicine",
+        "Physics",
+        "Economics",
+        "Law"
+      ],
       "note": "One of Spain's strongest public research universities, on a green campus north of Madrid.",
       "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Madrid"
     },
@@ -266,7 +320,12 @@
       "admissionsUrl": "https://www.ub.edu/portal/web/en/undergraduate",
       "ibPageUrl": null,
       "englishBachelors": "A small English-taught offer at bachelor level",
-      "notableFields": ["Medicine", "Biology", "Economics", "Humanities"],
+      "notableFields": [
+        "Medicine",
+        "Biology",
+        "Economics",
+        "Humanities"
+      ],
       "note": "Spain's largest and most research-productive public university, but mostly teaching in Catalan and Spanish at bachelor level.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Barcelona"
     },
@@ -280,7 +339,12 @@
       "admissionsUrl": "https://www.ucm.es/studies/undergraduate",
       "ibPageUrl": null,
       "englishBachelors": "Very limited at bachelor level; some bilingual groups",
-      "notableFields": ["Medicine", "Law", "Political Science", "Humanities"],
+      "notableFields": [
+        "Medicine",
+        "Law",
+        "Political Science",
+        "Humanities"
+      ],
       "note": "Huge, central and historic, with some of the highest cut-off grades in Spain for Medicine.",
       "wikipedia": "https://en.wikipedia.org/wiki/Complutense_University_of_Madrid"
     },
@@ -294,21 +358,71 @@
       "admissionsUrl": "https://www.upc.edu/en/bachelors/access-and-admission",
       "ibPageUrl": null,
       "englishBachelors": "A small English-taught engineering offer",
-      "notableFields": ["Engineering", "Architecture", "Computer Science", "Aerospace"],
+      "notableFields": [
+        "Engineering",
+        "Architecture",
+        "Computer Science",
+        "Aerospace"
+      ],
       "note": "Catalonia's main technical university, and the usual route into engineering in Barcelona.",
       "wikipedia": "https://en.wikipedia.org/wiki/Polytechnic_University_of_Catalonia"
     }
   ],
   "sources": [
-    { "title": "UNEDasiss — official site", "url": "https://unedasiss.uned.es/", "retrieved": "2026-09-22" },
-    { "title": "UNEDasiss — FAQs (what the accreditation is, PCE, admission grade)", "url": "https://unedasiss.uned.es/faqs", "retrieved": "2026-09-22" },
-    { "title": "UNEDasiss — Fechas clave 2026", "url": "https://unedasiss.uned.es/fechas_clave", "retrieved": "2026-09-22" },
-    { "title": "UNEDasiss — Precios y normas", "url": "https://unedasiss.uned.es/precios", "retrieved": "2026-09-22" },
-    { "title": "Universidad de Navarra — step-by-step UNEDasiss guide for IB and European Baccalaureate students (PDF)", "url": "https://www.unav.edu/documents/10162/26964360/Acreditacion_UNEDasiss.pdf", "retrieved": "2026-09-22" },
-    { "title": "Universidad de Navarra — Bachillerato Internacional IB admission pathway", "url": "https://www.unav.edu/admision-y-ayudas/grado/bachillerato-internacional-ib", "retrieved": "2026-09-22" },
-    { "title": "Universidad Carlos III de Madrid — bachelor tuition prices 2026/27", "url": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices", "retrieved": "2026-09-22" },
-    { "title": "BOE — Real Decreto 412/2014 (admission rules; IB and European Baccalaureate holders admitted on the same criteria as Spanish students)", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-6008", "retrieved": "2026-09-22" },
-    { "title": "BOE — Real Decreto 534/2024 on access requirements and admission procedures", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-11858", "retrieved": "2026-09-22" },
-    { "title": "BOE — Real Decreto 482/2025 amending RD 534/2024", "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12311", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "UNEDasiss — official site",
+      "url": "https://unedasiss.uned.es/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UNEDasiss — FAQs (what the accreditation is, PCE, admission grade)",
+      "url": "https://unedasiss.uned.es/faqs",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UNEDasiss — Fechas clave 2026",
+      "url": "https://unedasiss.uned.es/fechas_clave",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UNEDasiss — Precios y normas",
+      "url": "https://unedasiss.uned.es/precios",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Universidad de Navarra — step-by-step UNEDasiss guide for IB and European Baccalaureate students (PDF)",
+      "url": "https://www.unav.edu/documents/10162/26964360/Acreditacion_UNEDasiss.pdf",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Universidad de Navarra — Bachillerato Internacional IB admission pathway",
+      "url": "https://www.unav.edu/admision-y-ayudas/grado/bachillerato-internacional-ib",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Universidad Carlos III de Madrid — bachelor tuition prices 2026/27",
+      "url": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "BOE — Real Decreto 412/2014 (admission rules; IB and European Baccalaureate holders admitted on the same criteria as Spanish students)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2014-6008",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "BOE — Real Decreto 534/2024 on access requirements and admission procedures",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-11858",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "BOE — Real Decreto 482/2025 amending RD 534/2024",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2025-12311",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#C0703A",
+    "pattern": "wave",
+    "focal": "50% 45%"
+  }
 }

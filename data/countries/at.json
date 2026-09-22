@@ -25,7 +25,6 @@
     "Medicine is the extreme case: the MedAT registration window closed on 31 March 2026 for a test on 8 July 2026, so you must register long before IB results day.",
     "Once you pass the standard study duration plus two tolerance semesters, the 363.36 EUR per semester tuition fee starts, so a slow degree costs money."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": "A properly acquired IB Diploma. The Austrian ministry names the IB Diploma as satisfying the general university entrance qualification without further procedure; no separate Austrian points threshold above the IB's own pass standard (24 points and the IB's pass conditions) was found published.",
@@ -38,10 +37,12 @@
       "Admission to a specific degree can still depend on extra prerequisites - language proof, or a supplementary examination (Ergaenzungspruefung) in a subject the curriculum requires. Check the curriculum of the exact degree, and get this confirmed by the university in writing; this research could not verify the current Latin/Biology/Maths supplementary rules from an official page."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "Each university's own application portal; study search via studienwahl.at", "url": "https://www.studienwahl.at/" },
+    "portal": {
+      "name": "Each university's own application portal; study search via studienwahl.at",
+      "url": "https://www.studienwahl.at/"
+    },
     "deadlines": [
       {
         "label": "General admission period for the winter semester, EU/EEA/Swiss applicants (University of Vienna)",
@@ -89,7 +90,6 @@
     ],
     "selectionNotes": "Most Austrian degrees are open: meet the entrance qualification and the language requirement and you are admitted. A defined list of subjects is access-regulated with a capped number of places and its own entrance procedure - medicine and dentistry through the MedAT, and a set of high-demand subjects such as psychology, business, computer science, biology, pharmacy and architecture at individual universities. The exact list and place numbers change, so verify per university for 2027/28."
   },
-
   "language": {
     "englishTaughtBachelors": "Limited. Austrian public universities teach bachelor's degrees overwhelmingly in German. English-taught bachelor's are concentrated in private universities (MODUL University Vienna, Webster Vienna, Lauder Business School) and universities of applied sciences (IMC Krems, MCI Innsbruck, FHWien der WKW), and a small number of public-university programmes. Do not assume a programme is in English - check the language of instruction field on studienwahl.at for each one.",
     "englishProof": "For English-taught programmes, IB English A is normally accepted and English B HL usually is; requirements are set per institution and were not verified centrally in this research.",
@@ -101,19 +101,29 @@
       "Even at an English-taught private university, daily life in Vienna, Graz or Innsbruck runs in German."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "No tuition fee during the standard duration of the degree plus two tolerance semesters. After that it is 363.36 EUR per semester. You always pay the OeH student union fee of 26.20 EUR per semester.", "year": "2026/27", "source": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/" },
-    "tuitionNonEu": { "value": "726.72 EUR per semester from the first semester, plus the 26.20 EUR OeH fee, giving 752.92 EUR per semester. Some exemptions exist for students from certain countries and for scholarship holders.", "year": "2026/27", "source": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/" },
+    "tuitionEuEea": {
+      "value": "No tuition fee during the standard duration of the degree plus two tolerance semesters. After that it is 363.36 EUR per semester. You always pay the OeH student union fee of 26.20 EUR per semester.",
+      "year": "2026/27",
+      "source": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/"
+    },
+    "tuitionNonEu": {
+      "value": "726.72 EUR per semester from the first semester, plus the 26.20 EUR OeH fee, giving 752.92 EUR per semester. Some exemptions exist for students from certain countries and for scholarship holders.",
+      "year": "2026/27",
+      "source": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/"
+    },
     "applicationFee": null,
-    "livingCostMonthly": { "value": "About 1,300 EUR per month: accommodation 450-700 EUR in a hall of residence, food around 300 EUR, and around 500 EUR for transport, study materials and everything else. Vienna is above the average, smaller cities below it.", "year": "2026 (based on Studierenden-Sozialerhebung 2025, IHS/Statistik Austria)", "source": "https://studyinaustria.at/en/live-and-work/living-costs" },
+    "livingCostMonthly": {
+      "value": "About 1,300 EUR per month: accommodation 450-700 EUR in a hall of residence, food around 300 EUR, and around 500 EUR for transport, study materials and everything else. Vienna is above the average, smaller cities below it.",
+      "year": "2026 (based on Studierenden-Sozialerhebung 2025, IHS/Statistik Austria)",
+      "source": "https://studyinaustria.at/en/live-and-work/living-costs"
+    },
     "notes": [
       "The official Study in Austria fees page still shows an older OeH figure of 25.20 EUR and a non-EU total of 751.92 EUR. The 26.20 EUR figure from the OeH itself and from the University of Vienna is the current one; the OeH fee is index-linked and announced each year by 1 May, so expect a small increase before 2027/28.",
       "Fachhochschulen may charge tuition of their own - each one sets it, so check the individual school.",
       "Private universities set their own fees and they are substantial. These were not verified from official pages in this research."
     ]
   },
-
   "funding": [
     "Danish SU can in many cases be taken abroad for a full degree - check with SU Styrelsen first, as this is usually the biggest single source of money.",
     "OeAD administers Austrian scholarship schemes; the scholarship database at grants.at is the official place to search.",
@@ -124,7 +134,6 @@
   "residency": "EU/EEA citizens staying longer than three months must obtain a Confirmation of Registration (Anmeldebescheinigung) for students, on top of the ordinary address registration (Meldezettel) that everyone in Austria completes after moving in. No visa or residence permit is needed. Non-EU students need a student residence permit applied for before travelling. Source: OeAD entry and residence pages.",
   "housing": "Student halls are run by providers such as OeAD Housing, OeJAB and Home4Students rather than by the universities themselves, and the good ones fill up over the summer - apply as soon as you decide on a city. Vienna has the largest supply but also the most competition in September; Graz, Innsbruck, Linz and Salzburg are easier. Private shared flats are the fallback and are advertised in German.",
   "healthcare": "Health insurance is compulsory. With a Danish EHIC you are covered for necessary treatment, but for a full degree you will normally want proper Austrian cover: students who are not covered through a parent or a job can take out student self-insurance with the OeGK. Register with an Austrian insurer soon after arriving and carry your e-card. The current student self-insurance premium was not verified from an official page in this research - check oegk.at.",
-
   "institutions": [
     {
       "name": "University of Vienna",
@@ -136,9 +145,16 @@
       "admissionsUrl": "https://studieren.univie.ac.at/en/admission/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Law", "Psychology", "History", "Physics", "Economics"],
+      "notableFields": [
+        "Law",
+        "Psychology",
+        "History",
+        "Physics",
+        "Economics"
+      ],
       "note": "The oldest university in the German-speaking world and by far Austria's largest; bachelor's teaching is in German, and several popular subjects are access-regulated.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Vienna"
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Vienna",
+      "place": "at-vienna"
     },
     {
       "name": "TU Wien",
@@ -150,9 +166,15 @@
       "admissionsUrl": "https://www.tuwien.at/en/studies/admission",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Architecture", "Computer Science", "Mechanical Engineering", "Mathematics"],
+      "notableFields": [
+        "Architecture",
+        "Computer Science",
+        "Mechanical Engineering",
+        "Mathematics"
+      ],
       "note": "Austria's main technical university, in the middle of Vienna; bachelor's are German-taught, with English arriving at master's level.",
-      "wikipedia": "https://en.wikipedia.org/wiki/TU_Wien"
+      "wikipedia": "https://en.wikipedia.org/wiki/TU_Wien",
+      "place": "at-vienna"
     },
     {
       "name": "Vienna University of Economics and Business",
@@ -164,9 +186,15 @@
       "admissionsUrl": "https://www.wu.ac.at/en/students/my-program/bachelors-student-guide/admission",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Business Administration", "Economics", "Business Law", "Information Systems"],
+      "notableFields": [
+        "Business Administration",
+        "Economics",
+        "Business Law",
+        "Information Systems"
+      ],
       "note": "One of Europe's biggest business schools, on a striking modern campus by the Prater; business bachelor's entry is regulated and competitive.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Vienna_University_of_Economics_and_Business"
+      "wikipedia": "https://en.wikipedia.org/wiki/Vienna_University_of_Economics_and_Business",
+      "place": "at-vienna"
     },
     {
       "name": "University of Graz",
@@ -178,9 +206,15 @@
       "admissionsUrl": "https://www.uni-graz.at/en/studying/study-organisation/admission/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Law", "Environmental Systems Sciences", "Psychology", "Molecular Biology"],
+      "notableFields": [
+        "Law",
+        "Environmental Systems Sciences",
+        "Psychology",
+        "Molecular Biology"
+      ],
       "note": "Austria's second-oldest university in a UNESCO-listed student city that is cheaper and calmer than Vienna.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Graz"
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Graz",
+      "place": "at-graz"
     },
     {
       "name": "Graz University of Technology",
@@ -192,9 +226,15 @@
       "admissionsUrl": "https://www.tugraz.at/en/studying-and-teaching/degree-and-certificate-programmes/admission",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Electrical Engineering", "Computer Science", "Civil Engineering", "Chemistry"],
+      "notableFields": [
+        "Electrical Engineering",
+        "Computer Science",
+        "Civil Engineering",
+        "Chemistry"
+      ],
       "note": "Strong engineering school with deep links to the Styrian automotive and semiconductor industry.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Graz_University_of_Technology"
+      "wikipedia": "https://en.wikipedia.org/wiki/Graz_University_of_Technology",
+      "place": "at-graz"
     },
     {
       "name": "University of Innsbruck",
@@ -206,9 +246,15 @@
       "admissionsUrl": "https://www.uibk.ac.at/en/studies/organisation/admission/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Physics", "Geology", "Sport Science", "Atmospheric Sciences"],
+      "notableFields": [
+        "Physics",
+        "Geology",
+        "Sport Science",
+        "Atmospheric Sciences"
+      ],
       "note": "World-class quantum physics group and a campus surrounded by the Alps; the obvious pick if mountains matter to you.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Innsbruck"
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Innsbruck",
+      "place": "at-innsbruck"
     },
     {
       "name": "Johannes Kepler University Linz",
@@ -220,7 +266,12 @@
       "admissionsUrl": "https://www.jku.at/en/degree-programs/students/start-your-studies/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Artificial Intelligence", "Computer Science", "Business", "Law"],
+      "notableFields": [
+        "Artificial Intelligence",
+        "Computer Science",
+        "Business",
+        "Law"
+      ],
       "note": "Modern campus university with an unusually strong machine-learning group; check the language of instruction for its AI and computer science degrees, as some are taught in English.",
       "wikipedia": "https://en.wikipedia.org/wiki/Johannes_Kepler_University_Linz"
     },
@@ -234,9 +285,15 @@
       "admissionsUrl": "https://www.plus.ac.at/studium/studienangebot/?lang=en",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Geoinformatics", "Law", "Communication Studies", "Psychology"],
+      "notableFields": [
+        "Geoinformatics",
+        "Law",
+        "Communication Studies",
+        "Psychology"
+      ],
       "note": "Mid-sized university in a small, expensive, very beautiful city an hour from Munich.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Salzburg"
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Salzburg",
+      "place": "at-salzburg"
     },
     {
       "name": "University of Klagenfurt",
@@ -248,9 +305,14 @@
       "admissionsUrl": "https://www.aau.at/en/studies/study-organisation/admission/",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Information Technology", "Media and Communications", "Business Administration"],
+      "notableFields": [
+        "Information Technology",
+        "Media and Communications",
+        "Business Administration"
+      ],
       "note": "Small campus university by a lake in Carinthia, with a noticeably high international share for its size.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Klagenfurt"
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Klagenfurt",
+      "place": "at-klagenfurt"
     },
     {
       "name": "BOKU University",
@@ -262,9 +324,15 @@
       "admissionsUrl": "https://boku.ac.at/en/studies/zulassung",
       "ibPageUrl": null,
       "englishBachelors": null,
-      "notableFields": ["Environmental Engineering", "Food Science", "Forestry", "Biotechnology"],
+      "notableFields": [
+        "Environmental Engineering",
+        "Food Science",
+        "Forestry",
+        "Biotechnology"
+      ],
       "note": "Austria's university of natural resources and life sciences - the place for environment, agriculture and water engineering.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Natural_Resources_and_Life_Sciences,_Vienna"
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Natural_Resources_and_Life_Sciences,_Vienna",
+      "place": "at-vienna"
     },
     {
       "name": "Medical University of Vienna",
@@ -276,9 +344,13 @@
       "admissionsUrl": "https://www.meduniwien.ac.at/web/en/studies-further-education/application-admission/",
       "ibPageUrl": "https://www.meduniwien.ac.at/web/en/studies-further-education/application-admission/medicine-and-dentistry-degree/admission-requirements/general-university-entrance-qualification/",
       "englishBachelors": null,
-      "notableFields": ["Human Medicine", "Dentistry"],
+      "notableFields": [
+        "Human Medicine",
+        "Dentistry"
+      ],
       "note": "Entry is only through the MedAT test, which you register for in March - long before IB results - and the degree is taught in German.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Medical_University_of_Vienna"
+      "wikipedia": "https://en.wikipedia.org/wiki/Medical_University_of_Vienna",
+      "place": "at-vienna"
     },
     {
       "name": "MODUL University Vienna",
@@ -290,9 +362,14 @@
       "admissionsUrl": "https://www.modul.ac.at/admissions/",
       "ibPageUrl": null,
       "englishBachelors": "English-taught bachelor's in tourism, hospitality, management and new media - verify the current list and the fee directly.",
-      "notableFields": ["International Management", "Tourism and Hospitality", "New Media Technology"],
+      "notableFields": [
+        "International Management",
+        "Tourism and Hospitality",
+        "New Media Technology"
+      ],
       "note": "Private university on the Kahlenberg above Vienna, teaching entirely in English; fees were not verified from an official page in this research.",
-      "wikipedia": "https://en.wikipedia.org/wiki/MODUL_University_Vienna"
+      "wikipedia": "https://en.wikipedia.org/wiki/MODUL_University_Vienna",
+      "place": "at-vienna"
     },
     {
       "name": "Webster Vienna Private University",
@@ -304,9 +381,15 @@
       "admissionsUrl": "https://webster.ac.at/admissions",
       "ibPageUrl": null,
       "englishBachelors": "English-taught American-style bachelor's, mainly in business, psychology and international relations - verify the current list and the fee directly.",
-      "notableFields": ["Business", "Psychology", "International Relations", "Media Communications"],
+      "notableFields": [
+        "Business",
+        "Psychology",
+        "International Relations",
+        "Media Communications"
+      ],
       "note": "The Vienna campus of an American university, so the degree structure and credits are US-style; fees were not verified from an official page in this research.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Webster_Vienna_Private_University"
+      "wikipedia": "https://en.wikipedia.org/wiki/Webster_Vienna_Private_University",
+      "place": "at-vienna"
     },
     {
       "name": "IMC Krems University of Applied Sciences",
@@ -318,7 +401,12 @@
       "admissionsUrl": "https://www.imc.ac.at/en/study/application-admission/",
       "ibPageUrl": null,
       "englishBachelors": "Several bachelor's are taught in English, including business, health and life science subjects - verify the current list and the fee directly.",
-      "notableFields": ["International Business", "Health Sciences", "Medical and Pharmaceutical Biotechnology", "Tourism"],
+      "notableFields": [
+        "International Business",
+        "Health Sciences",
+        "Medical and Pharmaceutical Biotechnology",
+        "Tourism"
+      ],
       "note": "Applied-sciences school in a small Danube wine town an hour from Vienna, with compulsory internships built into the degree.",
       "wikipedia": "https://en.wikipedia.org/wiki/IMC_University_of_Applied_Sciences_Krems"
     },
@@ -332,23 +420,77 @@
       "admissionsUrl": "https://www.mci.edu/en/study/application",
       "ibPageUrl": null,
       "englishBachelors": "A number of bachelor's are taught in English, mostly in management and engineering - verify the current list and the fee directly.",
-      "notableFields": ["Management", "Biotechnology", "Environmental Engineering", "Business Administration"],
+      "notableFields": [
+        "Management",
+        "Biotechnology",
+        "Environmental Engineering",
+        "Business Administration"
+      ],
       "note": "Practice-oriented school in Innsbruck with a business-school feel and strong industry placements.",
-      "wikipedia": "https://en.wikipedia.org/wiki/MCI_Management_Center_Innsbruck"
+      "wikipedia": "https://en.wikipedia.org/wiki/MCI_Management_Center_Innsbruck",
+      "place": "at-innsbruck"
     }
   ],
-
   "sources": [
-    { "title": "Federal Ministry - Hochschulzugang in Oesterreich (allgemeine Universitaetsreife)", "url": "https://www.bmfwf.gv.at/wissenschaft/anerkennung/universit%C3%A4tsreife.html", "retrieved": "2026-09-22" },
-    { "title": "Federal Ministry - Anerkennung von Abschluessen", "url": "https://www.bmfwf.gv.at/wissenschaft/anerkennung.html", "retrieved": "2026-09-22" },
-    { "title": "University of Vienna - application and admission periods", "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/", "retrieved": "2026-09-22" },
-    { "title": "University of Vienna - amount of the tuition fee and OeH fee", "url": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/", "retrieved": "2026-09-22" },
-    { "title": "OeH - OeH-Beitrag", "url": "https://www.oeh.ac.at/service/oeh-beitrag/", "retrieved": "2026-09-22" },
-    { "title": "Study in Austria - application and admission", "url": "https://studyinaustria.at/en/plan-your-studies/application-and-admission", "retrieved": "2026-09-22" },
-    { "title": "Study in Austria - tuition fees", "url": "https://studyinaustria.at/en/tuition", "retrieved": "2026-09-22" },
-    { "title": "Study in Austria - living costs", "url": "https://studyinaustria.at/en/live-and-work/living-costs", "retrieved": "2026-09-22" },
-    { "title": "medizinstudieren.at - MedAT entrance test", "url": "https://www.medizinstudieren.at/", "retrieved": "2026-09-22" },
-    { "title": "OeAD - entry and residence", "url": "https://www.oead.at/en/to-austria/entry-and-residence/", "retrieved": "2026-09-22" },
-    { "title": "studienwahl.at - official Austrian study programme search", "url": "https://www.studienwahl.at/", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "Federal Ministry - Hochschulzugang in Oesterreich (allgemeine Universitaetsreife)",
+      "url": "https://www.bmfwf.gv.at/wissenschaft/anerkennung/universit%C3%A4tsreife.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Federal Ministry - Anerkennung von Abschluessen",
+      "url": "https://www.bmfwf.gv.at/wissenschaft/anerkennung.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Vienna - application and admission periods",
+      "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Vienna - amount of the tuition fee and OeH fee",
+      "url": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "OeH - OeH-Beitrag",
+      "url": "https://www.oeh.ac.at/service/oeh-beitrag/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Austria - application and admission",
+      "url": "https://studyinaustria.at/en/plan-your-studies/application-and-admission",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Austria - tuition fees",
+      "url": "https://studyinaustria.at/en/tuition",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Austria - living costs",
+      "url": "https://studyinaustria.at/en/live-and-work/living-costs",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "medizinstudieren.at - MedAT entrance test",
+      "url": "https://www.medizinstudieren.at/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "OeAD - entry and residence",
+      "url": "https://www.oead.at/en/to-austria/entry-and-residence/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "studienwahl.at - official Austrian study programme search",
+      "url": "https://www.studienwahl.at/",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#7A5B7E",
+    "pattern": "none",
+    "focal": "50% 45%"
+  }
 }

@@ -26,7 +26,6 @@
     "Deadlines are brutally early: Early Action and Early Decision close 1 November 2026, most Regular Decision 1 January 2027, and the University of California closes 30 November 2026 - all long before you sit your IB exams.",
     "Immigration costs and admin are real: I-20, SEVIS fee, embassy interview, and post-study work depends on an OPT approval you cannot count on."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -39,29 +38,55 @@
       "Your school sends predicted grades; final results arrive 5-6 July 2027, well after decisions. Offers are effectively made on predictions plus everything else in the file."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "Common App (most private and many public universities)", "url": "https://www.commonapp.org/" },
+    "portal": {
+      "name": "Common App (most private and many public universities)",
+      "url": "https://www.commonapp.org/"
+    },
     "deadlines": [
-      { "label": "Common App opens for the cycle", "date": "31 July 2026", "year": "autumn 2027 intake",
+      {
+        "label": "Common App opens for the cycle",
+        "date": "31 July 2026",
+        "year": "autumn 2027 intake",
         "notes": "Common App opened its 2026-27 season on 31 July 2026. You can create an account and draft essays before that; the personal essay rolls over.",
-        "source": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/" },
-      { "label": "Early Action / Early Decision / Restrictive Early Action", "date": "1 November 2026", "year": "autumn 2027 intake",
+        "source": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/"
+      },
+      {
+        "label": "Early Action / Early Decision / Restrictive Early Action",
+        "date": "1 November 2026",
+        "year": "autumn 2027 intake",
         "notes": "Harvard's Restrictive Early Action deadline is 1 November with decisions in mid-December. Most universities that run an early round use the same date.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants" },
-      { "label": "University of California application", "date": "30 November 2026", "year": "fall 2027 intake",
+        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      },
+      {
+        "label": "University of California application",
+        "date": "30 November 2026",
+        "year": "fall 2027 intake",
         "notes": "UC uses its own application, not the Common App, and closes earlier than everyone else. UC campuses were open for the fall 2027 application as of September 2026. The fee is 80 USD per campus, 95 USD for international and non-immigrant applicants.",
-        "source": "https://admission.universityofcalifornia.edu/apply-now.html" },
-      { "label": "Regular Decision", "date": "1 January 2027", "year": "autumn 2027 intake",
+        "source": "https://admission.universityofcalifornia.edu/apply-now.html"
+      },
+      {
+        "label": "Regular Decision",
+        "date": "1 January 2027",
+        "year": "autumn 2027 intake",
         "notes": "Harvard's Regular Decision deadline is 1 January with decisions at the end of March. Some universities use 5 or 15 January instead - check each one.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants" },
-      { "label": "Early Decision II", "date": "Early January 2027", "year": "autumn 2027 intake",
+        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      },
+      {
+        "label": "Early Decision II",
+        "date": "Early January 2027",
+        "year": "autumn 2027 intake",
         "notes": "Grinnell College, for example, uses 5 January for ED II and 15 January for Regular Decision, with financial aid forms due on the same day.",
-        "source": "https://www.grinnell.edu/admission/apply/international" },
-      { "label": "Reply deadline", "date": "1 May 2027", "year": "autumn 2027 intake",
+        "source": "https://www.grinnell.edu/admission/apply/international"
+      },
+      {
+        "label": "Reply deadline",
+        "date": "1 May 2027",
+        "year": "autumn 2027 intake",
         "notes": "The national candidates' reply date. Harvard notes that both of its rounds are non-binding, so you can compare offers until 1 May.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants" }
+        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      }
     ],
     "steps": [
       "From spring 2026, build a list of 8-12 universities in three groups: places that meet full need for internationals, places likely to give you merit money, and one or two you could genuinely afford at full price.",
@@ -75,7 +100,6 @@
     ],
     "selectionNotes": "Holistic review: no published points threshold, no ranking table, no guaranteed entry. Committees read grades and rigour of subjects first, then essays, references, activities and context, and at most universities also your ability to pay. Early Decision is binding - if admitted you must withdraw other applications - and it meaningfully raises your odds, but it removes your ability to compare financial aid offers. Early Action and Restrictive Early Action are non-binding. International admit rates at the most famous universities are in the low single digits; do not build a list out of them."
   },
-
   "language": {
     "englishTaughtBachelors": "Everything. The question is not whether the degree is in English but whether you must prove your English.",
     "englishProof": "Many universities waive TOEFL/IELTS for students who have been taught in English, which an IB Diploma from an English-medium programme normally demonstrates - but the waiver is not automatic and each university sets its own rule. Check the specific university; where no waiver applies, typical requirements are TOEFL iBT 100+ or IELTS 7.0+ at selective universities. The exact thresholds were not verified for this guide.",
@@ -85,12 +109,23 @@
       "Some universities also use the Duolingo English Test. Availability varies year to year."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "Not applicable - the United States does not have an EU/EEA fee category. As a Dane you pay the international or out-of-state rate everywhere.", "year": "2026/27", "source": null },
-    "tuitionNonEu": { "value": "Private universities: Harvard's published billed cost for 2025-26 was 86,926 USD (tuition 59,320, fees 5,476, housing 13,532, food 8,598), with total billed and unbilled costs of 90,426-95,426 USD plus 4,308 USD health insurance if you are not covered elsewhere. Public universities: UC Berkeley's 2026-27 tuition and fees for a new student are 18,214 USD, but new out-of-state students pay an additional Nonresident Supplemental Tuition of 39,270 USD, so an international first-year pays roughly 57,500 USD in tuition and fees and a total cost of attendance around 94,000 USD in a residence hall.", "year": "2025/26 (Harvard) and 2026/27 (Berkeley)", "source": "https://college.harvard.edu/financial-aid/how-aid-works/cost-attendance" },
+    "tuitionEuEea": {
+      "value": "Not applicable - the United States does not have an EU/EEA fee category. As a Dane you pay the international or out-of-state rate everywhere.",
+      "year": "2026/27",
+      "source": null
+    },
+    "tuitionNonEu": {
+      "value": "Private universities: Harvard's published billed cost for 2025-26 was 86,926 USD (tuition 59,320, fees 5,476, housing 13,532, food 8,598), with total billed and unbilled costs of 90,426-95,426 USD plus 4,308 USD health insurance if you are not covered elsewhere. Public universities: UC Berkeley's 2026-27 tuition and fees for a new student are 18,214 USD, but new out-of-state students pay an additional Nonresident Supplemental Tuition of 39,270 USD, so an international first-year pays roughly 57,500 USD in tuition and fees and a total cost of attendance around 94,000 USD in a residence hall.",
+      "year": "2025/26 (Harvard) and 2026/27 (Berkeley)",
+      "source": "https://college.harvard.edu/financial-aid/how-aid-works/cost-attendance"
+    },
     "applicationFee": "Harvard 95 USD; University of California 95 USD per campus for international applicants (80 USD for domestic). Most universities charge 50-100 USD per application, and fee waivers exist but are usually aimed at low-income US students.",
-    "livingCostMonthly": { "value": "Not published as a monthly figure. American universities publish an annual 'cost of attendance' that already includes housing, food, books, transport and personal expenses - see the tuition figures above. UC Berkeley's 2026-27 estimate for housing and utilities in an off-campus apartment is 14,386 USD for a nine-month academic year, about 1,609 USD a month.", "year": "2026/27", "source": "https://financialaid.berkeley.edu/cost-of-attendance/" },
+    "livingCostMonthly": {
+      "value": "Not published as a monthly figure. American universities publish an annual 'cost of attendance' that already includes housing, food, books, transport and personal expenses - see the tuition figures above. UC Berkeley's 2026-27 estimate for housing and utilities in an off-campus apartment is 14,386 USD for a nine-month academic year, about 1,609 USD a month.",
+      "year": "2026/27",
+      "source": "https://financialaid.berkeley.edu/cost-of-attendance/"
+    },
     "notes": [
       "Always read the 'cost of attendance', never the tuition line alone. The COA is also the number financial aid is calculated against.",
       "Health insurance is compulsory and charged separately at most universities. Harvard's was 4,308 USD for 2025-26.",
@@ -99,7 +134,6 @@
       "NOT VERIFIED ON AN OFFICIAL PAGE: the nonimmigrant visa application (MRV) fee is widely reported as 185 USD and a new 250 USD Visa Integrity Fee was introduced by the One Big Beautiful Bill Act with effect from 1 October 2025. We could not fetch travel.state.gov to confirm either figure - check current fees at travel.state.gov before you budget."
     ]
   },
-
   "funding": [
     "Need-based institutional aid. A short list of universities is need-blind for international applicants and meets 100% of assessed need. Harvard states plainly that international students are eligible for exactly the same aid as Americans, that admission is need-blind, and that families earning under 100,000 USD pay nothing, while families up to 200,000 USD have tuition covered. NOT FULLY VERIFIED: widely reported members of this group also include Yale, Princeton, MIT, Amherst, Bowdoin, Dartmouth, Brown, Notre Dame and Washington and Lee - confirm on each university's own financial aid page before you apply.",
     "Need-aware full-need aid. Many strong liberal arts colleges consider your finances when deciding but then meet 100% of need if they admit you. Grinnell College is explicit about this: need-aware for internationals, then 100% of institutionally determined need met.",
@@ -112,7 +146,6 @@
   "residency": "There is no EU-style free movement. After you accept an offer the university issues Form I-20, you pay the I-901 SEVIS fee of 350 USD, complete the DS-160 form, pay the visa fee and attend an interview at the US Embassy in Copenhagen for an F-1 student visa. Bring the SEVIS receipt to the interview - it is required. You may enter the US up to 30 days before your programme starts. Sources: https://www.ice.gov/sevis/i901 and https://studyinthestates.dhs.gov/students/prepare/paying-the-i-901-sevis-fee",
   "housing": "Almost all universities house first-year students on campus and many require it. That is a genuine advantage over Europe: you do not hunt for a room, you get assigned one, and the cost is in the published cost of attendance. Harvard's 2025-26 housing and food came to 22,130 USD; Berkeley's residence hall housing and meal plan for 2026-27 are 16,640 USD and 7,000 USD. From year two, many students move off campus, which is where costs and hassle rise - Berkeley budgets 14,386 USD for nine months in an off-campus apartment.",
   "healthcare": "Health insurance is compulsory and expensive, and the Danish yellow card and EHIC are worthless in the US. Universities charge their own student health plan unless you can prove equivalent cover - Harvard's was 4,308 USD for 2025-26 and Berkeley's SHIP is 5,066 USD for 2026-27. Private Danish travel or study insurance sometimes qualifies for a waiver, but the university decides and the waiver deadline is usually 1 July. Assume you will pay for the university plan.",
-
   "institutions": [
     {
       "name": "Harvard University",
@@ -124,7 +157,11 @@
       "admissionsUrl": "https://college.harvard.edu/admissions/apply/first-year-applicants",
       "ibPageUrl": "https://college.harvard.edu/financial-aid/how-aid-works",
       "englishBachelors": "Four-year AB or SB; you declare a concentration in the second year.",
-      "notableFields": ["Government", "Economics", "Computer Science"],
+      "notableFields": [
+        "Government",
+        "Economics",
+        "Computer Science"
+      ],
       "note": "Need-blind for internationals and meets 100% of need, which makes it one of the few places where a Danish family on a normal income could actually afford to send a child - but the admit rate is in the low single digits, so treat it as a lottery ticket, not a plan.",
       "wikipedia": "https://en.wikipedia.org/wiki/Harvard_University"
     },
@@ -138,7 +175,11 @@
       "admissionsUrl": "https://admissions.yale.edu/",
       "ibPageUrl": "https://admissions.yale.edu/standardized-testing",
       "englishBachelors": "Four-year BA or BS across roughly 80 majors, with a strong residential college system.",
-      "notableFields": ["Political Science", "History", "Drama"],
+      "notableFields": [
+        "Political Science",
+        "History",
+        "Drama"
+      ],
       "note": "Requires the SAT or ACT from every first-year applicant and states explicitly that IB results cannot replace it - so if Yale is on your list, book a test date in 2026.",
       "wikipedia": "https://en.wikipedia.org/wiki/Yale_University"
     },
@@ -152,7 +193,11 @@
       "admissionsUrl": "https://mitadmissions.org/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year SB degrees; everyone takes the same science and maths core in year one.",
-      "notableFields": ["Engineering", "Computer Science", "Physics"],
+      "notableFields": [
+        "Engineering",
+        "Computer Science",
+        "Physics"
+      ],
       "note": "The most maths-and-physics-intensive undergraduate experience in the US, and widely reported to be need-blind for internationals - verify that on MIT's own student financial services pages, which we could not fetch.",
       "wikipedia": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology"
     },
@@ -166,7 +211,11 @@
       "admissionsUrl": "https://admission.stanford.edu/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year BA/BS on a quarter system, so you take more, shorter courses than at most US universities.",
-      "notableFields": ["Computer Science", "Engineering", "Symbolic Systems"],
+      "notableFields": [
+        "Computer Science",
+        "Engineering",
+        "Symbolic Systems"
+      ],
       "note": "Reported to have reinstated a testing requirement and to be need-aware for internationals - check both on Stanford's own pages, as we could not verify them.",
       "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University"
     },
@@ -180,7 +229,11 @@
       "admissionsUrl": "https://www.amherst.edu/admission",
       "ibPageUrl": null,
       "englishBachelors": "Four-year BA with an open curriculum - no distribution requirements at all beyond your major.",
-      "notableFields": ["Economics", "Political Science", "Mathematics"],
+      "notableFields": [
+        "Economics",
+        "Political Science",
+        "Mathematics"
+      ],
       "note": "About 1,900 students and consistently named as one of the very few liberal arts colleges that is need-blind for international applicants and meets full need; it is as selective as an Ivy, so apply alongside, not instead of, less selective colleges.",
       "wikipedia": "https://en.wikipedia.org/wiki/Amherst_College"
     },
@@ -194,7 +247,11 @@
       "admissionsUrl": "https://www.bowdoin.edu/admissions/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year BA, about 1,800 students, small classes and no graduate students competing for attention.",
-      "notableFields": ["Government and Legal Studies", "Environmental Studies", "Earth and Oceanographic Science"],
+      "notableFields": [
+        "Government and Legal Studies",
+        "Environmental Studies",
+        "Earth and Oceanographic Science"
+      ],
       "note": "Regularly listed among the need-blind, full-need colleges for internationals; coastal Maine is beautiful and genuinely remote, which suits some Danish students and not others.",
       "wikipedia": "https://en.wikipedia.org/wiki/Bowdoin_College"
     },
@@ -208,7 +265,11 @@
       "admissionsUrl": "https://www.grinnell.edu/admission",
       "ibPageUrl": "https://www.grinnell.edu/admission/apply/international",
       "englishBachelors": "Four-year BA with an individually advised curriculum; roughly 1,700 students and an unusually high international share.",
-      "notableFields": ["Economics", "Computer Science", "Biology"],
+      "notableFields": [
+        "Economics",
+        "Computer Science",
+        "Biology"
+      ],
       "note": "One of the most realistic targets on this list: need-aware for internationals but then meets 100% of assessed need, and also considers internationals for merit awards. ED I 15 November, ED II 5 January, RD 15 January - aid forms due the same day.",
       "wikipedia": "https://en.wikipedia.org/wiki/Grinnell_College"
     },
@@ -222,7 +283,11 @@
       "admissionsUrl": "https://www.macalester.edu/admissions/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year BA with an explicit internationalist mission; around 2,000 students in a real city.",
-      "notableFields": ["International Studies", "Economics", "Geography"],
+      "notableFields": [
+        "International Studies",
+        "Economics",
+        "Geography"
+      ],
       "note": "Long-standing reputation for recruiting and funding international students, and being in the Twin Cities means jobs, flights and a Scandinavian-heavy Midwest that feels less foreign than you would expect. Confirm its current international aid policy directly.",
       "wikipedia": "https://en.wikipedia.org/wiki/Macalester_College"
     },
@@ -236,7 +301,11 @@
       "admissionsUrl": "https://www.colby.edu/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year BA, about 2,200 students, with a January term for one intensive project.",
-      "notableFields": ["Environmental Studies", "Economics", "Global Studies"],
+      "notableFields": [
+        "Environmental Studies",
+        "Economics",
+        "Global Studies"
+      ],
       "note": "Reported to award substantial credit for a strong full IB Diploma - worth asking the registrar directly, because a year of credit changes the total cost of the degree more than any scholarship will.",
       "wikipedia": "https://en.wikipedia.org/wiki/Colby_College"
     },
@@ -250,7 +319,11 @@
       "admissionsUrl": "https://www.nyu.edu/admissions/undergraduate-admissions.html",
       "ibPageUrl": null,
       "englishBachelors": "Four-year degrees across separate schools - you apply to one school, such as Stern or Tisch, not to NYU in general.",
-      "notableFields": ["Business", "Film and Television", "Politics"],
+      "notableFields": [
+        "Business",
+        "Film and Television",
+        "Politics"
+      ],
       "note": "Enormous international intake and campuses in Abu Dhabi and Shanghai, but it is famously need-aware and does not meet full need for most internationals; go in expecting to pay a large share of a very high New York cost of living.",
       "wikipedia": "https://en.wikipedia.org/wiki/New_York_University"
     },
@@ -264,7 +337,11 @@
       "admissionsUrl": "https://admissions.umich.edu/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year degrees across 19 schools, with a large liberal arts college at the centre.",
-      "notableFields": ["Engineering", "Business", "Public Policy"],
+      "notableFields": [
+        "Engineering",
+        "Business",
+        "Public Policy"
+      ],
       "note": "A top-tier public university with a classic American campus experience; out-of-state and international tuition is close to private-university levels and institutional aid for internationals is limited.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan"
     },
@@ -278,7 +355,11 @@
       "admissionsUrl": "https://admission.universityofcalifornia.edu/",
       "ibPageUrl": "https://admission.universityofcalifornia.edu/admission-requirements/ap-exam-credits/ib-credits.html",
       "englishBachelors": "Four-year BA/BS; you apply to a college within Berkeley, and some majors are capped.",
-      "notableFields": ["Electrical Engineering and Computer Science", "Economics", "Molecular and Cell Biology"],
+      "notableFields": [
+        "Electrical Engineering and Computer Science",
+        "Economics",
+        "Molecular and Cell Biology"
+      ],
       "note": "Apply through the UC application by 30 November 2026, not the Common App. For 2026-27 a new international pays 18,214 USD of tuition and fees plus 39,270 USD Nonresident Supplemental Tuition, and UC gives essentially no need-based aid to internationals - but the UC system's published IB credit rules are the most generous and transparent in the country.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Berkeley"
     },
@@ -292,7 +373,11 @@
       "admissionsUrl": "https://admissions.illinois.edu/",
       "ibPageUrl": null,
       "englishBachelors": "Four-year degrees; you apply to a specific major, and engineering and computer science are far harder to enter than the university overall.",
-      "notableFields": ["Computer Science", "Engineering", "Accountancy"],
+      "notableFields": [
+        "Computer Science",
+        "Engineering",
+        "Accountancy"
+      ],
       "note": "A serious engineering and computing school at a public-university price, with a huge international community and a less theatrical admissions process than the private universities.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Urbana-Champaign"
     },
@@ -306,25 +391,85 @@
       "admissionsUrl": "https://admission.asu.edu/international",
       "ibPageUrl": null,
       "englishBachelors": "Four-year degrees across more than 350 undergraduate programmes, with published admission criteria rather than holistic review.",
-      "notableFields": ["Engineering", "Sustainability", "Journalism"],
+      "notableFields": [
+        "Engineering",
+        "Sustainability",
+        "Journalism"
+      ],
       "note": "The honest 'realistic' entry on this list: admission is largely criteria-based rather than a lottery, automatic merit awards for international students are published in advance, and the total cost sits well below the private universities.",
       "wikipedia": "https://en.wikipedia.org/wiki/Arizona_State_University"
     }
   ],
-
   "sources": [
-    { "title": "Common App - 2026-27 season opens", "url": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/", "retrieved": "2026-09-22" },
-    { "title": "Common App - first-year students guide", "url": "https://www.commonapp.org/apply/first-year-students", "retrieved": "2026-09-22" },
-    { "title": "Harvard College - first-year applicant requirements and deadlines", "url": "https://college.harvard.edu/admissions/apply/first-year-applicants", "retrieved": "2026-09-22" },
-    { "title": "Harvard College - how financial aid works", "url": "https://college.harvard.edu/financial-aid/how-aid-works", "retrieved": "2026-09-22" },
-    { "title": "Harvard College - cost of attendance", "url": "https://college.harvard.edu/financial-aid/how-aid-works/cost-attendance", "retrieved": "2026-09-22" },
-    { "title": "Yale Undergraduate Admissions - standardized testing policy", "url": "https://admissions.yale.edu/standardized-testing", "retrieved": "2026-09-22" },
-    { "title": "University of California - apply now (fees, fall 2027)", "url": "https://admission.universityofcalifornia.edu/apply-now.html", "retrieved": "2026-09-22" },
-    { "title": "University of California - IB credits", "url": "https://admission.universityofcalifornia.edu/admission-requirements/ap-exam-credits/ib-credits.html", "retrieved": "2026-09-22" },
-    { "title": "UC Berkeley Financial Aid - student budgets / cost of attendance 2026-27", "url": "https://financialaid.berkeley.edu/cost-of-attendance/", "retrieved": "2026-09-22" },
-    { "title": "Grinnell College - international applicants and financial aid", "url": "https://www.grinnell.edu/admission/apply/international", "retrieved": "2026-09-22" },
-    { "title": "US Immigration and Customs Enforcement - I-901 SEVIS fee", "url": "https://www.ice.gov/sevis/i901", "retrieved": "2026-09-22" },
-    { "title": "DHS Study in the States - paying the I-901 SEVIS fee", "url": "https://studyinthestates.dhs.gov/students/prepare/paying-the-i-901-sevis-fee", "retrieved": "2026-09-22" },
-    { "title": "USCIS - Optional Practical Training (OPT) for F-1 students", "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "Common App - 2026-27 season opens",
+      "url": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Common App - first-year students guide",
+      "url": "https://www.commonapp.org/apply/first-year-students",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Harvard College - first-year applicant requirements and deadlines",
+      "url": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Harvard College - how financial aid works",
+      "url": "https://college.harvard.edu/financial-aid/how-aid-works",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Harvard College - cost of attendance",
+      "url": "https://college.harvard.edu/financial-aid/how-aid-works/cost-attendance",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Yale Undergraduate Admissions - standardized testing policy",
+      "url": "https://admissions.yale.edu/standardized-testing",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of California - apply now (fees, fall 2027)",
+      "url": "https://admission.universityofcalifornia.edu/apply-now.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of California - IB credits",
+      "url": "https://admission.universityofcalifornia.edu/admission-requirements/ap-exam-credits/ib-credits.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "UC Berkeley Financial Aid - student budgets / cost of attendance 2026-27",
+      "url": "https://financialaid.berkeley.edu/cost-of-attendance/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Grinnell College - international applicants and financial aid",
+      "url": "https://www.grinnell.edu/admission/apply/international",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "US Immigration and Customs Enforcement - I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "DHS Study in the States - paying the I-901 SEVIS fee",
+      "url": "https://studyinthestates.dhs.gov/students/prepare/paying-the-i-901-sevis-fee",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "USCIS - Optional Practical Training (OPT) for F-1 students",
+      "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#9A4A32",
+    "pattern": "grid",
+    "focal": "50% 45%"
+  }
 }

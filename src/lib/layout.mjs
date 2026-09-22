@@ -153,11 +153,15 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400..700&display=swap">
 <link rel="stylesheet" href="${url('/assets/css/site.css')}">
+<link rel="stylesheet" href="${url('/assets/css/motion.css')}">
+<link rel="stylesheet" href="${url('/assets/css/primitives.css')}">
 <script>
   // Applied before first paint so the page never flashes the wrong theme.
   try {
     var t = localStorage.getItem('ibp-theme');
     if (t) document.documentElement.setAttribute('data-theme', t);
+    var m = localStorage.getItem('ibp-motion');
+    if (m) document.documentElement.setAttribute('data-motion', m);
   } catch (e) {}
 </script>
 ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}</script>`) : ''}
@@ -211,6 +215,10 @@ ${o.body}
     </div>
     <div class="site-foot__bar">
       <p style="margin:0">Always confirm details with the university before you apply. Rules change.</p>
+      <label class="motion-toggle">
+        <input type="checkbox" id="motion-toggle">
+        Reduce motion
+      </label>
       <p style="margin:0"><a href="${url('/credits/')}">Sources &amp; photo credits</a></p>
     </div>
   </div>

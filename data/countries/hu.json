@@ -26,7 +26,6 @@
     "Most 2027 deadlines were not published when this was researched. Only Semmelweis has a firm date (31 May 2027) and only Pécs has firm 2027 exam dates.",
     "No Scandinavian entrance-exam centre was confirmed anywhere. The online and Zoom formats at Szeged, Semmelweis and Univet are your practical route."
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -43,18 +42,62 @@
       "The maximum total admission points in the Hungarian system and the minimum score for medicine could not be verified."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "For English-taught programmes you apply directly to each university, each with its own portal. The central felvi.hu / E-felvételi system covers Hungarian-language and state-funded places only.", "url": "https://www.felvi.hu/" },
+    "portal": {
+      "name": "For English-taught programmes you apply directly to each university, each with its own portal. The central felvi.hu / E-felvételi system covers Hungarian-language and state-funded places only.",
+      "url": "https://www.felvi.hu/"
+    },
     "deadlines": [
-      { "label": "Semmelweis University — application deadline for autumn 2027 entry", "date": "31 May", "year": "2027", "notes": "Stated on all three programme pages, so this is a genuine 2027 date. Applications run through the SEMAPHOR system. Entrance exams are held once or twice a week from early March until the end of June.", "source": "https://semmelweis.hu/admission/programs/medicine/" },
-      { "label": "University of Pécs — entrance exams for the 2027 intake", "date": "every Wednesday, 3 March - 14 July", "year": "2027", "notes": "Register two weeks in advance. Exams can be sat in Pécs, in Budapest at McDaniel College, or abroad through representative agencies. The 2027 application deadline itself was not published.", "source": "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam" },
-      { "label": "University of Veterinary Medicine Budapest — rolling application window", "date": "1 January - 30 June", "year": "annual standing rule, applies to 2027", "notes": "Later rounds are possible if places remain. Exams are arranged worldwide and online between March and July, with extra rounds in August if there are vacancies.", "source": "https://univet.hu/en/education/admission/application/application-and-admission-requirements/" },
-      { "label": "University of Debrecen — application deadline", "date": null, "year": "2027 entry", "notes": "Not published as of September 2026. For 2026 entry the September intake closed 15 June and the February intake 1 November. Expect something similar and check from late 2026.", "source": "https://edu.unideb.hu/p/application-and-admission" },
-      { "label": "University of Szeged — application deadline", "date": null, "year": "2027 entry", "notes": "Not published as of September 2026; the portal showed the 2026/27 period as closed. Exams ran end of February to end of June every second week for the 2026/27 intake.", "source": "https://apply.u-szeged.hu/en_GB/courses/course/218-md-general-medicine" },
-      { "label": "CEU (Vienna) bachelor's — four application rounds", "date": "15 October 2026, 2 February 2027, 15 April 2027, 15 July 2027", "year": "2027 entry", "notes": "All at 23:59 CET. CEU's own financial aid is awarded in the first two rounds only, so apply early if you want it. Accepted students pay a 500-euro registration fee.", "source": "https://www.ceu.edu/admissions/bachelor" },
-      { "label": "Corvinus — English certificate deadline", "date": "1 August", "year": "annual", "notes": "Corvinus applies through DreamApply, runs assessment exams monthly and returns results in two to three weeks. Application fee 95 euros.", "source": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en" }
+      {
+        "label": "Semmelweis University — application deadline for autumn 2027 entry",
+        "date": "31 May",
+        "year": "2027",
+        "notes": "Stated on all three programme pages, so this is a genuine 2027 date. Applications run through the SEMAPHOR system. Entrance exams are held once or twice a week from early March until the end of June.",
+        "source": "https://semmelweis.hu/admission/programs/medicine/"
+      },
+      {
+        "label": "University of Pécs — entrance exams for the 2027 intake",
+        "date": "every Wednesday, 3 March - 14 July",
+        "year": "2027",
+        "notes": "Register two weeks in advance. Exams can be sat in Pécs, in Budapest at McDaniel College, or abroad through representative agencies. The 2027 application deadline itself was not published.",
+        "source": "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam"
+      },
+      {
+        "label": "University of Veterinary Medicine Budapest — rolling application window",
+        "date": "1 January - 30 June",
+        "year": "annual standing rule, applies to 2027",
+        "notes": "Later rounds are possible if places remain. Exams are arranged worldwide and online between March and July, with extra rounds in August if there are vacancies.",
+        "source": "https://univet.hu/en/education/admission/application/application-and-admission-requirements/"
+      },
+      {
+        "label": "University of Debrecen — application deadline",
+        "date": null,
+        "year": "2027 entry",
+        "notes": "Not published as of September 2026. For 2026 entry the September intake closed 15 June and the February intake 1 November. Expect something similar and check from late 2026.",
+        "source": "https://edu.unideb.hu/p/application-and-admission"
+      },
+      {
+        "label": "University of Szeged — application deadline",
+        "date": null,
+        "year": "2027 entry",
+        "notes": "Not published as of September 2026; the portal showed the 2026/27 period as closed. Exams ran end of February to end of June every second week for the 2026/27 intake.",
+        "source": "https://apply.u-szeged.hu/en_GB/courses/course/218-md-general-medicine"
+      },
+      {
+        "label": "CEU (Vienna) bachelor's — four application rounds",
+        "date": "15 October 2026, 2 February 2027, 15 April 2027, 15 July 2027",
+        "year": "2027 entry",
+        "notes": "All at 23:59 CET. CEU's own financial aid is awarded in the first two rounds only, so apply early if you want it. Accepted students pay a 500-euro registration fee.",
+        "source": "https://www.ceu.edu/admissions/bachelor"
+      },
+      {
+        "label": "Corvinus — English certificate deadline",
+        "date": "1 August",
+        "year": "annual",
+        "notes": "Corvinus applies through DreamApply, runs assessment exams monthly and returns results in two to three weeks. Application fee 95 euros.",
+        "source": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en"
+      }
     ],
     "steps": [
       "Work out the funding first. There is no Hungarian scholarship open to a Danish citizen, so budget the full tuition plus living costs before you commit to anything.",
@@ -67,7 +110,6 @@
     ],
     "selectionNotes": "The English-taught medical programmes select on their own entrance exam, not on your IB points. The pattern is a written multiple-choice paper in biology and chemistry (or physics) plus English, followed by an oral interview over Zoom on motivation and subject knowledge. Debrecen can also place you in a preparatory Basic Medicine Course rather than admitting or rejecting outright. Szeged caps English-programme intake at around 200 students a year and Pécs at 180. At Corvinus, maths is either evidenced by your IB grade or tested in a 26-question online exam, and three programmes add an interview."
   },
-
   "language": {
     "englishTaughtBachelors": "Substantial in medicine and business, thinner elsewhere. Five universities teach medicine, dentistry and pharmacy in English; Corvinus has 8 English-taught bachelor's degrees in business, economics and social sciences; the veterinary university teaches its whole degree in English. Counts for BME, ELTE, Óbuda, MOME, the Liszt Academy, Budapest Metropolitan and Széchenyi István could not be verified.",
     "englishProof": "Set institution by institution, and generally easy for an IB student. Corvinus accepts IB English at SL 5 or HL 4, or IELTS 6.0. CEU accepts IB English at 5 or above at either level, or IELTS 6.5 / TOEFL iBT 88. Debrecen requires a proctored B2 certificate but exempts anyone who completed secondary education in English — which covers an IB school. At Semmelweis, Szeged, Pécs and Univet, English is assessed inside the entrance exam itself, so no external certificate is usually needed.",
@@ -78,12 +120,23 @@
       "Semmelweis publishes no certificate score, asking only for 'upper intermediate' English tested through its General English and Biomedical English papers."
     ]
   },
-
   "costs": {
-    "tuitionEuEea": { "value": "No EU discount exists — you pay the same published fees as everyone else. Medicine: Semmelweis 9,340 euros per semester (18,680 a year), Szeged 7,900 per semester (15,800 a year), Debrecen 16,900 US dollars a year, Pécs 16,750 dollars a year. Dentistry: Semmelweis 9,340 euros per semester, Debrecen 17,500 dollars, Pécs 17,350 dollars. Pharmacy: Semmelweis 5,820 euros per semester, Debrecen 8,000 dollars, Pécs 8,400 euros. Veterinary medicine at Univet Budapest 12,480 euros a year. Corvinus bills EEA applicants in forints: HUF 1,700,000 to 1,980,000 a year.", "year": "Semmelweis 2027 entry, Pécs 2027/28, Szeged and Debrecen and Univet 2026/27, Corvinus year not stated", "source": "https://semmelweis.hu/admission/programs/medicine/" },
-    "tuitionNonEu": { "value": "Broadly the same, with one exception. The medical schools publish a single fee per programme with no nationality split. Corvinus does distinguish: it bills non-EEA applicants in euros at 6,000 to 6,600 a year and EEA applicants in forints at HUF 1,700,000 to 1,980,000, so the difference is the currency and the exchange-rate risk rather than the headline price.", "year": "2026/27", "source": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en" },
+    "tuitionEuEea": {
+      "value": "No EU discount exists — you pay the same published fees as everyone else. Medicine: Semmelweis 9,340 euros per semester (18,680 a year), Szeged 7,900 per semester (15,800 a year), Debrecen 16,900 US dollars a year, Pécs 16,750 dollars a year. Dentistry: Semmelweis 9,340 euros per semester, Debrecen 17,500 dollars, Pécs 17,350 dollars. Pharmacy: Semmelweis 5,820 euros per semester, Debrecen 8,000 dollars, Pécs 8,400 euros. Veterinary medicine at Univet Budapest 12,480 euros a year. Corvinus bills EEA applicants in forints: HUF 1,700,000 to 1,980,000 a year.",
+      "year": "Semmelweis 2027 entry, Pécs 2027/28, Szeged and Debrecen and Univet 2026/27, Corvinus year not stated",
+      "source": "https://semmelweis.hu/admission/programs/medicine/"
+    },
+    "tuitionNonEu": {
+      "value": "Broadly the same, with one exception. The medical schools publish a single fee per programme with no nationality split. Corvinus does distinguish: it bills non-EEA applicants in euros at 6,000 to 6,600 a year and EEA applicants in forints at HUF 1,700,000 to 1,980,000, so the difference is the currency and the exchange-rate risk rather than the headline price.",
+      "year": "2026/27",
+      "source": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en"
+    },
     "applicationFee": "Varies a lot: 95 euros at Corvinus, 150 US dollars at Debrecen plus a 350-dollar exam fee, 200 dollars at Pécs plus 250 for the exam and 220 registration, 200 euros at Univet plus 250 for the exam and 220 registration, 300 euros at Szeged, 400 US dollars at Semmelweis plus a 2,000-dollar deposit and 230 enrolment fee. CEU charges accepted students a 500-euro registration fee.",
-    "livingCostMonthly": { "value": "Dormitory places run from HUF 13,000 a month in Szeged and 18,000 in Debrecen up to HUF 36,000 in Budapest and 40,000 in Győr. A shared flat with utilities costs around HUF 80,000 outside Budapest and 140,000 in the capital; a private flat 135,000 to 175,000 outside Budapest and 225,000 in it. A restaurant meal is HUF 2,500 to 4,000 and a single transport ticket 350 to 650.", "year": "not stated on the source page", "source": "https://studyinhungary.hu/living-in-hungary/menu/your-costs-of-living.html" },
+    "livingCostMonthly": {
+      "value": "Dormitory places run from HUF 13,000 a month in Szeged and 18,000 in Debrecen up to HUF 36,000 in Budapest and 40,000 in Győr. A shared flat with utilities costs around HUF 80,000 outside Budapest and 140,000 in the capital; a private flat 135,000 to 175,000 outside Budapest and 225,000 in it. A restaurant meal is HUF 2,500 to 4,000 and a single transport ticket 350 to 650.",
+      "year": "not stated on the source page",
+      "source": "https://studyinhungary.hu/living-in-hungary/menu/your-costs-of-living.html"
+    },
     "notes": [
       "Study in Hungary publishes no all-in monthly total and no euro figures, and does not say which year its price data is from. At roughly 400 forints to the euro, a Szeged dormitory is about 33 euros a month and a Budapest private flat about 560 — but that arithmetic is not from the source and is sensitive to the exchange rate.",
       "Two official pages disagree about private rents. The accommodation page gives HUF 120,000 to 220,000 in Budapest plus overheads and 70,000 to 180,000 outside it; the cost-of-living page gives higher figures including utilities.",
@@ -92,7 +145,6 @@
       "The regional medical cities are dramatically cheaper than Budapest on housing, which partly offsets Semmelweis's higher tuition."
     ]
   },
-
   "funding": [
     "Danish SU for a full degree abroad, at DKK 7,426 a month before tax for students living away from home in 2026. Hungary is not a Nordic country for SU purposes, so support is capped at four years — which does not cover a six-year medical degree. Plan for that gap.",
     "Stipendium Hungaricum is closed to you. It operates through bilateral sending-partner agreements and requires nomination by your country's designated authority. No EU member state appears on the partner list — the only European entries are non-EU countries in the Western Balkans plus Moldova, Ukraine, Belarus, Russia, Georgia, Armenia and Türkiye.",
@@ -105,46 +157,389 @@
   "residency": "As an EU citizen you may stay beyond three months if you are enrolled at an accredited institution, and you must register with the National Directorate-General for Aliens Policing within 93 days of entering the country. Bring your admission certificate, your passport or ID card, proof of sufficient funds and evidence of health insurance. The fee is HUF 1,000, payable by card or transfer, and you can file at a regional directorate or electronically through the Enter Hungary platform. The registration certificate is issued immediately and has no expiry date.",
   "housing": "Dormitories, called kollégium, are the cheap option and the gap between cities is enormous: HUF 13,000 a month in Szeged against HUF 36,000 in Budapest and 40,000 in Győr. Whether international fee-paying students can actually get dormitory places could not be verified, and no university-specific dormitory prices were confirmed — so treat the national figures as indicative and ask your university directly. Private rentals in Budapest run HUF 120,000 to 225,000 a month depending on which official page you read, with a deposit of at least two months' rent.",
   "healthcare": "Bring your Danish EHIC. As an EU citizen you are covered on the same terms as a Hungarian, with the same rights and obligations. Students on exchange or at a state-run institute get free medical care; students who do not meet those criteria can sign an agreement with the Hungarian Health Insurance Fund at a cost of 30 percent of the local minimum wage. Note that the EHIC covers medically necessary state-provided care, not comprehensive private cover. Whether an EU student needs a Hungarian TAJ social security card alongside the EHIC could not be verified — the official healthcare page does not mention it at all.",
-
   "institutions": [
-    { "name": "Semmelweis University", "shortName": "Semmelweis", "city": "Budapest", "type": "Research university", "founded": 1769, "website": "https://semmelweis.hu/", "admissionsUrl": "https://semmelweis.hu/admission/", "ibPageUrl": null, "englishBachelors": "General Medicine, Dentistry, Pharmaceutical Sciences and Nursing, all taught in English. A full count of English-taught programmes was not published.", "notableFields": ["Medicine", "Dentistry", "Pharmacy", "Health sciences"], "note": "Hungary's flagship medical university and the single biggest draw for Scandinavian medical applicants, with around 16,000 students and teaching in Hungarian, English and German. It is also the most expensive: 9,340 euros a semester for medicine or dentistry. It has already published its 2027 deadline of 31 May, but it does not name the IB anywhere in its entry requirements and offers no exam exemption — confirm your position with them before applying.", "wikipedia": "https://en.wikipedia.org/wiki/Semmelweis_University" },
-    { "name": "University of Szeged", "shortName": "SZTE", "city": "Szeged", "type": "Research university", "founded": 1872, "website": "https://www.u-szeged.hu/", "admissionsUrl": "https://apply.u-szeged.hu/", "ibPageUrl": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md", "englishBachelors": "General Medicine (MD), 12 semesters and 360 ECTS with around 200 students a year, plus a Foundation Year. Dentistry and pharmacy fees sit with separate faculties and could not be verified.", "notableFields": ["Medicine", "Pharmacy", "Natural sciences", "Law"], "note": "The one Hungarian medical school that will waive the entrance exam outright for a strong IB Diploma: grade 5 in two Higher Level sciences from biology, chemistry or physics, and you are exempt. It will also consider predicted grades for a conditional offer. Szeged also has the cheapest dormitories in the country at HUF 13,000 a month. The 2027 deadline had not been published.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Szeged" },
-    { "name": "University of Debrecen", "shortName": "UD", "city": "Debrecen", "type": "Research university", "founded": 1912, "website": "https://unideb.hu/en", "admissionsUrl": "https://edu.unideb.hu/p/application-and-admission", "ibPageUrl": null, "englishBachelors": "Medicine, Dentistry, Pharmacy, Nursing, Physiotherapy, Computer Science, engineering and science bachelor's degrees, priced in US dollars from 6,500 to 17,500 a year", "notableFields": ["Medicine and dentistry", "Pharmacy", "Engineering", "Agriculture"], "note": "Hungary's largest English-language medical intake outside Budapest, across thirteen faculties, and one of the cheapest big cities to live in — dormitories at HUF 18,000 a month. Its entrance exam covers biology plus chemistry or physics, written and oral. It offers no IB exemption, and its exam dates and venues could not be read.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Debrecen" },
-    { "name": "University of Pécs", "shortName": "PTE", "city": "Pécs", "type": "Research university", "founded": 1367, "website": "https://international.pte.hu/", "admissionsUrl": "https://admissions.medschool.pte.hu/", "ibPageUrl": null, "englishBachelors": "General Medicine (180 places), Dentistry, Pharmacy and Biotechnology BSc, with fees published for 2027/28", "notableFields": ["Medicine and dentistry", "Pharmacy", "Biotechnology", "Humanities"], "note": "Hungary's oldest university by founding date and the only medical school with 2027-entry exam dates already published — every Wednesday from 3 March to 14 July 2027. Its fee page is also labelled 2027/28, which makes it the best-dated source in the country. You can sit the exam in Pécs, in Budapest, or abroad through a representative agency. Its 2027 application deadline and its position on the IB were not published.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_P%C3%A9cs" },
-    { "name": "University of Veterinary Medicine Budapest", "shortName": "Univet", "city": "Budapest", "type": "Research university", "founded": 1787, "website": "https://univet.hu/en", "admissionsUrl": "https://univet.hu/en/education/admission/application/", "ibPageUrl": null, "englishBachelors": "Veterinary medicine in English, five years plus an eleventh practical semester, at 12,480 euros a year. Also biology at BSc and MSc level.", "notableFields": ["Veterinary medicine", "Veterinary public health", "Food safety", "Zoology"], "note": "One of Europe's oldest veterinary schools and the cheapest English-taught clinical programme reviewed here. Applications are rolling from 1 January to 30 June each year, and exams run worldwide and online from March to July. There is no IB exemption — the oral exam is mandatory for everyone, and you need at least 50 percent on the written paper to reach it.", "wikipedia": "https://en.wikipedia.org/wiki/University_of_Veterinary_Medicine_Budapest" },
-    { "name": "Corvinus University of Budapest", "shortName": "Corvinus", "city": "Budapest", "type": "Business school", "founded": 1920, "website": "https://www.uni-corvinus.hu/", "admissionsUrl": "https://www.uni-corvinus.hu/post/landing-page/application/admission/?lang=en", "ibPageUrl": "https://www.uni-corvinus.hu/post/landing-page/application/admission/?lang=en", "englishBachelors": "8 — Applied Economics, Business and Management, Business Informatics, Communication and Media Science, Data Science in Business, International Business, International Relations, and Philosophy Politics and Economics", "notableFields": ["Economics", "Business administration", "Data science", "International relations"], "note": "The most IB-literate admissions policy in Hungary: the IB Diploma is named explicitly, IB English at SL 5 or HL 4 covers the language requirement, and IB Maths at SL 5 or HL 4 replaces the maths entrance exam. It has been run by a private foundation since 2019 rather than directly by the state. Note that it bills EEA applicants in forints, so you carry the exchange-rate risk.", "wikipedia": "https://en.wikipedia.org/wiki/Corvinus_University_of_Budapest" },
-    { "name": "Central European University", "shortName": "CEU", "city": "Vienna, Austria", "type": "Research university", "founded": 1991, "website": "https://www.ceu.edu/", "admissionsUrl": "https://www.ceu.edu/admissions/bachelor", "ibPageUrl": null, "englishBachelors": "3, all taught in Vienna — Culture Politics and Society; Data Science and Society; Philosophy, Politics and Economics. You can take a three-year Austrian-accredited or four-year dual US and Austrian route.", "notableFields": ["Social sciences", "Public policy", "Data science", "Philosophy"], "note": "Read this carefully: there is no CEU bachelor's degree in Budapest. After Hungary's 2017 law change CEU moved its degree teaching to Vienna, completing in September 2019. Budapest keeps the Democracy Institute, the Institute for Advanced Study and the Blinken Open Society Archives, none of which grant degrees. If you apply to CEU you are applying to Austria. Its tuition could not be verified; only the 500-euro registration fee is confirmed.", "wikipedia": "https://en.wikipedia.org/wiki/Central_European_University" },
-    { "name": "Budapest University of Technology and Economics", "shortName": "BME", "city": "Budapest", "type": "Technical university", "founded": 1782, "website": "https://www.bme.hu/", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Engineering", "Architecture", "Computer science", "Natural sciences"], "note": "Hungary's leading technical university, and often described as the world's oldest institute of technology with university rank. It is the obvious destination if you have HL Maths and Physics. Its admissions pages, English-taught bachelor count and fees could not be verified, so you will need to contact it directly.", "wikipedia": "https://en.wikipedia.org/wiki/Budapest_University_of_Technology_and_Economics" },
-    { "name": "Eötvös Loránd University", "shortName": "ELTE", "city": "Budapest", "type": "Research university", "founded": 1635, "website": "https://www.elte.hu/en", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Natural sciences", "Humanities", "Law", "Informatics"], "note": "The oldest continuously operating university in Hungary and the broadest general-academic option in Budapest, with a second campus in Szombathely. Its English-taught bachelor count, admissions pages and fees could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/E%C3%B6tv%C3%B6s_Lor%C3%A1nd_University" },
-    { "name": "Óbuda University", "shortName": "ÓE", "city": "Budapest", "type": "Technical university", "founded": 2000, "website": "https://www.uni-obuda.hu/", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Mechanical and safety engineering", "Electrical engineering", "Informatics", "Business and management"], "note": "A practically oriented applied-technology alternative to BME, with a second campus in Székesfehérvár outside the capital. Its John von Neumann informatics faculty is its best-known part. Whether it teaches bachelor's degrees in English could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/%C3%93buda_University" },
-    { "name": "Franz Liszt Academy of Music", "shortName": "Zeneakadémia", "city": "Budapest", "type": "Art/Design/Music academy", "founded": 1875, "website": "https://zeneakademia.hu/", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Music performance", "Folk music", "Sound recording", "Music teacher training"], "note": "Founded by Liszt himself in 1875 and still Hungary's conservatoire, admitting by audition. It has an independent folk music faculty, which is unusual. Whether any bachelor's programme is taught in English could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/Franz_Liszt_Academy_of_Music" },
-    { "name": "Moholy-Nagy University of Art and Design", "shortName": "MOME", "city": "Budapest", "type": "Art/Design/Music academy", "founded": 1880, "website": "https://mome.hu/en/", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Product design", "Textile design", "Animation", "Architecture"], "note": "Hungary's design school, in the Bauhaus lineage and named after László Moholy-Nagy. Strong in animation and media design. Whether it offers English-taught bachelor's degrees could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/Moholy-Nagy_University_of_Art_and_Design" },
-    { "name": "Budapest Metropolitan University", "shortName": "METU", "city": "Budapest", "type": "Research university", "founded": 2000, "website": "https://www.metropolitan.hu/", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Communication and media", "International business", "Tourism", "Animation and graphic design"], "note": "Hungary's largest private university and the main English-taught option for creative-industries and tourism degrees. Its exact English-taught bachelor count and fees could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/Budapest_Metropolitan_University" },
-    { "name": "Széchenyi István University", "shortName": "SZE", "city": "Győr", "type": "Technical university", "founded": 1968, "website": "https://uni.sze.hu/en_GB/home", "admissionsUrl": null, "ibPageUrl": null, "englishBachelors": null, "notableFields": ["Automotive engineering", "Mechanical and electrical engineering", "Law and political science", "Agricultural and food sciences"], "note": "Built around the Audi plant in Győr, with an Audi Hungaria Faculty of Automotive Engineering — unusually direct industry links for an engineering student. Its English-taught provision and fees could not be verified.", "wikipedia": "https://en.wikipedia.org/wiki/Sz%C3%A9chenyi_Istv%C3%A1n_University" }
+    {
+      "name": "Semmelweis University",
+      "shortName": "Semmelweis",
+      "city": "Budapest",
+      "type": "Research university",
+      "founded": 1769,
+      "website": "https://semmelweis.hu/",
+      "admissionsUrl": "https://semmelweis.hu/admission/",
+      "ibPageUrl": null,
+      "englishBachelors": "General Medicine, Dentistry, Pharmaceutical Sciences and Nursing, all taught in English. A full count of English-taught programmes was not published.",
+      "notableFields": [
+        "Medicine",
+        "Dentistry",
+        "Pharmacy",
+        "Health sciences"
+      ],
+      "note": "Hungary's flagship medical university and the single biggest draw for Scandinavian medical applicants, with around 16,000 students and teaching in Hungarian, English and German. It is also the most expensive: 9,340 euros a semester for medicine or dentistry. It has already published its 2027 deadline of 31 May, but it does not name the IB anywhere in its entry requirements and offers no exam exemption — confirm your position with them before applying.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Semmelweis_University"
+    },
+    {
+      "name": "University of Szeged",
+      "shortName": "SZTE",
+      "city": "Szeged",
+      "type": "Research university",
+      "founded": 1872,
+      "website": "https://www.u-szeged.hu/",
+      "admissionsUrl": "https://apply.u-szeged.hu/",
+      "ibPageUrl": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md",
+      "englishBachelors": "General Medicine (MD), 12 semesters and 360 ECTS with around 200 students a year, plus a Foundation Year. Dentistry and pharmacy fees sit with separate faculties and could not be verified.",
+      "notableFields": [
+        "Medicine",
+        "Pharmacy",
+        "Natural sciences",
+        "Law"
+      ],
+      "note": "The one Hungarian medical school that will waive the entrance exam outright for a strong IB Diploma: grade 5 in two Higher Level sciences from biology, chemistry or physics, and you are exempt. It will also consider predicted grades for a conditional offer. Szeged also has the cheapest dormitories in the country at HUF 13,000 a month. The 2027 deadline had not been published.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Szeged"
+    },
+    {
+      "name": "University of Debrecen",
+      "shortName": "UD",
+      "city": "Debrecen",
+      "type": "Research university",
+      "founded": 1912,
+      "website": "https://unideb.hu/en",
+      "admissionsUrl": "https://edu.unideb.hu/p/application-and-admission",
+      "ibPageUrl": null,
+      "englishBachelors": "Medicine, Dentistry, Pharmacy, Nursing, Physiotherapy, Computer Science, engineering and science bachelor's degrees, priced in US dollars from 6,500 to 17,500 a year",
+      "notableFields": [
+        "Medicine and dentistry",
+        "Pharmacy",
+        "Engineering",
+        "Agriculture"
+      ],
+      "note": "Hungary's largest English-language medical intake outside Budapest, across thirteen faculties, and one of the cheapest big cities to live in — dormitories at HUF 18,000 a month. Its entrance exam covers biology plus chemistry or physics, written and oral. It offers no IB exemption, and its exam dates and venues could not be read.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Debrecen"
+    },
+    {
+      "name": "University of Pécs",
+      "shortName": "PTE",
+      "city": "Pécs",
+      "type": "Research university",
+      "founded": 1367,
+      "website": "https://international.pte.hu/",
+      "admissionsUrl": "https://admissions.medschool.pte.hu/",
+      "ibPageUrl": null,
+      "englishBachelors": "General Medicine (180 places), Dentistry, Pharmacy and Biotechnology BSc, with fees published for 2027/28",
+      "notableFields": [
+        "Medicine and dentistry",
+        "Pharmacy",
+        "Biotechnology",
+        "Humanities"
+      ],
+      "note": "Hungary's oldest university by founding date and the only medical school with 2027-entry exam dates already published — every Wednesday from 3 March to 14 July 2027. Its fee page is also labelled 2027/28, which makes it the best-dated source in the country. You can sit the exam in Pécs, in Budapest, or abroad through a representative agency. Its 2027 application deadline and its position on the IB were not published.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_P%C3%A9cs"
+    },
+    {
+      "name": "University of Veterinary Medicine Budapest",
+      "shortName": "Univet",
+      "city": "Budapest",
+      "type": "Research university",
+      "founded": 1787,
+      "website": "https://univet.hu/en",
+      "admissionsUrl": "https://univet.hu/en/education/admission/application/",
+      "ibPageUrl": null,
+      "englishBachelors": "Veterinary medicine in English, five years plus an eleventh practical semester, at 12,480 euros a year. Also biology at BSc and MSc level.",
+      "notableFields": [
+        "Veterinary medicine",
+        "Veterinary public health",
+        "Food safety",
+        "Zoology"
+      ],
+      "note": "One of Europe's oldest veterinary schools and the cheapest English-taught clinical programme reviewed here. Applications are rolling from 1 January to 30 June each year, and exams run worldwide and online from March to July. There is no IB exemption — the oral exam is mandatory for everyone, and you need at least 50 percent on the written paper to reach it.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Veterinary_Medicine_Budapest"
+    },
+    {
+      "name": "Corvinus University of Budapest",
+      "shortName": "Corvinus",
+      "city": "Budapest",
+      "type": "Business school",
+      "founded": 1920,
+      "website": "https://www.uni-corvinus.hu/",
+      "admissionsUrl": "https://www.uni-corvinus.hu/post/landing-page/application/admission/?lang=en",
+      "ibPageUrl": "https://www.uni-corvinus.hu/post/landing-page/application/admission/?lang=en",
+      "englishBachelors": "8 — Applied Economics, Business and Management, Business Informatics, Communication and Media Science, Data Science in Business, International Business, International Relations, and Philosophy Politics and Economics",
+      "notableFields": [
+        "Economics",
+        "Business administration",
+        "Data science",
+        "International relations"
+      ],
+      "note": "The most IB-literate admissions policy in Hungary: the IB Diploma is named explicitly, IB English at SL 5 or HL 4 covers the language requirement, and IB Maths at SL 5 or HL 4 replaces the maths entrance exam. It has been run by a private foundation since 2019 rather than directly by the state. Note that it bills EEA applicants in forints, so you carry the exchange-rate risk.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Corvinus_University_of_Budapest"
+    },
+    {
+      "name": "Central European University",
+      "shortName": "CEU",
+      "city": "Vienna, Austria",
+      "type": "Research university",
+      "founded": 1991,
+      "website": "https://www.ceu.edu/",
+      "admissionsUrl": "https://www.ceu.edu/admissions/bachelor",
+      "ibPageUrl": null,
+      "englishBachelors": "3, all taught in Vienna — Culture Politics and Society; Data Science and Society; Philosophy, Politics and Economics. You can take a three-year Austrian-accredited or four-year dual US and Austrian route.",
+      "notableFields": [
+        "Social sciences",
+        "Public policy",
+        "Data science",
+        "Philosophy"
+      ],
+      "note": "Read this carefully: there is no CEU bachelor's degree in Budapest. After Hungary's 2017 law change CEU moved its degree teaching to Vienna, completing in September 2019. Budapest keeps the Democracy Institute, the Institute for Advanced Study and the Blinken Open Society Archives, none of which grant degrees. If you apply to CEU you are applying to Austria. Its tuition could not be verified; only the 500-euro registration fee is confirmed.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Central_European_University"
+    },
+    {
+      "name": "Budapest University of Technology and Economics",
+      "shortName": "BME",
+      "city": "Budapest",
+      "type": "Technical university",
+      "founded": 1782,
+      "website": "https://www.bme.hu/",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Engineering",
+        "Architecture",
+        "Computer science",
+        "Natural sciences"
+      ],
+      "note": "Hungary's leading technical university, and often described as the world's oldest institute of technology with university rank. It is the obvious destination if you have HL Maths and Physics. Its admissions pages, English-taught bachelor count and fees could not be verified, so you will need to contact it directly.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Budapest_University_of_Technology_and_Economics"
+    },
+    {
+      "name": "Eötvös Loránd University",
+      "shortName": "ELTE",
+      "city": "Budapest",
+      "type": "Research university",
+      "founded": 1635,
+      "website": "https://www.elte.hu/en",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Natural sciences",
+        "Humanities",
+        "Law",
+        "Informatics"
+      ],
+      "note": "The oldest continuously operating university in Hungary and the broadest general-academic option in Budapest, with a second campus in Szombathely. Its English-taught bachelor count, admissions pages and fees could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/E%C3%B6tv%C3%B6s_Lor%C3%A1nd_University"
+    },
+    {
+      "name": "Óbuda University",
+      "shortName": "ÓE",
+      "city": "Budapest",
+      "type": "Technical university",
+      "founded": 2000,
+      "website": "https://www.uni-obuda.hu/",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Mechanical and safety engineering",
+        "Electrical engineering",
+        "Informatics",
+        "Business and management"
+      ],
+      "note": "A practically oriented applied-technology alternative to BME, with a second campus in Székesfehérvár outside the capital. Its John von Neumann informatics faculty is its best-known part. Whether it teaches bachelor's degrees in English could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/%C3%93buda_University"
+    },
+    {
+      "name": "Franz Liszt Academy of Music",
+      "shortName": "Zeneakadémia",
+      "city": "Budapest",
+      "type": "Art/Design/Music academy",
+      "founded": 1875,
+      "website": "https://zeneakademia.hu/",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Music performance",
+        "Folk music",
+        "Sound recording",
+        "Music teacher training"
+      ],
+      "note": "Founded by Liszt himself in 1875 and still Hungary's conservatoire, admitting by audition. It has an independent folk music faculty, which is unusual. Whether any bachelor's programme is taught in English could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Franz_Liszt_Academy_of_Music"
+    },
+    {
+      "name": "Moholy-Nagy University of Art and Design",
+      "shortName": "MOME",
+      "city": "Budapest",
+      "type": "Art/Design/Music academy",
+      "founded": 1880,
+      "website": "https://mome.hu/en/",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Product design",
+        "Textile design",
+        "Animation",
+        "Architecture"
+      ],
+      "note": "Hungary's design school, in the Bauhaus lineage and named after László Moholy-Nagy. Strong in animation and media design. Whether it offers English-taught bachelor's degrees could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Moholy-Nagy_University_of_Art_and_Design"
+    },
+    {
+      "name": "Budapest Metropolitan University",
+      "shortName": "METU",
+      "city": "Budapest",
+      "type": "Research university",
+      "founded": 2000,
+      "website": "https://www.metropolitan.hu/",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Communication and media",
+        "International business",
+        "Tourism",
+        "Animation and graphic design"
+      ],
+      "note": "Hungary's largest private university and the main English-taught option for creative-industries and tourism degrees. Its exact English-taught bachelor count and fees could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Budapest_Metropolitan_University"
+    },
+    {
+      "name": "Széchenyi István University",
+      "shortName": "SZE",
+      "city": "Győr",
+      "type": "Technical university",
+      "founded": 1968,
+      "website": "https://uni.sze.hu/en_GB/home",
+      "admissionsUrl": null,
+      "ibPageUrl": null,
+      "englishBachelors": null,
+      "notableFields": [
+        "Automotive engineering",
+        "Mechanical and electrical engineering",
+        "Law and political science",
+        "Agricultural and food sciences"
+      ],
+      "note": "Built around the Audi plant in Győr, with an Audi Hungaria Faculty of Automotive Engineering — unusually direct industry links for an engineering student. Its English-taught provision and fees could not be verified.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sz%C3%A9chenyi_Istv%C3%A1n_University"
+    }
   ],
-
   "sources": [
-    { "title": "Stipendium Hungaricum — sending partners list", "url": "https://stipendiumhungaricum.hu/partners/", "retrieved": "2026-09-22" },
-    { "title": "Stipendium Hungaricum — how to apply", "url": "https://stipendiumhungaricum.hu/apply/", "retrieved": "2026-09-22" },
-    { "title": "Hungarian Diaspora Scholarship — programme countries", "url": "https://diasporascholarship.hu/en/programme-countries/", "retrieved": "2026-09-22" },
-    { "title": "ELTE — Hungarian state (bilateral) scholarship eligible countries", "url": "https://www.elte.hu/en/incoming-mobility/hungarian-state-scholarship", "retrieved": "2026-09-22" },
-    { "title": "Felvi — IBO qualifications and grade conversion (2026 admission guide)", "url": "https://www.felvi.hu/felveteli/jelentkezes/felveteli_tajekoztato/FFT_2026A/kulfoldi_vegzettsegek/orszagok_szerint/ibo", "retrieved": "2026-09-22" },
-    { "title": "Felvi — conversion of foreign results into Hungarian points", "url": "https://www.felvi.hu/felveteli/jelentkezes/felveteli_tajekoztato/FFT_2026A/kulfoldi_vegzettsegek/eredmenyek_beszamitas", "retrieved": "2026-09-22" },
-    { "title": "Semmelweis University — General Medicine admission", "url": "https://semmelweis.hu/admission/programs/medicine/", "retrieved": "2026-09-22" },
-    { "title": "University of Szeged — Medical Programme MD and IB exam exemption", "url": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md", "retrieved": "2026-09-22" },
-    { "title": "University of Szeged — tuition fees and discounts", "url": "https://www.med.u-szeged.hu/fs/fees-and-discounts/tuition-fees-for", "retrieved": "2026-09-22" },
-    { "title": "University of Debrecen — tuition, application and entrance fees", "url": "https://edu.unideb.hu/p/tuition-fee-application-entrance-fee", "retrieved": "2026-09-22" },
-    { "title": "University of Debrecen — entrance examination and interview", "url": "https://edu.unideb.hu/p/entrance-examinationinterview", "retrieved": "2026-09-22" },
-    { "title": "University of Pécs Medical School — tuition fees and costs (2027/28)", "url": "https://admissions.medschool.pte.hu/tuition-fees-and-costs", "retrieved": "2026-09-22" },
-    { "title": "University of Pécs Medical School — arranging the entrance exam (2027 dates)", "url": "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam", "retrieved": "2026-09-22" },
-    { "title": "University of Veterinary Medicine Budapest — fees and costs", "url": "https://univet.hu/en/education/admission/fees-and-costs/", "retrieved": "2026-09-22" },
-    { "title": "Corvinus — admission requirements (IB named explicitly)", "url": "https://www.uni-corvinus.hu/post/landing-page/application/admission/?lang=en", "retrieved": "2026-09-22" },
-    { "title": "Corvinus — fees and costs", "url": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en", "retrieved": "2026-09-22" },
-    { "title": "CEU — bachelor's admissions (Vienna)", "url": "https://www.ceu.edu/admissions/bachelor", "retrieved": "2026-09-22" },
-    { "title": "Study in Hungary — your costs of living", "url": "https://studyinhungary.hu/living-in-hungary/menu/your-costs-of-living.html", "retrieved": "2026-09-22" },
-    { "title": "Study in Hungary — residence formalities for EEA students", "url": "https://studyinhungary.hu/living-in-hungary/menu/formalities/visa.html", "retrieved": "2026-09-22" },
-    { "title": "Study in Hungary — working in Hungary", "url": "https://studyinhungary.hu/living-in-hungary/menu/formalities/work-in-hungary.html", "retrieved": "2026-09-22" },
-    { "title": "Study in Hungary — health care and insurance", "url": "https://studyinhungary.hu/living-in-hungary/menu/formalities/health-care-and-insurance.html", "retrieved": "2026-09-22" },
-    { "title": "OIF — EEA citizen registration certificate", "url": "https://oif.gov.hu/egt-allampolgar-regisztracios-igazolas", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "Stipendium Hungaricum — sending partners list",
+      "url": "https://stipendiumhungaricum.hu/partners/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Stipendium Hungaricum — how to apply",
+      "url": "https://stipendiumhungaricum.hu/apply/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Hungarian Diaspora Scholarship — programme countries",
+      "url": "https://diasporascholarship.hu/en/programme-countries/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ELTE — Hungarian state (bilateral) scholarship eligible countries",
+      "url": "https://www.elte.hu/en/incoming-mobility/hungarian-state-scholarship",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Felvi — IBO qualifications and grade conversion (2026 admission guide)",
+      "url": "https://www.felvi.hu/felveteli/jelentkezes/felveteli_tajekoztato/FFT_2026A/kulfoldi_vegzettsegek/orszagok_szerint/ibo",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Felvi — conversion of foreign results into Hungarian points",
+      "url": "https://www.felvi.hu/felveteli/jelentkezes/felveteli_tajekoztato/FFT_2026A/kulfoldi_vegzettsegek/eredmenyek_beszamitas",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Semmelweis University — General Medicine admission",
+      "url": "https://semmelweis.hu/admission/programs/medicine/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Szeged — Medical Programme MD and IB exam exemption",
+      "url": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Szeged — tuition fees and discounts",
+      "url": "https://www.med.u-szeged.hu/fs/fees-and-discounts/tuition-fees-for",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Debrecen — tuition, application and entrance fees",
+      "url": "https://edu.unideb.hu/p/tuition-fee-application-entrance-fee",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Debrecen — entrance examination and interview",
+      "url": "https://edu.unideb.hu/p/entrance-examinationinterview",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Pécs Medical School — tuition fees and costs (2027/28)",
+      "url": "https://admissions.medschool.pte.hu/tuition-fees-and-costs",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Pécs Medical School — arranging the entrance exam (2027 dates)",
+      "url": "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Veterinary Medicine Budapest — fees and costs",
+      "url": "https://univet.hu/en/education/admission/fees-and-costs/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Corvinus — admission requirements (IB named explicitly)",
+      "url": "https://www.uni-corvinus.hu/post/landing-page/application/admission/?lang=en",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Corvinus — fees and costs",
+      "url": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CEU — bachelor's admissions (Vienna)",
+      "url": "https://www.ceu.edu/admissions/bachelor",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Hungary — your costs of living",
+      "url": "https://studyinhungary.hu/living-in-hungary/menu/your-costs-of-living.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Hungary — residence formalities for EEA students",
+      "url": "https://studyinhungary.hu/living-in-hungary/menu/formalities/visa.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Hungary — working in Hungary",
+      "url": "https://studyinhungary.hu/living-in-hungary/menu/formalities/work-in-hungary.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Hungary — health care and insurance",
+      "url": "https://studyinhungary.hu/living-in-hungary/menu/formalities/health-care-and-insurance.html",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "OIF — EEA citizen registration certificate",
+      "url": "https://oif.gov.hu/egt-allampolgar-regisztracios-igazolas",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#8A5560",
+    "pattern": "grid",
+    "focal": "50% 45%"
+  }
 }

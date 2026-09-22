@@ -25,7 +25,6 @@
     "Medicine at LSMU is not cheap: EUR 12,800 a year for years 1-3 in 2026/2027, plus a EUR 150 application fee, a EUR 250 registration fee and a EUR 1,500 deposit",
     "The competitive-score formula used for state-funded places was not published in English on the pages read - ask the university how your IB grades will be scored"
   ],
-
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
@@ -39,26 +38,48 @@
       "Non-EU/non-EFTA applicants to Vilnius University must present a qualification no more than 5 years old; this does not affect a 2027 IB graduate."
     ]
   },
-
   "application": {
     "centralised": false,
-    "portal": { "name": "Study in Lithuania (national information portal; applications go direct to each university)", "url": "https://studyin.lt/" },
+    "portal": {
+      "name": "Study in Lithuania (national information portal; applications go direct to each university)",
+      "url": "https://studyin.lt/"
+    },
     "deadlines": [
-      { "label": "General pattern for the autumn semester", "date": "Most universities close in June", "year": "Stated without a year on 2026-09-22; expect the same pattern for autumn 2027 and re-check each university",
+      {
+        "label": "General pattern for the autumn semester",
+        "date": "Most universities close in June",
+        "year": "Stated without a year on 2026-09-22; expect the same pattern for autumn 2027 and re-check each university",
         "notes": "Study in Lithuania advises international students to apply as early as possible rather than waiting for the deadline.",
-        "source": "https://studyin.lt/how-to-apply/application-procedure/" },
-      { "label": "LSMU - application portal opens", "date": "1 November (portal opened 1 November 2025 for the 2026 intake)", "year": "2026 intake; the 2027 equivalent was not yet published on 2026-09-22",
+        "source": "https://studyin.lt/how-to-apply/application-procedure/"
+      },
+      {
+        "label": "LSMU - application portal opens",
+        "date": "1 November (portal opened 1 November 2025 for the 2026 intake)",
+        "year": "2026 intake; the 2027 equivalent was not yet published on 2026-09-22",
         "notes": "Apply at apply.lsmuni.lt.",
-        "source": "https://lsmu.lt/en/admission/admission-process/" },
-      { "label": "LSMU - entrance tests and interviews begin", "date": "13 January (2026 intake)", "year": "2026 intake; re-check for autumn 2027",
+        "source": "https://lsmu.lt/en/admission/admission-process/"
+      },
+      {
+        "label": "LSMU - entrance tests and interviews begin",
+        "date": "13 January (2026 intake)",
+        "year": "2026 intake; re-check for autumn 2027",
         "notes": "IB holders with HL 5 in the required subjects are exempt from the entrance examination.",
-        "source": "https://lsmu.lt/en/admission/admission-process/" },
-      { "label": "LSMU - primary and final application deadlines", "date": "6 July and 30 July (2026 intake); studies begin 1 September", "year": "2026 intake; re-check for autumn 2027",
+        "source": "https://lsmu.lt/en/admission/admission-process/"
+      },
+      {
+        "label": "LSMU - primary and final application deadlines",
+        "date": "6 July and 30 July (2026 intake); studies begin 1 September",
+        "year": "2026 intake; re-check for autumn 2027",
         "notes": "The primary deadline falls the same week as IB results, so prepare the application before results day.",
-        "source": "https://lsmu.lt/en/admission/admission-process/" },
-      { "label": "ISM University - Early Admission", "date": "30 April (2026 intake)", "year": "2026 intake; re-check for autumn 2027",
+        "source": "https://lsmu.lt/en/admission/admission-process/"
+      },
+      {
+        "label": "ISM University - Early Admission",
+        "date": "30 April (2026 intake)",
+        "year": "2026 intake; re-check for autumn 2027",
         "notes": "Main admission for visa-required countries closed 31 May 2026; for visa-free countries 24 July 2026; an additional round for visa-free applicants ran to 14 August 2026.",
-        "source": "https://www.ism.lt/en/admission/" }
+        "source": "https://www.ism.lt/en/admission/"
+      }
     ],
     "steps": [
       "Choose the university and programme first - there is no single national application for international students and each institution runs its own process.",
@@ -70,7 +91,6 @@
     ],
     "selectionNotes": "Selection is per programme and, for state-funded places, competitive. Vilnius University confirms that citizens of Lithuania and of other EU member states 'can apply for both state-funded and non-state-funded study places' - this is a genuine advantage over Latvia. The exact competitive-score formula, and how IB grades are weighted inside it, was not published in English on the pages read on 2026-09-22."
   },
-
   "language": {
     "englishTaughtBachelors": "Extensive by Baltic standards. Vilnius University alone offers more than 30 bachelor's and integrated study programmes in English; ISM offers six; LSMU offers Medicine, Dentistry, Veterinary Medicine, Pharmacy, Nursing, Physiotherapy, Occupational Therapy, Dental Hygiene and Health Psychology in English. A national total was not published on the pages read.",
     "englishProof": "Varies by university. ISM accepts an International or European Baccalaureate diploma in place of a language test, and otherwise requires its own English test (55), TOEFL iBT 60, IELTS 6.0, Cambridge B2 169, PTE Academic 52 or Duolingo 115. LSMU states a requirement of IELTS above 5.5 or CEFR B1 or equivalent (its page also lists a TOEFL figure that reads as a typographical error - confirm directly). Vilnius University requires proof of language proficiency from its own approved list.",
@@ -80,7 +100,6 @@
       "Clinical placements in medicine involve Lithuanian-speaking patients, so medical students normally take Lithuanian language courses alongside the degree - check how your programme handles this."
     ]
   },
-
   "costs": {
     "tuitionEuEea": {
       "value": "State-funded places are open to EU citizens and cost nothing. Fee-paying places start 'from 1.300 EUR per year for Bachelor studies' as a national average across institutions, rising steeply for medicine. LSMU does not distinguish EU from non-EU tuition rates.",
@@ -93,13 +112,16 @@
       "source": "https://lsmu.lt/en/admission/tuition-fees/"
     },
     "applicationFee": "Vilnius University EUR 100 per application, non-refundable, covering up to three programme choices. ISM EUR 100. LSMU EUR 150 application fee plus a EUR 250 registration fee and a EUR 1,500 deposit for EU/EEA students.",
-    "livingCostMonthly": { "value": null, "year": null, "source": null },
+    "livingCostMonthly": {
+      "value": null,
+      "year": null,
+      "source": null
+    },
     "notes": [
       "Monthly living costs in Vilnius or Kaunas were not published on any official page read on 2026-09-22 - this figure needs checking before it is used on the site.",
       "Fees at LSMU step up in the clinical years, so budget for the higher figure from year 4."
     ]
   },
-
   "funding": [
     "State-funded ('budget') study places are open to EU citizens on the same terms as Lithuanians. This is the single most valuable form of funding available and is worth investigating before you look at scholarships.",
     "Individual universities run their own merit scholarships; details were not verified on the pages read.",
@@ -109,7 +131,6 @@
   "residency": "As a Danish or other EU citizen you have the right to live and study in Lithuania and complete a residence registration for stays over three months. Non-EU students need a national visa and a temporary residence permit arranged before travelling; Vilnius University keeps a dedicated page on visas and residence permits. The precise EU registration procedure was not confirmed on the pages read on 2026-09-22.",
   "housing": "Universities run dormitories and international offices normally help arrange a room once you accept a place. Rents in Vilnius and Kaunas are well below Nordic levels. Specific dormitory application deadlines were not published on the pages read.",
   "healthcare": "As an EU citizen bring your EU health insurance card for necessary care. Non-EU students must arrange health insurance as part of the residence permit application. Detailed requirements were not published on the pages read.",
-
   "institutions": [
     {
       "name": "Vilnius University",
@@ -121,7 +142,12 @@
       "admissionsUrl": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies",
       "ibPageUrl": null,
       "englishBachelors": "More than 30 bachelor's and integrated study programmes in English",
-      "notableFields": ["Economics", "Medicine", "Law", "Computer Science"],
+      "notableFields": [
+        "Economics",
+        "Medicine",
+        "Law",
+        "Computer Science"
+      ],
       "note": "One of the oldest universities in Northern Europe, with by far the widest English-taught choice in the Baltics and state-funded places open to EU citizens.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_University"
     },
@@ -135,7 +161,12 @@
       "admissionsUrl": "https://admissions.ktu.edu/",
       "ibPageUrl": null,
       "englishBachelors": "Part of a catalogue of more than 120 study programmes; the English-taught bachelor count was not published on the pages read",
-      "notableFields": ["Engineering", "Informatics", "Mechatronics", "Industrial Design"],
+      "notableFields": [
+        "Engineering",
+        "Informatics",
+        "Mechatronics",
+        "Industrial Design"
+      ],
       "note": "The main technical university, strongly tied to industry, and the obvious choice if you want engineering rather than medicine or business.",
       "wikipedia": "https://en.wikipedia.org/wiki/Kaunas_University_of_Technology"
     },
@@ -149,7 +180,12 @@
       "admissionsUrl": "https://lsmu.lt/en/admission/admission-process/",
       "ibPageUrl": null,
       "englishBachelors": "Medicine, Odontology, Veterinary Medicine, Pharmacy, Nursing, Physiotherapy, Occupational Therapy, Dental Hygiene and Health Psychology in English",
-      "notableFields": ["Medicine", "Dentistry", "Veterinary Medicine", "Public Health"],
+      "notableFields": [
+        "Medicine",
+        "Dentistry",
+        "Veterinary Medicine",
+        "Public Health"
+      ],
       "note": "The Baltic medical school most used to international applicants - and it exempts IB students with HL 5 in Biology and Chemistry from its entrance examination.",
       "wikipedia": "https://en.wikipedia.org/wiki/Lithuanian_University_of_Health_Sciences"
     },
@@ -163,7 +199,12 @@
       "admissionsUrl": "https://www.ism.lt/en/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Six: Business Management and Marketing; Economics and Politics; Economics and Data Analytics; Entrepreneurship and Innovation; International Business and Communication; Finance",
-      "notableFields": ["Economics", "Finance", "Data Analytics", "Entrepreneurship"],
+      "notableFields": [
+        "Economics",
+        "Finance",
+        "Data Analytics",
+        "Entrepreneurship"
+      ],
       "note": "Small private business school that accepts an IB diploma as English proof on its own, and runs an early admission round in April.",
       "wikipedia": "https://en.wikipedia.org/wiki/ISM_University_of_Management_and_Economics"
     },
@@ -177,7 +218,12 @@
       "admissionsUrl": "https://www.vdu.lt/en/studies/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Several across social sciences, humanities and IT; count not verified",
-      "notableFields": ["Political Science", "World Politics and Economy", "Informatics", "Social Anthropology"],
+      "notableFields": [
+        "Political Science",
+        "World Politics and Economy",
+        "Informatics",
+        "Social Anthropology"
+      ],
       "note": "The most liberal-arts-like university in Lithuania - you take a minor alongside your major, which suits IB students used to breadth.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vytautas_Magnus_University"
     },
@@ -191,7 +237,12 @@
       "admissionsUrl": "https://vilniustech.lt/english/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Several in engineering, architecture, aviation and business; count not verified",
-      "notableFields": ["Civil Engineering", "Aviation", "Architecture", "Mechanical Engineering"],
+      "notableFields": [
+        "Civil Engineering",
+        "Aviation",
+        "Architecture",
+        "Mechanical Engineering"
+      ],
       "note": "Strong in civil engineering and aeronautics, including an aviation engineering programme you will not find elsewhere in the region.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_Gediminas_Technical_University"
     },
@@ -205,7 +256,12 @@
       "admissionsUrl": "https://www.mruni.eu/en/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Several in law, business and public governance; count not verified",
-      "notableFields": ["Law", "Public Governance", "Cybersecurity", "Business"],
+      "notableFields": [
+        "Law",
+        "Public Governance",
+        "Cybersecurity",
+        "Business"
+      ],
       "note": "Social sciences and law focused, with English-taught law programmes that are rare in continental Europe.",
       "wikipedia": "https://en.wikipedia.org/wiki/Mykolas_Romeris_University"
     },
@@ -219,7 +275,11 @@
       "admissionsUrl": "https://www.ku.lt/en/admission/",
       "ibPageUrl": null,
       "englishBachelors": "A small number, mainly marine and environmental; count not verified",
-      "notableFields": ["Marine Science", "Maritime Engineering", "Ecology"],
+      "notableFields": [
+        "Marine Science",
+        "Maritime Engineering",
+        "Ecology"
+      ],
       "note": "Lithuania's only coastal university and the place for marine science; small, and outside the capital.",
       "wikipedia": "https://en.wikipedia.org/wiki/Klaip%C4%97da_University"
     },
@@ -233,7 +293,12 @@
       "admissionsUrl": "https://lcc.lt/admissions/",
       "ibPageUrl": null,
       "englishBachelors": "All bachelor programmes taught in English",
-      "notableFields": ["International Business", "Psychology", "English Language and Literature", "Theology"],
+      "notableFields": [
+        "International Business",
+        "Psychology",
+        "English Language and Literature",
+        "Theology"
+      ],
       "note": "An American-style liberal arts college on the Baltic coast where everything is taught in English and classes are very small.",
       "wikipedia": "https://en.wikipedia.org/wiki/LCC_International_University"
     },
@@ -247,7 +312,12 @@
       "admissionsUrl": "https://www.vda.lt/en/admission",
       "ibPageUrl": null,
       "englishBachelors": "Bachelor teaching is mainly in Lithuanian; English-taught bachelor options not verified",
-      "notableFields": ["Graphic Design", "Fine Art", "Architecture", "Textile"],
+      "notableFields": [
+        "Graphic Design",
+        "Fine Art",
+        "Architecture",
+        "Textile"
+      ],
       "note": "The national art academy, with campuses in four cities; entry is portfolio-based and you should assume Lithuanian at bachelor level unless told otherwise.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_Academy_of_Arts"
     },
@@ -261,7 +331,12 @@
       "admissionsUrl": "https://lmta.lt/en/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Bachelor teaching is mainly in Lithuanian; English-taught bachelor options not verified",
-      "notableFields": ["Performance", "Composition", "Theatre", "Film"],
+      "notableFields": [
+        "Performance",
+        "Composition",
+        "Theatre",
+        "Film"
+      ],
       "note": "The national conservatoire and drama school; entry is by audition.",
       "wikipedia": "https://en.wikipedia.org/wiki/Lithuanian_Academy_of_Music_and_Theatre"
     },
@@ -275,22 +350,70 @@
       "admissionsUrl": "https://en.kaunokolegija.lt/admission/",
       "ibPageUrl": null,
       "englishBachelors": "A small number of professional bachelor programmes in English; count not verified",
-      "notableFields": ["Business", "Health Care", "Media Technology"],
+      "notableFields": [
+        "Business",
+        "Health Care",
+        "Media Technology"
+      ],
       "note": "Applied and vocational rather than academic - professional bachelor degrees with placements, and lower entry requirements than the universities.",
       "wikipedia": "https://en.wikipedia.org/wiki/Kauno_kolegija"
     }
   ],
-
   "sources": [
-    { "title": "Study in Lithuania - Application procedure", "url": "https://studyin.lt/how-to-apply/application-procedure/", "retrieved": "2026-09-22" },
-    { "title": "Study in Lithuania - Tuition fees", "url": "https://studyin.lt/how-to-apply/tuition-fees/", "retrieved": "2026-09-22" },
-    { "title": "Study in Lithuania - home page and admission requirements", "url": "https://studyin.lt/", "retrieved": "2026-09-22" },
-    { "title": "Vilnius University - Admissions to bachelor studies", "url": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies", "retrieved": "2026-09-22" },
-    { "title": "LSMU - Admission process", "url": "https://lsmu.lt/en/admission/admission-process/", "retrieved": "2026-09-22" },
-    { "title": "LSMU - Tuition fees 2026/2027", "url": "https://lsmu.lt/en/admission/tuition-fees/", "retrieved": "2026-09-22" },
-    { "title": "LSMU - Admission", "url": "https://lsmu.lt/en/admission/", "retrieved": "2026-09-22" },
-    { "title": "ISM University of Management and Economics - Admission", "url": "https://www.ism.lt/en/admission/", "retrieved": "2026-09-22" },
-    { "title": "KTU - Admissions", "url": "https://admissions.ktu.edu/", "retrieved": "2026-09-22" },
-    { "title": "Founding years and institution types are taken from the English Wikipedia article linked in each institution's wikipedia field, not from a fetched university page.", "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Lithuania", "retrieved": "2026-09-22" }
-  ]
+    {
+      "title": "Study in Lithuania - Application procedure",
+      "url": "https://studyin.lt/how-to-apply/application-procedure/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Lithuania - Tuition fees",
+      "url": "https://studyin.lt/how-to-apply/tuition-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Study in Lithuania - home page and admission requirements",
+      "url": "https://studyin.lt/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Vilnius University - Admissions to bachelor studies",
+      "url": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "LSMU - Admission process",
+      "url": "https://lsmu.lt/en/admission/admission-process/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "LSMU - Tuition fees 2026/2027",
+      "url": "https://lsmu.lt/en/admission/tuition-fees/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "LSMU - Admission",
+      "url": "https://lsmu.lt/en/admission/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ISM University of Management and Economics - Admission",
+      "url": "https://www.ism.lt/en/admission/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "KTU - Admissions",
+      "url": "https://admissions.ktu.edu/",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Founding years and institution types are taken from the English Wikipedia article linked in each institution's wikipedia field, not from a fetched university page.",
+      "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Lithuania",
+      "retrieved": "2026-09-22"
+    }
+  ],
+  "artDirection": {
+    "accent": "#6A7A5E",
+    "pattern": "latitude",
+    "focal": "50% 45%"
+  }
 }
