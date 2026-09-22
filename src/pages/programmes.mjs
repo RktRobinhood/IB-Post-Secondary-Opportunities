@@ -581,6 +581,13 @@ ${hero({
           <button type="button" class="chip" data-show="does-not-currently-meet" aria-pressed="false">Does not currently meet</button>
         </div>
         <ul class="prog-list" id="p-results"></ul>
+        <noscript>
+          <p class="state state--empty">The subject checker needs JavaScript, because it runs entirely in your
+          browser — that is also why nothing you type is sent anywhere. Without it, every programme and its
+          exact entry requirements are still listed under
+          <a href="${url('/programmes/')}">Find a degree</a>, and the conversion tables are on the
+          <a href="${url('/denmark/ib-conversion/')}">conversion page</a>.</p>
+        </noscript>
 
         ${note(
           `Four outcomes, and they mean exactly what they say. **Meets published requirements** means every

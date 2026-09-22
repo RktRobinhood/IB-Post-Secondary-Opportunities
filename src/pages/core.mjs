@@ -597,6 +597,10 @@ ${hero({
     </form>
 
     <div id="cmp-tray"></div>
+    <noscript>
+      <p class="state state--empty">Choosing destinations to compare needs JavaScript. The full table below
+      works without it, and every destination page carries the same seven dimensions in full.</p>
+    </noscript>
 
     ${sectionHead({
       eyebrow: `${assessed.length} destinations`,

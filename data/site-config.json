@@ -1,0 +1,49 @@
+{
+  "title": "Settings a person has to decide, not a script",
+  "schemaVersion": "1.0",
+  "dataAsOf": "2026-09-22",
+
+  "corrections": {
+    "repository": "https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities",
+    "issuesUrl": "https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities/issues/new",
+
+    "contactEmail": null,
+    "contactEmailNote": "REQUIRED BEFORE PUBLIC LAUNCH. Reporting a wrong deadline must not require a GitHub account — a student who spots a mistake at 23:00 the night before a deadline needs somewhere to send it. Put a monitored school address here (a shared counselling inbox is better than a personal one). scripts/release-check.mjs fails while this is empty.",
+
+    "counsellorRoute": "Tell your study counsellor or a teacher. They can report it on your behalf, and they will usually know whether it is a mistake here or a change at the university.",
+
+    "responseTargets": {
+      "unsafeClaim": "Removed or marked as unverified within one working day of being reported, while it is checked.",
+      "deadlineOrRequirement": "Checked within three working days. These are the claims that cost a student a year.",
+      "anythingElse": "Checked at the next review pass."
+    }
+  },
+
+  "independence": {
+    "sponsorship": "none",
+    "affiliateLinks": "none",
+    "paidPlacement": "none",
+    "institutionalRelationships": "The site is maintained at Ikast-Brande Gymnasium. No institution listed on it has been consulted about, paid for, or given sight of its own entry before publication.",
+    "conflicts": []
+  },
+
+  "ordering": {
+    "default": "alphabetical",
+    "explanation": "Destinations, institutions and programmes are listed alphabetically unless a student chooses otherwise. Nothing on this site is ranked, and no institution can change where it appears.",
+    "studentControlled": ["field", "institution", "city", "open admission", "no Mathematics A", "place"]
+  },
+
+  "privacy": {
+    "accountsRequired": false,
+    "dataCollected": "none",
+    "analytics": "none",
+    "cookies": "none",
+    "localStorageKeys": [
+      { "key": "ibp-theme", "holds": "light or dark preference" },
+      { "key": "ibp-motion", "holds": "reduced-motion preference" },
+      { "key": "ibp-profile-v2", "holds": "IB subjects, levels, grades, predicted total and fee status" },
+      { "key": "ibp-compare", "holds": "which destinations you chose to compare" }
+    ],
+    "plainLanguage": "Nothing you type here is sent anywhere. Your subjects and grades are stored in your own browser, on this device only. There are no accounts, no cookies and no analytics of any kind — not anonymised analytics, none. Clearing your browser data, or using the clear button on the subject checker, erases it."
+  }
+}

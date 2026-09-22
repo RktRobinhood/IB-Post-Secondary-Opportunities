@@ -77,7 +77,7 @@ const FLAGS = {
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -90,6 +90,7 @@ export async function load() {
       loadCanonical(),
       readJson(path.join(DATA, 'ib-subjects.json'), { subjects: [] }),
       readJson(path.join(DATA, 'preparation.json')),
+      readJson(path.join(DATA, 'site-config.json')),
     ]);
 
   // Denmark is the pilot: its pages render from the canonical entity graph.
@@ -205,6 +206,8 @@ export async function load() {
     graph: canonical.graph,
     ibSubjects: ibSubjects.subjects || [],
     preparation,
+    config,
+    evidenceSummary: summariseEvidence(canonical.graph),
     fromCanonical: canonical.institutions.length > 0,
     topics: Object.fromEntries(topics.map((t) => [slugify(t.title || 'topic'), t])),
     topicList: topics,
@@ -214,6 +217,22 @@ export async function load() {
     glossary,
     faq,
   };
+}
+
+/** The state of the evidence, reported on every build and on the trust page. */
+function summariseEvidence(graph) {
+  const out = { verified: 0, needsReview: 0, stale: 0, superseded: 0, unavailable: 0, conflicting: 0, total: 0 };
+  const today = new Date().toISOString().slice(0, 10);
+  for (const e of graph?.evidence?.values() || []) {
+    out.total++;
+    if ((e.conflictsWith || []).length) out.conflicting++;
+    else if (e.verificationState === 'unavailable') out.unavailable++;
+    else if (e.verificationState === 'superseded') out.superseded++;
+    else if (e.meta?.reviewBy && e.meta.reviewBy < today) out.stale++;
+    else if (e.verificationState === 'needs-review') out.needsReview++;
+    else out.verified++;
+  }
+  return out;
 }
 
 /* --- Picture resolution --------------------------------------------------- */

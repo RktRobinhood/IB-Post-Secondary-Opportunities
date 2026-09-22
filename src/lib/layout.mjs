@@ -86,6 +86,7 @@ const FOOTER = [
       { href: '/about/', label: 'About this site' },
       { href: '/glossary/', label: 'Glossary' },
       { href: '/faq/', label: 'Questions' },
+      { href: '/trust/', label: 'Trust and corrections' },
       { href: '/credits/', label: 'Photo credits' },
     ],
   },
@@ -221,7 +222,7 @@ ${o.body}
         <input type="checkbox" id="motion-toggle">
         Reduce motion
       </label>
-      <p style="margin:0"><a href="${url('/credits/')}">Sources &amp; photo credits</a></p>
+      <p style="margin:0"><a href="${url('/trust/#wrong')}">Something wrong on this page? Tell us</a> · <a href="${url('/credits/')}">Sources &amp; credits</a></p>
     </div>
   </div>
 </footer>

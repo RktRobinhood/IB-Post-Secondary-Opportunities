@@ -5,7 +5,9 @@
   "type": "module",
   "description": "A guide to English-taught post-secondary opportunities for IB Diploma students.",
   "license": "MIT",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "node src/build.mjs",
     "dev": "node scripts/serve.mjs --watch",
@@ -21,6 +23,7 @@
     "images": "node scripts/fetch-images.mjs",
     "images:official": "node scripts/fetch-official-images.mjs",
     "test:eligibility": "node scripts/test-eligibility.mjs",
-    "test": "node scripts/validate.mjs && node scripts/test-eligibility.mjs && node src/build.mjs && node scripts/check.mjs"
+    "test": "node scripts/validate.mjs && node scripts/test-eligibility.mjs && node src/build.mjs && node scripts/check.mjs",
+    "release-check": "node scripts/release-check.mjs"
   }
 }

@@ -15,6 +15,7 @@ import * as dk from './pages/denmark.mjs';
 import * as prog from './pages/programmes.mjs';
 import * as meta from './pages/meta.mjs';
 import { prepare } from './pages/prepare.mjs';
+import { trust } from './pages/trust.mjs';
 import { slugify } from './lib/html.mjs';
 import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
@@ -267,6 +268,7 @@ async function main() {
   await write('/glossary/', meta.glossary());
   await write('/faq/', meta.faq());
   await write('/credits/', meta.credits(site));
+  await write('/trust/', trust(site));
   await write('/404.html', meta.notFound());
 
   /* Assets */
