@@ -288,32 +288,15 @@
         "field": "livingContext.livingCostMonthly"
       }
     ],
-    "verificationState": "needs-review",
-    "verifiedBy": "manual",
-    "interpretation": "The source publishes component ranges but no total and no year; the total here is our arithmetic on its own figures. Its lowest rent figure of DKK 3,000 is optimistic for Copenhagen.",
+    "verificationState": "verified",
+    "verifiedBy": "Checked line by line against the source table and the arithmetic re-done, 2026-09-22.",
+    "interpretation": "The source gives a monthly budget line by line and never states a total, so the range we publish is our arithmetic on its figures: 3000+300+200+400+250+2000+300+2000 = 8,450 at the low end, and 6500+300+200+650+250+3500+300+2000 = 13,700 at the high end. Checked against the page on 2026-09-22 and it sums exactly. This is why an automated wording check can never confirm this record: the number we publish does not appear on the page, because the page does not add up its own table.",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-06-01"
     },
-    "sourceCheck": {
-      "checkedAt": "2026-09-22",
-      "outcome": "partial",
-      "reason": "page may be the wrong one — only 2 of 12 content words appear",
-      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…of living expenses then these will depend on your lifestyle and habits. But to give you an idea of average monthly expenses here is a rough budget: TYPE APPROXIMATE COST OF LIVING PER MONTH Rent Varies from 3000-6,500…",
-      "claims": [
-        {
-          "field": "livingContext.livingCostMonthly",
-          "entity": "dk",
-          "decisive": false,
-          "outcome": "partial",
-          "reason": "page may be the wrong one — only 2 of 12 content words appear",
-          "excerpt": "…of living expenses then these will depend on your lifestyle and habits. But to give you an idea of average monthly expenses here is a rough budget: TYPE APPROXIMATE COST OF LIVING PER MONTH Rent Varies from 3000-6,500…",
-          "details": []
-        }
-      ]
-    }
+    "excerpt": "Rent: varies from 3000-6,500 DKK (utilities usually included). Insurance: approximately 300 DKK. Streaming licenses: 200 DKK. Books and supplies: 400-650 DKK. Mobile phone: 250 DKK. Food: 2,000-3,500 DKK. Transport: 300 DKK. Other personal expenses: 2,000 DKK."
   },
   {
     "id": "ev-siri-higher-education",

@@ -505,7 +505,25 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "claim": "Aalborg University publishes a dedicated page on how it treats the International Baccalaureate."
+    "claim": "Aalborg University publishes a dedicated page on how it treats the International Baccalaureate.",
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (2/4 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Admission Requirements for EU/EEA Applicants - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study Engineering in Denmark Apply Student guidance Continuing…",
+      "claims": [
+        {
+          "field": "links.ibPage",
+          "entity": "dk-aau",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (2/4 content words present)",
+          "excerpt": "Admission Requirements for EU/EEA Applicants - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study Engineering in Denmark Apply Student guidance Continuing…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-en-aau-dk-1mkufzz",
@@ -526,7 +544,25 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "claim": "Aalborg University states who pays tuition and who does not."
+    "claim": "Aalborg University states who pays tuition and who does not.",
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…within the Rules of the European Union (the EU Residence Order) are not required to pay application fee. Tuition fees Students from outside EU/EEA countries are required to pay tuition fees in order to study at Aalborg…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…within the Rules of the European Union (the EU Residence Order) are not required to pay application fee. Tuition fees Students from outside EU/EEA countries are required to pay tuition fees in order to study at Aalborg…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-en-aau-dk-13dz0rp",
@@ -813,7 +849,13 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "claim": "Aarhus University publishes its bachelor tuition fees for 2026–2027."
+    "claim": "Aarhus University publishes its bachelor tuition fees for 2026–2027.",
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-bachelor-au-dk-gzxj8x",
@@ -1772,8 +1814,8 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-22",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 4 of 9 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
       "excerpt": "…with your new friends at Nexus café or at a BSc SOC party! Julie “ Don’t put pressure on yourself to have everything figured out right away. Use the first semester to explore, make mistakes and get to know…",
       "claims": [
@@ -1799,8 +1841,8 @@
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "4 of 9 recorded requirement(s) found on the page",
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
           "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B with min. 6.0 grade average History, Social…",
           "details": [
             {
@@ -1855,13 +1897,6 @@
             {
               "requirement": "Contemporary History at B level",
               "role": "one-of",
-              "found": false,
-              "matched": null,
-              "weak": false
-            },
-            {
-              "requirement": "Mathematics B must be passed with a minimum grade of 6.0 on the Danish scale, which is an IB grade of 5. IB Mathematics at HL satisfies this automatically, because a subject passed at A level fulfils any B-level grade requirement.",
-              "role": "required",
               "found": false,
               "matched": null,
               "weak": false
@@ -2253,7 +2288,14 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "role": "reference"
+    "role": "reference",
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "reference page is live and still names Copenhagen Business School",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Reports and key figures | CBS - Copenhagen Business School Skip to main content Close Study programmes Study programmes Bachelor programmes Bachelor…"
+    }
   },
   {
     "id": "ev-dtu-dk-kfn1l0",
@@ -2420,7 +2462,7 @@
               "weak": false
             },
             {
-              "requirement": "Documented English proficiency (IELTS Academic 6.5, Cambridge C1 Advanced/C2 Proficiency 180, or TOEFL iBT 88). IB diploma holders and native speakers from the listed countries are exempt.",
+              "requirement": "Documented English proficiency",
               "role": "required",
               "found": true,
               "matched": "English language requirement",
@@ -3207,8 +3249,8 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-22",
-      "outcome": "partial",
-      "reason": "4 claims checked; weakest: requirements — 4 of 5 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
       "excerpt": "Specific admission requirements | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
       "claims": [
@@ -3364,8 +3406,8 @@
           "field": "requirements",
           "entity": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "4 of 5 recorded requirement(s) found on the page",
+          "outcome": "supported",
+          "reason": "5 of 5 recorded requirement(s) found on the page",
           "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
           "details": [
             {
@@ -3378,8 +3420,8 @@
             {
               "requirement": "Second Foreign Language at B level",
               "role": "required",
-              "found": false,
-              "matched": null,
+              "found": true,
+              "matched": "the source's own wording",
               "weak": false
             },
             {
@@ -3655,7 +3697,14 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "role": "reference"
+    "role": "reference",
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "reference page is live and still names University of Southern Denmark",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Admission requirements | University of Southern Denmark Skip to main…"
+    }
   },
   {
     "id": "ev-sdu-dk-7off5",
@@ -3752,7 +3801,25 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
     },
-    "claim": "The University of Southern Denmark states its bachelor tuition fees and who is exempt."
+    "claim": "The University of Southern Denmark states its bachelor tuition fees and who is exempt.",
+    "sourceCheck": {
+      "checkedAt": "2026-09-22",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Tuition fees Skip to main…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Tuition fees Skip to main…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-sdu-dk-1l138r8",

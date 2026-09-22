@@ -203,6 +203,13 @@ async function main() {
     `  evidence: ${ev.verified} verified · ${ev.needsReview} awaiting review · ${ev.stale} stale · ` +
       `${ev.superseded} superseded · ${ev.unavailable} unavailable · ${ev.conflicting} conflicting`
   );
+  const sc = site.evidenceSummary || {};
+  if (sc.sourceChecked) {
+    console.log(
+      `  sources:  ${sc.sourceChecked} re-read (${sc.sourceSupported} carry the wording · ` +
+        `${sc.sourcePartial} partial · ${sc.sourceUnsupported} not found), last on ${sc.lastCheckedAt}`
+    );
+  }
 
   const problems = validate(site);
   const errors = problems.filter((p) => p.level === 'error');

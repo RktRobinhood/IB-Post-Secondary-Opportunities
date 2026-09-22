@@ -221,10 +221,25 @@ export async function load() {
 
 /** The state of the evidence, reported on every build and on the trust page. */
 function summariseEvidence(graph) {
-  const out = { verified: 0, needsReview: 0, stale: 0, superseded: 0, unavailable: 0, conflicting: 0, total: 0 };
+  const out = {
+    verified: 0, needsReview: 0, stale: 0, superseded: 0, unavailable: 0, conflicting: 0, total: 0,
+    // Source checks are a SECOND axis, not a rung on the same ladder. A record
+    // can be unreviewed by a person and still have had its page re-read and the
+    // supporting sentence quoted onto it. Reporting them as one number would
+    // hide which of the two a reader is actually getting.
+    sourceChecked: 0, sourceSupported: 0, sourcePartial: 0, sourceUnsupported: 0, lastCheckedAt: null,
+  };
   const today = new Date().toISOString().slice(0, 10);
   for (const e of graph?.evidence?.values() || []) {
     out.total++;
+    const sc = e.sourceCheck;
+    if (sc?.outcome) {
+      out.sourceChecked++;
+      if (sc.outcome === 'supported') out.sourceSupported++;
+      else if (sc.outcome === 'partial') out.sourcePartial++;
+      else out.sourceUnsupported++;
+      if (sc.checkedAt && (!out.lastCheckedAt || sc.checkedAt > out.lastCheckedAt)) out.lastCheckedAt = sc.checkedAt;
+    }
     if ((e.conflictsWith || []).length) out.conflicting++;
     else if (e.verificationState === 'unavailable') out.unavailable++;
     else if (e.verificationState === 'superseded') out.superseded++;

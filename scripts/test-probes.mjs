@@ -9,7 +9,7 @@
  * exactly like a real finding. So: no probe may contain a control character.
  */
 import assert from 'node:assert/strict';
-import { subjectProbes, milestoneProbes, probesForRequirements, runProbes } from './lib/claim-probe.mjs';
+import { subjectProbes, milestoneProbes, probesForRequirements, officialWordingProbe, runProbes } from './lib/claim-probe.mjs';
 import { htmlToText } from './lib/html-text.mjs';
 
 let failures = 0;
@@ -70,6 +70,34 @@ check('a deadline does NOT match a different day', () => {
   const g = milestoneProbes({ date: '2027-03-15', timeOfDay: '12:00' });
   assert.equal(runProbes(g, 'The deadline is 16 March').found, false);
 });
+
+const RUC = {
+  kind: 'ib-subject',
+  subject: 'Second Foreign Language',
+  level: 'B',
+  officialWording: {
+    text: 'One additional language – either beginner’s language at Danish A-level or advanced language at Danish B-level',
+    official: true,
+  },
+};
+
+check("the source's own wording matches the page verbatim", () => {
+  const page = htmlToText(
+    '<p>One additional language &ndash; either beginner&rsquo;s language at Danish A-level or advanced language at Danish B-level</p>'
+  );
+  assert.ok(runProbes(subjectProbes(RUC), page).found);
+});
+
+check('official wording tolerates a different dash and a straight apostrophe', () => {
+  const page = "One additional language - either beginner's language at Danish A-level or advanced language at Danish B-level";
+  assert.ok(officialWordingProbe(RUC).re.test(page));
+});
+
+check('official wording does NOT match a page that dropped the rule', () =>
+  assert.equal(officialWordingProbe(RUC).re.test('One additional language is recommended.'), false));
+
+check('a too-short officialWording is ignored rather than matching everything', () =>
+  assert.equal(officialWordingProbe({ officialWording: { text: 'English B' } }), null));
 
 check('one-of branches are marked as such, not as required', () => {
   const groups = probesForRequirements([

@@ -56,10 +56,43 @@ export const norm = (s) =>
  * Probes for one `ib-subject` requirement.
  * `must` probes decide the verdict; `support` probes only enrich the excerpt.
  */
+/**
+ * A probe built from the source's own wording, when we kept it.
+ *
+ * This is the strongest check available, and the only one that is not a guess
+ * about phrasing: `officialWording` is verbatim from the page, so if it is not
+ * there any more, the page genuinely changed. It also rescues the cases where
+ * our structured shape legitimately differs from the source's — Roskilde writes
+ * "either beginner's language at A-level or advanced language at B-level" where
+ * we record one B-level requirement, and no amount of subject-and-level
+ * matching will ever reconcile those two sentences.
+ *
+ * Tolerant about the things that differ between a page and a stored string —
+ * runs of whitespace, which dash was used, straight versus curly apostrophes —
+ * and about nothing else.
+ */
+export function officialWordingProbe(req) {
+  const raw = norm(req?.officialWording?.text || '');
+  if (raw.length < 25) return null;
+  const pattern = raw
+    .split(/\s+/)
+    .map((word) => esc(word).replace(/[–—-]/g, '[–—-]').replace(/'/g, "['’]"))
+    .join('\\s+');
+  return {
+    kind: 'must',
+    label: 'the source\'s own wording',
+    re: new RegExp(pattern, 'i'),
+  };
+}
+
 export function subjectProbes(req) {
   const names = SUBJECT_NAMES[req.subject] || [req.subject];
   const lvl = req.level ? esc(req.level) : null;
   const out = [];
+
+  // Tried first, because a verbatim match is worth more than any inference.
+  const official = officialWordingProbe(req);
+  if (official) out.push(official);
 
   for (const name of names) {
     const n = esc(name);

@@ -260,6 +260,32 @@ function evaluateRule(rule, ctx) {
     case 'language-general':
     case 'language-programme': {
       const languages = (profile.languages || []).map(normalise);
+
+      /* Exemptions, before anything else.
+       *
+       * Most English-taught degrees in Europe require a documented English test
+       * and then exempt IB Diploma holders from it. Recording only the test is
+       * technically true and practically a lie for this site's entire audience:
+       * the engine cannot evaluate "documented IELTS 6.5", so it answers
+       * "unknown", and a student who is explicitly exempt is shown Needs review
+       * on a programme they qualify for. DTU General Engineering did exactly
+       * that until this was added.
+       *
+       * `satisfiedBy` is the schema's existing field for "named alternative
+       * ways to meet it", which is precisely what an exemption is. */
+      const satisfiedBy = (rule.satisfiedBy || []).map(normalise);
+      if (satisfiedBy.includes('ib-diploma')) {
+        if (profile.holdsDiploma === true) {
+          return { status: 'met', message: `Holders of a full IB Diploma are exempt from this requirement.` };
+        }
+        if (profile.holdsDiploma === false) {
+          return {
+            status: 'unknown',
+            message: `${rule.label || 'A language requirement'} — the exemption is for full IB Diploma holders, so with Course Results you would need to meet it directly. Check the official page.`,
+          };
+        }
+      }
+
       if (rule.subject && held.has(rule.subject)) {
         return { status: 'met', message: `${rule.subject} is covered by your IB subjects.` };
       }

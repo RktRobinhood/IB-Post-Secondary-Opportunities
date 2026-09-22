@@ -416,6 +416,55 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   }
 }
 
+/* --- Exemptions -----------------------------------------------------------
+ *
+ * Most English-taught European degrees require a documented English test and
+ * then exempt IB Diploma holders. Recording only the test and not the exemption
+ * shows "Needs review" to a student who is explicitly excused from it, which is
+ * both wrong and exactly the kind of wrong that nobody reports.
+ */
+{
+  const withTest = {
+    id: 'test-exempt',
+    requirements: [
+      {
+        id: 'r1',
+        kind: 'language-general',
+        mandatory: true,
+        label: 'Documented English proficiency',
+        satisfiedBy: ['ib-diploma'],
+      },
+    ],
+  };
+  const subjects = [{ subject: 'english-a-language-and-literature', level: 'HL', grade: 6 }];
+
+  eq(
+    'a full IB Diploma is exempt from a documented English test',
+    assess(profile(subjects, { holdsDiploma: true }), withTest, options).outcome,
+    OUTCOME.MEETS
+  );
+  eq(
+    'Course Results are NOT exempt — the waiver is for the Diploma',
+    assess(profile(subjects, { holdsDiploma: false }), withTest, options).outcome,
+    OUTCOME.NEEDS_REVIEW
+  );
+  eq(
+    'an unstated Diploma status does not assume the exemption',
+    assess(profile(subjects, { holdsDiploma: undefined }), withTest, options).outcome,
+    OUTCOME.NEEDS_REVIEW
+  );
+
+  const noExemption = {
+    id: 'test-no-exempt',
+    requirements: [{ id: 'r1', kind: 'language-general', mandatory: true, label: 'Documented English proficiency' }],
+  };
+  eq(
+    'without satisfiedBy, a Diploma holder is still asked to check',
+    assess(profile(subjects, { holdsDiploma: true }), noExemption, options).outcome,
+    OUTCOME.NEEDS_REVIEW
+  );
+}
+
 /* --- report ------------------------------------------------------------------ */
 
 console.log('');

@@ -81,17 +81,40 @@ ${hero({
           rows: [
             ['Discovered', 'A possible claim and a source have been found.', 'Nothing. It is not published.'],
             ['Structured', 'Entered as a record, with its applicability and its source.', 'Nothing yet.'],
+            ['Source checked', 'A script re-opened the page, found the supporting wording and quoted it onto the record. Not sign-off.', 'Shown, with the quotation available.'],
             ['Verified', 'A person read the source and confirmed it supports the wording.', 'Shown normally.'],
             ['Published', 'Visible for a stated intake.', 'Shown with its intake and check date.'],
             ['Needs review', 'The interval elapsed, the source changed, or sources conflict.', 'Shown with a caveat, or held back entirely if the evidence is stale or contested.'],
             ['Superseded or unavailable', 'No longer current, but still traceable.', 'Not used as current evidence.'],
           ],
         })}
+        <h3 id="numbers">Where this currently stands</h3>
+        <p>There are two separate questions here, and rolling them into one number would hide which of them
+        you are actually getting an answer to.</p>
+        ${dataTable({
+          caption: `The condition of ${ev.total || 0} evidence records`,
+          head: ['', 'How many', 'What it means'],
+          rows: [
+            [
+              html`<strong>Signed off by a person</strong>`,
+              String(ev.verified || 0),
+              'Someone read the source and confirmed it says what we say it says. This is the number that carries real weight.',
+            ],
+            [
+              html`<strong>Source re-read automatically</strong>`,
+              String(ev.sourceChecked || 0),
+              html`The cited page was fetched again and searched for the claim it is meant to support — ${String(ev.sourceSupported || 0)} carry the wording, ${String(ev.sourcePartial || 0)} partly, ${String(ev.sourceUnsupported || 0)} not at all. The supporting sentence is quoted onto the record.`,
+            ],
+          ],
+        })}
         ${note(
-          `**Where this currently stands: ${ev.verified || 0} verified, ${ev.needsReview || 0} awaiting review.**
-          The verified records are the Danish national rules, read page by page. The rest came from research
-          that did read official pages, but no person has signed them off one at a time. Every build prints
-          that ratio so it cannot quietly rot.`,
+          `**A machine finding the words is not the same as a person agreeing with them**, and this site will
+          not blur that line: an automated check can confirm that "Matematik A" is still printed on the page
+          it was taken from, and it cannot notice that the page now means something different by it. So the
+          automated pass never sets a record to verified — it only puts the quotation next to the claim, which
+          turns a reviewer's job from opening a hundred tabs into reading a hundred sentences.
+          ${ev.lastCheckedAt ? `Last run on ${ev.lastCheckedAt}.` : ''} Every build prints both numbers, so
+          neither can quietly rot.`,
           { kind: 'warn', title: 'The honest number' }
         )}
 
@@ -159,6 +182,7 @@ ${hero({
             <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
               <li><a href="#wrong">Report a mistake</a></li>
               <li><a href="#lifecycle">How a claim gets published</a></li>
+              <li><a href="#numbers">Where this stands</a></li>
               <li><a href="#ai">What automation may do</a></li>
               <li><a href="#independence">Who pays for this</a></li>
               <li><a href="#ordering">Why this order</a></li>
