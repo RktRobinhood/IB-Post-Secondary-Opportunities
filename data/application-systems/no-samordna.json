@@ -1,0 +1,33 @@
+{
+  "id": "no-samordna",
+  "name": "Samordna opptak",
+  "localName": "Samordna opptak (NUCAS)",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "no",
+    "authority": "Samordna opptak",
+    "area": "Norway"
+  },
+  "portalUrl": "https://www.samordnaopptak.no/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Norwegian-taught bachelor programmes at the public universities and university colleges.",
+    "excludes": "English-taught programmes and private institutions, which are generally applied for directly. That exclusion is the one that matters for most IB applicants, because it covers nearly everything they can actually study."
+  },
+  "choiceRules": {
+    "limit": 10,
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "Ten ranked choices, and the ranking is unusually consequential: an offer on a higher choice makes every lower one disappear, and there is no wait-list for a choice that has gone. The order must be right by 1 July, which is why that date is a deadline in its own right rather than an administrative detail."
+  },
+  "identityRequirement": "An account on the portal, normally with a Norwegian or other Nordic electronic ID.",
+  "decisionModel": "Eligibility, then competition on a converted points score. Most programmes are decided on that number alone, with quotas for applicants under 21 and for those applying on the basis of prior work.",
+  "replyModel": "Offers are made in a main round in July, after the documentation and re-prioritisation deadlines have passed.",
+  "evidence": [
+    "ev-samordna-frister"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22"
+  }
+}

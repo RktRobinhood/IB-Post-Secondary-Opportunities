@@ -1,0 +1,123 @@
+{
+  "id": "no",
+  "iso2": "no",
+  "name": "Norway",
+  "adjective": "Norwegian",
+  "scope": "europe",
+  "region": "Nordic",
+  "capital": "Oslo",
+  "currency": "NOK",
+  "membership": {
+    "eu": false,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Free, close to home, and almost entirely in Norwegian",
+  "summary": "Norway charges EEA students no tuition and sits an hour from Copenhagen, which makes it look like an obvious option for a Danish IB student. The obstacle is not cost or distance or recognition. It is that Norwegian higher education is taught in Norwegian: several of the largest universities offer no English-taught bachelor programme at all, and the English-taught set nationally is small enough to list. Norway is an excellent destination for a student who will learn the language, and a very thin one for a student who will not.",
+  "whyConsider": [
+    "No tuition at public institutions for EEA citizens. Only a semester fee, which is small.",
+    "A Danish speaker reaches functional Norwegian faster than almost any other second language, which converts a narrow destination into a wide one.",
+    "Nordic mobility arrangements are well established, and for a Danish student SU treats Nordic study more generously than the rest."
+  ],
+  "watchOuts": [
+    "The documentation window closes on 1 July and IB results are published on 6 July. Settle in writing, early, how the programme you want will receive results that arrive after its deadline. This is the first question to ask about Norway, not the last.",
+    "English-taught bachelor programmes are scarce. Check the specific programme rather than the university, because a university with English-taught master’s degrees may have none at bachelor level.",
+    "Ranking is binding in an unusual way: an offer on a higher choice makes every lower choice disappear, and you cannot wait-list for one that has gone. The order has to be right by 1 July.",
+    "Oslo and Bergen are expensive places to live, and that, rather than tuition, is what a Norwegian year costs."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "A full IB Diploma gives general admission qualification (generell studiekompetanse). Points convert onto the Norwegian scale, and competitive programmes are decided on that converted number.",
+    "subjectLevelRule": "Specific requirements apply to particular programmes, most often mathematics and science at stated Norwegian course levels. Checked per programme rather than nationally.",
+    "evidence": [
+      "ev-samordna-frister"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "Scarce. Several of the largest universities offer none at bachelor level, and the national set is small enough to enumerate. Master’s level is a different picture entirely, which is the source of most of the confusion about Norway.",
+    "englishProof": "Set per programme where an English-taught option exists.",
+    "localLanguageRequired": true,
+    "notes": [
+      "Norwegian-taught programmes require documented Norwegian. For a Danish speaker this is a realistic year of work rather than a wall, and it changes the destination completely."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition at public institutions. A small compulsory semester fee applies.",
+      "evidence": [
+        "ev-samordna-frister"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Norway introduced tuition for students from outside the EEA and Switzerland. Amounts are set by each institution and are not established here.",
+      "evidence": [
+        "ev-samordna-frister"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Norway merged most of its colleges into its universities over the last decade, so the sector looks flatter than the Danish or Dutch one: a smaller number of large, multi-campus universities, alongside specialist institutions and a set of private providers that matter more here than the word \"private\" suggests elsewhere.",
+    "routes": [
+      {
+        "localName": "universitet",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Large, often spread across several campuses after the mergers, covering most subjects. Three-year bachelor, two-year master. Teaching is overwhelmingly in Norwegian at bachelor level.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "høgskole",
+        "englishName": "university college",
+        "kind": "applied",
+        "what": "The remaining university colleges, more applied and more regional, strong in nursing, teaching, engineering and business. Fewer than there were, because most merged into universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "vitenskapelig høgskole",
+        "englishName": "specialised university institution",
+        "kind": "specialist",
+        "what": "Single-field institutions with university status — the business school BI, the sport sciences school, the music academy, the veterinary and architecture schools. Some of the strongest teaching in the country is here, and it is invisible if you only look at the universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "BI Norwegian Business School is the most likely English-taught bachelor route into Norway, and it is private and charges tuition."
+      },
+      {
+        "localName": "fagskole",
+        "englishName": "vocational college",
+        "kind": "college",
+        "what": "Short vocational higher education, half a year to two years, tied closely to a trade or an industry. Applied for through its own route rather than the main portal.",
+        "ibAccessible": "partly",
+        "englishTaught": "none",
+        "note": "Taught in Norwegian. Recorded because it is a real tier of Norwegian post-secondary education, not because it is a realistic route from an IB."
+      }
+    ],
+    "evidence": [
+      "ev-samordna-frister"
+    ]
+  },
+  "applicationSystems": [
+    "no-samordna"
+  ],
+  "evidence": [
+    "ev-samordna-frister"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2027-02-01",
+    "notes": [
+      "Dates are the published 2026 ones; Samordna opptak had not published the 2027 calendar when this was written.",
+      "UNRESOLVED: how an applicant whose results arrive on 6 July meets a 1 July documentation deadline. Not guessed at. This is the question that decides whether Norway is viable straight from the Diploma.",
+      "Not established: which specific bachelor programmes are taught in English, and the tuition charged by private institutions.",
+      "Programme-level records not yet created."
+    ]
+  }
+}

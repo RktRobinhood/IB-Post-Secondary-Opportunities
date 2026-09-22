@@ -1,0 +1,89 @@
+{
+  "id": "no-samordna-2027",
+  "destination": "no",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to Norway for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "no-samordna",
+  "portalUrl": "https://www.samordnaopptak.no/",
+  "choiceLimit": 10,
+  "choicesRanked": true,
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Applications open",
+      "date": "2027-02-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "The course catalogue for the year is published the same day.",
+      "evidence": [
+        "ev-samordna-frister"
+      ]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "Ordinary application deadline",
+      "date": "2027-04-15",
+      "timeOfDay": "23:59",
+      "timeZone": "Europe/Oslo",
+      "consequence": "hard",
+      "provisional": true,
+      "audience": "any",
+      "note": "Last day to apply or to add further choices. Completed education must be documented the same day.",
+      "evidence": [
+        "ev-samordna-frister"
+      ]
+    },
+    {
+      "id": "ms-documents",
+      "type": "document",
+      "label": "Documentation deadline for education finished this spring",
+      "date": "2027-07-01",
+      "timeOfDay": "23:59",
+      "timeZone": "Europe/Oslo",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Five days before IB results are published. An IB candidate finishing in May 2027 cannot meet this as published, and how the authority handles that is not established here. Ask before you apply, not afterwards.",
+      "evidence": [
+        "ev-samordna-frister"
+      ]
+    },
+    {
+      "id": "ms-reorder",
+      "type": "reply",
+      "label": "Last day to change the order of your choices",
+      "date": "2027-07-01",
+      "timeOfDay": "23:59",
+      "timeZone": "Europe/Oslo",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "An offer on a higher choice removes every lower one permanently, with no wait-list. The order on this date is the order that decides your year.",
+      "evidence": [
+        "ev-samordna-frister"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "After the Norwegian documentation deadline, which is the central difficulty with applying to Norway straight from the Diploma.",
+      "evidence": []
+    }
+  ],
+  "evidence": [
+    "ev-samordna-frister"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "reviewBy": "2027-02-01",
+    "notes": [
+      "Every date is carried from the published 2026 calendar and marked provisional."
+    ]
+  }
+}
