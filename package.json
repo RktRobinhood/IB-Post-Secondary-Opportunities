@@ -24,11 +24,12 @@
     "images:official": "node scripts/fetch-official-images.mjs",
     "images:optimize": "node scripts/optimize-images.mjs",
     "test:eligibility": "node scripts/test-eligibility.mjs",
-    "test": "node scripts/validate.mjs && node scripts/test-eligibility.mjs && node scripts/test-probes.mjs && node src/build.mjs && node scripts/check.mjs",
+    "test": "node scripts/validate.mjs && node scripts/test-eligibility.mjs && node scripts/test-probes.mjs && node scripts/test-sourcing.mjs && node src/build.mjs && node scripts/check.mjs",
     "release-check": "node scripts/release-check.mjs",
     "test:probes": "node scripts/test-probes.mjs",
     "verify": "node scripts/verify-evidence.mjs",
-    "verify:write": "node scripts/verify-evidence.mjs --write"
+    "verify:write": "node scripts/verify-evidence.mjs --write",
+    "test:sourcing": "node scripts/test-sourcing.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"

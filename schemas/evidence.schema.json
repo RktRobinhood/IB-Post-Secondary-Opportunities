@@ -19,7 +19,21 @@
     },
     "publisherType": {
       "enum": ["institution", "national-agency", "ministry", "application-portal", "qualification-body", "aggregator", "other"],
-      "description": "Aggregators help discovery but must not be the final authority for an admissions rule."
+      "description": "Who published it. Describes the organisation; says nothing about what it may be trusted to establish — that is sourceClass."
+    },
+    "sourceClass": {
+      "enum": [
+        "official-rule-owner",
+        "admissions-authority",
+        "recognition-body",
+        "institutional-guidance",
+        "promotion-agency",
+        "school-guidance",
+        "counselling-body",
+        "encyclopaedic",
+        "aggregator"
+      ],
+      "description": "What this source is allowed to establish. The first four are authoritative and may alone support a consequential claim; the rest may establish context and point at the official page, and can never on their own make an entry requirement, deadline or fee verified. src/lib/source-classes.mjs holds the matrix and scripts/validate.mjs enforces it, so this is a mechanical rule rather than an editorial intention."
     },
     "retrievedAt": { "$ref": "common.schema.json#/$defs/isoDate" },
     "effectiveFrom": { "$ref": "common.schema.json#/$defs/isoDate" },

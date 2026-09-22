@@ -12,6 +12,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
+import { assessSourcing, claimKindForField, isAuthoritative, CLAIM_KIND } from '../src/lib/source-classes.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCHEMA_DIR = path.join(ROOT, 'schemas');
@@ -80,6 +81,7 @@ async function main() {
 
   const ids = { destination: new Set(), place: new Set(), institution: new Set(), programme: new Set(), opportunity: new Set(), 'application-system': new Set(), 'application-route': new Set() };
   const evidenceIds = new Set();
+  const evidenceById = new Map();
   const records = [];
   const schemaErrors = [];
   const refErrors = [];
@@ -95,7 +97,7 @@ async function main() {
       parsed++;
       const errs = set.validate(ev, 'evidence.schema.json', { path: `[${i}]` });
       for (const e of errs) schemaErrors.push(`${rel} → ${e.path}: ${e.message}`);
-      if (ev?.id) evidenceIds.add(ev.id);
+      if (ev?.id) { evidenceIds.add(ev.id); evidenceById.set(ev.id, ev); }
     }
   }
 
@@ -162,8 +164,61 @@ async function main() {
     });
   }
 
+  /* --- Source classes -------------------------------------------------------
+   *
+   * The rule that going worldwide depends on: a secondary source may establish
+   * context, may point us at the official page, and may never on its own make a
+   * consequential claim verified. Enforced here rather than trusted to
+   * editorial discipline, because "a school's guidance page said so" and "the
+   * ministry said so" look identical once they are both JSON, and the
+   * difference only becomes visible when a student has already acted on it.
+   */
+  const sourcingErrors = [];
+
+  /* The question is asked per CLAIM, not per record. A promotion agency cited
+     alongside the rule-owner is useful — it is usually the clearer explanation.
+     A promotion agency cited alone for who pays tuition is the problem. So the
+     classes backing each (entity, field) are pooled, and the claim passes if any
+     one of them is permitted to establish it. */
+  const byClaim = new Map();
+  for (const [id, ev] of evidenceById) {
+    if (!ev.sourceClass) {
+      sourcingErrors.push(`${id}: no sourceClass — what this source may establish is undeclared`);
+      continue;
+    }
+    for (const sup of ev.supports || []) {
+      const key = `${sup.entity}.${sup.field}`;
+      if (!byClaim.has(key)) byClaim.set(key, []);
+      byClaim.get(key).push({ id, cls: ev.sourceClass, state: ev.verificationState });
+    }
+  }
+
+  for (const [key, sources] of byClaim) {
+    const field = key.slice(key.indexOf('.') + 1);
+    const kind = claimKindForField(field);
+    const { ok, reason } = assessSourcing(sources.map((s) => s.cls), kind);
+    if (!ok) {
+      sourcingErrors.push(`${key} is a ${kind} claim, and ${reason}
+      cited by: ${sources.map((s) => s.id).join(', ')}`);
+    }
+
+    /* Separately: a non-authoritative source may never carry `verified` for a
+       consequential claim, even where an authoritative one sits beside it. The
+       sign-off has to be attached to the source that actually owns the rule. */
+    if (kind === CLAIM_KIND.CONSEQUENTIAL) {
+      for (const s of sources) {
+        if (s.state === 'verified' && !isAuthoritative(s.cls)) {
+          sourcingErrors.push(
+            `${s.id}: marked verified for the consequential claim ${key}, but ${s.cls} is not authoritative. ` +
+              `Sign off against the body that owns the rule.`
+          );
+        }
+      }
+    }
+  }
+
   /* Report */
-  const total = schemaErrors.length + refErrors.length;
+  const total = schemaErrors.length + refErrors.length + sourcingErrors.length;
   if (!QUIET) {
     console.log(`\nValidated ${parsed} records across ${COLLECTIONS.length} collections plus evidence.`);
     const counts = Object.entries(ids)
@@ -183,6 +238,12 @@ async function main() {
     console.log(`${refErrors.length} reference error(s):`);
     for (const e of refErrors.slice(0, 50)) console.log(`  ✗ ${e}`);
     if (refErrors.length > 50) console.log(`  … and ${refErrors.length - 50} more`);
+    console.log('');
+  }
+  if (sourcingErrors.length) {
+    console.log(`${sourcingErrors.length} sourcing error(s) — what a source is allowed to establish:`);
+    for (const e of sourcingErrors.slice(0, 50)) console.log(`  ✗ ${e}`);
+    if (sourcingErrors.length > 50) console.log(`  … and ${sourcingErrors.length - 50} more`);
     console.log('');
   }
 
