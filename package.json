@@ -16,6 +16,7 @@
     "freshness": "node scripts/freshness.mjs",
     "rollover": "node scripts/freshness.mjs --rollover",
     "watch:sources": "node scripts/watch-sources.mjs",
+    "icons": "node scripts/make-icons.mjs",
     "images": "node scripts/fetch-images.mjs",
     "images:official": "node scripts/fetch-official-images.mjs",
     "test:eligibility": "node scripts/test-eligibility.mjs",

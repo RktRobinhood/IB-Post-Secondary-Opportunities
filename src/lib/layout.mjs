@@ -128,7 +128,7 @@ export function page(o) {
   const title = o.title ? `${o.title} · ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
   const desc = o.description || SITE.description;
   const canonical = o.path || '/';
-  const og = o.ogImage || '/assets/img/og-default.png';
+  const og = o.ogImage || '/assets/img/og-default.svg';
 
   return toString(html`<!doctype html>
 <html lang="${SITE.locale}" data-base="${BASE || '/'}">
@@ -148,7 +148,7 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
 <meta property="og:image" content="${url(og)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${url('/assets/img/favicon.svg')}" type="image/svg+xml">
-<link rel="apple-touch-icon" href="${url('/assets/img/apple-touch-icon.png')}">
+<link rel="apple-touch-icon" href="${url('/assets/img/apple-touch-icon.svg')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400..700&display=swap">
