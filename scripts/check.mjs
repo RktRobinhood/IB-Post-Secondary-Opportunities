@@ -9,6 +9,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { findPromises } from './lib/no-promises.mjs';
+import { EXT as IMAGE_EXT, conforms, probeWebp } from './lib/image-standard.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -156,6 +157,43 @@ async function main() {
     }
   } catch {
     fail('data.json', 'missing or unparseable');
+  }
+
+  /* Hosted photographs must match docs/IMAGE_STANDARD.md. Checked against the
+     built output rather than the source tree, because what ships is what
+     matters — and checked by parsing WebP headers directly, so this needs no
+     dependency and runs in CI exactly as it runs locally. */
+  const photos = files.filter((f) => f.includes(`${path.sep}assets${path.sep}img${path.sep}places${path.sep}`));
+  let photoBytes = 0;
+  for (const file of photos) {
+    const rel = '/' + path.relative(DIST, file).split(path.sep).join('/');
+    const name = path.basename(file);
+    const buf = await fs.readFile(file);
+    photoBytes += buf.length;
+
+    if (!name.endsWith(IMAGE_EXT)) {
+      fail(rel, `hosted photograph is not ${IMAGE_EXT} — run \`npm run images:optimize\``);
+      continue;
+    }
+    const dim = probeWebp(buf);
+    if (!dim) {
+      fail(rel, `has a ${IMAGE_EXT} name but is not a readable WebP`);
+      continue;
+    }
+    for (const problem of conforms({ file: name, ...dim, bytes: buf.length })) {
+      /* Byte overruns warn rather than fail: the converter has already pushed
+         this picture to the bottom of its ladder, so no tool can clear it and
+         only choosing a different photograph will. Everything else is a
+         failure, because `npm run images:optimize` fixes it. */
+      if (problem.kind === 'bytes') warn(rel, `${problem.message} — consider a less detailed photograph`);
+      else fail(rel, `${problem.message} — run \`npm run images:optimize\``);
+    }
+  }
+  if (photos.length) {
+    console.log(
+      `${photos.length} photographs · ${(photoBytes / 1e6).toFixed(1)} MB · ` +
+        `${Math.round(photoBytes / photos.length / 1024)} kB average\n`
+    );
   }
 
   /* External links */

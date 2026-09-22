@@ -18,7 +18,7 @@ a standard that depends on remembering to run a tool is not a standard.
 | Extension | `.webp` |
 | Maximum width | 1600 px (smaller if the byte ceiling demands it) |
 | Aspect ratio | 16:10 |
-| Byte ceiling | 300 kB, hard |
+| Byte ceiling | 300 kB |
 | Metadata | stripped |
 | Colour profile | sRGB |
 
@@ -58,17 +58,37 @@ Quality 78 is the starting point, not the rule. A busy photograph at q78 can
 still land at 676 kB, and one enormous file undoes the savings of fifty small
 ones. So the ceiling is the rule and the encoder settles beneath it.
 
-The ladder walks **width outer, quality inner**: 1600 → 1400 → 1200 → 1024 px,
-and within each width 78 → 70 → 62. The first combination under 300 kB wins.
+The ladder walks **width outer, quality inner**: 1600 → 1400 → 1200 → 1024 →
+896 → 768 px, and within each width 78 → 70 → 62. The first combination under
+300 kB wins.
 
-Width moves before quality goes low because a slightly smaller sharp
-photograph reads better than a full-width mushy one. This is not theoretical —
-twelve pictures in the back catalogue cannot reach 300 kB at 1600 px however
-far quality is dropped, and Yale's needs 1024 px. At q78 it looks right; at
-1600 px and q48 it would not have.
+Width moves before quality drops because a slightly smaller sharp photograph
+reads better than a full-width mushy one. That is measured, not assumed.
+Extending quality down to 48 instead was tried and is worse on every picture
+where the two disagree:
 
-An image that cannot fit even at 1024 px is reported rather than silently
-shipped. If that happens, the picture is probably the wrong picture.
+| | width-first, q≥62 | quality-first, q≥48 |
+|---|---|---|
+| `us-yale` | 1024px q78, **273 kB** | 1200px q48, 284 kB |
+| `si-um` | 1200px q78, **267 kB** | 1400px q55, 291 kB |
+| `nz-auckland` | 1200px q78, **281 kB** | 1400px q55, 288 kB |
+
+Smaller files *and* a much higher quality setting. With the width steps running
+down to 768 px, no photograph in the catalogue exhausts the ladder.
+
+### When the ladder runs out anyway
+
+`normalise()` returns its smallest candidate flagged `overBudget` rather than
+throwing. This matters more than it looks: on a throw the caller keeps the
+**original**, which is invariably larger than the WebP just declined — so a
+rule meant to hold page weight down would make the page heavier and leave
+behind a format the checker fails on.
+
+So the file is written, `npm run images:optimize` reports it and exits
+non-zero, and `npm run check` warns. It is deliberately *not* a build failure:
+the converter has already tried everything, no tool can clear it, and a gate
+nobody can clear is a gate someone eventually switches off. The fix is a human
+choosing a less punishing photograph.
 
 The manifest records what was actually stored, so a picture that settled at
 1200 px is described as 1200 px. A width below 1600 is normal, not a defect.
@@ -124,9 +144,12 @@ to run at any time.
 ### Verifying
 
 `npm run check` fails the build if any hosted image is not WebP, exceeds
-1600 px, is off-ratio by more than a rounding pixel, or breaks the byte
-ceiling. The check parses WebP headers directly and has no dependencies, so it
-runs in CI exactly as it runs locally.
+1600 px, or is off-ratio by more than a rounding pixel — all three are cleared
+by re-running the converter. Breaking the byte ceiling is a warning instead,
+for the reason given above.
+
+The check parses WebP headers directly and has no dependencies, so it runs in
+CI exactly as it runs locally.
 
 ## The one dependency
 

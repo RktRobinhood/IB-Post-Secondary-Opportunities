@@ -12,7 +12,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { EXT, conforms, normalise, probeWebp } from './lib/image-standard.mjs';
+import { EXT, MAX_BYTES, conforms, normalise, probeWebp } from './lib/image-standard.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const IMG_DIR = path.join(ROOT, 'src', 'assets', 'img', 'places');
@@ -42,7 +42,13 @@ async function main() {
     /* Already conforming? Leave it alone. */
     if (file.endsWith(EXT)) {
       const dim = probeWebp(buf);
-      if (dim && conforms({ file, ...dim, bytes: buf.length }).length === 0) {
+      const found = dim ? conforms({ file, ...dim, bytes: buf.length }) : null;
+      /* Only shape problems are worth re-encoding for. A file that is already
+         WebP at the right size and ratio but over the ceiling has been through
+         the whole ladder once; running it again reproduces the same bytes. Say
+         so and move on, so this stays idempotent. */
+      if (found && !found.some((p) => p.kind !== 'bytes')) {
+        for (const p of found) problems.push(`${file}: ${p.message} — choose a less detailed photograph`);
         after += buf.length;
         skipped++;
         continue;
@@ -64,8 +70,18 @@ async function main() {
     const saved = ((1 - out.bytes / buf.length) * 100).toFixed(0);
     console.log(
       `  ${file.padEnd(30)} ${kb(buf.length).padStart(8)} -> ${kb(out.bytes).padStart(7)}` +
-        `  ${(saved + '%').padStart(5)}  ${out.source} -> ${out.width}x${out.height} q${out.quality}`
+        `  ${(saved + '%').padStart(5)}  ${out.source} -> ${out.width}x${out.height} q${out.quality}` +
+        `${out.overBudget ? '  OVER BUDGET' : ''}`
     );
+
+    /* Still written — a heavy WebP beats the heavier original it replaces —
+       but it needs a human to pick a different photograph. */
+    if (out.overBudget) {
+      problems.push(
+        `${file}: ${kb(out.bytes)} at ${out.width}px q${out.quality}, over the ${kb(MAX_BYTES)} ceiling ` +
+          `even at the bottom of the ladder — choose a less detailed photograph`
+      );
+    }
 
     if (!DRY) {
       await fs.writeFile(path.join(IMG_DIR, target), out.data);

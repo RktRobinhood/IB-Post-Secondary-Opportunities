@@ -30,7 +30,7 @@ export const MAX_BYTES = 300_000;
  * reach the ceiling at 1600px however far quality is dropped.
  */
 export const QUALITY_STEPS = [78, 70, 62];
-export const WIDTH_STEPS = [MAX_WIDTH, 1400, 1200, 1024];
+export const WIDTH_STEPS = [MAX_WIDTH, 1400, 1200, 1024, 896, 768];
 
 export const EXT = '.webp';
 
@@ -44,15 +44,27 @@ export function targetSize(width, height) {
   return { width: w, height: Math.round(w / ASPECT) };
 }
 
-/** Is a stored file already what the standard asks for? */
+/**
+ * Is a stored file already what the standard asks for?
+ *
+ * Returns `{ kind, message }` rather than bare strings so a caller can treat
+ * the categories differently. check.mjs does: format, width and ratio are
+ * build failures, because they are always fixable by re-running the converter;
+ * `bytes` is only a warning, because a photograph that will not compress
+ * cannot be fixed by any tool and a gate nobody can clear gets switched off.
+ */
 export function conforms({ file, width, height, bytes }) {
   const problems = [];
-  if (!file.endsWith(EXT)) problems.push(`not ${EXT}`);
-  if (width > MAX_WIDTH) problems.push(`${width}px wide, max ${MAX_WIDTH}`);
-  if (bytes > MAX_BYTES) problems.push(`${Math.round(bytes / 1024)} kB, max ${Math.round(MAX_BYTES / 1024)}`);
+  const add = (kind, message) => problems.push({ kind, message });
+
+  if (!file.endsWith(EXT)) add('format', `not ${EXT}`);
+  if (width > MAX_WIDTH) add('width', `${width}px wide, max ${MAX_WIDTH}`);
+  if (bytes > MAX_BYTES) {
+    add('bytes', `${Math.round(bytes / 1024)} kB, over the ${Math.round(MAX_BYTES / 1024)} kB ceiling`);
+  }
   // One pixel of slack: 16:10 of an odd width does not land on an integer.
   if (Math.abs(width / height - ASPECT) > ASPECT / Math.min(width, height) + 1e-9) {
-    problems.push(`${width}x${height} is not 16:10`);
+    add('ratio', `${width}x${height} is not 16:10`);
   }
   return problems;
 }
@@ -97,8 +109,9 @@ export function probeWebp(buf) {
  * metadata stripped, and encoded down the quality ladder until it fits the
  * byte ceiling.
  *
- * Returns the buffer and what it became. Throws if even the lowest quality
- * step cannot fit, because a picture that big is the wrong picture.
+ * Returns the buffer and what it became. If the ladder runs out it returns the
+ * smallest candidate it produced, flagged `overBudget`, rather than throwing —
+ * see the note at the bottom of this function for why that matters.
  */
 export async function normalise(input) {
   const { default: sharp } = await import('sharp');
@@ -111,7 +124,7 @@ export async function normalise(input) {
   const widths = [...new Set(WIDTH_STEPS.filter((w) => w <= full.width))];
   if (!widths.length) widths.push(full.width);
 
-  let last;
+  let best;
   for (const w of widths) {
     const height = Math.round(w / ASPECT);
     const resized = sharp(input)
@@ -120,15 +133,28 @@ export async function normalise(input) {
 
     for (const quality of QUALITY_STEPS) {
       const data = await resized.clone().webp({ quality, effort: 5 }).toBuffer();
-      last = { data, quality, width: w, height };
+      if (!best || data.length < best.data.length) best = { data, quality, width: w, height };
       if (data.length <= MAX_BYTES) {
         return { data, width: w, height, bytes: data.length, quality, source: meta.format };
       }
     }
   }
 
-  throw new Error(
-    `cannot reach ${Math.round(MAX_BYTES / 1024)} kB: ` +
-      `${Math.round(last.data.length / 1024)} kB at ${last.width}px quality ${last.quality}`
-  );
+  /* The ladder ran out. Hand back the smallest candidate anyway, flagged.
+     This used to throw, and throwing was wrong: the caller then kept the
+     ORIGINAL file, which is invariably larger than the WebP we just declined
+     to write. A rule meant to hold page weight down was making the page
+     heavier and leaving behind a format the checker fails on — a gate that
+     cannot be cleared is a gate someone eventually switches off.
+     Reported loudly by optimize-images.mjs and warned about by check.mjs;
+     the real fix is a human choosing a less punishing photograph. */
+  return {
+    data: best.data,
+    width: best.width,
+    height: best.height,
+    bytes: best.data.length,
+    quality: best.quality,
+    source: meta.format,
+    overBudget: true,
+  };
 }
