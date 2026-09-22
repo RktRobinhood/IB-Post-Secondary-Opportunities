@@ -8,6 +8,7 @@ import { picture, money, REGION_ORDER } from '../lib/data.mjs';
 import {
   worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, STATE,
 } from '../lib/primitives.mjs';
+import { DIMENSIONS, assessDestination, coverageSummary, COVERAGE } from '../lib/dimensions.mjs';
 
 /* --- Home ---------------------------------------------------------------- */
 
@@ -544,55 +545,97 @@ function institutionCard(site, i) {
 /* --- Comparison table ------------------------------------------------------ */
 
 export function compare(site) {
-  const rows = site.countries
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((c) => {
-      const eu = money(c.costs?.tuitionEuEea);
-      const living = money(c.costs?.livingCostMonthly);
-      // Some deadlines are recorded with a year but no date yet, and some the
-      // other way round. Only show what is actually there.
-      const firstDeadline = c.deadlines.find((d) => d && (d.date || d.year));
-      return [
-        html`<a href="${url(c.href)}">${c.flag} ${c.name}</a>`,
-        c.scope === 'europe' ? c.region : `${c.region} (worldwide)`,
-        truncate(c.language?.englishTaughtBachelors || '—', 46),
-        eu ? truncate(eu.value, 44) : '—',
-        living ? truncate(living.value, 30) : '—',
-        firstDeadline
-          ? [firstDeadline.date, firstDeadline.year ? `(${firstDeadline.year})` : null].filter(Boolean).join(' ')
-          : '—',
-      ];
-    });
+  const sorted = site.destinations.slice().sort((a, b) => a.name.localeCompare(b.name));
+
+  // Every destination, assessed across the seven dimensions at build time.
+  const assessed = sorted.map((c) => {
+    const dims = assessDestination(c);
+    return {
+      code: c.code,
+      name: c.name,
+      flag: c.flag,
+      href: c.href,
+      scope: c.scope,
+      region: c.region,
+      dataAsOf: c.dataAsOf || null,
+      coverage: coverageSummary(dims),
+      dimensions: dims.map((d) => ({
+        key: d.key,
+        value: d.value,
+        coverage: d.coverage,
+        uncertainty: d.uncertainty,
+      })),
+    };
+  });
 
   const body = html`
 ${hero({
   variant: 'plain',
   eyebrow: 'Side by side',
-  title: 'Compare every destination',
-  lede: 'One screen, every country. Tuition is what an EU/EEA citizen pays — for most of you, that is the number that counts.',
+  title: 'Compare destinations',
+  lede: 'Seven separate dimensions, kept separate. There is no overall score, because the weighting would be ours and the decision is yours.',
 })}
 
 <section class="section">
   <div class="wrap wrap--wide">
     ${note(
-      `Tuition and living costs come from different sources with different years attached, so read this as a
-      rough ordering rather than a precise comparison. Each country page carries the exact figure, its year
-      and its source.`,
-      { title: 'Read this first' }
+      `Meeting the entry requirements does not make a degree affordable, reachable or right for you. These are
+      seven different questions and they are shown as seven different rows — a country that wins on money can
+      lose on language, and no arithmetic should hide that from you.`,
+      { kind: 'accent', title: 'Why there is no ranking' }
     )}
+
+    <form class="filters" id="cmp-picker">
+      <div class="field">
+        <label for="cmp-add">Add a destination to compare</label>
+        <select id="cmp-add">
+          <option value="">Choose…</option>
+          ${assessed.map((a) => html`<option value="${a.code}">${a.flag} ${a.name}</option>`)}
+        </select>
+      </div>
+      <div class="chips" id="cmp-chosen" aria-label="Chosen destinations"></div>
+    </form>
+
+    <div id="cmp-tray"></div>
+
+    ${sectionHead({
+      eyebrow: `${assessed.length} destinations`,
+      title: 'Or scan the whole set',
+      lede: 'Coverage says how much of the picture we have, not how good a country is. A country we know less about is not a worse country.',
+    })}
+
     ${dataTable({
-      caption: `${site.countries.length} destinations, sorted alphabetically`,
-      head: ['Country', 'Region', 'English-taught bachelors', 'Tuition (EU/EEA)', 'Living cost', 'First deadline'],
-      rows,
+      caption: 'Every destination, with how completely each is recorded',
+      head: ['Destination', 'Region', 'English-taught bachelors', 'Tuition (EU/EEA)', 'Living cost', 'Coverage'],
+      rows: assessed.map((a) => {
+        const c = sorted.find((x) => x.code === a.code);
+        const eu = money(c.costs?.tuitionEuEea);
+        const living = money(c.costs?.livingCostMonthly);
+        const learning = a.dimensions.find((d) => d.key === 'learning');
+        return [
+          html`<a href="${url(a.href)}">${a.flag} ${a.name}</a>`,
+          a.scope === 'europe' ? a.region : `${a.region} (worldwide)`,
+          learning?.value ? truncate(learning.value, 44) : html`<span class="tray__missing">Not recorded</span>`,
+          eu ? truncate(eu.value, 40) : html`<span class="tray__missing">Not recorded</span>`,
+          living ? truncate(living.value, 28) : html`<span class="tray__missing">Not recorded</span>`,
+          html`<span class="coverage coverage--${a.coverage.full >= 5 ? 'good' : a.coverage.full >= 3 ? 'part' : 'thin'}">${a.coverage.full}/${a.coverage.total}</span>`,
+        ];
+      }),
     })}
   </div>
-</section>`;
+</section>
+
+<script type="application/json" id="compare-data">${raw(JSON.stringify(assessed))}</script>
+<script type="application/json" id="compare-dimensions">${raw(
+    JSON.stringify(DIMENSIONS.map((d) => ({ key: d.key, label: d.label, note: d.note })))
+  )}</script>`;
 
   return page({
     title: 'Compare destinations',
-    description: 'Tuition, living costs, English-taught provision and application deadlines for every country on IB Pathways.',
+    description:
+      'Compare destinations across seven separate dimensions — academic, financial, practical, learning, support, future and personal — with no overall score.',
     path: '/compare/',
     body,
+    scripts: ['compare.js'],
   });
 }

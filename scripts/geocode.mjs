@@ -111,6 +111,14 @@ async function adminParent(qid) {
 
 const round = (n) => Math.round(n * 10000) / 10000;
 
+/** Written as each one is resolved, so a long run is resumable. */
+async function writePlace(place) {
+  await fs.writeFile(
+    path.join(DATA, 'places', `${place.id}.json`),
+    JSON.stringify(place, null, 2) + '\n'
+  );
+}
+
 /* --- main -------------------------------------------------------------------- */
 
 function slug(s) {
@@ -198,17 +206,17 @@ async function main() {
         meta: { schemaVersion: SCHEMA_VERSION, dataAsOf: TODAY },
       };
       existing.set(place.id, place);
+      await writePlace(place);
       inst.place = place.id;
       touched = true;
       resolved++;
       process.stdout.write('+');
     }
 
+    // Persist per country so an interrupted run loses at most one country's
+    // work, and a re-run picks up where it stopped.
     if (touched) await fs.writeFile(filePath, JSON.stringify(country, null, 2) + '\n');
-  }
-
-  for (const place of existing.values()) {
-    await fs.writeFile(path.join(DATA, 'places', `${place.id}.json`), JSON.stringify(place, null, 2) + '\n');
+    console.log(`  ${code}: ${resolved} resolved, ${reused} reused so far`);
   }
 
   console.log(`\n\nresolved ${resolved} · reused ${reused} · unresolved ${failed}`);

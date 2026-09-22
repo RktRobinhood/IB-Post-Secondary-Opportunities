@@ -463,3 +463,26 @@
   padding-inline: var(--s4);
   border-radius: var(--radius);
 }
+
+/* Coverage is how much we know, never a quality score. */
+.coverage {
+  display: inline-block;
+  padding: .1rem .5rem;
+  border-radius: 999px;
+  font: 600 .75rem/1.5 var(--mono);
+  border: 1px solid var(--rule-strong);
+}
+.coverage--good { color: var(--ok); border-color: var(--ok); }
+.coverage--part { color: var(--warn); border-color: var(--warn); }
+.coverage--thin { color: var(--ink-mute); }
+
+.tray__coverage { color: var(--warn); }
+.tray__uncertain { color: var(--ink-mute); font-style: italic; }
+.tray__table th[scope="row"] small { font-weight: 400; color: var(--ink-mute); }
+
+/* Academic eligibility answers a different question from the rest, so it is
+   set apart rather than sitting in a list of equals. */
+.tray__table tr[data-dimension="academic"] {
+  border-bottom: 2px solid var(--rule-strong);
+}
+.tray__table tr[data-dimension="academic"] th[scope="row"] { color: var(--brand-2); }

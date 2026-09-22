@@ -138,8 +138,65 @@ export async function load() {
 
   const programmes = dkInstitutions.flatMap((i) => i.programmes);
 
+  /* A migrated Destination and an unmigrated country profile describe the same
+     thing in different shapes. This projects the canonical form into the
+     profile shape so comparison, indexes and anything else that iterates
+     destinations sees one consistent list — otherwise Denmark, the most
+     complete record in the dataset, would be missing from every comparison. */
+  const migrated = [...canonical.graph.destinations.values()].map((d) => ({
+    code: d.id,
+    name: d.name,
+    flag: FLAGS[d.iso2 || d.id] || '',
+    scope: d.scope || 'europe',
+    region: d.region || 'Other',
+    capital: d.capital || null,
+    currency: d.currency || null,
+    eu: d.membership?.eu ?? null,
+    eea: d.membership?.eea ?? null,
+    membership: d.membership || {},
+    tagline: d.tagline || null,
+    summary: d.summary || null,
+    whyConsider: asArray(d.whyConsider),
+    watchOuts: asArray(d.watchOuts),
+    ibRecognition: d.ibRecognition || null,
+    language: d.language || null,
+    costs: {
+      tuitionEuEea: d.feeContext?.find((f) => f.applicantGroup === 'eu-eea-ch')
+        ? { value: d.feeContext.find((f) => f.applicantGroup === 'eu-eea-ch').summary, year: d.feeContext.find((f) => f.applicantGroup === 'eu-eea-ch').priceYear }
+        : null,
+      tuitionNonEu: d.feeContext?.find((f) => f.applicantGroup === 'non-eu')
+        ? { value: d.feeContext.find((f) => f.applicantGroup === 'non-eu').typicalRange || d.feeContext.find((f) => f.applicantGroup === 'non-eu').summary, year: d.feeContext.find((f) => f.applicantGroup === 'non-eu').priceYear }
+        : null,
+      livingCostMonthly: d.livingContext?.livingCostMonthly
+        ? {
+            value: `${d.livingContext.livingCostMonthly.amount.toLocaleString('en-GB')} ${d.livingContext.livingCostMonthly.currency} per ${d.livingContext.livingCostMonthly.period}`,
+            year: d.livingContext.livingCostYear || null,
+          }
+        : null,
+    },
+    residency: d.livingContext?.residency || null,
+    housing: d.livingContext?.housing || null,
+    healthcare: d.livingContext?.healthcare || null,
+    workRights: d.livingContext?.workRights || null,
+    funding: asArray(d.livingContext?.funding),
+    institutions: [],
+    places: [],
+    deadlines: [],
+    sources: [],
+    dataAsOf: d.meta?.dataAsOf || null,
+    targetIntake: d.targetIntake || null,
+    artDirection: d.artDirection || null,
+    // Denmark has its own section rather than a generated destination page.
+    href: d.id === 'dk' ? '/denmark/' : `/destinations/${d.id}/`,
+    migrated: true,
+  }));
+
+  /* Destinations for comparison and indexes: migrated first, then profiles. */
+  const allDestinations = [...migrated, ...countries];
+
   return {
     countries,
+    destinations: allDestinations,
     europe: countries.filter((c) => c.scope === 'europe'),
     world: countries.filter((c) => c.scope === 'worldwide'),
     dkInstitutions,
