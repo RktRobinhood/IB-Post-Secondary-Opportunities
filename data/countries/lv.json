@@ -45,39 +45,61 @@
     },
     "deadlines": [
       {
+        "label": "Turiba University - autumn intake",
+        "date": "2027-02-01",
+        "endDate": "2027-08-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "Published without a year on 2026-09-22; expect the same window for the autumn 2027 intake but re-check",
+        "notes": "Studies begin at the end of September. A winter intake runs 2 August to 1 December for a February start.",
+        "source": "https://www.turiba.lv/en/admission/admission"
+      },
+      {
         "label": "Riga Stradins University - September 2027 intake, EU/EEA applicants (Medicine and Dentistry)",
-        "date": "1 March 2027 to 1 July 2027",
+        "date": "2027-03-01",
+        "endDate": "2027-07-01",
+        "consequence": "hard",
+        "provisional": false,
         "year": "September 2027 intake",
         "notes": "Applications open 1 March 2027. Other RSU programmes have their own windows - International Business & Start-up Entrepreneurship runs from 1 September 2025 to 1 July 2027.",
         "source": "https://www.rsu.lv/en/study-here/admissions/when-apply"
       },
       {
         "label": "Riga Stradins University - September 2027 intake, non-EU/EEA applicants",
-        "date": "1 March 2027 to 1 May 2027 (1 April 2027 for citizens of 'Additional Assessment' countries)",
+        "date": "2027-03-01",
+        "endDate": "2027-05-01",
+        "consequence": "hard",
+        "provisional": false,
         "year": "September 2027 intake",
         "notes": "Non-EU applicants close earlier than EU applicants to leave time for the residence permit.",
         "source": "https://www.rsu.lv/en/study-here/admissions/when-apply"
       },
       {
-        "label": "Riga Stradins University - February intake",
-        "date": "Applications for February 2027 were open as of September 2026",
-        "year": "February 2027 intake",
-        "notes": "RSU runs both a September and a February intake each year.",
-        "source": "https://www.rsu.lv/en/study-here/admissions"
+        "label": "Riga Stradins University - September 2027 intake, applicants from 'Additional Assessment' countries",
+        "date": "2027-04-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "September 2027 intake",
+        "notes": "Published inside the non-EU/EEA window as \"1 March 2027 to 1 May 2027 (1 April 2027 for citizens of 'Additional Assessment' countries)\". Non-EU applicants close earlier than EU applicants to leave time for the residence permit.",
+        "source": "https://www.rsu.lv/en/study-here/admissions/when-apply"
       },
       {
         "label": "Stockholm School of Economics in Riga - BSc application deadline",
-        "date": "6 April 2027",
+        "date": "2027-04-06",
+        "consequence": "hard",
+        "provisional": false,
         "year": "Autumn 2027 intake",
         "notes": "Admissions test 17 April 2027, online interviews for top performers 11-28 May 2027. Top 150 candidates are admitted.",
         "source": "https://www.sseriga.edu/education/bachelor/admission"
       },
       {
-        "label": "Turiba University - autumn intake",
-        "date": "1 February to 1 August",
-        "year": "Published without a year on 2026-09-22; expect the same window for the autumn 2027 intake but re-check",
-        "notes": "Studies begin at the end of September. A winter intake runs 2 August to 1 December for a February start.",
-        "source": "https://www.turiba.lv/en/admission/admission"
+        "label": "Riga Stradins University - February intake",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "February 2027 intake",
+        "notes": "Published only as \"Applications for February 2027 were open as of September 2026\" - no closing date is stated. RSU runs both a September and a February intake each year.",
+        "source": "https://www.rsu.lv/en/study-here/admissions"
       }
     ],
     "steps": [

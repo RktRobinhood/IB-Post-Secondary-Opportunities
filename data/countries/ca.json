@@ -45,38 +45,59 @@
     },
     "deadlines": [
       {
+        "label": "Ontario - OUAC deadline for Ontario high school applicants (Group A), for reference",
+        "date": "2027-01-15",
+        "consequence": "indicative",
+        "year": "2027 admission",
+        "notes": "Not your deadline, but it tells you when Ontario universities start deciding.",
+        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
+      },
+      {
+        "label": "Ontario - universities respond to Group A applicants, for reference",
+        "date": "2027-05-28",
+        "consequence": "indicative",
+        "year": "2027 admission",
+        "notes": "Not your deadline. Ontario universities respond to Group A (Ontario high school) applicants by this date.",
+        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
+      },
+      {
+        "label": "Ontario - earliest date a financial commitment may be required of Group A applicants, for reference",
+        "date": "2027-06-01",
+        "consequence": "indicative",
+        "year": "2027 admission",
+        "notes": "Not your deadline. Ontario universities cannot require a financial commitment from Group A (Ontario high school) applicants before this date.",
+        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
+      },
+      {
         "label": "Ontario - OUAC Undergraduate application, international applicants (Group B)",
-        "date": "No central deadline",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
         "year": "2027 admission",
         "notes": "OUAC classifies international applicants as Group B and states there is no OUAC application deadline for them: deadlines vary by university and sometimes by programme. You must leave OUAC enough time to process your choices before the university's own deadline.",
         "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
       },
       {
-        "label": "Ontario - OUAC deadline for Ontario high school applicants (Group A), for reference",
-        "date": "15 January 2027",
-        "year": "2027 admission",
-        "notes": "Not your deadline, but it tells you when Ontario universities start deciding. Universities respond to Group A applicants by 28 May 2027 and cannot require a financial commitment before 1 June 2027.",
-        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
-      },
-      {
         "label": "British Columbia - EducationPlannerBC",
-        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
         "year": "2027 admission",
         "notes": "One application platform covering British Columbia's 25 public post-secondary institutions. Deadlines are set by each institution; the platform itself does not publish one. UBC's international deadline is typically in mid-January - confirm on UBC's own site.",
         "source": "https://www.educationplannerbc.ca/"
       },
       {
         "label": "Quebec and most other provinces",
-        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
         "year": "2027 admission",
         "notes": "Apply directly to each university. McGill, Concordia, Alberta, Calgary, Dalhousie and others run their own portals with their own deadlines, generally between November 2026 and March 2027. Not verified individually for this guide.",
         "source": null
       },
       {
         "label": "Study permit application",
-        "date": "As soon as you have an offer and a Provincial Attestation Letter",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
         "year": "2027 intake",
-        "notes": "Provinces stop issuing attestation letters once their allocation runs out, so do not wait until summer 2027.",
+        "notes": "As soon as you have an offer and a Provincial Attestation Letter. Provinces stop issuing attestation letters once their allocation runs out, so do not wait until summer 2027.",
         "source": "https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html"
       }
     ],

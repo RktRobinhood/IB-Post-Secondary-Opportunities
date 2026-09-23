@@ -45,29 +45,34 @@
     },
     "deadlines": [
       {
-        "label": "University-by-university application windows",
-        "date": null,
-        "year": "2027 entry",
-        "notes": "There is no national deadline for EU students. Bocconi, Politecnico di Milano and similar selective universities open early rounds in the autumn before entry (roughly October–January) and close well before IB results. Open-access degrees often accept applications into September. Check each university's own admissions page.",
-        "source": "https://www.universitaly.it/"
-      },
-      {
         "label": "Universitaly pre-enrolment (non-EU visa applicants only)",
-        "date": "31 October 2027",
+        "date": "2027-10-31",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027/28 entry",
         "notes": "Applies only to students who need a study visa. Danish and other EU/EEA citizens do not pre-enrol on Universitaly. The equivalent 2026/27 deadline was 30 November 2026.",
         "source": "https://www.universitaly.it/it/studenti-stranieri"
       },
       {
+        "label": "University-by-university application windows",
+        "dateState": "no-central-deadline",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "There is no national deadline for EU students. Bocconi, Politecnico di Milano and similar selective universities open early rounds in the autumn before entry (roughly October–January) and close well before IB results. Open-access degrees often accept applications into September. Check each university's own admissions page.",
+        "source": "https://www.universitaly.it/"
+      },
+      {
         "label": "IMAT — entrance test for English-taught Medicine, Dentistry and Veterinary Medicine",
-        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
         "year": "2027 entry — date not yet published",
         "notes": "The 2026 sitting was reported as 29 September 2026 with registration 26 August – 9 September 2026, but this was not confirmed on a ministry page during research. The Ministry (MUR) publishes a decree each year setting the date, the seat numbers and the registration window. Treat the September timing as indicative only and re-check the MUR decree in mid-2027.",
         "source": "https://www.mur.gov.it/"
       },
       {
         "label": "TOLC entrance tests",
-        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
         "year": "2027 entry",
         "notes": "TOLCs run in monthly sessions through the year, and you may sit the same type of TOLC once per calendar month. Universities each set the last valid sitting date for their own admission round, so book early rather than after IB results.",
         "source": "https://www.cisiaonline.it/area-tematica-tolc-cisia/home-tolc-generale/"

@@ -51,59 +51,238 @@
     },
     "deadlines": [
       {
-        "label": "Poznan University of Medical Sciences - Fall 2027 MD intake",
-        "date": "Admissions open 1 September 2026; entrance exam sessions March to August 2027; application deadline 20 July 2027",
-        "year": "2027 entry",
-        "notes": "The only fully published autumn-2027 calendar found in Poland. Orientation week is 6-12 September 2027, but the two PUMS pages disagree on the class start date (one prints 13 September 2026, clearly a typo, the other 6 September 2027). Confirm with the university.",
-        "source": "https://pums.edu.pl/admissions/application-calendar/"
-      },
-      {
-        "label": "Jagiellonian University - 2027/28 admission rules",
-        "date": "Rules set by Senate resolution 62/V/2026 of 27 May 2026; the detailed catalogue is expected in the IRK system in early 2027",
-        "year": "2027 entry",
-        "notes": "The rules exist but the dates do not yet. Watch the IRK portal from January 2027.",
-        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/2027-28"
-      },
-      {
-        "label": "University of Warsaw - full-time first-cycle and long-cycle",
-        "date": "Registration until 9 July 2026, application fee payable until 10 July 2026",
-        "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "IB candidates get an extension to upload results: 14 July 2026 for the summer round and 14 September 2026 for the September round. Until results arrive you enter only subjects and levels in the education tab. Expect a similar arrangement for 2027.",
-        "source": "https://rekrutacja.uw.edu.pl/wazne-informacje-dla-kandydatow-z-dyplomem-matury-ib-lub-eb/"
-      },
-      {
-        "label": "Jagiellonian University - first round",
-        "date": "Registration and payment 1 June to 8 July 2026 for programmes with exams (exams 13-17 July, results 23 July), or to 9 July 2026 without exams (results 17 July). Second round closes 13 September 2026.",
-        "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "Medical documentation is due 28 August 2026 for medical programmes and 7 September for others.",
-        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
-      },
-      {
-        "label": "Jagiellonian School of Medicine in English",
-        "date": "Applications 23 February to 29 April 2026, payment by 30 April, exams 23 May 2026 (Medicine 16:00 CEST, Dentistry 10:00 CEST, both online), ranking 1 June 2026",
+        "label": "Jagiellonian School of Medicine in English - applications",
+        "date": "2026-02-23",
+        "endDate": "2026-04-29",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026 entry - 2027 dates not published as of September 2026",
         "notes": "Note how much earlier this closes than the rest of the university. If the pattern repeats, you would be applying in February 2027 on predicted grades.",
         "source": "https://medschool.uj.edu.pl/prospective-students/md-program-in-english/application-timeline-and-forms/"
       },
       {
-        "label": "Wroclaw Tech - bachelor's for foreign candidates",
-        "date": "Registration opens 1 June, application and fee deadline 20 June, compulsory maths exam 2 July 2026 10:00-11:30 CEST, documents 10 July, results 14-17 July, tuition payment 26 July",
+        "label": "Jagiellonian School of Medicine in English - application payment deadline",
+        "date": "2026-04-30",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "The maths entrance exam is compulsory for every foreign candidate with no IB exemption.",
+        "notes": "Published as \"payment by 30 April\", the day after applications close.",
+        "source": "https://medschool.uj.edu.pl/prospective-students/md-program-in-english/application-timeline-and-forms/"
+      },
+      {
+        "label": "Jagiellonian School of Medicine in English - Dentistry entrance exam",
+        "date": "2026-05-23",
+        "timeOfDay": "10:00",
+        "timeZone": "CEST",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "Sat online.",
+        "source": "https://medschool.uj.edu.pl/prospective-students/md-program-in-english/application-timeline-and-forms/"
+      },
+      {
+        "label": "Jagiellonian School of Medicine in English - Medicine entrance exam",
+        "date": "2026-05-23",
+        "timeOfDay": "16:00",
+        "timeZone": "CEST",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "Sat online, the same day as the Dentistry exam.",
+        "source": "https://medschool.uj.edu.pl/prospective-students/md-program-in-english/application-timeline-and-forms/"
+      },
+      {
+        "label": "Jagiellonian School of Medicine in English - ranking published",
+        "date": "2026-06-01",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://medschool.uj.edu.pl/prospective-students/md-program-in-english/application-timeline-and-forms/"
+      },
+      {
+        "label": "Jagiellonian University - first round registration and payment, programmes with entrance exams",
+        "date": "2026-06-01",
+        "endDate": "2026-07-08",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "Medical documentation is due 28 August 2026 for medical programmes and 7 September for others.",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
+      },
+      {
+        "label": "Jagiellonian University - first round registration and payment, programmes without entrance exams",
+        "date": "2026-06-01",
+        "endDate": "2026-07-09",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "One day later than the window for programmes that set an entrance exam.",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
+      },
+      {
+        "label": "Wroclaw Tech - registration opens (bachelor's for foreign candidates)",
+        "date": "2026-06-01",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
         "source": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/"
       },
       {
-        "label": "AGH University of Krakow",
-        "date": "Recruitment period given only as June to September, studies start 1 October",
+        "label": "Wroclaw Tech - application and fee deadline",
+        "date": "2026-06-20",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/"
+      },
+      {
+        "label": "Wroclaw Tech - compulsory maths entrance exam",
+        "date": "2026-07-02",
+        "timeOfDay": "10:00",
+        "timeZone": "CEST",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "Published as 10:00-11:30 CEST. The maths entrance exam is compulsory for every foreign candidate with no IB exemption.",
+        "source": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/"
+      },
+      {
+        "label": "University of Warsaw - registration closes, full-time first-cycle and long-cycle",
+        "date": "2026-07-09",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "IB candidates get an extension to upload results: 14 July 2026 for the summer round and 14 September 2026 for the September round. Until results arrive you enter only subjects and levels in the education tab. Expect a similar arrangement for 2027.",
+        "source": "https://rekrutacja.uw.edu.pl/wazne-informacje-dla-kandydatow-z-dyplomem-matury-ib-lub-eb/"
+      },
+      {
+        "label": "University of Warsaw - application fee deadline",
+        "date": "2026-07-10",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "The day after registration closes.",
+        "source": "https://rekrutacja.uw.edu.pl/wazne-informacje-dla-kandydatow-z-dyplomem-matury-ib-lub-eb/"
+      },
+      {
+        "label": "Wroclaw Tech - documents deadline",
+        "date": "2026-07-10",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/"
+      },
+      {
+        "label": "Jagiellonian University - first round entrance exams",
+        "date": "2026-07-13",
+        "endDate": "2026-07-17",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
+      },
+      {
+        "label": "Wroclaw Tech - results",
+        "date": "2026-07-14",
+        "endDate": "2026-07-17",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/"
+      },
+      {
+        "label": "Jagiellonian University - first round results, programmes without entrance exams",
+        "date": "2026-07-17",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
+      },
+      {
+        "label": "Jagiellonian University - first round results, programmes with entrance exams",
+        "date": "2026-07-23",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
+      },
+      {
+        "label": "Wroclaw Tech - tuition payment deadline",
+        "date": "2026-07-26",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "source": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/"
+      },
+      {
+        "label": "Poznan University of Medical Sciences - Fall 2027 MD admissions open",
+        "date": "2026-09-01",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "source": "https://pums.edu.pl/admissions/application-calendar/"
+      },
+      {
+        "label": "Jagiellonian University - second round closes",
+        "date": "2026-09-13",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - 2027 dates not published as of September 2026",
+        "notes": "Medical documentation is due 28 August 2026 for medical programmes and 7 September for others.",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
+      },
+      {
+        "label": "AGH University of Krakow - studies start",
+        "date": "2026-10-01",
+        "consequence": "indicative",
+        "provisional": true,
         "year": "2026 entry - exact 2027 dates not published as of September 2026",
-        "notes": "Check the deadlines page from late 2026.",
+        "notes": "Published as \"studies start 1 October\", with no year given.",
+        "source": "https://www.international.agh.edu.pl/en/studies/education-offer-bachelor-studies"
+      },
+      {
+        "label": "Poznan University of Medical Sciences - Fall 2027 MD application deadline",
+        "date": "2027-07-20",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The only fully published autumn-2027 calendar found in Poland. Orientation week is 6-12 September 2027, but the two PUMS pages disagree on the class start date (one prints 13 September 2026, clearly a typo, the other 6 September 2027). Confirm with the university.",
+        "source": "https://pums.edu.pl/admissions/application-calendar/"
+      },
+      {
+        "label": "Poznan University of Medical Sciences - Fall 2027 MD entrance exam sessions",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Published only as \"entrance exam sessions March to August 2027\" - the individual session days are not given.",
+        "source": "https://pums.edu.pl/admissions/application-calendar/"
+      },
+      {
+        "label": "Jagiellonian University - 2027/28 admission rules",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Rules set by Senate resolution 62/V/2026 of 27 May 2026; the detailed catalogue is expected in the IRK system in early 2027. The rules exist but the dates do not yet. Watch the IRK portal from January 2027.",
+        "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/2027-28"
+      },
+      {
+        "label": "AGH University of Krakow - recruitment period",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2026 entry - exact 2027 dates not published as of September 2026",
+        "notes": "Given only as \"June to September\", with no days. Check the deadlines page from late 2026.",
         "source": "https://www.international.agh.edu.pl/en/studies/education-offer-bachelor-studies"
       },
       {
         "label": "Nationally (guidance)",
-        "date": "Admissions campaigns for undergraduate programmes start in April or May and may last up to six months",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
         "year": "General guidance, no year stated",
-        "notes": "This is a national generalisation and is contradicted by the much earlier medical deadlines. Trust the individual university.",
+        "notes": "Published as \"admissions campaigns for undergraduate programmes start in April or May and may last up to six months\". This is a national generalisation and is contradicted by the much earlier medical deadlines. Trust the individual university.",
         "source": "https://study.gov.pl/how-to-apply"
       }
     ],

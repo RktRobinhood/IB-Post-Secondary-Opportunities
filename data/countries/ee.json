@@ -48,7 +48,10 @@
     "deadlines": [
       {
         "label": "Tallinn University, all bachelor's programmes, autumn 2027 intake",
-        "date": "1 November 2026 - 1 March 2027",
+        "date": "2026-11-01",
+        "endDate": "2027-03-01",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "The only confirmed 2027-entry deadline anywhere in Estonia. Treat it as your anchor date and assume other universities will land in a similar window until they publish.",
         "source": "https://www.tlu.ee/en/application-deadlines"
@@ -56,15 +59,19 @@
       {
         "label": "Other institutions, bachelor's",
         "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "2027 entry",
         "notes": "Not published as of September 2026. For 2026 entry, Study in Estonia described bachelor's deadlines as typically April to May, and DreamApply's own overview says typically around 1 June. Check each university individually from late 2026.",
         "source": "https://estonia.dreamapply.com/"
       },
       {
         "label": "Tallinn University dormitory offers",
-        "date": "June",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "recurring",
-        "notes": "You get a link to the housing application form after official acceptance. For 2026/27 the first access day was 22 August.",
+        "notes": "Published as \"June\", with no day given. You get a link to the housing application form after official acceptance. For 2026/27 the first access day was 22 August.",
         "source": "https://www.tlu.ee/en/dormitory"
       }
     ],

@@ -47,42 +47,56 @@
     "deadlines": [
       {
         "label": "Parcoursup — registration and wishes open",
-        "date": "19 January 2026",
+        "date": "2026-01-19",
+        "consequence": "indicative",
         "year": "2026 entry — 2027 date not yet published",
         "notes": "Campus France states that for 2026 entry, registration and the submission of wishes opened on 19 January 2026, with the programme catalogue browsable from 17 December 2025. Expect the 2027 cycle to open in mid-January 2027 and confirm on parcoursup.gouv.fr.",
         "source": "https://www.campusfrance.org/en/parcoursup-2026-your-best-companion-for-an-overview-of-the-25000-training-courses-in-france"
       },
       {
-        "label": "Parcoursup — deadline to enter wishes, then to confirm them",
-        "date": null,
-        "year": "2027 entry — not verified",
-        "notes": "In the 2026 cycle these fell in mid-March and at the start of April respectively, with admission results from early June and the main phase ending in mid-July. The official Parcoursup calendar page could not be read during this research, so no dates are recorded. Check https://www.parcoursup.gouv.fr/calendrier as soon as the 2027 calendar appears.",
-        "source": "https://www.parcoursup.gouv.fr/calendrier"
-      },
-      {
         "label": "Sciences Po — first round for foreign secondary diplomas (2027 intake)",
-        "date": "4 November 2026",
+        "date": "2026-11-04",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Apply by this date and you get your result in mid-January 2027. Interviews for this round run 8–18 December 2026.",
         "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
       },
       {
         "label": "Sciences Po — second round, and Émile Boutmy scholarship deadline (2027 intake)",
-        "date": "13 January 2027",
+        "date": "2027-01-13",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Results at the beginning of April 2027; interviews 8–19 March 2027. This is also the deadline to apply for the Émile Boutmy scholarship.",
         "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
       },
       {
         "label": "Sciences Po — final round and dual-degree deadline (2027 intake)",
-        "date": "1 March 2027",
+        "date": "2027-03-01",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Results in early May 2027; interviews 13–23 April 2027. Dual degrees with Freie Universität Berlin, Hong Kong University, Keio, ESCP and Luiss also close on 1 March 2027.",
         "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
       },
       {
+        "label": "Parcoursup — deadline to enter your wishes",
+        "dateState": "not-published",
+        "consequence": "hard",
+        "year": "2027 entry — not verified",
+        "notes": "In the 2026 cycle this fell in mid-March. The official Parcoursup calendar page could not be read during this research, so no date is recorded. Check https://www.parcoursup.gouv.fr/calendrier as soon as the 2027 calendar appears.",
+        "source": "https://www.parcoursup.gouv.fr/calendrier"
+      },
+      {
+        "label": "Parcoursup — deadline to confirm your wishes",
+        "dateState": "not-published",
+        "consequence": "hard",
+        "year": "2027 entry — not verified",
+        "notes": "In the 2026 cycle this fell at the start of April, with admission results from early June and the main phase ending in mid-July. The official Parcoursup calendar page could not be read during this research, so no date is recorded. Check https://www.parcoursup.gouv.fr/calendrier as soon as the 2027 calendar appears.",
+        "source": "https://www.parcoursup.gouv.fr/calendrier"
+      },
+      {
         "label": "CVEC payment before administrative enrolment",
-        "date": null,
+        "dateState": "not-published",
+        "consequence": "hard",
         "year": "2027/28",
         "notes": "You pay the CVEC online and present the attestation before you can complete administrative enrolment, normally from early July once you have definitively accepted a place.",
         "source": "https://cvec.etudiant.gouv.fr/"

@@ -49,35 +49,60 @@
     "deadlines": [
       {
         "label": "Duke Kunshan University — Early Decision",
-        "date": "2 November 2026, 23:59 ET",
+        "date": "2026-11-02",
+        "timeOfDay": "23:59",
+        "timeZone": "ET",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Binding.",
         "source": "https://admissions.dukekunshan.edu.cn/en/"
       },
       {
         "label": "Duke Kunshan University — Regular Decision",
-        "date": "4 January 2027, 23:59 ET",
+        "date": "2027-01-04",
+        "timeOfDay": "23:59",
+        "timeZone": "ET",
+        "consequence": "hard",
         "year": "2027 entry",
-        "notes": "The acceptance deadline for admitted students is 1 May 2027 — before IB results, so offers are conditional on predicted grades.",
+        "notes": null,
         "source": "https://admissions.dukekunshan.edu.cn/en/"
       },
       {
-        "label": "NYU Shanghai",
-        "date": null,
+        "label": "Duke Kunshan University — acceptance deadline for admitted students",
+        "date": "2027-05-01",
+        "consequence": "hard",
         "year": "2027 entry",
-        "notes": "Runs Early Decision and Regular Decision rounds on the American calendar via the Common Application. Exact dates not verified — check the admissions site from September 2026.",
+        "notes": "Before IB results, so offers are conditional on predicted grades.",
+        "source": "https://admissions.dukekunshan.edu.cn/en/"
+      },
+      {
+        "label": "NYU Shanghai — Early Decision",
+        "dateState": "not-published",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "notes": "Run on the American calendar via the Common Application. Exact dates not verified — check the admissions site from September 2026.",
+        "source": "https://shanghai.nyu.edu/admissions"
+      },
+      {
+        "label": "NYU Shanghai — Regular Decision",
+        "dateState": "not-published",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "notes": "Run on the American calendar via the Common Application. Exact dates not verified — check the admissions site from September 2026.",
         "source": "https://shanghai.nyu.edu/admissions"
       },
       {
         "label": "Domestic universities (Tsinghua, Peking, Fudan, SJTU) international undergraduate admission",
-        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Typically open from late autumn and close in the winter or early spring for the September intake. Not verified.",
+        "notes": "Typically open from late autumn and close in the winter or early spring for the September intake. Not verified. Four universities in one entry: nothing in the record tells their dates apart, so it has not been split.",
         "source": "https://www.campuschina.org/"
       },
       {
         "label": "Chinese Government Scholarship (CSC)",
-        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "2027 entry",
         "notes": "Applied for through the Chinese embassy in Copenhagen (Type A) or directly through a participating university (Type B). Deadlines are normally in the late winter or early spring. Not verified.",
         "source": "https://www.campuschina.org/"

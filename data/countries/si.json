@@ -46,36 +46,58 @@
     },
     "deadlines": [
       {
-        "label": "Calls for enrolment (razpis za vpis) published",
-        "date": "At the beginning of February at the latest",
-        "year": "Annual pattern; the autumn 2027 call was not published on 2026-09-22",
-        "notes": "Until the razpis is out, the deadlines for your cycle do not formally exist.",
-        "source": "https://studyinslovenia.si/how-to-apply/academic-calendar-and-deadlines/"
-      },
-      {
         "label": "University of Ljubljana - EU citizens, first application period",
-        "date": "18 February 2026 to 18 March 2026",
+        "date": "2026-02-18",
+        "endDate": "2026-03-18",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026/2027 entry - the autumn 2027 equivalent was not yet published; expect roughly the same window and re-check",
         "notes": "Submitted through eVS and handled centrally by the VPIS office (vpis@uni-lj.si).",
         "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
       },
       {
+        "label": "University of Ljubljana - non-EU citizens, first application period closes",
+        "date": "2026-03-18",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026/2027 entry; re-check for autumn 2027",
+        "notes": "International contact: admission@uni-lj.si.",
+        "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
+      },
+      {
         "label": "University of Ljubljana - EU citizens, second application period",
-        "date": "20 to 27 August 2026",
+        "date": "2026-08-20",
+        "endDate": "2026-08-27",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026/2027 entry; re-check for autumn 2027",
         "notes": "Only for programmes with places left after the first round.",
         "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
       },
       {
-        "label": "University of Ljubljana - non-EU citizens",
-        "date": "First period closes 18 March 2026; second period 2-3 September 2026",
+        "label": "University of Ljubljana - non-EU citizens, second application period",
+        "date": "2026-09-02",
+        "endDate": "2026-09-03",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026/2027 entry; re-check for autumn 2027",
         "notes": "The second non-EU period is handled by individual faculties, not the central VPIS office. International contact: admission@uni-lj.si.",
         "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
       },
       {
+        "label": "Calls for enrolment (razpis za vpis) published",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "year": "Annual pattern; the autumn 2027 call was not published on 2026-09-22",
+        "notes": "Published only as \"at the beginning of February at the latest\". Until the razpis is out, the deadlines for your cycle do not formally exist.",
+        "source": "https://studyinslovenia.si/how-to-apply/academic-calendar-and-deadlines/"
+      },
+      {
         "label": "University of Maribor - application periods",
         "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "Not published in a readable form on 2026-09-22",
         "notes": "Maribor publishes separate first, second and third application periods for EU/EEA citizens, for Slovenes abroad, and for non-EU citizens. Check the page directly.",
         "source": "https://moja.um.si/en/future-students/Strani/UM-application-deadlines-for-enrolment.aspx"
@@ -83,6 +105,8 @@
       {
         "label": "University of Primorska - application and enrolment deadlines",
         "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "Not published in a readable form on 2026-09-22",
         "notes": "Check the page directly closer to your cycle.",
         "source": "https://www.upr.si/en/study--enrolment/application-and-enrolment-deadlines/"

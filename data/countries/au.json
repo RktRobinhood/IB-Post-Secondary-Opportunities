@@ -46,31 +46,36 @@
     },
     "deadlines": [
       {
-        "label": "Semester 1 2028 (main intake)",
-        "date": "Late February or early March 2028",
-        "year": "2028 intake",
-        "notes": "The main Australian intake. International applications generally open around a year ahead and many universities accept applications until a few weeks before teaching starts, subject to visa processing time. Exact 2028 teaching dates were not published at the time of writing - check each university's academic calendar.",
-        "source": null
-      },
-      {
-        "label": "Semester 2 2027 (mid-year intake)",
-        "date": "July 2027",
-        "year": "2027 intake",
-        "notes": "The option that gets you started soonest after the May 2027 exams. Not every degree admits mid-year; engineering, health and many professional degrees are Semester 1 only. Verify per degree.",
-        "source": null
-      },
-      {
         "label": "IB results released",
-        "date": "5-6 July 2027",
+        "date": "2027-07-05",
+        "endDate": "2027-07-06",
+        "consequence": "indicative",
         "year": "2027 results",
         "notes": "For comparison: UAC states that NSW and ACT applicants who sat the IB in November 2026 received their scores on 18 December 2026. Denmark sits the May session, so your results arrive in early July - which is why a July 2027 start is tight and February 2028 is the realistic main option.",
         "source": "https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants"
       },
       {
+        "label": "Semester 1 2028 (main intake)",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2028 intake",
+        "notes": "Teaching starts late February or early March 2028. The main Australian intake. International applications generally open around a year ahead and many universities accept applications until a few weeks before teaching starts, subject to visa processing time. Exact 2028 teaching dates were not published at the time of writing - check each university's academic calendar.",
+        "source": null
+      },
+      {
+        "label": "Semester 2 2027 (mid-year intake)",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 intake",
+        "notes": "Teaching starts in July 2027. The option that gets you started soonest after the May 2027 exams. Not every degree admits mid-year; engineering, health and many professional degrees are Semester 1 only. Verify per degree.",
+        "source": null
+      },
+      {
         "label": "Student visa (subclass 500) application",
-        "date": "After you receive a Confirmation of Enrolment",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
         "year": "2027/2028 intake",
-        "notes": "You cannot apply until you hold a CoE from the university, and you must hold a valid CoE when the visa is decided. Allow several months.",
+        "notes": "After you receive a Confirmation of Enrolment. You cannot apply until you hold a CoE from the university, and you must hold a valid CoE when the visa is decided. Allow several months.",
         "source": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"
       }
     ],

@@ -48,51 +48,81 @@
     "deadlines": [
       {
         "label": "CAO online application opens",
-        "date": "5 November, 12:00",
+        "date": "2026-11-05",
+        "timeOfDay": "12:00",
+        "consequence": "indicative",
+        "provisional": true,
         "year": "2026 entry - the 2027 timetable was not yet published when this was researched, expect early November 2026",
-        "notes": "For 2026 entry the facility opened at midday on 5 November 2025. Assume the same pattern for 2027 entry and confirm on cao.ie from autumn 2026.",
+        "notes": "Published as \"5 November, 12:00\" with no year; the year here is inferred from the intake this profile covers. For 2026 entry the facility opened at midday on 5 November 2025. Assume the same pattern for 2027 entry and confirm on cao.ie from autumn 2026.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       },
       {
         "label": "Discounted application fee deadline",
-        "date": "20 January, 17:00",
+        "date": "2027-01-20",
+        "timeOfDay": "17:00",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026 entry - re-check for 2027",
-        "notes": "Apply online by this date and you pay the discounted fee of 35 EUR. Applications after this date cost more.",
+        "notes": "Published as \"20 January, 17:00\" with no year; the year here is inferred from the intake this profile covers. Apply online by this date and you pay the discounted fee of 35 EUR. Applications after this date cost more.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       },
       {
         "label": "Normal closing date - this is the one that matters",
-        "date": "1 February, 17:00",
+        "date": "2027-02-01",
+        "timeOfDay": "17:00",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026 entry - re-check for 2027",
-        "notes": "Hard deadline for the standard application. Restricted-entry courses (those with tests, interviews or portfolios, including medicine) must be listed by this date and cannot be added later through Change of Mind.",
+        "notes": "Published as \"1 February, 17:00\" with no year; the year here is inferred from the intake this profile covers. Hard deadline for the standard application. Restricted-entry courses (those with tests, interviews or portfolios, including medicine) must be listed by this date and cannot be added later through Change of Mind.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       },
       {
         "label": "HPAT test for undergraduate medicine",
-        "date": "13-16 February",
+        "date": "2027-02-13",
+        "endDate": "2027-02-16",
+        "consequence": "indicative",
+        "provisional": true,
         "year": "2026 entry - re-check for 2027",
-        "notes": "Undergraduate medicine requires the HPAT aptitude test in addition to your points. You must register separately and sit it in the testing window.",
+        "notes": "Published as \"13-16 February\" with no year; the year here is inferred from the intake this profile covers. Undergraduate medicine requires the HPAT aptitude test in addition to your points. You must register separately and sit it in the testing window.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       },
       {
         "label": "Late applications",
-        "date": "5 March to 1 May, 17:00",
+        "date": "2027-03-05",
+        "endDate": "2027-05-01",
+        "timeOfDay": "17:00",
+        "consequence": "hard",
+        "provisional": true,
         "year": "2026 entry - re-check for 2027",
-        "notes": "A late application costs more and cannot include restricted-entry courses.",
+        "notes": "Published as \"5 March to 1 May, 17:00\" with no year; the year here is inferred from the intake this profile covers. The window opens on 5 March and closes at 17:00 on 1 May. A late application costs more and cannot include restricted-entry courses.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       },
       {
-        "label": "Change of Mind",
-        "date": "5 May 12:00 to 1 July 17:00",
+        "label": "Change of Mind opens",
+        "date": "2027-05-05",
+        "timeOfDay": "12:00",
+        "consequence": "indicative",
+        "provisional": true,
         "year": "2026 entry - re-check for 2027",
-        "notes": "Free. You can completely reorder or replace your course choices, except restricted-entry courses. Use it - it closes days before your IB results arrive.",
+        "notes": "Published as part of \"5 May 12:00 to 1 July 17:00\" with no year; the year here is inferred from the intake this profile covers. Free. You can completely reorder or replace your course choices, except restricted-entry courses.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+      },
+      {
+        "label": "Change of Mind closes",
+        "date": "2027-07-01",
+        "timeOfDay": "17:00",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry - re-check for 2027",
+        "notes": "Published as part of \"5 May 12:00 to 1 July 17:00\" with no year; the year here is inferred from the intake this profile covers. Use it - it closes days before your IB results arrive.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       },
       {
         "label": "Offer rounds",
-        "date": "From early July (Round A) through to Round 5 at the start of October",
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
         "year": "2026 entry - re-check for 2027",
-        "notes": "For 2026 entry offers ran from 6 July to 1 October. Your IB results are released 5-6 July 2027, so you will normally be considered in the main rounds rather than Round A.",
+        "notes": "Published only as prose: \"From early July (Round A) through to Round 5 at the start of October\", so no date is recorded here. For 2026 entry offers ran from 6 July to 1 October. Your IB results are released 5-6 July 2027, so you will normally be considered in the main rounds rather than Round A.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
       }
     ],

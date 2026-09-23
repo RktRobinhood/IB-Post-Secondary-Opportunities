@@ -47,30 +47,34 @@
     "deadlines": [
       {
         "label": "Semester 1 2028 (main intake)",
-        "date": "Late February 2028",
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "2028 intake",
-        "notes": "The main New Zealand intake. Applications generally open mid-year the year before. Exact 2028 teaching dates had not been published at the time of writing - check each university's academic calendar.",
+        "notes": "Teaching starts late February 2028. The main New Zealand intake. Applications generally open mid-year the year before. Exact 2028 teaching dates had not been published at the time of writing - check each university's academic calendar.",
         "source": null
       },
       {
         "label": "Semester 2 2027 (mid-year intake)",
-        "date": "July 2027",
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "2027 intake",
-        "notes": "The fastest route from a May 2027 IB session. Not all degrees admit mid-year - engineering, health and most professional programmes are Semester 1 only. Verify per degree.",
+        "notes": "Teaching starts in July 2027. The fastest route from a May 2027 IB session. Not all degrees admit mid-year - engineering, health and most professional programmes are Semester 1 only. Verify per degree.",
         "source": null
       },
       {
         "label": "Programmes with early closing dates",
-        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
         "year": "2027/2028 intake",
         "notes": "Some limited-entry programmes - medicine-track health sciences, architecture, fine arts, nursing - close months before the general deadline and may require a portfolio or interview. Check the specific programme page.",
         "source": null
       },
       {
         "label": "Fee Paying Student Visa application",
-        "date": "After you accept an offer and pay fees",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
         "year": "2027/2028 intake",
-        "notes": "You apply once you have an offer of place and evidence of funds. The visa can be granted for up to 4 years.",
+        "notes": "After you accept an offer and pay fees. You apply once you have an offer of place and evidence of funds. The visa can be granted for up to 4 years.",
         "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/"
       }
     ],

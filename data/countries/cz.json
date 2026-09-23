@@ -53,52 +53,61 @@
     },
     "deadlines": [
       {
+        "label": "VSB Technical University of Ostrava, applications open",
+        "date": "2026-10-01",
+        "consequence": "indicative",
+        "year": "2027/28 entry",
+        "notes": "Its Faculty of Economics runs five admission rounds, the last of them in mid-August — unusually forgiving if your July results change your plan.",
+        "source": "https://www.vsb.cz/en/"
+      },
+      {
         "label": "Charles 2nd Faculty of Medicine, application window",
-        "date": "1 November 2026 - 30 April 2027",
+        "date": "2026-11-01",
+        "endDate": "2027-04-30",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "A genuine 2027 date. Registration for the entrance exam also closes 30 April 2027. The 2027 overseas exam list includes Oslo through EduPlanet, plus Berlin, Frankfurt, Vienna and Lisbon; Prague dates were still to be announced. The deadline for the IB exam waiver itself was not confirmed for 2027.",
         "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
       },
       {
         "label": "VŠE Bachelor of International Business",
-        "date": "28 February",
+        "date": "2027-02-28",
+        "consequence": "hard",
         "year": "2027",
         "notes": "Applications open November 2026, interviews in March 2027, decisions mid-March 2027. Another genuine 2027 date.",
         "source": "https://ibb.vse.cz/admission-process/"
       },
       {
-        "label": "VSB Technical University of Ostrava, applications open",
-        "date": "1 October 2026",
-        "year": "2027/28 entry",
-        "notes": "Its Faculty of Economics runs five admission rounds, the last of them in mid-August — unusually forgiving if your July results change your plan.",
-        "source": "https://www.vsb.cz/en/"
+        "label": "Palacký University Olomouc, medicine",
+        "date": "2027-07-31",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 entry; 2027 date not published",
+        "notes": "Published as \"31 July\" with no year. Applications opened 1 November. Most entrance exam dates are online, and EU citizens get extra late-August terms that non-EU applicants do not.",
+        "source": "https://www.lf.upol.cz/en/studyat-our-faculty/general-medicine-mudr/"
       },
       {
         "label": "Masaryk University, by faculty",
-        "date": "1 October - 31 July depending on faculty",
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
         "year": "2026/27 pattern; 2027 dates not published",
-        "notes": "Science 1 Nov to 28 Feb; Informatics and Economics 15 Dec to 30 Apr; Social Studies 1 Nov to 15 May; Arts 1 Dec to 30 Apr; Education 1 Oct to 31 Mar; Medicine 2 Jan to 31 Jul; Pharmacy 1 Dec to 31 Jul for EU applicants.",
+        "notes": "Published as \"1 October - 31 July depending on faculty\". Science 1 Nov to 28 Feb; Informatics and Economics 15 Dec to 30 Apr; Social Studies 1 Nov to 15 May; Arts 1 Dec to 30 Apr; Education 1 Oct to 31 Mar; Medicine 2 Jan to 31 Jul; Pharmacy 1 Dec to 31 Jul for EU applicants.",
         "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
       },
       {
         "label": "Charles University, English-taught programmes",
-        "date": "varies by faculty, February to June or July",
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
         "year": "2026/27 pattern; 2027 dates not published",
-        "notes": "For 2026 entry: MFF closed 30 April, 3rd Faculty of Medicine 15 April, Plzeň 30 April, Hradec Králové 30 April, and the 1st Faculty of Medicine ran all the way to 5 September.",
+        "notes": "Published as \"varies by faculty, February to June or July\". For 2026 entry: MFF closed 30 April, 3rd Faculty of Medicine 15 April, Plzeň 30 April, Hradec Králové 30 April, and the 1st Faculty of Medicine ran all the way to 5 September.",
         "source": "https://cuni.cz/UKEN-1632.html"
       },
       {
-        "label": "Palacký University Olomouc, medicine",
-        "date": "31 July",
-        "year": "2026 entry; 2027 date not published",
-        "notes": "Applications opened 1 November. Most entrance exam dates are online, and EU citizens get extra late-August terms that non-EU applicants do not.",
-        "source": "https://www.lf.upol.cz/en/studyat-our-faculty/general-medicine-mudr/"
-      },
-      {
         "label": "Anglo-American University",
-        "date": "rolling, no deadline",
+        "dateState": "rolling",
+        "consequence": "rolling",
         "year": "continuous",
-        "notes": "Applications accepted all year round. A realistic safety option if your plans change late.",
+        "notes": "Published as \"rolling, no deadline\". Applications accepted all year round. A realistic safety option if your plans change late.",
         "source": "https://www.aauni.edu/admissions/undergraduate-admission/"
       }
     ],

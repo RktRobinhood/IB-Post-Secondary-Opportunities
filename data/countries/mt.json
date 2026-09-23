@@ -45,32 +45,42 @@
     },
     "deadlines": [
       {
-        "label": "University of Malta - main application window",
-        "date": "Applications open from the November before the October start",
-        "year": "Annual pattern; the October 2027 dates were not published on 2026-09-22",
-        "notes": "The UM academic year starts every October, with a smaller intake in February.",
-        "source": "https://www.um.edu.mt/study/datesdeadlines/"
-      },
-      {
-        "label": "University of Malta - late application deadline (previous cycle, for reference)",
-        "date": "15 September 2026 at 14:00",
-        "year": "October 2026 intake - closed. Use as a guide to the pattern only",
-        "notes": "The main deadline falls earlier; this was the late deadline.",
-        "source": "https://www.um.edu.mt/study/datesdeadlines/"
-      },
-      {
         "label": "University of Malta - deadline for non-EU applicants needing a visa (previous cycle, for reference)",
-        "date": "1 July 2026 at 14:00",
+        "date": "2026-07-01",
+        "timeOfDay": "14:00",
+        "consequence": "hard",
+        "provisional": true,
         "year": "October 2026 intake - closed",
         "notes": "As an EU citizen you are not bound by this earlier deadline.",
         "source": "https://www.um.edu.mt/study/datesdeadlines/"
       },
       {
+        "label": "University of Malta - late application deadline (previous cycle, for reference)",
+        "date": "2026-09-15",
+        "timeOfDay": "14:00",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "October 2026 intake - closed. Use as a guide to the pattern only",
+        "notes": "The main deadline falls earlier; this was the late deadline.",
+        "source": "https://www.um.edu.mt/study/datesdeadlines/"
+      },
+      {
         "label": "University of Malta - first semester start",
-        "date": "Monday 5 October 2026 for new students",
+        "date": "2026-10-05",
+        "consequence": "indicative",
+        "provisional": false,
         "year": "2026-27",
-        "notes": "Second semester 8 February to 25 June 2027. The 2027-28 calendar was not published on 2026-09-22.",
+        "notes": "Published as \"Monday 5 October 2026 for new students\". Second semester 8 February to 25 June 2027. The 2027-28 calendar was not published on 2026-09-22.",
         "source": "https://www.um.edu.mt/study/datesdeadlines/importantdates/"
+      },
+      {
+        "label": "University of Malta - main application window",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "Annual pattern; the October 2027 dates were not published on 2026-09-22",
+        "notes": "Published only as \"Applications open from the November before the October start\". The UM academic year starts every October, with a smaller intake in February.",
+        "source": "https://www.um.edu.mt/study/datesdeadlines/"
       }
     ],
     "steps": [

@@ -48,28 +48,50 @@
     "deadlines": [
       {
         "label": "ETH Zurich - application when an entrance examination will be needed (autumn 2027 entry)",
-        "date": "31 March 2026 (application); exam registration 15 September to 15 October 2026; examination 18-28 January 2027",
+        "date": "2026-03-31",
+        "consequence": "hard",
         "year": "2027 entry",
-        "notes": "This is the published timetable for starting in autumn semester 2027. If your IB subject combination does not meet the exam-free rule, you had to be in the system eighteen months ahead. Do not discover this in your final year.",
+        "notes": "This is the published timetable for starting in autumn semester 2027: application by 31 March 2026, exam registration 15 September to 15 October 2026, examination 18-28 January 2027. If your IB subject combination does not meet the exam-free rule, you had to be in the system eighteen months ahead. Do not discover this in your final year.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
+      },
+      {
+        "label": "ETH Zurich - registration for the entrance examination (autumn 2027 entry)",
+        "date": "2026-09-15",
+        "endDate": "2026-10-15",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "notes": "The second step of the published autumn-2027 timetable, after the 31 March 2026 application.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
+      },
+      {
+        "label": "ETH Zurich - entrance examination sitting (autumn 2027 entry)",
+        "date": "2027-01-18",
+        "endDate": "2027-01-28",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "notes": "The examination itself, eight months before the semester it admits you to.",
         "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
       },
       {
         "label": "ETH Zurich - ordinary bachelor application deadline for the autumn semester",
-        "date": null,
+        "dateState": "not-published",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Could not be verified from an official ETH page during this research. ETH states that it can only decide whether you need an entrance examination once a complete application has been submitted through eApply, so apply as early as the portal allows. Confirm the date and any application fee on ethz.ch.",
         "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html"
       },
       {
         "label": "EPFL - admission decision timing for holders of an IB or EU/EFTA certificate",
-        "date": "Admissions confirmed at the beginning of August, within the places available",
+        "dateState": "not-published",
+        "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "EPFL ranks eligible applicants by overall academic performance because first-year places are capped at 3,000 from 2025. The application deadline itself was not verified from an official page in this research.",
+        "notes": "Recorded as \"admissions confirmed at the beginning of August, within the places available\" — a month, not a date. EPFL ranks eligible applicants by overall academic performance because first-year places are capped at 3,000 from 2025. The application deadline itself was not verified from an official page in this research.",
         "source": "https://www.epfl.ch/education/admission/en/bachelor/"
       },
       {
         "label": "Other Swiss universities (Zurich, Bern, Basel, Geneva, Lausanne, Fribourg, Lucerne, Neuchatel, St Gallen, USI)",
-        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Deadlines are set by each university and are typically in late winter or spring for the following autumn - much earlier than in Germany or Austria. This research could not verify the individual dates; take them from each university's admission page in autumn 2026.",
         "source": "https://www.swissuniversities.ch/en/topics/studying/admission-to-universities/countries-1"

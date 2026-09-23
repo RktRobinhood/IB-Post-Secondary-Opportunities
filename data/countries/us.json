@@ -47,45 +47,59 @@
     "deadlines": [
       {
         "label": "Common App opens for the cycle",
-        "date": "31 July 2026",
+        "date": "2026-07-31",
+        "consequence": "indicative",
         "year": "autumn 2027 intake",
         "notes": "Common App opened its 2026-27 season on 31 July 2026. You can create an account and draft essays before that; the personal essay rolls over.",
         "source": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/"
       },
       {
-        "label": "Early Action / Early Decision / Restrictive Early Action",
-        "date": "1 November 2026",
+        "label": "Early Decision",
+        "date": "2026-11-01",
+        "consequence": "hard",
+        "year": "autumn 2027 intake",
+        "notes": "Binding. Most universities that run an early round use this date.",
+        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      },
+      {
+        "label": "Early Action and Restrictive Early Action",
+        "date": "2026-11-01",
+        "consequence": "hard",
         "year": "autumn 2027 intake",
         "notes": "Harvard's Restrictive Early Action deadline is 1 November with decisions in mid-December. Most universities that run an early round use the same date.",
         "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
       },
       {
         "label": "University of California application",
-        "date": "30 November 2026",
+        "date": "2026-11-30",
+        "consequence": "hard",
         "year": "fall 2027 intake",
         "notes": "UC uses its own application, not the Common App, and closes earlier than everyone else. UC campuses were open for the fall 2027 application as of September 2026. The fee is 80 USD per campus, 95 USD for international and non-immigrant applicants.",
         "source": "https://admission.universityofcalifornia.edu/apply-now.html"
       },
       {
         "label": "Regular Decision",
-        "date": "1 January 2027",
+        "date": "2027-01-01",
+        "consequence": "hard",
         "year": "autumn 2027 intake",
         "notes": "Harvard's Regular Decision deadline is 1 January with decisions at the end of March. Some universities use 5 or 15 January instead - check each one.",
         "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
       },
       {
-        "label": "Early Decision II",
-        "date": "Early January 2027",
-        "year": "autumn 2027 intake",
-        "notes": "Grinnell College, for example, uses 5 January for ED II and 15 January for Regular Decision, with financial aid forms due on the same day.",
-        "source": "https://www.grinnell.edu/admission/apply/international"
-      },
-      {
         "label": "Reply deadline",
-        "date": "1 May 2027",
+        "date": "2027-05-01",
+        "consequence": "hard",
         "year": "autumn 2027 intake",
         "notes": "The national candidates' reply date. Harvard notes that both of its rounds are non-binding, so you can compare offers until 1 May.",
         "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+      },
+      {
+        "label": "Early Decision II",
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "year": "autumn 2027 intake",
+        "notes": "Early January 2027 — each college sets its own date. Grinnell College, for example, uses 5 January for ED II and 15 January for Regular Decision, with financial aid forms due on the same day.",
+        "source": "https://www.grinnell.edu/admission/apply/international"
       }
     ],
     "steps": [

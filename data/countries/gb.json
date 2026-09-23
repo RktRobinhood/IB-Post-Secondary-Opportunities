@@ -46,94 +46,203 @@
     "deadlines": [
       {
         "label": "UCAS applications open for 2027 entry",
-        "date": "12 May 2026",
+        "date": "2026-05-12",
+        "consequence": "indicative",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "You can start filling in the application from this date.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
       },
       {
+        "label": "UCAT (medicine and dentistry) - booking opens",
+        "date": "2026-06-23",
+        "timeOfDay": "14:00",
+        "timeZone": "UK time",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2026 UCAT cycle, used for 2027 entry",
+        "notes": "Published as \"Booking opened 23 June 2026, 14:00 UK time\". The booking deadline is a separate date in September.",
+        "source": "https://www.ucat.ac.uk/"
+      },
+      {
+        "label": "UAT-UK admissions tests (ESAT, TMUA, TARA) - registration for the October sitting",
+        "date": "2026-07-20",
+        "endDate": "2026-09-28",
+        "timeOfDay": "18:00",
+        "timeZone": "BST",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"Registration 20 July 2026 to 28 September 2026, 18:00 BST\". The time is the closing time. Oxford and Cambridge applicants must use this October sitting apart from a few exceptions.",
+        "source": "https://esat-tmua.ac.uk/deadlines/"
+      },
+      {
         "label": "First date completed applications can be submitted",
-        "date": "1 September 2026",
+        "date": "2026-09-01",
+        "consequence": "indicative",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "Nothing is sent to universities before this date.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
       },
       {
+        "label": "LNAT (law) - register and book, Oxford and Cambridge",
+        "date": "2026-09-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"Register and book by 15 September 2026\". Registration opens 1 August 2026 and testing starts 1 September 2026.",
+        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
+      },
+      {
+        "label": "UCAT (medicine and dentistry) - booking deadline",
+        "date": "2026-09-16",
+        "timeOfDay": "15:00",
+        "timeZone": "UK time",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2026 UCAT cycle, used for 2027 entry",
+        "notes": "Miss the booking deadline and you cannot apply to UCAT medical schools this cycle. Check ucat.ac.uk for the final testing date.",
+        "source": "https://www.ucat.ac.uk/"
+      },
+      {
+        "label": "UAT-UK admissions tests (ESAT, TMUA, TARA) - October sitting",
+        "date": "2026-10-12",
+        "endDate": "2026-10-16",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"tests 12-16 October 2026\". Oxford and Cambridge applicants must use this October sitting apart from a few exceptions.",
+        "source": "https://esat-tmua.ac.uk/deadlines/"
+      },
+      {
         "label": "Oxford, Cambridge, medicine, dentistry and veterinary medicine/science",
-        "date": "15 October 2026, 18:00 UK time",
+        "date": "2026-10-15",
+        "timeOfDay": "18:00",
+        "timeZone": "UK time",
+        "consequence": "equal-consideration",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "Equal consideration date for these courses. This is three months before everyone else and it is hard. Admissions test registration closes even earlier.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
       },
       {
+        "label": "LNAT (law) - sit the test, Oxford and Cambridge",
+        "date": "2026-10-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"sit by 15 October 2026\". Registration and booking close a month earlier, on 15 September 2026.",
+        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
+      },
+      {
+        "label": "UAT-UK admissions tests (ESAT, TMUA, TARA) - registration for the January sitting",
+        "date": "2026-10-26",
+        "endDate": "2026-12-21",
+        "timeOfDay": "18:00",
+        "timeZone": "GMT",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"Registration 26 October 2026 to 21 December 2026, 18:00 GMT\". The time is the closing time. Not available for Oxford or Cambridge applicants. Other universities let you pick a sitting.",
+        "source": "https://esat-tmua.ac.uk/deadlines/"
+      },
+      {
+        "label": "LNAT (law) - sit the test, KCL, LSE and UCL",
+        "date": "2026-12-31",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"KCL, LSE and UCL: sit by 31 December 2026\". LNAT universities listed are Cambridge, Oxford, King's College London, LSE, UCL, Bristol, Durham and SUSS (Singapore).",
+        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
+      },
+      {
+        "label": "UAT-UK admissions tests (ESAT, TMUA, TARA) - January sitting",
+        "date": "2027-01-04",
+        "endDate": "2027-01-08",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"tests 4-8 January 2027\". Not available for Oxford or Cambridge applicants.",
+        "source": "https://esat-tmua.ac.uk/deadlines/"
+      },
+      {
         "label": "Main equal consideration deadline (all other courses)",
-        "date": "13 January 2027, 18:00 UK time",
+        "date": "2027-01-13",
+        "timeOfDay": "18:00",
+        "timeZone": "UK time",
+        "consequence": "equal-consideration",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "Every application that arrives by this time must be given equal consideration. Applications after it are only looked at if places remain.",
         "source": "https://www.ucas.com/events/2027-entry-deadline-for-all-undergraduate-courses-except-those-with-a-15-october-deadline-475546"
       },
       {
+        "label": "LNAT (law) - register, book and sit, Bristol and Durham",
+        "date": "2027-01-13",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"Bristol and Durham: register, book and sit by 13 January 2027\". LNAT universities listed are Cambridge, Oxford, King's College London, LSE, UCL, Bristol, Durham and SUSS (Singapore).",
+        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
+      },
+      {
+        "label": "LNAT (law) - register, all other universities",
+        "date": "2027-01-20",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"All others: register by 20 January 2027\". LNAT universities listed are Cambridge, Oxford, King's College London, LSE, UCL, Bristol, Durham and SUSS (Singapore).",
+        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
+      },
+      {
+        "label": "LNAT (law) - sit the test, all other universities",
+        "date": "2027-01-25",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"All others: ... sit by 25 January 2027\". Registration for these universities closes on 20 January 2027. LNAT universities listed are Cambridge, Oxford, King's College London, LSE, UCL, Bristol, Durham and SUSS (Singapore).",
+        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
+      },
+      {
         "label": "Extra opens",
-        "date": "25 February 2027",
+        "date": "2027-02-25",
+        "consequence": "indicative",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "For applicants holding no offers.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
       },
       {
         "label": "Final date for applications to be sent to universities",
-        "date": "30 June 2027, 18:00 UK time",
+        "date": "2027-06-30",
+        "timeOfDay": "18:00",
+        "timeZone": "UK time",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "After this you go into Clearing.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
       },
       {
         "label": "Clearing opens",
-        "date": "2 July 2027",
+        "date": "2027-07-02",
+        "consequence": "rolling",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "IB results come out 5-6 July, so Clearing is already open when you get them.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
       },
       {
         "label": "Final application deadline for 2027 entry",
-        "date": "23 September 2027, 18:00 UK time",
+        "date": "2027-09-23",
+        "timeOfDay": "18:00",
+        "timeZone": "UK time",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
         "notes": "Last date to apply at all for autumn 2027.",
         "source": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
-      },
-      {
-        "label": "UAT-UK admissions tests (ESAT, TMUA, TARA) - October sitting",
-        "date": "Registration 20 July 2026 to 28 September 2026, 18:00 BST; tests 12-16 October 2026",
-        "year": "2027 entry",
-        "notes": "Oxford and Cambridge applicants must use this October sitting apart from a few exceptions.",
-        "source": "https://esat-tmua.ac.uk/deadlines/"
-      },
-      {
-        "label": "UAT-UK admissions tests (ESAT, TMUA, TARA) - January sitting",
-        "date": "Registration 26 October 2026 to 21 December 2026, 18:00 GMT; tests 4-8 January 2027",
-        "year": "2027 entry",
-        "notes": "Not available for Oxford or Cambridge applicants. Other universities let you pick a sitting.",
-        "source": "https://esat-tmua.ac.uk/deadlines/"
-      },
-      {
-        "label": "LNAT (law) - Oxford and Cambridge",
-        "date": "Register and book by 15 September 2026; sit by 15 October 2026",
-        "year": "2027 entry",
-        "notes": "Registration opens 1 August 2026 and testing starts 1 September 2026.",
-        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
-      },
-      {
-        "label": "LNAT (law) - other universities",
-        "date": "KCL, LSE and UCL: sit by 31 December 2026. Bristol and Durham: register, book and sit by 13 January 2027. All others: register by 20 January 2027, sit by 25 January 2027.",
-        "year": "2027 entry",
-        "notes": "LNAT universities listed are Cambridge, Oxford, King's College London, LSE, UCL, Bristol, Durham and SUSS (Singapore).",
-        "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
-      },
-      {
-        "label": "UCAT (medicine and dentistry)",
-        "date": "Booking opened 23 June 2026, 14:00 UK time; booking deadline 16 September 2026, 15:00 UK time",
-        "year": "2026 UCAT cycle, used for 2027 entry",
-        "notes": "Miss the booking deadline and you cannot apply to UCAT medical schools this cycle. Check ucat.ac.uk for the final testing date.",
-        "source": "https://www.ucat.ac.uk/"
       }
     ],
     "steps": [

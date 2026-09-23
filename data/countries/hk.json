@@ -49,37 +49,43 @@
     "deadlines": [
       {
         "label": "HKU — first round",
-        "date": "25 November 2026, noon",
+        "date": "2026-11-25",
+        "timeOfDay": "12:00",
+        "consequence": "priority",
         "year": "2027 entry",
-        "notes": "Applications received after this are reviewed on a rolling basis.",
-        "source": "https://admissions.hku.hk/apply/international-qualifications"
-      },
-      {
-        "label": "HKU — final deadline",
-        "date": "25 August 2027",
-        "year": "2027 entry",
-        "notes": "Well after IB results are published on 6 July 2027, so a late application is possible — but the best programmes and scholarships will already be allocated.",
+        "notes": "Published as noon. Applications received after this are reviewed on a rolling basis.",
         "source": "https://admissions.hku.hk/apply/international-qualifications"
       },
       {
         "label": "HKUST — priority round",
-        "date": "25 November 2026",
+        "date": "2026-11-25",
+        "consequence": "priority",
         "year": "2027 entry",
         "notes": "Offers are announced from late December 2026 onwards. Applications after 26 November are considered on a rolling basis.",
         "source": "https://join.hkust.edu.hk/admissions/international-qualifications"
       },
       {
         "label": "HKUST — application closes",
-        "date": "30 June 2027",
+        "date": "2027-06-30",
+        "consequence": "hard",
         "year": "2027 entry",
         "notes": "Closes before IB results day on 6 July 2027, so you must apply on predicted grades.",
         "source": "https://join.hkust.edu.hk/admissions/international-qualifications"
       },
       {
-        "label": "CUHK, PolyU and CityU non-local rounds",
-        "date": null,
+        "label": "HKU — final deadline",
+        "date": "2027-08-25",
+        "consequence": "hard",
         "year": "2027 entry",
-        "notes": "Not verified from official pages in this research. Check each university's non-JUPAS admissions page from September 2026.",
+        "notes": "Well after IB results are published on 6 July 2027, so a late application is possible — but the best programmes and scholarships will already be allocated.",
+        "source": "https://admissions.hku.hk/apply/international-qualifications"
+      },
+      {
+        "label": "CUHK, PolyU and CityU non-local rounds",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Not verified from official pages in this research. Check each university's non-JUPAS admissions page from September 2026. Three universities in one entry: nothing in the record tells their dates apart, so it has not been split.",
         "source": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/"
       }
     ],

@@ -48,57 +48,78 @@
     },
     "deadlines": [
       {
-        "label": "Joint application, English-taught bachelor's, autumn 2027 start",
-        "date": "7-21 January",
-        "year": "2027",
-        "notes": "One form, maximum six programme choices. Confirmed for 2027 by Jyväskylä, Tampere, Oulu, Turku, Metropolia, TAMK, Arcada and Haaga-Helia. Aalto's page says 7-22 January, which contradicts every other source.",
-        "source": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026"
-      },
-      {
-        "label": "University of Helsinki, Admission Group 2 (the IB route)",
-        "date": "9-23 March",
-        "year": "2027",
-        "notes": "Helsinki splits its rounds: Group 1 on SAT/ACT runs 5-19 January 2027, and the certificate-based Group 2 runs two months later. Åbo Akademi's bachelor application is also 9-23 March 2027.",
-        "source": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes"
-      },
-      {
-        "label": "Attachments and English-proficiency documents",
-        "date": "28 January",
-        "year": "2027",
-        "notes": "Jyväskylä's attachment deadline, and also the deadline for English-proficiency proof and individual arrangements for the International UAS Exam.",
-        "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
-      },
-      {
-        "label": "International UAS Exam",
-        "date": "23 March",
-        "year": "2027",
-        "notes": "Taken remotely on your own computer from 12:00 Finnish time, proctored by SMOWL. Pre-identification 10-12 March, invitations by 22 March, results by 14 April 2027.",
-        "source": "https://www.uasinfo.fi/international-uas-exam/"
-      },
-      {
-        "label": "Predicted IB grades to Studyinfo",
-        "date": "1 April",
-        "year": "2027",
-        "notes": "Jyväskylä's published 2027 date. Turku's 2026 equivalent was 31 March; its 2027 date was not published when this was researched.",
-        "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
-      },
-      {
         "label": "LUT rolling admission window",
-        "date": "1 September 2026 - 30 April 2027",
+        "date": "2026-09-01",
+        "endDate": "2027-04-30",
+        "consequence": "rolling",
         "year": "2027 entry",
         "notes": "Non-competitive. LUT states that if you meet all requirements you are admitted without competition while places last.",
         "source": "https://www.lut.fi/en/studies/apply-lut/applying-bachelors-programmes/international-rolling-admission-bachelors-studies"
       },
       {
-        "label": "Results published",
-        "date": "31 March (SAT rounds) to 28 May (certificate-based)",
+        "label": "Joint application, English-taught bachelor's, autumn 2027 start",
+        "date": "2027-01-07",
+        "endDate": "2027-01-21",
+        "consequence": "hard",
         "year": "2027",
-        "notes": "Aalto Round A by 31 March 2027, Round B by 28 May 2027. Jyväskylä's certificate-based result for Business Innovation and Sustainability by 28 May 2027.",
+        "notes": "One form, maximum six programme choices. Confirmed for 2027 by Jyväskylä, Tampere, Oulu, Turku, Metropolia, TAMK, Arcada and Haaga-Helia. Aalto's page says 7-22 January, which contradicts every other source.",
+        "source": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026"
+      },
+      {
+        "label": "Attachments and English-proficiency documents",
+        "date": "2027-01-28",
+        "consequence": "hard",
+        "year": "2027",
+        "notes": "Jyväskylä's attachment deadline, and also the deadline for English-proficiency proof and individual arrangements for the International UAS Exam.",
+        "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+      },
+      {
+        "label": "University of Helsinki, Admission Group 2 (the IB route)",
+        "date": "2027-03-09",
+        "endDate": "2027-03-23",
+        "consequence": "hard",
+        "year": "2027",
+        "notes": "Helsinki splits its rounds: Group 1 on SAT/ACT runs 5-19 January 2027, and the certificate-based Group 2 runs two months later. Åbo Akademi's bachelor application is also 9-23 March 2027.",
+        "source": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes"
+      },
+      {
+        "label": "International UAS Exam",
+        "date": "2027-03-23",
+        "timeOfDay": "12:00",
+        "timeZone": "Finnish time",
+        "consequence": "hard",
+        "year": "2027",
+        "notes": "Taken remotely on your own computer from 12:00 Finnish time, proctored by SMOWL. Pre-identification 10-12 March, invitations by 22 March, results by 14 April 2027.",
+        "source": "https://www.uasinfo.fi/international-uas-exam/"
+      },
+      {
+        "label": "Results published — SAT-based rounds",
+        "date": "2027-03-31",
+        "consequence": "indicative",
+        "year": "2027",
+        "notes": "Aalto Round A by 31 March 2027.",
+        "source": "https://www.aalto.fi/en/admission-services/apply-to-bachelors-programmes-in-english"
+      },
+      {
+        "label": "Predicted IB grades to Studyinfo",
+        "date": "2027-04-01",
+        "consequence": "hard",
+        "year": "2027",
+        "notes": "Jyväskylä's published 2027 date. Turku's 2026 equivalent was 31 March; its 2027 date was not published when this was researched.",
+        "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
+      },
+      {
+        "label": "Results published — certificate-based rounds",
+        "date": "2027-05-28",
+        "consequence": "indicative",
+        "year": "2027",
+        "notes": "Aalto Round B by 28 May 2027. Jyväskylä's certificate-based result for Business Innovation and Sustainability by 28 May 2027.",
         "source": "https://www.aalto.fi/en/admission-services/apply-to-bachelors-programmes-in-english"
       },
       {
         "label": "Official final IB grades",
-        "date": "13 July",
+        "date": "2027-07-13",
+        "consequence": "hard",
         "year": "2027",
         "notes": "Jyväskylä's published date, comfortably after IB results are released in early July.",
         "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"

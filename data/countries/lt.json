@@ -46,39 +46,66 @@
     },
     "deadlines": [
       {
-        "label": "General pattern for the autumn semester",
-        "date": "Most universities close in June",
-        "year": "Stated without a year on 2026-09-22; expect the same pattern for autumn 2027 and re-check each university",
-        "notes": "Study in Lithuania advises international students to apply as early as possible rather than waiting for the deadline.",
-        "source": "https://studyin.lt/how-to-apply/application-procedure/"
-      },
-      {
         "label": "LSMU - application portal opens",
-        "date": "1 November (portal opened 1 November 2025 for the 2026 intake)",
+        "date": "2026-11-01",
+        "consequence": "indicative",
+        "provisional": true,
         "year": "2026 intake; the 2027 equivalent was not yet published on 2026-09-22",
-        "notes": "Apply at apply.lsmuni.lt.",
+        "notes": "Published as \"1 November\" with no year for the 2027 intake; the portal opened on 1 November 2025 for the 2026 intake, and the year here is inferred from the intake this profile covers. Apply at apply.lsmuni.lt.",
         "source": "https://lsmu.lt/en/admission/admission-process/"
       },
       {
         "label": "LSMU - entrance tests and interviews begin",
-        "date": "13 January (2026 intake)",
+        "date": "2027-01-13",
+        "consequence": "indicative",
+        "provisional": true,
         "year": "2026 intake; re-check for autumn 2027",
-        "notes": "IB holders with HL 5 in the required subjects are exempt from the entrance examination.",
-        "source": "https://lsmu.lt/en/admission/admission-process/"
-      },
-      {
-        "label": "LSMU - primary and final application deadlines",
-        "date": "6 July and 30 July (2026 intake); studies begin 1 September",
-        "year": "2026 intake; re-check for autumn 2027",
-        "notes": "The primary deadline falls the same week as IB results, so prepare the application before results day.",
+        "notes": "Published as \"13 January\" for the 2026 intake; the year here is inferred from the intake this profile covers. IB holders with HL 5 in the required subjects are exempt from the entrance examination.",
         "source": "https://lsmu.lt/en/admission/admission-process/"
       },
       {
         "label": "ISM University - Early Admission",
-        "date": "30 April (2026 intake)",
+        "date": "2027-04-30",
+        "consequence": "priority",
+        "provisional": true,
         "year": "2026 intake; re-check for autumn 2027",
-        "notes": "Main admission for visa-required countries closed 31 May 2026; for visa-free countries 24 July 2026; an additional round for visa-free applicants ran to 14 August 2026.",
+        "notes": "Published as \"30 April\" for the 2026 intake; the year here is inferred from the intake this profile covers. Main admission for visa-required countries closed 31 May 2026; for visa-free countries 24 July 2026; an additional round for visa-free applicants ran to 14 August 2026.",
         "source": "https://www.ism.lt/en/admission/"
+      },
+      {
+        "label": "LSMU - primary application deadline",
+        "date": "2027-07-06",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 intake; re-check for autumn 2027",
+        "notes": "Published as \"6 July\" for the 2026 intake; the year here is inferred from the intake this profile covers. The primary deadline falls the same week as IB results, so prepare the application before results day.",
+        "source": "https://lsmu.lt/en/admission/admission-process/"
+      },
+      {
+        "label": "LSMU - final application deadline",
+        "date": "2027-07-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2026 intake; re-check for autumn 2027",
+        "notes": "Published as \"30 July\" for the 2026 intake; the year here is inferred from the intake this profile covers. This is the last of the two LSMU deadlines.",
+        "source": "https://lsmu.lt/en/admission/admission-process/"
+      },
+      {
+        "label": "LSMU - studies begin",
+        "date": "2027-09-01",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 intake; re-check for autumn 2027",
+        "notes": "Published as \"studies begin 1 September\" for the 2026 intake; the year here is inferred from the intake this profile covers.",
+        "source": "https://lsmu.lt/en/admission/admission-process/"
+      },
+      {
+        "label": "General pattern for the autumn semester",
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
+        "year": "Stated without a year on 2026-09-22; expect the same pattern for autumn 2027 and re-check each university",
+        "notes": "Published only as prose: \"Most universities close in June\", so no date is recorded here. Study in Lithuania advises international students to apply as early as possible rather than waiting for the deadline.",
+        "source": "https://studyin.lt/how-to-apply/application-procedure/"
       }
     ],
     "steps": [
