@@ -244,6 +244,40 @@ rather than "is this usable". A 52-screen page passes every check in the gate.
 Nothing in `npm run qa` can see it, which is why #37 asks for a word and
 screen budget with a guard behind it.
 
+**Fixed.** The Destination page now runs: hero → one-line trust statement
+(research depth, with the freshness note folded beneath it) → **Where to
+study** → map → "The short version" (the record's summary) → one topic per
+question, each a heading, a short answer taken from the record's own first
+sentence, and the full prose unchanged in a native `<details>` → **Sources,
+last and closed**. Nothing was deleted; every paragraph is one tap away.
+
+| At 375px | Words in default view | "Where to study" | First institution | Page |
+|---|---|---|---|---|
+| Germany | 5,650 → 1,079 | 33,191px → 801px | 41.2 → 1.27 screens | 52 → 14.5 screens |
+| Canada | 9,580 → 1,251 | 50,222px → 801px | 64.5 → 1.59 screens | 83 → 16.6 screens |
+| Poland | 7,428 → 1,004 | 44,833px → 801px | 55.5 → 1.27 screens | 66 → 13.7 screens |
+| Japan | 5,398 → 1,163 | 30,720px → 801px | 38.2 → 1.27 screens | 50 → 15.0 screens |
+
+Words are counted by `scripts/lib/page-measure.mjs` (inside `<main>`, less
+closed `<details>` bodies and navigation); pixels were measured in a 375×812
+frame. `scripts/test-page-budget.mjs` is in the gate's built stage and holds
+every Destination to: ≤ 120 words before "Where to study", ≤ 650 words of
+reading after the institutions, ≤ 90 words per topic, ≤ 1,500 in all, with
+institutions before every topic and sources last and closed. The budget and
+the ordering rule are in `docs/EXPERIENCE_PRINCIPLES.md`.
+
+Two things made on the way: institution cards on a phone are a thumbnail
+beside the name rather than a stacked 16:10 photograph (`.grid--places` —
+fourteen photographs had been nine screens by themselves), and each card's
+text is the note's first sentence rather than 150 characters cut mid-word. The
+card has an `aside` slot for one short line and a link, which the institution
+card fills from `ibRecognitionStatement.url` when a record has one — the slot
+#38 needs, left empty.
+
+Not done: the 1,500-word total is mostly the institution list and scales with
+it, so it is the loose number; the screen figures are measured by hand,
+because the gate has no browser.
+
 ### Track D — what is left
 
 - **#15** is the standing research programme, not a closeable issue. 449
@@ -497,12 +531,14 @@ Fédération des cégeps. `official-rule-owner` was used with the reasoning in
 
 ## Things found that are not yet issues
 
-- **An institution page prints the same list twice.** `canonical.mjs` projects
-  both `ibNotes` and `notes` from `inst.meta.notes`, so every institution page
-  renders that list under "What this institution asks of IB students" and again
-  under "Worth knowing". Visible on every one of the thirteen; found while
-  fixing #30 and left alone because the fix is a decision about what the two
-  headings are each *for*, not a rename.
+- ~~**An institution page prints the same list twice.**~~ Fixed with #37.
+  `canonical.mjs` projected both `ibNotes` and `notes` from `inst.meta.notes`,
+  so every canonical institution page rendered that list under "What this
+  institution asks of IB students" and again under "Worth knowing". The
+  canonical record does not separate IB notes from general ones (AAU's first
+  note is about which degrees it lists), so the list is now projected once,
+  into `notes`, under the heading that claims no more than the record does.
+  `ibNotes` stays in the shape for a record that one day carries its own.
 - **Eleven of the thirty-two recorded cut-offs are not numbers.** SDU publishes
   "All qualified applicants accepted" and AAU "All admitted" — outcomes of the
   competition rather than scores in it — in the same `historicalCutoffs[].value`

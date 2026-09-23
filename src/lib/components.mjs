@@ -1,4 +1,4 @@
-import { html, raw, md, truncate, plural, escape } from './html.mjs';
+import { html, raw, md, truncate, plural, escape, toString } from './html.mjs';
 import { url } from './layout.mjs';
 import { emptyPanel } from './imagery.mjs';
 
@@ -165,7 +165,7 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * a grid of photographs. So the caller says which kind of card it is, once, and
  * `emptyPanel()` decides what goes in it.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder }) {
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   return html`<article class="card card--link">
     ${image
@@ -204,6 +204,16 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
           )}</ul>`
         : ''}
       ${meta?.length ? html`<div class="card__foot">${meta.map((m) => html`<span>${m}</span>`)}</div>` : ''}
+      ${/* One short line with its own link, beside the card's main one — for
+            a fact about the place that lives on someone else's page, such as
+            an institution's IB recognition statement (#38). It sits above the
+            stretched title link, so both are reachable and neither swallows
+            the other. Absent unless the caller has something to put there. */
+        aside?.href
+          ? html`<p class="card__aside"><a href="${aside.href}" rel="noopener nofollow">${aside.label}<span aria-hidden="true"> ↗</span></a>${
+              aside.text ? html` <span>${aside.text}</span>` : ''
+            }</p>`
+          : ''}
     </div>
   </article>`;
 }
@@ -260,8 +270,10 @@ export function steps(items) {
 
 export function sources(list, { title = 'Sources' } = {}) {
   if (!list?.length) return '';
+  // `title: null` when the list sits inside a disclosure whose summary already
+  // names it, so the heading is not said twice.
   return html`<section class="sources">
-    <h2>${title}</h2>
+    ${title ? html`<h2>${title}</h2>` : ''}
     <ol>
       ${list.map(
         (s) => html`<li>
@@ -298,6 +310,39 @@ export function accordion(items) {
       ${typeof i.a === 'string' ? md(i.a) : i.a}
     </details>`
   )}</div>`;
+}
+
+/**
+ * One question on a reference page: a short answer, and the long one a tap away.
+ *
+ * #37. A Destination page rendered every section in full, one after another,
+ * and came to 52 phone screens with the universities at the bottom. Every
+ * section was defensible; the sum was a wall. So the default view of a topic
+ * is its heading and a sentence or two, and the researched prose — all of it,
+ * unchanged — sits in a native `<details>` beneath. Native because it opens
+ * without JavaScript, is announced by every screen reader, and is found by the
+ * browser's find-in-page.
+ *
+ * `short` is text taken from the record (see `firstSentence`), never written
+ * here. `body` is the existing full rendering. With no body there is nothing to
+ * disclose and the short answer stands alone; with no short answer the heading
+ * leads straight to the disclosure.
+ *
+ * The heading stays outside the disclosure so that "On this page" links and
+ * anchors from elsewhere still land on something visible.
+ */
+export function topic({ id, title, short, body, more = 'Read the full detail' }) {
+  const hasBody = body && String(typeof body === 'object' ? toString(body) : body).trim();
+  return html`<section class="topic" aria-labelledby="${id}">
+    <h2 id="${id}">${title}</h2>
+    ${short ? html`<div class="topic__short">${typeof short === 'string' ? md(short) : short}</div>` : ''}
+    ${hasBody
+      ? html`<details class="topic__more">
+          <summary>${more}</summary>
+          <div class="topic__body">${body}</div>
+        </details>`
+      : ''}
+  </section>`;
 }
 
 export function dataTable({ caption, head, rows, className = 'data' }) {
@@ -439,11 +484,11 @@ export function contextNote(n) {
 }
 
 /** A run of context notes, with nothing rendered when there are none. */
-export function contextNotes(list, { title = 'What it is actually like' } = {}) {
+export function contextNotes(list, { title = 'What it is actually like', heading = true } = {}) {
   const notes = (list || []).filter(Boolean);
   if (!notes.length) return '';
   return html`<div class="context-set">
-    <h2 class="context-set__title">${title}</h2>
+    ${heading ? html`<h2 class="context-set__title">${title}</h2>` : ''}
     <p class="context-set__lede">These are observations rather than rules — the things people who have
     watched students go through this tend to say. Nothing here decides whether you can apply.</p>
     ${notes.map(contextNote)}
@@ -459,7 +504,7 @@ export function contextNotes(list, { title = 'What it is actually like' } = {}) 
  * if one appears — the moment a template starts saying "if France", the data
  * model has stopped carrying the meaning and the fix belongs there.
  */
-export function sectorLandscape(landscape, { destinationName = 'this country' } = {}) {
+export function sectorLandscape(landscape, { destinationName = 'this country', heading = true } = {}) {
   if (!landscape?.routes?.length) return '';
 
   const ACCESS = {
@@ -477,7 +522,7 @@ export function sectorLandscape(landscape, { destinationName = 'this country' } 
   };
 
   return html`<div class="landscape">
-    <h2 id="landscape">The shape of ${destinationName}'s system</h2>
+    ${heading ? html`<h2 id="landscape">The shape of ${destinationName}'s system</h2>` : ''}
     <p class="landscape__summary">${landscape.summary}</p>
     <ul class="landscape__routes">
       ${landscape.routes.map((r) => {

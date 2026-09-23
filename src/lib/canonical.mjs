@@ -367,7 +367,14 @@ function project(graph, ibSubjectNames = new Map()) {
       about: inst.about || null,
       knownFor: inst.knownFor || [],
       students: inst.students || null,
-      ibNotes: inst.meta?.notes || [],
+      /* One list, projected once. Both fields used to carry `meta.notes`, so
+         every institution page printed the same list twice — under "What this
+         institution asks of IB students" and again under "Worth knowing". The
+         canonical record does not separate IB-specific notes from the rest (AAU's
+         first note is about which degrees it lists, not about the IB), so it
+         goes under the heading that claims no more than the record does. A
+         record that one day separates them can fill `ibNotes` from its own field. */
+      ibNotes: [],
       notes: inst.meta?.notes || [],
       quotaNotes: null,
       tuitionNonEu: null,

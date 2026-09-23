@@ -102,6 +102,48 @@ export function truncate(text, max = 160) {
   return s.slice(0, s.lastIndexOf(' ', max - 1)).replace(/[,;:.]$/, '') + '…';
 }
 
+/**
+ * The opening sentence of a piece of prose, for a short answer that sits in
+ * front of the long one (#37). Nothing is written here that the record did not
+ * say: this only decides where the record's own first sentence ends.
+ *
+ * A full stop ends a sentence when a capital (or a bracket or quote) follows —
+ * except after a short capitalised token such as "St." or "Dr.", or a single
+ * letter as in "U.S.", which would otherwise cut "St. Gallen" in half. Anything
+ * still longer than `maxWords` is cut at a word boundary with an ellipsis, so a
+ * record written as one long sentence still gives a short answer, and the
+ * disclosure beneath it holds the whole of it.
+ *
+ * A first sentence shorter than `minWords` is a label rather than an answer —
+ * records often open "The study permit cap." and explain in the next sentence
+ * — so the second sentence comes with it.
+ */
+export function firstSentence(text, maxWords = 40, minWords = 8) {
+  const s = String(text ?? '').replace(/\s+/g, ' ').trim();
+  if (!s) return '';
+  let cut = s.length;
+  const re = /([.!?])(?=\s+["'“(\[]?[A-Z0-9])/g;
+  for (const m of s.matchAll(re)) {
+    const before = s.slice(0, m.index).split(' ').at(-1) || '';
+    if (m[1] === '.' && (/^[A-Z][a-z]?$/.test(before) || /(^|\.)[A-Za-z]$/.test(before))) continue;
+    // Never end inside a Markdown link or a bracket.
+    const head = s.slice(0, m.index);
+    if ((head.match(/[[(]/g) || []).length > (head.match(/[\])]/g) || []).length) continue;
+    cut = m.index + 1;
+    if (s.slice(0, cut).split(' ').length >= minWords) break;
+    cut = s.length;
+  }
+  const sentence = s.slice(0, cut);
+  const words = sentence.split(' ');
+  if (words.length <= maxWords) return sentence;
+  let short = words.slice(0, maxWords).join(' ');
+  // A cut through a Markdown link would print its brackets; stop before it.
+  if ((short.match(/\[/g) || []).length > (short.match(/\]\(/g) || []).length) {
+    short = short.slice(0, short.lastIndexOf('[')).trim();
+  }
+  return short.replace(/[,;:.(\[-]+$/, '').replace(/\s*[-–—]\s*$/, '') + '…';
+}
+
 /** "1 programme" / "4 programmes" */
 export function plural(n, one, many = one + 's') {
   return `${n} ${n === 1 ? one : many}`;

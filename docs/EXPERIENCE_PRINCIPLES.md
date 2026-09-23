@@ -35,6 +35,36 @@ Aim for the warmth and pacing of an illustrated book site: expressive typography
 
 Detailed information still needs structure. Use progressive disclosure: a vivid overview first, a concise fit explanation second, and dense evidence or comparison detail when the student asks for it.
 
+## What is possible before what is required
+
+A student opening a page is deciding whether this place is worth any effort at all. What decides that is something concrete and appealing — a named university, in a city they can picture, teaching something they want. So every page that describes a place leads with what a student could do there, and only then with what it will take.
+
+On a Destination page that means, in this order:
+
+1. **The place** — the hero.
+2. **How far to trust the page** — one line: the research depth in counts, with its explanation and the freshness note one tap beneath. It comes before the list because learning afterwards that a list was a sketch is being misled; it is one line because it is not the point.
+3. **Where to study** — the institutions, each with its city, one sentence, and a link to its own site.
+4. **The questions** — the system, how the IB is read, applying, deadlines, money, language, living — each as a heading and a short answer, with the full researched prose in a native `<details>` beneath it.
+5. **Sources** — last, and closed.
+
+**Short answers are the deliverable; the long form is what they point at.** A short answer is taken from the record — its summary, or the first sentence of the field — and never written fresh in the template. Nothing is deleted to make a page short: the depth is relocated behind a disclosure and reachable in one action. Disclosure summaries are controls and take their minimum size from the touch policy like every other control.
+
+### The budget
+
+Measured at 375px on the rebuilt pages, and enforced by `scripts/test-page-budget.mjs` in the gate's built stage. "Default view" means the words inside `<main>` a reader sees without opening anything — a closed `<details>` counts its summary line only — less navigation, scripts and SVG (`scripts/lib/page-measure.mjs`).
+
+| | Budget | Measured when set |
+|---|---|---|
+| Words before "Where to study" | **120** | 28–45 |
+| Words of reading after the institutions | **650** | 307–488 |
+| Words in one topic's default view | **90** | at most 64 |
+| Words in the whole default view | **1,500** | 616–1,298 (was 2,849–9,580) |
+| Institutions before every topic, sources last and closed | **always** | — |
+
+At 375×812 that puts "Where to study" at about one screen (801px, under a 568px hero) and the first institution inside about 1.6 screens, on every Destination. Germany went from 52 phone screens to 14.5, Canada from 83 to 16.6.
+
+The whole-view ceiling is the loose one on purpose: most of it is the institution list, which is the part of the page that is meant to be there, and it grows with the number of institutions. The number to defend is the reading after them. When a page breaches the budget, the fix is a shorter short answer or a new disclosure — not a higher number.
+
 ## The two ways through
 
 Every important task needs both:

@@ -193,6 +193,12 @@ export const CHECKS = [
     title: 'Every built page: structure, metadata, internal links',
   },
   {
+    id: 'page-budget',
+    script: 'scripts/test-page-budget.mjs',
+    stage: 'built',
+    title: 'A Destination page leads with its institutions and stays inside its word budget',
+  },
+  {
     id: 'freshness',
     script: 'scripts/freshness.mjs',
     stage: 'built',

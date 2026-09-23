@@ -892,6 +892,27 @@ section { scroll-margin-top: 5.5rem; }
   display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4);
 }
 .card--link { position: relative; }
+
+/* A grid of places on a phone (#37). Fourteen 16:10 photographs stacked one
+   above another at 375px is nine screens of scrolling before anything else on
+   the page, and the picture is the least informative part of each card. On a
+   narrow screen the photograph becomes a thumbnail beside the name, so the
+   list reads as a list; from 40rem up it is the ordinary grid of cards. */
+@media (max-width: 39.99rem) {
+  .grid--places { gap: var(--s3); }
+  .grid--places .card {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+  }
+  .grid--places .card__media { aspect-ratio: auto; height: 100%; min-height: 6.5rem; }
+  .grid--places .card__media--empty { padding: var(--s3); border-bottom: 0; border-right: 1px solid var(--rule); }
+  .grid--places .card__monogram { font-size: 1.5rem; }
+  .grid--places .card__panel-label { display: none; }
+  .grid--places .card__body { padding: var(--s3) var(--s4); gap: var(--s2); }
+  .grid--places .card__title { font-size: 1.0625rem; }
+  .grid--places .card__text { font-size: .875rem; }
+  .grid--places .card__foot { padding-top: var(--s2); }
+}
 .card--flat { border-color: transparent; background: var(--paper-2); }
 .card--flat:hover { border-color: var(--rule); }
 
@@ -1589,6 +1610,70 @@ details.acc[open] summary::after { content: "–"; }
 details.acc summary:hover { color: var(--accent); }
 details.acc > :not(summary) { padding-bottom: var(--s5); }
 details.acc > :not(summary):last-child { margin-bottom: 0; }
+
+/* --- 20b. Short answer, long answer (#37) --------------------------------
+ *
+ * A Destination page's default view is headings and a sentence or two each;
+ * the researched prose is one tap down in a native <details>. The summary is a
+ * control and takes its minimum from the touch policy in section 2 like every
+ * other summary — nothing here restates the number.
+ */
+.topic { margin-top: var(--s6); }
+.topic > h2 { margin-top: 0; }
+.topic__short > :last-child { margin-bottom: 0; }
+.topic__more { margin-top: var(--s3); border-top: 1px solid var(--rule); }
+.topic__more > summary,
+.jgroup__more > summary,
+details.depth > summary {
+  cursor: pointer; list-style: none;
+  position: relative;
+  padding-right: 2rem;
+}
+.topic__more > summary::-webkit-details-marker,
+.jgroup__more > summary::-webkit-details-marker,
+details.depth > summary::-webkit-details-marker { display: none; }
+.topic__more > summary::after,
+.jgroup__more > summary::after,
+details.depth > summary::after {
+  content: "+"; position: absolute; right: .25rem; top: 50%;
+  transform: translateY(-50%);
+  font: 400 1.4rem/1 var(--sans); color: var(--ink-mute);
+}
+.topic__more[open] > summary::after,
+.jgroup__more[open] > summary::after,
+details.depth[open] > summary::after { content: "–"; }
+.topic__more > summary,
+.jgroup__more > summary {
+  padding-block: var(--s3);
+  font: 600 .9375rem/1.4 var(--sans);
+  color: var(--accent);
+}
+.topic__more > summary:hover,
+.jgroup__more > summary:hover { text-decoration: underline; }
+.topic__body { padding-top: var(--s3); }
+.topic__body > :last-child { margin-bottom: 0; }
+
+/* The trust line: a callout folded to one line. */
+details.depth { margin: var(--s4) 0 var(--s6); }
+details.depth > summary { font-size: .9375rem; }
+details.depth > summary .note__title { display: inline; margin: 0; }
+details.depth[open] > summary { margin-bottom: var(--s3); }
+details.depth .freshness { margin: var(--s4) 0 0; }
+
+.jgroup__more { margin: 0 0 var(--s4); }
+.jgroup__more[open] > .jgroup__summary { margin-bottom: var(--s3); }
+
+/* The opening of a Destination page: crumbs, the trust line, then straight
+   into the institutions — so it starts closer under the hero than a section
+   normally would, and the section head is tighter than a chapter's. */
+.dest-open { padding-top: var(--s5); }
+.dest-open .section-head { margin-bottom: var(--s5); gap: var(--s3); }
+.dest-open__map { margin-top: var(--s7); }
+
+/* A second, short link on a card, lifted above the card's stretched title
+   link so that each goes where it says. */
+.card__aside { margin: 0; font-size: .875rem; position: relative; z-index: 1; }
+.card__aside a { font-weight: 600; }
 
 /* --- 21. Print ------------------------------------------------------------ */
 

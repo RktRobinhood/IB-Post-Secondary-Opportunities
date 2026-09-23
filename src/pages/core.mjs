@@ -1,9 +1,9 @@
-import { html, raw, md, plural, truncate, listSentence } from '../lib/html.mjs';
+import { html, raw, md, plural, truncate, listSentence, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
   tags, stamp, dataTable, emptyState, pager, accordion, freshness,
-  sectorLandscape, contextNotes, close,
+  sectorLandscape, contextNotes, close, topic,
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
 import {
@@ -383,19 +383,26 @@ function countryCard(site, c) {
  *
  * This sits above the summary deliberately. A student who reads to the bottom
  * of a sketch and only then learns it was a sketch has already been misled.
+ *
+ * Since #37 it is one line by default — the tier and the counts, which are the
+ * part that changes how far to trust the page — with the tier's explanation and
+ * the freshness statement one tap beneath it. It still comes before the first
+ * institution; it just no longer costs a screen to get past.
  */
-function researchDepthNote(c) {
+function researchDepthNote(c, { freshnessNote = '' } = {}) {
   const d = c.researchDepth;
   const meta = RESEARCH_DEPTH[d.tier];
   const counts = [
     `${plural(d.sources, 'source')} recorded for ${plural(d.institutions, 'institution')} listed`,
     d.undated ? `${d.undated} of ${plural(d.deadlines, 'deadline')} carry no published date` : null,
   ].filter(Boolean);
+  const kind = d.tier === 'outline' ? 'warn' : d.tier === 'researched' ? 'ok' : 'accent';
 
-  return note(`${meta.summary}\n\n**On this page:** ${listSentence(counts)}.`, {
-    kind: d.tier === 'outline' ? 'warn' : d.tier === 'researched' ? 'ok' : 'accent',
-    title: meta.label,
-  });
+  return html`<details class="note note--${kind} depth">
+    <summary><strong class="note__title">${meta.label}.</strong> ${listSentence(counts)}.</summary>
+    ${md(meta.summary)}
+    ${freshnessNote}
+  </details>`;
 }
 
 /**
@@ -610,6 +617,199 @@ export function destination(site, c, { prev, next }) {
   const nonEu = money(c.costs?.tuitionNonEu);
   const living = money(c.costs?.livingCostMonthly);
 
+  /* #37 — what is possible before what is required.
+   *
+   * This page used to run every section in full, in the order a researcher
+   * would file them, and put the institutions last — below the sources. On a
+   * phone that was 52 screens, with "Where to study" 79% of the way down. So
+   * the order is now: the place (hero), how far to trust the page (one line),
+   * the institutions, and only then the questions — each as a short answer
+   * taken from the record, with the full researched prose one tap beneath it.
+   * Nothing was deleted to get there; it was moved behind `<details>`.
+   *
+   * scripts/test-page-budget.mjs reads the built page back and fails if the
+   * default view grows past its budget or the institutions stop coming first.
+   */
+  const one = (t) => firstSentence(t);
+  const lead = (label, t) => (t ? `**${label}:** ${one(t)}` : null);
+  const lines = (...xs) => xs.filter(Boolean).join('\n\n') || null;
+
+  const topics = [
+    c.whyConsider.length &&
+      topic({
+        id: 'why',
+        title: 'Why it might suit you',
+        short: one(c.whyConsider[0]),
+        body: html`<ul class="ticks">${c.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>`,
+        more: `All ${plural(c.whyConsider.length, 'reason')}`,
+      }),
+
+    c.watchOuts.length &&
+      topic({
+        id: 'watch',
+        title: 'What to watch for',
+        short: one(c.watchOuts[0]),
+        body: html`<ul class="crosses">${c.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>`,
+        more: `All ${plural(c.watchOuts.length, 'thing')} to watch`,
+      }),
+
+    landscape?.routes?.length &&
+      topic({
+        id: 'landscape',
+        title: `The shape of ${c.name}'s system`,
+        short: one(landscape.summary),
+        body: sectorLandscape(landscape, { destinationName: c.name, heading: false }),
+        more: `The ${plural(landscape.routes.length, 'route')} in full`,
+      }),
+
+    notes.length &&
+      topic({
+        id: 'context',
+        title: 'What it is actually like',
+        short: `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`,
+        body: contextNotes(notes, { heading: false }),
+        more: 'Read them',
+      }),
+
+    c.ibRecognition &&
+      topic({
+        id: 'ib',
+        title: 'How your IB is read here',
+        short: c.ibRecognition.accepted === false
+          ? 'Not straightforwardly — see the notes.'
+          : lead('Minimum', c.ibRecognition.minimumPoints) || 'Yes, an IB Diploma is accepted.',
+        body: html`${facts([
+            { label: 'Accepted', value: c.ibRecognition.accepted === false ? 'Not straightforwardly — see the notes' : 'Yes' },
+            { label: 'Minimum', value: c.ibRecognition.minimumPoints },
+            { label: 'Subjects and levels', value: c.ibRecognition.subjectLevelRule },
+            { label: 'Score conversion', value: c.ibRecognition.gradeConversion },
+          ])}
+          ${(c.ibRecognition.notes || []).length
+            ? html`<ul>${(c.ibRecognition.notes || []).map((n) => html`<li>${n}</li>`)}</ul>`
+            : ''}
+          ${evidenceBlock({
+            claim: `How ${c.name} reads an IB Diploma.`,
+            records: (c.sources || []).slice(0, 6).map((s) => ({
+              sourceUrl: s.url,
+              publisher: s.title || s.url,
+              retrievedAt: s.retrieved || c.dataAsOf,
+              verificationState: 'needs-review',
+            })),
+            summary: 'These are the pages this section was written from. None has been signed off by a person yet, so confirm anything consequential at the source.',
+          })}`,
+        more: 'Subjects, levels and conversion',
+      }),
+
+    c.application?.steps?.length &&
+      topic({
+        id: 'apply',
+        title: 'How applying actually works',
+        // The portal is the one thing a student does next, so it is the short
+        // answer — in the record's own words, linked where the record links.
+        short: c.application.portal?.name
+          ? html`<p><strong>Where to apply:</strong> ${c.application.portal.url
+              ? html`<a href="${c.application.portal.url}" rel="noopener nofollow">${one(c.application.portal.name)}</a>`
+              : one(c.application.portal.name)}</p>`
+          : one(c.application.steps[0]),
+        body: html`${c.application.portal?.name
+            ? note(
+                html`Applications go through <a href="${c.application.portal.url}" rel="noopener nofollow">${c.application.portal.name}</a>.
+                ${c.application.centralised === false ? 'There is no single national portal — you apply to each institution separately.' : ''}`,
+                { kind: '', title: 'Where to apply' }
+              )
+            : ''}
+          <ol class="steps">${c.application.steps.map((s) => html`<li>${md(s)}</li>`)}</ol>
+          ${c.application.selectionNotes ? md(c.application.selectionNotes) : ''}`,
+        more: `The ${plural(c.application.steps.length, 'step')}`,
+      }),
+
+    events.length &&
+      topic({
+        id: 'deadlines',
+        title: 'Deadlines',
+        short: html`<p>${plural(events.length, 'dated event')} recorded.
+          <a href="${url('/timeline/')}?destinations=${c.code}">See them on the calendar</a>,
+          alongside anywhere else you are looking at.</p>`,
+        body: deadlineList(events),
+        more: `All ${plural(events.length, 'date')}`,
+      }),
+
+    topic({
+      id: 'money',
+      title: 'Money',
+      short: lines(
+        eu ? lead('Tuition, EU/EEA', eu.value) : nonEu ? lead('Tuition, non-EU', nonEu.value) : null,
+        living ? lead('Living costs', living.value) : null
+      ),
+      body: html`${facts([
+          { label: 'Tuition, EU/EEA', value: eu ? `${eu.value}${eu.year ? ` *(${eu.year})*` : ''}` : null },
+          { label: 'Tuition, non-EU', value: nonEu ? `${nonEu.value}${nonEu.year ? ` *(${nonEu.year})*` : ''}` : null },
+          { label: 'Application fee', value: c.costs?.applicationFee },
+          { label: 'Living costs', value: living ? `${living.value}${living.year ? ` *(${living.year})*` : ''}` : null },
+        ])}
+        ${(c.costs?.notes || []).length ? html`<ul>${c.costs.notes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
+        ${c.funding.length
+          ? html`<h3>Funding you could actually get</h3>
+              <ul>${c.funding.map((f) => html`<li>${f}</li>`)}</ul>`
+          : ''}`,
+      more: 'Fees, living costs and funding',
+    }),
+
+    c.language &&
+      topic({
+        id: 'language',
+        title: 'Language',
+        short: lead('English-taught bachelors', c.language.englishTaughtBachelors),
+        body: html`${facts([
+            { label: 'English-taught bachelors', value: c.language.englishTaughtBachelors },
+            { label: 'Proving your English', value: c.language.englishProof },
+            { label: 'Local language needed?', value: c.language.localLanguageRequired === true ? 'Yes, for most programmes' : c.language.localLanguageRequired === false ? 'Not for English-taught programmes' : null },
+          ])}
+          ${(c.language.notes || []).length ? html`<ul>${c.language.notes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}`,
+        more: 'Proving your English, and the rest',
+      }),
+
+    topic({
+      id: 'living',
+      title: 'Living there',
+      short: lead('Residency', c.residency) || lead('Housing', c.housing),
+      body: facts([
+        { label: 'Residency', value: c.residency },
+        { label: 'Working', value: c.workRights },
+        { label: 'Housing', value: c.housing },
+        { label: 'Healthcare', value: c.healthcare },
+      ]),
+      more: 'Residency, work, housing and healthcare',
+    }),
+
+    // Last, and closed. The sources are what the short answers stand on, not
+    // what a student came for — and they used to sit above the universities.
+    c.sources.length &&
+      topic({
+        id: 'sources',
+        title: 'Sources',
+        short: `The ${plural(c.sources.length, 'page')} this page was written from.`,
+        body: sources(c.sources, { title: null }),
+        more: `All ${plural(c.sources.length, 'source')}`,
+      }),
+  ].filter(Boolean);
+
+  const toc = [
+    c.institutions.length && ['#institutions', 'Where to study'],
+    ['#overview', 'The short version'],
+    c.whyConsider.length && ['#why', 'Why it might suit you'],
+    c.watchOuts.length && ['#watch', 'What to watch for'],
+    landscape?.routes?.length && ['#landscape', `The shape of ${c.name}'s system`],
+    notes.length && ['#context', 'What it is actually like'],
+    c.ibRecognition && ['#ib', 'How your IB is read'],
+    c.application?.steps?.length && ['#apply', 'How applying works'],
+    events.length && ['#deadlines', 'Deadlines'],
+    ['#money', 'Money'],
+    c.language && ['#language', 'Language'],
+    ['#living', 'Living there'],
+    c.sources.length && ['#sources', 'Sources'],
+  ].filter(Boolean);
+
   const body = html`
 ${/* `art` is the class the stylesheet resolves `--art` on: the destination's
      accent in whichever theme the reader is in. Without it the inline hex is
@@ -628,127 +828,62 @@ ${hero({
   aside: patternLayer(art.pattern),
 })}
 
-<section class="section">
+${/* What is possible: the institutions, straight after the place itself. The
+     one thing allowed in front of them is the line saying how far to trust
+     the page, because reading a list and only then learning it was a sketch
+     is being misled. */ ''}
+<section class="section section--tight dest-open">
   <div class="wrap">
     ${crumbs([
       { href: c.scope === 'europe' ? '/europe/' : '/world/', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
       { label: c.name },
     ])}
+    ${researchDepthNote(c, {
+      freshnessNote: freshness({
+        intake: c.targetIntake ? '2027-autumn' : null,
+        checkedAt: c.dataAsOf,
+        level: c.sources.length ? 'needs-review' : 'none',
+        // A provisional date is now a field rather than a phrase to grep for.
+        // The old test read the year and notes for "not yet published",
+        // "indicative" or "re-check", which caught whichever wording a
+        // researcher happened to use and missed the rest.
+        provisional: events.filter((e) => e.provisional).length,
+      }),
+    })}
+
+    ${c.institutions.length
+      ? html`${sectionHead({
+            eyebrow: plural(c.institutions.length, 'institution'),
+            title: 'Where to study',
+            lede: grouping.id === 'none'
+              ? `A spread of what ${c.name} offers, not a ranking. Check each one's own pages before you apply.`
+              : `${grouping.lede} A spread of what ${c.name} offers, not a ranking — but which group a place is in changes how you apply to it.`,
+            id: 'institutions',
+          })}
+          ${groups.map((g) => institutionGroup(site, g, groups.length))}`
+      : ''}
+
+    ${mapPlaces.length
+      ? html`<div class="dest-open__map">
+          ${worldWindow({
+            places: mapPlaces,
+            id: `map-${c.code}`,
+            activeLayer: `Institutions in ${c.name}`,
+            caption: `${plural(mapPlaces.length, 'institution')} with a resolved location.`,
+          })}
+        </div>`
+      : ''}
+  </div>
+</section>
+
+${/* What is required: every question, short answer first. */ ''}
+<section class="section section--tinted section--rule">
+  <div class="wrap">
     <div class="layout-aside">
       <div class="prose">
-        ${freshness({
-          intake: c.targetIntake ? '2027-autumn' : null,
-          checkedAt: c.dataAsOf,
-          level: c.sources.length ? 'needs-review' : 'none',
-          // A provisional date is now a field rather than a phrase to grep for.
-          // The old test read the year and notes for "not yet published",
-          // "indicative" or "re-check", which caught whichever wording a
-          // researcher happened to use and missed the rest.
-          provisional: events.filter((e) => e.provisional).length,
-        })}
-        ${researchDepthNote(c)}
+        <h2 id="overview">The short version</h2>
         <p class="lede">${c.summary}</p>
-
-        ${mapPlaces.length
-          ? html`<div style="margin-bottom:var(--s7)">
-              ${worldWindow({
-                places: mapPlaces,
-                id: `map-${c.code}`,
-                activeLayer: `Institutions in ${c.name}`,
-                caption: `${plural(mapPlaces.length, 'institution')} with a resolved location.`,
-              })}
-            </div>`
-          : ''}
-
-        ${c.whyConsider.length
-          ? html`<h2 id="why">Why it might suit you</h2>
-              <ul class="ticks">${c.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>`
-          : ''}
-
-        ${c.watchOuts.length
-          ? html`<h2 id="watch">What to watch for</h2>
-              <ul class="crosses">${c.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>`
-          : ''}
-
-        ${landscape ? sectorLandscape(landscape, { destinationName: c.name }) : ''}
-
-        ${contextNotes(notes)}
-
-        ${c.ibRecognition
-          ? html`<h2 id="ib">How your IB is read here</h2>
-              ${facts([
-                { label: 'Accepted', value: c.ibRecognition.accepted === false ? 'Not straightforwardly — see the notes' : 'Yes' },
-                { label: 'Minimum', value: c.ibRecognition.minimumPoints },
-                { label: 'Subjects and levels', value: c.ibRecognition.subjectLevelRule },
-                { label: 'Score conversion', value: c.ibRecognition.gradeConversion },
-              ])}
-              ${(c.ibRecognition.notes || []).length
-                ? html`<ul>${(c.ibRecognition.notes || []).map((n) => html`<li>${n}</li>`)}</ul>`
-                : ''}
-              ${evidenceBlock({
-                claim: `How ${c.name} reads an IB Diploma.`,
-                records: (c.sources || []).slice(0, 6).map((s) => ({
-                  sourceUrl: s.url,
-                  publisher: s.title || s.url,
-                  retrievedAt: s.retrieved || c.dataAsOf,
-                  verificationState: 'needs-review',
-                })),
-                summary: 'These are the pages this section was written from. None has been signed off by a person yet, so confirm anything consequential at the source.',
-              })}`
-          : ''}
-
-        ${c.application?.steps?.length
-          ? html`<h2 id="apply">How applying actually works</h2>
-              ${c.application.portal?.name
-                ? note(
-                    html`Applications go through <a href="${c.application.portal.url}" rel="noopener nofollow">${c.application.portal.name}</a>.
-                    ${c.application.centralised === false ? 'There is no single national portal — you apply to each institution separately.' : ''}`,
-                    { kind: '', title: 'Where to apply' }
-                  )
-                : ''}
-              <ol class="steps">${c.application.steps.map((s) => html`<li>${md(s)}</li>`)}</ol>
-              ${c.application.selectionNotes ? md(c.application.selectionNotes) : ''}`
-          : ''}
-
-        ${events.length
-          ? html`<h2 id="deadlines">Deadlines</h2>
-              ${deadlineList(events)}
-              <p><small><a href="${url('/timeline/')}?destinations=${c.code}">See these dates on the calendar</a>,
-              alongside anywhere else you are looking at.</small></p>`
-          : ''}
-
-        <h2 id="money">Money</h2>
-        ${facts([
-          { label: 'Tuition, EU/EEA', value: eu ? `${eu.value}${eu.year ? ` *(${eu.year})*` : ''}` : null },
-          { label: 'Tuition, non-EU', value: nonEu ? `${nonEu.value}${nonEu.year ? ` *(${nonEu.year})*` : ''}` : null },
-          { label: 'Application fee', value: c.costs?.applicationFee },
-          { label: 'Living costs', value: living ? `${living.value}${living.year ? ` *(${living.year})*` : ''}` : null },
-        ])}
-        ${(c.costs?.notes || []).length ? html`<ul>${c.costs.notes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
-        ${c.funding.length
-          ? html`<h3>Funding you could actually get</h3>
-              <ul>${c.funding.map((f) => html`<li>${f}</li>`)}</ul>`
-          : ''}
-
-        ${c.language
-          ? html`<h2 id="language">Language</h2>
-              ${facts([
-                { label: 'English-taught bachelors', value: c.language.englishTaughtBachelors },
-                { label: 'Proving your English', value: c.language.englishProof },
-                { label: 'Local language needed?', value: c.language.localLanguageRequired === true ? 'Yes, for most programmes' : c.language.localLanguageRequired === false ? 'Not for English-taught programmes' : null },
-              ])}
-              ${(c.language.notes || []).length ? html`<ul>${c.language.notes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}`
-          : ''}
-
-        <h2 id="living">Living there</h2>
-        ${facts([
-          { label: 'Residency', value: c.residency },
-          { label: 'Working', value: c.workRights },
-          { label: 'Housing', value: c.housing },
-          { label: 'Healthcare', value: c.healthcare },
-        ])}
-
-        ${sources(c.sources)}
+        ${topics}
       </div>
 
       <aside class="layout-aside__side stack">
@@ -763,42 +898,13 @@ ${hero({
         <nav aria-label="On this page">
           <p class="eyebrow eyebrow--plain">On this page</p>
           <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem">
-            ${[
-              c.whyConsider.length && ['#why', 'Why it might suit you'],
-              c.watchOuts.length && ['#watch', 'What to watch for'],
-              landscape && ['#landscape', `The shape of ${c.name}'s system`],
-              c.ibRecognition && ['#ib', 'How your IB is read'],
-              c.application?.steps?.length && ['#apply', 'How applying works'],
-              events.length && ['#deadlines', 'Deadlines'],
-              ['#money', 'Money'],
-              c.language && ['#language', 'Language'],
-              ['#living', 'Living there'],
-              c.institutions.length && ['#institutions', 'Where to study'],
-            ]
-              .filter(Boolean)
-              .map(([h, label]) => html`<li style="padding:.3rem 0"><a href="${h}">${label}</a></li>`)}
+            ${toc.map(([h, label]) => html`<li style="padding:.3rem 0"><a href="${h}">${label}</a></li>`)}
           </ul>
         </nav>
       </aside>
     </div>
   </div>
 </section>
-
-${c.institutions.length
-  ? html`<section class="section section--tinted section--rule">
-      <div class="wrap">
-        ${sectionHead({
-          eyebrow: plural(c.institutions.length, 'institution'),
-          title: 'Where to study',
-          lede: grouping.id === 'none'
-            ? `A spread of what ${c.name} offers, not a ranking. Check each one's own pages before you apply.`
-            : `${grouping.lede} A spread of what ${c.name} offers, not a ranking — but which group a place is in changes how you apply to it.`,
-          id: 'institutions',
-        })}
-        ${groups.map((g) => institutionGroup(site, g, groups.length))}
-      </div>
-    </section>`
-  : ''}
 
 <section class="section">
   <div class="wrap">${pager({ prev, next })}</div>
@@ -824,7 +930,7 @@ ${raw('</div>')}`;
  * and drawing a branch where there is none would be its own kind of lie.
  */
 function institutionGroup(site, g, groupCount) {
-  const cards = html`<div class="grid grid--3">${g.institutions.map((i) => institutionCard(site, i))}</div>`;
+  const cards = html`<div class="grid grid--3 grid--places">${g.institutions.map((i) => institutionCard(site, i))}</div>`;
   if (groupCount === 1) return cards;
 
   const rows = variationRows(g);
@@ -839,15 +945,23 @@ function institutionGroup(site, g, groupCount) {
             : sentence}</p>`
         : html`<p class="jgroup__route jgroup__route--none">No application route recorded for ${g.name} yet —
             check each institution's own admissions page.</p>`}
-      ${g.summary ? html`<p class="jgroup__summary">${g.summary}</p>` : ''}
     </header>
-    ${rows.length
-      ? html`<dl class="jgroup__vary">
-          ${rows.map((r) => html`<div><dt>${r.label}</dt><dd>${md(r.value)}${r.source
-            ? html` <small><a href="${r.source}" rel="noopener nofollow">Source</a></small>`
-            : ''}</dd></div>`)}
-        </dl>`
-      : ''}
+    ${/* The route sentence is the branch, so it stays in view. What varies
+          along that branch is detail for someone already choosing, and sits
+          one tap beneath it (#37). */
+      g.summary || rows.length
+        ? html`<details class="jgroup__more">
+            <summary>What is different in ${g.name}</summary>
+            ${g.summary ? html`<p class="jgroup__summary">${g.summary}</p>` : ''}
+            ${rows.length
+              ? html`<dl class="jgroup__vary">
+                  ${rows.map((r) => html`<div><dt>${r.label}</dt><dd>${md(r.value)}${r.source
+                    ? html` <small><a href="${r.source}" rel="noopener nofollow">Source</a></small>`
+                    : ''}</dd></div>`)}
+                </dl>`
+              : ''}
+          </details>`
+        : ''}
     ${cards}
   </section>`;
 }
@@ -859,11 +973,20 @@ function institutionCard(site, i) {
     href: i.website || '#',
     external: true,
     title: i.name,
-    text: i.note,
+    // The note's own first sentence: the card is a way in, not the account of
+    // the place. It used to be cut at 150 characters, mid-sentence (#37).
+    text: firstSentence(i.note, 24),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     placeholder: i.shortName || i.name,
     meta,
     tags: i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
+    // One short line and a link of its own, when the record has one. Kept as
+    // a slot so that #38 — each institution's IB recognition statement, from
+    // the IB's database — is a data change plus this one line, not a redesign
+    // of the card. Nothing renders while the field is absent.
+    aside: i.ibRecognitionStatement?.url
+      ? { label: 'IB recognition statement', href: i.ibRecognitionStatement.url }
+      : null,
   });
 }
 
