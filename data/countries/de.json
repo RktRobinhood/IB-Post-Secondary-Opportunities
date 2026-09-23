@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "No tuition, but your IB subject choice decides everything",
   "summary": "Germany is the one country in Europe where a single written rule decides whether your IB Diploma counts at all, and it is about which six subjects you took, not how many points you scored. Get the combination right and public universities cost you a semester contribution of roughly 70-430 EUR and nothing else. Get it wrong and you are limited to certain fields or shut out entirely. Most bachelor's degrees are still taught in German; English-taught bachelor's exist but are a minority, concentrated in universities of applied sciences and private business schools.",
@@ -23,7 +23,9 @@
     "Taking Mathematics AA SL or AI SL normally restricts you to non-STEM subjects - unless your school is on the KMK Annex 1 list (Ikast-Brande and Grenaa are).",
     "English-taught bachelor's are the exception, not the rule. Many attractive programmes require German at C1/DSH level.",
     "Baden-Wurttemberg (Heidelberg, Freiburg, Karlsruhe, Stuttgart, Tubingen, Mannheim, Konstanz) charges non-EU students 1,500 EUR per semester. EU citizens are exempt.",
-    "Popular subjects have a Numerus Clausus: places are rationed by grade, and your converted German grade is what you are ranked on."
+    "Popular subjects have a Numerus Clausus: places are rationed by grade, and your converted German grade is what you are ranked on.",
+    "The German medical application has a paper half. An online application by the July exclusion deadline is not enough - hochschulstart also needs the signed form and your documents on paper about five days later, and that second date is an exclusion deadline too. With IB results on 5-6 July, plan the postal leg before you have your results.",
+    "In the DoSV coordination phase you rank your own offers only until a cut-off about a week after the July deadline. After it the system converts your highest-ranked offer automatically and deletes the rest, so a list left in the wrong order costs you the place you wanted rather than any place at all."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -51,26 +53,35 @@
         "date": "2027-04-27",
         "consequence": "indicative",
         "provisional": true,
-        "year": "2026 entry - dates for 2027 entry not yet published",
-        "notes": "Published as \"27 April\" with no year. The coordination phase for the centrally allocated subjects started 16.07.2026 for winter 2026/27.",
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"27.04.2026 - Start der Bewerbungsphase (09:00 Uhr)\" for Wintersemester 2026/27, with a time as well as a day. The same date governs locally restricted courses: an application filed earlier through a university's own portal becomes visible in the hochschulstart portal only from that morning. The coordination phase that used to be described in this note is now an entry of its own. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
         "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
       },
       {
-        "label": "Medicine group - applicants whose leaving certificate predates 16 January of the application year (a gap-year applicant)",
+        "label": "Medicine group - applicants whose leaving certificate predates mid-January of the application year (a gap-year applicant)",
         "date": "2027-05-31",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry - dates for 2027 entry not yet published",
-        "notes": "Published as \"31 May\" with no year. If you take a gap year and apply with your 2027 certificate for 2028 entry, you become an Altabiturient and the deadline moves forward by six weeks.",
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"31.05.2026 - Ende der Bewerbungsphase (Ausschlussfrist) fuer Alt-Abiturient*innen\", qualified \"mit einem HZB-Zeugnis vor 16.01.2026\". If you take a gap year and apply with your 2027 diploma for 2028 entry, you become an Altabiturient and the deadline moves forward by six weeks. An Ausschlussfrist cannot be extended, and hochschulstart says so explicitly - not even where the applicant is blameless. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
         "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
       },
       {
-        "label": "Medicine, dentistry, veterinary medicine and pharmacy - applicants whose leaving certificate is dated after 15 January of the application year (this is you)",
+        "label": "Medicine group - gap-year applicants: signed application and paper documents must arrive by post",
+        "date": "2027-06-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"15.06.2026 - Fristende: Nachreichen von Unterlagen (Ausschlussfrist) durch Alt-Abiturient*innen\". The online application is not the whole application: hochschulstart also needs the signed form and supporting documents on paper. Evidence you only obtain after this day may still be sent up to 20 July, provided the online application arrived by 31 May. Since January 2025 German post typically takes three to four working days and the risk of late arrival is yours. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
+      },
+      {
+        "label": "Medicine, dentistry, veterinary medicine and pharmacy - applicants whose leaving certificate is dated after mid-January of the application year (this is you)",
         "date": "2027-07-15",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry - dates for 2027 entry not yet published",
-        "notes": "Published as \"15 July\" with no year. hochschulstart.de published 15.07.2026 as the exclusion deadline for winter semester 2026/27. Your IB results arrive 5-6 July 2027, so you fall in the Neuabiturient group and this is the deadline that matters. Re-check the exact 2027 date on hochschulstart.de from spring 2027.",
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"15.07.2026 - Ende der Bewerbungsphase (Ausschlussfrist) fuer Neu-Abiturient*innen\", qualified \"mit einem HZB-Zeugnis nach 15.01.2026\". Your IB results arrive 5-6 July 2027, so you fall in the Neuabiturient group and this is the deadline that matters. Which group you are in turns on the date printed on the certificate, not on when you apply. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
         "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
       },
       {
@@ -79,16 +90,80 @@
         "consequence": "indicative",
         "provisional": true,
         "year": "Typical deadline - each university sets its own, and some English-taught programmes close as early as January",
-        "notes": "Published as \"15 July\" with no year, and as a typical rather than a national deadline. Always take the deadline from the programme page, not from a general guide. Programmes with selection procedures or English-language entry often close months earlier.",
+        "notes": "uni-assist publishes this only as a hedge: \"The application deadline is often July 15th if the course starts in the winter semester\", under a heading saying the deadlines listed \"apply for many, but not all, university courses in Germany\". No year is attached, and it is not stated as a bachelor's rule. The German version of the same page goes further than the English one - \"Immer mehr Hochschulen setzen aber fruehere Fristen\", more and more universities are setting earlier deadlines - so treat 15 July as a fading default rather than a deadline. uni-assist's own rule is that its deadline is whatever deadline the university set. Always take the date from the programme page.",
         "source": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/"
+      },
+      {
+        "label": "DoSV coordination phase opens",
+        "date": "2027-07-16",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Promoted out of the application-opening note, where it sat as a sentence. Published as \"16.07.2026 - Start der Koordinierungsphase\". From this day universities may make admission offers for locally restricted courses, subject to their releasing their ranking lists. An offer is not a place: hochschulstart issues a Zulassungsbescheid only after you accept an offer or after the coordination rules convert one automatically, which is what the priority deadline four days later is for. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
+      },
+      {
+        "label": "Medicine group - signed application and paper documents must arrive by post",
+        "date": "2027-07-20",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"20.07.2026 - Fristende: Nachreichen von Unterlagen (Ausschlussfrist) durch Neu-Abiturient*innen\". This is the one an IB candidate is most likely to be caught by: results on 5-6 July, online application by 15 July, and then paper documents physically in hochschulstart's hands five days later. It is an Ausschlussfrist, so it cannot be extended, and German post is quoted at three to four working days. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
+      },
+      {
+        "label": "DoSV - last day to rank your offers before the coordination rules take over",
+        "date": "2027-07-22",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "The hidden deadline in the German system, and it was not on this calendar at all. Published as \"22.07.2026 - Stichtag, bevor die Koordinierungsregeln greifen\". Until this day you set the priority order of your applications yourself. From the next day - \"23.07.2026 - Beginn der Anwendung der Koordinierungsregeln\" - the system converts your highest-ranked offer into an admission automatically and deletes every lower-ranked one. Leaving your list in the wrong order therefore does not lose you a place; it loses you the place you wanted. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
+      },
+      {
+        "label": "DoSV coordination phase ends",
+        "date": "2027-08-24",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"24.08.2026 - Ende der Koordinierungsphase\". The portal is locked for the two days before it - \"22.08.2026 - Beginn der Portalsperre (ab 00:00 Uhr)\" to \"24.08.2026 - Abschluss der Portalsperre (24:00 Uhr)\" - so you cannot change anything over that weekend. Remaining admission and deferral decisions are published the following day. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
+      },
+      {
+        "label": "DoSV - registration window for Koordiniertes Nachrücken (the clearing round)",
+        "date": "2027-08-25",
+        "endDate": "2027-08-27",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"25.08.2026 - Beginn der Anmeldephase Koordiniertes Nachruecken\" to \"27.08.2026 - Ende der Anmeldephase Koordiniertes Nachruecken\". Three days, and you have to opt in: if you have no place after the coordination phase, this is the only route left, and missing the registration window closes it whatever places later fall free. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
+      },
+      {
+        "label": "DoSV - Koordiniertes Nachrücken ends",
+        "date": "2027-09-30",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry - projected from Wintersemester 2026/27; hochschulstart has published nothing for 2027/28",
+        "notes": "Published as \"30.09.2026 - Ende des Koordinierten Nachrueckens\", the end of the whole allocation procedure. Decisions go out twice a week through September, on Monday and Thursday afternoons. hochschulstart.de carries only two tables, Wintersemester 2026/27 and an archive of Sommersemester 2026, and no Wintersemester 2027/28 dates exist anywhere on the site. Judging by this cycle the winter table appears in spring, so recheck from about March 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
       },
       {
         "label": "uni-assist preliminary review (VPD) - submit well before the university deadline",
         "dateState": "not-published",
         "consequence": "personal",
         "year": "2027 entry",
-        "notes": "Recorded as \"allow 4-6 weeks processing\" — a lead time, not a date anyone publishes. uni-assist states evaluation usually takes 4 to 6 weeks after you submit the online form, and Western European applications are quoted at 3-4 weeks. With IB results on 5-6 July and a 15 July university deadline, this is genuinely tight - start the uni-assist file in spring 2027 with your predicted grades and school documents.",
+        "notes": "A lead time, not a date anyone publishes, which is why it carries no day. uni-assist states that you \"will usually receive your evaluation result in 4 to 6 weeks\", counted from the day it receives your online form, and that applications are evaluated in order of arrival. Its regional table - keyed to where your certificates were issued, not where you live - puts \"Western Europe and Latin America: 3-4 weeks\", the slowest band on the list, which is the one a Danish IB diploma falls into. The VPD section itself gives no processing figure at all and says only to apply as early as possible. uni-assist's own recommendation is to apply \"at least 8 weeks before the deadline expires\" so that it can tell you in time if a document is missing. With IB results on 5-6 July and a 15 July university deadline, that is impossible to do on results - so start the uni-assist file in spring 2027 with predicted grades and school documents. An earlier version of this note attributed the 4-6 weeks to the VPD specifically and put Western Europe at 3-4 weeks alone; both were misreadings of this page and are corrected here.",
         "source": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/"
+      },
+      {
+        "label": "hochschulstart.de - Wintersemester 2027/28 timetable",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Nothing for Wintersemester 2027/28 is published. The Termine page carries the 2026/27 table and an archive of Sommersemester 2026, and the only forward-looking date on the whole site is on its homepage: \"Die Bewerbungsphase fuer das Sommersemester 2027 startet am 26.10.2026 um 09:00 Uhr\" - a February 2027 start, which is not your intake. Every DoSV date recorded here is the 2026/27 day carried forward and marked provisional. The structure has been stable across cycles, so the shape is safe to plan against even though the days are not yet fixed; the 2027/28 table should appear around March or April 2027.",
+        "source": "https://www.hochschulstart.de/bewerben-beobachten/termine"
       }
     ],
     "steps": [

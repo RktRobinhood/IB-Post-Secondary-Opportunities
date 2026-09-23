@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Cheap, excellent, and mostly not in English at bachelor level",
   "summary": "Belgium is two higher education systems in one country. Dutch-speaking Flanders (KU Leuven, Ghent, Antwerp, VUB, Hasselt) and French-speaking Wallonia and Brussels (UCLouvain, ULB, Liege, Mons) each have their own ministry, fees, rules and calendar. Tuition for an EU student is among the lowest in western Europe - 1,181.40 EUR for a full year in Flanders in 2026/27 - and the universities are genuinely strong. The honest problem for an IB student from Denmark is language: almost all Belgian bachelor's degrees are taught in Dutch or French, and the fully English-taught bachelor's offer is small. Master's programmes are a different story, with hundreds in English.",
@@ -20,10 +20,11 @@
   ],
   "watchOuts": [
     "English-taught bachelor's are rare. Flemish law restricts English-taught bachelor programmes, and most of what you will find in English at bachelor level sits at university colleges or in a handful of specific programmes. Check that the exact programme exists in English before you build a plan around Belgium.",
-    "Medicine and dentistry are closed by examination. Flanders runs a competitive entrance examination sat in early July, and French-speaking Belgium runs a ranked concours in late August, with a hard cap on non-resident students.",
+    "Medicine and dentistry are closed by examination, and from 2027 so is veterinary medicine. Flanders publishes real 2027 dates - registration 1 March to 17 May 2027, then examinations on 2, 3 and 4 July 2027 - and the July sitting falls before your IB results are released. French-speaking Belgium runs a single ranked concours in the second half of August, with a hard cap on non-resident students, and has not yet set its 2027 date.",
     "Your diploma must be recognised before you can enrol, and the two communities do this differently: NARIC-Vlaanderen in Flanders, the equivalence service of the Fédération Wallonie-Bruxelles in the south. Start it early - these procedures take weeks and have their own deadlines.",
     "From 2026/27 the French-speaking community replaced its flat minerval with a four-tier means-tested scale, so what you pay depends on a grant assessment you have to apply for.",
-    "Deadlines are set by each institution, not nationally. KU Leuven's recommended bachelor deadline for EEA citizens for 2026-2027 was 1 June; others differ. There is no single Belgian closing date to remember."
+    "Deadlines are set by each institution, not nationally, and KU Leuven does not publish a university-wide one at all. Its application-windows tool answers per programme, and as of September 2026 it offers no 2027-2028 academic year. The 1 March and 1 June figures this guide used to quote could not be found on any KU Leuven page and are no longer stated here. Look up your own programme.",
+    "Two of the pages that matter most in Belgium cannot be read without a browser. The Flemish entrance-examination site moved to vlaanderen.be during 2026 and renders in JavaScript, and KU Leuven publishes its deadlines only through an interactive tool. Anything you read about Belgian dates in a summary elsewhere is second-hand by construction."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -44,46 +45,105 @@
     },
     "deadlines": [
       {
-        "label": "KU Leuven - recommended bachelor application deadline, non-EEA citizens",
+        "label": "Flanders - registration for the entrance examinations in medicine, dentistry and veterinary medicine",
         "date": "2027-03-01",
-        "consequence": "indicative",
-        "provisional": true,
-        "year": "2026-2027 entry - 2027-2028 dates to be confirmed",
-        "notes": "Published as \"1 March\" with no year. Non-EEA applicants need the earlier deadline to allow time for the visa procedure.",
-        "source": "https://www.kuleuven.be/application-windows"
+        "endDate": "2027-05-17",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "A genuine 2027 window, published in Dutch as \"Je kan je inschrijven van 1 maart tot en met 17 mei 2027\" - 17 May included. This closes more than six weeks before the exam and there is no late entry, so it is the date that decides whether you sit at all. You register and pay separately for each of the three examinations; the fee was 65 euro per examination in 2026 and the 2027 figure is not yet published. At registration you must name which programme is your preference, and that choice is binding: if you qualify for more than one, you are ranked only for the preferred one. Read in Dutch on the Flemish government's own site. The exam pages moved during 2026: toelatingsexamenartstandarts.be now redirects to vlaanderen.be/toelatingsexamens, and the content is rendered by JavaScript, so it cannot be read by an ordinary automated fetch at all - this was read in a browser.",
+        "source": "https://www.vlaanderen.be/toelatingsexamens"
       },
       {
-        "label": "KU Leuven - recommended bachelor application deadline, EEA citizens",
-        "date": "2027-06-01",
-        "consequence": "indicative",
-        "provisional": true,
-        "year": "2026-2027 entry - 2027-2028 dates to be confirmed on the KU Leuven application-windows tool",
-        "notes": "Published as \"1 June\" with no year. KU Leuven publishes deadlines through an interactive tool where you select academic year, nationality and programme. Some programmes close earlier. Verify your exact programme rather than relying on the general date.",
-        "source": "https://www.kuleuven.be/application-windows"
+        "label": "Flanders - entrance examination, medicine (toelatingsexamen arts)",
+        "date": "2027-07-02",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"vrijdag 2 juli 2027\" - the first genuine 2027 date Belgium has put on the record. It falls three or four days before IB results are released on 5-6 July 2027, so you sit it not knowing your diploma grades. That is survivable, because the rule is about the diploma rather than the marks: you must hold your secondary-school diploma by 30 September of the year you are favourably ranked. The examination has two parts, Kennis in de Wetenschappen and Generieke Competenties, and is taken on paper. It is a ranking competition - only those \"gunstig gerangschikt\" may start - not a pass mark. Read in Dutch on the Flemish government's own site. The exam pages moved during 2026: toelatingsexamenartstandarts.be now redirects to vlaanderen.be/toelatingsexamens, and the content is rendered by JavaScript, so it cannot be read by an ordinary automated fetch at all - this was read in a browser.",
+        "source": "https://www.vlaanderen.be/toelatingsexamens"
       },
       {
-        "label": "Flanders - entrance examination for medicine and dentistry (toelatingsexamen arts en tandarts)",
+        "label": "Flanders - entrance examination, dentistry (toelatingsexamen tandarts)",
+        "date": "2027-07-03",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"zaterdag 3 juli 2027\". From 2027 the three examinations are held on three consecutive days, so sitting more than one is physically possible but means three registrations and three fees. Read in Dutch on the Flemish government's own site. The exam pages moved during 2026: toelatingsexamenartstandarts.be now redirects to vlaanderen.be/toelatingsexamens, and the content is rendered by JavaScript, so it cannot be read by an ordinary automated fetch at all - this was read in a browser.",
+        "source": "https://www.vlaanderen.be/toelatingsexamens"
+      },
+      {
+        "label": "Flanders - entrance examination, veterinary medicine (toelatingsexamen dierenarts)",
+        "date": "2027-07-04",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"zondag 4 juli 2027\". Veterinary medicine is new to this examination - the Flemish entrance examination now covers arts, tandarts and dierenarts, where it used to cover only the first two. Read in Dutch on the Flemish government's own site. The exam pages moved during 2026: toelatingsexamenartstandarts.be now redirects to vlaanderen.be/toelatingsexamens, and the content is rendered by JavaScript, so it cannot be read by an ordinary automated fetch at all - this was read in a browser.",
+        "source": "https://www.vlaanderen.be/toelatingsexamens"
+      },
+      {
+        "label": "Flanders - deadline to hold your secondary-school diploma if you are favourably ranked",
+        "date": "2027-09-30",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The rule that makes the July examination workable for an IB candidate, published as: you must be favourably ranked for that specific programme and \"ten laatste op 30 september van het jaar van gunstige rangschikking je diploma secundair onderwijs behaald hebben\". Your IB diploma is issued in early July, comfortably inside it. Read in Dutch on the Flemish government's own site. The exam pages moved during 2026: toelatingsexamenartstandarts.be now redirects to vlaanderen.be/toelatingsexamens, and the content is rendered by JavaScript, so it cannot be read by an ordinary automated fetch at all - this was read in a browser.",
+        "source": "https://www.vlaanderen.be/toelatingsexamens"
+      },
+      {
+        "label": "French-speaking Belgium - concours d'entree en medecine, dentisterie et sciences veterinaires (ARES)",
+        "date": null,
         "dateState": "not-yet-announced",
         "consequence": "hard",
-        "year": "The 2026 session was reported as 2 July 2026; the 2027 date had not been confirmed on the official exam site at the time of research",
-        "notes": "Recorded only as \"early July\" — no 2027 date is published, so none is recorded here. Compulsory for anyone who wants to study medicine or dentistry in Flanders. Registration opens months in advance and the exam is competitive, not just a pass/fail hurdle. Re-check toelatingsexamenartstandarts.be from late 2026. The 2026 date was read from secondary reporting rather than confirmed on the official exam site.",
-        "source": "https://toelatingsexamenartstandarts.be/"
+        "year": "2027 entry",
+        "notes": "Checked on the official site and genuinely not published: \"Pour 2027, la date du concours n'est pas encore connue\", and the registration page says \"cette date n'a pas encore ete fixee pour l'edition 2027\" and \"Les inscriptions a l'epreuve du concours 2027 ne sont pas encore possibles actuellement\". What is fixed is the frame: \"Le concours est une epreuve unique organise entre le 16 et le 31 aout de chaque annee\" - one sitting a year, in the second half of August, in person. For 2026 the day was Thursday 27 August at Brussels Expo, with registration 18 May to 5 July 2026 at 23h59 and results on 4 September; those dates are now separate entries so that the pattern is visible on the calendar. Two changes for 2027 matter: sciences veterinaires joins medecine and dentisterie, and you choose one filiere and one university at registration. Recheck around April or May 2027; the dates-cles page is the one that will flip first.",
+        "source": "https://mesetudes.be/concoursmd/le-concours"
       },
       {
-        "label": "French-speaking Belgium - concours d'entree en medecine et dentisterie (ARES)",
-        "dateState": "not-yet-announced",
+        "label": "French-speaking Belgium - ARES concours registration window",
+        "date": "2026-05-18",
+        "endDate": "2026-07-05",
         "consequence": "hard",
-        "year": "The 2026 session was reported as 27 August 2026 at Brussels Expo, with registration 18 May to 5 July 2026; the 2027 dates were not published at the time of research",
-        "notes": "Recorded only as \"late August\" — no 2027 date is published, so none is recorded here. A ranked competitive examination, not a pass mark. Non-residents compete for a capped share of the places. The 2026 dates were read from secondary reporting rather than confirmed on the ARES site - verify at ares-ac.be and mesetudes.be.",
-        "source": "https://www.mesetudes.be/"
+        "provisional": true,
+        "year": "2026 session - the 2027 window is not published",
+        "notes": "Promoted out of a note, where it was prose attached to a different entry. The official dates-cles page gives \"Ouverture des inscriptions - 18 mai 2026\" and \"Cloture des inscriptions - 5 juillet 2026 a 23h59\"; the 23h59 matters and was missing from the earlier record. The 50 euro fee must be paid online before registration closes, and an unpaid application is not processed. The window opens roughly fourteen weeks before the examination, which is why it is recorded even though the 2027 equivalent has not been set: if the rhythm repeats, registration for the August 2027 concours would open in May 2027, before your IB results.",
+        "source": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles"
       },
       {
-        "label": "Enrolment closing date at most Belgian institutions",
+        "label": "French-speaking Belgium - ARES concours 2026 session and results",
+        "date": "2026-08-27",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2026 session - recorded as the pattern for 2027",
+        "notes": "\"Le concours d'entree est organise une seule fois par an, le jeudi 27 aout 2026\", at Brussels Expo, in person only, 09h30 to 17h00 with no admission after 10h30. Results followed on 4 September 2026. The rule for 2027 is that results come within three days of the jury's deliberation and at most ten days after the examination. Two structural points a Danish candidate needs: non-residents compete for a capped share of places, 15 per cent for medecine and dentisterie and 20 per cent for sciences veterinaires, and you may sit the concours in at most two different academic years within any five-year period, with sittings from 2023 onwards already counting.",
+        "source": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/inscription"
+      },
+      {
+        "label": "KU Leuven - bachelor application deadlines",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
+        "year": "2027-2028 not published; the tool offers only 2026-2027 and earlier",
+        "notes": "This record previously carried 1 March for non-EEA citizens and 1 June for EEA citizens, each cited to the application-windows page. That page carries no dates at all: it is an interactive tool that renders its answers in JavaScript, and neither figure appears anywhere in KU Leuven's readable pages. Driven in a browser, its academic-year selector offers only 2026-2027, 2025-2026 and 2024-2025 - there is no 2027-2028, so nothing is published for your intake. KU Leuven states the principle plainly: \"Every programme at KU Leuven has its own entry requirements, application procedure and deadlines\", several English-taught programmes have a fixed deadline and the rest do not, and the tool does not block late submissions in any case. Look your own programme up rather than working to a university-wide date, and note the site moved: the old /english/application/ paths now 404 and the live section is /english/apply/.",
+        "source": "https://icts.kuleuven.be/apps/tuitionfees/application-windows"
+      },
+      {
+        "label": "KU Leuven - Dutch-taught bachelor programmes, no deadline for EEA citizens",
+        "date": null,
+        "dateState": "no-central-deadline",
+        "consequence": "indicative",
+        "year": "2026-2027 wording; not restated for 2027-2028",
+        "notes": "The one nationality-specific deadline KU Leuven states in plain text, and it is good news: \"For Dutch-taught programmes, the deadline for non-EEA applicants is 1 February. EEA applicants applying for a Dutch-taught programme are not subject to a deadline.\" As a Danish citizen you are in the second group. It says nothing about English-taught programmes, which are handled per programme.",
+        "source": "https://www.kuleuven.be/english/apply/application-instructions/apply-to-kuleuven"
+      },
+      {
+        "label": "Flanders - when applications open at most institutions",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "indicative",
         "year": "General rule - confirm with the institution",
-        "notes": "Published as \"late September to 31 October depending on institution and decree\". Belgian enrolment traditionally runs late compared with the Netherlands or Ireland, but international applicants who need a diploma equivalence or a visa are given much earlier application deadlines. Do not rely on the late date.",
-        "source": "https://www.studyinflanders.be/practical-information/admission-requirements"
+        "notes": "Corrected and re-sourced. This record previously said \"late September to 31 October depending on institution and decree\" and cited the Study in Flanders admission-requirements page, which carries no such sentence and no enrolment dates of any kind. What Study in Flanders does publish, on its how-to-apply page, is the opening rather than the closing: \"Each Flemish higher education institution has its own procedures, opening and closing dates for applications\" and \"In general, applications at Flemish higher education institutions open around November-December.\" The late-October enrolment cut-off is a matter for the Flemish higher education codex rather than for this portal, and it is not verified here. The practical point stands: international applicants who need a diploma equivalence or a visa are given much earlier deadlines, so do not plan around a late date.",
+        "source": "https://www.studyinflanders.be/practical-information/how-to-apply"
       }
     ],
     "steps": [
@@ -467,9 +527,49 @@
       "retrieved": "2026-09-22"
     },
     {
-      "title": "Toelatingsexamen arts en tandarts (Flanders) - official exam site",
+      "title": "Flanders - Old entrance-examination domain, now a permanent redirect to vlaanderen.be/toelatingsexamens",
       "url": "https://toelatingsexamenartstandarts.be/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Flanders - Entrance examinations for medicine, dentistry and veterinary medicine (2027 dates and registration window; JavaScript-rendered, read in a browser)",
+      "url": "https://www.vlaanderen.be/toelatingsexamens",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Flanders - Registering for the entrance examinations (fee, one registration per examination)",
+      "url": "https://www.vlaanderen.be/toelatingsexamens/inschrijven-voor-de-toelatingsexamens-arts-tandarts-en-dierenarts",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "ARES concours - Le concours (single August sitting; 2027 date not yet known)",
+      "url": "https://mesetudes.be/concoursmd/le-concours",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "ARES concours - Dates cles de l edition 2026 (registration 18 May to 5 July 2026, results 4 September)",
+      "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "ARES concours - Inscription (fee, non-resident quotas, 2027 registration not yet open)",
+      "url": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/inscription",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "KU Leuven - Application window tool (interactive; no 2027-2028 academic year offered as of September 2026)",
+      "url": "https://icts.kuleuven.be/apps/tuitionfees/application-windows",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "KU Leuven - Apply to KU Leuven (per-programme deadlines; no deadline for EEA citizens on Dutch-taught programmes)",
+      "url": "https://www.kuleuven.be/english/apply/application-instructions/apply-to-kuleuven",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Study in Flanders - How to apply (applications open around November-December; closing dates devolved to institutions)",
+      "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

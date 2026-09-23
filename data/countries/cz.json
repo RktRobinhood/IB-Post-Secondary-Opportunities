@@ -7,7 +7,7 @@
   "currency": "CZK",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Your IB skips the paperwork everyone else has to do",
   "summary": "Since 1 March 2025 an IB Diploma is exempt from nostrification in Czechia by law. That matters more than it sounds: a Danish studentereksamen is not on the automatic-equivalence list and would have to go through a regional authority or pay a university assessment fee, while your IB Diploma is simply accepted. The other thing to know is that studying in Czech is free for everyone, regardless of nationality — the fee depends on the language of instruction, not on your passport. English-taught tuition runs from around 500 euros a year at the agricultural university to 24,250 for medicine at Charles.",
@@ -21,11 +21,12 @@
   ],
   "watchOuts": [
     "There is no central application portal. Every university, and in practice every faculty, runs its own application with its own deadline, fee and exam. Fees range from 500 CZK to 285 euros.",
-    "Most 2027 deadlines had not been published when this was researched. Only three firm 2027 dates exist: Charles 2nd Faculty (1 November 2026 to 30 April 2027), VŠE's International Business (28 February 2027) and VSB Ostrava (applications open 1 October 2026).",
+    "Most 2027 deadlines had not been published when this was researched. The firm ones are Charles 2nd Faculty (applications 1 November 2026 to 30 April 2027, exam registration 30 April 2027, Prague sittings 3 June and 22 July 2027), VSE International Business (open 1 November 2026, close 28 February 2027, documents 31 July 2027) and VSB Ostrava Materials Science (1 October 2026 to 31 January 2027). Everything else is last cycle projected forward.",
     "Every tuition figure here is 2026/27 or earlier. Expect increases. Anglo-American University has already said prices are expected to rise 5 percent for students starting after 31 August 2026.",
     "The nostrification exemption is new, so older pages — including some still-live university pages and the IBO's own entry for CTU — still say the IB needs nostrification. You will meet contradictory information. One Charles faculty page appears to say something different again; ask FSV UK directly if that is your faculty.",
     "Charles 3rd Faculty of Medicine requires HL English among the three subjects for its exam waiver and does not say whether English B counts. If you are taking English B HL, query it before relying on that route.",
-    "No entrance exam venue anywhere inside Denmark was found. Plan on Oslo, Göteborg, Berlin, an online sitting, or travelling to Czechia."
+    "No entrance exam venue anywhere inside Denmark was found. Charles 2nd Faculty lists Oslo through EduPlanet but with no date for 2027 - only Berlin, on 13 July 2027, carries a day among its overseas sittings. Plan on Berlin, an online sitting, or travelling to Czechia.",
+    "Two Charles 2nd Faculty pages disagree with each other. Its key-dates page gives 2027 Prague sittings of 3 June and 22 July, while its entrance-exam exemption page - the one an IB candidate needs, and stamped as updated in September 2026 - still prints the 2026 waiver deadline of 30 April and the old sittings of 27 May and 15 July. Ask the study department for the 2027 waiver deadline rather than inferring it."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -53,53 +54,247 @@
     },
     "deadlines": [
       {
-        "label": "VSB Technical University of Ostrava, applications open",
+        "label": "Masaryk University, Faculty of Education - applications, September intake",
         "date": "2026-10-01",
-        "consequence": "indicative",
+        "endDate": "2027-03-31",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "The earliest of Masaryk's faculty windows to open, and the first Czech deadline of the cycle. Published as \"Bachelor's programme: 1 October-31 March\". Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "VSB Technical University of Ostrava, Faculty of Materials Science and Technology - English-taught bachelor's, 2027/28 first round",
+        "date": "2026-10-01",
+        "endDate": "2027-01-31",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027/28 entry",
-        "notes": "Its Faculty of Economics runs five admission rounds, the last of them in mid-August — unusually forgiving if your July results change your plan.",
-        "source": "https://www.vsb.cz/en/"
+        "notes": "The one genuinely 2027/28 row on VSB's whole application-dates table, published in Czech as \"bakalarske | anglictina | 2027/2028 | 01. 10. 2026 - 31. 01. 2027 | 1. kolo\". Read the Czech page: the English mirror of the same table has not been updated for this faculty and still shows the closed 2026/27 window. The university homepage carries a banner saying \"APPLICATIONS for AY 27/28 open on 1 October\", but it names no faculty, no year digit and no closing date, which is why it is not the source here.",
+        "source": "https://www.vsb.cz/cs/uchazec/prijimaci-rizeni/terminy-pro-podani-prihlasek/"
       },
       {
         "label": "Charles 2nd Faculty of Medicine, application window",
         "date": "2026-11-01",
         "endDate": "2027-04-30",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "A genuine 2027 date. Registration for the entrance exam also closes 30 April 2027. The 2027 overseas exam list includes Oslo through EduPlanet, plus Berlin, Frankfurt, Vienna and Lisbon; Prague dates were still to be announced. The deadline for the IB exam waiver itself was not confirmed for 2027.",
+        "notes": "A genuine 2027 date: \"Applications are accepted from 1 November 2026 to 30 April 2027.\" Registration for the entrance exam closes the same day but is a separate item on the faculty's table, and it is now an entry of its own here.",
         "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
       },
       {
-        "label": "VŠE Bachelor of International Business",
-        "date": "2027-02-28",
-        "consequence": "hard",
-        "year": "2027",
-        "notes": "Applications open November 2026, interviews in March 2027, decisions mid-March 2027. Another genuine 2027 date.",
-        "source": "https://ibb.vse.cz/admission-process/"
-      },
-      {
-        "label": "Palacký University Olomouc, medicine",
-        "date": "2027-07-31",
+        "label": "Masaryk University, Faculty of Science - applications, September intake",
+        "date": "2026-11-01",
+        "endDate": "2027-02-28",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry; 2027 date not published",
-        "notes": "Published as \"31 July\" with no year. Applications opened 1 November. Most entrance exam dates are online, and EU citizens get extra late-August terms that non-EU applicants do not.",
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"Submit your application during this period: 1 November-28 February\". Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "Masaryk University, Faculty of Social Studies - applications, September intake",
+        "date": "2026-11-01",
+        "endDate": "2027-05-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"September intake: 1 November-15 May\", the same window for bachelor's and follow-up master's. A February intake also exists, running 1 July to 31 October. Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "Palacky University Olomouc, General Medicine in English - applications open",
+        "date": "2026-11-01",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "2027 entry - projected from the 2026-entry page, which says applications open \"anytime from 1st November 2025 onwards\"",
+        "notes": "The faculty page is still written for September 2026 enrolment and has not rolled over. The opening day has been 1 November in the cycle read, so 1 November 2026 is the expectation, not a published fact.",
         "source": "https://www.lf.upol.cz/en/studyat-our-faculty/general-medicine-mudr/"
       },
       {
-        "label": "Masaryk University, by faculty",
-        "dateState": "varies-by-institution",
+        "label": "VSE Prague, Bachelor of International Business - applications open for 2027/28",
+        "date": "2026-11-01",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027/28 entry",
+        "notes": "\"The application will be open on 1 November, 2026.\" One of the very few Czech pages that names the 2027/28 cycle explicitly, and it is maintained - stamped last updated 14 August 2026.",
+        "source": "https://ibb.vse.cz/admission-process/how-to-apply/"
+      },
+      {
+        "label": "Masaryk University, Faculty of Arts - applications, September intake",
+        "date": "2026-12-01",
+        "endDate": "2027-04-30",
         "consequence": "hard",
-        "year": "2026/27 pattern; 2027 dates not published",
-        "notes": "Published as \"1 October - 31 July depending on faculty\". Science 1 Nov to 28 Feb; Informatics and Economics 15 Dec to 30 Apr; Social Studies 1 Nov to 15 May; Arts 1 Dec to 30 Apr; Education 1 Oct to 31 Mar; Medicine 2 Jan to 31 Jul; Pharmacy 1 Dec to 31 Jul for EU applicants.",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"Submit your application during this period: 1 December-30 April\". A February intake for the follow-up master's runs 1 June to 30 September. Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
         "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "Masaryk University, Faculty of Pharmacy - applications, EU applicants",
+        "date": "2026-12-01",
+        "endDate": "2027-07-31",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"1 December-31 July (for EU residents)\". Non-EU residents get a shorter window closing 31 May. As a Danish citizen you have the longer one, which runs well past your IB results. Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "Masaryk University, Faculty of Informatics - applications, September intake",
+        "date": "2026-12-15",
+        "endDate": "2027-04-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"September intake: 15 December-30 April\". A February intake also exists, closing 30 October - note that Informatics prints 30 October where Economics and Social Studies print 31, and the page repeats it, so it is not a one-line typo. Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "Masaryk University, Faculty of Economics and Administration - applications, September intake",
+        "date": "2026-12-15",
+        "endDate": "2027-04-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"September intake: 15 December-30 April\". A February intake runs 15 June to 31 October. Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "Masaryk University, Faculty of Medicine - applications for candidates examined through a representative",
+        "date": "2027-01-02",
+        "endDate": "2027-07-31",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected, because the published window carries no year",
+        "notes": "Published as \"for exams via representatives: 2 January - 31 July\", and that qualifier matters: it is the only window the page gives for Medicine, and it is scoped to candidates sitting the entrance exam through one of the university's representatives. The summary table at the top of the page shows Medicine simply as \"31 July\" and drops both the opening date and the qualifier. Masaryk publishes this window with a day and a month but no year at all, and no academic-year heading anywhere on the page, so the year here is projected onto the September 2027 intake. The page's own summary table and its per-faculty detail sections disagree in places, the table dropping the opening dates the detail gives; the detail sections are used here.",
+        "source": "https://www.muni.cz/en/admissions/bachelors-and-masters-studies/how-to-apply"
+      },
+      {
+        "label": "VSE Prague, Bachelor of International Business - application and fee deadline",
+        "date": "2027-02-28",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/28 entry",
+        "notes": "Published as \"Application Deadline: February 28th, 2027\", and repeated in the official Conditions of admission for 2027/2028. The 100 EUR fee must be credited to the university by the same day, and it is not refundable.",
+        "source": "https://ibb.vse.cz/admission-process/entrance-exam/"
+      },
+      {
+        "label": "VSE Prague, Bachelor of International Business - admission interview",
+        "date": "2027-03-01",
+        "endDate": "2027-03-31",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027/28 entry",
+        "notes": "Published only as a month - \"Exam Date: March 2027\" - with the prose adding that interviews are scheduled \"in the beginning of March\". The window here spans the published month because the model holds days, not months; no individual day exists to record. The exam is a single online interview over MS Teams, 50 points for motivation and 50 for English, with a minimum of 25 in each part. The decision follows: the faculty says only that it \"is usually made around the mid of March\", with no year and no committed day, so that is customary practice rather than a date to plan against.",
+        "source": "https://ibb.vse.cz/admission-process/entrance-exam/"
+      },
+      {
+        "label": "VSE Prague, Bachelor of International Business - second-round deadline, if a second round is announced",
+        "date": "2027-04-30",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027/28 entry",
+        "notes": "From the official Conditions of admission 2027/2028: \"Should the second admission round be announced, the application deadline will be April 30th 2027, and the exam will be held in May 2027.\" The Dean announces it only if the first round does not fill the programme, so it is a real dated fallback that may never open. A second-round application must be submitted separately.",
+        "source": "https://ibb.vse.cz/admission-process/entrance-exam/"
+      },
+      {
+        "label": "Charles 2nd Faculty of Medicine, entrance exam registration closes",
+        "date": "2027-04-30",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Promoted out of the application-window note, where it was prose. The faculty publishes it as a separate \"Registration deadline\" column against each Prague exam date, and it applies to both the regular and the alternative sitting - so registering late does not buy you the July date. It happens to fall on the same day as the application deadline. The page says nothing about what happens if you miss it, and there is no late-registration provision anywhere on it.",
+        "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
+      },
+      {
+        "label": "Charles 2nd Faculty of Medicine, entrance exam in Prague - regular date",
+        "date": "2027-06-03",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "A genuine 2027 date. The written paper is 75 questions in 90 minutes - 20 biology, 20 chemistry, 20 physics, 15 logic - worth 225 points, with up to 90 more from an interview. Sitting it in Prague on this date means travelling before your IB results arrive.",
+        "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
+      },
+      {
+        "label": "Charles 2nd Faculty of Medicine, entrance exam in Berlin",
+        "date": "2027-07-13",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The only overseas sitting on the faculty's 2027 list that carries a date rather than \"TBA\", run through the agency Medical Doorway. Reachable from Denmark in a day.",
+        "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
+      },
+      {
+        "label": "Charles 2nd Faculty of Medicine, entrance exam in Prague - alternative date",
+        "date": "2027-07-22",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The second Prague sitting, and the one that falls after IB results are released on 5-6 July 2027. You still have to register for it by 30 April.",
+        "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
+      },
+      {
+        "label": "VSE Prague, Bachelor of International Business - hard copies of secondary-education documents",
+        "date": "2027-07-31",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/28 entry",
+        "notes": "The deadline that decides whether an IB candidate can actually take the place up. VSE requires the physical documents by \"31st July, 2027\", stated twice on its required-documents page. IB results are issued on 5-6 July 2027, which leaves about three weeks to obtain, certify and post the diploma. One older page on the same site, last updated nine months earlier, says \"at the latest by 1st July\" - the two disagree and the later page is the one used here, but confirm with the programme office before relying on either.",
+        "source": "https://ibb.vse.cz/admission-process/required-admission-documents/"
+      },
+      {
+        "label": "Palacky University Olomouc, General Medicine in English - outer application deadline",
+        "date": "2027-07-31",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - projected; the page still reads \"WILL BE OPEN UNTIL 31st July 2026\" for September 2026 enrolment",
+        "notes": "This is the outer boundary, not the deadline you work to. The faculty states twice that a complete application, documents uploaded and fee paid, is due \"two weeks before the selected entrance exam at the latest\". Since the 2027 examination dates are not published, the operative deadline cannot be calculated yet. The application fee is 80 EUR and is not refundable.",
+        "source": "https://www.lf.upol.cz/en/studyat-our-faculty/general-medicine-mudr/"
+      },
+      {
+        "label": "Charles 2nd Faculty of Medicine, overseas entrance exam sittings",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "The faculty lists roughly twenty overseas locations for 2027 and gives a date for almost none of them. Oslo, run through EduPlanet and the nearest sitting to Denmark, is listed as \"TBA\", as are Frankfurt, Vienna, Lisbon, Munich, Vechta, Athens, Limassol, Toronto, Istanbul and Seoul. Only Berlin carries a day, and it is recorded separately. The page itself warns \"Dates will be updated soon.\" and was stamped as last updated on 23 September 2026, so this is a live gap rather than an abandoned one. No overseas registration deadline is published at all - the registration column exists only for the Prague sittings.",
+        "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-dates-and-deadlines"
+      },
+      {
+        "label": "Charles 2nd Faculty of Medicine, IB entrance exam waiver",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "The waiver is the most IB-specific thing this faculty offers and its 2027 dates do not exist. The exemptions page, stamped as last updated 21 September 2026, still carries the previous cycle throughout: apply and pay the 2,500 CZK fee \"by 30 April 2026\", notification \"by the end of May 2026\", and fallback Prague sittings on \"27 May or 15 July\" - dates that contradict the faculty's own 2027 key-dates page, which gives 3 June and 22 July 2027. The thresholds are stated and are presumably stable: at least 35 points including EE and TOK, at least 19 from HL Biology and HL Chemistry together, plus HL or SL Maths or Physics, with a maximum of 25 waivers shared across the IB, EB and BS group. Ask the study department for the 2027 waiver deadline rather than inferring it.",
+        "source": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/exemptions"
+      },
+      {
+        "label": "Palacky University Olomouc, General Medicine in English - 2027 entrance examination dates",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Not published: the faculty's table is headed \"Entrance examination dates and venues for 2026\" and has not rolled over. Two features of the 2026 list matter enough to carry forward. First, four sittings late in the season - 18, 19, 25 and 28 August 2026 - were marked as open only to applicants who are EU citizens or hold a valid residence permit, which is an advantage a Danish candidate has and a non-EU candidate does not. Second, the examination can be taken only once per academic year, so the date you pick is the only attempt you get.",
+        "source": "https://www.lf.upol.cz/en/studyat-our-faculty/general-medicine-mudr/"
+      },
+      {
+        "label": "VSB Technical University of Ostrava, Faculty of Economics - 2027/28 admission rounds",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027/28 entry",
+        "notes": "Corrects a claim this record carried previously. The Faculty of Economics does not publish a five-round structure. Its own admissions page sets out three bachelor rounds, and those are for the Czech-taught programme; the number five appears only as a label on one row of the university dates table, \"5. kolo\" against the 2026/27 English-taught bachelor intake, which opened 5 August and closed 14 August 2026. The table only ever shows the currently open round per programme, so earlier rounds are never visible. Nothing at all is published for 2027/28, and the faculty pages are imperfectly maintained - one section prints 2025 document deadlines against its own 2026 round dates.",
+        "source": "https://www.ekf.vsb.cz/cs/uchazec/prijimaci-rizeni/"
       },
       {
         "label": "Charles University, English-taught programmes",
         "dateState": "varies-by-institution",
         "consequence": "hard",
-        "year": "2026/27 pattern; 2027 dates not published",
-        "notes": "Published as \"varies by faculty, February to June or July\". For 2026 entry: MFF closed 30 April, 3rd Faculty of Medicine 15 April, Plzeň 30 April, Hradec Králové 30 April, and the 1st Faculty of Medicine ran all the way to 5 September.",
+        "year": "2026/27 pattern; no faculty has published 2027/28 dates",
+        "notes": "The central page carries only a range - English-taught bachelor's and master's deadlines \"vary for each faculty (from February till June/July)\" - and it is stamped as last changed in May 2023, so it is three years stale and names no faculty. The faculty dates this record used to attribute to it are not on it; they were re-checked one faculty at a time and all belong to the closed 2026/27 cycle. Mathematics and Physics closed 30 April 2026; the Third Faculty of Medicine 15 April 2026; Plzen 30 April 2026; Hradec Kralove works differently, with 30 April 2026 for its online sitting and 7 May 2026 for sittings held abroad rather than one global deadline; and the First Faculty of Medicine ran to 5 September 2026. None has published anything for 2027/28. Judging by this cycle, expect them from November or December 2026, faculty by faculty, on each faculty's own site rather than centrally. Charles also states that it has no rolling admissions and grants no individual extensions.",
         "source": "https://cuni.cz/UKEN-1632.html"
       },
       {
@@ -107,7 +302,7 @@
         "dateState": "rolling",
         "consequence": "rolling",
         "year": "continuous",
-        "notes": "Published as \"rolling, no deadline\". Applications accepted all year round. A realistic safety option if your plans change late.",
+        "notes": "Published as \"We have rolling admissions, therefore, you can submit your applications all year round.\" A realistic safety option if your plans change late. The application fee is 1,000 CZK and the admissions office says it decides one week after your interview, so the turnaround is short as well as the deadline absent.",
         "source": "https://www.aauni.edu/admissions/undergraduate-admission/"
       }
     ],
@@ -549,6 +744,66 @@
       "title": "SU — studies abroad",
       "url": "https://www.su.dk/english/studies-abroad",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "VSB Technical University of Ostrava - Application dates, Czech original (the only page carrying a 2027/2028 window)",
+      "url": "https://www.vsb.cz/cs/uchazec/prijimaci-rizeni/terminy-pro-podani-prihlasek/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "VSB Technical University of Ostrava, Faculty of Economics - How to apply (published bachelor round structure)",
+      "url": "https://www.ekf.vsb.cz/cs/uchazec/prijimaci-rizeni/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Charles 2nd Faculty of Medicine - Entrance exam exemptions (IB waiver; still carries 2026 deadlines)",
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/exemptions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "VSE Prague, Bachelor of International Business - Admission requirements and entrance exam (2027/28 deadline, interview month, second round)",
+      "url": "https://ibb.vse.cz/admission-process/entrance-exam/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "VSE Prague, Bachelor of International Business - How to apply",
+      "url": "https://ibb.vse.cz/admission-process/how-to-apply/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "VSE Prague, Bachelor of International Business - Required admission documents (hard copies by 31 July 2027)",
+      "url": "https://ibb.vse.cz/admission-process/required-admission-documents/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Palacky University Olomouc - General Medicine MUDr in English (2026-entry page; EU-only late-August sittings)",
+      "url": "https://www.lf.upol.cz/en/studyat-our-faculty/general-medicine-mudr/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Charles University - Application deadlines (central page; range only, last changed May 2023)",
+      "url": "https://cuni.cz/UKEN-1632.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Anglo-American University - Undergraduate admission (rolling admissions)",
+      "url": "https://www.aauni.edu/admissions/undergraduate-admission/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Charles First Faculty of Medicine - Admissions 2026/2027 (5 September 2026 deadline)",
+      "url": "https://en.lf1.cuni.cz/admission-20262027",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Charles Faculty of Medicine in Hradec Kralove - Admission process (30 April online, 7 May abroad)",
+      "url": "https://www.lfhk.cuni.cz/LFHKEN-181.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Charles Faculty of Mathematics and Physics - Costs and dates (30 April 2026 deadline)",
+      "url": "https://www.mff.cuni.cz/en/admissions/costs-and-dates",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {
