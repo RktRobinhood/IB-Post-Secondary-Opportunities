@@ -1,0 +1,136 @@
+{
+  "id": "es",
+  "iso2": "es",
+  "name": "Spain",
+  "adjective": "Spanish",
+  "scope": "europe",
+  "region": "Southern Europe",
+  "capital": "Madrid",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "One accreditation, UNEDasiss, unlocks almost every Spanish university",
+  "summary": "Public universities in Spain admit an IB student through one accreditation, UNEDasiss, which turns the Diploma into a Spanish grade out of 10 (14 with extra subject tests), and then rank applicants in a regional preinscripción that closes in early July. Public fees are low, about €1,000–€1,250 a year at Carlos III. Most English-taught bachelors are at private universities such as IE, which run their own rounds from the autumn before.",
+  "whyConsider": [
+    "The IB Diploma needs no homologation: it gives access on the same terms as a Spanish Bachillerato.",
+    "Public fees are low: €16.92–€20.68 per credit at Carlos III in 2026/27, for EU students.",
+    "Real English-taught options in Madrid and Barcelona, and private universities that decide on predicted grades."
+  ],
+  "watchOuts": [
+    "The public-university deadline is early July — 7 July in 2026, the day after IB results — not the 1 December end of the UNEDasiss window.",
+    "The May PCE subject tests, which lift your grade above 10, clash with the IB exams.",
+    "Private universities (IE, Navarra, ESADE, Deusto, Comillas) close rounds from September of the year before and charge far more."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "gradeConversion": "UNEDasiss converts the IB into an access grade of 5 to 10. Universities can add up to 4 points from weighted subject tests (PCE), to a maximum of 14.",
+    "notes": [
+      "IB Diploma holders are exempt from the Spanish access test, like holders of a Spanish Técnico Superior title."
+    ],
+    "evidence": ["ev-es-boe-rd-534-2024", "ev-es-unedasiss-faqs"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Concentrated in a handful of universities — IE, Carlos III, Pompeu Fabra, Navarra, ESADE, Autònoma de Barcelona, Deusto, Comillas.",
+    "englishProof": "Set by each university.",
+    "localLanguageRequired": false,
+    "notes": [
+      "In Catalonia and the Basque Country, some modules may be taught in Catalan or Basque. Check each module."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "summary": "Public universities charge per credit at a regionally set price: at Carlos III in 2026/27, €16.92–€20.68 per credit, about €1,015–€1,241 for a 60-credit year. Private universities set their own, much higher, fees.",
+      "priceYear": "2026/27",
+      "evidence": ["ev-es-uc3m-prices-2026"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Degrees (grados) are taught at universidades, public or private. Alongside them sit two-year Técnico Superior courses in vocational training (FP de grado superior) and in plastic arts and design, and the Enseñanzas Artísticas Superiores at conservatorios and schools of art and design.",
+    "routes": [
+      {
+        "localName": "universidad pública",
+        "englishName": "public university",
+        "kind": "research",
+        "what": "Four-year grado. Admission by rank on the UNEDasiss grade in a regional preinscripción; low per-credit fees.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "universidad privada",
+        "englishName": "private university",
+        "kind": "research",
+        "what": "IE, Navarra, ESADE, Deusto, Comillas and others. Own tests, interviews and rolling rounds from the autumn before; much higher fees. Where most English-taught bachelors are.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "FP de grado superior (Técnico Superior)",
+        "englishName": "higher vocational training",
+        "kind": "professional",
+        "what": "Two-year practical courses with a work placement, and a recognised route on into a university degree. The Spanish route foreigners are rarely told about.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Not researched here. The ministry's FP portal (todofp.es) did not answer an automated fetch."
+      },
+      {
+        "localName": "Enseñanzas Artísticas Superiores",
+        "englishName": "higher arts education",
+        "kind": "specialist",
+        "what": "Music, dance, drama, design and conservation at conservatorios and escuelas superiores, with their own entrance tests.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Not researched here."
+      }
+    ],
+    "evidence": ["ev-es-boe-rd-534-2024"]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "es-public",
+      "name": "Public universities — UNEDasiss, then preinscripción",
+      "kind": "sector",
+      "summary": "UNEDasiss accreditation, then the preinscripción of the region or university. Ranked on the grade out of 14.",
+      "applicationRoute": "es-public-2027",
+      "variations": [
+        {
+          "field": "deadlines",
+          "label": "Deadlines",
+          "summary": "Catalonia runs one preinscripció for all its public universities. Elsewhere each university's preinscripción applies; most close in early July, some earlier.",
+          "source": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+          "evidence": ["ev-es-catalonia-foreign-system", "ev-es-unedasiss-fechas-2026"]
+        }
+      ],
+      "evidence": ["ev-es-unedasiss-fechas-2026"]
+    },
+    {
+      "id": "es-private",
+      "name": "Private universities — direct",
+      "kind": "sector",
+      "summary": "Applied to directly, in rounds from the autumn before entry, with a test and interview and a conditional offer on predicted grades.",
+      "applicationRoute": "es-private-2027",
+      "evidence": ["ev-es-ie-admissions-rounds-2027"]
+    }
+  ],
+  "evidence": [
+    "ev-es-unedasiss-fechas-2026",
+    "ev-es-boe-rd-534-2024",
+    "ev-es-uc3m-prices-2026"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-01",
+    "notes": [
+      "Institution jurisdictions to add to data/countries/es.json on publishing: es-private = IE, Navarra, ESADE, Deusto, Comillas; es-public = UC3M, UPF, UAB, UAM, UB, UCM, UPC.",
+      "Not established: 2027 PCE and preinscripción dates, private-university fees, and whether FP de grado superior and Enseñanzas Artísticas Superiores accept an IB Diploma."
+    ]
+  }
+}

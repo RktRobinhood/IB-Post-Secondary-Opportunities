@@ -198,7 +198,8 @@
       ],
       "note": "The most international private option in Spain, with its own admission test and interview rather than the UNEDasiss cut-off route; fees were not verifiable during research.",
       "wikipedia": "https://en.wikipedia.org/wiki/IE_University",
-      "place": "es-segovia-and-madrid"
+      "place": "es-segovia-and-madrid",
+      "jurisdiction": "es-private"
     },
     {
       "name": "Universidad Carlos III de Madrid",
@@ -218,7 +219,8 @@
       ],
       "note": "The clearest value-for-money option in Spain: English-taught degrees at public prices of roughly €1,000–€1,250 a year.",
       "wikipedia": "https://en.wikipedia.org/wiki/Charles_III_University_of_Madrid",
-      "place": "es-getafe-and-leganes-madrid"
+      "place": "es-getafe-and-leganes-madrid",
+      "jurisdiction": "es-public"
     },
     {
       "name": "Universitat Pompeu Fabra",
@@ -239,7 +241,8 @@
       ],
       "note": "Small, research-intensive and consistently the top-ranked Spanish university for economics and social science.",
       "wikipedia": "https://en.wikipedia.org/wiki/Pompeu_Fabra_University",
-      "place": "es-barcelona"
+      "place": "es-barcelona",
+      "jurisdiction": "es-public"
     },
     {
       "name": "Universidad de Navarra",
@@ -260,7 +263,8 @@
       ],
       "note": "Private, Catholic, strongly ranked for Medicine and Communication, and one of the few Spanish universities with a published IB-specific admission pathway. Checked 2026-09-23: the English site moved from www.unav.edu/en/ to its own host, en.unav.edu — the old English paths now serve Navarra's Spanish-language 404 page with a 200 status, which is why they read as working.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Navarra",
-      "place": "es-pamplona"
+      "place": "es-pamplona",
+      "jurisdiction": "es-private"
     },
     {
       "name": "ESADE",
@@ -279,7 +283,8 @@
       ],
       "note": "A well-regarded private business and law school with its own admission process, entrance test and interview.",
       "wikipedia": "https://en.wikipedia.org/wiki/ESADE",
-      "place": "es-barcelona-and-sant-cugat-del-valles"
+      "place": "es-barcelona-and-sant-cugat-del-valles",
+      "jurisdiction": "es-private"
     },
     {
       "name": "Universitat Autònoma de Barcelona",
@@ -299,7 +304,8 @@
       ],
       "note": "A large public research university on a self-contained campus outside Barcelona, cheaper to live near than the city centre.",
       "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Barcelona",
-      "place": "es-bellaterra-barcelona"
+      "place": "es-bellaterra-barcelona",
+      "jurisdiction": "es-public"
     },
     {
       "name": "Universidad de Deusto",
@@ -319,7 +325,8 @@
       ],
       "note": "A private Jesuit university in the Basque Country with a strong international-relations tradition and a genuinely different city to live in.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Deusto",
-      "place": "es-bilbao-and-san-sebastian"
+      "place": "es-bilbao-and-san-sebastian",
+      "jurisdiction": "es-private"
     },
     {
       "name": "Universidad Pontificia Comillas (ICADE)",
@@ -339,7 +346,8 @@
       ],
       "note": "Madrid's other well-known private business-and-law school, with a strong record for graduate employment in Spain.",
       "wikipedia": "https://en.wikipedia.org/wiki/Comillas_Pontifical_University",
-      "place": "es-madrid"
+      "place": "es-madrid",
+      "jurisdiction": "es-private"
     },
     {
       "name": "Universidad Autónoma de Madrid",
@@ -359,7 +367,8 @@
       ],
       "note": "One of Spain's strongest public research universities, on a green campus north of Madrid.",
       "wikipedia": "https://en.wikipedia.org/wiki/Autonomous_University_of_Madrid",
-      "place": "es-madrid"
+      "place": "es-madrid",
+      "jurisdiction": "es-public"
     },
     {
       "name": "Universitat de Barcelona",
@@ -368,7 +377,7 @@
       "type": "Research university",
       "founded": 1450,
       "website": "https://www.ub.edu/web/portal/en/",
-      "admissionsUrl": null,
+      "admissionsUrl": "https://web.ub.edu/en/web/informacio-academica/degree-admission-foreign-qualifications",
       "ibPageUrl": null,
       "englishBachelors": "A small English-taught offer at bachelor level",
       "notableFields": [
@@ -380,8 +389,8 @@
       "note": "Spain's largest and most research-productive public university, but mostly teaching in Catalan and Spanish at bachelor level.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Barcelona",
       "place": "es-barcelona",
-      "admissionsUrlState": "unverifiable",
-      "admissionsUrlNote": "Checked 2026-09-23. The URL previously recorded here — www.ub.edu/portal/web/en/undergraduate — is a 404. UB's English site has moved to web.ub.edu, and every page on that host, including the root, answers a Cloudflare bot challenge rather than a page: to an automated fetch, to this project's link checker, and to a browser driven from here. No replacement could be opened and read, so none is recorded. A person with an ordinary browser should start at web.ub.edu/en/web/informacio-academica/admission-with-foreign-qualifications, which is the page search engines index as UB's admission route for applicants holding a foreign qualification; it is not recorded here because nobody has confirmed it."
+      "admissionsUrlNote": "Read in an ordinary browser on 2026-09-23 (Claude in Chrome, the owner's own browser session): the page loads normally there and sorts foreign-qualification applicants by whether they have begun university. Its \"not begun\" branch (www.ub.edu/acad/en/admission/start_studies.html, updated 17.03.2025) names \"European Baccalaureate, International Baccalaureate or Secondary studies from EU educational systems\" as its own route and refers the detail to the Generalitat of Catalonia. The host still refuses automated retrieval, so the link checker cannot confirm it.",
+      "jurisdiction": "es-public"
     },
     {
       "name": "Universidad Complutense de Madrid",
@@ -401,7 +410,8 @@
       ],
       "note": "Huge, central and historic, with some of the highest cut-off grades in Spain for Medicine.",
       "wikipedia": "https://en.wikipedia.org/wiki/Complutense_University_of_Madrid",
-      "place": "es-madrid"
+      "place": "es-madrid",
+      "jurisdiction": "es-public"
     },
     {
       "name": "Universitat Politècnica de Catalunya",
@@ -421,7 +431,8 @@
       ],
       "note": "Catalonia's main technical university, and the usual route into engineering in Barcelona.",
       "wikipedia": "https://en.wikipedia.org/wiki/Polytechnic_University_of_Catalonia",
-      "place": "es-barcelona"
+      "place": "es-barcelona",
+      "jurisdiction": "es-public"
     }
   ],
   "sources": [

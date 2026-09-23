@@ -1,0 +1,135 @@
+[
+  {
+    "id": "ev-es-unedasiss-fechas-2026",
+    "sourceUrl": "https://unedasiss.uned.es/fechas_clave",
+    "publisher": "UNED — UNEDasiss",
+    "publisherType": "national-agency",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
+    "excerpt": "El plazo para solicitar la acreditación de UNEDasiss on line, se abre el 4 de febrero y se cierra el 1 de diciembre de cada año. […] Las universidades públicas suelen cerrar su plazo de preinscripción en los primeros días del mes de julio, aunque algunas pueden tener plazos distintos.",
+    "interpretation": "What a student gets wrong: the real deadline is the university's preinscripción in early July (7 July for 2026/27), one day after IB results on 6 July, not the 1 December end of the UNEDasiss window. UNED says to apply even if the accreditation has not arrived and send the paperwork by 31 July. The page is headed 'Fechas clave 2026' and covers 2026/27 only; the 4 February–1 December window is stated as an annual rule, so it is the only date carried forward to 2027.",
+    "supports": [
+      { "entity": "es-public-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Spanish. Nothing for 2027/28 published yet."
+    }
+  },
+  {
+    "id": "ev-es-unedasiss-faqs",
+    "sourceUrl": "https://unedasiss.uned.es/faqs",
+    "publisher": "UNED — UNEDasiss",
+    "publisherType": "national-agency",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "The UNEDasiss accreditation is a digital certificate that lets a student take part in Spanish university admission. UNED calculates an admission grade of 5 to 10; universities can add up to 4 points from subject tests, to a maximum of 14.",
+    "excerpt": "La Acreditación UNEDasiss es un certificado digital que permite al alumno participar en los procesos de admisión a la universidad en España",
+    "interpretation": "The FAQ does not mention the IB by name; that IB holders use this route is established by RD 534/2024 and by the Catalan government's access page.",
+    "supports": [
+      { "entity": "es", "field": "ibRecognition" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-es-boe-rd-534-2024",
+    "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-11858",
+    "publisher": "Boletín Oficial del Estado — Real Decreto 534/2024",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Holders of the IB Diploma, like holders of a Técnico Superior title in vocational training, plastic arts and design or sport, are exempt from the Spanish university access test, provided they meet the academic requirements for university access in their system.",
+    "excerpt": "quedarán exentos de la realización de esta prueba quienes hayan obtenido un título de Técnico Superior de Formación Profesional, de Técnico Superior de Artes Plásticas y Diseño o de Técnico Deportivo Superior, así como aquellos que se encuentren en posesión del título de Bachillerato Europeo o del Diploma del Bachillerato Internacional",
+    "interpretation": "The rule that puts the IB Diploma on the same footing as a Spanish Bachillerato for access, with no homologation. The same text names the non-university higher routes (Técnico Superior in FP, in Artes Plásticas y Diseño, and Enseñanzas Artísticas Superiores), which is why the sector landscape cites it. Amended by RD 482/2025; the amendment was not re-read.",
+    "supports": [
+      { "entity": "es", "field": "ibRecognition" },
+      { "entity": "es", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Spanish from the consolidated text; the excerpt is from the preamble."
+    }
+  },
+  {
+    "id": "ev-es-catalonia-foreign-system",
+    "sourceUrl": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/",
+    "publisher": "Generalitat de Catalunya — Canal Universitats",
+    "publisherType": "ministry",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "An IB student applying to a public university in Catalonia makes one preinscripció universitària through the Generalitat's university access portal.",
+    "excerpt": "Facis la preinscripció universitària que has de tramitar al Portal d'accés a la universitat",
+    "interpretation": "Catalonia's public universities (UB, UAB, UPF, UPC among those listed here) share one regional preinscripció, so one application covers them. Madrid's public universities were not re-read; UNED says each university's own preinscripción calendar applies. The Generalitat's own access portal (accesuniversitat.gencat.cat) answered HTTP 403 to automated fetch.",
+    "supports": [
+      { "entity": "es-public-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Catalan. The page links a key-dates page for the preinscripció that was not read."
+    }
+  },
+  {
+    "id": "ev-es-uc3m-prices-2026",
+    "sourceUrl": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices",
+    "publisher": "Universidad Carlos III de Madrid",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "UC3M 2026/27 first-enrolment prices per credit, for Spanish and EU students: €16.92 (business, law, economics), €19.43 (engineering, computer science), €20.68 (biomedical engineering, neuroscience).",
+    "excerpt": "students of Spanish nationality or of any member state of the European Union, as well as to people with a valid Residence Permit in Spain",
+    "interpretation": "About €1,015 to €1,241 for a 60-credit year. One Madrid public university; prices are set by each region.",
+    "supports": [
+      { "entity": "es", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-es-ie-admissions-rounds-2027",
+    "sourceUrl": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/",
+    "publisher": "IE University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "IE University's admission rounds for 2027-2028: Early 18 September 2026, Round 1 6 November 2026, Round 2 15 January 2027, Round 3 5 March 2027, each with a decision deadline; after Round 3 applications may be considered from May 2027 subject to availability. Conditional admission is based on final high school results.",
+    "excerpt": "Admissions Calendar for 2027-2028 Early Round Application deadline: September 18, 2026 […] Round 1 Application deadline: November 6, 2026 […] Round 2 Application deadline: January 15, 2027 […] Round 3 Application deadline: March 5, 2027",
+    "interpretation": "The model for Spain's private universities: rolling rounds from the autumn before, on predicted grades, with a conditional offer, entirely separate from the UNEDasiss and July preinscripción machinery the public universities use.",
+    "supports": [
+      { "entity": "es-private-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "The page loops redirects for a cookieless fetch; read with a cookie-keeping HTTP client, which served it normally."
+    }
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "id": "es-public-2027",
+  "destination": "es",
+  "jurisdiction": "es-public",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "Applying to a Spanish public university for autumn 2027: UNEDasiss, then the region's preinscripción",
+  "channel": "other",
+  "portalUrl": "https://unedasiss.uned.es/",
+  "milestones": [
+    {
+      "id": "ms-unedasiss-open",
+      "type": "document",
+      "label": "UNEDasiss accreditation requests open",
+      "date": "2027-02-04",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "UNED states the window as an annual rule, 4 February to 1 December. Ignore the December end: the accreditation is needed for the early-July admission deadline, and processing takes about three weeks plus postage.",
+      "evidence": ["ev-es-unedasiss-fechas-2026"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Days before the preinscripción closes.",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day"
+    },
+    {
+      "id": "ms-preinscripcion",
+      "type": "submit",
+      "label": "Preinscripción closes at the public universities",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "For 2026/27 UNED gave 7 July 2026 as the deadline for international students, with documents allowed until 31 July. Each region and university runs its own preinscripción and some close earlier: Catalonia has one for all its public universities; ask your university for its date.",
+      "evidence": ["ev-es-unedasiss-fechas-2026", "ev-es-catalonia-foreign-system"]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply for UNEDasiss accreditation, choosing 'Programa del Diploma IB'. It turns your IB into a Spanish grade out of 10.",
+    "To reach 14 points for competitive degrees, sit PCE subject tests. The May call falls during IB exams.",
+    "Apply to the preinscripción even if the accreditation has not yet arrived."
+  ],
+  "evidence": ["ev-es-unedasiss-fechas-2026", "ev-es-catalonia-foreign-system"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-03-01",
+    "notes": [
+      "Channel 'other' because there is no single portal: UNEDasiss issues the grade, and the application goes to a regional or university preinscripción.",
+      "The PCE dates for 2027 are not published; the 2026 precedent is in the country profile's deadlines."
+    ]
+  }
+}

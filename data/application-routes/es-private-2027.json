@@ -1,0 +1,51 @@
+{
+  "id": "es-private-2027",
+  "destination": "es",
+  "jurisdiction": "es-private",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Spanish private university for autumn 2027",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-apply",
+      "type": "submit",
+      "label": "Each private university's own admission rounds",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "IE, Navarra, ESADE, Deusto and Comillas run their own tests, interviews and rolling rounds from the autumn before entry, and make conditional offers on predicted grades. Earlier rounds have more places.",
+      "evidence": ["ev-es-ie-admissions-rounds-2027"]
+    },
+    {
+      "id": "ms-ie-round2",
+      "type": "submit",
+      "label": "IE University Round 2 closes",
+      "date": "2027-01-15",
+      "consequence": "hard",
+      "provisional": false,
+      "note": "An example of the private calendar. IE's other 2027-28 rounds close 18 September 2026, 6 November 2026 and 5 March 2027; after that, from May, only if places remain.",
+      "evidence": ["ev-es-ie-admissions-rounds-2027"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Confirms a conditional offer. The university may still ask for UNEDasiss accreditation for enrolment.",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "evidence": ["ev-es-ie-admissions-rounds-2027"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "Only IE's rounds were read for this route. Navarra, ESADE, Deusto and Comillas publish their own."
+    ]
+  }
+}
