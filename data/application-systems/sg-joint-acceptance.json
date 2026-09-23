@@ -1,0 +1,38 @@
+{
+  "id": "sg-joint-acceptance",
+  "name": "Joint Acceptance Portal",
+  "localName": "JAP",
+  "jurisdiction": {
+    "authorityType": "consortium",
+    "destination": "sg",
+    "authority": "Singapore's six Autonomous Universities, acting together",
+    "area": "NUS, NTU, SMU, SUTD, SIT and SUSS"
+  },
+  "portalUrl": "https://www.nus.edu.sg/oam/admissions/important-dates",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Accepting an undergraduate offer from any of the six Autonomous Universities — NUS, NTU, SIT, SMU, SUSS and SUTD. Every offer a student holds across them appears in one portal and is settled in one exercise.",
+    "excludes": "Applying. There is no shared application: each university runs its own form, its own fee and its own deadline, and those deadlines are months apart. Also excluded are LASALLE and NAFA, the private education institutions and the foreign branch campuses, none of which is an Autonomous University."
+  },
+  "choiceRules": {
+    "offersReceived": "many",
+    "note": "A student may hold offers from several Autonomous Universities at once and chooses between them in the Joint Acceptance Exercise rather than replying to each separately. Applicants may log in during the exercise to modify their selection."
+  },
+  "identityRequirement": "An applicant account at each university, and — separately, and only once you are in Singapore with a Student's Pass — a Singpass, which is what the MOE Tuition Grant registration runs on.",
+  "decisionModel": "Decisions are made independently by each university on its own criteria and released on its own calendar, generally between March and July. The portal does not rank, match or allocate; it is the acceptance step only.",
+  "replyModel": "Acceptance is indicated once, in the Joint Acceptance Portal, by a joint acceptance deadline shared across the Autonomous Universities. NUS states that an acceptance indicated through the portal is reflected on its own applicant portal three calendar days after the acceptance deadline.",
+  "evidence": [
+    "ev-sg-joint-acceptance",
+    "ev-sg-nus-important-dates"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "Singapore is usually described as having no central admissions system. For applying that is true. For accepting it is not, and the difference is worth a student's attention: the choice between Singapore universities is made once, against one deadline, rather than offer by offer.",
+      "The joint acceptance windows for AY2027/2028 are published by NUS as \"To be Confirmed\". SIT's 2026 equivalent fell on 25 May 2026. Neither is recorded as a 2027 date.",
+      "Not established: whether an international student uses the same portal and the same deadline as a Singaporean one, and what happens to a Tuition Grant election at this point. Both pages consulted describe the portal without distinguishing applicant groups."
+    ]
+  }
+}

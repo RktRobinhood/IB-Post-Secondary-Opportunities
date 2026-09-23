@@ -7,7 +7,7 @@
   "currency": "SGD",
   "eu": false,
   "eea": false,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "scope": "worldwide",
   "tagline": "Everything in English — and a subsidy that comes with a three-year contract",
@@ -20,14 +20,20 @@
     "SUTD, built with MIT, runs a genuinely unusual design-led engineering curriculum with no departments in the first year."
   ],
   "watchOuts": [
-    "The Tuition Grant service obligation is the single most misunderstood thing about studying in Singapore. NTU states plainly that non-Singaporean recipients must sign an agreement in which they are contractually obliged to work in a Singapore entity for three years after graduating. Taking the grant is a decision about where you will live until roughly 2034.",
-    "The grant is opted into on the admission application form. If you do not tick it, you pay the full non-subsidised fee; if you do tick it, you are bound. You cannot decide later.",
-    "We could not verify the penalty for breaching the agreement from an official page. It is normally liquidated damages — repaying the grant with interest — but confirm the exact terms in writing before signing.",
-    "Only NTU's fee table could be read during this research. NUS, SMU and SUTD fee pages are JavaScript-rendered and returned nothing, so their figures are left blank here. Do not assume NTU's numbers apply to them.",
-    "Yale-NUS College has closed — it took its final cohort in 2021 and no longer admits students. NUS College is the successor honours college, but it is a different thing.",
-    "Indicative IB grade profiles are not published in a form we could verify. Singapore's universities publish indicative grade profiles for the Singapore-Cambridge A-level, not usually for the IB. Ask admissions directly for the IB equivalent.",
-    "Singapore is expensive to live in — housing off campus in particular. Campus accommodation is the realistic option and is not guaranteed for all years.",
-    "Denmark's SU works differently for a full degree outside the EU/EEA. Check su.dk early."
+    "The Tuition Grant service obligation is a contract and it should be read as one. NTU states that a non-Singaporean who takes the grant signs an agreement that contractually obliges them to work in a Singapore entity for three years after graduating. MOE adds that only full-time employment after graduation counts, that a job search in Singapore typically takes about six months, and that deferring the bond for postgraduate study needs approval at least eight weeks in advance. Taking the grant is a decision about where you live into the 2030s.",
+    "You do not sign it alone. The agreement requires two sureties of any nationality, over 21 and under 65, not undischarged bankrupts, with the financial means to cover the liability — MOE encourages immediate family. You and your sureties are jointly liable for liquidated damages if the bond is not served.",
+    "The exposure is not only at the end. MOE states that a student who withdraws from the course midway is liable, with their sureties, for liquidated damages on the Tuition Grant received plus 10% compounded interest a year, with late-payment interest on top. Illness, homesickness or a change of mind in second year all fall inside that.",
+    "You elect the grant on the application form, months before anyone explains it, and sign the agreement in September or October once you are already in Singapore. By then you have flown, paid and moved in. Treat the tick-box as the decision point.",
+    "The deadlines are not shared and are not close together. LASALLE asks you to apply by 1 November 2026, NUS closes 17 February 2027, NTU closes 19 March 2027, and SUTD, SIT, SMU, SUSS and NAFA have published nothing for 2027 at all. There is no single date to remember and no portal that will remember it for you.",
+    "NTU will not consider a May-session IB candidate for Medicine, the Renaissance Engineering Programme, or Arts and Science (Academic Discipline & Education), because those decide before your results exist. That is a whole category of ambition closed off by a calendar.",
+    "Actual IB results are due at NTU within three days of release — the first week of July, in the middle of the Danish summer holiday. The IBO transcript authorisation that makes it possible has to be arranged before July, and an application without it gets no outcome at all.",
+    "We could not read the admissions pages of SMU, SUSS or James Cook University Singapore: each sits behind a bot-detection service and one asks for a CAPTCHA, which this project does not complete. Their 2027 dates are recorded as not established, which is a gap in our research rather than a statement about theirs.",
+    "Only NTU’s fee table could be read. NUS, SMU and SUTD figures are left blank on purpose — do not assume NTU’s numbers apply to them.",
+    "Whether an international student at LASALLE or NAFA can take the Tuition Grant, and would therefore be bonded, is not established. The University of the Arts Singapore names only Singapore Citizens and Permanent Residents and refers the question back to the two colleges. Ask before you assume either way.",
+    "Yale-NUS College has closed — it took its final cohort in 2021 and no longer admits students. NUS College is the successor honours college, and it is a different thing.",
+    "Indicative grade profiles are published for the Singapore-Cambridge A-level, not usually for the IB. Ask admissions directly for the IB equivalent rather than trusting a figure from a forum.",
+    "Singapore is expensive to live in, off campus in particular. Campus accommodation is the realistic option and is not guaranteed for all years.",
+    "Denmark’s SU works differently for a full degree outside the EU/EEA. Check su.dk early."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -35,8 +41,9 @@
     "subjectLevelRule": "Programme-specific HL requirements apply — engineering and computing normally want HL Mathematics, medicine wants HL Chemistry and Biology. Not verified programme by programme in this research.",
     "gradeConversion": "No published conversion table. IB points are read directly against a programme's indicative profile.",
     "notes": [
-      "The IB Diploma is a standard entry qualification for the international admissions route at all four autonomous universities.",
-      "Predicted grades are used for the initial assessment; offers are conditional on the final diploma issued in July.",
+      "The IB Diploma is a standard entry qualification for the international admissions route at the autonomous universities, and NUS goes further by treating it as its own applicant group with its own application window rather than lumping it in with other international qualifications.",
+      "Predicted grades are used for the initial assessment and offers are conditional on the final diploma. NTU requires the actual results within three days of their release in July and requires direct access to the official transcript through the IB organisation before July.",
+      "Some programmes are closed to a May-session IB candidate because they decide before results exist. NTU names Medicine, Renaissance Engineering, and Arts and Science (Academic Discipline & Education).",
       "Indicative IB grade profiles could not be verified from official pages. Competitive applicants to NUS and NTU are generally in the high 30s to low 40s, but treat that as unverified and ask admissions for the published profile.",
       "IB English A or B is normally accepted as proof of English. Confirm with each university."
     ]
@@ -44,37 +51,281 @@
   "application": {
     "centralised": false,
     "portal": {
-      "name": "No central portal — each autonomous university runs its own application",
-      "url": "https://www.moe.gov.sg/"
+      "name": "No shared application — six autonomous universities, six forms, six fees, six deadlines. There is a shared acceptance: every offer you hold across them is settled once, in the Joint Acceptance Portal.",
+      "url": "https://www.nus.edu.sg/oam/admissions/important-dates"
     },
     "deadlines": [
       {
-        "label": "NUS, NTU, SMU, SUTD international applications for the August intake",
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "August 2027 intake",
-        "notes": "Application windows for international qualification holders typically open in the autumn and close in the winter or early spring before the August intake. Exact 2027 dates were not readable from official pages — check each university from September 2026. Four universities in one entry: nothing in the record tells their dates apart, so it has not been split.",
-        "source": "https://www.ntu.edu.sg/admissions/undergraduate"
+        "label": "LASALLE College of the Arts — main application window for the August 2027 intake",
+        "date": "2026-10-01",
+        "endDate": "2026-11-01",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-arts",
+        "notes": "The earliest deadline in Singapore by a wide margin, and the one most likely to be missed. LASALLE opens on 1 October 2026 and asks you to apply by 1 November 2026, with outcomes announced by 23 December 2026 — eight months before IB results. It adds that future application windows may open if programme seats remain available, so this is a window rather than the only chance, but it is the one that gets first pick of the seats. Music is later: BA (Hons) Music and the Diploma in Music both close on 28 February 2027.",
+        "source": "https://www.lasalle.edu.sg/admissions",
+        "evidence": [
+          "ev-sg-lasalle-window"
+        ]
       },
       {
-        "label": "MOE Tuition Grant election",
+        "label": "Nanyang Technological University — application window for the August 2027 intake",
+        "date": "2026-10-15",
+        "endDate": "2027-03-19",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "NTU's own table for IB Diploma holders: online application 15 October 2026 to 19 March 2027, with programme choices, the application fee, the criminal records declaration and any scholarship application all due by 19 March 2027, supporting documents by 22 March 2027, and Art, Design and Media portfolio materials by 19 March 2027. Offers are released between March and May 2027. The longest window of any Singapore university and the earliest opening.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
+        "evidence": [
+          "ev-sg-ntu-ib-dates"
+        ]
+      },
+      {
+        "label": "Nanyang Technological University — supporting documents due",
+        "date": "2027-03-22",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "Three days after the application itself. NTU states that an incomplete application after the deadline will not be considered.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
+        "evidence": [
+          "ev-sg-ntu-ib-dates"
+        ]
+      },
+      {
+        "label": "Nanyang Technological University — actual IB results due",
+        "date": "2027-07-09",
+        "provisional": true,
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "NTU does not publish a calendar date. It says actual IB results must be submitted within three days of the results release in July 2027, and the IB releases on 6 July 2027, so 9 July 2027 is arithmetic on those two facts rather than a date NTU has printed — which is why it is marked provisional. This is the tightest deadline in the file and it lands in the Danish summer holiday. NTU also makes it mandatory to grant it direct access to your official transcripts through the IBO before July 2027, which is a separate action you take months earlier.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
+        "evidence": [
+          "ev-sg-ntu-ib-dates"
+        ]
+      },
+      {
+        "label": "National University of Singapore — IB Diploma application window, AY2027/2028",
+        "date": "2026-12-16",
+        "endDate": "2027-02-17",
+        "consequence": "hard",
+        "year": "AY2027/2028",
+        "jurisdiction": "sg-autonomous",
+        "notes": "NUS runs the IB Diploma as its own applicant group with its own window, separate from the one for other international qualifications — although for AY2027/2028 both happen to run 16 December 2026 to 17 February 2027. It closes a month before NTU's. NUS says most applicants hear by the third week of May, and that IB applicants taking the May 2027 examination will hear by the third week of July 2027.",
+        "source": "https://www.nus.edu.sg/oam/admissions/important-dates",
+        "evidence": [
+          "ev-sg-nus-important-dates"
+        ]
+      },
+      {
+        "label": "Singapore Management University — August 2027 intake",
+        "dateState": "not-published",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "Not established, and the reason is ours rather than SMU's. Every attempt to read SMU's admissions pages returned an Imperva bot-detection challenge asking for a CAPTCHA, which this project does not complete. So we cannot say whether SMU has published its 2027 dates. Open admissions.smu.edu.sg yourself. For the 2026 exercise SMU's published closing date was 19 March 2026, which is recorded here as context and must not be read as a 2027 date.",
+        "source": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
+        "evidence": [
+          "ev-sg-smu-unreadable"
+        ]
+      },
+      {
+        "label": "Singapore University of Technology and Design — 2027 admissions application window",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "SUTD's admissions page currently shows the 2026 window only: Singapore-Cambridge GCE A-Level from the day of release of A-Level results to 19 March 2026, and all other qualifications — which is where an IB Diploma sits — 2 January to 2 March 2026. That international window is two months long against NTU's five, and it closes seventeen days before SUTD's own domestic one. The 2027 equivalent is not published and is not inferred here.",
+        "source": "https://www.sutd.edu.sg/admissions/undergraduate/",
+        "evidence": [
+          "ev-sg-sutd-window"
+        ]
+      },
+      {
+        "label": "Singapore Institute of Technology — August 2027 intake",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "SIT publishes its cycle one year at a time and currently shows 2026: online applications 8 January to 19 March 2026, interviews from mid-February to mid-May, outcomes mid-April to mid-May, acceptance 25 May 2026 and an appeal window 26 May to 2 June 2026. Every SIT applicant is interviewed. The 2027 dates are not published.",
+        "source": "https://www.singaporetech.edu.sg/admissions/undergraduate",
+        "evidence": [
+          "ev-sg-sit-cycle"
+        ]
+      },
+      {
+        "label": "Singapore University of Social Sciences — August 2027 intake",
+        "dateState": "not-published",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "Not established, and again the gap is ours. SUSS's admissions pages sit behind a bot-detection service that refused every automated request, so we cannot say what SUSS has published for 2027. Open suss.edu.sg yourself.",
+        "source": "https://www.suss.edu.sg/full-time-undergraduate",
+        "evidence": [
+          "ev-sg-smu-unreadable"
+        ]
+      },
+      {
+        "label": "LASALLE College of the Arts — BA (Hons) Music and Diploma in Music",
+        "date": "2027-02-28",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-arts",
+        "notes": "Music runs four months behind the rest of LASALLE. Outcomes are announced by 20 April 2027 for the BA (Hons) and 2 April 2027 for the Diploma. MA Art Therapy closes on 31 January 2027.",
+        "source": "https://www.lasalle.edu.sg/admissions",
+        "evidence": [
+          "ev-sg-lasalle-window"
+        ]
+      },
+      {
+        "label": "Nanyang Academy of Fine Arts — August 2027 intake",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "August 2027",
+        "jurisdiction": "sg-arts",
+        "notes": "NAFA's admissions guide on the site is the AY2026/27 one. The University of the Arts Singapore, which now validates and awards both NAFA's and LASALLE's degrees, says applications for the August 2026 intake are open and will close once all programme seats are filled, and that there is one intake commencing in August each year. Nothing for 2027 is published yet.",
+        "source": "https://www.nafa.edu.sg/admissions",
+        "evidence": [
+          "ev-sg-uas-degrees"
+        ]
+      },
+      {
+        "label": "MOE Tuition Grant — elected on the admission application form",
         "dateState": "no-central-deadline",
-        "consequence": "indicative",
+        "consequence": "hard",
         "year": "2027 intake",
-        "notes": "At the point of application. NTU states that international students access the grant by indicating they are opting for it in the online admission application form. This is the moment the three-year service obligation is chosen.",
-        "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants"
+        "jurisdiction": "sg-autonomous",
+        "notes": "There is no separate date because there is no separate application: NTU states that international students who want the Tuition Grant must indicate they are opting for it in their online admission application form. Elect it at the moment you apply, or pay the unsubsidised fee. This is the point at which the three-year service obligation is chosen, months before anything is signed and long before anyone explains it to you.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
+        "evidence": [
+          "ev-sg-ntu-tuition-grant"
+        ]
+      },
+      {
+        "label": "MOE Tuition Grant — accept the offer with or without the grant",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "2027 intake",
+        "jurisdiction": "sg-autonomous",
+        "notes": "A second decision point, after the offer. NTU set 17 July 2026 as the date by which a 2026 entrant had to say whether they accepted their place with or without the Tuition Grant. The 2027 equivalent is not published and is not inferred here — but note where in the year it falls: eleven days after IB results, in the middle of the Danish summer.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
+        "evidence": [
+          "ev-sg-ntu-tuition-grant"
+        ]
+      },
+      {
+        "label": "MOE Tuition Grant — sign the Tuition Grant Agreement with two sureties",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "2027 intake",
+        "jurisdiction": "sg-autonomous",
+        "notes": "The third and last point, and it happens after term has started. NTU's 2026 window for online signing on the TG&S Portal ran 19 September to 18 October 2026, with registration opening in September of the admitted year and requiring a Singpass, which itself needs a Student's Pass first. Two sureties must sign as well. MOE states that a student who does not complete the registration and signing will be charged the full unsubsidised fees. The 2027 window is not published.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
+        "evidence": [
+          "ev-sg-ntu-tuition-grant",
+          "ev-sg-moe-tg-bond"
+        ]
+      },
+      {
+        "label": "Joint Acceptance Exercise — accepting an autonomous university offer",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "year": "AY2027/2028",
+        "jurisdiction": "sg-autonomous",
+        "notes": "The one genuinely shared step in Singapore admissions, and the one nobody mentions. You apply to each autonomous university separately, and then accept through a single Joint Acceptance Portal that lists every offer you hold across them. NUS shows two acceptance windows for AY2027/2028, both marked \"To be Confirmed\". SIT's 2026 equivalent was 25 May 2026, which is recorded as context and not carried across.",
+        "source": "https://www.nus.edu.sg/oam/admissions/important-dates",
+        "evidence": [
+          "ev-sg-joint-acceptance"
+        ]
+      },
+      {
+        "label": "James Cook University Singapore — 2027 entry",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "jurisdiction": "sg-private",
+        "notes": "Not established. JCU Singapore's application pages refused automated retrieval. It runs a trimester structure with several intakes a year rather than a single August one, so a missed date is less costly here than at an autonomous university — but that is a statement about the structure, not about a date we found.",
+        "source": "https://www.jcu.edu.sg/apply-now",
+        "evidence": [
+          "ev-sg-smu-unreadable"
+        ]
+      },
+      {
+        "label": "Curtin Singapore — 2027 entry",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "jurisdiction": "sg-private",
+        "notes": "Not established. Curtin Singapore's admission page publishes its Private Education Institution registration — number 200804822R, valid 20 May 2026 to 19 May 2032 — and no application deadline. Curtin Singapore teaches on a trimester structure.",
+        "source": "https://curtin.edu.sg/admission/",
+        "evidence": [
+          "ev-sg-private-pei"
+        ]
+      },
+      {
+        "label": "DigiPen Institute of Technology Singapore — 2027 entry",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "jurisdiction": "sg-private",
+        "notes": "Not established. No application deadline appears on DigiPen Singapore's admissions page. Its degrees are awarded by DigiPen in the United States.",
+        "source": "https://singapore.digipen.edu/admissions",
+        "evidence": [
+          "ev-sg-private-pei"
+        ]
+      },
+      {
+        "label": "Singapore Institute of Management (SIM Global Education) — 2027 entry",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "jurisdiction": "sg-private",
+        "notes": "Not established. SIM delivers partner universities' degrees, and each partner runs its own intakes, so there is unlikely to be one date. Check the specific partner degree rather than SIM.",
+        "source": "https://www.sim.edu.sg/admissions",
+        "evidence": [
+          "ev-sg-private-pei"
+        ]
+      },
+      {
+        "label": "ESSEC Business School Asia-Pacific — 2027 entry",
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "jurisdiction": "sg-private",
+        "notes": "Not established. The ESSEC Global BBA is admitted to through ESSEC in France, not through the Singapore campus, and its deadlines belong to the French admissions cycle, which is outside this Destination and is not recorded here.",
+        "source": "https://www.essec.edu/en/admissions/",
+        "evidence": [
+          "ev-sg-private-pei"
+        ]
+      },
+      {
+        "label": "IB results released",
+        "date": "2027-07-06",
+        "consequence": "indicative",
+        "year": "2027 entry",
+        "notes": "Singapore is the one Destination on this site that has thought this through and said so. NTU takes your application on predicted grades and then requires the actual results within three days of release — which is the tightest turnaround anywhere in this repository, and it falls in the middle of the Danish summer holiday. NUS tells IB applicants sitting the May 2027 session that they will hear by the third week of July. LASALLE, by contrast, closed the previous November.",
+        "evidence": [
+          "ev-sg-ntu-ib-dates",
+          "ev-sg-nus-important-dates"
+        ]
       }
     ],
     "steps": [
-      "From September 2026, check the international admissions page of each of NUS, NTU, SMU and SUTD. There is no shared portal and no shared deadline.",
-      "Before you apply, decide — properly, with your family — whether you will take the MOE Tuition Grant. It is elected on the application form, and it commits you to three years of work in Singapore after graduation.",
-      "Apply direct to each university, with your IB predicted grades, transcript, personal statement and references, paying a separate application fee each time.",
-      "Expect an interview or a written test for the more selective programmes — SUTD, NUS Law, medicine and the scholars' programmes all use additional assessment.",
-      "Accept your offer and, if you took the grant, sign the Tuition Grant Agreement. Read it in full; get an adult to read it too.",
-      "Apply for a Student's Pass through ICA's SOLAR system once the university sponsors you. This must be done before arrival.",
-      "Apply for campus accommodation immediately — it is allocated separately and is the only realistic first-year option."
+      "Work out which of the three Singapores you are applying to. The six Autonomous Universities, the two arts institutions under the University of the Arts Singapore, and the private institutions and foreign branch campuses run on different calendars, different rules and different money.",
+      "If the arts are in play, act first. LASALLE opens on 1 October 2026 and asks you to apply by 1 November 2026 — before any Singapore university has opened.",
+      "Decide about the MOE Tuition Grant with your family before you fill in any application form, because you elect it on the form itself. Taking it halves the fee and commits you to three years of full-time work for a Singapore entity after graduation, guaranteed by two sureties who are jointly liable if you do not serve it.",
+      "Apply to each autonomous university separately, with predicted grades, transcript, personal statement and references, and a separate fee each time. NUS closes 17 February 2027; NTU closes 19 March 2027.",
+      "Check the programme is open to a May-session IB candidate. NTU excludes Medicine, Renaissance Engineering, and Arts and Science (Academic Discipline & Education) outright.",
+      "Authorise the IB organisation to send your transcript directly to the university. NTU requires this before July 2027 and will not release an outcome without it.",
+      "Expect an interview, portfolio or written test for the selective routes — SUTD and SIT interview as a matter of course, and NUS Law, medicine and the scholars’ programmes all add assessment.",
+      "Keep the first fortnight of July 2027 clear. NTU wants your actual results within three days of release.",
+      "Accept one offer through the Joint Acceptance Portal. The windows for 2027 are not yet announced.",
+      "Apply for a Student’s Pass through ICA’s SOLAR system once the university sponsors you, then register and sign the Tuition Grant Agreement in Singapore in the autumn — it needs a Singpass, which needs the Student’s Pass first.",
+      "Apply for campus accommodation the day your offer arrives. It is allocated separately and is the only realistic first-year option."
     ],
-    "selectionNotes": "Admission is competitive and largely academic, with interviews and aptitude tests layered on for selective programmes. NUS and NTU are the two largest and most selective; SMU is specialised in business, law, economics, social science and computing; SUTD is small, design-led and takes a distinctive kind of applicant."
+    "selectionNotes": "Academic, with assessment layered on. NUS and NTU are the largest and most selective and decide largely on grades; SMU is specialised in business, law, economics, social science and computing; SUTD assesses holistically on academics, traits and a portfolio with an interview for selected candidates, and says its approach is significantly different from most universities; SIT interviews every shortlisted applicant. LASALLE and NAFA decide on portfolio and audition, and their deadlines fall months before everyone else’s."
   },
   "language": {
     "englishTaughtBachelors": "All of them. English is the medium of instruction across the entire Singapore higher education system.",
@@ -111,12 +362,14 @@
     ]
   },
   "funding": [
-    "MOE Tuition Grant — the main subsidy, and the main commitment. International students opt in on the admission application form and then sign a Tuition Grant Agreement contractually obliging them to work in a Singapore entity for three years after graduation. It roughly halves the fee. NTU's grant covers tuition only for the normal duration of the programme, and transfer students get a reduced entitlement.",
-    "Without the grant, you pay the full non-subsidised fee and carry no obligation. This is the right choice if you intend to return to Europe after graduating.",
-    "Merit scholarships: NUS, NTU and SMU all run competitive scholarships for outstanding international entrants, typically covering tuition plus a living allowance. Most carry their own bond conditions — sometimes six years rather than three. Check each one's terms before applying.",
+    "MOE Tuition Grant — the main subsidy and the main commitment. International students elect it on the admission application form, confirm it when accepting the offer, and then sign a Tuition Grant Agreement with two sureties that contractually obliges them to work in a Singapore entity for three years after graduation. At NTU it takes the fee from roughly SGD 36,350–40,600 a year to roughly SGD 21,400–21,800 — about SGD 60,000–75,000 across a four-year degree. It runs for the normal programme duration only, so a repeated year is unsubsidised.",
+    "Declining the grant is a real option, not a failure. You pay the full unsubsidised fee, you carry no obligation and you need no sureties. That is the right choice if you intend to return to Europe after graduating, and it should be a decision rather than a default.",
+    "Breaking the bond, or withdrawing from the course, makes you and both sureties liable for liquidated damages — on the outstanding bond period if you break it, and on the whole grant received plus 10% compounded interest a year if you withdraw mid-course.",
+    "Merit scholarships: NUS, NTU and SMU all run competitive scholarships for outstanding international entrants, typically covering tuition plus a living allowance. Most carry their own bond conditions — sometimes six years rather than three. Check each one’s terms before applying.",
     "ASEAN Undergraduate Scholarships and similar regional awards are not open to Danish citizens.",
+    "Whether the Tuition Grant reaches LASALLE, NAFA or the private institutions for an international student is not established here.",
     "Danish SU: a full degree outside the EU/EEA follows separate rules. Check su.dk before budgeting.",
-    "Part-time work is restricted on a Student's Pass — see workRights. Do not plan to fund yourself by working."
+    "Part-time work is restricted on a Student’s Pass — see workRights. Do not plan to fund yourself by working."
   ],
   "workRights": "Students on a Student's Pass at the autonomous universities may work up to 16 hours a week during term and full-time during scheduled vacations, subject to conditions set by the Ministry of Manpower. Not re-verified from an official page in this research — confirm with MOM before relying on it. Work is not a realistic way to close a funding gap in Singapore.",
   "residency": "EU citizenship gives no advantage. Once you accept an offer, the university sponsors your Student's Pass application through ICA's SOLAR system, which must be completed before you travel. On arrival you complete formalities at ICA and receive the pass. Danish citizens do not need a visa to enter Singapore as a visitor, but you cannot study on a visitor pass.",
@@ -139,9 +392,10 @@
         "Business",
         "Law"
       ],
-      "note": "Asia's most highly ranked university and the broadest in Singapore, on a large hillside campus in the west. NUS College is the honours college that succeeded the closed Yale-NUS. Fee figures could not be verified — get them from admissions in writing.",
+      "note": "Asia’s most highly ranked university and the broadest in Singapore, on a large hillside campus in the west. It treats the IB Diploma as its own applicant group with its own window — 16 December 2026 to 17 February 2027 for AY2027/2028, a month before NTU closes — and tells May-session IB candidates they will hear by the third week of July 2027. NUS College is the honours college that succeeded the closed Yale-NUS. Fee figures could not be verified; get them from admissions in writing.",
       "wikipedia": "https://en.wikipedia.org/wiki/National_University_of_Singapore",
-      "place": "sg-singapore-kent-ridge"
+      "place": "sg-singapore-kent-ridge",
+      "jurisdiction": "sg-autonomous"
     },
     {
       "name": "Nanyang Technological University",
@@ -159,9 +413,10 @@
         "Business",
         "Communication studies"
       ],
-      "note": "The one Singapore university whose fee table we could read in full: internationals pay roughly SGD 21,400–21,800 a year with the Tuition Grant, or SGD 36,350–40,600 without, fixed at the year-of-entry rate for the whole degree. Its Renaissance Engineering Programme is a four-and-a-half-year engineering-plus-business degree with a year overseas.",
+      "note": "The one Singapore university whose fee table we could read in full: internationals pay roughly SGD 21,400–21,800 a year with the MOE Tuition Grant, or SGD 36,350–40,600 without, fixed at the year-of-entry rate for the whole degree. It also publishes the clearest answer to the July problem anywhere on this site — apply on predicted grades by 19 March 2027, then submit actual results within three days of their release in July. Note the exclusion: a May-session IB candidate may not apply to Medicine, Renaissance Engineering, or Arts and Science (Academic Discipline & Education) at all.",
       "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Technological_University",
-      "place": "sg-singapore-jurong-west"
+      "place": "sg-singapore-jurong-west",
+      "jurisdiction": "sg-autonomous"
     },
     {
       "name": "Singapore Management University",
@@ -179,9 +434,10 @@
         "Law",
         "Information systems"
       ],
-      "note": "Built on the Wharton model — seminar-style teaching, city-centre campus, compulsory internships and a strong finance and consulting pipeline. The most American-feeling of the Singapore universities and the best fit if you want business rather than engineering.",
+      "note": "Built on the Wharton model — seminar teaching, city-centre campus, compulsory internships, a strong finance and consulting pipeline. The most American-feeling of the Singapore universities and the best fit if you want business rather than engineering. Its admissions pages are behind a bot-detection challenge we will not complete, so nothing about its 2027 dates is recorded here in either direction. Open admissions.smu.edu.sg yourself.",
       "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Management_University",
-      "place": "sg-singapore-bras-basah"
+      "place": "sg-singapore-bras-basah",
+      "jurisdiction": "sg-autonomous"
     },
     {
       "name": "Singapore University of Technology and Design",
@@ -199,9 +455,10 @@
         "Architecture",
         "AI"
       ],
-      "note": "Founded in collaboration with MIT. Every student takes a common design-centred first year before choosing a pillar rather than a department, and the curriculum is project-based throughout. Small, unusual, and the most distinctive engineering education in Asia.",
+      "note": "Founded in collaboration with MIT. Every student takes a common design-centred first year before choosing a pillar rather than a department. Admission is genuinely unlike the others: a holistic review of academics, traits and a portfolio, with personal insight questions and an interview for selected candidates — which needs months of preparation. Its 2026 international window was only two months long, 2 January to 2 March; the 2027 one is not yet published.",
       "wikipedia": "https://en.wikipedia.org/wiki/Singapore_University_of_Technology_and_Design",
-      "place": "sg-singapore-upper-changi"
+      "place": "sg-singapore-upper-changi",
+      "jurisdiction": "sg-autonomous"
     },
     {
       "name": "Singapore Institute of Technology",
@@ -219,9 +476,10 @@
         "Occupational therapy",
         "Food technology"
       ],
-      "note": "Singapore's applied-sciences university, built around long industry placements and a new campus in Punggol. Its intake is overwhelmingly domestic polytechnic graduates, so check international eligibility before investing effort.",
+      "note": "Singapore’s applied-sciences university, built around long industry placements, with a new campus in Punggol. Every shortlisted applicant is interviewed. Its intake is overwhelmingly domestic polytechnic graduates and its whole 2026 cycle — application, interview, offer, acceptance on 25 May — finished before IB results were released, which tells you who the calendar is built for.",
       "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Institute_of_Technology",
-      "place": "sg-singapore-punggol"
+      "place": "sg-singapore-punggol",
+      "jurisdiction": "sg-autonomous"
     },
     {
       "name": "Singapore University of Social Sciences",
@@ -241,7 +499,8 @@
       ],
       "note": "The sixth autonomous university, focused on social impact and lifelong learning. Its part-time and flexible structure is unusual, but its full-time intake is small and mostly domestic.",
       "wikipedia": "https://en.wikipedia.org/wiki/Singapore_University_of_Social_Sciences",
-      "place": "sg-singapore-clementi"
+      "place": "sg-singapore-clementi",
+      "jurisdiction": "sg-autonomous"
     },
     {
       "name": "LASALLE College of the Arts",
@@ -252,15 +511,16 @@
       "website": "https://www.lasalle.edu.sg/",
       "admissionsUrl": "https://www.lasalle.edu.sg/admissions",
       "ibPageUrl": null,
-      "englishBachelors": "BA (Hons) degrees across fine art, design, film, animation, fashion, music, dance and theatre, validated by Goldsmiths, University of London.",
+      "englishBachelors": "BA (Hons) degrees across fine art, design, film, animation, fashion, music, dance and theatre. Degrees are now validated, conferred and awarded by the University of the Arts Singapore, the alliance of LASALLE and NAFA, rather than by Goldsmiths, University of London as they were until the 2024 intake.",
       "notableFields": [
         "Fine art",
         "Fashion",
         "Film",
         "Design communication"
       ],
-      "note": "Singapore's leading art school, in a striking black-glass canyon of a building near Bugis. Degrees are awarded by Goldsmiths, which makes them portable back to Europe. Portfolio and audition entry.",
-      "wikipedia": "https://en.wikipedia.org/wiki/LASALLE_College_of_the_Arts"
+      "note": "Singapore’s leading art school, in a striking black-glass canyon of a building near Bugis. Portfolio and audition entry, and the earliest deadline in the country by a wide margin: the August 2027 window opens 1 October 2026 and asks you to apply by 1 November 2026, with outcomes by 23 December. Music is the exception, closing 28 February 2027.",
+      "wikipedia": "https://en.wikipedia.org/wiki/LASALLE_College_of_the_Arts",
+      "jurisdiction": "sg-arts"
     },
     {
       "name": "Nanyang Academy of Fine Arts",
@@ -271,16 +531,17 @@
       "website": "https://www.nafa.edu.sg/",
       "admissionsUrl": "https://www.nafa.edu.sg/admissions",
       "ibPageUrl": null,
-      "englishBachelors": "Degrees in art, design, music, dance and theatre, delivered through the University of the Arts Singapore alliance with LASALLE.",
+      "englishBachelors": "Degrees in art, design, music, dance and theatre, validated, conferred and awarded by the University of the Arts Singapore, the alliance of NAFA and LASALLE.",
       "notableFields": [
         "Music performance",
         "Dance",
         "3D design",
         "Theatre"
       ],
-      "note": "The older of Singapore's two art academies, now federated with LASALLE into the University of the Arts Singapore. Particularly strong in music and Chinese-influenced visual art.",
+      "note": "The older of Singapore’s two art academies, now federated with LASALLE into the University of the Arts Singapore. Particularly strong in music and Chinese-influenced visual art. Its 2027 dates are not published — the admissions guide on the site is still the AY2026/27 one.",
       "wikipedia": "https://en.wikipedia.org/wiki/Nanyang_Academy_of_Fine_Arts",
-      "place": "sg-singapore-bencoolen"
+      "place": "sg-singapore-bencoolen",
+      "jurisdiction": "sg-arts"
     },
     {
       "name": "James Cook University Singapore",
@@ -300,7 +561,8 @@
       ],
       "note": "An Australian university's full branch campus, awarding the same degree as Townsville. Trimester structure means you can finish a bachelor's in two years. No MOE Tuition Grant applies — it is not an autonomous university.",
       "wikipedia": "https://en.wikipedia.org/wiki/James_Cook_University_Singapore",
-      "place": "sg-singapore-sims-drive"
+      "place": "sg-singapore-sims-drive",
+      "jurisdiction": "sg-private"
     },
     {
       "name": "Curtin Singapore",
@@ -320,7 +582,8 @@
       ],
       "note": "Another Australian branch campus, business-focused and with a trimester structure that compresses the degree. A pragmatic route into an Australian qualification without moving to Australia.",
       "wikipedia": "https://en.wikipedia.org/wiki/Curtin_Singapore",
-      "place": "sg-singapore-jurong-east"
+      "place": "sg-singapore-jurong-east",
+      "jurisdiction": "sg-private"
     },
     {
       "name": "DigiPen Institute of Technology Singapore",
@@ -340,7 +603,8 @@
       ],
       "note": "The Asian campus of the American institute that effectively invented the games-programming degree. Tiny, intense, and the most credible games education in the region. Degrees are awarded by DigiPen in the United States.",
       "wikipedia": "https://en.wikipedia.org/wiki/DigiPen_Institute_of_Technology",
-      "place": "sg-singapore-one-north"
+      "place": "sg-singapore-one-north",
+      "jurisdiction": "sg-private"
     },
     {
       "name": "Singapore Institute of Management (SIM Global Education)",
@@ -360,7 +624,8 @@
       ],
       "note": "Not a university in its own right — it delivers partner universities' degrees in Singapore. Useful if you want a British or Australian degree at Singapore prices, but you are not getting a Singapore university qualification and no MOE Tuition Grant applies.",
       "wikipedia": "https://en.wikipedia.org/wiki/Singapore_Institute_of_Management",
-      "place": "sg-singapore-clementi"
+      "place": "sg-singapore-clementi",
+      "jurisdiction": "sg-private"
     },
     {
       "name": "ESSEC Business School Asia-Pacific",
@@ -380,14 +645,35 @@
       ],
       "note": "A French grande école running a full Asian campus, which means a European degree with an Asian base and the option to move between Cergy, Rabat and Singapore. Worth considering if you want Asia without leaving the European qualification framework.",
       "wikipedia": "https://en.wikipedia.org/wiki/ESSEC_Business_School",
-      "place": "sg-singapore-nepal-hill"
+      "place": "sg-singapore-nepal-hill",
+      "jurisdiction": "sg-private"
     }
   ],
   "sources": [
     {
+      "title": "MOE Tuition Grant Freshmen Briefing Q&As (Ministry of Education, Singapore)",
+      "url": "https://file.go.gov.sg/tg-application-faq.pdf",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "MOE Tuition Grant — criteria for sureties (Ministry of Education, Singapore)",
+      "url": "https://file.go.gov.sg/tg-sureties-criteria.pdf",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Ministry of Education Singapore — Tuition Grant Scheme",
+      "url": "https://www.moe.gov.sg/financial-matters/tuition-grant-scheme",
+      "retrieved": "2026-09-23"
+    },
+    {
       "title": "NTU — Tuition Grants (MOE Tuition Grant Scheme and the three-year service obligation)",
       "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "NTU — Admission guide: International Baccalaureate Diploma",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
+      "retrieved": "2026-09-23"
     },
     {
       "title": "NTU — Tuition fees for students accepted in 2026",
@@ -395,14 +681,49 @@
       "retrieved": "2026-09-22"
     },
     {
-      "title": "NTU — Undergraduate financial matters",
-      "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters",
-      "retrieved": "2026-09-22"
+      "title": "NUS Office of Admissions — Important Dates",
+      "url": "https://www.nus.edu.sg/oam/admissions/important-dates",
+      "retrieved": "2026-09-23"
     },
     {
-      "title": "Ministry of Education Singapore",
-      "url": "https://www.moe.gov.sg/",
-      "retrieved": "2026-09-22"
+      "title": "SUTD — Undergraduate admissions",
+      "url": "https://www.sutd.edu.sg/admissions/undergraduate/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Singapore Institute of Technology — Undergraduate admissions",
+      "url": "https://www.singaporetech.edu.sg/admissions/undergraduate",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "LASALLE College of the Arts — Admissions",
+      "url": "https://www.lasalle.edu.sg/admissions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of the Arts Singapore — Admissions FAQ",
+      "url": "https://uas.edu.sg/admissions/faq",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Nanyang Academy of Fine Arts — Admissions",
+      "url": "https://www.nafa.edu.sg/admissions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Curtin Singapore — Admission",
+      "url": "https://curtin.edu.sg/admission/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "DigiPen Institute of Technology Singapore — Admissions",
+      "url": "https://singapore.digipen.edu/admissions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Singapore Management University — Admissions requirements (not readable: bot-detection challenge)",
+      "url": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

@@ -1,0 +1,76 @@
+{
+  "id": "sg-arts-2027",
+  "destination": "sg",
+  "jurisdiction": "sg-arts",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to LASALLE or NAFA for August 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.lasalle.edu.sg/admissions",
+  "milestones": [
+    {
+      "id": "ms-sg-arts-lasalle-open",
+      "type": "open",
+      "label": "LASALLE opens applications for August 2027",
+      "date": "2026-10-01",
+      "consequence": "indicative",
+      "evidence": ["ev-sg-lasalle-window"]
+    },
+    {
+      "id": "ms-sg-arts-lasalle-close",
+      "type": "submit",
+      "label": "LASALLE main application deadline",
+      "date": "2026-11-01",
+      "consequence": "priority",
+      "note": "Recorded as priority rather than hard because LASALLE says further application windows may open if programme seats remain available. Treat it as the real deadline anyway — a later window is a possibility, not an entitlement, and it competes for whatever is left.",
+      "evidence": ["ev-sg-lasalle-window"]
+    },
+    {
+      "id": "ms-sg-arts-lasalle-outcome",
+      "type": "result",
+      "label": "LASALLE outcomes announced",
+      "date": "2026-12-23",
+      "consequence": "indicative",
+      "note": "An offer in December, against IB results the following July. What LASALLE conditions that offer on is not established here.",
+      "evidence": ["ev-sg-lasalle-window"]
+    },
+    {
+      "id": "ms-sg-arts-lasalle-music",
+      "type": "submit",
+      "label": "LASALLE — BA (Hons) Music and Diploma in Music deadline",
+      "date": "2027-02-28",
+      "consequence": "priority",
+      "note": "Music runs four months behind everything else at LASALLE. MA Art Therapy closes 31 January 2027.",
+      "evidence": ["ev-sg-lasalle-window"]
+    },
+    {
+      "id": "ms-sg-arts-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Eight months after LASALLE's main deadline. The arts route is decided on predicted grades and on a portfolio or audition, and the diploma is close to an afterthought in it.",
+      "evidence": []
+    }
+  ],
+  "supplementarySteps": [
+    "Start the portfolio or audition preparation a year out. It is what the decision turns on, and the deadline is in November of the year before entry.",
+    "Check who awards the degree. Since the University of the Arts Singapore alliance, LASALLE's and NAFA's degrees are validated, conferred and awarded by UAS rather than by an overseas partner.",
+    "Ask LASALLE or NAFA directly whether an international student can take the MOE Tuition Grant and what obligation comes with it. UAS names only Singapore Citizens and Permanent Residents and refers the question back to the two colleges.",
+    "Note the interview timing: LASALLE says shortlisted local BA (Hons) applicants are contacted for interview from February 2027, with outcomes announced progressively from April 2027."
+  ],
+  "evidence": [
+    "ev-sg-lasalle-window",
+    "ev-sg-uas-degrees"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-10-15",
+    "notes": [
+      "This route is urgent. LASALLE's August 2027 window opens on 1 October 2026, eight days after this record was written, and closes on 1 November 2026 — before any Singapore university has even opened.",
+      "NAFA has published nothing for 2027; its admissions guide on site is the AY2026/27 one, and UAS says applications for the August 2026 intake close once seats are filled. Whether NAFA follows LASALLE's calendar is not established and is not assumed.",
+      "Not established, and the most important gap on this route: whether an international student at LASALLE or NAFA is eligible for the MOE Tuition Grant, and therefore whether they would be bonded. UAS names Singapore Citizens and Permanent Residents only and does not say either way about international students."
+    ]
+  }
+}
