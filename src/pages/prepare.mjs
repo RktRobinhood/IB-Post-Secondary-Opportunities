@@ -24,14 +24,12 @@ function scopeOf(appliesTo, site) {
   const codes = (appliesTo || []).filter(Boolean);
   if (!codes.length || codes.includes('all')) return null;
 
-  // `site.destinations` is the migrated records followed by the country
-  // profiles, and both carry `code`. Denmark only appears in the first of
-  // those — it has no data/countries/dk.json — which is exactly why the
-  // Denmark-specific actions were the ones that read as "DK".
+  // `site.destinations` is the reconciled catalogue: every Destination once,
+  // including the ones with no country profile. Denmark is the reason this
+  // cannot just read `site.countries` — it has no data/countries/dk.json, which
+  // is exactly why the Denmark-specific actions were the ones that read as "DK".
   const names = new Map(
-    [...(site.destinations || []), ...(site.countries || [])]
-      .filter((d) => d.code && d.name)
-      .map((d) => [d.code, d.name])
+    (site.destinations || []).filter((d) => d.code && d.name).map((d) => [d.code, d.name])
   );
 
   const listed = codes.map((c) => names.get(c) || c.toUpperCase());

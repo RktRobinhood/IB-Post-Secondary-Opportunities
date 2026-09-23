@@ -32,6 +32,7 @@
  * Every difference between two Destinations is a difference in their records.
  */
 import { DATE_STATES, dateStateLabel, isRealDate } from './publication-floor.mjs';
+import { canonicalOnlyCodes } from './catalogue.mjs';
 
 export { DATE_STATES, dateStateLabel };
 
@@ -272,16 +273,24 @@ export function eventsForDestination(country, graph) {
  * calendar entirely — including the 15 March noon deadline that the page's own
  * lede promises to tell you about.
  *
- * The de-duplication matters for the same reason in reverse: six Destinations
- * currently have both a canonical record and a country profile, and counting
- * both would list every Dutch deadline twice.
+ * The de-duplication matters for the same reason in reverse: a Destination with
+ * both a canonical record and a country profile would list every one of its
+ * deadlines twice.
+ *
+ * Which Destinations those are is asked of the catalogue rather than worked out
+ * here. This function used to keep its own `seen` set, and its comment said six
+ * Destinations overlapped at a point when the live graph had fourteen — being
+ * wrong about overlap produces a plausible page rather than an error, so the
+ * stale number was never going to announce itself.
  */
 export function allEvents(site) {
   const countries = site.countries || [];
-  const seen = new Set(countries.map((c) => c.code));
+  const canonicalCodes = new Set(
+    canonicalOnlyCodes([...(site.graph?.destinations?.values() || [])].map((d) => ({ code: d.id })), countries)
+  );
 
   const canonicalOnly = [...(site.graph?.destinations?.values() || [])]
-    .filter((d) => !seen.has(d.id))
+    .filter((d) => canonicalCodes.has(d.id))
     .map((d) => ({
       code: d.id,
       name: d.name,

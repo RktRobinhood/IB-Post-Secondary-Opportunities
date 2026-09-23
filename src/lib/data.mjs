@@ -10,6 +10,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify, listSentence } from './html.mjs';
 import { loadCanonical } from './canonical.mjs';
+import { reconcileDestinations } from './catalogue.mjs';
 import { publishable as editoriallyPublishable } from './imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
@@ -201,8 +202,11 @@ export async function load() {
     migrated: true,
   }));
 
-  /* Destinations for comparison and indexes: migrated first, then profiles. */
-  const allDestinations = [...migrated, ...countries];
+  /* Destinations for comparison and indexes: every Destination exactly once.
+     This used to be `[...migrated, ...countries]`, which gave 50 entries for
+     36 codes and put two disagreeing Australias in the comparison table. The
+     precedence rule lives in catalogue.mjs so no caller has to re-decide it. */
+  const allDestinations = reconcileDestinations(migrated, countries);
 
   /* Which Destinations the Opportunity records actually cover.
    *
