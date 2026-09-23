@@ -217,6 +217,67 @@ built last so it can include everything the others added.
 
 ## Model friction
 
+### ~~`sources` and `audience` were advertised and not honoured~~ — fixed
+
+**Found by three passes working around them independently.** `sources` was in
+`test-calendar.mjs`'s whitelist and `deadlineItem` could always render several,
+but `fromCountryDeadline` read `source` alone — so a second URL was discarded
+between the record and the page, and three agents put it inline in a note
+instead. `audience` reached the event object and no template looked at it, so
+"non-EU only" and "only if you substitute foreign exams" went into `label`; one
+Portuguese entry has a 130-character label for this reason.
+
+A field that is legal to write and does nothing produces no error. It produces
+a workaround, repeated by everyone who meets it, each assuming they misread the
+schema. Fixed in `8c069ae`.
+
+### A window can only carry one time of day
+
+`timeOfDay` attaches to the entry, not to `date` or `endDate`, so an entry
+running "20 July 15:00 → 28 September 18:00" can state one of them. Every
+affected record works around it with a sentence — "The time is the closing
+time" — in the two ESAT/TMUA registration windows, both Bocconi application
+windows, and both Nova SBE windows. Wants either `endTimeOfDay` or splitting a
+window into its open and close events.
+
+### No `dateState` for "the publisher contradicts itself"
+
+None of the six states means that, and none means "relative to your offer".
+Iceland's 5 June used `not-published`, where "Date not published" is a lie
+about work that was done: the date *is* published, twice, for two different
+groups. The entry had to spend its first sentence correcting its own rendered
+label.
+
+`withdrawn` was added after the migration for exactly this kind of misfit —
+see the comment at `publication-floor.mjs:99` — so there is precedent for a
+seventh. Partly mitigated in `2cdbbfe` by moving the contradiction into two
+Evidence records with `conflictsWith`, which downgrades the public result by
+rule rather than by a sentence somebody has to read. The rendered label is
+still wrong.
+
+### A date cannot say which cycle it belongs to
+
+`year` is a free string doing the work — "2026 UCAT cycle, used for 2027
+entry", "2026 entry — 2027 calendar not yet published" — so nothing can filter
+or count on it, and a past date sits in a 2027-entry calendar with only prose
+to explain why it is there. This is load-bearing now: UCAT's real 2027-entry
+dates are in its 2026 cycle, and Parcoursup's 2027 calendar does not exist.
+
+### `not-yet-announced` cannot carry the shape of the rule
+
+For IMAT and the two Parcoursup gates the useful thing to tell a student is
+"it lands in early August / mid-March, and here is last year's actual date".
+There is nowhere for that but a long note.
+
+### `npm run verify` cannot reach a page that needs a browser
+
+`parcoursup.gouv.fr/calendrier` and `thjonusta.hi.is` 403 to automated fetch
+and serve normally in a browser. Both were read that way and recorded. The
+consequence is that the verifier can never confirm those entries, so they sit
+at `partial` forever — which is the same shape as #21's complaint about site
+roots, arrived at from the other direction.
+
+
 Things the records could not say. Recorded here because more than one pass hit
 most of them independently, which is the signal that they are the model's fault
 and not the researcher's.
