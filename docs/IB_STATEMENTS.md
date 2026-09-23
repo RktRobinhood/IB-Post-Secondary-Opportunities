@@ -113,7 +113,7 @@ The Evidence record for each says which of these happened.
   Melbourne 7,722 · SMU 6,594 · Sydney 6,118 · CUHK 5,187.
 - **Four name matches were refused by hand**, and are worth knowing as the
   shape of what goes wrong: Sciences Po matched only its Poitiers campus
-  statement (10 transcripts — it would have undersold Sciences Po badly); the
+  statement (10 transcripts — it would have undersold Sciences Po badly; its real statement is filed as "SciencesPo", no space, 287 transcripts, and was found in the discovery pass and linked by hand); the
   Université libre de Bruxelles statement links to VUB's website, an error in
   the database itself; and two Ljubljana academies inherited the whole
   university's statement.
@@ -129,8 +129,8 @@ The Evidence record for each says which of these happened.
   as "does not recognise".
 - **~387 English-teaching universities outside the US** in our 35 Destinations
   have a statement and are not on the site; about 1,150 more in the US. That
-  is the discovery pool for #15 — ranked by `transcripts5y`, it is a list of
-  where IB students actually apply.
+  is the discovery pool — ranked by transcripts, in
+  [research/IB_DISCOVERY.md](research/IB_DISCOVERY.md).
 
 ## What this harvest does not carry yet
 
