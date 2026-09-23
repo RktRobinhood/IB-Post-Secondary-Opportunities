@@ -119,7 +119,17 @@ ${hero({
             [
               html`<strong>Independently reviewed</strong>`,
               String(att.reviewed),
-              html`A <em>second</em> party read the record back against its source and agreed. This is the number that carries real weight, and it is the one to watch.`,
+              html`A <em>second</em> party read the record back against its source and agreed — never the party that
+              wrote it. ${att.reviewedByPerson
+                ? html`${String(att.reviewedByPerson)} of those by a person.`
+                : html`<strong>None of those is yet by a person</strong>, and that matters: a second reading
+                  catches a misread table or a claim that overstates its source, and it is not somebody deciding
+                  the claim is safe to publish.`}
+              ${att.disagreed
+                ? html`A further ${String(att.disagreed)} ${att.disagreed === 1 ? 'record was' : 'records were'}
+                  reviewed and found <em>wrong</em>; ${att.disagreed === 1 ? 'it is' : 'they are'} held back from
+                  this count and carry the reviewer's note.`
+                : ''}`,
             ],
             [
               html`<strong>Source re-read by machine</strong>`,
@@ -129,12 +139,19 @@ ${hero({
           ],
         })}
         ${note(
-          `**Independently reviewed currently stands at ${att.reviewed}, and that is the honest number.**
+          `**Independently reviewed stands at ${att.reviewed} of ${att.total}, and that is the honest number.**
 
           It used to read 152. Those records were written by research passes that opened the official page,
           quoted it, wrote the record, and marked their own work verified in the same breath. The reading was
           real — it is kept, and counted in the first row — but nobody had checked it, and the site said
           otherwise.
+
+          ${att.disagreed
+            ? `The review is worth having: of the first ${att.reviewed + att.disagreed} records read back
+               against their sources, **${att.disagreed} turned out to be wrong** — in each case a condition
+               that applies only to one Danish admission quota, recorded as though you could not apply without
+               it. Those are corrected or held back, not quietly counted as checked.`
+            : ''}
 
           The rule now is not "a human must do it", because a human who writes a record from a page has not
           been checked either. It is that **the party who read the source cannot be the party who confirms

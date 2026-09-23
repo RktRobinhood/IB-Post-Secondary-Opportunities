@@ -119,9 +119,31 @@ export function sameParty(a, b) {
   return x === y;
 }
 
-/** The three numbers the trust page reports, and nothing else. */
+/**
+ * What a reviewer's own description says about them.
+ *
+ * Deliberately crude and deliberately conservative: a party is counted as a
+ * person only when nothing in the description says otherwise. Getting this
+ * wrong in the generous direction would put "reviewed by a person" on a page
+ * for a review no person performed, which is the whole failure this model was
+ * built to stop.
+ */
+export function reviewerIsPerson(by) {
+  return !/\b(pass|session|script|automated|machine|bot|claude|agent|tool)\b/i.test(String(by || ''));
+}
+
+/** The numbers the trust page reports, and nothing else. */
 export function summarise(records) {
-  const out = { total: 0, attested: 0, reviewed: 0, sourceChecked: 0, unread: 0, byMethod: {} };
+  const out = {
+    total: 0,
+    attested: 0,
+    reviewed: 0,
+    reviewedByPerson: 0,
+    disagreed: 0,
+    sourceChecked: 0,
+    unread: 0,
+    byMethod: {},
+  };
   for (const r of records || []) {
     out.total++;
     const attested = !!r.attestation?.by;
@@ -131,7 +153,14 @@ export function summarise(records) {
       const m = r.attestation.method || 'read-source';
       out.byMethod[m] = (out.byMethod[m] || 0) + 1;
     }
-    if (reviewed) out.reviewed++;
+    if (reviewed) {
+      out.reviewed++;
+      if (reviewerIsPerson(r.review.by)) out.reviewedByPerson++;
+    }
+    // Reviewed and found wrong. Counted separately rather than folded into
+    // either column: it is not an unreviewed record, and it is certainly not a
+    // confirmed one.
+    if (r.review && r.review.agreed === false) out.disagreed++;
     if (r.sourceCheck?.outcome) out.sourceChecked++;
     if (!attested && !reviewed) out.unread++;
   }

@@ -188,12 +188,16 @@ function claimsToCheck(record, entities) {
 
     if (support.field === 'requirements') {
       if (entity?.requirements?.length) {
-        out.push({
-          type: 'requirements',
-          field: support.field,
-          entity: support.entity,
-          groups: probesForRequirements(entity.requirements, SUBJECT_CATALOGUE),
-        });
+        const groups = probesForRequirements(entity.requirements, SUBJECT_CATALOGUE);
+        /* Requirements exist but nothing could be looked for. That is not a
+         * check that passed with nothing to find — it is a check that never
+         * ran, and reporting it as "0 of 0 found" made it read like a soft
+         * pass. It hid every Danish requirement for a while. */
+        out.push(
+          groups.length
+            ? { type: 'requirements', field: support.field, entity: support.entity, groups }
+            : { type: 'uncheckable', field: support.field, entity: support.entity, count: entity.requirements.length }
+        );
       } else {
         out.push({ type: 'unresolved', field: support.field, entity: support.entity });
       }
@@ -385,6 +389,18 @@ async function checkRecord(record, entities) {
         excerpt,
         details: [],
       });
+    } else if (target.type === 'uncheckable') {
+      claims.push({
+        field: target.field,
+        entity: target.entity,
+        decisive: true,
+        outcome: 'partial',
+        reason:
+          `${target.count} requirement(s) recorded on ${target.entity}, and none of them is in a form this ` +
+          `tool can look for. Nothing was checked — this is not a pass.`,
+        excerpt: null,
+        details: [],
+      });
     } else if (target.type === 'missing-entity') {
       // We are citing a source for something that is not in the data at all.
       // That is a broken record, and it is decisive.
@@ -425,7 +441,18 @@ async function checkRecord(record, entities) {
     outcome,
     reason: claims.length === 1 ? claims[0].reason : `${claims.length} claims checked; weakest: ${worst.field} — ${worst.reason}`,
     reachable: true,
-    excerpt: claims.find((c) => c.excerpt)?.excerpt || null,
+    /* The decisive claim's excerpt, not the first one's.
+     *
+     * A record backing an institution blurb AND its entry requirements was
+     * quoting the blurb — which on a university page is the navigation menu.
+     * The requirements claim on the same record had "English B Mathematics A
+     * with a minimum average grade of 4.0" sitting right there. A reviewer
+     * reads this quotation to decide whether the record is sound, so it has to
+     * be the sentence the record actually turns on. */
+    excerpt:
+      claims.find((c) => c.decisive && c.excerpt)?.excerpt ||
+      claims.find((c) => c.excerpt)?.excerpt ||
+      null,
     pageTitle: title,
     claims,
     details: claims.flatMap((c) => c.details),

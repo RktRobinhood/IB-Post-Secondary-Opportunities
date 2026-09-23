@@ -45,7 +45,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -67,10 +67,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Applied Industrial Electronics - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "excerpt": "…at Aalborg University Esbjerg, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum average grade of 4.0 Physics B or Geoscience A Please note that A, B and C…",
       "claims": [
         {
           "field": "about",
@@ -94,14 +94,49 @@
           "field": "requirements",
           "entity": "dk-aau-applied-industrial-electronics-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…at Aalborg University Esbjerg, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum average grade of 4.0 Physics B or Geoscience A Please note that A, B and C…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "Page reads \"English B / Mathematics A with a minimum average grade of 4.0 / Physics B or Geoscience A\". Matches the record exactly, including that the 4.0 attaches to Mathematics rather than to the whole examination."
+    }
   },
   {
     "id": "ev-en-aau-dk-s4tafy",
@@ -110,7 +145,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -132,10 +167,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (9/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Chemical Engineering and Biotechnology - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "excerpt": "…Chemical Engineering and Biotechnology, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum grade of 4,0 in average And one of the following combinations: Physics B and…",
       "claims": [
         {
           "field": "about",
@@ -159,14 +194,77 @@
           "field": "requirements",
           "entity": "dk-aau-chemical-engineering-and-biotechnology-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "8 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Chemical Engineering and Biotechnology, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum grade of 4,0 in average And one of the following combinations: Physics B and…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry B",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "Combination list read in full: \"Physics B and Chemistry B / Physics B and Biotechnology A / Geoscience A and Chemistry B\". All three branches match."
+    }
   },
   {
     "id": "ev-en-aau-dk-1xg0wsc",
@@ -175,7 +273,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -197,10 +295,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Economics and Business Administration - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "excerpt": "…Administration at Aalborg University, you need the following qualifications: Upper secondary school exam English B Mathematics B History B or History of Ideas B or Contemporary History B or Social Studies B or…",
       "claims": [
         {
           "field": "about",
@@ -224,14 +322,70 @@
           "field": "requirements",
           "entity": "dk-aau-economics-and-business-administration-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "7 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…Administration at Aalborg University, you need the following qualifications: Upper secondary school exam English B Mathematics B History B or History of Ideas B or Contemporary History B or Social Studies B or…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Social Studies B",
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "English B, Mathematics B, and the five-way history/social-science alternative all present as recorded."
+    }
   },
   {
     "id": "ev-en-aau-dk-dbb308",
@@ -240,7 +394,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -262,10 +416,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Energy Engineering - Bachelor degree - Aalborg University Jump to content Aalborg University Education Bachelor Master Guest and Exchange Study…",
+      "excerpt": "…at Aalborg University Esbjerg, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum average grade of 4.0 And one of the following combinations: Physics B and…",
       "claims": [
         {
           "field": "about",
@@ -289,14 +443,77 @@
           "field": "requirements",
           "entity": "dk-aau-energy-engineering-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "8 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…at Aalborg University Esbjerg, you need the following qualifications: Upper secondary school exam English B Mathematics A with a minimum average grade of 4.0 And one of the following combinations: Physics B and…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry C",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry C",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "Combination list read in full: \"Physics B and Chemistry C / Physics B and Biotechnology A / Geoscience A and Chemistry C\". Chemistry is at C here and at B on Chemical Engineering, and the records distinguish them correctly."
+    }
   },
   {
     "id": "ev-en-aau-dk-qoypcd",
@@ -345,7 +562,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -376,7 +593,13 @@
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "Page states that students from outside the EU/EEA pay tuition and that those covered by the EU Residence Order do not. Supports the fee claim it is cited for."
+    }
   },
   {
     "id": "ev-en-aau-dk-13dz0rp",
@@ -686,7 +909,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -708,10 +931,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (4/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Bachelor's degree programme in Cognitive Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics B History B or History of Ideas B or Social Studies B or Contemporary History B B-level is the…",
       "claims": [
         {
           "field": "about",
@@ -735,14 +958,63 @@
           "field": "requirements",
           "entity": "dk-au-cognitive-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "6 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics B History B or History of Ideas B or Social Studies B or Contemporary History B B-level is the…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Social Studies B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "English B, Mathematics B, and \"History B or History of Ideas B or Social Studies B or Contemporary History B\" all present as recorded."
+    }
   },
   {
     "id": "ev-bachelor-au-dk-1rwrwd5",
@@ -773,10 +1045,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Computer Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
       "claims": [
         {
           "field": "about",
@@ -800,14 +1072,35 @@
           "field": "requirements",
           "entity": "dk-au-computer-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": false,
+      "note": "The subject requirements are right and the grade is not. The page puts the 6.0 under the heading \"Grade point Average (GPA) requirement of 6.0 IN QUOTA 1\", and then says in as many words: \"In quota 2, you must fulfil the above-mentioned admission requirements EXCEPT the GPA requirements of 6.0.\" The Opportunity records it as mandatory with no quota qualifier, so a student holding Mathematics A at grade 5 is told they do not meet the requirements, when they may apply and be assessed in quota 2. Two further details the record omits: the 6.0 is required both overall AND in Mathematics A, and both are quota 1 conditions rather than entry requirements."
+    }
   },
   {
     "id": "ev-bachelor-au-dk-1qk59k",
@@ -838,10 +1131,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Data Science Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
       "claims": [
         {
           "field": "about",
@@ -865,14 +1158,35 @@
           "field": "requirements",
           "entity": "dk-au-data-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": false,
+      "note": "The subject requirements are right and the grade is not. The page puts the 6.0 under the heading \"Grade point Average (GPA) requirement of 6.0 IN QUOTA 1\", and then says in as many words: \"In quota 2, you must fulfil the above-mentioned admission requirements EXCEPT the GPA requirements of 6.0.\" The Opportunity records it as mandatory with no quota qualifier, so a student holding Mathematics A at grade 5 is told they do not meet the requirements, when they may apply and be assessed in quota 2. Two further details the record omits: the 6.0 is required both overall AND in Mathematics A, and both are quota 1 conditions rather than entry requirements."
+    }
   },
   {
     "id": "ev-bachelor-au-dk-12s3rs2",
@@ -903,10 +1217,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "IT Product Development Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
       "claims": [
         {
           "field": "about",
@@ -930,14 +1244,35 @@
           "field": "requirements",
           "entity": "dk-au-it-product-development-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics A B-level is the Danish subject level, not the grade. We assess your subject levels when you…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": false,
+      "note": "The subject requirements are right and the grade is not. The page puts the 6.0 under the heading \"Grade point Average (GPA) requirement of 6.0 IN QUOTA 1\", and then says in as many words: \"In quota 2, you must fulfil the above-mentioned admission requirements EXCEPT the GPA requirements of 6.0.\" The Opportunity records it as mandatory with no quota qualifier, so a student holding Mathematics A at grade 5 is told they do not meet the requirements, when they may apply and be assessed in quota 2. Two further details the record omits: the 6.0 is required both overall AND in Mathematics A, and both are quota 1 conditions rather than entry requirements."
+    }
   },
   {
     "id": "ev-bachelor-au-dk-w0tjrz",
@@ -946,7 +1281,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -968,10 +1303,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (4/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Bachelor's degree programme in Economics and Business Administration Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics B History B or History of Ideas B or Social Studies B or Contemporary History B or…",
       "claims": [
         {
           "field": "about",
@@ -995,14 +1330,70 @@
           "field": "requirements",
           "entity": "dk-au-economics-and-business-administration-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "7 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…. Specific admission requirements You must fulfil the following specific admission requirements: English B Mathematics B History B or History of Ideas B or Social Studies B or Contemporary History B or…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Social Studies B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "Subject list matches, including International Economics B as a fifth alternative."
+    }
   },
   {
     "id": "ev-bachelor-au-dk-1dn29jz",
@@ -1011,7 +1402,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "verified",
     "verifiedBy": "automated",
     "supports": [
       {
@@ -1033,10 +1424,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (5/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Bachelor's degree in Economics and Business Administration in Herning Aarhus University logo For students For PhDs For employees Departments and faculties AU…",
+      "excerpt": "…refers to the subject level in the Danish upper secondary school with A being the highest level possible): English B Mathematics B History B or History of Ideas B or Contemporary History B or Social Science B or…",
       "claims": [
         {
           "field": "about",
@@ -1060,14 +1451,70 @@
           "field": "requirements",
           "entity": "dk-au-economics-and-business-administration-herning-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "6 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…refers to the subject level in the Danish upper secondary school with A being the highest level possible): English B Mathematics B History B or History of Ideas B or Contemporary History B or Social Science B or…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History B",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "review": {
+      "by": "second-reading pass (a different session from the one that wrote these; not a person)",
+      "at": "2026-09-23",
+      "agreed": true,
+      "note": "Subject list matches. The page writes \"Social Science B\" where the record has Social Studies B; the Danish subject is Samfundsfag in both cases and Aarhus renders it inconsistently across its own pages."
+    }
   },
   {
     "id": "ev-en-wikipedia-org-1kadiya",
@@ -1215,10 +1662,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…From AI and data analytics to social media and e-commerce platforms, businesses need to think digitally in everything they do. On BSc DM, you learn how to navigate this complexity and use digital tools and data to make better…",
+      "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
       "claims": [
         {
           "field": "about",
@@ -1242,10 +1689,67 @@
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -1280,10 +1784,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…are interested in working with services through the lens of business administration. That includes everything from customer satisfaction, quality and marketing to finance, accounting, strategy and management – all of…",
+      "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
       "claims": [
         {
           "field": "about",
@@ -1307,10 +1811,67 @@
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -1345,10 +1906,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…with your new friends at Nexus café or at a BSc SOC party! Julie “ Don’t put pressure on yourself to have everything figured out right away. Use the first semester to explore, make mistakes and get to know…",
+      "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B with min. 6.0 grade average History, Social…",
       "claims": [
         {
           "field": "about",
@@ -1372,10 +1933,67 @@
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B with min. 6.0 grade average History, Social…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -1410,10 +2028,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…of advice before starting is not to stress about all the opportunities – there will be plenty of time for everything. In the beginning I felt I had to take part in every event and apply for every student job, but that quickly…",
+      "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
       "claims": [
         {
           "field": "about",
@@ -1437,10 +2055,67 @@
           "field": "requirements",
           "entity": "dk-cbs-international-business-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -1475,10 +2150,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…while others are more abstract and theoretical. It can be challenging to enjoy or do equally well in everything, since we all have different interests. And that’s completely okay, it’s part of figuring out what you like…",
+      "excerpt": "…talk to our staff. We look forward to seeing you! 29 January 2027 24 February 2027 Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
       "claims": [
         {
           "field": "about",
@@ -1502,10 +2177,67 @@
           "field": "requirements",
           "entity": "dk-cbs-international-business-and-politics-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…talk to our staff. We look forward to seeing you! 29 January 2027 24 February 2027 Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -1540,10 +2272,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…formats, the grading scale and the academic calendar very different from what you are used to. Read about everything you need to know as an international student studying at CBS at Internationals students Entry…",
+      "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
       "claims": [
         {
           "field": "about",
@@ -1567,10 +2299,67 @@
           "field": "requirements",
           "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…you need to know as an international student studying at CBS at Internationals students Entry requirements English Specific entry requirement: B with a minimum grade of 6.0 Language requirement: A Mathematics B History, Social Studies or International…",
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": true,
+              "matched": "English / A (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English / B (adjacent table cells)",
+              "weak": true
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "International Economics B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -1724,7 +2513,7 @@
       "outcome": "supported",
       "reason": "2 claims checked; weakest: about — page is on-topic for this claim (3/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…Technical University of Denmark Address Anker Engelunds Vej 101 2800 Kongens…",
+      "excerpt": "…subjects. The specific admission requirements for the BSc in General Engineering are (Danish levels): Mathematics A-level English B-level Physics B-level Chemistry B-level English language requirement (Refer to the…",
       "claims": [
         {
           "field": "about",
@@ -1740,9 +2529,37 @@
           "entity": "dk-dtu-general-engineering-2027-autumn",
           "decisive": true,
           "outcome": "supported",
-          "reason": "1 of 1 recorded requirement(s) found on the page",
-          "excerpt": "…secondary exam The specific admission requirements: You must fulfill certain subjects at a certain level. English language requirement: All international applicants (with some exemptions) must document their English proficiency by taking one of…",
+          "reason": "5 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…subjects. The specific admission requirements for the BSc in General Engineering are (Danish levels): Mathematics A-level English B-level Physics B-level Chemistry B-level English language requirement (Refer to the…",
           "details": [
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics A",
+              "weak": false
+            },
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English B",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Chemistry B",
+              "weak": false
+            },
             {
               "requirement": "Documented English proficiency",
               "role": "required",
@@ -1941,10 +2758,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "3 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+      "excerpt": "…qualifying examination certificate equal to a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish A-level with an average mark of at least 6 on the Danish 7-point marking scale of the marks included in the subject…",
       "claims": [
         {
           "field": "about",
@@ -1968,10 +2785,25 @@
           "field": "requirements",
           "entity": "dk-itu-data-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…qualifying examination certificate equal to a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish A-level with an average mark of at least 6 on the Danish 7-point marking scale of the marks included in the subject…",
+          "details": [
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at A level",
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -2009,7 +2841,7 @@
       "outcome": "supported",
       "reason": "3 claims checked; weakest: about — page is on-topic for this claim (7/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…in line with the official European Credit Transfer System . A 7.5 ECTS course therefore represents around 206 hours of activity in total. These hours include contact hours (teaching and supervision), individual…",
+      "excerpt": "…examination certificate that can be equated with a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish B-level with an average mark of at least 6 on the Danish 7-point marking scale of the marks included in the subject…",
       "claims": [
         {
           "field": "about",
@@ -2034,9 +2866,30 @@
           "entity": "dk-itu-global-business-informatics-2027-autumn",
           "decisive": true,
           "outcome": "supported",
-          "reason": "1 of 1 recorded requirement(s) found on the page",
-          "excerpt": "…have direct access to the two-year master’s programme in Digital Innovation & Management . Please note Danish at A level is a requirement. No required mark but the subject must be passed (note that this is a new…",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…examination certificate that can be equated with a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish B-level with an average mark of at least 6 on the Danish 7-point marking scale of the marks included in the subject…",
           "details": [
+            {
+              "requirement": "Mathematics at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Danish at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Danish A",
+              "weak": false
+            },
             {
               "requirement": "Danish A must be passed even though teaching is in English.",
               "role": "required",
@@ -2512,10 +3365,10 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "4 claims checked; weakest: requirements — 0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 claims checked; weakest: about — page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "Specific admission requirements | Roskilde University Skip to main content Roskilde University Bachelor Master Visiting…",
+      "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
       "claims": [
         {
           "field": "about",
@@ -2530,28 +3383,185 @@
           "field": "requirements",
           "entity": "dk-ruc-international-bachelor-in-natural-sciences-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "11 of 11 recorded requirement(s) found on the page",
+          "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Biology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biology at A level",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics at C level",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-ruc-international-bachelor-in-social-sciences-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "5 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics at B level",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History at B level",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas at B level",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "5 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…requirements. Roskilde University does not accept English tests in order to fulfil the requirement of English at Danish B-level. Specific admission requirements for each bachelor’s programme Bachelor in Global Humanities English at…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Second Foreign Language at B level",
+              "role": "required",
+              "found": true,
+              "matched": "the source's own wording",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History at B level",
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas at B level",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History at B level",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3000,18 +4010,34 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-artificial-intelligence-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3079,18 +4105,34 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-computer-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3158,18 +4200,34 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-software-engineering-vejle-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3237,18 +4295,48 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-interactive-technology-engineering-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3316,18 +4404,34 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "2 of 2 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-software-engineering-sonderborg-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "2 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Course levels refer to the Danish high school system: A is advanced, B is intermediate,…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3395,18 +4499,48 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-mechatronics-sonderborg-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3474,18 +4608,76 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "8 of 8 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-mechanical-engineering-sonderborg-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "8 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology level A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3553,18 +4745,48 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-electronics-sonderborg-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3632,18 +4854,48 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-engineering-innovation-and-business-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3711,18 +4963,48 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-mechatronics-beng-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics level B or Geoscience level A Course levels refer to the Danish high school…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3790,18 +5072,90 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "10 of 10 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-mechanical-engineering-beng-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "10 of 10 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A As well as one of the following course combinations: Physics level B and Chemistry…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics level B",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology level A",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Chemistry level C",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience level A",
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Biotechnology level A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3869,18 +5223,48 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "4 of 4 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics B or Geoscience A Course levels refer to the Danish high school system: A is…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-electronics-beng-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "4 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level A Physics B or Geoscience A Course levels refer to the Danish high school system: A is…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level A",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Physics B",
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geoscience A",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -3948,18 +5332,69 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "5 of 7 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-economics-and-business-administration-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "5 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History level B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas level B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History level B",
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -4027,18 +5462,62 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "5 of 6 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…you must hold a qualifying upper secondary school degree , and you must have passed the following courses: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-european-studies-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "5 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…you must hold a qualifying upper secondary school degree , and you must have passed the following courses: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History level B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas level B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History level B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -4106,18 +5585,62 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "0 of 0 recorded requirement(s) found on the page",
+      "outcome": "supported",
+      "reason": "5 of 6 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-sdu-market-and-management-anthropology-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "outcome": "supported",
+          "reason": "5 of 6 recorded requirement(s) found on the page",
+          "excerpt": "…education is qualifying and what to include in your application In addition you must have passed: English level B Mathematics level B History level B or Social Sciences level B or History of Ideas level B or Contemporary…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": true,
+              "matched": "English level B",
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics level B",
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History level B",
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "History of Ideas level B",
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Contemporary History level B",
+              "weak": false
+            }
+          ]
         }
       ]
     },
@@ -4546,162 +6069,913 @@
     "sourceCheck": {
       "checkedAt": "2026-09-23",
       "outcome": "unsupported",
-      "reason": "34 claims checked; weakest: requirements — 0 of 1 recorded requirement(s) found on the page",
+      "reason": "34 claims checked; weakest: requirements — 0 of 7 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…B-niveau, dog skal mindst et løft være til A-niveau. Hvis der allerede indgår andre gymnasiale fag end dansk på A-niveau, kan suppleringen bestå af to efterfølgende løft af fag til B-niveau. Hvis suppleringen omfatter løft af…",
+      "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
       "claims": [
         {
           "field": "requirements",
           "entity": "dk-aau-applied-industrial-electronics-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-aau-chemical-engineering-and-biotechnology-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-aau-economics-and-business-administration-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 7 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-aau-energy-engineering-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 4",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-au-cognitive-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 6 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-au-computer-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-au-data-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-au-economics-and-business-administration-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 7 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-au-economics-and-business-administration-herning-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 7 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-au-it-product-development-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-cbs-international-business-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-cbs-international-business-and-politics-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-dtu-general-engineering-2027-autumn",
           "decisive": true,
           "outcome": "unsupported",
-          "reason": "0 of 1 recorded requirement(s) found on the page",
+          "reason": "0 of 5 recorded requirement(s) found on the page",
           "excerpt": null,
           "details": [
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
             {
               "requirement": "Documented English proficiency",
               "role": "required",
@@ -4715,19 +6989,55 @@
           "field": "requirements",
           "entity": "dk-itu-data-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "Mathematics at A level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-itu-global-business-informatics-2027-autumn",
           "decisive": true,
-          "outcome": "supported",
-          "reason": "1 of 1 recorded requirement(s) found on the page",
-          "excerpt": "…B-niveau, dog skal mindst et løft være til A-niveau. Hvis der allerede indgår andre gymnasiale fag end dansk på A-niveau, kan suppleringen bestå af to efterfølgende løft af fag til B-niveau. Hvis suppleringen omfatter løft af…",
+          "outcome": "partial",
+          "reason": "2 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…B-niveau, dog skal mindst et løft være til A-niveau. Hvis der allerede indgår andre gymnasiale fag end dansk på A-niveau, kan suppleringen bestå af to efterfølgende løft af fag til B-niveau. Hvis suppleringen omfatter løft…",
           "details": [
+            {
+              "requirement": "Mathematics at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "English at B level, minimum grade 6",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Danish at A level",
+              "role": "required",
+              "found": true,
+              "matched": "Dansk A",
+              "weak": false
+            },
             {
               "requirement": "Danish A must be passed even though teaching is in English.",
               "role": "required",
@@ -4741,136 +7051,662 @@
           "field": "requirements",
           "entity": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 5 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Second Foreign Language at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-ruc-international-bachelor-in-natural-sciences-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 11 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Biology at A level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at C level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-ruc-international-bachelor-in-social-sciences-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 6 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-artificial-intelligence-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-computer-science-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-economics-and-business-administration-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 7 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Economics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-electronics-sonderborg-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-engineering-innovation-and-business-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-european-studies-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 6 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-interactive-technology-engineering-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-market-and-management-anthropology-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 6 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Social Studies at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "History of Ideas at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Contemporary History at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-mechanical-engineering-sonderborg-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Biotechnology at A level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at C level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-mechatronics-sonderborg-2027-autumn",
           "decisive": true,
           "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
-          "excerpt": null,
-          "details": []
+          "reason": "1 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…Results og IB Certificate i forhold til optagelse på en videregående uddannelse i Danmark Geovidenskab A kontra IB Geography (HL) Baggrunden for IB-omregningsskalaer for…",
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at B level",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Geoscience at A level",
+              "role": "one-of",
+              "found": true,
+              "matched": "Geovidenskab A",
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-software-engineering-sonderborg-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         },
         {
           "field": "requirements",
           "entity": "dk-sdu-software-engineering-vejle-2027-autumn",
           "decisive": true,
-          "outcome": "partial",
-          "reason": "0 of 0 recorded requirement(s) found on the page",
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
           "excerpt": null,
-          "details": []
+          "details": [
+            {
+              "requirement": "English at B level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics at A level",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
         }
       ]
     }

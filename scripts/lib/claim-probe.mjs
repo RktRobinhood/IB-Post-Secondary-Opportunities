@@ -280,7 +280,19 @@ export function probesForRequirements(requirements, subjectCatalogue = null) {
         // page still talks in these terms. Requiring all of them would fail by
         // construction, since the student only needs one.
         for (const alt of r.alternatives || []) walk(alt, 'one-of');
-      } else if (r.kind === 'ib-subject') {
+      } else if (r.kind === 'ib-subject' || r.kind === 'local-equivalency') {
+        /* Three kinds reach here, not one.
+         *
+         * `ib-subject` is a requirement in the IB's own units — ibSubject,
+         * ibLevel. `local-equivalency` is one on a local scale — subject
+         * "English", levelScale "dk-abc", level "B" — which is the shape this
+         * file was originally written for, under its old name.
+         *
+         * Only `ib-subject` was listed here, so every Danish requirement
+         * produced no probes at all and each record reported "0 of 0
+         * requirements found" — which reads as a soft pass and was in fact a
+         * check that never ran. Denmark is the deepest data on the site and it
+         * was the least verified. */
         const probes = subjectProbes(r, subjectCatalogue);
         // A requirement nothing can be looked for is not a passed check, and
         // silently dropping it would let a record report "all requirements
