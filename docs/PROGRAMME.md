@@ -7,11 +7,15 @@ This file exists so the work survives an interrupted session. See
 [PARALLEL_WORK.md](PARALLEL_WORK.md) for why, and for the rest of the
 conventions fan-out work here runs under.
 
-**Updated:** 2026-09-23. 449 deadline entries across all 35 Destinations; 22 checks in one gate; #12, #13, #18, #21, #22, #23, #24, #26, #29, #30, #31, #32, #33 and #34 closed.
+**Updated:** 2026-09-23, evening. **All 35 Destinations meet the publication
+floor.** 25 checks in one gate. #35, #37 and #38 landed today; #15's floor
+work is complete. The one open item a machine cannot finish is #17's hero
+review.
 
-**Current programme: close every open issue.** Twelve were open when it started,
-plus #34, filed from a mobile audit during it. The order and the reasoning are
-under ["This programme"](#this-programme) below.
+**Direction, restated by the owner:** this site is not the end-all source. It
+finds the options, generates excitement, gives a student enough to be
+dangerous, and hands them to the page with the detail. Simplify. See
+`PRODUCT_VISION.md`, "It is a pamphlet, not a reference work".
 
 ---
 
@@ -24,12 +28,16 @@ under ["This programme"](#this-programme) below.
 | #12 part 2 | Markers decorative and the list carrying their cues; keyboard camera; grouping and spiderfying; the explorer's duplicate map deleted | `6ae31b9` |
 | #15 step 1 | Research depth stated on every Destination page | `b3bb839` |
 | #15 step 2 | The publication floor — five checks, computed not asserted | `8057e2f` |
+| #15 step 3 | **All 35 Destinations at the floor**: 21 brought up in one wave of seven research passes, three countries each | `e40dd6b` … `e29fbe5` |
 | #17 | Imagery approval state, a floor derived from the score distribution, a designed empty state, a scorer that knows what it got wrong | `2490dac` |
 | #16 | The Application Jurisdiction model, worked through for Canada, the US, the UAE and Singapore | `78d3e6d` |
 | #18 | Arrival, chapter and close; MapChapter alive; one motion token deleted rather than spent; ADR 0003 | `b628281`, `4d308d9` |
 | #26 | The basemap at a visible opacity; a panel shape per viewport; 44px targets; pinch and double-tap | `b628281`, `82968ce` |
 | #15 step 4 | The first Opportunities outside Denmark — 16 Dutch, and ADR 0002 confirmed | `4c79b8f`, `73897e2` |
 | ADR 0002 | The IB scale as the lingua franca; Recognition Schemes; 201 requirements migrated | `f788173`, `f841942` |
+| #35 | `readerAccess`: a route the reader cannot take says so first, with no date, badge or countdown | `23ad1e3` |
+| #37 | Institutions first, short answers by default, sources last; a word budget with a guard. Germany 52 → 14.5 phone screens | `3820fda` |
+| #38 | 328 IB recognition statements — one line and a link per institution; docs/IB_STATEMENTS.md | `a11f5bb` |
 
 ### The data migrations
 
@@ -42,102 +50,53 @@ under ["This programme"](#this-programme) below.
 
 ## In flight
 
-- **#18, the style pass.** Partial work is on disk in `components.mjs`,
-  `primitives.mjs` and both stylesheets, and the build is green. Scene
-  variants `arrival` and `close()` exist; chapter CSS and the motion tokens
-  were next.
-- **The Netherlands Opportunity pilot.** Restarted from nothing.
-
-Anything named here that is *not* in the git log was interrupted and needs
-restarting from the brief. On 2026-09-23 a session usage limit killed six
-agents at once; four had written nothing and two had written work that
-survived because it was on disk. That is the whole argument for
-[PARALLEL_WORK.md](PARALLEL_WORK.md)'s first rule, and it was tested within
-an hour of being written.
+Nothing. Every agent from the 2026-09-23 evening wave reported and its work is
+committed.
 
 ---
 
-## The queue, in order
+## What is left
 
-### 1. Destinations still below the floor
+### 1. #17 — the hero review (a person)
 
-**14 of 35 meet it.** `npm run floor -- --report` is the authority; it is
-computed and cannot go stale. The order is worst-first, which is also roughly
-the order issue #15 asked for.
+29 Destination heroes, worst first. `npm run images:review --heroes`, or the
+contact sheet generated for the owner on 2026-09-23. Reject by code, approve
+the rest with `--approve --by`.
 
-Each one is a research pass against [RESEARCH_BRIEF.md](RESEARCH_BRIEF.md).
+### 2. The full IB statement harvest
 
-- At the floor: `ae au ca de gb ie jp kr nl no nz se sg us`
-- Remaining worldwide: `cn hk`
-- Remaining European: `at be ch cz ee es fi fr gr hu is it lt lu lv mt pl pt si`
+The first import is the compact form (statement, flags, count, website).
+The Diploma-policy quotation and each institution's own IB-admissions link
+were read and are held in the browser session's storage; bringing them out
+needs a file download or a local-network permission, both the owner's call.
+`docs/IB_STATEMENTS.md`.
 
-A note on sequencing that cost time once: **a pass that edits
-`data/countries/*.json` cannot run at the same time as the repo-wide link
-sweep**, which owns every one of those files. Country research and cross-cutting
-data sweeps are mutually exclusive; plan them in separate waves.
+### 3. The discovery pool
 
-### 2. Opportunity coverage past Denmark (#15 step 4)
+~387 English-teaching universities outside the US in our Destinations have an
+IB statement and are not on the site. Ranked by transcripts sent, they are a
+list of where IB students actually apply — the obvious next institutions to
+add, one line and a link each. Deliberately not bulk-added: the floor says
+every institution shown is one a student could act on.
 
-The largest piece of work in the repository, and it was blocked until
-`f841942` — the requirement model could not express a non-Danish entry
-requirement at all. It can now.
+### 4. Opportunity coverage past Denmark and the Netherlands
 
-**The Netherlands is the pilot, in progress.** It is the first real user of
-ADR 0002, and the question it answers for everything after it is whether a
-Destination that publishes its rules in IB terms genuinely needs no Recognition
-Scheme. If it does not, most of the world does not either, and the remaining
-Destinations are research rather than modelling.
+Still the largest piece of work, and under the pamphlet rule it may not be the
+right one: a named institution with a correct link out may do the job an
+Opportunity record was meant to do. A decision for the owner before anyone
+spends a wave on it.
 
-### 3. #19 — the globe
+### 5. Model friction from the floor wave
 
-A throwaway prototype is running to answer the issue's own question — *does
-geographic motion help a student find a credible option faster than a static
-map* — rather than to build a globe because the issue asked for one. The
-answer lands as `docs/adr/0004`.
+Recorded below under "Model friction". The recurring ones: the `institutions`
+check tests a domain and not what is on it (a crypto-casino page passed); a
+route has no teaching-language axis; `shortName` is also identity.
 
-The baseline has moved a long way under this issue since it was written. The
-flat map now has measured contrast, a keyboard camera, clustering,
-spiderfying, a panel shape per viewport and touch gestures, so "what the map
-becomes once it is correct" is a different question from the one #19 poses.
+### Older, still true
 
-### 4. #24 — Course Results
-
-Raised by the author. An IB student who does not complete the full Diploma
-leaves with certificates for individual subjects, and that changes what is
-open to them without closing everything.
-
-The engine already models it — `evaluateRule` handles `ib-diploma` against
-`profile.holdsDiploma`, and knows that a language exemption for Diploma
-holders does not transfer to a Course candidate. **And none of it has ever
-run**, because nothing sets `holdsDiploma`: there is no control for it, so
-every diploma requirement evaluates to `unknown` for every student.
-
-The hard half is data. 16 of 53 Opportunities record an `ib-diploma`
-requirement and the other 37 say nothing either way, so the feature needs
-three states rather than two — and "not established" must never render as
-"Course Results are fine". That is the one way this can do real harm.
-
-### 5. #25 — 64 dead admissions links
-
-In progress. One in seven `admissionsUrl` values is a 404.
-
-### 6. #17 — the hero review
-
-29 Destination heroes queued, worst first, through `npm run images:review`.
-The only item in the programme that a person has to do.
-
-### 7. Open follow-ups filed during this programme
-
-- **#21** — seven dated claims cited to pages that do not carry them, mostly
-  site roots. A homepage stays live forever and never carries the claim, so
-  `npm run verify` can neither pass nor fail it.
-- **#22** — eight contradictions the deadline migration surfaced. Each needs a
-  person at the official page. The worst is Korea's, where the intake and the
-  deadlines describe different years.
-- **#23** — dated milestones still buried in `notes`, including several that
-  are specifically IB-candidate deadlines.
-- **#25** — 64 dead `admissionsUrl` values of 437, the link a student follows
-  at the moment they have decided to apply. `npm run check:institutions`.
+- **#19 — the globe.** A prototype question, not closed here.
+- **#24 — Course Results.** The engine models it and nothing sets
+  `holdsDiploma`; the data needs three states.
 
 ---
 
@@ -526,6 +485,129 @@ were used and neither is quite right; `consortium` exists on
 UHIP, created by Ontario's universities, owns its own rules. So does the
 Fédération des cégeps. `official-rule-owner` was used with the reasoning in
 `verifiedBy`.
+
+### One unscoped direct route passes `route` for any direct-application country
+
+Found by the AT/CH/CZ floor pass. A single `channel: "direct"` route with no
+`jurisdiction` covers every institution, so the check is met by one record and
+says nothing about whether any institution's own dates are on it. Right for
+the check's question, but "route" passing is weaker evidence for these
+countries than for centralised ones. Also: a statute on a private consolidation
+site (Czech Act 111/1998 on zakonyprolidi.cz) has no good `publisherType`;
+`other` was used.
+
+### A national route cannot carry one institution's off-cycle dates (FI/IS/MT pass)
+
+- Finland: the University of Helsinki runs IB applicants in its own Admission
+  group 2 (9–23 March 2027), outside the national 7–21 January window, and LUT
+  admits on a rolling basis. Neither can be its own route without Opportunity
+  ids (`appliesTo`), so both sit on the one national route as a milestone and a
+  `supplementarySteps` line. Studyinfo.fi is JavaScript-rendered and unreadable
+  to fetch; national dates are cited via Jyväskylä and Study in Finland.
+- Iceland/Malta: `applicationSystems: []` is the honest value for a
+  direct-only Destination; nothing distinguishes "none, checked" from "not
+  filled in". Iceland's ENIC-NARIC host did not resolve and Malta's regulator
+  (mfhea.mt) returns 403 to fetch, so Eurydice (classed `encyclopaedic`) and
+  the ENIC-NARIC network page stood in for the sector picture.
+
+### `institutions` cannot tell "never looked" from "the institution's whole domain is a bot wall" (ES/PT/IT pass)
+
+- Spain's record set is complete except for one institution: every page on
+  `ub.edu` (Universitat de Barcelona) redirects to `web.ub.edu`, which serves a
+  Cloudflare challenge to fetch, curl and both browsers available to an agent.
+  No UB page can be cited, so `institutions` fails on UB alone, and because a
+  canonical record commits the Destination to the floor, Spain cannot be
+  published at all. A person has to open UB's "Degree admission with foreign
+  qualifications" page and record it as `admissionsUrl`, or UB has to come off
+  the list. **Resolved the same evening:** the page loads normally in an
+  ordinary browser, was read there, and is UB's `admissionsUrl`; Spain is
+  published (`5a4e8e3`). The gap in the model stands: an agent's browser and a
+  person's browser are different readers, and the floor cannot tell which one
+  read a page.
+- There is nowhere to keep a finished-but-unpublished canonical record. The
+  only states are "published and held to the floor" and "not on disk".
+- Portugal needed a `pt-cna` Application System so its route could name the
+  national contest; `application-systems/` was not in the pass's stated file
+  ownership, but the record is Portugal's alone.
+- The Baltics pass hit Spain's UB problem three times: `ut.ee`, `taltech.ee`
+  and `emu.ee` return 403 to fetch and curl and show a bot check to the agent
+  browser. Unlike Spain, their `admissionsUrl` was set to an own-domain URL
+  taken from a search index (title matching), and each institution's `note`
+  says the page was not read. That passes `institutions`, which only tests the
+  domain. If "cited" should mean "read", the floor cannot tell the difference.
+  **Resolved for these three:** in an ordinary browser the check clears by
+  itself, and all three pages were read that way (`57ca4e1`).
+- `institutions` also passes on a dead domain: Lithuania's Kaunas UAS was on
+  `en.kaunokolegija.lt`, which no longer resolves, and passed because its
+  `website` and `admissionsUrl` share that domain. Two Estonian entries with no
+  `website` passed because their `admissionsUrl` was the shared DreamApply
+  portal, whose domain was in `sources`. The check reads "own domain" off the
+  record rather than knowing whose domain it is.
+- Estonia's DreamApply is one portal for nine institutions with no common
+  deadline or decision. `channel` has no value for "shared front door, separate
+  admission", so it is recorded as `direct` with a `portalUrl`. Lithuania's
+  LAMA BPO is recorded as `consortium` (for state-funded places only) with no
+  Application System record; the route model has no way to say "this route is
+  for state-funded places", only which applicant group it serves.
+
+### Found by the GR/CN/HK floor pass (2026-09-23)
+
+- **An institution's `shortName` is also its key.** `data.mjs` derives
+  `inst.key` from `slugify(shortName)`, and images and IB statements hang off
+  that key. BNU-HKBU UIC was renamed Beijing Normal-Hong Kong Baptist University
+  (BNBU) in March 2025. `name` and URLs are updated in `cn.json`, but
+  `shortName` stays "UIC Zhuhai" because changing it would silently orphan
+  `images.json`'s `cn-uic-zhuhai`. Renaming an institution should not change
+  its identity.
+- **A route has no teaching-language axis.** At a Greek public university,
+  Greek-taught places go through the ministry's foreign-nationals route and
+  English-taught ones are applied for directly. Both routes serve the
+  `gr-public` jurisdiction, and `routeFor` returns whichever it finds first. The
+  jurisdiction's `applicationRoute` names the ministry route, but a student who
+  wants English is on the other one.
+- **Standing periods with no year.** BNBU prints "1 September to 31 December"
+  and "10 February to 15 May" with no year, and NYU Shanghai prints "January 5"
+  the same way. Each is recorded as a provisional date in the current cycle,
+  which is correct but reads as if the institution had published it for 2027.
+
+### Found by the HU/SI/PL floor pass (2026-09-23)
+
+- **One institution, two registrable domains.** The University of Wrocław's
+  homepage is `uwr.edu.pl` and its international admissions are on
+  `international.uni.wroc.pl`; the Liszt Academy is `zeneakademia.hu` in
+  Hungarian and `uni.lisztacademy.hu` in English. `sourcedAtOwnDomain` takes
+  one domain per institution, from `website`, so the right admissions link
+  failed the check. Fixed in the data by moving `website` to the domain the
+  admissions page is on (`uni.wroc.pl` redirects to `uwr.edu.pl`), which
+  changes a field to satisfy a check rather than to be more correct.
+- **An institution listed so students know *not* to apply has no shape.**
+  Slovenia lists IEDC-Bled (no bachelor at all) and DOBA (no English-taught
+  bachelor) deliberately, in `note` and `englishBachelors` prose. They pass
+  `institutions` via `sources` entries, and they sit on the eVŠ route as if
+  it applied to them.
+- **Slovenia's eVŠ has no Application System record.** The route is
+  `channel: "application-system"` with a `portalUrl` and no
+  `applicationSystem`, because `application-systems/` was outside the pass's
+  file ownership.
+
+### Found by the FR/BE/LU floor pass (2026-09-23)
+
+- **`institutions` passes on a hijacked domain.** Luxembourg's BBI listed
+  `bbi-edu.eu`, which now serves an Italian crypto-casino page, and Sacred Heart
+  Luxembourg listed `shu.lu`, now a parked "for sale" domain (campus closed
+  2022). Both passed the floor. Both were removed from `countries/lu.json`. The
+  check cannot tell a live institution page from a dead or hijacked domain.
+- **France is grouped by sector, but `routeFor` only reads `jurisdiction`.** So
+  France (like Singapore) declares `institutionGrouping: "jurisdiction"` with
+  `kind: "sector"` jurisdictions. `institutionGrouping: "sector"` would group the
+  page but leave every institution on no route.
+- **No Parcoursup Application System.** Same as Slovenia: `fr-parcoursup-2027`
+  has `channel: "application-system"` with no `applicationSystem`.
+- **Belgium's language communities have no `kind`.** Used `authority`. A
+  `community` value would say it better.
+- **No route for France's non-EU applicants.** The Parcoursup route is
+  `eu-eea-ch`; non-EU first-year applicants use the DAP. The floor does not
+  check that every applicant group has a route, so this gap is only in a note.
 
 ---
 
