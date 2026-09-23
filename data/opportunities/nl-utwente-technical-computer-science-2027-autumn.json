@@ -1,0 +1,177 @@
+{
+  "id": "nl-utwente-technical-computer-science-2027-autumn",
+  "programme": "nl-utwente-technical-computer-science",
+  "institution": "nl-utwente",
+  "destination": "nl",
+  "place": "nl-enschede",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": false,
+    "capacityNote": "No numerus fixus statement or capacity was found. A matching procedure is nonetheless compulsory: an online questionnaire and a matching event, both required before you can start. It is not a selection — it does not rank you and it cannot cost you a place on merit — but not completing it stops your enrolment.",
+    "selection": [
+      {
+        "type": "other",
+        "weight": "none",
+        "description": "A mandatory matching procedure in two parts, an online questionnaire and a matching event. Required to start the programme; not used to rank applicants.",
+        "evidence": [
+          "ev-utwente-nl-tcs"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "A successfully completed International Baccalaureate diploma is required before the start of the academic year. In general, there is no minimum IB grade requirement.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "No minimum total is published. Twente states that the IB Career-related Certificate is not directly admissible, though it invites a case-by-case application from anyone holding a further qualification alongside it.",
+      "evidence": [
+        "ev-utwente-nl-ib"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "other",
+      "mandatory": true,
+      "label": "Mathematics comparable to Dutch pre-university level (VWO Wiskunde B)",
+      "officialWording": {
+        "text": "To confirm your level of mathematical knowledge, we need a proof that you have mastered mathematics comparable to a pre-university level, such as: VWO Wiskunde B (for Dutch applicants); VWO Wiskunde B staatsexamen (for Dutch applicants); James Boswell Mathematics B course (for Dutch and International students); Mathematik bis Abitur.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Twente does not state this in IB terms and this record does not translate it. It asks for mathematics 'comparable to a pre-university level, such as VWO Wiskunde B', names Dutch and German qualifications as examples, names no IB course or level, and assesses the transcript you upload. It is deliberately NOT recorded as a local-equivalency requirement on the Dutch subject scale. That shape requires a Recognition Scheme defining the scale, and scripts/test-eligibility.mjs rightly fails a requirement naming a scale nothing defines. No such scheme exists for the Netherlands and none was written, because neither Twente nor Nuffic publishes what an IB mathematics course counts as in Dutch terms; writing one would mean inventing the table. So it is recorded as kind 'other' with the official wording intact, and this tool will tell you it cannot check it — which is the truth. Upload your transcript and ask Twente.",
+      "evidence": [
+        "ev-utwente-nl-tcs"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "One of four IB English routes, or an English test",
+      "officialWording": {
+        "text": "English Language A: Literature – Standard Level or Higher Level - Grade ≥ 4; English Language A: Language and Literature – Standard Level or Higher Level - Grade ≥ 4; English Language B – Standard Level - Grade ≥ 6; English Language B – Higher Level - Grade ≥ 5",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "alt-eng-a-lit",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-literature at SL",
+            "ibSubject": "english-a-literature",
+            "ibLevel": "SL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-eng-a-ll",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-lang-lit at SL",
+            "ibSubject": "english-a-lang-lit",
+            "ibLevel": "SL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-eng-b-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-b at SL",
+            "ibSubject": "english-b",
+            "ibLevel": "SL",
+            "minGrade": 6
+          }
+        ],
+        [
+          {
+            "id": "alt-eng-b-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-b at HL",
+            "ibSubject": "english-b",
+            "ibLevel": "HL",
+            "minGrade": 5
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Twente is the only institution in this catalogue that publishes its English rule as IB subjects with IB grades rather than as a test score with an exemption, so it is recorded as a subject rule and the engine checks it directly. There is also a separate exemption: if your Diploma programme was taught in English and you took one of the listed English subjects, no test is needed. The SL alternatives are satisfied by HL too, because the engine compares levels rather than matching them.",
+      "evidence": [
+        "ev-utwente-nl-ib"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "You are admissible if you have an international secondary school diploma equivalent to the Dutch VWO-degree. [...] Level of Mathematics: we need a proof that you have mastered mathematics comparable to a pre-university level, such as VWO Wiskunde B.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-utwente-nl-tcs",
+    "ev-utwente-nl-ib"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Twente publishes each intake's admission requirements only from the October before it and says in terms that it cannot give information about a future intake. Everything on this record is the September 2026 rule and should be re-read after October 2026. It is marked needs-review for that reason rather than presented as settled.",
+      "Twente's own deadline for the 2026 intake was 30 April 23:59 CET, a day before the national one. The 2027 date was not published when this was checked. Work to 1 May 2027 as the outer limit and expect Twente to set something earlier.",
+      "The matching procedure is the Dutch studiekeuzecheck and Twente makes it compulsory here: \"Matching is a mandatory step for starting Technical Computer Science. It consists of two required parts: An online questionnaire; A matching event. Both are mandatory for the procedure to be completed.\" It is recorded in admission.selection with weight 'none' because the requirement model has no place for a step that is compulsory and unscored — marking it mandatory would make the tool answer 'needs review' on a question that is not about eligibility, and marking it a Selection Factor would say it ranks you, which it does not.",
+      "Twente does not publish what IB mathematics counts as VWO Wiskunde B, so this Opportunity will assess as needing review for every student. That is the correct answer and not a data gap: the gap is in what Twente publishes, and it is recorded here rather than papered over.",
+      "If Twente judges your mathematics short, the route back is a CCVX, James Boswell-Bèta or Dutch Staatsexamen certificate taken before the application deadline. Twente names OMPT and Korteweg-de Vries tests as not accepted, which matters because Erasmus accepts OMPT — the remedial tests are not interchangeable between universities."
+    ]
+  }
+}

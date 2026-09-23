@@ -1,0 +1,189 @@
+{
+  "id": "nl-breda-uas-creative-business-2027-autumn",
+  "programme": "nl-breda-uas-creative-business",
+  "institution": "nl-breda-uas",
+  "destination": "nl",
+  "place": "nl-breda",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Selection at the gate, on a published 100-point scale split evenly between an online stage and an interview. The online assessment closes on 15 May at 23:59 CET; interviews for international applicants are held online and scheduled as assessments are completed. The number of places is not published.",
+    "selection": [
+      {
+        "type": "essay",
+        "weight": "part of stage A (50%)",
+        "description": "An application letter, scored out of 100 on completeness, English, motivation, industry awareness, structure and the logic of your past activities.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "work-experience",
+        "weight": "part of stage A (50%)",
+        "description": "A resume scored out of 100 across general experience, work experience, creativity, computer skills and other activities, 20 points each.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "test",
+        "weight": "part of stage A (50%)",
+        "description": "A study-skills questionnaire on motivation, learning strategies and self-regulation, and a prior-knowledge multiple-choice test, each scored 1-10.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "interview",
+        "weight": "stage B (50%)",
+        "description": "An interview scored out of 100 on motivation, professional image, communication, understanding of the programme and English.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required to enrol on a study programme at Breda University of Applied Sciences.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. If you will hold IB Career-related Programme or Course Results rather than the Diploma, do not read this as a refusal: Nuffic compares the CP Certificate to at least a havo diploma and BUas's own English exemption list names it. Ask BUas directly.",
+      "evidence": [
+        "ev-buas-nl-admission",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You do not need to submit an English test if: [...] You hold an International Baccalaureate (IB) diploma, Career-related Programme Certificate of the IB, US High School diploma, GCE A(S) levels, or European Baccalaureate certificate (English Language 1 or 2).",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "An unconditional exemption, unlike TU Delft's and RSM's: BUas does not additionally require that English was an examination subject or that the programme was taught in English. Without it, the bar is IELTS Academic 6.0 with 6.0 in speaking, Cambridge 169, TOEFL iBT 80, PTE 61 or LanguageCert 65.",
+      "evidence": [
+        "ev-buas-nl-admission"
+      ]
+    },
+    {
+      "id": "sf-1",
+      "kind": "essay",
+      "mandatory": false,
+      "label": "An application letter — part of stage A, which is half the score",
+      "note": "A Selection Factor with a published rubric: 20 points for English, 20 for a clear motivation that fits the programme's profile, 20 for showing you have formed a good picture of the industry, 20 for structure, 10 for completeness and 10 for a logical connection to what you have done before.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ],
+      "officialWording": {
+        "text": "STAGE A: 50%. Application letter (max. 100 points): Completeness of the letter 10; English language proficiency 20; [...] Structure of the letter 20; Logical connection with activities carried out in the past 10",
+        "language": "en",
+        "official": true
+      }
+    },
+    {
+      "id": "sf-2",
+      "kind": "activity",
+      "mandatory": false,
+      "label": "A résumé — part of stage A",
+      "note": "A Selection Factor scored 20 points each for general experience, work experience, creativity in audiovisual, web or music work, computer skills, and anything else. CAS and creative work outside school genuinely count here. Recorded as kind 'activity' because the requirement model has no 'work-experience' kind, though admission.selection[].type does. The requirement kind enum and the selection type enum are two different vocabularies and neither is a superset of the other.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ],
+      "officialWording": {
+        "text": "Resume (max. 100 points): General experience 20; Work experience 20; Creativity (AV/web/music, etc.) 20; Computer skills 20; Other matters that cannot be related to the above points 20",
+        "language": "en",
+        "official": true
+      }
+    },
+    {
+      "id": "sf-3",
+      "kind": "test",
+      "mandatory": false,
+      "label": "A study-skills questionnaire and a prior-knowledge test — part of stage A",
+      "note": "A Selection Factor with teeth: BUas says \"a low overall score may result in non-admission\" on the study-skills test and that a low score on any component of the prior-knowledge test \"may be decisive in rejecting an applicant\".",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "sf-4",
+      "kind": "interview",
+      "mandatory": false,
+      "label": "An interview — stage B, the other half of the score",
+      "note": "A Selection Factor, online for international applicants. Scored 20 points each on motivation, professional image, communication and presentation, your picture of the degree, and English.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required. The selection procedure consists of three phases.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-breda-uas-selection-2027",
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-buas-nl-admission",
+    "ev-buas-nl-selection-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "BUas publishes no IB subject requirement for this programme. The admission pages were read on 2026-09-23 and set out only the diploma level and the English requirement; no examination subject is named. This is recorded as checked and absent rather than as unchecked — but 'no subject requirement' is not the same as 'you will get in', because every place here is allocated by selection.",
+      "A full IB Diploma is compared by Nuffic to a vwo diploma, and BUas offers a three-year track to applicants whose diploma is comparable to vwo. The standard hbo bachelor recorded on this programme is four years and 240 ECTS; the length of the short track was not established here, so it is not recorded as a credential.",
+      "The whole assessment must be finished by 15 May at 23:59 CET, and the interview is scheduled only once it is. Finishing early brings the interview and the decision forward.",
+      "This is the most transparently scored admission in this catalogue — BUas publishes the rubric point by point — and not one of those points is an examination grade.",
+      "Not established: the number of places."
+    ]
+  }
+}

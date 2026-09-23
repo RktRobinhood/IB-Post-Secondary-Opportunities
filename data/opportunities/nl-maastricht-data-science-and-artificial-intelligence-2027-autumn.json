@@ -1,0 +1,119 @@
+{
+  "id": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+  "programme": "nl-maastricht-data-science-and-artificial-intelligence",
+  "institution": "nl-maastricht",
+  "destination": "nl",
+  "place": "nl-maastricht",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": false,
+    "capacityNote": "No cap and no selection procedure. The page carries no numerus fixus statement and no capacity, and the deadline is the ordinary one: 1 May 2027 for an EU/EEA or Swiss applicant, 1 April 2027 for everyone else."
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "To qualify for admission to a bachelor's programme at Maastricht University (UM), you must hold a secondary school diploma that is considered equivalent to the Dutch pre-university VWO diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Nuffic compares the full IB Diploma to a VWO diploma. Maastricht warns separately that being VWO-equivalent does not by itself satisfy a programme's additional subject requirements, which are assessed on their own.",
+      "evidence": [
+        "ev-um-nl-subject-requirements",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics: Analysis and Approaches at HL",
+      "ibSubject": "mathematics-aa",
+      "ibLevel": "HL",
+      "officialWording": {
+        "text": "Data Science and Artificial Intelligence — Mathematics Analysis and Approaches HL",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Applications and Interpretation is not accepted at either level for this programme, though the same university accepts it at SL for International Business. Missing this is not necessarily the end: Maastricht calls it a mathematics deficiency and publishes routes to clear it before the first year starts, with a syllabus deadline of 1 June 2027 for EU/EEA applicants.",
+      "evidence": [
+        "ev-um-nl-subject-requirements"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "Maastricht resolves the English requirement through an interactive questionnaire on the programme page rather than by publishing a list, so the exact wording of the IB exemption could not be captured. It is recorded as satisfied by a full IB Diploma taught in English, which is how every other institution in this catalogue treats it, and flagged here as the one requirement on this Opportunity that rests on a pattern rather than on a quoted sentence. Confirm it on the programme page.",
+      "evidence": [
+        "ev-um-nl-dsai"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Data Science and Artificial Intelligence — Mathematics Analysis and Approaches HL",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-maastricht-selection-2027",
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-um-nl-subject-requirements",
+    "ev-um-nl-dsai"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "The counter-example in this catalogue: a hard IB subject requirement and no competition at all. Meet Mathematics AA HL, apply by 1 May, and you are in.",
+      "A mathematics deficiency is a procedure here rather than a refusal. Maastricht assesses it, tells you, and offers ways to clear it before September.",
+      "Both the subject requirement and the deadlines are published for 2027-2028."
+    ]
+  }
+}

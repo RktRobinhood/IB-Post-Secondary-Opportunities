@@ -1,0 +1,180 @@
+{
+  "id": "nl-breda-uas-hotel-management-2027-autumn",
+  "programme": "nl-breda-uas-hotel-management",
+  "institution": "nl-breda-uas",
+  "destination": "nl",
+  "place": "nl-breda",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Selection at the gate. Every place is allocated by a selection procedure and the number of places is not published. An applicant with a non-Dutch diploma submits a personal video message instead of attending a selection day on campus, and is told the outcome within 21 days of a complete application.",
+    "selection": [
+      {
+        "type": "interview",
+        "description": "For a non-Dutch diploma, a personal video message covering motivation, hospitality experience, strengths and development points, and whether you can afford to study in the Netherlands. For a Dutch diploma, a selection day on campus with a personal pitch and an interview.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "essay",
+        "description": "A motivation letter in English.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "work-experience",
+        "description": "Affinity with the hospitality industry and any proven work experience in it.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "other",
+        "description": "The level of a second modern foreign language — German, French or Spanish — is discussed in the selection.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required to enrol on a study programme at Breda University of Applied Sciences.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. If you will hold IB Career-related Programme or Course Results rather than the Diploma, do not read this as a refusal: Nuffic compares the CP Certificate to at least a havo diploma and BUas's own English exemption list names it. Ask BUas directly.",
+      "evidence": [
+        "ev-buas-nl-admission",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You do not need to submit an English test if: [...] You hold an International Baccalaureate (IB) diploma, Career-related Programme Certificate of the IB, US High School diploma, GCE A(S) levels, or European Baccalaureate certificate (English Language 1 or 2).",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "An unconditional exemption, unlike TU Delft's and RSM's: BUas does not additionally require that English was an examination subject or that the programme was taught in English. Without it, the bar is IELTS Academic 6.0 with 6.0 in speaking, Cambridge 169, TOEFL iBT 80, PTE 61 or LanguageCert 65.",
+      "evidence": [
+        "ev-buas-nl-admission"
+      ]
+    },
+    {
+      "id": "sf-1",
+      "kind": "interview",
+      "mandatory": false,
+      "label": "A personal video message (non-Dutch diploma) or a selection interview on campus",
+      "note": "A Selection Factor, not an entry requirement. BUas assesses intrinsic motivation, affinity with hospitality, personal qualities and English through it.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ],
+      "officialWording": {
+        "text": "students with a diploma from a non-Dutch educational institution: A personal video message",
+        "language": "en",
+        "official": true
+      }
+    },
+    {
+      "id": "sf-2",
+      "kind": "essay",
+      "mandatory": false,
+      "label": "A motivation letter in English",
+      "note": "A Selection Factor. Assessed on the same four criteria as everything else in the procedure.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "sf-3",
+      "kind": "activity",
+      "mandatory": false,
+      "label": "Affinity with the hospitality industry, and work experience in it",
+      "note": "A Selection Factor. BUas names it first: \"we are looking for intrinsically motivated individuals. Potential students that have affinity with the hospitality industry and/or proven work experience in this industry.\" An IB student with no hospitality work behind them is at a real disadvantage here, and it is the kind of disadvantage that can be fixed a year ahead. Recorded as kind 'activity' because the requirement model has no 'work-experience' kind, though admission.selection[].type does. The requirement kind enum and the selection type enum are two different vocabularies and neither is a superset of the other.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "sf-4",
+      "kind": "other",
+      "mandatory": false,
+      "label": "A second modern foreign language — German, French or Spanish",
+      "note": "A Selection Factor and not a requirement: BUas says the level \"will be discussed\" in the interview and sets no threshold. For a Danish IB student taking a Group 2 language this is worth raising unprompted.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required. Besides the formal admission requirements, there are several selection criteria.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-breda-uas-selection-2027",
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-buas-nl-admission",
+    "ev-buas-nl-selection-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "BUas publishes no IB subject requirement for this programme. The admission pages were read on 2026-09-23 and set out only the diploma level and the English requirement; no examination subject is named. This is recorded as checked and absent rather than as unchecked — but 'no subject requirement' is not the same as 'you will get in', because every place here is allocated by selection.",
+      "A full IB Diploma is compared by Nuffic to a vwo diploma, and BUas offers a three-year track to applicants whose diploma is comparable to vwo. The standard hbo bachelor recorded on this programme is four years and 240 ECTS; the length of the short track was not established here, so it is not recorded as a credential.",
+      "The application is not the Studielink registration. A complete application in BUas's own My Online Application portal, including the video message, is due by 17:00 CET on 4 May; the Studielink registration by 1 May. Both, or neither counts.",
+      "Nothing in this selection procedure is a grade. Motivation, hospitality experience, a video and an interview decide it, and BUas reserves the right to \"select only those candidates we think will be likely to succeed\".",
+      "Not established: the number of places."
+    ]
+  }
+}

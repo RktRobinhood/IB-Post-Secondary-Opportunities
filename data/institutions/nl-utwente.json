@@ -1,0 +1,49 @@
+{
+  "id": "nl-utwente",
+  "destination": "nl",
+  "name": "University of Twente",
+  "shortName": "UT",
+  "localName": "Universiteit Twente",
+  "type": "technical-university",
+  "founded": 1961,
+  "places": [
+    "nl-enschede"
+  ],
+  "sector": "universiteit",
+  "about": "The Netherlands' only campus university, on parkland outside Enschede near the German border, and the technical university that has always mixed engineering with social science — psychology, communication and management sit alongside mechanical engineering and computer science. Almost all its bachelor programmes are taught in English, which makes it the widest English-taught choice of any Dutch research university and the one with most to lose from the internationalisation bill.",
+  "knownFor": [
+    "Campus university",
+    "Engineering combined with social science",
+    "Entrepreneurship and spin-offs"
+  ],
+  "links": {
+    "website": "https://www.utwente.nl/en/",
+    "admissions": "https://www.utwente.nl/en/education/bachelor/application-admission/admission/",
+    "ibPage": "https://www.utwente.nl/en/education/bachelor/application-admission/admission/diplomas/international-baccalaureate/",
+    "wikipedia": "https://en.wikipedia.org/wiki/University_of_Twente"
+  },
+  "codes": {
+    "ibResultsService": "001638"
+  },
+  "languageOfInstruction": {
+    "primary": "English",
+    "englishTaughtUndergraduate": "many",
+    "note": "Nearly every Twente bachelor programme is taught in English. That is also what makes it the most exposed Dutch university if the internationalisation bill passes; confirm in autumn 2026 that your programme still runs in English for September 2027."
+  },
+  "evidence": [
+    "ev-utwente-nl-ib",
+    "ev-utwente-nl-advanced-technology",
+    "ev-utwente-nl-tcs",
+    "ev-utwente-nl-creative-technology"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Twente states outright that it will not publish 2027-2028 admission requirements until October 2026: \"The University of Twente therefore cannot provide any information regarding admission requirements for future intake moments that are not yet open for applications.\" Every Twente record here is therefore the September 2026 rule, marked needs-review, with a review date rather than a guess.",
+      "Twente is the only institution in this pass that writes requirements three different ways on three programme pages: Advanced Technology in IB terms, Technical Computer Science on the Dutch VWO scale, Creative Technology with no subject at all. The three records preserve that difference instead of smoothing it.",
+      "The IBIS school code 001638 is published on Twente's own IB page for requesting results from the IB.",
+      "Twente's programme pages hold their per-diploma requirements in collapsed panels that a plain fetch does not return. Each was opened in a browser before being recorded."
+    ]
+  }
+}

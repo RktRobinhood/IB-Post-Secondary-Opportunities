@@ -1,0 +1,147 @@
+{
+  "id": "nl-maastricht-university-college-maastricht-2027-autumn",
+  "programme": "nl-maastricht-university-college-maastricht",
+  "institution": "nl-maastricht",
+  "destination": "nl",
+  "place": "nl-maastricht",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "250 places a year, filled by a two-round selective admission and reviewed on a rolling basis from 1 October 2026. Not numerus fixus: the deadlines are UCM's own, 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants.",
+    "selection": [
+      {
+        "type": "other",
+        "description": "First round: the Board of Admissions reviews your application documents and decides whether to interview you.",
+        "evidence": [
+          "ev-um-nl-ucm"
+        ]
+      },
+      {
+        "type": "interview",
+        "description": "Second round: an online interview in English with a UCM academic staff member, 30 to 45 minutes, on your academic plans and how UCM would support them. The decision follows within six weeks.",
+        "evidence": [
+          "ev-um-nl-ucm"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "To qualify for admission to a bachelor's programme at Maastricht University (UM), you must hold a secondary school diploma that is considered equivalent to the Dutch pre-university VWO diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Nuffic compares the full IB Diploma to a VWO diploma. Maastricht warns separately that being VWO-equivalent does not by itself satisfy a programme's additional subject requirements, which are assessed on their own.",
+      "evidence": [
+        "ev-um-nl-subject-requirements",
+        "ev-um-nl-ucm",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "Maastricht resolves the English requirement through an interactive questionnaire on the programme page rather than by publishing a list, so the exact wording of the IB exemption could not be captured. It is recorded as satisfied by a full IB Diploma taught in English, which is how every other institution in this catalogue treats it, and flagged here as the one requirement on this Opportunity that rests on a pattern rather than on a quoted sentence. Confirm it on the programme page.",
+      "evidence": [
+        "ev-um-nl-ucm"
+      ]
+    },
+    {
+      "id": "sf-documents",
+      "kind": "other",
+      "mandatory": false,
+      "label": "First-round review of your application documents",
+      "officialWording": {
+        "text": "The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview.",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor. Getting past it is what earns the interview; UCM publishes no scoring for it.",
+      "evidence": [
+        "ev-um-nl-ucm"
+      ]
+    },
+    {
+      "id": "sf-interview",
+      "kind": "interview",
+      "mandatory": false,
+      "label": "An online interview in English, 30 to 45 minutes",
+      "officialWording": {
+        "text": "If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30 – 45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals.",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor, and the one that decides it. UCM says it is looking for \"highly motivated students with a genuine passion for academics\" — the interview is about what you want to study and why, not about your grades.",
+      "evidence": [
+        "ev-um-nl-ucm"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "If you have a non-Dutch diploma equivalent to the Dutch VWO diploma, you qualify - in principle - for admission to this study programme. At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-maastricht-selection-2027",
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-um-nl-ucm",
+    "ev-um-nl-subject-requirements"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Neither national deadline applies. UCM is selective but not numerus fixus and sets its own: 1 April 2027 for an EU/EEA or Swiss applicant, 1 February 2027 for everyone else. A student who has learned '15 January or 1 May' will be wrong in both directions.",
+      "Applications are reviewed on a rolling basis from 1 October 2026 against 250 places, so applying in October is not the same as applying in March even though both are inside the deadline.",
+      "University College Maastricht is absent from Maastricht's table of additional subject requirements, which means there is no subject requirement rather than that none was found. The table itself establishes the absence.",
+      "The Binding Study Advice is a real risk and belongs on the same page as the entry rules: 45 of 60 ECTS in the first year, or exclusion from UCM, Maastricht Science Programme and University College Venlo for six years.",
+      "The English requirement is the weakest claim on this record. Maastricht resolves it through an interactive questionnaire rather than a published list, so the IB exemption could not be quoted and is recorded by pattern from the other institutions here. It should be confirmed before anyone relies on it."
+    ]
+  }
+}

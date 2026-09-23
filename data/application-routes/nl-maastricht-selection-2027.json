@@ -1,0 +1,151 @@
+{
+  "id": "nl-maastricht-selection-2027",
+  "destination": "nl",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to Maastricht University for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "nl-studielink",
+  "portalUrl": "https://www.studielink.nl/",
+  "appliesTo": [
+    "nl-maastricht-international-business-2027-autumn",
+    "nl-maastricht-university-college-maastricht-2027-autumn",
+    "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn"
+  ],
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Studielink opens for 2027-2028",
+      "date": "2026-10-01",
+      "consequence": "rolling",
+      "note": "Maastricht states applications open on 1 October and, for University College Maastricht, are reviewed on a rolling basis from then — so applying in October is materially different from applying in March.",
+      "evidence": [
+        "ev-um-nl-ucm"
+      ]
+    },
+    {
+      "id": "ms-ucm-noneu",
+      "type": "submit",
+      "label": "University College Maastricht closes for non-EU/EEA applicants",
+      "date": "2027-02-01",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "non-eu",
+      "note": "Studielink application and every admission task in Maastricht's own MyApplication portal, both by this date.",
+      "evidence": [
+        "ev-um-nl-ucm"
+      ]
+    },
+    {
+      "id": "ms-ib-fixus",
+      "type": "submit",
+      "label": "International Business numerus fixus application closes",
+      "date": "2027-01-15",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "The national numerus fixus date. Maastricht's published table gives 15 January 2026 for the 2026-2027 round; the 2027 date is inherited from the national rule and is provisional until Maastricht republishes. Studielink and all MyApplication admission tasks must both be complete.",
+      "evidence": [
+        "ev-um-nl-international-business"
+      ]
+    },
+    {
+      "id": "ms-ucm-eu",
+      "type": "submit",
+      "label": "University College Maastricht closes for EU/EEA and Swiss applicants",
+      "date": "2027-04-01",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "eu-eea-ch",
+      "note": "Neither 15 January nor 1 May. UCM is selective without being numerus fixus and sets its own date.",
+      "evidence": [
+        "ev-um-nl-ucm"
+      ]
+    },
+    {
+      "id": "ms-dsai-noneu",
+      "type": "submit",
+      "label": "Data Science and AI closes for non-EU/EEA applicants",
+      "date": "2027-04-01",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "non-eu",
+      "evidence": [
+        "ev-um-nl-dsai"
+      ]
+    },
+    {
+      "id": "ms-dsai-eu",
+      "type": "submit",
+      "label": "Data Science and AI closes for EU/EEA and Swiss applicants",
+      "date": "2027-05-01",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "eu-eea-ch",
+      "note": "The ordinary national date, because this programme is not capped.",
+      "evidence": [
+        "ev-um-nl-dsai"
+      ]
+    },
+    {
+      "id": "ms-ib-ranking",
+      "type": "result",
+      "label": "International Business ranking number published",
+      "date": "2027-04-15",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Also the date on which an applicant is told they failed the International Classroom requirement and are not in the ranking at all.",
+      "evidence": [
+        "ev-um-nl-international-business"
+      ]
+    },
+    {
+      "id": "ms-maths-syllabus",
+      "type": "document",
+      "label": "Mathematics sufficiency syllabus, EU/EEA and Swiss applicants",
+      "date": "2027-06-01",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "personal",
+      "note": "Only if Maastricht judges your mathematics short of the requirement. A deficiency here is a process rather than a refusal, and it must be cleared before the first year starts.",
+      "evidence": [
+        "ev-um-nl-dsai"
+      ]
+    },
+    {
+      "id": "ms-enrolment",
+      "type": "enrolment",
+      "label": "All enrolment tasks complete",
+      "date": "2027-08-31",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "note": "Including the certified copy of your diploma — which is why IB results arriving in early July is workable here: the diploma is an enrolment task, not an admission task.",
+      "evidence": [
+        "ev-um-nl-ucm",
+        "ev-um-nl-dsai"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-um-nl-ucm",
+    "ev-um-nl-dsai",
+    "ev-um-nl-international-business"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Maastricht runs three different calendars at once and this route holds all three, because they are three properties of one university rather than three routes a student chooses between. Which milestones bind depends on the Opportunity and, for two of them, on nationality.",
+      "The split between admission tasks and enrolment tasks is the answer to the July problem at this university: the certified diploma is due on 31 August, after IB results. Whether the other Dutch institutions in this catalogue work the same way was not established."
+    ]
+  }
+}

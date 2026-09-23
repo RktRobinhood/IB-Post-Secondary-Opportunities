@@ -1,0 +1,230 @@
+{
+  "id": "nl-erasmus-international-business-administration-2027-autumn",
+  "programme": "nl-erasmus-international-business-administration",
+  "institution": "nl-erasmus",
+  "destination": "nl",
+  "place": "nl-rotterdam",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Numerus fixus. The top 650 applicants by selection points are admitted. Register in Studielink by 15 January and submit RSM's own online application form (OLAF) by 31 January — both, or the application does not count.",
+    "selection": [
+      {
+        "type": "gpa",
+        "weight": "75%",
+        "description": "Grade average, taken from your penultimate school year. Predicted grades are not used.",
+        "evidence": [
+          "ev-eur-nl-iba-selection",
+          "ev-rsm-nl-iba-ib"
+        ]
+      },
+      {
+        "type": "essay",
+        "weight": "25%",
+        "description": "Three motivation questions answered in the application form.",
+        "evidence": [
+          "ev-eur-nl-iba-selection"
+        ]
+      },
+      {
+        "type": "other",
+        "description": "A floor of 33 IB points from the six examined subjects, below which no selection points are awarded at all. Not an eligibility bar.",
+        "evidence": [
+          "ev-rsm-nl-iba-ib"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "Only the full IB Diploma is accepted. IB certificates and IB Career-related programme are not accepted.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-rsm-nl-iba-ib"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "One of three IB mathematics routes",
+      "officialWording": {
+        "text": "Mathematics Analysis & Approaches SL minimum grade 5 OR Mathematics Analysis & Approaches HL minimum grade 4 OR Mathematics Applications & Interpretation HL minimum grade 5",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "alt-mathematics-aa-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-aa at SL",
+            "ibSubject": "mathematics-aa",
+            "ibLevel": "SL",
+            "minGrade": 5
+          }
+        ],
+        [
+          {
+            "id": "alt-mathematics-aa-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-aa at HL",
+            "ibSubject": "mathematics-aa",
+            "ibLevel": "HL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-mathematics-ai-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-ai at HL",
+            "ibSubject": "mathematics-ai",
+            "ibLevel": "HL",
+            "minGrade": 5
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Mathematics: Applications and Interpretation at SL is not on the list at any grade. If you meet none of the three routes you are not excluded: RSM requires a mathematics proficiency exam instead.",
+      "evidence": [
+        "ev-rsm-nl-iba-ib"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You are exempt from the English language test if you have obtained or will obtain the IB diploma AND the final two years of the IB programme were fully taught in English. If the IB programme is not entirely taught in English, then you need to fulfill either English A SL with a minimum score of 5 OR English A HL with a minimum score of 4 OR English B HL with a minimum score of 5.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "The exemption has a second condition the model cannot express: the final two years of your IB programme must have been taught fully in English. If they were not, English A SL 5, English A HL 4 or English B HL 5 will do instead.",
+      "evidence": [
+        "ev-rsm-nl-iba-ib"
+      ]
+    },
+    {
+      "id": "sf-points",
+      "kind": "ib-total-points",
+      "mandatory": false,
+      "minPoints": 33,
+      "label": "33 points or more, to earn selection points at all",
+      "officialWording": {
+        "text": "You will be granted selection points if you have a total of 33 points based on the 6 exam subjects (excluding TOK and EE) or higher. If your grades are below this, you will not earn selection points for your final ranking.",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor, not an entry requirement, and the distinction is the whole point. Below 33 you are still eligible and your application still stands — you simply score nothing towards the ranking, which in a programme where every place is ranked amounts to not being in the running. The 33 counts your six subjects only, excluding TOK and the Extended Essay.",
+      "evidence": [
+        "ev-rsm-nl-iba-ib"
+      ]
+    },
+    {
+      "id": "sf-grades",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Your grade average — 75 per cent of the selection score",
+      "officialWording": {
+        "text": "Grades 75%: Your average grade counts the most for the final ranking. The lower your grades, the fewer selection points you'll receive.",
+        "language": "en",
+        "official": true
+      },
+      "note": "For an applicant still at school, RSM uses the end-of-year grades of your penultimate year and states that predicted grades are not used. For an IB student that means the grades deciding this place were earned in DP1. Recorded as kind 'other' because the requirement model has no kind for it. A Requirement's `kind` enum and admission.selection[].type are two different vocabularies: 'gpa', 'subject-grades' and 'lottery' exist as selection types and do not exist as requirement kinds. So the two commonest Dutch ranking criteria — a grade average and a weighted lottery — cannot be named on the Requirement that carries them, only in the parallel selection array. The precise mechanism is in admission.selection.",
+      "evidence": [
+        "ev-eur-nl-iba-selection",
+        "ev-rsm-nl-iba-ib"
+      ]
+    },
+    {
+      "id": "sf-motivation",
+      "kind": "essay",
+      "mandatory": false,
+      "label": "Three motivation questions — 25 per cent of the selection score",
+      "officialWording": {
+        "text": "Motivation 25%: You will answer 3 motivation questions when applying.",
+        "language": "en",
+        "official": true
+      },
+      "note": "Answered inside the application itself, so the writing is done in January rather than after results.",
+      "evidence": [
+        "ev-eur-nl-iba-selection"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Only the full IB Diploma is accepted. IB certificates and IB Career-related programme are not accepted. Mathematics requirement: Mathematics Analysis & Approaches SL minimum grade 5 OR Mathematics Analysis & Approaches HL minimum grade 4 OR Mathematics Applications & Interpretation HL minimum grade 5.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-rsm-nl-iba-ib",
+    "ev-eur-nl-iba-selection"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-10-01",
+    "notes": [
+      "Numerus fixus. Applications close at 23:59 CET on 15 January 2027 and do not reopen: there is no late round and no discretion. You may hold at most two numerus fixus applications in one year across the whole country, so 15 January is the day your Dutch strategy is fixed.",
+      "Two deadlines, not one: Studielink by 15 January and RSM's own OLAF form by 31 January. Missing the second is as fatal as missing the first.",
+      "RSM warns that its September 2027 admission requirements were still being updated when this was read and will be finalised by 1 October 2026. Everything here is the rule as published for the round before, recorded as such.",
+      "Not established: the 2027 capacity, and whether the 33-point floor and the 75/25 weighting carry into the 2027 round."
+    ]
+  }
+}

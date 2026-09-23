@@ -1,0 +1,176 @@
+{
+  "id": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+  "programme": "nl-tudelft-computer-science-and-engineering",
+  "institution": "nl-tudelft",
+  "destination": "nl",
+  "place": "nl-delft",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Numerus fixus. 590 places for 2027-2028, of which 345 are in the English track and 245 in the bilingual Dutch-English track. A foreign diploma is admissible only to the English track unless you meet the Dutch language requirement, so the number that governs you is 345. Apply through Studielink by 23:59 CET on 15 January 2027.",
+    "selection": [
+      {
+        "type": "test",
+        "description": "Selection test in Mathematics.",
+        "evidence": [
+          "ev-tudelft-nl-cse-selection"
+        ]
+      },
+      {
+        "type": "test",
+        "description": "Selection test in Systematic Reasoning and Logical Thinking.",
+        "evidence": [
+          "ev-tudelft-nl-cse-selection"
+        ]
+      },
+      {
+        "type": "lottery",
+        "description": "Your combined test score places you in one of three lottery categories for your track — for the English track the 210 highest scorers in category 1, the next 540 in category 2, the rest in category 3. Your ranking number is then drawn at random from within your category.",
+        "evidence": [
+          "ev-tudelft-nl-cse-selection"
+        ]
+      },
+      {
+        "type": "other",
+        "weight": "none",
+        "description": "A Matching phase must be completed in order to receive a ranking number at all, and it does not influence the ranking.",
+        "evidence": [
+          "ev-tudelft-nl-cse-selection"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "A secondary school diploma which is considered to be equivalent to the Dutch pre-university (VWO) diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "TU Delft asks for a diploma equivalent to the Dutch VWO. Nuffic, the recognition body, compares the full IB Diploma to a VWO diploma and DP Course Results only to vwo-deelcertificaten, so Course Results do not open a research university bachelor here. TU Delft adds that it does not accept the IB Career-related Programme.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics: Analysis and Approaches at HL",
+      "ibSubject": "mathematics-aa",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ],
+      "note": "TU Delft accepts only Mathematics: Analysis and Approaches at HL. Mathematics: Applications and Interpretation is not accepted at either level for any TU Delft programme."
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You are required to pass one of the following language tests with the indicated minimum score requirement: TOEFL iBT 90 (internet based), or IELTS 6.5 (Academic version, Overall Band Score), or University of Cambridge Certificate of Proficiency in English (CPE) or Certificate in Advanced English (CAE). [...] The following applicants are exempted from the English test requirement: [...] Applicants with a Surinam VWO, International Baccalaureate, European Baccalaureate diploma, or European secondary school diploma (pre-university certificate) considered equivalent to the Dutch pre-university education, with English as a final examination subject. Please note that a 'pass' (sufficient score) for English is required on your secondary school certificate.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "The exemption is not unconditional. TU Delft exempts IB Diploma holders who took English as a final examination subject and passed it. If English is not one of your six subjects, the exemption does not reach you and you would need IELTS 6.5, TOEFL iBT 90 or Cambridge CAE/CPE.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general"
+      ]
+    },
+    {
+      "id": "sf-maths-test",
+      "kind": "test",
+      "mandatory": false,
+      "label": "Selection test in Mathematics",
+      "officialWording": {
+        "text": "For the selection part all candidates will be tested on two selection criteria: Mathematics; Systematic Reasoning & Logical Thinking",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor, not an entry requirement. Your combined test score does not rank you directly: it places you in one of three lottery categories, and your ranking number is then drawn at random from within that category.",
+      "evidence": [
+        "ev-tudelft-nl-cse-selection"
+      ]
+    },
+    {
+      "id": "sf-reasoning-test",
+      "kind": "test",
+      "mandatory": false,
+      "label": "Selection test in Systematic Reasoning and Logical Thinking",
+      "note": "A Selection Factor, not an entry requirement. See the note on the mathematics test for how the score is used.",
+      "evidence": [
+        "ev-tudelft-nl-cse-selection"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Computer Science & Engineering (English Stream) — Mathematics: AA HL",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-tudelft-nl-ib-subjects",
+    "ev-tudelft-nl-admission-general"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Numerus fixus. Applications close at 23:59 CET on 15 January 2027 and do not reopen: there is no late round, no clearing and no discretion. Missing it costs you this programme for the whole year. You may hold at most two numerus fixus applications in one year across the whole country, so 15 January is also the day your Dutch strategy is fixed.",
+      "The matching procedure here is compulsory and carries no weight: TU Delft says \"You have to complete the Matching elements in order to receive a ranking number, but they do not influence your place in the ranking.\" Skipping it does not lower your ranking, it removes you from the ranking.",
+      "Selection is not a pure ranking. Your test score chooses which of three lottery categories you fall into and your actual ranking number is drawn at random inside it, so a strong score buys you a better draw rather than a place.",
+      "International applicants must also complete a separate application file in TU Delft's own system, Osiris, by 15 January — registering in Studielink alone is not enough.",
+      "Not established: whether TU Delft makes a conditional offer pending final IB results."
+    ]
+  }
+}

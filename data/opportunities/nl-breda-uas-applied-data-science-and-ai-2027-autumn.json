@@ -1,0 +1,166 @@
+{
+  "id": "nl-breda-uas-applied-data-science-and-ai-2027-autumn",
+  "programme": "nl-breda-uas-applied-data-science-and-ai",
+  "institution": "nl-breda-uas",
+  "destination": "nl",
+  "place": "nl-breda",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Selection at the gate with a published pass line: above 70 per cent selected, 60 to 70 per cent waiting list, below 60 per cent not selected. Interviews run monthly from January and you get exactly one. The portfolio assignment closes 15 May at 23:59 CET; the number of places is not published.",
+    "selection": [
+      {
+        "type": "test",
+        "weight": "part of 60%",
+        "description": "A mathematics test. Together with demonstrated mathematics and technology experience and a five-minute presentation, it carries 60 per cent of the selection score.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "portfolio",
+        "weight": "part of 60%",
+        "description": "A portfolio assignment submitted on a template, presented in four slides in five minutes.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      },
+      {
+        "type": "interview",
+        "weight": "40%",
+        "description": "An interview scored 20 per cent on motivation and 20 per cent on suitability and communication in English.",
+        "evidence": [
+          "ev-buas-nl-selection-2027"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required to enrol on a study programme at Breda University of Applied Sciences.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. If you will hold IB Career-related Programme or Course Results rather than the Diploma, do not read this as a refusal: Nuffic compares the CP Certificate to at least a havo diploma and BUas's own English exemption list names it. Ask BUas directly.",
+      "evidence": [
+        "ev-buas-nl-admission",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You do not need to submit an English test if: [...] You hold an International Baccalaureate (IB) diploma, Career-related Programme Certificate of the IB, US High School diploma, GCE A(S) levels, or European Baccalaureate certificate (English Language 1 or 2).",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "An unconditional exemption, unlike TU Delft's and RSM's: BUas does not additionally require that English was an examination subject or that the programme was taught in English. Without it, the bar is IELTS Academic 6.0 with 6.0 in speaking, Cambridge 169, TOEFL iBT 80, PTE 61 or LanguageCert 65.",
+      "evidence": [
+        "ev-buas-nl-admission"
+      ]
+    },
+    {
+      "id": "sf-1",
+      "kind": "test",
+      "mandatory": false,
+      "label": "A mathematics test — the largest single part of the 60 per cent block",
+      "note": "A Selection Factor, not an entry requirement, and the distinction matters here more than anywhere else in this catalogue. BUas sets no IB mathematics subject or grade to be eligible; it tests your mathematics itself and weights the result heavily. A student without HL mathematics is not excluded, and a student with it is not exempt.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ],
+      "officialWording": {
+        "text": "60% Mathematics test + experience and presentation",
+        "language": "en",
+        "official": true
+      }
+    },
+    {
+      "id": "sf-2",
+      "kind": "portfolio",
+      "mandatory": false,
+      "label": "A portfolio assignment and a five-minute presentation in four slides",
+      "note": "A Selection Factor. The template is issued inside BUas's application portal.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "sf-3",
+      "kind": "interview",
+      "mandatory": false,
+      "label": "An interview — 40 per cent of the score",
+      "note": "A Selection Factor: 20 per cent motivation, 20 per cent suitability and communication in English. You get one interview date only — \"While applicants may choose from several interview dates, they are limited to one opportunity.\"",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required. To be considered for an interview, applicants must submit their portfolio assignment using the template provided in My online application and take the Mathematics test.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-breda-uas-selection-2027",
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-buas-nl-admission",
+    "ev-buas-nl-selection-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "BUas publishes no IB subject requirement for this programme. The admission pages were read on 2026-09-23 and set out only the diploma level and the English requirement; no examination subject is named. This is recorded as checked and absent rather than as unchecked — but 'no subject requirement' is not the same as 'you will get in', because every place here is allocated by selection.",
+      "A full IB Diploma is compared by Nuffic to a vwo diploma, and BUas offers a three-year track to applicants whose diploma is comparable to vwo. The standard hbo bachelor recorded on this programme is four years and 240 ECTS; the length of the short track was not established here, so it is not recorded as a credential.",
+      "Mathematics is assessed here, but as a Selection Factor and never as an entry requirement. No IB mathematics course or grade is published as a condition of applying.",
+      "The published thresholds are unusually concrete: above 70 per cent selected, 60-70 per cent waiting list, below 60 per cent not selected. They rank applicants; they are not requirements, and a student who misses them is not ineligible, only unselected.",
+      "Not established: the number of places."
+    ]
+  }
+}

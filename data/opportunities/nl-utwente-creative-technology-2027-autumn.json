@@ -1,0 +1,147 @@
+{
+  "id": "nl-utwente-creative-technology-2027-autumn",
+  "programme": "nl-utwente-creative-technology",
+  "institution": "nl-utwente",
+  "destination": "nl",
+  "place": "nl-enschede",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": false,
+    "capacityNote": "No numerus fixus statement, no capacity and no selection procedure were found on Twente's pages for this programme."
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "A successfully completed International Baccalaureate diploma is required before the start of the academic year. In general, there is no minimum IB grade requirement.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "No minimum total is published. Twente states that the IB Career-related Certificate is not directly admissible, though it invites a case-by-case application from anyone holding a further qualification alongside it.",
+      "evidence": [
+        "ev-utwente-nl-ib"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "One of four IB English routes, or an English test",
+      "officialWording": {
+        "text": "English Language A: Literature – Standard Level or Higher Level - Grade ≥ 4; English Language A: Language and Literature – Standard Level or Higher Level - Grade ≥ 4; English Language B – Standard Level - Grade ≥ 6; English Language B – Higher Level - Grade ≥ 5",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "alt-eng-a-lit",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-literature at SL",
+            "ibSubject": "english-a-literature",
+            "ibLevel": "SL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-eng-a-ll",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-lang-lit at SL",
+            "ibSubject": "english-a-lang-lit",
+            "ibLevel": "SL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-eng-b-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-b at SL",
+            "ibSubject": "english-b",
+            "ibLevel": "SL",
+            "minGrade": 6
+          }
+        ],
+        [
+          {
+            "id": "alt-eng-b-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-b at HL",
+            "ibSubject": "english-b",
+            "ibLevel": "HL",
+            "minGrade": 5
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Twente is the only institution in this catalogue that publishes its English rule as IB subjects with IB grades rather than as a test score with an exemption, so it is recorded as a subject rule and the engine checks it directly. There is also a separate exemption: if your Diploma programme was taught in English and you took one of the listed English subjects, no test is needed. The SL alternatives are satisfied by HL too, because the engine compares levels rather than matching them.",
+      "evidence": [
+        "ev-utwente-nl-ib"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "You are admissible if you have an international secondary school diploma equivalent to the Dutch VWO-diploma: good A-level results or International Baccalaureate. As the programme is entirely English-taught, you have to meet the English language requirement.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-utwente-nl-creative-technology",
+    "ev-utwente-nl-ib"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Twente publishes each intake's admission requirements only from the October before it and says in terms that it cannot give information about a future intake. Everything on this record is the September 2026 rule and should be re-read after October 2026. It is marked needs-review for that reason rather than presented as settled.",
+      "Twente's own deadline for the 2026 intake was 30 April 23:59 CET, a day before the national one. The 2027 date was not published when this was checked. Work to 1 May 2027 as the outer limit and expect Twente to set something earlier.",
+      "No subject requirement is recorded because Twente publishes none. The International diploma panel on the admission page was opened and read on 2026-09-23 and names no subject, where the Advanced Technology panel on the same site names two. This is checked-and-absent, not unchecked — but it means the diploma is the bar, not that a place is assured.",
+      "For an IB student who wants to build things and did not take HL sciences, this is one of very few routes into a technical university anywhere in this catalogue."
+    ]
+  }
+}

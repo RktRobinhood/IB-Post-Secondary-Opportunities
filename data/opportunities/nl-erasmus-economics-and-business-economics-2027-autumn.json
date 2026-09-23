@@ -1,0 +1,264 @@
+{
+  "id": "nl-erasmus-economics-and-business-economics-2027-autumn",
+  "programme": "nl-erasmus-economics-and-business-economics",
+  "institution": "nl-erasmus",
+  "destination": "nl",
+  "place": "nl-rotterdam",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Numerus fixus. 700 seats for 2026-2027; the 2027-2028 figure was not published when this was read. The top 350 are ranked on grade average; every place below that is drawn from a lottery weighted half on grades and half at random.",
+    "selection": [
+      {
+        "type": "gpa",
+        "weight": "100% for ranks 1-350, 50% below that",
+        "description": "Grade average from your penultimate school year.",
+        "evidence": [
+          "ev-eur-nl-ibeb"
+        ]
+      },
+      {
+        "type": "lottery",
+        "weight": "50% below rank 350",
+        "description": "A random score carrying half the weight in the weighted lottery that fills places 351 and beyond.",
+        "evidence": [
+          "ev-eur-nl-ibeb"
+        ]
+      },
+      {
+        "type": "other",
+        "weight": "none",
+        "description": "An online curriculum-based activity of E-modules, compulsory and judged pass/fail. Passing it is a condition of being ranked and adds nothing to the ranking.",
+        "evidence": [
+          "ev-eur-nl-ibeb"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Erasmus School of Economics assesses the diploma itself and states that recognition or homologation of a diploma is not a substitute. Nuffic compares the full IB Diploma to a VWO diploma; DP Course Results are compared only to vwo-deelcertificaten.",
+      "evidence": [
+        "ev-eur-nl-ibeb",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "One of three IB mathematics routes",
+      "officialWording": {
+        "text": "Mathematics: Analysis & Approaches HL minimum grade 4 or; Analysis & Approaches SL minimum grade 5 or; Applications & Interpretation HL minimum grade 5",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "alt-mathematics-aa-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-aa at HL",
+            "ibSubject": "mathematics-aa",
+            "ibLevel": "HL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-mathematics-aa-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-aa at SL",
+            "ibSubject": "mathematics-aa",
+            "ibLevel": "SL",
+            "minGrade": 5
+          }
+        ],
+        [
+          {
+            "id": "alt-mathematics-ai-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-ai at HL",
+            "ibSubject": "mathematics-ai",
+            "ibLevel": "HL",
+            "minGrade": 5
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Applications and Interpretation at SL is named on the page as not sufficient. Missing all three routes does not end the application: you may submit an OMPT mathematics proficiency certificate instead, by 15 January.",
+      "evidence": [
+        "ev-eur-nl-ibeb"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "One of three IB English routes",
+      "officialWording": {
+        "text": "English A HL (4) or English A SL (5) or English B HL (5)",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "alt-english-a-literature-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-literature at HL",
+            "ibSubject": "english-a-literature",
+            "ibLevel": "HL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-english-a-lang-lit-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-lang-lit at HL",
+            "ibSubject": "english-a-lang-lit",
+            "ibLevel": "HL",
+            "minGrade": 4
+          }
+        ],
+        [
+          {
+            "id": "alt-english-a-literature-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-literature at SL",
+            "ibSubject": "english-a-literature",
+            "ibLevel": "SL",
+            "minGrade": 5
+          }
+        ],
+        [
+          {
+            "id": "alt-english-a-lang-lit-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-a-lang-lit at SL",
+            "ibSubject": "english-a-lang-lit",
+            "ibLevel": "SL",
+            "minGrade": 5
+          }
+        ],
+        [
+          {
+            "id": "alt-english-b-hl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "english-b at HL",
+            "ibSubject": "english-b",
+            "ibLevel": "HL",
+            "minGrade": 5
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The source says 'English A' without distinguishing Literature from Language and Literature, so both are recorded as accepted routes. Missing all of them means a language certificate instead — IELTS Academic 6.0, TOEFL iBT 80 or Cambridge C1 Advanced 170, by 15 January.",
+      "evidence": [
+        "ev-eur-nl-ibeb"
+      ]
+    },
+    {
+      "id": "sf-grades",
+      "kind": "other",
+      "mandatory": false,
+      "label": "Your grade average, from your penultimate school year",
+      "officialWording": {
+        "text": "Current secondary school students: we use the end-of-year grades of your penultimate year.",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor. Grades decide the first 350 places outright and carry half the weight in the lottery for the rest. Recorded as kind 'other' because the requirement model has no kind for it. A Requirement's `kind` enum and admission.selection[].type are two different vocabularies: 'gpa', 'subject-grades' and 'lottery' exist as selection types and do not exist as requirement kinds. So the two commonest Dutch ranking criteria — a grade average and a weighted lottery — cannot be named on the Requirement that carries them, only in the parallel selection array. The precise mechanism is in admission.selection.",
+      "evidence": [
+        "ev-eur-nl-ibeb"
+      ]
+    },
+    {
+      "id": "sf-lottery",
+      "kind": "other",
+      "mandatory": false,
+      "label": "A weighted lottery for places 351 and beyond",
+      "officialWording": {
+        "text": "Numbers 351 and higher: through a weighted lottery — Passed the curriculum-based activity; Your grades (weight 50%); A random score (weight 50%).",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor you cannot prepare for. Half of your position below rank 350 is chance. Recorded as kind 'other' because the requirement model has no kind for it. A Requirement's `kind` enum and admission.selection[].type are two different vocabularies: 'gpa', 'subject-grades' and 'lottery' exist as selection types and do not exist as requirement kinds. So the two commonest Dutch ranking criteria — a grade average and a weighted lottery — cannot be named on the Requirement that carries them, only in the parallel selection array. The precise mechanism is in admission.selection.",
+      "evidence": [
+        "ev-eur-nl-ibeb"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "International Baccalaureate — English A HL (4) or English A SL (5) or English B HL (5). Mathematics: Analysis & Approaches HL minimum grade 4 or; Analysis & Approaches SL minimum grade 5 or; Applications & Interpretation HL minimum grade 5. Do you not meet these grades or you chose Application and Interpretation SL? You must submit a valid English and/or mathematics proficiency certificate.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-eur-nl-ibeb"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Numerus fixus. Applications close at 23:59 CET on 15 January 2027 and do not reopen: there is no late round and no discretion. You may hold at most two numerus fixus applications in one year across the whole country, so 15 January is the day your Dutch strategy is fixed.",
+      "The compulsory online activity runs in February and March and is pass/fail. It is neither an entry requirement nor a ranking factor: failing it removes you from the ranking entirely, passing it earns you nothing. This is the shape of thing the requirement model has no field for, and it is recorded in admission.selection with weight 'none'.",
+      "Erasmus School of Economics says this page describes 2026-2027 and that no rights can be derived for following academic years. The 700 seats and the 350 boundary are recorded as belonging to that round and are not carried forward to 2027.",
+      "Not established: the 2027-2028 capacity or whether the selection design changes."
+    ]
+  }
+}

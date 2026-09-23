@@ -1,0 +1,41 @@
+{
+  "id": "nl-breda-uas",
+  "destination": "nl",
+  "name": "Breda University of Applied Sciences",
+  "shortName": "BUas",
+  "localName": "Breda University of Applied Sciences",
+  "type": "university-of-applied-sciences",
+  "founded": 1966,
+  "places": [
+    "nl-breda"
+  ],
+  "sector": "hogeschool",
+  "about": "A small hogeschool in the south of the Netherlands that has specialised rather than broadened: hotel and leisure management, tourism, games and creative media, logistics, and applied data science. It is the clearest example in this catalogue of the route most IB students are never told exists — a four-year applied bachelor built around placements rather than a three-year academic one, taught in English, entered on a portfolio and an interview rather than on a grade average, and finishable in three years if your diploma is comparable to Dutch vwo.",
+  "knownFor": [
+    "Hotel and leisure management",
+    "Games and creative media",
+    "Tourism"
+  ],
+  "links": {
+    "website": "https://www.buas.nl/en",
+    "admissions": "https://www.buas.nl/en/international-students/admission-and-application/admission-requirements"
+  },
+  "languageOfInstruction": {
+    "primary": "Dutch",
+    "englishTaughtUndergraduate": "many",
+    "note": "BUas runs most of its bachelor programmes in an English-taught form alongside a Dutch one and admits international applicants to the English track."
+  },
+  "evidence": [
+    "ev-buas-nl-admission",
+    "ev-buas-nl-selection-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "BUas publishes no IB subject requirements. The admission pages read on 2026-09-23 set out a havo-or-vwo-equivalent diploma and an English requirement and name no examination subject for any of the four programmes recorded here. That is recorded as checked-and-absent rather than as not-checked. Mathematics appears for Applied Data Science and Artificial Intelligence, but inside the selection procedure rather than as an entry requirement.",
+      "BUas's English exemption list names the IB Career-related Programme Certificate alongside the IB Diploma. TU Delft and Rotterdam School of Management both explicitly refuse the CP. The difference is real and it follows the havo/vwo split: the research universities need a vwo-equivalent award, a hogeschool needs a havo-equivalent one.",
+      "The step-by-step panels on the BUas programme application pages load their contents by script and return nothing to a fetch or to a DOM read. The selection detail recorded here comes from the regulation PDF instead, which is better evidence anyway."
+    ]
+  }
+}

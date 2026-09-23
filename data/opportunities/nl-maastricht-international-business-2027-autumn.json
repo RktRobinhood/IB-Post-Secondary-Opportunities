@@ -1,0 +1,211 @@
+{
+  "id": "nl-maastricht-international-business-2027-autumn",
+  "programme": "nl-maastricht-international-business",
+  "institution": "nl-maastricht",
+  "destination": "nl",
+  "place": "nl-maastricht",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Numerus fixus, selected by the university itself. Maastricht states it cannot offer a place to every applicant who meets the admission requirements. Studielink and every admission task in the MyApplication portal must both be complete by 23:59 CET on 15 January; ranking numbers follow on 15 April.",
+    "selection": [
+      {
+        "type": "essay",
+        "weight": "33%",
+        "description": "An International Classroom Essay submitted as a webform, assessed on motivation, plans for the future and how you look at the world.",
+        "evidence": [
+          "ev-um-nl-international-business"
+        ]
+      },
+      {
+        "type": "other",
+        "weight": "33%",
+        "description": "Curriculum vitae and supporting documents.",
+        "evidence": [
+          "ev-um-nl-international-business"
+        ]
+      },
+      {
+        "type": "gpa",
+        "weight": "33%",
+        "description": "The grades of your penultimate year of secondary school — for an IB student, DP1.",
+        "evidence": [
+          "ev-um-nl-international-business"
+        ]
+      },
+      {
+        "type": "other",
+        "description": "A separate International Classroom requirement, judged on the same essay. Failing it removes you from the ranking altogether, and the same decision applies to Economics and Business Economics.",
+        "evidence": [
+          "ev-um-nl-international-business"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "To qualify for admission to a bachelor's programme at Maastricht University (UM), you must hold a secondary school diploma that is considered equivalent to the Dutch pre-university VWO diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Nuffic compares the full IB Diploma to a VWO diploma. Maastricht warns separately that being VWO-equivalent does not by itself satisfy a programme's additional subject requirements, which are assessed on their own.",
+      "evidence": [
+        "ev-um-nl-subject-requirements",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "IB mathematics, either course, either level",
+      "officialWording": {
+        "text": "International Business — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation SL/HL",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "alt-mathematics-aa-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-aa at SL",
+            "ibSubject": "mathematics-aa",
+            "ibLevel": "SL"
+          }
+        ],
+        [
+          {
+            "id": "alt-mathematics-ai-sl",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "mathematics-ai at SL",
+            "ibSubject": "mathematics-ai",
+            "ibLevel": "SL"
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "Both IB mathematics courses are accepted at either level and no minimum grade is published, which makes this the most permissive mathematics rule in this catalogue — and it is the same university that will not accept Applications and Interpretation at all for Data Science. The alternatives are recorded at SL because HL satisfies an SL rule; the engine compares levels, it does not require an exact match.",
+      "evidence": [
+        "ev-um-nl-subject-requirements"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "Maastricht resolves the English requirement through an interactive questionnaire on the programme page rather than by publishing a list, so the exact wording of the IB exemption could not be captured. It is recorded as satisfied by a full IB Diploma taught in English, which is how every other institution in this catalogue treats it, and flagged here as the one requirement on this Opportunity that rests on a pattern rather than on a quoted sentence. Confirm it on the programme page.",
+      "evidence": [
+        "ev-um-nl-international-business"
+      ]
+    },
+    {
+      "id": "sf-essay",
+      "kind": "essay",
+      "mandatory": false,
+      "label": "The International Classroom Essay — 33 per cent of the selection score, and a gate",
+      "officialWording": {
+        "text": "International Classroom Essay (33%); Curriculum vitae + supporting documents (33%); Grades of your penultimate year of secondary school (33%)",
+        "language": "en",
+        "official": true
+      },
+      "note": "This one item does two jobs and a student needs to know both. It carries a third of the ranking score, and it is also judged separately against an International Classroom requirement: \"If your profile is not sufficient to meet the International Classroom requirement, you will not be included in the ranking procedure.\" That is not a ranking outcome, it is exclusion. And the decision carries across to Economics and Business Economics, so the obvious fallback is not one.",
+      "evidence": [
+        "ev-um-nl-international-business"
+      ]
+    },
+    {
+      "id": "sf-cv",
+      "kind": "activity",
+      "mandatory": false,
+      "label": "Curriculum vitae and supporting documents — 33 per cent",
+      "note": "A Selection Factor. CAS, part-time work, competitions and anything else documented belongs here, and it carries exactly as much weight as your grades do.",
+      "evidence": [
+        "ev-um-nl-international-business"
+      ]
+    },
+    {
+      "id": "sf-grades",
+      "kind": "other",
+      "mandatory": false,
+      "label": "The grades of your penultimate school year — 33 per cent",
+      "note": "A Selection Factor. For an IB student these are DP1 grades, not predicted grades and not final ones. Recorded as kind 'other' because the requirement model has no kind for a grade average, though admission.selection[].type does.",
+      "evidence": [
+        "ev-um-nl-international-business"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "International Business — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation SL/HL. International Business is a numerus fixus programme with selection by the educational institution.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-maastricht-selection-2027",
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-um-nl-subject-requirements",
+    "ev-um-nl-international-business"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Numerus fixus: 15 January 2027 at 23:59 CET, and it does not reopen. You may hold at most two numerus fixus applications nationally in one year.",
+      "Two thirds of the selection score is not your grades. An essay and a CV outweigh them, and both are written in January.",
+      "The International Classroom requirement is assessed once and the decision binds for Economics and Business Economics too, so the two cannot be used as a hedge against each other.",
+      "The subject requirement is published for 2027-2028 and is firm. The selection weighting and the deadline table were still showing 2026-2027 when read, so those are recorded as last published rather than confirmed for 2027.",
+      "Not established: the number of places."
+    ]
+  }
+}

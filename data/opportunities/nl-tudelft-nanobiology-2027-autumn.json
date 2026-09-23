@@ -1,0 +1,165 @@
+{
+  "id": "nl-tudelft-nanobiology-2027-autumn",
+  "programme": "nl-tudelft-nanobiology",
+  "institution": "nl-tudelft",
+  "destination": "nl",
+  "place": "nl-delft",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Numerus clausus. TU Delft lists Nanobiology among its six capped programmes and the 15 January deadline applies. The capacity and the selection method for 2027-2028 were not published when this was checked, and are recorded as not established rather than guessed at.",
+    "selection": []
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "A secondary school diploma which is considered to be equivalent to the Dutch pre-university (VWO) diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "TU Delft asks for a diploma equivalent to the Dutch VWO. Nuffic, the recognition body, compares the full IB Diploma to a VWO diploma and DP Course Results only to vwo-deelcertificaten, so Course Results do not open a research university bachelor here. TU Delft adds that it does not accept the IB Career-related Programme.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics: Analysis and Approaches at HL",
+      "ibSubject": "mathematics-aa",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ],
+      "note": "TU Delft accepts only Mathematics: Analysis and Approaches at HL. Mathematics: Applications and Interpretation is not accepted at either level for any TU Delft programme."
+    },
+    {
+      "id": "r-physics",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Physics at HL",
+      "ibSubject": "physics",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ]
+    },
+    {
+      "id": "r-biology",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Biology at HL",
+      "ibSubject": "biology",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ]
+    },
+    {
+      "id": "r-chemistry",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Chemistry at SL or above",
+      "ibSubject": "chemistry",
+      "ibLevel": "SL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You are required to pass one of the following language tests with the indicated minimum score requirement: TOEFL iBT 90 (internet based), or IELTS 6.5 (Academic version, Overall Band Score), or University of Cambridge Certificate of Proficiency in English (CPE) or Certificate in Advanced English (CAE). [...] The following applicants are exempted from the English test requirement: [...] Applicants with a Surinam VWO, International Baccalaureate, European Baccalaureate diploma, or European secondary school diploma (pre-university certificate) considered equivalent to the Dutch pre-university education, with English as a final examination subject. Please note that a 'pass' (sufficient score) for English is required on your secondary school certificate.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "The exemption is not unconditional. TU Delft exempts IB Diploma holders who took English as a final examination subject and passed it. If English is not one of your six subjects, the exemption does not reach you and you would need IELTS 6.5, TOEFL iBT 90 or Cambridge CAE/CPE.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Nanobiology (English Stream) — Mathematics: AA HL + Physics HL + Biology HL + Chemistry SL",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-tudelft-nl-ib-subjects",
+    "ev-tudelft-nl-admission-general"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Numerus fixus. Applications close at 23:59 CET on 15 January 2027 and do not reopen: there is no late round, no clearing and no discretion. Missing it costs you this programme for the whole year. You may hold at most two numerus fixus applications in one year across the whole country, so 15 January is also the day your Dutch strategy is fixed.",
+      "This is the heaviest subject load in this catalogue: Mathematics AA HL, Physics HL and Biology HL is three of your four possible Higher Levels, leaving one HL and Chemistry at SL. If you want Nanobiology you are choosing your IB subjects for it in year one of the Diploma, not in the year you apply.",
+      "Not established: the number of places, the selection criteria, or the selection timetable for 2027-2028. TU Delft's central page confirms Nanobiology is numerus clausus and says the programme communicates the procedure to applicants after 15 January. The selection array is deliberately left empty rather than filled from another programme's procedure.",
+      "Teaching is shared with Erasmus MC in Rotterdam."
+    ]
+  }
+}

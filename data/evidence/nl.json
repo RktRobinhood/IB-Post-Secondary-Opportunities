@@ -139,5 +139,575 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-tudelft-nl-ib-subjects",
+    "sourceUrl": "https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/admission-requirements/diploma-with-additional-requirements",
+    "publisher": "TU Delft — Specific diploma requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The IB table is the last of nine per-qualification tables on the page and is reproduced here in the wording the page uses.",
+    "claim": "TU Delft publishes its entry requirements for IB applicants in IB terms — named IB subjects at HL or SL — and accepts only Mathematics: Analysis and Approaches at HL, not Applications and Interpretation.",
+    "excerpt": "Admission requirements for the International Baccalaureate (Diploma Programme). TU Delft only accepts the Mathematics course ‘Analysis & Approaches HL’. NB. we do not accept students with an IBCP. | Aerospace Engineering (English stream) — Mathematics: AA HL + Physics HL | Earth, Climate and Technology (Previously Applied Earth Sciences)(English Stream) — Mathematics: AA HL + Physics HL + Chemistry: SL | Computer Science & Engineering (English Stream) — Mathematics: AA HL | Nanobiology (English Stream) — Mathematics: AA HL + Physics HL + Biology HL + Chemistry SL",
+    "interpretation": "This is the first non-Danish entry requirement recorded here and it is the test case for ADR 0002. The page needs no translation layer at all: it names IB subjects and IB levels, so the requirement is written as ibSubject plus ibLevel and the engine compares it with the transcript directly. Note also that TU Delft distinguishes the two IB mathematics courses by name and rejects one of them. That is why the requirement records mathematics-aa specifically, and why a 'mathematics' family shorthand would have quietly told an Applications and Interpretation student they qualified.",
+    "supports": [
+      {
+        "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft-nanobiology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-admission-general",
+    "sourceUrl": "https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/1-admission-requirements/",
+    "publisher": "TU Delft — BSc International, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The language-requirement wording sits inside a collapsed accordion that a plain fetch does not return; it was expanded before reading.",
+    "claim": "TU Delft requires a secondary school diploma equivalent to the Dutch VWO diploma; it exempts International Baccalaureate holders with English as a final examination subject from the English test; and six of its BSc programmes are numerus clausus with a 15 January application deadline.",
+    "excerpt": "A secondary school diploma which is considered to be equivalent to the Dutch pre-university (VWO) diploma. [...] The following applicants are exempted from the English test requirement: Nationals from the USA, U.K., Ireland, Australia, New Zealand and Canada. Applicants with a Surinam VWO, International Baccalaureate, European Baccalaureate diploma, or European secondary school diploma (pre-university certificate) considered equivalent to the Dutch pre-university education, with English as a final examination subject. Please note that a ‘pass’ (sufficient score) for English is required on your secondary school certificate. [...] The deadline for application for a Numerus Clausus programmes is 15 January. Numerus clausus studies at TU Delft are: Industrial Design Engineering, Aerospace Engineering, Clinical Technology, Nanobiology, Architecture, Urbanism and Building Sciences, Computer Science and Engineering.",
+    "interpretation": "Two readings are recorded deliberately. First, TU Delft asks for a diploma equivalent to VWO and does not itself say which IB award clears that bar; Nuffic, the recognition body, does — a full IB Diploma compares to a VWO diploma and DP Course Results compare only to vwo-deelcertificaten. The full-Diploma requirement on these Opportunities therefore rests on ev-nuffic-ib-level together with this page, and on neither alone. Second, the English exemption is conditional on English being a final examination subject with a pass, which the model can only express as a blanket IB-Diploma exemption plus a note; the note carries the condition.",
+    "supports": [
+      {
+        "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft-nanobiology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-tudelft",
+        "field": "about"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-ae-selection",
+    "sourceUrl": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering/from-application-to-enrolment/selection-procedure",
+    "publisher": "TU Delft — BSc Aerospace Engineering, selection procedure",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The page itself warns that the procedure described is last year's, so only the 2027 deadline is stated for the target intake.",
+    "claim": "Aerospace Engineering is capped (numerus clausus) and every place is allocated by a selection procedure of two tests — an Academic Aptitude Assessment and a Selection Exam — whose combined score sets a ranking number. The deadline for 2027 entry is 15 January 2027; 440 places were available for 2026-2027.",
+    "excerpt": "Important notice: The information currently displayed on this website pertains to last academic year. Applicants who intend to start the BSc programme Aerospace Engineering in 2027-2028 can expect to find updated information about the setup of the selection procedure before 19 December 2026. The deadline for application is 15 January 2027. [...] You must take part in the selection procedure to get a place in the Aerospace Engineering Bachelor’s programme. [...] There are 440 places available for the academic year 2026-2027. [...] Your fit will be assessed with two tests: the Academic Aptitude Assessment, a personality test focused on study situations, and the Selection Exam. The results of the selection phase are combined and converted into a final selection score, which will determine your ranking number.",
+    "interpretation": "The 440 places and the step dates belong to the 2026-2027 round and are recorded as belonging to it rather than carried forward; only the 15 January 2027 deadline is stated for the target intake. The two tests are recorded as Selection Factors and not as Requirements: they rank applicants, they do not decide who is eligible, and a student who read them as entry requirements would wrongly conclude they could not apply.",
+    "supports": [
+      {
+        "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-12-19"
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-cse-selection",
+    "sourceUrl": "https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/computer-science-and-engineering/bachelor-of-computer-science-and-engineering/from-application-to-enrollment/selection-procedure",
+    "publisher": "TU Delft — BSc Computer Science and Engineering, Matching & Selection",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. This page is already published for 2027-2028 and names that academic year explicitly.",
+    "claim": "Computer Science & Engineering is numerus fixus with 590 places for 2027-2028, 345 of them in the English track. Applications close 15 January 2027. A Matching phase must be completed to receive a ranking number but does not affect it; selection tests mathematics and systematic reasoning, and the test score only decides which of three lottery categories an applicant is drawn from.",
+    "excerpt": "The Computer Science & Engineering bachelor’s programme at TU Delft has a Matching & Selection (Numerus Fixus) procedure. This means that only a limited number of spots are available, and all candidates are selected via the Matching & Selection procedure. We can welcome 590 new bachelor students for the academic year 2027-2028. There are 345 spots reserved for the English track and 245 spots for the Bilingual track (Dutch-English). The application opens in October 2026 and closes on 15 January 2027. [...] Students with a foreign diploma are solely admissible for the English track, unless they fulfil the Dutch language requirements of the Bilingual track. [...] You have to complete the Matching elements in order to receive a ranking number, but they do not influence your place in the ranking. For the selection part all candidates will be tested on two selection criteria: Mathematics; Systematic Reasoning & Logical Thinking. [...] Your final ranking number is a unique number and is assigned completely random from the drawn numbers in the category in which you were placed.",
+    "interpretation": "Three things here matter to a student and none of them is a grade. The English track is the only one open to a foreign diploma, so the number that governs is 345 rather than 590. The Matching phase is compulsory and carries no weight, which is the opposite of what its name suggests to anyone who has met a British admissions test. And the selection is not a ranking of scores: the score chooses a lottery category and the place within it is drawn at random, so a very strong candidate in category 1 can still lose to chance.",
+    "supports": [
+      {
+        "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-bachelors",
+    "sourceUrl": "https://www.tudelft.nl/en/education/programmes/bachelors",
+    "publisher": "TU Delft — Bachelor's programmes",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "role": "reference",
+    "claim": "TU Delft offers seventeen three-year BSc programmes, of which four are taught fully in English: Aerospace Engineering, Computer Science and Engineering, Earth, Climate and Technology, and Nanobiology.",
+    "excerpt": "only four programmes are offered fully in English; Aerospace Engineering, Computer Science and Engineering, Earth, Climate and Technology and Nanobiology.",
+    "supports": [
+      {
+        "entity": "nl-tudelft",
+        "field": "languageOfInstruction"
+      },
+      {
+        "entity": "nl-tudelft-aerospace-engineering",
+        "field": "summary"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-rsm-nl-iba-ib",
+    "sourceUrl": "https://www.rsm.nl/education/bachelor/bsc-international-business-administration-iba/admission-application/",
+    "publisher": "Rotterdam School of Management, Erasmus University — IBA admission requirements per diploma",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The International Baccalaureate row is inside a filtered accordion under 'Requirements per high school diploma'; it is not in the page a plain fetch returns and had to be opened. Marked needs-review because the page states its 2027 requirements are not final.",
+    "claim": "RSM accepts only the full IB Diploma for IBA, requires one of three named IB mathematics courses at a stated minimum grade, exempts IB holders taught in English from the English test, and awards selection points only from a total of 33 points upwards.",
+    "excerpt": "The admissions requirements for September 2027 entry are currently being updated and will be finalised by 1 October 2026. Information on this page may therefore change. [...] Only the full IB Diploma is accepted. IB certificates and IB Career-related programme are not accepted. [...] Mathematics requirement: Mathematics Analysis & Approaches SL minimum grade 5 OR Mathematics Analysis & Approaches HL minimum grade 4 OR Mathematics Applications & Interpretation HL minimum grade 5 [...] If you do not meet any of the above requirements, you must take a mathematics proficiency exam. [...] You are exempt from the English language test if you have obtained or will obtain the IB diploma AND the final two years of the IB programme were fully taught in English. [...] Selection points: You will be granted selection points if you have a total of 33 points based on the 6 exam subjects (excluding TOK and EE) or higher. If your grades are below this, you will not earn selection points for your final ranking. [...] Your total IB points will be calculated based on the grades of your penultimate year (the year before your final year). Predicted grades are not used for the evaluation.",
+    "interpretation": "The 33-point line is the reason this repository keeps Requirements and Selection Factors apart. It is not an entry requirement: an applicant below 33 is still eligible and their application is still valid, they simply earn no selection points and are therefore not ranked. Recorded as mandatory: false for that reason. Recording it as a requirement would tell a 32-point student they cannot apply, which is false; recording it nowhere would tell them they have a chance, which is worse. Note also that RSM evaluates penultimate-year grades and explicitly does not use predicted grades — for an IB student this means the grades that decide a Rotterdam place were earned in the first year of the Diploma.",
+    "supports": [
+      {
+        "entity": "nl-erasmus-international-business-administration-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-erasmus-international-business-administration-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-erasmus",
+        "field": "codes"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-10-01"
+    }
+  },
+  {
+    "id": "ev-eur-nl-iba-selection",
+    "sourceUrl": "https://www.eur.nl/en/bachelor/bachelor-international-business-administration/admission",
+    "publisher": "Erasmus University Rotterdam — IBA admission",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23.",
+    "claim": "International Business Administration is numerus fixus with 650 places, ranked on selection points that are 75 per cent grades and 25 per cent answers to three motivation questions.",
+    "excerpt": "To be considered for the IBA programme you need a secondary school diploma which gives you access to university-level education in your own country and is deemed equivalent to a VWO diploma in the Netherlands. As a numerux fixus programme, IBA applicants are given selection points, which are used for ranking and selecting the top 650 applicants. The selection points are based on your grades and your motivation; Grades 75%: Your average grade counts the most for the final ranking. The lower your grades, the fewer selection points you'll receive. Motivation 25%: You will answer 3 motivation questions when applying.",
+    "interpretation": "An unusually explicit weighting, and worth reading carefully: nothing here is an entry requirement. Grades and motivation decide a ranking among applicants who are already eligible. The published weights are recorded on the Selection Factors rather than on the Requirements for that reason.",
+    "supports": [
+      {
+        "entity": "nl-erasmus-international-business-administration-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-erasmus-international-business-administration-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-eur-nl-ibeb",
+    "sourceUrl": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/admission",
+    "publisher": "Erasmus School of Economics — IBEB admission",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The per-diploma requirements sit in accordion panels rendered hidden; they were opened before reading. Marked needs-review because the page states it describes 2026-2027 and that no rights can be derived for following years.",
+    "claim": "IBEB is numerus fixus with 700 seats for 2026-2027. Its IB requirements are published as IB subjects with minimum IB grades: English A HL 4, English A SL 5 or English B HL 5, and Mathematics Analysis and Approaches HL 4, Analysis and Approaches SL 5 or Applications and Interpretation HL 5. Selection ranks the top 350 on grade average and allocates the rest by a lottery weighted half on grades and half at random, after a compulsory pass/fail online activity.",
+    "excerpt": "Be aware of the 15 January deadline, since this study programme is a numerus-fixus programme. [...] The information on this website is reviewed on annual basis. No rights can be derived for following academic years. [...] International Baccalaureate — English A HL (4) or English A SL (5) or English B HL (5). Mathematics: Analysis & Approaches HL minimum grade 4 or; Analysis & Approaches SL minimum grade 5 or; Applications & Interpretation HL minimum grade 5. Do you not meet these grades or you chose Application and Interpretation SL? You must submit a valid English and/or mathematics proficiency certificate. [...] For 2026-2027, 700 seats are available. Admission is based on a decentralised selection procedure and a weighted lottery. [...] Current secondary school students: we use the end-of-year grades of your penultimate year. [...] Online ESE curriculum-based activity [...] It is mandatory to participate and judged on a pass/fail basis. [...] Numbers 1-350: best grade average + passed the activity. Numbers 351 and higher: through a weighted lottery — Passed the curriculum-based activity; Your grades (weight 50%); A random score (weight 50%).",
+    "interpretation": "This is the clearest IB-terms requirement found in the Netherlands and the clearest argument that the country needs no Recognition Scheme: Erasmus School of Economics does not ask for a Dutch equivalent of your mathematics, it names the IB course and the IB grade. Note that Applications and Interpretation SL is explicitly not enough, which is why the alternatives are enumerated one by one rather than collapsed into a mathematics family. The curriculum-based activity is compulsory and pass/fail: failing it removes you from the ranking, passing it earns you nothing, so it is neither a Requirement nor a Selection Factor in this model's terms.",
+    "supports": [
+      {
+        "entity": "nl-erasmus-economics-and-business-economics-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-erasmus-economics-and-business-economics-2027-autumn",
+        "field": "admission"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01"
+    }
+  },
+  {
+    "id": "ev-buas-nl-admission",
+    "sourceUrl": "https://www.buas.nl/en/international-students/admission-and-application/admission-requirements",
+    "publisher": "Breda University of Applied Sciences — Admission requirements, international students",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The exemption list is inside a collapsed panel whose contents a plain fetch does not return; it was opened before reading.",
+    "claim": "Breda University of Applied Sciences requires a diploma equivalent to Dutch havo or vwo, exempts holders of an IB Diploma or an IB Career-related Programme Certificate from the English test outright, and offers a three-year track to applicants whose diploma is comparable to vwo.",
+    "excerpt": "An equivalent of the Dutch diplomas of higher general secondary education (havo) or pre-university level (vwo) is generally required to enrol on a study programme at Breda University of Applied Sciences. [...] 3-year track: If your secondary school diploma is comparable to the Dutch vwo-diploma, you may be eligible for admission into the three-year track. [...] Exemptions from taking the English test. You do not need to submit an English test if: You graduated from Dutch havo or vwo or mbo 4; You hold an International Baccalaureate (IB) diploma, Career-related Programme Certificate of the IB, US High School diploma, GCE A(S) levels, or European Baccalaureate certificate (English Language 1 or 2) [...] If there is any doubt, we will have your diploma evaluated by Nuffic.",
+    "interpretation": "Two things here that a research university does not offer. First, the entry bar is havo-or-vwo rather than vwo, so it sits a level below the research universities — and Nuffic compares the IB Career-related Programme Certificate to at least a havo diploma, which BUas's own English exemption list also names. A CP holder should therefore ask BUas directly rather than assume they are excluded; that reading combines two authoritative sources and is recorded here rather than written into a requirement. Second, the three-year track: an IB Diploma is compared to vwo, so an IB student may be eligible to finish a four-year hbo bachelor in three. Almost no English-language guidance mentions either.",
+    "supports": [
+      {
+        "entity": "nl-breda-uas",
+        "field": "about"
+      },
+      {
+        "entity": "nl-breda-uas-hotel-management-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-breda-uas-creative-business-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-breda-uas-applied-data-science-and-ai-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-buas-nl-selection-2027",
+    "sourceUrl": "https://www.buas.nl/documents/selection-procedures-bachelors",
+    "sourcePage": "https://www.buas.nl/en/international-students/admission-and-application/admission-requirements",
+    "publisher": "Breda University of Applied Sciences — Selection procedures bachelor's programmes, academic year 2027-2028",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "The PDF was downloaded and its text extracted and read in full, 2026-09-23. It is the regulation itself rather than a summary of it: the cover states 'Academic year 2027-2028' and page 1 records 'As established in the meeting of the Executive Board on: 25 August 2026'. This is the only source found in this pass that is already formally adopted for the target intake.",
+    "claim": "BUas's four selective bachelor programmes are Hotel Management, Creative Media & Game Technologies, Creative Business and Applied Data Science & Artificial Intelligence. The Studielink deadline for a BUas programme with selection is 1 May, and each programme selects on portfolio, assignment, test and interview rather than on grades.",
+    "excerpt": "The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May. [...] Hotel Management — Besides the formal admission requirements, there are several selection criteria. First and foremost, we are looking for intrinsically motivated individuals. [...] students with a diploma from a non-Dutch educational institution: A personal video message. [...] Creative Media & Game Technologies — Preselection is based on the submission of an assignment and portfolio specific to each discipline, with a pass/fail grading system. [...] Applicants have four submission deadlines for their assignments, each by 23:59 CET: November 27, January 15, March 05, May 15. [...] Creative Business — STAGE A: 50% [application letter, resume, study skills test, previous knowledge test]; Stage B: 50% [interview]. [...] Applied Data Science & Artificial Intelligence — 20% Motivation; 20% Suitability and communication skills; 60% Mathematics test + experience and presentation. Scoring and selection: >70% = Selected; 60-70% = Waiting list; <60% = Not selected.",
+    "interpretation": "The deadline is the thing to read twice. The national rule is that a capped programme closes on 15 January; BUas states that its own bachelor programmes with selection close in Studielink on 1 May. Both are official and they are not describing the same instrument — a hogeschool selection at the gate is not the same legal creature as a university numerus fixus — but this pass did not establish which article of the WHW BUas is applying, so the divergence is recorded rather than resolved, and the dates recorded on the route are BUas's own because BUas owns its own procedure. Note also what is being selected on: a video message, a portfolio, an interview, a study-skills questionnaire. Grades appear nowhere except through the mathematics test for Applied Data Science. An IB student who assumes Dutch selection means grades will prepare for the wrong thing.",
+    "supports": [
+      {
+        "entity": "nl-breda-uas-selection-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "nl-breda-uas-hotel-management-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-breda-uas-creative-business-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-breda-uas-applied-data-science-and-ai-2027-autumn",
+        "field": "admission"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-um-nl-subject-requirements",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/additional-subject-requirements",
+    "publisher": "Maastricht University — Additional subject requirements 2027-2028",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The page is headed 'Additional subject requirements 2027-2028', so it is published for the target intake rather than carried from the previous one. The International Baccalaureate table is one of eleven per-diploma panels and had to be opened.",
+    "claim": "Maastricht University publishes its additional subject requirements per programme in IB terms. International Business requires Mathematics Analysis and Approaches at SL or HL, or Applications and Interpretation at SL or HL. Data Science and Artificial Intelligence, and Computer Science, require Mathematics Analysis and Approaches at HL.",
+    "excerpt": "To qualify for admission to a bachelor's programme at Maastricht University (UM), you must hold a secondary school diploma that is considered equivalent to the Dutch pre-university VWO diploma. [...] Please note: Diplomas listed as VWO equivalent that meet the general admission requirements do not always meet the additional subject requirements. The additional subject requirements will be assessed separately. [...] International Baccalaureate Diploma | Business Analytics — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation HL | Econometrics and Operations Research — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation HL | Economics and Business Economics — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation SL/HL | International Business — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation SL/HL | Data Science and Artificial Intelligence — Mathematics Analysis and Approaches HL | Computer Science — Mathematics Analysis and Approaches HL",
+    "interpretation": "Read the two mathematics columns next to each other and the reason this repository refuses a mathematics family shorthand becomes concrete. For International Business, Applications and Interpretation at SL is enough. For Business Analytics and Econometrics, the same course must be at HL. For Data Science and Computer Science it is not accepted at all. One university, one table, three different answers to 'does my maths count?'. A single 'mathematics HL' requirement would be wrong for all three. Note also that programmes absent from this table — University College Maastricht among them — have no additional subject requirement, which is an absence the page itself establishes rather than one we failed to find.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-international-business-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-um-nl-international-business",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/international-business/admission-requirements",
+    "publisher": "Maastricht University — International Business, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The page states it describes the 2026-2027 academic year and its deadline table gives 2025 and 2026 dates, so the procedure is recorded as last published and not carried forward to 2027.",
+    "claim": "International Business is a numerus fixus programme selected by the university itself. The ranking is one third International Classroom Essay, one third CV and supporting documents, one third the grades of the applicant's penultimate school year. Failing the International Classroom requirement removes an applicant from the ranking entirely.",
+    "excerpt": "International Business is a numerus fixus programme with selection by the educational institution. This means that you go through a selection process after applying. Due to the limited number of places we cannot offer a place to every applicant who meets the admission requirements. [...] Deadline for all applicants to: apply via Studielink; complete all admission tasks [...] in the MyApplication portal. [15 January, 23:59 CET] [...] Outcome selection procedure and publication ranking number [15 April, 23:59 CET] [...] Their assessment is based on your: International Classroom Essay (33%); Curriculum vitae + supporting documents (33%); Grades of your penultimate year of secondary school (33%). [...] If your profile is not sufficient to meet the International Classroom requirement, you will not be included in the ranking procedure. This means that you will not be able to start this bachelor's programme. [...] This decision will also be valid for the bachelor's programme in Economics and Business Economics, since the International Classroom requirement is the same for both programmes.",
+    "interpretation": "The International Classroom requirement is the hardest thing in this pass to file. It is not an entry requirement — it is judged on an essay, after application, by a committee — and it is not purely a ranking factor either, because failing it removes you from the ranking rather than lowering you in it. It is recorded as a Selection Factor because that is where the model puts anything that is assessed rather than held, and the note says plainly what failing it costs. Note too that it is decided once for both International Business and Economics and Business Economics, so applying to the second as a fallback against the first does not work.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-international-business-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-maastricht-international-business-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01"
+    }
+  },
+  {
+    "id": "ev-um-nl-ucm",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+    "publisher": "Maastricht University — University College Maastricht, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The page is headed for academic year 2027-2028 and its deadline table gives 2026 and 2027 dates, so it is published for the target intake.",
+    "claim": "University College Maastricht has 250 places, a two-round selective admission of document review then an online interview in English, and deadlines of 1 February 2027 for non-EU/EEA applicants and 1 April 2027 for EU/EEA and Swiss applicants. Applications are reviewed on a rolling basis. First-year students must earn 45 of 60 ECTS or be excluded from the programme for six years.",
+    "excerpt": "At UCM, we are looking for highly motivated students with a genuine passion for academics. To find the right match between your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. [...] 1 February 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality [...] 1 April 2027, 23:59 CET — Deadline for applicants with an EU/EEA or Swiss nationality [...] At UCM, we review applications on a rolling basis, so you can apply at any time up until the deadline. [...] First round: The Board of Admissions will review your application documents and let you know by email if you have been selected for an interview. Second round: If selected, you will be invited for an online interview in English with a UCM academic staff member. The interview takes about 30-45 minutes and focuses on your academic plans and how you see your education at UCM supporting these goals. [...] in your first year of the programme, you must obtain a minimum of 45 out of 60 ECTS credits.",
+    "interpretation": "Neither Dutch deadline applies here. UCM is selective but not numerus fixus, so it sets its own dates — 1 February or 1 April depending on nationality, both earlier than the national 1 May and later than the numerus fixus 15 January. A student who has learned 'the Dutch deadlines are 15 January and 1 May' will get this wrong in either direction. The Binding Study Advice is recorded because it is the kind of thing nobody reads until it applies to them: 45 of 60 credits in year one, and failing it closes all three Maastricht liberal-arts programmes for six years.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-maastricht-selection-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-um-nl-dsai",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+    "publisher": "Maastricht University — Data Science and Artificial Intelligence, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The page is headed for academic year 2027-2028 and gives 2027 dates.",
+    "claim": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
+    "excerpt": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. [...] 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency.",
+    "interpretation": "Recorded because it is the counter-example. The page carries no numerus fixus statement, no capacity and no selection procedure, and its deadline is the ordinary national one. Alongside International Business and UCM at the same university it shows that 'Dutch admission' is three different things depending on the programme, not one.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+        "field": "admission"
+      },
+      {
+        "entity": "nl-maastricht-selection-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-utwente-nl-ib",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/application-admission/admission/diplomas/international-baccalaureate/",
+    "publisher": "University of Twente — International Baccalaureate admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The page states in terms that these requirements are for the September 2026 intake and that Twente will not publish 2027 requirements until October 2026, so nothing here is confirmed for the target intake.",
+    "claim": "Twente admits on a full IB Diploma with no minimum total, publishes its English and Dutch language rules as named IB subjects with minimum IB grades, refuses the IB Career-related Certificate as a direct route, and states that a high SL grade cannot substitute for a required HL subject.",
+    "excerpt": "With the International Baccalaureate (IB) diploma, you will probably be admissible to a bachelor's programme at the University of Twente. This depends on the subjects and their corresponding levels you have achieved. [...] In general, there is no minimum IB grade requirement. [...] The 'Career-related Certificate of the International Baccalaureate' is not directly admissible to the University of Twente. [...] These admission requirements are valid for the September 2026 intake. The requirements are announced in October for the following September intake moment. The University of Twente therefore cannot provide any information regarding admission requirements for future intake moments that are not yet open for applications. [...] English Language A: Literature – Standard Level or Higher Level - Grade ≥ 4; English Language A: Language and Literature – Standard Level or Higher Level - Grade ≥ 4; English Language B – Standard Level - Grade ≥ 6; English Language B – Higher Level - Grade ≥ 5. [...] A high score in a Standard Level (SL) subject cannot replace the same subject at Higher Level (HL) when the subject on HL is required for admission.",
+    "interpretation": "Twente is the honest edge of the ADR 0002 question. Its central IB page is written entirely in IB terms — named IB subjects, IB levels, IB grades — and needs no translation. Its programme pages are not consistent with each other: Advanced Technology names IB subjects, Technical Computer Science asks instead for mathematics 'comparable to a pre-university level, such as VWO Wiskunde B', and Creative Technology names no subject at all. So one university does all three things at once, and the reason this still does not amount to a case for a Recognition Scheme is that nobody publishes the table a scheme would need: Twente does not say what IB mathematics counts as Wiskunde B, and Nuffic publishes no subject equivalence either. A scheme here could only be written by inventing it.",
+    "supports": [
+      {
+        "entity": "nl-utwente-advanced-technology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-utwente-technical-computer-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-utwente-creative-technology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-utwente",
+        "field": "about"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01"
+    }
+  },
+  {
+    "id": "ev-utwente-nl-advanced-technology",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/programmes/advanced-technology/enrolment/admission/",
+    "publisher": "University of Twente — BSc Advanced Technology, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The requirement sits in a collapsed 'International diploma' panel that a plain fetch does not return. Marked needs-review because Twente publishes each intake's requirements only from the October before it.",
+    "claim": "Advanced Technology requires an international diploma equivalent to the Dutch VWO with good grades in at least Mathematics at Higher Level and Physics at Higher Level.",
+    "excerpt": "You can be admitted to Advanced Technology if you have an international secondary school diploma equivalent to the Dutch vwo diploma: good A-level results or International Baccalaureate with good grades in at least: Mathematics Higher Level; Physics Higher Level.",
+    "interpretation": "Twente writes 'Mathematics Higher Level' and does not say which of the two IB mathematics courses it means. TU Delft, in the same country, accepts only Analysis and Approaches and says so; Maastricht names both courses separately for every programme. Twente names neither. Both AA HL and AI HL are recorded as accepted routes because both are Mathematics at Higher Level and that is the whole of what the page says — narrowing it to Analysis and Approaches would be importing another university's rule, which is the specific thing this repository forbids. 'Good grades' is also left without a threshold, so no minimum grade is recorded.",
+    "supports": [
+      {
+        "entity": "nl-utwente-advanced-technology-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01"
+    }
+  },
+  {
+    "id": "ev-utwente-nl-tcs",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/enrolment/admission/",
+    "sourcePage": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/enrolment/",
+    "publisher": "University of Twente — BSc Technical Computer Science, admission and enrolment",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from two source pages in my own browser tab, 2026-09-23. Marked needs-review because the enrolment page gives a 2026 deadline and Twente publishes each intake's rules only from the October before it.",
+    "claim": "Technical Computer Science expresses its mathematics requirement on the Dutch scale rather than in IB terms — mathematics comparable to pre-university level, such as VWO Wiskunde B — and names no IB course or level. A matching procedure of an online questionnaire and a matching event is mandatory before starting.",
+    "excerpt": "Our admission requirements are based on your level of education, level of English and your level of mathematics. Please keep in mind that you also need to take part in the matching procedure before you can start the Bachelor's. [...] You are admissible if you have an international secondary school diploma equivalent to the Dutch VWO-degree. [...] Level of Mathematics: To confirm your level of mathematical knowledge, we need a proof that you have mastered mathematics comparable to a pre-university level, such as: VWO Wiskunde B (for Dutch applicants); VWO Wiskunde B staatsexamen (for Dutch applicants); James Boswell Mathematics B course (for Dutch and International students); Mathematik bis Abitur. [...] Matching is a mandatory step for starting Technical Computer Science. It consists of two required parts: An online questionnaire; A matching event. Both are mandatory for the procedure to be completed.",
+    "interpretation": "This is the one requirement found in the Netherlands that is genuinely written on a local scale rather than in IB terms, and it is recorded as published rather than translated into an IB subject nobody gave us. ADR 0002 offers two shapes for a requirement — IB terms, or a local scale named by a Recognition Scheme — and this is a third: a comparison to a local qualification for which no authority publishes an equivalence. Neither Twente nor Nuffic says what IB mathematics counts as VWO Wiskunde B. A Recognition Scheme could therefore only be invented, and the repository's own guard refuses a local-scale requirement whose scale nothing defines, so the requirement is recorded as kind 'other' with the official wording kept whole. The consequence is deliberate: the engine reports that it cannot check this and sends the student to the official page. A requirement we cannot check is better data than a requirement we quietly answered for them.",
+    "supports": [
+      {
+        "entity": "nl-utwente-technical-computer-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "nl-utwente-technical-computer-science-2027-autumn",
+        "field": "admission"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01"
+    }
+  },
+  {
+    "id": "ev-utwente-nl-creative-technology",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/programmes/creative-technology/enrolment/admission/",
+    "publisher": "University of Twente — BSc Creative Technology, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page in my own browser tab, 2026-09-23. The requirement sits in a collapsed 'International diploma' panel. Marked needs-review because Twente publishes each intake's rules only from the October before it.",
+    "claim": "Creative Technology requires an international secondary school diploma equivalent to the Dutch VWO diploma and names no subject requirement at all.",
+    "excerpt": "You are admissible if you have an international secondary school diploma equivalent to the Dutch VWO-diploma: good A-level results or International Baccalaureate. [...] As the programme is entirely English-taught, you have to meet the English language requirement.",
+    "interpretation": "Recorded because the absence is the finding. The page was opened, the International diploma panel was expanded, and no subject is named — unlike Advanced Technology on the same site, which names two. So 'no subject requirement' here means checked-and-none-published rather than not-checked. It does not mean an IB student will be admitted: it means the diploma itself is the bar.",
+    "supports": [
+      {
+        "entity": "nl-utwente-creative-technology-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01"
+    }
   }
 ]

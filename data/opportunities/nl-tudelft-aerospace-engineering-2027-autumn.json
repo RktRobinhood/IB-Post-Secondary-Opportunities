@@ -1,0 +1,189 @@
+{
+  "id": "nl-tudelft-aerospace-engineering-2027-autumn",
+  "programme": "nl-tudelft-aerospace-engineering",
+  "institution": "nl-tudelft",
+  "destination": "nl",
+  "place": "nl-delft",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "Numerus clausus. 440 places were available for 2026-2027; the 2027-2028 capacity was not published when this was checked. Every place is allocated by selection, and a foreign diploma does not change that. Apply through Studielink by 23:59 CET on 15 January 2027.",
+    "selection": [
+      {
+        "type": "test",
+        "description": "Academic Aptitude Assessment — a personality test focused on study situations. Completed remotely.",
+        "evidence": [
+          "ev-tudelft-nl-ae-selection"
+        ]
+      },
+      {
+        "type": "test",
+        "description": "Selection Exam in mathematics, physics and first-year aerospace topics. Completed remotely.",
+        "evidence": [
+          "ev-tudelft-nl-ae-selection"
+        ]
+      },
+      {
+        "type": "other",
+        "weight": "none",
+        "description": "A Matching phase in TU Delft's Digital Learning Environment precedes the tests. It must be completed, and it is not scored.",
+        "evidence": [
+          "ev-tudelft-nl-ae-selection"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "A secondary school diploma which is considered to be equivalent to the Dutch pre-university (VWO) diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "TU Delft asks for a diploma equivalent to the Dutch VWO. Nuffic, the recognition body, compares the full IB Diploma to a VWO diploma and DP Course Results only to vwo-deelcertificaten, so Course Results do not open a research university bachelor here. TU Delft adds that it does not accept the IB Career-related Programme.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics: Analysis and Approaches at HL",
+      "ibSubject": "mathematics-aa",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ],
+      "note": "TU Delft accepts only Mathematics: Analysis and Approaches at HL. Mathematics: Applications and Interpretation is not accepted at either level for any TU Delft programme."
+    },
+    {
+      "id": "r-physics",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Physics at HL",
+      "ibSubject": "physics",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You are required to pass one of the following language tests with the indicated minimum score requirement: TOEFL iBT 90 (internet based), or IELTS 6.5 (Academic version, Overall Band Score), or University of Cambridge Certificate of Proficiency in English (CPE) or Certificate in Advanced English (CAE). [...] The following applicants are exempted from the English test requirement: [...] Applicants with a Surinam VWO, International Baccalaureate, European Baccalaureate diploma, or European secondary school diploma (pre-university certificate) considered equivalent to the Dutch pre-university education, with English as a final examination subject. Please note that a 'pass' (sufficient score) for English is required on your secondary school certificate.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "The exemption is not unconditional. TU Delft exempts IB Diploma holders who took English as a final examination subject and passed it. If English is not one of your six subjects, the exemption does not reach you and you would need IELTS 6.5, TOEFL iBT 90 or Cambridge CAE/CPE.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general"
+      ]
+    },
+    {
+      "id": "sf-aptitude",
+      "kind": "test",
+      "mandatory": false,
+      "label": "Academic Aptitude Assessment",
+      "officialWording": {
+        "text": "Your fit will be assessed with two tests: the Academic Aptitude Assessment, a personality test focused on study situations, and the Selection Exam.",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor, not an entry requirement. It is used to rank applicants who are already eligible; you cannot fail it in the sense of becoming ineligible. TU Delft says no preparation is needed for it.",
+      "evidence": [
+        "ev-tudelft-nl-ae-selection"
+      ]
+    },
+    {
+      "id": "sf-selection-exam",
+      "kind": "test",
+      "mandatory": false,
+      "label": "Selection Exam in mathematics, physics and first-year aerospace topics",
+      "officialWording": {
+        "text": "The results of the selection phase are combined and converted into a final selection score, which will determine your ranking number.",
+        "language": "en",
+        "official": true
+      },
+      "note": "A Selection Factor, not an entry requirement. TU Delft publishes a syllabus and formula sheets for it and explicitly provides no past or sample papers. It was sat in March in the 2026 round.",
+      "evidence": [
+        "ev-tudelft-nl-ae-selection"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Aerospace Engineering (English stream) — Mathematics: AA HL + Physics HL",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-tudelft-nl-ib-subjects",
+    "ev-tudelft-nl-admission-general"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-19",
+    "notes": [
+      "Numerus fixus. Applications close at 23:59 CET on 15 January 2027 and do not reopen: there is no late round, no clearing and no discretion. Missing it costs you this programme for the whole year. You may hold at most two numerus fixus applications in one year across the whole country, so 15 January is also the day your Dutch strategy is fixed.",
+      "Your IB results arrive on about 6 July 2027, roughly six months after this programme's deadline and nearly three months after ranking numbers are issued. Delft selects on its own tests rather than on your grades, so this is workable, but it means you commit to Aerospace Engineering in January.",
+      "The selection procedure described on TU Delft's page on 2026-09-23 was last year's. The university says the 2027-2028 setup will be published before 19 December 2026 and this record should be re-read then. The 15 January 2027 deadline is stated for the target intake and is not provisional.",
+      "Not established: the 2027-2028 capacity, and whether TU Delft makes a conditional offer pending final IB results."
+    ]
+  }
+}

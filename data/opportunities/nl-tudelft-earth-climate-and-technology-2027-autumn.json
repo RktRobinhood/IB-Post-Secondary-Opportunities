@@ -1,0 +1,146 @@
+{
+  "id": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+  "programme": "nl-tudelft-earth-climate-and-technology",
+  "institution": "nl-tudelft",
+  "destination": "nl",
+  "place": "nl-delft",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": false
+  },
+  "requirements": [
+    {
+      "id": "r-diploma",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A full IB Diploma",
+      "officialWording": {
+        "text": "A secondary school diploma which is considered to be equivalent to the Dutch pre-university (VWO) diploma.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "TU Delft asks for a diploma equivalent to the Dutch VWO. Nuffic, the recognition body, compares the full IB Diploma to a VWO diploma and DP Course Results only to vwo-deelcertificaten, so Course Results do not open a research university bachelor here. TU Delft adds that it does not accept the IB Career-related Programme.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general",
+        "ev-nuffic-ib-level"
+      ]
+    },
+    {
+      "id": "r-math",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Mathematics: Analysis and Approaches at HL",
+      "ibSubject": "mathematics-aa",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ],
+      "note": "TU Delft accepts only Mathematics: Analysis and Approaches at HL. Mathematics: Applications and Interpretation is not accepted at either level for any TU Delft programme."
+    },
+    {
+      "id": "r-physics",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Physics at HL",
+      "ibSubject": "physics",
+      "ibLevel": "HL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ]
+    },
+    {
+      "id": "r-chemistry",
+      "kind": "ib-subject",
+      "mandatory": true,
+      "label": "Chemistry at SL or above",
+      "ibSubject": "chemistry",
+      "ibLevel": "SL",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-tudelft-nl-ib-subjects"
+      ]
+    },
+    {
+      "id": "r-english",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "Documented English proficiency",
+      "officialWording": {
+        "text": "You are required to pass one of the following language tests with the indicated minimum score requirement: TOEFL iBT 90 (internet based), or IELTS 6.5 (Academic version, Overall Band Score), or University of Cambridge Certificate of Proficiency in English (CPE) or Certificate in Advanced English (CAE). [...] The following applicants are exempted from the English test requirement: [...] Applicants with a Surinam VWO, International Baccalaureate, European Baccalaureate diploma, or European secondary school diploma (pre-university certificate) considered equivalent to the Dutch pre-university education, with English as a final examination subject. Please note that a 'pass' (sufficient score) for English is required on your secondary school certificate.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "note": "The exemption is not unconditional. TU Delft exempts IB Diploma holders who took English as a final examination subject and passed it. If English is not one of your six subjects, the exemption does not reach you and you would need IELTS 6.5, TOEFL iBT 90 or Cambridge CAE/CPE.",
+      "evidence": [
+        "ev-tudelft-nl-admission-general"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Earth, Climate and Technology (Previously Applied Earth Sciences)(English Stream) — Mathematics: AA HL + Physics HL + Chemistry: SL",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "eu-eea-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-duo-collegegeld"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "nl-studielink-2027"
+  ],
+  "evidence": [
+    "ev-tudelft-nl-ib-subjects",
+    "ev-tudelft-nl-admission-general"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "This is the one English-taught TU Delft bachelor that is not numerus clausus: it is absent from the university's own list of six capped programmes. So the deadline that binds you is 1 May 2027 rather than 15 January, and meeting the subject requirements is enough.",
+      "The programme was called Applied Earth Sciences until recently and TU Delft's own pages still carry both names. If you are searching Studielink or an older prospectus, look for either."
+    ]
+  }
+}

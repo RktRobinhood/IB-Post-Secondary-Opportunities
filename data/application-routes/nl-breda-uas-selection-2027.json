@@ -1,0 +1,135 @@
+{
+  "id": "nl-breda-uas-selection-2027",
+  "destination": "nl",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to a Breda University of Applied Sciences programme with selection, autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "nl-studielink",
+  "portalUrl": "https://www.studielink.nl/",
+  "appliesTo": [
+    "nl-breda-uas-hotel-management-2027-autumn",
+    "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+    "nl-breda-uas-creative-business-2027-autumn",
+    "nl-breda-uas-applied-data-science-and-ai-2027-autumn"
+  ],
+  "milestones": [
+    {
+      "id": "ms-cmgt-round-1",
+      "type": "submit",
+      "label": "First portfolio round closes (Creative Media & Game Technologies)",
+      "date": "2026-11-27",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "priority",
+      "provisional": true,
+      "note": "One of four rounds, not a deadline. BUas says decisions on interview invitations follow within two weeks of each round and that an earlier round secures a place sooner. The year is inferred from the regulation's stated academic year and is provisional for that reason.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-cmgt-round-2",
+      "type": "submit",
+      "label": "Second portfolio round closes (Creative Media & Game Technologies)",
+      "date": "2027-01-15",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "priority",
+      "provisional": true,
+      "note": "Falls on the same day as the national numerus fixus deadline and is not the same thing: this round is one of four and missing it does not close the programme.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-cmgt-round-3",
+      "type": "submit",
+      "label": "Third portfolio round closes (Creative Media & Game Technologies)",
+      "date": "2027-03-05",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "priority",
+      "provisional": true,
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-studielink",
+      "type": "submit",
+      "label": "Studielink enrolment application closes for a BUas programme with selection",
+      "date": "2027-05-01",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "BUas states: \"The official deadline to make an enrolment application in Studielink for bachelor programmes with selection is 1 May.\" This is BUas's own rule and it is later than the 15 January the national page sets for numerus fixus. Which instrument BUas is applying was not established in this pass; treat 1 May as the outer limit and apply far earlier, because every BUas programme here fills by rounds.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-hotel-application",
+      "type": "document",
+      "label": "Hotel Management application complete in My Online Application",
+      "date": "2027-05-04",
+      "timeOfDay": "17:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Includes a personal video message for applicants with a non-Dutch diploma. Registering in Studielink alone is not an application.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-final-portfolio",
+      "type": "submit",
+      "label": "Final portfolio, assignment and assessment deadline",
+      "date": "2027-05-15",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "The last round for Creative Media & Game Technologies and Applied Data Science & AI, and the assessment deadline for Creative Business. Interviews for the final round run to the end of May.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-cmgt-outcome",
+      "type": "result",
+      "label": "Creative Media & Game Technologies selection outcome",
+      "date": "2027-06-19",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "BUas: \"The prospective student will be notified by June 19th regarding their selection for the degree program.\" That is before the IB releases results on about 6 July.",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    },
+    {
+      "id": "ms-waiting-list",
+      "type": "result",
+      "label": "Waiting-list decisions confirmed (Hotel Management)",
+      "date": "2027-07-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "BUas: \"At the latest on 1 July, we will inform applicants that have been placed on the waiting list whether or not they have been selected for the programme.\"",
+      "evidence": [
+        "ev-buas-nl-selection-2027"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-buas-nl-selection-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Every date here is a day and a month published in a regulation whose cover names academic year 2027-2028. The years are therefore inferred and every milestone is marked provisional, as the research brief requires.",
+      "This route exists because BUas's dates are its own and differ from the national ones on data/application-routes/nl-studielink-2027.json. Both apply: Studielink is still the portal, and the national numerus fixus rules on how many selective programmes you may hold still bind.",
+      "Not established: which article of the WHW BUas's selection runs under, and therefore whether the national 15 January numerus fixus deadline also binds a BUas applicant. The conflict is recorded on ev-buas-nl-selection-2027 rather than resolved in either direction."
+    ]
+  }
+}
