@@ -26,7 +26,7 @@
     "images:official": "node scripts/fetch-official-images.mjs",
     "images:optimize": "node scripts/optimize-images.mjs",
     "test:eligibility": "node scripts/test-eligibility.mjs",
-    "test": "node scripts/test-no-control-chars.mjs && node scripts/validate.mjs && node scripts/test-eligibility.mjs && node scripts/test-probes.mjs && node scripts/test-sourcing.mjs && node scripts/test-credentials.mjs && node scripts/test-images.mjs && node src/build.mjs && node scripts/check.mjs",
+    "test": "node scripts/test-no-control-chars.mjs && node scripts/validate.mjs && node scripts/test-eligibility.mjs && node scripts/test-probes.mjs && node scripts/test-sourcing.mjs && node scripts/test-credentials.mjs && node scripts/test-map.mjs && node scripts/test-images.mjs && node src/build.mjs && node scripts/check.mjs",
     "release-check": "node scripts/release-check.mjs",
     "test:probes": "node scripts/test-probes.mjs",
     "verify": "node scripts/verify-evidence.mjs",
@@ -41,7 +41,8 @@
     "basemap": "node scripts/make-basemap.mjs",
     "floor": "node scripts/test-floor.mjs",
     "test:jurisdictions": "node scripts/test-jurisdictions.mjs",
-    "test:calendar": "node scripts/test-calendar.mjs"
+    "test:calendar": "node scripts/test-calendar.mjs",
+    "test:map": "node scripts/test-map.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"

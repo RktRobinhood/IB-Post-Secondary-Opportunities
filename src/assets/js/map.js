@@ -32,6 +32,9 @@ const reducedMotion = () =>
   matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const MAX_K = 8;
+/* The smallest thing a thumb can reliably hit, in CSS pixels. WCAG 2.5.8 asks
+   for 24; Apple and Google both ask for 44, and this is a map on a phone. */
+const TOUCH_TARGET = 44;
 const STEP = 1.7;
 /**
  * Two markers are grouped when they are closer than their own radii put
@@ -139,6 +142,34 @@ export function enhanceWorld(figure) {
   let lit = null;         // the place id currently lit, from either direction
   let raf = 0;
 
+  /**
+   * How the viewBox actually lands on the panel.
+   *
+   * Nothing here may assume the two are the same shape. The SVG is
+   * `preserveAspectRatio="slice"` and the panel's aspect ratio comes from the
+   * stylesheet and changes with the viewport, so one viewBox unit is a
+   * different number of pixels on a phone than on a desktop, and part of the
+   * viewBox is off the panel entirely.
+   *
+   * `getScreenCTM()` is the browser's own answer to this and is exact. The
+   * fallback is only for the moment before layout, where a sane guess beats a
+   * division by zero.
+   */
+  function metrics() {
+    const rect = stage.getBoundingClientRect();
+    const ctm = svg.getScreenCTM();
+    if (!ctm || !ctm.a) return { scale: rect.width / W || 1, rect };
+    return { scale: ctm.a, rect };
+  }
+
+  /** The viewBox rectangle the panel is actually showing, in viewBox units. */
+  function visible() {
+    const { scale, rect } = metrics();
+    const w = rect.width / scale;
+    const h = rect.height / scale;
+    return { x0: (W - w) / 2, y0: (H - h) / 2, w, h };
+  }
+
   const sx = (p) => p.x * view.k + view.tx;
   const sy = (p) => p.y * view.k + view.ty;
 
@@ -238,10 +269,13 @@ export function enhanceWorld(figure) {
     const t = `translate(${view.tx.toFixed(2)} ${view.ty.toFixed(2)}) scale(${view.k.toFixed(4)})`;
     if (land) land.setAttribute('transform', t);
 
+    /* What is on the panel, not what is inside the viewBox: with `slice` those
+       are different, and on a phone the difference is most of the Atlantic. */
+    const v = visible();
     const inPanel = places.filter((p) => {
       const x = sx(p);
       const y = sy(p);
-      return x > -40 && x < W + 40 && y > -40 && y < H + 40;
+      return x > v.x0 - 40 && x < v.x0 + v.w + 40 && y > v.y0 - 40 && y < v.y0 + v.h + 40;
     });
 
     const fanned = spider ? new Set(spider.members.map((m) => m.id)) : null;
@@ -275,8 +309,24 @@ export function enhanceWorld(figure) {
       p.el.setAttribute('transform', `translate(${(at[0] - p.x).toFixed(2)} ${(at[1] - p.y).toFixed(2)})`);
     }
 
+    /* A target authored in viewBox units is only the size it claims to be at
+       one particular scale. The hit circle says it is "the size of a
+       fingertip", and on a phone that rendered at 14px. It is sized from the
+       measured scale instead, so 44 CSS pixels is 44 CSS pixels everywhere —
+       which is what the guideline is about and what a thumb needs. */
+    const unitPx = metrics().scale * view.k;
+    if (unitPx > 0) {
+      const wanted = (TOUCH_TARGET / 2) / unitPx;
+      for (const p of places) {
+        if (p.hit) p.hit.setAttribute('r', Math.max(p.r + 6, wanted).toFixed(1));
+      }
+    }
+
     stage.dataset.zoomed = String(view.k > 1.001);
-    stage.style.touchAction = view.k > 1.001 ? 'none' : '';
+    /* At rest the page must still scroll under a thumb, so only the horizontal
+       axis and the pinch come to us. Once zoomed, the map owns the gesture —
+       a reader dragging inside a zoomed map means to move the map. */
+    stage.style.touchAction = view.k > 1.001 ? 'none' : 'pan-y';
     zoomReset.disabled = view.k <= 1.001 && !spider;
     zoomIn.disabled = view.k >= MAX_K - 0.001;
     zoomOut.disabled = view.k <= 1.001;
@@ -491,7 +541,7 @@ export function enhanceWorld(figure) {
   });
   stage.addEventListener('pointermove', (e) => {
     if (!dragging) return;
-    const unit = W / stage.getBoundingClientRect().width;
+    const unit = 1 / metrics().scale;
     const dx = (e.clientX - from.x) * unit;
     const dy = (e.clientY - from.y) * unit;
     if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
@@ -532,6 +582,86 @@ export function enhanceWorld(figure) {
     if (!act) return;
     e.preventDefault();
     act();
+  });
+
+  /* --- Touch ---------------------------------------------------------------
+   *
+   * There were no gestures at all. Drag-pan deliberately does not engage until
+   * above 1x, and the only way above 1x was a button — so a reader who touched
+   * the map, dragged, and got the page scrolling concluded it was a picture,
+   * and was right.
+   *
+   * Wheel zoom stays off. DYNAMIC_SITE_INSPIRATION.md is explicit that page
+   * scrolling must not zoom the map, and a phone's equivalent of that mistake
+   * is a map that eats the scroll. Pinch is unambiguous — two fingers are never
+   * an attempt to scroll the page — and double-tap is the gesture every map
+   * application has trained people to expect.
+   */
+  const touches = new Map();
+  let pinch = null;
+
+  const fingerGap = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  const midpoint = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+
+  stage.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'touch') return;
+    touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (touches.size === 2) {
+      const [a, b] = [...touches.values()];
+      const rect = stage.getBoundingClientRect();
+      const m = midpoint(a, b);
+      pinch = { start: fingerGap(a, b), k: goal.k, px: (m.x - rect.left) / metrics().scale, py: (m.y - rect.top) / metrics().scale };
+      dragging = false;
+    }
+  });
+
+  stage.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'touch' || !touches.has(e.pointerId)) return;
+    touches.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (!pinch || touches.size < 2) return;
+    e.preventDefault();
+    const [a, b] = [...touches.values()];
+    const now = fingerGap(a, b);
+    if (!pinch.start) return;
+    const k = Math.min(MAX_K, Math.max(1, pinch.k * (now / pinch.start)));
+    const ratio = k / goal.k;
+    moveTo(
+      { k, tx: pinch.px - (pinch.px - goal.tx) * ratio, ty: pinch.py - (pinch.py - goal.ty) * ratio },
+      { announce: false }
+    );
+  }, { passive: false });
+
+  const dropTouch = (e) => {
+    if (e.pointerType !== 'touch') return;
+    touches.delete(e.pointerId);
+    if (touches.size < 2 && pinch) { pinch = null; say(); }
+  };
+  stage.addEventListener('pointerup', dropTouch);
+  stage.addEventListener('pointercancel', dropTouch);
+
+  /* Double-tap zooms in about the tap, and zooms out again once it is as far in
+     as it goes — so the gesture is always reversible with itself and a reader
+     cannot get stranded at 8x with no visible way back. */
+  let lastTap = 0;
+  let lastTapAt = null;
+  stage.addEventListener('pointerup', (e) => {
+    if (e.pointerType !== 'touch' || pinch) return;
+    const now = performance.now();
+    const at = { x: e.clientX, y: e.clientY };
+    const near = lastTapAt && Math.hypot(at.x - lastTapAt.x, at.y - lastTapAt.y) < 30;
+    if (now - lastTap < 320 && near) {
+      const rect = stage.getBoundingClientRect();
+      const { scale } = metrics();
+      const px = (at.x - rect.left) / scale;
+      const py = (at.y - rect.top) / scale;
+      if (goal.k >= MAX_K - 0.001) moveTo({ k: 1, tx: 0, ty: 0 });
+      else zoomBy(STEP * STEP, px, py);
+      lastTap = 0;
+      lastTapAt = null;
+      return;
+    }
+    lastTap = now;
+    lastTapAt = at;
   });
 
   zoomIn.addEventListener('click', () => zoomBy(STEP));

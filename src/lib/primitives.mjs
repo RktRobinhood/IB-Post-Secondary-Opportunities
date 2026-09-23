@@ -101,6 +101,19 @@ const BASEMAP = JSON.parse(
  * @param {string} [o.caption]
  * @param {string} [o.activeLayer] what the lights currently mean
  */
+/*
+ * A note on `preserveAspectRatio="xMidYMid slice"`, since it decides the shape
+ * of every map on the site.
+ *
+ * The panel is a window onto the projection, and a narrow window should show a
+ * taller, narrower piece of it rather than the same wide piece made small. With
+ * the default `meet`, a 375px phone got the whole 1000x420 frame scaled to
+ * 343x145 — a letterbox, and because everything inside is authored in viewBox
+ * units, the hit circle authored at "the size of a fingertip" rendered at 14px.
+ *
+ * With `slice` the panel keeps whatever height the stylesheet gives it and
+ * gives up the sides instead. For a Europe frame what it gives up is Atlantic.
+ */
 export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world' }) {
   const W = 1000;
   const H = 420;
@@ -147,7 +160,8 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
 
   return html`<figure class="world" id="${id}" data-world>
   <div class="world__stage">
-    <svg viewBox="0 0 ${W} ${H}" class="world__svg" role="img" data-w="${W}" data-h="${H}"
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"
+         class="world__svg" role="img" data-w="${W}" data-h="${H}"
          aria-label="${activeLayer}: ${plural(plotted.length, 'place')} shown.">
       <defs>
         <radialGradient id="${id}-glow">

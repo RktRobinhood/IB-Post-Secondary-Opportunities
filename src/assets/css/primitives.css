@@ -105,10 +105,30 @@
   overflow: hidden;
 }
 
+/*
+ * The panel's shape is the CSS's business and the projection's shape is the
+ * SVG's, and they were the same thing until now: `height: auto` derived the
+ * panel from the viewBox's 1000x420, so every viewport got the same 2.38:1
+ * crop. On a 375px phone that is a 343x145 letterbox — and because everything
+ * inside is authored in viewBox units, the hit circle authored at "the size of
+ * a fingertip" rendered at 14px.
+ *
+ * The panel now has its own aspect ratio per viewport and the SVG fills it,
+ * cropping the sides rather than shrinking (see `slice` on the element).
+ */
+.world__stage {
+  aspect-ratio: 1000 / 420;
+}
+@media (max-width: 44rem) {
+  /* A phone is tall. Nearly square shows a useful amount of a continent at a
+     size a thumb can work with; the width it gives up over a Europe frame is
+     ocean. */
+  .world__stage { aspect-ratio: 5 / 4; }
+}
 .world__svg {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /*
@@ -205,6 +225,7 @@
 .world__hit { fill: transparent; }
 .world__stage[data-reachable="true"] .world__hit { cursor: pointer; }
 
+
 /* Hollow means we only know the city, not the campus. */
 .world__place[data-approx="true"] .world__dot {
   fill: none;
@@ -284,7 +305,30 @@
 }
 .world__btn--wide { font-size: .6875rem; letter-spacing: .04em; text-transform: uppercase; }
 .world__btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-.world__btn:disabled { opacity: .4; cursor: default; }
+/* A disabled control is dimmed, not made translucent. `opacity` applies to the
+   whole element including its background, so a disabled button sitting on a map
+   let the map show through it and read as a rendering fault rather than as a
+   control that is currently unavailable. Dim the ink and the border instead. */
+.world__btn:disabled {
+  cursor: default;
+  color: var(--ink-mute);
+  border-color: var(--rule);
+  box-shadow: none;
+}
+
+/* A control under a thumb is at least 44px square. These were 52x32, which is
+   fine under a mouse and not under a thumb. It has to come after the base rule
+   rather than before it: same specificity, so source order decides, and the
+   first attempt at this lost silently. */
+@media (pointer: coarse) {
+  .world__btn { min-width: 44px; min-height: 44px; }
+}
+
+/* Stacked, three 44px controls take 140px of a 274px panel. Along the top they
+   take 44. */
+@media (max-width: 44rem) {
+  .world__controls { flex-direction: row; }
+}
 
 /* The name, the number and the cue, at the marker. It repeats what the list
    entry says, because it is the same fact seen from the other side. */
