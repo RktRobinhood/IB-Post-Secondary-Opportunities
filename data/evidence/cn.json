@@ -1,0 +1,149 @@
+[
+  {
+    "id": "ev-cn-moe-sino-foreign",
+    "sourceUrl": "https://www.crs.jsj.edu.cn/aproval/orglists/2",
+    "publisher": "Ministry of Education of the People's Republic of China — Sino-foreign cooperative education supervision platform",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "The ministry's list of bachelor-level Sino-foreign cooperative institutions includes, as independent legal persons, 宁波诺丁汉大学 (UNNC), 西交利物浦大学 (XJTLU), 上海纽约大学 (NYU Shanghai), 昆山杜克大学 (DKU), 温州肯恩大学 (WKU), 香港中文大学（深圳） (CUHK-Shenzhen) and 北师香港浸会大学 (BNBU), among others.",
+    "excerpt": "本科中外合作办学机构与项目(含内地与港澳台地区合作办学机构与项目)名单",
+    "interpretation": "This is the ministry's own list, and it is what separates a licensed joint university from a marketing claim. The excerpt is the list's title; the names are table entries.",
+    "supports": [
+      { "entity": "cn", "field": "sectorLandscape" },
+      { "entity": "cn", "field": "jurisdictions" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "Read in Chinese." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-dku-dates",
+    "sourceUrl": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+    "publisher": "Duke Kunshan University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "DKU admits international applicants, who must be non-Chinese citizens, through the Common App. Early Decision closes on 2 November 2026 and Regular Decision on 4 January 2027, both at 11:59pm ET. There is no application fee.",
+    "excerpt": "Early decision application deadline: November 2, 2026 (11:59pm ET) […] Regular decision application deadline: January 4, 2027 (11:59pm ET) […] International applicants must be non-Chinese citizens.",
+    "supports": [
+      { "entity": "cn-common-app-2027", "field": "milestones" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-nyush-apply",
+    "sourceUrl": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
+    "sourcePage": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision",
+    "publisher": "NYU Shanghai",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications.",
+    "excerpt": "The Common Application is required for students applying to any or all of NYU's three degree-granting campuses […] Regular Decision - January 5 […] you must accept the offer within 25 days",
+    "interpretation": "No year is printed on any of the three dates, so the route records them in this cycle as provisional. Regular Decision was 'not published' in the country profile because the ED page leaves it out. It is on the How to Apply page.",
+    "supports": [
+      { "entity": "cn-common-app-2027", "field": "milestones" },
+      { "entity": "cn", "field": "application.deadlines" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-xjtlu-deadline",
+    "sourceUrl": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+    "sourcePage": "https://www.xjtlu.edu.cn/en/admissions/ug/global/entry-requirements",
+    "publisher": "Xi'an Jiaotong-Liverpool University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. The IB Diploma requirement stated for Year Two entry is 30 points.",
+    "excerpt": "For most undergraduate programmes, the closing date for September 2027 entry is 31 May 2027. […] IB Diploma: 30 points",
+    "supports": [
+      { "entity": "cn-joint-direct-2027", "field": "milestones" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "The 30-point figure is quoted for Year Two entry. XJTLU students normally start in Year One or Year Two depending on qualification; which applies to the IB was not established." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-bnbu-periods",
+    "sourceUrl": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
+    "sourcePage": "https://co.bnbu.edu.cn/en/info/1131/2702.htm",
+    "publisher": "Beijing Normal-Hong Kong Baptist University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "BNBU, the former BNU-HKBU United International College (renamed in March 2025), takes international applications through its International Development Office in two periods: 1 September to 31 December, and 10 February to 15 May.",
+    "excerpt": "Application Period I: September 1st to December 31st. Application Period II: February 10th to May 15th.",
+    "interpretation": "The periods are printed without a year, as a standing pattern. The page does not say whether IB holders are accepted; it points to a separate overseas-qualifications page that was not read.",
+    "supports": [
+      { "entity": "cn-joint-direct-2027", "field": "milestones" },
+      { "entity": "cn", "field": "institutions" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "The renaming is confirmed on BNBU's President and University Office page: 'officially renamed itself Beijing Normal-Hong Kong Baptist University (BNBU)'. The old uic.edu.cn domain serves an expired TLS certificate." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-tsinghua-apply",
+    "sourceUrl": "https://www.tsinghua.edu.cn/en/Admissions.htm",
+    "publisher": "Tsinghua University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Tsinghua's English admissions page links international undergraduate applicants to its own application system at apply.join-tsinghua.edu.cn and publishes no dates on the page.",
+    "excerpt": "Top-tier university in China setting the standard in Engineering, excelling in Humanities and Science, leading the nation in interdisciplinary education",
+    "interpretation": "The page has an Apply link and no admissions text to quote; the excerpt is the only sentence on it. Its value is that it comes from Tsinghua's own domain and points to the application system. The dates are behind the application system's login.",
+    "supports": [
+      { "entity": "cn-national-direct-2027", "field": "portalUrl" },
+      { "entity": "cn", "field": "institutions" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-zju-guide-2026",
+    "sourceUrl": "https://iczu.zju.edu.cn/admissions/2024/1029/c68714a2981384/page.htm",
+    "publisher": "Zhejiang University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "Zhejiang University's 2026 guide for international undergraduates set the application period from 1 December 2025 to 28 February 2026, with some programmes open until 31 May 2026. It asked for HSK for Chinese-taught programmes and TOEFL or IELTS for English-taught ones, and from 2026/2027 a valid CSCA score from every undergraduate applicant. IB results are listed as optional supporting evidence.",
+    "excerpt": "浙江大学2026年国际学生（本科生）招生简章 […] 2025年12月1日起至2026年2月28日 […] 所有申请本科专业的国际学生均须提供有效的CSCA成绩单",
+    "interpretation": "This is last cycle's guide, recorded as the shape a 2027 guide is likely to take, not as 2027 dates. It is the only domestic university guide read in this pass.",
+    "supports": [
+      { "entity": "cn-national-direct-2027", "field": "milestones" },
+      { "entity": "cn-national-direct-2027", "field": "submissionItems" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "Read in Chinese." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-csca-embassy",
+    "sourceUrl": "https://mn.china-embassy.gov.cn/zytz/202510/t20251030_11743698.htm",
+    "publisher": "Embassy of the People's Republic of China in Mongolia",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
+    "excerpt": "自2026/2027学年起，来华攻读学士学位的申请人须在提交申请前参加“来华留学本科入学学业水平测试” […] CSCA由中国国家留学基金管理委员会（CSC）组织",
+    "interpretation": "A new national test, and the most useful thing a Danish IB student needs to know about the Chinese universities. It is quoted from a Chinese embassy notice because csca.cn renders nothing to an automated fetch. Whether the Sino-foreign joint universities require it was not established.",
+    "supports": [
+      { "entity": "cn-national-direct-2027", "field": "submissionItems" },
+      { "entity": "cn", "field": "watchOuts" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "The Danish embassy site did not carry an equivalent notice that this pass could find. Read in Chinese." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "id": "cn-national-direct-2027",
+  "destination": "cn",
+  "jurisdiction": "cn-national",
+  "intake": "2027-autumn",
+  "applicantGroup": "non-eu",
+  "label": "Chinese universities: international undergraduate application and review, 2027",
+  "channel": "direct",
+  "portalUrl": "https://apply.join-tsinghua.edu.cn/international/res/SpecialWsbm/index.html",
+  "milestones": [
+    { "id": "ms-cn-nat-csca", "type": "test", "label": "Sit the CSCA before you apply", "dateState": "not-yet-announced", "consequence": "hard", "note": "From 2026/2027, every applicant for a bachelor's degree in China must sit the CSCA before applying. Zhejiang's 2026 guide lists sittings in January, March, April, June and December.", "evidence": ["ev-cn-csca-embassy", "ev-cn-zju-guide-2026"] },
+    { "id": "ms-cn-nat-apply", "type": "submit", "label": "University application windows", "dateState": "varies-by-institution", "consequence": "hard", "note": "Each university publishes its own guide (招生简章). For 2026, Zhejiang ran 1 December 2025 to 28 February 2026, so expect windows to close before IB results. Tsinghua's dates are behind its application system's login.", "evidence": ["ev-cn-zju-guide-2026", "ev-cn-tsinghua-apply"] }
+  ],
+  "submissionItems": [
+    { "id": "si-cn-nat-csca", "label": "CSCA score report", "itemType": "result", "responsibleParty": "student", "dueMilestone": "ms-cn-nat-apply", "evidence": ["ev-cn-csca-embassy"] },
+    { "id": "si-cn-nat-language", "label": "HSK for Chinese-taught programmes; TOEFL or IELTS for English-taught ones", "itemType": "result", "responsibleParty": "student", "dueMilestone": "ms-cn-nat-apply", "note": "As in Zhejiang's 2026 guide. Most programmes are taught in Chinese.", "evidence": ["ev-cn-zju-guide-2026"] }
+  ],
+  "supplementarySteps": [
+    "Register for the CSCA at csca.cn early. Without a score you cannot apply.",
+    "Check which intake a date belongs to. Some programmes also take a spring intake."
+  ],
+  "evidence": ["ev-cn-csca-embassy", "ev-cn-zju-guide-2026", "ev-cn-tsinghua-apply"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "applicantGroup is non-eu because China's category is 'international student', meaning a non-Chinese citizen. EU status plays no part.",
+      "Only Zhejiang's guide (for 2026) was read. The 2027 guides for Tsinghua, Peking, Fudan, SJTU, Tongji and Sun Yat-sen were not read."
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "id": "gr",
+  "iso2": "gr",
+  "name": "Greece",
+  "adjective": "Greek",
+  "scope": "europe",
+  "region": "Southern Europe",
+  "capital": "Athens",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "A few English-taught programmes, and a Greek-taught route that needs B2 Greek",
+  "summary": "Greek public universities teach almost entirely in Greek. There are two ways in for a Danish IB student. The first is one of the few English-taught programmes, applied for directly, which charge tuition. The second is a Greek-taught place through the ministry's eight-day July window for graduates of foreign schools, which needs B2 Greek before you can enrol. Private colleges such as ACG teach in English and award US- or UK-validated degrees.",
+  "whyConsider": [
+    "The English-taught programmes take the IB directly. There are no Panhellenic exams.",
+    "As an EU citizen you need no visa, and there is a ministry route into Greek-taught public places for graduates of EU schools."
+  ],
+  "watchOuts": [
+    "The ministry window is eight days long and fell on 2 to 9 July in 2026, the week IB results come out. Have every document translated into Greek by June.",
+    "A Greek-taught place cannot be taken up without a B2 Greek certificate. Without it you enrol a year later or lose the place.",
+    "Check that the programme itself is taught in English. A university with an English website may still have no English-taught bachelor programmes."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "Set per programme. There is no national minimum for the English-taught programmes.",
+    "notes": [
+      "On the ministry route the IB counts as a foreign school-leaving qualification under category B1 (EU-member-state schools)."
+    ],
+    "evidence": ["ev-gr-minedu-enrolment-2026", "ev-gr-uoa-baag"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Few. A handful of fee-paying programmes at public universities, plus the private colleges.",
+    "englishProof": "Set per programme.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Greek-taught places through the ministry route need a B2 Greek certificate to enrol."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "unknown",
+      "summary": "English-taught public programmes charge tuition, for example EUR 6,000 a year for the University of Athens BA in Ancient Greece. Fees on Greek-taught places were not established.",
+      "evidence": ["ev-gr-uoa-baag"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "All Greek universities (ΑΕΙ, πανεπιστήμια) are state institutions. The technological institutes (ΤΕΙ) have been merged into them. A few other public academies sit beside the universities. Private colleges (κολλέγια) teach foreign universities' degrees, and since law 5094/2024 foreign universities may open non-state branches.",
+    "routes": [
+      {
+        "localName": "πανεπιστήμιο (ΑΕΙ)",
+        "englishName": "public university",
+        "kind": "research",
+        "what": "Every public university, from Athens and Thessaloniki to Crete and the Aegean. Mostly taught in Greek. Entry is by Panhellenic exams for Greek schools, by the ministry's foreign-nationals route for foreign school graduates, or by direct application to the few English-taught programmes.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "ΑΣΠΑΙΤΕ, ΑΣΤΕ, Ανώτατες Εκκλησιαστικές Ακαδημίες",
+        "englishName": "public higher academies",
+        "kind": "specialist",
+        "what": "Public institutions outside the universities: teacher training for vocational education (ΑΣΠΑΙΤΕ), tourism education (ΑΣΤΕ), and the ecclesiastical academies. The ministry's foreign-nationals circular is addressed to them alongside the universities.",
+        "ibAccessible": "partly",
+        "englishTaught": "none",
+        "note": "Named because they exist and are on the same ministry route. Not researched further."
+      },
+      {
+        "localName": "κολλέγιο",
+        "englishName": "private college",
+        "kind": "college",
+        "what": "Private, fee-paying, taught in English, awarding a foreign partner's or US-accredited degree rather than a Greek state degree. The American College of Greece (Deree) is the best known.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "μη κρατικό πανεπιστήμιο (Ν.Π.Π.Ε.)",
+        "englishName": "branch of a foreign university",
+        "kind": "research",
+        "what": "Non-profit branches of foreign universities, licensed under law 5094/2024. The ministry re-issued licences to the Keele and York branches in August 2026 after Council of State rulings annulled the first ones.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "New, and still being argued in the courts. What these branches offer to a 2027 applicant has not been researched."
+      }
+    ],
+    "evidence": ["ev-gr-minedu-enrolment-2026", "ev-gr-acg-admissions", "ev-gr-minedu-nppe-2026"]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "gr-public",
+      "name": "Public universities",
+      "kind": "sector",
+      "summary": "Greek-taught places through the ministry's July window, which needs B2 Greek to enrol, or English-taught programmes applied for directly.",
+      "applicationRoute": "gr-minedu-foreign-2027",
+      "evidence": ["ev-gr-minedu-enrolment-2026", "ev-gr-uoa-baag"]
+    },
+    {
+      "id": "gr-private",
+      "name": "Private colleges",
+      "kind": "sector",
+      "summary": "Apply to the college. Degrees are validated or accredited abroad.",
+      "applicationRoute": "gr-private-direct-2027",
+      "evidence": ["ev-gr-acg-admissions"]
+    }
+  ],
+  "evidence": ["ev-gr-minedu-foreign-window-2026", "ev-gr-minedu-enrolment-2026"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-06-15",
+    "notes": [
+      "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. It is kept short on purpose; the country profile holds the longer research.",
+      "Not established: how the ministry ranks foreign-school applicants, and tuition on Greek-taught places for EU citizens."
+    ]
+  }
+}

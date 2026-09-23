@@ -1,0 +1,42 @@
+{
+  "id": "gr-public-english-2027",
+  "destination": "gr",
+  "jurisdiction": "gr-public",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "English-taught programmes at a Greek public university: apply to the programme, 2027",
+  "channel": "direct",
+  "portalUrl": "https://studies.minedu.gov.gr",
+  "milestones": [
+    {
+      "id": "ms-gr-en-uoa-baag",
+      "type": "submit",
+      "label": "University of Athens BA in Ancient Greece: applications close",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "1 August for 2026-2027. No 2027-2028 date yet.",
+      "evidence": ["ev-gr-uoa-baag"]
+    },
+    {
+      "id": "ms-gr-en-other",
+      "type": "submit",
+      "label": "Other English-taught programmes",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Each programme sets its own date. Few public universities run English-taught bachelor programmes at all."
+    }
+  ],
+  "supplementarySteps": [
+    "Find the programme first. Most Greek public universities teach bachelor programmes only in Greek.",
+    "Apply on the programme's own site. The IB is accepted directly, with no Panhellenic exams. These programmes charge tuition."
+  ],
+  "evidence": ["ev-gr-uoa-baag"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-01",
+    "notes": [
+      "Shares the gr-public jurisdiction with gr-minedu-foreign-2027. The same university can have Greek-taught places through the ministry and English-taught places applied for directly."
+    ]
+  }
+}

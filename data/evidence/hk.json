@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ev-hk-ugc-funded",
+    "sourceUrl": "https://www.ugc.edu.hk/eng/ugc/site/fund_inst.html",
+    "publisher": "University Grants Committee, Hong Kong",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Eight universities are UGC-funded: CityU, HKBU, Lingnan, CUHK, EdUHK, PolyU, HKUST and HKU.",
+    "excerpt": "UGC-funded Universities",
+    "interpretation": "The page is a heading followed by a list of eight names, so the heading is the only sentence to quote. The UGC's wider list of 17 higher education institutions has no groupings, so the self-financing universities in sectorLandscape are the ones on that list that are not in this group of eight.",
+    "supports": [
+      { "entity": "hk", "field": "sectorLandscape" }
+    ],
+    "attestation": {
+      "by": "the Greece, China and Hong Kong floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-hk-hku-dates",
+    "sourceUrl": "https://admissions.hku.hk/apply/international-qualifications",
+    "publisher": "The University of Hong Kong",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+    "excerpt": "25 Nov (noon) 2026 - Submit your application for first-round evaluation […] 25 Aug 2027 - Applications close at noon (HKT)",
+    "supports": [
+      { "entity": "hk-direct-2027", "field": "milestones" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-hk-hkust-dates",
+    "sourceUrl": "https://join.hkust.edu.hk/admissions/international-qualifications",
+    "publisher": "The Hong Kong University of Science and Technology",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "HKUST's priority round closes on 25 November 2026. After that it considers applications on a rolling basis until 30 June 2027.",
+    "excerpt": "Deadline for Priority Round Applications […] Application on rolling basis from 26 Nov, 2026 onwards […] Application Closes",
+    "supports": [
+      { "entity": "hk-direct-2027", "field": "milestones" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "Dates are in a table beside the labels: 25 Nov 2026 and 30 Jun 2027." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-hk-cuhk-dates",
+    "sourceUrl": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+    "publisher": "The Chinese University of Hong Kong",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "CUHK's Advance Offer Round closes on 12 November 2026 and its Regular Round on 7 January 2027.",
+    "excerpt": "12 Nov 2026 Application Deadline for Advance Offer Round […] 7 Jan 2027 Application Deadline for Regular Round",
+    "supports": [
+      { "entity": "hk-direct-2027", "field": "milestones" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-hk-polyu-dates",
+    "sourceUrl": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+    "publisher": "The Hong Kong Polytechnic University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "PolyU's Early Round closes on 17 November 2026 and its Main Round on 11 February 2027. Later applications are considered on a rolling basis until 14 May 2027 if places remain.",
+    "excerpt": "KeyDates_International_2027-28_PolyU",
+    "interpretation": "The dates are published only inside a PNG (the excerpt is the image's name). The three dates were read from the image by an earlier Hong Kong pass and are held in the country profile. This pass confirmed that the page still serves only the image; it did not re-read the dates.",
+    "supports": [
+      { "entity": "hk-direct-2027", "field": "milestones" }
+    ],
+    "attestation": {
+      "by": "the Greece, China and Hong Kong floor pass",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "The timeline is an image with no text on the page, so an automated check will never confirm it. A person needs to read the image."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-hk-cityu-blocked",
+    "sourceUrl": "https://www.cityu.edu.hk/admo/application-period",
+    "publisher": "City University of Hong Kong",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "CityU's non-local application period for 2027 entry could not be read. The page serves an Imperva/Incapsula bot-block page to automated fetches.",
+    "interpretation": "The page is live, only blocked to automated fetches, so it is not 'unavailable'. No date is claimed in either direction.",
+    "supports": [
+      { "entity": "hk-direct-2027", "field": "milestones" }
+    ],
+    "attestation": {
+      "by": "the Greece, China and Hong Kong floor pass",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "curl and WebFetch both received the Incapsula block page on 2026-09-23. Needs a person with a normal browser."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-hk-hku-fees",
+    "sourceUrl": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses",
+    "publisher": "The University of Hong Kong",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "HKU's 2027/28 tuition for non-local students is HK$280,000 a year in STEM faculties and HK$250,000 in non-STEM faculties.",
+    "excerpt": "HK$ 280,000 […] HK$ 250,000",
+    "supports": [
+      { "entity": "hk", "field": "feeContext" }
+    ],
+    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  }
+]

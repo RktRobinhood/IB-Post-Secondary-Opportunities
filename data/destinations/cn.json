@@ -1,0 +1,120 @@
+{
+  "id": "cn",
+  "iso2": "cn",
+  "name": "China",
+  "adjective": "Chinese",
+  "scope": "worldwide",
+  "region": "East Asia",
+  "capital": "Beijing",
+  "currency": "CNY",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Joint universities in English, and a national test for everything else",
+  "summary": "China is two systems for a Danish IB student. The Sino-foreign joint universities, such as NYU Shanghai, Duke Kunshan and XJTLU, teach in English and admit on their own or the American calendar. The Chinese universities, such as Tsinghua, Peking and Zhejiang, admit international students through their own application-and-review process. Since 2026/2027 that process requires a new national test, the CSCA, and most of their programmes are taught in Chinese.",
+  "whyConsider": [
+    "Seven ministry-licensed joint universities teach in English and award a foreign partner's degree or a joint one.",
+    "China's leading universities admit international students directly, without the gaokao."
+  ],
+  "watchOuts": [
+    "NYU Shanghai and Duke Kunshan close in November and January, and Early Decision is binding.",
+    "From 2026/2027, anyone applying for a bachelor's degree at a Chinese university must sit the CSCA before applying. Register at csca.cn.",
+    "No two Chinese universities share a deadline, and some dates belong to a spring intake. Check which intake a date is for."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "Set per university. XJTLU states 30 points for Year Two entry.",
+    "notes": [
+      "The Chinese universities list IB results as supporting evidence alongside the CSCA and a language test."
+    ],
+    "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-zju-guide-2026"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Standard at the joint universities. Some programmes at the Chinese universities.",
+    "englishProof": "TOEFL or IELTS for English-taught programmes at the Chinese universities. The joint universities set their own rules.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Chinese-taught programmes require HSK."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "unknown",
+      "summary": "China has no EU category. No tuition figure was verified from an official page in this pass."
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Chinese higher education is split between regular universities (大学, 学院) and higher vocational colleges (职业技术学院). A separate group of Sino-foreign cooperative universities (中外合作大学) is licensed by the Ministry of Education. International students do not sit the gaokao; they apply to each university directly.",
+    "routes": [
+      {
+        "localName": "大学 (普通本科高校)",
+        "englishName": "Chinese university",
+        "kind": "research",
+        "what": "Tsinghua, Peking, Fudan, Shanghai Jiao Tong, Zhejiang and the rest. They admit international students by application and review (申请-审核), mostly into Chinese-taught programmes. The CSCA is required from 2026/2027.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "中外合作大学",
+        "englishName": "Sino-foreign joint university",
+        "kind": "research",
+        "what": "Licensed joint ventures with a foreign university: NYU Shanghai, Duke Kunshan, XJTLU, Nottingham Ningbo, CUHK-Shenzhen, Wenzhou-Kean and BNBU (formerly UIC). They teach in English and run Western-style admissions.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "职业技术学院 (高职)",
+        "englishName": "higher vocational college",
+        "kind": "applied",
+        "what": "Three-year vocational programmes (专科), below the bachelor's degree. Foreign guides never mention them.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Named so the route is visible. Whether they admit international students was not researched."
+      }
+    ],
+    "evidence": ["ev-cn-moe-sino-foreign", "ev-cn-csca-embassy"]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "cn-us-calendar",
+      "name": "NYU Shanghai and Duke Kunshan",
+      "kind": "sector",
+      "summary": "Joint universities that admit through the Common App on the American calendar, with binding Early Decision.",
+      "applicationRoute": "cn-common-app-2027",
+      "evidence": ["ev-cn-dku-dates", "ev-cn-nyush-apply"]
+    },
+    {
+      "id": "cn-joint",
+      "name": "Other Sino-foreign joint universities",
+      "kind": "sector",
+      "summary": "XJTLU, Nottingham Ningbo, CUHK-Shenzhen, BNBU and Wenzhou-Kean. Apply on each university's own portal, with deadlines running into May.",
+      "applicationRoute": "cn-joint-direct-2027",
+      "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-bnbu-periods"]
+    },
+    {
+      "id": "cn-national",
+      "name": "Chinese universities",
+      "kind": "sector",
+      "summary": "International undergraduate application and review, university by university. Requires the CSCA from 2026/2027.",
+      "applicationRoute": "cn-national-direct-2027",
+      "evidence": ["ev-cn-csca-embassy", "ev-cn-zju-guide-2026"]
+    }
+  ],
+  "applicationSystems": ["us-common-app"],
+  "evidence": ["ev-cn-moe-sino-foreign", "ev-cn-csca-embassy"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. Kept short on purpose; the country profile holds the longer research.",
+      "Not established: whether the joint universities require the CSCA; the 2027 guides of every Chinese university except Zhejiang's 2026 one; and any tuition figure."
+    ]
+  }
+}

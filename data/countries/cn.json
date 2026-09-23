@@ -111,16 +111,17 @@
       },
       {
         "label": "NYU Shanghai — Regular Decision",
-        "date": null,
-        "dateState": "not-published",
+        "date": "2027-01-05",
         "consequence": "hard",
-        "provisional": false,
+        "provisional": true,
         "year": "2027 entry",
-        "notes": "Not established, and the reason is ours. NYU Shanghai's Early Decision page gives both early dates and does not give the Regular Decision one, and NYU's university-wide first-year deadlines page at nyu.edu returns HTTP 405 Method Not Allowed to automated retrieval — the same refusal this project meets at Amherst — so it could not be read on 23 September 2026. NYU's Regular Decision date has for several cycles been 5 January and the same single Common Application covers New York, Abu Dhabi and Shanghai, but neither of those is a source and no date has been inferred from them here. What to do: open nyu.edu's first-year applicants page in a browser and read it off, or take the date from the Common App once NYU Shanghai is on your list. Do not assume it matches Duke Kunshan's 4 January.",
-        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision",
+        "notes": "Published on NYU Shanghai's How to Apply page as \"Regular Decision - January 5\", 11:59 p.m. EST, with no calendar year, so the year is read into this cycle and the entry is provisional. The Early Decision page leaves it out, which is why an earlier pass recorded it as not published. Read 23 September 2026.",
+        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply",
         "sources": [
           "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants.html"
-        ]
+        ],
+        "timeOfDay": "23:59",
+        "timeZone": "EST"
       },
       {
         "label": "Duke Kunshan University — Regular Decision acceptance deadline",
@@ -259,7 +260,8 @@
       ],
       "note": "China's most prestigious university and one of the strongest engineering schools in the world. International undergraduate admission is a separate process, but English-taught bachelor's provision is thin — most international undergraduates study in Chinese after a preparatory year.",
       "wikipedia": "https://en.wikipedia.org/wiki/Tsinghua_University",
-      "place": "cn-beijing"
+      "place": "cn-beijing",
+      "jurisdiction": "cn-national"
     },
     {
       "name": "Peking University",
@@ -279,7 +281,8 @@
       ],
       "note": "China's oldest modern university and its intellectual centre, on a classical lakeside campus. Be clear about what is on offer: Yenching is postgraduate and Yuanpei is Chinese-medium, so PKU is realistically a Mandarin-language destination.",
       "wikipedia": "https://en.wikipedia.org/wiki/Peking_University",
-      "place": "cn-beijing"
+      "place": "cn-beijing",
+      "jurisdiction": "cn-national"
     },
     {
       "name": "Fudan University",
@@ -299,7 +302,8 @@
       ],
       "note": "Shanghai's leading comprehensive university, traditionally the strongest in China for the humanities and social sciences alongside PKU. Its English-taught MBBS is one of the better-known English-medium medical degrees in Asia.",
       "wikipedia": "https://en.wikipedia.org/wiki/Fudan_University",
-      "place": "cn-shanghai"
+      "place": "cn-shanghai",
+      "jurisdiction": "cn-national"
     },
     {
       "name": "Shanghai Jiao Tong University",
@@ -319,7 +323,8 @@
       ],
       "note": "China's strongest engineering university after Tsinghua, and the institution that created the Academic Ranking of World Universities. Its joint institutes with Michigan and with ParisTech are the most internationally accessible parts.",
       "wikipedia": "https://en.wikipedia.org/wiki/Shanghai_Jiao_Tong_University",
-      "place": "cn-shanghai"
+      "place": "cn-shanghai",
+      "jurisdiction": "cn-national"
     },
     {
       "name": "NYU Shanghai",
@@ -338,7 +343,8 @@
         "Neuroscience"
       ],
       "note": "A full NYU campus in Pudong with a student body split roughly half Chinese and half international, from more than 70 countries, and semesters available across NYU's global network. Every student studies Mandarin. Deadlines follow the American calendar via the Common Application.",
-      "wikipedia": "https://en.wikipedia.org/wiki/NYU_Shanghai"
+      "wikipedia": "https://en.wikipedia.org/wiki/NYU_Shanghai",
+      "jurisdiction": "cn-us-calendar"
     },
     {
       "name": "Duke Kunshan University",
@@ -358,7 +364,8 @@
       ],
       "note": "The clearest English-taught route into China for a 2027 start: Early Decision 2 November 2026, Regular Decision 4 January 2027, acceptance by 1 May 2027. Test-optional, with merit scholarships, need-based aid and a full scholarship available. Between Shanghai and Suzhou on the high-speed line.",
       "wikipedia": "https://en.wikipedia.org/wiki/Duke_Kunshan_University",
-      "place": "cn-kunshan-jiangsu"
+      "place": "cn-kunshan-jiangsu",
+      "jurisdiction": "cn-us-calendar"
     },
     {
       "name": "Xi'an Jiaotong-Liverpool University",
@@ -377,7 +384,8 @@
         "Business and accounting"
       ],
       "note": "By far the widest English-taught undergraduate choice in mainland China, with a dual Chinese and British degree and 2+2 or 2+1+1 routes that let you finish in Liverpool. Suzhou is an hour from Shanghai and much cheaper. The most practical option here for most IB students.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Xi%27an_Jiaotong-Liverpool_University"
+      "wikipedia": "https://en.wikipedia.org/wiki/Xi%27an_Jiaotong-Liverpool_University",
+      "jurisdiction": "cn-joint"
     },
     {
       "name": "University of Nottingham Ningbo China",
@@ -397,7 +405,8 @@
       ],
       "note": "The first foreign university to open a full campus in China, in 2004, awarding the same Nottingham degree as the UK with the option to transfer to the Nottingham or Malaysia campus. Ningbo is a comfortable port city south of Shanghai.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nottingham_Ningbo_China",
-      "place": "cn-ningbo-zhejiang"
+      "place": "cn-ningbo-zhejiang",
+      "jurisdiction": "cn-joint"
     },
     {
       "name": "The Chinese University of Hong Kong, Shenzhen",
@@ -416,16 +425,17 @@
         "Music"
       ],
       "note": "A full mainland campus of the Hong Kong university, awarding the CUHK degree, in Shenzhen — China's technology capital and thirty minutes from Hong Kong. Residential college system on the Hong Kong model.",
-      "wikipedia": "https://en.wikipedia.org/wiki/The_Chinese_University_of_Hong_Kong,_Shenzhen"
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Chinese_University_of_Hong_Kong,_Shenzhen",
+      "jurisdiction": "cn-joint"
     },
     {
-      "name": "BNU-HKBU United International College",
+      "name": "Beijing Normal-Hong Kong Baptist University",
       "shortName": "UIC Zhuhai",
       "city": "Zhuhai, Guangdong",
       "type": "Research university",
       "founded": 2005,
-      "website": "https://uic.edu.cn/en/",
-      "admissionsUrl": "https://admissions.uic.edu.cn/",
+      "website": "https://www.bnbu.edu.cn/en/",
+      "admissionsUrl": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
       "ibPageUrl": null,
       "englishBachelors": "All programmes, taught entirely in English, in a whole-person liberal arts model: business, culture and creativity, humanities and social science, science and technology.",
       "notableFields": [
@@ -435,7 +445,8 @@
         "Statistics"
       ],
       "note": "The first full-scale joint-venture liberal arts college in mainland China, founded by Beijing Normal and Hong Kong Baptist universities. Small, English-medium, residential, and in Zhuhai next to Macau — substantially cheaper than the Shanghai options.",
-      "wikipedia": "https://en.wikipedia.org/wiki/BNU-HKBU_United_International_College"
+      "wikipedia": "https://en.wikipedia.org/wiki/BNU-HKBU_United_International_College",
+      "jurisdiction": "cn-joint"
     },
     {
       "name": "Wenzhou-Kean University",
@@ -454,7 +465,8 @@
         "Psychology"
       ],
       "note": "An American public university's full Chinese campus, awarding the US degree, with small classes and an American curriculum. Considerably cheaper and less selective than NYU Shanghai or Duke Kunshan, and a genuine route to a US qualification.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Wenzhou-Kean_University"
+      "wikipedia": "https://en.wikipedia.org/wiki/Wenzhou-Kean_University",
+      "jurisdiction": "cn-joint"
     },
     {
       "name": "Zhejiang University",
@@ -474,7 +486,8 @@
       ],
       "note": "One of China's top five universities, in Hangzhou — Alibaba's home city. Its International Campus at Haining, with Edinburgh and Illinois, is the English-taught entry point and awards dual degrees.",
       "wikipedia": "https://en.wikipedia.org/wiki/Zhejiang_University",
-      "place": "cn-hangzhou"
+      "place": "cn-hangzhou",
+      "jurisdiction": "cn-national"
     },
     {
       "name": "Tongji University",
@@ -494,7 +507,8 @@
       ],
       "note": "Founded as a German-Chinese medical school and still the most German-connected university in China, with Sino-German institutes and exchange routes. The strongest Chinese university for architecture and civil engineering.",
       "wikipedia": "https://en.wikipedia.org/wiki/Tongji_University",
-      "place": "cn-shanghai"
+      "place": "cn-shanghai",
+      "jurisdiction": "cn-national"
     },
     {
       "name": "Sun Yat-sen University",
@@ -514,7 +528,8 @@
       ],
       "note": "Southern China's leading comprehensive university, across three cities in the Pearl River Delta, with particular strength in medicine and marine science. Chinese-medium for most purposes.",
       "wikipedia": "https://en.wikipedia.org/wiki/Sun_Yat-sen_University",
-      "place": "cn-guangzhou"
+      "place": "cn-guangzhou",
+      "jurisdiction": "cn-national"
     }
   ],
   "sources": [
@@ -541,6 +556,16 @@
     {
       "title": "Campus China (China Scholarship Council) — checked 2026-09-23 and the domain no longer resolves (NXDOMAIN); retained so that nobody re-adds it as a source",
       "url": "https://dk.china-embassy.gov.cn/eng/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Tsinghua University - Admissions",
+      "url": "https://www.tsinghua.edu.cn/en/Admissions.htm",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "BNBU International Development Office - FAQs (application periods)",
+      "url": "https://ido.bnbu.edu.cn/en/info/1006/1019.htm",
       "retrieved": "2026-09-23"
     }
   ],

@@ -34,7 +34,7 @@
     "gradeConversion": null,
     "notes": [
       "The English-taught programmes accept the IB Diploma directly as a school-leaving qualification - you do not sit the Panhellenic examinations for them.",
-      "Admission to Greek-taught public programmes is controlled by the Ministry of Education, which, in the words of Aristotle University, 'accepts and processes all entry applications'. There is a separate quota route for foreign nationals, but its rules, deadlines and whether EU citizens are covered could not be verified from an official page on 2026-09-22.",
+      "Admission to Greek-taught public programmes is controlled by the Ministry of Education. A graduate of a school in an EU member state, with at least one parent not of Greek descent, applies through the ministry's foreign-nationals special category (sub-category B1) in its eight-day July window, and must show a B2 Greek certificate to enrol. Source: ministry circular Φ.152/117735/Α5 of 9 September 2026, read 2026-09-23.",
       "Whether DOATAP or another recognition step is required for an IB Diploma was not confirmed on the pages read."
     ]
   },
@@ -178,7 +178,8 @@
       ],
       "note": "The oldest university in Greece and the only one with a real English-taught undergraduate offering - the MD at EUR 17,000 a year and the Ancient Greece BA at EUR 6,000.",
       "wikipedia": "https://en.wikipedia.org/wiki/National_and_Kapodistrian_University_of_Athens",
-      "place": "gr-athens"
+      "place": "gr-athens",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "Aristotle University of Thessaloniki",
@@ -198,7 +199,8 @@
       ],
       "note": "The largest university in Greece and in the Balkans, but admission runs through the Ministry of Education and teaching is in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/Aristotle_University_of_Thessaloniki",
-      "place": "gr-thessaloniki"
+      "place": "gr-thessaloniki",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "University of Crete",
@@ -218,7 +220,8 @@
       ],
       "note": "Research-strong, especially in physics and the life sciences through its links with FORTH, but bachelor teaching is in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Crete",
-      "place": "gr-rethymno-and-heraklion"
+      "place": "gr-rethymno-and-heraklion",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "National Technical University of Athens",
@@ -238,7 +241,8 @@
       ],
       "note": "Greece's leading engineering school, with five-year integrated diploma degrees - but taught in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/National_Technical_University_of_Athens",
-      "place": "gr-athens"
+      "place": "gr-athens",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "Athens University of Economics and Business",
@@ -258,7 +262,8 @@
       ],
       "note": "The main economics and business university in Greece, with a strong research reputation in economics.",
       "wikipedia": "https://en.wikipedia.org/wiki/Athens_University_of_Economics_and_Business",
-      "place": "gr-athens"
+      "place": "gr-athens",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "International Hellenic University",
@@ -278,7 +283,8 @@
       ],
       "note": "The name promises more than the undergraduate reality - the English teaching here is at master's level, through its University Center for International Study Programs.",
       "wikipedia": "https://en.wikipedia.org/wiki/International_Hellenic_University",
-      "place": "gr-thessaloniki"
+      "place": "gr-thessaloniki",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "University of the Aegean",
@@ -298,7 +304,8 @@
       ],
       "note": "Spread across six Aegean islands, which is unusual and appealing, but teaching is in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Aegean",
-      "place": "gr-mytilene"
+      "place": "gr-mytilene",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "University of Patras",
@@ -318,7 +325,8 @@
       ],
       "note": "A large research university in the Peloponnese, strongest in engineering and computer engineering.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Patras",
-      "place": "gr-patras"
+      "place": "gr-patras",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "University of Ioannina",
@@ -338,7 +346,8 @@
       ],
       "note": "In the mountains of Epirus, with a well-regarded medical school and a very low cost of living.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Ioannina",
-      "place": "gr-ioannina"
+      "place": "gr-ioannina",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "The American College of Greece (Deree)",
@@ -358,7 +367,8 @@
       ],
       "note": "Private, American-accredited (NEASC) and entirely English-taught, with separate admission tracks for Greek, EU, North American and other applicants; tuition was not published on the pages read.",
       "wikipedia": "https://en.wikipedia.org/wiki/American_College_of_Greece",
-      "place": "gr-athens"
+      "place": "gr-athens",
+      "jurisdiction": "gr-private"
     },
     {
       "name": "Athens School of Fine Arts",
@@ -378,7 +388,8 @@
       ],
       "note": "Greece's national art school, with entry by portfolio and entrance examination, taught in Greek.",
       "wikipedia": "https://en.wikipedia.org/wiki/Athens_School_of_Fine_Arts",
-      "place": "gr-athens"
+      "place": "gr-athens",
+      "jurisdiction": "gr-public"
     },
     {
       "name": "University of Piraeus",
@@ -398,7 +409,8 @@
       ],
       "note": "Known above all for maritime studies and shipping, which fits the port city it sits in.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Piraeus",
-      "place": "gr-piraeus"
+      "place": "gr-piraeus",
+      "jurisdiction": "gr-public"
     }
   ],
   "sources": [
@@ -466,6 +478,11 @@
       "title": "Founding years and institution types are taken from the English Wikipedia article linked in each institution's wikipedia field, not from a fetched university page.",
       "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Greece",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Ministry of Education - announcements for foreign nationals (αλλοδαποί-αλλογενείς)",
+      "url": "https://www.minedu.gov.gr/allogeneis-m/anakoinwseis-allodapoi",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

@@ -1,0 +1,70 @@
+{
+  "id": "gr-minedu-foreign-2027",
+  "destination": "gr",
+  "jurisdiction": "gr-public",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "Greek-taught places at a public university: the ministry's foreign-nationals route, 2027",
+  "channel": "application-system",
+  "portalUrl": "https://exams-foreigner.it.minedu.gov.gr",
+  "readerAccess": {
+    "state": "conditional",
+    "reason": "Only if at least one parent is not of Greek descent, and you cannot enrol without a B2 Greek certificate.",
+    "evidence": ["ev-gr-minedu-enrolment-2026"]
+  },
+  "milestones": [
+    {
+      "id": "ms-gr-minedu-window",
+      "type": "submit",
+      "label": "Ministry application window (eight days)",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 it ran 2 to 9 July, with documents by courier on 10 July. The ministry announces it a day or so before it opens; watch minedu.gov.gr from late June 2027.",
+      "evidence": ["ev-gr-minedu-foreign-window-2026"]
+    },
+    {
+      "id": "ms-gr-minedu-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "ibCalendar": "2027-05/results-day",
+      "evidence": ["ev-ib-results-day-2027-05"]
+    },
+    {
+      "id": "ms-gr-minedu-enrol",
+      "type": "enrolment",
+      "label": "Enrolment at the department, with the B2 Greek certificate",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 enrolment ran 11 to 25 September.",
+      "evidence": ["ev-gr-minedu-enrolment-2026"]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-gr-minedu-greek-b2",
+      "label": "Greek language certificate at B2",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "dueMilestone": "ms-gr-minedu-enrol",
+      "note": "From the University of Athens, the University of Thessaloniki or the Centre for the Greek Language. Without it you enrol a year later, or lose the place.",
+      "evidence": ["ev-gr-minedu-enrolment-2026"]
+    }
+  ],
+  "supplementarySteps": [
+    "This is the route into Greek-taught programmes, not English-taught ones. For those, apply to the programme directly.",
+    "Have every document and its official Greek translation ready in June. The window is eight days and falls in IB results week."
+  ],
+  "evidence": ["ev-gr-minedu-foreign-window-2026", "ev-gr-minedu-enrolment-2026"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-06-15",
+    "notes": [
+      "The ministry's circular files a graduate of an EU-member-state school under category B1 of the same special category as non-EU foreign nationals. The Panhellenic exams are not the route.",
+      "Not established: how an IB applicant is ranked for a place, and whether the Athens School of Fine Arts takes applicants through this route."
+    ]
+  }
+}

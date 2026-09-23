@@ -1,0 +1,108 @@
+{
+  "id": "hk",
+  "iso2": "hk",
+  "name": "Hong Kong",
+  "adjective": "Hong Kong",
+  "scope": "worldwide",
+  "region": "East Asia",
+  "capital": "Hong Kong",
+  "currency": "HKD",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "English-taught, IB-literate, and the early rounds close in November",
+  "summary": "Hong Kong's universities teach in English and read the IB directly. A Danish student is a non-local applicant: you apply to each university on its own site, not through JUPAS. The early rounds close in November 2026, on predicted grades. Fees are high, about HK$250,000 to 280,000 a year at HKU.",
+  "whyConsider": [
+    "HKU, CUHK and HKUST teach in English and take the IB as a standard qualification.",
+    "Several universities keep applications open after IB results day. HKU closes on 25 August 2027."
+  ],
+  "watchOuts": [
+    "The first rounds close from 12 November 2026 (CUHK) to 25 November (HKU, HKUST). Most places are decided there, on predicted grades.",
+    "Each university is a separate application, with its own fee and its own dates.",
+    "CityU's admissions pages block automated reading, so its dates are not recorded here. Check them yourself."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "Set per university and programme.",
+    "notes": [
+      "Offers made on predicted grades are conditional on the final diploma."
+    ],
+    "evidence": ["ev-hk-hku-dates"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Most programmes at the main universities.",
+    "englishProof": "The IB is normally accepted. Check each university.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "Hong Kong has no EU category. A Danish student is non-local and pays the non-local fee.",
+      "evidence": ["ev-hk-hku-fees"]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "HKU 2027/28: HK$280,000 a year in STEM faculties and HK$250,000 in the others.",
+      "priceYear": "2027/28",
+      "evidence": ["ev-hk-hku-fees"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Eight universities are funded by the University Grants Committee (UGC). Beside them are the Academy for Performing Arts, which is publicly funded outside the UGC, and a group of self-financing universities. Below degree level, associate degrees and higher diplomas are a large route of their own.",
+    "routes": [
+      {
+        "localName": "UGC-funded university",
+        "englishName": "publicly funded university",
+        "kind": "research",
+        "what": "HKU, CUHK, HKUST, PolyU, CityU, HKBU, Lingnan and EdUHK. These are the universities most students mean by Hong Kong. Each admits non-local students directly, on its own dates.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "The Hong Kong Academy for Performing Arts",
+        "englishName": "performing arts academy",
+        "kind": "specialist",
+        "what": "Degrees in dance, drama, music, film and theatre production. Admission is by audition or portfolio.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Its admissions pages were not read in detail."
+      },
+      {
+        "localName": "self-financing university",
+        "englishName": "self-financing degree institution",
+        "kind": "applied",
+        "what": "Hang Seng University, Metropolitan University, Shue Yan University and THEi. Degree-awarding, without recurrent government funding, and more career-focused than the UGC eight.",
+        "ibAccessible": "unknown",
+        "englishTaught": "some",
+        "note": "Their entry for non-local IB students was not researched."
+      },
+      {
+        "localName": "associate degree / higher diploma",
+        "englishName": "sub-degree programme",
+        "kind": "college",
+        "what": "Two-year programmes at community colleges and institution-linked schools. Many Hong Kong students use them to top up into a degree later. This is the route foreign guides never mention.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Named so the route is visible. Not researched."
+      }
+    ],
+    "evidence": ["ev-hk-ugc-funded"]
+  },
+  "institutionGrouping": "none",
+  "evidence": ["ev-hk-ugc-funded", "ev-hk-hku-dates"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. One direct route covers every institution because every one of them admits non-local students directly.",
+      "Not established: CityU's dates (the site blocks bots), and the dates at HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities. The Concourse site (cspe.edu.hk) renders its institution list in JavaScript and serves a broken TLS chain."
+    ]
+  }
+}

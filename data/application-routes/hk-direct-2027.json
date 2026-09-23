@@ -1,0 +1,35 @@
+{
+  "id": "hk-direct-2027",
+  "destination": "hk",
+  "intake": "2027-autumn",
+  "applicantGroup": "non-eu",
+  "label": "Applying direct to a Hong Kong university as a non-local student (non-JUPAS), 2027",
+  "channel": "direct",
+  "portalUrl": "https://admissions.hku.hk/apply/international-qualifications",
+  "milestones": [
+    { "id": "ms-hk-cuhk-advance", "type": "submit", "label": "CUHK Advance Offer Round closes", "date": "2026-11-12", "consequence": "priority", "note": "If you miss it, the same application goes into the Regular Round.", "evidence": ["ev-hk-cuhk-dates"] },
+    { "id": "ms-hk-polyu-early", "type": "submit", "label": "PolyU Early Round closes", "date": "2026-11-17", "consequence": "priority", "evidence": ["ev-hk-polyu-dates"] },
+    { "id": "ms-hk-hku-first", "type": "submit", "label": "HKU first round closes", "date": "2026-11-25", "timeOfDay": "12:00", "timeZone": "HKT", "consequence": "priority", "evidence": ["ev-hk-hku-dates"] },
+    { "id": "ms-hk-hkust-priority", "type": "submit", "label": "HKUST priority round closes", "date": "2026-11-25", "consequence": "priority", "note": "Rolling from 26 November.", "evidence": ["ev-hk-hkust-dates"] },
+    { "id": "ms-hk-cuhk-regular", "type": "submit", "label": "CUHK Regular Round closes", "date": "2027-01-07", "consequence": "hard", "evidence": ["ev-hk-cuhk-dates"] },
+    { "id": "ms-hk-polyu-main", "type": "submit", "label": "PolyU Main Round closes", "date": "2027-02-11", "consequence": "priority", "note": "Rolling until 14 May 2027 if places remain.", "evidence": ["ev-hk-polyu-dates"] },
+    { "id": "ms-hk-hkust-close", "type": "submit", "label": "HKUST applications close", "date": "2027-06-30", "consequence": "hard", "evidence": ["ev-hk-hkust-dates"] },
+    { "id": "ms-hk-ib-results", "type": "result", "label": "IB results released", "date": "2027-07-06", "consequence": "indicative", "provisional": true, "ibCalendar": "2027-05/results-day", "evidence": ["ev-ib-results-day-2027-05"] },
+    { "id": "ms-hk-hku-final", "type": "submit", "label": "HKU applications close", "date": "2027-08-25", "timeOfDay": "12:00", "timeZone": "HKT", "consequence": "hard", "evidence": ["ev-hk-hku-dates"] },
+    { "id": "ms-hk-cityu", "type": "submit", "label": "CityU non-local application period", "dateState": "not-published", "consequence": "hard", "note": "CityU's page blocks automated reading. Open it in a normal browser.", "evidence": ["ev-hk-cityu-blocked"] },
+    { "id": "ms-hk-others", "type": "submit", "label": "Other universities", "dateState": "varies-by-institution", "consequence": "hard", "note": "HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities each set their own dates. Not researched here." }
+  ],
+  "supplementarySteps": [
+    "Apply to each university on its own site, under international or non-local qualifications. JUPAS is the system for Hong Kong DSE students and is not yours.",
+    "Apply by the November rounds. The early rounds decide on predicted grades, and offers are conditional on the final diploma."
+  ],
+  "evidence": ["ev-hk-hku-dates", "ev-hk-hkust-dates", "ev-hk-cuhk-dates", "ev-hk-polyu-dates", "ev-hk-cityu-blocked"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "The applicant group is non-eu because Hong Kong's categories are local and non-local. A Danish student is non-local, and EU status plays no part."
+    ]
+  }
+}

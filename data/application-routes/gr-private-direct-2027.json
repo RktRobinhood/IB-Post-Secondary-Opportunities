@@ -1,0 +1,26 @@
+{
+  "id": "gr-private-direct-2027",
+  "destination": "gr",
+  "jurisdiction": "gr-private",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Private colleges in Greece: apply to the college, 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.acg.edu/admissions/undergraduate-admissions/",
+  "milestones": [
+    {
+      "id": "ms-gr-priv-acg",
+      "type": "submit",
+      "label": "American College of Greece: Fall 2027 applications",
+      "dateState": "not-published",
+      "consequence": "rolling",
+      "note": "ACG publishes no Fall 2027 deadline and refers to late admissions.",
+      "evidence": ["ev-gr-acg-admissions"]
+    }
+  ],
+  "supplementarySteps": [
+    "Check whose degree you will hold. ACG's degrees carry US (NEASC) accreditation and Open University UK validation, not a Greek state degree."
+  ],
+  "evidence": ["ev-gr-acg-admissions"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-02-01" }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "cn-joint-direct-2027",
+  "destination": "cn",
+  "jurisdiction": "cn-joint",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Sino-foreign joint universities: apply on the university's own portal, 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
+  "milestones": [
+    { "id": "ms-cn-jv-bnbu-p1", "type": "submit", "label": "BNBU application period I", "date": "2026-09-01", "endDate": "2026-12-31", "consequence": "priority", "provisional": true, "note": "BNBU prints its periods without a year.", "evidence": ["ev-cn-bnbu-periods"] },
+    { "id": "ms-cn-jv-bnbu-p2", "type": "submit", "label": "BNBU application period II", "date": "2027-02-10", "endDate": "2027-05-15", "consequence": "hard", "provisional": true, "evidence": ["ev-cn-bnbu-periods"] },
+    { "id": "ms-cn-jv-xjtlu", "type": "submit", "label": "XJTLU applications close (most programmes)", "date": "2027-05-31", "consequence": "hard", "evidence": ["ev-cn-xjtlu-deadline"] },
+    { "id": "ms-cn-jv-others", "type": "submit", "label": "UNNC, CUHK-Shenzhen and Wenzhou-Kean", "dateState": "varies-by-institution", "consequence": "hard", "note": "Each sets its own dates. Not read in this pass." }
+  ],
+  "supplementarySteps": [
+    "These universities teach in English and award a foreign partner's degree, or a joint one. Apply on each university's own site."
+  ],
+  "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-bnbu-periods", "ev-cn-moe-sino-foreign"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-12-01" }
+}
