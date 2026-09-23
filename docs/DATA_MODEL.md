@@ -115,6 +115,74 @@ Application Milestones should support exact date-time values, date-only values, 
 
 Application Plans are derived, student-controlled data. Shared portal actions and Deadlines should deduplicate across Opportunities without erasing Programme-specific supplementary steps. A status marked locally never represents external submission or receipt.
 
+### One shape for every dated thing
+
+`src/lib/calendar.mjs` is the only place that reads a date. It normalises both
+shapes we hold — a country profile's `application.deadlines[]` and an
+Application Route's `rounds[]` and `milestones[]` — into one dated event, so a
+page never knows or cares which it is looking at.
+
+That seam exists because there used to be no seam. `/timeline/` held a
+hand-typed array of eighteen events duplicating a hand-picked subset of the
+country pages' facts, with no source and no Verification State, and it could
+drift from them with nothing to catch it.
+
+Five rules the model enforces, and one it refuses:
+
+| | |
+|---|---|
+| A date is a date | ISO, or absent. `Date.parse` will read "15 January 2027" and also "Mid-January 2027", and a model that accepts the second is not a model |
+| An absence says why | `not-published` (we looked, it was not there) and `no-central-deadline` (there is no such date) are opposite findings and must never render alike |
+| A period has two ends | `date` and `endDate` |
+| A time of day is as published | 12:00 and 23:59 are different promises; neither is silently converted |
+| Several events are several events | One entry per thing that happens |
+
+It refuses to lose a date it cannot parse. An unmigrated string comes through as
+`legacyDate` and is rendered as written — visibly neither a real date nor a
+declared absence.
+
+`consequence` carries what missing the date costs. This is not a nicety: UCAS
+publishes an *equal consideration* date, not a deadline, and rendering the two
+identically frightens students off applying at all in one direction and costs
+them a place in the other.
+
+### Application Jurisdictions live on their Destination
+
+This diverges from the folder layout at the end of this document, which lists
+`application-jurisdictions/` as its own collection. They are a field on the
+Destination record instead.
+
+A jurisdiction has no independent lifecycle. It is never read without its
+Destination, never referenced from outside it, never has its own evidence
+review, and never outlives it. Splitting it out would have bought a second file
+to keep in sync and a second cross-reference to validate, in exchange for
+nothing a reader or a script wanted. Routes and Institutions point *at* a
+jurisdiction by id, which is the direction that actually needed decoupling.
+
+The model in `src/lib/jurisdictions.mjs` contains no country name, and
+`scripts/test-jurisdictions.mjs` reads the file back off disk to keep it that
+way. Two distinctions it will hold a record to:
+
+- **Declaring one group is a finding. Declaring nothing is not.** A country that
+  is genuinely one admissions system says `"institutionGrouping": "none"`.
+- **"Apply directly" is a route**, with `"channel": "direct"`. Having no route
+  recorded means nobody has looked.
+
+### The publication floor
+
+`src/lib/publication-floor.mjs` defines when a Destination is finished, and
+`npm run floor` enforces it. Five checks: `sector`, `evidence`, `route`,
+`dates`, `institutions`.
+
+Two properties matter more than where the line sits.
+
+**It is computed, never asserted.** No field exists in which a record could
+claim to be finished. **And publishing is an act that commits you**: a
+Destination is published the moment someone writes its canonical record in
+`data/destinations/`, and from that moment the guard holds it to every other
+check. The cost of a half-finished Destination is a failing test rather than a
+page that quietly looks as authoritative as Denmark's.
+
 ## Geographic and media data
 
 Map behavior requires reliable coordinates at the right level: campus when verified, otherwise institution or city. Record `coordinatePrecision` so a city-centre fallback is never presented as an exact campus location.
