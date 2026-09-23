@@ -231,6 +231,50 @@ A field that is legal to write and does nothing produces no error. It produces
 a workaround, repeated by everyone who meets it, each assuming they misread the
 schema. Fixed in `8c069ae`.
 
+### ~~A route the reader cannot take looks like a route with a date~~ — filed as #35
+
+**Hit by three of the four deadline passes independently, and the most
+repeated shape across five countries.** Korea's GKS Embassy Track invites 74
+countries and Denmark is not one of them; Japan's MEXT undergraduate
+scholarship is not offered to Danish nationals at all. Both had to be smuggled
+into `notes` across six fields apiece, and both still render as a date with a
+deadline badge.
+
+This is the failure mode with the worst consequence on the site. A wrong date
+costs a student a round. A route they were never eligible for costs them the
+months they spent preparing for it.
+
+### ~~IB results day is one fact stored 61 times~~ — filed as #36
+
+61 occurrences across 41 files, 22 of them route milestones with the identical
+label. Unsourced everywhere, because `ibo.org` refuses both automated fetch and
+a browser. It had already drifted once — `au.json` said 5–6 July where
+everything else said 6 July, and 5 July is coordinator access, not results day.
+
+### No field for "this source cannot be machine-read, and here is why"
+
+Three distinct modes turned up in a single pass and the data cannot tell them
+apart, or tell any of them from lazy research: a bot wall (`ibo.org`,
+`mur.gov.it`, CityU behind Imperva), a timeline published **as a PNG** (PolyU),
+and text that exists only in an embedded JSON payload and not in the DOM
+(Heriot-Watt Dubai). Each was read successfully by a person or by hand; each
+will report `partial` from `npm run verify` forever, indistinguishable from a
+record nobody checked.
+
+### A deadline with a rolling tail has no shape
+
+PolyU's main round closes 11 February 2027 and applications are then considered
+"on a rolling basis till 14 May 2027". That is a deadline plus a grace period.
+`date` and `endDate` mean a window, and a window is not what this is.
+
+### `targetIntake` is one string per country, and the calendar falls back to it
+
+`calendar.mjs` uses `intake: clean(entry.year) || country.targetIntake`, so a
+free-text sentence can render as an intake label. Korea needs three intakes at
+once — March 2027 gone, September 2027, March 2028 — and the record currently
+works only because somebody rewrote a free-text field into a paragraph.
+Australia and Japan want the same correction.
+
 ### A window can only carry one time of day
 
 `timeOfDay` attaches to the entry, not to `date` or `endDate`, so an entry
