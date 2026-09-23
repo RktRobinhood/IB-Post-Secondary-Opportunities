@@ -345,6 +345,91 @@
         }
       },
       "additionalProperties": false
+    },
+    "institutionGrouping": {
+      "enum": [
+        "none",
+        "jurisdiction",
+        "sector",
+        "city"
+      ],
+      "description": "How this Destination’s institutions divide for the purpose of applying. Declared rather than inferred: an undeclared Destination renders as one unit, which is right for a centralised system and is also what a Destination nobody has examined yet looks like — src/lib/jurisdictions.mjs keeps those two apart."
+    },
+    "jurisdictions": {
+      "type": "array",
+      "description": "The Application Jurisdictions inside this Destination — the administrative areas whose shared admissions rules or services apply. Needed wherever the country is not the unit that decides how you apply: a student picking Toronto and a student picking Vancouver are on two different paths with different dates.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "name": {
+            "type": "string",
+            "description": "As the student will meet it: Ontario, Bavaria, Scotland."
+          },
+          "kind": {
+            "enum": [
+              "province",
+              "state",
+              "territory",
+              "region",
+              "canton",
+              "nation",
+              "sector",
+              "authority"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 600
+          },
+          "applicationRoute": {
+            "$ref": "common.schema.json#/$defs/id",
+            "description": "The Application Route these institutions apply through. Omit where none is recorded — that is a different thing from applying directly, which is itself a route."
+          },
+          "variations": {
+            "type": "array",
+            "description": "What differs here from the rest of the Destination, structured rather than buried in a note. Cost, health cover and deadlines are the three that actually vary by jurisdiction and the three a reader currently has to disentangle from prose.",
+            "items": {
+              "type": "object",
+              "required": [
+                "field",
+                "summary"
+              ],
+              "properties": {
+                "field": {
+                  "type": "string",
+                  "description": "What varies: costs, healthcare, deadlines, workRights."
+                },
+                "label": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string",
+                  "maxLength": 600
+                },
+                "source": {
+                  "$ref": "common.schema.json#/$defs/url"
+                },
+                "evidence": {
+                  "$ref": "common.schema.json#/$defs/evidenceRefs"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "additionalProperties": false
