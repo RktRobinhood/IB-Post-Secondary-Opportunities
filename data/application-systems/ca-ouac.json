@@ -1,0 +1,45 @@
+{
+  "id": "ca-ouac",
+  "name": "Ontario Universities' Application Centre",
+  "localName": "OUAC",
+  "jurisdiction": {
+    "authorityType": "state-province",
+    "destination": "ca",
+    "authority": "Ontario Universities' Application Centre, a division of the Council of Ontario Universities",
+    "area": "Ontario"
+  },
+  "portalUrl": "https://www.ouac.on.ca/guide/105-guide/",
+  "coverage": {
+    "extent": "comprehensive",
+    "includes": "Undergraduate admission to Ontario's publicly assisted universities, including the six listed in this Destination. Every Ontario university in this record applies through it.",
+    "excludes": "Ontario's 24 public colleges, which apply through ontariocolleges.ca instead, and consecutive Bachelor of Education and Common Law programmes, which have separate OUAC services. It covers one province, not the country: an applicant to Montreal, Vancouver, Edmonton or Halifax has no business here."
+  },
+  "choiceRules": {
+    "limit": 3,
+    "ranked": false,
+    "offersReceived": "many",
+    "note": "The limit of three is per university, not overall. You may apply to as many Ontario universities as you like and to at most three programmes at any one of them, and the choices are not ranked against each other - each is decided on its own. The rationing is by money rather than by number: the base fee covers three choices in total, each further choice costs more, and a Group B applicant also pays a document evaluation fee to every separate university."
+  },
+  "identityRequirement": "An OUAC account. No national digital identity is involved, which makes this one of the easier portals in this collection to get into from abroad.",
+  "fee": {
+    "amount": 159,
+    "currency": "CAD",
+    "period": "once",
+    "note": "Base fee for the first three programme choices; CAD 51 for each further choice. Document evaluation fees, charged once per university to Group B applicants, are additional and range from CAD 25 to CAD 200 - CAD 98 at Toronto, CAD 95 at Queen's, Waterloo and McMaster, CAD 93 at Ottawa and CAD 125 at Western."
+  },
+  "decisionModel": "Each university decides each choice on its own against its own published requirements, and offers are released in rounds from late January through May. There is no provincial ranking, no quota shared between universities and no allocation: two universities can both admit you, or neither.",
+  "replyModel": "Set by each university in its offer letter rather than by the OUAC. The OUAC's own published response dates - a response by 28 May and no financial commitment required before 1 June - bind universities in respect of Group A applicants only, and a student applying from outside Ontario is Group B.",
+  "evidence": [
+    "ev-ouac-groups-2027",
+    "ev-ouac-dates-2027",
+    "ev-ouac-fees-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "The OUAC returns HTTP 403 to automated fetches and to WebFetch. Every OUAC page cited here was read in a browser; a link checker will report these sources as dead and they are not."
+    ]
+  }
+}

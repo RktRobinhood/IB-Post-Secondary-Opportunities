@@ -1,0 +1,109 @@
+{
+  "id": "au-direct-2027",
+  "destination": "au",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to an Australian university",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-intake-choice",
+      "type": "personal",
+      "label": "Decide between a July 2027 and a February 2028 start",
+      "date": "2026-11-01",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Not a deadline anyone publishes, and the decision everything else hangs on. Australia's main intake starts in late February, so a May 2027 IB session leads either to a mid-year July 2027 start - if that degree admits mid-year, and many do not - or to February 2028, eight months later. The date here is a suggestion, set early enough to still change your mind.",
+      "evidence": []
+    },
+    {
+      "id": "ms-apply",
+      "type": "submit",
+      "label": "Each university's own closing date",
+      "consequence": "hard",
+      "note": "There is no national date and no national portal for a direct application. Each university publishes its own closing date for international applicants, per intake and sometimes per degree, and missing it closes that university for that intake. No date is recorded here because recording one would mean choosing a university's date and applying it to thirteen others.",
+      "evidence": [
+        "ev-uac-international-ib-eligible",
+        "ev-vtac-international-eligibility"
+      ]
+    },
+    {
+      "id": "ms-coe",
+      "type": "enrolment",
+      "label": "Accept the offer and wait for the Confirmation of Enrolment",
+      "consequence": "personal",
+      "note": "Accepting is not the end of it. The university issues a Confirmation of Enrolment after you accept and pay, usually alongside Overseas Student Health Cover, and the CoE is what the visa application needs. It must still be valid on the day Home Affairs decides the visa.",
+      "evidence": [
+        "ev-homeaffairs-student-500"
+      ]
+    },
+    {
+      "id": "ms-funds",
+      "type": "document",
+      "label": "Assemble the financial evidence before you need it",
+      "consequence": "personal",
+      "note": "AUD 29,710 of living costs for twelve months, plus the first twelve months of the actual course fee, plus about AUD 2,000 of travel from Europe - or, instead of savings, a parent's or partner's documented annual income of at least AUD 87,856, evidenced by official tax documents rather than bank statements. Gathering tax documents from a Danish parent takes longer than gathering a bank statement.",
+      "evidence": [
+        "ev-homeaffairs-student-500"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-transcripts",
+      "label": "Predicted IB grades and school transcripts",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "Each university's international admissions office",
+      "note": "Sent once per university, because there is no shared system here. What each one wants, and in what form, is set by that university.",
+      "evidence": []
+    },
+    {
+      "id": "si-oshc",
+      "label": "Overseas Student Health Cover for the whole length of the visa",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "An Australian approved insurer, usually arranged through the university when you accept",
+      "dueMilestone": "ms-coe",
+      "note": "A visa condition, not a university one, and charged separately from tuition. The EHIC and the Danish yellow card are not valid in Australia.",
+      "evidence": [
+        "ev-homeaffairs-student-500"
+      ]
+    },
+    {
+      "id": "si-cricos",
+      "label": "A course registered on CRICOS",
+      "itemType": "action",
+      "responsibleParty": "student",
+      "destinationOfItem": "Checked by the applicant before applying, on the Commonwealth Register of Institutions and Courses for Overseas Students",
+      "note": "Home Affairs requires enrolment in a full-time CRICOS-registered course. A course that is not on the register cannot carry a student visa, whatever else it is - which is the check to run before falling in love with a private provider's programme.",
+      "evidence": [
+        "ev-homeaffairs-student-500"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Convert your predicted IB total to a Combined Rank first. Australian degree pages publish the rank they want, and some publish a guaranteed-entry rank, which turns the whole question into arithmetic.",
+    "Ask each university's international office which route it wants. In New South Wales and the ACT you have a choice between UAC and applying direct; everywhere else, direct is the route.",
+    "Ask, in writing, whether the tuition fee can rise between years of the degree. That question is not answered here and the answer is not the same at every university."
+  ],
+  "evidence": [
+    "ev-uac-international-ib-eligible",
+    "ev-vtac-international-eligibility",
+    "ev-satac-international-eligibility",
+    "ev-tisc-ib-2027",
+    "ev-homeaffairs-student-500"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-04-30",
+    "notes": [
+      "This route exists because applying directly is a finding, not a blank. Three of Australia's five tertiary admissions centres state in their own words that an international applicant who is not sitting an Australian Year 12 or the IB inside Australia - or, in Western Australia, who is not a citizen or permanent resident - applies directly to the institution. That is the situation a Danish candidate is in everywhere except New South Wales and the ACT.",
+      "Not established: whether Queensland's admissions centre, QTAC, accepts an offshore International Baccalaureate candidate. QTAC's international Year 12 qualifications page lists Cambridge A Levels, US senior schooling and New Zealand qualifications and does not mention the IB at all, and its how-to-apply page sends international applicants to the institution's own international office. The absence of the IB from a list headed 'international qualifications' is not the same as an exclusion, and it has not been resolved here. A student looking at Queensland should ask QTAC directly and should in any case apply to UQ or QUT through their own international admissions.",
+      "Not established: whether conditional offers on predicted IB grades are normal for direct applications. They are documented for the UAC route and were not confirmed for direct applications at any individual university in this pass. Ask the university.",
+      "No dated closing milestone is recorded, deliberately. Every institution sets its own, and one institution's date standing in for fourteen would be the most damaging single field on this page."
+    ]
+  }
+}

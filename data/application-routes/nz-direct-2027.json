@@ -1,0 +1,155 @@
+{
+  "id": "nz-direct-2027",
+  "destination": "nz",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a New Zealand university",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-intake-choice",
+      "type": "personal",
+      "label": "Decide between a July 2027 and a February 2028 start",
+      "date": "2026-11-01",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Not published by anyone, and the decision the rest of this page depends on. A mid-year start means applying before you have any results at all; February 2028 means eight months between your last exam and your first lecture. Not every degree admits mid-year, and the professional ones generally do not.",
+      "evidence": []
+    },
+    {
+      "id": "ms-ue-check",
+      "type": "personal",
+      "label": "Check you will meet University Entrance",
+      "date": "2026-12-01",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "The full IB Diploma, English as Language A at Standard or Higher Level (or Language B at Higher Level, which Auckland accepts only at grade 5 or above), and any mathematics subject. This is a check on your subject choices, so it has to happen while they can still change - which is why it is dated here and not when you apply.",
+      "evidence": [
+        "ev-auckland-ib-2027",
+        "ev-vuw-ib"
+      ]
+    },
+    {
+      "id": "ms-auckland-sem2",
+      "type": "submit",
+      "label": "University of Auckland: international applications close for a July 2027 start",
+      "date": "2027-06-08",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "One university's date, and the clearest illustration of the problem. It is a month before the May-session IB results are published, so a mid-year start is applied for on predicted grades or not at all. Domestic applicants for the same intake have until 4 July - the international date is nearly a month earlier, and nothing on a programme page says so. Every other university sets its own; this is not a national deadline.",
+      "evidence": [
+        "ev-auckland-closing-dates"
+      ]
+    },
+    {
+      "id": "ms-auckland-health-2028",
+      "type": "submit",
+      "label": "University of Auckland: Medicine, Optometry, Pharmacy and Medical Imaging close for February 2028",
+      "date": "2027-07-01",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "Five days before IB results are released, for an intake starting eight months later. If you are aiming at a competitive health programme in New Zealand, the application is written and submitted during your exam season. Otago runs its own Health Sciences First Year selection on a different basis again.",
+      "evidence": [
+        "ev-auckland-closing-dates"
+      ]
+    },
+    {
+      "id": "ms-results",
+      "type": "result",
+      "label": "IB results for the May 2027 session",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "The date the whole page bends around. Two of the milestones above fall before it. Recorded as provisional because the exact release date for the May 2027 session is not sourced here, only the long-standing early-July pattern.",
+      "evidence": []
+    },
+    {
+      "id": "ms-sem1-2028",
+      "type": "submit",
+      "label": "Closing dates for the main February 2028 intake",
+      "consequence": "hard",
+      "note": "Undated, because none of the eight universities had published a general Semester One 2028 closing date when this was written. For shape only: Auckland's equivalent date for February 2027 was 8 December 2026, and it warns that applications arriving after 1 December are considered only if places remain. Expect early December 2027 and check the programme page from mid-2027.",
+      "evidence": [
+        "ev-auckland-closing-dates"
+      ]
+    },
+    {
+      "id": "ms-offer-and-fees",
+      "type": "deposit",
+      "label": "Accept the offer of place and pay or arrange tuition",
+      "consequence": "personal",
+      "note": "The visa cannot start until there is an offer of place from an approved education provider and evidence that tuition is paid or payable, alongside insurance the provider accepts. There is no date on this; the sequence is the constraint.",
+      "evidence": [
+        "ev-inz-fee-paying-student-visa"
+      ]
+    },
+    {
+      "id": "ms-visa-lead-time",
+      "type": "visa",
+      "label": "Immigration New Zealand advises applying three months before you travel",
+      "consequence": "personal",
+      "note": "Advice rather than a rule, and worth reading next to the published service standard: eighty per cent of these visas are decided within eight weeks, which means one in five is not. October to March is the busy period, which is exactly when a February starter applies.",
+      "evidence": [
+        "ev-inz-fee-paying-student-visa"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-ib-access",
+      "label": "Electronic access to your IB results",
+      "itemType": "result",
+      "responsibleParty": "student",
+      "destinationOfItem": "Each university you apply to, granted through the IB",
+      "note": "Victoria Wellington asks applicants to allow electronic access to IB results once released. Granted per university, because there is no shared system to grant it to once.",
+      "evidence": [
+        "ev-vuw-ib"
+      ]
+    },
+    {
+      "id": "si-funds",
+      "label": "Evidence of NZD 20,000 of living costs for each year of study",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "Immigration New Zealand",
+      "dueMilestone": "ms-visa-lead-time",
+      "note": "On top of tuition, which must also be paid or shown as payable. The figure is the visa minimum, not an Auckland or Wellington budget.",
+      "evidence": [
+        "ev-inz-fee-paying-student-visa"
+      ]
+    },
+    {
+      "id": "si-insurance",
+      "label": "Medical and travel insurance acceptable to your education provider",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "The university, which normally sells or arranges a compliant policy",
+      "note": "International students on a student visa are generally not entitled to publicly funded healthcare in New Zealand. The EHIC and the Danish yellow card are not valid here.",
+      "evidence": [
+        "ev-inz-fee-paying-student-visa"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply to more than one university. There is no shared system, no ranking of choices and no limit on how many offers you may hold, so parallel applications cost effort rather than strategy.",
+    "Read the closing date on the programme page, not on the university's general how-to-apply page, and check whether the international date differs from the domestic one. At Auckland for a mid-year start it differs by nearly a month.",
+    "If your predicted total is below the guaranteed-entry score you want, look at the polytechnics and the larger private providers before concluding the answer is no. Degrees at level 7 are awarded outside the universities too, and they carry the same post-study work rights."
+  ],
+  "evidence": [
+    "ev-unz-apply-direct",
+    "ev-auckland-closing-dates",
+    "ev-inz-fee-paying-student-visa"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "This route has channel 'direct' because Universities New Zealand states in its own words that applications should be made direct to the universities. There is no central system to be partially covered by, which is a different thing from a central system nobody has found.",
+      "Two of the dated milestones are the University of Auckland's own and are labelled as such. They are recorded on a national route because they are the only published closing dates found anywhere in New Zealand that fall inside a May 2027 candidate's cycle, and because the pattern they show - the international date earlier than the domestic one, the competitive programmes closing before results - is worth a student knowing even where the number will be different at their own university.",
+      "Not established: closing dates at Otago, Canterbury, Massey, Waikato, AUT, Lincoln or Victoria Wellington. Seven of the eight universities' calendars were not read in this pass.",
+      "Not established: whether New Zealand universities make conditional offers on predicted IB grades as a matter of course. Wellington's wording about automatic acceptance and Auckland's guaranteed-entry scores both imply something like it, and neither says it."
+    ]
+  }
+}

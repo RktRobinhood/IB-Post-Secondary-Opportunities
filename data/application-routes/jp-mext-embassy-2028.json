@@ -1,0 +1,129 @@
+{
+  "id": "jp-mext-embassy-2028",
+  "destination": "jp",
+  "intake": "2028-spring",
+  "applicantGroup": "any",
+  "label": "MEXT scholarship, Embassy Recommendation, for arrival in April 2028",
+  "channel": "application-system",
+  "applicationSystem": "jp-mext-embassy",
+  "portalUrl": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+  "choiceLimit": 3,
+  "choicesRanked": true,
+  "rounds": [
+    {
+      "id": "rd-mext-2028-embassy",
+      "label": "Embassy recruitment window",
+      "consequence": "hard",
+      "note": "MEXT's rule is relative, not a published day: \"Recruitment for those arriving in Japan next April is made between April and May of the previous year.\" For an April 2028 arrival that is April and May 2027. The exact dates are set by the Embassy of Japan in Denmark, whose pages we could not read, so no day is shown here.",
+      "evidence": [
+        "ev-jp-mext-recruitment-window",
+        "ev-jp-embassy-denmark-unreadable"
+      ]
+    },
+    {
+      "id": "rd-mext-2028-first-screening",
+      "label": "First screening by the embassy",
+      "consequence": "hard",
+      "note": "Conducted between May and August by the Japanese embassy or consulate general. A written examination and normally an interview.",
+      "evidence": [
+        "ev-jp-mext-recruitment-window"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-mext-ask-embassy",
+      "type": "personal",
+      "label": "Ask the Embassy of Japan in Copenhagen for the Danish dates",
+      "date": "2027-02-01",
+      "consequence": "personal",
+      "note": "Not a published deadline and not anyone's rule. It is set here because MEXT says the schedule is the embassy's to set, because the embassy's own web pages were unreachable when this was written, and because the window itself falls in April and May 2027 — on top of the IB examination session. Ask in February, not in April.",
+      "evidence": [
+        "ev-jp-mext-recruitment-window",
+        "ev-jp-embassy-denmark-unreadable"
+      ]
+    },
+    {
+      "id": "ms-mext-exam-clash",
+      "type": "personal",
+      "label": "The MEXT application and the IB examination session overlap",
+      "date": "2027-05-01",
+      "consequence": "personal",
+      "note": "Worth putting on a calendar as a warning rather than as a task. The application needs a health certificate signed by a physician and a recommendation letter, neither of which can be produced in a week, and it falls in the same eight weeks as the examinations.",
+      "evidence": [
+        "ev-jp-mext-recruitment-window"
+      ]
+    },
+    {
+      "id": "ms-mext-arrival",
+      "type": "enrolment",
+      "label": "Arrival in Japan",
+      "consequence": "hard",
+      "note": "The 2027 round required arrival between 1 and 7 April 2027, a seven-day window, with the scholarship withdrawn from anyone who could not make it. The 2028 equivalent has not been published and is not inferred here.",
+      "evidence": [
+        "ev-jp-mext-ug-2027-guidelines"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-mext-field",
+      "label": "Field of study, course and up to three majors",
+      "itemType": "choice",
+      "responsibleParty": "student",
+      "note": "Chosen from MEXT's own table. Art and music are not eligible majors, and the course may not be changed after selection.",
+      "evidence": [
+        "ev-jp-mext-ug-2027-guidelines"
+      ]
+    },
+    {
+      "id": "si-mext-health",
+      "label": "Health certificate in MEXT's prescribed format, signed by a physician",
+      "itemType": "document",
+      "responsibleParty": "third-party",
+      "evidence": [
+        "ev-jp-mext-ug-2027-guidelines"
+      ]
+    },
+    {
+      "id": "si-mext-recommendation",
+      "label": "Recommendation letter",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "evidence": [
+        "ev-jp-mext-ug-2027-guidelines"
+      ]
+    },
+    {
+      "id": "si-mext-twelve-years",
+      "label": "Evidence of twelve years of schooling completed outside Japan",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "note": "The 2027 round required completion by March of the arrival year, or by August where the applicant was entering in the autumn term through direct placement. A Danish gymnasium finishing in June sits between those two conditions, so which one applies is a question for the embassy rather than an assumption to make.",
+      "evidence": [
+        "ev-jp-mext-ug-2027-guidelines"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Read what this scholarship actually funds before spending a spring on it. The undergraduate MEXT award is a year of preparatory education in Japanese followed by a degree taught in Japanese; English-medium study is possible only through direct placement, which MEXT decides. It is not a route into the English-taught programmes the rest of this destination is about.",
+    "It is, on the other hand, very large: in the 2027 round, five years of support, 117,000 yen a month, entrance examination, matriculation and tuition fees waived, and an economy air ticket both ways.",
+    "You do not choose the university. MEXT decides it in consultation with the university and the preparatory institution, and the guidelines say no objection by the grantee will be allowed.",
+    "A separate university-recommendation route into MEXT exists, under which a Japanese university nominates its own admitted students. It is not researched here. Ask each admissions office whether it holds MEXT quota places."
+  ],
+  "evidence": [
+    "ev-jp-mext-ug-2027-guidelines",
+    "ev-jp-mext-recruitment-window",
+    "ev-jp-embassy-denmark-unreadable"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-01",
+    "notes": [
+      "Deliberately undated except for two planning dates we set ourselves and label as such. The 2028 guidelines are expected around April 2027 and nothing from the 2027 round is carried forward as a date.",
+      "This record exists because the previous one told a reader in September 2026 to contact the embassy 'in early 2026'. The window is relative to the arrival year, which is the thing that was lost.",
+      "Not established, and the largest remaining gap for Japan: the Danish application dates, held by an embassy whose site refused every request on 2026-09-23."
+    ]
+  }
+}

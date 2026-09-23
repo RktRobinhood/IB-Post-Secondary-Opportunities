@@ -1,0 +1,172 @@
+{
+  "id": "ca-epbc-2027",
+  "destination": "ca",
+  "jurisdiction": "ca-bc",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to a British Columbia university for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "ca-epbc",
+  "portalUrl": "https://apply.educationplannerbc.ca/",
+  "choicesRanked": false,
+  "fee": {
+    "amount": 130,
+    "currency": "CAD",
+    "period": "once",
+    "approximate": true,
+    "note": "Set by each institution and paid to it, not to the platform. CAD 130 at Simon Fraser for an international applicant; CAD 184.00 at Victoria where any transcript comes from outside Canada. UBC's fee was not read."
+  },
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Applications open",
+      "date": "2026-10-01",
+      "consequence": "indicative",
+      "note": "Simon Fraser opens Fall 2027 high school applications on 1 October 2026. UBC says early October without naming a day.",
+      "evidence": [
+        "ev-sfu-dates-2027",
+        "ev-ubc-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ubc-scholars",
+      "type": "submit",
+      "label": "UBC International Scholars - application and award application due",
+      "date": "2026-11-15",
+      "timeOfDay": "23:59",
+      "timeZone": "PST",
+      "consequence": "hard",
+      "audience": "non-eu",
+      "note": "The most expensive date on this route to miss and the one that looks optional. UBC's largest awards for international students require the whole application two months before the ordinary deadline, in the first term of the final IB year. Award applicants also have to meet UBC's English standard and submit their documents by 31 January 2027.",
+      "evidence": [
+        "ev-ubc-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ubc-apply",
+      "type": "submit",
+      "label": "UBC applications close",
+      "date": "2027-01-15",
+      "timeOfDay": "23:59",
+      "timeZone": "PST",
+      "consequence": "hard",
+      "note": "Pacific time is nine hours behind Denmark, so this closes on the morning of 16 January Danish time. It is a deadline for the Winter Session beginning September 2027.",
+      "evidence": [
+        "ev-ubc-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-sfu-apply",
+      "type": "submit",
+      "label": "Simon Fraser University applications close",
+      "date": "2027-01-31",
+      "consequence": "hard",
+      "note": "Sixteen days after UBC's, on the same platform, for the same intake. This is the clearest reason not to read one British Columbia deadline as the province's.",
+      "evidence": [
+        "ev-sfu-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ubc-docs",
+      "type": "document",
+      "label": "UBC - documents due from high school applicants outside Canada",
+      "date": "2027-03-15",
+      "consequence": "hard",
+      "note": "A separate date from the application. International Scholars applicants have to meet it seven weeks earlier, on 31 January.",
+      "evidence": [
+        "ev-ubc-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ubc-reply",
+      "type": "reply",
+      "label": "UBC - accept the offer and pay the acceptance deposit",
+      "date": "2027-05-01",
+      "endDate": "2027-06-01",
+      "consequence": "hard",
+      "note": "UBC assigns 1 May or 1 June in the admission letter itself, so the date is personal rather than published. Read the letter rather than this row.",
+      "evidence": [
+        "ev-ubc-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ubc-housing",
+      "type": "enrolment",
+      "label": "UBC - housing application for the first-year guarantee",
+      "date": "2027-05-01",
+      "consequence": "hard",
+      "note": "A separate application from admission, with its own deadline, and the guarantee is lost by missing it. Vancouver's private rental market is among the most expensive in the world and is not a fallback.",
+      "evidence": [
+        "ev-ubc-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB results released — what a British Columbia offer turns on",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "UBC states that initial decisions are made on interim grades reported by the school and that final IB results are used to confirm the decision and any first-year credit. July therefore confirms rather than decides, and a result below the offer conditions costs a place already held.",
+      "evidence": [
+        "ev-ubc-ib-2027"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-interim",
+      "label": "Interim grades reported by your school",
+      "itemType": "result",
+      "responsibleParty": "school",
+      "destinationOfItem": "The institution, through its own applicant portal",
+      "note": "What UBC actually decides on. The IB Diploma itself is required complete, with at least three Higher Level courses.",
+      "evidence": [
+        "ev-ubc-ib-2027"
+      ]
+    },
+    {
+      "id": "si-fee",
+      "label": "Application fee, paid to the institution",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "The institution. EducationPlannerBC charges nothing of its own.",
+      "evidence": [
+        "ev-epbc-how-it-works",
+        "ev-uvic-apply-2027"
+      ]
+    },
+    {
+      "id": "si-final-ib",
+      "label": "Final IB results, sent electronically by the IBO",
+      "itemType": "result",
+      "responsibleParty": "authority",
+      "destinationOfItem": "The institution, direct from the International Baccalaureate Organization",
+      "dueMilestone": "ms-ib-results",
+      "note": "UBC needs these both to confirm admission and to assess first-year credit, and says the request has to come from you.",
+      "evidence": [
+        "ev-ubc-ib-2027"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "UBC asks every applicant for a personal profile alongside grades. It is part of the application rather than an extra, and it is written in December of the final IB year.",
+    "Check the mathematics rule before you choose subjects: Mathematics: Applications and Interpretations SL does not satisfy UBC's mathematics requirement for its science programmes, the Faculty of Management, Sauder or the Vancouver School of Economics."
+  ],
+  "evidence": [
+    "ev-epbc-how-it-works",
+    "ev-ubc-dates-2027",
+    "ev-sfu-dates-2027",
+    "ev-uvic-apply-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "One platform, three different deadlines and three different fees. The milestones here are named for the institution that sets them rather than presented as provincial dates, because the platform sets none.",
+      "UBC's application fee was not read and is not recorded. Victoria's deadlines sit on each programme page and were not read either."
+    ]
+  }
+}

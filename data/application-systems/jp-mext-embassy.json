@@ -1,0 +1,46 @@
+{
+  "id": "jp-mext-embassy",
+  "name": "MEXT Scholarship, Embassy Recommendation",
+  "localName": "国費外国人留学生制度 (大使館推薦)",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "jp",
+    "authority": "Ministry of Education, Culture, Sports, Science and Technology (MEXT), through the Japanese diplomatic mission in the applicant's country",
+    "area": "Japan"
+  },
+  "portalUrl": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-undergraduate.html",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Undergraduate study at Japanese national universities, entered through a year of preparatory education in Japanese. Fields of study are chosen from MEXT's own table of courses and majors, with a first, second and third choice.",
+    "excludes": "Art and music are excluded outright as majors. So, in practice, is the English-taught sector this destination is otherwise about: MEXT states that all classes are given in Japanese except where a grantee is directly placed at a university requiring no Japanese, and direct placement is MEXT's decision rather than the applicant's. The university is chosen by MEXT, not by the student, and no objection is allowed."
+  },
+  "choiceRules": {
+    "limit": 3,
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "Three choices of major within one course, not three universities. Which university a grantee attends is decided by MEXT in consultation with the university and the preparatory institution, and a grantee may not transfer afterwards or change course."
+  },
+  "identityRequirement": "None online. The application is made on paper to the Japanese embassy or consulate general in the country of the applicant's nationality, with a health certificate signed by a physician and a recommendation letter.",
+  "sharedSteps": [
+    "Contact the Japanese diplomatic mission in your own country first. MEXT states that the process and the schedule differ by country and are the mission's to set, so the national page never carries the date you need.",
+    "Choose a field of study from MEXT's table — Social Sciences and Humanities A or B, or Natural Sciences A, B or C — and up to three majors inside it.",
+    "Sit the embassy's first screening, which includes a written examination and normally an interview.",
+    "Expect placement, not choice: MEXT decides the university."
+  ],
+  "decisionModel": "Two screenings. The Japanese diplomatic mission screens first, between May and August, and recommends candidates to MEXT. MEXT makes the second decision and allocates the university, taking account of the first-screening results, the applicant's achievement at the preparatory institution, the proposed major and the receiving capacity of each university and region.",
+  "replyModel": "There is no offer to weigh against another. A grantee who cannot arrive within the stated window, or who cannot enter a university after completing the preparatory year, loses the scholarship and returns home.",
+  "evidence": [
+    "ev-jp-mext-ug-2027-guidelines",
+    "ev-jp-mext-recruitment-window"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-03-01",
+    "notes": [
+      "Read from the 2027 undergraduate guidelines, published by MEXT in April 2026. The 2028 guidelines are expected around April 2027 and the terms may change; the allowance in particular is stated to be subject to the Japanese government's budget each fiscal year.",
+      "Not established: the Danish application dates. The Embassy of Japan in Denmark's own pages were refused with HTTP 403 on 2026-09-23 and nothing from them is recorded here.",
+      "Not established: the university-recommendation route into MEXT, under which a university nominates its own admitted students. It exists and is not researched here, which is a different thing from it not existing."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ae-federal-direct-2027",
+  "destination": "ae",
+  "jurisdiction": "ae-federal",
+  "intake": "2027-autumn",
+  "applicantGroup": "non-eu",
+  "label": "Applying to a UAE federal university as an international student, autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.zu.ac.ae/main/en/undergraduate-programs/undergraduate-application",
+  "milestones": [
+    {
+      "id": "ms-ae-fed-zu-dates",
+      "type": "open",
+      "label": "Zayed University confirms its undergraduate application dates",
+      "consequence": "hard",
+      "note": "No date. The page carries the line \"Application Dates to be confirmed\" where the dates belong. Recorded undated so the check is not lost.",
+      "evidence": ["ev-ae-zu-dates-tbc"]
+    },
+    {
+      "id": "ms-ae-fed-uaeu-window",
+      "type": "open",
+      "label": "UAEU announces an application period",
+      "consequence": "hard",
+      "note": "No date. UAEU says applicants apply through the ministry's portal during announced application periods and publishes no undergraduate period for 2027. Its graduate deadlines are published; its undergraduate ones are not.",
+      "evidence": ["ev-ae-uaeu-admission"]
+    },
+    {
+      "id": "ms-ae-fed-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Where the federal universities sit relative to this date is not established, because neither publishes a date to compare it against.",
+      "evidence": []
+    }
+  ],
+  "supplementarySteps": [
+    "Establish first whether you are eligible at all. Places and subsidies at the federal universities are directed at UAE nationals and children of Emirati mothers, and international admission is a separate and much smaller stream.",
+    "Write to the named admissions office rather than following the national timetable. Zayed University names an undergraduate admissions address for each of its Abu Dhabi and Dubai campuses; UAEU routes international students and children of UAEU staff through a different page from nationals.",
+    "Expect to be asked for an attested transcript, an English test result and, at Zayed, an EmSAT or SAT mathematics score or an internal placement test."
+  ],
+  "evidence": [
+    "ev-ae-zu-dates-tbc",
+    "ev-ae-uaeu-admission"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "The applicant group on this route is deliberately non-eu rather than any. A Danish student is an international applicant here and that is not an administrative detail: the route Emirati school-leavers use is a national placement process, and a foreign applicant cannot use it. Recording one route for both would describe a path this site's readers cannot take.",
+      "Neither federal university publishes an undergraduate application deadline for 2027, and the two silences are different: Zayed says the dates are to be confirmed, UAEU says nothing at all. Both are recorded on the Destination with the state that fits.",
+      "Not established: whether an international student at a federal university pays a different fee from an Emirati one, and whether the international stream has a quota. Both were looked for and neither is published."
+    ]
+  }
+}

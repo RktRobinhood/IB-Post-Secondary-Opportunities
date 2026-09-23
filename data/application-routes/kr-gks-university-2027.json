@@ -1,0 +1,79 @@
+{
+  "id": "kr-gks-university-2027",
+  "destination": "kr",
+  "intake": "2027-spring",
+  "applicantGroup": "any",
+  "label": "Global Korea Scholarship, University Track — the one a Danish citizen can use",
+  "channel": "application-system",
+  "applicationSystem": "kr-gks",
+  "portalUrl": "https://www.studyinkorea.go.kr/",
+  "choiceLimit": 1,
+  "choicesRanked": false,
+  "rounds": [
+    {
+      "id": "rd-gks-university-2027",
+      "label": "University Track application, 2027 GKS-U",
+      "opens": "2026-09-01",
+      "closes": "2026-11-30",
+      "decisionBy": "2027-01-07",
+      "consequence": "hard",
+      "note": "Not one window but many. The guidelines give the track as September to November 2026 and say each university sets its own period, method and documents — in person or by post in several cases. The dates here bound the published range and are not any one university's deadline.",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-gks-uni-first-round",
+      "type": "result",
+      "label": "First-round result from the university",
+      "consequence": "indicative",
+      "note": "Given as \"in November\" with no day. The university screens first; NIIED screens second and announces within December.",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    },
+    {
+      "id": "ms-gks-uni-final",
+      "type": "result",
+      "label": "2027 GKS-U scholars announced",
+      "date": "2027-01-07",
+      "consequence": "indicative",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-gks-uni-choice",
+      "label": "One university, one department",
+      "itemType": "choice",
+      "responsibleParty": "student",
+      "note": "The UIC Program carries 100 bachelor's places across thirteen institutions — Ajou, Daegu, Dong-A, Inje, Keimyung, Konyang, Kookmin, KOREATECH, Sungshin Women's and Yeungnam for the bachelor's degree. Applying to two departments at the same university voids the application, and a field of study may not be changed after selection.",
+      "evidence": [
+        "ev-kr-gks-2027-countries"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "This is the only Global Korea Scholarship track open to a Danish citizen, because the UIC Program is the one part of GKS with no country restriction.",
+    "Read what it actually is before pinning hopes on it. UIC stands for University Industry Cooperation: science and engineering programmes with an industry placement and settlement support, at thirteen named universities. None of them is Yonsei, KAIST, Seoul National or Korea University, and there is no humanities or social science option.",
+    "Because each university runs its own submission, the first task is to find that university's own GKS announcement — the NIIED guidelines do not carry the deadline, only the three-month range it falls inside."
+  ],
+  "evidence": [
+    "ev-kr-gks-2027-schedule",
+    "ev-kr-gks-2027-countries",
+    "ev-kr-gks-2027-eligibility"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-08-15",
+    "notes": [
+      "The round dates bound the range NIIED publishes; no individual university's deadline was read in this pass. That is the next piece of work on this route and it cannot be done from the national guidelines.",
+      "The 31 December 2026 graduation cut-off applies to this track as well, so the 2028 round is the one a May-2027 IB graduate needs."
+    ]
+  }
+}

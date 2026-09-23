@@ -1,0 +1,264 @@
+[
+  {
+    "id": "ev-kr-uic-rounds-2027",
+    "sourceUrl": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+    "publisher": "Underwood International College, Yonsei University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the admission schedule table on the UIC site, 2026-09-23.",
+    "claim": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
+    "excerpt": "International students can matriculate either in March or in September. […] Admission Round: 1st Round | 2nd Round (TBD). Entry Term: Spring 2027 | Fall 2027. Online Application: 10AM on Aug. 26, 2026 - 5PM on Sept. 22, 2026 | March, 2027. Document Submission Deadline: 5PM on Oct. 2, 2026 | March, 2027. Interview (Online): Dec. 11-12, 2026 | June, 2027. Admission Notification: Dec. 18, 2026 | June, 2027.",
+    "interpretation": "This is the single table that settles which intake a Danish IB student is actually planning for. The 1st Round is Korea's main March intake and it closed a day before this was read — an IB candidate sitting exams in May 2027 could never have used it, because they would have had to matriculate in March 2027 with no diploma. The 2nd Round is the one that fits: apply in March 2027 on predicted grades, hear in June 2027, start in September 2027, three weeks before the diploma-holding cohort would otherwise be idle for a year. Note that the 2nd Round is published only as a month, not a date, and is explicitly marked TBD. That is a real date not yet set, not a date we failed to find.",
+    "supports": [
+      { "entity": "kr-direct-2027", "field": "milestones" },
+      { "entity": "kr", "field": "watchOuts" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-uic-english-2027",
+    "sourceUrl": "https://uic.yonsei.ac.kr/admission.php?mid=m04_02_02",
+    "publisher": "Underwood International College, Yonsei University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the admission requirements section of the UIC site, 2026-09-23.",
+    "claim": "From the 2027 academic year UIC requires every applicant to submit a document proving English proficiency; a completed education in a country where English is the sole official language is accepted in place of a test, and Denmark is not such a country.",
+    "excerpt": "Beginning in 2027, applicants must submit documents proving English proficiency or equivalents … graduation from a country where English is the sole official language (the United States, Canada excluding Quebec, the United Kingdom, Australia, and New Zealand). […] Document Review (200 points), Interview (100 points), Total (300 points).",
+    "interpretation": "The exemption is written in terms of the country, not the language of instruction, and Denmark is not on the list. An IB Diploma taught entirely in English at a Danish gymnasium therefore does not obviously exempt the applicant, and this changed for 2027 — an applicant working from a 2026 guide would not know it had. Whether UIC accepts IB English A or B in place of a test is not stated on the page we read and should be asked of the admissions office in writing before a TOEFL or IELTS booking is skipped.",
+    "supports": [
+      { "entity": "kr", "field": "language" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-kaist-rounds-2027",
+    "sourceUrl": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline",
+    "publisher": "KAIST Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the KAIST international undergraduate admission calendar, 2026-09-23.",
+    "claim": "KAIST runs two rounds of international undergraduate admission, both for Fall 2027 entry: Early Admissions closed 22 October 2026 at 18:00 KST, and Regular Admissions runs 10 November 2026 to 14 January 2027 at 18:00 KST, with the decision announced on 25 March 2027.",
+    "excerpt": "Early Admissions (Fall 2027) — Application Period: September 22 ~ October 22, 2026, 6:00 PM (KST); Recommendation Letter Deadline: October 29, 2026, 6:00 PM (KST); Interview: December 22, 2026; Decision Announcement: January 7, 2027, 10:00 AM (KST). Regular Admissions (Fall 2027) — Application Period: November 10, 2026 ~ January 14, 2027, 6:00 PM (KST); Recommendation Letter Deadline: January 21, 2027, 6:00 PM (KST); Interview: March 3, 2027; Decision Announcement: March 25, 2027, 10:00 AM (KST). Spring Track Entry — Academic year begins: End of February 2027. Fall Track Entry — Academic year begins: End of August 2027.",
+    "interpretation": "KAIST does not look like the rest of Korea, and the difference matters. Both its rounds are for a Fall entry and both close more than half a year ahead of it, which is a North American shape rather than a Korean one. For a May 2027 IB candidate the Regular round closing 14 January 2027 is the live one, and it is decided on 25 March 2027 — a full offer, months before results exist, so everything rests on predicted grades and the recommendation letter, which has its own later deadline and is the part students most often miss. The recommendation deadline falls a week after the application deadline: sending the application in on time does not finish the job.",
+    "supports": [
+      { "entity": "kr-direct-2027", "field": "milestones" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-kaist-cost-2027",
+    "sourceUrl": "https://admission.kaist.ac.kr/intl-undergraduate/support/coa",
+    "publisher": "KAIST Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the KAIST cost-of-attendance table, 2026-09-23. Marked needs-review because the page states no academic year for the figures.",
+    "claim": "KAIST publishes tuition of 3,433,000 KRW per semester for its undergraduate programme, with national health insurance at 458,340 KRW and on-campus housing at 664,000 KRW per semester. The page does not say which academic year the figures are for.",
+    "excerpt": "Undergraduate Program (Main Campus) — Tuition Fees: 3,433,000 [per semester]; NHI Premiums: 458,340; Books: 150,000; Housing: 664,000; Food: 2,737,500. Optional — SHIA: 48,000; Telecommunications: 180,000.",
+    "interpretation": "Recorded with the caveat rather than without the figure. A Korean tuition figure is worth having because it is the only one we could read from an official page in this pass, and because the shape it shows — charged per semester, roughly 6.9m KRW a year at a national science institute — is the structure a reader needs in order to read anyone else's price list. But the page carries no price year, and a fee with no year attached looks current when it may not be, so this is held at needs-review rather than verified. Do not carry it to any other Korean institution: private universities in Seoul charge considerably more and the figure varies by faculty.",
+    "supports": [
+      { "entity": "kr", "field": "feeContext" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-kaist-scholarship-2027",
+    "sourceUrl": "https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships/kaist",
+    "publisher": "KAIST Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the KAIST scholarship page, 2026-09-23.",
+    "claim": "The KAIST Scholarship exempts an international undergraduate from tuition for eight semesters and pays 350,000 KRW a month plus medical insurance; there is no separate application, only a box to tick on the admission form, and it requires a GPA above 2.7 out of 4.3 after the first year.",
+    "excerpt": "Full tuition fee: tuition exemption for 8 semesters. Living expenses: 350,000 KRW per month. Medical Health insurance. […] check 'KAIST scholarship' on the Statement of Financial Resources section on online application for admission. […] maintain GPA over 2.7 out of 4.3 at KAIST after their freshman year.",
+    "interpretation": "Worth knowing before comparing Korea with anywhere else on sticker price, and worth knowing at the moment of applying rather than afterwards, because the award is decided from the admission application itself. A student who does not tick the box has not applied for it. The condition is a real one: the award is renewable on grades and can be lost.",
+    "supports": [
+      { "entity": "kr", "field": "livingContext" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-snu-two-intakes",
+    "sourceUrl": "https://en.snu.ac.kr/admission/undergraduate/application",
+    "publisher": "Seoul National University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read from SNU's undergraduate application page, 2026-09-23.",
+    "claim": "Seoul National University's academic year begins in spring, and SNU admits international students for both the spring and the fall semester.",
+    "excerpt": "The academic year at SNU begins in the spring, yet the university offers international admissions for both the spring and fall semesters.",
+    "interpretation": "One sentence, and it is the shape of the whole country. The Korean academic year starts in March; the September intake is a second door held open for international applicants rather than the main one. Saying so in the university's own words is worth more than any summary, because every piece of advice written for a European reader quietly assumes the opposite and then gets the year wrong.",
+    "supports": [
+      { "entity": "kr", "field": "summary" },
+      { "entity": "kr-direct-2027", "field": "label" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-snu-spring-2027",
+    "sourceUrl": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/Admissions_for_Undergraduate_Spring_2027.pdf",
+    "sourcePage": "https://en.snu.ac.kr/admission/undergraduate/application",
+    "publisher": "Seoul National University, Office of Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-spring",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the schedule table on page 4 of the PDF, 2026-09-23. The document is titled in English on the cover and written in Korean throughout.",
+    "claim": "Seoul National University's Global Talent Special Admission for Spring 2027 entry took online applications from 6 to 9 July 2026, interviewed on 18 September 2026, published a preliminary result on 16 October 2026 and the final result on 20 November 2026. Type II of the admission is for applicants who completed their entire schooling outside Korea.",
+    "excerpt": "2027학년도 전기 글로벌인재특별전형 학사신입학 모집안내 […] 가. 글로벌인재특별전형 I (부모가 모두 외국인인 외국인) 나. 글로벌인재특별전형 II (전 교육과정 해외 이수자) […] 온라인 원서접수: 2026. 7. 6.(월) 10:00 ~ 2026. 7. 9.(목) 17:00 · 전형료(70,000원) […] 화상면접 진행 (글로벌인재특별전형 II만 해당): 2026. 9. 18.(금) […] 예비합격자 발표: 2026. 10. 16.(금) 17:00 이후 […] 합격자 발표: 2026. 11. 20.(금) 17:00 이후",
+    "interpretation": "Two things are recorded here and the second is as useful as the first. The first is how early Korea's most selective university closes: applications for a March 2027 start were taken over four days in July 2026, eight months ahead, with a 70,000 KRW fee. The second is that SNU's English admissions page links a document written in Korean. The cover and the file name are in English; the eligibility conditions, the document list and the schedule are not. We read the schedule table because dates and Korean numerals survive translation; we have not read the eligibility text and do not claim to have. The route an IB student from a Danish gymnasium would use is 글로벌인재특별전형 II, 'those who completed the entire curriculum overseas' — which is the twelve-years-abroad category, and is the one that takes the Suneung out of the question.",
+    "supports": [
+      { "entity": "kr-direct-2028-spring", "field": "milestones" },
+      { "entity": "kr", "field": "ibRecognition" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "The body of this PDF is in Korean. Only the schedule table and the two admission-type headings were read."
+      ]
+    }
+  },
+  {
+    "id": "ev-kr-ku-schedule-2027",
+    "sourceUrl": "https://oia.korea.ac.kr/oia2026/Admission-Guide.do",
+    "publisher": "Korea University, Office of International Affairs",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the international undergraduate admission guide, 2026-09-23.",
+    "claim": "Korea University admits international undergraduates for both a Spring and a Fall intake. Its Spring 2027 online application ran from 3 August to 31 August 2026, with documents due 7 September 2026 and the result on 27 November 2026. The Fall 2027 dates were still to be announced.",
+    "excerpt": "Spring 2027 — Online Application: August 3 (10:00) – August 31, 2026 (17:00); Materials Submission: August 3 (10:00) – September 7, 2026 (17:00); Results Released: November 27, 2026 (17:00); Registration Period: January 2027 (TBA). Fall 2027 — TBA. […] applicants are responsible for the acknowledgement of the information provided […] Uwayapply.com",
+    "interpretation": "Korea University confirms the pattern from a third institution and adds the detail that catches people out: the application is not submitted on the university's own site but through Uwayapply, a separate national admissions platform. A student who bookmarks the university page and nothing else will be looking in the wrong place on the closing day. That the Fall 2027 round is marked TBA in late September 2026 is itself the planning fact — Korean universities publish each round four to six months ahead, so a September 2027 start is announced in the spring of 2027 and not before.",
+    "supports": [
+      { "entity": "kr-direct-2027", "field": "milestones" },
+      { "entity": "kr", "field": "applicationSystems" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-gks-2027-schedule",
+    "sourceUrl": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+    "sourcePage": "https://www.studyinkorea.go.kr/en/plan/gksNoticeRead.do?bbsId=BBSMSTR_000000000461&nttId=4522",
+    "publisher": "National Institute for International Education (NIIED), Ministry of Education, Republic of Korea",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-spring",
+    "verificationState": "verified",
+    "verifiedBy": "Read from pages 9 to 11 of the 2027 GKS-U Application Guidelines (English), published 2026-09-09 and revised 0914, retrieved 2026-09-23.",
+    "claim": "The Global Korea Scholarship for undergraduate degrees runs two application tracks on different timetables. The Embassy Track application period is 15 September 2026, 11:00 to 30 September 2026, 18:00 Korea Standard Time, applied for online through the Study in Korea website. The University Track runs September to November 2026 with each university setting its own dates, applied for directly to the university. Final scholars are announced on 7 January 2027.",
+    "excerpt": "Embassy Track (General, R-GKS, Overseas Koreans & Adoptees) — Online application through the Study in Korea website (www.studyinkorea.go.kr) […] Application Period: September 15, 2026 (Tue.), 11:00 – September 30, 2026 (Wed.), 18:00. University Track (Associate, UIC) — Apply according to each university's own submission method (e.g., in person, by mail, etc.) […] Application Period: September–November 2026, according to each university's own schedule […] All dates and times are based on Korea Standard Time. […] Announcement of 2027 GKS-U Scholars — Expected announcement date: Thursday, January 7, 2027.",
+    "interpretation": "Two tracks with two channels and two deadlines, which is why they are recorded here as two Application Routes rather than one bullet. The Embassy Track is a single national window that closes on one day; the University Track is a set of institutional windows that close on different days over three months. An applicant who fails the Embassy Track's first round may re-apply through a university, and the guidelines say the University Track schedule was arranged to allow exactly that — but only if they have checked the university deadline in advance.",
+    "supports": [
+      { "entity": "kr-gks-embassy-2027", "field": "milestones" },
+      { "entity": "kr-gks-university-2027", "field": "milestones" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-gks-2027-countries",
+    "sourceUrl": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+    "sourcePage": "https://www.studyinkorea.go.kr/en/plan/gksNoticeRead.do?bbsId=BBSMSTR_000000000461&nttId=4522",
+    "publisher": "National Institute for International Education (NIIED), Ministry of Education, Republic of Korea",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-spring",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the country quota table on page 3 and the embassy contact list on pages 25 to 27 of the 2027 GKS-U Application Guidelines (English), retrieved 2026-09-23. Both lists were read line by line; Denmark appears on neither.",
+    "claim": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
+    "excerpt": "Embassy Track: 156 scholars from 74 countries […] All applicants must hold citizenship of NIIED designated countries that are invited to take part in the GKS program ※ However, UIC Program is open to all countries around the world. […] 54 Singapore · 55 South Africa · 56 South Sudan · 57 Sri Lanka · 58 Sweden · 59 Syria […] UIC (University Industry Cooperation) Program: 100 scholars from 13 institutions ※ UIC Program is open to all countries around the world",
+    "interpretation": "This is the correction that matters most about Korean funding, and it contradicts what this repository previously said. A Danish passport does not open the Global Korea Scholarship's embassy route at all: Denmark is absent from the quota table and there is no Korean embassy listed for it in the guidelines' own contact appendix, while Sweden and Poland are both present. Only the University Track is available to a Danish citizen, and that track is not a general scholarship — the UIC Program is science and engineering at thirteen named universities, none of them Yonsei, KAIST or Seoul National, and each applicant may choose one university and one department only. The honest summary is that GKS is a smaller opportunity for a Dane than for most nationalities, and that telling a student to 'apply through the Korean embassy in Copenhagen' sends them to a door that is not there.",
+    "supports": [
+      { "entity": "kr-gks-embassy-2027", "field": "applicantGroup" },
+      { "entity": "kr", "field": "watchOuts" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-gks-2027-eligibility",
+    "sourceUrl": "https://www.studyinkorea.go.kr/cmm/fms/FileDown.do?atchFileId=FILE_000000000673717&fileSn=1",
+    "sourcePage": "https://www.studyinkorea.go.kr/en/plan/gksNoticeRead.do?bbsId=BBSMSTR_000000000461&nttId=4522",
+    "publisher": "National Institute for International Education (NIIED), Ministry of Education, Republic of Korea",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-spring",
+    "verificationState": "verified",
+    "verifiedBy": "Read from pages 7, 8 and 22 of the 2027 GKS-U Application Guidelines (English), retrieved 2026-09-23.",
+    "claim": "A 2027 GKS undergraduate applicant must be born on or after 1 March 2002, must have graduated or be expected to graduate by 31 December 2026, and takes one year of Korean language training before four to six years of degree study, so the award runs five to seven years.",
+    "excerpt": "Age — Must be under 25 years of age (born on or after March 1, 2002). […] Applicants who are expected to graduate (as of December 31, 2026) must first submit a certificate of expected graduation at the time of application. If such applicants pass the first round of selection, they must submit a graduation certificate (or a degree certificate) and a transcript by December 31, 2026. Failure to do so will result in the cancellation of your acceptance. […] Bachelor's: 5~7 years (1 year of Korean language program + 4~6 years of degree program) […] Tuition — NIIED: up to 5 million KRW per semester […] Monthly Allowance — Korean language program: 13,560,000 KRW per year; Degree program: 14,400,000 KRW per year […] Korean Language Program Fee: 5.2 million KRW per year",
+    "interpretation": "The graduation cut-off is the line that decides the year. A student finishing the IB Diploma in May 2027 cannot hold a graduation certificate by 31 December 2026, so they are not eligible for the 2027 round whatever else is true of them — the round for them is 2028, applied for from around September 2027. That is a year later than a reader of the old record would have planned for, and it is also good news of a kind: by then their diploma exists. The scholarship itself is genuinely large rather than a fee discount — tuition, a language year, and an allowance of 14.4m KRW a year during the degree — which is why it is worth planning a year around rather than treating as a bonus.",
+    "supports": [
+      { "entity": "kr-gks-embassy-2027", "field": "milestones" },
+      { "entity": "kr", "field": "livingContext" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-kr-moe-institution-types",
+    "sourceUrl": "https://english.moe.go.kr/sub/infoRenewal.do?m=0305&page=0305&s=english",
+    "publisher": "Ministry of Education, Republic of Korea",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the Ministry of Education's Higher Education page, 2026-09-23.",
+    "claim": "Korea's Ministry of Education describes higher education as comprising four-year universities, universities of education, open and cyber universities, industrial colleges, junior colleges, intra-company universities and polytechnic colleges, with undergraduate programmes running two to six years.",
+    "excerpt": "Higher education institutions come in various forms, including regular four-year comprehensive universities, universities of education for pre-service elementary school teachers, open university and cyber colleges for distance education and online learning, industrial colleges for lifelong education, junior colleges, intra-company universities established by companies to educate their employees, and polytechnic colleges for job-related skills training.",
+    "interpretation": "The rule-owner's own list, used here rather than an English-language summary of it, because the summaries almost always stop at 'universities' and the useful part of the list is everything after that. The junior college is Korea's answer to the question the research brief asks of every country — the institution type nobody mentions to foreigners. It is two or three years, practical, and the nearest Korean relative of the Danish erhvervsakademi. Note that polytechnic colleges sit under the labour ministry rather than this one, which is why they are missing from most education-ministry material.",
+    "supports": [
+      { "entity": "kr", "field": "sectorLandscape" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  }
+]

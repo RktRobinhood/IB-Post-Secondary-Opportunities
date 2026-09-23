@@ -1,0 +1,50 @@
+{
+  "id": "us-uc-application",
+  "name": "The University of California application",
+  "localName": "UC application",
+  "jurisdiction": {
+    "authorityType": "state-province",
+    "destination": "us",
+    "authority": "Regents of the University of California",
+    "area": "The nine undergraduate campuses of the University of California"
+  },
+  "portalUrl": "https://apply.universityofcalifornia.edu/",
+  "coverage": {
+    "extent": "comprehensive",
+    "includes": "All nine undergraduate University of California campuses — Berkeley, Davis, Irvine, Los Angeles, Merced, Riverside, San Diego, Santa Barbara and Santa Cruz — on one form, with campuses selected inside it.",
+    "excludes": "Everything else in California. The California State University system has its own separate application, and the state's private universities are on the Common App or their own. The word \"California\" covers three unrelated application systems and this is only one of them."
+  },
+  "choiceRules": {
+    "ranked": false,
+    "offersReceived": "many",
+    "note": "One application, as many of the nine campuses as you like, 80 USD each and 95 USD each for an international applicant. Campuses are not ranked and each decides separately, so it is possible to be admitted by several and refused by others on the same file."
+  },
+  "identityRequirement": "A UC application account. No US identity document is needed to apply.",
+  "fee": {
+    "amount": 95,
+    "currency": "USD",
+    "period": "once",
+    "note": "Per campus, for international and non-immigrant applicants. 80 USD per campus for domestic applicants."
+  },
+  "sharedSteps": [
+    "Open the application from 1 August and file it between 1 and 30 November. Nothing is accepted before or after that window.",
+    "Self-report the full academic record inside the application. UC reads what you enter; transcripts follow only if you enrol.",
+    "Answer four of the eight personal insight questions, 350 words each. There is no single long essay.",
+    "Do not collect teacher references. UC states that it does not require or read letters of recommendation at the time of application.",
+    "If you enrol, get the final transcript to the campus by 1 July and the official IB results by 15 July."
+  ],
+  "decisionModel": "Comprehensive review at each campus against its own priorities, with no early round of any kind and no rolling consideration. Decisions are released across March.",
+  "replyModel": "Admitted first-year students accept by submitting a Statement of Intent to Register (SIR) by 1 May. A SIR is to one campus only.",
+  "evidence": [
+    "ev-uc-dates-fall-2027",
+    "ev-uc-apply-now-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-15",
+    "notes": [
+      "Whether a non-resident applicant must satisfy any additional documentary step inside the application is not established here."
+    ]
+  }
+}

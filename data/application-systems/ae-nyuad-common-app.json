@@ -1,0 +1,37 @@
+{
+  "id": "ae-nyuad-common-app",
+  "name": "The Common Application (NYU Abu Dhabi)",
+  "localName": "Common App",
+  "jurisdiction": {
+    "authorityType": "consortium",
+    "destination": "ae",
+    "authority": "The Common Application, on behalf of New York University",
+    "area": "One institution in the UAE: NYU Abu Dhabi. This record describes only that use of it."
+  },
+  "portalUrl": "https://www.commonapp.org/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "NYU Abu Dhabi, which is admitted to as one of NYU's three degree-granting campuses alongside New York and Shanghai.",
+    "excludes": "Every other institution in the United Arab Emirates. Nothing else in this Destination uses it, and no UAE institution accepts an application made through it to another university."
+  },
+  "choiceRules": {
+    "offersReceived": "many",
+    "note": "The Common Application is not a ranked national portal. Each institution decides independently and a student may hold several offers — except where a binding Early Decision agreement has been signed, which removes that freedom by design."
+  },
+  "identityRequirement": "A Common Application account. Financial aid is assessed separately through the CSS Profile, which is a second account with a second deadline.",
+  "decisionModel": "Holistic review on the American model — transcript and predicted grades, essays, references and interview — with three rounds, two of them binding. Decisions are released on fixed dates rather than as applications are read.",
+  "replyModel": "An Early Decision admit must withdraw other applications and accept within two to three weeks, and is released only if the financial aid package will not let them attend. Regular Decision admits reply on the American calendar.",
+  "evidence": [
+    "ev-ae-nyuad-key-dates",
+    "ev-ae-nyuad-early-decision"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Recorded under the UAE because it is the application system one UAE institution uses, not because it is a UAE system. Its coverage field says so: within this Destination it covers exactly one university out of fourteen, which is the point worth making rather than a limitation of the record.",
+      "The rules on the Common Application's other member institutions are outside the scope of this record and are not established here."
+    ]
+  }
+}

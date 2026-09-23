@@ -8,7 +8,7 @@
   "currency": "USD",
   "eu": false,
   "eea": false,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Four years, no fixed major on day one, and the widest price range on earth",
   "summary": "An American bachelor's degree takes four years and starts broad: you take courses across several fields and usually declare a major at the end of year two. Admission is 'holistic' - your grades matter most, but so do essays, teacher references, what you do outside school, and increasingly again the SAT or ACT. As a Danish student you are an international applicant everywhere, so you pay the published sticker price unless a university gives you financial aid, and only a handful of universities give internationals enough aid to make it affordable. The cost range is enormous: from roughly 40,000 USD a year at a public university to over 95,000 USD a year at a private one.",
@@ -41,7 +41,7 @@
   "application": {
     "centralised": false,
     "portal": {
-      "name": "Common App (most private and many public universities)",
+      "name": "Three application environments, not one: the Common App, the University of California application, and institutions that take only their own",
       "url": "https://www.commonapp.org/"
     },
     "deadlines": [
@@ -50,69 +50,83 @@
         "date": "2026-07-31",
         "consequence": "indicative",
         "year": "autumn 2027 intake",
-        "notes": "Common App opened its 2026-27 season on 31 July 2026. You can create an account and draft essays before that; the personal essay rolls over.",
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "Migrated to the Common App Application Route, which carries the rounds and the evidence.",
         "source": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/"
-      },
-      {
-        "label": "Early Decision",
-        "date": "2026-11-01",
-        "consequence": "hard",
-        "year": "autumn 2027 intake",
-        "notes": "Binding. Most universities that run an early round use this date.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
-      },
-      {
-        "label": "Early Action and Restrictive Early Action",
-        "date": "2026-11-01",
-        "consequence": "hard",
-        "year": "autumn 2027 intake",
-        "notes": "Harvard's Restrictive Early Action deadline is 1 November with decisions in mid-December. Most universities that run an early round use the same date.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
       },
       {
         "label": "University of California application",
         "date": "2026-11-30",
         "consequence": "hard",
         "year": "fall 2027 intake",
-        "notes": "UC uses its own application, not the Common App, and closes earlier than everyone else. UC campuses were open for the fall 2027 application as of September 2026. The fee is 80 USD per campus, 95 USD for international and non-immigrant applicants.",
-        "source": "https://admission.universityofcalifornia.edu/apply-now.html"
-      },
-      {
-        "label": "Regular Decision",
-        "date": "2027-01-01",
-        "consequence": "hard",
-        "year": "autumn 2027 intake",
-        "notes": "Harvard's Regular Decision deadline is 1 January with decisions at the end of March. Some universities use 5 or 15 January instead - check each one.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+        "route": "us-uc-2027",
+        "jurisdiction": "us-uc",
+        "notes": "Migrated to the University of California Application Route, which carries the filing window, the fee and the July results deadline.",
+        "source": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html"
       },
       {
         "label": "Reply deadline",
         "date": "2027-05-01",
         "consequence": "hard",
         "year": "autumn 2027 intake",
-        "notes": "The national candidates' reply date. Harvard notes that both of its rounds are non-binding, so you can compare offers until 1 May.",
-        "source": "https://college.harvard.edu/admissions/apply/first-year-applicants"
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "Migrated to the Common App Application Route. The University of California and MIT use the same day under their own names.",
+        "source": "https://www.amherst.edu/admission/apply/firstyear"
       },
       {
-        "label": "Early Decision II",
+        "label": "IB results released",
+        "date": "2027-07-06",
+        "consequence": "indicative",
+        "year": "autumn 2027 intake",
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "Migrated to the Common App Application Route. Every American decision in this cycle is made before this date, on predicted grades."
+      },
+      {
+        "label": "Financial aid forms are due with the application, not after it",
         "dateState": "varies-by-institution",
         "consequence": "hard",
         "year": "autumn 2027 intake",
-        "notes": "Early January 2027 — each college sets its own date. Grinnell College, for example, uses 5 January for ED II and 15 January for Regular Decision, with financial aid forms due on the same day.",
-        "source": "https://www.grinnell.edu/admission/apply/international"
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "Each institution's aid deadline is its own application deadline. Grinnell requires every financial aid form by the same deadline as the Common Application; Macalester states that aid cannot be awarded after an offer of admission has been made; Bowdoin's Regular Decision aid deadline is 1 February, a month after its application date; MIT's is 30 November for Early Action and 15 February for Regular Action. A family that applies first and asks about money in the spring has forfeited the money.",
+        "source": "https://www.grinnell.edu/admission/apply/international",
+        "evidence": [
+          "ev-grinnell-international",
+          "ev-macalester-international",
+          "ev-bowdoin-dates",
+          "ev-mit-deadlines-2027"
+        ]
+      },
+      {
+        "label": "Rolling-admission priority date, Arizona State University",
+        "dateState": "not-yet-announced",
+        "consequence": "priority",
+        "year": "autumn 2027 intake",
+        "jurisdiction": "us-common-app",
+        "notes": "ASU publishes priority dates rather than closing dates and had published only fall 2026 (15 January 2026) and spring 2027 (1 November 2026) when this was checked on 23 September 2026. Nothing has been inferred for fall 2027. Recheck from about December 2026.",
+        "source": "https://admission.asu.edu/apply/international/first-year",
+        "evidence": [
+          "ev-asu-international-first-year"
+        ]
       }
     ],
     "steps": [
-      "From spring 2026, build a list of 8-12 universities in three groups: places that meet full need for internationals, places likely to give you merit money, and one or two you could genuinely afford at full price.",
-      "Register for and sit the SAT or ACT in 2026 if any university on your list requires it, and plan a retake date before November.",
-      "Create a Common App account when it opens on 31 July 2026, fill in your personal details once, and add your universities.",
-      "Ask two teachers and your studievejleder for references in spring 2026, not in October. Your counsellor also uploads the school report and your predicted IB grades.",
-      "Write the 650-word personal essay over the summer, then the supplemental essays - Harvard alone asks five 150-word short answers.",
-      "Submit early-round applications by 1 November 2026, the UC application by 30 November 2026, and the rest by 1 January 2027, paying each application fee (Harvard's is 95 USD) or requesting a waiver.",
-      "Submit financial aid forms - the CSS Profile or the university's own international aid form - by the same deadline as the application, not later.",
-      "Decide by 1 May 2027, then wait for the I-20, pay the SEVIS fee and book an embassy appointment in Copenhagen for the F-1 visa."
+      "From spring 2026, build a list of 8-12 institutions in three groups: places that meet full need for internationals, places likely to give you merit money, and one or two you could genuinely afford at full price.",
+      "Work out which of the three application environments each one sits in. Twelve of the fourteen here are on the Common App; Berkeley is on the University of California application and closes a month earlier; MIT takes only its own.",
+      "Register for and sit the SAT or ACT in 2026 if any institution on your list requires it, and plan a retake date before November. Yale and MIT require it and do not accept the IB instead.",
+      "Create a Common App account when it opens on 31 July 2026, fill in your personal details once, and add your institutions.",
+      "Ask two teachers and your studievejleder for references in spring 2026, not in October. Your counsellor also uploads the school report and your predicted IB grades - Illinois wants those a week after the application itself.",
+      "Write the 650-word personal essay over the summer, then the supplemental essays. The University of California asks four 350-word personal insight questions instead and needs writing of its own.",
+      "File the University of California application between 1 and 30 November 2026. It is the earliest deadline on the list and there is no second round.",
+      "Submit early-round applications - 1 November for Early Action almost everywhere, between 1 and 15 November for Early Decision depending on the college - then the Regular Decision applications between 1 and 15 January 2027.",
+      "Submit financial aid forms by the same deadline as the application, not later. Macalester states that aid cannot be awarded after an offer of admission is made.",
+      "Decide by 1 May 2027, then wait for the I-20, pay the 350 USD SEVIS fee and book an embassy appointment in Copenhagen for the F-1 visa.",
+      "Arrange the compulsory student health insurance, or a waiver, before the July deadline. In Massachusetts it is required by state law."
     ],
-    "selectionNotes": "Holistic review: no published points threshold, no ranking table, no guaranteed entry. Committees read grades and rigour of subjects first, then essays, references, activities and context, and at most universities also your ability to pay. Early Decision is binding - if admitted you must withdraw other applications - and it meaningfully raises your odds, but it removes your ability to compare financial aid offers. Early Action and Restrictive Early Action are non-binding. International admit rates at the most famous universities are in the low single digits; do not build a list out of them."
+    "selectionNotes": "Holistic review at most institutions: no published points threshold, no ranking table, no guaranteed entry. Committees read grades and the rigour of your subjects first, then essays, references, activities and context, and at many institutions also your ability to pay. Early Decision is binding - Amherst's wording is that you agree to withdraw your applications from other colleges and enrol - and it meaningfully raises your odds, but it removes your ability to compare financial aid offers. Early Action and Restrictive Early Action are not binding, though Stanford's and Yale's restrict where else you may apply early. The University of California does not run any early round at all, does not read letters of recommendation, and asks four short personal insight questions instead of an essay. Arizona State does not run a tournament at all: it admits against published criteria on a rolling basis. International admit rates at the most famous universities are in the low single digits; do not build a list out of them."
   },
   "language": {
     "englishTaughtBachelors": "Everything. The question is not whether the degree is in English but whether you must prove your English.",
@@ -178,7 +192,8 @@
       ],
       "note": "Need-blind for internationals and meets 100% of need, which makes it one of the few places where a Danish family on a normal income could actually afford to send a child - but the admit rate is in the low single digits, so treat it as a lottery ticket, not a plan.",
       "wikipedia": "https://en.wikipedia.org/wiki/Harvard_University",
-      "place": "us-cambridge-massachusetts"
+      "place": "us-cambridge-massachusetts",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Yale University",
@@ -197,7 +212,8 @@
       ],
       "note": "Requires the SAT or ACT from every first-year applicant and states explicitly that IB results cannot replace it - so if Yale is on your list, book a test date in 2026.",
       "wikipedia": "https://en.wikipedia.org/wiki/Yale_University",
-      "place": "us-new-haven-connecticut"
+      "place": "us-new-haven-connecticut",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Massachusetts Institute of Technology",
@@ -207,16 +223,17 @@
       "founded": 1861,
       "website": "https://www.mit.edu/",
       "admissionsUrl": "https://mitadmissions.org/",
-      "ibPageUrl": null,
+      "ibPageUrl": "https://firstyear.mit.edu/academics-exploration/ap-transfer-credit/international-examinations/",
       "englishBachelors": "Four-year SB degrees; everyone takes the same science and maths core in year one.",
       "notableFields": [
         "Engineering",
         "Computer Science",
         "Physics"
       ],
-      "note": "The most maths-and-physics-intensive undergraduate experience in the US, and widely reported to be need-blind for internationals - verify that on MIT's own student financial services pages, which we could not fetch.",
+      "note": "The only institution in this profile that has never joined the Common App: you apply through MIT's own portal, Early Action closes 1 November and Regular Action 4 January, not 1 January. The SAT or ACT is required and there is no IB alternative. Its IB credit rule is the narrowest we found anywhere in the United States - Higher Level only, grade 7 only, and nothing at all for IB Biology, Chemistry or Information Technology in a Global Society.",
       "wikipedia": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology",
-      "place": "us-cambridge-massachusetts"
+      "place": "us-cambridge-massachusetts",
+      "jurisdiction": "us-own-application"
     },
     {
       "name": "Stanford University",
@@ -235,7 +252,8 @@
       ],
       "note": "Reported to have reinstated a testing requirement and to be need-aware for internationals - check both on Stanford's own pages, as we could not verify them.",
       "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University",
-      "place": "us-stanford-california"
+      "place": "us-stanford-california",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Amherst College",
@@ -254,7 +272,8 @@
       ],
       "note": "About 1,900 students and consistently named as one of the very few liberal arts colleges that is need-blind for international applicants and meets full need; it is as selective as an Ivy, so apply alongside, not instead of, less selective colleges.",
       "wikipedia": "https://en.wikipedia.org/wiki/Amherst_College",
-      "place": "us-amherst-massachusetts"
+      "place": "us-amherst-massachusetts",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Bowdoin College",
@@ -273,7 +292,8 @@
       ],
       "note": "Regularly listed among the need-blind, full-need colleges for internationals; coastal Maine is beautiful and genuinely remote, which suits some Danish students and not others.",
       "wikipedia": "https://en.wikipedia.org/wiki/Bowdoin_College",
-      "place": "us-brunswick-maine"
+      "place": "us-brunswick-maine",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Grinnell College",
@@ -292,7 +312,8 @@
       ],
       "note": "One of the most realistic targets on this list: need-aware for internationals but then meets 100% of assessed need, and also considers internationals for merit awards. ED I 15 November, ED II 5 January, RD 15 January - aid forms due the same day.",
       "wikipedia": "https://en.wikipedia.org/wiki/Grinnell_College",
-      "place": "us-grinnell-iowa"
+      "place": "us-grinnell-iowa",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Macalester College",
@@ -311,7 +332,8 @@
       ],
       "note": "Long-standing reputation for recruiting and funding international students, and being in the Twin Cities means jobs, flights and a Scandinavian-heavy Midwest that feels less foreign than you would expect. Confirm its current international aid policy directly.",
       "wikipedia": "https://en.wikipedia.org/wiki/Macalester_College",
-      "place": "us-saint-paul-minnesota"
+      "place": "us-saint-paul-minnesota",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Colby College",
@@ -330,7 +352,8 @@
       ],
       "note": "Reported to award substantial credit for a strong full IB Diploma - worth asking the registrar directly, because a year of credit changes the total cost of the degree more than any scholarship will.",
       "wikipedia": "https://en.wikipedia.org/wiki/Colby_College",
-      "place": "us-waterville-maine"
+      "place": "us-waterville-maine",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "New York University",
@@ -349,7 +372,8 @@
       ],
       "note": "Enormous international intake and campuses in Abu Dhabi and Shanghai, but it is famously need-aware and does not meet full need for most internationals; go in expecting to pay a large share of a very high New York cost of living.",
       "wikipedia": "https://en.wikipedia.org/wiki/New_York_University",
-      "place": "us-new-york-new-york"
+      "place": "us-new-york-new-york",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "University of Michigan-Ann Arbor",
@@ -368,7 +392,8 @@
       ],
       "note": "A top-tier public university with a classic American campus experience; out-of-state and international tuition is close to private-university levels and institutional aid for internationals is limited.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan",
-      "place": "us-ann-arbor-michigan"
+      "place": "us-ann-arbor-michigan",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "University of California, Berkeley",
@@ -387,7 +412,8 @@
       ],
       "note": "Apply through the UC application by 30 November 2026, not the Common App. For 2026-27 a new international pays 18,214 USD of tuition and fees plus 39,270 USD Nonresident Supplemental Tuition, and UC gives essentially no need-based aid to internationals - but the UC system's published IB credit rules are the most generous and transparent in the country.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Berkeley",
-      "place": "us-berkeley-california"
+      "place": "us-berkeley-california",
+      "jurisdiction": "us-uc"
     },
     {
       "name": "University of Illinois Urbana-Champaign",
@@ -406,7 +432,8 @@
       ],
       "note": "A serious engineering and computing school at a public-university price, with a huge international community and a less theatrical admissions process than the private universities.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Urbana-Champaign",
-      "place": "us-urbana-champaign-illinois"
+      "place": "us-urbana-champaign-illinois",
+      "jurisdiction": "us-common-app"
     },
     {
       "name": "Arizona State University",
@@ -423,9 +450,10 @@
         "Sustainability",
         "Journalism"
       ],
-      "note": "The honest 'realistic' entry on this list: admission is largely criteria-based rather than a lottery, automatic merit awards for international students are published in advance, and the total cost sits well below the private universities.",
+      "note": "The counterweight to a list of single-digit admit rates: ASU admits against published criteria rather than by tournament, decides on a rolling basis, and accepts either its own application or the Common App with no stated preference. The application fee for an international applicant is 90 USD. Its priority date for fall 2027 is not published yet, and it states an English-proficiency requirement without naming an IB exemption - ask in writing whether your English A or B Higher Level result covers it.",
       "wikipedia": "https://en.wikipedia.org/wiki/Arizona_State_University",
-      "place": "us-tempe-arizona"
+      "place": "us-tempe-arizona",
+      "jurisdiction": "us-common-app"
     }
   ],
   "sources": [
@@ -493,6 +521,101 @@
       "title": "USCIS - Optional Practical Training (OPT) for F-1 students",
       "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of California - first-year dates and deadlines (fall 2027)",
+      "url": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of California - tuition and cost of attendance 2027-28",
+      "url": "https://admission.universityofcalifornia.edu/tuition-financial-aid/tuition-cost-of-attendance/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of California - Transfer Admission Guarantee (TAG)",
+      "url": "https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/uc-transfer-programs/transfer-admission-guarantee-tag.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "UC Berkeley University Health Services - SHIP fees and enrolment",
+      "url": "https://uhs.berkeley.edu/insurance/ship-fees-enrollment",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "MIT Admissions - first-year deadlines and requirements",
+      "url": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "MIT Office of the First Year - credit for international examinations",
+      "url": "https://firstyear.mit.edu/academics-exploration/ap-transfer-credit/international-examinations/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Harvard University Student Health Program - waiver eligibility and deadlines",
+      "url": "https://hushp.harvard.edu/waiver-eligibility-application-process/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Stanford Undergraduate Admission - Restrictive Early Action and Regular Decision",
+      "url": "https://admission.stanford.edu/apply/first-year/decision_process.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Stanford Undergraduate Admission - first-year requirements and fee",
+      "url": "https://admission.stanford.edu/apply/first-year/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Amherst College - first-year applicants, deadlines for entry in 2027",
+      "url": "https://www.amherst.edu/admission/apply/firstyear",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Yale Undergraduate Admissions - application platforms and deadlines",
+      "url": "https://admissions.yale.edu/apply",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of Illinois Urbana-Champaign - first-year dates and deadlines",
+      "url": "https://www.admissions.illinois.edu/apply/freshman/dates",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Bowdoin College - application dates and deadlines",
+      "url": "https://www.bowdoin.edu/admissions/apply/dates-deadlines/index.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Macalester College - international first-year applicants",
+      "url": "https://www.macalester.edu/admissions/international/first-year/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Arizona State University - international first-year student",
+      "url": "https://admission.asu.edu/apply/international/first-year",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Common App - New York University member entry",
+      "url": "https://www.commonapp.org/explore/new-york-university/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Common App - University of Michigan member entry",
+      "url": "https://www.commonapp.org/explore/university-michigan/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Common App - Colby College member entry",
+      "url": "https://www.commonapp.org/explore/colby-college/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "EducationUSA (US Department of State) - community college",
+      "url": "https://educationusa.state.gov/your-5-steps-us-study/research-your-options/community-college",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

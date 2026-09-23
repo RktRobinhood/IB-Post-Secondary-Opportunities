@@ -1,0 +1,179 @@
+{
+  "id": "nz",
+  "iso2": "nz",
+  "name": "New Zealand",
+  "adjective": "New Zealand",
+  "scope": "worldwide",
+  "region": "Oceania",
+  "capital": "Wellington",
+  "currency": "NZD",
+  "membership": {
+    "eu": false,
+    "eea": false,
+    "nordic": false,
+    "schengen": false
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "One national entrance rule, no central portal, and your IB total is the rank",
+  "summary": "New Zealand has eight universities and one entrance rule, set by Universities New Zealand and restated almost word for word on each university's own page: the full IB Diploma, English as Language A, any mathematics. Where Australia converts an IB total onto a separate national scale before comparing it to anything, New Zealand does not convert it at all - at the universities that use a rank score, the rank score is the IB total. What it does not have is any shared way to apply. There is no portal, no national deadline and no ranking of choices; every application is a separate one, and the dates that matter are printed on individual programme pages, where they are sometimes a month earlier for an international applicant than for a domestic one.",
+  "whyConsider": [
+    "The entrance rule is national, published and short: the full IB Diploma, English as Language A at Standard or Higher Level, and any mathematics subject.",
+    "No conversion to learn. At the universities that publish a rank score it is your IB total, so a guaranteed-entry score of 26 means 26 points.",
+    "Several universities publish the exact score that guarantees entry to a named degree, which turns the question from a judgement into a comparison.",
+    "The Post Study Work Visa lets a bachelor's graduate stay and work for up to three years with no employer sponsorship.",
+    "Tuition and living costs sit below Australia, and the student visa charge is about a third of Australia's.",
+    "Degrees at level 7 are awarded outside the universities too, by polytechnics and the larger private providers, and carry the same post-study work rights."
+  ],
+  "watchOuts": [
+    "There is no central application system at all - not a partial one, not one with gaps. Three universities is three applications, and nothing cross-checks them.",
+    "The international closing date can be earlier than the domestic one for the same intake, and the programme page does not flag it. At Auckland, for a July 2027 start, it is 8 June against 4 July.",
+    "The competitive health programmes close before your results exist. Auckland's Medicine, Optometry, Pharmacy and Medical Imaging close on 1 July 2027 for a February 2028 start.",
+    "Meeting University Entrance is not being admitted. Twenty-four points opens the university; every published programme score is higher.",
+    "Tuition rises between years of the same degree, and the visa requires NZD 20,000 of living costs for each year on top of it.",
+    "The vocational half of the system was rebuilt on 1 January 2026. Anything written about New Zealand polytechnics before then describes a structure that no longer exists, and some of it is still online undated."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "The full IB Diploma, awarded, with a minimum of 24 points. That is the University Entrance threshold - permission to be admitted to a New Zealand university, not admission to a degree - and every published programme score sits above it. Canterbury states the same rule as simply having been awarded the Diploma, which is the same threshold said differently, because the Diploma is not awarded below 24.",
+    "subjectLevelRule": "Literacy is met by English as Language A - literature, or Language A - language and literature, at Standard or Higher Level; or by English Language B at Higher Level. Numeracy is met by any mathematics subject. The universities diverge on one detail: Auckland accepts Language B at Higher Level only at grade 5 or above, while Wellington and Canterbury state Language B at Higher Level without naming a grade. Individual degrees add subject prerequisites and a higher score on top.",
+    "gradeConversion": "There is no conversion, which is the finding rather than a gap. At the universities that use a rank score it is set equal to the IB total: the University of Auckland states that 27 points gives a rank score of 27, out of a maximum of 45, and Massey states the same one-to-one rule for its Preferential Entry Score. Nobody publishes this nationally - each university states it about itself - and not every university uses a rank score at all. The conversionTable field is deliberately absent, because a table mapping every number to itself would be noise and would imply a national schedule that does not exist.",
+    "conversionScale": "Rank score, 24 to 45, identical to the IB Diploma total. Used by the universities that publish guaranteed-entry or preferential-entry thresholds; stated by each of them about itself rather than nationally.",
+    "notes": [
+      "University of Auckland guaranteed-entry rank scores for 2027 entry: 26 for Arts, Dance Studies, Early Childhood Studies, Education (Teaching), Fine Arts, Music, Psychology, most Science and Sport, Health and Physical Education; 27 for Commerce, Communication, Design, Urban Planning, Global Studies and Property; 28 for Biomedical Science, Health Sciences and various conjoints; 31 for Nursing and Architectural Studies; 32 for Engineering (Honours); 34 for Engineering conjoints. Republished each entry year.",
+      "Massey sets a Preferential Entry Score of 26 for most undergraduate qualifications.",
+      "Medicine, pharmacy, optometry and dentistry are not entered from school at Auckland or Otago. You complete a prescribed first year and compete for entry afterwards - but the application to that first year still closes on 1 July at Auckland.",
+      "Universities New Zealand sets the University Entrance standard for approved qualifications under the Education and Training Act 2020. NZQA quality assures every kind of tertiary provider except the universities, which assure one another."
+    ],
+    "evidence": [
+      "ev-auckland-ib-2027",
+      "ev-vuw-ib",
+      "ev-canterbury-ib",
+      "ev-massey-rank-score",
+      "ev-aut-ib"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "All of it. Every New Zealand university degree is taught in English.",
+    "englishProof": "For an IB candidate the University Entrance literacy requirement does most of the work: English as Language A at Standard or Higher Level, or Language B at Higher Level, satisfies it. Universities New Zealand states a general undergraduate minimum of IELTS 6.0, and notes that some universities require more for some programmes. Waikato states that a full IB Diploma taught in English at 24 points or above satisfies its English language requirement, though that wording was not read directly here.",
+    "localLanguageRequired": false,
+    "notes": [
+      "Te reo Maori is an official language and appears throughout university life and ceremony. No degree requires it unless you choose it.",
+      "Immigration New Zealand may set its own English evidence requirements separately from the university's."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "international-rate",
+      "summary": "New Zealand has no EU or EEA fee category and no arrangement with Denmark. A Danish student pays the international fee, set by each university.",
+      "priceYear": "2026",
+      "evidence": [
+        "ev-auckland-international-fees-2026"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Set per university and per degree. Worked example, University of Auckland 2026: NZD 40,225 for a Bachelor of Arts up to NZD 86,561 for the later years of Medicine and Surgery, for a full-time year of 120 points, plus a Student Services Fee of NZD 9.44 per point - about NZD 1,132.80 a year. The indicative 2027 Bachelor of Arts fee is NZD 42,236.40, roughly five per cent higher, which is the university saying in numbers that the fee rises each year of the degree.",
+      "typicalRange": "Roughly NZD 40,000 to 45,000 a year for arts, commerce and most science at a research university, considerably more for health",
+      "priceYear": "2026 verified, 2027 indicative",
+      "evidence": [
+        "ev-auckland-international-fees-2026"
+      ]
+    }
+  ],
+  "livingContext": {
+    "livingCostYear": "Immigration New Zealand requires NZD 20,000 of living costs for each year of tertiary study of a year or more. That is the visa minimum and not a budget for Auckland or Wellington.",
+    "housing": "First-year students are strongly steered into halls of residence and most universities guarantee a place if you apply by their deadline. Take it: renting privately from Denmark is difficult, and the halls are where the year's friendships are made. Otago is famous for an almost entirely residential first year in Dunedin. Auckland and Wellington rents are high; Dunedin, Hamilton, Palmerston North and Christchurch are much cheaper.",
+    "healthcare": "International students on a student visa are generally not entitled to publicly funded healthcare, so Immigration New Zealand requires insurance acceptable to your education provider for the whole period of study, and universities normally sell or arrange a compliant policy. The EHIC and the Danish yellow card are not valid. Budget for it as a separate annual cost.",
+    "workRights": "Up to 25 hours a week during study and full time in scheduled holidays, depending on the conditions written on the visa; students aged 16 or 17 need written permission. After graduating, the Post Study Work Visa allows a level 7 bachelor's graduate to stay and work for up to three years with no employer sponsorship, applied for within three months of the student visa expiring and requiring at least NZD 5,000 for living expenses.",
+    "residency": "A Fee Paying Student Visa, from NZD 850, granted for up to four years. It requires an offer of place from an approved education provider, evidence that tuition is paid or payable, acceptable insurance, and NZD 20,000 of living costs for each year. There is no deadline - the visa is unlocked by the offer, not by a date - and Immigration New Zealand advises applying at least three months before you travel against a published service standard of eighty per cent decided within eight weeks.",
+    "funding": [
+      "University international excellence scholarships, usually a partial fee reduction awarded on the admission score. Several have deadlines earlier than the admission deadline; amounts were not verified here.",
+      "Faculty awards and first-year prizes, awarded on results after you arrive.",
+      "Part-time work of up to 25 hours a week during study, which goes considerably further in Dunedin than in Auckland.",
+      "Danish SU may in some circumstances follow you abroad for a full degree. Check su.dk and speak to your studievejleder early.",
+      "There is no New Zealand government loan or grant for international undergraduates."
+    ],
+    "evidence": [
+      "ev-inz-fee-paying-student-visa"
+    ]
+  },
+  "sectorLandscape": {
+    "summary": "New Zealand's tertiary system is small and legislated. Eight universities, all public and all research-led, are the only providers NZQA does not quality assure - they assure one another instead. Everything else is assured by NZQA: the polytechnics and institutes of technology, the three wananga, and more than two hundred private training establishments. Degree-level study is not confined to the universities; polytechnics, wananga and the larger private providers award degrees too, and a level 7 bachelor's from any of them carries the same Post Study Work Visa rights. The vocational half of this was rebuilt on 1 January 2026, when the national body Te Pukenga was disestablished and ten regional polytechnics re-established under their own governance.",
+    "routes": [
+      {
+        "localName": "te whare wananga o",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The eight universities: Auckland, Otago, Victoria Wellington, Canterbury, Massey, Waikato, AUT and Lincoln. All public, all teaching in English, all using the same University Entrance rule, and all running a three-year bachelor's degree with an optional honours year. Auckland and AUT offer conjoint degrees combining two bachelor's in about four to five years. This is the route almost all English-language advice about New Zealand is describing.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Universities are outside NZQA's programme approval because their academic quality is assured through Universities New Zealand. A student checking a provider's registration will find a polytechnic or a private provider on NZQA's register and a university nowhere on it, and that absence means nothing."
+      },
+      {
+        "localName": "polytechnic / institute of technology",
+        "englishName": "polytechnic",
+        "kind": "applied",
+        "what": "Vocational and professional education from certificates through to bachelor degrees, taught applied and usually with work placements. Cheaper than a university, smaller classes, lower entry thresholds, and a level 7 bachelor's from one carries the same post-study work rights as a university degree. Ten were re-established as standalone regional institutions on 1 January 2026 - among them Otago Polytechnic, and a merged Unitec and Manukau Institute of Technology - while four remain inside the renamed national body, NZIST.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "The route to look at before concluding that a predicted total below the university thresholds closes New Zealand off. It is also the part of the system most likely to be described wrongly by anything written between 2020 and 2025, because during that period all sixteen were a single national entity."
+      },
+      {
+        "localName": "wananga",
+        "englishName": "Maori tertiary institution",
+        "kind": "specialist",
+        "what": "Three legislated institutions - Te Wananga o Aotearoa, Te Wananga o Raukawa and Te Whare Wananga o Awanuiarangi - teaching in a Maori context and holding kaitiakitanga over matauranga Maori, te reo Maori and tikanga. They award degrees as well as certificates and diplomas.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Recorded because it exists, is unique to New Zealand, and appears in no guidance written for international undergraduates. Whether any wananga admits an international IB candidate, and in what language teaching is delivered, was not established here."
+      },
+      {
+        "localName": "private training establishment",
+        "englishName": "private training establishment",
+        "kind": "specialist",
+        "what": "More than two hundred TEC-funded providers, mostly teaching certificates and diplomas in a specific occupational field, with the larger ones awarding degrees. Registered with and quality assured by NZQA, which is the check to run: registration is compulsory for this category in a way it is not for the universities.",
+        "ibAccessible": "unknown",
+        "englishTaught": "common",
+        "note": "Quality varies more here than anywhere else in the system. Whether a given provider can enrol international students at all, and whether the qualification sits at level 7, are the two questions to settle before anything else."
+      },
+      {
+        "localName": "university foundation programme",
+        "englishName": "foundation year",
+        "kind": "college",
+        "what": "A recognised one-year programme, run either by a university or by a non-university provider on a university's behalf, admitting international students whose school qualification does not meet University Entrance and taking them into first year. Universities New Zealand names both forms as admission pathways in its own guidance.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "Rarely needed by a full IB Diploma holder, because the Diploma meets University Entrance outright. Worth knowing because it is what will be offered to a student who does not complete the Diploma, and because it costs a year and a year's fees."
+      }
+    ],
+    "evidence": [
+      "ev-nzqa-tertiary-providers",
+      "ev-moe-polytechnics-2026",
+      "ev-unz-apply-direct"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-unz-apply-direct",
+    "ev-auckland-ib-2027",
+    "ev-auckland-closing-dates",
+    "ev-inz-fee-paying-student-visa"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "New Zealand is declared as one system, examined and found to be one rather than left undeclared. Universities New Zealand states that applications should be made direct to the universities, the entrance standard is national, and no province, island or sector varies the route - the only shared services in the sector are the entrance standard itself and NZQA's quality assurance, neither of which is an application system. The one distinction that behaves like a jurisdiction is domestic against international, and that is an applicant group, not an area.",
+      "conversionTable is deliberately absent. New Zealand publishes no IB-to-local conversion because none is needed: at the universities that use a rank score it is the IB total itself. Recording a table of every number mapped to itself would imply a national schedule of the Australian kind, and there is not one.",
+      "Six of the ten institutions on the country profile are backed by a page of their own that states an IB rule: Auckland, Victoria Wellington, Canterbury, Massey, Lincoln and Waikato. Of the remaining four, AUT's rule exists but aut.ac.nz refuses every automated retrieval, so it is recorded at needs-review from a search engine's rendering; Otago's International Baccalaureate page sits behind a bot-protection challenge that was not circumvented; and Unitec and Otago Polytechnic publish no IB rule at all, assessing entry against country-specific equivalence instead. That is four of ten that a person still has to open in a browser.",
+      "Not established: closing dates at seven of the eight universities. Only the University of Auckland's calendar was read, and the two dates taken from it are labelled as Auckland's on the application route rather than presented as national.",
+      "Not established: whether New Zealand universities routinely make conditional offers on predicted IB grades.",
+      "Not established: whether any wananga admits international students, and in what language.",
+      "Owed: the four polytechnics left inside NZIST were to have their future settled in the first half of 2026. That decision was not looked for.",
+      "Programme-level records not created. Stages 1 to 5 of the research brief are answered; stage 6 is not."
+    ]
+  }
+}

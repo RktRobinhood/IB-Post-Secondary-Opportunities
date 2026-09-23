@@ -1,0 +1,138 @@
+{
+  "id": "au-uac-2027",
+  "destination": "au",
+  "jurisdiction": "au-nsw-act",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to New South Wales and the ACT through UAC",
+  "channel": "application-system",
+  "applicationSystem": "au-uac",
+  "portalUrl": "https://www.uac.edu.au/",
+  "choicesRanked": true,
+  "fee": {
+    "amount": 215,
+    "currency": "AUD",
+    "period": "once",
+    "approximate": true,
+    "note": "AUD 82 early in the cycle, AUD 215 once the early-bird window closes. One payment, however many participating institutions are preferenced."
+  },
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "UAC opens for the cycle that admits you",
+      "consequence": "indicative",
+      "note": "No date recorded, because the cycle a May 2027 candidate needs had not been published when this was written. For shape only: the 2026-27 cycle opened on 8 April 2026. Treat that as the month to start checking, not as a date.",
+      "evidence": [
+        "ev-uac-charges-2027"
+      ]
+    },
+    {
+      "id": "ms-coordinator",
+      "type": "document",
+      "label": "Ask your IB Diploma coordinator to release your results to UAC",
+      "consequence": "personal",
+      "note": "UAC asks for the International Baccalaureate to be authorised to send results directly. Your school does this, not you, and nothing in the application will prompt them. Ask in the term before you apply.",
+      "evidence": [
+        "ev-uac-ib-results-timing"
+      ]
+    },
+    {
+      "id": "ms-earlybird",
+      "type": "fee",
+      "label": "Early-bird processing charge ends",
+      "consequence": "priority",
+      "note": "Missing this costs money rather than a place: AUD 82 becomes AUD 215. In the 2026-27 cycle the cut-off was 23:59 Sydney time on 30 September 2026. The date for the 2027-28 cycle was not published when this was written, so no date is shown here rather than last year's.",
+      "evidence": [
+        "ev-uac-charges-2027"
+      ]
+    },
+    {
+      "id": "ms-conditional",
+      "type": "result",
+      "label": "Conditional offer, about 48 hours after you submit",
+      "consequence": "indicative",
+      "note": "Not a date so much as an interval. An international applicant gets a conditional offer roughly two days after submitting, on predicted grades. UAC says it may be used for pre-visa assessment and that it does not make you eligible to enrol - enrolment needs the unconditional offer, which needs results.",
+      "evidence": [
+        "ev-uac-international-conditional-offer"
+      ]
+    },
+    {
+      "id": "ms-close",
+      "type": "submit",
+      "label": "UAC applications close for the February intake",
+      "consequence": "hard",
+      "note": "The door does close, and it closes early in the year the course starts. The 2026-27 cycle closed at 23:59 on 5 February 2027 for courses starting semester 1 2027, and individual courses set earlier dates of their own. The equivalent 2028 date is not yet published. Check uac.edu.au/key-dates from April 2027.",
+      "evidence": [
+        "ev-uac-charges-2027",
+        "ev-uac-international-conditional-offer"
+      ]
+    },
+    {
+      "id": "ms-unconditional",
+      "type": "result",
+      "label": "Unconditional offer once results reach UAC",
+      "consequence": "indicative",
+      "note": "UAC states plainly that because International Baccalaureate results are released on their own schedule it cannot guarantee they will be assessed in time for any specific offer round. The whole UAC calendar is built around the November session, whose results arrive in December; a May-session candidate's arrive in July, and should expect to be handled between rounds rather than in one.",
+      "evidence": [
+        "ev-uac-ib-results-timing"
+      ]
+    },
+    {
+      "id": "ms-coe",
+      "type": "enrolment",
+      "label": "Accept, pay the deposit, and wait for the Confirmation of Enrolment",
+      "consequence": "personal",
+      "note": "The Confirmation of Enrolment comes from the university, not from UAC, and nothing about the visa can begin until it exists. The subclass 500 application then has to be lodged early enough that the CoE is still valid when Home Affairs decides it. That sequence, not any published date, is what sets how early you have to move.",
+      "evidence": [
+        "ev-homeaffairs-student-500"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-ib-results",
+      "label": "IB Diploma results, released by the IB directly to UAC",
+      "itemType": "result",
+      "responsibleParty": "school",
+      "destinationOfItem": "UAC, from the International Baccalaureate, not uploaded by the applicant",
+      "dueMilestone": "ms-coordinator",
+      "note": "The step that has to be started by someone other than the applicant. Your IB Diploma coordinator authorises the release.",
+      "evidence": [
+        "ev-uac-ib-results-timing"
+      ]
+    },
+    {
+      "id": "si-charge",
+      "label": "Processing charge",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "UAC",
+      "dueMilestone": "ms-earlybird",
+      "note": "The application is not submitted until it is paid, so paying is the deadline, not applying.",
+      "evidence": [
+        "ev-uac-charges-2027"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Convert your predicted IB total to a Combined Rank on the current UAC schedule before you preference anything - Australian course pages state the rank they want, not the IB score.",
+    "Check whether the degree you want has a mid-year (July) intake at all. Engineering, health and most professional degrees in Australia are semester 1 only, and that single fact decides whether you start in July 2027 or February 2028.",
+    "Universities in New South Wales and the ACT also accept direct international applications. UAC is an alternative in this jurisdiction, not an obligation, and it is worth asking the university's international office which route it would rather have."
+  ],
+  "evidence": [
+    "ev-uac-international-ib-eligible",
+    "ev-uac-charges-2027",
+    "ev-uac-international-conditional-offer",
+    "ev-uac-ib-results-timing"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-04-30",
+    "notes": [
+      "Deliberately undated in most places. Every UAC date currently published belongs to the 2026-27 cycle, which admits to semester 1 2027 and closed before a May 2027 candidate has results. Carrying those dates forward a year would have produced a page full of confident, wrong deadlines; the published pattern is recorded in each note instead, labelled as the previous cycle.",
+      "Not established: how many course preferences an international applicant may list, and whether an applicant may run a UAC application and a direct application to the same university at once."
+    ]
+  }
+}

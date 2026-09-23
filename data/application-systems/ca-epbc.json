@@ -1,0 +1,44 @@
+{
+  "id": "ca-epbc",
+  "name": "EducationPlannerBC",
+  "localName": "EducationPlannerBC",
+  "jurisdiction": {
+    "authorityType": "state-province",
+    "destination": "ca",
+    "authority": "EducationPlannerBC, on behalf of British Columbia's public post-secondary institutions",
+    "area": "British Columbia"
+  },
+  "portalUrl": "https://apply.educationplannerbc.ca/",
+  "coverage": {
+    "extent": "comprehensive",
+    "includes": "British Columbia's 25 public post-secondary institutions, universities and colleges alike, from one account. UBC, Simon Fraser and Victoria all state on their own pages that this is the only way in.",
+    "excludes": "Private institutions in British Columbia, which apply directly. Coverage of the public sector is the whole sector, which is unusual in this collection and is the reason British Columbia reads as one jurisdiction where Ontario needs two systems for the same province."
+  },
+  "choiceRules": {
+    "ranked": false,
+    "offersReceived": "many",
+    "note": "No limit. You may submit as many applications through the platform as you like, and each institution decides its own. Whether two programmes at one institution take one application or two is set by that institution."
+  },
+  "identityRequirement": "An EducationPlannerBC account, created with a personal email address. The platform warns specifically against using a school-issued address, because those are deactivated at graduation and the institution's correspondence goes to it.",
+  "sharedSteps": [
+    "Create and confirm the account before you need it - an application cannot be submitted until the confirmation email has been acted on.",
+    "Complete the profile, including academic history, once. It is reused across every institution you apply to.",
+    "Submit each application with payment. The fee goes to the institution, not to the platform."
+  ],
+  "decisionModel": "Nothing is decided here. EducationPlannerBC passes the application to the institution's own student records system and the institution decides, on its own requirements and its own timetable.",
+  "replyModel": "Set by each institution. UBC assigns an offer deadline of 1 May or 1 June in the admission letter itself.",
+  "evidence": [
+    "ev-epbc-how-it-works",
+    "ev-ubc-apply-epbc",
+    "ev-sfu-dates-2027",
+    "ev-uvic-apply-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "One account is not one deadline and not one fee. Both belong to the institution, and the three British Columbia universities in this record charge CAD 130, CAD 184 and an amount not read, and close on 15 January, 31 January and a date set per programme."
+    ]
+  }
+}

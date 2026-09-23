@@ -1,0 +1,110 @@
+{
+  "id": "ae-branch-campus-direct-2027",
+  "destination": "ae",
+  "jurisdiction": "ae-branch-campus",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying direct to a foreign university's UAE campus for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.birmingham.ac.uk/dubai/study/apply",
+  "milestones": [
+    {
+      "id": "ms-ae-branch-rit-early",
+      "type": "submit",
+      "label": "RIT Dubai — Fall 2027 Early Admission Phase closes",
+      "date": "2027-01-15",
+      "consequence": "priority",
+      "provisional": true,
+      "note": "The phase to be in if you want a scholarship. RIT Dubai says its scholarship seats are limited. The year is inferred from a bare recurring date.",
+      "evidence": ["ev-ae-rit-dubai-dates"]
+    },
+    {
+      "id": "ms-ae-branch-rit-regular",
+      "type": "submit",
+      "label": "RIT Dubai — Fall 2027 Regular Admission Phase closes",
+      "date": "2027-05-31",
+      "consequence": "priority",
+      "provisional": true,
+      "evidence": ["ev-ae-rit-dubai-dates"]
+    },
+    {
+      "id": "ms-ae-branch-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "This is the date on which the branch campuses stop resembling each other. Two of them will still take an application after it.",
+      "evidence": []
+    },
+    {
+      "id": "ms-ae-branch-rit-deadline",
+      "type": "submit",
+      "label": "RIT Dubai — Fall 2027 application deadline",
+      "date": "2027-08-22",
+      "consequence": "equal-consideration",
+      "provisional": true,
+      "note": "Seven weeks after IB results. RIT Dubai says applications received after this date are reviewed based on space availability, which is why the consequence is equal-consideration rather than hard. The year is inferred from a bare recurring date.",
+      "evidence": ["ev-ae-rit-dubai-dates"]
+    },
+    {
+      "id": "ms-ae-branch-hw-last",
+      "type": "submit",
+      "label": "Heriot-Watt Dubai — last practical date for a September 2027 start",
+      "consequence": "rolling",
+      "note": "No fixed date. Heriot-Watt Dubai says it can accept applications up until three weeks before the start of each intake, and warns that a late application will delay the student visa and matriculation card. Work backwards from the September 2027 start date once it is published rather than from a date recorded here.",
+      "evidence": ["ev-ae-hw-dubai-when-to-apply"]
+    },
+    {
+      "id": "ms-ae-branch-bham-visa",
+      "type": "visa",
+      "label": "Birmingham Dubai — visa sponsorship deadline, September 2027 intake",
+      "consequence": "hard",
+      "note": "Not yet announced. This is the hard date for anyone applying from outside the UAE, and it is published on the visa FAQ rather than the admissions page. The 2026 equivalents were 24 August 2026 for the September 2026 intake and 14 December 2026 for January 2027, and neither is carried across.",
+      "evidence": ["ev-ae-bham-dubai-visa"]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-ae-branch-predicted",
+      "label": "Predicted IB grades or first-term Year 13 results",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "note": "Birmingham Dubai states that you can apply on predicted grades or first-term Grade 12 / Year 13 results, with final grades required before an offer becomes unconditional.",
+      "evidence": ["ev-ae-bham-dubai-apply"]
+    },
+    {
+      "id": "si-ae-branch-equivalency",
+      "label": "UAE Ministry of Education equivalency certificate for the IB Diploma",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "The UAE Ministry of Education, after the transcript has been attested by the local education authority — KHDA in Dubai, ADEK in Abu Dhabi, SPEA in Sharjah.",
+      "note": "Required for international curricula including the IB. RIT Dubai gives international students one semester after arrival to produce it; do not assume every institution is as relaxed.",
+      "evidence": ["ev-ae-rit-dubai-dates"]
+    }
+  ],
+  "supplementarySteps": [
+    "Read the parent university's entry requirements, not the Dubai campus's marketing. Birmingham Dubai states that it upholds the same entry requirements as its UK campus.",
+    "Do not apply through UCAS. A Dubai campus application goes directly to the university, costs nothing at Birmingham Dubai, and does not use one of your five UCAS choices.",
+    "Find the visa deadline as well as the application deadline. At Birmingham Dubai the visa date is the binding one and it is published in a different place.",
+    "Check which campus awards the degree and under whose rules. Heriot-Watt Dubai awards the Scottish degree; SP Jain Dubai awards an Australian one at AQF Level 7; Sorbonne Abu Dhabi awards French degrees and teaches most of them in French."
+  ],
+  "evidence": [
+    "ev-ae-hw-dubai-when-to-apply",
+    "ev-ae-bham-dubai-apply",
+    "ev-ae-bham-dubai-visa",
+    "ev-ae-rit-dubai-dates",
+    "ev-ae-mdx-how-to-apply",
+    "ev-ae-uowd-calendar",
+    "ev-ae-sorbonne-deadline"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Seven institutions share this route and only one of them — RIT Dubai — publishes dates. Heriot-Watt Dubai publishes a policy instead and says it has no rounds. Sorbonne Abu Dhabi publishes a date for the intake now starting and not for 2027. Birmingham Dubai, Middlesex Dubai, the University of Wollongong in Dubai and SP Jain Dubai publish nothing. Which of those is a finding and which is a gap is recorded deadline by deadline on the Destination.",
+      "Not established: whether any of these campuses runs a different admissions process for an applicant living outside the UAE, beyond the visa sponsorship step. The pages read as though they are written for residents.",
+      "NYU Abu Dhabi is a branch campus and is deliberately not on this route. It admits through NYU's own system on the American calendar and has its own route record."
+    ]
+  }
+}

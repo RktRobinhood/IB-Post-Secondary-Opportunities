@@ -1,0 +1,75 @@
+{
+  "id": "ae-private-direct-2027",
+  "destination": "ae",
+  "jurisdiction": "ae-private-domestic",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying direct to a UAE private university for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions",
+  "milestones": [
+    {
+      "id": "ms-ae-priv-aus-open",
+      "type": "open",
+      "label": "American University of Sharjah opens Fall 2027 applications",
+      "date": "2026-10-19",
+      "consequence": "indicative",
+      "note": "AUS states that all its dates are tentative and subject to change.",
+      "evidence": ["ev-ae-aus-dates"]
+    },
+    {
+      "id": "ms-ae-priv-aus-file",
+      "type": "document",
+      "label": "American University of Sharjah — Early File Completion for Fall 2027",
+      "date": "2027-07-05",
+      "consequence": "priority",
+      "note": "One day before IB results. A file completed on time cannot contain the diploma, so agree in writing with AUS what stands in for it.",
+      "evidence": ["ev-ae-aus-dates"]
+    },
+    {
+      "id": "ms-ae-priv-aus-classes",
+      "type": "enrolment",
+      "label": "American University of Sharjah — first day of classes",
+      "date": "2027-08-23",
+      "consequence": "hard",
+      "evidence": ["ev-ae-aus-dates"]
+    },
+    {
+      "id": "ms-ae-priv-ku-timeline",
+      "type": "open",
+      "label": "Khalifa University publishes its Fall 2027 application timeline",
+      "consequence": "hard",
+      "note": "No date. Khalifa's undergraduate admissions page carries the line \"Stay tuned for the Fall 2027 application timeline\" where the dates belong. This milestone is recorded without one so that the check does not get forgotten — the page is the thing to watch from autumn 2026.",
+      "evidence": ["ev-ae-ku-timeline"]
+    },
+    {
+      "id": "ms-ae-priv-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "The UAE private universities sit either side of this date and not together. AUS wants a complete file the day before; the American University in Dubai says it takes late applications through July and August. Khalifa has not said.",
+      "evidence": []
+    }
+  ],
+  "supplementarySteps": [
+    "Apply to each institution separately. There is no shared form, no shared deadline and no shared fee.",
+    "Start the UAE Ministry of Education equivalency and the local attestation of your transcript early. Khalifa states that applications with missing documents will not be accepted.",
+    "Budget for an in-person admission test where the institution runs one. Khalifa invites shortlisted applicants at least ten days ahead and requires a submitted video recording instead of an interview."
+  ],
+  "evidence": [
+    "ev-ae-aus-dates",
+    "ev-ae-ku-timeline",
+    "ev-ae-aud-deadlines",
+    "ev-ae-cud-deadlines"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Four institutions on this route and four different answers about dates: AUS publishes a Fall 2027 calendar with no closing date on it; Khalifa says its Fall 2027 timeline is coming; Canadian University Dubai publishes one academic year at a time and has not reached 2027-28; the American University in Dubai publishes month ranges rather than dates. They are recorded one by one in the Destination's deadlines rather than merged, which is what the previous record did.",
+      "Tuition was established for Khalifa only, from its own fee page, and is not recorded here. Nothing on this route should be assumed to share a fee with anything else on it."
+    ]
+  }
+}

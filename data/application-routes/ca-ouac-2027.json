@@ -1,0 +1,145 @@
+{
+  "id": "ca-ouac-2027",
+  "destination": "ca",
+  "jurisdiction": "ca-on",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to an Ontario university for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "ca-ouac",
+  "portalUrl": "https://www.ouac.on.ca/guide/105-guide/",
+  "choiceLimit": 3,
+  "choicesRanked": false,
+  "fee": {
+    "amount": 159,
+    "currency": "CAD",
+    "period": "once",
+    "note": "First three programme choices. CAD 51 for each further choice, plus a document evaluation fee to each university - CAD 98 at Toronto, CAD 125 at Western, CAD 95 at Queen's, Waterloo and McMaster, CAD 93 at Ottawa."
+  },
+  "milestones": [
+    {
+      "id": "ms-utoronto-early",
+      "type": "submit",
+      "label": "University of Toronto - recommended date for early admission rounds",
+      "date": "2026-11-07",
+      "consequence": "priority",
+      "note": "Not a deadline. Apply by this date and complete the next steps by 2 December and you are considered in the first admission round as well as later ones. For an applicant carrying predicted grades rather than final ones, an early round is worth more than the date suggests.",
+      "evidence": [
+        "ev-utoronto-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-utoronto-apply",
+      "type": "submit",
+      "label": "University of Toronto - applications close",
+      "date": "2027-01-15",
+      "consequence": "hard",
+      "note": "The date for Applied Science & Engineering, Arts & Science at St. George, Mississauga, Scarborough and almost everything else. Medical Radiation Sciences closes on 1 February instead. If the OUAC forwards your application after the programme has closed, Toronto cancels it and does not refund the fee.",
+      "evidence": [
+        "ev-utoronto-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ouac-groupa",
+      "type": "submit",
+      "label": "OUAC deadline for Ontario high school applicants (Group A) - not yours",
+      "date": "2027-01-15",
+      "consequence": "indicative",
+      "note": "Recorded because it tells you when Ontario universities start deciding, and because it is the date most often quoted at international applicants who are not bound by it. You are Group B.",
+      "evidence": [
+        "ev-ouac-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-utoronto-docs",
+      "type": "document",
+      "label": "University of Toronto - supporting documents due",
+      "date": "2027-02-01",
+      "consequence": "hard",
+      "note": "A separate date from the application, and the one more often missed. Engineering and Music want documents by 15 January instead, alongside the application. Toronto says documents arriving later are considered as space allows, which in a competitive programme means not.",
+      "evidence": [
+        "ev-utoronto-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-decisions",
+      "type": "result",
+      "label": "Offers released, in rounds",
+      "date": "2027-01-15",
+      "endDate": "2027-05-28",
+      "consequence": "indicative",
+      "note": "Toronto releases decisions from January to late May. The OUAC's guarantee that every Group A applicant hears by 28 May does not extend to Group B, so a later answer is possible and is not a bad sign.",
+      "evidence": [
+        "ev-utoronto-dates-2027",
+        "ev-ouac-dates-2027"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB results released — what an Ontario offer turns on",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Every date above falls before this one. Toronto assesses on predicted or final results excluding bonus points and requires the final results to reach it electronically from the IBO, so July confirms a place already held rather than deciding one. How each Ontario university handles a result below the offer conditions is set by that university and is not established here.",
+      "evidence": [
+        "ev-utoronto-ib-2027"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-predicted",
+      "label": "Predicted IB grades and school transcript",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "The university, through the OUAC or its own applicant portal",
+      "note": "Toronto assesses on predicted or final results, excluding bonus points. A predicted total quoted out of 45 is three points higher than the number Toronto reads.",
+      "evidence": [
+        "ev-utoronto-ib-2027"
+      ]
+    },
+    {
+      "id": "si-doceval",
+      "label": "Document evaluation fee, one per university",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "Collected by the OUAC on the university's behalf",
+      "note": "Charged to Group B applicants only, once per university including its affiliates. This is what makes a fourth Ontario university expensive and a second programme at the same one cheap.",
+      "evidence": [
+        "ev-ouac-fees-2027"
+      ]
+    },
+    {
+      "id": "si-final-ib",
+      "label": "Final IB results, sent electronically by the IBO",
+      "itemType": "result",
+      "responsibleParty": "authority",
+      "destinationOfItem": "The university, direct from the International Baccalaureate Organization",
+      "dueMilestone": "ms-ib-results",
+      "note": "Toronto states that results issued by your school are not accepted in place of this. Requesting the transmission is the student's job and it is easy to leave until after results day.",
+      "evidence": [
+        "ev-utoronto-ib-2027"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Some programmes add their own supplementary application on a different date - Toronto's Engineering student profile and Rotman Commerce, Computer Science and Architecture supplements among them.",
+    "Health cover in Ontario is not the provincial plan. An international student is enrolled automatically in UHIP and billed for it on the student account."
+  ],
+  "evidence": [
+    "ev-ouac-dates-2027",
+    "ev-ouac-fees-2027",
+    "ev-ouac-groups-2027",
+    "ev-utoronto-dates-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "The dated milestones on this route are Toronto's, because Toronto is the only Ontario institution in this record whose 2027 calendar was read in full. Waterloo, Queen's, McMaster, Western and Ottawa apply through the same system on their own dates, and those were not established. Do not read Toronto's 15 January as Ontario's.",
+      "Every OUAC page cited here was read in a browser. The OUAC serves HTTP 403 to automated requests, so an external link check will report these as failures."
+    ]
+  }
+}

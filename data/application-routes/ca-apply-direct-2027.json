@@ -1,0 +1,141 @@
+{
+  "id": "ca-apply-direct-2027",
+  "destination": "ca",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "applying to each university directly, for autumn 2027",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-mcgill-apply",
+      "type": "submit",
+      "label": "McGill University - applications close for Fall 2027",
+      "date": "2027-01-15",
+      "consequence": "hard",
+      "note": "Published as Friday, January 15, 2027, for anyone studying or last studying at a high school outside Canada, across Arts, Science, Engineering, Management, Education, Nursing, Architecture and Agricultural & Environmental Sciences.",
+      "evidence": [
+        "ev-mcgill-deadline-2027"
+      ]
+    },
+    {
+      "id": "ms-mcgill-scholarship",
+      "type": "submit",
+      "label": "McGill - Major Entrance Scholarship application and documents",
+      "date": "2027-01-21",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "McGill's IB requirements page publishes 21 January without a year. Read here as the 2027 cycle and marked provisional for that reason. Six days after the application itself, so it is not something to start after applying.",
+      "evidence": [
+        "ev-mcgill-ib-2027"
+      ]
+    },
+    {
+      "id": "ms-concordia-intl",
+      "type": "submit",
+      "label": "Concordia University - recommended date for international applicants",
+      "date": "2027-02-01",
+      "consequence": "priority",
+      "provisional": true,
+      "note": "Concordia publishes 1 February as advice rather than a rule, explicitly to leave time for immigration documents. The year is inferred from a recurring date and is provisional. In Quebec the immigration document is the CAQ, which has to be granted before the federal study permit can be.",
+      "evidence": [
+        "ev-concordia-deadline",
+        "ev-quebec-study-conditions"
+      ]
+    },
+    {
+      "id": "ms-mcgill-docs",
+      "type": "document",
+      "label": "McGill - supporting documents due",
+      "date": "2027-03-01",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Published as 1 March without a year on McGill's IB requirements page; read as the 2027 cycle. McGill wants the school transcript with first-semester results and the predicted IB grades.",
+      "evidence": [
+        "ev-mcgill-ib-2027"
+      ]
+    },
+    {
+      "id": "ms-concordia-apply",
+      "type": "submit",
+      "label": "Concordia University - applications close for fall entry",
+      "date": "2027-03-01",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Six weeks after McGill's, two miles away, in the same province. The year is inferred from a recurring date. Concordia takes three ranked programme choices on one application, which is the only ranked choice model anywhere in this Destination.",
+      "evidence": [
+        "ev-concordia-deadline"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB results released — what a direct-application offer turns on",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "McGill decides on predicted results and confirms on final ones, and expects a student to maintain that performance through to the end of school. What each of the other universities on this route does with a result below the offer is not established here.",
+      "evidence": [
+        "ev-mcgill-ib-2027"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-predicted",
+      "label": "Predicted IB results and school transcript",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "Uploaded to each university's own applicant portal, separately for each",
+      "note": "McGill asks for the transcript including mid-year or first-semester results for the final year, plus predicted IB grades, or the final results in place of both if the Diploma is already complete.",
+      "evidence": [
+        "ev-mcgill-ib-2027"
+      ]
+    },
+    {
+      "id": "si-fee",
+      "label": "An application fee to each university",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "Each university",
+      "note": "CAD 150 at the University of Alberta for a new applicant. Not established for McGill, Concordia, Calgary or Dalhousie.",
+      "evidence": [
+        "ev-ualberta-deadlines-2027"
+      ]
+    },
+    {
+      "id": "si-insurance",
+      "label": "Quebec only - proof of health and hospitalisation insurance for the whole stay",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "A condition of the CAQ, enforced by the university on enrolment",
+      "note": "Quebec requires continuous cover for the entire study stay as a condition of the acceptance certificate, not merely on arrival. The CAQ itself is on the Destination's Quebec deadline row rather than here, because it has no date and a route milestone cannot declare one.",
+      "evidence": [
+        "ev-quebec-study-conditions"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply to each university separately, in its own portal, with its own account, its own fee and its own dates. Nothing is shared and nothing is forwarded.",
+    "Check the mathematics rule before choosing subjects: McGill will not accept Mathematics: Applications and Interpretations SL as a mathematics prerequisite, while Dalhousie will.",
+    "In Quebec, budget for the CAQ and its processing time before the study permit, and for insurance covering the whole degree."
+  ],
+  "evidence": [
+    "ev-mcgill-deadline-2027",
+    "ev-mcgill-ib-2027",
+    "ev-concordia-deadline",
+    "ev-dalhousie-dates-2026",
+    "ev-ualberta-deadlines-2027",
+    "ev-quebec-study-conditions"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "Applying directly is a researched finding about Quebec, Alberta and Nova Scotia, not an empty field. What has been established is that no shared system exists in those provinces, that the universities disagree with each other by six weeks, and that Quebec adds an immigration step the others do not have.",
+      "This route carries no jurisdiction because it serves three of them. The Destination record points Quebec, Alberta and Nova Scotia at it by name. The Application Route schema allows a route to declare one jurisdiction or none, and there is no way to say 'these three' - see the report on this pass.",
+      "Not established: the University of Calgary's deadlines and fees, Dalhousie's 2027 dates, Concordia's fee, and whether any of these universities publishes an IB-specific rule beyond the ones recorded."
+    ]
+  }
+}

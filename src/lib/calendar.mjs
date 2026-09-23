@@ -151,6 +151,11 @@ export function fromCountryDeadline(country, entry, index) {
     intake: clean(entry.year) || country.targetIntake || null,
     note: clean(entry.notes) || clean(entry.note),
     sources: [clean(entry.source)].filter(Boolean),
+    /* When this date was last looked at. A source without one is an assertion
+       with a URL attached: the page it points at may have changed the morning
+       after it was read, and on a calendar that is the difference between a
+       date a student can plan around and one they cannot. */
+    checkedAt: clean(country.dataAsOf),
     evidence: entry.evidence || [],
     origin: 'profile',
   };
@@ -179,6 +184,7 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     intake: route.intake || null,
     note: clean(milestone.note),
     sources: [],
+    checkedAt: clean(route.meta?.dataAsOf),
     evidence: milestone.evidence || [],
     origin: 'route',
   };
@@ -209,6 +215,7 @@ export function fromRouteRound(route, round, destinationName) {
     intake: route.intake || null,
     note: clean(round.note),
     sources: [],
+    checkedAt: clean(route.meta?.dataAsOf),
     evidence: round.evidence || [],
     origin: 'route',
   };
@@ -229,10 +236,21 @@ function isIso(v) {
 export function eventsForDestination(country, graph) {
   const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === country.code);
 
-  const fromRoutes = routes.flatMap((r) => [
-    ...(r.rounds || []).map((x) => fromRouteRound(r, x, country.name)),
-    ...(r.milestones || []).map((x) => fromRouteMilestone(r, x, country.name)),
-  ]);
+  const fromRoutes = routes.flatMap((r) => {
+    const milestones = (r.milestones || []).map((x) => fromRouteMilestone(r, x, country.name));
+
+    /* A round and its own closing milestone are the same day described twice.
+       Denmark records both — "The only round for applicants with an
+       international qualification" and "Applications close", both 15 March —
+       and a calendar that prints both is telling a student there are two things
+       to do. The milestone wins: it is the one that says what closes. */
+    const closedBy = new Set(milestones.filter((m) => m.type === 'submit' && m.date).map((m) => m.date));
+    const rounds = (r.rounds || [])
+      .map((x) => fromRouteRound(r, x, country.name))
+      .filter((round) => !(round.date && closedBy.has(round.date)));
+
+    return [...rounds, ...milestones];
+  });
 
   const claimed = new Set(fromRoutes.map((e) => normaliseLabel(e.label)));
   const fromProfile = (country.application?.deadlines || [])
@@ -242,9 +260,39 @@ export function eventsForDestination(country, graph) {
   return [...fromRoutes, ...fromProfile].sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
 }
 
-/** Every dated event on the site, for the calendar. */
-export function allEvents(countries, graph) {
-  return countries.flatMap((c) => eventsForDestination(c, graph)).sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
+/**
+ * Every dated event on the site.
+ *
+ * Takes the whole site rather than a list of countries, because "every
+ * Destination" and "every country profile" are not the same set and the
+ * difference is Denmark. Denmark is the one Destination that has finished
+ * migrating: it has no record in `data/countries` at all, its dates live in
+ * `data/application-routes/dk-optagelse-international-2027.json`, and iterating
+ * the country profiles left the most important dates on the site off the
+ * calendar entirely — including the 15 March noon deadline that the page's own
+ * lede promises to tell you about.
+ *
+ * The de-duplication matters for the same reason in reverse: six Destinations
+ * currently have both a canonical record and a country profile, and counting
+ * both would list every Dutch deadline twice.
+ */
+export function allEvents(site) {
+  const countries = site.countries || [];
+  const seen = new Set(countries.map((c) => c.code));
+
+  const canonicalOnly = [...(site.graph?.destinations?.values() || [])]
+    .filter((d) => !seen.has(d.id))
+    .map((d) => ({
+      code: d.id,
+      name: d.name,
+      targetIntake: d.targetIntake || null,
+      dataAsOf: d.meta?.dataAsOf || null,
+      application: null,
+    }));
+
+  return [...countries, ...canonicalOnly]
+    .flatMap((c) => eventsForDestination(c, site.graph))
+    .sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
 }
 
 function normaliseLabel(label) {

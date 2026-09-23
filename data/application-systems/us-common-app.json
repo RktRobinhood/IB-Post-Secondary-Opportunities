@@ -1,0 +1,46 @@
+{
+  "id": "us-common-app",
+  "name": "The Common Application",
+  "localName": "Common App",
+  "jurisdiction": {
+    "authorityType": "consortium",
+    "destination": "us",
+    "authority": "The Common Application, Inc.",
+    "area": "Member colleges across the United States and abroad"
+  },
+  "portalUrl": "https://www.commonapp.org/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Most private research universities and liberal arts colleges, and a large and growing number of public universities. Twelve of the fourteen institutions in this profile take it, including four public universities.",
+    "excludes": "The University of California, which runs its own application, and institutions that take only their own — MIT is the best-known. Several member colleges also accept the Coalition Application on Scoir or the QuestBridge Application as equal alternatives, so the Common App is the widest front door rather than the only one."
+  },
+  "choiceRules": {
+    "ranked": false,
+    "offersReceived": "many",
+    "note": "There is no limit on the number of colleges and no ranking: you pay a fee at each one and you may hold every offer you receive until the reply date. The one real constraint is self-imposed — an Early Decision agreement is binding, so you may make it with exactly one college, and doing so ends your ability to compare what the others would have offered."
+  },
+  "identityRequirement": "A Common App account, opened in the applicant's own name. No national digital identity is involved, which makes this one of the few systems in this dataset a non-resident can enter without a local ID.",
+  "sharedSteps": [
+    "Open the account and complete the common section once: personal details, family, education, activities, and the 650-word personal essay.",
+    "Add each college, then complete that college's own supplement — usually further essays, and Harvard alone asks five short answers.",
+    "Invite the school counsellor and teachers as recommenders. The school report and predicted IB grades are uploaded by the school, not by the student.",
+    "Choose a round at each college separately. The same application can be Early Decision at one, Early Action at another and Regular Decision at a third.",
+    "Pay a fee at each college, or request a waiver. Fees in this profile run from nothing at Colby to 100 USD at Stanford."
+  ],
+  "decisionModel": "Each college decides on its own, in its own committee, on its own calendar. The Common App transmits the application and nothing else — it does not rank, match, allocate or hold a place. Two colleges reading the same file may reach opposite conclusions, and neither has to explain why.",
+  "replyModel": "Offers are held open to the national candidates' reply date of 1 May, so a student normally chooses between offers with the financial aid figures in front of them. The exception is Early Decision, where accepting is agreed in advance and every other application is withdrawn.",
+  "evidence": [
+    "ev-commonapp-season-opens-2027",
+    "ev-harvard-deadlines-2027",
+    "ev-yale-apply-platforms"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "The Coalition Application on Scoir and the QuestBridge Application are named by Yale, Amherst and Bowdoin as equal alternatives to the Common App. They have no records of their own here yet.",
+      "ApplyTexas, the Cal State Apply system and the SUNY application are further shared applications in this Destination. None of the fourteen institutions in this profile uses one, so none has been researched."
+    ]
+  }
+}

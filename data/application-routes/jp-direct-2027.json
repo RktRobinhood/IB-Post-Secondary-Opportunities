@@ -1,0 +1,182 @@
+{
+  "id": "jp-direct-2027",
+  "destination": "jp",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Japanese university for the September or October 2027 intake",
+  "channel": "direct",
+  "portalUrl": "https://www.studyinjapan.go.jp/en/",
+  "choicesRanked": false,
+  "rounds": [
+    {
+      "id": "rd-utokyo-cod-2027",
+      "label": "UTokyo College of Design, Route B, September 2027 entry",
+      "opens": "2026-10-15",
+      "closes": "2026-11-05",
+      "decisionBy": "2027-02-20",
+      "consequence": "hard",
+      "note": "Route B is the international-qualifications route and names the IB Diploma first. 50 of the 100 places. First screening result 22 December 2026, final decision 20 February 2027. Closes 17:00 JST.",
+      "evidence": [
+        "ev-jp-utokyo-cod-2027"
+      ]
+    },
+    {
+      "id": "rd-keio-pearl-1-2027",
+      "label": "Keio PEARL, Period I, September 2027 entry",
+      "opens": "2026-10-21",
+      "closes": "2026-12-02",
+      "decisionBy": "2027-01-25",
+      "consequence": "hard",
+      "note": "Closes 15:00 JST. The three periods share one quota of about 100 places, so an early period competes for a fuller pool.",
+      "evidence": [
+        "ev-jp-keio-pearl-2027"
+      ]
+    },
+    {
+      "id": "rd-keio-pearl-2-2027",
+      "label": "Keio PEARL, Period II, September 2027 entry",
+      "opens": "2026-12-04",
+      "closes": "2027-01-27",
+      "decisionBy": "2027-03-04",
+      "consequence": "hard",
+      "evidence": [
+        "ev-jp-keio-pearl-2027"
+      ]
+    },
+    {
+      "id": "rd-keio-pearl-3-2027",
+      "label": "Keio PEARL, Period III, September 2027 entry",
+      "opens": "2027-02-24",
+      "closes": "2027-04-07",
+      "decisionBy": "2027-05-24",
+      "consequence": "hard",
+      "note": "The latest closing date of any Japanese route recorded here, and the one that fits a Danish school year: predicted grades are settled by then and the result arrives on 24 May, after the examination session. Keio accepts predicted IB grades in as many words.",
+      "evidence": [
+        "ev-jp-keio-pearl-2027"
+      ]
+    },
+    {
+      "id": "rd-waseda-2027",
+      "label": "Waseda English-based undergraduate programmes, September 2027 entry",
+      "consequence": "hard",
+      "note": "Not announced. As of 23 September 2026 Waseda's page carries only the window for September 2026 entry, 8 January to 10 February 2026. One application covers all six English-based schools. No date is carried forward here.",
+      "evidence": [
+        "ev-jp-waseda-2027-unannounced"
+      ]
+    },
+    {
+      "id": "rd-kyoto-iup-2027",
+      "label": "Kyoto University iUP, October 2027 enrolment",
+      "consequence": "hard",
+      "note": "Application guidelines for October 2027 enrolment were published on 1 July 2026, but the closing date is inside the guidelines document rather than on the site, and was not read in this pass.",
+      "evidence": [
+        "ev-jp-kyoto-iup-2027"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-cod-first-screening",
+      "type": "result",
+      "label": "UTokyo College of Design first screening result, Route B",
+      "date": "2026-12-22",
+      "consequence": "indicative",
+      "evidence": [
+        "ev-jp-utokyo-cod-2027"
+      ]
+    },
+    {
+      "id": "ms-cod-video",
+      "type": "document",
+      "label": "UTokyo College of Design video assignment window",
+      "date": "2026-11-13",
+      "endDate": "2026-11-16",
+      "consequence": "hard",
+      "note": "A separate submission after the application closes, inside a four-day window. Both routes require it, alongside essays, supporting materials and an English proficiency test result.",
+      "evidence": [
+        "ev-jp-utokyo-cod-2027"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Every Japanese decision in this route is made before this date — the earliest by four and a half months. What each university does with a place held against a predicted grade once the diploma arrives is set institution by institution and is not established here.",
+      "evidence": []
+    },
+    {
+      "id": "ms-coe",
+      "type": "visa",
+      "label": "Certificate of Eligibility, then the Student visa",
+      "consequence": "personal",
+      "note": "Not a published deadline. The university applies for the Certificate of Eligibility on your behalf once you accept; you take it to the Embassy of Japan in Copenhagen for the visa. Allow three months, and expect documents to need an apostille and sometimes notarisation.",
+      "evidence": []
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-predicted",
+      "label": "Predicted IB grades and school transcript",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "note": "Keio states outright that an IB Diploma or predicted grades is acceptable. Every round in this route closes before results exist, so predictions carry the application everywhere.",
+      "evidence": [
+        "ev-jp-keio-pearl-2027"
+      ]
+    },
+    {
+      "id": "si-english-test",
+      "label": "English proficiency test result",
+      "itemType": "result",
+      "responsibleParty": "student",
+      "note": "UTokyo's College of Design requires one of its designated tests from every applicant; Keio requires TOEFL iBT or IELTS Academic alongside the IB or SAT. Whether an IB English A or B result substitutes is not established for either.",
+      "evidence": [
+        "ev-jp-utokyo-cod-2027",
+        "ev-jp-keio-pearl-2027"
+      ]
+    },
+    {
+      "id": "si-essays",
+      "label": "Essays, a video assignment and supporting materials",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "dueMilestone": "ms-cod-video",
+      "note": "The College of Design's selection is built on these rather than on a test score, and the video window falls after the application closes — a second deadline that is easy to miss.",
+      "evidence": [
+        "ev-jp-utokyo-cod-2027"
+      ]
+    },
+    {
+      "id": "si-fee",
+      "label": "Application fee, charged separately by each university",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "note": "Figures not collected in this pass. Each application is a separate payment, which is a real constraint on how many are worth making."
+    }
+  ],
+  "supplementarySteps": [
+    "There is no central portal and no shared calendar. Build a list with one row per programme, holding its intake month — April, September or October — and its own closing date, and start it in the autumn of the year before entry.",
+    "Understand what you are comparing. The UTokyo College of Design is a five-year integrated bachelor's and master's programme; Keio PEARL and Waseda's schools are four-year bachelor's degrees; Kyoto iUP is four and a half years including a preparatory half-year in Japanese.",
+    "April 2027 entry is not realistic for a May 2027 IB candidate: its applications close in the middle of 2026. September or October 2027 is the intake, and if none of it works, the next September is a year away rather than six months.",
+    "Ask about apostille and notarisation early. Japanese universities generally want certified documents, and a Danish apostille takes time that a November deadline does not leave."
+  ],
+  "evidence": [
+    "ev-jp-utokyo-cod-2027",
+    "ev-jp-keio-pearl-2027",
+    "ev-jp-waseda-2027-unannounced",
+    "ev-jp-kyoto-iup-2027",
+    "ev-jp-education-system"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-01",
+    "notes": [
+      "Four institutions were read for their own dates — the University of Tokyo, Keio, Waseda and Kyoto — out of the fifteen on the Japanese profile. The other eleven are listed and unread.",
+      "Re-check in November 2026, when Waseda is expected to publish its September 2027 window.",
+      "Not established: the Kyoto iUP closing date, which is inside a guidelines document rather than on the site; the application fees; and what any of these universities does with a conditional place when results arrive on 6 July."
+    ]
+  }
+}

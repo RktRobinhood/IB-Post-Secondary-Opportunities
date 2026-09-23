@@ -1,0 +1,47 @@
+{
+  "id": "au-uac",
+  "name": "Universities Admissions Centre",
+  "localName": "UAC",
+  "jurisdiction": {
+    "authorityType": "state-province",
+    "destination": "au",
+    "authority": "Universities Admissions Centre (NSW & ACT) Pty Ltd, owned by its participating institutions",
+    "area": "New South Wales and the Australian Capital Territory, plus some institutions in nearby border regions"
+  },
+  "portalUrl": "https://www.uac.edu.au/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Undergraduate courses at universities and colleges in New South Wales and the ACT. Open to international applicants holding an International Baccalaureate Diploma, an Australian Year 12 taken in or outside Australia, or New Zealand NCEA Level 3 - which is what puts a Danish IB candidate inside it.",
+    "excludes": "Everything outside New South Wales and the ACT, and international applicants holding any other qualification, who apply directly to the institution. Some courses set earlier closing dates of their own, and some institutions also take the same applicant directly - UAC is an alternative to applying direct in this jurisdiction, not a replacement for it."
+  },
+  "choiceRules": {
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "Courses are listed as ranked preferences and each offer round makes the highest preference the applicant is eligible for. How many preferences an international applicant may list was not established here; check on the application itself before assuming a number."
+  },
+  "identityRequirement": "A UAC account, plus an IB candidate number. The school's IB Diploma coordinator must authorise the IB to release results directly to UAC - a step the student cannot do alone and which is easy to leave until it is late.",
+  "fee": {
+    "amount": 215,
+    "currency": "AUD",
+    "period": "once",
+    "approximate": true,
+    "note": "The 2026-27 cycle charge: AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026, AUD 215 from 1 October 2026. Domestic and international applicants pay the same. One payment covers every participating institution preferenced, which is the main practical argument for using UAC rather than applying to four NSW universities separately. Not refundable."
+  },
+  "decisionModel": "Offers are made in rounds rather than continuously, and institutions decide when they will make offers to their own courses. An international applicant receives a conditional offer about 48 hours after submitting, on the strength of predicted results; that conditional offer can be used for pre-visa assessment but does not permit enrolment. An unconditional offer, which requires actual results, is what allows enrolment and therefore a Confirmation of Enrolment.",
+  "replyModel": "Offers are released at 7.30am on each round's offer date and preferences can be changed between rounds up to a published cut-off. UAC states it cannot guarantee that International Baccalaureate results, which are released on their own schedule, will be assessed in time for any specific offer round.",
+  "evidence": [
+    "ev-uac-international-ib-eligible",
+    "ev-uac-charges-2027",
+    "ev-uac-international-conditional-offer",
+    "ev-uac-ib-results-timing"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-04-30",
+    "notes": [
+      "Not established: the preference limit for an international undergraduate applicant. UAC publishes a limit for domestic applicants and the international pages do not repeat it, so no number is recorded here rather than one carried across.",
+      "Not established: whether an applicant who uses UAC may also apply directly to the same institution in the same cycle, and what happens if both produce an offer."
+    ]
+  }
+}

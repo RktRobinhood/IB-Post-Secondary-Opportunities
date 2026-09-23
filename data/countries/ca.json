@@ -8,7 +8,7 @@
   "currency": "CAD",
   "eu": false,
   "eea": false,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Transparent entry requirements, high fees, and a study permit queue",
   "summary": "Canada is the most European-feeling option outside Europe: you apply to a named programme, entry requirements are published as IB point thresholds rather than guessed at, and admission is far more predictable than in the United States. Education is run by the provinces, so Ontario has one central application system, British Columbia has another, and Quebec universities take you directly. The two catches are money - international undergraduate tuition typically runs 40,000-70,000 CAD a year - and immigration, because since 2024 Canada has capped the number of study permit applications it will even look at, and undergraduates need a Provincial Attestation Letter to get into that queue.",
@@ -39,76 +39,161 @@
   },
   "application": {
     "centralised": false,
-    "portal": {
-      "name": "OUAC (Ontario) and EducationPlannerBC (British Columbia); elsewhere you apply to each university directly",
-      "url": "https://www.ouac.on.ca/"
-    },
     "deadlines": [
       {
-        "label": "Ontario - OUAC deadline for Ontario high school applicants (Group A), for reference",
-        "date": "2027-01-15",
-        "consequence": "indicative",
-        "year": "2027 admission",
-        "notes": "Not your deadline, but it tells you when Ontario universities start deciding.",
-        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
-      },
-      {
-        "label": "Ontario - universities respond to Group A applicants, for reference",
-        "date": "2027-05-28",
-        "consequence": "indicative",
-        "year": "2027 admission",
-        "notes": "Not your deadline. Ontario universities respond to Group A (Ontario high school) applicants by this date.",
-        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
-      },
-      {
-        "label": "Ontario - earliest date a financial commitment may be required of Group A applicants, for reference",
-        "date": "2027-06-01",
-        "consequence": "indicative",
-        "year": "2027 admission",
-        "notes": "Not your deadline. Ontario universities cannot require a financial commitment from Group A (Ontario high school) applicants before this date.",
-        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
-      },
-      {
-        "label": "Ontario - OUAC Undergraduate application, international applicants (Group B)",
+        "label": "Check the IB mathematics rule against your subject choices",
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027 admission",
-        "notes": "OUAC classifies international applicants as Group B and states there is no OUAC application deadline for them: deadlines vary by university and sometimes by programme. You must leave OUAC enough time to process your choices before the university's own deadline.",
-        "source": "https://www.ouac.on.ca/guide/undergrad-dates/"
+        "notes": "Not a date anyone publishes, and the earliest thing here that cannot be repaired later. Toronto accepts Mathematics: Applications and Interpretations SL for the Advanced Functions prerequisite only; UBC excludes it from its science programmes, the Faculty of Management, Sauder and the Vancouver School of Economics; McGill will not take it as a mathematics prerequisite at all. Dalhousie will. The choice is made in the first weeks of DP1.",
+        "evidence": [
+          "ev-utoronto-ib-2027",
+          "ev-ubc-ib-2027",
+          "ev-mcgill-ib-2027",
+          "ev-dalhousie-ib"
+        ]
       },
       {
-        "label": "British Columbia - EducationPlannerBC",
-        "dateState": "varies-by-institution",
-        "consequence": "indicative",
+        "label": "Ontario — OUAC application, international and out-of-province applicants (Group B)",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
         "year": "2027 admission",
-        "notes": "One application platform covering British Columbia's 25 public post-secondary institutions. Deadlines are set by each institution; the platform itself does not publish one. UBC's international deadline is typically in mid-January - confirm on UBC's own site.",
-        "source": "https://www.educationplannerbc.ca/"
+        "jurisdiction": "ca-on",
+        "route": "ca-ouac-2027",
+        "notes": "The OUAC states that there is no OUAC deadline for a Group B applicant and that deadlines are set by each university and sometimes by each programme. It also warns that it needs time to process your choices before the university’s own date. Toronto’s is 15 January 2027; the other five Ontario universities in this record were not established.",
+        "evidence": [
+          "ev-ouac-dates-2027",
+          "ev-ouac-groups-2027"
+        ]
       },
       {
-        "label": "Quebec and most other provinces",
+        "label": "Ontario — accept the offer and pay the deposit",
         "dateState": "varies-by-institution",
-        "consequence": "indicative",
+        "consequence": "hard",
         "year": "2027 admission",
-        "notes": "Apply directly to each university. McGill, Concordia, Alberta, Calgary, Dalhousie and others run their own portals with their own deadlines, generally between November 2026 and March 2027. Not verified individually for this guide.",
-        "source": null
+        "jurisdiction": "ca-on",
+        "route": "ca-ouac-2027",
+        "notes": "Set in each university’s own offer letter. The OUAC rule that no financial commitment may be required before 1 June protects Group A applicants specifically, so do not assume it protects you.",
+        "evidence": [
+          "ev-ouac-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — create and confirm an EducationPlannerBC account",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "notes": "Nothing can be submitted until the confirmation email has been acted on. Use a personal address rather than a school one: the platform warns that school accounts are deactivated at graduation and the institutions correspond with the address on the account long afterwards.",
+        "evidence": [
+          "ev-epbc-how-it-works"
+        ]
+      },
+      {
+        "label": "British Columbia — University of Victoria applications close",
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "notes": "UVic publishes its deadlines on each programme page rather than centrally, and says so. Not established here. UBC closes on 15 January 2027 and Simon Fraser on 31 January 2027, so do not assume UVic matches either.",
+        "evidence": [
+          "ev-uvic-apply-2027",
+          "ev-epbc-how-it-works"
+        ]
+      },
+      {
+        "label": "British Columbia — enrol in the Medical Services Plan on arrival",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
+        "year": "2027 intake",
+        "jurisdiction": "ca-bc",
+        "notes": "Compulsory for a study permit of six months or more, and cover begins only after the balance of the arrival month plus two more. Arrive in late August for a September start and you are outside the provincial plan until 1 November, so carry private insurance until then.",
+        "evidence": [
+          "ev-bc-health-fee"
+        ]
+      },
+      {
+        "label": "Apply direct — build the list of dates yourself, one university at a time",
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
+        "year": "2027 admission",
+        "route": "ca-apply-direct-2027",
+        "notes": "The defining property of the direct route. No portal, no shared account, no shared calendar. McGill closes on 15 January 2027 and Concordia on 1 March, two miles apart in the same province.",
+        "evidence": [
+          "ev-mcgill-deadline-2027",
+          "ev-concordia-deadline"
+        ]
+      },
+      {
+        "label": "Alberta — University of Alberta and University of Calgary applications close",
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "year": "2027 admission",
+        "jurisdiction": "ca-ab",
+        "route": "ca-apply-direct-2027",
+        "notes": "Alberta publishes its Fall 2027 deadlines per programme behind a faculty-and-term filter rather than as one institutional date, so there is no single date to record. Read yours off the programme. The minimum admission average also varies by faculty and changes every year.",
+        "evidence": [
+          "ev-ualberta-deadlines-2027"
+        ]
+      },
+      {
+        "label": "Nova Scotia — Dalhousie University applications close",
+        "dateState": "not-yet-announced",
+        "consequence": "rolling",
+        "year": "2027 admission",
+        "jurisdiction": "ca-ns",
+        "route": "ca-apply-direct-2027",
+        "notes": "In September 2026 Dalhousie was still publishing September 2026 entry dates. Its shape is known: mid-February for the competitive health programmes, and applications to everything else considered up to the start of classes where space remains. The 2027 dates are not published and are not guessed at here.",
+        "evidence": [
+          "ev-dalhousie-dates-2026"
+        ]
+      },
+      {
+        "label": "Quebec — apply for the Certificat d’acceptation du Québec",
+        "dateState": "no-central-deadline",
+        "consequence": "hard",
+        "year": "2027 intake",
+        "jurisdiction": "ca-qc",
+        "route": "ca-apply-direct-2027",
+        "notes": "A Quebec immigration document with its own fee and its own financial test, required in addition to the federal study permit and granted before it. This is the largest practical difference between choosing Montreal and choosing Toronto, and it is why Concordia asks international applicants to apply a month early.",
+        "evidence": [
+          "ev-quebec-study-conditions"
+        ]
+      },
+      {
+        "label": "Provincial Attestation Letter — outside Quebec",
+        "dateState": "no-central-deadline",
+        "consequence": "hard",
+        "year": "2027 intake",
+        "notes": "Requested by the university after you accept its offer. In 2026 the allocations were Ontario 104,780, Quebec 93,069, British Columbia 32,596, Alberta 32,271 and Nova Scotia 8,480, out of 309,670 nationally. Master’s and doctoral students at public institutions stopped needing a letter on 1 January 2026; a bachelor’s student did not. No 2027 allocation had been published as of September 2026.",
+        "evidence": [
+          "ev-ircc-cap-2026",
+          "ev-ontario-pal-2026"
+        ]
       },
       {
         "label": "Study permit application",
         "dateState": "no-central-deadline",
-        "consequence": "personal",
+        "consequence": "hard",
         "year": "2027 intake",
-        "notes": "As soon as you have an offer and a Provincial Attestation Letter. Provinces stop issuing attestation letters once their allocation runs out, so do not wait until summer 2027.",
-        "source": "https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html"
+        "notes": "As soon as you hold the offer and the attestation letter or CAQ. A single applicant outside Quebec applying on or after 1 September 2026 must show CAD 23,448 for a year of living expenses, which excludes tuition and travel. Quebec sets its own figure through its immigration ministry.",
+        "evidence": [
+          "ev-ircc-funds-2026"
+        ]
       }
     ],
     "steps": [
-      "From autumn 2026, choose provinces first, because the application route follows the province: OUAC for Ontario, EducationPlannerBC for British Columbia, direct for Quebec, Alberta, Nova Scotia and the rest.",
-      "Check each programme's published IB requirement against your predicted grades, including the named Higher Level subjects.",
-      "Create the relevant application account, enter your school record and choose your programmes in order. OUAC charges a base fee of 159 CAD plus 51 CAD for each additional choice.",
-      "Send predicted IB grades and your school transcript. Ontario universities may also ask for a document evaluation fee through OUAC.",
-      "Accept an offer, pay the deposit, and ask the university to request a Provincial Attestation Letter for you - the institution does this on your behalf.",
-      "Apply for the study permit with the PAL, your letter of acceptance, proof of 23,448 CAD in living funds plus tuition and travel, and biometrics.",
-      "Arrange housing early - most universities guarantee first-year residence only if you apply by their own separate housing deadline."
+      "Choose the province before you choose the university, because in Canada the province decides how you apply. Ontario goes through the OUAC, British Columbia through EducationPlannerBC, and Quebec, Alberta and Nova Scotia direct to each university. The three routes have different deadlines, different fees and different numbers of choices.",
+      "Check the mathematics rule against your IB subject choices, in DP1 rather than in your final year. Toronto, UBC and McGill each refuse Mathematics: Applications and Interpretations SL for their science and business programmes; Dalhousie accepts it. Nothing later can repair that choice.",
+      "Read the published IB requirement for each programme you want, on the university’s own page. There is no national rule and the universities genuinely disagree — UBC admits at 24 points including bonus points, Dalhousie at 26 including bonus points, and Toronto reads your total out of 42 with bonus points excluded.",
+      "Create the right application account. In Ontario the OUAC charges CAD 159 for three choices and you also pay a document evaluation fee to every separate university. In British Columbia the platform charges nothing and the institution charges its own fee. Applying direct means an account, a fee and a deadline at each university.",
+      "Send predicted IB grades and your school transcript. Every route in this Destination decides on predicted results and confirms on final ones, so the offer arrives months before July and is conditional on it.",
+      "Accept an offer, pay the deposit, and ask the university to request a Provincial Attestation Letter for you — or, in Quebec, apply for a Certificat d’acceptation du Québec, which is a separate provincial immigration document with its own fee and its own financial test.",
+      "Apply for the study permit with the attestation letter or CAQ, your letter of acceptance, proof of CAD 23,448 in living funds outside Quebec plus tuition and travel, and biometrics.",
+      "Sort out health cover, which depends on the province and is a separate decision from everything above. Ontario leaves international students outside the public plan for the whole degree; British Columbia, Alberta and Nova Scotia let them in, each on its own terms and each after a wait.",
+      "Arrange housing early. Most universities guarantee first-year residence only to students who apply by a separate housing deadline — UBC’s is 1 May 2027."
     ],
     "selectionNotes": "Admission is mostly grade-based against published thresholds, with supplementary applications, essays or video interviews for a minority of programmes such as Waterloo engineering, Queen's commerce, McMaster health sciences and UBC's broader personal profile. There is no interview for most degrees and no national ranking. You apply to a specific programme and faculty, and switching faculties later is not automatic."
   },
@@ -128,21 +213,21 @@
       "source": null
     },
     "tuitionNonEu": {
-      "value": "Roughly 40,000-70,000 CAD a year depending on province and programme. Verified examples for 2026/27 at UBC: Arts 51,530.40 CAD for a 30-credit year, Science and Computer Science 53,082.00 CAD, Engineering 66,199.66 CAD for a 37-credit first year, Commerce (Sauder) 66,678.30 CAD. UBC also guarantees that for students starting in 2026/27, international tuition will rise by no more than 3% a year for the following four years.",
+      "value": "Set by each university and not comparable across provinces. Verified for 2026/27 at UBC: Arts CAD 51,530.40 for a 30-credit year, Science and Computer Science CAD 53,082.00, Engineering CAD 66,199.66 for a 37-credit first year, Commerce (Sauder) CAD 66,678.30. UBC also caps the annual increase at 3% for four years for a student starting in 2026/27. No figure is recorded for Ontario: the University of Toronto states that its fees for an academic year are finalised in the spring of that year, so the price for 2027/28 does not exist yet.",
       "year": "2026/27",
       "source": "https://students.ubc.ca/finances/tuition-fees/undergraduate-tuition-fees/"
     },
-    "applicationFee": "OUAC (Ontario): 159 CAD base fee plus 51 CAD for each additional programme choice, with extra document evaluation and transcript fees for international (Group B) applicants. Other provinces and universities charge their own fees, typically 100-180 CAD.",
+    "applicationFee": "Three different answers, one per route. Ontario: CAD 159 through the OUAC for three programme choices, CAD 51 for each further choice, plus a document evaluation fee to each separate university — CAD 98 at Toronto, CAD 125 at Western, CAD 95 at Queen’s, Waterloo and McMaster, CAD 93 at Ottawa. British Columbia: nothing to the platform, and the institution’s own fee — CAD 130 at Simon Fraser for an international applicant, CAD 184.00 at Victoria where any transcript comes from outside Canada. Direct: one fee per university, CAD 150 at the University of Alberta for a new applicant.",
     "livingCostMonthly": {
       "value": "Immigration, Refugees and Citizenship Canada requires a single study permit applicant outside Quebec to show 23,448 CAD for 12 months of living expenses for applications submitted on or after 1 September 2026 - about 1,954 CAD a month. That is the immigration minimum, not a realistic Vancouver or Toronto budget.",
       "year": "2026",
       "source": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html"
     },
     "notes": [
-      "The 23,448 CAD figure covers living expenses only. You must separately show first-year tuition and return travel.",
-      "Quebec sets its own financial requirement, which differs from the federal figure.",
-      "NOT VERIFIED ON THE OFFICIAL PAGE: the University of Toronto's own quick-facts page was reported in search results as quoting international undergraduate tuition of roughly 48,090-70,060 CAD for 2025-26 in first-entry programmes, with a 4% increase for Arts & Science, Architecture and Engineering in 2026-27. We could not load the page - confirm at https://www.utoronto.ca/about-u-of-t/quick-facts before quoting it.",
-      "Compulsory student and health fees are charged on top of tuition at every university, usually 1,000-2,500 CAD a year."
+      "The CAD 23,448 figure covers living expenses only. You must separately show first-year tuition and return travel.",
+      "Quebec sets its own financial requirement through its immigration ministry, assessed for the CAQ rather than by IRCC, and it is a different number.",
+      "Compulsory student and health fees are charged on top of tuition at every university. In Ontario that includes UHIP, which is mandatory for international students because the provincial plan does not cover them.",
+      "Not established: tuition at any Ontario university for 2027/28. Toronto says the figures are set in the spring of the year of entry and publishes no current international rate on its fees page."
     ]
   },
   "funding": [
@@ -155,7 +240,7 @@
   "workRights": "Study permit holders may work while studying and after graduating under conditions set on the permit. After your degree, the Post-Graduation Work Permit (PGWP) is the main route: you must apply within 180 days of confirmation that you completed your studies, your study permit must have been valid during that window, and for a bachelor's, master's or doctoral degree there is no field-of-study restriction - the restriction to shortage occupations applies only to non-degree programmes. Degree graduates must show language ability at CLB 7 in English or NCLC 7 in French across all four skills. Source: https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
   "residency": "You need a study permit, not a visa-free stay. Since 2024 Canada caps the number of study permit applications it will process: for 2026 the cap is 309,670 application spaces for people who need a Provincial or Territorial Attestation Letter, allocated by province (Ontario 104,780, Quebec 93,069, British Columbia 32,596, down to 1,376 in Prince Edward Island). Undergraduates do need a PAL; from 1 January 2026 master's and doctoral students at public institutions do not. Your university requests the PAL for you. No allocation beyond 2026 had been published as of September 2026, so treat the 2027 rules as likely-but-unconfirmed and apply as early as you can. Sources: https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html",
   "housing": "Most universities guarantee residence to first-year students who apply by a separate housing deadline, usually in spring. Take the guarantee - Vancouver and Toronto private rentals are among the most expensive in the world and finding a room from Denmark is very hard. From second year most students share a house or flat, which is where the real cost appears.",
-  "healthcare": "Health cover depends on the province. British Columbia enrols international students in the Medical Services Plan after a waiting period; Ontario does not cover international students at all, so universities charge a compulsory plan such as UHIP; Alberta and some others cover students on a permit of long enough duration. Whatever the province, your university will enrol you in a supplementary student health and dental plan and bill you for it. The EHIC and the Danish yellow card are not valid in Canada.",
+  "healthcare": "Health cover depends on the province, and the difference is large enough that it belongs in the jurisdiction rows on this page rather than in a sentence. Ontario leaves international students outside the public plan altogether and enrols them in UHIP instead, which is a cost for the whole degree. British Columbia, Alberta and Nova Scotia all admit international students to their provincial plans, each on its own condition and each after a wait during which you need private insurance. Quebec requires continuous health and hospitalisation cover for the entire study stay as a condition of the CAQ. The EHIC and the Danish yellow card are not valid anywhere in Canada.",
   "institutions": [
     {
       "name": "University of Toronto",
@@ -165,7 +250,7 @@
       "founded": 1827,
       "website": "https://www.utoronto.ca/",
       "admissionsUrl": "https://future.utoronto.ca/",
-      "ibPageUrl": "https://future.utoronto.ca/apply/requirements/international-baccalaureate/",
+      "ibPageUrl": "https://future.utoronto.ca/requirements-international-high-schools",
       "englishBachelors": "Three campuses and hundreds of programmes; in Arts & Science you are admitted to a broad stream and choose your subject at the end of first year.",
       "notableFields": [
         "Computer Science",
@@ -174,7 +259,8 @@
       ],
       "note": "Canada's largest and most research-heavy university, with the highest international tuition in the country and famously demanding first-year grading; apply through OUAC.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Toronto",
-      "place": "ca-toronto-ontario"
+      "place": "ca-toronto-ontario",
+      "jurisdiction": "ca-on"
     },
     {
       "name": "University of British Columbia",
@@ -184,7 +270,7 @@
       "founded": 1908,
       "website": "https://www.ubc.ca/",
       "admissionsUrl": "https://you.ubc.ca/applying-ubc/",
-      "ibPageUrl": "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate-diploma-programme/",
+      "ibPageUrl": "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate/",
       "englishBachelors": "Broad degrees in Arts, Science, Commerce, Engineering and more, across Vancouver and Okanagan campuses.",
       "notableFields": [
         "Forestry and Environmental Science",
@@ -193,7 +279,8 @@
       ],
       "note": "Publishes its international tuition openly and caps annual increases at 3% for four years after you start, which makes budgeting a four-year degree genuinely possible; apply through EducationPlannerBC.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_British_Columbia",
-      "place": "ca-vancouver-british-columbia"
+      "place": "ca-vancouver-british-columbia",
+      "jurisdiction": "ca-bc"
     },
     {
       "name": "McGill University",
@@ -203,7 +290,7 @@
       "founded": 1821,
       "website": "https://www.mcgill.ca/",
       "admissionsUrl": "https://www.mcgill.ca/undergraduate-admissions/",
-      "ibPageUrl": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international-baccalaureate",
+      "ibPageUrl": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
       "englishBachelors": "English-language teaching in a French-speaking city; admission is unusually transparent and almost purely grade-based.",
       "notableFields": [
         "Medicine and Life Sciences",
@@ -212,7 +299,8 @@
       ],
       "note": "The most Europe-like of the big Canadian universities: it publishes minimum IB scores by faculty, does not ask for essays for most programmes, and Montreal is the cheapest large city on this list to live in.",
       "wikipedia": "https://en.wikipedia.org/wiki/McGill_University",
-      "place": "ca-montreal-quebec"
+      "place": "ca-montreal-quebec",
+      "jurisdiction": "ca-qc"
     },
     {
       "name": "University of Waterloo",
@@ -222,7 +310,7 @@
       "founded": 1957,
       "website": "https://uwaterloo.ca/",
       "admissionsUrl": "https://uwaterloo.ca/future-students/",
-      "ibPageUrl": "https://uwaterloo.ca/future-students/admissions/international-baccalaureate",
+      "ibPageUrl": "https://uwaterloo.ca/future-students/admissions/admission-requirements",
       "englishBachelors": "Best known for co-op degrees that alternate study terms with paid four-month work terms, typically six of them across the degree.",
       "notableFields": [
         "Computer Science",
@@ -231,7 +319,8 @@
       ],
       "note": "If you want to graduate with two years of paid professional experience and a network of employers, this is the place - but computer science and software engineering admission is brutally competitive and requires a supplementary application.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Waterloo",
-      "place": "ca-waterloo-ontario"
+      "place": "ca-waterloo-ontario",
+      "jurisdiction": "ca-on"
     },
     {
       "name": "Queen's University at Kingston",
@@ -241,7 +330,7 @@
       "founded": 1841,
       "website": "https://www.queensu.ca/",
       "admissionsUrl": "https://www.queensu.ca/admission/",
-      "ibPageUrl": "https://www.queensu.ca/admission/requirements/international-baccalaureate",
+      "ibPageUrl": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
       "englishBachelors": "A compact residential campus in a small city - the closest thing Canada has to an American liberal arts experience inside a research university.",
       "notableFields": [
         "Commerce",
@@ -250,7 +339,8 @@
       ],
       "note": "Strong community feel and a very high first-year residence rate; the Commerce programme is one of the hardest undergraduate admissions in Canada.",
       "wikipedia": "https://en.wikipedia.org/wiki/Queen%27s_University_at_Kingston",
-      "place": "ca-kingston-ontario"
+      "place": "ca-kingston-ontario",
+      "jurisdiction": "ca-on"
     },
     {
       "name": "McMaster University",
@@ -269,7 +359,8 @@
       ],
       "note": "The Bachelor of Health Sciences is one of the most sought-after undergraduate programmes in Canada and uses a supplementary application; the rest of the university is more accessible.",
       "wikipedia": "https://en.wikipedia.org/wiki/McMaster_University",
-      "place": "ca-hamilton-ontario"
+      "place": "ca-hamilton-ontario",
+      "jurisdiction": "ca-on"
     },
     {
       "name": "Western University",
@@ -288,7 +379,8 @@
       ],
       "note": "Handles Provincial Attestation Letters transparently and publishes guidance for international applicants; Ivey's two-year HBA is entered after first or second year, not directly from school.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Western_Ontario",
-      "place": "ca-london-ontario"
+      "place": "ca-london-ontario",
+      "jurisdiction": "ca-on"
     },
     {
       "name": "University of Alberta",
@@ -298,7 +390,7 @@
       "founded": 1908,
       "website": "https://www.ualberta.ca/",
       "admissionsUrl": "https://www.ualberta.ca/admissions/",
-      "ibPageUrl": "https://www.ualberta.ca/admissions/international/admission/admission-requirements/international-baccalaureate/index.html",
+      "ibPageUrl": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/index.html",
       "englishBachelors": "A large research university with strong sciences and one of Canada's biggest engineering faculties.",
       "notableFields": [
         "Engineering",
@@ -307,7 +399,8 @@
       ],
       "note": "Consistently cheaper than Toronto or Vancouver both in tuition and rent, with world-class machine learning research; Edmonton winters are genuinely severe.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alberta",
-      "place": "ca-edmonton-alberta"
+      "place": "ca-edmonton-alberta",
+      "jurisdiction": "ca-ab"
     },
     {
       "name": "University of Calgary",
@@ -317,7 +410,7 @@
       "founded": 1966,
       "website": "https://www.ucalgary.ca/",
       "admissionsUrl": "https://www.ucalgary.ca/future-students/undergraduate",
-      "ibPageUrl": "https://www.ucalgary.ca/future-students/undergraduate/apply/admission-requirements",
+      "ibPageUrl": "https://calendar.ucalgary.ca/pages/nsfMYMG6AuknRgGAbSr1",
       "englishBachelors": "Professional and applied programmes with strong co-op options, an hour from the Rocky Mountains.",
       "notableFields": [
         "Geoscience and Energy Engineering",
@@ -326,7 +419,8 @@
       ],
       "note": "A younger, more applied university with good graduate employment in energy and technology; the outdoor access is the best on this list.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Calgary",
-      "place": "ca-calgary-alberta"
+      "place": "ca-calgary-alberta",
+      "jurisdiction": "ca-ab"
     },
     {
       "name": "Simon Fraser University",
@@ -345,7 +439,8 @@
       ],
       "note": "The three-term calendar and large co-op programme make SFU flexible if you want a mid-year start or a shorter overall degree; less prestigious than UBC but noticeably easier to enter.",
       "wikipedia": "https://en.wikipedia.org/wiki/Simon_Fraser_University",
-      "place": "ca-burnaby-british-columbia"
+      "place": "ca-burnaby-british-columbia",
+      "jurisdiction": "ca-bc"
     },
     {
       "name": "University of Victoria",
@@ -355,7 +450,7 @@
       "founded": 1963,
       "website": "https://www.uvic.ca/",
       "admissionsUrl": "https://www.uvic.ca/undergraduate/",
-      "ibPageUrl": "https://www.uvic.ca/undergraduate/admissions/admission-requirements/index.php",
+      "ibPageUrl": "https://www.uvic.ca/undergraduate/info-for/international-baccalaureate-ib-students/index.php",
       "englishBachelors": "Mid-sized, heavily co-op, on Vancouver Island with the mildest climate in Canada.",
       "notableFields": [
         "Ocean and Climate Science",
@@ -364,7 +459,8 @@
       ],
       "note": "A good choice if a large city is not the point: smaller classes than UBC, strong environmental and ocean science, and a campus you can walk across in ten minutes.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Victoria",
-      "place": "ca-victoria-british-columbia"
+      "place": "ca-victoria-british-columbia",
+      "jurisdiction": "ca-bc"
     },
     {
       "name": "Dalhousie University",
@@ -374,7 +470,7 @@
       "founded": 1818,
       "website": "https://www.dal.ca/",
       "admissionsUrl": "https://www.dal.ca/admissions.html",
-      "ibPageUrl": "https://www.dal.ca/admissions/undergraduate/requirements.html",
+      "ibPageUrl": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html",
       "englishBachelors": "The main research university of Atlantic Canada, in a small maritime city with a large student population.",
       "notableFields": [
         "Marine Biology and Oceanography",
@@ -383,7 +479,8 @@
       ],
       "note": "Halifax is affordable by Canadian standards and feels a bit like a Nordic port city; Dalhousie's ocean science is genuinely world-class.",
       "wikipedia": "https://en.wikipedia.org/wiki/Dalhousie_University",
-      "place": "ca-halifax-nova-scotia"
+      "place": "ca-halifax-nova-scotia",
+      "jurisdiction": "ca-ns"
     },
     {
       "name": "University of Ottawa",
@@ -393,7 +490,7 @@
       "founded": 1848,
       "website": "https://www.uottawa.ca/",
       "admissionsUrl": "https://www.uottawa.ca/study/undergraduate-studies",
-      "ibPageUrl": "https://www.uottawa.ca/study/undergraduate-studies/admission-requirements",
+      "ibPageUrl": "https://www.uottawa.ca/study/undergraduate-studies/international-applicants/other-recognized-country-curriculum",
       "englishBachelors": "Fully bilingual: you can take a degree in English, in French, or mix the two within the same programme.",
       "notableFields": [
         "Political Science and Public Policy",
@@ -402,7 +499,8 @@
       ],
       "note": "In the capital, across the street from Parliament, with internships in government and international organisations; the bilingual option is unusual and genuinely useful.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Ottawa",
-      "place": "ca-ottawa-ontario"
+      "place": "ca-ottawa-ontario",
+      "jurisdiction": "ca-on"
     },
     {
       "name": "Concordia University",
@@ -421,7 +519,8 @@
       ],
       "note": "Less selective than McGill and cheaper than most of Ontario, with the same Montreal advantages; apply directly, not through a central system, and note that Quebec has its own study permit financial rules.",
       "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University",
-      "place": "ca-montreal-quebec"
+      "place": "ca-montreal-quebec",
+      "jurisdiction": "ca-qc"
     }
   ],
   "sources": [
@@ -469,6 +568,111 @@
       "title": "IRCC - Get your documents ready for a study permit",
       "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents.html",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "EducationPlannerBC — Help",
+      "url": "https://www.educationplannerbc.ca/help",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of Toronto — Dates & Deadlines, 2027 admissions",
+      "url": "https://future.utoronto.ca/deadlines",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of Toronto — Admission requirements for international high schools (IB)",
+      "url": "https://future.utoronto.ca/requirements-international-high-schools",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "UBC — Dates and deadlines (2027/28 entry)",
+      "url": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "UBC — International Baccalaureate students",
+      "url": "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Simon Fraser University — Apply (Fall 2027 dates and fees)",
+      "url": "https://www.sfu.ca/students/admission/apply.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of Victoria — How to apply",
+      "url": "https://www.uvic.ca/undergraduate/admissions/how-to-apply/index.php",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "McGill — International Baccalaureate Diploma requirements and deadlines",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "McGill — Application deadline for Fall 2027 admission, overseas applicants",
+      "url": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Concordia — Apply (official application deadlines)",
+      "url": "https://www.concordia.ca/admissions/undergraduate/apply.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of Alberta — Undergraduate Program Admission Deadlines (Fall 2027)",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/undergraduate-program-admission-deadlines.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Dalhousie — Admission dates and deadlines",
+      "url": "https://www.dal.ca/admissions/dates-and-deadlines.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Dalhousie — International Baccalaureate (IB) applicants",
+      "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "UHIP — Get started (Ontario university health insurance)",
+      "url": "https://uhip.ca/get-started/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Province of British Columbia — Health fee for international students",
+      "url": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/health-fee-international-students",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Government of Alberta — Health care coverage for students and international students",
+      "url": "https://www.alberta.ca/ahcip-students",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Government of Nova Scotia — Nova Scotia Health Insurance Program eligibility",
+      "url": "https://novascotia.ca/dhw/msi/eligibility.asp",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Gouvernement du Québec — Required conditions to study in Québec",
+      "url": "https://www.quebec.ca/en/education/study-quebec/required-conditions",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Gouvernement du Québec — Studying at CEGEP",
+      "url": "https://www.quebec.ca/en/education/cegeps-private-colleges/studying/overview",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Government of Ontario — Ontario colleges",
+      "url": "https://www.ontario.ca/page/ontario-colleges",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Fédération des cégeps — International students",
+      "url": "https://www.lecegep.ca/en/international-students",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

@@ -1,5 +1,6 @@
 {
   "title": "How Denmark converts an IB Diploma",
+  "note": "The Agency's handbook as published, in its own wording, and the source Denmark's pages render from. The machine-readable form the eligibility engine executes is the Recognition Scheme in data/recognition/dk.json: same numbers, named scales, and no assumption that there is only one country. Change the handbook here and change the scheme there, in the same commit.",
   "dataAsOf": "2026-09-22",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "authority": {
@@ -13,13 +14,11 @@
       "admissionRules": "2026-01-07"
     }
   },
-
   "importantForTwentySeven": [
     "The grade-average conversion table is re-issued every year. The table for a given summer intake is published by 1 March of that year and applies until the end of February the following year. If you are applying for August 2027, check for the table published by 1 March 2027 — the numbers below are the version current as of September 2026 and may shift by a decimal or two.",
     "The single-grade table (used only where a programme sets a minimum grade in a subject) has been stable for years and is far less likely to move.",
     "Subject-level equivalences change rarely. The current table already covers the post-2019 IB mathematics courses."
   ],
-
   "access": {
     "summary": "An IB Diploma with 24 points or more gives access to every higher education programme in Denmark, provided you also meet the programme's specific subject requirements.",
     "rules": [
@@ -51,132 +50,654 @@
     "retakeRule": "Check the letter at the bottom left of your diploma. D is an original result, R is a retake. If you retook to improve a result that already qualified you, Denmark converts your ORIGINAL result, not the improved one.",
     "resultsTiming": "IB results are released on 6 July. Danish applications close on 15 March, so you apply before you have your results and ask your IB coordinator to send them directly through the IB's results service (up to six institutions)."
   },
-
   "gradeAverage": {
     "label": "IB total points → Danish 7-point grade average",
     "appliesTo": "Graduates up to and including 2019, and from 2023 onwards — which includes everyone sitting the May 2027 session.",
     "sourceLabel": "Statistisk omregning 2026, Uddannelses- og Forskningsstyrelsen",
     "reissuedAnnually": true,
     "table": [
-      { "ib": 18, "dk": 2.4 }, { "ib": 19, "dk": 2.7 }, { "ib": 20, "dk": 3.0 },
-      { "ib": 21, "dk": 3.3 }, { "ib": 22, "dk": 3.7 }, { "ib": 23, "dk": 4.0 },
-      { "ib": 24, "dk": 4.4 }, { "ib": 25, "dk": 4.7 }, { "ib": 26, "dk": 5.2 },
-      { "ib": 27, "dk": 5.6 }, { "ib": 28, "dk": 6.0 }, { "ib": 29, "dk": 6.4 },
-      { "ib": 30, "dk": 6.9 }, { "ib": 31, "dk": 7.3 }, { "ib": 32, "dk": 7.7 },
-      { "ib": 33, "dk": 8.1 }, { "ib": 34, "dk": 8.5 }, { "ib": 35, "dk": 8.9 },
-      { "ib": 36, "dk": 9.3 }, { "ib": 37, "dk": 9.7 }, { "ib": 38, "dk": 10.0 },
-      { "ib": 39, "dk": 10.4 }, { "ib": 40, "dk": 10.7 }, { "ib": 41, "dk": 11.0 },
-      { "ib": 42, "dk": 11.3 }, { "ib": 43, "dk": 11.6 }, { "ib": 44, "dk": 12.0 },
-      { "ib": 45, "dk": 12.7 }
+      {
+        "ib": 18,
+        "dk": 2.4
+      },
+      {
+        "ib": 19,
+        "dk": 2.7
+      },
+      {
+        "ib": 20,
+        "dk": 3
+      },
+      {
+        "ib": 21,
+        "dk": 3.3
+      },
+      {
+        "ib": 22,
+        "dk": 3.7
+      },
+      {
+        "ib": 23,
+        "dk": 4
+      },
+      {
+        "ib": 24,
+        "dk": 4.4
+      },
+      {
+        "ib": 25,
+        "dk": 4.7
+      },
+      {
+        "ib": 26,
+        "dk": 5.2
+      },
+      {
+        "ib": 27,
+        "dk": 5.6
+      },
+      {
+        "ib": 28,
+        "dk": 6
+      },
+      {
+        "ib": 29,
+        "dk": 6.4
+      },
+      {
+        "ib": 30,
+        "dk": 6.9
+      },
+      {
+        "ib": 31,
+        "dk": 7.3
+      },
+      {
+        "ib": 32,
+        "dk": 7.7
+      },
+      {
+        "ib": 33,
+        "dk": 8.1
+      },
+      {
+        "ib": 34,
+        "dk": 8.5
+      },
+      {
+        "ib": 35,
+        "dk": 8.9
+      },
+      {
+        "ib": 36,
+        "dk": 9.3
+      },
+      {
+        "ib": 37,
+        "dk": 9.7
+      },
+      {
+        "ib": 38,
+        "dk": 10
+      },
+      {
+        "ib": 39,
+        "dk": 10.4
+      },
+      {
+        "ib": 40,
+        "dk": 10.7
+      },
+      {
+        "ib": 41,
+        "dk": 11
+      },
+      {
+        "ib": 42,
+        "dk": 11.3
+      },
+      {
+        "ib": 43,
+        "dk": 11.6
+      },
+      {
+        "ib": 44,
+        "dk": 12
+      },
+      {
+        "ib": 45,
+        "dk": 12.7
+      }
     ],
     "legacyTable": {
       "label": "Graduates of 2020, 2021 and 2022 only — kept for reference",
       "sourceLabel": "Statistisk omregning 2024, Uddannelses- og Forskningsstyrelsen",
       "table": [
-        { "ib": 18, "dk": 2.2 }, { "ib": 19, "dk": 2.6 }, { "ib": 20, "dk": 2.8 },
-        { "ib": 21, "dk": 3.1 }, { "ib": 22, "dk": 3.4 }, { "ib": 23, "dk": 3.7 },
-        { "ib": 24, "dk": 4.0 }, { "ib": 25, "dk": 4.4 }, { "ib": 26, "dk": 4.7 },
-        { "ib": 27, "dk": 5.1 }, { "ib": 28, "dk": 5.5 }, { "ib": 29, "dk": 6.0 },
-        { "ib": 30, "dk": 6.4 }, { "ib": 31, "dk": 6.8 }, { "ib": 32, "dk": 7.2 },
-        { "ib": 33, "dk": 7.7 }, { "ib": 34, "dk": 8.1 }, { "ib": 35, "dk": 8.5 },
-        { "ib": 36, "dk": 8.9 }, { "ib": 37, "dk": 9.3 }, { "ib": 38, "dk": 9.7 },
-        { "ib": 39, "dk": 10.0 }, { "ib": 40, "dk": 10.4 }, { "ib": 41, "dk": 10.8 },
-        { "ib": 42, "dk": 11.1 }, { "ib": 43, "dk": 11.4 }, { "ib": 44, "dk": 11.8 },
-        { "ib": 45, "dk": 12.7 }
+        {
+          "ib": 18,
+          "dk": 2.2
+        },
+        {
+          "ib": 19,
+          "dk": 2.6
+        },
+        {
+          "ib": 20,
+          "dk": 2.8
+        },
+        {
+          "ib": 21,
+          "dk": 3.1
+        },
+        {
+          "ib": 22,
+          "dk": 3.4
+        },
+        {
+          "ib": 23,
+          "dk": 3.7
+        },
+        {
+          "ib": 24,
+          "dk": 4
+        },
+        {
+          "ib": 25,
+          "dk": 4.4
+        },
+        {
+          "ib": 26,
+          "dk": 4.7
+        },
+        {
+          "ib": 27,
+          "dk": 5.1
+        },
+        {
+          "ib": 28,
+          "dk": 5.5
+        },
+        {
+          "ib": 29,
+          "dk": 6
+        },
+        {
+          "ib": 30,
+          "dk": 6.4
+        },
+        {
+          "ib": 31,
+          "dk": 6.8
+        },
+        {
+          "ib": 32,
+          "dk": 7.2
+        },
+        {
+          "ib": 33,
+          "dk": 7.7
+        },
+        {
+          "ib": 34,
+          "dk": 8.1
+        },
+        {
+          "ib": 35,
+          "dk": 8.5
+        },
+        {
+          "ib": 36,
+          "dk": 8.9
+        },
+        {
+          "ib": 37,
+          "dk": 9.3
+        },
+        {
+          "ib": 38,
+          "dk": 9.7
+        },
+        {
+          "ib": 39,
+          "dk": 10
+        },
+        {
+          "ib": 40,
+          "dk": 10.4
+        },
+        {
+          "ib": 41,
+          "dk": 10.8
+        },
+        {
+          "ib": 42,
+          "dk": 11.1
+        },
+        {
+          "ib": 43,
+          "dk": 11.4
+        },
+        {
+          "ib": 44,
+          "dk": 11.8
+        },
+        {
+          "ib": 45,
+          "dk": 12.7
+        }
       ]
     }
   },
-
   "singleGrade": {
     "label": "Single IB subject grade → Danish 7-point grade",
     "usedFor": "Only for programmes that set a minimum grade in a named subject. It is not used to build your average.",
     "sourceLabel": "2026, Uddannelses- og Forskningsstyrelsen",
     "table": [
-      { "ib": 7, "dk": 12, "descriptor": "Excellent" },
-      { "ib": 6, "dk": 10, "descriptor": "Very good" },
-      { "ib": 5, "dk": 7, "descriptor": "Good" },
-      { "ib": 4, "dk": 4, "descriptor": "Satisfactory" },
-      { "ib": 3, "dk": 2, "descriptor": "Mediocre" },
-      { "ib": 2, "dk": 0, "descriptor": "Poor" },
-      { "ib": 1, "dk": -3, "descriptor": "Very poor" }
+      {
+        "ib": 7,
+        "dk": 12,
+        "descriptor": "Excellent"
+      },
+      {
+        "ib": 6,
+        "dk": 10,
+        "descriptor": "Very good"
+      },
+      {
+        "ib": 5,
+        "dk": 7,
+        "descriptor": "Good"
+      },
+      {
+        "ib": 4,
+        "dk": 4,
+        "descriptor": "Satisfactory"
+      },
+      {
+        "ib": 3,
+        "dk": 2,
+        "descriptor": "Mediocre"
+      },
+      {
+        "ib": 2,
+        "dk": 0,
+        "descriptor": "Poor"
+      },
+      {
+        "ib": 1,
+        "dk": -3,
+        "descriptor": "Very poor"
+      }
     ],
     "rule": "Where a subject was completed at several levels, the highest grade at or above the required level is used. A grade at a level below the one required does not count at all."
   },
-
   "subjectLevels": {
     "label": "IB subject and level → Danish subject level",
     "note": "Prepared by the Danish Ministry of Children and Education. Danish levels are A (highest), B and C — they are levels of study, not grades.",
     "map": [
-      { "danish": "Mathematics", "danishSubject": "Matematik", "level": "A", "ib": ["Mathematics HL", "Mathematics: Analysis and Approaches HL", "Mathematics: Applications and Interpretation HL"] },
-      { "danish": "Mathematics", "danishSubject": "Matematik", "level": "B", "ib": ["Mathematics SL (formerly Mathematical Methods SL)", "Mathematics: Analysis and Approaches SL", "Mathematics: Applications and Interpretation SL"] },
-      { "danish": "Mathematics", "danishSubject": "Matematik", "level": "C", "ib": ["Mathematical Studies SL"] },
-
-      { "danish": "English", "danishSubject": "Engelsk", "level": "A", "ib": ["English A1 / A2 / B HL", "English A1 or A2 SL", "English A Literature HL or SL (from 2013)", "English A Language and Literature HL or SL (from 2013)"] },
-      { "danish": "English", "danishSubject": "Engelsk", "level": "B", "ib": ["English B SL"] },
-
-      { "danish": "Physics", "danishSubject": "Fysik", "level": "A", "ib": ["Physics HL"] },
-      { "danish": "Physics", "danishSubject": "Fysik", "level": "B", "ib": ["Physics SL"] },
-      { "danish": "Chemistry", "danishSubject": "Kemi", "level": "A", "ib": ["Chemistry HL"] },
-      { "danish": "Chemistry", "danishSubject": "Kemi", "level": "B", "ib": ["Chemistry SL"] },
-      { "danish": "Biology", "danishSubject": "Biologi", "level": "A", "ib": ["Biology HL"] },
-      { "danish": "Biology", "danishSubject": "Biologi", "level": "B", "ib": ["Biology SL"] },
-
-      { "danish": "Geography", "danishSubject": "Geografi / naturgeografi", "level": "B", "ib": ["Geography SL"] },
-      { "danish": "Geoscience", "danishSubject": "Geovidenskab", "level": "A", "ib": [], "warning": "The handbook lists no IB equivalent for Geoscience A. If a programme requires Geoscience A you will normally need a Danish supplementary course." },
-
-      { "danish": "History", "danishSubject": "Historie / historie med samfundskundskab / samtidshistorie", "level": "A", "ib": ["History HL"], "note": "The subject may appear as History Europe, History Asia and so on depending on where it was taken." },
-      { "danish": "History", "danishSubject": "Historie", "level": "B", "ib": ["History SL"] },
-
-      { "danish": "Business and economics subjects", "danishSubject": "Virksomhedsøkonomi A / International økonomi A / Afsætning A", "level": "A", "ib": ["Economics HL", "Business and Management HL"] },
-      { "danish": "Business and economics subjects", "danishSubject": "Virksomhedsøkonomi B / International økonomi B / Afsætning B / Erhvervsøkonomi C", "level": "B", "ib": ["Economics SL", "Business and Management SL"] },
-
-      { "danish": "Psychology", "danishSubject": "Psykologi", "level": "A", "ib": ["Psychology HL"] },
-      { "danish": "Psychology", "danishSubject": "Psykologi", "level": "B", "ib": ["Psychology SL"] },
-      { "danish": "Philosophy", "danishSubject": "Filosofi", "level": "A", "ib": ["Philosophy HL"] },
-      { "danish": "Philosophy", "danishSubject": "Filosofi", "level": "B", "ib": ["Philosophy SL"] },
-
-      { "danish": "Computing / IT / programming", "danishSubject": "Datalogi / informatik / informationsteknologi / programmering", "level": "A", "ib": ["Computer Science HL", "ITGS HL"] },
-      { "danish": "Computing / IT / programming", "danishSubject": "Datalogi / informatik / informationsteknologi / programmering", "level": "B", "ib": ["Computer Science SL", "ITGS SL"] },
-
-      { "danish": "Visual Arts", "danishSubject": "Billedkunst", "level": "A", "ib": ["Visual Arts HL"] },
-      { "danish": "Visual Arts", "danishSubject": "Billedkunst", "level": "B", "ib": ["Visual Arts SL"] },
-      { "danish": "Design", "danishSubject": "Design", "level": "A", "ib": ["Visual Arts HL"] },
-      { "danish": "Design", "danishSubject": "Design", "level": "B", "ib": ["Visual Arts SL"] },
-      { "danish": "Drama", "danishSubject": "Dramatik", "level": "A", "ib": ["Theatre HL"] },
-      { "danish": "Drama", "danishSubject": "Dramatik", "level": "B", "ib": ["Theatre SL"] },
-      { "danish": "Music", "danishSubject": "Musik", "level": "A", "ib": ["Music HL"] },
-      { "danish": "Music", "danishSubject": "Musik", "level": "B", "ib": ["Music SL"] },
-
-      { "danish": "Latin", "danishSubject": "Latin", "level": "A", "ib": ["Latin HL"] },
-      { "danish": "Latin", "danishSubject": "Latin", "level": "B", "ib": ["Latin SL"] },
-      { "danish": "Classical Greek", "danishSubject": "Græsk", "level": "A", "ib": ["Classical Greek HL"] },
-      { "danish": "Classical Greek", "danishSubject": "Græsk", "level": "B", "ib": ["Classical Greek SL"] },
-
-      { "danish": "Danish", "danishSubject": "Dansk", "level": "A", "ib": ["Danish A1 HL", "Danish A Literature HL (from 2013)"] },
-      { "danish": "Danish", "danishSubject": "Dansk", "level": "B", "ib": ["Danish A1 SL", "Danish A Literature SL (from 2013)"], "note": "Danish A1 SL / A Literature SL is normally accepted as meeting a Danish A entry requirement at university, because it sits above the Studieprøven language test." },
-      { "danish": "Danish as a second language", "danishSubject": "Dansk som andetsprog", "level": "A", "ib": ["Danish B HL"] },
-      { "danish": "Danish as a second language", "danishSubject": "Dansk som andetsprog", "level": "B", "ib": ["Danish B SL"] }
+      {
+        "danish": "Mathematics",
+        "danishSubject": "Matematik",
+        "level": "A",
+        "ib": [
+          "Mathematics HL",
+          "Mathematics: Analysis and Approaches HL",
+          "Mathematics: Applications and Interpretation HL"
+        ]
+      },
+      {
+        "danish": "Mathematics",
+        "danishSubject": "Matematik",
+        "level": "B",
+        "ib": [
+          "Mathematics SL (formerly Mathematical Methods SL)",
+          "Mathematics: Analysis and Approaches SL",
+          "Mathematics: Applications and Interpretation SL"
+        ]
+      },
+      {
+        "danish": "Mathematics",
+        "danishSubject": "Matematik",
+        "level": "C",
+        "ib": [
+          "Mathematical Studies SL"
+        ]
+      },
+      {
+        "danish": "English",
+        "danishSubject": "Engelsk",
+        "level": "A",
+        "ib": [
+          "English A1 / A2 / B HL",
+          "English A1 or A2 SL",
+          "English A Literature HL or SL (from 2013)",
+          "English A Language and Literature HL or SL (from 2013)"
+        ]
+      },
+      {
+        "danish": "English",
+        "danishSubject": "Engelsk",
+        "level": "B",
+        "ib": [
+          "English B SL"
+        ]
+      },
+      {
+        "danish": "Physics",
+        "danishSubject": "Fysik",
+        "level": "A",
+        "ib": [
+          "Physics HL"
+        ]
+      },
+      {
+        "danish": "Physics",
+        "danishSubject": "Fysik",
+        "level": "B",
+        "ib": [
+          "Physics SL"
+        ]
+      },
+      {
+        "danish": "Chemistry",
+        "danishSubject": "Kemi",
+        "level": "A",
+        "ib": [
+          "Chemistry HL"
+        ]
+      },
+      {
+        "danish": "Chemistry",
+        "danishSubject": "Kemi",
+        "level": "B",
+        "ib": [
+          "Chemistry SL"
+        ]
+      },
+      {
+        "danish": "Biology",
+        "danishSubject": "Biologi",
+        "level": "A",
+        "ib": [
+          "Biology HL"
+        ]
+      },
+      {
+        "danish": "Biology",
+        "danishSubject": "Biologi",
+        "level": "B",
+        "ib": [
+          "Biology SL"
+        ]
+      },
+      {
+        "danish": "Geography",
+        "danishSubject": "Geografi / naturgeografi",
+        "level": "B",
+        "ib": [
+          "Geography SL"
+        ]
+      },
+      {
+        "danish": "Geoscience",
+        "danishSubject": "Geovidenskab",
+        "level": "A",
+        "ib": [],
+        "warning": "The handbook lists no IB equivalent for Geoscience A. If a programme requires Geoscience A you will normally need a Danish supplementary course."
+      },
+      {
+        "danish": "History",
+        "danishSubject": "Historie / historie med samfundskundskab / samtidshistorie",
+        "level": "A",
+        "ib": [
+          "History HL"
+        ],
+        "note": "The subject may appear as History Europe, History Asia and so on depending on where it was taken."
+      },
+      {
+        "danish": "History",
+        "danishSubject": "Historie",
+        "level": "B",
+        "ib": [
+          "History SL"
+        ]
+      },
+      {
+        "danish": "Business and economics subjects",
+        "danishSubject": "Virksomhedsøkonomi A / International økonomi A / Afsætning A",
+        "level": "A",
+        "ib": [
+          "Economics HL",
+          "Business and Management HL"
+        ]
+      },
+      {
+        "danish": "Business and economics subjects",
+        "danishSubject": "Virksomhedsøkonomi B / International økonomi B / Afsætning B / Erhvervsøkonomi C",
+        "level": "B",
+        "ib": [
+          "Economics SL",
+          "Business and Management SL"
+        ]
+      },
+      {
+        "danish": "Psychology",
+        "danishSubject": "Psykologi",
+        "level": "A",
+        "ib": [
+          "Psychology HL"
+        ]
+      },
+      {
+        "danish": "Psychology",
+        "danishSubject": "Psykologi",
+        "level": "B",
+        "ib": [
+          "Psychology SL"
+        ]
+      },
+      {
+        "danish": "Philosophy",
+        "danishSubject": "Filosofi",
+        "level": "A",
+        "ib": [
+          "Philosophy HL"
+        ]
+      },
+      {
+        "danish": "Philosophy",
+        "danishSubject": "Filosofi",
+        "level": "B",
+        "ib": [
+          "Philosophy SL"
+        ]
+      },
+      {
+        "danish": "Computing / IT / programming",
+        "danishSubject": "Datalogi / informatik / informationsteknologi / programmering",
+        "level": "A",
+        "ib": [
+          "Computer Science HL",
+          "ITGS HL"
+        ]
+      },
+      {
+        "danish": "Computing / IT / programming",
+        "danishSubject": "Datalogi / informatik / informationsteknologi / programmering",
+        "level": "B",
+        "ib": [
+          "Computer Science SL",
+          "ITGS SL"
+        ]
+      },
+      {
+        "danish": "Visual Arts",
+        "danishSubject": "Billedkunst",
+        "level": "A",
+        "ib": [
+          "Visual Arts HL"
+        ]
+      },
+      {
+        "danish": "Visual Arts",
+        "danishSubject": "Billedkunst",
+        "level": "B",
+        "ib": [
+          "Visual Arts SL"
+        ]
+      },
+      {
+        "danish": "Design",
+        "danishSubject": "Design",
+        "level": "A",
+        "ib": [
+          "Visual Arts HL"
+        ]
+      },
+      {
+        "danish": "Design",
+        "danishSubject": "Design",
+        "level": "B",
+        "ib": [
+          "Visual Arts SL"
+        ]
+      },
+      {
+        "danish": "Drama",
+        "danishSubject": "Dramatik",
+        "level": "A",
+        "ib": [
+          "Theatre HL"
+        ]
+      },
+      {
+        "danish": "Drama",
+        "danishSubject": "Dramatik",
+        "level": "B",
+        "ib": [
+          "Theatre SL"
+        ]
+      },
+      {
+        "danish": "Music",
+        "danishSubject": "Musik",
+        "level": "A",
+        "ib": [
+          "Music HL"
+        ]
+      },
+      {
+        "danish": "Music",
+        "danishSubject": "Musik",
+        "level": "B",
+        "ib": [
+          "Music SL"
+        ]
+      },
+      {
+        "danish": "Latin",
+        "danishSubject": "Latin",
+        "level": "A",
+        "ib": [
+          "Latin HL"
+        ]
+      },
+      {
+        "danish": "Latin",
+        "danishSubject": "Latin",
+        "level": "B",
+        "ib": [
+          "Latin SL"
+        ]
+      },
+      {
+        "danish": "Classical Greek",
+        "danishSubject": "Græsk",
+        "level": "A",
+        "ib": [
+          "Classical Greek HL"
+        ]
+      },
+      {
+        "danish": "Classical Greek",
+        "danishSubject": "Græsk",
+        "level": "B",
+        "ib": [
+          "Classical Greek SL"
+        ]
+      },
+      {
+        "danish": "Danish",
+        "danishSubject": "Dansk",
+        "level": "A",
+        "ib": [
+          "Danish A1 HL",
+          "Danish A Literature HL (from 2013)"
+        ]
+      },
+      {
+        "danish": "Danish",
+        "danishSubject": "Dansk",
+        "level": "B",
+        "ib": [
+          "Danish A1 SL",
+          "Danish A Literature SL (from 2013)"
+        ],
+        "note": "Danish A1 SL / A Literature SL is normally accepted as meeting a Danish A entry requirement at university, because it sits above the Studieprøven language test."
+      },
+      {
+        "danish": "Danish as a second language",
+        "danishSubject": "Dansk som andetsprog",
+        "level": "A",
+        "ib": [
+          "Danish B HL"
+        ]
+      },
+      {
+        "danish": "Danish as a second language",
+        "danishSubject": "Dansk som andetsprog",
+        "level": "B",
+        "ib": [
+          "Danish B SL"
+        ]
+      }
     ],
-
     "languages": {
       "westernEuropean": {
         "applies": "French, Italian, Spanish, German",
         "rows": [
-          { "danish": "Beginner language A (begyndersprog A)", "ib": "Language ab initio" },
-          { "danish": "Continuation language B (fortsættersprog B)", "ib": "Language ab initio" },
-          { "danish": "Continuation language A (fortsættersprog A)", "ib": "B SL or B HL" },
-          { "danish": "Above any level offered in Danish upper secondary school", "ib": "A Language and Literature HL/SL, A2 HL/SL, A Literature HL/SL, A1 HL/SL" }
+          {
+            "danish": "Beginner language A (begyndersprog A)",
+            "ib": "Language ab initio"
+          },
+          {
+            "danish": "Continuation language B (fortsættersprog B)",
+            "ib": "Language ab initio"
+          },
+          {
+            "danish": "Continuation language A (fortsættersprog A)",
+            "ib": "B SL or B HL"
+          },
+          {
+            "danish": "Above any level offered in Danish upper secondary school",
+            "ib": "A Language and Literature HL/SL, A2 HL/SL, A Literature HL/SL, A1 HL/SL"
+          }
         ]
       },
       "other": {
         "applies": "Chinese, Japanese, Russian, Arabic, Turkish",
         "rows": [
-          { "danish": "Beginner language A (begyndersprog A)", "ib": "Language ab initio, B SL or B HL" },
-          { "danish": "Above any level offered in Danish upper secondary school", "ib": "A Language and Literature HL/SL, A2 HL/SL, A1 HL/SL, A Literature HL/SL" }
+          {
+            "danish": "Beginner language A (begyndersprog A)",
+            "ib": "Language ab initio, B SL or B HL"
+          },
+          {
+            "danish": "Above any level offered in Danish upper secondary school",
+            "ib": "A Language and Literature HL/SL, A2 HL/SL, A1 HL/SL, A Literature HL/SL"
+          }
         ]
       }
     },
-
     "specialCases": [
       {
         "subject": "Global Politics",
@@ -201,7 +722,6 @@
       }
     ]
   },
-
   "danishLanguage": {
     "summary": "Most Danish bachelor programmes are taught in Danish, and for those you must document Danish at A level.",
     "routes": [
@@ -212,7 +732,6 @@
     ],
     "note": "Studieprøven is not an upper-secondary subject, so it can never be used to meet a subject grade requirement — only the language requirement."
   },
-
   "sources": [
     {
       "title": "Eksamenshåndbogen — International Baccalaureate (Eksaminer, Fagniveauer, Karakterer)",

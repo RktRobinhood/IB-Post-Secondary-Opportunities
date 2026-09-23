@@ -1,0 +1,514 @@
+[
+  {
+    "id": "ev-uc-dates-fall-2027",
+    "sourceUrl": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html",
+    "publisher": "University of California, Office of the President (UC Admissions)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the page's own 2026–27 dates table, 2026-09-23. The table is headed with the cycle year and names fall 2027 in five separate rows, so these are the target intake's dates and not last year's carried forward.",
+    "claim": "For fall 2027 entry the University of California application opens on 1 August 2026, must be filed between 1 and 30 November 2026, decisions are released during March 2027, admitted first-year students must submit their Statement of Intent to Register by 1 May 2027, and official IB examination results must reach the campus by 15 July 2027.",
+    "excerpt": "Dates & deadlines 2026–27 … August 1 Application opens for fall 2027 applicants. October November 1 - 30 Fall 2027 admission application filing period. … March 1 - 31* Notification of fall 2027 admission decisions. *Some campuses may release decisions prior to March. … May 1 Deadline for all fall 2027 admitted first-year students to submit their SIR. July 1 Final, official transcripts must be postmarked or electronically submitted to campus admissions offices for students intending to enroll for fall 2027. July 15 Deadline for official AP and IB examination results to be postmarked or electronically submitted.",
+    "interpretation": "This is the whole University of California calendar and it has no early round in it. There is one thirty-day window, it closes six weeks before most American colleges close, and nothing reopens afterwards — no Early Action, no Early Decision, no rolling consideration, no equivalent of Clearing. A Danish student who treats 1 January as \"the American deadline\" has already missed all nine UC campuses by a month. The 15 July row is the answer to the July problem here and it is unusually generous: UC makes its offers on predicted grades and then wants the real IB results nine days after the IB releases them.",
+    "supports": [
+      { "entity": "us-uc-2027", "field": "milestones" },
+      { "entity": "us-uc-2027", "field": "rounds" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-uc-apply-now-2027",
+    "sourceUrl": "https://admission.universityofcalifornia.edu/apply-now.html",
+    "publisher": "University of California, Office of the President (UC Admissions)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The page states that all campuses are open for the fall 2027 application, so the fee and recommendation statements are current for the target intake.",
+    "claim": "The University of California charges 80 USD per campus, 95 USD per campus for international and non-immigrant applicants, and does not require or read letters of recommendation at the time of application.",
+    "excerpt": "All UC campuses are now open for the fall 2027 application … The application fee is $80 for each UC campus … $95 for international and non-immigrant applicants … UC does not require (nor read) letters of recommendation at the time of application. … A campus may ask for them later as part of a supplemental review.",
+    "interpretation": "Two things a student coming from the Common App will get wrong. The fee is per campus rather than per application, so nine campuses is 855 USD for a Danish applicant and not 95. And the teacher references that dominate every other American application are not part of this one — UC decides on the academic record and four personal insight questions. A student who spends October chasing recommendation letters for Berkeley has spent October on the wrong thing.",
+    "supports": [
+      { "entity": "us-uc-2027", "field": "fee" },
+      { "entity": "us-uc-2027", "field": "submissionItems" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-uc-ib-credit",
+    "sourceUrl": "https://admission.universityofcalifornia.edu/admission-requirements/ap-exam-credits/ib-credits.html",
+    "publisher": "University of California, Office of the President (UC Admissions)",
+    "publisherType": "application-portal",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. UC sets this rule for its own nine campuses, so it is the rule-owner for it and for nothing beyond it.",
+    "claim": "The University of California awards 6 quarter units for a full IB Diploma scored 30 or above, and 8 quarter units for each Higher Level exam graded 5, 6 or 7 — usually 24 quarter units in total on top of the diploma award.",
+    "excerpt": "UC awards students who complete the IB diploma with a score of 30 or above with 6 quarter (4 semester) units toward their UC degree, in addition to the units earned for individual Higher Level exams (usually 24 quarter/16 semester units). Students who receive IB certificates with scores of 5, 6 or 7 on Higher Level exams will receive 8 quarter (5.3 semester) units per exam. … If the student does duplicate an exam with another exam of the same subject content, and/or an exam with a college course, we will award credit only once.",
+    "interpretation": "This is the single most generous published IB credit rule we found in the United States, and it is worth about a term of a four-year degree: 30 quarter units is roughly a full quarter's load. It is also the reason no one should generalise from it. UC publishes a rate card; MIT publishes a list of subjects on which it gives nothing (ev-mit-ib-credit). Both are official, both are about the IB, and a student who reads one and assumes the other has misread the country. Note the floor: 30 points, not 24, and Standard Level earns nothing at all here.",
+    "supports": [
+      { "entity": "us", "field": "ibRecognition.gradeConversion" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-03-01" }
+  },
+  {
+    "id": "ev-uc-tuition-2027-28",
+    "sourceUrl": "https://admission.universityofcalifornia.edu/tuition-financial-aid/tuition-cost-of-attendance/",
+    "publisher": "University of California, Office of the President (UC Admissions)",
+    "publisherType": "application-portal",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The page's own heading gives the academic year as 2027–28, which is the year a student starting in autumn 2027 actually pays.",
+    "claim": "For 2027–28 the University of California publishes UC Tuition of 16,278 USD for California residents and 57,300 USD for nonresidents, with a total on-campus cost of attendance of 49,078 USD and 90,100 USD respectively, and states that UC Tuition remains flat for up to six years under the Tuition Stability Plan.",
+    "excerpt": "2027–28 … California residents: UC Tuition: $16,278 … total cost on campus $49,078 … Nonresidents: UC Tuition: $57,300 … total cost on campus $90,100 … UC Tuition remains flat for up to six years under the Tuition Stability Plan.",
+    "interpretation": "A Danish student is a nonresident and stays one: residency for tuition at UC is not something an F-1 student can acquire by living in California, so the higher figure is the figure for all four years. The gap between the two rows is a little over 41,000 USD a year, and it is the whole of what \"in-state versus out-of-state\" means in practice — it is not a discount a foreign student can qualify into. The Tuition Stability Plan is the one piece of good news: the tuition line is fixed at entry, which is rarer in the United States than in Europe.",
+    "supports": [
+      { "entity": "us", "field": "feeContext" },
+      { "entity": "us", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-04-01" }
+  },
+  {
+    "id": "ev-uc-transfer-guarantee",
+    "sourceUrl": "https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/uc-transfer-programs/transfer-admission-guarantee-tag.html",
+    "publisher": "University of California, Office of the President (UC Admissions)",
+    "publisherType": "application-portal",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The page names the six campuses and the two TAG submission windows; the per-campus unit requirements are in a linked matrix we did not open.",
+    "claim": "Six University of California campuses — Davis, Irvine, Merced, Riverside, Santa Barbara and Santa Cruz — offer a Transfer Admission Guarantee, submitted in the 1–30 September window for a fall start, with each campus's own requirements set out in a separate TAG matrix.",
+    "excerpt": "Nothing feels better than getting a guaranteed place at UC. Which is exactly what TAG offers, at any one of six UC campuses. … Davis, Irvine, Merced, Riverside, Santa Barbara, Santa Cruz … May 1–31: Submit your TAG for winter/spring term … Sept. 1– 30: Submit your TAG for fall term.",
+    "interpretation": "This is the mechanism underneath the community-college route, and it is the reason that route is more than a rumour: a guaranteed transfer place is a published promise, not a hope. We have recorded what the page states and no more. Whether an international student on an F-1 visa at a California community college can hold a TAG on the same terms as a California resident is not established here and is the question to ask before anyone plans around it — the per-campus matrix was not opened, and a guarantee that turns out to be residency-scoped would be the worst possible thing to have half-recorded.",
+    "supports": [
+      { "entity": "us", "field": "sectorLandscape.routes" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-03-01",
+      "notes": ["The TAG matrix PDF linked from this page was not opened. Per-campus unit requirements and international eligibility are unestablished."]
+    }
+  },
+  {
+    "id": "ev-berkeley-ship-2026-27",
+    "sourceUrl": "https://uhs.berkeley.edu/insurance/ship-fees-enrollment",
+    "publisher": "University Health Services, University of California, Berkeley",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Berkeley is authoritative about its own health plan; the figure is the 2026-27 rate and the 2027-28 rate is not yet published.",
+    "claim": "Every registered UC Berkeley student, international students included, is automatically enrolled in the Berkeley Student Health Insurance Plan, which cost undergraduates 2,533 USD per semester in 2026-27 and can only be left by proving comparable insurance.",
+    "excerpt": "All registered undergraduate and graduate students at UC Berkeley, including registered international students, are automatically enrolled in the Berkeley Student Health Insurance Plan (SHIP). … Undergraduates: $2,533 [per semester, 2026-27] … [students may waive] with proof of comparable insurance.",
+    "interpretation": "Automatic enrolment is the part to notice. This is not an offer a student accepts; it is a charge that appears on the bill unless a waiver is filed by a deadline, and the Danish yellow card and the EHIC are worth nothing against it. Two semesters at the 2026-27 rate is over 5,000 USD, which is more than a year's total living costs in several European destinations. The 2027-28 rate is not published yet and must not be assumed to be this one.",
+    "supports": [
+      { "entity": "us", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-06-01" }
+  },
+  {
+    "id": "ev-mit-deadlines-2027",
+    "sourceUrl": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+    "publisher": "Massachusetts Institute of Technology, Office of Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. MIT publishes the deadlines as bare days without a year; the years recorded on the route are inferred from the cycle and are marked provisional there.",
+    "claim": "MIT takes only its own application, through its own portal, with an Early Action deadline of 1 November and a Regular Action deadline of 4 January, a 75 USD fee, a required SAT or ACT, and separate financial-aid deadlines of 30 November and 15 February.",
+    "excerpt": "The MIT application portal is where you'll manage all required components of your application. … Application fee of $75 … Application Form & Fee: Early Action November 1, Regular Action January 4 … Standardized Tests: November testing date / December testing date … Enrollment Reply: May 1 … Financial aid applications are managed separately from admissions applications, and are due November 30 for EA applicants and February 15 for RA applicants. … We require the SAT or ACT. Applicants must take required tests before November 30 for EA, and before December 31 for RA.",
+    "interpretation": "MIT is the reason the United States cannot be described as \"the Common App plus California\". It has never joined the Common App and it is not going to; a student who builds their whole autumn around one portal will find MIT is not in it. Two other traps sit in this table. The Regular Action date is 4 January, not the 1 January that most American guidance quotes, and the aid deadline for an Early Action applicant is 30 November — after the application, which is the wrong way round from almost everywhere else and is easy to walk past.",
+    "supports": [
+      { "entity": "us-direct-2027", "field": "milestones" },
+      { "entity": "us-direct-2027", "field": "rounds" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-mit-ib-credit",
+    "sourceUrl": "https://firstyear.mit.edu/academics-exploration/ap-transfer-credit/international-examinations/",
+    "publisher": "MIT Office of the First Year",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23 from MIT's own first-year office, which owns the credit rule.",
+    "claim": "MIT gives credit only for Higher Level IB exams, only at grade 7, gives no credit at all for IB Biology, Chemistry or Information Technology in a Global Society, and gives 18.01 for HL Mathematics, 8.01 for HL Physics and nine units of unrestricted elective credit for each applicable humanities, arts or social science exam.",
+    "excerpt": "International Baccalaureate (IB) Higher Level Exams Only … Biology: No credit is given for the IB Biology exam. Chemistry: No credit is given for the IB Chemistry exam. Computer Science: No credit is given for the IB Information Technology in a Global Society examination. Mathematics: A score of 7 will grant you credit for 18.01. Physics: A score of 7 will grant you credit for 8.01. Humanities, Arts, Social Sciences: A score of 7 on applicable exams will grant you 9 units of unrestricted elective credit for each exam. English: A score of 7 on the English HL IB Exam places you in the 'CI-H/CI-HW Required' category without taking the First Year Essay Evaluation (FEE).",
+    "interpretation": "Set this beside UC's rate card and the American answer to \"what is my IB worth?\" becomes visible: it is worth whatever the institution you are admitted to says it is worth, and the range runs from a full term to nothing. An HL 6 in Physics is 8 quarter units at Berkeley and zero at MIT. HL Chemistry at grade 7 is zero at MIT whatever it is anywhere else. This is why the country record carries no single sentence about IB credit and why the only trustworthy instruction is to read the credit page of each institution on your list before you apply, not after you are admitted.",
+    "supports": [
+      { "entity": "us", "field": "ibRecognition.notes" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-03-01" }
+  },
+  {
+    "id": "ev-harvard-deadlines-2027",
+    "sourceUrl": "https://college.harvard.edu/admissions/apply/first-year-applicants",
+    "publisher": "Harvard College Admissions and Financial Aid",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Days are published without years, so the years carried onto the route are inferred from the cycle and marked provisional there.",
+    "claim": "Harvard requires the Common Application from every first-year applicant, international and American alike, with a Restrictive Early Action deadline of 1 November and a Regular Decision deadline of 1 January, a 95 USD fee, a required SAT or ACT, and IB actual or predicted scores accepted in place of a test only where testing is genuinely inaccessible.",
+    "excerpt": "Restrictive Early Action: Apply by November 1, receive notification by mid-December. Regular Decision: Apply by January 1, receive notification by the end of March. … Reply by early May … $95 fee (or request a fee waiver) … All first-year applicants—both international and U.S. candidates—must complete the Common Application … either the SAT or ACT is required. In exceptional cases when those tests are not accessible, one of the following can meet the requirement: AP exam results, IB Actual or Predicted Scores, GCSE/A-Level Actual or Predicted Results, National Leaving Exams Results or Predictions.",
+    "interpretation": "The sentence about IB scores is the one most likely to be misread, and misreading it costs a year. It is not an IB exemption. It is a hardship provision for applicants who cannot reach a test centre, and Copenhagen has test centres. A Danish IB student reading \"IB Actual or Predicted Scores\" as an alternative to the SAT will arrive at 1 November without a test score and without a way to get one. Read alongside Yale's flat refusal (ev-yale-testing-policy), the safe planning assumption for the selective American universities is that the SAT or ACT is required and has to be sat during 2026.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "milestones" },
+      { "entity": "us-common-app-2027", "field": "rounds" },
+      { "entity": "us", "field": "ibRecognition.notes" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-harvard-aid-international",
+    "sourceUrl": "https://college.harvard.edu/financial-aid/how-aid-works",
+    "publisher": "Harvard College Admissions and Financial Aid",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Harvard is authoritative about its own aid policy and about nothing else's.",
+    "claim": "Harvard states that international students are eligible for exactly the same financial aid as American students, that it meets 100 percent of demonstrated need, that families earning under 100,000 USD are expected to contribute nothing, and that it never requires a student to borrow.",
+    "excerpt": "International students are eligible for exactly the same aid as American students. … we meet 100 percent of our students' demonstrated financial need. … For families with annual incomes below $100,000, the expected parent contribution is zero. … Parent and student loans are also available for interested families, although we will never require you to take out loans.",
+    "interpretation": "This is the fact that makes the most expensive country in this dataset cheaper than Denmark for some families, and the fact most likely to be generalised into something false. It is Harvard's policy. It is not American policy, it is not Ivy League policy, and it is not a policy shared by the public universities in this profile, several of which state the opposite. A list built out of institutions that do this is a list of the hardest admissions in the world; the honest use of this record is as one column of a list, not as the list.",
+    "supports": [
+      { "entity": "us", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-04-01" }
+  },
+  {
+    "id": "ev-harvard-cost-of-attendance",
+    "sourceUrl": "https://college.harvard.edu/financial-aid/how-aid-works/cost-attendance",
+    "publisher": "Harvard College Admissions and Financial Aid",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The page is still showing 2025-26 figures; the 2027-28 figures a student starting in autumn 2027 would pay are not published anywhere yet.",
+    "claim": "Harvard's published 2025-26 billed cost was 86,926 USD — tuition 59,320, fees 5,476, housing 13,532, food 8,598 — with health insurance a further 4,308 USD for anyone not covered elsewhere.",
+    "excerpt": "Tuition $59,320 | Fees $5,476 | Housing $13,532 | Food $8,598 … [subtotal] $86,926 … Estimated personal expenses $2,500 … Estimated books $1,000 … transportation $0-$5,000 … Health insurance $4,308 (for 2025-26) unless you are covered under your family's health plan.",
+    "interpretation": "Recorded with its year attached because it is two years older than the intake this profile targets, and American published costs have risen every year. Treat it as the shape of the bill rather than the size of it: what is worth carrying away is that the tuition line is two-thirds of the total, that housing and food are billed by the university rather than found by the student, and that health insurance sits outside the headline figure. A student who budgets from the tuition line alone will be about 28,000 USD short.",
+    "supports": [
+      { "entity": "us", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-04-01" }
+  },
+  {
+    "id": "ev-harvard-massachusetts-insurance",
+    "sourceUrl": "https://hushp.harvard.edu/waiver-eligibility-application-process/",
+    "publisher": "Harvard University Student Health Program",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Harvard is authoritative for its own waiver rules and deadlines; it is reporting the state law rather than owning it, and the state regulation itself (956 CMR 8.00) was not read because mass.gov refused automated retrieval.",
+    "claim": "Harvard states that Massachusetts law requires any full-time or part-time student at an institution of higher learning in the state to participate in a qualifying student health insurance programme or comparable cover, and that its waiver must be filed by 31 July 2026 for autumn 2026 and 31 January 2027 for spring 2027.",
+    "excerpt": "Massachusetts law requires that any full-time or part-time student enrolled in an institution of higher learning in Massachusetts participate in a qualifying student health insurance program or in a health plan of comparable coverage. … Fall 2026 Deadline to Waive: July 31, 2026 11:59:59 PM EST … Spring 2027 Deadline to Waive: January 31, 2027 11:59:59 PM EST … [comparable coverage must] provide reasonably comprehensive health coverage throughout the school year … and be reasonably accessible in your location.",
+    "interpretation": "The phrase that matters to a Dane is \"reasonably accessible in your location\". A Danish travel or study policy may be comprehensive and still fail, because it is not accessible in Cambridge, Massachusetts. This is also the clearest case in this Destination of a rule that is genuinely per-state rather than per-institution: it binds every institution in Massachusetts and no institution outside it, and three of the fourteen institutions in this profile are in Massachusetts. The waiver window closes in July, before a student has arrived.",
+    "supports": [
+      { "entity": "us", "field": "jurisdictions" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-05-01",
+      "notes": ["mass.gov and the Massachusetts Health Connector both returned 403 to automated retrieval, so 956 CMR 8.00 is recorded here only as Harvard reports it."]
+    }
+  },
+  {
+    "id": "ev-stanford-early-action",
+    "sourceUrl": "https://admission.stanford.edu/apply/first-year/decision_process.html",
+    "publisher": "Stanford University, Office of Undergraduate Admission",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23 together with Stanford's first-year requirements page, which gives the fee and the application platform.",
+    "claim": "Stanford's Restrictive Early Action closes on 1 November and is non-binding, but forbids applying early to any other private college and to any public university under a binding early decision plan; Regular Decision closes on 5 January, decisions arrive by early April, and admitted students have until 1 May to reply.",
+    "excerpt": "Stanford's non-binding early application option … [an REA applicant may not] apply to any other private college/university under their Early Action, Restrictive Early Action, Early Decision, or Early Notification plan … REA deadline: November 1 … REA financial aid priority deadline: November 15 … you have until May 1 to respond to your offer … Final Regular Decision notifications: by early April … [Regular Decision deadline] January 5 … $100 nonrefundable application fee or fee waiver request.",
+    "interpretation": "\"Restrictive Early Action\" sounds like a softer Early Decision and behaves like neither. It does not bind you to enrol, so you keep your offers and can compare aid to 1 May — but it does lock out every other private early round in the country, which for a student whose realistic list is mostly private colleges is a strategic decision made in October. Note also that Stanford's Regular Decision date is 5 January where Harvard's is 1 January: the phrase \"the January deadline\" does not exist in this country.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-amherst-first-year-2027",
+    "sourceUrl": "https://www.amherst.edu/admission/apply/firstyear",
+    "publisher": "Amherst College, Office of Admission",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Unusually among the pages consulted here, Amherst prints full calendar years, so these dates need no inference at all.",
+    "claim": "Amherst's Early Decision deadline for entry in autumn 2027 is 9 November 2026 and is binding, Regular Decision is 5 January 2027 with decisions in late March and a reply date of 1 May 2027, the fee is 75 USD, and applications are accepted through the Common Application, Apply Coalition with Scoir, or QuestBridge.",
+    "excerpt": "Early Decision - Deadline is Nov. 9, 2026 … As an Early Decision applicant to Amherst, you agree not to be an ED candidate at any other college. You also agree, if admitted, to withdraw your applications from other colleges and to enroll at Amherst in the fall. … Regular Decision - Deadline is Jan. 5, 2027 … notice of our admission decision will be sent by late March. If admitted, you must reply to our offer by May 1, 2027. … Common Application OR Apply Coalition, with Scoir OR QuestBridge Application … $75 Application Fee (non-refundable) or Fee Waiver.",
+    "interpretation": "Two things this record is doing. First, it is the plainest published statement of what Early Decision actually commits a seventeen-year-old to: not a preference, a contract to withdraw every other application. Second, 9 November is the evidence that \"Early Decision is 1 November\" is a folk rule rather than a date. Among the colleges in this profile alone the Early Decision deadline runs from 1 to 15 November, so the country record carries no single early date and the route record says so.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-yale-apply-platforms",
+    "sourceUrl": "https://admissions.yale.edu/apply",
+    "publisher": "Yale University, Office of Undergraduate Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Days are published without years; the years on the route are inferred and marked provisional.",
+    "claim": "Yale accepts the Common Application, the Coalition Application on SCOIR and the QuestBridge Application, with a Single-Choice Early Action deadline of 1 November and a Regular Decision deadline of 2 January.",
+    "excerpt": "The Common Application … The Coalition Application on SCOIR … The QuestBridge Application … Single-Choice Early Action: Deadline: November 1 … Regular Decision: Deadline: January 2.",
+    "interpretation": "Recorded chiefly because it establishes that the Common App is not the only shared application in this Destination. The Coalition Application, now run on Scoir, and QuestBridge are separate front doors accepted by several of the colleges here, and none of the three is preferred over the others where all are offered. A student who cannot use one is not shut out. Yale's 2 January is a third distinct Regular Decision date among four institutions — Harvard 1 January, Yale 2 January, Stanford and Amherst 5 January.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" },
+      { "entity": "us", "field": "applicationSystems" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-yale-testing-policy",
+    "sourceUrl": "https://admissions.yale.edu/standardized-testing",
+    "publisher": "Yale University, Office of Undergraduate Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23.",
+    "claim": "Yale requires an ACT or SAT score from every first-year applicant and treats IB results as an optional addition to that score rather than a substitute for it.",
+    "excerpt": "All first-year and transfer applicants must include scores from the ACT or SAT. … If you have completed AP or IB exams, you may include the scores of your choosing in the testing section of your application along with your ACT or SAT score(s).",
+    "interpretation": "The phrase to read carefully is \"along with\". An IB Diploma is one of the most demanding secondary qualifications in the world and at Yale it does not remove a single requirement — it sits beside the SAT, it does not replace it. For a Danish IB student this is a 2026 problem, not a 2027 one: the SAT has to be booked, sat and possibly retaken before the November round, and the decision to do that has to be taken about eighteen months before enrolment.",
+    "supports": [
+      { "entity": "us", "field": "ibRecognition.notes" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-03-01" }
+  },
+  {
+    "id": "ev-illinois-first-year-dates",
+    "sourceUrl": "https://www.admissions.illinois.edu/apply/freshman/dates",
+    "publisher": "University of Illinois Urbana-Champaign, Office of Undergraduate Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Days and times are published without years; the years on the route are inferred and marked provisional.",
+    "claim": "Illinois closes its non-binding Early Action round on 1 November at 23:59 Central Time with supporting materials due by 7 November and decisions on 29 January, and its Regular Decision round on 5 January with materials by 11 January and decisions on 26 February, with an enrolment deadline of 1 May.",
+    "excerpt": "Nov 1 … Submissions must be received by 11:59 p.m. CT … [required materials by] November 7 … [Early Action decisions] Jan 29 … Jan 5 … [required materials by] January 11 … [Regular Decision decisions] Feb 26 … May 1 [National College Decision Day].",
+    "interpretation": "Worth recording for the detail almost no other page states: the application deadline and the deadline for everything that has to arrive behind it are different dates, a week apart. A Danish student whose school uploads the transcript and predicted grades is dependent on a studievejleder hitting 7 November, not 1 November, and nobody tells them that. The time zone is also published, which most are not — 23:59 Central Time is 06:59 the next morning in Denmark.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-grinnell-international",
+    "sourceUrl": "https://www.grinnell.edu/admission/apply/international",
+    "publisher": "Grinnell College, Office of Admission",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. Days are published without years; the years on the route are inferred and marked provisional.",
+    "claim": "Grinnell takes international applicants through the Common Application with Early Decision I closing 15 November, Early Decision II 5 January and Regular Decision 15 January, requires all financial aid forms by the same deadline as the application, considers demonstrated need when deciding whom to admit, and then meets 100 percent of institutionally determined need for those it admits.",
+    "excerpt": "Early Decision I: Nov. 15 … Early Decision II: Jan. 5 … Regular Decision: Jan. 15 … All financial aid forms must be submitted by the same deadline as the Common Application. … your demonstrated financial need is considered along with the academic and extra-curricular components of your application during the admission evaluation … [Grinnell meets] 100% of institutionally determined need [for admitted international students who apply for aid by the deadline].",
+    "interpretation": "\"Need-aware, then full need\" is the commonest arrangement a Danish family will actually meet, and it is different from both of the things students are told about America. It is not need-blind — asking for money makes admission harder — and it is not sticker-price-only either: if they take you, they fund you. The operational point is the one about deadlines. The aid application is due the same day as the admission application, so a family that plans to \"see what happens and then ask about money\" has forfeited the money.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" },
+      { "entity": "us", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-bowdoin-dates",
+    "sourceUrl": "https://www.bowdoin.edu/admissions/apply/dates-deadlines/index.html",
+    "publisher": "Bowdoin College, Office of Admissions",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read 2026-09-23. Left as needs-review deliberately: Bowdoin's own pages do not agree with each other about the Regular Decision date, and we are not entitled to pick the one we prefer.",
+    "claim": "Bowdoin opens its application on 1 August, closes Early Decision I on 15 November with decisions in mid-December, Early Decision II on 5 January with decisions in early February, and Regular Decision on 5 January with financial aid materials due 1 February and decisions in mid-March.",
+    "excerpt": "Early Decision 1: Applications open August 1, due November 15. Financial aid materials due November 15. Notification Date: Mid-December. Early Decision 2: Opens August 1, closes January 5. Financial aid deadline January 5. [Decisions] Early February. Regular Decision: Opens August 1, concludes January 5. Financial aid materials due February 1. Notification Date: Mid-March.",
+    "interpretation": "This record exists partly as a warning about itself. Bowdoin's dates page gives 5 January for both Early Decision II and Regular Decision, while its admissions FAQ elsewhere on the same domain has been reported as giving 1 February for Regular Decision. An institution disagreeing with itself between departments is a conflict to record, not a choice to make, so the route carries the range rather than a date and this record stays at needs-review until someone confirms it against Bowdoin directly. If you are applying to Bowdoin, write and ask.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2026-11-01",
+      "notes": ["Unresolved: the Regular Decision date. Confirm with Bowdoin before anyone relies on 5 January."]
+    }
+  },
+  {
+    "id": "ev-macalester-international",
+    "sourceUrl": "https://www.macalester.edu/admissions/international/first-year/",
+    "publisher": "Macalester College, Admissions and Aid",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The page is already on the 2027-2028 aid form, so it is describing the target intake; the round dates themselves are printed as bare days and the years on the route are inferred.",
+    "claim": "Macalester takes international first-year applicants through the Common App with Early Decision I and Early Action closing 1 November, Early Decision II 1 January and Regular Decision 15 January, and states that financial aid cannot be awarded after an offer of admission has been made, so aid must be requested during the application.",
+    "excerpt": "Early Decision I November 1 … Early Action November 1 … Early Decision II January 1 … Regular Decision January 15 … Application to Macalester is completed through the Common App. … To secure eligibility for financial aid, students must express their interest during the application process, as financial aid cannot be awarded after an offer of admission has been made … [applicants should include] predicted/anticipated results for final graduation exams (IB, A-Levels, etc.).",
+    "interpretation": "The aid sentence is the consequential one and it is absolute: not \"aid is harder later\" but that it cannot be awarded after admission, and by extension not at any later point in the degree either. A family that decides in May 2027 that the fees are unaffordable after all has no route back. Worth noticing too that Macalester runs Early Action and Early Decision on the same day, which means the choice between a non-binding early look and a binding commitment is made in one sitting on 1 November.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" },
+      { "entity": "us", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-15" }
+  },
+  {
+    "id": "ev-asu-international-first-year",
+    "sourceUrl": "https://admission.asu.edu/apply/international/first-year",
+    "publisher": "Arizona State University, Admission Services",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The page publishes priority dates for fall 2026 and spring 2027 only; nothing for fall 2027 was on it, which is why the country record carries that date as not-yet-announced rather than inferring one.",
+    "claim": "Arizona State charges international non-resident first-year applicants 90 USD, accepts either its own application or the Common Application with no stated preference, publishes priority dates rather than closing dates, and requires proof of English proficiency from every international applicant.",
+    "excerpt": "Fall 2026: Jan. 15, 2026 … Spring 2027: Nov. 1, 2026 … $90 ($75 for ASU online programs) … ASU accepts only one application. We have no preference between the ASU application or the Common Application. … [English competency, for example] IELTS 6.0 [most majors] … IELTS 7.0 [Cronkite School].",
+    "interpretation": "Arizona State is on this list because it is the one institution here that does not run a selection tournament — admission is against published criteria, decisions come back on a rolling basis, and a student can know roughly where they stand before applying. That makes it the realistic counterweight to a list of single-digit admit rates. Two cautions. Its fall 2027 priority date is simply not published yet, so no date has been invented for it here. And the English-proficiency requirement is stated without an IB exemption, so a Danish IB student should ask ASU in writing whether English A or B at Higher Level satisfies it rather than assuming.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "rounds" },
+      { "entity": "us", "field": "sectorLandscape.routes" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-12-01" }
+  },
+  {
+    "id": "ev-commonapp-season-opens-2027",
+    "sourceUrl": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/",
+    "publisher": "The Common Application, Inc.",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23. The Common App's own announcement of the season that leads to autumn 2027 entry.",
+    "claim": "The Common Application opened its 2026-27 season — the cycle for entry in autumn 2027 — on 31 July 2026.",
+    "excerpt": "Common App opens application to launch 2026-27 season — July 31, 2026 … Common App's launch always serves as a time to recenter on one goal: simplifying and bringing some joy to the application experience to provide students with postsecondary opportunities.",
+    "interpretation": "Recorded because the naming convention catches people out: the \"2026-27 season\" is the application you submit in late 2026 for a degree that starts in September 2027. Nothing closes on 31 July and nothing is gained by submitting early, so this is an opening date rather than a deadline — but it is the date from which the account exists, the essay prompts are live and the college list can be built, and the useful advice is to open the account in August and write over the summer rather than in October.",
+    "supports": [
+      { "entity": "us-common-app-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-01-15" }
+  },
+  {
+    "id": "ev-commonapp-member-nyu",
+    "sourceUrl": "https://www.commonapp.org/explore/new-york-university/",
+    "publisher": "The Common Application, Inc.",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23 from the Common App's own member directory. NYU's own admissions pages return HTTP 405 to automated retrieval, so the portal that runs the process is the source used to place NYU on a route.",
+    "claim": "New York University is a live Common Application member accepting first-year and transfer applications, requires no letter of recommendation from first-year applicants, and is test optional or test flexible for them.",
+    "excerpt": "New York University … Accepts first-year applications … Accepts transfer applications … Mid-Atlantic … Private … Urban … Large (15,000+) … No letter of recommendation required - First Year … Test Optional/Flexible - First Year … Admissions website www.nyu.edu/admissions/undergraduate-admissions.html",
+    "interpretation": "Used here for one narrow purpose — establishing which Application Route NYU sits on — and for two facts the Common App is entitled to state about its own process. It is not a source for NYU's deadlines, which are not recorded here at all because we could not read them from NYU. Note that \"no letter of recommendation required\" and \"test optional\" are both the opposite of what the most selective institutions in this profile require, which is the clearest single illustration that there is no American application standard.",
+    "supports": [
+      { "entity": "us", "field": "jurisdictions" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-01-15",
+      "notes": ["nyu.edu returns HTTP 405 to automated retrieval. NYU's own deadlines are not established here."]
+    }
+  },
+  {
+    "id": "ev-commonapp-member-umich",
+    "sourceUrl": "https://www.commonapp.org/explore/university-michigan/",
+    "publisher": "The Common Application, Inc.",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23 from the Common App's own member directory. admissions.umich.edu returns HTTP 403 to automated retrieval, so Michigan's route placement rests on the portal rather than on Michigan's own pages.",
+    "claim": "The University of Michigan is a live Common Application member for first-year applicants, is test optional or test flexible, accepts self-reported test scores, and expects a high school transcript, a school report and one academic teacher evaluation.",
+    "excerpt": "University of Michigan … Accepts first-year applications … Midwest … Public … Urban … Large (15,000+) … Accepts self-reported test scores - First Year … Test Optional/Flexible - First Year … Students submit a high school transcript, a school report, one teacher evaluation (academic teacher), an SAT or ACT score (if desired) … All materials must be received by the application [deadline].",
+    "interpretation": "Recorded to place Michigan on a route and to record, honestly, that we could not read Michigan's own deadlines. A public flagship that is on the Common App alongside Harvard, and a public flagship that is on a separate state application like Berkeley, are on genuinely different paths — which is the reason this Destination groups by application environment rather than by state. Michigan's Early Action and Regular Decision dates are not recorded here.",
+    "supports": [
+      { "entity": "us", "field": "jurisdictions" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-01-15",
+      "notes": ["admissions.umich.edu returns HTTP 403 to automated retrieval, from both the fetch tool and a browser user agent. Michigan's own deadlines are not established here."]
+    }
+  },
+  {
+    "id": "ev-commonapp-member-colby",
+    "sourceUrl": "https://www.commonapp.org/explore/colby-college/",
+    "publisher": "The Common Application, Inc.",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23 from the Common App's own member directory. colby.edu returns HTTP 403 to automated retrieval.",
+    "claim": "Colby College is a live Common Application member for first-year applicants, charges no application fee, is test optional or test flexible, and offers aid to international students.",
+    "excerpt": "Colby College … Accepts first-year applications … New England … Private … Rural … Medium (2,001 to 14,999) … Charges no application fee - First Year … Accepts self-reported test scores - First Year … Test Optional/Flexible - First Year … Offers aid for international students … Offers need-based aid.",
+    "interpretation": "\"Charges no application fee\" is worth more to a Danish family than it looks. A list of twelve American colleges at 75–100 USD each is close to 1,000 USD spent before a single decision arrives, and the fee waivers that soften it are built around low-income American students. Colleges that charge nothing at all change what a realistic list can contain. Colby's deadlines are not recorded here, because Colby's own pages could not be read.",
+    "supports": [
+      { "entity": "us", "field": "jurisdictions" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-01-15",
+      "notes": ["colby.edu returns HTTP 403 to automated retrieval. Colby's own deadlines are not established here."]
+    }
+  },
+  {
+    "id": "ev-educationusa-community-college",
+    "sourceUrl": "https://educationusa.state.gov/your-5-steps-us-study/research-your-options/community-college",
+    "publisher": "EducationUSA, U.S. Department of State",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read 2026-09-23. EducationUSA is the State Department's study-promotion service: government-run, written to attract, and not the owner of any admission or transfer rule. Used here for description only.",
+    "claim": "Community colleges offer two-year Associate of Arts or Associate of Science programmes, are usually less expensive than four-year institutions, and support a \"2+2\" route in which two years of community college are followed by two years of university study toward a bachelor's degree.",
+    "excerpt": "Community colleges offer two-year programs leading to the Associate of Arts (AA) or Associate of Science (AS) degree. … In this '2+2 process,' you can earn a bachelor's degree with two years of community college, followed by two years of university study. … Earning academic credit at a community college, which is usually less expensive, can help lower the overall cost of a bachelor's degree. … Community colleges may also have a more flexible admissions process.",
+    "interpretation": "This is the route almost no IB student is told exists, and it is the cheapest way into an American bachelor's degree. It is recorded from a promotion agency, which means it establishes that the route exists and how it is meant to work, and establishes nothing about price, admission or transfer at any particular institution. The mechanism that would make it real for a specific student is a published transfer guarantee such as UC's TAG (ev-uc-transfer-guarantee), and whether an F-1 student from Denmark qualifies for one on the same terms as a Californian is the open question this Destination has not answered.",
+    "supports": [
+      { "entity": "us", "field": "sectorLandscape.routes" }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-03-01",
+      "notes": ["Secondary source by class. Any consequential claim about community-college cost, admission or transfer needs an institution or system that owns the rule."]
+    }
+  },
+  {
+    "id": "ev-ice-sevis-fee",
+    "sourceUrl": "https://www.ice.gov/sevis/i901",
+    "publisher": "U.S. Immigration and Customs Enforcement",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read 2026-09-23 from the agency that sets and collects the fee.",
+    "claim": "The I-901 SEVIS fee for an F visa applicant is 350 USD and every nonimmigrant student must pay it.",
+    "excerpt": "I-901 SEVIS Fee F or M visa applicants (full payment) … $350 … all nonimmigrant students and exchange visitors must pay the I-901 SEVIS Fee.",
+    "interpretation": "Small against American tuition and easy to forget, and forgetting it stops the visa rather than delaying it — the receipt has to be in hand at the embassy interview. It is also separate from, and additional to, the visa application fee itself, which this record does not establish and which travel.state.gov should be checked for before anyone budgets.",
+    "supports": [
+      { "entity": "us", "field": "livingContext.residency" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-04-01" }
+  }
+]

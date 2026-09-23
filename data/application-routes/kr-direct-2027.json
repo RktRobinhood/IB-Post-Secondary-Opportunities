@@ -1,0 +1,182 @@
+{
+  "id": "kr-direct-2027",
+  "destination": "kr",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Korean university for the September 2027 intake",
+  "channel": "direct",
+  "portalUrl": "https://www.studyinkorea.go.kr/en/main.do",
+  "choicesRanked": false,
+  "rounds": [
+    {
+      "id": "rd-kaist-early-2027",
+      "label": "KAIST Early Admissions, Fall 2027 entry",
+      "opens": "2026-09-22",
+      "closes": "2026-10-22",
+      "decisionBy": "2027-01-07",
+      "consequence": "hard",
+      "note": "Closed at 18:00 KST on 22 October 2026. Recorded because it shows the shape of the cycle and because a student reading this in a later year needs to know that KAIST's first round opens thirteen months before enrolment.",
+      "evidence": [
+        "ev-kr-kaist-rounds-2027"
+      ]
+    },
+    {
+      "id": "rd-kaist-regular-2027",
+      "label": "KAIST Regular Admissions, Fall 2027 entry",
+      "opens": "2026-11-10",
+      "closes": "2027-01-14",
+      "decisionBy": "2027-03-25",
+      "consequence": "hard",
+      "note": "The live round for anyone finishing the IB Diploma in May 2027. Decided on predicted grades and a recommendation letter, five months before results exist.",
+      "evidence": [
+        "ev-kr-kaist-rounds-2027"
+      ]
+    },
+    {
+      "id": "rd-uic-round2-2027",
+      "label": "Yonsei UIC 2nd Round, Fall 2027 entry",
+      "consequence": "hard",
+      "note": "UIC publishes this round as \"March, 2027\" and marks the whole column TBD, with the interview and admission notification in June 2027. No day has been set, so none is shown here. Check the UIC admission page from January 2027.",
+      "evidence": [
+        "ev-kr-uic-rounds-2027"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-kaist-recommendation",
+      "type": "document",
+      "label": "KAIST recommendation letter due (Regular Admissions)",
+      "date": "2027-01-21",
+      "timeOfDay": "18:00",
+      "timeZone": "KST",
+      "consequence": "hard",
+      "note": "A week after the application itself closes. Sending the application in on time does not finish the job, and this is the part most often missed — ask your referee in November, not in January.",
+      "evidence": [
+        "ev-kr-kaist-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-kaist-interview",
+      "type": "test",
+      "label": "KAIST interview (Regular Admissions)",
+      "date": "2027-03-03",
+      "consequence": "indicative",
+      "note": "KAIST states that interviews are conditional and that applicants are contacted individually if one is required.",
+      "evidence": [
+        "ev-kr-kaist-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-uic-round2-open",
+      "type": "open",
+      "label": "Yonsei UIC 2nd Round opens for Fall 2027",
+      "consequence": "hard",
+      "note": "Published only as \"March, 2027\". The online application, the deadline and the document deadline are all given as that month and nothing more. UIC's 1st Round, for the March 2027 intake, ran 26 August to 22 September 2026 — an IB candidate sitting exams in May 2027 could not have used it.",
+      "evidence": [
+        "ev-kr-uic-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-uic-round2-result",
+      "type": "result",
+      "label": "Yonsei UIC 2nd Round interview and result",
+      "consequence": "indicative",
+      "note": "Both given as \"June, 2027\". That lands after the IB examination session and before results, which is the ordinary shape of a Korean international offer: conditional on the diploma you have not yet received.",
+      "evidence": [
+        "ev-kr-uic-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-ku-fall-2027",
+      "type": "submit",
+      "label": "Korea University Fall 2027 application",
+      "consequence": "hard",
+      "note": "Marked TBA on Korea University's international admission guide in September 2026. Its Spring 2027 equivalent ran 3 to 31 August 2026, so the Fall round is expected to be announced in the spring of 2027. Applications are submitted through Uwayapply, not through the university's own site.",
+      "evidence": [
+        "ev-kr-ku-schedule-2027"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Every Korean decision above is made before this date. What each university does with a conditional place once the diploma arrives is set institution by institution and is not established here — ask, in writing, at the point of accepting an offer.",
+      "evidence": []
+    },
+    {
+      "id": "ms-d2-visa",
+      "type": "visa",
+      "label": "D-2 student visa, once the Certificate of Admission is issued",
+      "consequence": "personal",
+      "note": "Not a published deadline. The university issues a Certificate of Admission after you register; you take it to the Korean embassy in Copenhagen. Allow for a criminal-record check and a tuberculosis test, and for an Alien Registration Card within 90 days of arrival — without which there is no bank account and no phone contract.",
+      "evidence": []
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-transcript",
+      "label": "IB transcript and predicted grades",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "The university, by its own method — several want originals by post as well as uploads.",
+      "note": "Predicted grades do the work in every round recorded here, because all of them close before July."
+    },
+    {
+      "id": "si-english",
+      "label": "Proof of English proficiency",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "note": "UIC requires this of every applicant from the 2027 academic year and exempts only graduates of countries where English is the sole official language. Denmark is not one. Whether an IB English A or B result is accepted instead of a test is not established here.",
+      "evidence": [
+        "ev-kr-uic-english-2027"
+      ]
+    },
+    {
+      "id": "si-recommendation",
+      "label": "Letter of recommendation",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "dueMilestone": "ms-kaist-recommendation",
+      "note": "KAIST gives it a deadline of its own, later than the application. Other institutions fold it into the application."
+    },
+    {
+      "id": "si-nationality",
+      "label": "Proof that neither you nor your parents hold Korean nationality",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "note": "The international track exists for applicants who are foreign nationals with foreign parents, or who completed all twelve years of schooling outside Korea. UIC's version excludes anyone holding Korean dual citizenship outright."
+    },
+    {
+      "id": "si-fee",
+      "label": "Application fee, charged separately by each university",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "note": "Seoul National University charged 70,000 KRW for Spring 2027. Other institutions set their own and we have not collected them."
+    }
+  ],
+  "supplementarySteps": [
+    "There is no central portal. Build a list of the universities you want and put each one's own international admission page in it, because the dates are not the same and several are announced only four to six months ahead.",
+    "Check whether the university runs its application on a shared national platform — Korea University uses Uwayapply — and make an account there early rather than on the closing day.",
+    "Ask the department, not the marketing page, whether your major genuinely runs in English for four years. A university-wide English-medium percentage is an average, not a promise about your degree.",
+    "Apply for the dormitory the moment an offer arrives. The private Seoul market needs a large up-front deposit that is impractical to arrange from Denmark."
+  ],
+  "evidence": [
+    "ev-kr-uic-rounds-2027",
+    "ev-kr-kaist-rounds-2027",
+    "ev-kr-ku-schedule-2027",
+    "ev-kr-snu-two-intakes"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-10",
+    "notes": [
+      "Three institutions were read for this route: Yonsei UIC, KAIST and Korea University, with Seoul National University for the intake structure. Eleven of the fourteen institutions on the Korean profile have not had their own dates read, and their pages may differ.",
+      "Re-check in January 2027, when Yonsei UIC's 2nd Round and Korea University's Fall 2027 round are expected to be published.",
+      "Not established: whether any of these institutions publishes a minimum IB point score, and what each does with a conditional offer when results arrive on 6 July."
+    ]
+  }
+}

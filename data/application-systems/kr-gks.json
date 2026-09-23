@@ -1,0 +1,52 @@
+{
+  "id": "kr-gks",
+  "name": "Global Korea Scholarship",
+  "localName": "정부초청 외국인 장학생 (GKS)",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "kr",
+    "authority": "National Institute for International Education (NIIED), Ministry of Education",
+    "area": "Republic of Korea"
+  },
+  "portalUrl": "https://www.studyinkorea.go.kr/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Undergraduate and associate-degree study at the universities named in the guidelines for each track — 28 Type A and 42 Type B universities on the Embassy Track, 13 institutions on the University Track's UIC Program.",
+    "excludes": "Everything else. This is a scholarship competition with its own list of universities and departments, not a general admissions portal, and being admitted to a Korean university has nothing to do with it. Evening, short-term, online and distance programmes are excluded outright, and the Embassy Track is closed to citizens of countries NIIED has not invited — Denmark among them for 2027."
+  },
+  "choiceRules": {
+    "limit": 3,
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "Embassy Track General applicants choose up to three universities in order of preference and at least one must be a Type B (regional) university. University Track applicants choose one university and one department, and may not apply to two departments at the same university. Applying on more than one track at once voids the application."
+  },
+  "identityRequirement": "An account on the Study in Korea system for the Embassy Track. The University Track is submitted to the university by its own method — in person or by post in several cases — so there is no shared account at all.",
+  "fee": {
+    "amount": 0,
+    "currency": "KRW",
+    "period": "once",
+    "note": "No application fee is stated in the 2027 guidelines for either track. Universities may charge their own admission fee separately; that is not part of this."
+  },
+  "sharedSteps": [
+    "Check whether your citizenship is on the invited list for the track you want. For 2027 the Embassy Track names 74 countries and Denmark is not among them.",
+    "Read the University Information file for the track before choosing, because language scores, academic eligibility and major-specific requirements are set by each university rather than by NIIED.",
+    "Apply on one track only, for one programme only.",
+    "Expect three rounds of selection on the Embassy Track and two on the University Track."
+  ],
+  "decisionModel": "Three rounds on the Embassy Track: the Korean embassy screens first, NIIED screens second, and the chosen universities screen third — so a candidate can pass NIIED and still fail at every university they picked. Two rounds on the University Track: the university screens first and NIIED second.",
+  "replyModel": "Embassy Track candidates who pass the third round log in to the Study in Korea system to choose their final university by a stated deadline. Final scholars are announced on the same site; NIIED does not notify applicants individually, and checking is explicitly the applicant's responsibility.",
+  "evidence": [
+    "ev-kr-gks-2027-schedule",
+    "ev-kr-gks-2027-countries",
+    "ev-kr-gks-2027-eligibility"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-08-01",
+    "notes": [
+      "Read from the 2027 GKS-U Application Guidelines (English), published by NIIED on 2026-09-09 and revised 0914. The guidelines are a PDF reached through a JavaScript download handler on the notice page; nothing on the page itself carries the deadline.",
+      "The 2028 guidelines are the ones a May-2027 IB graduate needs and are expected around September 2027. Re-read this record then: the country list, the quotas and the university lists change every year."
+    ]
+  }
+}

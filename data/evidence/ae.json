@@ -1,0 +1,374 @@
+[
+  {
+    "id": "ev-ae-regulators",
+    "sourceUrl": "https://u.ae/en/information-and-services/education/higher-education/Higher-education-regulatory-bodies",
+    "publisher": "The Official Platform of the UAE Government (u.ae)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23. The page carries an \"Updated on: 24 Mar 2026\" stamp.",
+    "claim": "Higher education in the UAE is licensed nationally by the Commission for Academic Accreditation under the Ministry of Higher Education and Scientific Research, and separately by an authority in each emirate — KHDA in Dubai, ADEK in Abu Dhabi, the Sharjah Council in Sharjah.",
+    "excerpt": "Commission for Academic Accreditation is the national body responsible for ensuring the quality of higher education institutions in the UAE. It was established in 1999 under the Ministry of Higher Education. Its mandate was expanded in 2012 to include public and private higher education institutions. The commission licenses institutions and accredits their academic programmes in line with international standards. […] Knowledge and Human Development Authority (KHDA) regulates the quality of education in Dubai […] It also oversees private educational institutions and certifies higher education degrees from licensed universities in Dubai. […] Department of Education and Knowledge in Abu Dhabi (ADEK) regulates Abu Dhabi's education sector […] It oversees licensing of private institutions […]",
+    "interpretation": "This is the reason the UAE is recorded as four Application Jurisdictions rather than one Destination. The government describes a licensing layer, not an admissions layer — there is no national admissions authority here at all, and the page that would name one instead names five regulators. Every institution in the country therefore runs its own admission, and what decides which rules and which calendar apply to a student is what kind of institution it is: federal, UAE private, or a foreign university's campus operating under a licence. Grouping the UAE by emirate would sort Birmingham Dubai next to Middlesex Dubai and away from Birmingham UK, which is exactly backwards.",
+    "supports": [
+      { "entity": "ae", "field": "sectorLandscape" },
+      { "entity": "ae", "field": "institutionGrouping" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-hct-applied",
+    "sourceUrl": "https://www.hct.ac.ae/en/",
+    "publisher": "Higher Colleges of Technology",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source page, 2026-09-23. Recorded as needs-review because the page is substantially in Arabic and the reading is of the English-language elements and navigation rather than of a full English text.",
+    "claim": "The Higher Colleges of Technology is the UAE's largest higher education institution, a federal network of seven colleges across Abu Dhabi, Al Ain, Al Dhafra, Dubai, Fujairah, Ras Al Khaimah and Sharjah, awarding applied diplomas and bachelor's degrees across around forty programmes, and it operates an international student admissions portal.",
+    "excerpt": "أكبر مؤسسة للتعليم العالي في دولة الإمارات العربية المتحدة […] بوابة قبول الطلبة الدوليين",
+    "interpretation": "Recorded because the route is invisible and not because it has been researched. The UAE's applied-technology sector is the country's answer to the Danish erhvervsakademi — shorter, vocational, employer-facing, and absent from every English-language guide to studying in the Gulf. The presence of an international admissions portal establishes that it is not closed to foreign applicants; it establishes nothing about what an IB Diploma buys there, what it costs, or whether a Danish student would be accepted. Those are open questions and the sectorLandscape entry says so.",
+    "supports": [
+      { "entity": "ae", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-nyuad-key-dates",
+    "sourceUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/key-dates-and-deadlines.html",
+    "publisher": "New York University Abu Dhabi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "NYU Abu Dhabi runs three rounds with application deadlines of 1 November, 1 January and 5 January, all at 23:59 EST, with decisions on 15 December, 15 February and 1 April, and CSS Profile financial aid deadlines of 10 November, 10 January and 1 February.",
+    "excerpt": "Application Deadlines. Application Deadline * / Decision. Early Decision I — November 1 / December 15. Early Decision II — January 1 / February 15. Regular Decision — January 5 / April 1. * The cut-off time for application submission is 11:59pm, EST. […] Financial Aid Application. Due by 11:59pm Eastern Standard Time (EST) on the date listed. Application Type / CSS Profile Deadline (for custodial and noncustodial parents). Early Decision I — November 10. Early Decision II — January 10. Regular Decision — February 1.",
+    "interpretation": "Every date here is published bare — a day and a month with no year — because NYUAD's cycle repeats. The years recorded against these deadlines for 2027 entry are therefore inferred and every one is marked provisional, which is the rule for a bare recurring date. The important reading is the shape rather than the exact day: NYU Abu Dhabi's Regular Decision closes on 5 January, six months before the IB releases results on 6 July. It decides on predicted grades. That puts it eight months ahead of every other deadline recorded for this Destination and it is the reason NYU Abu Dhabi is recorded as its own Application Jurisdiction.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-nyuad-common-app-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-nyuad-early-decision",
+    "sourceUrl": "https://nyuad.nyu.edu/en/apply/undergraduate/apply/early-decision.html",
+    "publisher": "New York University Abu Dhabi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Early Decision at NYU Abu Dhabi is binding: an admitted student with an adequate financial aid package must withdraw other applications and accept within two to three weeks, and is released from the agreement only if the aid package will not let them attend.",
+    "excerpt": "Early Decision admission to NYU Abu Dhabi is a binding agreement […] the student must withdraw any previously submitted applications and accept NYUAD's admission offer within 2-3 weeks. […] Students will be released from the Early Decision agreement if their estimated financial aid package does not enable them to attend. […] You won't be able to compare financial aid packages from other schools if you apply Early Decision.",
+    "interpretation": "The release clause is the part a Danish family needs to read twice. It protects a student who cannot afford the offer, and it does nothing for a student who simply gets a better offer somewhere else — and since NYUAD's aid for non-Emiratis is need-based and it is one of the very few universities outside the United States meeting demonstrated need, that is a live risk rather than a theoretical one. Applying Early Decision here means committing before you can compare.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-nyuad-common-app-2027", "field": "rounds" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-aus-dates",
+    "sourceUrl": "https://www.aus.edu/admissions/bachelors-degrees/deadlines-and-important-dates-for-undergraduate-admissions",
+    "publisher": "American University of Sharjah",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "For Fall 2027 the American University of Sharjah opens applications on 19 October 2026 and sets Early File Completion on 5 July 2027, with classes starting 23 August 2027. It publishes no closing date for Fall 2027, although it publishes one for Spring 2027 and one for Summer 2027.",
+    "excerpt": "Dates are tentative and are subject to change. SPRING 2027 — October 19, 2026 Accepting applications for Spring 2027; December 21, 2026 Early File Completion for Spring 2027; December 24, 2026 Deadline for Spring 2027 applications […] SUMMER 2027 — January 18, 2027 Accepting applications for Summer 2027; May 3, 2027 Early File Completion for Summer 2027; May 13, 2027 Deadline for Summer 2027 applications […] FALL 2027 — October 19, 2026 Accepting applications for Fall 2027; July 5, 2027 Early File Completion for Fall 2027; August 15, 2027 Welcome session for new students and parents; August 16, 2027 Fall 2027 Orientation Week; August 23, 2027 First day of classes",
+    "interpretation": "Two things the table says that a summary would lose. First, the Fall block is missing the row the other two blocks have: Spring and Summer each carry a \"Deadline for … applications\" line and Fall does not. That absence is recorded as not-published rather than as no-central-deadline, because AUS plainly does close Fall applications at some point and has simply not said when. Second, Early File Completion for Fall 2027 falls on 5 July 2027 and the IB releases results on 6 July 2027. A student completing an AUS file on time cannot have their diploma in it. AUS also states that all its dates are tentative, so none of these is a promise.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-private-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-ku-timeline",
+    "sourceUrl": "https://www.ku.ac.ae/undergraduate-admissions",
+    "publisher": "Khalifa University of Science and Technology",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Khalifa University has closed Fall 2026 undergraduate admissions and has not yet published a Fall 2027 application timeline.",
+    "excerpt": "Undergraduate admissions for Fall 2026 are closed. […] Step 2 : Know the application timeline and deadlines — Stay tuned for the Fall 2027 application timeline […] Shortlisted applicants will be invited to sit for the admission test in person, based on the program they are applying to. Invitations will be sent at least 10 days before the test date. […] All students are required to submit a video recording as part of the application documents, replacing the traditional in-person interview. […] Applications with missing documents will not be accepted.",
+    "interpretation": "This is the record that dissolves the old lump. Khalifa was previously described in one undated entry alongside the American University of Sharjah and the Dubai branch campuses, with a date state of not-published. It is not not-published: Khalifa has a step in its own process headed \"Know the application timeline and deadlines\" and the content of that step, today, is a promise to publish later. That is not-yet-announced, and the difference matters — it tells a student the date is coming and which page it will appear on, rather than implying we failed to find it. The surrounding process notes are recorded because they move the real deadline earlier: an in-person admission test and a submitted video recording cannot be done in the last week.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-private-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-ku-ib",
+    "sourceUrl": "https://www.ku.ac.ae/undergraduate-admissions",
+    "publisher": "Khalifa University of Science and Technology",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Khalifa University requires the full IB Diploma with six HL/SL subjects excluding Islamic Education, a minimum of 4 in each subject and 24 points in total, with Mathematics mandatory plus one science, and grants advanced standing credit for HL scores of 6 or higher.",
+    "excerpt": "International Baccalaureate Diploma (IB) — *Applicants must be awarded the full IB Diploma with six HL/SL subjects (excluding Islamic Education) *Minimum score of 4 in each subject – with a total of 24 points. *Applicants must complete Mathematics as a mandatory subject, along with one science subject (Physics, Biology, or Chemistry) *. *All subjects must be within the approved lists of the International Baccalaureate Organization. […] Khalifa University grants credit for a score of 6 or higher on certain Higher Level (HL) International Baccalaureate (IB) exams. The University does not grant credit for secondary school courses teaching IB curricula, or partial credit for lower scores. If the IB exam is taken more than once, the higher score will be counted. […] Admissions to the university is competitive, and meeting the minimum eligibility criteria does not guarantee final admission.",
+    "interpretation": "24 points with a 4 in every subject is the IB's own pass, so Khalifa's published minimum is a floor rather than a target, and the page says as much: meeting it does not guarantee admission, decisions depend on the programme and the seats available. The subject rule is the part that actually excludes people — Mathematics is mandatory and a science is mandatory, and a Diploma built around humanities will not clear it however high the total. This figure applies to Khalifa University and to nothing else in this record.",
+    "supports": [
+      { "entity": "ae", "field": "ibRecognition" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-hw-dubai-when-to-apply",
+    "sourceUrl": "https://www.hw.ac.uk/dubai/study/apply",
+    "publisher": "Heriot-Watt University Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23. The \"When to apply\" panel is a collapsed accordion and its text was read out of the page's own embedded content payload rather than from the rendered view.",
+    "claim": "Heriot-Watt University Dubai runs rolling year-round admissions with every programme taking a September intake, accepts applications up to three weeks before an intake starts, and expects most applicants six to ten months ahead.",
+    "excerpt": "Our Dubai Campus operates a rolling year-round admissions process: as soon as one intake has closed we begin accepting applications for the next one. It is also possible for you to defer your start date for up to a year. All of our programmes have an intake in September, but some programmes also offer an additional intake in January. Most students apply 6–10 months in advance of their chosen intake. We can accept applications up until 3 weeks before the start of each intake but you should note that a late application will almost certainly mean a delay in the provision of essential administrative services, such as your student matriculation card (without which you won't be able to access library or online services).",
+    "interpretation": "Recorded as rolling rather than not-published because the university states the policy in its own words: there is no round, and applications are taken as they arrive until three weeks before term. That is a researched finding about how Heriot-Watt Dubai admits, not an absence of one. It also makes Heriot-Watt Dubai the opposite case from NYU Abu Dhabi within the same country: a student holding IB results on 6 July 2027 could still apply here for a September 2027 start, and could not have applied to NYUAD since the previous January.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-branch-campus-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-bham-dubai-apply",
+    "sourceUrl": "https://www.birmingham.ac.uk/dubai/study/apply",
+    "publisher": "University of Birmingham Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page and from the campus's application FAQs, 2026-09-23.",
+    "claim": "Applications to the University of Birmingham's Dubai campus are made directly through the University's own admissions portal, not through UCAS, do not count towards a UCAS applicant's five choices, carry no application fee, may be made on predicted grades, and receive a decision within ten working days. No application deadline is published.",
+    "excerpt": "Apply directly to the University of Birmingham Dubai for foundation, undergraduate, postgraduate, and doctoral study. Applications are made through our online Admissions portal, with no application fee. […] Can I apply through UCAS? No. Applications to study at our Dubai campus are made directly through our Admissions portal, not through UCAS, and therefore do not count towards one of your five choices. […] Do I need my final grades to apply? No. For undergraduate and foundation courses, you can apply using predicted grades or first-term results from Grade 12/Year 13 before your final grades are available. […] This process typically takes up to 10 working days […]",
+    "interpretation": "The UCAS answer is the single most useful sentence about branch campuses on this page, and it cuts both ways. A Dubai application is free and does not consume a UCAS choice, so it costs a student nothing to hold alongside five UK ones — and it also means a UK branch campus is invisible in UCAS, so nobody will be prompted to consider it. The absence of a deadline is recorded as not-published rather than rolling: unlike Heriot-Watt Dubai, Birmingham does not describe a rolling process, it simply gives no date. What it does give is a decision turnaround, which is a different promise.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-branch-campus-direct-2027", "field": "channel" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-bham-dubai-visa",
+    "sourceUrl": "https://www.birmingham.ac.uk/dubai/study/apply/faqs",
+    "publisher": "University of Birmingham Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Birmingham Dubai sets a deadline for new international students to apply for a University-sponsored visa from outside the UAE: 24 August 2026 for the September 2026 intake and 14 December 2026 for the January 2027 intake, with express options a week later in each case. No date is published for the September 2027 intake.",
+    "excerpt": "What is the deadline for visas for International students? The deadlines for new international students to apply for a University-sponsored visa from outside the UAE are: September 2026 intake — Normal application: Monday 24 August 2026; Express application: Monday 31 August 2026. January 2027 intake — Normal application: Monday 14 December 2026; Express application: Monday 21 December 2026.",
+    "interpretation": "For an applicant living in Denmark this is the real deadline, and it is not on the admissions page. Birmingham Dubai publishes no application closing date and does publish a visa sponsorship cut-off, which means the binding date for a foreign student is an immigration date rather than an academic one. The September 2027 figure is deliberately left as not-yet-announced: the 2026 date is recorded here so a reader can see roughly where in the year it lands, and it must not be carried across, because both published dates fall within a week or two of the intake and a week's drift would be the whole margin.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-branch-campus-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-bham-dubai-licensure",
+    "sourceUrl": "https://www.birmingham.ac.uk/dubai/study/mohesr-licensure-accreditation",
+    "publisher": "University of Birmingham Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "The University of Birmingham Dubai is licensed by MoHESR through the Commission for Academic Accreditation and separately permitted by KHDA, and states that it upholds the same entry requirements as its UK campus.",
+    "excerpt": "The University of Birmingham Dubai holds Initial Institutional Licensure by the United Arab Emirates (UAE)'s Ministry of Higher Education and Scientific Research (MOHESR) through the Commission for Academic Accreditation (CAA). […] Our entry requirements — We uphold the same entry requirements as our UK campus, ensuring our applicants meet the highest standards and academic rigour expected at a global top 100 British university. […] As an institution proudly based in the Emirate of Dubai, we will continue to operate under the licensure of the Dubai Government through the Knowledge and Human Development Authority (KHDA). The KHDA remains responsible for our Higher Education Permit […]",
+    "interpretation": "This is the branch-campus model stated plainly by one of them: two licences, one national and one emirate-level, and the parent university's entry requirements applied unchanged. It is the reason the sector landscape records branch campuses as a route in their own right — the page a student needs for entry requirements is the parent's UK page, and the page they need for dates and visas is the Dubai one. Note also that the licence quoted runs to 9 September 2026 and the page was read on 23 September 2026, so its own currency should be checked before the claim is relied on.",
+    "supports": [
+      { "entity": "ae", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-rit-dubai-dates",
+    "sourceUrl": "https://www.rit.edu/dubai/undergraduate-admissions",
+    "publisher": "Rochester Institute of Technology Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23. The page carries its own stamp: \"Website last updated: September 21, 2026\".",
+    "claim": "RIT Dubai is accepting applications for Fall 2027, with an Early Admission Phase until 15 January, a Regular Admission Phase until 31 May and an application deadline of 22 August, after which applications are reviewed on space availability. Its IB minimum is 28 points for engineering and 24 for computing, business, psychology and new media design.",
+    "excerpt": "Accepting Applications for Spring/Fall 2027 […] RIT Dubai is currently accepting applications for Spring (January) and Fall (September). We welcome all interested students to apply as soon as they can because we have limited seats for scholarships. Students are encouraged to apply early, and applications will be reviewed on a rolling basis. […] Application Deadline — Fall Semester: Early Admission Phase: Until January 15; Regular Admission Phase: Until May 31; Application deadline: August 22; Application received after the deadline will be reviewed based on space availability. […] Engineering: International Baccalaureate Minimum 28 points, Math, Physics and 1 of Chemistry/Biology minimum grade is 4 or above. […] Computing / Business / Psychology / New Media Design: International Baccalaureate Minimum 24 points.",
+    "interpretation": "Two deliberate choices in how this is recorded. The consequence on the 22 August date is equal-consideration rather than hard, because RIT says in terms that late applications are still read against remaining space — recording it as hard would frighten a student off applying at all, which is the more common of the two failures. And the years are inferred: RIT publishes the phase dates bare, so every one of them is marked provisional. The 28-point engineering minimum is RIT Dubai's and applies to no other institution here, including the other American-model campuses.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae", "field": "ibRecognition" },
+      { "entity": "ae-branch-campus-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-mdx-how-to-apply",
+    "sourceUrl": "https://www.mdx.ac.ae/admissions/how-to-apply",
+    "publisher": "Middlesex University Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Middlesex University Dubai's how-to-apply page sets out the stages of an application and publishes no application deadline.",
+    "excerpt": "How to Apply to Middlesex University Dubai — OFFER OF ADMISSION · APPLY FOR STUDENT VISA · CREDITS FOR PREVIOUS STUDY OR TRANSFER CREDITS FROM ANOTHER UNIVERSITY · APPLY FOR STUDENT ACCOMMODATION · APPLY FOR A SCHOLARSHIP · TUITION FEES",
+    "interpretation": "The excerpt is the whole of the page's own content under that heading, which is the finding. Middlesex Dubai is the largest British branch campus in the UAE by student numbers and its how-to-apply page contains no date of any kind — not an opening, not a closing, not a visa cut-off. Recorded as not-published rather than rolling, because unlike Heriot-Watt Dubai the university has not said that it admits on a rolling basis and inferring it from the shape of the page would be inventing a policy.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-uowd-calendar",
+    "sourceUrl": "https://www.uowdubai.ac.ae/students/academic-calendar",
+    "publisher": "University of Wollongong in Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "The University of Wollongong in Dubai publishes an academic calendar for Autumn 2026 only, containing enrolment, teaching, examination and fee dates but no admission application deadline, and no Autumn 2027 calendar.",
+    "excerpt": "Academic Calendar — Autumn 2026 — 21 September – 12 December 2026. Mon, 17 November 2025 Subject Enrolment Commences for Autumn 2026. Tue, 1 - Wed, 2 September 2026 Enrolment in Lectures, Tutorial, Labs / Workshops. Mon, 14 September – Fri, 18 September 2026 Orientation and Induction (New Students). Mon, 21 September – Sun, 6 December 2026 Teaching Commences (11 weeks). Fri, 2 October 2026 Last Date to Enrol in Subjects. […] Fri, 18 September 2026 Tuition Fees Due […]",
+    "interpretation": "Every date UOWD publishes is for a student who already has a place. The calendar is detailed to the day about subject enrolment, fee instalments and refund cut-offs and silent about how to get in, and the only trimester covered is the one now running. Recorded as not-published. The dates are kept in the excerpt anyway because they establish the shape of the Australian trimester year the Dubai campus runs on, which is unlike anything else in this Destination.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-aud-deadlines",
+    "sourceUrl": "https://www.aud.edu/admissions/academic-calendar-and-application-deadlines/",
+    "publisher": "American University in Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "The American University in Dubai publishes application periods as month ranges rather than dates: for the Fall semester, early applications up until March/April and late applications through July/August, with open admissions in the summer terms.",
+    "excerpt": "Fall Semester — Submission of early applications up until March/April; Submission of late applications through July/August. Spring Semester — Submission of early applications up until October/November; Submission of late applications through December/January. Summer I & Summer II — Open Admissions.",
+    "interpretation": "A page titled \"Academic Calendar and Application Deadlines\" that contains no deadline. \"Up until March/April\" is not a date a student can act on and it is not a date this record can hold, so the state is not-published and the published wording is kept here instead. The distinction between early and late submission is worth carrying anyway, because it tells a student that AUD does still take applications through the summer, which is after IB results.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-cud-deadlines",
+    "sourceUrl": "https://www.cud.ac.ae/prospective-students/deadline-for-admission",
+    "publisher": "Canadian University Dubai",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Canadian University Dubai publishes admission deadlines for the 2026-27 academic year only, with separate and earlier dates for international applicants: Fall 21 August 2026, Spring 3 January 2027 and Summer 12 May 2027 for international students, against 27 August 2026, 8 January 2027 and 19 May 2027 for domestic ones.",
+    "excerpt": "Fall 2026-27 — August 21, 2026 International applicants; August 27, 2026 Domestic applicants. Spring 2026-27 — January 3, 2027 International applicants; January 08, 2027 Domestic applicants. Summer 2026-27 — May 12, 2027 International applicants; May 19, 2027 Domestic applicants.",
+    "interpretation": "CUD is the only institution in this Destination that publishes a different deadline for international applicants, and it is the earlier of the two by six days to a week. That pattern is recorded as a thing to check for when the 2027-28 dates appear — not carried across. The Fall 2027 entry is therefore not-yet-announced rather than dated: CUD clearly does publish a Fall deadline, one academic year at a time, and has not yet published the next one.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-sorbonne-deadline",
+    "sourceUrl": "https://www.sorbonne.ae/education/apply-now/undergraduate",
+    "publisher": "Sorbonne University Abu Dhabi",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Sorbonne University Abu Dhabi set 21 August 2026 as the undergraduate application deadline for the September 2026/2027 intake, charges a non-refundable AED 200 application fee, requires a B2-level French qualification for its French-taught bachelors, and requires an offer to be accepted no later than two weeks before the academic year starts.",
+    "excerpt": "For the September 2026/2027 intake, students applying to any undergraduate programme must submit their applications by 21 August 2026. […] French Aptitude Certificate for the students applying for the bachelor's programmes taught in French (B2 level diplomas: DELF, TEF, TCF, or SELFEE) […] The deadline for the applicants to accept the admission offer is two weeks before the start of the academic year.",
+    "interpretation": "The 2026 date is recorded here and deliberately not carried into the 2027 field, which stays not-yet-announced. The second half is the part that decides whether Sorbonne Abu Dhabi is an option at all for a Danish IB student: most of its bachelors are taught in French, and entry to those requires a B2 French qualification — DELF, TEF, TCF or the university's own SELFEE — rather than an IB French grade. That is a named external certificate, and it takes time to obtain.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-zu-dates-tbc",
+    "sourceUrl": "https://www.zu.ac.ae/main/en/undergraduate-programs/undergraduate-application",
+    "publisher": "Zayed University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "claim": "Zayed University has not published its undergraduate application dates, and international applicants apply through the university's own e-services form rather than the national route.",
+    "excerpt": "Application Dates to be confirmed. […] International students who are interested in applying to Zayed University must apply through the e-services form […] UG Admissions Dubai: ug_admissionsdxb@zu.ac.ae; UG Admissions Abu Dhabi: ug_admissionsauh@zu.ac.ae",
+    "interpretation": "\"Application Dates to be confirmed\" is the cleanest not-yet-announced in this Destination — the university has a field for the dates and has left it saying so. The second sentence is the more consequential one for a Danish student: a federal university routes international applicants through a separate channel from the national placement process Emirati school-leavers use, which means the published national timetable is not the one that applies to you, and the office you have to write to is named.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-federal-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-uaeu-admission",
+    "sourceUrl": "https://www.uaeu.ac.ae/en/admission/",
+    "publisher": "United Arab Emirates University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read from the source page and from its undergraduate admission page, 2026-09-23.",
+    "claim": "UAEU admits undergraduates competitively within each college's capacity through its own online portal, routes international students separately from UAE nationals and children of Emirati mothers, and publishes no undergraduate application deadline.",
+    "excerpt": "Students are admitted to the United Arab Emirates University on a competitive basis, based on an evaluation of their academic qualifications and within the available capacity of each college. […] UAE Nationals & Children of UAE National Mothers / International Students & Children of UAEU Staff and Faculty [separate admission routes] […] Applicants must apply through the official Ministry of Higher Education and Scientific Research portal during announced application periods.",
+    "interpretation": "The phrase \"during announced application periods\" is the whole finding. UAEU's undergraduate admission is organised around windows the ministry opens rather than a standing deadline, and no window is published for 2027 — graduate deadlines are published on the same site and undergraduate ones are not. Recorded as not-published rather than not-yet-announced, because unlike Khalifa and Zayed, UAEU makes no statement that a date is coming. The split between the national stream and the international one is recorded because it determines which of those two answers applies to a Danish applicant, and the page does not say.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" },
+      { "entity": "ae-federal-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ae-spjain-structure",
+    "sourceUrl": "https://www.spjain.org/programs/undergraduate",
+    "publisher": "SP Jain School of Global Management",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read from the source pages, 2026-09-23. Recorded as needs-review because the programme page's study-options table still carries 2022 intake labels, so what it says about intakes cannot be trusted for 2027.",
+    "claim": "SP Jain's undergraduate Bachelor of Business Administration rotates students between the Dubai, Mumbai, Singapore and Sydney campuses and awards an Australian degree at AQF Level 7, and publishes no application deadline for a 2027 intake.",
+    "excerpt": "Students of the Bachelor of Business Administration program can study on-campus in Singapore, Dubai, and Sydney. […] AUSTRALIAN DEGREE (AQF Level 7) […] CRICOS Provider Code: 03335G | CRICOS Course (BBA) Code: 077570G",
+    "interpretation": "Recorded as needs-review rather than verified because the page is visibly stale: its own study-options table is labelled with January 2022 and September 2022 intakes. The structural claim — an Australian degree, CRICOS-registered, taught across four cities — is safe enough to keep, and it is the reason SP Jain Dubai sits in the branch-campus jurisdiction rather than among the UAE private universities. Nothing about dates should be taken from this source until the page is refreshed.",
+    "supports": [
+      { "entity": "ae", "field": "deadlines" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  }
+]

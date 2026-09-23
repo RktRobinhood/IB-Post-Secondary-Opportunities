@@ -1,0 +1,113 @@
+{
+  "id": "kr-gks-embassy-2027",
+  "destination": "kr",
+  "intake": "2027-spring",
+  "applicantGroup": "any",
+  "label": "Global Korea Scholarship, Embassy Track — closed to Danish citizens for 2027",
+  "channel": "application-system",
+  "applicationSystem": "kr-gks",
+  "portalUrl": "https://www.studyinkorea.go.kr/",
+  "choiceLimit": 3,
+  "choicesRanked": true,
+  "rounds": [
+    {
+      "id": "rd-gks-embassy-2027",
+      "label": "Embassy Track online application, 2027 GKS-U",
+      "opens": "2026-09-15",
+      "closes": "2026-09-30",
+      "decisionBy": "2027-01-07",
+      "consequence": "hard",
+      "note": "Opens 11:00 and closes 18:00, both Korea Standard Time. One national window, one day, no extensions.",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-gks-first-round",
+      "type": "result",
+      "label": "First-round result from the embassy",
+      "date": "2026-10-16",
+      "consequence": "indicative",
+      "note": "Screened by the Korean embassy in the inviting country. An applicant who fails here may still apply through the University Track, which is why the two tracks' schedules are staggered.",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    },
+    {
+      "id": "ms-gks-third-round",
+      "type": "result",
+      "label": "Third-round result from the chosen universities",
+      "date": "2026-12-23",
+      "consequence": "indicative",
+      "note": "The round that surprises people. Passing NIIED's screening is not an award: the universities you named screen you afterwards, and the guidelines warn that an applicant can fail at all three preferences if applications concentrate on popular universities.",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    },
+    {
+      "id": "ms-gks-choose-university",
+      "type": "reply",
+      "label": "Choose your final university in the Study in Korea system",
+      "date": "2026-12-29",
+      "timeOfDay": "18:00",
+      "timeZone": "KST",
+      "consequence": "hard",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    },
+    {
+      "id": "ms-gks-final",
+      "type": "result",
+      "label": "2027 GKS-U scholars announced",
+      "date": "2027-01-07",
+      "consequence": "indicative",
+      "note": "Published on the Study in Korea site only. NIIED states that it does not inform applicants individually of any round's result and that checking is the applicant's own responsibility.",
+      "evidence": [
+        "ev-kr-gks-2027-schedule"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-gks-graduation",
+      "label": "Graduation certificate, or a certificate of expected graduation",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "note": "An applicant expected to graduate must hold the certificate of expected graduation at the time of application and produce the graduation certificate and transcript by 31 December 2026. This is the condition that rules out a May 2027 IB candidate entirely.",
+      "evidence": [
+        "ev-kr-gks-2027-eligibility"
+      ]
+    },
+    {
+      "id": "si-gks-cgpa",
+      "label": "Transcript meeting one of the three grade conditions",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "note": "80 per cent or above on a 100-point scale, or top 20 per cent of the class, or a CGPA at or above 2.64/4.0, 2.80/4.3, 2.91/4.5 or 3.23/5.0. How an IB transcript is read against any of these is not established here and is the question to put to NIIED before applying.",
+      "evidence": [
+        "ev-kr-gks-2027-eligibility"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Check the invited-country list before anything else. The 2027 Embassy Track names 74 countries; Denmark is not among them and no Korean embassy in Denmark appears in the guidelines' own contact appendix. Sweden and Poland are on the list, so a student with a second citizenship may be in a different position — the track is decided by the citizenship you apply under.",
+    "This record is kept, rather than deleted, because it is the route most English-language advice about Korean funding describes, and a Danish reader needs to be told plainly that it is not open to them rather than left to discover it in the fifth round of a PDF."
+  ],
+  "evidence": [
+    "ev-kr-gks-2027-schedule",
+    "ev-kr-gks-2027-countries",
+    "ev-kr-gks-2027-eligibility"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-08-15",
+    "notes": [
+      "The 2027 round is recorded because it is the only one published. The round a May-2027 IB graduate could use is 2028, expected to open around September 2027; its country list and quotas will be set afresh and must not be inferred from this one.",
+      "Not established: whether NIIED has ever invited Denmark in an earlier cycle, and on what basis the list is set each year."
+    ]
+  }
+}

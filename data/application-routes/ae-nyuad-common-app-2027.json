@@ -1,0 +1,147 @@
+{
+  "id": "ae-nyuad-common-app-2027",
+  "destination": "ae",
+  "jurisdiction": "ae-branch-parent-system",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to NYU Abu Dhabi for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "ae-nyuad-common-app",
+  "portalUrl": "https://www.commonapp.org/",
+  "rounds": [
+    {
+      "id": "rd-nyuad-ed1",
+      "label": "Early Decision I",
+      "closes": "2026-11-01",
+      "decisionBy": "2026-12-15",
+      "consequence": "hard",
+      "note": "Binding. Admitted with an affordable aid package, you withdraw everything else and accept within two to three weeks. The year is inferred from a bare recurring date.",
+      "evidence": ["ev-ae-nyuad-key-dates", "ev-ae-nyuad-early-decision"]
+    },
+    {
+      "id": "rd-nyuad-ed2",
+      "label": "Early Decision II",
+      "closes": "2027-01-01",
+      "decisionBy": "2027-02-15",
+      "consequence": "hard",
+      "note": "Also binding, four days before Regular Decision closes. Applying here rather than Regular Decision buys six weeks of earlier certainty and costs the ability to compare offers. The year is inferred from a bare recurring date.",
+      "evidence": ["ev-ae-nyuad-key-dates", "ev-ae-nyuad-early-decision"]
+    },
+    {
+      "id": "rd-nyuad-regular",
+      "label": "Regular Decision",
+      "closes": "2027-01-05",
+      "decisionBy": "2027-04-01",
+      "consequence": "hard",
+      "note": "Not binding. The right round for anyone who needs to compare a Danish, Dutch or British offer against this one. The year is inferred from a bare recurring date.",
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-nyuad-ed1",
+      "type": "submit",
+      "label": "Early Decision I application closes",
+      "date": "2026-11-01",
+      "timeOfDay": "23:59",
+      "timeZone": "EST",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Roughly a year before the eventual first day of term, and eight months before IB results. NYUAD decides on predicted grades.",
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-css-ed1",
+      "type": "document",
+      "label": "CSS Profile due for Early Decision I",
+      "date": "2026-11-10",
+      "timeOfDay": "23:59",
+      "timeZone": "EST",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Financial aid at NYUAD is need-based for non-Emirati citizens and this is the form that establishes need. It is due nine days after the application itself and from both custodial and noncustodial parents, which for a separated family is a logistical problem worth starting early.",
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-ed2",
+      "type": "submit",
+      "label": "Early Decision II application closes",
+      "date": "2027-01-01",
+      "timeOfDay": "23:59",
+      "timeZone": "EST",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-css-ed2",
+      "type": "document",
+      "label": "CSS Profile due for Early Decision II",
+      "date": "2027-01-10",
+      "timeOfDay": "23:59",
+      "timeZone": "EST",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-regular",
+      "type": "submit",
+      "label": "Regular Decision application closes",
+      "date": "2027-01-05",
+      "timeOfDay": "23:59",
+      "timeZone": "EST",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-css-regular",
+      "type": "document",
+      "label": "CSS Profile due for Regular Decision",
+      "date": "2027-02-01",
+      "timeOfDay": "23:59",
+      "timeZone": "EST",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Four weeks after the application. Missing this costs the aid, not the place — which at a cost of attendance above USD 90,000 amounts to the same thing for most families.",
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-decision",
+      "type": "result",
+      "label": "Regular Decision results released",
+      "date": "2027-04-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "evidence": ["ev-ae-nyuad-key-dates"]
+    },
+    {
+      "id": "ms-nyuad-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Six months after the last NYUAD deadline and three months after its last decision. Nothing about this route waits for the diploma; how a conditional place is handled once results arrive is set by NYUAD and is not established here.",
+      "evidence": []
+    }
+  ],
+  "supplementarySteps": [
+    "Decide Early Decision or Regular Decision before November, with your family. It is a decision about whether you are willing to commit before you can compare.",
+    "Apply for financial aid at the same time as admission. The CSS Profile is a separate form with its own deadline and needs financial information from both parents.",
+    "Expect to be assessed on essays, references and an interview or candidate weekend rather than on points alone."
+  ],
+  "evidence": [
+    "ev-ae-nyuad-key-dates",
+    "ev-ae-nyuad-early-decision"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-10-15",
+    "notes": [
+      "Every date on this route is provisional. NYUAD publishes its deadlines as bare recurring days with no year, so the years here are inferred for 2027 entry and must be confirmed against the Key Dates and Deadlines page before anyone acts on them. Early Decision I is the urgent one: on the inferred date it falls on 1 November 2026, five weeks after this record was written.",
+      "This route exists separately from the other three UAE routes because NYU Abu Dhabi does not admit on the UAE calendar at all. It is the clearest example in this Destination of a branch campus admitting through the parent institution's own system, on the parent's timetable."
+    ]
+  }
+}

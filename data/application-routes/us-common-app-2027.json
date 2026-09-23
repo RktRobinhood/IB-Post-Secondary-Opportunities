@@ -1,0 +1,262 @@
+{
+  "id": "us-common-app-2027",
+  "destination": "us",
+  "jurisdiction": "us-common-app",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "the Common App",
+  "channel": "application-system",
+  "applicationSystem": "us-common-app",
+  "portalUrl": "https://www.commonapp.org/",
+  "choicesRanked": false,
+  "rounds": [
+    {
+      "id": "round-ed1",
+      "label": "Early Decision I — binding, and each college sets its own date",
+      "consequence": "priority",
+      "note": "Closes somewhere between 1 and 15 November 2026 depending on the college, and there is no common date: Macalester 1 November, Amherst 9 November, Bowdoin and Grinnell 15 November. Binding in the strongest sense — Amherst's wording is that you agree not to be an Early Decision candidate anywhere else and, if admitted, to withdraw your applications from other colleges and enrol. Missing it does not cost you the college; it costs you this round, and with it the higher admit rate that is the only reason to accept the binding terms. It also ends any possibility of comparing financial aid offers, which for a Danish family paying from abroad is usually the more expensive loss.",
+      "evidence": [
+        "ev-amherst-first-year-2027",
+        "ev-macalester-international",
+        "ev-grinnell-international",
+        "ev-bowdoin-dates"
+      ]
+    },
+    {
+      "id": "round-ea",
+      "label": "Early Action, Restrictive Early Action and Single-Choice Early Action — not binding",
+      "closes": "2026-11-01",
+      "decisionBy": "2026-12-20",
+      "consequence": "priority",
+      "note": "1 November 2026 at every institution here that runs one: Harvard, Stanford, Yale, Illinois and Macalester. Not binding — you keep the offer and every other application, and you still reply on 1 May. The catch is exclusivity rather than commitment: Stanford's restrictive version forbids applying early to any other private college, and Yale's single-choice version does the same, so this is a decision about the whole autumn taken in October. Decisions arrive in mid-December. Missing it moves you to Regular Decision; it does not shut the door.",
+      "evidence": [
+        "ev-harvard-deadlines-2027",
+        "ev-stanford-early-action",
+        "ev-yale-apply-platforms",
+        "ev-illinois-first-year-dates",
+        "ev-macalester-international"
+      ]
+    },
+    {
+      "id": "round-ed2",
+      "label": "Early Decision II — binding, a second chance in early January",
+      "consequence": "priority",
+      "note": "Early January 2027, set by each college — Macalester 1 January, Bowdoin and Grinnell 5 January. Same binding terms as Early Decision I, in the same window as Regular Decision, and it exists for students whose first binding choice refused them in December. It is the least-known round in the American calendar and for a student who has just been turned down by their Early Decision college it is the most useful.",
+      "evidence": [
+        "ev-macalester-international",
+        "ev-grinnell-international",
+        "ev-bowdoin-dates"
+      ]
+    },
+    {
+      "id": "round-rd",
+      "label": "Regular Decision — each college sets its own date",
+      "consequence": "hard",
+      "note": "There is no American Regular Decision date. Among five institutions here it is 1 January (Harvard), 2 January (Yale), 5 January (Stanford, Amherst, Illinois) and 15 January (Grinnell) — and Illinois wants the supporting documents a further week later, on 11 January. This one is genuinely hard: after a college's Regular Decision date it is finished for the year, because there is no Clearing, no late round and no second intake. Put each college's own date in your own calendar; do not carry one college's date to another.",
+      "evidence": [
+        "ev-harvard-deadlines-2027",
+        "ev-yale-apply-platforms",
+        "ev-stanford-early-action",
+        "ev-amherst-first-year-2027",
+        "ev-illinois-first-year-dates",
+        "ev-grinnell-international"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "Common App opens for the cycle",
+      "date": "2026-07-31",
+      "consequence": "indicative",
+      "note": "The 2026-27 Common App season — the one that leads to entry in autumn 2027 — opened on 31 July 2026. Nothing is lost by starting later and a great deal is gained by starting now: the account, the college list, the essay prompts and the recommender invitations are all available from this date.",
+      "evidence": [
+        "ev-commonapp-season-opens-2027"
+      ]
+    },
+    {
+      "id": "ms-test",
+      "type": "test",
+      "label": "Sit the SAT or ACT, if any college on your list requires it",
+      "date": "2026-06-30",
+      "consequence": "personal",
+      "provisional": true,
+      "note": "Not a published deadline — a date worth setting yourself, and inferred from the round dates rather than taken from any source. Yale requires the SAT or ACT from every applicant and states that IB results may accompany it but not replace it; Harvard requires it too and accepts IB predicted grades only where testing is genuinely inaccessible, which Copenhagen is not. Sitting it by the summer leaves a retake before the November round. NYU, Michigan and Amherst are test-optional, so the requirement is per college and has to be checked per college.",
+      "evidence": [
+        "ev-yale-testing-policy",
+        "ev-harvard-deadlines-2027",
+        "ev-commonapp-member-nyu",
+        "ev-commonapp-member-umich"
+      ]
+    },
+    {
+      "id": "ms-ea-decisions",
+      "type": "result",
+      "label": "Early round decisions",
+      "date": "2026-12-20",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Mid-December at Harvard, Bowdoin and Amherst; 29 January at Illinois, which runs its Early Action decisions later than most. The date here is an indicative mid-December marker, not a published day.",
+      "evidence": [
+        "ev-harvard-deadlines-2027",
+        "ev-illinois-first-year-dates",
+        "ev-bowdoin-dates"
+      ]
+    },
+    {
+      "id": "ms-rd-decisions",
+      "type": "result",
+      "label": "Regular Decision decisions",
+      "date": "2027-03-31",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Late March at Harvard and Amherst, early April at Stanford, 26 February at Illinois. An indicative end-of-March marker rather than a published day.",
+      "evidence": [
+        "ev-harvard-deadlines-2027",
+        "ev-amherst-first-year-2027",
+        "ev-stanford-early-action",
+        "ev-illinois-first-year-dates"
+      ]
+    },
+    {
+      "id": "ms-reply",
+      "type": "reply",
+      "label": "Reply deadline",
+      "date": "2027-05-01",
+      "consequence": "hard",
+      "note": "The national candidates' reply date, confirmed on Amherst's page as 1 May 2027 and on Harvard's, Stanford's, MIT's and Illinois's as 1 May. Until then you may hold every offer you have and compare the aid figures; after it, the one you have not replied to is gone. An Early Decision admission is the exception — that choice was made in November.",
+      "evidence": [
+        "ev-amherst-first-year-2027",
+        "ev-stanford-early-action",
+        "ev-illinois-first-year-dates"
+      ]
+    },
+    {
+      "id": "ms-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Every date above falls before this one, which is the whole shape of an American application: the offer is made on predicted grades, a school report and everything else in the file, and the real results arrive after the student has already chosen. What each college does if the actual results fall short of the predictions is set by that college and is not established here. Ask before you accept.",
+      "evidence": []
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-common-section",
+      "label": "The Common Application itself, including the 650-word personal essay",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "commonapp.org, once, for every college on the list",
+      "note": "Written once and sent to every college. It is the only part of an American application that scales."
+    },
+    {
+      "id": "si-supplements",
+      "label": "Each college's own supplement",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "Inside the Common App, per college",
+      "dependsOn": [
+        "si-common-section"
+      ],
+      "note": "This is where the work actually is. Harvard asks five 150-word short answers on top of the main essay, and each college's questions are different. Twelve colleges is not twelve clicks."
+    },
+    {
+      "id": "si-school-report",
+      "label": "School report, transcript and predicted IB grades",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "Uploaded by the counsellor through the Common App recommender system",
+      "note": "Your studievejleder does this, not you, and cannot do it in the week before the deadline. Illinois wants the supporting documents a week after the application itself, on 7 November for Early Action and 11 January for Regular Decision — a date that is invisible to the student and binding on the school.",
+      "evidence": [
+        "ev-illinois-first-year-dates"
+      ]
+    },
+    {
+      "id": "si-recommendations",
+      "label": "Teacher recommendations",
+      "itemType": "document",
+      "responsibleParty": "school",
+      "destinationOfItem": "Uploaded by the teachers through the Common App recommender system",
+      "note": "Usually two, from academic teachers. Michigan asks for one. NYU requires none. Ask in the spring, not in October.",
+      "evidence": [
+        "ev-commonapp-member-umich",
+        "ev-commonapp-member-nyu"
+      ]
+    },
+    {
+      "id": "si-tests",
+      "label": "SAT or ACT score, where the college requires one",
+      "itemType": "result",
+      "responsibleParty": "third-party",
+      "destinationOfItem": "Reported to each college; several accept self-reported scores",
+      "dueMilestone": "ms-test",
+      "note": "Required at Yale, Harvard, Stanford and MIT. Optional at NYU, Michigan, Illinois and Amherst. Not a single national rule, and the colleges that require it do not accept the IB instead.",
+      "evidence": [
+        "ev-yale-testing-policy",
+        "ev-harvard-deadlines-2027",
+        "ev-commonapp-member-nyu",
+        "ev-commonapp-member-umich"
+      ]
+    },
+    {
+      "id": "si-fee",
+      "label": "Application fee at each college",
+      "itemType": "payment",
+      "responsibleParty": "student",
+      "destinationOfItem": "Paid per college inside the Common App",
+      "note": "Amherst 75 USD, Harvard 95 USD, Stanford 100 USD, Arizona State 90 USD for an international applicant, Colby nothing at all. A twelve-college list is close to 1,000 USD before a single decision arrives. Fee waivers exist and are built around low-income American students; ask each college whether an international applicant qualifies.",
+      "evidence": [
+        "ev-amherst-first-year-2027",
+        "ev-harvard-deadlines-2027",
+        "ev-stanford-early-action",
+        "ev-asu-international-first-year",
+        "ev-commonapp-member-colby"
+      ]
+    },
+    {
+      "id": "si-ed-agreement",
+      "label": "Early Decision agreement, signed by student, parent and counsellor",
+      "itemType": "signature",
+      "responsibleParty": "student",
+      "destinationOfItem": "Inside the Common App, for the one Early Decision college",
+      "note": "The document that makes Early Decision binding. It commits you to withdraw every other application if admitted. One college, once.",
+      "evidence": [
+        "ev-amherst-first-year-2027"
+      ]
+    },
+    {
+      "id": "si-english",
+      "label": "Proof of English, where the college requires it",
+      "itemType": "result",
+      "responsibleParty": "third-party",
+      "destinationOfItem": "Reported to each college",
+      "note": "Many colleges waive a TOEFL or IELTS for an applicant taught in English, which an IB Diploma normally demonstrates — but the waiver is per college and not automatic, and Arizona State publishes a requirement with no IB exemption stated. Ask in writing rather than assuming your IB English result covers it.",
+      "evidence": [
+        "ev-asu-international-first-year"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "The Common App is not the only front door. Yale accepts the Coalition Application on SCOIR and the QuestBridge Application; Amherst and Bowdoin accept the same alternatives; Arizona State accepts its own application with no stated preference between the two. Where several are offered none is preferred.",
+    "Arizona State is the one institution on this route that does not run a selection tournament: it publishes priority dates rather than closing dates and decides on a rolling basis against published criteria. Its fall 2027 priority date is not published yet.",
+    "After you accept an offer: the college issues Form I-20, you pay the 350 USD I-901 SEVIS fee, complete the DS-160 and attend an F-1 visa interview at the US Embassy in Copenhagen. Bring the SEVIS receipt to the interview."
+  ],
+  "evidence": [
+    "ev-commonapp-season-opens-2027",
+    "ev-harvard-deadlines-2027",
+    "ev-amherst-first-year-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-15",
+    "notes": [
+      "Only Amherst publishes its dates with full calendar years. Every other round date here is a bare day taken from the institution's own page and read into the 2026-27 cycle; where a single date has been carried onto a milestone it is marked provisional.",
+      "Deadlines for New York University, the University of Michigan and Colby College are not recorded. All three sites refuse automated retrieval (HTTP 405, 403 and 403), so they are placed on this route from the Common App's own member directory and nothing more is claimed about them.",
+      "Bowdoin's own pages disagree about its Regular Decision date. The conflict is recorded on ev-bowdoin-dates and has not been resolved in either direction."
+    ]
+  }
+}

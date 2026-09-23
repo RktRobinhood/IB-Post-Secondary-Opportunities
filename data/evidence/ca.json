@@ -1,0 +1,532 @@
+[
+  {
+    "id": "ev-ouac-groups-2027",
+    "sourceUrl": "https://www.ouac.on.ca/guide/105-guide/",
+    "publisher": "Ontario Universities' Application Centre",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The OUAC returns HTTP 403 to a plain fetch and to WebFetch, so every OUAC record here was read through a real browser session rather than a script.",
+    "claim": "An IB student applying to an Ontario university from outside Ontario is a Group B applicant, not Group A, and the two groups have different deadlines and different fees.",
+    "excerpt": "You are a Group A applicant if all of the following are true: You are currently taking 1 or more Ontario high school courses and You are under 21 on or before December 31, 2026, and You have an OSSD or are working toward an OSSD with six 4U/M courses. You are a Group B applicant if you do not meet the Group A criteria. For example, you are: Not currently taking a course at an Ontario high school. A Canadian outside of Ontario. An international applicant. A postsecondary transfer student.",
+    "interpretation": "This is the first thing to get right about Ontario and the thing most easily read past. Nearly every date published about applying to an Ontario university is a Group A date, written for a student sitting in an Ontario classroom. A Danish IB student is Group B. Group A's 15 January deadline is therefore not their deadline, and the absence of a Group B deadline is not permission to apply late — it means the university sets the date instead.",
+    "supports": [
+      { "entity": "ca-ouac", "field": "coverage" },
+      { "entity": "ca-ouac-2027", "field": "applicantGroup" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ouac-dates-2027",
+    "sourceUrl": "https://www.ouac.on.ca/guide/undergrad-dates/",
+    "publisher": "Ontario Universities' Application Centre",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23, from the page's own 'Last updated: September 14, 2026' revision. The Group A and Group B panels are collapsed accordions and a plain fetch returns neither.",
+    "claim": "For 2027 admission, Group A applicants file with the OUAC by 15 January 2027, hear by 28 May 2027 and cannot be required to commit money before 1 June 2027. There is no OUAC deadline at all for Group B applicants; each university sets its own.",
+    "excerpt": "January 15, 2027 The deadline for Group A applicants to submit their completed applications to the OUAC. [...] May 28, 2027 The latest date all Group A applicants who submitted their application by the January application deadline can expect a response from an Ontario university. [...] June 1, 2027 The earliest date a Group A applicant may be required to respond to an Ontario university offer of admission and give a financial commitment [...] Group B Applicants Application Deadlines There is no specific Undergraduate application deadline if you are a Group B applicant. Deadlines vary at each university and sometimes depend on the program. [...] You must ensure the OUAC has enough time to process your choices before the universities' program deadlines.",
+    "interpretation": "Two separate things are being said and only one of them is a date. The Group A dates are real, published and not ours; they are recorded because they tell a Group B applicant when Ontario universities are actually deciding, which is the only reason to know them. The Group B statement is the finding: the OUAC declines to set a deadline, so the operative date is always the university's, and the OUAC adds a warning that it needs processing time of its own on top of that. That is why the route carries a no-central-deadline state and the real dates sit on the institutions.",
+    "supports": [
+      { "entity": "ca-ouac-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ouac-fees-2027",
+    "sourceUrl": "https://www.ouac.on.ca/undergrad-fees/",
+    "publisher": "Ontario Universities' Application Centre",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23, from the page's own 'Last updated: September 16, 2026' revision.",
+    "claim": "The OUAC charges CAD 159 for the first three programme choices and CAD 51 for each further choice, and a Group B applicant pays a separate per-university document evaluation fee on top, which at the University of Toronto is CAD 98 and at Western CAD 125.",
+    "excerpt": "All fees are in Canadian funds. 1. Base Application Fee: $159 For your initial 3 program choices. Required of all applicants. 2. Additional Choice Fees: $51 per choice For each additional program choice beyond your first 3 [...] You may apply to as many Ontario universities as you wish; however, you are limited to a maximum of 3 program choices at any 1 university (including its affiliates). [...] 5. Document Evaluation Fees (Group B applicants, unless otherwise specified) The OUAC collects these fees on behalf of the universities. You pay this fee for each university, including affiliates, only once. [...] University of Ottawa $93 Queen's University $95 University of Toronto $98 University of Waterloo $95 Western University $125 McMaster University $95",
+    "interpretation": "The advertised CAD 159 is not what a Group B applicant pays. Apply to four Ontario universities and the arithmetic is 159 plus 51 for the fourth choice plus four document evaluation fees, which is well over CAD 500 before a single university has read anything. The document evaluation fee is charged per university rather than per choice, so a second programme at the same university is comparatively cheap and a second university is not. That is a real planning fact and it is four clicks deep on the fees page.",
+    "supports": [
+      { "entity": "ca-ouac-2027", "field": "fee" },
+      { "entity": "ca-ouac", "field": "choiceRules" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-utoronto-dates-2027",
+    "sourceUrl": "https://future.utoronto.ca/deadlines",
+    "publisher": "University of Toronto",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The page is headed '2027 admissions' and carries the dates for the intake this Destination targets.",
+    "claim": "For 2027 admission, the University of Toronto closes applications on 15 January for almost every programme, recommends applying by 7 November for early consideration, and sets a supporting-document deadline of 1 February for most faculties and 15 January for Engineering and Music.",
+    "excerpt": "2027 admissions Deadlines to apply [...] Applied Science & Engineering November 7 January 15; Arts & Science, U of T St. George (including International Foundation Program) November 7 January 15; [...] U of T Mississauga November 7 January 15; U of T Scarborough November 7 January 15 [...] 2027 admissions Deadlines to submit supporting documentation [...] Applied Science & Engineering January 15; Arts & Science, U of T St. George - All other program areas February 1 [...] Prospective undergraduate students who wish to be considered for admission in earlier rounds are encouraged to apply by November 7 and submit all required documents by December 1. [...] Admission decisions will be released beginning in January and continue through to late May.",
+    "interpretation": "This is the date that actually binds a Group B applicant to Toronto, and it is the same 15 January that the OUAC publishes for Group A, which is why the two are so easily confused. Note what November 7 is and is not: it is not a deadline, it is the price of being read in the first round, and for a student on predicted grades an early round is worth more than it sounds. The 1 February document deadline is a second, separate date, and it is the one most often missed.",
+    "supports": [
+      { "entity": "ca-ouac-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-utoronto-ib-2027",
+    "sourceUrl": "https://future.utoronto.ca/requirements-international-high-schools",
+    "publisher": "University of Toronto",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23, from the International Baccalaureate block of the international high schools requirements page.",
+    "claim": "The University of Toronto admits on the full IB Diploma with English HL or SL, assesses on predicted or final results excluding bonus points, accepts prerequisites at either level, treats Mathematics: Applications and Interpretations SL as satisfying Advanced Functions only, and does not accept the IB Career-related Programme at all.",
+    "excerpt": "International Baccalaureate. Minimum admission requirement: International Baccalaureate Diploma, with English HL or SL. Prerequisites can be presented at the Standard or Higher Level. [...] The following IB Math courses will satisfy the Calculus and Advanced Functions prerequisites for science and business programs: Mathematics: Applications and Interpretations HL; Mathematics: Analysis and Approaches SL; Mathematics: Analysis and Approaches HL. Mathematics: Applications and Interpretations SL will satisfy the Advanced Functions prerequisite (only). [...] Admission consideration is based on your predicted or final results (excluding bonus points). [...] The IB Career-related Programme is not accepted as a basis of admission to U of T degree programs. [...] Final IB results must be submitted to U of T electronically by the IBO.",
+    "interpretation": "Two things here decide subject choices two years before anyone applies. First, the maths rule: AI SL closes the door on science and business programmes and nothing later reopens it, and a student is choosing between AA and AI in the first weeks of DP1. Second, 'excluding bonus points' means the number Toronto reads is out of 42, not 45, so a predicted 34 including bonus is a 31 here. The Career-related Programme exclusion is recorded because a CP student will not find it stated anywhere they are likely to look.",
+    "supports": [
+      { "entity": "ca", "field": "ibRecognition.subjectLevelRule" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-epbc-how-it-works",
+    "sourceUrl": "https://www.educationplannerbc.ca/help",
+    "publisher": "EducationPlannerBC",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "EducationPlannerBC is one account covering British Columbia's 25 public post-secondary institutions, with no limit on how many applications you submit through it, no fee charged by the platform itself, and no deadline of its own: every institution sets its own opening and closing dates.",
+    "excerpt": "What are the program application deadlines for B.C. colleges and universities? Each institution sets their own application open and close dates. These dates also may vary based on the program you are applying to. [...] You can submit as many applications to institutions through the EducationPlannerBC platform as you would like. [...] Fees are charged for each application and paid directly to the school. No fees are charged or paid to EducationPlannerBC. [...] Contact information to the 25 public post-secondary institution's listed on the EducationPlannerBC website can be found here.",
+    "interpretation": "EducationPlannerBC looks like Ontario's OUAC and behaves differently in the way that matters. The OUAC rations choices and charges for them; EducationPlannerBC rations nothing and charges nothing, and the fee and the deadline both belong to the institution. So a student comparing the two provinces should not carry either model across: in British Columbia there is no cost to adding a fourth choice and no central date to aim at, and in Ontario there is both.",
+    "supports": [
+      { "entity": "ca-epbc", "field": "coverage" },
+      { "entity": "ca-epbc", "field": "choiceRules" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ubc-apply-epbc",
+    "sourceUrl": "https://you.ubc.ca/apply/",
+    "publisher": "University of British Columbia",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The only outbound application link on the page points at apply.educationplannerbc.ca.",
+    "claim": "UBC takes undergraduate applications only through EducationPlannerBC, and its application for the 2027/28 academic year opens in early October 2026.",
+    "excerpt": "To apply to UBC, use the EducationPlannerBC (EPBC) website. Please ensure that your profile on EducationPlannerBC is up to date before submitting your UBC Application. [...] UBC's online application for the 2026/27 academic year is now closed. Applications for the 2027/28 academic year will open in early October.",
+    "interpretation": "Recorded because the previous version of this Destination named one portal for the whole country and pointed it at Ontario's. UBC does not have an apply button of its own; the route genuinely runs through the provincial platform, and a student who goes looking for a UBC application form will not find one.",
+    "supports": [
+      { "entity": "ca-epbc", "field": "coverage" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ubc-dates-2027",
+    "sourceUrl": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+    "publisher": "University of British Columbia",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The page is already populated for Winter Session September 2027 to April 2028.",
+    "claim": "For September 2027 entry, UBC opens its application in early October 2026, closes it at 23:59 Pacific on 15 January 2027, requires an international scholarship applicant to have applied by 15 November 2026, sets 15 March 2027 as the document deadline for high school applicants from outside Canada, and asks for an acceptance and deposit by 1 May or 1 June 2027.",
+    "excerpt": "Early October 2026 Application opens. Online application opens for Winter Session (September 2027 to April 2028) [...] November 15, 2026 (11:59 p.m. PST) [...] Deadline to apply to UBC and submit an award application if you're an international student and you wish to be considered for the UBC International Scholars Program awards. [...] January 15, 2027 (11:59 p.m. PST) Applications due. Deadline to apply for Winter Session (September 2027 to April 2028). [...] March 15, 2027 Out-of-country documents [...] High school applicants from outside Canada: Deadline to submit required documents to UBC. [...] May 1, 2027 or June 1, 2027 Accept your offer! Deadline for most students to accept UBC's offer of admission and pay the acceptance deposit. [...] May 1, 2027 Housing applications. Application deadline for first-year housing guarantee.",
+    "interpretation": "The date to notice is 15 November 2026, which is not an application deadline and is the one that costs the most money. An international student who wants to be considered for UBC's largest awards has to have the whole application in two months before everyone else, in the first term of DP2. The 15 January deadline carries a time zone and a minute, and Pacific time is nine hours behind Denmark, so the Danish moment it closes is the morning of 16 January.",
+    "supports": [
+      { "entity": "ca-epbc-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ubc-ib-2027",
+    "sourceUrl": "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate/",
+    "sourcePage": "https://vancouver.calendar.ubc.ca/admissions/applicants-international-baccalaureate-and-advanced-placement-courses",
+    "publisher": "University of British Columbia",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The admissions page and the UBC Academic Calendar were read against each other; the calendar carries the 24-point floor and the admissions page carries the mathematics exclusion.",
+    "claim": "UBC requires a completed IB Diploma including at least three Higher Level courses and a minimum of 24 points including bonus points, says openly that most programmes need more than that, requires at least a 3 in IB English A, will not accept Mathematics: Applications and Interpretations SL for its science programmes, Sauder or the Vancouver School of Economics, and decides initially on interim grades before confirming on final IB results.",
+    "excerpt": "General admission requirements. IB Diploma Programme: Completed IB Diploma, including at least three Higher Level courses. [...] IB Math Applications and Interpretations SL, or IB Math Studies, do not satisfy the math requirement for admission to UBC's science-based programs, the Faculty of Management, the UBC Sauder School of Business, or the Vancouver School of Economics. [...] Initial admission decisions are based on interim grades as reported by your high school. Once your final IB results are available, we will use them to confirm your admission decision and any first-year credit you may be eligible for. [...] For students who complete the International Baccalaureate (IB) Diploma, admission to the University will require a minimum of 24 points including bonus points. However, due to limited enrolment, a higher score will be required for admission to most programs. A minimum final grade of \"3\" in IB English A (Language and Literature) or IB English A (Literature) (Standard or Higher Level) is required for all programs.",
+    "interpretation": "This is the clearest published answer anywhere in this Destination to the July problem: UBC decides on interim grades and uses the final results only to confirm. So the IB results date of 6 July 2027 is not a decision point, it is a condition, and a student who drops below the offer loses a place they already held rather than one they were waiting for. Note also that UBC counts bonus points where Toronto explicitly does not — two universities in the same country reading the same transcript three points apart, which is exactly why no national conversion is recorded here.",
+    "supports": [
+      { "entity": "ca", "field": "ibRecognition.minimumPoints" },
+      { "entity": "ca", "field": "ibRecognition.subjectLevelRule" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-sfu-dates-2027",
+    "sourceUrl": "https://www.sfu.ca/students/admission/apply.html",
+    "publisher": "Simon Fraser University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23. The Fall 2027 panel is already published.",
+    "claim": "Simon Fraser University opens Fall 2027 high school applications on 1 October 2026 and closes them on 31 January 2027, applies through EducationPlannerBC, and charges international applicants a non-refundable CAD 130 application fee.",
+    "excerpt": "The non-refundable application fee is payable online by credit card: Domestic students: $86 International students: $130 [...] EducationPlannerBC. All applications to post-secondary institutions in British Columbia are submitted through this application portal. Sign up or log in to your EducationPlannerBC account and select Simon Fraser University as the institution you are applying to in order to proceed. [...] Fall 2027 High school applications Opens: October 1, 2026 Closes: January 31, 2027",
+    "interpretation": "Two weeks later than UBC's, on the same platform, for the same intake. That gap is the practical argument for treating British Columbia as a jurisdiction rather than a portal: the shared account does not imply a shared date, and a student who reads one BC deadline and assumes it covers the province will miss nothing at SFU and everything at UBC.",
+    "supports": [
+      { "entity": "ca-epbc-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-uvic-apply-2027",
+    "sourceUrl": "https://www.uvic.ca/undergraduate/admissions/how-to-apply/index.php",
+    "publisher": "University of Victoria",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23. No intake year is stated on the page, so the fee is recorded without one.",
+    "claim": "The University of Victoria applies through EducationPlannerBC and charges CAD 184.00 where any transcript comes from outside Canada, against CAD 89.50 where all of them are Canadian.",
+    "excerpt": "Use the EducationPlannerBC service to submit your application and pay the application fee. Application fee if all transcripts come from institutions within Canada: $89.50. Application fee if any transcripts come from institutions outside Canada: $184.00. [...] View individual programs to see admission requirements and application deadlines.",
+    "interpretation": "The doubled fee is charged for the transcript's origin rather than the applicant's citizenship, which means a Danish IB student pays it whatever passport they hold. UVic also states plainly that its deadlines sit on the programme page rather than the admissions page, which is the same pattern EducationPlannerBC describes for the province as a whole and the reason no BC-wide deadline is recorded here.",
+    "supports": [
+      { "entity": "ca-epbc-2027", "field": "fee" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-mcgill-deadline-2027",
+    "sourceUrl": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820",
+    "publisher": "McGill University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23, from McGill's Important Dates register, which carries its own 'Last updated' stamp of 3 February 2026. McGill's own deadlines page at /undergraduate-admissions/apply/deadlines returns Access Denied to an anonymous reader, so the register is the readable source.",
+    "claim": "McGill closes applications for Fall 2027 admission on Friday 15 January 2027 for anyone studying, or last studying, at a high school outside Canada.",
+    "excerpt": "Application deadline for Fall 2027 admission to undergraduate programs by applicants studying or who last studied in an overseas or U.S. high school, college, or university... Friday, January 15, 2027. Application deadline for Fall 2027 admission to Agricultural & Environmental Sciences, Architecture, Arts (including Social Work & Religious Studies), B.A.&Sc., Education, Engineering, Management, Nursing, Occupational Therapy, Physical Therapy or Science by applicants studying or who last studied in an overseas or U.S. high school, college or university.",
+    "interpretation": "Quebec has no shared portal, so this is a university deadline rather than a provincial one, and it happens to fall on the same day as Toronto's and UBC's. That coincidence is worth stating precisely because it will not hold: Concordia, two miles away and in the same province, closes six weeks later. The date is recorded against the apply-direct route rather than against Quebec, because nothing about Quebec sets it.",
+    "supports": [
+      { "entity": "ca-apply-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-mcgill-ib-2027",
+    "sourceUrl": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+    "publisher": "McGill University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "McGill considers IB applicants on predicted results, expects at least a 5 in every Higher and Standard Level subject for most programmes, will not accept Mathematics: Applications and Interpretations SL as a mathematics prerequisite, publishes its typical admitted ranges out of 42, and sets 15 January for the application and 1 March for supporting documents.",
+    "excerpt": "Applicants will be considered for admission on their high school transcript and predicted IB results or, if already completed, on the final IB Diploma results. The Diploma with grades of 5 or better on each Higher and Standard Level subject is the minimum expected for most programs. Many programs are more competitive and will require higher grades. [...] For programs which have mathematics as a prerequisite requirement, we will accept the following: HL Mathematics: analysis and approaches (Math AA), SL Mathematics: analysis and approaches (Math AA), or HL Mathematics: applications and interpretation (Math AI). Note: SL Mathematics: applications and interpretation (SL Math AI) is not acceptable as a math prerequisite [...] DEADLINES Application for admission January 15. Supporting documents March 1. Major Entrance Scholarship application & documents January 21. [...] Listed below are the subject prerequisites for the specific programs AND the minimum grades ranges (out of 42) typically admitted.",
+    "interpretation": "The phrasing to read carefully is 'a 5 or better on each subject', which is a floor per subject and not a total. A 36 carrying a single 4 fails it where a 32 of straight 5s does not, and that is the opposite of how most point-based systems behave. Note too that McGill, Toronto and UBC all publish a different treatment of Mathematics: Applications and Interpretations SL, and all three exclude it from the courses that most IB students think of as the safe maths.",
+    "supports": [
+      { "entity": "ca", "field": "ibRecognition.subjectLevelRule" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-concordia-deadline",
+    "sourceUrl": "https://www.concordia.ca/admissions/undergraduate/apply.html",
+    "publisher": "Concordia University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23. The page gives a recurring day and month with no year, so the 2027 year is inferred and the milestone is marked provisional.",
+    "claim": "Concordia closes fall entry on 1 March and asks international applicants to apply by 1 February to leave time for immigration paperwork, and allows three ranked programme choices on one application.",
+    "excerpt": "Official application deadlines. FALL ENTRY (September) Deadline: March 1. U.S. and international applicants: Apply no later than February 1 to allow time for immigration document processing. However, applying earlier is strongly recommended. Immigration processing times vary by country, and delays could prevent you from starting your studies on time. [...] You can put three program choices on your application. Your first choice should be your top choice. If you don't get accepted to your first choice, we'll automatically consider your other choices, in the order that you specify.",
+    "interpretation": "The 1 February date is advice rather than a rule, and it is the honest kind: Concordia is telling an applicant that the binding constraint is not its own admissions office but the CAQ and study permit queue behind it. Recorded with consequence 'priority' rather than 'hard' for that reason. Concordia is also the only institution in this Destination that ranks choices against each other, which is a different game from the OUAC's independent applications and worth knowing before filling the form in.",
+    "supports": [
+      { "entity": "ca-apply-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-dalhousie-dates-2026",
+    "sourceUrl": "https://www.dal.ca/admissions/dates-and-deadlines.html",
+    "publisher": "Dalhousie University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23; the page is JavaScript-rendered and a plain fetch returns navigation only. As of that date it still showed September 2026 entry, so no 2027 date exists to record.",
+    "claim": "Dalhousie sets programme-specific deadlines only for a handful of competitive programmes and considers applications to everything else up to the start of classes where space remains. Its published dates were still those for September 2026 entry in September 2026, so no 2027 deadline has been announced.",
+    "excerpt": "September 2026 entry - Program specific deadlines. Feb. 15, 2026 Bachelor of Science (Nursing), Bachelor of Health Sciences, Bachelor of Science (Medical Sciences), Bachelor of Social Work. Mar. 1, 2026 Bachelor of Environmental Design Studies (Architecture). [...] Other programs and transfer applicants. For undergraduate programs not listed above, where space is available, applications can be considered before the start of classes in September. High school applicants are encouraged to apply early to meet the February 15 deadline for general entrance awards and May 1 guaranteed residence application deadline. [...] Dates are subject to change.",
+    "interpretation": "Recorded as an unannounced date rather than a copied one. The 2026 dates are shown here to establish the shape of Dalhousie's calendar, not the year: February for the competitive health programmes, rolling for everything else, and money and a room both attached to dates earlier than the application itself. Carrying February 2026 forward to February 2027 would have looked like research and been a guess, and the shape is the part that is actually useful in autumn 2026.",
+    "supports": [
+      { "entity": "ca-apply-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-dalhousie-ib",
+    "sourceUrl": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html",
+    "publisher": "Dalhousie University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "Dalhousie admits IB Diploma holders at 26 points including bonus points, accepts either Mathematics course at either level against its mathematics requirement, and unlike Toronto admits students on the IB Career-related Programme.",
+    "excerpt": "IB Diploma Programme (IBDP). As an IBDP student, you must meet our general entrance requirements. If you are completing the IB Diploma you need at least 26 points (including bonus points) for admission. [...] IB Career-related Programme (IBCP). As an IBCP student, you are required to complete: 2 IB courses and a minimum of 3 Grade 12 Academic courses (or international curriculum equivalent). [...] Academic Math 12 [...] Students graduating high school in 2021 or later: Mathematics: Analysis and Approaches (SL or HL) or Mathematics: Applications and Interpretation (SL or HL).",
+    "interpretation": "Recorded chiefly for the contrast. Dalhousie accepts Mathematics: Applications and Interpretations SL where Toronto, UBC and McGill each refuse it, counts bonus points where Toronto does not, and takes the Career-related Programme that Toronto rejects outright. Four universities, four different readings of the same transcript, and no national rule reconciling them: that is the finding, and it is the reason this Destination records no conversion table.",
+    "supports": [
+      { "entity": "ca", "field": "ibRecognition.subjectLevelRule" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ualberta-deadlines-2027",
+    "sourceUrl": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/undergraduate-program-admission-deadlines.html",
+    "sourcePage": "https://www.ualberta.ca/en/admissions/how-to-apply/international-admission-requirements/index.html",
+    "publisher": "University of Alberta",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The deadline table itself is a JavaScript filter that has to be driven faculty by faculty and term by term, so the page-level statement is recorded and the per-programme dates are not.",
+    "claim": "The University of Alberta sets its admission deadlines per programme rather than institution-wide, its published set already covers Fall 2027, its minimum admission average varies by faculty and changes every year, and its application fee is CAD 150 for a new applicant.",
+    "excerpt": "Undergraduate Program Admission Deadlines. These deadlines are valid for applications to the Fall 2027, Winter 2028, Spring 2028 and Summer 2028 terms. To determine the deadline for your respective program: Select the faculty you are applying to and further narrow your search by filtering the term. [...] The minimum admission average to be accepted to the U of A varies depending on the faculty and program of your choice. The averages change each year. [...] In order to submit your application, you must submit an application fee of either CAN $150 (for new applicants to the U of A) or CAN $100 (for current or previous U of A students).",
+    "interpretation": "This is a gap recorded as a gap. Alberta's 2027 dates exist and are published, but only one programme at a time behind a filter, and reading a single one of them and presenting it as Alberta's deadline would be worse than saying so. What can be established is that the dates are per programme, which is itself the thing a student needs to know before they go looking for one number.",
+    "supports": [
+      { "entity": "ca-apply-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ircc-funds-2026",
+    "sourceUrl": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+    "publisher": "Immigration, Refugees and Citizenship Canada",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23; the page carries its own revision date of 28 August 2026.",
+    "claim": "A single study permit applicant going anywhere in Canada except Quebec and applying on or after 1 September 2026 must show CAD 23,448 for one year of living expenses, on top of tuition and travel. Quebec sets its own figure through its immigration ministry.",
+    "excerpt": "This chart tells you how much money you will need to support yourself and your family members in Canada for the first year of your program of studies. These amounts are updated each year. These amounts do not include tuition and transportation costs. If you apply on or after September 1, 2026. All provinces and territories except Quebec. Number of family members (including the applicant) 1. Amount required per year (excluding tuition and transportation costs) (in CAN$) $23,448. [...] Quebec. To obtain a Quebec Acceptance Certificate (Certificat d'acceptation du Quebec [CAQ]) and study in Quebec, applicants must show they can financially cover the costs outlined by the Ministere de l'Immigration, de la Francisation et de l'Integration.",
+    "interpretation": "The number is a floor for the visa, not a budget for the year, and the distinction matters in both directions: a student who shows exactly CAD 23,448 has satisfied IRCC and has not covered a year in Vancouver or Toronto. Note that the chart is explicitly annual and the previous band, CAD 22,895, applied only until 31 August 2026 — a figure remembered from a sibling's application two years ago is now short by more than five hundred dollars. Quebec is the reason this sits in a jurisdiction variation rather than a national figure.",
+    "supports": [
+      { "entity": "ca", "field": "livingContext.residency" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ircc-cap-2026",
+    "sourceUrl": "https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html",
+    "publisher": "Immigration, Refugees and Citizenship Canada",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23; the notice carries its own revision date of 25 November 2025 and covers the 2026 calendar year only.",
+    "claim": "For 2026, IRCC will accept at most 309,670 study permit applications from students who need a provincial or territorial attestation letter, allocated by province, and undergraduates are not among the groups exempted from needing one. No allocation has been published for 2027.",
+    "excerpt": "A total of 309,670 study permit application spaces will be available under the cap for 2026. This represents the maximum number of study permit applications IRCC will accept for processing from PAL/TAL-required students for the calendar year. Each province or territory is responsible for distributing their allocated spaces to their respective designated learning institutions. [...] 2026 allocations for all PAL/TAL-required applications: Alberta 32,271; British Columbia 32,596; Nova Scotia 8,480; Ontario 104,780; Quebec 93,069 [...] The following groups are exempt from the PAL/TAL requirement in 2026: master's and doctoral degree students enrolled at public DLIs; New primary and secondary (kindergarten to grade 12) students; certain Government of Canada priority groups and vulnerable cohorts; existing study permit holders applying for an extension at the same DLI and at the same level of study.",
+    "interpretation": "The exemption list is what an undergraduate needs to read, because it is where they are not. Master's and doctoral students at public institutions stopped needing an attestation letter on 1 January 2026; bachelor's students did not, and a study permit application without one is not refused so much as never looked at. The allocations are per province, which makes the attestation letter the one part of this Destination where choosing a province changes the size of the queue as well as the route. This notice covers 2026 alone and nothing equivalent had been published for 2027 when it was read, so the 2027 position is genuinely unknown rather than assumed unchanged.",
+    "supports": [
+      { "entity": "ca", "field": "livingContext.residency" },
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ircc-pgwp-degree",
+    "sourceUrl": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
+    "publisher": "Immigration, Refugees and Citizenship Canada",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read through WebFetch rather than in full, 2026-09-23, so the excerpt is a structured restatement of the eligibility conditions rather than a continuous quotation. The field-of-study carve-out for degree programmes should be re-read on the page before this is shown as settled.",
+    "claim": "A bachelor's graduate of a Canadian public university may apply for a Post-Graduation Work Permit within 180 days of confirmation that they completed the programme, is not subject to the field-of-study restriction that applies to non-degree programmes, and must show Canadian Language Benchmarks 7 in English across all four skills.",
+    "excerpt": "You apply for your PGWP within 180 days of confirmation that you completed your program of study. [...] Canadian Language Benchmarks (CLB) 7 in English or Niveaux de competence linguistique canadiens (NCLC) 7 in French in all 4 language areas. [...] Field of study requirements apply to graduates of programs other than bachelor's, master's and doctoral degrees.",
+    "interpretation": "The degree carve-out is the whole reason a Canadian bachelor's is worth more than its tuition suggests: the shortage-occupation list that has made headlines applies to college diplomas, not to a university degree. That is a real advantage over a college programme and the single most consequential difference between the two sectors named in sectorLandscape. Held at needs-review because it was not read in full on the page, and a rule with this much riding on it should be confirmed by a person before it is presented as certain.",
+    "supports": [
+      { "entity": "ca", "field": "livingContext.workRights" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ontario-pal-2026",
+    "sourceUrl": "https://www.ontario.ca/page/ontario-colleges",
+    "publisher": "Government of Ontario",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "Ontario has 24 public colleges awarding degrees, diplomas, certificates and apprenticeships, full-time applications to them run through ontariocolleges.ca rather than the OUAC, several of them are named polytechnics or institutes of technology without being a separate category, and from 1 January 2026 most international students studying in Ontario need a provincial attestation letter obtained from the institution whose offer they have accepted.",
+    "excerpt": "Attestation letter for international students. As of January 1, 2026, most international students who want to study in Ontario must provide a provincial attestation letter (PAL) with their study permit application. Students should contact the Ontario postsecondary institution where they have accepted their offer of admission and intend to enrol to get a PAL. [...] Admission standards. In general, you can apply to college if you have an Ontario high school diploma. Each college may set other program requirements. If you did not attend high school in Ontario: please contact a college directly for information. [...] How to apply. Full-time students: you can apply through www.ontariocolleges.ca. Part-time students: you can apply directly through a college. [...] Here is a list of the colleges in Ontario: Algonquin College of Applied Arts and Technology [...] Conestoga College Institute of Technology and Advanced Learning [...] Seneca Polytechnic [...] Sheridan College Institute of Technology and Advanced Learning.",
+    "interpretation": "Two findings sit on this page and the second one cuts across the model. The attestation letter is obtained after accepting an offer, not before applying, which is why it belongs late in the route rather than early. And Ontario runs two central application services, not one: universities through the OUAC and colleges through ontariocolleges.ca. This Destination groups its institutions by province because the province decides the route, and Ontario shows that the sector decides it too. No college is listed here yet, so the division does not bite, but it would the moment one is. Note also that 'polytechnic' and 'institute of technology and advanced learning' appear in this list as names of ordinary Ontario colleges rather than as a separate category; a student reading a Canadian polytechnic's website is reading a college's.",
+    "supports": [
+      { "entity": "ca", "field": "sectorLandscape" },
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-quebec-cegep-overview",
+    "sourceUrl": "https://www.quebec.ca/en/education/cegeps-private-colleges/studying/overview",
+    "publisher": "Gouvernement du Quebec",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "Quebec places a whole level of education between school and university: 48 public CEGEPs, five of them English-language, plus about 70 private colleges, offering a two-year pre-university programme and a three-year technical programme, both leading to a Diploma of College Studies.",
+    "excerpt": "College is the first level of education at which schooling is not compulsory in Quebec. College studies follow secondary school and precede university education. There are numerous college institutions: 48 CEGEPs (public colleges), five of which are English-language institutions; about 70 private colleges, more than a third of which are subsidized [...] Two types of programs lead to a DCS: Pre-University Programs. Program that prepares students for university and that requires two years of full-time study. Technical Programs. Program designed to prepare students for the job market and that requires three years of full-time study. [...] Technical programs include at least one practicum in the workplace.",
+    "interpretation": "This is the institution type nobody mentions to foreigners, and it explains something that otherwise looks like a trick: a Quebec bachelor's degree is often three years rather than four because a Quebec student has already done two years of CEGEP. An IB Diploma holder arriving from abroad enters the university directly and does the longer version. The technical DEC is the genuinely overlooked route — three years, a workplace placement, and an exit into a job rather than into a degree — and it is invisible in every English-language summary of Canadian higher education.",
+    "supports": [
+      { "entity": "ca", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cegep-international-admission",
+    "sourceUrl": "https://www.lecegep.ca/en/international-students",
+    "publisher": "Federation des cegeps",
+    "publisherType": "other",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "verifiedBy": "Read directly from the page source, 2026-09-23. The Federation des cegeps runs the international admission route into the public CEGEP network, so it is treated as the authority for that process; the detail of the regional admission services was not read on this page and is not recorded here.",
+    "claim": "The public CEGEP network admits international students to about 125 technical and pre-university programmes across its 48 institutions, and maintains a single international admission and immigration route for applicants living outside Canada.",
+    "excerpt": "Our network includes 48 CEGEPs — some with multiple campuses or national schools specializing in certain fields. [...] As an international student, you can choose from 125 technical and pre-university programs across 48 institutions in Quebec. [...] What's the Difference Between Technical and Pre-University Programs? Want to enter the job market quickly? Technical programs are your best choice. In three years (six semesters), you'll be ready to launch your career. Want to go to university? Pre-university programs last two years (four semesters) and are the ideal preparation. [...] Admission and immigration. Living outside of Canada and want to study in Quebec? Learn how to apply, what immigration steps to take, and how to prepare before you arrive.",
+    "interpretation": "Recorded so that the CEGEP route is not invisible, and marked needs-review because what has been established is that the route exists and is open to international applicants, not what it would require of an IB Diploma holder specifically. Whether a full Diploma is treated as over-qualification for a pre-university DEC, and whether a technical DEC would admit one, are unanswered here. A route recorded as existing and unresearched is useful; the same route omitted is invisible.",
+    "supports": [
+      { "entity": "ca", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-uhip-ontario",
+    "sourceUrl": "https://uhip.ca/get-started/",
+    "publisher": "University Health Insurance Plan",
+    "publisherType": "other",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23. UHIP is the plan's own publisher and therefore the rule-owner for UHIP; it is not the rule-owner for OHIP.",
+    "claim": "An international student at an Ontario university does not get the provincial health plan. They are enrolled automatically in the University Health Insurance Plan, a not-for-profit plan created by Ontario's universities, it is mandatory, and the premium is billed to the student account.",
+    "excerpt": "Every person living in Canada must have coverage for primary healthcare services, such as hospital, physician, surgery, and medical testing. Ontario residents have OHIP, the mandatory government health insurance plan. International students access comparable coverage through the University Health Insurance Plan (UHIP), a not-for-profit insurance plan created by Ontario's universities. You and any family members who come to Canada must have UHIP - this primary healthcare protection is mandatory. (Exemptions can apply) [...] You will be enrolled in UHIP automatically by your university. Premiums will be charged to your student account.",
+    "interpretation": "Ontario is the province where the health answer is 'no' — an international undergraduate is outside the public plan for the whole degree, not for a waiting period. That is the opposite of British Columbia and Alberta and it is a cost rather than a delay, which is why health cover is a jurisdiction variation here rather than a national sentence. The premium itself is not recorded: it is set annually and was not read on a page carrying a year.",
+    "supports": [
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-bc-health-fee",
+    "sourceUrl": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/health-fee-international-students",
+    "publisher": "Province of British Columbia",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "An international student in British Columbia holding a study permit of six months or more must enrol in the provincial Medical Services Plan, pays a health fee for it, and is not covered until the balance of the arrival month plus two further months have passed, during which they need private insurance.",
+    "excerpt": "International students who possess a valid study permit for a period of six or more months are required to apply for MSP (BC's health-care coverage) as soon as they arrive in British Columbia. Through this application process, they will be enrolled and then invoiced for the health fee. Before health-care coverage begins, there is a wait period consisting of the balance of the month in which residency is established, plus two months. International students should carry private insurance until this wait period ends and provincial coverage begins. [...] Is enrolment in MSP mandatory? Yes. Enrolment in MSP is mandatory under the Medicare Protection Act for all eligible residents of British Columbia.",
+    "interpretation": "British Columbia does cover international students, which Ontario does not, and the price of that is a gap of up to three months at exactly the point a student has just arrived. Arriving in late August for a September start means cover from 1 November. The private insurance that bridges it is the student's own problem and is easy to miss, because everything about the process reads as though enrolment and coverage are the same act.",
+    "supports": [
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-alberta-ahcip-students",
+    "sourceUrl": "https://www.alberta.ca/ahcip-students",
+    "publisher": "Government of Alberta",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "An international student holding a twelve-month study permit valid for an Alberta institution, who will live in Alberta for twelve months or more, may apply for the Alberta Health Care Insurance Plan, and must reconfirm enrolment each year by 30 November to keep it.",
+    "excerpt": "International students. If you are a student from outside Canada, you may be eligible to apply for AHCIP coverage if you: have a 12-month study permit (valid for an Alberta educational institute) and will reside in Alberta for 12 months or more; have a valid study permit for more than 6 but less than 12 months with a letter from the school confirming your enrollment and confirmation of your intent to reside in Alberta for at least 12 months [...] make sure it arrives by November 30 to avoid interruption to your coverage. If confirmation is received after November 30 and it is determined you remain eligible, your AHCIP coverage will be reinstated. [...] International students who transfer to an educational institute outside Alberta or move to another province or territory are no longer eligible for AHCIP coverage.",
+    "interpretation": "Alberta's rule turns on the permit's length rather than the student's status, and the 30 November reconfirmation is the part that catches people: it is an annual administrative act with no reminder attached, and missing it interrupts cover rather than ending it. The page says 'may be eligible to apply', not 'is covered', and that wording is kept.",
+    "supports": [
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ns-msi-eligibility",
+    "sourceUrl": "https://novascotia.ca/dhw/msi/eligibility.asp",
+    "publisher": "Government of Nova Scotia",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23. The page states who is eligible; it does not state when coverage begins, and that is left unrecorded rather than filled in.",
+    "claim": "An international student in Nova Scotia holding a study permit valid for twelve months or more may be eligible for the provincial health insurance programme, and a waiting period applies on arrival from outside the province.",
+    "excerpt": "You and your family (spouse or common-law partner and dependants) may be eligible for Nova Scotia Health Insurance Program coverage if: [...] you're an international student study permit holder (permit must be for 12 or more months) [...] Moving to Nova Scotia. When you move to Nova Scotia from another province, territory or country, there may be a waiting period before you become eligible for coverage under the Nova Scotia Health Insurance Program.",
+    "interpretation": "Nova Scotia covers international students and will not say on this page when the cover starts, only that a waiting period exists. That is recorded as it stands. The length of the wait is the number a student actually needs, because it decides how many months of private insurance they must buy, and it is not established here.",
+    "supports": [
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-quebec-study-conditions",
+    "sourceUrl": "https://www.quebec.ca/en/education/study-quebec/required-conditions",
+    "publisher": "Gouvernement du Quebec",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read directly from the page source, 2026-09-23.",
+    "claim": "Studying in Quebec requires a Certificat d'acceptation du Quebec in addition to the federal study permit, proof of financial capacity assessed by Quebec rather than by IRCC, and health and hospitalisation insurance held continuously for the whole study stay.",
+    "excerpt": "Required conditions to study in Quebec. To study in Quebec, you must respect the following conditions: Be admitted to an educational institution in Quebec; Demonstrate your financial capacity to cover the costs of studying in Quebec; Pay the required fees to process your application; Commit to respecting all the obligations related to your Certificat d'acceptation du Quebec (Quebec Acceptance Certificate) (CAQ) [...] You must demonstrate your financial capacity to assume the costs of studying in Quebec: Tuition fees; Transportation costs; Basic needs. [...] Maintain, for the entire duration of your study stay, health and hospital insurance for yourself and, where applicable, for any family members accompanying you [...] You must remain covered by a health and hospitalization insurance policy for the entire duration of your study stay.",
+    "interpretation": "Quebec is a second immigration system stacked on top of the federal one, and this is the single most consequential difference between choosing Montreal and choosing Toronto. The CAQ is a separate application, with its own fee, its own financial test and its own processing time, and it has to be granted before IRCC will issue the study permit. Concordia's advice to apply a month early is this rule in practical form. Whether a Danish student can instead be covered by the Quebec public plan through the social security agreement route could not be established: the RAMQ eligibility pages sit behind a bot-protection challenge and were not readable.",
+    "supports": [
+      { "entity": "ca", "field": "jurisdictions" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ubc-tuition-2026",
+    "sourceUrl": "https://students.ubc.ca/finances/tuition-fees/undergraduate-tuition-fees/",
+    "publisher": "University of British Columbia",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23, from the international undergraduate table for 2026/27, which the page states was approved by the Board of Governors on 4 December 2025.",
+    "claim": "UBC's 2026/27 international undergraduate tuition runs from CAD 51,530.40 for a full year of Arts to CAD 66,199.66 for first-year Engineering and CAD 66,678.30 for Commerce, and UBC caps the annual increase for a student starting in 2026/27 at 3 per cent for the following four years.",
+    "excerpt": "The 2026/27 fees have been approved by the UBC Board of Governors on Dec 4, 2025 and are effective on May 1, 2026. For international undergraduate students starting their degree programs in the 2026/27 academic year, tuition will increase by no more than 3% each year for the subsequent 4 years or until graduation from their current degree program, whichever comes first. [...] International student tuition amounts 2026/27 [...] Applied Science - Engineering $1,789.18 per credit, 37 credits, $66,199.66. Arts $1,717.68, 30 credits, $51,530.40. Commerce (Sauder School of Business) $2,222.61, 30 credits, $66,678.30. Computer Science $1,769.40, 30 credits, $53,082.00. Science $1,769.40, 30 credits, $53,082.00.",
+    "interpretation": "Recorded with its year attached and as one institution's price, not the country's. The cap is the part worth reading twice: it is the difference between a four-year cost a family can plan and one that can move under them, and UBC publishes it while most do not. The 2027/28 figures are not out, and the 2026/27 numbers are recorded as the closest published fact rather than as next year's price.",
+    "supports": [
+      { "entity": "ca", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-utoronto-fee-timing",
+    "sourceUrl": "https://future.utoronto.ca/finances/fees/",
+    "publisher": "University of Toronto",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "verified",
+    "verifiedBy": "Read in a browser, 2026-09-23. The page carries no international tuition figure of its own; that absence is the claim.",
+    "claim": "The University of Toronto does not publish a tuition figure for the year you would be applying for. Its fees are finalised in the spring of the year of entry, so an applicant deciding in January 2027 is working from the 2026/27 schedule.",
+    "excerpt": "The amount of tuition you pay will depend on factors such as your program and year of study, your course load and your campus. While the exact tuition fees for each academic year are typically finalized in the spring, you can take a look at the previous year's amounts in your area of study to get an idea of how much you'll pay in tuition. Remember that in addition to tuition, your total fees will include incidental and ancillary fees. [...] And international students should also factor in the University Health Insurance Plan (UHIP).",
+    "interpretation": "This is why no Ontario tuition figure appears in this record. The previous version of this Destination carried a note saying a Toronto figure had been seen in search results and could not be confirmed on the page; it still cannot, because the page does not carry one. A student applying to Ontario is committing to a price that has not been set, and saying so plainly is more useful than quoting last year's number as though it were this year's.",
+    "supports": [
+      { "entity": "ca", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  }
+]

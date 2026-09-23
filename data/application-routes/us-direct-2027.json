@@ -1,0 +1,178 @@
+{
+  "id": "us-direct-2027",
+  "destination": "us",
+  "jurisdiction": "us-own-application",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "MIT's own application portal",
+  "channel": "direct",
+  "portalUrl": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+  "choicesRanked": false,
+  "fee": {
+    "amount": 75,
+    "currency": "USD",
+    "period": "once",
+    "note": "MIT's first-year application fee, with a waiver available."
+  },
+  "rounds": [
+    {
+      "id": "round-mit-ea",
+      "label": "Early Action — not binding",
+      "closes": "2026-11-01",
+      "decisionBy": "2026-12-20",
+      "consequence": "priority",
+      "note": "1 November for the application, fee, teacher recommendations and transcript, with tests taken by the November test date and decisions in mid-December. Not binding: an Early Action admission can be held to 1 May alongside everything else. MIT states there is no strategic benefit to either cycle. The financial aid application is separate and due 30 November — after the application, which is the wrong way round from almost everywhere else.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "round-mit-ra",
+      "label": "Regular Action",
+      "closes": "2027-01-04",
+      "decisionBy": "2027-03-20",
+      "consequence": "hard",
+      "note": "4 January, not the 1 January most American guidance quotes, with tests taken by the December test date, aid forms by 15 February and decisions in mid-March.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-mit-ea",
+      "type": "submit",
+      "label": "MIT Early Action closes",
+      "date": "2026-11-01",
+      "consequence": "priority",
+      "provisional": true,
+      "note": "MIT publishes the day without a year; the year is read into the 2026-27 cycle. Application form, fee, teacher recommendations and transcript all due on the same day.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-mit-tests",
+      "type": "test",
+      "label": "SAT or ACT taken, for MIT Early Action",
+      "date": "2026-11-30",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "MIT requires the SAT or ACT and sets the last test date rather than the last reporting date: before 30 November for Early Action, before 31 December for Regular Action. There is no IB alternative.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-mit-aid-ea",
+      "type": "document",
+      "label": "MIT financial aid application, Early Action",
+      "date": "2026-11-30",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Managed separately from the admissions application and due a month after it. Easy to walk past, and there is no second chance at it.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-mit-ra",
+      "type": "submit",
+      "label": "MIT Regular Action closes",
+      "date": "2027-01-04",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "The fourth of January. Not the first.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-mit-aid-ra",
+      "type": "document",
+      "label": "MIT financial aid application, Regular Action",
+      "date": "2027-02-15",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-mit-reply",
+      "type": "reply",
+      "label": "MIT enrolment reply",
+      "date": "2027-05-01",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "The same national reply date as the Common App colleges and UC.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-mit-portal",
+      "label": "MIT's own application, in MIT's own portal",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "The MIT application portal",
+      "note": "MIT has never joined the Common App. Its application is its own, with its own questions, and nothing written for the Common App carries across. A student who builds the whole autumn around one portal will find MIT is not in it.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "si-mit-tests",
+      "label": "SAT or ACT",
+      "itemType": "result",
+      "responsibleParty": "third-party",
+      "destinationOfItem": "MIT",
+      "dueMilestone": "ms-mit-tests",
+      "note": "Required. MIT dates the requirement to the test sitting rather than to the score report.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "si-mit-aid",
+      "label": "Financial aid application",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "MIT Student Financial Services, separately from admissions",
+      "dueMilestone": "ms-mit-aid-ea",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    },
+    {
+      "id": "si-mit-february",
+      "label": "February Updates and Notes form",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "The MIT application portal",
+      "note": "A mid-February form for both rounds, with no equivalent anywhere else in this Destination.",
+      "evidence": [
+        "ev-mit-deadlines-2027"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "MIT's IB credit rule is the narrowest found in this Destination: Higher Level only, grade 7 only, and no credit at all for IB Biology, Chemistry or Information Technology in a Global Society. HL Mathematics at 7 gives 18.01 and HL Physics at 7 gives 8.01.",
+    "MIT is in Massachusetts, where state law requires students at institutions of higher learning to hold qualifying student health insurance or comparable cover. MIT's own plan cost and waiver terms are not established here."
+  ],
+  "evidence": [
+    "ev-mit-deadlines-2027",
+    "ev-mit-ib-credit"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-15",
+    "notes": [
+      "\"Apply directly\" is a route and this is its record. MIT is the only institution in this profile on it; the rest of the American institutions that take only their own application have not been surveyed.",
+      "MIT publishes days without years. Every milestone here is therefore marked provisional even though the days themselves are quoted from MIT's own table."
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "kr-direct-2028-spring",
+  "destination": "kr",
+  "intake": "2028-spring",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Korean university for the March 2028 intake, with results in hand",
+  "channel": "direct",
+  "portalUrl": "https://www.studyinkorea.go.kr/en/main.do",
+  "choicesRanked": false,
+  "rounds": [
+    {
+      "id": "rd-spring-2028-first",
+      "label": "First international round for the March 2028 intake",
+      "consequence": "hard",
+      "note": "Not yet published anywhere. What the 2027 cycle looked like, for shape only: Seoul National University took applications 6 to 9 July 2026, Korea University 3 to 31 August 2026, and Yonsei UIC 26 August to 22 September 2026, all for a March 2027 start. None of those dates is carried forward here, because a Korean round is set afresh each year and a date guessed from last year is a date that costs a place.",
+      "evidence": [
+        "ev-kr-snu-spring-2027",
+        "ev-kr-ku-schedule-2027",
+        "ev-kr-uic-rounds-2027"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "ms-spring-2028-watch",
+      "type": "personal",
+      "label": "Start watching each university's international admission page",
+      "date": "2027-05-01",
+      "consequence": "personal",
+      "note": "Not a published date and not anyone's deadline. It is set here because the earliest 2027-cycle window opened in early July and Korean universities publish four to six months ahead, so a student who starts looking in the summer has already missed the first one.",
+      "evidence": [
+        "ev-kr-snu-spring-2027"
+      ]
+    },
+    {
+      "id": "ms-ib-results-2027",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "The whole argument for this route. It is the only Korean intake a May 2027 IB candidate can apply to holding an actual diploma rather than a prediction, which changes both what can be submitted and how an offer is read.",
+      "evidence": []
+    }
+  ],
+  "supplementarySteps": [
+    "Treat this as the deliberate alternative to September 2027 rather than as a failure. A March 2028 start means a nine-month gap after the diploma, which is close to the Danish sabbatår most students take anyway, and it puts you in the main Korean intake alongside the domestic cohort rather than in the smaller international one.",
+    "It is also the intake the Global Korea Scholarship's 2028 round would fund, since a May 2027 graduate cannot meet the 2027 round's 31 December 2026 graduation cut-off.",
+    "The trade is a real one: the March intake is larger and better supported, and it costs most of a year."
+  ],
+  "evidence": [
+    "ev-kr-snu-spring-2027",
+    "ev-kr-ku-schedule-2027",
+    "ev-kr-uic-rounds-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-05-01",
+    "notes": [
+      "Deliberately undated. Nothing for the March 2028 intake had been published by any of the four institutions read, and no date has been carried forward from the 2027 cycle.",
+      "The single date here is a planning date we set ourselves, marked as such."
+    ]
+  }
+}
