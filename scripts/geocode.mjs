@@ -74,7 +74,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * with a comma in it, and only then narrowed.
  */
 function cityCandidates(city) {
-  const raw = String(city || "").trim();
+  const raw = String(city || '').trim();
   if (!raw) return [];
   const out = [raw];
   const noParen = raw.replace(/\s*\([^)]*\)/g, '').trim();
@@ -82,6 +82,29 @@ function cityCandidates(city) {
   const first = noParen.split(/\s*(?:,| and | & )\s*/i)[0].trim();
   if (first) out.push(first);
   return [...new Set(out)].filter(Boolean);
+}
+
+/**
+ * The separate places a recorded "city" names, in the order it names them.
+ *
+ *   "Mechelen, Antwerp, Turnhout, Geel" -> [Mechelen, Antwerp, Turnhout, Geel]
+ *   "Hasselt and Diepenbeek"            -> [Hasselt, Diepenbeek]
+ *   "Abu Dhabi (Al Reem Island)"        -> [Abu Dhabi]   (a district, not a second city)
+ *   "Linz"                              -> [Linz]
+ *
+ * The parenthetical is dropped first, because it qualifies the city rather than
+ * adding another one — "Dubai (Dubai Knowledge Park)" is one place, and counting
+ * it as two would make the note claim a campus that does not exist.
+ */
+function campusList(city) {
+  const noParen = String(city || '')
+    .replace(/\s*\([^)]*\)/g, '')
+    .trim();
+  if (!noParen) return [];
+  return noParen
+    .split(/\s*(?:,| and | & )\s*/i)
+    .map((s) => s.trim())
+    .filter(Boolean);
 }
 
 /* --- Wikidata --------------------------------------------------------------- */
@@ -98,13 +121,45 @@ async function qidFromWikipedia(wikipediaUrl) {
   return d?.query?.pages?.[0]?.pageprops?.wikibase_item || null;
 }
 
-async function qidFromSearch(name) {
+async function qidFromSearch(name, limit = 1) {
   const d = await j(
     `https://www.wikidata.org/w/api.php?${new URLSearchParams({
-      format: 'json', action: 'wbsearchentities', search: name, language: 'en', limit: '1', type: 'item',
+      format: 'json', action: 'wbsearchentities', search: name, language: 'en', limit: String(limit), type: 'item',
     })}`
   );
-  return d?.search?.[0]?.id || null;
+  return limit === 1 ? d?.search?.[0]?.id || null : d?.search || [];
+}
+
+/**
+ * The Wikidata item for a city, disambiguated by country.
+ *
+ * This used to search for "Tallinn Estonia" and find nothing at all, which is
+ * why forty institutions with a perfectly ordinary one-word city had no
+ * coordinate. `wbsearchentities` matches entity LABELS by prefix, and nothing
+ * is labelled "Tallinn Estonia" — appending the country name does not narrow
+ * the search, it destroys it.
+ *
+ * So the city is searched on its own and the country is used to choose between
+ * the results, which is what it was always for. Wikidata's one-line description
+ * carries it — "capital and most populous city of Estonia", "city in Czechia" —
+ * and the ambiguity is real: a bare search for Cambridge returns Massachusetts
+ * before England.
+ */
+async function qidForCity(city, countryName) {
+  const results = await qidFromSearch(city, 5);
+  if (!Array.isArray(results) || !results.length) return null;
+
+  const needle = String(countryName || '').toLowerCase();
+  if (needle) {
+    const inCountry = results.find((r) => String(r.description || '').toLowerCase().includes(needle));
+    if (inCountry) return inCountry.id;
+  }
+
+  /* No description named the country. Rather than take the top hit — which for
+     "Cambridge" would put a Danish student's UK campus in Massachusetts — this
+     gives up, and the institution is reported as unplaced. An unplaced marker
+     is a gap; a marker in the wrong country is a lie. */
+  return null;
 }
 
 /** Coordinate location (P625) and administrative location (P131). */
@@ -129,6 +184,42 @@ async function adminParent(qid) {
     })}`
   );
   return d?.claims?.P131?.[0]?.mainsnak?.datavalue?.value?.id || null;
+}
+
+/**
+ * The ISO 3166-1 alpha-2 code of the country a Wikidata item belongs to,
+ * via P17 (country) and P297 (ISO code). Exact, and needs no polygon.
+ */
+const isoCache = new Map();
+
+async function isoOfEntity(qid) {
+  if (!qid) return null;
+  const countryQid = await claimId(qid, 'P17');
+  if (!countryQid) return null;
+  if (isoCache.has(countryQid)) return isoCache.get(countryQid);
+  const iso = await claimString(countryQid, 'P297');
+  const code = iso ? String(iso).toLowerCase() : null;
+  isoCache.set(countryQid, code);
+  return code;
+}
+
+async function claimId(qid, property) {
+  const d = await j(
+    `https://www.wikidata.org/w/api.php?${new URLSearchParams({
+      format: 'json', action: 'wbgetclaims', entity: qid, property,
+    })}`
+  );
+  return d?.claims?.[property]?.[0]?.mainsnak?.datavalue?.value?.id || null;
+}
+
+async function claimString(qid, property) {
+  const d = await j(
+    `https://www.wikidata.org/w/api.php?${new URLSearchParams({
+      format: 'json', action: 'wbgetclaims', entity: qid, property,
+    })}`
+  );
+  const v = d?.claims?.[property]?.[0]?.mainsnak?.datavalue?.value;
+  return typeof v === 'string' ? v : null;
 }
 
 const round = (n) => Math.round(n * 10000) / 10000;
@@ -175,6 +266,7 @@ async function main() {
   const cityCache = new Map();
   let resolved = 0, reused = 0, failed = 0;
   const misses = [];
+  const strays = [];
 
   for (const file of files) {
     const filePath = path.join(dir, file);
@@ -185,7 +277,14 @@ async function main() {
     process.stdout.write(`\n${code} `);
 
     for (const inst of country.institutions || []) {
-      const placeId = `${code}-${slug(inst.city || inst.shortName || inst.name)}`;
+      /* The id and the display name come from the FIRST campus, not the whole
+       * recorded string. "Esch-sur-Alzette (Belval), Luxembourg City" became a
+       * single place called exactly that, which is not the name of anywhere.
+       * The pin is one of those locations and the note says which, so the id
+       * and the name should agree with the pin rather than list what it is
+       * not. */
+      const primaryCity = campusList(inst.city)[0] || inst.city || '';
+      const placeId = `${code}-${slug(primaryCity || inst.shortName || inst.name)}`;
 
       if (!REFRESH && inst.place && existing.has(inst.place)) { reused++; process.stdout.write('·'); continue; }
       if (!REFRESH && existing.has(placeId)) {
@@ -198,11 +297,39 @@ async function main() {
 
       let coords = null;
       let precision = 'unknown';
+      let wrongCountry = false;
 
       const qid = inst.wikipedia ? await qidFromWikipedia(inst.wikipedia) : null;
       if (qid) {
         coords = await entityPlace(qid);
-        if (coords) precision = 'institution';
+        if (coords) {
+          /* Before trusting it: is this item even in the right country?
+           *
+           * An institution's own Wikidata coordinate is normally the best
+           * answer there is, and it placed most of this catalogue correctly.
+           * It is catastrophically wrong for exactly one kind of record — a
+           * branch campus whose Wikipedia article is its PARENT's. Miami
+           * University's centre in Differdange resolved to Miami University
+           * and landed in Oxford, Ohio; Sacred Heart University Luxembourg
+           * landed in Connecticut. Both were written at institution precision,
+           * so nothing downstream doubted them.
+           *
+           * degreesOutside() in src/lib/data.mjs catches this afterwards, and
+           * returns null for countries with no polygon at 110m — Luxembourg,
+           * Malta, Singapore, Hong Kong — which is precisely where these were.
+           * Asking Wikidata needs no polygon: P17 gives the country, P297 its
+           * ISO code, and the comparison is exact. */
+          const iso = await isoOfEntity(qid);
+          if (iso && iso !== String(code).toLowerCase()) {
+            strays.push(
+              `${code}: ${inst.name} — its Wikidata item is in ${iso.toUpperCase()}, so the city was used instead`
+            );
+            coords = null;
+            wrongCountry = true;
+          } else {
+            precision = 'institution';
+          }
+        }
       }
 
       if (!coords && inst.city) {
@@ -221,10 +348,16 @@ async function main() {
            * of it. The first campus listed is the one the pin lands on, at city
            * precision, which the map already draws as a hollow marker meaning
            * "the city, not the campus". */
-          let cityQid = qid ? await adminParent(qid) : null;
+          /* `wrongCountry` matters here as much as it did above. Rejecting the
+           * parent institution's COORDINATE and then taking the same parent's
+           * administrative city is the identical mistake one step along: for
+           * Sacred Heart University Luxembourg it swapped a pin in Connecticut
+           * for a different pin in Connecticut. If the item is not in this
+           * country, nothing derived from it is either. */
+          let cityQid = qid && !wrongCountry ? await adminParent(qid) : null;
           for (const candidate of cityCandidates(inst.city)) {
             if (cityQid) break;
-            cityQid = await qidFromSearch(`${candidate} ${country.name}`);
+            cityQid = await qidForCity(candidate, country.name);
           }
           coords = await entityPlace(cityQid);
           cityCache.set(key, coords);
@@ -239,14 +372,32 @@ async function main() {
         continue;
       }
 
+      /* Where the recorded "city" named several campuses, this pin is not where
+       * the institution is so much as where ONE OF IT is, and the record should
+       * say which and what else there was. The map already draws anything below
+       * campus precision as a hollow marker and the list carries the cue as
+       * text; this gives that text something true to say. */
+      const campuses = campusList(inst.city);
       const place = {
         id: placeId,
         destination: code,
-        name: inst.city || inst.name,
+        name: primaryCity || inst.name,
         kind: precision === 'institution' ? 'campus' : 'city',
         coordinates: coords,
         coordinatePrecision: precision,
-        meta: { schemaVersion: SCHEMA_VERSION, dataAsOf: TODAY },
+        meta: {
+          schemaVersion: SCHEMA_VERSION,
+          dataAsOf: TODAY,
+          ...(precision !== 'institution' && campuses.length > 1
+            ? {
+                notes: [
+                  `${inst.name} is recorded across ${campuses.length} locations — ` +
+                    `${campuses.join(', ')}. This pin is ${campuses[0]}, the first of them, ` +
+                    `placed at city level. It is not the only place this institution teaches.`,
+                ],
+              }
+            : {}),
+        },
       };
       existing.set(place.id, place);
       await writePlace(place);
@@ -264,6 +415,12 @@ async function main() {
 
   console.log(`\n\nresolved ${resolved} · reused ${reused} · unresolved ${failed}`);
   console.log(`${existing.size} places on disk`);
+  if (strays.length) {
+    console.log('\nRejected an institution coordinate for being in the wrong country:');
+    for (const x of strays) console.log(`  ${x}`);
+    console.log('');
+  }
+
   if (misses.length) {
     console.log('\nNo coordinate found for:');
     for (const m of misses.slice(0, 30)) console.log(`  ${m}`);
