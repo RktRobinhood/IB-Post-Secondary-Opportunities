@@ -20,8 +20,11 @@
  *   node scripts/fetch-images.mjs --refresh      # re-pick everything
  *   node scripts/fetch-images.mjs --only=dtu,se
  *
- * Picks live in data/images.json. To override a bad choice by hand, set that
- * entry's "file" to any Commons filename and re-run with --refresh --only=<key>.
+ * Picks live in data/images.json. To overrule a bad choice, set that entry's
+ * "file" to any Commons filename, add "pin": true, and re-run with
+ * --refresh --only=<key>. A pinned entry is fetched exactly as named and is
+ * then left alone by every later run, including a bare --refresh, so a
+ * judgement made by a person survives the next re-pick.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -186,6 +189,14 @@ function score({ title, info }, query, isPrimary) {
     /daily closings|stock (?:market|index|exchange chart)|share price|\bindex\b[^.]{0,20}\b(?:chart|graph|value)|histogram|scatter|pie chart|bar chart|line graph|infographic|schematic|floor ?plan|organisational chart|timeline of|population pyramid/i;
   if (NOT_A_PLACE.test(blurb)) return -1;
 
+  // Satellite and aerial survey imagery is a photograph of somewhere, passes
+  // every test above, and is wrong for a hero: the Netherlands page led on a
+  // Copernicus Sentinel-2 pass over Amsterdam, which reads as a weather map.
+  // A student wants to see the place at eye level, not from orbit.
+  const FROM_ORBIT =
+    /satellite|sentinel-?\d|landsat|copernicus|european space agency|\bNASA\b|\bISS\b|from space|\borbit|true.?colou?r image|earth observation|remote sensing|orthophoto|\bSPOT ?\d/i;
+  if (FROM_ORBIT.test(`${name} ${blurb}`)) return -1;
+
   let s = 0;
   const ratio = w / h;
   if (ratio < 1.1) s -= 45;                         // portraits crop badly in a hero
@@ -249,6 +260,21 @@ async function pickImage(target) {
     .sort((a, b) => b.score - a.score);
 
   return { best: ranked[0] || null, subject, considered: infos.length };
+}
+
+/**
+ * Fetch one named Commons file, chosen by a person rather than by the scorer.
+ * The scoring rules are deliberately not applied: the point of pinning is that
+ * a human looked at the page and disagreed with them. The only check left is
+ * that the file exists and Commons will serve it as a bitmap, because a pin
+ * pointing at a deleted or renamed file should say so rather than fall back to
+ * a guess the editor never saw.
+ */
+async function pinnedImage(filename) {
+  const title = filename.startsWith('File:') ? filename : `File:${filename}`;
+  const [found] = await imageInfo([title]);
+  if (!found) return { best: null, subject: null, considered: 0 };
+  return { best: { ...found, score: null }, subject: null, considered: 1 };
 }
 
 /* --- download and credit -------------------------------------------------- */
@@ -362,13 +388,22 @@ async function main() {
     const file = `${t.key}${EXT}`;
     const dest = path.join(IMG_DIR, file);
 
+    const pinned = picks[t.key]?.pin ? picks[t.key].file : null;
+
     if (!REFRESH && picks[t.key] && (await exists(dest))) { kept++; continue; }
+    // A pinned pick is a human overruling the scorer. `--refresh` re-picks
+    // everything else; it must not quietly undo that judgement. Only an
+    // explicit `--only=<key>` re-fetches a pinned entry, and even then it
+    // re-fetches the same file — to pick up a better master on Commons.
+    if (REFRESH && pinned && !ONLY.includes(t.key) && (await exists(dest))) { kept++; continue; }
 
     process.stdout.write(`  ${t.key.padEnd(30)}`);
     try {
-      const { best, considered } = await pickImage(t);
+      const { best, considered } = pinned ? await pinnedImage(pinned) : await pickImage(t);
       if (!best) {
-        console.log(` — nothing usable (${considered} considered)`);
+        console.log(pinned
+          ? ` — pinned file not found on Commons: ${pinned}`
+          : ` — nothing usable (${considered} considered)`);
         misses.push(t);
         failed++;
         continue;
@@ -386,6 +421,7 @@ async function main() {
         bytes: stored.bytes,
         score: best.score,
         fetched: new Date().toISOString().slice(0, 10),
+        ...(pinned ? { pin: true } : {}),
       };
       console.log(` ${String(Math.round(stored.bytes / 1024)).padStart(4)} KB  ${picks[t.key].file.slice(0, 52)}`);
       got++;

@@ -171,7 +171,7 @@ bearing and should not be smoothed over to make the build summary look better.
 These are opinions, encoded, and they are the reason to trust the output.
 
 **Silence means "we do not know", never "not required".** A missing rule produces
-*Needs review*, not a pass. Several of the 45 eligibility scenarios exist purely
+*Needs review*, not a pass. Several of the 49 eligibility scenarios exist purely
 to assert that the engine refuses to be generous.
 
 **Four outcomes, and they mean what they say.** *Meets published requirements* ·
@@ -192,7 +192,7 @@ rule is the one failure this product cannot afford.
 The distinction is not pedantry. An automated check confirms that "Matematik A"
 is still printed on the page it came from; it cannot notice that the page now
 means something different by it. So the two are reported as separate numbers and
-never merged — currently **7 records signed off by a person, 99 with their source
+never merged — currently **20 records signed off by a person, 99 with their source
 re-read**, and the site says so on `/trust/` rather than quoting the flattering
 one.
 

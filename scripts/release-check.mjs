@@ -214,6 +214,61 @@ async function main() {
   if (policy?.rollover?.currentIntake && exported?.targetIntake) ok(`Rollover target recorded: ${policy.rollover.currentIntake} → ${policy.rollover.nextIntake}`);
   else advise('No rollover target recorded', 'Set it in data/freshness-policy.json before the next cycle.');
 
+  /* --- The README's own figures ------------------------------------------- */
+  // The README argues for trusting this project partly by quoting its own
+  // numbers — how many records a person has signed off, how many scenarios hold
+  // the engine honest. Those had drifted: it claimed 7 signed off when 20 were,
+  // and gave the scenario count as both 45 and 49 two screens apart. A document
+  // that makes its case out of figures has to be checkable, so it is.
+  const readme = await fs.readFile(path.join(ROOT, 'README.md'), 'utf8').catch(() => null);
+  if (!readme) {
+    advise('No README to check', 'The figures it quotes could not be compared with the data.');
+  } else {
+    const states = { verified: 0, other: 0 };
+    let sourceChecked = 0;
+    for (const f of await listJson(path.join(DATA, 'evidence'))) {
+      const recs = await readJson(path.join(DATA, 'evidence', f), []);
+      for (const e of Array.isArray(recs) ? recs : [recs]) {
+        if (e.verificationState === 'verified') states.verified++;
+        else states.other++;
+        if (e.sourceCheck) sourceChecked++;
+      }
+    }
+
+    const signed = readme.match(/\*\*(\d+) records? signed off by a person, (\d+) with their source\s*\n?\s*re-read\*\*/);
+    if (!signed) {
+      advise('The README no longer states the verification split', 'That sentence is the honest version of the trust claim; keep it or move the check.');
+    } else if (Number(signed[1]) !== states.verified || Number(signed[2]) !== sourceChecked) {
+      const detail = `It says ${signed[1]} signed off and ${signed[2]} source-re-read; the data says ${states.verified} and ${sourceChecked}.`;
+      // Direction matters. Claiming more verification than exists is the
+      // failure this whole project is organised against; claiming less is only
+      // untidy, and blocking a release over modesty teaches people to skip the
+      // check.
+      if (Number(signed[1]) > states.verified || Number(signed[2]) > sourceChecked) {
+        block('The README claims more verification than the data supports', detail);
+      } else {
+        advise('The README understates its own verification', detail);
+      }
+    } else ok(`README verification figures match the data (${states.verified} signed off, ${sourceChecked} re-read)`);
+
+    // The scenario count is quoted in prose as the reason to believe the engine
+    // refuses to be generous, so it is taken from the engine, not from memory.
+    const { spawnSync } = await import('node:child_process');
+    const run = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'test-eligibility.mjs')], { encoding: 'utf8' });
+    const actual = Number((run.stdout || '').match(/All (\d+) eligibility scenarios pass/)?.[1]);
+    const quoted = [...readme.matchAll(/(\d+)\s+(?:eligibility\s+)?scenarios/g)].map((m) => Number(m[1]));
+    if (!actual) {
+      advise('Could not read the eligibility scenario count', 'test-eligibility.mjs did not report a total, so the README could not be checked against it.');
+    } else if (!quoted.length) {
+      ok(`${actual} eligibility scenarios pass; the README quotes no count to keep in step`);
+    } else if (quoted.some((n) => n !== actual)) {
+      block(
+        'The README quotes the wrong number of eligibility scenarios',
+        `It says ${[...new Set(quoted)].join(' and ')}; the engine runs ${actual}.`
+      );
+    } else ok(`README scenario count matches the engine (${actual})`);
+  }
+
   /* --- Report ---------------------------------------------------------------- */
   console.log(`\nRelease check — ${new Date().toISOString().slice(0, 10)}\n`);
   console.log(`  passed    ${String(passed.length).padStart(3)}`);
