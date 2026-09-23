@@ -172,7 +172,7 @@ ${hero({
         universities publish their own summaries of it, and several of those summaries are out of date.`,
       scope: `${plural(site.programmes.length, 'programme')} in ${listSentence(programmeDestinations)},
         across ${plural(dkPlaces.length, 'town and city', 'towns and cities')} at
-        ${plural(site.dkInstitutions.length, 'institution')}. Follow a light to see only that place.`,
+        ${plural(site.institutionCatalogue.all.length, 'institution')}. Follow a light to see only that place.`,
       places: dkPlaces,
       layer: 'Places with English-taught programmes',
       caption: 'Each light is a town, sized by how many programmes are there.',

@@ -15,8 +15,12 @@ export function denmarkHub(site) {
     picture(site, 'au', { prefer: 'commons' }) ||
     picture(site, 'dtu', { prefer: 'commons' });
 
-  const totalProgrammes = site.programmes.length;
-  const fields = [...new Set(site.programmes.map((p) => p.field).filter(Boolean))];
+  // Denmark's programmes, not every programme on the site. `site.programmes`
+  // stopped meaning "Danish programmes" when the Dutch Opportunities landed,
+  // and this page went on counting them under "Where you can study in English".
+  const dkProgrammes = site.dkInstitutions.flatMap((i) => i.programmes || []);
+  const totalProgrammes = dkProgrammes.length;
+  const fields = [...new Set(dkProgrammes.map((p) => p.field).filter(Boolean))];
 
   const body = html`
 ${hero({

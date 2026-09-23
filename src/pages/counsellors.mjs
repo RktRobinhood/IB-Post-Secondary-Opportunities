@@ -31,7 +31,7 @@ export function counsellors(site) {
   const deepCountries = [...new Set(opportunities.map((o) => o.destination))].map(nameFor).sort();
   const researched = destinations.filter((d) => d.sectorLandscape).map((d) => d.name).sort();
   const instCount =
-    (site.dkInstitutions?.length || 0) + countries.reduce((n, c) => n + (c.institutions?.length || 0), 0);
+    (site.institutionCatalogue?.all.length || 0) + countries.reduce((n, c) => n + (c.institutions?.length || 0), 0);
 
   const body = html`
 ${hero({

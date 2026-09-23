@@ -7,8 +7,13 @@
  *     programmes, opportunities, routes, evidence — which the map, the
  *     eligibility engine and the public export read directly.
  *   - `institutions` is a convenience projection matching the older nested
- *     shape, so the existing Denmark pages keep rendering while the rest of the
- *     site migrates. It is a view, never a second source of truth.
+ *     shape, so the institution and Programme pages keep rendering while the
+ *     rest of the site migrates. It is a view, never a second source of truth.
+ *
+ * The nested shape was designed when every record in it was Danish, and it read
+ * that way: no `destination`, a `danishName`, a `quota1Cutoff`. Five Dutch
+ * Institutions later, the projection is what decides whether a page can tell
+ * the truth about a record, so it now carries the Destination itself.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -211,9 +216,67 @@ export function evidenceStatus(graph, refs) {
   return { level: 'verified', label: 'Verified', checkedAt: newest, records };
 }
 
+/* --- Destination identity, carried into the projection --------------------- */
+
+/**
+ * Destinations that have a hand-written section of their own rather than a
+ * generated destination page.
+ *
+ * A table and not a branch. Denmark is in it because it was the pilot and got
+ * four bespoke pages under `/denmark/` before generated destination pages
+ * existed — nothing about Denmark makes it special to this function. The day a
+ * second Destination earns a section of its own it is one line here, rather
+ * than a condition in three page modules that each have to remember it.
+ */
+const DESTINATION_HUBS = { dk: '/denmark/' };
+
+/**
+ * Everything a page needs to place a record in its Destination and write an
+ * honest sentence about it.
+ *
+ * The projection used to drop `destination` on the floor. That is why
+ * `/universities/` was headed "Danish institutions" over a list containing
+ * Delft, Maastricht and Twente, and why every Dutch institution page carried a
+ * Denmark breadcrumb: the page module could not have corrected the framing if
+ * it had wanted to, because by the time a record reached it the only country
+ * left in it was the `dk-` or `nl-` at the front of an id.
+ *
+ * `articleName` is the whole difference between "in the Netherlands" and "in
+ * Netherlands", and it is on the record for exactly that reason. So
+ * `sentenceName` is what prose uses and `name` is what a label or a breadcrumb
+ * uses; a caller that picks the wrong one is visibly wrong rather than subtly
+ * wrong.
+ */
+export function destinationFacet(d, code = d?.id || null) {
+  if (!code) return null;
+  const hub = DESTINATION_HUBS[code] || null;
+  return {
+    code,
+    /* A dangling destination reference is not an excuse to invent a name. The
+       bare code is ugly on a page, which is the point — it reads as the fault
+       it is instead of as prose. */
+    name: d?.name || code,
+    sentenceName: d?.articleName || d?.name || code,
+    articleName: d?.articleName || null,
+    adjective: d?.adjective || null,
+    href: hub || `/destinations/${code}/`,
+    /* Which top-level navigation item is current. The same rule the generated
+       destination pages apply in core.mjs, so an institution page and its own
+       Destination's page never highlight two different things. */
+    section: hub || ((d?.scope || 'europe') === 'worldwide' ? '/world/' : '/europe/'),
+  };
+}
+
 /* --- Projection into the shape the current templates expect ---------------- */
 
 function project(graph, ibSubjectNames = new Map()) {
+  const facets = new Map();
+  const destinationOf = (code) => {
+    if (!code) return null;
+    if (!facets.has(code)) facets.set(code, destinationFacet(graph.destinations.get(code), code));
+    return facets.get(code);
+  };
+
   const byInstitution = new Map();
   for (const opp of graph.opportunities.values()) {
     if (!byInstitution.has(opp.institution)) byInstitution.set(opp.institution, []);
@@ -259,10 +322,20 @@ function project(graph, ibSubjectNames = new Map()) {
           .map((r) => r.label)
           .filter(Boolean),
         restrictedAdmission: !!opp.admission?.restricted,
-        quota1Cutoff: opp.admission?.historicalCutoffs?.[0]
+        /* This was `quota1Cutoff: { gpa, year }`. Quota 1 is the name of a
+           Danish national mechanism and `gpa` is a scale nobody named, so the
+           field asserted in its own key what only the record can say: which
+           competition the figure came from and what scale the number is on.
+           Both are on the record. Carry them, and let the page print what the
+           record says rather than what Denmark happens to call it. */
+        cutoff: opp.admission?.historicalCutoffs?.[0]
           ? {
-              gpa: opp.admission.historicalCutoffs[0].value,
-              year: `${opp.admission.historicalCutoffs[0].intake.split('-')[0]} intake`,
+              value: opp.admission.historicalCutoffs[0].value,
+              quota: opp.admission.historicalCutoffs[0].quota || null,
+              scale: opp.admission.historicalCutoffs[0].scale || null,
+              intake: opp.admission.historicalCutoffs[0].intake
+                ? `${opp.admission.historicalCutoffs[0].intake.split('-')[0]} intake`
+                : null,
             }
           : null,
         startMonth: opp.startMonth || null,
@@ -271,6 +344,11 @@ function project(graph, ibSubjectNames = new Map()) {
         evidence: opp.evidence || [],
         institutionId: inst.id,
         institutionName: inst.shortName || inst.name,
+        /* The Opportunity's own Destination, not its Institution's. They agree
+           today and normally will, but the Opportunity is the record that says
+           which admissions jurisdiction applies to it, and a branch campus in
+           another country is the case where they come apart. */
+        destination: destinationOf(opp.destination || inst.destination),
         href: `/programmes/${opp.id}/`,
       };
     });
@@ -280,10 +358,23 @@ function project(graph, ibSubjectNames = new Map()) {
     return {
       id: inst.id,
       legacyId: inst.id.replace(/^dk-/, ''),
+      /* The Destination is the first thing a page needs about an Institution
+         and the last thing this projection used to keep. Everything wrong on
+         `/universities/` followed from its absence. */
+      destination: destinationOf(inst.destination),
       name: inst.name,
       shortName: inst.shortName || null,
-      danishName: inst.localName || null,
+      /* Was `danishName`, which is what the record is called in Danish and what
+         the field was called for every Institution, including the five that are
+         not Danish. `localName` is what the source record calls it. */
+      localName: inst.localName || null,
       type: typeLabel(inst.type),
+      /* What it teaches in when it is not teaching in English. The institution
+         page needs it to tell a student what the alternative to an
+         English-taught degree here actually is, and that is a property of the
+         institution rather than of its country — Maastricht and Twente teach
+         in English in a Dutch-speaking Destination. */
+      teachingLanguage: inst.languageOfInstruction?.primary || null,
       founded: inst.founded || null,
       city: places[0]?.name || null,
       campuses: places.map((p) => p.name),

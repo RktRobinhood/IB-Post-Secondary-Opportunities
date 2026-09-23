@@ -9,7 +9,7 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify, listSentence } from './html.mjs';
-import { loadCanonical } from './canonical.mjs';
+import { destinationFacet, loadCanonical } from './canonical.mjs';
 import { reconcileDestinations } from './catalogue.mjs';
 import { publishable as editoriallyPublishable } from './imagery.mjs';
 
@@ -99,10 +99,20 @@ export async function load() {
       readDir(path.join(DATA, 'recognition')),
     ]);
 
-  // Denmark is the pilot: its pages render from the canonical entity graph.
-  // The research files under data/dk stay as the input the migration reads, and
-  // are only used directly if the migration has not been run yet.
-  const dkInstitutions = canonical.institutions.length ? canonical.institutions : legacyDk;
+  /* Denmark was the pilot: institution pages render from the canonical entity
+     graph. The research files under data/dk stay as the input the migration
+     reads and are only used directly if the migration has not been run yet —
+     in which case every record in them is Danish by construction, and has to be
+     told so, because that shape predates the model having a Destination at all.
+     `danishName` is the same story: it is what the field is called in the
+     un-migrated files, and `localName` is what the canonical record calls it. */
+  const institutions = canonical.institutions.length
+    ? canonical.institutions
+    : legacyDk.map((inst) => ({
+        ...inst,
+        localName: inst.localName || inst.danishName || null,
+        destination: destinationFacet(canonical.graph.destinations.get('dk'), 'dk'),
+      }));
 
   for (const c of countries) {
     c.flag = FLAGS[c.code] || '';
@@ -135,18 +145,19 @@ export async function load() {
     c.researchDepth = researchDepth(c, canonical.graph);
   }
 
-  for (const inst of dkInstitutions) {
+  for (const inst of institutions) {
     inst.href = `/universities/${inst.id}/`;
     inst.programmes = asArray(inst.programmes).map((p) => ({
       ...p,
       id: p.id || `${inst.id}-${slugify(p.name)}`,
       institutionId: inst.id,
       institutionName: inst.shortName || inst.name,
+      destination: p.destination || inst.destination || null,
       href: `/programmes/${p.id || `${inst.id}-${slugify(p.name)}`}/`,
     }));
   }
 
-  const programmes = dkInstitutions.flatMap((i) => i.programmes);
+  const programmes = institutions.flatMap((i) => i.programmes);
 
   /* A migrated Destination and an unmigrated country profile describe the same
      thing in different shapes. This projects the canonical form into the
@@ -197,8 +208,11 @@ export async function load() {
     dataAsOf: d.meta?.dataAsOf || null,
     targetIntake: d.targetIntake || null,
     artDirection: d.artDirection || null,
-    // Denmark has its own section rather than a generated destination page.
-    href: d.id === 'dk' ? '/denmark/' : `/destinations/${d.id}/`,
+    // Which Destinations have a hand-written section instead of a generated
+    // page is one fact, and it used to be written here and again wherever else
+    // it was needed. canonical.mjs holds it now, so an institution page and its
+    // Destination's own page cannot disagree about where the Destination lives.
+    href: destinationFacet(d).href,
     migrated: true,
   }));
 
@@ -222,28 +236,17 @@ export async function load() {
    * the copy follows. `scripts/test-credentials.mjs` already forbids code that
    * branches on a country; this is the same rule applied to prose. */
   const scopeCodes = [...new Set([...canonical.graph.opportunities.values()].map((o) => o.destination))].filter(Boolean);
-  const scopeNames = scopeCodes
-    .map((code) => {
-      const d = allDestinations.find((x) => x.code === code);
-      // Inside a sentence some names take a definite article and the page
-      // cannot know which, so the record says.
-      return d?.articleName || d?.name || code;
-    })
-    .sort((a, b) => a.replace(/^the /, '').localeCompare(b.replace(/^the /, '')));
   const opportunityScope = {
+    ...scopeWording(scopeCodes.map((code) => sentenceNameFor(allDestinations, code))),
     codes: scopeCodes,
-    names: scopeNames,
-    /** "Denmark", "Denmark and the Netherlands", "five destinations". */
-    label:
-      scopeNames.length === 0
-        ? 'no destinations yet'
-        : scopeNames.length <= 3
-          ? listSentence(scopeNames)
-          : `${scopeNames.length} destinations`,
-    /** For a navigation chip, where there is room for a word and not a list. */
-    chip: scopeNames.length === 1 ? scopeNames[0] : `${scopeNames.length} destinations`,
     complete: scopeCodes.length >= allDestinations.length,
   };
+
+  /* The same question asked of the Institutions rather than the Opportunities,
+     because they are not the same set and the page that got this wrong was the
+     one about Institutions. An Institution with no Opportunities recorded yet
+     is still in the catalogue and still has to be placed in a country. */
+  const catalogue = institutionCatalogue(institutions, allDestinations);
 
   return {
     countries,
@@ -251,7 +254,14 @@ export async function load() {
     opportunityScope,
     europe: countries.filter((c) => c.scope === 'europe'),
     world: countries.filter((c) => c.scope === 'worldwide'),
-    dkInstitutions,
+    institutionCatalogue: catalogue,
+    /* Genuinely Denmark-only, and named for what it now holds. The Denmark hub
+       and the About page's "Danish institutions" count both promise Danish
+       Institutions in as many words; before this they were handed all thirteen,
+       five of which are Dutch. Everything that wanted *every* Institution —
+       the institution index, the Programme explorer, the build's page loop —
+       asks the catalogue instead. */
+    dkInstitutions: catalogue.in('dk'),
     programmes,
     graph: canonical.graph,
     ibSubjects: ibSubjects.subjects || [],
@@ -267,6 +277,104 @@ export async function load() {
     officialImages,
     glossary,
     faq,
+  };
+}
+
+/* --- How many Destinations is this about, and what do I call them? --------- */
+
+/**
+ * Inside a sentence some Destination names take a definite article and a page
+ * cannot know which, so the record says. "in the Netherlands", not "in
+ * Netherlands".
+ */
+function sentenceNameFor(destinations, code) {
+  const d = destinations.find((x) => x.code === code);
+  return d?.articleName || d?.name || code;
+}
+
+/**
+ * The wording for "which Destinations this surface covers", derived rather than
+ * asserted.
+ *
+ * Written once because it was needed twice and will be needed again. The rule
+ * it encodes is that a heading may name the Destinations while it can still
+ * name them all, and must stop naming any of them the moment it cannot — a page
+ * that says "every English-taught degree in Denmark" over a list containing
+ * Delft is worse than one that says "5 destinations", because a student takes
+ * the heading at its word and stops looking.
+ *
+ * Names sort by the word that matters, so "the Netherlands" files under N.
+ */
+function scopeWording(names) {
+  const sorted = [...names].sort((a, b) => a.replace(/^the /, '').localeCompare(b.replace(/^the /, '')));
+  return {
+    names: sorted,
+    /** "Denmark", "Denmark and the Netherlands", "five destinations". */
+    label:
+      sorted.length === 0
+        ? 'no destinations yet'
+        : sorted.length <= 3
+          ? listSentence(sorted)
+          : `${sorted.length} destinations`,
+    /** For a navigation chip, where there is room for a word and not a list. */
+    chip: sorted.length === 1 ? sorted[0] : `${sorted.length} destinations`,
+  };
+}
+
+/**
+ * The Institutions, arranged by the thing that decides how every page about
+ * them reads.
+ *
+ * `dkInstitutions` was a correct interface for as long as Denmark was the only
+ * Destination with Institutions, and it stopped being correct without anything
+ * failing: the list grew five Dutch entries, `/universities/` went on calling
+ * them "Danish institutions" under a Denmark breadcrumb, and nothing in the
+ * build had an opinion about it.
+ *
+ * Deleting the name would only have moved the problem. Destination selection,
+ * ordering and the wording for "which countries is this list about" would then
+ * be re-decided by the build, the institution index, the Programme explorer and
+ * the Denmark hub, four times, from the same `site.institutions` array — and
+ * the first one to get it wrong would again produce a plausible page rather
+ * than an error. So the knowledge is concentrated here and callers ask for what
+ * they actually mean:
+ *
+ *   `.all`          — every Institution, whatever its Destination.
+ *   `.in(code)`     — only that Destination's, for a page that promises them.
+ *   `.byDestination`— the same set grouped, so an index can be honest about
+ *                     holding more than one country without hard-coding two.
+ *   `.scope`        — what to call the set in a heading.
+ *
+ * It lives here rather than in `catalogue.mjs` only because that file is owned
+ * by another change in flight; Destination identity and precedence are its
+ * subject and this belongs beside them.
+ */
+function institutionCatalogue(institutions, destinations) {
+  const all = institutions;
+  const byCode = new Map();
+  for (const inst of all) {
+    const code = inst.destination?.code || null;
+    if (!byCode.has(code)) byCode.set(code, []);
+    byCode.get(code).push(inst);
+  }
+
+  const byDestination = [...byCode.entries()]
+    .filter(([code]) => code)
+    .map(([code, list]) => ({
+      ...(list[0].destination),
+      institutions: list,
+      programmes: list.reduce((n, i) => n + (i.programmes?.length || 0), 0),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  return {
+    all,
+    /* An empty array, not everything. A page that asks for a Destination we
+       hold no Institutions for is making a claim about that Destination, and
+       the honest answer to it is "none" rather than "here is Denmark's". */
+    in: (code) => byCode.get(code) || [],
+    byDestination,
+    scope: scopeWording(byDestination.map((d) => sentenceNameFor(destinations, d.code))),
   };
 }
 
@@ -552,8 +660,12 @@ export function validate(site) {
     }
   }
 
-  for (const inst of site.dkInstitutions) {
-    const at = `dk/${inst.id}.json`;
+  /* Every Institution, not Denmark's. A Dutch programme with no URL and no
+     recorded requirements is exactly as unusable to a student as a Danish one,
+     and this loop used to be handed only the Danish ones — under a `dk/` path
+     that would have been wrong for the rest anyway. */
+  for (const inst of site.institutionCatalogue.all) {
+    const at = `institutions/${inst.id}.json`;
     if (!inst.about) warn(at, 'no about text');
     if (!inst.programmes.length) warn(at, 'no programmes — is this intentional?');
     for (const p of inst.programmes) {
@@ -612,12 +724,17 @@ export function validate(site) {
   // Australia. Nothing collides today — Aarhus keys are subject names and the
   // Australian ones are city names — but if one ever did, the failure is silent
   // and it is a photograph of the wrong continent on a programme page.
+  //
+  // The prefix stripped here is whatever Destination the record belongs to, the
+  // same normalisation `picture()` does, rather than `dk-`. Checking only the
+  // Danish keys left the Dutch ones — `utwente`, `maastricht` — free to collide
+  // with a country profile's institution key and nothing would have said so.
   const imageKeys = new Map();
-  for (const inst of site.dkInstitutions) {
-    imageKeys.set(inst.id.replace(/^dk-/, ''), `dk/${inst.id}`);
+  for (const inst of site.institutionCatalogue.all) {
+    imageKeys.set(inst.id.replace(/^[a-z]{2}-/, ''), inst.id);
     for (const p of inst.programmes) {
-      const key = p.id.replace(/^dk-/, '').replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
-      imageKeys.set(key, `dk programme "${p.name}"`);
+      const key = p.id.replace(/^[a-z]{2}-/, '').replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
+      imageKeys.set(key, `programme "${p.name}"`);
     }
   }
   for (const c of site.countries) {

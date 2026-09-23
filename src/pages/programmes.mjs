@@ -77,7 +77,55 @@ function awardBlock(opp) {
   );
 }
 
-/* --- A Danish institution -------------------------------------------------- */
+/* --- An institution -------------------------------------------------------- */
+
+/**
+ * The Destination a record belongs to, or a usable stand-in.
+ *
+ * Every page below used to open with `{ href: '/denmark/', label: 'Denmark' }`
+ * written out by hand, which was true of all thirteen Institutions until five
+ * of them were Dutch and then was true of eight. The Destination now travels on
+ * the record, so the only thing left to decide is what to do when it does not —
+ * and the answer is to render the page without a Destination crumb rather than
+ * to fall back to a country, because falling back to a country is how every
+ * Dutch page came to be filed under Denmark in the first place.
+ */
+function destinationOf(record) {
+  return record?.destination || null;
+}
+
+/**
+ * A published cut-off, said the way the record actually holds it.
+ *
+ * Eleven of the thirty-two recorded cut-offs are not numbers. SDU publishes
+ * "All qualified applicants accepted" and AAU publishes "All admitted", which
+ * are outcomes of the competition rather than scores in it, and the template
+ * used to read every one of them as a figure: "a Danish average of **All
+ * qualified applicants accepted**". Naming a grade scale beside that sentence
+ * would have made it worse rather than better, so the scale is attached only to
+ * something measured on it.
+ *
+ * `quota` and `scale` come off the record and the Recognition Scheme. Neither
+ * is this file's to assume — "quota 1" is the name of one country's machinery.
+ */
+function cutoffSentence(cutoff, scaleName) {
+  if (!cutoff?.value) return null;
+  const quota = cutoff.quota ? `${cutoff.quota.toLowerCase()} ` : '';
+  const when = cutoff.intake ? ` for the ${cutoff.intake}` : '';
+  const numeric = /^\d+([.,]\d+)?$/.test(String(cutoff.value).trim());
+  return numeric
+    ? `The most recently published ${quota}cut-off was **${cutoff.value}**${scaleName ? ` on the ${scaleName}` : ''}${when}. Cut-offs move every year, so treat any published figure as a floor rather than a target.`
+    : `The most recently published ${quota}outcome${when} was "${cutoff.value}" rather than a cut-off figure. That is last year's result, not a promise about this one — where a programme fills up, a figure appears.`;
+}
+
+/** An ISO date as a person writes it. Unparseable dates print as they are. */
+function prettyDate(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime())
+    ? iso
+    : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
 
 /**
  * Further pictures of a university: its own programme pages' photographs.
@@ -124,6 +172,7 @@ function universitySlides(site, inst, max = 4) {
 
 export function university(site, inst, { prev, next }) {
   const pic = picture(site, inst.id);
+  const dest = destinationOf(inst);
   const byField = new Map();
   for (const p of inst.programmes) {
     const f = p.field || 'Other';
@@ -133,7 +182,10 @@ export function university(site, inst, { prev, next }) {
 
   const body = html`
 ${hero({
-  eyebrow: `${inst.city}${inst.type ? ` · ${inst.type}` : ''}`,
+  // The country belongs in the eyebrow now that there is more than one of
+  // them. "Delft · Technical university" was a complete description while
+  // every institution on the site was Danish and is a riddle now.
+  eyebrow: [inst.city, dest?.name, inst.type].filter(Boolean).join(' · '),
   title: inst.name,
   lede: inst.about,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
@@ -144,8 +196,8 @@ ${hero({
 <section class="section">
   <div class="wrap">
     ${crumbs([
-      { href: '/denmark/', label: 'Denmark' },
-      { href: '/universities/', label: 'Universities' },
+      ...(dest ? [{ href: dest.href, label: dest.name }] : []),
+      { href: '/universities/', label: 'Institutions' },
       { label: inst.shortName || inst.name },
     ])}
 
@@ -153,9 +205,21 @@ ${hero({
       <div class="prose">
         ${inst.programmes.length === 0
           ? note(
+              // This used to name Danish at A level and the Studieprøven, which
+              // is the right advice at a Danish institution and nonsense at a
+              // Dutch one. The specific language qualification is a fact about
+              // a Destination's own rules and belongs on that Destination's
+              // pages, where it can be sourced. What belongs here is the part
+              // that holds at any institution teaching in its own language —
+              // and the language comes off the record, because two of the Dutch
+              // institutions teach in English and the country does not.
               `No fully English-taught bachelor programmes are listed here for 2027 entry. That does not
-              mean you cannot study here — it means you would need Danish at A level, or the Studieprøven
-              language test, and would apply to the Danish-taught programmes instead.`,
+              mean you cannot study here — it means you would need to meet its
+              ${inst.teachingLanguage ? `${inst.teachingLanguage}-language` : 'local-language'} entry
+              requirements and apply to the programmes it teaches in
+              ${inst.teachingLanguage || 'its own language'} instead.${
+                dest ? ` ${dest.name}'s own section explains what that takes.` : ''
+              }`,
               { kind: 'warn', title: 'Nothing in English' }
             )
           : ''}
@@ -229,9 +293,13 @@ ${hero({
 
   return page({
     title: inst.name,
-    description: truncate(inst.about || `${inst.name} — English-taught bachelor programmes and entry requirements for IB students.`, 155),
+    description: truncate(
+      inst.about ||
+        `${inst.name}${dest ? ` in ${dest.sentenceName}` : ''} — English-taught bachelor programmes and entry requirements for IB students.`,
+      155
+    ),
     path: inst.href,
-    section: '/denmark/',
+    section: dest?.section,
     body,
   });
 }
@@ -251,50 +319,81 @@ function programmeRow(p) {
     <div class="prog__side">
       ${req ? html`<p class="prog__req"><strong>Requires:</strong> ${truncate(req, 150)}</p>` : ''}
       ${p.restrictedAdmission ? html`<p>${tags(['Restricted admission'], 'tag--warn')}</p>` : ''}
-      ${p.quota1Cutoff?.gpa ? html`<p><small>Quota 1 cut-off ${p.quota1Cutoff.gpa}${p.quota1Cutoff.year ? ` (${p.quota1Cutoff.year})` : ''}</small></p>` : ''}
+      ${p.cutoff?.value
+        ? html`<p><small>${p.cutoff.quota ? `${p.cutoff.quota}, ` : ''}${p.cutoff.intake || 'last published'}: ${p.cutoff.value}</small></p>`
+        : ''}
     </div>
   </li>`;
 }
 
 /* --- Universities index ---------------------------------------------------- */
 
+/**
+ * Every Institution on the site, grouped by the Destination it is in.
+ *
+ * This page was headed "Danish institutions", carried a Denmark breadcrumb and
+ * sat in the Denmark section, and then listed Breda, Delft, Maastricht, Twente
+ * and Erasmus Rotterdam. The heading was not decoration: a student who reads
+ * "Danish institutions" and sees Maastricht concludes the site is broken, and a
+ * student who reads it and *doesn't* look concludes there is nothing outside
+ * Denmark to look at.
+ *
+ * So nothing here is asserted. The heading names the Destinations while it can
+ * still name them all and says "N destinations" when it cannot, the grouping
+ * comes from the records, and the whole page is correct for a third Destination
+ * the day one arrives — which is the only version of this fix that is worth
+ * making, because the previous copy was also correct on the day it was written.
+ */
 export function universitiesIndex(site) {
+  const catalogue = site.institutionCatalogue;
+  const scope = catalogue.scope;
+
   const body = html`
 ${hero({
   variant: 'plain',
-  eyebrow: 'Denmark',
-  title: 'Danish institutions',
-  lede: 'Every institution on this site that teaches at least some of its undergraduate degrees in English — and the ones that do not, so you know.',
+  eyebrow: scope.label,
+  title: 'Where you can study',
+  lede: `Every institution in ${scope.label} that teaches at least some of its undergraduate degrees in
+    English — and the ones that do not, so you know.`,
 })}
 <section class="section">
   <div class="wrap">
-    ${crumbs([{ href: '/denmark/', label: 'Denmark' }, { label: 'Universities' }])}
-    ${site.dkInstitutions.length
-      ? html`<div class="grid grid--3">
-          ${site.dkInstitutions
-            .slice()
-            .sort((a, b) => b.programmes.length - a.programmes.length || a.name.localeCompare(b.name))
-            .map((i) => {
-              const p = picture(site, i.id);
-              return card({
-                href: i.href,
-                title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
-                text: i.about,
-                image: p ? { src: p.src, alt: p.alt } : null,
-                placeholder: i.shortName || i.name,
-                meta: [i.city, plural(i.programmes.length, 'English-taught programme')],
-              });
-            })}
-        </div>`
+    ${crumbs([{ label: 'Institutions' }])}
+    ${catalogue.byDestination.length
+      ? catalogue.byDestination.map(
+          (d) => html`
+          ${sectionHead({
+            eyebrow: plural(d.institutions.length, 'institution'),
+            title: `In ${d.sentenceName}`,
+            lede: `${plural(d.programmes, 'English-taught programme')} recorded here.`,
+          })}
+          <div class="grid grid--3" style="margin-bottom:var(--s7)">
+            ${d.institutions
+              .slice()
+              .sort((a, b) => b.programmes.length - a.programmes.length || a.name.localeCompare(b.name))
+              .map((i) => {
+                const p = picture(site, i.id);
+                return card({
+                  href: i.href,
+                  title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
+                  text: i.about,
+                  image: p ? { src: p.src, alt: p.alt } : null,
+                  placeholder: i.shortName || i.name,
+                  meta: [i.city, plural(i.programmes.length, 'English-taught programme')],
+                });
+              })}
+          </div>`
+        )
       : emptyState('Institution data has not been built yet.')}
   </div>
 </section>`;
 
   return page({
-    title: 'Danish institutions',
-    description: 'Danish universities, university colleges and academies with English-taught undergraduate programmes.',
+    title: `Institutions in ${scope.label}`,
+    description: `Universities, university colleges and academies in ${scope.label} with English-taught undergraduate programmes.`,
     path: '/universities/',
-    section: '/denmark/',
+    // No section. This page spans Destinations, and highlighting one of them in
+    // the navigation is the same claim the old heading made.
     body,
   });
 }
@@ -308,6 +407,25 @@ export function programme(site, p, inst) {
   const ev = site.graph ? evidenceStatus(site.graph, opp?.evidence) : null;
   const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
   const provisionalDates = (route?.milestones || []).filter((m) => m.provisional).length;
+  const dest = destinationOf(p) || destinationOf(inst);
+
+  /* The name of the scale a cut-off is published on, from the Recognition
+     Scheme that defines it. "A Danish average of 11.4" used to be written into
+     this template, which made it a sentence about Denmark printed over whatever
+     Opportunity you were looking at. The record names its scale; the Scheme
+     names the scale; neither of them is this file's opinion. */
+  const scheme = (site.recognitionSchemes || []).find((s) => s.destination === dest?.code);
+  const cutoffScale = p.cutoff?.scale && scheme?.gradeScale?.id === p.cutoff.scale ? scheme.gradeScale.name : null;
+
+  /* When applications actually close, taken from the Application Route rather
+     than asserted. The sidebar said "15 March 2027, 12:00 CET" and "apply at
+     optagelse.dk" on every Programme page on the site, which on Delft's page
+     was two confident falsehoods about the only two things a student would act
+     on. A Route may publish more than one closing date — the Netherlands has
+     one for numerus fixus and a later one for everything else — so all of them
+     are listed rather than one of them being picked. */
+  const closes = (route?.milestones || []).filter((m) => m.type === 'submit' && m.consequence === 'hard');
+  const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
 
   const body = html`
 ${hero({
@@ -321,7 +439,7 @@ ${hero({
 <section class="section">
   <div class="wrap">
     ${crumbs([
-      { href: '/denmark/', label: 'Denmark' },
+      ...(dest ? [{ href: dest.href, label: dest.name }] : []),
       { href: '/programmes/', label: 'Programmes' },
       { href: inst.href, label: inst.shortName || inst.name },
       { label: p.name },
@@ -387,11 +505,14 @@ ${hero({
               // The second sentence used to be unconditional and was about
               // Danish national policy, which read as a fact about whichever
               // programme you happened to be looking at. It now travels with
-              // the cut-off, which is the only part of it that is Danish.
+              // the cut-off — and the competition it came out of and the scale
+              // it is measured on are read off the record and the Recognition
+              // Scheme rather than named here, because "quota 1" and "a Danish
+              // average" are the names of one country's machinery and this
+              // paragraph is printed over every country's programmes.
               `This programme has restricted admission, so meeting the requirements does not guarantee a place.
-              ${p.quota1Cutoff?.gpa
-                ? `The most recently published quota 1 cut-off was a Danish average of **${p.quota1Cutoff.gpa}**${p.quota1Cutoff.year ? ` for ${p.quota1Cutoff.year}` : ''}. Cut-offs move every year and the national policy is cutting intake, so treat any published figure as a floor rather than a target.`
-                : 'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
+              ${cutoffSentence(p.cutoff, cutoffScale) ||
+                'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
               { kind: 'warn', title: 'Restricted admission' }
             )
           : note(
@@ -456,8 +577,25 @@ ${hero({
           : ''}
         ${facts([
           { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
-          { label: 'Apply by', value: '15 March 2027, 12:00 CET' },
-          { label: 'Apply at', value: '[optagelse.dk](https://www.optagelse.dk)' },
+          { label: 'Country', value: dest ? html`<a href="${url(dest.href)}">${dest.name}</a>` : null },
+          {
+            label: closes.length > 1 ? 'Applications close' : 'Apply by',
+            value: closes.length
+              ? html`<ul style="list-style:none;padding:0;margin:0">
+                  ${closes.map(
+                    (m) => html`<li><strong>${prettyDate(m.date)}</strong>${m.timeOfDay ? ` ${m.timeOfDay} ${m.timeZone || ''}` : ''}${
+                      closes.length > 1 ? html` — ${m.label}` : ''
+                    }</li>`
+                  )}
+                </ul>`
+              : null,
+          },
+          {
+            label: 'Apply at',
+            value: route?.portalUrl
+              ? html`<a href="${route.portalUrl}" rel="noopener nofollow">${system?.name || new URL(route.portalUrl).hostname.replace(/^www\./, '')}</a>`
+              : null,
+          },
         ])}
         ${note(
           `Requirements change between admission years. Before you apply, open the official page and check that
@@ -471,9 +609,13 @@ ${hero({
 
   return page({
     title: `${p.name} — ${inst.shortName || inst.name}`,
-    description: truncate(p.summary || `${p.name} at ${inst.name}: entry requirements for IB students, taught in English.`, 155),
+    description: truncate(
+      p.summary ||
+        `${p.name} at ${inst.name}${dest ? ` in ${dest.sentenceName}` : ''}: entry requirements for IB students, taught in English.`,
+      155
+    ),
     path: p.href,
-    section: '/denmark/',
+    section: dest?.section,
     body,
   });
 }
@@ -484,7 +626,7 @@ export function programmesIndex(site) {
   const scope = site.opportunityScope;
   const programmeCount = site.programmes.length;
   const fields = [...new Set(site.programmes.map((p) => p.field).filter(Boolean))].sort();
-  const institutions = site.dkInstitutions
+  const institutions = site.institutionCatalogue.all
     .filter((i) => i.programmes.length)
     .map((i) => ({ id: i.id, name: i.shortName || i.name }));
   const campuses = [...new Set(site.programmes.map((p) => p.campus).filter(Boolean))].sort();
@@ -517,7 +659,7 @@ export function programmesIndex(site) {
     degree: p.degree || '',
     ects: p.ects || null,
     restricted: !!p.restrictedAdmission,
-    cutoff: p.quota1Cutoff?.gpa || null,
+    cutoff: p.cutoff?.value || null,
     summary: truncate(p.summary || '', 170),
     requirements: requirementLine(p.entryRequirements) || truncate(p.requirementsText || '', 150),
     entry: p.entryRequirements || null,
@@ -647,7 +789,7 @@ ${hero({
     <ul class="prog-list" id="prog-results"></ul>
     <noscript>
       <p class="empty">Filtering needs JavaScript. Every programme is also listed on its institution's page —
-      see <a href="${url('/universities/')}">Danish institutions</a>.</p>
+      see <a href="${url('/universities/')}">every institution</a>.</p>
     </noscript>
   </div>
 </section>
@@ -656,8 +798,10 @@ ${hero({
 <script type="application/json" id="place-data">${raw(JSON.stringify(placeIndex))}</script>`;
 
   return page({
-    title: 'Find a degree in Denmark',
-    description: 'Search every English-taught undergraduate programme in Denmark by field, institution, city and entry requirements.',
+    // The hero stopped asserting Denmark when Delft landed; the <title> and the
+    // meta description, which are what a search result shows, did not.
+    title: `Find a degree in ${scope.label}`,
+    description: `Search every English-taught undergraduate programme in ${scope.label} by field, institution, city and entry requirements.`,
     path: '/programmes/',
     section: '/programmes/',
     body,
@@ -715,6 +859,11 @@ export function planner(site) {
   const destinations = new Set(opportunities.map((o) => o.destination).filter(Boolean));
   const schemes = (site.recognitionSchemes || []).filter((s) => destinations.has(s.destination));
   const soleScheme = schemes.length === 1 ? schemes[0] : null;
+  /* What to call the levels the panel fills in. "Your Danish levels" is right
+     while one Scheme covers the page and meaningless the moment two do. */
+  const schemeAdjective = soleScheme
+    ? site.destinations.find((d) => d.code === soleScheme.destination)?.adjective || null
+    : null;
 
   const evidenceIndex = Object.fromEntries(
     [...(site.graph?.evidence?.values() || [])].map((e) => [
@@ -728,7 +877,16 @@ ${hero({
   variant: 'plain',
   eyebrow: 'Tool',
   title: 'Will my subjects get me in?',
-  lede: 'Enter the IB subjects you are taking and the level you are taking each at, and say which IB award you expect to finish with. This converts them using the Danish Agency\'s official table, then checks them against every English-taught programme in Denmark — and shows its reasoning for each one.',
+  // The conversion step is not universal and this sentence used to say it was.
+  // A requirement written in IB terms consults no Recognition Scheme at all,
+  // which is most of the world and now most of this catalogue — so the sentence
+  // names a Scheme only where one Scheme covers everything on the page, and
+  // names the Destinations the catalogue actually holds either way.
+  lede: `Enter the IB subjects you are taking and the level you are taking each at, and say which IB award you
+    expect to finish with. ${
+      soleScheme ? `This converts them using ${soleScheme.label}, then checks` : 'This checks'
+    } them against every English-taught programme in ${site.opportunityScope.label} — and shows its reasoning
+    for each one.`,
 })}
 
 <section class="section">
@@ -799,7 +957,7 @@ ${hero({
           </p>
         </form>
         <div class="converted" id="p-converted" role="status" aria-live="polite">
-          Your Danish levels will appear here.
+          Your ${schemeAdjective ? `${schemeAdjective} levels` : 'converted subject levels'} will appear here.
         </div>
       </aside>
 
@@ -854,8 +1012,7 @@ ${hero({
 
   return page({
     title: 'Check my subjects',
-    description:
-      'Enter your IB subjects, levels and grades to see which English-taught Danish degrees you meet the published requirements for — with the reasoning for every rule.',
+    description: `Enter your IB subjects, levels and grades to see which English-taught degrees in ${site.opportunityScope.label} you meet the published requirements for — with the reasoning for every rule.`,
     path: '/planner/',
     section: '/planner/',
     body,

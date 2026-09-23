@@ -175,7 +175,7 @@ async function main() {
 
   const site = await load();
   console.log(
-    `  data: ${site.countries.length} countries · ${site.dkInstitutions.length} Danish institutions · ` +
+    `  data: ${site.countries.length} countries · ${site.institutionCatalogue.all.length} institutions · ` +
       `${site.programmes.length} programmes · ${Object.keys(site.images).length + Object.keys(site.officialImages).length} images`
   );
 
@@ -253,9 +253,9 @@ async function main() {
   await write('/denmark/ib-conversion/', dk.denmarkConversion(site));
   await write('/denmark/money/', dk.denmarkMoney(site));
 
-  /* Danish institutions and programmes */
+  /* Institutions and programmes, in every Destination that has them */
   await write('/universities/', prog.universitiesIndex(site));
-  const insts = site.dkInstitutions.slice().sort((a, b) => a.name.localeCompare(b.name));
+  const insts = site.institutionCatalogue.all.slice().sort((a, b) => a.name.localeCompare(b.name));
   for (const [i, inst] of insts.entries()) {
     const prev = insts[i - 1] ? { href: insts[i - 1].href, label: insts[i - 1].shortName || insts[i - 1].name } : null;
     const next = insts[i + 1] ? { href: insts[i + 1].href, label: insts[i + 1].shortName || insts[i + 1].name } : null;

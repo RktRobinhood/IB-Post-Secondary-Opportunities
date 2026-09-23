@@ -391,6 +391,23 @@ Fédération des cégeps. `official-rule-owner` was used with the reasoning in
 
 ## Things found that are not yet issues
 
+- **An institution page prints the same list twice.** `canonical.mjs` projects
+  both `ibNotes` and `notes` from `inst.meta.notes`, so every institution page
+  renders that list under "What this institution asks of IB students" and again
+  under "Worth knowing". Visible on every one of the thirteen; found while
+  fixing #30 and left alone because the fix is a decision about what the two
+  headings are each *for*, not a rename.
+- **Eleven of the thirty-two recorded cut-offs are not numbers.** SDU publishes
+  "All qualified applicants accepted" and AAU "All admitted" — outcomes of the
+  competition rather than scores in it — in the same `historicalCutoffs[].value`
+  field as `11.4`. The Programme page used to read every one as a figure ("a
+  Danish average of **All qualified applicants accepted**"); it now tests the
+  value and writes a different sentence. The model would be better with a state
+  for it, the way `dateState` works for dates.
+- **`inst.quotaNotes` renders a heading named after a Danish mechanism.** "How
+  it runs quota 2" is in the general institution template, gated on a field the
+  canonical projection always sets to `null`, so it is dead today and would be
+  wrong for a non-Danish Institution the day it is not.
 - ~~**10 of 14 `ibPageUrl` values in `data/countries/ca.json` were 404s**~~ —
   swept repo-wide in `9785b82` and **the answer was the opposite field**. Of
   962 links: `ibPageUrl` 0 dead of 72, `website` 12 dead of 453, and
