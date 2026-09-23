@@ -10,6 +10,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify } from './html.mjs';
 import { loadCanonical } from './canonical.mjs';
+import { publishable as editoriallyPublishable } from './imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -400,35 +401,23 @@ export const RESEARCH_DEPTH = {
  */
 export const OFFICIAL_MAX_BYTES = 2_000_000;
 
-/** An official pick we are willing to hot-link, or null. */
+/**
+ * An official pick we are willing to hot-link, or null.
+ *
+ * Two ceilings, and they are unrelated. Bytes are this file's business, because
+ * a 20 MB share image is a page-weight problem wherever it points. Whether the
+ * picture is *of* anything is `src/lib/imagery.mjs`'s business, and an official
+ * image is exempt from the score floor there: it was published by the
+ * institution as its own picture of itself rather than chosen from a pool of
+ * candidates by a heuristic, so there is no score and nothing for a floor to
+ * measure. A person can still reject one.
+ */
 function publishable(official) {
   if (!official) return null;
   // No content-length is not a reason to reject — plenty of CDNs omit it — but
   // a known size over the ceiling is.
   if (typeof official.bytes === 'number' && official.bytes > OFFICIAL_MAX_BYTES) return null;
-  return rejected(official) ? null : official;
-}
-
-/**
- * Whether a person has looked at this picture and said no.
- *
- * Two automated rules were tried for this and both failed in both directions.
- * A score floor throws away "MCAST Campus.jpg", which scored 14 only because
- * it is nearly square. Matching the institution's name in the filename keeps
- * "Beer Die Bowdoin College - 1989.jpg" — students playing a drinking game —
- * and "Atal Setu and bridges across Rio de Ourem", which is a bridge in India
- * that matched South East Technological University on the word "setu"; while
- * rejecting "Norges Idrettshøgskole.jpg" and "Biblioteka Uniwersytetu
- * Medycznego w Poznaniu", which are the right buildings under their own names.
- *
- * Whether a photograph says something true about studying somewhere is not a
- * property a scorer can reach. So the scorer proposes and a person disposes:
- * `review.state` is the only thing that withholds a picture on editorial
- * grounds, it is set by hand, and `npm run images:review` reports how much of
- * what we publish nobody has actually looked at.
- */
-function rejected(pick) {
-  return pick?.review?.state === 'rejected';
+  return editoriallyPublishable(official, { scored: false }) ? official : null;
 }
 
 export function picture(site, key, { prefer = 'official', also = [] } = {}) {
@@ -453,8 +442,13 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
 
   const official = publishable(pick(site.officialImages, 'url'));
+  // The editorial gate. A self-hosted Commons photograph is published when a
+  // person approved it, or when the scorer that chose it cleared the floor in
+  // src/lib/imagery.mjs. Otherwise this returns nothing and the caller falls
+  // back to its typographic panel, which is the designed outcome rather than
+  // the failure one.
   const commonsPick = pick(site.images, 'src');
-  const commons = rejected(commonsPick) ? null : commonsPick;
+  const commons = editoriallyPublishable(commonsPick) ? commonsPick : null;
 
   if (prefer === 'official' && official) {
     return {

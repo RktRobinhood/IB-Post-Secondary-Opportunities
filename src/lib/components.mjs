@@ -1,5 +1,6 @@
 import { html, raw, md, truncate, plural, escape } from './html.mjs';
 import { url } from './layout.mjs';
+import { emptyPanel } from './imagery.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
 
@@ -37,10 +38,22 @@ export function sectionHead({ num, eyebrow: eb, title, lede, id }) {
  * @param {object} [o.image]  { src, alt, focal, credit: {text, url} }
  * @param {any}    [o.actions]
  * @param {any}    [o.aside]  extra content under the lede
- * @param {string} [o.variant] 'compact' | 'plain'
+ * @param {string} [o.variant] 'compact' | 'plain' | 'panel'
+ *
+ * 'plain' is a hero that never wanted a photograph — About, Compare, the
+ * glossary. 'panel' is a hero that wanted one and has none, because nothing
+ * publishable was found: same typography, but it says so by looking deliberate
+ * rather than by looking like a heading. They are different situations and a
+ * reader can tell, which is the whole argument for not collapsing them.
  */
 export function hero(o) {
-  const cls = ['hero', o.variant === 'compact' && 'hero--compact', o.variant === 'plain' && 'hero--plain']
+  const plain = o.variant === 'plain' || o.variant === 'panel';
+  const cls = [
+    'hero',
+    o.variant === 'compact' && 'hero--compact',
+    plain && 'hero--plain',
+    o.variant === 'panel' && 'hero--panel',
+  ]
     .filter(Boolean)
     .join(' ');
   return html`<section class="${cls}"${o.image?.focal ? raw(` style="--focal:${o.image.focal}"`) : ''}>
@@ -78,12 +91,32 @@ export function hero(o) {
 
 /* --- Cards --------------------------------------------------------------- */
 
-export function card({ href, title, text, image, flag, meta, tags, logo, external }) {
+/**
+ * `placeholder: true` asks for the typographic panel when no picture is
+ * publishable, which is not the same thing as a card that never wanted one. The
+ * three navigation cards on the home page have no image on purpose and would
+ * look absurd with a monogram; an institution card with no image has a hole in
+ * a grid of photographs. So the caller says which kind of card it is, once, and
+ * `emptyPanel()` decides what goes in it.
+ */
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder }) {
+  const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   return html`<article class="card card--link">
     ${image
       ? html`<div class="card__media">
           <img src="${url(image.src)}" alt="${image.alt || ''}" loading="lazy" decoding="async" width="800" height="500">
           ${flag ? html`<span class="card__flag" aria-hidden="true">${flag}</span>` : ''}
+        </div>`
+      : panel
+      ? html`<div class="card__media card__media--empty" aria-hidden="true">
+          <span class="card__monogram">${panel.initials}</span>
+          ${/* An institution whose name is already an acronym — LUNEX, RCSI,
+                KAIST — has a monogram identical to its label, and printing both
+                reads as a rendering fault rather than as a design. */
+            panel.initials === panel.label
+              ? ''
+              : html`<span class="card__panel-label">${panel.label}</span>`}
+          ${flag ? html`<span class="card__flag">${flag}</span>` : ''}
         </div>`
       : ''}
     <div class="card__body">

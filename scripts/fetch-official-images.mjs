@@ -15,6 +15,7 @@
  *   node scripts/fetch-official-images.mjs --verify     # re-check existing links still resolve
  *   node scripts/fetch-official-images.mjs --report     # what is too heavy to publish
  *   node scripts/fetch-official-images.mjs --shrink     # ask their CDN for a smaller copy
+ *   node scripts/fetch-official-images.mjs --missing    # where an official image would help most
  *
  * Writes data/official-images.json. Anything that 404s later is caught by
  * `npm run check:links`, and the build silently falls back to the Commons photo.
@@ -30,6 +31,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
+import { REVIEW_THRESHOLD, withheldLabel, withheldReason } from '../src/lib/imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'data', 'official-images.json');
@@ -44,6 +46,7 @@ const REFRESH = args.includes('--refresh');
 const VERIFY_ONLY = args.includes('--verify');
 const REPORT_ONLY = args.includes('--report');
 const SHRINK_ONLY = args.includes('--shrink');
+const MISSING_ONLY = args.includes('--missing');
 const ONLY = (args.find((a) => a.startsWith('--only=')) || '').replace('--only=', '').split(',').filter(Boolean);
 
 const MIN_BYTES = 12_000;
@@ -208,12 +211,13 @@ async function targets() {
   for (const f of await ls(path.join(ROOT, 'data', 'dk'))) {
     const i = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'dk', f), 'utf8'));
     out.push({
+      kind: 'institution',
       key: i.id,
       label: i.name,
       pages: [i.admissionsUrl, i.website, i.ibPageUrl],
     });
     for (const p of i.programmes || []) {
-      if (p.url) out.push({ key: p.id, label: `${i.shortName || i.name} — ${p.name}`, pages: [p.url] });
+      if (p.url) out.push({ kind: 'programme', key: p.id, label: `${i.shortName || i.name} — ${p.name}`, pages: [p.url] });
     }
   }
 
@@ -221,6 +225,7 @@ async function targets() {
     const c = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'countries', f), 'utf8'));
     for (const i of c.institutions || []) {
       out.push({
+        kind: 'institution',
         key: `${c.code}-${slug(i.shortName || i.name)}`,
         label: i.name,
         pages: [i.admissionsUrl, i.ibPageUrl, i.website],
@@ -265,6 +270,46 @@ async function main() {
     }
     await fs.writeFile(OUT, JSON.stringify(picks, null, 2));
     console.log(`\n${fixed} of ${heavy.length} recovered at a publishable size.`);
+    return;
+  }
+
+  /**
+   * Where an official image would do the most good.
+   *
+   * Issue #17's best single suggestion was to widen this script's coverage
+   * before falling back to Commons, because a university's own picture of
+   * itself is better than the best thing a heuristic can find in a category.
+   * Re-running the fetch across every institution is 450 HTTP requests to 450
+   * different press offices; this is the list that says which of them are worth
+   * making first — the institutions whose Commons photograph the build is
+   * currently withholding, or whose photograph is in the review queue.
+   *
+   * Reads local files only. No network.
+   */
+  if (MISSING_ONLY) {
+    const images = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'images.json'), 'utf8'));
+    const list = await targets();
+    const rows = [];
+    for (const t of list) {
+      // Programme pages fall back to their institution's photograph, which is
+      // the right answer rather than a gap, so they are not listed here.
+      if (t.kind !== 'institution') continue;
+      if (picks[t.key]) continue;                    // it already has an official image
+      const commons = images[t.key];
+      const reason = withheldReason(commons);
+      const score = commons?.score;
+      if (!commons) rows.push({ key: t.key, label: t.label, score: null, why: 'no picture at all' });
+      else if (reason) rows.push({ key: t.key, label: t.label, score, why: withheldLabel(reason) });
+      else if (typeof score === 'number' && score <= REVIEW_THRESHOLD)
+        rows.push({ key: t.key, label: t.label, score, why: 'in the review queue' });
+    }
+    rows.sort((a, b) => (a.score ?? -1) - (b.score ?? -1));
+    console.log(`\n${rows.length} institution(s) with no official image and a weak or withheld Commons photograph.\n`);
+    for (const r of rows) {
+      console.log(`  ${String(r.score ?? '—').padStart(4)}  ${r.key.padEnd(44)} ${r.why}`);
+    }
+    console.log(`\nFetch one with:  npm run images:official -- --only=<key>`);
+    console.log(`An official image is preferred by picture() and is not measured against the score floor.\n`);
     return;
   }
 

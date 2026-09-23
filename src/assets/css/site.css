@@ -534,10 +534,25 @@ section { scroll-margin-top: 5.5rem; }
 .hero__credit a { color: inherit; text-decoration-color: rgba(255,255,255,.35); }
 
 .hero--compact { min-height: 20rem; padding-block: var(--s8) var(--s6); }
+
 .hero--plain {
   color: var(--ink); min-height: 0;
   padding-block: var(--s8) var(--s6);
   border-bottom: 1px solid var(--rule);
+}
+
+/* A plain hero on a page that never wanted a photograph — About, Compare, the
+   glossary — is just a heading. A plain hero on a page that wanted one and has
+   none is an empty state, and it should look like a decision. So the second
+   case adds ruled paper behind the words, which reads as a title page rather
+   than as a hole where a picture failed to load. The destination's own pattern
+   layer draws on top of it in currentColor, and every value here is a token, so
+   it is correct in dark mode without a second rule. */
+.hero--panel {
+  background:
+    repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 22px),
+    var(--paper-2);
+  padding-block: var(--s9) var(--s7);
 }
 .hero--plain::after { display: none; }
 .hero--plain h1 { color: var(--ink); }
@@ -591,6 +606,35 @@ section { scroll-margin-top: 5.5rem; }
 .card__media { aspect-ratio: 16 / 10; background: var(--paper-3); overflow: hidden; position: relative; }
 .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .card__media img { transform: scale(1.03); }
+
+/* No publishable photograph. Not a gap where a picture failed to load — a
+   panel, set in the display face on ruled paper, that keeps the card the same
+   height as its neighbours in the grid and says the one thing we are sure of.
+   Everything here is a token, so it is correct in both themes without a
+   second rule. */
+.card__media--empty {
+  display: grid; align-content: center; justify-items: start;
+  gap: var(--s2); padding: var(--s5);
+  background:
+    repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 14px),
+    var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+}
+.card__monogram {
+  font: 400 clamp(2rem, 5vw, 2.75rem)/1 var(--display);
+  color: var(--brand);
+  letter-spacing: -.02em;
+}
+.card__panel-label {
+  font: 600 .75rem/1.3 var(--sans);
+  text-transform: uppercase; letter-spacing: .09em;
+  color: var(--ink-mute);
+  max-width: 24ch;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+/* The flag sits top-left over a photograph, where there is nothing to collide
+   with. In the panel that is where the monogram is, so it moves across. */
+.card__media--empty .card__flag { left: auto; right: var(--s3); }
 .card__body { padding: var(--s5); display: flex; flex-direction: column; gap: var(--s3); flex: 1; }
 .card__title { margin: 0; font-size: 1.25rem; }
 .card__title a { color: inherit; text-decoration: none; }
@@ -1265,3 +1309,95 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
 .flag--mute { background: var(--paper-2); }
 
 @media (max-width: 40rem) { .route { padding: var(--s4); } }
+
+/* --- 22. Application jurisdictions ---------------------------------------- */
+
+/* A Destination that divides into several Application Jurisdictions renders one
+   of these per group. A centralised Destination renders none of it, so the
+   structure only appears where there is a branch to show. */
+.jgroup + .jgroup { margin-top: var(--s8); }
+.jgroup__head {
+  display: grid; gap: var(--s2);
+  padding-bottom: var(--s4);
+  margin-bottom: var(--s5);
+  border-bottom: 1px solid var(--rule);
+}
+.jgroup__name {
+  font: 600 clamp(1.25rem, 2.2vw, 1.6rem)/1.15 var(--display);
+  margin: 0;
+}
+.jgroup__route {
+  margin: 0;
+  font: 600 .875rem/1.5 var(--sans);
+  color: var(--accent);
+  letter-spacing: .01em;
+}
+.jgroup__route a { color: inherit; }
+/* No route recorded is not the same as applying directly, and must not borrow
+   the confidence of the accent colour. */
+.jgroup__route--none { color: var(--ink-mute); font-weight: 500; font-style: italic; }
+.jgroup__summary { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+
+.jgroup__vary {
+  display: grid; gap: var(--s3);
+  margin: 0 0 var(--s5);
+  padding: var(--s4) var(--s5);
+  background: var(--paper-2);
+  border-radius: var(--radius);
+}
+@media (min-width: 44rem) {
+  .jgroup__vary > div { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: var(--s4); }
+}
+.jgroup__vary dt { font: 650 .8125rem/1.5 var(--sans); color: var(--ink-mute); text-transform: uppercase; letter-spacing: .06em; }
+.jgroup__vary dd { margin: 0; }
+.jgroup__vary dd > :last-child { margin-bottom: 0; }
+
+/* --- 23. Dated events ----------------------------------------------------- */
+
+/* What missing this date actually costs. An equal-consideration date and a hard
+   deadline look the same on a calendar and are not the same promise. */
+.timeline__consequence { margin: 0 0 var(--s2); font-size: .875rem; }
+.timeline__badge {
+  display: inline-block;
+  padding: .1rem .5rem;
+  border-radius: 999px;
+  font: 650 .75rem/1.6 var(--sans);
+  letter-spacing: .03em;
+  background: var(--paper-3); color: var(--ink-soft);
+  border: 1px solid var(--rule-strong);
+}
+.timeline__badge[data-consequence="hard"] { background: var(--accent-tint); color: var(--accent-2); border-color: transparent; }
+.timeline__badge[data-consequence="equal-consideration"] { background: var(--info-tint); color: var(--info); border-color: transparent; }
+.timeline__badge[data-consequence="priority"] { background: var(--sand-tint); color: var(--warn); border-color: transparent; }
+.timeline__badge[data-consequence="personal"] { background: transparent; color: var(--ink-mute); }
+.timeline__consequence-note { color: var(--ink-mute); }
+
+.timeline__route { margin: 0 0 var(--s2); font-size: .875rem; color: var(--ink-mute); }
+.timeline__where { color: var(--ink-mute); font-weight: 500; }
+/* A date not yet migrated to a structured one. It is shown as written rather
+   than dropped, and must look like neither a real date nor a declared absence. */
+.timeline__legacy {
+  font-weight: 500; letter-spacing: 0;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--rule-strong);
+}
+
+/* --- 24. Scoping a view --------------------------------------------------- */
+
+.scope {
+  display: grid; gap: var(--s3);
+  padding: var(--s4) var(--s5);
+  margin-bottom: var(--s6);
+  background: var(--paper-2);
+  border-left: 3px solid var(--brand-2);
+  border-radius: var(--radius);
+}
+.scope__state { margin: 0; font-size: .9375rem; color: var(--ink-soft); }
+.scope__actions { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.scope__pick > summary { cursor: pointer; font: 600 .875rem/1.5 var(--sans); color: var(--accent); }
+.scope__grid {
+  display: grid; gap: var(--s2);
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  margin-top: var(--s3);
+}
+.scope__opt { display: flex; gap: var(--s2); align-items: baseline; font-size: .9375rem; }
