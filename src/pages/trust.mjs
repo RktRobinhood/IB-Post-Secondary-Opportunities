@@ -3,6 +3,7 @@ import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, note, sectionHead, crumbs, facts, dataTable, stamp } from '../lib/components.mjs';
 import { STATE } from '../lib/primitives.mjs';
 import { assessAll, FLOOR_CHECKS } from '../lib/publication-floor.mjs';
+import { motionTable } from '../lib/motion.mjs';
 
 /**
  * Trust, corrections and privacy — the page a counsellor reads before deciding
@@ -198,6 +199,36 @@ ${hero({
         “best match” score anywhere on this site, and no result is hidden because of something inferred
         about you.</p>
 
+        <h2 id="motion">What moves, and what happens if you would rather it did not</h2>
+        <p>Animation on this site has to explain something. There are three kinds, each with a stated purpose
+        and a stated behaviour when motion is turned down — and nothing animates for any other reason, which is
+        a rule we hold ourselves to by keeping the list short enough to print.</p>
+
+        ${dataTable({
+          caption: 'Every animation on this site',
+          head: ['When', 'What it is for', 'How long', 'With reduced motion'],
+          rows: motionTable().map((m) => [
+            html`<strong>${m.token.replace(/-/g, ' ')}</strong>`,
+            m.purpose,
+            m.timing,
+            m.reduced,
+          ]),
+        })}
+
+        <p>The reduced-motion column is not the same animation played faster. Each is a different, designed
+        behaviour, because an effect that is uncomfortable at full speed is usually still uncomfortable at
+        double. We follow your operating system's setting automatically, and the <strong>Reduce motion</strong>
+        control in the footer overrides it either way if your machine's setting is not what you want here.</p>
+
+        ${note(
+          `There used to be a fourth, for moving a camera across geography. It was removed rather than kept:
+          the only thing on this site that moves a camera is the map, the map already uses the
+          overview-to-detail timing, and a token defined for a movement nothing performs is a claim about the
+          system that is not true. It comes back when something flies a camera, together with the code that
+          spends it.`,
+          { title: 'Why there are three and not four' }
+        )}
+
         <h2 id="privacy">What this site knows about you</h2>
         <p class="lede">${cfg.privacy.plainLanguage}</p>
         ${dataTable({
@@ -234,6 +265,7 @@ ${hero({
               <li><a href="#ai">What automation may do</a></li>
               <li><a href="#independence">Who pays for this</a></li>
               <li><a href="#ordering">Why this order</a></li>
+              <li><a href="#motion">What moves</a></li>
               <li><a href="#privacy">What we know about you</a></li>
               <li><a href="#boundaries">What this does not do</a></li>
             </ul>
