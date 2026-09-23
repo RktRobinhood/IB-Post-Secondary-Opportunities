@@ -10,6 +10,32 @@ import { evidenceBlock, preparationPath, filterQuestion, STATE } from '../lib/pr
 
 /* --- A Danish institution -------------------------------------------------- */
 
+/**
+ * Further pictures of a university: its own programme pages' photographs.
+ *
+ * These are worth more than four more shots of the same facade — a university
+ * publishes a different picture for Chemical Engineering than for European
+ * Studies, and between them they say what the place is actually like to study
+ * at. Free, too: the programme pages already carry them.
+ */
+function universitySlides(site, inst, max = 4) {
+  const own = picture(site, inst.id);
+  const out = [];
+  for (const p of inst.programmes) {
+    if (out.length >= max) break;
+    const pic = picture(site, p.id);
+    if (!pic?.src || pic.src === own?.src) continue;
+    if (out.some((s) => s.rawSrc === pic.src)) continue;
+    out.push({
+      rawSrc: pic.src,
+      src: pic.external ? pic.src : url(pic.src),
+      caption: p.name,
+      credit: pic.credit || null,
+    });
+  }
+  return out.map(({ rawSrc, ...slide }) => slide);
+}
+
 export function university(site, inst, { prev, next }) {
   const pic = picture(site, inst.id);
   const byField = new Map();
@@ -25,6 +51,7 @@ ${hero({
   title: inst.name,
   lede: inst.about,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
+  slides: pic ? universitySlides(site, inst) : [],
   variant: pic ? undefined : 'plain',
 })}
 

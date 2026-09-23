@@ -1,4 +1,4 @@
-import { html, raw, md, truncate, plural } from './html.mjs';
+import { html, raw, md, truncate, plural, escape } from './html.mjs';
 import { url } from './layout.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
@@ -45,7 +45,13 @@ export function hero(o) {
     .join(' ');
   return html`<section class="${cls}"${o.image?.focal ? raw(` style="--focal:${o.image.focal}"`) : ''}>
     ${o.image
-      ? html`<div class="hero__media">
+      ? html`<div class="hero__media"${
+          // Further pictures of the same place, as data rather than as markup.
+          // A slide that is in the DOM is a slide the browser downloads, even
+          // at opacity 0 — so the script creates each one only when it is about
+          // to be shown, and a reader who never waits never pays for them.
+          o.slides?.length ? raw(` data-slides="${escape(JSON.stringify(o.slides))}"`) : ''
+        }>
           <img src="${url(o.image.src)}" alt="${o.image.alt || ''}" fetchpriority="high" decoding="async" width="2000" height="1200">
         </div>`
       : ''}
@@ -57,8 +63,11 @@ export function hero(o) {
       ${o.aside || ''}
       ${o.actions ? html`<div class="hero__actions">${o.actions}</div>` : ''}
     </div>
+    ${o.slides?.length
+      ? html`<p class="hero__caption" data-hero-caption hidden></p>`
+      : ''}
     ${o.image?.credit
-      ? html`<p class="hero__credit">${
+      ? html`<p class="hero__credit" data-hero-credit>${
           o.image.credit.url
             ? html`<a href="${o.image.credit.url}" rel="noopener nofollow">${o.image.credit.text}</a>`
             : o.image.credit.text

@@ -232,6 +232,35 @@ function researchDepthNote(c) {
   });
 }
 
+/**
+ * Further pictures for a Destination hero: the institutions a student could
+ * actually go to, named.
+ *
+ * A single photograph of the capital's skyline says "this is a country". Four
+ * universities in turn, each captioned, says "these are your options", which is
+ * what the page is for — and it costs nothing, because these are the same
+ * photographs the institution grid further down the page already uses.
+ *
+ * Capped at four. Beyond that nobody is still watching, and every slide is a
+ * download somebody pays for.
+ */
+function heroSlides(site, c, max = 4) {
+  const out = [];
+  for (const i of c.institutions) {
+    if (out.length >= max) break;
+    const p = picture(site, i.key);
+    if (!p?.src) continue;
+    // Not the same picture the hero is already showing.
+    if (out.some((s) => s.src === p.src)) continue;
+    out.push({
+      src: p.external ? p.src : url(p.src),
+      caption: `${i.shortName || i.name}${i.city ? ` · ${i.city}` : ''}`,
+      credit: p.credit || null,
+    });
+  }
+  return out;
+}
+
 /** A country's position on the map: the mean of the places we actually know. */
 function centroid(c) {
   const pts = c.places?.map((p) => p.coordinates).filter(Boolean) || [];
@@ -405,6 +434,7 @@ ${hero({
   title: c.name,
   lede: c.tagline,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
+  slides: pic ? heroSlides(site, c) : [],
   variant: pic ? undefined : 'plain',
   aside: patternLayer(art.pattern),
 })}
