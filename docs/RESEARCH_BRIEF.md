@@ -146,6 +146,19 @@ party read your record back against its source and agreed, and it carries a
 `review` block naming them. `scripts/test-sourcing.mjs` fails a record that
 claims it without one, or that names the same party twice.
 
+**And the party has to be a person.** `scripts/test-attestation.mjs` fails a
+`verified` record whose `verifiedBy` describes a machine — "automated", "the
+research pass that wrote this record", a script's filename. This is not a
+formality. Eight records once carried `verifiedBy: "automated"` while a
+`review.by` two fields down said, in as many words, "not a person", and
+`/trust/` counted all eight under the heading "The honest number". The records
+were honest; the state on them was not, and the state is what gets counted.
+
+If you have read a page carefully and quoted it accurately, `needs-review`
+with a full attestation is what your work is. Writing `verified` does not
+promote it — it just makes the site claim something about a person who does
+not exist.
+
 `needs-review` with a full attestation is not a lesser outcome. It is the
 correct and expected state of good research, and the site reports attested and
 reviewed as two separate numbers so neither has to stand in for the other.
