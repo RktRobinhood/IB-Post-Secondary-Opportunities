@@ -13,6 +13,8 @@
  */
 import { html, raw, md, truncate, plural, slugify } from './html.mjs';
 import { url } from './layout.mjs';
+import fsSync from 'node:fs';
+import nodePath from 'node:path';
 
 /* ========================================================================
    Art direction
@@ -47,6 +49,13 @@ export function patternLayer(pattern) {
   return raw(`<div class="pattern pattern--${pattern}" aria-hidden="true"></div>`);
 }
 
+/* The basemap ships as data and is drawn at build time, so the world window
+   stays inline SVG with no dependencies: it works with JavaScript off, at 200%
+   zoom and with a keyboard. Regenerate with `npm run basemap`. */
+const BASEMAP = JSON.parse(
+  fsSync.readFileSync(nodePath.join(import.meta.dirname, '..', '..', 'data', 'geo', 'countries.json'), 'utf8')
+);
+
 /* ========================================================================
    WorldWindow — geographic overview with a static fallback
    ======================================================================== */
@@ -63,19 +72,14 @@ export function patternLayer(pattern) {
  * @param {string} [o.activeLayer] what the lights currently mean
  */
 export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world' }) {
-  const box = bounds || boundsFor(places);
   const W = 1000;
   const H = 420;
+  const view = frameFor(bounds || boundsFor(places), W / H);
 
-  const project = (lat, lon) => {
-    const x = ((lon - box.west) / (box.east - box.west)) * W;
-    // Mercator-ish, enough for a stylised band rather than a survey.
-    const mercator = (deg) => Math.log(Math.tan(Math.PI / 4 + (deg * Math.PI) / 360));
-    const yTop = mercator(box.north);
-    const yBottom = mercator(box.south);
-    const y = ((yTop - mercator(lat)) / (yTop - yBottom)) * H;
-    return { x: clamp(x, 8, W - 8), y: clamp(y, 8, H - 8) };
-  };
+  const project = (lat, lon) => ({
+    x: ((lon - view.x0) / (view.x1 - view.x0)) * W,
+    y: ((view.y1 - mercatorY(lat)) / (view.y1 - view.y0)) * H,
+  });
 
   const maxCount = Math.max(1, ...places.map((p) => p.count || 1));
   const dots = places
@@ -84,14 +88,23 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       const { x, y } = project(p.lat, p.lon);
       // Size communicates how much is here, never prestige.
       const r = 4 + Math.sqrt((p.count || 1) / maxCount) * 9;
-      return { ...p, x, y, r };
+      return { ...p, x, y, r, offscreen: x < -2 || x > W + 2 || y < -2 || y > H + 2 };
     })
     .sort((a, b) => b.r - a.r);
+
+  // A place outside the frame used to be clamped to the edge, which put a
+  // marker in the wrong country and said nothing about it. With a coastline
+  // underneath, that is a lie rather than an approximation, so it is not drawn.
+  // It stays in the list, which is the source of truth and must not lose a
+  // place because of where the camera happens to be, and the caption says so.
+  const plotted = dots.filter((d) => !d.offscreen);
+  const hidden = dots.length - plotted.length;
+  const land = landPaths(view, W, H);
 
   return html`<figure class="world" id="${id}">
   <div class="world__stage">
     <svg viewBox="0 0 ${W} ${H}" class="world__svg" role="img"
-         aria-label="${activeLayer}: ${plural(dots.length, 'place')} shown.">
+         aria-label="${activeLayer}: ${plural(plotted.length, 'place')} shown.">
       <defs>
         <radialGradient id="${id}-glow">
           <stop offset="0%" stop-color="var(--art-accent, var(--sand))" stop-opacity=".9"/>
@@ -100,12 +113,15 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
         </radialGradient>
       </defs>
 
-      <g class="world__graticule" aria-hidden="true">
-        ${[0.2, 0.4, 0.6, 0.8].map((f) => html`<line x1="0" y1="${(H * f).toFixed(0)}" x2="${W}" y2="${(H * f).toFixed(0)}"/>`)}
-        ${[0.2, 0.4, 0.6, 0.8].map((f) => html`<line x1="${(W * f).toFixed(0)}" y1="0" x2="${(W * f).toFixed(0)}" y2="${H}"/>`)}
+      <rect class="world__sea" x="0" y="0" width="${W}" height="${H}" aria-hidden="true"/>
+
+      <!-- Coastlines, so this is a map rather than a dot cloud. Decorative:
+           the list below carries every place as text. -->
+      <g class="world__land" aria-hidden="true">
+        ${land.map((d) => raw(`<path d="${d}"/>`))}
       </g>
 
-      ${dots.map(
+      ${plotted.map(
         (d, i) => html`<g class="world__place" style="--i:${i}">
           <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${(d.r * 2.6).toFixed(1)}" fill="url(#${id}-glow)" aria-hidden="true"/>
           <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(1)}" class="world__dot"
@@ -138,9 +154,92 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     ${dots.some((d) => d.precision && d.precision !== 'campus')
       ? html`<span class="world__legend">Hollow markers are city-level, not an exact campus.</span>`
       : ''}
+    ${hidden > 0
+      ? html`<span class="world__legend">${plural(hidden, 'place')} outside this frame — in the list below, not on the map.</span>`
+      : ''}
     ${caption ? html`<span>${caption}</span>` : ''}
   </figcaption>
 </figure>`;
+}
+
+/**
+ * Mercator northing, expressed in the same units as longitude so that the two
+ * axes can be compared. Without that the map is stretched by a different amount
+ * on every page: W and H were fixed while the bounding box was fitted to the
+ * data, so the longitude range and the latitude range were each squashed to
+ * fill the panel independently, and Europe came out a different shape on the
+ * Europe page than on the Netherlands page.
+ */
+const mercatorY = (deg) => (Math.log(Math.tan(Math.PI / 4 + (clamp(deg, -84, 84) * Math.PI) / 360)) * 180) / Math.PI;
+
+/**
+ * Fit a bounding box to the panel's aspect ratio by *widening* it, never by
+ * stretching what is inside. Showing more sea than asked for is honest; showing
+ * Denmark half as wide as it is is not.
+ */
+function frameFor(box, ratio) {
+  let x0 = box.west;
+  let x1 = box.east;
+  let y0 = mercatorY(box.south);
+  let y1 = mercatorY(box.north);
+
+  // A single-city Destination has a box of nothing. Give it a country's worth
+  // of context rather than a 400× zoom onto one dot.
+  const MIN_SPAN = 6;
+  if (x1 - x0 < MIN_SPAN) { const c = (x0 + x1) / 2; x0 = c - MIN_SPAN / 2; x1 = c + MIN_SPAN / 2; }
+  if (y1 - y0 < MIN_SPAN) { const c = (y0 + y1) / 2; y0 = c - MIN_SPAN / 2; y1 = c + MIN_SPAN / 2; }
+
+  const spanX = x1 - x0;
+  const spanY = y1 - y0;
+  if (spanX / spanY < ratio) {
+    const want = spanY * ratio;
+    const c = (x0 + x1) / 2;
+    x0 = c - want / 2;
+    x1 = c + want / 2;
+  } else {
+    const want = spanX / ratio;
+    const c = (y0 + y1) / 2;
+    y0 = c - want / 2;
+    y1 = c + want / 2;
+  }
+  return { x0, x1, y0, y1 };
+}
+
+/**
+ * Coastline path data for everything inside the frame.
+ *
+ * Countries wholly outside the view are skipped rather than drawn and clipped,
+ * because at Europe's zoom that is most of the world and every one of them
+ * would be bytes in every page that carries a map.
+ */
+function landPaths(view, W, H) {
+  const out = [];
+  const sx = W / (view.x1 - view.x0);
+  const sy = H / (view.y1 - view.y0);
+
+  for (const country of BASEMAP.countries || []) {
+    for (const flat of country.rings) {
+      let minX = Infinity;
+      let maxX = -Infinity;
+      let minY = Infinity;
+      let maxY = -Infinity;
+      const pts = [];
+      for (let i = 0; i < flat.length; i += 2) {
+        const x = (flat[i] - view.x0) * sx;
+        const y = (view.y1 - mercatorY(flat[i + 1])) * sy;
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+        pts.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
+      }
+      if (maxX < 0 || minX > W || maxY < 0 || minY > H) continue;
+      // Smaller than a marker on screen: not worth the bytes.
+      if (maxX - minX < 3 && maxY - minY < 3) continue;
+      out.push(`M${pts.join('L')}Z`);
+    }
+  }
+  return out;
 }
 
 function boundsFor(places) {

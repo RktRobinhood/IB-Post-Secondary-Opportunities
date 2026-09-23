@@ -4,12 +4,15 @@
   "name": "Singapore (one-north)",
   "kind": "campus",
   "coordinates": {
-    "lat": 47.6888,
-    "lon": -122.151
+    "lat": 1.30778,
+    "lon": 103.77784
   },
-  "coordinatePrecision": "institution",
+  "coordinatePrecision": "campus",
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22"
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Corrected by hand: the geocoder had returned DigiPen's Redmond, Washington headquarters (47.69, -122.15) for its Singapore campus. This is DigiPen Singapore on Dover Road, from OpenStreetMap."
+    ]
   }
 }

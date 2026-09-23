@@ -60,6 +60,26 @@
   opacity: .12;
 }
 
+/* Sea and land. Both are deliberately quiet: the markers are the information
+   and the geography is what lets you read where they are, so the coastline has
+   to be legible without ever competing with a dot. */
+.world__sea { fill: var(--paper-2); }
+.world__land path {
+  fill: var(--ink);
+  fill-opacity: .07;
+  stroke: var(--ink);
+  stroke-opacity: .20;
+  stroke-width: .8;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
+  :root:not([data-theme="light"]) .world__land path { fill-opacity: .13; stroke-opacity: .28; }
+}
+:root[data-theme="dark"] .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
+:root[data-theme="dark"] .world__land path { fill-opacity: .13; stroke-opacity: .28; }
+
 .world__place {
   animation: world-in var(--motion-set-change) both;
   animation-delay: calc(var(--i, 0) * var(--motion-set-change-stagger, 18ms));

@@ -4,12 +4,15 @@
   "name": "Singapore (Nepal Hill)",
   "kind": "campus",
   "coordinates": {
-    "lat": 49.0331,
-    "lon": 2.0778
+    "lat": 1.30311,
+    "lon": 103.78781
   },
-  "coordinatePrecision": "institution",
+  "coordinatePrecision": "campus",
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22"
+    "dataAsOf": "2026-09-23",
+    "notes": [
+      "Corrected by hand: the geocoder had returned ESSEC's Cergy campus in France (49.03, 2.08) for its Asia-Pacific campus. This is ESSEC Asia-Pacific at one-north Gateway, from OpenStreetMap."
+    ]
   }
 }

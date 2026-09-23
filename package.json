@@ -34,7 +34,8 @@
     "test:credentials": "node scripts/test-credentials.mjs",
     "migrate:credentials": "node scripts/migrate-credentials.mjs",
     "vocab": "node scripts/vocab.mjs",
-    "images:review": "node scripts/images-review.mjs"
+    "images:review": "node scripts/images-review.mjs",
+    "basemap": "node scripts/make-basemap.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"

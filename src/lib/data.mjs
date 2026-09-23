@@ -5,6 +5,7 @@
  * forgiving by design: missing fields are normal, and nothing here throws on a
  * gap. `validate()` reports problems instead, and the build prints them.
  */
+import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify } from './html.mjs';
@@ -252,6 +253,65 @@ function summariseEvidence(graph) {
   return out;
 }
 
+/* --- Where on earth is this -------------------------------------------------- */
+
+/**
+ * How far a coordinate is from the country it claims to be in, in degrees.
+ * Zero when it is inside; null when we hold no polygon for that country.
+ *
+ * The obvious version of this check — "which country is this point in?" — cries
+ * wolf, and a check that cries wolf gets switched off. Natural Earth at 110m
+ * has no separate polygon for Hong Kong, Singapore, Luxembourg or Malta, so
+ * every Hong Kong university "is in China". Geneva and Lugano sit in thin Swiss
+ * salients that simplification rounds away, so they land in France and Italy.
+ * None of those is a mistake in our data.
+ *
+ * Distance answers the question that was actually being asked. Geneva is a
+ * fifth of a degree outside a simplified Switzerland; DigiPen Singapore was a
+ * hundred degrees from Singapore. Only the second is a bug, and no threshold
+ * has to be argued about to tell them apart.
+ */
+let BASEMAP_CACHE = null;
+function basemap() {
+  if (!BASEMAP_CACHE) {
+    try {
+      BASEMAP_CACHE = JSON.parse(fsSync.readFileSync(path.join(DATA, 'geo', 'countries.json'), 'utf8'));
+    } catch {
+      BASEMAP_CACHE = { countries: [] };
+    }
+  }
+  return BASEMAP_CACHE;
+}
+
+function degreesOutside(lat, lon, code) {
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+  const country = basemap().countries.find((c) => c.id === code);
+  if (!country) return null;
+
+  let best = Infinity;
+  for (const flat of country.rings) {
+    if (inRing(lat, lon, flat)) return 0;
+    for (let i = 0; i < flat.length; i += 2) {
+      const d = Math.hypot(flat[i] - lon, flat[i + 1] - lat);
+      if (d < best) best = d;
+    }
+  }
+  return best;
+}
+
+/** Ray casting over a flat [lon, lat, lon, lat, …] ring. */
+function inRing(lat, lon, flat) {
+  let inside = false;
+  for (let i = 0, j = flat.length - 2; i < flat.length; j = i, i += 2) {
+    const xi = flat[i];
+    const yi = flat[i + 1];
+    const xj = flat[j];
+    const yj = flat[j + 1];
+    if ((yi > lat) !== (yj > lat) && lon < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+
 /* --- Research depth -------------------------------------------------------- */
 
 /**
@@ -459,6 +519,49 @@ export function validate(site) {
       if (!p.url) warn(at, `programme "${p.name}" has no url`);
       if (!p.requirementsText && !p.entryRequirements) {
         warn(at, `programme "${p.name}" has no entry requirements at all`);
+      }
+    }
+  }
+
+  // A campus in the wrong country. The geocoder resolves a branch campus by
+  // name, and a branch campus is usually named after its parent: DigiPen
+  // Singapore came back at DigiPen's headquarters in Redmond, Washington, and
+  // ESSEC Asia-Pacific came back at ESSEC's campus in Cergy, France. Both sat
+  // undetected while the map clamped them to the edge of the panel. With a
+  // coastline underneath, the country the marker lands in is checkable, so it
+  // is checked.
+  // Five degrees is roughly 550 km. No campus is that far outside its own
+  // country by rounding; the two that were had been geocoded to another
+  // continent.
+  const STRAY_DEGREES = 5;
+  for (const c of site.countries) {
+    const located = c.institutions.filter((i) => i.coords);
+    for (const inst of located) {
+      let off = degreesOutside(inst.coords.lat, inst.coords.lon, c.code);
+
+      // Natural Earth at 110m has no polygon for Hong Kong, Singapore,
+      // Luxembourg or Malta — and Singapore is where both real errors were, so
+      // a check that gives up here would have missed the thing it was written
+      // for. Fall back to the company the coordinate keeps: in a country small
+      // enough to have no polygon, every campus is within a degree or two of
+      // every other, so one that is a hundred degrees away is not a rounding
+      // difference. Needs three siblings before it will accuse anybody.
+      if (off === null) {
+        const siblings = located.filter((x) => x !== inst).map((x) => x.coords);
+        if (siblings.length < 3) continue;
+        const mid = (get) => {
+          const v = siblings.map(get).sort((a, b) => a - b);
+          return v[Math.floor(v.length / 2)];
+        };
+        off = Math.hypot(inst.coords.lon - mid((p) => p.lon), inst.coords.lat - mid((p) => p.lat));
+      }
+
+      if (off > STRAY_DEGREES) {
+        err(
+          `places/${inst.place || '?'}.json`,
+          `"${inst.name}" is listed under ${c.name}, but ${inst.coords.lat}, ${inst.coords.lon} is ` +
+            `${Math.round(off)}° away — a branch campus geocoded to its parent?`
+        );
       }
     }
   }
