@@ -418,11 +418,12 @@ const RELEVANCE = {
  * @param {string} [o.why]
  * @param {Array}  [o.evidence]
  */
-export function preparationPath({ goal, relevance = 'preparation', timing, why, evidence = [] }) {
+export function preparationPath({ goal, relevance = 'preparation', timing, why, evidence = [], scope = null }) {
   const [cls, label] = RELEVANCE[relevance] || RELEVANCE.preparation;
   return html`<article class="prep" data-relevance="${relevance}">
     <header class="prep__head">
       <span class="tag ${cls}">${label}</span>
+      ${scope ? html`<span class="prep__scope">${scope}</span>` : ''}
       ${timing ? html`<span class="prep__timing">${timing}</span>` : ''}
     </header>
     <h4>${goal}</h4>

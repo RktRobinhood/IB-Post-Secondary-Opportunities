@@ -214,6 +214,42 @@ async function main() {
   if (policy?.rollover?.currentIntake && exported?.targetIntake) ok(`Rollover target recorded: ${policy.rollover.currentIntake} → ${policy.rollover.nextIntake}`);
   else advise('No rollover target recorded', 'Set it in data/freshness-policy.json before the next cycle.');
 
+  /* --- Danish mechanisms on surfaces that look site-wide ------------------- */
+  // Denmark is where this site starts, deliberately. The failure is not that
+  // Danish rules appear — it is a student aiming at Utrecht reading quota 2 or
+  // GSK as advice about their own application. A page may use those terms if it
+  // says which country it is talking about: in its URL, in its title, or beside
+  // the term itself. Anything else is a rule stated as a general fact.
+  const DANISH_MECHANISM = /quota\s*[12]|\bGSK\b|optagelse\.dk|Eksamensh[aå]ndbogen/gi;
+  const declaresDenmark = (rel, html) =>
+    /(^|\/)(denmark|dk-)|destinations\/dk\//i.test(rel) ||
+    /Denmark|Danish/i.test((html.match(/<title>([^<]*)<\/title>/i) || [])[1] || '');
+
+  const leaking = [];
+  for (const f of await walk(DIST)) {
+    if (!f.endsWith('.html')) continue;
+    const rel = path.relative(DIST, f).split(path.sep).join('/');
+    const html = await fs.readFile(f, 'utf8');
+    if (declaresDenmark(rel, html)) continue;
+    // Read what a student reads. The subject checker ships the whole Danish
+    // catalogue as embedded JSON for its client code; those are records the
+    // page renders elsewhere with their own context, not prose making a claim.
+    const prose = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ');
+    for (const m of prose.matchAll(DANISH_MECHANISM)) {
+      const near = prose.slice(Math.max(0, m.index - 400), m.index + 400);
+      if (!/Denmark|Danish/i.test(near)) {
+        leaking.push(`${rel}: "${m[0]}"`);
+        break;
+      }
+    }
+  }
+  if (leaking.length) {
+    advise(
+      `${leaking.length} general page(s) state a Danish mechanism without saying so`,
+      `${leaking.slice(0, 4).join('; ')}. A student not applying to Denmark reads these as their own rules.`
+    );
+  } else ok('No site-wide surface states a Danish mechanism without naming Denmark');
+
   /* --- The README's own figures ------------------------------------------- */
   // The README argues for trusting this project partly by quoting its own
   // numbers — how many records a person has signed off, how many scenarios hold

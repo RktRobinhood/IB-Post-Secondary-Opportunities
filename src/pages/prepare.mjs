@@ -12,6 +12,34 @@ import { resolveEvidence } from '../lib/canonical.mjs';
  * labelled as one of three things, the labels are defined in plain words at the
  * top, and the suggestions say outright that they have no effect on admission.
  */
+/**
+ * Turn a Preparation Action's `appliesTo` into something a student can read.
+ *
+ * The data has always known which of these are jurisdictional — quota 2 and GSK
+ * are Danish mechanisms, not general advice — and the page threw that away, so
+ * a student aiming at Utrecht read all fourteen as advice about their own
+ * application. Anything not universal now says where it applies, on the card.
+ */
+function scopeOf(appliesTo, site) {
+  const codes = (appliesTo || []).filter(Boolean);
+  if (!codes.length || codes.includes('all')) return null;
+
+  // `site.destinations` is the migrated records followed by the country
+  // profiles, and both carry `code`. Denmark only appears in the first of
+  // those — it has no data/countries/dk.json — which is exactly why the
+  // Denmark-specific actions were the ones that read as "DK".
+  const names = new Map(
+    [...(site.destinations || []), ...(site.countries || [])]
+      .filter((d) => d.code && d.name)
+      .map((d) => [d.code, d.name])
+  );
+
+  const listed = codes.map((c) => names.get(c) || c.toUpperCase());
+  const last = listed[listed.length - 1];
+  const phrase = listed.length === 1 ? last : `${listed.slice(0, -1).join(', ')} and ${last}`;
+  return `Applies to ${phrase}`;
+}
+
 export function prepare(site) {
   const data = site.preparation;
   if (!data) {
@@ -65,6 +93,7 @@ ${hero({
               timing: a.timing,
               why: a.why,
               evidence: a.evidence || [],
+              scope: scopeOf(a.appliesTo, site),
             })
           )}`;
         })}
@@ -94,9 +123,10 @@ ${hero({
           </div>
         </div>
         ${note(
-          `Start from your subjects, not from a country. The subject checker shows what you already qualify for
-          and exactly what you are short of — and a gap in a subject level is the only kind this site can help
-          you close.`,
+          `Start from your subjects, not from a country. A gap in a subject level is the only kind this site
+          can help you close, and it is the same gap almost everywhere. The subject checker works it out
+          against Danish programmes — the conversion is Danish, but the subject levels it shows you are short
+          of are the ones the rest of Europe asks for too.`,
           { kind: 'ok', title: 'Where to start' }
         )}
         <a class="btn btn--primary" href="${url('/planner/')}" style="width:100%;justify-content:center">Check my subjects</a>
@@ -113,12 +143,17 @@ ${hero({
       title: 'If you only remember one thing',
     })}
     <p class="lede">Your subject levels decide what you can apply for. Your grades decide how you do against
-    other people who also qualify. Almost everything else you have been told matters, does not — at least not
-    in Europe, and not for admission.</p>
-    <p>That is not a reason to do less. It is a reason to do the things that matter for the right reasons: an
-    Extended Essay because it tells you whether you like a subject, CAS because it is interesting, a job
-    because you want the money and it happens to count in quota 2. The worst outcome is a student who spent
-    two years building an application portfolio for a system that was never going to read it.</p>
+    other people who also qualify. Across most of continental Europe, almost everything else you have been
+    told matters, does not.</p>
+    <p><strong>Where that stops being true:</strong> the United States, Canada and the United Kingdom read
+    essays, references and sustained activities as part of the decision, and Denmark's quota 2 reads
+    documented work and other experience. If your list is mostly in those places, the third section below is
+    not optional for you in the way it is for someone applying to the Netherlands or Germany. Every item on
+    this page says where it applies.</p>
+    <p>None of that is a reason to do less. It is a reason to do the things that matter for the right reasons:
+    an Extended Essay because it tells you whether you like a subject, CAS because it is interesting. The
+    worst outcome is a student who spent two years building an application portfolio for a system that was
+    never going to read it — or one who assumed nobody reads it and applied to five places that do.</p>
   </div>
 </section>`;
 

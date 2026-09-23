@@ -342,6 +342,16 @@
   margin-bottom: var(--s3);
 }
 .prep__timing { font-size: .8125rem; color: var(--ink-mute); }
+/* Where a Preparation Action actually applies. Loud enough that a student
+   aiming somewhere else stops reading it as advice about their own
+   application, quiet enough not to compete with the relevance tag beside it. */
+.prep__scope {
+  font-size: .75rem; font-weight: 600; letter-spacing: .01em;
+  color: var(--ink-soft);
+  padding: .2em .5em;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius);
+}
 .prep h4 { margin-bottom: var(--s2); }
 .prep__caveat,
 .prep__evidence { font-size: .8125rem; color: var(--ink-mute); margin: var(--s3) 0 0; }

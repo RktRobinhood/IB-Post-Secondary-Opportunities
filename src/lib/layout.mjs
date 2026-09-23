@@ -40,15 +40,26 @@ export function url(path = '/') {
   return `${BASE}${p}`;
 }
 
+/**
+ * `scope` marks a nav item whose tool only covers one Destination. Four of
+ * these labels read as site-wide and three of them were not: a student aiming
+ * at Utrecht could click "Find a degree", "Check my subjects" or "Preparing"
+ * and be given Danish answers, discovering the scope only on reading the lede.
+ * Denmark is where this site starts, deliberately — but the starting point has
+ * to be visible at the point of entry, not after the click.
+ */
 const NAV = [
   { href: '/denmark/', label: 'Denmark' },
   { href: '/europe/', label: 'Europe' },
   { href: '/world/', label: 'Worldwide' },
-  { href: '/programmes/', label: 'Find a degree' },
-  { href: '/planner/', label: 'Check my subjects' },
+  { href: '/programmes/', label: 'Find a degree', scope: 'DK', scopeLabel: 'Denmark only' },
+  { href: '/planner/', label: 'Check my subjects', scope: 'DK', scopeLabel: 'Denmark only' },
   { href: '/prepare/', label: 'Preparing' },
   { href: '/timeline/', label: 'Deadlines' },
 ];
+
+/** The nav link's accessible name, which spells out what the chip abbreviates. */
+const navLabel = (n) => (n.scope ? `${n.label} — ${n.scopeLabel}` : n.label);
 
 const FOOTER = [
   {
@@ -179,7 +190,9 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
     <nav class="nav" aria-label="Main">
       ${NAV.map(
         (n) =>
-          html`<a href="${url(n.href)}"${o.section === n.href ? raw(' aria-current="page"') : ''}>${n.label}</a>`
+          html`<a href="${url(n.href)}"${o.section === n.href ? raw(' aria-current="page"') : ''}${
+            n.scope ? raw(` aria-label="${navLabel(n)}" title="${navLabel(n)}"`) : ''
+          }>${n.label}${n.scope ? html`<span class="nav__scope" aria-hidden="true">${n.scope}</span>` : ''}</a>`
       )}
     </nav>
     <div class="masthead__tools">
@@ -194,7 +207,12 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
 </header>
 
 <div class="drawer" id="drawer" data-open="false">
-  ${NAV.map((n) => html`<a href="${url(n.href)}">${n.label}</a>`)}
+  ${NAV.map(
+    (n) =>
+      html`<a href="${url(n.href)}">${n.label}${
+        n.scope ? html`<span class="nav__scope nav__scope--long">${n.scopeLabel}</span>` : ''
+      }</a>`
+  )}
   <a href="${url('/about/')}">About this site</a>
   <a href="${url('/counsellors/')}">For counsellors</a>
 </div>

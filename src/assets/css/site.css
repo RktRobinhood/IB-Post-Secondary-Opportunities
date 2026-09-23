@@ -398,6 +398,27 @@ section { scroll-margin-top: 5.5rem; }
   height: 2px; background: var(--accent); border-radius: 2px;
 }
 
+/* Marks a nav item whose tool covers one Destination only. The chip is
+   decorative — the link's accessible name spells the scope out — and the
+   drawer, which has the room, prints the words instead of the abbreviation. */
+.nav__scope {
+  display: inline-block;
+  margin-left: .35em;
+  padding: .1em .35em;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  font: 650 .6875em/1.35 var(--mono);
+  letter-spacing: .04em;
+  color: var(--ink-mute);
+  vertical-align: .08em;
+}
+.nav a:hover .nav__scope, .nav a[aria-current="page"] .nav__scope { color: var(--ink-soft); }
+.nav__scope--long {
+  border: 0; padding: 0; margin-left: .6em;
+  font: 400 .8125rem/1 var(--sans, inherit);
+  letter-spacing: 0; text-transform: none;
+}
+
 /* The nav appears at 64rem, but at 64rem it does not yet fit: "Find a degree"
    and "Check my subjects" broke over two lines and left the masthead ragged on
    a 1024px laptop, which is what most of the school's students are reading this
@@ -408,8 +429,9 @@ section { scroll-margin-top: 5.5rem; }
 @media (min-width: 64rem) and (max-width: 78rem) {
   .masthead__inner { gap: var(--s4); }
   .nav { gap: 2px; }
-  .nav a { padding: var(--s2); font-size: .875rem; }
-  .nav a[aria-current="page"]::after { left: var(--s2); right: var(--s2); }
+  .nav a { padding: var(--s2) 6px; font-size: .875rem; }
+  .nav a[aria-current="page"]::after { left: 6px; right: 6px; }
+  .nav__scope { margin-left: .3em; padding: .08em .28em; }
 }
 
 .masthead__tools { display: flex; align-items: center; gap: var(--s2); margin-left: auto; }
