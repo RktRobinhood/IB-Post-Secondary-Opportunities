@@ -1,0 +1,187 @@
+[
+  {
+    "id": "ev-ib-requesting-transcripts",
+    "sourceUrl": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/requesting-transcripts/",
+    "publisher": "International Baccalaureate Organization",
+    "publisherType": "qualification-body",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Before 5 July for a May session — 16 December for a November session — a candidate's transcript requests go through their Diploma Programme coordinator and the first six are free, with an admissions centre such as UCAS counting as one of the six. After that date the graduate requests transcripts themselves through rrs.ibo.org at $19 each, and processing takes up to 14 working days.",
+    "excerpt": "\"If you are requesting before 5 July (for May examination sessions) or 16 December (for November examination sessions), you should contact your Diploma Programme coordinator to submit a request to the IB on your behalf.\" · \"You can select up to six higher education institutions (HEI) worldwide. An admissions center, e.g., Universities and Colleges Admissions Service (UCAS), counts as one request.\" · \"A candidate's first six requests will be accepted without charge if submitted before the release of results for that exam session.\" · \"For requests after 5 July (for May examination sessions) or 16 December (for November examination sessions), IB graduates can request for their transcripts to be sent to institutions directly by placing a request through rrs.ibo.org. A fee will be charged for each additional request…\" · \"All requests must include a processing fee of $19 USD for each transcript you request.\"",
+    "interpretation": "This is the record that settles what the repository's '5 July' was, and it settles it against the reading the site had been carrying. Twenty-two records showed 6 July and a handful showed 5–6 July, and the explanation written on two of them — that 5 July was the day coordinators got school access — was an inference made to reconcile the two, not something anyone had read. It is wrong. 5 July is the IB's transcript-request cut-off, framed here as falling before the release of results, so results day comes after it and the two are different events. That also means the site was missing an IB deadline entirely rather than holding a wrong version of one. Two things this source does NOT establish, and neither should be inferred from it: it gives no results-release date for any session, only a cut-off stated to precede one; and its two sentences say 'before 5 July' and 'after 5 July' and never say what happens on 5 July itself, so a student should act as though 4 July is the last safe day. Recorded in data/ib-calendar.json as the transcript-request-cutoff event of both the 2027-05 and 2027-11 sessions, because the rule is stated once for both and recording only May would have made a session-independent rule look like a May fact.",
+    "supports": [
+      {
+        "entity": "ib-2027-05",
+        "field": "deadlines"
+      },
+      {
+        "entity": "ib-2027-11",
+        "field": "deadlines"
+      },
+      {
+        "entity": "ie",
+        "field": "deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "the repository owner, reading in their own signed-in browser",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "The page is unreachable to everything automated in this project — see the ibo.org entry in scripts/lib/link-policy.json — so it was opened by hand and the wording brought back verbatim. Consequence: npm run verify will report this record partial forever. That is the host refusing a robot, not a claim with nothing behind it, and it must not be read as a failing check or downgraded to unavailable."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "ibo.org answers automated retrieval and a scripted browser with a Cloudflare interstitial that does not clear, so no tool in this repository can re-read this page. The wording above was taken from a human browser session and cannot be machine-confirmed.",
+      "method": "opened by hand in a browser; scripts/verify-evidence.mjs cannot reach this host at all"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-ib-results-day-2027-05",
+    "sourceUrl": "https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/",
+    "publisher": "International Baccalaureate Organization",
+    "publisherType": "qualification-body",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The IB is taken to release May 2027 results to candidates on 6 July 2027. This is an inference from the three preceding sessions and is NOT established by the source cited, which could not be opened.",
+    "interpretation": "The most-repeated date on the site is the one with the weakest provenance, and this record exists so that fact has somewhere to live instead of being reasserted in 41 files. What is actually held: the IB published May-session results on 6 July in 2024, 2025 and 2026, and 6 July fell on a Saturday, a Sunday and a Monday across those three years — so the pattern is a fixed calendar date and not 'the first Monday in July', and rolling it forward to 2027-07-06 is the reading the precedent supports. What is not held: any page saying so. ibo.org sits behind Cloudflare bot verification that refuses automated fetch and did not clear in a browser session either, re-checked 2026-09-23 and recorded in scripts/lib/link-policy.json; completing a bot challenge is not something this project does. The sibling page at .../requesting-transcripts/ WAS read by hand and is cited separately, and it does not carry a release date — it only establishes that 5 July precedes one. So this stays inferred. Every record showing the date is marked provisional, which is the site's existing way of saying 'carried from a previous cycle because the authority has not published this one', and it is literally what has happened here. What would settle it: the IB's own results page read in spring 2027, or a national admissions authority publishing the date in its own 2027 calendar — several of them will, and any one of those is a better source than none.",
+    "supports": [
+      {
+        "entity": "ae-branch-campus-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ae-federal-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ae-nyuad-common-app-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ae-private-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ae",
+        "field": "deadlines"
+      },
+      {
+        "entity": "au",
+        "field": "deadlines"
+      },
+      {
+        "entity": "ca-apply-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ca-epbc-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ca-ouac-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "cn",
+        "field": "deadlines"
+      },
+      {
+        "entity": "de-hochschulstart-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "dk-optagelse-international-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "gb-ucas-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ib-2027-05",
+        "field": "deadlines"
+      },
+      {
+        "entity": "ie-cao-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "jp-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "kr-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "kr-direct-2028-spring",
+        "field": "milestones"
+      },
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "no-samordna-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "nz-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "se-uhr-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "sg-arts-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "sg-autonomous-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "sg-private-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "us-common-app-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "us",
+        "field": "deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "the IB session calendar pass (issue #36)",
+      "at": "2026-09-23",
+      "method": "derived",
+      "note": "Nothing was read. The method is `derived` because that is what happened: the date is arithmetic on three prior sessions, and recording it as read-source or read-browser would have described work nobody did. This is the honest floor for this claim until ibo.org can be opened."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "The source has never been opened. ibo.org refuses automated retrieval and its bot verification does not clear in a scripted browser, so there is no wording to match and there will not be until a person reads the page.",
+      "method": "no fetch attempted beyond the ones recorded in scripts/lib/link-policy.json"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  }
+]

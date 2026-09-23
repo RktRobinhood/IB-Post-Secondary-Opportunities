@@ -174,6 +174,11 @@
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
           },
+          "ibCalendar": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}/[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "\"<session>/<event>\" in data/ib-calendar.json, e.g. \"2027-05/results-day\". Present when this milestone's date is the IB's rather than this Destination's. IB results day was one fact written into 41 files, twenty-two of them with the identical label, and it had already drifted; scripts/test-ib-calendar.mjs refuses a milestone that states an IB date without this pointer, and refuses a date that disagrees with the record it points at."
+          },
           "dateState": {
             "enum": [
               "not-published",

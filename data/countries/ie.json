@@ -190,16 +190,19 @@
       },
       {
         "label": "Ask your IB coordinator to give the Central Applications Office access to your results",
-        "date": null,
-        "dateState": "not-published",
-        "consequence": "personal",
+        "date": "2027-07-05",
+        "ibCalendar": "2027-05/transcript-request-cutoff",
+        "consequence": "hard",
         "provisional": false,
         "year": "2027 entry",
         "audience": "IB Diploma candidates",
-        "notes": "CAO requires this and publishes no date for it, which is why it is here with a state rather than a day. The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"If you are a May 2026 IB candidate, please ask your IB coordinator to list ‘Central Applications Office’ among the list of institutions that will have permission to access your results. In this way, when results are released, CAO will be able to access your May 2026 results (only) online and add them to your application file.\" If it is not done, CAO never receives your results and you are not considered, whatever your score. The IB’s own page on requesting transcripts (https://ibo.org/programmes/diploma-programme/assessment-and-exams/requesting-transcripts/) returned HTTP 403 to automated retrieval on 23 September 2026 and could not be read, so the IB-side cut-off for a coordinator to add an institution is not recorded here and should not be assumed. Set your own date: ask the coordinator in writing before study leave begins, and ask them to confirm CAO is on the list.",
+        "notes": "CAO requires this and publishes no date for it, which is why it is here with a state rather than a day. The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"If you are a May 2026 IB candidate, please ask your IB coordinator to list ‘Central Applications Office’ among the list of institutions that will have permission to access your results. In this way, when results are released, CAO will be able to access your May 2026 results (only) online and add them to your application file.\" If it is not done, CAO never receives your results and you are not considered, whatever your score. The IB-side cut-off was missing from this record until the IB's own transcript page was read by hand on 23 September 2026; it is 5 July for a May session. Before it, your coordinator submits the request and the first six are free, and CAO counts as one of the six exactly as UCAS does in the IB's own example. From it, you request transcripts yourself through rrs.ibo.org at $19 each, with processing quoted at up to 14 working days and longer in the July–September peak — which is how a late request turns into a missed 1 August Round One cut-off rather than just a fee. The IB's wording covers 'before 5 July' and 'after 5 July' and never says what happens on the day itself, so treat 4 July 2027 as the last safe day. One reading this record does not make for you: CAO describes permission to access results and the IB describes a transcript request, and nobody has confirmed in writing that they are the same mechanism. Ask the coordinator before study leave begins, in writing, and ask them to confirm CAO is on the list.",
         "source": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
         "sources": [
           "https://www.cao.ie/index.php?page=scoring&s=ib"
+        ],
+        "evidence": [
+          "ev-ib-requesting-transcripts"
         ]
       },
       {

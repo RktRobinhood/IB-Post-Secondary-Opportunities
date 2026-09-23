@@ -75,6 +75,22 @@
       "host": "admissions.smu.edu.sg",
       "reason": "Imperva challenge on the admissions pages; the Singapore research pass could not read them either and recorded that as our gap rather than SMU’s.",
       "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "ibo.org",
+      "reason": "Cloudflare bot verification. Refuses WebFetch, and does not clear in the agent browser pane either — it sits on \"Performing security verification\" indefinitely. It DOES serve normally to a signed-in human browser, which is how the transcript deadlines were established on 2026-09-23. So the entry means \"no automated pass can read this\", not \"nobody can\": when ibo.org is the only source for something, it needs a person with a browser. Completing the challenge is not something this project does.",
+      "recordedOn": "2026-09-23",
+      "readableInAHumanBrowser": true
+    },
+    {
+      "host": "internationalbaccalaureate.my.site.com",
+      "reason": "IB Answers. Served \"We are down for maintenance\" on 2026-09-23. Recorded so the next pass does not read a maintenance page as an answer.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "recognition.ibo.org",
+      "reason": "The IB Recognition Statements Database — 140+ countries and 2,000+ universities, plus credit and advanced-standing policies for about 800 US institutions. A JavaScript application that serves no readable text to a fetch. It is the best primary source for what a Destination says about the IB, so it is worth a person’s time rather than an agent’s. Relevant to #15.",
+      "recordedOn": "2026-09-23"
     }
   ],
   "readDirectly": [],

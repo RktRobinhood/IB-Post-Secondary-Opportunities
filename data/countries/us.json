@@ -35,7 +35,7 @@
       "Credit for HL 5+ is common but the rules differ at every single university - check the specific university's IB credit page, not a general guide.",
       "Yale states that IB results may be added to an application but cannot replace the required SAT or ACT score.",
       "Harvard will accept IB scores instead of the SAT/ACT only where testing is genuinely unavailable, not as a normal alternative.",
-      "Your school sends predicted grades; final results arrive 5-6 July 2027, well after decisions. Offers are effectively made on predictions plus everything else in the file."
+      "Your school sends predicted grades; final results arrive 6 July 2027, well after decisions. Offers are effectively made on predictions plus everything else in the file."
     ]
   },
   "application": {
@@ -226,7 +226,11 @@
         "year": "autumn 2027 intake",
         "route": "us-common-app-2027",
         "jurisdiction": "us-common-app",
-        "notes": "Every American decision in this cycle is made before this date, on predicted grades, a school report and everything else in the file — which is the whole shape of an American application and the reason the calendar above stops in May. What each college does if your actual results fall short of the predictions is set by that college and is not established here; ask before you accept. This entry carries no source, and that is a known gap rather than an oversight: the IB's own results-release date is stated on ibo.org, which refuses both automated fetch and a browser, so the date is recorded here on the same basis it is recorded on the other forty files in this repository and has never been confirmed against a primary source. The IB result that does have a hard American consequence is not this one — it is the University of California's 15 July deadline nine days later, which is the entry below."
+        "notes": "Every American decision in this cycle is made before this date, on predicted grades, a school report and everything else in the file — which is the whole shape of an American application and the reason the calendar above stops in May. What each college does if your actual results fall short of the predictions is set by that college and is not established here; ask before you accept. The date is inferred rather than cited, and both the inference and the reason it could not be checked are held once, in data/ib-calendar.json with the Evidence record ev-ib-results-day-2027-05. It is marked provisional here for that reason. The IB result that does have a hard American consequence is not this one — it is the University of California's 15 July deadline nine days later, which is the entry below.",
+        "ibCalendar": "2027-05/results-day",
+        "evidence": [
+          "ev-ib-results-day-2027-05"
+        ]
       },
       {
         "label": "University of California, official IB examination results due",

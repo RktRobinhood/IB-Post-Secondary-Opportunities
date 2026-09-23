@@ -14,7 +14,9 @@
       "label": "Zayed University confirms its undergraduate application dates",
       "consequence": "hard",
       "note": "No date. The page carries the line \"Application Dates to be confirmed\" where the dates belong. Recorded undated so the check is not lost.",
-      "evidence": ["ev-ae-zu-dates-tbc"]
+      "evidence": [
+        "ev-ae-zu-dates-tbc"
+      ]
     },
     {
       "id": "ms-ae-fed-uaeu-window",
@@ -22,7 +24,9 @@
       "label": "UAEU announces an application period",
       "consequence": "hard",
       "note": "No date. UAEU says applicants apply through the ministry's portal during announced application periods and publishes no undergraduate period for 2027. Its graduate deadlines are published; its undergraduate ones are not.",
-      "evidence": ["ev-ae-uaeu-admission"]
+      "evidence": [
+        "ev-ae-uaeu-admission"
+      ]
     },
     {
       "id": "ms-ae-fed-ib-results",
@@ -31,7 +35,11 @@
       "date": "2027-07-06",
       "consequence": "indicative",
       "note": "Where the federal universities sit relative to this date is not established, because neither publishes a date to compare it against.",
-      "evidence": []
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
     }
   ],
   "supplementarySteps": [

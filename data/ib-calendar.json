@@ -1,0 +1,80 @@
+{
+  "$comment": "IB session dates, held once. `2027-07-06` was written into 41 files — 22 route milestones with the identical label, 5 country profiles and 14 verifier logs — and every copy asserted the same fact independently, so nothing could disagree out loud. It had already drifted: au.json said 5–6 July where everything else said 6 July, and the explanation recorded on both records for that second day — that 5 July was when coordinators got school access — was invented to reconcile them and is now known to be wrong. 5 July is the IB's own transcript-request cut-off, which is a different event the site did not have at all. Read scripts/test-ib-calendar.mjs before editing anything here: the guard reads this file and then reads every record back against it, so a date changed here and nowhere else fails the build rather than quietly disagreeing. Changing a date: edit it here, then `node scripts/migrate-ib-results-day.mjs --write`. Adding the next session: copy a block in `sessions`, change `id`, `name` and `appliesToIntake`, and set each event's `basis` to what is actually true of it — `published` only if someone has read the page and the excerpt is on the Evidence record.",
+  "schemaVersion": "1.0",
+  "dataAsOf": "2026-09-23",
+
+  "$comment_basis": "`basis` is the honesty field and it is not `dateState`. The six dateState values in src/lib/publication-floor.mjs all answer 'why is there no date here', and every one of them is wrong for a date we DO have and cannot cite: writing `not-yet-announced` next to 2027-07-06 would have been read by every consumer as a date that had been announced, because formatWhen prints the date and drops the state the moment a date exists. So the inference would have been invisible in exactly the place it needed to be visible. src/lib/calendar.mjs holds the vocabulary as IB_DATE_BASIS and the guard reads it back from there, so this list and that one cannot drift apart.",
+
+  "sessions": [
+    {
+      "id": "2027-05",
+      "name": "May 2027 examination session",
+      "appliesToIntake": "2027-autumn",
+      "isTheCycleThisSiteCovers": true,
+      "events": {
+        "results-day": {
+          "label": "IB results released",
+          "audience": "candidate",
+          "date": "2027-07-06",
+          "basis": "inferred-from-precedent",
+          "provisional": true,
+          "precedent": ["2024-07-06", "2025-07-06", "2026-07-06"],
+          "precedentReading": "A fixed calendar date, not a weekday rule: 6 July fell on a Saturday in 2024, a Sunday in 2025 and a Monday in 2026, and the IB published on it each time. So rolling the date forward by year is the reading the precedent supports, and 'the first Monday in July' is not.",
+          "note": "This is the day results reach the candidate, and it is the only date on this record a student should plan around. It carries no citation: ibo.org sits behind Cloudflare bot verification that refuses automated fetch and did not clear in a browser session either — checked again on 2026-09-23, see scripts/lib/link-policy.json. Every record that shows this date is marked provisional for that reason, which is the existing mechanism for 'carried from a previous cycle because the authority has not published this one' and is exactly what this is.",
+          "recheckFrom": "2027-03-01",
+          "evidence": ["ev-ib-results-day-2027-05"]
+        },
+        "transcript-request-cutoff": {
+          "label": "IB transcript requests stop going through your coordinator, and stop being free",
+          "audience": "candidate",
+          "date": "2027-07-05",
+          "basis": "published",
+          "provisional": false,
+          "note": "The date the '5 July' in this repository actually belongs to, and it is not results day. Before it, your Diploma Programme coordinator submits the request to the IB for you and the first six are free. After it, you request them yourself through rrs.ibo.org at $19 each, and processing takes up to 14 working days — longer between July and September, which is when every other IB candidate in the world is doing the same thing. The IB's own wording covers 'before 5 July' and 'after 5 July' and says nothing about 5 July itself, so treat 4 July 2027 as the last safe day rather than testing it. The date is published as a recurring rule with no year attached; the year here is the May 2027 session.",
+          "facts": {
+            "freeRequests": 6,
+            "feeAfterCutoffUsd": 19,
+            "processingWorkingDays": 14,
+            "admissionsCentreCountsAsOne": "An admissions centre — UCAS is the IB's own example, and optagelse.dk, CAO, Studielink and Samordna opptak are the same kind of body — counts as ONE of the six. A student applying through two centrals and four universities has used all six."
+          },
+          "evidence": ["ev-ib-requesting-transcripts"]
+        }
+      }
+    },
+    {
+      "id": "2027-11",
+      "name": "November 2027 examination session",
+      "appliesToIntake": null,
+      "isTheCycleThisSiteCovers": false,
+      "$comment": "Here because the transcript rule is published for both sessions in one sentence, and recording only the May half would have made a rule that is session-independent look like a May fact. Nothing on the site references this session yet.",
+      "events": {
+        "results-day": {
+          "label": "IB results released",
+          "audience": "candidate",
+          "date": null,
+          "basis": "not-established",
+          "dateState": "not-published",
+          "provisional": false,
+          "note": "Looked for and not found. The May precedent does not transfer — a November results day is not 6 July plus anything — and the only statement anyone offered was a recollection, which is not a source. Left empty on purpose: a guessed November date would have been indistinguishable from the May one, which is the whole failure this file exists to stop.",
+          "evidence": []
+        },
+        "transcript-request-cutoff": {
+          "label": "IB transcript requests stop going through your coordinator, and stop being free",
+          "audience": "candidate",
+          "date": "2027-12-16",
+          "basis": "published",
+          "provisional": false,
+          "note": "The same published rule as the May session, with the November date the IB states beside it. Recorded although no record on the site references it, because it is the evidence that this cut-off is a standing rule rather than a date somebody read off one year's calendar.",
+          "facts": {
+            "freeRequests": 6,
+            "feeAfterCutoffUsd": 19,
+            "processingWorkingDays": 14
+          },
+          "evidence": ["ev-ib-requesting-transcripts"]
+        }
+      }
+    }
+  ],
+
+  "$comment_noHomeForThis": "The transcript cut-off applies to every Destination at once and the calendar model has no shape for that. `allEvents` in src/lib/calendar.mjs builds every event from a country profile or an Application Route, `/timeline/` scopes the whole page by Destination server-side and again in calendar.js, and `deadlineList` prints a Destination on every row. So a genuinely Destination-independent IB milestone can only reach a student today by being copied onto each Destination that needs it — which is the shape this file was written to end. It is recorded here, and on the one Destination record that already carried an undated placeholder for it (Ireland), and nowhere else. See the report on #36."
+}

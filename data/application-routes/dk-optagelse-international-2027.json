@@ -10,7 +10,6 @@
   "portalUrl": "https://www.optagelse.dk",
   "choiceLimit": 8,
   "choicesRanked": true,
-
   "rounds": [
     {
       "id": "round-main",
@@ -19,10 +18,11 @@
       "decisionBy": "2027-07-28",
       "consequence": "hard",
       "note": "There is no later round for IB holders. The 5 July deadline that Danish-qualified applicants use does not apply to you.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     }
   ],
-
   "milestones": [
     {
       "id": "ms-open",
@@ -32,7 +32,9 @@
       "consequence": "indicative",
       "provisional": true,
       "note": "The portal typically opens in early February. Confirm the exact date when the Agency publishes it.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     },
     {
       "id": "ms-ibis",
@@ -41,7 +43,9 @@
       "date": "2027-03-01",
       "consequence": "personal",
       "note": "Not an official deadline, but results must be authorised to travel before the documentation deadline. Get a receipt. Institution codes: Copenhagen 002600, Aarhus 000150, Aalborg 000148, Southern Denmark 000157.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     },
     {
       "id": "ms-submit",
@@ -53,7 +57,9 @@
       "consequence": "hard",
       "audience": "any",
       "note": "Twelve noon, not midnight. Applies to every applicant with an international or IB qualification, whether the diploma was earned in Denmark or abroad, and whether you are aiming at quota 1 or quota 2.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     },
     {
       "id": "ms-signature",
@@ -64,7 +70,9 @@
       "timeZone": "CET",
       "consequence": "hard",
       "note": "Required by some institutions only — Aalborg is explicit about it. Printed, signed by hand, sent by post or email. Never uploaded to optagelse.dk. The application is not complete without it.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     },
     {
       "id": "ms-documents",
@@ -75,7 +83,9 @@
       "timeZone": "CET",
       "consequence": "hard",
       "note": "Everything except your IB results. You can also still reorder your priorities until this moment.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     },
     {
       "id": "ms-results",
@@ -84,7 +94,12 @@
       "date": "2027-07-06",
       "consequence": "indicative",
       "note": "After the Danish documentation deadline, which is why the results service exists.",
-      "evidence": ["ev-ufsn-ib-eksaminer"]
+      "evidence": [
+        "ev-ufsn-ib-eksaminer",
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
     },
     {
       "id": "ms-offers",
@@ -93,7 +108,9 @@
       "date": "2027-07-28",
       "consequence": "indicative",
       "note": "Every programme's cut-off average is published the same day. Vacant places appear in the same week.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     },
     {
       "id": "ms-reply",
@@ -103,10 +120,11 @@
       "consequence": "hard",
       "provisional": true,
       "note": "A few days after offers. Confirm the exact date with the institution — Aalborg has previously set 5 August.",
-      "evidence": ["ev-ufsn-adgang-frister"]
+      "evidence": [
+        "ev-ufsn-adgang-frister"
+      ]
     }
   ],
-
   "submissionItems": [
     {
       "id": "item-application",
@@ -140,7 +158,9 @@
       "responsibleParty": "student",
       "destinationOfItem": "The institution's admissions office, by post or email",
       "dueMilestone": "ms-signature",
-      "dependsOn": ["item-application"]
+      "dependsOn": [
+        "item-application"
+      ]
     },
     {
       "id": "item-quota2",
@@ -160,13 +180,14 @@
       "dueMilestone": "ms-submit"
     }
   ],
-
   "supplementarySteps": [
     "Some programmes add an admission test or a motivational essay with its own earlier deadline.",
     "Fee-paying applicants face tighter documentation deadlines that differ by institution — Aarhus has required 15 March, Aalborg 1 May. Check yours early, because it can rule out the whole year."
   ],
-
-  "evidence": ["ev-ufsn-adgang-frister", "ev-ufsn-kvoter"],
+  "evidence": [
+    "ev-ufsn-adgang-frister",
+    "ev-ufsn-kvoter"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",

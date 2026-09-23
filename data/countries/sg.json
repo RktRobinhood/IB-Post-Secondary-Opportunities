@@ -307,11 +307,14 @@
         "date": "2027-07-06",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Singapore is the one Destination on this site that has thought this through and said so. NTU takes your application on predicted grades and then requires the actual results within three days of release — the tightest turnaround anywhere in this repository, and it falls in the middle of the Danish summer holiday. NUS is gentler and tells IB applicants sitting the May 2027 session that they will hear by the third week of July, and its own three-day rule names Advanced Placement, Gaokao, HKDSE, Indian Standard 12 and STPM and does not name the IB. LASALLE, by contrast, closed the previous November and never sees your results before it decides. This entry carries no source and that is a known gap rather than an oversight: the release date is stated on ibo.org, which refuses both automated fetch and a browser, so it is recorded here on the same unsourced basis as on the other forty files in this repository.",
+        "notes": "Singapore is the one Destination on this site that has thought this through and said so. NTU takes your application on predicted grades and then requires the actual results within three days of release — the tightest turnaround anywhere in this repository, and it falls in the middle of the Danish summer holiday. NUS is gentler and tells IB applicants sitting the May 2027 session that they will hear by the third week of July, and its own three-day rule names Advanced Placement, Gaokao, HKDSE, Indian Standard 12 and STPM and does not name the IB. LASALLE, by contrast, closed the previous November and never sees your results before it decides. The date is inferred rather than cited, and both the inference and the reason it could not be checked are held once, in data/ib-calendar.json with the Evidence record ev-ib-results-day-2027-05. It is marked provisional here for that reason.",
         "evidence": [
           "ev-sg-ntu-ib-dates",
-          "ev-sg-nus-important-dates"
-        ]
+          "ev-sg-nus-important-dates",
+          "ev-ib-results-day-2027-05"
+        ],
+        "ibCalendar": "2027-05/results-day",
+        "provisional": true
       },
       {
         "label": "Nanyang Technological University — photograph and appraisal form due",

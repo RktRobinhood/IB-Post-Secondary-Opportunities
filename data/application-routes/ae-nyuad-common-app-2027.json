@@ -16,7 +16,10 @@
       "decisionBy": "2026-12-15",
       "consequence": "hard",
       "note": "Binding. Admitted with an affordable aid package, you withdraw everything else and accept within two to three weeks. The year is inferred from a bare recurring date.",
-      "evidence": ["ev-ae-nyuad-key-dates", "ev-ae-nyuad-early-decision"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates",
+        "ev-ae-nyuad-early-decision"
+      ]
     },
     {
       "id": "rd-nyuad-ed2",
@@ -25,7 +28,10 @@
       "decisionBy": "2027-02-15",
       "consequence": "hard",
       "note": "Also binding, four days before Regular Decision closes. Applying here rather than Regular Decision buys six weeks of earlier certainty and costs the ability to compare offers. The year is inferred from a bare recurring date.",
-      "evidence": ["ev-ae-nyuad-key-dates", "ev-ae-nyuad-early-decision"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates",
+        "ev-ae-nyuad-early-decision"
+      ]
     },
     {
       "id": "rd-nyuad-regular",
@@ -34,7 +40,9 @@
       "decisionBy": "2027-04-01",
       "consequence": "hard",
       "note": "Not binding. The right round for anyone who needs to compare a Danish, Dutch or British offer against this one. The year is inferred from a bare recurring date.",
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     }
   ],
   "milestones": [
@@ -48,7 +56,9 @@
       "consequence": "hard",
       "provisional": true,
       "note": "Roughly a year before the eventual first day of term, and eight months before IB results. NYUAD decides on predicted grades.",
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-css-ed1",
@@ -60,7 +70,9 @@
       "consequence": "hard",
       "provisional": true,
       "note": "Financial aid at NYUAD is need-based for non-Emirati citizens and this is the form that establishes need. It is due nine days after the application itself and from both custodial and noncustodial parents, which for a separated family is a logistical problem worth starting early.",
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-ed2",
@@ -71,7 +83,9 @@
       "timeZone": "EST",
       "consequence": "hard",
       "provisional": true,
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-css-ed2",
@@ -82,7 +96,9 @@
       "timeZone": "EST",
       "consequence": "hard",
       "provisional": true,
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-regular",
@@ -93,7 +109,9 @@
       "timeZone": "EST",
       "consequence": "hard",
       "provisional": true,
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-css-regular",
@@ -105,7 +123,9 @@
       "consequence": "hard",
       "provisional": true,
       "note": "Four weeks after the application. Missing this costs the aid, not the place — which at a cost of attendance above USD 90,000 amounts to the same thing for most families.",
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-decision",
@@ -114,7 +134,9 @@
       "date": "2027-04-01",
       "consequence": "indicative",
       "provisional": true,
-      "evidence": ["ev-ae-nyuad-key-dates"]
+      "evidence": [
+        "ev-ae-nyuad-key-dates"
+      ]
     },
     {
       "id": "ms-nyuad-ib-results",
@@ -123,7 +145,11 @@
       "date": "2027-07-06",
       "consequence": "indicative",
       "note": "Six months after the last NYUAD deadline and three months after its last decision. Nothing about this route waits for the diploma; how a conditional place is handled once results arrive is set by NYUAD and is not established here.",
-      "evidence": []
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
     }
   ],
   "supplementarySteps": [

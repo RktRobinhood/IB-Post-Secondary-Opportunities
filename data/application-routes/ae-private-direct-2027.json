@@ -15,7 +15,9 @@
       "date": "2026-10-19",
       "consequence": "indicative",
       "note": "AUS states that all its dates are tentative and subject to change.",
-      "evidence": ["ev-ae-aus-dates"]
+      "evidence": [
+        "ev-ae-aus-dates"
+      ]
     },
     {
       "id": "ms-ae-priv-aus-file",
@@ -24,7 +26,9 @@
       "date": "2027-07-05",
       "consequence": "priority",
       "note": "One day before IB results. A file completed on time cannot contain the diploma, so agree in writing with AUS what stands in for it.",
-      "evidence": ["ev-ae-aus-dates"]
+      "evidence": [
+        "ev-ae-aus-dates"
+      ]
     },
     {
       "id": "ms-ae-priv-aus-classes",
@@ -32,7 +36,9 @@
       "label": "American University of Sharjah — first day of classes",
       "date": "2027-08-23",
       "consequence": "hard",
-      "evidence": ["ev-ae-aus-dates"]
+      "evidence": [
+        "ev-ae-aus-dates"
+      ]
     },
     {
       "id": "ms-ae-priv-ku-timeline",
@@ -40,7 +46,9 @@
       "label": "Khalifa University publishes its Fall 2027 application timeline",
       "consequence": "hard",
       "note": "No date. Khalifa's undergraduate admissions page carries the line \"Stay tuned for the Fall 2027 application timeline\" where the dates belong. This milestone is recorded without one so that the check does not get forgotten — the page is the thing to watch from autumn 2026.",
-      "evidence": ["ev-ae-ku-timeline"]
+      "evidence": [
+        "ev-ae-ku-timeline"
+      ]
     },
     {
       "id": "ms-ae-priv-ib-results",
@@ -49,7 +57,11 @@
       "date": "2027-07-06",
       "consequence": "indicative",
       "note": "The UAE private universities sit either side of this date and not together. AUS wants a complete file the day before; the American University in Dubai says it takes late applications through July and August. Khalifa has not said.",
-      "evidence": []
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
     }
   ],
   "supplementarySteps": [

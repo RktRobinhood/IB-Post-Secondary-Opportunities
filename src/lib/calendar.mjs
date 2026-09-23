@@ -114,6 +114,86 @@ export function consequenceOf(event) {
   return CONSEQUENCE[event.consequence] || CONSEQUENCE.indicative;
 }
 
+/* --- How well an IB session date is actually established ------------------ */
+
+/**
+ * The honesty field on `data/ib-calendar.json`, and the reason it is not
+ * `dateState`.
+ *
+ * `2027-07-06` was written into 41 files and cited in none. It is held on the
+ * IB publishing on 6 July in 2024, 2025 and 2026 — an inference — and no field
+ * on any of those 41 records could say so, so the most-repeated date on the
+ * site read exactly like the ones somebody had read off an official page.
+ *
+ * `dateState` was the obvious place to put it and is the wrong one. All six of
+ * its values answer "why is there no date here", and `formatWhen` above drops
+ * the state the moment a date exists — so `dateState: 'not-yet-announced'`
+ * beside a real date would have rendered as a plain, confident 6 July and the
+ * inference would have been invisible in the one place it had to be visible.
+ * The two are complementary, not competing: `dateState` says why a date is
+ * missing, `basis` says what a date that is present is worth.
+ *
+ * `provisional` is what carries this to the page. It already means "carried
+ * from a previous cycle because the authority has not published this one",
+ * which is this claim exactly, and `/timeline/` already explains it. So an
+ * inferred date is marked provisional everywhere it appears, and the migration
+ * sets that rather than leaving it to whoever writes the next record.
+ */
+export const IB_DATE_BASIS = {
+  published: 'Published by the IB and read',
+  'inferred-from-precedent': 'Inferred from earlier sessions — not published anywhere we can read',
+  'not-established': 'Looked for and not found',
+};
+
+export function ibDateBasisLabel(basis) {
+  return IB_DATE_BASIS[basis] || null;
+}
+
+/**
+ * Does this label claim that the IB released results, as opposed to saying
+ * something about them?
+ *
+ * The distinction is worth a shared constant because both the migration and
+ * the guard need it and they must not drift: seven records on the site name IB
+ * results and belong to somebody else's calendar — NTU wanting actuals within
+ * three days, UC wanting them by 15 July, CAO wanting them by 1 August, Warsaw
+ * wanting them typed into a portal. A rule that matched "IB results" anywhere
+ * in the label would have rewritten four real deadlines onto the IB's day.
+ * Opening with it is the claim; containing it is a reference to it.
+ */
+export const IB_RELEASE_LABEL = /^ib results\b/i;
+
+export function claimsIbRelease(label) {
+  return IB_RELEASE_LABEL.test(String(label || '').trim());
+}
+
+/**
+ * Resolve `"2027-05/results-day"` against a parsed `data/ib-calendar.json`.
+ *
+ * A string reference rather than a pair of fields, because the drift this
+ * whole model exists to stop was two records meaning different events by the
+ * same date. One token that names the session AND the event cannot be
+ * half-copied; `session` and `event` as separate fields can, and the record
+ * that copies one and not the other looks complete.
+ *
+ * Returns null for anything that does not resolve, and the guard treats null
+ * as a failure rather than as "no IB claim here" — a reference to a session
+ * that was deleted at rollover must fail loudly, not stop being checked.
+ */
+export function ibSessionEvent(calendar, ref) {
+  const [sessionId, eventId] = String(ref || '').split('/');
+  if (!sessionId || !eventId) return null;
+  const session = (calendar?.sessions || []).find((s) => s.id === sessionId);
+  const event = session?.events?.[eventId];
+  if (!event) return null;
+  return { sessionId, eventId, session, ...event };
+}
+
+/** Every `session/event` token the calendar defines, for "did you mean". */
+export function ibSessionEventRefs(calendar) {
+  return (calendar?.sessions || []).flatMap((s) => Object.keys(s.events || {}).map((e) => `${s.id}/${e}`));
+}
+
 /* --- Normalising the two shapes we hold ----------------------------------- */
 
 function clean(text) {
@@ -151,6 +231,10 @@ export function fromCountryDeadline(country, entry, index) {
     provisional: Boolean(entry.provisional),
     intake: clean(entry.year) || country.targetIntake || null,
     note: clean(entry.notes) || clean(entry.note),
+    /* Carried rather than dropped. A field that is legal to write and reaches
+       no consumer produces a workaround repeated by everyone who meets it —
+       `sources` and `audience` both did exactly that. */
+    ibCalendar: clean(entry.ibCalendar),
     /* Both spellings, because both are allowed and only one was read.
        `test-calendar.mjs` whitelists `sources` as a legal field on a deadline
        entry, and this took `source` alone — so a researcher who recorded a
@@ -191,6 +275,7 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     provisional: Boolean(milestone.provisional),
     intake: route.intake || null,
     note: clean(milestone.note),
+    ibCalendar: clean(milestone.ibCalendar),
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: milestone.evidence || [],

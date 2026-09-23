@@ -16,7 +16,9 @@
       "consequence": "priority",
       "provisional": true,
       "note": "The phase to be in if you want a scholarship. RIT Dubai says its scholarship seats are limited. The year is inferred from a bare recurring date.",
-      "evidence": ["ev-ae-rit-dubai-dates"]
+      "evidence": [
+        "ev-ae-rit-dubai-dates"
+      ]
     },
     {
       "id": "ms-ae-branch-rit-regular",
@@ -25,7 +27,9 @@
       "date": "2027-05-31",
       "consequence": "priority",
       "provisional": true,
-      "evidence": ["ev-ae-rit-dubai-dates"]
+      "evidence": [
+        "ev-ae-rit-dubai-dates"
+      ]
     },
     {
       "id": "ms-ae-branch-ib-results",
@@ -34,7 +38,11 @@
       "date": "2027-07-06",
       "consequence": "indicative",
       "note": "This is the date on which the branch campuses stop resembling each other. Two of them will still take an application after it.",
-      "evidence": []
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
     },
     {
       "id": "ms-ae-branch-rit-deadline",
@@ -44,7 +52,9 @@
       "consequence": "equal-consideration",
       "provisional": true,
       "note": "Seven weeks after IB results. RIT Dubai says applications received after this date are reviewed based on space availability, which is why the consequence is equal-consideration rather than hard. The year is inferred from a bare recurring date.",
-      "evidence": ["ev-ae-rit-dubai-dates"]
+      "evidence": [
+        "ev-ae-rit-dubai-dates"
+      ]
     },
     {
       "id": "ms-ae-branch-hw-last",
@@ -52,7 +62,9 @@
       "label": "Heriot-Watt Dubai — last practical date for a September 2027 start",
       "consequence": "rolling",
       "note": "No fixed date. Heriot-Watt Dubai says it can accept applications up until three weeks before the start of each intake, and warns that a late application will delay the student visa and matriculation card. Work backwards from the September 2027 start date once it is published rather than from a date recorded here.",
-      "evidence": ["ev-ae-hw-dubai-when-to-apply"]
+      "evidence": [
+        "ev-ae-hw-dubai-when-to-apply"
+      ]
     },
     {
       "id": "ms-ae-branch-bham-visa",
@@ -60,7 +72,9 @@
       "label": "Birmingham Dubai — visa sponsorship deadline, September 2027 intake",
       "consequence": "hard",
       "note": "Not yet announced. This is the hard date for anyone applying from outside the UAE, and it is published on the visa FAQ rather than the admissions page. The 2026 equivalents were 24 August 2026 for the September 2026 intake and 14 December 2026 for January 2027, and neither is carried across.",
-      "evidence": ["ev-ae-bham-dubai-visa"]
+      "evidence": [
+        "ev-ae-bham-dubai-visa"
+      ]
     }
   ],
   "submissionItems": [
@@ -70,7 +84,9 @@
       "itemType": "document",
       "responsibleParty": "school",
       "note": "Birmingham Dubai states that you can apply on predicted grades or first-term Grade 12 / Year 13 results, with final grades required before an offer becomes unconditional.",
-      "evidence": ["ev-ae-bham-dubai-apply"]
+      "evidence": [
+        "ev-ae-bham-dubai-apply"
+      ]
     },
     {
       "id": "si-ae-branch-equivalency",
@@ -79,7 +95,9 @@
       "responsibleParty": "student",
       "destinationOfItem": "The UAE Ministry of Education, after the transcript has been attested by the local education authority — KHDA in Dubai, ADEK in Abu Dhabi, SPEA in Sharjah.",
       "note": "Required for international curricula including the IB. RIT Dubai gives international students one semester after arrival to produce it; do not assume every institution is as relaxed.",
-      "evidence": ["ev-ae-rit-dubai-dates"]
+      "evidence": [
+        "ev-ae-rit-dubai-dates"
+      ]
     }
   ],
   "supplementarySteps": [

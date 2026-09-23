@@ -53,8 +53,13 @@
         "date": "2027-07-06",
         "consequence": "indicative",
         "year": "2027 results",
-        "notes": "This entry used to read 5–6 July while every other record on the site said 6 July. IB results day is one fact and it is now one date here. 6 July is when results reach the candidate; 5 July is the day before, when coordinators get school access, and that is where the two-day version comes from — it is not results day for a student. The IB's own pages could not be read to settle it: ibo.org answered every automated request, and the built-in browser, with a Cloudflare bot-verification interstitial on 23 September 2026. The date is held on the IB's settled pattern of 6 July in 2024, 2025 and 2026, which is a fixed calendar date rather than a weekday rule, and it carries no source for that reason. Re-check on ibo.org in spring 2027. Separately, on the page this entry used to cite: UAC's IB applicants page at https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants was opened on 23 September 2026 and carries no May-session release date at all. The only date on it is for the November session — UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\" — which is a useful comparison and not the claim this entry makes, so the citation has been removed rather than left to fail verification forever. Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
-        "source": null
+        "notes": "This entry used to read 5–6 July while every other record on the site said 6 July, and the explanation written here to reconcile them — that 5 July was when coordinators got school access — was invented and is wrong. 5 July is the IB's transcript-request cut-off, a separate deadline the site did not hold at all. Results reach the candidate on 6 July. The date is inferred rather than cited, and both the inference and the reason it could not be checked are held once, in data/ib-calendar.json with the Evidence record ev-ib-results-day-2027-05. It is marked provisional here for that reason. Separately, on the page this entry used to cite: UAC's IB applicants page at https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants was opened on 23 September 2026 and carries no May-session release date at all. The only date on it is for the November session — UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\" — which is a useful comparison and not the claim this entry makes, so the citation has been removed rather than left to fail verification forever. Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
+        "source": null,
+        "ibCalendar": "2027-05/results-day",
+        "provisional": true,
+        "evidence": [
+          "ev-ib-results-day-2027-05"
+        ]
       },
       {
         "label": "Semester 1 2028 (main intake)",

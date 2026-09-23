@@ -16,7 +16,9 @@
       "date": "2026-10-15",
       "consequence": "indicative",
       "note": "The first of the autonomous universities to open, two months before NUS.",
-      "evidence": ["ev-sg-ntu-ib-dates"]
+      "evidence": [
+        "ev-sg-ntu-ib-dates"
+      ]
     },
     {
       "id": "ms-sg-au-nus-window",
@@ -26,7 +28,9 @@
       "endDate": "2027-02-17",
       "consequence": "hard",
       "note": "NUS runs the IB Diploma as its own applicant group with its own window. A student looking under \"international qualifications\" is in the right place by coincidence this year — the two windows happen to coincide for AY2027/2028 — and should still apply under the IB Diploma group.",
-      "evidence": ["ev-sg-nus-important-dates"]
+      "evidence": [
+        "ev-sg-nus-important-dates"
+      ]
     },
     {
       "id": "ms-sg-au-ntu-close",
@@ -35,7 +39,9 @@
       "date": "2027-03-19",
       "consequence": "hard",
       "note": "Programme choices, application fee, criminal records declaration, scholarship application and Art, Design and Media portfolio materials are all due on this date too. NTU states that an incomplete application after the deadline will not be considered.",
-      "evidence": ["ev-sg-ntu-ib-dates"]
+      "evidence": [
+        "ev-sg-ntu-ib-dates"
+      ]
     },
     {
       "id": "ms-sg-au-ntu-docs",
@@ -43,7 +49,9 @@
       "label": "NTU supporting documents due",
       "date": "2027-03-22",
       "consequence": "hard",
-      "evidence": ["ev-sg-ntu-ib-dates"]
+      "evidence": [
+        "ev-sg-ntu-ib-dates"
+      ]
     },
     {
       "id": "ms-sg-au-ibo-access",
@@ -53,7 +61,9 @@
       "consequence": "hard",
       "provisional": true,
       "note": "NTU says this is mandatory and must be done before July 2027; 30 June is the last day that satisfies \"before July\" and is recorded as provisional for that reason. Without it NTU cannot release an application outcome at all. It is arranged through the IB organisation, not through NTU, and it is the step most likely to be left until it is too late.",
-      "evidence": ["ev-sg-ntu-ib-dates"]
+      "evidence": [
+        "ev-sg-ntu-ib-dates"
+      ]
     },
     {
       "id": "ms-sg-au-results",
@@ -61,7 +71,11 @@
       "label": "IB results released",
       "date": "2027-07-06",
       "consequence": "indicative",
-      "evidence": []
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
     },
     {
       "id": "ms-sg-au-ntu-actuals",
@@ -71,7 +85,9 @@
       "consequence": "hard",
       "provisional": true,
       "note": "Within three days of the results release, by NTU's rule. The date here is 6 July plus three and is provisional for that reason. Plan the first fortnight of July 2027 around it.",
-      "evidence": ["ev-sg-ntu-ib-dates"]
+      "evidence": [
+        "ev-sg-ntu-ib-dates"
+      ]
     },
     {
       "id": "ms-sg-au-nus-outcome",
@@ -81,7 +97,9 @@
       "consequence": "indicative",
       "provisional": true,
       "note": "NUS says IB applicants sitting the May 2027 examination will hear by the third week of July 2027. The exact day is an interpretation of \"third week\" and is provisional.",
-      "evidence": ["ev-sg-nus-important-dates"]
+      "evidence": [
+        "ev-sg-nus-important-dates"
+      ]
     },
     {
       "id": "ms-sg-au-joint-acceptance",
@@ -89,7 +107,9 @@
       "label": "Joint Acceptance Exercise — accept one offer",
       "consequence": "hard",
       "note": "Not yet announced for AY2027/2028; NUS shows two windows both marked \"To be Confirmed\". Every offer you hold across the six Autonomous Universities is settled here, once.",
-      "evidence": ["ev-sg-joint-acceptance"]
+      "evidence": [
+        "ev-sg-joint-acceptance"
+      ]
     },
     {
       "id": "ms-sg-au-tg-sign",
@@ -97,7 +117,10 @@
       "label": "Sign the Tuition Grant Agreement with two sureties",
       "consequence": "hard",
       "note": "Not yet announced for the 2027 intake; NTU's 2026 window ran 19 September to 18 October 2026. This happens after term starts, in Singapore, and needs a Singpass, which needs a Student's Pass first. A student who does not complete it pays the full unsubsidised fee.",
-      "evidence": ["ev-sg-ntu-tuition-grant", "ev-sg-moe-tg-bond"]
+      "evidence": [
+        "ev-sg-ntu-tuition-grant",
+        "ev-sg-moe-tg-bond"
+      ]
     }
   ],
   "submissionItems": [
@@ -109,7 +132,9 @@
       "destinationOfItem": "The university's own online admission application form, at the moment you apply.",
       "dueMilestone": "ms-sg-au-ntu-close",
       "note": "This tick-box is the decision. Electing the grant halves the fee and commits you, on signature months later, to three years of full-time work for a Singapore entity after graduation. Declining it means paying the unsubsidised fee with no obligation. Decide it with your family before you fill in the form, not after the offer arrives.",
-      "evidence": ["ev-sg-ntu-tuition-grant"]
+      "evidence": [
+        "ev-sg-ntu-tuition-grant"
+      ]
     },
     {
       "id": "si-sg-au-sureties",
@@ -117,10 +142,15 @@
       "itemType": "signature",
       "responsibleParty": "third-party",
       "destinationOfItem": "MOE's TG&S Portal, signed digitally — sureties do not need to be in Singapore.",
-      "dependsOn": ["si-sg-au-tg-election"],
+      "dependsOn": [
+        "si-sg-au-tg-election"
+      ],
       "dueMilestone": "ms-sg-au-tg-sign",
       "note": "Two people of any nationality, over 21 and under 65, not undischarged bankrupts, not themselves bonded, and with the financial means to cover the liability. MOE encourages immediate family. They are jointly liable with you for liquidated damages, so they need to read the agreement as carefully as you do.",
-      "evidence": ["ev-sg-moe-tg-sureties", "ev-sg-moe-tg-bond"]
+      "evidence": [
+        "ev-sg-moe-tg-sureties",
+        "ev-sg-moe-tg-bond"
+      ]
     },
     {
       "id": "si-sg-au-ibo-access",
@@ -130,7 +160,9 @@
       "destinationOfItem": "The International Baccalaureate Organization, not the university.",
       "dueMilestone": "ms-sg-au-ibo-access",
       "note": "NTU makes this mandatory before July 2027 and will not release an outcome without it.",
-      "evidence": ["ev-sg-ntu-ib-dates"]
+      "evidence": [
+        "ev-sg-ntu-ib-dates"
+      ]
     }
   ],
   "supplementarySteps": [

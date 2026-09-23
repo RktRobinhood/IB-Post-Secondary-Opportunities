@@ -119,6 +119,11 @@ const ALLOWED = new Set([
   'id', 'label', 'date', 'endDate', 'timeOfDay', 'timeZone', 'dateState', 'consequence',
   'audience', 'provisional', 'year', 'notes', 'note', 'source', 'sources', 'evidence',
   'route', 'jurisdiction',
+  /* "<session>/<event>" in data/ib-calendar.json. Legal here because the date
+     belongs to the IB rather than to this country, and scripts/test-ib-calendar.mjs
+     reads it back; without it a deadline restating an IB date is indistinguishable
+     from one the country published, which is how 61 copies of 6 July happened. */
+  'ibCalendar',
 ]);
 
 const problems = [];

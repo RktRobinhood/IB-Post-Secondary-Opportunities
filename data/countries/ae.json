@@ -325,8 +325,12 @@
         "date": "2027-07-06",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Where each UAE institution sits relative to this date is the most useful single thing on this page. NYU Abu Dhabi closes eight months before it and decides on predicted grades. AUS wants a complete file the day before it. RIT Dubai's deadline falls seven weeks after it. Heriot-Watt Dubai will still take an application three weeks before term starts. The UAE is not one calendar, and treating it as one is how a student loses a year. On the date itself: 6 July is when results reach the candidate. The day before, 5 July, is when coordinators get school access, which is why some records elsewhere describe results as arriving over 5–6 July; for a student there is one date and it is the 6th. This could not be confirmed against the IB's own pages in this pass — ibo.org answered every automated request, and the built-in browser, with a Cloudflare bot-verification interstitial on 23 September 2026. The date is held on the IB's settled pattern, 6 July in 2024, 2025 and 2026, which is a fixed calendar date rather than a weekday rule. It carries no source for that reason. Re-check on ibo.org in spring 2027.",
-        "evidence": []
+        "notes": "Where each UAE institution sits relative to this date is the most useful single thing on this page. NYU Abu Dhabi closes eight months before it and decides on predicted grades. AUS wants a complete file the day before it. RIT Dubai's deadline falls seven weeks after it. Heriot-Watt Dubai will still take an application three weeks before term starts. The UAE is not one calendar, and treating it as one is how a student loses a year. On the date itself: 6 July is when results reach the candidate. An earlier version of this note said the 5 July that AUS wants a complete file by was when coordinators got school access — that was invented to reconcile two records that disagreed, and it is wrong. 5 July is the IB's own transcript-request cut-off: before it your coordinator requests transcripts for you and the first six are free, after it you request them yourself at $19 each. The date is inferred rather than cited, and both the inference and the reason it could not be checked are held once, in data/ib-calendar.json with the Evidence record ev-ib-results-day-2027-05. It is marked provisional here for that reason.",
+        "evidence": [
+          "ev-ib-results-day-2027-05"
+        ],
+        "ibCalendar": "2027-05/results-day",
+        "provisional": true
       }
     ],
     "steps": [

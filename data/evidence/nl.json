@@ -3151,7 +3151,10 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Excerpt independently re-fetched from the /afdrukken print view and compared on 2026-09-23. Artikel 2.72 matches. Recorded because a sibling pass flagged WVO 2020 art. 2.74 lid 2 as paraphrase in its own prose — that is a different article and is not quoted here."
+      ]
     },
     "attestation": {
       "by": "the Course Results pass (issue #24)",
@@ -3199,7 +3202,11 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Excerpt independently re-fetched from the /afdrukken print view and compared character for character on 2026-09-23, by a different method from the one that wrote it. It matches, including the bracketed elision in lid 2 and the whole of lid 4. This check was made because a sibling research pass flagged an article 4.8 fragment in its own prose as paraphrase rather than quotation; the flag was about that report, not about this record.",
+        "Why it was worth re-checking rather than trusting: wetten.overheid.nl serves only a table of contents to an ordinary fetch, and a summarising fetcher pointed at it will paraphrase articles into text that reads like a quotation. Any statutory excerpt in this repository should come from the print view and be compared by eye."
+      ]
     },
     "attestation": {
       "by": "the Course Results pass (issue #24)",
