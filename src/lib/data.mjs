@@ -350,10 +350,22 @@ function publishable(official) {
 }
 
 export function picture(site, key, { prefer = 'official', also = [] } = {}) {
-  // Canonical institution ids are namespaced (dk-dtu) while the image scripts
-  // were seeded from the older bare ids (dtu). Try both rather than re-fetching
-  // several hundred photographs to rename them.
-  const keys = [key, ...also, String(key ?? '').replace(/^[a-z]{2}-/, '')].filter(Boolean);
+  // Canonical ids and image keys drifted apart twice, in different directions,
+  // and an image that is fetched but never found is worse than one that was
+  // never fetched — it looks like the fetcher failed.
+  //
+  //   1. Institutions are namespaced canonically (dk-dtu) while the image
+  //      scripts were seeded from the older bare ids (dtu).
+  //   2. An Opportunity id carries its intake (…-biotechnology-2027-autumn),
+  //      because the same programme in two intakes is two Opportunities. The
+  //      photograph is of the department and does not change with the year, so
+  //      it is keyed without one.
+  //
+  // Try the id as given, then with each of those removed, then with both.
+  const raw = String(key ?? '');
+  const noPrefix = raw.replace(/^[a-z]{2}-/, '');
+  const noIntake = (s) => s.replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
+  const keys = [...new Set([key, ...also, noPrefix, noIntake(raw), noIntake(noPrefix)])].filter(Boolean);
   // A record with no usable address is worse than no record: it renders an
   // <img src="/"> that 404s. Treat it as absent.
   const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
@@ -424,6 +436,32 @@ export function validate(site) {
       if (!p.url) warn(at, `programme "${p.name}" has no url`);
       if (!p.requirementsText && !p.entryRequirements) {
         warn(at, `programme "${p.name}" has no entry requirements at all`);
+      }
+    }
+  }
+
+  // Photographs are looked up in one flat namespace, and two things share the
+  // prefix `au-`: Aarhus University's programmes and every institution in
+  // Australia. Nothing collides today — Aarhus keys are subject names and the
+  // Australian ones are city names — but if one ever did, the failure is silent
+  // and it is a photograph of the wrong continent on a programme page.
+  const imageKeys = new Map();
+  for (const inst of site.dkInstitutions) {
+    imageKeys.set(inst.id.replace(/^dk-/, ''), `dk/${inst.id}`);
+    for (const p of inst.programmes) {
+      const key = p.id.replace(/^dk-/, '').replace(/-\d{4}-(?:autumn|spring|summer|winter)$/, '');
+      imageKeys.set(key, `dk programme "${p.name}"`);
+    }
+  }
+  for (const c of site.countries) {
+    for (const i of c.institutions) {
+      const owner = imageKeys.get(i.key);
+      if (owner) {
+        err(
+          `countries/${c.code}.json`,
+          `institution "${i.name}" resolves to image key "${i.key}", which already belongs to ${owner} — ` +
+            'one of them would show the other\'s photograph'
+        );
       }
     }
   }
