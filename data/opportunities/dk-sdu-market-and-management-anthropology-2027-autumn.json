@@ -36,10 +36,11 @@
   "requirements": [
     {
       "id": "req-all-1",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "English at B level",
       "subject": "English",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -52,10 +53,11 @@
     },
     {
       "id": "req-all-2",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Mathematics at B level",
       "subject": "Mathematics",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -76,10 +78,11 @@
         [
           {
             "id": "req-alt1-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "History at B level",
             "subject": "History",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -94,10 +97,11 @@
         [
           {
             "id": "req-alt2-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Social Studies at B level",
             "subject": "Social Studies",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -112,10 +116,11 @@
         [
           {
             "id": "req-alt3-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "History of Ideas at B level",
             "subject": "History of Ideas",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -130,10 +135,11 @@
         [
           {
             "id": "req-alt4-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Contemporary History at B level",
             "subject": "Contemporary History",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {

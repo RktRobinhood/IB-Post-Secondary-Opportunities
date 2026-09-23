@@ -1,0 +1,798 @@
+{
+  "id": "dk-eksamenshaandbogen",
+  "destination": "dk",
+  "name": "Eksamenshåndbogen — International Baccalaureate",
+  "label": "the Danish Agency's IB handbook",
+  "summary": "Every Danish institution converts IB results using this handbook. Individual university pages are often out of date; this is the source they are all supposed to follow.",
+  "where": "Recognition Schemes live in data/recognition/<destination>.json, one file per Destination, named for the Destination rather than for the publication. A Destination has at most one of these and the engine reaches it from a requirement that names its scale, so the filename is the lookup and nothing has to index it. It is deliberately NOT a field on the Destination record: a Destination record is country context a student reads, this is a translation table the engine executes, and the two change on completely different clocks — the handbook is reissued every March, the country profile is not.",
+  "authority": {
+    "name": "Uddannelses- og Forskningsstyrelsen (Danish Agency for Higher Education and Science)",
+    "publication": "Eksamenshåndbogen — International Baccalaureate",
+    "url": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/lande-og-eksaminer/"
+  },
+  "subjectScale": {
+    "id": "dk-abc",
+    "name": "Danish upper-secondary subject level",
+    "note": "Levels of study, not grades. A is the highest level a subject can be taken at, C the lowest.",
+    "levels": [
+      {
+        "code": "A",
+        "rank": 3,
+        "label": "A level"
+      },
+      {
+        "code": "B",
+        "rank": 2,
+        "label": "B level"
+      },
+      {
+        "code": "C",
+        "rank": 1,
+        "label": "C level"
+      }
+    ]
+  },
+  "gradeScale": {
+    "id": "dk-7-point",
+    "name": "Danish 7-point grading scale",
+    "note": "Runs -3, 00, 02, 4, 7, 10, 12. 02 is the pass mark."
+  },
+  "gradeConversion": {
+    "single": {
+      "label": "Single IB subject grade → Danish 7-point grade",
+      "usedFor": "Only for programmes that set a minimum grade in a named subject. It is not used to build your average.",
+      "sourceLabel": "2026, Uddannelses- og Forskningsstyrelsen",
+      "table": [
+        {
+          "ib": 7,
+          "local": 12,
+          "descriptor": "Excellent"
+        },
+        {
+          "ib": 6,
+          "local": 10,
+          "descriptor": "Very good"
+        },
+        {
+          "ib": 5,
+          "local": 7,
+          "descriptor": "Good"
+        },
+        {
+          "ib": 4,
+          "local": 4,
+          "descriptor": "Satisfactory"
+        },
+        {
+          "ib": 3,
+          "local": 2,
+          "descriptor": "Mediocre"
+        },
+        {
+          "ib": 2,
+          "local": 0,
+          "descriptor": "Poor"
+        },
+        {
+          "ib": 1,
+          "local": -3,
+          "descriptor": "Very poor"
+        }
+      ]
+    },
+    "average": {
+      "label": "IB total points → Danish 7-point grade average",
+      "usedFor": "Graduates up to and including 2019, and from 2023 onwards — which includes everyone sitting the May 2027 session.",
+      "sourceLabel": "Statistisk omregning 2026, Uddannelses- og Forskningsstyrelsen",
+      "table": [
+        {
+          "ib": 18,
+          "local": 2.4
+        },
+        {
+          "ib": 19,
+          "local": 2.7
+        },
+        {
+          "ib": 20,
+          "local": 3
+        },
+        {
+          "ib": 21,
+          "local": 3.3
+        },
+        {
+          "ib": 22,
+          "local": 3.7
+        },
+        {
+          "ib": 23,
+          "local": 4
+        },
+        {
+          "ib": 24,
+          "local": 4.4
+        },
+        {
+          "ib": 25,
+          "local": 4.7
+        },
+        {
+          "ib": 26,
+          "local": 5.2
+        },
+        {
+          "ib": 27,
+          "local": 5.6
+        },
+        {
+          "ib": 28,
+          "local": 6
+        },
+        {
+          "ib": 29,
+          "local": 6.4
+        },
+        {
+          "ib": 30,
+          "local": 6.9
+        },
+        {
+          "ib": 31,
+          "local": 7.3
+        },
+        {
+          "ib": 32,
+          "local": 7.7
+        },
+        {
+          "ib": 33,
+          "local": 8.1
+        },
+        {
+          "ib": 34,
+          "local": 8.5
+        },
+        {
+          "ib": 35,
+          "local": 8.9
+        },
+        {
+          "ib": 36,
+          "local": 9.3
+        },
+        {
+          "ib": 37,
+          "local": 9.7
+        },
+        {
+          "ib": 38,
+          "local": 10
+        },
+        {
+          "ib": 39,
+          "local": 10.4
+        },
+        {
+          "ib": 40,
+          "local": 10.7
+        },
+        {
+          "ib": 41,
+          "local": 11
+        },
+        {
+          "ib": 42,
+          "local": 11.3
+        },
+        {
+          "ib": 43,
+          "local": 11.6
+        },
+        {
+          "ib": 44,
+          "local": 12
+        },
+        {
+          "ib": 45,
+          "local": 12.7
+        }
+      ]
+    }
+  },
+  "noEquivalenceNote": "The handbook publishes no equivalent for this subject.",
+  "subjectEquivalence": [
+    {
+      "ibSubject": "english-a-literature",
+      "maps": {
+        "HL": [
+          {
+            "subject": "English",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "English",
+            "level": "A"
+          }
+        ]
+      },
+      "note": "Any IB English A satisfies Danish English A at either level."
+    },
+    {
+      "ibSubject": "english-a-lang-lit",
+      "maps": {
+        "HL": [
+          {
+            "subject": "English",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "English",
+            "level": "A"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "english-b",
+      "maps": {
+        "HL": [
+          {
+            "subject": "English",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "English",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "English B at HL counts as Danish English A; at SL it counts as English B."
+    },
+    {
+      "ibSubject": "danish-a-literature",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Danish",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Danish",
+            "level": "A"
+          }
+        ]
+      },
+      "note": "Formally Danish A1 SL maps to Danish B, but universities normally accept it for a Danish A requirement because it sits above the Studieprøven test."
+    },
+    {
+      "ibSubject": "danish-a-lang-lit",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Danish",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Danish",
+            "level": "A"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "danish-b",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Danish as a second language",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Danish as a second language",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "Danish B is a foreign-language subject. Whether it can replace Danish A as the language requirement is decided by each institution — ask in writing."
+    },
+    {
+      "ibSubject": "language-a-other",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Second Foreign Language",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Second Foreign Language",
+            "level": "A"
+          }
+        ]
+      },
+      "note": "The Agency rates a Language A in French, German, Italian or Spanish as above any level offered in Danish upper secondary school."
+    },
+    {
+      "ibSubject": "language-b-other",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Second Foreign Language",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Second Foreign Language",
+            "level": "A"
+          }
+        ]
+      },
+      "note": "For French, German, Italian and Spanish, a B course counts as Danish continuation-language A. For Chinese, Japanese, Russian, Arabic and Turkish it counts as beginner-language A."
+    },
+    {
+      "ibSubject": "language-ab-initio",
+      "maps": {
+        "SL": [
+          {
+            "subject": "Second Foreign Language",
+            "level": "A"
+          }
+        ]
+      },
+      "note": "Counts as Danish beginner-language A for French, German, Italian and Spanish. Danish ab initio is a special case and equates to nothing on the Danish-as-a-second-language ladder."
+    },
+    {
+      "ibSubject": "mathematics-aa",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Mathematics",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "Denmark treats both mathematics courses identically. Several other countries do not — Norway counts AA SL as R1+R2 but AI SL only as S1+S2."
+    },
+    {
+      "ibSubject": "mathematics-ai",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Mathematics",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "Equivalent to Analysis and Approaches for Danish admission purposes."
+    },
+    {
+      "ibSubject": "physics",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Physics",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Physics",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "chemistry",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Chemistry",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Chemistry",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "biology",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Biology",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Biology",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "computer-science",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Information Technology",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Information Technology",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "digital-society",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Information Technology",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Information Technology",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "The Agency's table lists ITGS, the subject Digital Society replaced."
+    },
+    {
+      "ibSubject": "design-technology",
+      "maps": {},
+      "unmapped": "The Agency's table lists no Danish equivalent for Design Technology. Ask the admissions office whether it can meet a science requirement."
+    },
+    {
+      "ibSubject": "sports-science",
+      "maps": {},
+      "unmapped": "No Danish equivalent is published. It is unlikely on its own to meet a science requirement."
+    },
+    {
+      "ibSubject": "ess",
+      "maps": {},
+      "unmapped": "The Agency publishes no equivalent for Environmental Systems and Societies. Do not assume it meets a Biology or Geography requirement — ask in writing."
+    },
+    {
+      "ibSubject": "history",
+      "maps": {
+        "HL": [
+          {
+            "subject": "History",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "History",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "May appear on your diploma as History Europe, History Asia and so on. It is the same subject for this purpose."
+    },
+    {
+      "ibSubject": "economics",
+      "maps": {
+        "HL": [
+          {
+            "subject": "International Economics",
+            "level": "A"
+          },
+          {
+            "subject": "Business Economics",
+            "level": "A"
+          },
+          {
+            "subject": "Economics",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "International Economics",
+            "level": "B"
+          },
+          {
+            "subject": "Business Economics",
+            "level": "B"
+          },
+          {
+            "subject": "Economics",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "The Agency groups the Danish business and economics subjects together, so Economics covers whichever of them a programme names."
+    },
+    {
+      "ibSubject": "business-management",
+      "maps": {
+        "HL": [
+          {
+            "subject": "International Economics",
+            "level": "A"
+          },
+          {
+            "subject": "Business Economics",
+            "level": "A"
+          },
+          {
+            "subject": "Economics",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "International Economics",
+            "level": "B"
+          },
+          {
+            "subject": "Business Economics",
+            "level": "B"
+          },
+          {
+            "subject": "Economics",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "psychology",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Psychology",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Psychology",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "philosophy",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Philosophy",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Philosophy",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "geography",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Geography",
+            "level": "B"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Geography",
+            "level": "B"
+          }
+        ]
+      },
+      "note": "The Agency's table maps Geography SL to Danish Geography B and lists no A-level equivalent, so HL is recorded at B as well. Geography does not substitute for Geoscience A."
+    },
+    {
+      "ibSubject": "global-politics",
+      "maps": {},
+      "unmapped": "Global Politics has no fixed Danish equivalence, and that is the Agency's own position rather than a gap in our data. It goes far deeper into international politics than Danish Social Studies A but omits the sociology and economics the Danish subject covers. Copenhagen has accepted Global Politics HL as Social Studies B; Aarhus accepts it only in combination with Economics. Write to the admissions office before 15 March and ask for a written assessment."
+    },
+    {
+      "ibSubject": "anthropology",
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+    {
+      "ibSubject": "world-religions",
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+    {
+      "ibSubject": "visual-arts",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Visual Arts",
+            "level": "A"
+          },
+          {
+            "subject": "Design",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Visual Arts",
+            "level": "B"
+          },
+          {
+            "subject": "Design",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "music",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Music",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Music",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "theatre",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Drama",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Drama",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "film",
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+    {
+      "ibSubject": "dance",
+      "maps": {},
+      "unmapped": "No Danish equivalent is published."
+    },
+    {
+      "ibSubject": "latin",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Latin",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Latin",
+            "level": "B"
+          }
+        ]
+      }
+    },
+    {
+      "ibSubject": "classical-greek",
+      "maps": {
+        "HL": [
+          {
+            "subject": "Classical Greek",
+            "level": "A"
+          }
+        ],
+        "SL": [
+          {
+            "subject": "Classical Greek",
+            "level": "B"
+          }
+        ]
+      }
+    }
+  ],
+  "subjectsWithoutEquivalence": [
+    {
+      "subject": "Social Studies",
+      "reason": "Denmark publishes no fixed equivalence for Social Studies. Global Politics is assessed institution by institution — Copenhagen has accepted Global Politics HL, Aarhus only in combination with Economics. Ask the admissions office in writing before 15 March."
+    },
+    {
+      "subject": "Geoscience",
+      "reason": "The official handbook leaves the IB column blank for Geoscience A. IB Geography HL is not automatically accepted; you would normally need a Danish supplementary course."
+    }
+  ],
+  "subjectAliases": [
+    {
+      "subject": "Business and economics subjects",
+      "covers": [
+        "International Economics",
+        "Business Economics",
+        "Economics",
+        "Marketing",
+        "Afsætning"
+      ]
+    },
+    {
+      "subject": "Computing / IT / programming",
+      "covers": [
+        "Information Technology",
+        "Communication and IT",
+        "Computer Science"
+      ]
+    },
+    {
+      "subject": "Danish as a second language",
+      "covers": [
+        "Danish"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-ufsn-ib-fagniveauer"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-22",
+    "notes": [
+      "Assembled from data/ib-subjects.json and data/ib-conversion.json, which held this table unnamed and implicitly Danish."
+    ]
+  }
+}

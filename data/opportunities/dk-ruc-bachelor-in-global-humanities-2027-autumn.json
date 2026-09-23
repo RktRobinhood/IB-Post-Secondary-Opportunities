@@ -32,10 +32,11 @@
   "requirements": [
     {
       "id": "req-all-1",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "English at B level",
       "subject": "English",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -48,25 +49,26 @@
     },
     {
       "id": "req-all-2",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Second Foreign Language at B level",
+      "officialWording": {
+        "text": "One additional language – either beginner’s language at Danish A-level or advanced language at Danish B-level",
+        "language": "en",
+        "official": true
+      },
       "subject": "Second Foreign Language",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
+      "note": "Roskilde states this as an either/or: a beginner’s language needs A level (325 hours of instruction), an advanced language needs B level (200 hours). It is recorded here as a single B-level requirement because the outcome is the same for every IB candidate — the Danish Agency maps Language ab initio, Another language B and Another language A all to Second Foreign Language at A level, and A satisfies a B-level requirement. Confirmed against the source on 2026-09-22.",
       "evidence": [
         "ev-ruc-dk-kp2j8"
-      ],
-      "officialWording": {
-        "text": "One additional language – either beginner’s language at Danish A-level or advanced language at Danish B-level",
-        "language": "en",
-        "official": true
-      },
-      "note": "Roskilde states this as an either/or: a beginner’s language needs A level (325 hours of instruction), an advanced language needs B level (200 hours). It is recorded here as a single B-level requirement because the outcome is the same for every IB candidate — the Danish Agency maps Language ab initio, Another language B and Another language A all to Second Foreign Language at A level, and A satisfies a B-level requirement. Confirmed against the source on 2026-09-22."
+      ]
     },
     {
       "id": "req-oneof",
@@ -78,10 +80,11 @@
         [
           {
             "id": "req-alt1-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "History at B level",
             "subject": "History",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -96,10 +99,11 @@
         [
           {
             "id": "req-alt2-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "History of Ideas at B level",
             "subject": "History of Ideas",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -114,10 +118,11 @@
         [
           {
             "id": "req-alt3-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Contemporary History at B level",
             "subject": "Contemporary History",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {

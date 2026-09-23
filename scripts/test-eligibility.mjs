@@ -6,6 +6,12 @@
  * These exist because the engine's failure mode is dangerous in a specific way:
  * the tempting bug is to resolve missing or ambiguous data in the student's
  * favour. Several scenarios below assert the opposite.
+ *
+ * Two of them are structural rather than behavioural, and they are at the
+ * bottom: the engine may not contain any destination's vocabulary, and a
+ * Destination with no Recognition Scheme must be assessable end to end. The
+ * second one is what makes the first one true rather than aspirational — a
+ * default path nobody exercises is a fallback, not a default.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -27,25 +33,87 @@ function eq(name, actual, expected) {
   check(name, actual === expected, `expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
 }
 
+/**
+ * Every string literal and property name in a JavaScript source, with comments
+ * skipped — the places an identifier can actually change what the code does.
+ *
+ * Hand-rolled because the guard below needs to tell `'dk-abc'` from the word
+ * "it" in a sentence, and a regex cannot: prose is full of apostrophes and
+ * slashes, and treating one as a quote swallows the rest of the file.
+ */
+function* identifiers(source) {
+  for (let i = 0; i < source.length; i++) {
+    const c = source[i];
+
+    if (c === '/' && source[i + 1] === '/') {
+      i = source.indexOf('\n', i);
+      if (i === -1) return;
+      continue;
+    }
+    if (c === '/' && source[i + 1] === '*') {
+      const end = source.indexOf('*/', i + 2);
+      if (end === -1) return;
+      i = end + 1;
+      continue;
+    }
+    if (c === "'" || c === '"' || c === '`') {
+      const start = i + 1;
+      let j = start;
+      while (j < source.length && source[j] !== c) j += source[j] === '\\' ? 2 : 1;
+      yield { text: source.slice(start, j), index: start, raw: `the literal ${JSON.stringify(source.slice(start, j).slice(0, 60))}` };
+      i = j;
+      continue;
+    }
+    if (c === '.' && /[A-Za-z_$]/.test(source[i + 1] || '')) {
+      let j = i + 1;
+      while (j < source.length && /[\w$]/.test(source[j])) j++;
+      yield { text: source.slice(i + 1, j), index: i + 1, raw: `the property ".${source.slice(i + 1, j)}"` };
+      i = j - 1;
+    }
+  }
+}
+
 /* --- fixtures --------------------------------------------------------------- */
 
-const conversionFile = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'ib-conversion.json'), 'utf8'));
-const subjectFile = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'ib-subjects.json'), 'utf8'));
-const subjectIndex = buildSubjectIndex(subjectFile.subjects);
-const conversion = {
-  single: conversionFile.singleGrade.table,
-  average: conversionFile.gradeAverage.table,
-};
-const options = { conversion, subjectIndex, dataVersion: 'test' };
+const catalogue = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'ib-subjects.json'), 'utf8'));
 
+const recognitionDir = path.join(ROOT, 'data', 'recognition');
+const schemes = [];
+for (const f of (await fs.readdir(recognitionDir)).filter((x) => x.endsWith('.json'))) {
+  schemes.push(JSON.parse(await fs.readFile(path.join(recognitionDir, f), 'utf8')));
+}
+
+/** The scheme the Danish catalogue is written against, found by its Destination. */
+const localScheme = schemes.find((s) => s.destination === 'dk');
+const LOCAL_SCALE = localScheme.subjectScale.id;
+const conversion = {
+  single: localScheme.gradeConversion.single.table,
+  average: localScheme.gradeConversion.average.table,
+};
+
+const subjectIndex = buildSubjectIndex({ subjects: catalogue.subjects, schemes });
+const options = { subjectIndex, dataVersion: 'test' };
+
+/** The catalogue alone — no Recognition Scheme anywhere. The default path. */
+const ibOnlyIndex = buildSubjectIndex(catalogue.subjects);
+const ibOnlyOptions = { subjectIndex: ibOnlyIndex, dataVersion: 'test' };
+
+/** A requirement on a local subject scale. */
 const req = (id, subject, level, extra = {}) => ({
-  id, kind: 'ib-subject', mandatory: true, subject, level,
+  id, kind: 'local-equivalency', mandatory: true, levelScale: LOCAL_SCALE, subject, level,
   label: `${subject} ${level}`, evidence: ['ev-test'], ...extra,
+});
+
+/** A requirement in the IB's own terms. No scheme is consulted. */
+const ibReq = (id, ibSubject, ibLevel, extra = {}) => ({
+  id, kind: 'ib-subject', mandatory: true, ibSubject, ibLevel,
+  label: `${ibSubject} ${ibLevel}`, evidence: ['ev-test'], ...extra,
 });
 
 /** An engineering-shaped Opportunity: English B, Maths A, and one of two science pairs. */
 const engineering = {
   id: 'opp-test-engineering',
+  destination: 'dk',
   intake: '2027-autumn',
   meta: { dataAsOf: '2026-09-22' },
   evidence: ['ev-test'],
@@ -67,12 +135,13 @@ const engineering = {
 /** A business-shaped Opportunity with a minimum grade and an essay. */
 const business = {
   id: 'opp-test-business',
+  destination: 'dk',
   intake: '2027-autumn',
   meta: { dataAsOf: '2026-09-22' },
   evidence: ['ev-test'],
   admission: { restricted: true },
   requirements: [
-    req('r1', 'English', 'B', { minGrade: 6, gradeScale: 'dk-7-point' }),
+    req('r1', 'English', 'B', { minGrade: 6, gradeScale: localScheme.gradeScale.id }),
     req('r2', 'Mathematics', 'B'),
     { id: 'r3', kind: 'essay', mandatory: true, label: 'Motivational essay', evidence: ['ev-test'] },
   ],
@@ -89,10 +158,10 @@ const profile = (subjects, extra = {}) => ({
 
 /* --- conversion tables ------------------------------------------------------ */
 
-eq('34 points converts to a Danish 8.5', convertAverage(34, conversion.average), 8.5);
+eq('34 points converts to a local average of 8.5', convertAverage(34, conversion.average), 8.5);
 eq('45 points converts to 12.7', convertAverage(45, conversion.average), 12.7);
-eq('an IB 5 converts to a Danish 7', convertGrade(5, conversion.single), 7);
-eq('an IB 3 converts to a Danish 2', convertGrade(3, conversion.single), 2);
+eq('an IB 5 converts to a local 7', convertGrade(5, conversion.single), 7);
+eq('an IB 3 converts to a local 2', convertGrade(3, conversion.single), 2);
 eq('an unpublished total returns nothing', convertAverage(17, conversion.average), null);
 
 /* --- both maths courses are treated identically ----------------------------- */
@@ -161,6 +230,8 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   eq('Maths SL against a Maths A requirement is possible with action', r.outcome, OUTCOME.POSSIBLE);
   eq('exactly one gap is reported', r.gaps.length, 1);
   check('the gap explains the level shortfall', /needs A/.test(r.gaps[0].message), r.gaps[0].message);
+  check('and it shows the translation rather than asserting it',
+    /counts as/.test(r.gaps[0].message), r.gaps[0].message);
 }
 
 /* --- two missing subjects is a clear no ------------------------------------- */
@@ -190,7 +261,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     business,
     { ...options, evidenceStatus: verified }
   );
-  check('a grade 5 English (Danish 7) clears a minimum of 6',
+  check('a grade 5 English (local 7) clears a minimum of 6',
     withGrade.matched.some((m) => /converts to 7/.test(m.message)));
 
   const belowGrade = assess(
@@ -201,7 +272,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     business,
     { ...options, evidenceStatus: verified }
   );
-  check('a grade 4 English (Danish 4) falls below a minimum of 6',
+  check('a grade 4 English (local 4) falls below a minimum of 6',
     belowGrade.gaps.some((g) => /below the required 6/.test(g.message)),
     JSON.stringify(belowGrade.gaps.map((g) => g.message))
   );
@@ -216,6 +287,46 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   );
   eq('a missing grade produces Needs review, not a pass', noGrade.outcome, OUTCOME.NEEDS_REVIEW);
   check('it says which grade to add', noGrade.unknowns.some((u) => /Add your grade/.test(u.message)));
+}
+
+/* --- a requirement on a scale nothing here covers --------------------------- */
+
+{
+  const foreign = {
+    id: 'opp-unknown-scale', destination: 'zz', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
+    requirements: [{
+      id: 'r1', kind: 'local-equivalency', mandatory: true,
+      levelScale: 'not-a-scale-we-hold', subject: 'Wiskunde', level: 'B',
+      label: 'Wiskunde B', evidence: ['ev-test'],
+    }],
+  };
+  const r = assess(
+    profile([{ subject: 'mathematics-aa', level: 'HL', grade: 7 }]),
+    foreign,
+    { ...options, evidenceStatus: verified }
+  );
+  eq('a rule on a scale we hold no scheme for is Needs review, not a pass and not a rejection',
+    r.outcome, OUTCOME.NEEDS_REVIEW);
+  check('and it says that is what happened',
+    r.unknowns.some((u) => /no Recognition Scheme/.test(u.message)),
+    JSON.stringify(r.unknowns.map((u) => u.message)));
+
+  const unscaled = {
+    id: 'opp-no-scale', destination: 'zz', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
+    requirements: [{
+      id: 'r1', kind: 'local-equivalency', mandatory: true, subject: 'Mathematics', level: 'A',
+      label: 'Mathematics A', evidence: ['ev-test'],
+    }],
+  };
+  const u = assess(
+    profile([{ subject: 'mathematics-aa', level: 'HL', grade: 7 }]),
+    unscaled,
+    { ...options, evidenceStatus: verified }
+  );
+  eq('a local level with no scale named cannot be checked at all', u.outcome, OUTCOME.NEEDS_REVIEW);
+  check('and it says a level with no scale is a number with no unit',
+    u.unknowns.some((x) => /no unit/.test(x.message)),
+    JSON.stringify(u.unknowns.map((x) => x.message)));
 }
 
 /* --- unknown data never resolves in the student's favour -------------------- */
@@ -290,7 +401,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
 
 {
   const socialStudies = {
-    id: 'opp-social', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
+    id: 'opp-social', destination: 'dk', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
     requirements: [req('r1', 'English', 'B'), req('r2', 'Social Studies', 'B')],
   };
   const r = assess(
@@ -321,11 +432,33 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     essayProgramme.unknowns.some((u) => /essay/i.test(u.label) || /essay/i.test(u.message)));
 }
 
+/* --- a subject the scheme publishes no equivalent for ----------------------- */
+
+{
+  const r = assess(
+    profile([
+      { subject: 'english-a-literature', level: 'HL', grade: 6 },
+      { subject: 'mathematics-aa', level: 'HL', grade: 6 },
+      { subject: 'physics', level: 'SL', grade: 5 },
+      { subject: 'chemistry', level: 'SL', grade: 5 },
+      { subject: 'ess', level: 'HL', grade: 6 },
+    ]),
+    engineering,
+    { ...options, evidenceStatus: verified }
+  );
+  check('an unmapped subject is reported rather than silently dropped',
+    r.unmappedSubjects.some((u) => /Environmental/.test(u.name)),
+    JSON.stringify(r.unmappedSubjects));
+  check('and the caveat names the scheme that publishes no equivalent, not a nationality we invented',
+    r.caveats.some((c) => c.includes(localScheme.label)),
+    JSON.stringify(r.caveats));
+}
+
 /* --- changing predicted grades ---------------------------------------------- */
 
 {
   const pointsRule = {
-    id: 'opp-points', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
+    id: 'opp-points', destination: 'dk', intake: '2027-autumn', meta: {}, evidence: ['ev-test'],
     requirements: [
       { id: 'r1', kind: 'ib-total-points', mandatory: true, minPoints: 32, label: '32 points overall', evidence: ['ev-test'] },
     ],
@@ -379,9 +512,118 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   check('every rule is traceable to evidence', all.every((e) => Array.isArray(e.evidence)));
   check('the intake is reported', r.provenance.intake === '2027-autumn');
   check('the data version is reported', r.provenance.dataVersion === 'test');
+  check('the result records which scheme it was translated through',
+    r.provenance.translatedThrough.some((t) => t.scale === LOCAL_SCALE),
+    JSON.stringify(r.provenance.translatedThrough));
 }
 
-/* --- against the real Danish catalogue -------------------------------------- */
+/* --- a Destination with no Recognition Scheme ------------------------------- *
+ *
+ * The one that proves the default is real.
+ *
+ * `zz` is not a country. Nothing in data/ describes it, no Recognition Scheme
+ * covers it, and the index below is built from the IB catalogue alone — no
+ * schemes at all, which is the state every Destination outside the pilot is in.
+ * Its requirements are written the way most of the world publishes them, in the
+ * IB's own units, and the whole engine has to work.
+ *
+ * If this ever starts failing, the IB path has quietly grown a dependency on a
+ * translation table and the repository is back to one country.
+ */
+{
+  const elsewhere = {
+    id: 'opp-test-no-scheme',
+    destination: 'zz',
+    intake: '2027-autumn',
+    meta: { dataAsOf: '2026-09-22' },
+    evidence: ['ev-test'],
+    admission: { restricted: false },
+    requirements: [
+      { id: 'r1', kind: 'ib-diploma', mandatory: true, label: 'A full IB Diploma', evidence: ['ev-test'] },
+      { id: 'r2', kind: 'ib-total-points', mandatory: true, minPoints: 34, label: '34 points overall', evidence: ['ev-test'] },
+      ibReq('r3', 'english-a-literature', 'any'),
+      {
+        id: 'r4', kind: 'subject-combination', mandatory: true, operator: 'one-of',
+        label: 'Mathematics HL at 5, either course', evidence: ['ev-test'],
+        alternatives: [
+          [ibReq('r4a', 'mathematics-aa', 'HL', { minGrade: 5 })],
+          [ibReq('r4b', 'mathematics-ai', 'HL', { minGrade: 5 })],
+        ],
+      },
+    ],
+  };
+
+  const strong = profile([
+    { subject: 'english-a-literature', level: 'SL', grade: 6 },
+    { subject: 'mathematics-ai', level: 'HL', grade: 6 },
+  ], { totalPoints: 36 });
+
+  const r = assess(strong, elsewhere, { ...ibOnlyOptions, evidenceStatus: verified });
+  eq('a Destination with no Recognition Scheme is assessed end to end', r.outcome, OUTCOME.MEETS);
+  check('no table was consulted, and the result says so',
+    r.provenance.translatedThrough.length === 0,
+    JSON.stringify(r.provenance.translatedThrough));
+  check('no explanation claims a conversion that did not happen',
+    ![...r.matched, ...r.gaps, ...r.unknowns].some((e) => /counts as|converts to/.test(e.message)),
+    JSON.stringify(r.matched.map((m) => m.message)));
+  check('the explanation says the requirement was already in the student\'s own units',
+    r.matched.some((m) => /published in IB terms/.test(m.message)),
+    JSON.stringify(r.matched.map((m) => m.message)));
+  check('an SL subject satisfies a requirement written for either level',
+    r.matched.some((m) => /English A: Literature SL meets either level/.test(m.message)),
+    JSON.stringify(r.matched.map((m) => m.message)));
+
+  const short = assess(
+    profile([
+      { subject: 'english-a-literature', level: 'SL', grade: 6 },
+      { subject: 'mathematics-aa', level: 'HL', grade: 4 },
+    ], { totalPoints: 36 }),
+    elsewhere,
+    { ...ibOnlyOptions, evidenceStatus: verified }
+  );
+  eq('one IB grade short is possible with action, not a rejection', short.outcome, OUTCOME.POSSIBLE);
+  check('and the shortfall is stated in IB grades',
+    short.gaps.some((g) => /asks for at least 5 and your profile records 4/.test(g.message)),
+    JSON.stringify(short.gaps.map((g) => g.message)));
+
+  const wrongLevel = assess(
+    profile([
+      { subject: 'english-a-literature', level: 'SL', grade: 6 },
+      { subject: 'mathematics-ai', level: 'SL', grade: 7 },
+    ], { totalPoints: 30 }),
+    elsewhere,
+    { ...ibOnlyOptions, evidenceStatus: verified }
+  );
+  eq('SL against an HL requirement, with the points short too, does not currently meet',
+    wrongLevel.outcome, OUTCOME.DOES_NOT_MEET);
+
+  const noGrade = assess(
+    profile([
+      { subject: 'english-a-literature', level: 'SL', grade: 6 },
+      { subject: 'mathematics-ai', level: 'HL' },
+    ], { totalPoints: 36 }),
+    elsewhere,
+    { ...ibOnlyOptions, evidenceStatus: verified }
+  );
+  eq('a missing IB grade is Needs review, not a pass', noGrade.outcome, OUTCOME.NEEDS_REVIEW);
+
+  const noSubjects = assess(
+    profile([], { totalPoints: 36 }),
+    elsewhere,
+    { ...ibOnlyOptions, evidenceStatus: verified }
+  );
+  eq('an empty profile against it does not currently meet', noSubjects.outcome, OUTCOME.DOES_NOT_MEET);
+
+  // And the same records assessed by an engine that DOES hold a scheme must not
+  // pick one up out of the air, because nothing in them named a scale.
+  const withSchemesLoaded = assess(strong, elsewhere, { ...options, evidenceStatus: verified });
+  eq('holding a Recognition Scheme changes nothing for a requirement that names no scale',
+    withSchemesLoaded.outcome, OUTCOME.MEETS);
+  check('and still nothing was translated',
+    withSchemesLoaded.provenance.translatedThrough.length === 0);
+}
+
+/* --- against the real catalogue --------------------------------------------- */
 
 {
   const dir = path.join(ROOT, 'data', 'opportunities');
@@ -413,6 +655,31 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     check('a strong science profile qualifies for at least one real programme',
       (outcomes[OUTCOME.MEETS] || 0) > 0, JSON.stringify(outcomes));
     console.log(`  real catalogue: ${JSON.stringify(outcomes)}`);
+
+    /* Every subject requirement in the real records is either in IB terms or on
+     * a scale we hold, at a level that scale defines. A requirement that names
+     * a scale nobody defines is not an error the engine can recover from — it
+     * answers "unknown" for ever and the record looks researched. */
+    const scaleLevels = new Map(
+      schemes.map((s) => [s.subjectScale.id, new Set((s.subjectScale.levels || []).map((l) => l.code))])
+    );
+    const stray = [];
+    const walk = (rules, at) => {
+      for (const rule of rules || []) {
+        if (rule.kind === 'local-equivalency') {
+          if (!rule.levelScale) stray.push(`${at} ${rule.id}: no levelScale`);
+          else if (!scaleLevels.has(rule.levelScale)) stray.push(`${at} ${rule.id}: unknown scale "${rule.levelScale}"`);
+          else if (!scaleLevels.get(rule.levelScale).has(rule.level)) {
+            stray.push(`${at} ${rule.id}: level "${rule.level}" is not on ${rule.levelScale}`);
+          }
+        }
+        if (rule.kind === 'ib-subject' && !rule.ibSubject) stray.push(`${at} ${rule.id}: ib-subject with no ibSubject`);
+        for (const group of rule.alternatives || []) walk(group, at);
+      }
+    };
+    for (const opp of opportunities) walk(opp.requirements, opp.id);
+    check('every real subject requirement names a scale that exists, at a level it defines',
+      stray.length === 0, stray.slice(0, 10).join('; '));
   }
 }
 
@@ -463,6 +730,127 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     assess(profile(subjects, { holdsDiploma: true }), noExemption, options).outcome,
     OUTCOME.NEEDS_REVIEW
   );
+}
+
+/* --- and the engine may not learn any destination's vocabulary -------------- *
+ *
+ * The same guard scripts/test-credentials.mjs, test-floor.mjs, test-calendar.mjs
+ * and test-jurisdictions.mjs already carry, pointed at the one module that
+ * decides whether a student is told yes or no.
+ *
+ * The forbidden words are read out of the data rather than listed here, so the
+ * guard grows on its own: add a Destination and its name is forbidden from that
+ * moment; add a Recognition Scheme and the adjective its scales are named with
+ * is forbidden too. Every difference between one jurisdiction and another has
+ * to be a difference in the records, and this is what makes that a fact rather
+ * than an intention.
+ */
+{
+  const engine = await fs.readFile(path.join(ROOT, 'src', 'lib', 'eligibility.mjs'), 'utf8');
+
+  /* Two kinds of forbidden thing, looked for in two different places.
+   *
+   * A CODE is two letters, and half of them are ordinary English words — at,
+   * be, is, it, no, in, so, me. Searching prose for those finds a hundred
+   * sentences and nothing else, and a guard that cries wolf gets switched off.
+   * A code only becomes a country when it is an identifier, so codes are looked
+   * for inside string literals and property accesses, which is the only way one
+   * can reach the engine's behaviour.
+   *
+   * A NAME or a nationality is long enough to mean one thing, so it is
+   * forbidden anywhere at all, comments included. A comment that explains the
+   * rules by naming one country is how the next person learns that naming
+   * countries here is normal. */
+  const codes = new Map();
+  const words = new Map();
+
+  const addCode = (term, source) => {
+    const t = String(term ?? '').trim().toLowerCase();
+    if (/^[a-z]{2}$/.test(t) && !codes.has(t)) codes.set(t, source);
+  };
+  const addWord = (term, source) => {
+    const t = String(term ?? '').trim().toLowerCase();
+    if (t.length >= 4 && !words.has(t)) words.set(t, source);
+  };
+
+  for (const dir of ['countries', 'destinations']) {
+    let files = [];
+    try { files = (await fs.readdir(path.join(ROOT, 'data', dir))).filter((f) => f.endsWith('.json')); } catch {}
+    for (const f of files) {
+      const record = JSON.parse(await fs.readFile(path.join(ROOT, 'data', dir, f), 'utf8'));
+      addCode(record.code || record.id, `data/${dir}/${f}`);
+      addWord(record.name, `data/${dir}/${f}`);
+    }
+  }
+  for (const s of schemes) {
+    const source = `data/recognition (${s.id})`;
+    addCode(s.destination, source);
+    for (const id of [s.subjectScale?.id, s.gradeScale?.id]) {
+      addWord(id, source);
+      // A scale id carries its country in front of it: the leading segment of
+      // "dk-abc" is how a jurisdiction gets into code without being named.
+      addCode(String(id ?? '').split('-')[0], source);
+    }
+    // The adjective a scheme names its own scales with — "Danish", "Dutch".
+    // Scale names are short and controlled, so this harvests the nationality
+    // and little else.
+    for (const name of [s.subjectScale?.name, s.gradeScale?.name]) {
+      for (const word of String(name ?? '').match(/\b[A-Z][a-z]{3,}\b/g) || []) addWord(word, source);
+    }
+  }
+
+  const lineOf = (i) => engine.slice(0, i).split('\n').length;
+  const found = [];
+
+  /* Every string literal and property access in the code, comments skipped.
+   * An apostrophe in English prose is not a quote, so the comments have to come
+   * out before anything looks for one — and a literal with a space in it is a
+   * sentence, not an identifier. "no" in "No equivalent is published" is not
+   * a country; `'no-abc'` would be. */
+  for (const { text, index, raw } of identifiers(engine)) {
+    if (/\s/.test(text)) continue;
+    for (const token of text.toLowerCase().split(/[^a-z0-9]+/)) {
+      if (codes.has(token)) {
+        found.push(`line ${lineOf(index)}: ${raw} carries the country code "${token}" (${codes.get(token)})`);
+      }
+    }
+  }
+
+  for (const [term, source] of words) {
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    for (const m of engine.matchAll(new RegExp(`(?<![a-z0-9])${escaped}(?![a-z0-9])`, 'gi'))) {
+      found.push(`line ${lineOf(m.index)}: "${m[0]}" — a destination's own vocabulary, from ${source}`);
+    }
+  }
+
+  // And the shape test-credentials.mjs looks for, in case a code arrives that
+  // no record happens to hold yet.
+  for (const m of engine.matchAll(/(?:destination|country|dest)\w*\s*===\s*['"][a-z]{2}['"]/g)) {
+    found.push(`line ${lineOf(m.index)}: a comparison against a literal country code: ${m[0]}`);
+  }
+
+  check(
+    'no country appears in the eligibility engine',
+    found.length === 0,
+    `\n          ${found.join('\n          ')}`
+  );
+  check(
+    `the guard is looking for ${codes.size} country codes and ${words.size} names, which is more than nothing`,
+    codes.size > 20 && words.size > 20
+  );
+
+  // And it has to be able to see one. A guard nobody has watched fail is a
+  // comment.
+  {
+    const code = [...codes.keys()][0];
+    const planted = `${engine}\nconst scale = '${code}-abc';\nconst n = record.${code};\n`;
+    let caught = 0;
+    for (const { text } of identifiers(planted)) {
+      if (/\s/.test(text)) continue;
+      for (const token of text.toLowerCase().split(/[^a-z0-9]+/)) if (codes.has(token)) caught++;
+    }
+    check('the guard catches a country code planted in the engine', caught === 2, `caught ${caught}`);
+  }
 }
 
 /* --- report ------------------------------------------------------------------ */

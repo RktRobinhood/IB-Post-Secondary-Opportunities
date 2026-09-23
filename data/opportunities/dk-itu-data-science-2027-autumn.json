@@ -37,10 +37,11 @@
   "requirements": [
     {
       "id": "req-all-1",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Mathematics at A level, minimum grade 6",
       "subject": "Mathematics",
+      "levelScale": "dk-abc",
       "level": "A",
       "minGrade": 6,
       "gradeScale": "dk-7-point",
@@ -55,10 +56,11 @@
     },
     {
       "id": "req-all-2",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "English at B level, minimum grade 6",
       "subject": "English",
+      "levelScale": "dk-abc",
       "level": "B",
       "minGrade": 6,
       "gradeScale": "dk-7-point",

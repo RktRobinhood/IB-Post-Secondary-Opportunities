@@ -6,7 +6,8 @@ import {
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
-import { evidenceBlock, preparationPath, filterQuestion, STATE } from '../lib/primitives.mjs';
+import { evidenceBlock, preparationPath, filterQuestion, deadlineList, worldWindow } from '../lib/primitives.mjs';
+import { allEvents } from '../lib/calendar.mjs';
 
 /* --- A Danish institution -------------------------------------------------- */
 
@@ -69,7 +70,7 @@ ${hero({
   lede: inst.about,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
   slides: pic ? universitySlides(site, inst) : [],
-  variant: pic ? undefined : 'plain',
+  variant: pic ? undefined : 'panel',
 })}
 
 <section class="section">
@@ -212,6 +213,7 @@ ${hero({
                 title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
                 text: i.about,
                 image: p ? { src: p.src, alt: p.alt } : null,
+                placeholder: i.shortName || i.name,
                 meta: [i.city, plural(i.programmes.length, 'English-taught programme')],
               });
             })}
@@ -446,8 +448,18 @@ ${hero({
   <div class="wrap wrap--wide">
     ${crumbs([{ href: '/denmark/', label: 'Denmark' }, { label: 'Programmes' }])}
 
-    <div id="prog-map"></div>
-    <noscript>${STATE.noMap()}</noscript>
+    <div id="prog-map">
+      ${worldWindow({
+        places: Object.values(placeIndex).map((p) => ({
+          ...p,
+          href: '#prog-results',
+          count: site.programmes.filter((x) => x.placeId === p.id).length,
+        })),
+        id: 'explorer-map',
+        activeLayer: 'Places with matching programmes',
+        caption: 'Choose a place to filter to it. The list below is the same set either way.',
+      })}
+    </div>
 
     <form class="filters" id="prog-filters" role="search" aria-label="Filter programmes">
       <div class="filters__row">
@@ -510,7 +522,6 @@ ${hero({
 /* --- Subject planner -------------------------------------------------------- */
 
 export function planner(site) {
-  const conv = site.conversion;
   const subjects = site.ibSubjects || [];
 
   const groups = [];
@@ -528,6 +539,7 @@ export function planner(site) {
     const place = site.graph.places.get(o.place);
     return {
       id: o.id,
+      destination: o.destination,
       intake: o.intake,
       meta: o.meta,
       evidence: o.evidence || [],
@@ -546,6 +558,17 @@ export function planner(site) {
       },
     };
   });
+
+  /* The Recognition Schemes the catalogue on this page actually needs. A
+     requirement written in IB terms consults none of them; one written on a
+     local scale names that scale and is translated through the scheme that
+     defines it. Where the whole catalogue sits behind a single scheme, its
+     grade tables also drive the "your total converts to" panel — with two, that
+     panel is asking about a jurisdiction nobody named and is left empty rather
+     than guessing one. */
+  const destinations = new Set(opportunities.map((o) => o.destination).filter(Boolean));
+  const schemes = (site.recognitionSchemes || []).filter((s) => destinations.has(s.destination));
+  const soleScheme = schemes.length === 1 ? schemes[0] : null;
 
   const evidenceIndex = Object.fromEntries(
     [...(site.graph?.evidence?.values() || [])].map((e) => [
@@ -653,11 +676,14 @@ ${hero({
   </div>
 </section>
 
-<script type="application/json" id="planner-subjects">${raw(JSON.stringify(subjects))}</script>
+<script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes }))}</script>
 <script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
 <script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
 <script type="application/json" id="planner-conversion">${raw(
-    JSON.stringify({ average: conv?.gradeAverage?.table || [], single: conv?.singleGrade?.table || [] })
+    JSON.stringify({
+      average: soleScheme?.gradeConversion?.average?.table || [],
+      single: soleScheme?.gradeConversion?.single?.table || [],
+    })
   )}</script>`;
 
   return page({
@@ -671,29 +697,55 @@ ${hero({
   });
 }
 
-/* --- Timeline --------------------------------------------------------------- */
 
+/* --- The calendar ----------------------------------------------------------- */
+
+/**
+ * Every dated event on the site, scoped by default to what the student is
+ * actually interested in.
+ *
+ * This page used to hold a hard-coded array of eighteen events. Two things were
+ * wrong with that, and the second is the worse one (#13).
+ *
+ * It was **not derived from the data**. Every country record already carried
+ * `application.deadlines[]`, the country pages already rendered them, and this
+ * page duplicated a hand-picked subset of the same facts in a second place with
+ * no source field and no Verification State. It could drift from the country
+ * pages and nothing would catch it. It now reads the same model they do, so a
+ * date can only be wrong in one place.
+ *
+ * And it was **shown in full to everyone**. For a student looking at Denmark
+ * and the Netherlands, eleven of the eighteen entries were noise; for a student
+ * who had chosen nothing, all of it was. A combined calendar is the right thing
+ * to have and the wrong thing to make the only view.
+ *
+ * ## Why the scoping happens in the browser
+ *
+ * Every event is rendered into the page and the browser hides what is out of
+ * scope. That is the opposite of what a server would normally do, and it is
+ * deliberate: the signals that decide the scope — the Exploration List, the
+ * compare selection, the Student Profile — live in `localStorage` and are never
+ * sent anywhere, which is the promise the subject checker makes in as many
+ * words. A server that scoped this page would have to be told what a student is
+ * interested in.
+ *
+ * It also means the no-JavaScript fallback is the *complete* calendar rather
+ * than an empty one. A student without JavaScript sees more than they need,
+ * which is a far better failure than seeing nothing.
+ */
 export function timeline(site) {
-  const events = [
-    { date: '2026-09-01', when: 'Autumn 2026', title: 'Start narrowing down', body: 'Work out which programmes your subjects actually qualify you for, and where you are short. This is the last point at which you can do anything about a missing subject.' },
-    { date: '2026-10-01', when: 'October 2026', title: 'Non-EU deadlines begin to close', body: 'Several Norwegian and Nordic English-taught programmes open now and close on 1 December. Japanese and Singaporean rounds also open.' },
-    { date: '2026-10-15', when: '15 October 2026', title: 'UCAS: Oxford, Cambridge, medicine, dentistry, veterinary', body: 'The UK\'s early deadline, 18:00 UK time. Admissions tests (ESAT, TMUA, TARA, LNAT, UCAT) must be registered for earlier still — UAT-UK registration closes 28 September 2026.' },
-    { date: '2026-11-04', when: '4 November 2026', title: 'Sciences Po first round closes', body: 'France\'s grandes écoles run their own early rounds, well before Parcoursup.' },
-    { date: '2026-12-01', when: '1 December 2026', title: 'Norway: English-taught programmes close', body: 'UiO\'s Technology Systems and NMBU both close today, for EU citizens too. NMBU does not make conditional offers to applicants finishing after the deadline.' },
-    { date: '2027-01-07', when: '7–21 January 2027', title: 'Finland: joint application', body: 'The single window for English-taught bachelor programmes starting in August 2027. Helsinki\'s certificate-based group runs later, 9–23 March.' },
-    { date: '2027-01-13', when: '13 January 2027', title: 'UCAS equal consideration deadline', body: '18:00 UK time. Applications after this are considered only if places remain.' },
-    { date: '2027-01-15', when: '15 January 2027', title: 'Netherlands: numerus fixus programmes', body: 'Selective Dutch programmes close today and do not reopen. Non-selective ones run to 1 May.' },
-    { date: '2027-02-01', when: '1 February 2027', title: 'Iceland: international applicants', body: 'Also the month Samordna opptak opens in Norway and Luxembourg opens for 2027–28.' },
-    { date: '2027-03-01', when: '1 March 2027', title: 'New Danish conversion table published', body: 'The Agency publishes the IB-to-Danish grade average table for the summer 2027 intake. Check it — the numbers move slightly each year.' },
-    { date: '2027-03-15', when: '15 March 2027', title: 'DENMARK — applications close, 12:00 noon CET', body: 'Everyone with an international qualification, including an IB taken at a Danish school, and whether you are aiming at quota 1 or quota 2. Not midnight. Twelve noon.', key: true },
-    { date: '2027-04-15', when: '15 April 2027', title: 'Norway: Samordna opptak main deadline', body: 'For Norwegian-taught programmes. Up to ten ranked choices.' },
-    { date: '2027-05-01', when: '1 May 2027', title: 'Netherlands: general deadline', body: 'Also the point by which several institutions want your IB coordinator to have authorised results access.' },
-    { date: '2027-05-01', when: 'May 2027', title: 'IB examinations', body: 'The session itself.' },
-    { date: '2027-07-05', when: '5 July 2027', title: 'Denmark: documentation deadline, 12:00', body: 'Everything except your IB results must be uploaded by now. You can also still reorder your priorities until this moment.' },
-    { date: '2027-07-06', when: '6 July 2027', title: 'IB results released', body: 'If you registered for the IB results service, your results travel directly to the institutions you named.' },
-    { date: '2027-07-28', when: '28 July 2027', title: 'Denmark: offers and cut-offs published', body: 'You get your answer, and every programme\'s quota 1 cut-off average is published. Vacant places appear the same week.' },
-    { date: '2027-08-05', when: 'Early August 2027', provisional: true, title: 'Accept your place', body: 'Then housing, then CPR registration, then a bank account — in that order, because each depends on the last.' },
-  ];
+  const events = allEvents(site);
+  const dated = events.filter((e) => e.date);
+  const undated = events.filter((e) => !e.date);
+
+  /* Destinations that actually have something on the calendar, so the scope
+     picker never offers a country with nothing to show. */
+  const represented = [...new Set(events.map((e) => e.destination))]
+    .map((code) => site.destinations.find((d) => d.code === code))
+    .filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const withDates = new Set(dated.map((e) => e.destination)).size;
 
   const body = html`
 ${hero({
@@ -707,32 +759,60 @@ ${hero({
   <div class="wrap">
     <div class="layout-aside">
       <div class="prose">
-        <ul class="timeline">
-          ${events.map(
-            (e) => html`<li data-date="${e.date}"${e.provisional ? raw(' data-provisional="true"') : ''}>
-              <div class="timeline__when">${e.when}${e.key ? html`<br><span data-countdown="${e.date}"></span>` : ''}</div>
-              <div class="timeline__what">
-                <h4>${e.title}</h4>
-                ${md(e.body)}
-              </div>
-            </li>`
-          )}
-        </ul>
+
+        <div class="scope" id="cal-scope" hidden>
+          <p class="scope__state" id="cal-scope-state" role="status"></p>
+          <div class="scope__actions">
+            <button type="button" class="btn btn--ghost btn--sm" id="cal-show-all">Show every deadline</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="cal-show-mine" hidden>Back to mine</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="cal-share" hidden>Copy a link to this view</button>
+          </div>
+          <details class="scope__pick">
+            <summary>Choose which destinations to show</summary>
+            <div class="scope__grid">
+              ${represented.map(
+                (c) => html`<label class="scope__opt">
+                  <input type="checkbox" name="scope" value="${c.code}"> <span>${c.flag} ${c.name}</span>
+                </label>`
+              )}
+            </div>
+          </details>
+        </div>
+
+        <noscript>
+          <p class="state state--empty">This calendar normally shows only the destinations you are looking at.
+          That needs JavaScript, because which destinations those are is kept in your browser and is never sent
+          anywhere. Without it you get the complete calendar below — more than you need, rather than less.</p>
+        </noscript>
+
+        ${deadlineList(dated, { showDestination: true })}
+
+        ${undated.length
+          ? html`<h2 id="undated">${plural(undated.length, 'date')} we could not pin down</h2>
+              <p>Every one of these was looked for and was not published, or is set by each institution rather
+              than centrally. They are here rather than hidden, because "there is no date" is something you can
+              act on and a blank is not.</p>
+              ${deadlineList(undated, { showDestination: true })}`
+          : ''}
       </div>
+
       <aside class="layout-aside__side stack">
         ${note(
-          `Dates for the 2027 cycle are published at different times by different countries. Where a country
-          had not yet published its 2027 dates when this was checked, its own page says so and shows the most
-          recent published date instead. Anything marked **provisional** is carried over from the previous
-          cycle because the authority has not yet republished it — the day and month have been stable for
-          years, but the year has not been confirmed.`,
-          { title: 'About these dates' }
+          `Every date here comes from a country record or an Application Route, with the source it was read
+          from. Nothing on this page is typed in by hand — if a date is wrong, it is wrong on the destination
+          page too, and fixing it there fixes it here.`,
+          { title: 'Where these come from' }
         )}
         ${note(
-          `The three that catch people out: **1 December 2026** for Norway's English-taught programmes,
-          **15 January 2027** for Dutch numerus fixus, and **12:00 noon** — not midnight — on 15 March in Denmark.`,
-          { kind: 'warn', title: 'The three to remember' }
+          `Anything marked **provisional** is carried over from the previous cycle because the authority has
+          not republished it yet. The day and month have usually been stable for years; the year has not been
+          confirmed. Treat a provisional date as a warning to check, not as a date.`,
+          { kind: 'warn', title: 'Provisional dates' }
         )}
+        ${stats([
+          { value: dated.length, label: 'Dated events' },
+          { value: withDates, label: 'Destinations with dates' },
+        ])}
       </aside>
     </div>
   </div>
@@ -740,9 +820,11 @@ ${hero({
 
   return page({
     title: 'Application calendar',
-    description: 'Every university application deadline for IB students finishing in May 2027, in order, from autumn 2026 to results day.',
+    description:
+      'Every university application deadline for IB students finishing in May 2027, scoped to the destinations you are looking at — in order, from autumn 2026 to results day.',
     path: '/timeline/',
     section: '/timeline/',
     body,
+    scripts: ['calendar.js'],
   });
 }

@@ -107,6 +107,7 @@ notices a page changed, it lists every claim resting on it.
 | `application-routes/` | Rounds, milestones, submission items | Denmark only |
 | `evidence/` | Every source | All |
 | `countries/` | Country profiles awaiting migration | 34 countries |
+| `recognition/` | Recognition Schemes: one Destination's published translation out of the IB scale | Denmark only |
 | `dk/` | Danish research input to the migration | — |
 
 Both models build side by side. The loader prefers canonical records where they
@@ -120,6 +121,7 @@ dataset is a normal working state rather than a broken one. See
 | --- | --- |
 | `ib-conversion.json` | The Danish Agency's tables, in its own wording |
 | `ib-subjects.json` | The IB subject catalogue, machine-readable, used by the subject checker |
+| `recognition/<destination>.json` | What an IB subject and grade count as in one Destination's own vocabulary |
 | `freshness-policy.json` | How long each kind of claim stays trustworthy |
 | `images.json` | Self-hosted photographs and their credits |
 | `official-images.json` | Institutions' own share images, linked not copied |

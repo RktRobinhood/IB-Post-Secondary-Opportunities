@@ -13,6 +13,31 @@
  *
  * The last one matters most. Silence in the data means "we do not know", and the
  * honest answer to "do I qualify?" when we do not know is NEEDS_REVIEW, not yes.
+ *
+ * ---------------------------------------------------------------------------
+ *
+ * There are exactly two ways a requirement can be written, and the difference
+ * between them is the whole shape of this file.
+ *
+ *   1. In IB terms — `ibSubject` + `ibLevel` + `minGrade`. Nothing is
+ *      translated, because there is nothing to translate: the source said HL
+ *      and the student has HL. This path needs no tables of any kind and is
+ *      what a jurisdiction we hold nothing else about gets.
+ *
+ *   2. On a local scale — `levelScale` naming the scale, plus a `level` valid
+ *      on it. The engine looks that scale up in a Recognition Scheme, converts
+ *      the Student Profile into it, and compares there.
+ *
+ * The second path is a translation, and a translation is allowed to become a
+ * claim only if the student can see it happen. So every sentence produced on
+ * that path says what was converted into what; every sentence produced on the
+ * first path says the requirement was already in the student's own units.
+ *
+ * Nothing in this file knows the name of any country, scale or institution.
+ * Every difference between one jurisdiction and another is a difference in the
+ * records. `scripts/test-eligibility.mjs` reads this file back off disk and
+ * fails if a destination's code, name or vocabulary appears in it.
+ * See docs/adr/0002-the-ib-scale-is-the-lingua-franca.md.
  */
 
 export const OUTCOME = {
@@ -29,15 +54,38 @@ export const OUTCOME_LABEL = {
   [OUTCOME.NEEDS_REVIEW]: 'Needs review',
 };
 
-const LEVEL_RANK = { A: 3, B: 2, C: 1 };
+/** The IB's own two levels. This is the one scale the engine is allowed to hold. */
+const IB_LEVEL_RANK = { SL: 1, HL: 2 };
 
-/* --- Converting an IB profile into destination levels ---------------------- */
+function normalise(s) {
+  return String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function num(v) {
+  const n = Number(v);
+  return Number.isFinite(n) ? n : -Infinity;
+}
+
+/* --- The subject catalogue and the schemes that translate out of it --------- */
 
 /**
- * Index the IB subject catalogue (data/ib-subjects.json) by id and by name, so
- * a profile can name a subject either way.
+ * Index the IB subject catalogue so a profile can name a subject by id or by
+ * name, and prepare whatever Recognition Schemes came with it.
+ *
+ * Accepts either a bare array of IB subjects — the catalogue alone, which is
+ * all the IB-terms path needs — or `{ subjects, schemes }`. Both are real
+ * inputs: a caller that holds no scheme is not a degraded caller, it is the
+ * default case working.
+ *
+ * The returned value is a Map from id-or-name to a catalogue entry, with the
+ * prepared schemes hung off it. It is one object because it is one thing a
+ * caller passes around, and because `buildSubjectIndex(subjects)` predates the
+ * schemes and still has to mean what it meant.
  */
-export function buildSubjectIndex(subjects = []) {
+export function buildSubjectIndex(input = []) {
+  const subjects = Array.isArray(input) ? input : input?.subjects || [];
+  const schemeRecords = Array.isArray(input) ? [] : input?.schemes || [];
+
   const index = new Map();
   for (const subject of subjects) {
     const entry = {
@@ -45,69 +93,143 @@ export function buildSubjectIndex(subjects = []) {
       name: subject.name,
       group: subject.group,
       levels: subject.levels || ['HL', 'SL'],
-      maps: subject.maps || {},
-      note: subject.note || null,
-      unmapped: subject.unmapped || null,
     };
     index.set(subject.id, entry);
     index.set(normalise(subject.name), entry);
   }
+
+  const schemes = new Map();
+  for (const record of schemeRecords) {
+    const scheme = prepareScheme(record);
+    if (scheme) schemes.set(scheme.scale, scheme);
+  }
+  index.schemes = schemes;
+
+  /* Asking "what do my subjects count as locally?" without naming a scale is
+   * only answerable while exactly one scale is loaded. With two it is a
+   * question about a jurisdiction nobody named, and the engine will not pick
+   * one — an unnamed scale must never be guessed at, because guessing wrong
+   * produces a sentence that looks like a translation and is not one. */
+  index.soleScale = schemes.size === 1 ? [...schemes.keys()][0] : null;
   return index;
 }
 
-/** Subjects a programme can ask for that the official table does not map. */
-export const UNMAPPED = {
-  'Social Studies':
-    'Denmark publishes no fixed equivalence for Social Studies. Global Politics is assessed institution by institution — Copenhagen has accepted Global Politics HL, Aarhus only in combination with Economics. Ask the admissions office in writing before 15 March.',
-  Geoscience:
-    'The official handbook leaves the IB column blank for Geoscience A. IB Geography HL is not automatically accepted; you would normally need a Danish supplementary course.',
-};
+/** Turn a Recognition Scheme record into the lookups the engine wants. */
+function prepareScheme(record) {
+  const scale = record?.subjectScale?.id;
+  if (!scale) return null;
 
-/**
- * Some Danish requirement names group several school subjects that the
- * conversion table lists under one heading.
- */
-const ALIASES = {
-  'Business and economics subjects': [
-    'International Economics', 'Business Economics', 'Economics', 'Marketing', 'Afsætning',
-  ],
-  'Computing / IT / programming': ['Information Technology', 'Communication and IT', 'Computer Science'],
-  'Danish as a second language': ['Danish'],
-};
+  const rank = new Map();
+  for (const level of record.subjectScale.levels || []) rank.set(level.code, level.rank);
 
-function normalise(s) {
-  return String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const equivalence = new Map();
+  for (const row of record.subjectEquivalence || []) equivalence.set(row.ibSubject, row);
+
+  const withoutEquivalence = new Map();
+  for (const row of record.subjectsWithoutEquivalence || []) {
+    withoutEquivalence.set(normalise(row.subject), row.reason);
+  }
+
+  return {
+    id: record.id,
+    scale,
+    scaleName: record.subjectScale.name || scale,
+    gradeScale: record.gradeScale?.id || null,
+    /* What a student-facing sentence calls this scheme. The engine has no words
+     * of its own for any jurisdiction, so if this is missing the sentence says
+     * "the published rules" rather than inventing a nationality. */
+    label: record.label || record.name || 'the published rules',
+    rank,
+    equivalence,
+    withoutEquivalence,
+    noEquivalenceNote: record.noEquivalenceNote || 'No equivalent is published.',
+    single: record.gradeConversion?.single?.table || [],
+    average: record.gradeConversion?.average?.table || [],
+  };
 }
 
+function lookupSubject(subjectIndex, name) {
+  if (!subjectIndex || !name) return null;
+  return subjectIndex.get(name) || subjectIndex.get(normalise(name)) || null;
+}
+
+/* --- The profile, in the IB's own units ------------------------------------ */
+
 /**
- * The destination-level subjects a profile holds, keeping the highest level
- * reached in each and the best grade at that level.
- *
- * A subject the catalogue has no mapping for is not silently dropped — it is
- * returned in `unmappedSubjects` so the interface can say so.
+ * The IB subjects a profile holds, keeping the highest level reached in each
+ * and the best grade at that level. No table is consulted and none exists to
+ * consult: this is the student's result as the IB awarded it.
  */
-export function convertProfile(profile, subjectIndex) {
+export function ibProfile(profile, subjectIndex) {
   const held = new Map();
   const unknownSubjects = [];
-  const unmappedSubjects = [];
 
-  for (const entry of profile.subjects || []) {
+  for (const entry of profile?.subjects || []) {
     if (!entry?.subject) continue;
-    const found = subjectIndex.get(entry.subject) || subjectIndex.get(normalise(entry.subject));
+    const found = lookupSubject(subjectIndex, entry.subject);
     if (!found) {
       unknownSubjects.push(entry.subject);
       continue;
     }
+    const level = entry.level || found.levels[0];
+    const rank = IB_LEVEL_RANK[level] || 0;
+    const existing = held.get(found.id);
+    if (!existing || rank > existing.rank) {
+      held.set(found.id, { id: found.id, name: found.name, level, rank, grade: entry.grade ?? null });
+    } else if (rank === existing.rank && num(entry.grade) > num(existing.grade)) {
+      existing.grade = entry.grade;
+    }
+  }
+
+  return { held, unknownSubjects };
+}
+
+/* --- The profile, translated onto one local scale --------------------------- */
+
+/**
+ * The local-scale subjects a profile counts as under one Recognition Scheme,
+ * keeping the highest level reached in each and the best grade at that level.
+ *
+ * A subject the scheme publishes no equivalent for is not silently dropped — it
+ * comes back in `unmappedSubjects` so the interface can say so. That is the
+ * difference between a gap recorded as a gap and a gap that looks like an
+ * absence of a requirement.
+ *
+ * `scale` may be omitted, in which case the index's sole scale is used; see
+ * buildSubjectIndex for why that is only defined while there is exactly one.
+ */
+export function convertProfile(profile, subjectIndex, scale = null) {
+  const wanted = scale || subjectIndex?.soleScale || null;
+  const scheme = wanted ? subjectIndex?.schemes?.get(wanted) || null : null;
+
+  const held = new Map();
+  const unknownSubjects = [];
+  const unmappedSubjects = [];
+
+  for (const entry of profile?.subjects || []) {
+    if (!entry?.subject) continue;
+    const found = lookupSubject(subjectIndex, entry.subject);
+    if (!found) {
+      unknownSubjects.push(entry.subject);
+      continue;
+    }
+    if (!scheme) continue;
 
     const level = entry.level || found.levels[0];
-    const targets = found.maps?.[level] || [];
+    const row = scheme.equivalence.get(found.id) || null;
+    const targets = row?.maps?.[level] || [];
     if (!targets.length) {
-      unmappedSubjects.push({ name: found.name, level, reason: found.unmapped || 'No Danish equivalent is published.' });
+      unmappedSubjects.push({
+        name: found.name,
+        level,
+        scheme: scheme.label,
+        reason: row?.unmapped || scheme.noEquivalenceNote,
+      });
       continue;
     }
 
     for (const target of targets) {
-      const rank = LEVEL_RANK[target.level] || 0;
+      const rank = scheme.rank.get(target.level) ?? 0;
       const existing = held.get(target.subject);
       if (!existing || rank > existing.rank) {
         held.set(target.subject, {
@@ -115,7 +237,7 @@ export function convertProfile(profile, subjectIndex) {
           rank,
           ibSubject: `${found.name} ${level}`,
           grade: entry.grade ?? null,
-          note: found.note || null,
+          note: row?.note || null,
         });
       } else if (rank === existing.rank && num(entry.grade) > num(existing.grade)) {
         existing.grade = entry.grade;
@@ -124,137 +246,198 @@ export function convertProfile(profile, subjectIndex) {
     }
   }
 
-  return { held, unknownSubjects, unmappedSubjects };
+  return { held, unknownSubjects, unmappedSubjects, scheme, scale: wanted };
 }
 
-function num(v) {
-  const n = Number(v);
-  return Number.isFinite(n) ? n : -Infinity;
-}
-
-/** IB subject grade to the destination's single-grade scale. */
+/** An IB subject grade on a Recognition Scheme's single-grade table. */
 export function convertGrade(ibGrade, table = []) {
   const row = table.find((r) => r.ib === Number(ibGrade));
-  return row ? row.dk : null;
+  return row ? row.local : null;
 }
 
-/** IB total points to the destination's grade average. */
+/** An IB total on a Recognition Scheme's grade-average table. */
 export function convertAverage(points, table = []) {
   const row = table.find((r) => r.ib === Number(points));
-  return row ? row.dk : null;
+  return row ? row.local : null;
 }
 
 /* --- Evaluating one rule ---------------------------------------------------- */
+
+const met = (message) => ({ status: 'met', message });
+const unmet = (message, actionable = false) => ({ status: 'unmet', message, actionable });
+const unsure = (message, actionable = false) => ({ status: 'unknown', message, actionable });
+
+/** "HL", or "either level" where the source accepts both. */
+function ibLevelPhrase(level) {
+  return !level || level === 'any' ? 'either level' : level;
+}
+
+/**
+ * A requirement the source published in IB terms.
+ *
+ * Nothing is converted here, and the explanation says so, because the value of
+ * this path to a student is precisely that no inference of ours sits between
+ * the institution's sentence and their transcript.
+ */
+function ibSubjectRule(rule, ctx) {
+  const want = rule.ibSubject;
+  if (!want) {
+    return unsure('A subject requirement is recorded in IB terms without naming an IB subject.');
+  }
+  const found = lookupSubject(ctx.subjectIndex, want);
+  const label = found?.name || want;
+  const wantLevel = rule.ibLevel || 'any';
+  const phrase = ibLevelPhrase(wantLevel);
+  const have = found ? ctx.ib.held.get(found.id) : null;
+
+  if (!have) {
+    return unmet(`You do not have ${label} at any level.`, true);
+  }
+  if (wantLevel !== 'any' && have.rank < (IB_LEVEL_RANK[wantLevel] || 0)) {
+    return unmet(`${label}: this asks for ${phrase} and your profile records ${have.level}.`, true);
+  }
+
+  if (rule.minGrade != null) {
+    if (have.grade == null) {
+      return unsure(`${label} ${phrase} needs an IB grade of at least ${rule.minGrade}. Add your grade for ${label} to check.`);
+    }
+    if (num(have.grade) < Number(rule.minGrade)) {
+      return unmet(
+        `${label} ${have.level}: this asks for at least ${rule.minGrade} and your profile records ${have.grade}. Both are IB grades, so nothing is converted.`,
+        true
+      );
+    }
+    return met(
+      `Your ${label} ${have.level} at grade ${have.grade} meets ${phrase} at ${rule.minGrade}. This requirement is published in IB terms, so nothing is converted.`
+    );
+  }
+
+  return met(
+    `Your ${label} ${have.level} meets ${phrase}. This requirement is published in IB terms, so nothing is converted.`
+  );
+}
+
+/**
+ * A requirement the source published in its own vocabulary.
+ *
+ * Every sentence here names both halves of the translation — what the student
+ * holds and what the scheme says it counts as — so that "you meet this" is
+ * auditable against the handbook the institution actually follows.
+ */
+function localEquivalencyRule(rule, ctx) {
+  if (!rule.subject || !rule.level) {
+    return unsure('A subject requirement is recorded without a subject or level.');
+  }
+  const named = rule.label || `${rule.subject} ${rule.level}`;
+  if (!rule.levelScale) {
+    return unsure(`${named} is recorded without naming the scale that level is measured on, so it cannot be checked. A level with no scale is a number with no unit.`);
+  }
+
+  const conv = ctx.converted(rule.levelScale);
+  const scheme = conv.scheme;
+  if (!scheme) {
+    return unsure(`${named} is published on a local subject scale that no Recognition Scheme recorded here covers, so your IB subjects cannot be compared with it. Check the official page.`);
+  }
+
+  const wantRank = scheme.rank.get(rule.level);
+  if (wantRank == null) {
+    return unsure(`${named} names a level that ${scheme.scaleName} does not define, so it cannot be checked.`);
+  }
+
+  const have = conv.held.get(rule.subject);
+  if (!have) {
+    const reason = scheme.withoutEquivalence.get(normalise(rule.subject));
+    if (reason) return unsure(`${rule.subject} at ${rule.level} level — ${reason}`);
+    return unmet(`You do not have ${rule.subject} at any level.`, true);
+  }
+  if (have.rank < wantRank) {
+    return unmet(`${rule.subject}: your ${have.ibSubject} counts as ${have.level} level, and this needs ${rule.level}.`, true);
+  }
+
+  if (rule.minGrade != null) {
+    if (have.grade == null) {
+      return unsure(`${rule.subject} ${rule.level} needs a minimum grade of ${rule.minGrade}. Add your grade for ${have.ibSubject} to check.`);
+    }
+    const converted = convertGrade(have.grade, scheme.single);
+    if (converted == null) {
+      return unsure(`${scheme.label} publishes no conversion for an IB grade of ${have.grade}, so this cannot be checked.`);
+    }
+    if (converted < Number(rule.minGrade)) {
+      return unmet(
+        `${rule.subject}: your ${have.ibSubject} grade of ${have.grade} converts to ${converted}, below the required ${rule.minGrade}.`,
+        true
+      );
+    }
+    return met(
+      `${have.ibSubject} counts as ${rule.subject} ${have.level}; grade ${have.grade} converts to ${converted}, at or above the required ${rule.minGrade}.`
+    );
+  }
+
+  return met(
+    `${have.ibSubject} counts as ${rule.subject} ${have.level}${have.level !== rule.level ? `, which covers the required ${rule.level}` : ''}.`
+  );
+}
 
 /**
  * @returns {{status:'met'|'unmet'|'unknown', message:string, actionable?:boolean}}
  */
 function evaluateRule(rule, ctx) {
-  const { held, profile, conversion } = ctx;
+  const { profile } = ctx;
 
   switch (rule.kind) {
     case 'ib-diploma':
-      if (profile.holdsDiploma === true) return { status: 'met', message: 'You expect to hold a full IB Diploma.' };
+      if (profile.holdsDiploma === true) return met('You expect to hold a full IB Diploma.');
       if (profile.holdsDiploma === false) {
-        return {
-          status: 'unmet',
-          message: 'This requires a full IB Diploma. Course Results reach professional bachelor programmes, and university bachelor programmes only with supplementary subjects or a retake.',
-          actionable: true,
-        };
+        return unmet(
+          'This requires a full IB Diploma. Course Results reach professional bachelor programmes, and university bachelor programmes only with supplementary subjects or a retake.',
+          true
+        );
       }
-      return { status: 'unknown', message: 'Whether you will hold a full Diploma is not recorded in your profile.' };
+      return unsure('Whether you will hold a full Diploma is not recorded in your profile.');
 
     case 'ib-total-points': {
       const need = rule.minPoints;
-      if (need == null) return { status: 'unknown', message: 'A points requirement is recorded without a threshold.' };
+      if (need == null) return unsure('A points requirement is recorded without a threshold.');
       if (profile.totalPoints == null) {
-        return { status: 'unknown', message: `This needs at least ${need} points. Add your predicted total to check.` };
+        return unsure(`This needs at least ${need} points. Add your predicted total to check.`);
       }
       return profile.totalPoints >= need
-        ? { status: 'met', message: `${profile.totalPoints} points meets the minimum of ${need}.` }
-        : {
-            status: 'unmet',
-            message: `This needs at least ${need} points and your profile says ${profile.totalPoints}.`,
-            actionable: need - profile.totalPoints <= 3,
-          };
+        ? met(`${profile.totalPoints} points meets the minimum of ${need}.`)
+        : unmet(
+            `This needs at least ${need} points and your profile says ${profile.totalPoints}.`,
+            need - profile.totalPoints <= 3
+          );
     }
 
-    case 'ib-subject': {
-      if (!rule.subject || !rule.level) {
-        return { status: 'unknown', message: 'A subject requirement is recorded without a subject or level.' };
-      }
-      const have = held.get(rule.subject);
+    case 'ib-subject':
+      return ibSubjectRule(rule, ctx);
 
-      if (!have) {
-        if (UNMAPPED[rule.subject]) {
-          return { status: 'unknown', message: `${rule.subject} at ${rule.level} level — ${UNMAPPED[rule.subject]}` };
-        }
-        return {
-          status: 'unmet',
-          message: `You do not have ${rule.subject} at any level.`,
-          actionable: true,
-        };
-      }
-      if (have.rank < (LEVEL_RANK[rule.level] || 0)) {
-        return {
-          status: 'unmet',
-          message: `${rule.subject}: your ${have.ibSubject} counts as ${have.level} level, and this needs ${rule.level}.`,
-          actionable: true,
-        };
-      }
-      if (rule.minGrade != null) {
-        if (have.grade == null) {
-          return {
-            status: 'unknown',
-            message: `${rule.subject} ${rule.level} needs a minimum grade of ${rule.minGrade}. Add your grade for ${have.ibSubject} to check.`,
-          };
-        }
-        const converted = convertGrade(have.grade, conversion.single);
-        if (converted == null) {
-          return { status: 'unknown', message: `No published conversion for an IB grade of ${have.grade}.` };
-        }
-        if (converted < Number(rule.minGrade)) {
-          return {
-            status: 'unmet',
-            message: `${rule.subject}: your ${have.ibSubject} grade of ${have.grade} converts to ${converted}, below the required ${rule.minGrade}.`,
-            actionable: true,
-          };
-        }
-        return {
-          status: 'met',
-          message: `${have.ibSubject} counts as ${rule.subject} ${have.level}; grade ${have.grade} converts to ${converted}, at or above the required ${rule.minGrade}.`,
-        };
-      }
-      return {
-        status: 'met',
-        message: `${have.ibSubject} counts as ${rule.subject} ${have.level}${have.level !== rule.level ? `, which covers the required ${rule.level}` : ''}.`,
-      };
-    }
+    case 'local-equivalency':
+      return localEquivalencyRule(rule, ctx);
 
     case 'subject-combination': {
       const groups = rule.alternatives || [];
-      if (!groups.length) return { status: 'unknown', message: 'A combination requirement is recorded without alternatives.' };
+      if (!groups.length) return unsure('A combination requirement is recorded without alternatives.');
 
       let best = null;
       for (const group of groups) {
         const results = group.map((r) => evaluateRule(r, ctx));
-        const unmet = results.filter((r) => r.status === 'unmet');
+        const unmetOnes = results.filter((r) => r.status === 'unmet');
         const unknown = results.filter((r) => r.status === 'unknown');
-        const score = unmet.length * 10 + unknown.length;
-        if (!best || score < best.score) best = { score, unmet, unknown, group };
+        const score = unmetOnes.length * 10 + unknown.length;
+        if (!best || score < best.score) best = { score, unmet: unmetOnes, unknown, group };
         if (score === 0) break;
       }
       if (best.score === 0) {
-        return { status: 'met', message: `You satisfy one of the ${groups.length} accepted subject combinations.` };
+        return met(`You satisfy one of the ${groups.length} accepted subject combinations.`);
       }
       if (best.unmet.length === 0) {
-        return { status: 'unknown', message: best.unknown.map((r) => r.message).join(' ') };
+        return unsure(best.unknown.map((r) => r.message).join(' '));
       }
-      return {
-        status: 'unmet',
-        message: `None of the ${groups.length} accepted combinations is complete. The closest needs: ${best.unmet.map((r) => r.message).join(' ')}`,
-        actionable: best.unmet.length === 1,
-      };
+      return unmet(
+        `None of the ${groups.length} accepted combinations is complete. The closest needs: ${best.unmet.map((r) => r.message).join(' ')}`,
+        best.unmet.length === 1
+      );
     }
 
     case 'language-general':
@@ -268,46 +451,56 @@ function evaluateRule(rule, ctx) {
        * technically true and practically a lie for this site's entire audience:
        * the engine cannot evaluate "documented IELTS 6.5", so it answers
        * "unknown", and a student who is explicitly exempt is shown Needs review
-       * on a programme they qualify for. DTU General Engineering did exactly
-       * that until this was added.
+       * on a programme they qualify for. One general engineering programme did
+       * exactly that until this was added.
        *
        * `satisfiedBy` is the schema's existing field for "named alternative
        * ways to meet it", which is precisely what an exemption is. */
       const satisfiedBy = (rule.satisfiedBy || []).map(normalise);
       if (satisfiedBy.includes('ib-diploma')) {
         if (profile.holdsDiploma === true) {
-          return { status: 'met', message: `Holders of a full IB Diploma are exempt from this requirement.` };
+          return met('Holders of a full IB Diploma are exempt from this requirement.');
         }
         if (profile.holdsDiploma === false) {
-          return {
-            status: 'unknown',
-            message: `${rule.label || 'A language requirement'} — the exemption is for full IB Diploma holders, so with Course Results you would need to meet it directly. Check the official page.`,
-          };
+          return unsure(
+            `${rule.label || 'A language requirement'} — the exemption is for full IB Diploma holders, so with Course Results you would need to meet it directly. Check the official page.`
+          );
         }
       }
 
-      if (rule.subject && held.has(rule.subject)) {
-        return { status: 'met', message: `${rule.subject} is covered by your IB subjects.` };
+      /* A language requirement may be pinned to a subject. If it names a local
+       * scale it is read on that scale like any other rule; if it names an IB
+       * subject it is read directly; otherwise it is documentation we cannot
+       * see and the honest answer is that we cannot see it. */
+      if (rule.subject && rule.levelScale) {
+        const conv = ctx.converted(rule.levelScale);
+        if (conv.scheme && conv.held.has(rule.subject)) {
+          return met(`${rule.subject} is covered by your IB subjects.`);
+        }
+      } else if (rule.ibSubject) {
+        const found = lookupSubject(ctx.subjectIndex, rule.ibSubject);
+        if (found && ctx.ib.held.has(found.id)) {
+          return met(`${found.name} is covered by your IB subjects.`);
+        }
       }
       if (rule.label && languages.some((l) => normalise(rule.label).includes(l))) {
-        return { status: 'met', message: `Your profile records ${rule.label}.` };
+        return met(`Your profile records ${rule.label}.`);
       }
-      return {
-        status: 'unknown',
-        message: `${rule.label || 'A language requirement'} — this depends on documentation the profile does not hold. Check the official page.`,
-      };
+      return unsure(
+        `${rule.label || 'A language requirement'} — this depends on documentation the profile does not hold. Check the official page.`
+      );
     }
 
     case 'citizenship':
     case 'residency': {
       if (!profile.applicantGroup) {
-        return { status: 'unknown', message: `${rule.label || 'An applicant-status requirement'} — your fee status is not recorded.` };
+        return unsure(`${rule.label || 'An applicant-status requirement'} — your fee status is not recorded.`);
       }
       const group = rule.applicability?.applicantGroup;
       if (!group || group === 'any' || group === profile.applicantGroup) {
-        return { status: 'met', message: `${rule.label || 'Applicant status'} applies to you.` };
+        return met(`${rule.label || 'Applicant status'} applies to you.`);
       }
-      return { status: 'unmet', message: `${rule.label || 'This rule'} applies to ${group} applicants, and your profile says ${profile.applicantGroup}.` };
+      return unmet(`${rule.label || 'This rule'} applies to ${group} applicants, and your profile says ${profile.applicantGroup}.`);
     }
 
     case 'test':
@@ -318,31 +511,41 @@ function evaluateRule(rule, ctx) {
     case 'reference':
     case 'work-sample':
     case 'activity':
-      return {
-        status: 'unknown',
-        message: `${rule.label || rule.kind} — this is assessed by the institution and cannot be checked from your subjects alone.`,
-        actionable: true,
-      };
+      return unsure(
+        `${rule.label || rule.kind} — this is assessed by the institution and cannot be checked from your subjects alone.`,
+        true
+      );
 
     default:
-      return {
-        status: 'unknown',
-        message: rule.label ? `${rule.label} — not something this tool can check.` : 'A requirement of an unrecognised kind.',
-      };
+      return unsure(
+        rule.label ? `${rule.label} — not something this tool can check.` : 'A requirement of an unrecognised kind.'
+      );
   }
 }
 
 /* --- Evaluating an Opportunity ---------------------------------------------- */
 
 /**
- * @param {object} profile  { subjects:[{subject,grade}], totalPoints, holdsDiploma, applicantGroup, languages }
+ * @param {object} profile  { subjects:[{subject,level,grade}], totalPoints, holdsDiploma, applicantGroup, languages }
  * @param {object} opportunity  a canonical Opportunity record
- * @param {object} options  { conversion, subjectIndex, evidenceStatus, dataVersion }
+ * @param {object} options  { subjectIndex, evidenceStatus, dataVersion }
  */
 export function assess(profile, opportunity, options) {
-  const { conversion, subjectIndex, evidenceStatus = () => null, dataVersion = null } = options;
-  const { held, unknownSubjects, unmappedSubjects } = convertProfile(profile, subjectIndex);
-  const ctx = { held, profile, conversion };
+  const { subjectIndex, evidenceStatus = () => null, dataVersion = null } = options;
+
+  /* Each local scale a rule names is converted into once, on demand. An
+   * Opportunity whose requirements are all in IB terms converts into nothing,
+   * which is the point: the default path consults no table. */
+  const conversions = new Map();
+  const ctx = {
+    profile,
+    subjectIndex,
+    ib: ibProfile(profile, subjectIndex),
+    converted(scale) {
+      if (!conversions.has(scale)) conversions.set(scale, convertProfile(profile, subjectIndex, scale));
+      return conversions.get(scale);
+    },
+  };
 
   const mandatory = (opportunity.requirements || []).filter((r) => r.mandatory !== false);
   const selectionFactors = (opportunity.requirements || []).filter((r) => r.mandatory === false);
@@ -405,10 +608,21 @@ export function assess(profile, opportunity, options) {
     }
   }
 
-  if (unmappedSubjects.length) {
-    caveats.push(
-      `${unmappedSubjects.map((u) => `${u.name} ${u.level}`).join(', ')} has no published Danish equivalent, so it was not counted.`
-    );
+  /* Only the scales this Opportunity actually used are reported. A subject with
+   * no published equivalent somewhere the student is not applying is not a
+   * caveat on this result, and listing it would be noise that teaches them to
+   * skip the ones that matter. */
+  const unmappedSubjects = [];
+  for (const conv of conversions.values()) unmappedSubjects.push(...conv.unmappedSubjects);
+  const unknownSubjects = ctx.ib.unknownSubjects;
+
+  const bySchemeLabel = new Map();
+  for (const u of unmappedSubjects) {
+    if (!bySchemeLabel.has(u.scheme)) bySchemeLabel.set(u.scheme, []);
+    bySchemeLabel.get(u.scheme).push(`${u.name} ${u.level}`);
+  }
+  for (const [label, names] of bySchemeLabel) {
+    caveats.push(`${names.join(', ')} has no published equivalent in ${label}, so it was not counted.`);
   }
 
   let outcome;
@@ -445,6 +659,11 @@ export function assess(profile, opportunity, options) {
       dataVersion,
       dataAsOf: opportunity.meta?.dataAsOf || null,
       evidence: evidence || null,
+      /* Which Recognition Schemes, if any, stood between the source's sentence
+       * and this answer. Empty means none did. */
+      translatedThrough: [...conversions.values()]
+        .filter((c) => c.scheme)
+        .map((c) => ({ scale: c.scale, scheme: c.scheme.id, label: c.scheme.label })),
     },
   };
 }

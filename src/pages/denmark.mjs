@@ -167,6 +167,7 @@ ${site.dkInstitutions.length
                 title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
                 text: i.about,
                 image: p ? { src: p.src, alt: p.alt } : null,
+                placeholder: i.shortName || i.name,
                 meta: [i.city, plural(i.programmes.length, 'programme')].filter(Boolean),
               });
             })}

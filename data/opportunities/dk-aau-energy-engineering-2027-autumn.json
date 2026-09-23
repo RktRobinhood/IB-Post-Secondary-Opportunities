@@ -25,10 +25,11 @@
   "requirements": [
     {
       "id": "req-all-1",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "English at B level",
       "subject": "English",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -41,10 +42,11 @@
     },
     {
       "id": "req-all-2",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Mathematics at A level, minimum grade 4",
       "subject": "Mathematics",
+      "levelScale": "dk-abc",
       "level": "A",
       "minGrade": 4,
       "gradeScale": "dk-7-point",
@@ -67,10 +69,11 @@
         [
           {
             "id": "req-alt1-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Physics at B level",
             "subject": "Physics",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -83,10 +86,11 @@
           },
           {
             "id": "req-alt1-2",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Chemistry at C level",
             "subject": "Chemistry",
+            "levelScale": "dk-abc",
             "level": "C",
             "operator": "at-least",
             "applicability": {
@@ -101,10 +105,11 @@
         [
           {
             "id": "req-alt2-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Physics at B level",
             "subject": "Physics",
+            "levelScale": "dk-abc",
             "level": "B",
             "operator": "at-least",
             "applicability": {
@@ -117,10 +122,11 @@
           },
           {
             "id": "req-alt2-2",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Biotechnology at A level",
             "subject": "Biotechnology",
+            "levelScale": "dk-abc",
             "level": "A",
             "operator": "at-least",
             "applicability": {
@@ -135,10 +141,11 @@
         [
           {
             "id": "req-alt3-1",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Geoscience at A level",
             "subject": "Geoscience",
+            "levelScale": "dk-abc",
             "level": "A",
             "operator": "at-least",
             "applicability": {
@@ -151,10 +158,11 @@
           },
           {
             "id": "req-alt3-2",
-            "kind": "ib-subject",
+            "kind": "local-equivalency",
             "mandatory": true,
             "label": "Chemistry at C level",
             "subject": "Chemistry",
+            "levelScale": "dk-abc",
             "level": "C",
             "operator": "at-least",
             "applicability": {

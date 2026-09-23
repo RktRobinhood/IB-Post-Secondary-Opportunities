@@ -102,3 +102,7 @@ _Avoid_: Accuracy
 A page or document published by the institution, admissions authority, government, qualification body, or application portal responsible for the rule.
 _Avoid_: Primary source (when responsibility is unclear)
 
+**Recognition Scheme**:
+One Destination's published rules for reading an IB Diploma in its own vocabulary: the authority that publishes them, the subject scale and grade scale they are written on, and the tables that translate an IB subject and an IB grade into those scales. A Requirement written on a local scale names that scale and is assessed through the Scheme that defines it; a Requirement written in IB terms is assessed directly and needs no Scheme at all, which is why most Destinations have none.
+_Avoid_: Conversion table, equivalence, mapping
+

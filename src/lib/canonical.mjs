@@ -218,7 +218,7 @@ function denormalise(requirements) {
   let oneOf = null;
 
   for (const r of requirements) {
-    if (r.kind === 'ib-subject' && r.subject && r.level) {
+    if (r.kind === 'local-equivalency' && r.subject && r.level) {
       all.push({ subject: r.subject, level: r.level, ...(r.minGrade ? { minGrade: r.minGrade } : {}) });
     } else if (r.kind === 'subject-combination' && r.alternatives?.length) {
       oneOf = r.alternatives.map((group) =>

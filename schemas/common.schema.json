@@ -52,7 +52,7 @@
 
     "danishLevel": {
       "enum": ["A", "B", "C"],
-      "description": "Danish upper-secondary subject level. A is highest. These are levels of study, not grades."
+      "description": "Danish upper-secondary subject level. A is highest. These are levels of study, not grades. This is a real scale and the name is accurate, so it stays — but nothing generic may refer to it. A requirement names its scale in `levelScale` and the scale is defined by a Recognition Scheme; see docs/adr/0002-the-ib-scale-is-the-lingua-franca.md."
     },
 
     "ibLevel": {

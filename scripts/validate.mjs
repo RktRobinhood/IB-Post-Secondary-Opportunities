@@ -31,6 +31,7 @@ const SINGULAR = {
   'application-systems': 'application-system',
   'application-routes': 'application-route',
   'context-notes': 'context-note',
+  recognition: 'recognition-scheme',
 };
 
 /** Which folder holds which entity, and which schema validates it. */
@@ -43,6 +44,7 @@ const COLLECTIONS = [
   { dir: 'application-systems', schema: 'application-system.schema.json', kind: 'Application System' },
   { dir: 'application-routes', schema: 'application-route.schema.json', kind: 'Application Route' },
   { dir: 'context-notes', schema: 'context-note.schema.json', kind: 'Context Note' },
+  { dir: 'recognition', schema: 'recognition-scheme.schema.json', kind: 'Recognition Scheme' },
 ];
 
 async function readJson(file) {

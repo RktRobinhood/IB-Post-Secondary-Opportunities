@@ -79,7 +79,7 @@ const FLAGS = {
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -93,6 +93,9 @@ export async function load() {
       readJson(path.join(DATA, 'ib-subjects.json'), { subjects: [] }),
       readJson(path.join(DATA, 'preparation.json')),
       readJson(path.join(DATA, 'site-config.json')),
+      // Recognition Schemes: one per Destination that publishes its entry rules
+      // in its own vocabulary. A Destination with none is the normal case.
+      readDir(path.join(DATA, 'recognition')),
     ]);
 
   // Denmark is the pilot: its pages render from the canonical entity graph.
@@ -209,6 +212,7 @@ export async function load() {
     programmes,
     graph: canonical.graph,
     ibSubjects: ibSubjects.subjects || [],
+    recognitionSchemes,
     preparation,
     config,
     evidenceSummary: summariseEvidence(canonical.graph),

@@ -16,10 +16,11 @@
   "requirements": [
     {
       "id": "req-all-1",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Mathematics at A level",
       "subject": "Mathematics",
+      "levelScale": "dk-abc",
       "level": "A",
       "operator": "at-least",
       "applicability": {
@@ -32,10 +33,11 @@
     },
     {
       "id": "req-all-2",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "English at B level",
       "subject": "English",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -48,10 +50,11 @@
     },
     {
       "id": "req-all-3",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Physics at B level",
       "subject": "Physics",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -64,10 +67,11 @@
     },
     {
       "id": "req-all-4",
-      "kind": "ib-subject",
+      "kind": "local-equivalency",
       "mandatory": true,
       "label": "Chemistry at B level",
       "subject": "Chemistry",
+      "levelScale": "dk-abc",
       "level": "B",
       "operator": "at-least",
       "applicability": {
@@ -83,22 +87,22 @@
       "kind": "language-general",
       "mandatory": true,
       "label": "Documented English proficiency",
-      "applicability": {
-        "intake": "2027-autumn",
-        "applicantGroup": "any"
-      },
-      "evidence": [
-        "ev-dtu-dk-1v5x2su"
-      ],
       "officialWording": {
         "text": "IELTS Academic 6.5, Cambridge C1 Advanced/C2 Proficiency 180, or TOEFL iBT 88. IB diploma holders and native speakers from the listed countries are exempt.",
         "language": "en",
         "official": true
       },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
       "satisfiedBy": [
         "ib-diploma"
       ],
-      "note": "DTU exempts holders of a full IB Diploma from the English test, so for most users of this site this requirement is already met. If you will hold DP Course Results rather than the full Diploma, the exemption does not apply and you would need one of the listed tests."
+      "note": "DTU exempts holders of a full IB Diploma from the English test, so for most users of this site this requirement is already met. If you will hold DP Course Results rather than the full Diploma, the exemption does not apply and you would need one of the listed tests.",
+      "evidence": [
+        "ev-dtu-dk-1v5x2su"
+      ]
     }
   ],
   "officialRequirementsText": [

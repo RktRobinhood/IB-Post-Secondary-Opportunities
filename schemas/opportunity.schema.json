@@ -152,10 +152,37 @@
         "label": { "type": "string", "description": "Student-readable, e.g. 'Mathematics at A level'." },
         "officialWording": { "$ref": "common.schema.json#/$defs/localisedText" },
 
-        "subject": { "type": "string" },
-        "level": { "$ref": "common.schema.json#/$defs/danishLevel" },
-        "minGrade": { "type": "number", "description": "On the destination's own scale." },
-        "gradeScale": { "type": "string" },
+        "ibSubject": {
+          "type": "string",
+          "description": "For kind 'ib-subject'. An IB subject id or name from data/ib-subjects.json. This is the default way to write a requirement and it needs no Recognition Scheme: the source said HL and the student has HL, so there is nothing to translate."
+        },
+        "ibLevel": {
+          "$ref": "common.schema.json#/$defs/ibLevel",
+          "description": "For kind 'ib-subject'. HL, SL, or 'any' where the source accepts either."
+        },
+
+        "subject": {
+          "type": "string",
+          "description": "For kind 'local-equivalency'. A subject name in the vocabulary of the scale named by `levelScale` — the source's own word, not ours."
+        },
+        "levelScale": {
+          "type": "string",
+          "description": "For kind 'local-equivalency'. The id of the subject scale `level` is measured on, matching a Recognition Scheme's subjectScale.id. A level with no scale is a number with no unit: 'A' means the top of three levels in one country and the top of five in another, and a requirement that does not say which cannot be checked."
+        },
+        "level": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16,
+          "description": "For kind 'local-equivalency'. A level code the scale named by `levelScale` defines."
+        },
+        "minGrade": {
+          "type": "number",
+          "description": "On the scale named by `gradeScale` for a local-equivalency rule, or the IB's own 1-7 scale for an ib-subject rule."
+        },
+        "gradeScale": {
+          "type": "string",
+          "description": "The id of the grade scale `minGrade` is measured on, matching a Recognition Scheme's gradeScale.id. Omitted on an ib-subject rule, where the scale is the IB's."
+        },
         "minPoints": { "type": "integer", "minimum": 0, "maximum": 45 },
 
         "operator": {
