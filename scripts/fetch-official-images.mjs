@@ -13,12 +13,22 @@
  *   node scripts/fetch-official-images.mjs --refresh
  *   node scripts/fetch-official-images.mjs --only=dtu,cbs
  *   node scripts/fetch-official-images.mjs --verify     # re-check existing links still resolve
+ *   node scripts/fetch-official-images.mjs --report     # what is too heavy to publish
  *
  * Writes data/official-images.json. Anything that 404s later is caught by
  * `npm run check:links`, and the build silently falls back to the Commons photo.
+ *
+ * These files are not put through the image standard, because they are not ours
+ * to re-encode — we link to them where they are served. So they arrive at
+ * whatever size the press office exported, and some are enormous: CBS publishes
+ * its share images as 6720×4480 JPEGs of 20 MB. `picture()` declines to publish
+ * anything over OFFICIAL_MAX_BYTES and falls back to the Commons photograph;
+ * `--report` lists what that held back, so a person can find a smaller official
+ * image for those pages.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const OUT = path.join(ROOT, 'data', 'official-images.json');
@@ -31,6 +41,7 @@ const UA = {
 const args = process.argv.slice(2);
 const REFRESH = args.includes('--refresh');
 const VERIFY_ONLY = args.includes('--verify');
+const REPORT_ONLY = args.includes('--report');
 const ONLY = (args.find((a) => a.startsWith('--only=')) || '').replace('--only=', '').split(',').filter(Boolean);
 
 const MIN_BYTES = 12_000;
@@ -168,6 +179,25 @@ function slug(s) {
 async function main() {
   let picks = {};
   try { picks = JSON.parse(await fs.readFile(OUT, 'utf8')); } catch {}
+
+  if (REPORT_ONLY) {
+    const sized = Object.entries(picks).filter(([, v]) => typeof v.bytes === 'number');
+    const heavy = sized.filter(([, v]) => v.bytes > OFFICIAL_MAX_BYTES).sort((a, b) => b[1].bytes - a[1].bytes);
+    const mb = (b) => `${(b / 1048576).toFixed(1)} MB`;
+    console.log(`${Object.keys(picks).length} official images · ${sized.length} report a size\n`);
+    if (!heavy.length) {
+      console.log(`All of them are within the ${mb(OFFICIAL_MAX_BYTES)} publication ceiling.`);
+      return;
+    }
+    console.log(`Held back — over the ${mb(OFFICIAL_MAX_BYTES)} ceiling, so the page falls back to its`);
+    console.log('Wikimedia photograph. Find a smaller official image and pin it by hand:\n');
+    for (const [key, v] of heavy) {
+      console.log(`  ${mb(v.bytes).padStart(9)}  ${v.dims ? `${v.dims.w}×${v.dims.h}`.padEnd(11) : ''.padEnd(11)}  ${key}`);
+      console.log(`             ${v.sourcePage}`);
+    }
+    console.log(`\n${heavy.length} of ${sized.length} held back.`);
+    return;
+  }
 
   if (VERIFY_ONLY) {
     let alive = 0, dead = [];

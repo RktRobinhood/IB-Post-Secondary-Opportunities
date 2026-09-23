@@ -321,6 +321,34 @@ export const RESEARCH_DEPTH = {
  *   2. a freely licensed Wikimedia Commons photograph we host ourselves;
  *   3. nothing, and the template falls back to a typographic panel.
  */
+/**
+ * The most a hot-linked official image may weigh before we decline to publish
+ * it.
+ *
+ * An institution's own Open Graph image is the better picture — it is the one
+ * the university chose of itself — but it is served raw, at whatever size the
+ * press office exported. CBS publishes its share images as 6720×4480 JPEGs of
+ * 20 MB. Self-hosted Commons photographs go through the image standard and
+ * average 200 KB; there is no equivalent step for a file on someone else's CDN,
+ * because we link to those rather than copy them, and copying a university's
+ * copyrighted photograph into an MIT repository is not ours to do.
+ *
+ * So the gate is here, at publication, rather than in the fetcher: the record
+ * is kept either way, `npm run images:official -- --report` lists what was held
+ * back, and a person can go and find a smaller official image for those.
+ * A student reading this on a phone should not download 20 MB for one page.
+ */
+export const OFFICIAL_MAX_BYTES = 2_000_000;
+
+/** An official pick we are willing to hot-link, or null. */
+function publishable(official) {
+  if (!official) return null;
+  // No content-length is not a reason to reject — plenty of CDNs omit it — but
+  // a known size over the ceiling is.
+  if (typeof official.bytes === 'number' && official.bytes > OFFICIAL_MAX_BYTES) return null;
+  return official;
+}
+
 export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   // Canonical institution ids are namespaced (dk-dtu) while the image scripts
   // were seeded from the older bare ids (dtu). Try both rather than re-fetching
@@ -330,7 +358,7 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   // <img src="/"> that 404s. Treat it as absent.
   const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
 
-  const official = pick(site.officialImages, 'url');
+  const official = publishable(pick(site.officialImages, 'url'));
   const commons = pick(site.images, 'src');
 
   if (prefer === 'official' && official) {

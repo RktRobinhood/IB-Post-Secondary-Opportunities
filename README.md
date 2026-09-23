@@ -112,6 +112,7 @@ npm test             # validate, run the eligibility scenarios, build, check
 | `npm run migrate:dk` | Regenerate the Danish entity records from `data/dk/`. |
 | `npm run images` | Find and self-host a freely licensed photograph per institution. |
 | `npm run images:official` | Collect each institution's own Open Graph image to link to. |
+| `npm run images:official -- --report` | Which official images are too heavy to hot-link, so the page falls back to Commons. |
 
 Pushing to `main` runs validate → eligibility scenarios → freshness → build →
 check, then deploys to GitHub Pages. A broken record or a failing scenario stops
