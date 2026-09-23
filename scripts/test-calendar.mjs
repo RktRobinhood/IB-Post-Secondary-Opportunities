@@ -172,6 +172,38 @@ check('a route milestone supersedes the profile deadline it was migrated from', 
   assert.equal(events.find((e) => e.label === 'Apply').origin, 'route');
 });
 
+check('a Destination whose dates live only in a route still reaches the calendar', () => {
+  /* The bug this is here for: `allEvents` iterated `data/countries`, and the one
+     Destination that has finished migrating has no record there at all. Denmark's
+     dates — including the 15 March noon deadline the calendar page's own lede
+     promises to tell you about — were simply absent, and nothing failed. */
+  const all = allEvents(site);
+  const reached = new Set(all.map((e) => e.destination));
+  const missing = [...site.graph.destinations.values()]
+    .filter((d) => {
+      const routes = [...site.graph.applicationRoutes.values()].filter((r) => r.destination === d.id);
+      return routes.some((r) => (r.milestones || []).length || (r.rounds || []).length);
+    })
+    .filter((d) => !reached.has(d.id))
+    .map((d) => d.name);
+  if (missing.length) throw new Error(`Destinations with dated routes that never reach the calendar: ${missing.join(', ')}`);
+});
+
+check('a round and its own closing milestone are not two things to do', () => {
+  const graph = {
+    applicationRoutes: new Map([
+      ['r', {
+        id: 'r', destination: 'xx', intake: '2027-autumn',
+        rounds: [{ id: 'rd', label: 'The only round', closes: '2027-03-15', consequence: 'hard' }],
+        milestones: [{ id: 'm', type: 'submit', label: 'Applications close', date: '2027-03-15', consequence: 'hard' }],
+      }],
+    ]),
+  };
+  const events = eventsForDestination({ code: 'xx', name: 'X' }, graph);
+  assert.equal(events.length, 1, 'the same day was listed twice');
+  assert.equal(events[0].label, 'Applications close', 'the round won, but the milestone is the one that says what closes');
+});
+
 /* --- Progress ------------------------------------------------------------- */
 
 if (REPORT) {
@@ -189,7 +221,7 @@ if (REPORT) {
     const bar = r.total ? '█'.repeat(Math.round((r.done / r.total) * 20)).padEnd(20, '·') : ''.padEnd(20, ' ');
     console.log(`  ${r.code}  ${bar}  ${String(r.done).padStart(3)} of ${String(r.total).padEnd(3)}  ${r.name}`);
   }
-  const all = allEvents(site.countries, site.graph);
+  const all = allEvents(site);
   const dated = all.filter((e) => e.date).length;
   console.log(`\n  ${dated} of ${all.length} events across the site carry a sortable date.\n`);
 }
