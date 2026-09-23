@@ -129,7 +129,13 @@ export function sameParty(a, b) {
  * built to stop.
  */
 export function reviewerIsPerson(by) {
-  return !/\b(pass|session|script|automated|machine|bot|claude|agent|tool)\b/i.test(String(by || ''));
+  const s = String(by || '').trim();
+  if (!s) return false; // Nobody is not a person.
+  /* A filename is the other way a machine signs its own work, and it contains
+     none of the words below — "verify-evidence.mjs" is a script saying so
+     plainly, and it would otherwise have passed. */
+  if (/\.(mjs|js|py|sh|ts)\b/i.test(s)) return false;
+  return !/\b(pass|session|script|scripted|automated|automation|machine|bot|claude|gpt|llm|ai|agent|tool|crawler|fetcher|pipeline)\b/i.test(s);
 }
 
 /** The numbers the trust page reports, and nothing else. */

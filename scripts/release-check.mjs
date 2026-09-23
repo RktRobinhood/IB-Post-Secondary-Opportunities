@@ -62,9 +62,51 @@ async function main() {
 
   /* --- Evidence state ------------------------------------------------------ */
   const ev = exported?.evidenceCounts || {};
-  if ((ev.conflicting || 0) > 0) {
-    block(`${ev.conflicting} conflicting evidence record(s)`, 'A conflict must be resolved by a person before release.');
-  } else ok('No unresolved evidence conflicts');
+
+  /* A conflict is not automatically a fault. It became one the first time this
+     check ran against a conflict that had been handled correctly.
+     *
+     * When two official pages disagree, recording that as a conflict is the
+     * *fix*: the evidence policy downgrades the claim, the product declines to
+     * state it, and the student is told what to do instead. Blocking a release
+     * over that punishes the only honest response to a publisher contradicting
+     * itself, and the way to make the check pass would be to delete the
+     * conflict record and pick the more convenient page — which is precisely
+     * what `conflictsWith` exists to prevent.
+     *
+     * What is still a fault is a conflict nobody has reasoned about. So the
+     * test is for the marks a person leaves: each record naming its
+     * counterpart, and each carrying an `interpretation` saying how it was
+     * read. An auto-detected or half-written conflict has neither and still
+     * blocks. A handled one is advisory, because it does still want settling
+     * at the source eventually. */
+  const conflicted = [];
+  for (const f of await listJson(path.join(DATA, 'evidence'))) {
+    const parsed = await readJson(path.join(DATA, 'evidence', f), []);
+    for (const e of Array.isArray(parsed) ? parsed : Object.values(parsed)) {
+      if ((e?.conflictsWith || []).length) conflicted.push(e);
+    }
+  }
+  const byId = new Map(conflicted.map((e) => [e.id, e]));
+  const unreasoned = conflicted.filter(
+    (e) =>
+      !String(e.interpretation || '').trim() ||
+      !(e.conflictsWith || []).every((other) => (byId.get(other)?.conflictsWith || []).includes(e.id))
+  );
+
+  if (unreasoned.length) {
+    block(
+      `${unreasoned.length} evidence conflict(s) nobody has reasoned about`,
+      `Each conflicting record must name its counterpart and carry an interpretation saying how it was read: ${unreasoned
+        .map((e) => e.id)
+        .join(', ')}`
+    );
+  } else if (conflicted.length) {
+    advise(
+      `${conflicted.length} evidence record(s) record a publisher contradicting itself`,
+      'Handled: each names its counterpart and explains the reading, and the product declines to state the claim. Still worth settling at the source.'
+    );
+  } else ok('No evidence conflicts');
 
   if ((ev.unavailable || 0) > 0) {
     block(`${ev.unavailable} unavailable source(s)`, 'A claim whose source cannot be reached should not be published as current.');

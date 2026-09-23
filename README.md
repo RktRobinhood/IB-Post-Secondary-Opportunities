@@ -204,7 +204,7 @@ rule is the one failure this product cannot afford.
 The distinction is not pedantry. An automated check confirms that "Matematik A"
 is still printed on the page it came from; it cannot notice that the page now
 means something different by it. So the two are reported as separate numbers and
-never merged — currently **8 records signed off by a person, 280 with their source
+never merged — currently **0 records signed off by a person, 280 with their source
 re-read**, and the site says so on `/trust/` rather than quoting the flattering
 one.
 

@@ -105,6 +105,12 @@ export const CHECKS = [
     title: 'A requirement can be looked for on the page that published it',
   },
   {
+    id: 'attestation',
+    script: 'scripts/test-attestation.mjs',
+    stage: 'data',
+    title: 'Only a person can have agreed with a record',
+  },
+  {
     id: 'sourcing',
     script: 'scripts/test-sourcing.mjs',
     stage: 'data',
@@ -133,6 +139,24 @@ export const CHECKS = [
     script: 'scripts/test-floor.mjs',
     stage: 'data',
     title: 'Publishing a Destination commits it to the publication floor',
+  },
+  {
+    id: 'controls',
+    script: 'scripts/test-controls.mjs',
+    stage: 'data',
+    title: 'The touch minimum is declared once and no control opts out',
+  },
+  {
+    id: 'destinations',
+    script: 'scripts/test-destinations.mjs',
+    stage: 'data',
+    title: 'A non-Danish Institution does not render as a Danish one',
+  },
+  {
+    id: 'evidence-policy',
+    script: 'scripts/test-evidence-policy.mjs',
+    stage: 'data',
+    title: 'One Verification State means one thing in every output',
   },
   {
     id: 'map',
