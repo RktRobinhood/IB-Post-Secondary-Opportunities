@@ -267,12 +267,43 @@ This is the failure mode with the worst consequence on the site. A wrong date
 costs a student a round. A route they were never eligible for costs them the
 months they spent preparing for it.
 
-### ~~IB results day is one fact stored 61 times~~ — filed as #36
+### ~~IB results day is one fact stored 61 times~~ — fixed in #36
 
 61 occurrences across 41 files, 22 of them route milestones with the identical
 label. Unsourced everywhere, because `ibo.org` refuses both automated fetch and
 a browser. It had already drifted once — `au.json` said 5–6 July where
-everything else said 6 July, and 5 July is coordinator access, not results day.
+everything else said 6 July.
+
+**And the explanation written to reconcile that drift was invented.** Two
+records said 5 July was when coordinators got school access. Nobody had read
+that anywhere. When the IB's transcript page was finally opened by hand, 5 July
+turned out to be the IB's own transcript-request cut-off — a real IB deadline
+the site did not hold at all, not a wrong version of results day. Sixty-one
+independent copies is how a plausible sentence survives: there was no single
+record for it to be wrong *on*, and no other check in this repository can see a
+sentence. Now in `data/ib-calendar.json`, enforced by
+`scripts/test-ib-calendar.mjs`.
+
+### No consequence for "after this it still works, and it costs you"
+
+Found writing the IB transcript cut-off. Missing it does not close the door: you
+request the transcript yourself instead of through your coordinator, at $19 per
+institution and up to 14 working days. `CONSEQUENCE` has `hard` ("the door
+closes"), `priority` ("later applications are considered after these") and
+`personal` ("not published by anyone"), and all three misdescribe it. Recorded
+as `hard` with the truth in the note, which is the workaround this list exists
+to catch.
+
+### A Destination-independent milestone has nowhere to live
+
+Also found on the IB transcript cut-off, which applies to every Destination at
+once. `allEvents` builds every event from a country profile or an Application
+Route, `/timeline/` scopes itself by Destination server-side and again in
+`calendar.js`, and `deadlineList` prints a Destination on every row. So the only
+way such a date reaches a student today is by being copied onto each Destination
+that needs it — which is the shape #36 was filed to end. It is recorded once in
+`data/ib-calendar.json` and shown on the one Destination that already carried an
+undated placeholder for it.
 
 ### No field for "this source cannot be machine-read, and here is why"
 

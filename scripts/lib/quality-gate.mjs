@@ -123,6 +123,12 @@ export const CHECKS = [
     title: 'The Diploma and Course Results are read as different qualifications',
   },
   {
+    id: 'ib-calendar',
+    script: 'scripts/test-ib-calendar.mjs',
+    stage: 'data',
+    title: 'IB results day is stated once, and no record asserts it on its own authority',
+  },
+  {
     id: 'calendar',
     script: 'scripts/test-calendar.mjs',
     stage: 'data',

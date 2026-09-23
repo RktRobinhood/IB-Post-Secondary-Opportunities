@@ -48,7 +48,9 @@
     "qa:list": "node scripts/qa.mjs --list",
     "test:canonical": "node scripts/test-canonical.mjs",
     "test:catalogue": "node scripts/test-catalogue.mjs",
-    "test:gate": "node scripts/test-quality-gate.mjs"
+    "test:gate": "node scripts/test-quality-gate.mjs",
+    "test:ib-calendar": "node scripts/test-ib-calendar.mjs",
+    "migrate:ib-results": "node scripts/migrate-ib-results-day.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"

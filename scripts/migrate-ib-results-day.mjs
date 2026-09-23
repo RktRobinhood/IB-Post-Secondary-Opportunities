@@ -46,14 +46,11 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { IB_DATE_BASIS, claimsIbRelease, ibSessionEvent, ibSessionEventRefs } from '../src/lib/calendar.mjs';
+import { IB_DATE_BASIS, IB_RESULTS_EVENT, claimsIbRelease, ibSessionEvent, ibSessionEventRefs } from '../src/lib/calendar.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
 const WRITE = process.argv.includes('--write');
-
-/** The event in data/ib-calendar.json that a release claim is about. */
-const RELEASE_EVENT = 'results-day';
 
 const isIso = (v) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v);
 
@@ -83,7 +80,7 @@ if (!CYCLE) {
   console.error('\ndata/ib-calendar.json names no session as the cycle this site covers. Nothing can be migrated from it.\n');
   process.exit(1);
 }
-const DEFAULT_REF = `${CYCLE.id}/${RELEASE_EVENT}`;
+const DEFAULT_REF = `${CYCLE.id}/${IB_RESULTS_EVENT}`;
 
 /** Every canonical date, for the "carries the date but makes no claim" sweep. */
 const CANONICAL_DATES = new Map();

@@ -168,6 +168,15 @@ export function claimsIbRelease(label) {
 }
 
 /**
+ * The event id, in every session, that means "results reached the candidate".
+ *
+ * Named rather than spelled out at each use because the drift was between two
+ * events of one session that are one day apart, and a guard comparing against
+ * a string typed in three places is a guard that can be half-updated.
+ */
+export const IB_RESULTS_EVENT = 'results-day';
+
+/**
  * Resolve `"2027-05/results-day"` against a parsed `data/ib-calendar.json`.
  *
  * A string reference rather than a pair of fields, because the drift this
