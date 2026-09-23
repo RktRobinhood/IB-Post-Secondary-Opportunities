@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ev-unilu-application-window-2027",
+    "sourceUrl": "https://www.uni.lu/en/admissions/bachelor-master/",
+    "publisher": "University of Luxembourg",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The University of Luxembourg says applications for 2027-2028 open on 1 February 2027, and its programme pages give windows running from 1 February to July.",
+    "excerpt": "Applications for the academic year 2027-2028 will open on 1 February 2027.",
+    "interpretation": "This describes applying. The state portal describes a period running from the end of April to mid-September and calls it enrolment, which is recorded separately as ev-guichet-unilu-enrolment-window. The likeliest reading is that the two pages describe different stages of the same process — but that is an inference about two pages that do not cross-reference each other, and the state portal's own banner says it is being updated. The product states neither window.",
+    "supports": [
+      {
+        "entity": "lu",
+        "field": "application.deadlines"
+      }
+    ],
+    "conflictsWith": [
+      "ev-guichet-unilu-enrolment-window"
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "uni.lu returns an empty body to automated retrieval. This page was read in a browser on 2026-09-23, and the host began returning 403 to the browser as well partway through the session."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Alpine and small states group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in a browser because automated retrieval returns nothing, alongside the state portal page it disagrees with."
+    }
+  },
+  {
+    "id": "ev-guichet-unilu-enrolment-window",
+    "sourceUrl": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
+    "publisher": "guichet.public.lu (State of Luxembourg)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The Luxembourgish state portal, on its page about enrolling at the University of Luxembourg, says the period runs from the end of April to mid-September for a bachelor.",
+    "excerpt": "from the end of April to mid-September",
+    "interpretation": "Taken at face value this contradicts the university's own 1 February opening, recorded as ev-unilu-application-window-2027. Two things make it impossible to resolve from the pages alone: the portal does not say whether it means applying or enrolling after admission, and it carries a banner reading \"This page is currently being updated\" — the publisher warning that its own content may be stale. Note the direction of the temptation: this is the *government* page, which would normally outrank an institution's, and it is also the later and more forgiving window. Preferring it for either reason would be preferring the convenient reading of a page that says it is out of date.",
+    "supports": [
+      {
+        "entity": "lu",
+        "field": "application.deadlines"
+      }
+    ],
+    "conflictsWith": [
+      "ev-unilu-application-window-2027"
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "The resolution is not ours to make. The University's student department (SEVE) is the office that can settle it, and the country record tells the student to work from their own programme page and confirm with SEVE."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Alpine and small states group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read on 2026-09-23 alongside the university page it disagrees with."
+    }
+  }
+]

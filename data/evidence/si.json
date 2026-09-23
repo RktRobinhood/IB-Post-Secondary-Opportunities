@@ -1,0 +1,75 @@
+[
+  {
+    "id": "ev-uni-lj-ib-no-recognition-needed",
+    "sourceUrl": "https://www.uni-lj.si/studij/prijava-sprejem/vpisna-dokumentacija",
+    "publisher": "University of Ljubljana (Univerza v Ljubljani)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The University of Ljubljana's own Slovene admission leaflet says an IB Diploma is equivalent to the Slovenian matura and needs no recognition procedure — while a candidate holding IB certificates rather than the full Diploma must run the procedure.",
+    "excerpt": "Diploma o mednarodni maturi (International Baccalaureate – IB) in zaključno spričevalo Evropske mature (European Baccalaureate Certificate) sta enakovredna maturitetnemu spričevalu v RS in zanju ni potreben postopek priznavanja tujega izobraževanja. […] Kandidati z IB certifikatom morajo dokazila priložiti sami in tudi opraviti postopek priznavanja izobraževanja.",
+    "interpretation": "Read in Slovene; no English page states this exemption. Two things make it load-bearing rather than incidental. First, it is the convenient reading — no procedure, no two-month wait — and the national portal recorded as ev-study-in-slovenia-recognition-required states the obligation flatly and names no exemption at all. Second, the same paragraph draws exactly the Diploma / Course Results line this product models: the exemption is for the Diploma, and a Course candidate must run the procedure. So a student who reads only the first sentence can conclude the opposite of what applies to them.",
+    "supports": [
+      {
+        "entity": "si",
+        "field": "ibRecognition.notes"
+      }
+    ],
+    "conflictsWith": [
+      "ev-study-in-slovenia-recognition-required"
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Read as a Slovene-language PDF leaflet. The ministry's own joint-call PDF returns HTTP 404, so this leaflet is the best available source for the Slovenian cycle.",
+        "If recognition does turn out to be required, the leaflet warns a decision can take up to two months from a complete application, and the first-round selection on 24 July only covers candidates whose decision has already been issued."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Alpine and small states group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Slovene on 2026-09-23, alongside the national portal page it disagrees with."
+    }
+  },
+  {
+    "id": "ev-study-in-slovenia-recognition-required",
+    "sourceUrl": "https://studyinslovenia.si/how-to-apply/recognition-of-foreign-education/",
+    "publisher": "Study in Slovenia (national portal)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The national Study in Slovenia portal states that a candidate who finished school abroad is obliged to obtain a decision on the recognition of their foreign education, and names no exemption.",
+    "excerpt": "is obliged to acquire a decision on the recognition of the foreign education, if they have not obtained one already",
+    "interpretation": "It does not mention the International Baccalaureate anywhere, so this is a general statement that may simply not have been written with the IB in mind, rather than a considered contradiction of the University of Ljubljana's leaflet. That is the likeliest reading and it is still only a reading: an obligation stated flatly by the national portal cannot be waved away by inference. The country record previously asserted this obligation as fact with no mention of the exemption, which was wrong in the other direction.",
+    "supports": [
+      {
+        "entity": "si",
+        "field": "ibRecognition.notes"
+      }
+    ],
+    "conflictsWith": [
+      "ev-uni-lj-ib-no-recognition-needed"
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "The resolution is not ours to make. The country record tells the student to get it in writing from the faculty or from recognition@uni-lj.si before planning around either answer."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Alpine and small states group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read on 2026-09-23 alongside the Ljubljana leaflet it disagrees with."
+    }
+  }
+]
