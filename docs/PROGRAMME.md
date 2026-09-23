@@ -35,9 +35,18 @@ conventions fan-out work here runs under.
 
 ## In flight
 
-Nothing is in flight that is not either committed or named below. Anything
-here that is *not* in the git log was interrupted and needs restarting from
-the brief.
+- **#18, the style pass.** Partial work is on disk in `components.mjs`,
+  `primitives.mjs` and both stylesheets, and the build is green. Scene
+  variants `arrival` and `close()` exist; chapter CSS and the motion tokens
+  were next.
+- **The Netherlands Opportunity pilot.** Restarted from nothing.
+
+Anything named here that is *not* in the git log was interrupted and needs
+restarting from the brief. On 2026-09-23 a session usage limit killed six
+agents at once; four had written nothing and two had written work that
+survived because it was on disk. That is the whole argument for
+[PARALLEL_WORK.md](PARALLEL_WORK.md)'s first rule, and it was tested within
+an hour of being written.
 
 ---
 
@@ -176,12 +185,14 @@ Fédération des cégeps. `official-rule-owner` was used with the reasoning in
 
 ## Things found that are not yet issues
 
-- **10 of 14 `ibPageUrl` values in `data/countries/ca.json` were 404s** —
-  invented URLs that nothing checks, because `npm run check` only verifies
-  outbound links under `--external`. All ten are now replaced with pages that
-  were opened and read. **The other 34 country records have not been swept**,
-  and there is no reason to think Canada was unusual. This is the highest-value
-  unfiled item here.
+- ~~**10 of 14 `ibPageUrl` values in `data/countries/ca.json` were 404s**~~ —
+  swept repo-wide in `9785b82` and **the answer was the opposite field**. Of
+  962 links: `ibPageUrl` 0 dead of 72, `website` 12 dead of 453, and
+  `admissionsUrl` **64 dead of 437** — one in seven. Austria's eight fail with
+  the same invented path shape at three different universities, which is what
+  the fault looks like from the inside. Filed as #25. `npm run
+  check:institutions` is the checker; it is deliberately not in `npm test`
+  because it needs the network.
 - **`data/countries/au.json` was quoting the wrong IB conversion table.** UAC
   publishes two on one page; the record had the IBAS schedule, which applies
   only to candidates who sat the IB *in Australia*. A Danish candidate is
