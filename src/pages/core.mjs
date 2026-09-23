@@ -7,10 +7,12 @@ import {
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
 import {
-  worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, STATE,
+  worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, deadlineList, STATE,
 } from '../lib/primitives.mjs';
 import { DIMENSIONS, assessDestination, coverageSummary, COVERAGE } from '../lib/dimensions.mjs';
 import { contextFor } from '../lib/canonical.mjs';
+import { eventsForDestination } from '../lib/calendar.mjs';
+import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
 
 /* --- Home ---------------------------------------------------------------- */
 
@@ -200,6 +202,9 @@ function countryCard(site, c) {
     title: c.name,
     text: c.tagline || truncate(c.summary, 130),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
+    // This card shows a photograph when there is one to show, so when there is
+    // not it gets the typographic panel rather than a hole in the grid.
+    placeholder: true,
     flag: c.flag,
     meta,
     tags: [
@@ -285,6 +290,10 @@ function countryIndex(site, { scope, title, lede, eyebrow, path: pagePath, heroK
       href: c.href,
       count: c.institutions.length,
       precision: 'region',
+      // How much is known about this destination, in the same words the page
+      // itself uses — a light that says nothing about its own evidence is the
+      // kind of confidence this site is not allowed to imply.
+      state: RESEARCH_DEPTH[c.researchDepth.tier]?.label,
     }));
   const byRegion = new Map();
   for (const c of list) {
@@ -342,7 +351,7 @@ ${mapPlaces.length
   </div>
 </section>`;
 
-  return page({ title, description: lede, path: pagePath, section: pagePath, body });
+  return page({ title, description: lede, path: pagePath, section: pagePath, body, scripts: ['map.js'] });
 }
 
 function regionHeadline(region) {
@@ -409,6 +418,18 @@ export function destination(site, c, { prev, next }) {
   const pic = picture(site, c.code, { prefer: 'commons' });
   const art = artDirection(c.artDirection);
 
+  // Dated events come from one model, whether they were written on the country
+  // profile or migrated into an Application Route. The page does not need to
+  // know which, and must not be able to tell — that is what stopped the
+  // calendar and the country pages drifting apart.
+  const events = eventsForDestination(c, site.graph);
+
+  // How this Destination's institutions divide for the purpose of applying.
+  // Declared in the record, never inferred here: a country that is genuinely
+  // one system and a country nobody has examined both render as one group, and
+  // `grouping.declared` is the only thing that tells them apart.
+  const { grouping, groups } = groupInstitutions(c, site.graph);
+
   // Institutions that have a resolved location become lights on the map. The
   // list beneath it is the same set, and is what a keyboard or screen reader
   // uses — the picture is an enhancement of the list, never a replacement.
@@ -435,7 +456,9 @@ ${hero({
   lede: c.tagline,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
   slides: pic ? heroSlides(site, c) : [],
-  variant: pic ? undefined : 'plain',
+  // No publishable photograph of this Destination, so the hero becomes the
+  // designed empty state rather than a hero that lost its picture.
+  variant: pic ? undefined : 'panel',
   aside: patternLayer(art.pattern),
 })}
 
@@ -451,7 +474,11 @@ ${hero({
           intake: c.targetIntake ? '2027-autumn' : null,
           checkedAt: c.dataAsOf,
           level: c.sources.length ? 'needs-review' : 'none',
-          provisional: c.deadlines.filter((d) => /not yet published|indicative|re-check/i.test(`${d.year || ''} ${d.notes || ''}`)).length,
+          // A provisional date is now a field rather than a phrase to grep for.
+          // The old test read the year and notes for "not yet published",
+          // "indicative" or "re-check", which caught whichever wording a
+          // researcher happened to use and missed the rest.
+          provisional: events.filter((e) => e.provisional).length,
         })}
         ${researchDepthNote(c)}
         <p class="lede">${c.summary}</p>
@@ -517,29 +544,11 @@ ${hero({
               ${c.application.selectionNotes ? md(c.application.selectionNotes) : ''}`
           : ''}
 
-        ${c.deadlines.length
+        ${events.length
           ? html`<h2 id="deadlines">Deadlines</h2>
-              <ul class="timeline">
-                ${c.deadlines.map(
-                  (d) => html`<li>
-                    <div class="timeline__when">${
-                      // A missing date rendered as an empty cell reads as a
-                      // layout fault, not as a statement — and it is a
-                      // statement: we went to the official page and the date
-                      // was not on it. Twenty-eight deadlines are in this
-                      // position, mostly outside Europe. Say so.
-                      d.date == null
-                        ? html`<span class="timeline__unpublished">Date not published</span>`
-                        : d.date
-                    }${d.year ? html`<br><small>${d.year}</small>` : ''}</div>
-                    <div class="timeline__what">
-                      <h4>${d.label}</h4>
-                      ${d.notes ? md(d.notes) : ''}
-                      ${d.source ? html`<p><small><a href="${d.source}" rel="noopener nofollow">Source</a></small></p>` : ''}
-                    </div>
-                  </li>`
-                )}
-              </ul>`
+              ${deadlineList(events)}
+              <p><small><a href="${url('/timeline/')}?destinations=${c.code}">See these dates on the calendar</a>,
+              alongside anywhere else you are looking at.</small></p>`
           : ''}
 
         <h2 id="money">Money</h2>
@@ -594,7 +603,7 @@ ${hero({
               landscape && ['#landscape', `The shape of ${c.name}'s system`],
               c.ibRecognition && ['#ib', 'How your IB is read'],
               c.application?.steps?.length && ['#apply', 'How applying works'],
-              c.deadlines.length && ['#deadlines', 'Deadlines'],
+              events.length && ['#deadlines', 'Deadlines'],
               ['#money', 'Money'],
               c.language && ['#language', 'Language'],
               ['#living', 'Living there'],
@@ -615,12 +624,12 @@ ${c.institutions.length
         ${sectionHead({
           eyebrow: plural(c.institutions.length, 'institution'),
           title: 'Where to study',
-          lede: `A spread of what ${c.name} offers, not a ranking. Check each one's own pages before you apply.`,
+          lede: grouping.id === 'none'
+            ? `A spread of what ${c.name} offers, not a ranking. Check each one's own pages before you apply.`
+            : `${grouping.lede} A spread of what ${c.name} offers, not a ranking — but which group a place is in changes how you apply to it.`,
           id: 'institutions',
         })}
-        <div class="grid grid--3">
-          ${c.institutions.map((i) => institutionCard(site, i))}
-        </div>
+        ${groups.map((g) => institutionGroup(site, g, groups.length))}
       </div>
     </section>`
   : ''}
@@ -636,7 +645,45 @@ ${raw('</div>')}`;
     path: c.href,
     section: c.scope === 'europe' ? '/europe/' : '/world/',
     body,
+    scripts: ['map.js'],
   });
+}
+
+/**
+ * One group of institutions, headed by the route they apply through.
+ *
+ * A Destination that divides into one group renders without a heading, so a
+ * centralised system looks exactly as it did before and only a federal one pays
+ * for the structure. That is deliberate: the grouping exists to show a branch,
+ * and drawing a branch where there is none would be its own kind of lie.
+ */
+function institutionGroup(site, g, groupCount) {
+  const cards = html`<div class="grid grid--3">${g.institutions.map((i) => institutionCard(site, i))}</div>`;
+  if (groupCount === 1) return cards;
+
+  const rows = variationRows(g);
+  const sentence = routeSentence(g);
+
+  return html`<section class="jgroup" ${g.id ? raw(`id="j-${g.id}"`) : ''}>
+    <header class="jgroup__head">
+      <h3 class="jgroup__name">${g.name}</h3>
+      ${sentence
+        ? html`<p class="jgroup__route">${g.route?.portalUrl
+            ? html`<a href="${g.route.portalUrl}" rel="noopener nofollow">${sentence}</a>`
+            : sentence}</p>`
+        : html`<p class="jgroup__route jgroup__route--none">No application route recorded for ${g.name} yet —
+            check each institution's own admissions page.</p>`}
+      ${g.summary ? html`<p class="jgroup__summary">${g.summary}</p>` : ''}
+    </header>
+    ${rows.length
+      ? html`<dl class="jgroup__vary">
+          ${rows.map((r) => html`<div><dt>${r.label}</dt><dd>${md(r.value)}${r.source
+            ? html` <small><a href="${r.source}" rel="noopener nofollow">Source</a></small>`
+            : ''}</dd></div>`)}
+        </dl>`
+      : ''}
+    ${cards}
+  </section>`;
 }
 
 function institutionCard(site, i) {
@@ -648,6 +695,7 @@ function institutionCard(site, i) {
     title: i.name,
     text: i.note,
     image: pic ? { src: pic.src, alt: pic.alt } : null,
+    placeholder: i.shortName || i.name,
     meta,
     tags: i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
   });

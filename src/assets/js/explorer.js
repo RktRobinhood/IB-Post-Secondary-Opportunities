@@ -6,9 +6,20 @@
  * synchronisation requirement: a student who filters and then looks at the map
  * must be looking at the same set.
  *
+ * Nor is there a second copy of the map. This page used to draw its own dot
+ * cloud here — its own projection, its own bounding box, its own graticule of
+ * lines at fractions of the panel that were never meridians — which is why the
+ * coastline that landed under every other map on the site did not land under
+ * this one, and why Denmark was a different shape here than on its own page.
+ * The picture now comes from `worldWindow()` like every other, drawn at build
+ * time, so it is there before this file runs and stays there if this file never
+ * does. All that is left to do is re-weight it as the filters change.
+ *
  * Everything works without the map, without a pointer, and without motion. The
  * list is the interaction source of truth; the map is an enhancement of it.
  */
+
+import { enhanceWorld } from './map.js';
 
 const root = document.documentElement;
 const BASE = root.dataset.base === '/' ? '' : root.dataset.base;
@@ -67,127 +78,31 @@ function matches(p) {
 
 /* --- The map ----------------------------------------------------------------- */
 
-const W = 1000;
-const H = 380;
+/* The figure is already in the page, coastline and all. `enhanceWorld` hands
+   back the same controller `map.js` attached to it on load, so hover, focus,
+   grouping and the camera are wired once and this file only tells it what the
+   current filters make of each place. */
+const world = enhanceWorld(els.map?.querySelector('.world'));
 
-function drawMap(hits) {
-  if (!els.map) return;
+/* Choosing a place — from the marker or from the list entry beneath it — is a
+   filter here, not a link. The map does not know that; it asks, and this
+   answers. */
+world?.figure.addEventListener('world:select', (e) => {
+  e.preventDefault();
+  const id = e.detail.id;
+  if (!PLACES[id]) return;
+  state.place = state.place === id ? '' : id;
+  render();
+});
 
-  // Count hits per place. The map is derived from the filtered list, never
-  // filtered separately.
+function paintMap(hits) {
+  if (!world) return;
+  // Counted from the filtered list, never filtered a second time.
   const counts = new Map();
   for (const p of hits) {
     if (p.placeId) counts.set(p.placeId, (counts.get(p.placeId) || 0) + 1);
   }
-
-  const all = Object.values(PLACES);
-  if (!all.length) {
-    els.map.innerHTML = '';
-    return;
-  }
-
-  const lats = all.map((p) => p.lat);
-  const lons = all.map((p) => p.lon);
-  const pad = 1.2;
-  const box = {
-    north: Math.max(...lats) + pad,
-    south: Math.min(...lats) - pad,
-    west: Math.min(...lons) - pad,
-    east: Math.max(...lons) + pad,
-  };
-
-  const merc = (deg) => Math.log(Math.tan(Math.PI / 4 + (deg * Math.PI) / 360));
-  const yTop = merc(box.north);
-  const yBottom = merc(box.south);
-  const project = (lat, lon) => ({
-    x: ((lon - box.west) / (box.east - box.west)) * W,
-    y: ((yTop - merc(lat)) / (yTop - yBottom)) * H,
-  });
-
-  const max = Math.max(1, ...counts.values());
-  const dots = all
-    .map((p) => {
-      const { x, y } = project(p.lat, p.lon);
-      const n = counts.get(p.id) || 0;
-      return { ...p, x, y, n, r: n ? 5 + Math.sqrt(n / max) * 11 : 4 };
-    })
-    .sort((a, b) => b.r - a.r);
-
-  const shown = dots.filter((d) => d.n > 0).length;
-
-  els.map.innerHTML = `
-  <figure class="world" id="explorer-map">
-    <div class="world__stage">
-      <svg viewBox="0 0 ${W} ${H}" class="world__svg" role="img"
-           aria-label="${shown} of ${dots.length} places have programmes matching the current filters.">
-        <defs>
-          <radialGradient id="explorer-glow">
-            <stop offset="0%" stop-color="var(--brand-2)" stop-opacity=".85"/>
-            <stop offset="70%" stop-color="var(--brand-2)" stop-opacity=".16"/>
-            <stop offset="100%" stop-color="var(--brand-2)" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <g class="world__graticule" aria-hidden="true">
-          ${[0.25, 0.5, 0.75].map((f) => `<line x1="0" y1="${(H * f).toFixed(0)}" x2="${W}" y2="${(H * f).toFixed(0)}"/>`).join('')}
-          ${[0.25, 0.5, 0.75].map((f) => `<line x1="${(W * f).toFixed(0)}" y1="0" x2="${(W * f).toFixed(0)}" y2="${H}"/>`).join('')}
-        </g>
-        ${dots
-          .map(
-            (d, i) => `
-          <g class="world__place" style="--i:${i}" data-place="${esc(d.id)}"
-             ${d.n ? '' : 'data-dim="true"'}>
-            ${d.n ? `<circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${(d.r * 2.4).toFixed(1)}" fill="url(#explorer-glow)" aria-hidden="true"/>` : ''}
-            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(1)}" class="world__dot"
-                    ${d.precision && d.precision !== 'campus' ? 'data-approx="true"' : ''}/>
-          </g>`
-          )
-          .join('')}
-      </svg>
-    </div>
-
-    <ul class="world__list" aria-label="Places with matching programmes">
-      ${dots
-        .map(
-          (d) => `<li>
-            <a href="#prog-results" data-place="${esc(d.id)}"
-               aria-pressed="${state.place === d.id}"
-               ${d.n ? '' : 'data-dim="true"'}>
-              <span class="world__name">${esc(d.name)}</span>
-              <span class="world__count">${d.n}</span>
-            </a>
-          </li>`
-        )
-        .join('')}
-    </ul>
-
-    <figcaption class="world__caption">
-      <span class="world__legend">
-        <span class="world__legend-dot world__legend-dot--sm"></span>
-        <span class="world__legend-dot world__legend-dot--lg"></span>
-        Larger means more programmes here — not a better place.
-      </span>
-      ${dots.some((d) => d.precision && d.precision !== 'campus')
-        ? '<span class="world__legend">Hollow markers are city-level, not an exact campus.</span>'
-        : ''}
-      ${state.place ? `<span><button type="button" class="chip chip--inline" data-place-clear>Showing ${esc(PLACES[state.place]?.name || state.place)} only — clear</button></span>` : ''}
-    </figcaption>
-  </figure>`;
-
-  // Selecting a place from either view filters both.
-  for (const el of els.map.querySelectorAll('[data-place]')) {
-    el.addEventListener('click', (e) => {
-      const id = el.dataset.place;
-      if (!PLACES[id]) return;
-      e.preventDefault();
-      state.place = state.place === id ? '' : id;
-      render();
-      document.getElementById('prog-count')?.focus?.();
-    });
-  }
-  els.map.querySelector('[data-place-clear]')?.addEventListener('click', () => {
-    state.place = '';
-    render();
-  });
+  world.setCounts(counts, { selected: state.place });
 }
 
 /* --- Rendering ---------------------------------------------------------------- */
@@ -251,7 +166,7 @@ function render() {
        <p>Try removing one. The English-taught catalogue in Denmark is small, so two or three filters can empty it quickly.</p></li>`;
 
   renderActive();
-  drawMap(hits);
+  paintMap(hits);
   syncUrl();
 }
 

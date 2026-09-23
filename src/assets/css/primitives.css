@@ -33,6 +33,10 @@
 
 /* --- WorldWindow ---------------------------------------------------------- */
 
+/* The durations here are the site's own motion tokens from assets/css/motion.css,
+   which already answer both the operating-system setting and the in-product
+   toggle. Nothing in this file redefines them: a second set of numbers would be
+   a second answer to "how long is a change in the set?". */
 .world {
   margin: 0;
   display: grid;
@@ -52,12 +56,6 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-.world__graticule line {
-  stroke: var(--ink-mute);
-  stroke-width: 1;
-  opacity: .12;
 }
 
 /* Sea and land. Both are deliberately quiet: the markers are the information
@@ -80,32 +78,142 @@
 :root[data-theme="dark"] .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
 :root[data-theme="dark"] .world__land path { fill-opacity: .13; stroke-opacity: .28; }
 
+/* The markers are a picture of the list and nothing but: no focus, no name of
+   their own, no tab stop. Everything they can do, the list entry can do. */
 .world__place {
   animation: world-in var(--motion-set-change) both;
   animation-delay: calc(var(--i, 0) * var(--motion-set-change-stagger, 18ms));
 }
+.world__place[hidden] { display: none; }
 
+/* Opacity only. The script moves markers with a transform attribute as the
+   camera moves, and an animation that also wrote transform would fight it. */
 @keyframes world-in {
-  from { opacity: 0; transform: scale(.7); }
-  to   { opacity: 1; transform: scale(1); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .world__dot {
   fill: var(--art-accent, var(--brand-2));
   stroke: var(--paper);
   stroke-width: 1.5;
+  pointer-events: none;
   transition: r var(--motion-set-change), fill var(--motion-set-change);
 }
+.world__glow { pointer-events: none; }
+.world__land { pointer-events: none; }
+
+/* A dot the width of a full stop is not a target. The hit area is the size of a
+   fingertip and invisible. */
+.world__hit { fill: transparent; }
+.world__stage[data-reachable="true"] .world__hit { cursor: pointer; }
+
 /* Hollow means we only know the city, not the campus. */
-.world__dot[data-approx="true"] {
+.world__place[data-approx="true"] .world__dot {
   fill: none;
   stroke: var(--art-accent, var(--brand-2));
   stroke-width: 2;
 }
-.world__place:hover .world__dot,
-.world__place[data-active="true"] .world__dot {
+/* Lit from either direction: the pointer on the marker, or the pointer or the
+   keyboard on the matching list entry. */
+.world__place[data-on] .world__dot,
+.world__place[data-selected] .world__dot {
   fill: var(--accent);
+  stroke-width: 2.5;
 }
+.world__place[data-on] .world__glow { opacity: 1; }
+.world__place[data-dim] { opacity: .45; }
+.world__place[data-dim] .world__glow { display: none; }
+.world__place[data-dim] .world__dot { fill: var(--ink-mute); stroke-width: 1; }
+
+/* Places that land on top of each other, said out loud rather than stacked and
+   hoped for. The number is places, not opportunities. */
+.world__group-dot {
+  fill: var(--art-accent, var(--brand-2));
+  stroke: var(--paper);
+  stroke-width: 2;
+  pointer-events: none;
+}
+.world__group-ring {
+  fill: none;
+  stroke: var(--art-accent, var(--brand-2));
+  stroke-opacity: .35;
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+.world__group-count {
+  fill: var(--paper);
+  font: 700 13px/1 var(--sans);
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+.world__group[data-on] .world__group-dot,
+.world__group[data-selected] .world__group-dot { fill: var(--accent); }
+.world__group[data-dim] { opacity: .45; }
+.world__spider-leg {
+  stroke: var(--art-accent, var(--brand-2));
+  stroke-opacity: .5;
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+.world__spider-hub { fill: var(--art-accent, var(--brand-2)); fill-opacity: .6; pointer-events: none; }
+
+/* --- The camera ----------------------------------------------------------- */
+
+.world__stage[data-zoomed="true"] { cursor: grab; }
+.world__stage[data-zoomed="true"]:active { cursor: grabbing; }
+
+.world__controls {
+  position: absolute;
+  top: var(--s3);
+  right: var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1;
+}
+.world__btn {
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0 .4rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: 600 .875rem/1 var(--sans);
+  cursor: pointer;
+  box-shadow: var(--lift-1);
+}
+.world__btn--wide { font-size: .6875rem; letter-spacing: .04em; text-transform: uppercase; }
+.world__btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.world__btn:disabled { opacity: .4; cursor: default; }
+
+/* The name, the number and the cue, at the marker. It repeats what the list
+   entry says, because it is the same fact seen from the other side. */
+.world__callout {
+  position: absolute;
+  z-index: 1;
+  max-width: 16rem;
+  padding: .35rem .6rem;
+  transform: translate(-50%, .9rem);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--lift-2);
+  font-size: .75rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+.world__callout[data-side="above"] { transform: translate(-50%, calc(-100% - .9rem)); }
+.world__callout[data-align="left"] { transform: translate(-.5rem, .9rem); }
+.world__callout[data-align="left"][data-side="above"] { transform: translate(-.5rem, calc(-100% - .9rem)); }
+.world__callout[data-align="right"] { transform: translate(calc(-100% + .5rem), .9rem); }
+.world__callout[data-align="right"][data-side="above"] { transform: translate(calc(-100% + .5rem), calc(-100% - .9rem)); }
+.world__callout-name { display: block; color: var(--ink); font-size: .8125rem; }
+.world__callout-count { font-variant-numeric: tabular-nums; }
+.world__callout-cue { display: block; color: var(--ink-mute); }
 
 .world__list {
   list-style: none;
@@ -129,11 +237,20 @@
   background: var(--paper);
   transition: border-color var(--motion-action-complete), color var(--motion-action-complete);
 }
+/* `data-on` is the same state the marker shows, set from the other end: the
+   pointer over a dot lights the entry, the keyboard on an entry lights the dot. */
 .world__list a:hover,
-.world__list a:focus-visible {
+.world__list a:focus-visible,
+.world__list a[data-on] {
   border-color: var(--art-accent, var(--accent));
   color: var(--ink);
 }
+.world__list a[aria-current="true"] {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+  color: var(--ink);
+}
+.world__list a[data-dim] { opacity: .55; }
 .world__count {
   font-variant-numeric: tabular-nums;
   color: var(--ink-mute);

@@ -13,6 +13,7 @@
  */
 import { html, raw, md, truncate, plural, slugify } from './html.mjs';
 import { url } from './layout.mjs';
+import { formatWhen, consequenceOf } from './calendar.mjs';
 import fsSync from 'node:fs';
 import nodePath from 'node:path';
 
@@ -65,8 +66,19 @@ const BASEMAP = JSON.parse(
  * opportunities in view. Renders as an inline SVG with no dependencies, so it
  * works with JavaScript off, at 200% zoom, and with a keyboard.
  *
+ * The markers are a picture of the list, and are marked as one: they are not
+ * focusable and carry no accessible name of their own, because the list right
+ * underneath already names every place, counts it, and is a real control. Two
+ * tab stops for the same place, the second one less informative than the first,
+ * would be a worse map and a worse page. `assets/js/map.js` reads the geometry
+ * off these markers to light them, group them and move the camera; everything
+ * it offers is reachable from the list or from the buttons it adds.
+ *
  * @param {object} o
- * @param {Array}  o.places   [{ id, name, lat, lon, count, href, precision }]
+ * @param {Array}  o.places   [{ id, name, lat, lon, count, href, precision, state }]
+ *                            `state` is a short, record-derived confidence cue —
+ *                            the wording is the caller's, because this file does
+ *                            not know what kind of record a place stands for.
  * @param {object} [o.bounds] { north, south, west, east } — defaults to Europe
  * @param {string} [o.caption]
  * @param {string} [o.activeLayer] what the lights currently mean
@@ -90,6 +102,9 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       const r = 4 + Math.sqrt((p.count || 1) / maxCount) * 9;
       return { ...p, x, y, r, offscreen: x < -2 || x > W + 2 || y < -2 || y > H + 2 };
     })
+    // Draw order only: a big light behind a small one keeps the small one
+    // visible. It is not a fix for two places in the same bay — that is what
+    // the grouping in map.js is for.
     .sort((a, b) => b.r - a.r);
 
   // A place outside the frame used to be clamped to the edge, which put a
@@ -101,9 +116,20 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
   const hidden = dots.length - plotted.length;
   const land = landPaths(view, W, H);
 
-  return html`<figure class="world" id="${id}">
+  // How exactly this light is placed, in one phrase, written once. The marker
+  // carries it and so does the list entry, because the reader who cannot hover
+  // needs it as much as the one who can — and a second copy of the wording in
+  // the script is a second wording waiting to drift.
+  const cueFor = (p) =>
+    !p.precision || p.precision === 'campus'
+      ? ''
+      : p.precision === 'region'
+        ? 'Placed at the country, not at a campus'
+        : 'Placed at the city, not at the campus';
+
+  return html`<figure class="world" id="${id}" data-world>
   <div class="world__stage">
-    <svg viewBox="0 0 ${W} ${H}" class="world__svg" role="img"
+    <svg viewBox="0 0 ${W} ${H}" class="world__svg" role="img" data-w="${W}" data-h="${H}"
          aria-label="${activeLayer}: ${plural(plotted.length, 'place')} shown.">
       <defs>
         <radialGradient id="${id}-glow">
@@ -121,25 +147,41 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
         ${land.map((d) => raw(`<path d="${d}"/>`))}
       </g>
 
-      ${plotted.map(
-        (d, i) => html`<g class="world__place" style="--i:${i}">
-          <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${(d.r * 2.6).toFixed(1)}" fill="url(#${id}-glow)" aria-hidden="true"/>
-          <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(1)}" class="world__dot"
-                  data-place="${d.id}"${d.precision && d.precision !== 'campus' ? raw(' data-approx="true"') : ''}/>
-        </g>`
-      )}
+      <!-- One group per place, carrying its own geometry. The script needs to
+           know where a marker belongs before it can move the camera or group it
+           with its neighbours, and reading that back out of the attributes
+           beats projecting the coordinates a second time in a second language. -->
+      <g class="world__marks" aria-hidden="true">
+        ${plotted.map(
+          (d, i) => html`<g class="world__place" style="--i:${i}" data-place="${d.id}" data-name="${d.name}"
+             data-x="${d.x.toFixed(1)}" data-y="${d.y.toFixed(1)}" data-r="${d.r.toFixed(1)}" data-count="${d.count || 0}"${
+               d.href ? html` data-href="${url(d.href)}"` : ''}${
+               d.state ? html` data-state="${d.state}"` : ''}${
+               cueFor(d) ? html` data-cue="${cueFor(d)}" data-approx="true"` : ''}>
+            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${(d.r * 2.6).toFixed(1)}" fill="url(#${id}-glow)" class="world__glow"/>
+            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(1)}" class="world__dot"/>
+            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${Math.max(d.r + 8, 14).toFixed(1)}" class="world__hit"/>
+          </g>`
+        )}
+      </g>
+      <g class="world__groups" aria-hidden="true"></g>
     </svg>
   </div>
 
   <!-- The semantic list is the interaction source of truth. The picture is an
        enhancement of it, never a replacement — so this works with a keyboard,
-       a screen reader, and no JavaScript at all. -->
+       a screen reader, and no JavaScript at all. Everything the marker callout
+       shows on hover is written into the entry itself, because a cue a mouse
+       can read and a keyboard cannot is not a cue. -->
   <ul class="world__list" aria-label="${activeLayer}">
     ${dots.map(
       (d) => html`<li>
         <a href="${d.href ? url(d.href) : `#${id}`}" data-place="${d.id}">
           <span class="world__name">${d.name}</span>
           ${d.count ? html`<span class="world__count">${d.count}</span>` : ''}
+          ${d.state ? html`<span class="visually-hidden">. ${d.state}</span>` : ''}
+          ${cueFor(d) ? html`<span class="visually-hidden">. ${cueFor(d)}</span>` : ''}
+          ${d.offscreen ? html`<span class="visually-hidden">. Outside the map frame</span>` : ''}
         </a>
       </li>`
     )}
@@ -151,9 +193,9 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       <span class="world__legend-dot world__legend-dot--lg"></span>
       Larger means more opportunities here — not a better place.
     </span>
-    ${dots.some((d) => d.precision && d.precision !== 'campus')
-      ? html`<span class="world__legend">Hollow markers are city-level, not an exact campus.</span>`
-      : ''}
+    ${[...new Set(dots.map(cueFor).filter(Boolean))].map(
+      (cue) => html`<span class="world__legend">Hollow markers: ${cue.toLowerCase()}.</span>`
+    )}
     ${hidden > 0
       ? html`<span class="world__legend">${plural(hidden, 'place')} outside this frame — in the list below, not on the map.</span>`
       : ''}
@@ -626,3 +668,84 @@ export const STATE = {
     html`<p class="state state--nomap">The map is not available, so everything is listed below instead. Nothing is
       missing — the list is what the map is drawn from.</p>`,
 };
+
+/* ========================================================================
+   Dated events
+   ======================================================================== */
+
+/**
+ * A list of dated events — deadlines, openings, tests, results — rendered the
+ * same way wherever they appear.
+ *
+ * One renderer, because there used to be two and they disagreed. The country
+ * pages printed `application.deadlines[]`; `/timeline/` printed a hand-typed
+ * array of eighteen events covering a hand-picked subset of the same facts,
+ * with no source field and no Verification State, which meant it could drift
+ * from the country pages with nothing to catch it (#13). Both now read the
+ * model in `src/lib/calendar.mjs`, so a date can only be wrong in one place.
+ *
+ * Three things this renders that the old one could not, all of which come from
+ * the migration rather than from here:
+ *
+ *   - **What missing it costs.** UCAS publishes an *equal consideration* date,
+ *     not a deadline. Rendering both as "Deadline" frightens students
+ *     unnecessarily and reassures them wrongly, so the consequence is shown.
+ *   - **A window as a window**, with both ends, rather than a sentence.
+ *   - **A provisional date as provisional.** A year we inferred from last
+ *     cycle is never shown as one that was published.
+ *
+ * `data-date` is what `site.js` reads to mark what has passed and what is next,
+ * so an undated event carries none and is simply never marked — which is
+ * correct, and is why the attribute is omitted rather than left empty.
+ */
+export function deadlineList(events, { showDestination = false, emptyText } = {}) {
+  if (!events.length) {
+    return STATE.empty(
+      emptyText || 'No dates recorded yet.',
+      'That is a gap in our research rather than a quiet period — check the official portal.'
+    );
+  }
+
+  return html`<ul class="timeline">
+    ${events.map((e) => deadlineItem(e, { showDestination }))}
+  </ul>`;
+}
+
+function deadlineItem(e, { showDestination }) {
+  const when = formatWhen(e);
+  const c = consequenceOf(e);
+  const undated = !e.date;
+
+  /* A legacy string is a date we have not migrated yet, not a date we could not
+     find. Showing it as written is better than dropping it, and it must not
+     borrow the styling of either a real date or a declared absence. */
+  const whenMarkup = undated
+    ? e.legacyDate
+      ? html`<span class="timeline__legacy" title="Not yet migrated to a structured date">${e.legacyDate}</span>`
+      : html`<span class="timeline__unpublished">${when}</span>`
+    : when;
+
+  return html`<li
+    ${e.date ? raw(`data-date="${e.date}"`) : ''}
+    ${e.destination ? raw(`data-destination="${e.destination}"`) : ''}
+    ${e.provisional ? raw('data-provisional="true"') : ''}
+    ${e.consequence ? raw(`data-consequence="${e.consequence}"`) : ''}
+  >
+    <div class="timeline__when">
+      ${whenMarkup}
+      ${e.intake ? html`<br><small>${e.intake}</small>` : ''}
+    </div>
+    <div class="timeline__what">
+      <h4>${showDestination && e.destinationName ? html`<span class="timeline__where">${e.destinationName}</span> ` : ''}${e.label}</h4>
+      ${e.consequence && e.consequence !== 'indicative'
+        ? html`<p class="timeline__consequence"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>
+            <span class="timeline__consequence-note">${c.note}</span></p>`
+        : ''}
+      ${e.routeLabel ? html`<p class="timeline__route">Via ${e.routeLabel}</p>` : ''}
+      ${e.note ? md(e.note) : ''}
+      ${e.sources.length
+        ? html`<p><small>${e.sources.map((s) => html`<a href="${s}" rel="noopener nofollow">Source</a>`)}</small></p>`
+        : ''}
+    </div>
+  </li>`;
+}
