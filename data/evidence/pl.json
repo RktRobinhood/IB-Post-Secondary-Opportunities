@@ -1,0 +1,70 @@
+[
+  {
+    "id": "ev-pums-calendar-class-start",
+    "sourceUrl": "https://pums.edu.pl/admissions/application-calendar/",
+    "publisher": "Poznan University of Medical Sciences",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "PUMS's Fall 2027 application calendar gives the start of classes as 13 September 2026 — a 2026 day printed on a 2027 calendar — and puts orientation week at 6–12 September 2027.",
+    "excerpt": "Start of classes: 13 Sep 2026 […] Orientation week for incoming students in Poznan: 6 - 12 Sep 2027",
+    "interpretation": "The date is internally impossible: a 2027 intake cannot begin classes in September 2026. What makes this page the more informative of the two is its orientation week, 6–12 September 2027, because PUMS runs classes after orientation rather than during it — for 2026/27 it published orientation 7–13 September and classes 14 September. That pattern points at Monday 13 September 2027, which would make the '13 Sep' here the right day with the wrong year. It is still an inference, the string appears on no PUMS page, and the product records no date.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "application.deadlines"
+      }
+    ],
+    "conflictsWith": ["ev-pums-requirements-class-start"],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Neither PUMS page carries a last-updated stamp, so there is no way to tell which of the two figures is the stale one."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Central Europe group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read on 2026-09-23 alongside the admission-requirements page it disagrees with."
+    }
+  },
+  {
+    "id": "ev-pums-requirements-class-start",
+    "sourceUrl": "https://pums.edu.pl/admissions/medicine-program/admission-requirements/",
+    "publisher": "Poznan University of Medical Sciences",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "PUMS's medicine admission-requirements page, under a heading for Fall 2027 entry, gives the start of classes as 6 September 2027.",
+    "excerpt": "Start of classes: September 6, 2027",
+    "interpretation": "This has the right year, which makes it the tempting one, and it collides with the university's own orientation week of 6–12 September 2027 on the calendar page recorded as ev-pums-calendar-class-start. Classes cannot start on the Monday orientation begins. So the page with the correct year is not thereby the correct page, and neither figure can be published as printed. This is the specific reason the entry carries no date rather than the later or the more plausible one: a medical degree is a six-year commitment and a student moving to Poznan a week early or a week late is a real cost.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "application.deadlines"
+      }
+    ],
+    "conflictsWith": ["ev-pums-calendar-class-start"],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "The resolution is not ours to make; it needs the PUMS admissions office. The country record says so and records what the evidence points at without publishing it."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Central Europe group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read on 2026-09-23 alongside the application calendar it disagrees with."
+    }
+  }
+]
