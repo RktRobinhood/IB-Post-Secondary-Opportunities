@@ -106,5 +106,195 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-is-study-iceland-no-central-system",
+    "sourceUrl": "https://study.iceland.is/study-in-iceland/admission-requirements",
+    "publisher": "Study in Iceland",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Iceland has no central admissions system; applicants apply directly to each university, and deadlines for international students differ between universities.",
+    "excerpt": "There is no central admissions system in Iceland and applicants must apply directly to the university. … Application deadlines for international students differ between universities but usually fall in the spring.",
+    "supports": [
+      {
+        "entity": "is-direct-2027",
+        "field": "channel"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-eurydice-institution-types",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/eurypedia/iceland/types-higher-education-institutions",
+    "publisher": "Eurydice (European Commission)",
+    "publisherType": "other",
+    "sourceClass": "encyclopaedic",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Iceland has seven higher education institutions, four public (University of Iceland, University of Akureyri, Agricultural University of Iceland, Hólar University) and three private (Reykjavík University, Bifröst University, Iceland University of the Arts). There is no strict university versus applied split; the system combines comprehensive universities and specialised institutions.",
+    "excerpt": "There are currently seven higher education institutions in Iceland … both comprehensive universities (e.g. University of Iceland) and specialized institutions (e.g. arts, agriculture, marine sciences).",
+    "interpretation": "Eurydice is an EU information network, not the Icelandic rule-owner, so it is classed as reference material and used only for the descriptive sector picture. The country profile links Hólar through the University of Iceland site, which suggests an alliance between the two; that was not researched here.",
+    "supports": [
+      {
+        "entity": "is",
+        "field": "sectorLandscape"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page stamped last updated 1 April 2026. Iceland ENIC-NARIC (english.enicnaric.is) did not resolve (DNS failure) when tried as the national source."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-hi-ib",
+    "sourceUrl": "https://english.hi.is/international-baccalaureate",
+    "publisher": "University of Iceland (Háskóli Íslands)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "The University of Iceland accepts the IB Diploma for bachelor-level admission with no translation and no separate English proof; the IB Career-related Programme does not meet its entry requirements.",
+    "excerpt": "Translation … Not required. English proficiency … Not required. … IB Career-Related Programme (IBCP) does not meet the entry requirements at the University of Iceland.",
+    "supports": [
+      {
+        "entity": "is",
+        "field": "ibRecognition"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-hi-deadlines",
+    "sourceUrl": "https://english.hi.is/study/apply-overview/application-deadline",
+    "publisher": "University of Iceland (Háskóli Íslands)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "University of Iceland: international (non-exchange) applicants to undergraduate studies apply by 1 February; Icelandic and Nordic citizens by 5 June. No year is printed.",
+    "excerpt": "International Applicants … Undergraduate & Master Studies: 1 February … Icelandic & Nordic Citizens … The application deadline is 5 June",
+    "interpretation": "Which of the two a Danish citizen is held to is disputed by the university itself; see ev-hi-is-deadline-page-5-june and ev-hi-is-faq-5-june. The safe date is 1 February. Years are inferred from the intake.",
+    "supports": [
+      {
+        "entity": "is-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-ru-deadlines",
+    "sourceUrl": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines",
+    "publisher": "Reykjavik University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Reykjavik University, autumn intake: EU/EEA applicants apply 5 February to 30 April; non-EU/EEA applicants 5 October to 31 January. No year is printed.",
+    "excerpt": "Application opens: February 5th … Application deadline: April 30th … Application opens: October 5th … Application deadline: January 31st",
+    "supports": [
+      {
+        "entity": "is-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-unak-deadlines",
+    "sourceUrl": "https://www.unak.is/english/study/application/applications",
+    "publisher": "University of Akureyri (Háskólinn á Akureyri)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "University of Akureyri: EU/EEA residents apply from the beginning of March until 5 June. No year is printed.",
+    "excerpt": "Applications are submitted electronically and will be open at the beginning of March until June 5th.",
+    "supports": [
+      {
+        "entity": "is-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-hi-fees",
+    "sourceUrl": "https://english.hi.is/study/apply/university-fees",
+    "publisher": "University of Iceland (Háskóli Íslands)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The University of Iceland charges no tuition to EU/EEA students, only a registration fee of ISK 100,000 for a full academic year. The government has authorised tuition for students from outside the EEA/EFTA and Switzerland from autumn 2027, at levels not yet determined.",
+    "excerpt": "Registration fee for full academic year: 100,000 ISK … The Icelandic government has authorised universities to introduce tuition fees for students from countries outside the EEA/EFTA and Switzerland, effective from the Autumn semester of 2027. … The tuition fee levels have not yet been determined",
+    "interpretation": "One public university. Reykjavik University is private and charges tuition to EEA students too; that figure is on the country profile, not re-read here.",
+    "supports": [
+      {
+        "entity": "is",
+        "field": "feeContext"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic floor research pass (fi, is, mt)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
   }
 ]

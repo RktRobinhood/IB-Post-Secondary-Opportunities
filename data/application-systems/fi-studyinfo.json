@@ -1,0 +1,28 @@
+{
+  "id": "fi-studyinfo",
+  "name": "Studyinfo joint application",
+  "localName": "Opintopolku / Studyinfo.fi",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "fi",
+    "authority": "Finnish National Agency for Education (Opetushallitus)",
+    "area": "Finland"
+  },
+  "portalUrl": "https://studyinfo.fi/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "The January joint application for English-taught bachelor's programmes at universities and universities of applied sciences.",
+    "excludes": "Institutions that run their own application on the same portal at other dates — the University of Helsinki's IB route in March, and LUT's rolling admission."
+  },
+  "choiceRules": {
+    "limit": 6,
+    "note": "Up to six programmes, from different fields and institutions. Whether and how the order counts was not read from an official page in this pass."
+  },
+  "evidence": [
+    "ev-fi-studyinfinland-joint-application"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23"
+  }
+}

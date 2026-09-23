@@ -1,0 +1,88 @@
+{
+  "id": "fi",
+  "iso2": "fi",
+  "name": "Finland",
+  "adjective": "Finnish",
+  "scope": "europe",
+  "region": "Nordic",
+  "capital": "Helsinki",
+  "currency": "EUR",
+  "membership": { "eu": true, "eea": true, "nordic": true, "schengen": true },
+  "targetIntake": "2027-autumn",
+  "tagline": "Free, in English, and your IB grades can do the work",
+  "summary": "Finland teaches a real set of bachelor's degrees in English and charges EU, EEA and Swiss citizens nothing for them. Most are applied for in one national window on Studyinfo.fi, 7–21 January 2027, with up to six choices. Many programmes admit IB students on their grades alone, and offers are confirmed when final IB results arrive in July.",
+  "whyConsider": [
+    "No tuition for EU, EEA and Swiss citizens, in any language of instruction.",
+    "IB grades are scored directly in certificate-based selection, so many programmes need no entrance exam.",
+    "Two kinds of institution to choose from: research universities and universities of applied sciences, both teaching in English."
+  ],
+  "watchOuts": [
+    "The national window is 7–21 January 2027, six months before IB results. You apply on predicted grades.",
+    "Not every university uses that window. The University of Helsinki puts IB applicants in its Admission group 2, 9–23 March 2027.",
+    "Universities of applied sciences ask every applicant to prove English, native speakers included. Check what your programme accepts."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "No national minimum. Thresholds are set by programme, usually on individual subject grades.",
+    "subjectLevelRule": "Set per programme. In certificate-based selection the IB is scored like the Finnish matriculation examination.",
+    "evidence": ["ev-fi-uasinfo-ib-certificate"]
+  },
+  "language": {
+    "englishTaughtBachelors": "A real set at both universities and universities of applied sciences, all applied for in English through Studyinfo.fi.",
+    "englishProof": "Set per institution. Universities of applied sciences require proof from every applicant.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition.",
+      "evidence": ["ev-fi-helsinki-tuition"]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Tuition is set by each institution; the University of Helsinki charges 13,000 euros a year for an English-taught bachelor's.",
+      "evidence": ["ev-fi-helsinki-tuition"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Finland has two sectors. The yliopisto is a research university; the ammattikorkeakoulu, or university of applied sciences, is a separate and equally legitimate route to a bachelor's degree, more practical and closer to working life. Both teach in English and both take the IB.",
+    "routes": [
+      {
+        "localName": "yliopisto",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Research universities such as Helsinki, Aalto, Tampere and Jyväskylä. Bachelor's, master's and doctoral degrees.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "ammattikorkeakoulu (AMK)",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Practical bachelor's degrees tied to a profession: business, engineering, health, IT, hospitality. Metropolia, Haaga-Helia, TAMK and Laurea are examples.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "The IB is scored like the Finnish matriculation examination. Some programmes also admit through the International UAS Exam."
+      }
+    ],
+    "evidence": ["ev-fi-okm-sectors", "ev-fi-uasinfo-ib-certificate"]
+  },
+  "applicationSystems": ["fi-studyinfo"],
+  "evidence": [
+    "ev-fi-studyinfinland-joint-application",
+    "ev-fi-okm-sectors",
+    "ev-fi-uasinfo-ib-certificate",
+    "ev-fi-helsinki-tuition"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-10-31",
+    "notes": [
+      "Helsinki says its 2027 instructions and criteria will be updated by the end of October 2026. Re-check then.",
+      "Studyinfo.fi renders in JavaScript and could not be read by a plain fetch; national dates are cited from Jyväskylä and Study in Finland instead."
+    ]
+  }
+}

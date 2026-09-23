@@ -1,0 +1,62 @@
+{
+  "id": "is-direct-2027",
+  "destination": "is",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to an Icelandic university",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-hi-international",
+      "type": "submit",
+      "label": "University of Iceland: international applicants, undergraduate",
+      "date": "2027-02-01",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Printed as \"1 February\" with no year. The university's own pages disagree on whether a Nordic citizen may instead use 5 June; work to 1 February unless the university confirms otherwise in writing.",
+      "evidence": ["ev-is-hi-deadlines", "ev-hi-is-deadline-page-5-june", "ev-hi-is-faq-5-june"]
+    },
+    {
+      "id": "ms-ru-eea",
+      "type": "submit",
+      "label": "Reykjavik University: EU/EEA applicants",
+      "date": "2027-04-30",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Opens 5 February; printed with no year.",
+      "evidence": ["ev-is-ru-deadlines"]
+    },
+    {
+      "id": "ms-unak-eea",
+      "type": "submit",
+      "label": "University of Akureyri: EU/EEA applicants",
+      "date": "2027-06-05",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Open from the beginning of March; printed with no year.",
+      "evidence": ["ev-is-unak-deadlines"]
+    },
+    {
+      "id": "ms-others",
+      "type": "submit",
+      "label": "Bifröst, the Agricultural University, the University of the Arts and Hólar",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Each sets its own date. Check the institution's page.",
+      "evidence": ["ev-is-study-iceland-no-central-system"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
+    }
+  ],
+  "evidence": ["ev-is-study-iceland-no-central-system"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2027-01-15" }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "fi-studyinfo-2027",
+  "destination": "fi",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to Finland for autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "fi-studyinfo",
+  "portalUrl": "https://studyinfo.fi/",
+  "choiceLimit": 6,
+  "milestones": [
+    {
+      "id": "ms-joint-application",
+      "type": "submit",
+      "label": "Joint application for English-taught bachelor's programmes",
+      "date": "2027-01-07",
+      "endDate": "2027-01-21",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "The national window, on Studyinfo.fi. Six months before IB results, so you apply on predicted grades.",
+      "evidence": ["ev-fi-jyu-joint-application-2027", "ev-fi-studyinfinland-joint-application"]
+    },
+    {
+      "id": "ms-attachments",
+      "type": "document",
+      "label": "Attachments uploaded to Studyinfo (Jyväskylä's date)",
+      "date": "2027-01-28",
+      "consequence": "hard",
+      "note": "One university's published date. Check your own programme's.",
+      "evidence": ["ev-fi-jyu-joint-application-2027"]
+    },
+    {
+      "id": "ms-helsinki-group-2",
+      "type": "submit",
+      "label": "University of Helsinki, Admission group 2 — the IB route",
+      "date": "2027-03-09",
+      "endDate": "2027-03-23",
+      "consequence": "hard",
+      "note": "Helsinki runs its own dates. IB Diploma holders are in group 2 and apply in March, not January.",
+      "evidence": ["ev-fi-helsinki-admission-groups-2027"]
+    },
+    {
+      "id": "ms-predicted",
+      "type": "document",
+      "label": "Predicted IB grades entered on Studyinfo (Jyväskylä's date)",
+      "date": "2027-04-01",
+      "consequence": "hard",
+      "evidence": ["ev-fi-jyu-joint-application-2027"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
+    },
+    {
+      "id": "ms-final-grades",
+      "type": "document",
+      "label": "Official final IB grades (Jyväskylä's date)",
+      "date": "2027-07-13",
+      "consequence": "hard",
+      "note": "How a January application meets July results: offers are made on predicted grades and confirmed by the final ones.",
+      "evidence": ["ev-fi-jyu-joint-application-2027"]
+    }
+  ],
+  "supplementarySteps": [
+    "LUT University admits to its English-taught bachelor's programmes on a rolling, non-competitive basis outside the January window — see LUT's own page."
+  ],
+  "evidence": ["ev-fi-jyu-joint-application-2027", "ev-fi-helsinki-admission-groups-2027"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-10-31" }
+}

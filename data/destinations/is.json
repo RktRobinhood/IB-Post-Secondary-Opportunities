@@ -1,0 +1,111 @@
+{
+  "id": "is",
+  "iso2": "is",
+  "name": "Iceland",
+  "adjective": "Icelandic",
+  "scope": "europe",
+  "region": "Nordic",
+  "capital": "Reykjavík",
+  "currency": "ISK",
+  "membership": {
+    "eu": false,
+    "eea": true,
+    "nordic": true,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Seven universities, no tuition at the public ones, very little in English",
+  "summary": "Iceland has seven higher education institutions and no central application: you apply to each one directly. The public universities charge EEA students only a registration fee. The catch is language. Almost all bachelor's teaching is in Icelandic, so Iceland is a narrow door for a student who will not learn it.",
+  "whyConsider": [
+    "No tuition at the University of Iceland for EEA students, only a registration fee of ISK 100,000 a year.",
+    "The University of Iceland accepts the IB Diploma with no translation and no separate English test.",
+    "A small system: seven institutions, each applied to directly, with no portal to learn."
+  ],
+  "watchOuts": [
+    "Very few bachelor's programmes are taught in English. Check the specific programme, not the university.",
+    "The University of Iceland's own pages disagree on whether a Nordic citizen's deadline is 1 February or 5 June. Work to 1 February unless they confirm otherwise in writing.",
+    "Only the full IB Diploma counts at the University of Iceland; the IB Career-related Programme does not."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "None published. Subject requirements are set faculty by faculty.",
+    "evidence": [
+      "ev-is-hi-ib"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "Rare. Most bachelor's teaching is in Icelandic.",
+    "englishProof": "Not required by the University of Iceland from IB Diploma holders.",
+    "localLanguageRequired": true
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition at the University of Iceland, only a registration fee of ISK 100,000 a year. Reykjavik University is private and charges tuition.",
+      "evidence": [
+        "ev-is-hi-fees"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Tuition for students from outside the EEA and Switzerland is authorised from autumn 2027; the amounts were not yet set.",
+      "evidence": [
+        "ev-is-hi-fees"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Every Icelandic institution is a háskóli, and there is no separate applied sector. Instead the split is between the large comprehensive universities and small specialised ones, and between four public and three private institutions. Private can mean tuition.",
+    "routes": [
+      {
+        "localName": "háskóli (opinber)",
+        "englishName": "public university",
+        "kind": "research",
+        "what": "The University of Iceland in Reykjavík, the largest and broadest, and the University of Akureyri in the north. Registration fee only for EEA students.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "háskóli (einkarekinn)",
+        "englishName": "private university",
+        "kind": "professional",
+        "what": "Reykjavík University and Bifröst University. Privately run, and they may charge tuition: Reykjavík University does, to EEA students too.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Neither publishes an IB-specific page. Not researched in detail here."
+      },
+      {
+        "localName": "sérhæfður háskóli",
+        "englishName": "specialised institution",
+        "kind": "specialist",
+        "what": "The Iceland University of the Arts (private), the Agricultural University of Iceland and Hólar University (both public, in rural settings). Small, single-field, and with their own admission rules.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched in detail here."
+      }
+    ],
+    "evidence": [
+      "ev-is-eurydice-institution-types"
+    ]
+  },
+  "applicationSystems": [],
+  "evidence": [
+    "ev-is-study-iceland-no-central-system",
+    "ev-is-eurydice-institution-types",
+    "ev-is-hi-ib",
+    "ev-is-hi-fees",
+    "ev-hi-is-deadline-page-5-june",
+    "ev-hi-is-faq-5-june"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-15",
+    "notes": [
+      "No Icelandic institution prints a year on its deadlines; every date on the route is provisional.",
+      "Not established: the Nordic-citizen deadline at the University of Iceland (its own pages conflict), and IB acceptance at the six other institutions."
+    ]
+  }
+}

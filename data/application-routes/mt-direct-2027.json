@@ -1,0 +1,50 @@
+{
+  "id": "mt-direct-2027",
+  "destination": "mt",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Maltese institution",
+  "channel": "direct",
+  "portalUrl": "https://www.um.edu.mt/courses",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-um-main",
+      "type": "submit",
+      "label": "University of Malta: main application deadline, October 2027 intake",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "Not published on 23 September 2026. Applications usually open the November before. At the University of Malta the IB counts as a local qualification: choose \"Local Qualifications\" when you apply.",
+      "evidence": ["ev-mt-um-dates-2027", "ev-mt-um-local-qualification"]
+    },
+    {
+      "id": "ms-others",
+      "type": "submit",
+      "label": "MCAST, ITS and the private institutions",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Each applies through its own website and sets its own date.",
+      "evidence": ["ev-mt-mcast-international"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
+    },
+    {
+      "id": "ms-um-start",
+      "type": "enrolment",
+      "label": "University of Malta: first semester begins for first-year students",
+      "date": "2027-10-04",
+      "consequence": "indicative",
+      "evidence": ["ev-mt-um-semester-2027"]
+    }
+  ],
+  "evidence": ["ev-mt-um-dates-2027"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-11-30" }
+}
