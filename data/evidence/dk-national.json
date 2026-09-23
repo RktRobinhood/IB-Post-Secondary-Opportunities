@@ -14,15 +14,36 @@
         "field": "ibRecognition.minimumPoints"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "manual",
+    "verificationState": "needs-review",
     "interpretation": "Select 'International Baccalaureate' in the country/examination dropdown. The page was last edited 2026-01-07. Note the Agency is explicit that a full Diploma need not contain a grade of 3 in every subject — a 2 may appear where the IB's own conditions for awarding the Diploma were met. Several Danish university pages state the stricter rule; that rule applies to DP Course Results, not to a Diploma.",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-03-01"
     },
-    "sourceClass": "official-rule-owner"
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 0 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "ibRecognition.minimumPoints",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 12 content words appear",
+          "excerpt": null,
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-ufsn-ib-karakterer",
@@ -43,15 +64,45 @@
         "field": "ibRecognition.gradeConversion"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "manual",
+    "verificationState": "needs-review",
     "interpretation": "The table recorded here is labelled 'Statistisk omregning 2026' and the page was last edited 2026-01-23. It applies to graduates up to and including 2019 and from 2023 onwards, which includes the May 2027 session. Because a fresh table appears by 1 March 2027, this record must be re-verified then and is provisional until it is.",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-03-01"
     },
-    "sourceClass": "official-rule-owner"
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: ibRecognition.conversionTable — page may be the wrong one — only 0 of 0 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "ibRecognition.conversionTable",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 0 content words appear",
+          "excerpt": null,
+          "details": []
+        },
+        {
+          "field": "ibRecognition.gradeConversion",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 12 content words appear",
+          "excerpt": null,
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-ufsn-ib-fagniveauer",
@@ -68,15 +119,36 @@
         "field": "ibRecognition.subjectLevelRule"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "manual",
+    "verificationState": "needs-review",
     "interpretation": "This is the table the university pages defer to but do not reproduce. It is the only source found that covers Mathematics: Analysis and Approaches and Applications and Interpretation — both HL map to Mathematics A, both SL to Mathematics B. It also states plainly that Global Politics has no fixed equivalence and is decided institution by institution.",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-06-01"
     },
-    "sourceClass": "official-rule-owner"
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 0 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "ibRecognition.subjectLevelRule",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 12 content words appear",
+          "excerpt": null,
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-ufsn-adgang-frister",
@@ -106,7 +178,7 @@
       "reviewBy": "2026-12-01"
     },
     "sourceCheck": {
-      "checkedAt": "2026-09-22",
+      "checkedAt": "2026-09-23",
       "outcome": "supported",
       "reason": "2 claims checked; weakest: milestones — 4 of 8 recorded requirement(s) found on the page",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
@@ -206,14 +278,36 @@
         "field": "decisionModel"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "manual",
+    "verificationState": "needs-review",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-01-15"
     },
-    "sourceClass": "official-rule-owner"
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and grants Funding, calls and grants - More links Research and Innovation Programmes supporting cooperation and mobility e-grant Statistics Statistics - More…",
+      "claims": [
+        {
+          "field": "decisionModel",
+          "entity": "dk-optagelse",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…and grants Funding, calls and grants - More links Research and Innovation Programmes supporting cooperation and mobility e-grant Statistics Statistics - More…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-su-satser-2026",
@@ -230,15 +324,37 @@
         "field": "livingContext.funding"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "manual",
+    "verificationState": "needs-review",
     "interpretation": "This is the 2026 rate. The rate for 2027 will differ, and the SU reform taking effect on 1 January 2027 reduces the total grant frame for higher education from 70 to 58 portions for anyone starting a new programme on or after 1 July 2025 — which includes this cohort.",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-01-15"
     },
-    "sourceClass": "official-rule-owner"
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…uddannelser Alle, der læser på en videregående uddannelse og er udeboende, får samme sats Sats 2026 Satsen for udeboende på videregående uddannelser er 7.426 kr. pr. måned før skat i 2026. Hjemmeboende eller…",
+      "claims": [
+        {
+          "field": "livingContext.funding",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…uddannelser Alle, der læser på en videregående uddannelse og er udeboende, får samme sats Sats 2026 Satsen for udeboende på videregående uddannelser er 7.426 kr. pr. måned før skat i 2026. Hjemmeboende eller…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-studyindenmark-fees",
@@ -263,7 +379,7 @@
       "reviewBy": "2026-12-01"
     },
     "sourceCheck": {
-      "checkedAt": "2026-09-22",
+      "checkedAt": "2026-09-23",
       "outcome": "supported",
       "reason": "page is on-topic for this claim (8/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
@@ -295,8 +411,7 @@
         "field": "livingContext.livingCostMonthly"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "Checked line by line against the source table and the arithmetic re-done, 2026-09-22.",
+    "verificationState": "needs-review",
     "interpretation": "The source gives a monthly budget line by line and never states a total, so the range we publish is our arithmetic on its figures: 3000+300+200+400+250+2000+300+2000 = 8,450 at the low end, and 6500+300+200+650+250+3500+300+2000 = 13,700 at the high end. Checked against the page on 2026-09-22 and it sums exactly. This is why an automated wording check can never confirm this record: the number we publish does not appear on the page, because the page does not add up its own table.",
     "meta": {
       "schemaVersion": "1.0",
@@ -304,7 +419,31 @@
       "reviewBy": "2027-06-01"
     },
     "excerpt": "Rent: varies from 3000-6,500 DKK (utilities usually included). Insurance: approximately 300 DKK. Streaming licenses: 200 DKK. Books and supplies: 400-650 DKK. Mobile phone: 250 DKK. Food: 2,000-3,500 DKK. Transport: 300 DKK. Other personal expenses: 2,000 DKK.",
-    "sourceClass": "promotion-agency"
+    "sourceClass": "promotion-agency",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "derived",
+      "note": "Checked line by line against the source table and the arithmetic re-done, 2026-09-22."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…of living expenses then these will depend on your lifestyle and habits. But to give you an idea of average monthly expenses here is a rough budget: TYPE APPROXIMATE COST OF LIVING PER MONTH Rent Varies from 3000-6,500…",
+      "claims": [
+        {
+          "field": "livingContext.livingCostMonthly",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "…of living expenses then these will depend on your lifestyle and habits. But to give you an idea of average monthly expenses here is a rough budget: TYPE APPROXIMATE COST OF LIVING PER MONTH Rent Varies from 3000-6,500…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-siri-higher-education",
@@ -323,15 +462,46 @@
         "field": "livingContext.workRights"
       }
     ],
-    "verificationState": "verified",
-    "verifiedBy": "manual",
+    "verificationState": "needs-review",
     "interpretation": "SIRI's page was last updated 2026-09-15 and supersedes Study in Denmark's own pages, which still quote a retired 20-hours-a-week rule.",
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22",
       "reviewBy": "2027-01-15"
     },
-    "sourceClass": "official-rule-owner"
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: livingContext.residency — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Breadcrumb Frontpage You want to apply Study Higher educational programmes You are going…",
+      "claims": [
+        {
+          "field": "livingContext.residency",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…Breadcrumb Frontpage You want to apply Study Higher educational programmes You are going…",
+          "details": []
+        },
+        {
+          "field": "livingContext.workRights",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…a permit to live and study in Denmark. This also applies if you complete an Erasmus Mundus, Erasmus+ or Nordic Master joint programme with a Danish degree. You can either complete a full educational programme or you can…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-dimensionering",
@@ -355,7 +525,7 @@
       "reviewBy": "2027-01-15"
     },
     "sourceCheck": {
-      "checkedAt": "2026-09-22",
+      "checkedAt": "2026-09-23",
       "outcome": "supported",
       "reason": "page is on-topic for this claim (3/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
@@ -382,8 +552,7 @@
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read against the source page, 2026-09-22.",
+    "verificationState": "needs-review",
     "claim": "Danish higher education is delivered by five kinds of institution: universities, university colleges, business academies, institutions in architecture and art, and maritime educational institutions. A reform is under way affecting all of them except maritime programmes.",
     "excerpt": "Higher education programmes in Denmark build on upper secondary education or vocational education and training. They are offered by universities, university colleges, business academies, institutions in architecture and art and maritime educational institutions. There are different types and levels of higher education programmes. A major reform process is currently under way, affecting the entire higher education sector with the exception of maritime education programmes.",
     "supports": [
@@ -395,6 +564,29 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "The Danish Higher Education System — Uddannelses- og Forskningsstyrelsen…",
+      "claims": [
+        {
+          "field": "sectorLandscape",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "The Danish Higher Education System — Uddannelses- og Forskningsstyrelsen…",
+          "details": []
+        }
+      ]
     }
   }
 ]

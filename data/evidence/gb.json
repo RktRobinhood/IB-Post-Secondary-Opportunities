@@ -7,8 +7,7 @@
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the 2027-entry panel of the source page in a browser, 2026-09-22. The panel is JavaScript-rendered and a plain fetch returns the 2026 dates instead.",
+    "verificationState": "needs-review",
     "claim": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
     "excerpt": "2027 entry application deadlines … 12 MAY UCAS applications open for 2027 entry. 01 SEP Completed applications can be submitted to UCAS. 15 OCT (18:00 UK time) Equal consideration date for applications to the universities of Oxford and Cambridge, and for most courses in medicine, dentistry, and veterinary medicine/science. […] 13 JAN (18:00 UK time) Equal consideration date for applications for most undergraduate courses. […] 02 JUL Clearing opens. […] 23 SEP (18:00 UK time) Final date for 2027 entry applications.",
     "interpretation": "Note the phrase UCAS uses: equal consideration, not deadline. An application in by the date is guaranteed to be considered; one after it may still be read, at the university’s discretion, against whatever places remain. That distinction is real and is routinely reported as a hard deadline, which frightens students unnecessarily and reassures them wrongly. Note also that 2027’s January date is the 13th, where 2026’s was the 14th — the date moves, and a figure remembered from last year is a figure that can cost a place.",
@@ -21,6 +20,87 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-browser",
+      "note": "Read from the 2027-entry panel of the source page in a browser, 2026-09-22. The panel is JavaScript-rendered and a plain fetch returns the 2026 dates instead."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 of 8 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Students 2027 entry application deadlines 2026 28 Apr UCAS’ search tool displays 2027 entry courses 12 May UCAS applications open for 2027 entry You can register and start your application in your UCAS Hub. 01…",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "gb-ucas-2027",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "2 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Students 2027 entry application deadlines 2026 28 Apr UCAS’ search tool displays 2027 entry courses 12 May UCAS applications open for 2027 entry You can register and start your application in your UCAS Hub. 01…",
+          "details": [
+            {
+              "requirement": "Final date for 2027 entry applications — 2027-09-23 18:00",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "UCAS applications open — 2026-05-12",
+              "role": "informational",
+              "found": true,
+              "matched": "12 May",
+              "weak": false
+            },
+            {
+              "requirement": "Completed applications can be submitted — 2026-09-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Extra opens — 2027-02-25",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Oxford, Cambridge, medicine, dentistry and veterinary medicine close — 2026-10-15 18:00",
+              "role": "required",
+              "found": true,
+              "matched": "15 October",
+              "weak": false
+            },
+            {
+              "requirement": "Equal consideration date for most courses — 2027-01-13 18:00",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Clearing opens — 2027-07-02",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   }
 ]

@@ -255,8 +255,16 @@ export function milestoneProbes(milestone) {
   out.push({
     kind: 'must',
     label: `${day} ${en}`,
+    // The ordinal suffix is not decoration. CAO writes "1st February", UCAS
+    // writes "15 Oct", and a matcher that knows only the second reported the
+    // Irish and German calendars as having no source behind them — seven and
+    // five milestones respectively, all of them present on the page and all of
+    // them read by a person before being recorded. A confident false negative
+    // about a deadline is the most expensive thing this tool can produce.
     re: new RegExp(
-      `(?:\\b${d}\\.?\\s*(?:${en}|${da})\\b|\\b(?:${en}|${da})\\s*${d}\\b(?!\\d)|\\b${d}[./]${esc(String(Number(mm)))}\\b)`,
+      `(?:\\b${d}(?:st|nd|rd|th)?\\.?\\s*(?:${en}|${da})\\b` +
+        `|\\b(?:${en}|${da})\\s*${d}(?:st|nd|rd|th)?\\b(?!\\d)` +
+        `|\\b${d}[./]${esc(String(Number(mm)))}\\b)`,
       'i'
     ),
   });

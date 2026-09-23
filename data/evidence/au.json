@@ -7,15 +7,23 @@
     "sourceClass": "recognition-body",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the page's second conversion table, 2026-09-23. The page carries two tables and they give different answers for the same diploma score; this is the one headed for applicants other than those who sat the IB in Australia since November 2022, which is the table a Danish candidate is converted on.",
+    "verificationState": "needs-review",
     "claim": "For offers made from August 2026, an IB Diploma score converts to an Australian Combined Rank on this published schedule: 45 to 99.95, 44 to 99.75, 43 to 99.35, 42 to 98.65, 41 to 97.80, 40 to 96.85, 39 to 95.80, 38 to 94.65, 37 to 93.60, 36 to 92.25, 35 to 90.75, 34 to 89.00, 33 to 86.65, 32 to 84.20, 31 to 81.70, 30 to 79.30, 29 to 77.10, 28 to 74.65, 27 to 72.25, 26 to 69.55, 25 to 66.95 and 24 to 64.60.",
     "excerpt": "IB Diploma score to Combined Rank conversion table. For all applicants except those sitting the IB in Australia since November 2022. Overall score / Combined Rank (for offers made from August 2026): 45 / 99.95; 44 / 99.75; 43 / 99.35; 42 / 98.65; 41 / 97.80; 40 / 96.85; 39 / 95.80; 38 / 94.65; 37 / 93.60; 36 / 92.25; 35 / 90.75; 34 / 89.00; 33 / 86.65; 32 / 84.20; 31 / 81.70; 30 / 79.30; 29 / 77.10; 28 / 74.65; 27 / 72.25; 26 / 69.55; 25 / 66.95; 24 / 64.60.",
     "interpretation": "Two things make this table dangerous to copy carelessly, and both bite a Danish candidate specifically. First, UAC publishes two schedules on one page. The other one converts an IB Admissions Score (IBAS) in quarter-point steps and is only for candidates who sat the IB in Australia from November 2022 onward; it reads 24.00 to 64.40 and 30.00 to 78.20 where this one reads 24 to 64.60 and 30 to 79.30. A student sitting the May session in Denmark is converted on the whole diploma score, so this is their table and the more precise-looking one is not. Second, the schedule is republished annually. UAC states this one applies to offers made from August 2026, and the values move: reading last year's figures would misplace a student by more than a rank point in the thirties, which is the range where a point decides an offer. The whole table is recorded rather than three sample rows, because a student reading a summary cannot tell which rows were left out.",
     "supports": [
-      { "entity": "au", "field": "ibRecognition.conversionTable" },
-      { "entity": "au", "field": "ibRecognition.gradeConversion" },
-      { "entity": "au", "field": "ibRecognition.minimumPoints" }
+      {
+        "entity": "au",
+        "field": "ibRecognition.conversionTable"
+      },
+      {
+        "entity": "au",
+        "field": "ibRecognition.gradeConversion"
+      },
+      {
+        "entity": "au",
+        "field": "ibRecognition.minimumPoints"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -23,6 +31,48 @@
       "reviewBy": "2027-02-28",
       "notes": [
         "ACTAC re-determines the combined rank table every February. Re-check in February 2027 and again before any offer round the student is relying on."
+      ]
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the page's second conversion table, 2026-09-23. The page carries two tables and they give different answers for the same diploma score; this is the one headed for applicants other than those who sat the IB in Australia since November 2022, which is the table a Danish candidate is converted on."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: ibRecognition.conversionTable — page is on-topic for this claim (4/6 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…of release of official results the predicted mark for each subject undertaken the expected number of bonus points for Theory of Knowledge (TOK) and Extended Essay (EE) the Predicted Total Aggregate. Institution-specific…",
+      "claims": [
+        {
+          "field": "ibRecognition.conversionTable",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/6 content words present)",
+          "excerpt": "…of release of official results the predicted mark for each subject undertaken the expected number of bonus points for Theory of Knowledge (TOK) and Extended Essay (EE) the Predicted Total Aggregate. Institution-specific…",
+          "details": []
+        },
+        {
+          "field": "ibRecognition.gradeConversion",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "University applicants with an IB Diploma – UAC - UAC Skip to main content Enter keyword/topic to search the UAC site Key dates Browse…",
+          "details": []
+        },
+        {
+          "field": "ibRecognition.minimumPoints",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…of release of official results the predicted mark for each subject undertaken the expected number of bonus points for Theory of Knowledge (TOK) and Extended Essay (EE) the Predicted Total Aggregate. Institution-specific…",
+          "details": []
+        }
       ]
     }
   },
@@ -34,18 +84,35 @@
     "publisherType": "national-agency",
     "sourceClass": "recognition-body",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "PDF downloaded and read page by page, 2026-09-23. Dated May 2019 on its own cover; it describes the standing method rather than a particular year's numbers, which is why an older document is still the right citation for the method and the wrong one for the values.",
+    "verificationState": "needs-review",
     "claim": "The IB-to-rank conversion used in Australia is a single national schedule agreed by all the state and territory tertiary admissions centres, re-determined each February, and it is used for tertiary entrance in every Australian jurisdiction.",
     "excerpt": "This document has been prepared by the Australasian Conference of Tertiary Admissions Centres (ACTAC) to explain the procedures used by tertiary admissions centres in Australia to determine tertiary entrance rankings for students who have completed the Diploma of the International Baccalaureate. [...] The combined rank table is determined annually (in February), and is based on: the IB population weightings of the year prior to the current year as provided by the IB Development Manager - Australasia, with NT and SA treated as a single entity; the latest rank table from each of NSW, SA, Victoria, and from 2016 onwards, Queensland, with the contribution for each state weighted according to the size of its IB candidature. [...] The combined rank table is used to convert IB Diploma scores to tertiary entrance ranks for all jurisdictions in Australia.",
     "interpretation": "This is the sentence that decides how Australia is modelled here. Admission to an Australian university is run state by state - five tertiary admissions centres, each with its own rules about who may use it - but the IB conversion is not. One table, agreed nationally, applies everywhere. So the number a student carries is portable across the whole country even though the application is not, and the division between jurisdictions is a division in how you apply rather than in how you are scored. The document is from 2019 and explains the method, not the current values; the values live on UAC's page and are re-set annually.",
     "supports": [
-      { "entity": "au", "field": "ibRecognition.gradeConversion" },
-      { "entity": "au", "field": "jurisdictions" }
+      {
+        "entity": "au",
+        "field": "ibRecognition.gradeConversion"
+      },
+      {
+        "entity": "au",
+        "field": "jurisdictions"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "PDF downloaded and read page by page, 2026-09-23. Dated May 2019 on its own cover; it describes the standing method rather than a particular year's numbers, which is why an older document is still the right citation for the method and the wrong one for the values."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -56,17 +123,30 @@
     "publisherType": "application-portal",
     "sourceClass": "recognition-body",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "PDF downloaded and read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "The Combined Rank is a national conversion, so an IB student can apply in any Australian state or territory and be compared with local applicants on the same scale as the ATAR.",
     "excerpt": "Results from the IB Diploma, which are reported on a whole number scale between 24 and 45, are converted into an ATAR-like value to allow IB students to be considered for tertiary places alongside their counterparts who have completed state curricula. This ATAR-like value is known as the Combined Rank because it is a national conversion which combines results from across all states. This means that IB students can apply in any Australian state or territory with confidence about how their results compare to their peers who have completed state curricula and received an ATAR. [...] The IB Admissions Score adds more detail within each level of diploma scores but does not change the score. The IB Admissions Score will always start with the same number as your IB diploma score.",
     "interpretation": "Useful mainly for what it lets a student stop worrying about. Australian degree pages quote an entry requirement as a rank - 'lowest selection rank 90' - and a student reading that from Denmark has no way to know whether that rank means the same thing in Perth as in Sydney. It does. The corollary is that the rank is the currency and the IB score is not: a university publishing a selection rank of 90 is asking for roughly an IB 34 on the current schedule, and neither number appears on the other's page.",
     "supports": [
-      { "entity": "au", "field": "ibRecognition.conversionScale" }
+      {
+        "entity": "au",
+        "field": "ibRecognition.conversionScale"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-pdf"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -78,19 +158,69 @@
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
     "appliesToApplicantGroup": "non-eu",
-    "verificationState": "verified",
-    "verifiedBy": "Both pages read, 2026-09-23. The eligibility list is worded identically on each, which is why both are cited: the qualifier 'in or outside Australia' is attached to the Australian Year 12 line and to no other line.",
+    "verificationState": "needs-review",
     "claim": "An international student holding an International Baccalaureate Diploma may apply to universities in New South Wales and the ACT through UAC; international students with any other qualification apply directly to the institution.",
     "excerpt": "International students undertaking one of the following qualifications in 2025 or 2026 can apply for undergraduate courses through UAC: an Australian Year 12 in or outside Australia, an International Baccalaureate Diploma, a New Zealand National Certificate of Educational Achievement (NCEA) Level 3. [...] All other international students apply directly to the institutions, not through UAC. Each institution has its own application procedures and admission requirements.",
     "interpretation": "This is the one place in Australia where a Danish IB candidate is inside a shared admissions system rather than outside it, and it is easy to miss because the page is titled for Year 12 students. Read the list carefully: 'in or outside Australia' qualifies the Australian Year 12 line only. The IB Diploma line carries no location condition at all - which is exactly where UAC differs from VTAC, SATAC and TISC, each of which does restrict the IB to candidates sitting it in Australia or to residents. The same sentence also establishes the rest of the country: outside NSW and the ACT, applying directly to the institution is not a fallback, it is the route.",
     "supports": [
-      { "entity": "au-uac", "field": "coverage" },
-      { "entity": "au-uac-2027", "field": "channel" },
-      { "entity": "au-direct-2027", "field": "channel" }
+      {
+        "entity": "au-uac",
+        "field": "coverage"
+      },
+      {
+        "entity": "au-uac-2027",
+        "field": "channel"
+      },
+      {
+        "entity": "au-direct-2027",
+        "field": "channel"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Both pages read, 2026-09-23. The eligibility list is worded identically on each, which is why both are cited: the qualifier 'in or outside Australia' is attached to the Australian Year 12 line and to no other line."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "3 claims checked; weakest: channel — page may be the wrong one — only 0 of 1 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…site Key dates Browse courses 0 favourite courses View all favourites ❯ Apply / log in Applications Undergraduate , opens in a new tab. International , opens in a new tab. Postgraduate , opens in a new tab. Equity…",
+      "claims": [
+        {
+          "field": "coverage",
+          "entity": "au-uac",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…site Key dates Browse courses 0 favourite courses View all favourites ❯ Apply / log in Applications Undergraduate , opens in a new tab. International , opens in a new tab. Postgraduate , opens in a new tab. Equity…",
+          "details": []
+        },
+        {
+          "field": "channel",
+          "entity": "au-uac-2027",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 1 content words appear",
+          "excerpt": null,
+          "details": []
+        },
+        {
+          "field": "channel",
+          "entity": "au-direct-2027",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (1/1 content words present)",
+          "excerpt": "…National Certificate of Educational Achievement (NCEA) Level 3. All other international students apply directly to the institutions, not through UAC. Each institution has its own application procedures and admission…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -100,14 +230,19 @@
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the undergraduate charges table, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "For the 2026-27 UAC cycle the undergraduate processing charge is AUD 82 if the application is paid and submitted by 23:59 on 30 September 2026 and AUD 215 from 1 October 2026, and the same charges apply to domestic and international applicants; applications for 2027 close at 23:59 on 5 February 2027.",
     "excerpt": "Undergraduate applicants (domestic and international). Early bird (semester 2, 2026 and semester 1, 2027 applications) 8 Apr to 11.59pm 30 Sep 2026: $82. Standard 1 Oct 2026 to 11.59pm 5 Feb 2027 (2027 applications close): $215. UAC fees and charges are not refundable, except as required by law.",
     "interpretation": "Recorded for the shape of the cycle rather than for a student sitting the IB in May 2027. These are the dates of the cycle that admits to semester 1 2027, and a Danish candidate finishing in May 2027 is applying for the cycle after it. What carries over is the pattern - open in April, cheaper until the end of September, close in early February - and not the dates. The charge is worth knowing for a separate reason: it is one payment covering every NSW and ACT institution the applicant preferences, where applying directly means one process per university.",
     "supports": [
-      { "entity": "au-uac", "field": "fee" },
-      { "entity": "au-uac-2027", "field": "milestones" }
+      {
+        "entity": "au-uac",
+        "field": "fee"
+      },
+      {
+        "entity": "au-uac-2027",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -115,6 +250,39 @@
       "reviewBy": "2027-04-30",
       "notes": [
         "The 2027-28 cycle dates, which are the ones a May 2027 candidate needs, were not published when this was written."
+      ]
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the undergraduate charges table, 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: milestones — \"milestones\" holds nothing matchable on au-uac-2027, so only a person can check this one",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "UAC applicant processing charges - UAC Skip to main content Enter keyword/topic to search the UAC site Key dates Browse…",
+      "claims": [
+        {
+          "field": "fee",
+          "entity": "au-uac",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "UAC applicant processing charges - UAC Skip to main content Enter keyword/topic to search the UAC site Key dates Browse…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "au-uac-2027",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "\"milestones\" holds nothing matchable on au-uac-2027, so only a person can check this one",
+          "excerpt": null,
+          "details": []
+        }
       ]
     }
   },
@@ -126,18 +294,35 @@
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "PDF downloaded and read, 2026-09-23. The international section is on page 2 and is separate from the domestic offer rounds on page 1; the fact sheet states its dates are correct as at 10 March 2026.",
+    "verificationState": "needs-review",
     "claim": "An international applicant through UAC receives a conditional offer about 48 hours after submitting, which can be used for pre-visa assessment but does not permit enrolment; an unconditional offer, which requires results, is needed to enrol.",
     "excerpt": "International undergraduate applicants. Conditional offers: You will receive a conditional offer approximately 48 hours after you have successfully submitted your application. You may use this as part of your pre-visa assessment if required. It does not make you eligible to enrol in a course of study. To enrol, you need an unconditional offer. Unconditional offers: This table shows the UAC dates by which you need to apply and pay, and change your course preferences, to be considered for an unconditional offer in each offer round.",
     "interpretation": "This is Australia's answer to the July problem, and it is a better answer than most of Europe's. The conditional offer arrives within two days of applying, on predicted grades, and it is explicitly usable for the visa - which matters because the subclass 500 application cannot begin until the university issues a Confirmation of Enrolment, and that queue is long. The unconditional offer waits for results. Note what the two-stage structure does not do: it does not move the closing date. The application still has to be in before the cycle closes.",
     "supports": [
-      { "entity": "au-uac-2027", "field": "milestones" },
-      { "entity": "au-uac", "field": "decisionModel" }
+      {
+        "entity": "au-uac-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "au-uac",
+        "field": "decisionModel"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "PDF downloaded and read, 2026-09-23. The international section is on page 2 and is separate from the domestic offer rounds on page 1; the fact sheet states its dates are correct as at 10 March 2026."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -147,18 +332,55 @@
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "UAC will not guarantee that IB results arriving on their own schedule are assessed in time for any particular offer round, and asks the candidate's school IB coordinator to authorise release of the results directly to UAC.",
     "excerpt": "Ask your school IB Diploma coordinator to authorise the International Baccalaureate (IB) to release your IB Diploma results directly to UAC. [...] As interstate Year 12, International Baccalaureate and New Zealand NCEA results are released on various dates, UAC cannot guarantee inclusion and assessment of these results in time for a specific offer round.",
     "interpretation": "The whole UAC calendar is built around the November IB session - its own key-dates sheet has IB results released from Cardiff on 17 December and IB Admissions Scores emailed the next day, which slots neatly into the December and January offer rounds. A May-session candidate's results arrive in July, in the gap between one cycle closing in February and the next opening in April. UAC does not say this is a problem; it says it will not promise a round. The practical reading is that a Danish candidate should expect to be admitted on predicted grades with the result confirmed later, rather than to be considered in a named round. There is a step here nobody mentions: the release has to be authorised by the school's IB coordinator, and it is the school that does it, not the student.",
     "supports": [
-      { "entity": "au-uac-2027", "field": "milestones" },
-      { "entity": "au-uac-2027", "field": "submissionItems" }
+      {
+        "entity": "au-uac-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "au-uac-2027",
+        "field": "submissionItems"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: milestones — \"milestones\" holds nothing matchable on au-uac-2027, so only a person can check this one",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…have completed it in 2025): an Australian Year 12 in or outside Australia, an International Baccalaureate Diploma, or a New Zealand National Certificate of Educational Achievement (NCEA) Level 3. All other international…",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "au-uac-2027",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "\"milestones\" holds nothing matchable on au-uac-2027, so only a person can check this one",
+          "excerpt": null,
+          "details": []
+        },
+        {
+          "field": "submissionItems",
+          "entity": "au-uac-2027",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…have completed it in 2025): an Australian Year 12 in or outside Australia, an International Baccalaureate Diploma, or a New Zealand National Certificate of Educational Achievement (NCEA) Level 3. All other international…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -168,18 +390,55 @@
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Only international students completing an Australian Year 12 qualification, including the IB, in Australia or New Zealand may apply to Victorian institutions through VTAC; every other international applicant applies directly to the institution.",
     "excerpt": "The only international students that can apply for courses through VTAC are international Australian Year 12 students. [...] If you are an international student who is not completing an Australian Year 12, or who doesn't meet the citizenship and residency requirements for applying through VTAC, you must apply directly to the institutions.",
     "interpretation": "The contrast with UAC is the point. Both admissions centres take international IB candidates; only one of them takes an IB candidate sitting the exams in Europe. A student who reads about VTAC first - and VTAC is the name that comes up for Melbourne, Monash, RMIT and Deakin - will conclude that Australia has state application portals they cannot use, and will be right about Victoria and wrong about the country.",
     "supports": [
-      { "entity": "au-direct-2027", "field": "channel" },
-      { "entity": "au", "field": "jurisdictions" }
+      {
+        "entity": "au-direct-2027",
+        "field": "channel"
+      },
+      {
+        "entity": "au",
+        "field": "jurisdictions"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: channel — page is on-topic for this claim (1/1 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…12, or who doesn’t meet the citizenship and residency requirements for applying through VTAC, you must apply directly to the institutions . If you wish to nominate an education agent , you can do so after submitting a…",
+      "claims": [
+        {
+          "field": "channel",
+          "entity": "au-direct-2027",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (1/1 content words present)",
+          "excerpt": "…12, or who doesn’t meet the citizenship and residency requirements for applying through VTAC, you must apply directly to the institutions . If you wish to nominate an education agent , you can do so after submitting a…",
+          "details": []
+        },
+        {
+          "field": "jurisdictions",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…of Higher Education Photography Studies College RMIT University SAE University College SEDA Group Southern Cross University Swinburne University of Technology Torrens University Australia Universal Higher…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -189,18 +448,55 @@
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "SATAC accepts international applications only from students holding the listed Year 12 qualifications, and the International Baccalaureate is listed only where it was studied in Australia; all other international students apply directly to the institution.",
     "excerpt": "SATAC accepts applications from International Year 12 students for the following universities: Adelaide University, Charles Darwin University, Flinders University. [...] International Baccalaureate (IB) Diploma (in Australia only). [...] All other international students whose qualifications are not listed above must apply directly to the relevant institutions, rather than through SATAC.",
     "interpretation": "Note the parenthesis. SATAC does not exclude the IB; it excludes the IB sat anywhere but Australia, in three words inside a list. That is the shape of the whole Australian answer for our reader, and it is why 'which states have a tertiary admissions centre' is the wrong question. Every state has one. The question is whether it will take an offshore IB candidate, and in South Australia and the Northern Territory the answer is no.",
     "supports": [
-      { "entity": "au-direct-2027", "field": "channel" },
-      { "entity": "au", "field": "jurisdictions" }
+      {
+        "entity": "au-direct-2027",
+        "field": "channel"
+      },
+      {
+        "entity": "au",
+        "field": "jurisdictions"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: channel — page is on-topic for this claim (1/1 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Darwin University Flinders University It is recommended that you contact the relevant university directly for more information about courses and services available to international applicants. Contact details can…",
+      "claims": [
+        {
+          "field": "channel",
+          "entity": "au-direct-2027",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (1/1 content words present)",
+          "excerpt": "…Darwin University Flinders University It is recommended that you contact the relevant university directly for more information about courses and services available to international applicants. Contact details can…",
+          "details": []
+        },
+        {
+          "field": "jurisdictions",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…you study. Applying Interstate Find out how to apply through SATAC if you’re studying or living outside South Australia. Course Search Applying How to Apply Follow a step-by-step guide to submitting your application…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -212,18 +508,35 @@
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "PDF downloaded and read, 2026-09-23. Titled 'University Admission 2027: Admission Requirements for students completing the Diploma of the International Baccalaureate in 2026' and issued on behalf of the five Western Australian universities.",
+    "verificationState": "needs-review",
     "claim": "Only Australian or New Zealand citizens and Australian permanent residents may apply to Western Australian universities through TISC; international students apply directly to each university's international office, and a candidate sitting the May IB session must say so or results will not be collected until December.",
     "excerpt": "You can only apply through TISC if you're an Australian or New Zealand citizen, or you've been approved or granted Australian permanent resident status. [...] Overseas IB students: If you are studying the IB Diploma overseas, but meet the residency requirements to apply through TISC, you are welcome to apply for university in Western Australia through TISC. [...] If you completed or are completing the IB Diploma in May of the current year, please indicate this in the course description so we can retrieve your results when available in July, as the default for IB results retrieval is December, when the November results are released.",
     "interpretation": "TISC draws the line on citizenship rather than on where the exams were sat, which is why an offshore IB student is outside it and an Australian citizen at an IB school in Copenhagen would be inside it. Worth reading the second half even though our reader cannot use TISC, because it names the assumption every Australian admissions system makes: the default is that IB results arrive in December. A May-session candidate is the exception everywhere in Australia, and in at least one system they have to declare it themselves or the system will simply wait until December for results that came in July.",
     "supports": [
-      { "entity": "au-direct-2027", "field": "channel" },
-      { "entity": "au", "field": "jurisdictions" }
+      {
+        "entity": "au-direct-2027",
+        "field": "channel"
+      },
+      {
+        "entity": "au",
+        "field": "jurisdictions"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "PDF downloaded and read, 2026-09-23. Titled 'University Admission 2027: Admission Requirements for students completing the Diploma of the International Baccalaureate in 2026' and issued on behalf of the five Western Australian universities."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -234,16 +547,27 @@
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read in a browser, 2026-09-23. The site returns HTTP 403 to every automated fetch, and the Cost field is empty in the plain markup - the AUD 2,500 figure is injected by script - so a scraped copy of this page will silently show no price at all.",
+    "verificationState": "needs-review",
     "claim": "The Student visa (subclass 500) costs from AUD 2,500, requires a valid Confirmation of Enrolment in a CRICOS-registered course held at the time the visa is decided, requires Overseas Student Health Cover, allows work up to 48 hours a fortnight while the course is in session, permits a stay of up to six years in line with enrolment, and requires evidence of AUD 29,710 of living costs for twelve months plus the first twelve months of course fees and about AUD 2,000 of travel costs.",
     "excerpt": "Stay: Up to 6 years and in line with your enrolment. Cost: From AUD2,500.00 (concessions apply in limited circumstances). [...] work up to 48 hours a fortnight when your course of study or training is in session. [...] You must apply online in or outside Australia, be enrolled in a course of study in Australia and hold a valid Confirmation of Enrolment (CoE) when we decide your visa, hold Overseas Student Health Cover (OSHC), or fall in one of the exemption categories. [...] You must be enrolled in a full time course registered on the Commonwealth Register of Institutions and courses for Overseas Students (CRICOS). [...] Living costs 12-month living costs are for: students - AUD29,710 [...] Course fees: Use the first 12 months of your course fees. [...] AUD2,000 for travel costs if you are applying from anywhere else outside Australia. [...] Alternatively, you can give evidence that your parents or your partner had a personal annual income of at least AUD87,856 in the 12 months before you apply. [...] Applications lodged on or after 14 November 2025 are processed according to Ministerial Direction 115.",
     "interpretation": "The money is the part students underestimate and the sequencing is the part that catches them. There is no date to miss: the visa cannot be applied for until the university issues a Confirmation of Enrolment, and the CoE has to still be valid on the day the visa is decided, so the clock is set by the offer and by Home Affairs' queue rather than by any published deadline. That queue is not first-come-first-served either - offshore applications are ordered by a Ministerial Direction, currently Direction 115 for anything lodged from 14 November 2025. The financial test is cumulative and is not the living-cost figure alone: AUD 29,710 for twelve months of living, plus the first twelve months of tuition, plus about AUD 2,000 of travel from Europe. The alternative to showing savings is a parent's or partner's documented annual income of at least AUD 87,856, evidenced by official tax documents rather than bank statements. CRICOS registration is the quiet one: a course that is not on the register cannot carry a student visa at all, whatever else it is.",
     "supports": [
-      { "entity": "au", "field": "livingContext.residency" },
-      { "entity": "au", "field": "livingContext.workRights" },
-      { "entity": "au-direct-2027", "field": "milestones" },
-      { "entity": "au-uac-2027", "field": "milestones" }
+      {
+        "entity": "au",
+        "field": "livingContext.residency"
+      },
+      {
+        "entity": "au",
+        "field": "livingContext.workRights"
+      },
+      {
+        "entity": "au-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "au-uac-2027",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -251,6 +575,65 @@
       "reviewBy": "2027-01-31",
       "notes": [
         "Every figure on this page is indexed and moves, usually on 1 July. Re-check before quoting any of it to a student."
+      ]
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "Read in a browser, 2026-09-23. The site returns HTTP 403 to every automated fetch, and the Cost field is empty in the plain markup - the AUD 2,500 figure is injected by script - so a scraped copy of this page will silently show no price at all."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "4 claims checked; weakest: livingContext.workRights — page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…starts  Back Search Popular searches Your previous searches pop-up content ends ImmiAccount Visa Entitlement Verification Online (VEVO) My Tourist Refund Scheme (TRS) \" /> Up to 6&nbsp;years and in…",
+      "claims": [
+        {
+          "field": "livingContext.residency",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…starts  Back Search Popular searches Your previous searches pop-up content ends ImmiAccount Visa Entitlement Verification Online (VEVO) My Tourist Refund Scheme (TRS) \" /> Up to 6&nbsp;years and in…",
+          "details": []
+        },
+        {
+          "field": "livingContext.workRights",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "…data-svpstreamcode=\"5133\" data-svpvisasubclasscode=\"500\">&nbsp;</span> (concessions apply in limited circumstances).</p> <h4>Cost concession</h4> <p>A lower visa cost applies to eligible Pacific Island…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "au-direct-2027",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "0 of 1 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Decide between a July 2027 and a February 2028 start — 2026-11-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "milestones",
+          "entity": "au-uac-2027",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "\"milestones\" holds nothing matchable on au-uac-2027, so only a person can check this one",
+          "excerpt": null,
+          "details": []
+        }
       ]
     }
   },
@@ -268,7 +651,10 @@
     "excerpt": "Structured restatement rather than a quotation: 2026 international rates per unit of credit of AUD 985 (Arts), AUD 1,000 (Design), AUD 1,090 (Architecture) and AUD 1,180 (Accounting and Actuarial Studies), against a standard full-time load of 48 units of credit a year.",
     "interpretation": "Recorded as one worked example rather than as an Australian rate, because there is no Australian rate: every institution sets its own and the spread between an arts degree and a health degree at the same university is larger than the spread between universities. UNSW is used because it publishes per unit of credit, which is the only form in which the arithmetic is checkable from Denmark. The reason this matters more in Australia than in Europe is the visa: the financial evidence is the first twelve months of the actual course fee, so the figure a student needs is theirs and not a national average.",
     "supports": [
-      { "entity": "au", "field": "feeContext" }
+      {
+        "entity": "au",
+        "field": "feeContext"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -276,6 +662,24 @@
       "reviewBy": "2026-12-31",
       "notes": [
         "Re-read against the 2027 rate card when UNSW publishes it, and record whether the fee can rise mid-degree - that question is not yet answered here."
+      ]
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…your timetable Get your student ID card Set up your IT Student Essentials module Moving to Australia International Student Welcome Centre Orientation Week O-Week events Faculty orientation International…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…your timetable Get your student ID card Set up your IT Student Essentials module Moving to Australia International Student Welcome Centre Orientation Week O-Week events Faculty orientation International…",
+          "details": []
+        }
       ]
     }
   },
@@ -292,7 +696,10 @@
     "excerpt": "Structured restatement: the four provider categories available under the Higher Education Standards Framework (Threshold Standards) 2021 are Institute of Higher Education, University College, Australian University and Overseas University. The new standards took effect on 1 July 2021, when TEQSA registered providers into these categories; University College is the category introduced by that reform.",
     "interpretation": "The reason a student needs these words is that 'university' is a protected term in Australia and the others are not obviously weaker. An Institute of Higher Education is a registered, regulated provider of accredited degrees; it is not a diminished university, it is a different category with a lower research requirement. A student comparing a degree at an institute with a degree at a university is comparing two accredited qualifications, and the thing that actually differs is research intensity and, often, price. Recorded here because none of it is visible from a course listing.",
     "supports": [
-      { "entity": "au", "field": "sectorLandscape.routes" }
+      {
+        "entity": "au",
+        "field": "sectorLandscape.routes"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -300,6 +707,12 @@
       "notes": [
         "Owed: the regulator's own wording for each category, read from the Provider Category Standards rather than from a summary."
       ]
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "source refuses automated fetching (timeout) — open it by hand before believing this",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -310,18 +723,55 @@
     "publisherType": "national-agency",
     "sourceClass": "promotion-agency",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Both pages read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Vocational education and training in Australia is delivered by government-owned TAFE institutes, private registered training organisations and dual-sector universities, runs from Certificate I to Advanced Diploma, and can carry credit into a bachelor degree.",
     "excerpt": "Australian vocational education and training (VET) is also known as 'Technical and Vocational Education Training (TVET)' and 'skills training'. [...] delivered by: government-owned technical and further education (TAFE) institutes, independent registered training providers (RTOs), and dual sector universities that offer VET and higher education programs. [...] Diploma and Advanced Diploma courses may also provide study credit towards a higher education (university level) degree. [...] An Australian VET qualification can be a stepping stone towards further study or a higher education (university level) degree. [...] TAFE stands for Technical and Further Education, and refers to Government-owned (public) institutions providing vocational education training (VET) and some higher education programs.",
     "interpretation": "This is the Australian answer to the question the research brief asks of every country: what is the institution type nobody mentions to foreigners. TAFE is it. It is public, it is everywhere, its diplomas carry credit into a bachelor degree at partner universities, and almost nothing written for international undergraduates mentions it except as a fallback for students who did not get in. A promotion agency is the right class to carry the description and the wrong one to carry a credit arrangement: how much credit a particular TAFE diploma earns at a particular university is set by that university, is not national, and is not established here.",
     "supports": [
-      { "entity": "au", "field": "sectorLandscape.routes" },
-      { "entity": "au", "field": "sectorLandscape.summary" }
+      {
+        "entity": "au",
+        "field": "sectorLandscape.routes"
+      },
+      {
+        "entity": "au",
+        "field": "sectorLandscape.summary"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: sectorLandscape.routes — page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…a welcoming culture, vibrant student cities and beautiful natural surroundings. World class education Australian culture and lifestyle Real world learning Ask a student World-leading research Plan your…",
+      "claims": [
+        {
+          "field": "sectorLandscape.routes",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…a welcoming culture, vibrant student cities and beautiful natural surroundings. World class education Australian culture and lifestyle Real world learning Ask a student World-leading research Plan your…",
+          "details": []
+        },
+        {
+          "field": "sectorLandscape.summary",
+          "entity": "au",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "Vocational Education and Training (VET) and TAFE | Study Australia Skip to content or footer Search search language English expand_more English 简体中文 India Bahasa…",
+          "details": []
+        }
+      ]
     }
   }
 ]

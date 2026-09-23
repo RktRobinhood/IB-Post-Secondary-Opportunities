@@ -8,6 +8,9 @@
  * gradually start carrying consequential claims because nothing stopped them.
  */
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { checkReview, sameParty, summarise } from '../src/lib/attestation.mjs';
 import {
   SOURCE_CLASSES,
   CLAIM_KIND,
@@ -124,6 +127,79 @@ check('every class explains what goes wrong if it is over-trusted', () => {
     assert.ok(spec.description && spec.description.length > 40, `${name} has no useful description`);
   }
 });
+
+/* --- attestation is not review -------------------------------------------
+ *
+ * 152 records once said `verified` and two had been checked by anybody other
+ * than their own author. The rule that stops that recurring is not "a human
+ * must do it" — a human who writes a record from a page has not been checked
+ * either. It is that the party who read the source cannot be the party who
+ * confirms it.
+ */
+
+check('a record cannot be verified with no review at all', () =>
+  assert.equal(checkReview({ verificationState: 'verified' }).ok, false));
+
+check('a record cannot be verified by the party that attested it', () =>
+  assert.equal(
+    checkReview({
+      verificationState: 'verified',
+      attestation: { by: 'the Ireland research pass' },
+      review: { by: 'the Ireland research pass' },
+    }).ok,
+    false
+  ));
+
+check('a record CAN be verified by a different party', () =>
+  assert.ok(
+    checkReview({
+      verificationState: 'verified',
+      attestation: { by: 'the Ireland research pass' },
+      review: { by: 'M. Pilley' },
+    }).ok
+  ));
+
+check('needs-review is unaffected by the rule', () =>
+  assert.ok(checkReview({ verificationState: 'needs-review' }).ok));
+
+check('"Read, 2026-09-23" and "Read from the source page, 2026-09-22" are one party', () =>
+  assert.ok(sameParty('Read, 2026-09-23.', 'Read from the source page, 2026-09-22.')));
+
+check('two named people are not the same party', () =>
+  assert.equal(sameParty('M. Pilley', 'A. Reviewer'), false));
+
+check('a named person is not the same party as a research pass', () =>
+  assert.equal(sameParty('the Ireland research pass', 'M. Pilley'), false));
+
+/* --- and the live data obeys it ------------------------------------------- */
+
+{
+  const dir = path.resolve(import.meta.dirname, '..', 'data', 'evidence');
+  const records = [];
+  for (const f of (await fs.readdir(dir)).filter((x) => x.endsWith('.json'))) {
+    const doc = JSON.parse(await fs.readFile(path.join(dir, f), 'utf8'));
+    for (const r of doc.records || doc) records.push({ file: f, ...r });
+  }
+
+  check('no published record claims verified without an independent review', () => {
+    const bad = records.map((r) => ({ r, v: checkReview(r) })).filter((x) => !x.v.ok);
+    assert.deepEqual(bad.map((x) => `${x.r.file}: ${x.r.id} — ${x.v.reason}`), []);
+  });
+
+  check('every attestation names a party rather than describing the act', () => {
+    const vague = records
+      .filter((r) => r.attestation?.by)
+      .filter((r) => /^(read|manual|automated|checked)\b/i.test(r.attestation.by.trim()))
+      .map((r) => `${r.file}: ${r.id} — attestation.by is ${JSON.stringify(r.attestation.by)}`);
+    assert.deepEqual(vague, []);
+  });
+
+  const s = summarise(records);
+  console.log(
+    `\n  evidence: ${s.total} records — ${s.attested} attested, ${s.reviewed} independently reviewed, ` +
+      `${s.sourceChecked} machine-checked, ${s.unread} neither`
+  );
+}
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll sourcing guards pass\n');
 process.exit(failures ? 1 : 0);

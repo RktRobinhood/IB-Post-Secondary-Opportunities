@@ -7,8 +7,7 @@
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read against the source page, 2026-09-22. The page states it covers the 2026 intake; 2027 dates are not yet published.",
+    "verificationState": "needs-review",
     "claim": "Applications open 1 February and close 15 April at 23:59, with documentation due the same day. Education finished during the spring may be uploaded until 1 July, which is also the last date to change the order of your choices.",
     "excerpt": "1. februar Opent for søking. […] 15. april Ordinær søknadsfrist — 15. april kl. 23.59 er siste frist for å søkje eller legge til fleire studieønske i søknaden din. […] Viss du har søknadsfrist 15. april kl. 23.59, må du laste opp avslutta utdanning og annan dokumentasjon seinast same dato. Utdanning og praksis som du fullfører i vår kan du laste opp fram til 1. juli. […] 1. juli Omprioriteringsfrist. […] Når du får tilbod i hovudopptaket, fell lågare prioriterte studieønske bort.",
     "interpretation": "The 1 July date is the problem and it is worth stating exactly. It is the last day to upload documentation for education finished during the spring — and the IB publishes results on 6 July. An IB candidate finishing in May 2027 therefore cannot document their Diploma within the window as published. How Samordna opptak handles that is NOT established here and must not be guessed at: it is the single question to settle before relying on a Norwegian application.",
@@ -21,6 +20,66 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source",
+      "note": "Read against the source page, 2026-09-22. The page states it covers the 2026 intake; 2027 dates are not yet published."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "4 of 5 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…eller nytt vitnemål innan 1. juli, føreset at du hadde oppnådd generell studiekompetanse innan 1. mars 15. april Ordinær søknadsfrist 15. april kl. 23.59 er siste frist for å søkje eller legge til fleire studieønske i…",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "no-samordna-2027",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "4 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…eller nytt vitnemål innan 1. juli, føreset at du hadde oppnådd generell studiekompetanse innan 1. mars 15. april Ordinær søknadsfrist 15. april kl. 23.59 er siste frist for å søkje eller legge til fleire studieønske i…",
+          "details": [
+            {
+              "requirement": "Ordinary application deadline — 2027-04-15 23:59",
+              "role": "informational",
+              "found": true,
+              "matched": "15 April",
+              "weak": false
+            },
+            {
+              "requirement": "Documentation deadline for education finished this spring — 2027-07-01 23:59",
+              "role": "informational",
+              "found": true,
+              "matched": "1 July",
+              "weak": false
+            },
+            {
+              "requirement": "Last day to change the order of your choices — 2027-07-01 23:59",
+              "role": "informational",
+              "found": true,
+              "matched": "1 July",
+              "weak": false
+            },
+            {
+              "requirement": "Applications open — 2027-02-01",
+              "role": "informational",
+              "found": true,
+              "matched": "1 February",
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   }
 ]

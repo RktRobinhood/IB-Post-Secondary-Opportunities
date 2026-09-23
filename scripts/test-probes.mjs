@@ -66,6 +66,16 @@ check('a deadline matches "15 March, 12 noon (CET)"', () => {
   const g = milestoneProbes({ date: '2027-03-15', timeOfDay: '12:00' });
   assert.ok(runProbes(g, 'The application deadlines are 15 March, 12 noon (CET)').found);
 });
+check('a deadline matches an ordinal date, "1st February"', () => {
+  const g = milestoneProbes({ date: '2027-02-01', timeOfDay: '17:00' });
+  assert.ok(runProbes(g, '1st February (17:00) Normal closing date for applications.').found);
+});
+check('a deadline matches "22nd July" and "3rd March"', () => {
+  assert.ok(runProbes(milestoneProbes({ date: '2027-07-22' }), 'by 22nd July at the latest').found);
+  assert.ok(runProbes(milestoneProbes({ date: '2027-03-03' }), 'on 3rd March').found);
+});
+check('an ordinal does NOT make a neighbouring day match', () =>
+  assert.equal(runProbes(milestoneProbes({ date: '2027-02-01' }), '21st February').found, false));
 check('a deadline does NOT match a different day', () => {
   const g = milestoneProbes({ date: '2027-03-15', timeOfDay: '12:00' });
   assert.equal(runProbes(g, 'The deadline is 16 March').found, false);

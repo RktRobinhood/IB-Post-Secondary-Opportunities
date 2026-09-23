@@ -111,6 +111,58 @@ starts.
 For each: entry requirements with the official wording kept, the language of
 instruction, the campus, the intake, and the source page for each requirement.
 
+## You may not verify your own work
+
+This is the rule the brief was missing, and its absence produced 150 records
+claiming a confidence nobody had given them.
+
+When you open the official page, read it and write the record, you have
+**attested** it. Record that, in full:
+
+```json
+"verificationState": "needs-review",
+"attestation": {
+  "by": "the Ireland research pass",
+  "at": "2026-09-23",
+  "method": "read-source",
+  "note": "The page carries two conversion tables and they disagree; this is the second."
+},
+"excerpt": "the sentence that carries the claim, quoted"
+```
+
+- `by` names **who**, not what was done. "Read from the source page" describes
+  the act; 108 records described the act and none named a party, so nothing
+  could be checked against them.
+- `method` is one of `read-source`, `read-browser`, `read-pdf`,
+  `read-secondary`, `derived`. Use `read-browser` when a plain fetch returns
+  nothing — that is a finding, and it tells the automated checker why it will
+  never confirm this record.
+- `note` is for what the reading turned up that the excerpt cannot carry: two
+  tables that disagree, a page stamped with its own update date, a figure you
+  had to sum yourself.
+
+**Do not set `verificationState: "verified"`.** That state means a second
+party read your record back against its source and agreed, and it carries a
+`review` block naming them. `scripts/test-sourcing.mjs` fails a record that
+claims it without one, or that names the same party twice.
+
+`needs-review` with a full attestation is not a lesser outcome. It is the
+correct and expected state of good research, and the site reports attested and
+reviewed as two separate numbers so neither has to stand in for the other.
+
+### Record what could not be read, as a finding
+
+A page that 403s, times out, or renders its content in JavaScript is a fact
+worth keeping, not a gap to leave blank:
+
+- say so in `attestation.method` and `attestation.note`
+- if the host blocks automation generally, add it to
+  `scripts/lib/link-policy.json` with the reason
+- **do not** set `verificationState: "unavailable"`. That means the page is
+  *gone* — a 404 or 410. A host that refuses robots is still serving a page a
+  counsellor can open, and marking those unavailable blocked the release gate
+  over a dozen live pages.
+
 ## Use the real vocabulary
 
 Many fields are controlled vocabularies, and guessing at them is the single most
@@ -258,6 +310,7 @@ row, not a sentence.
 
 - Stages 1–3 answered, or the destination explicitly parked with the reason.
 - Every consequential claim carries an authoritative source.
+- Every record you wrote carries an `attestation` naming you, and none claims `verified`.
 - `sectorLandscape` names every route, including the ones we cannot yet advise on.
 - `npm run validate` and `npm test` pass with no hand-editing of generated output.
 - `npm run verify` reports the new evidence as supported, or the exceptions are

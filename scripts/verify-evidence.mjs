@@ -191,10 +191,27 @@ const worseOf = (a, b) => (WORST[b] > WORST[a] ? b : a);
 async function checkRecord(record, entities) {
   const res = await fetchCached(record.sourceUrl, { maxAgeHours: OPTS.maxAgeHours });
   if (!res.ok || !res.body) {
+    /* "We could not fetch it" and "it is not there" are different facts, and
+     * conflating them was costing real pages.
+     *
+     * A 404 or 410 means the page is gone, and a claim whose source is gone
+     * must not be published as current — that is what `unavailable` is for.
+     *
+     * A 403, 405, 429 or a timeout means the HOST REFUSES AUTOMATION. The page
+     * is very often fine, and a counsellor clicking the link sees it. Marking
+     * those `unavailable` blocked the release gate over a dozen perfectly good
+     * pages, which is both wrong and the kind of wrong that gets a gate
+     * switched off. It is recorded, and it does not gate.
+     */
+    const status = res.status;
+    const gone = status === 404 || status === 410;
     return {
       outcome: 'unsupported',
-      reason: `source unreachable (${res.error || 'no body'})`,
+      reason: gone
+        ? `source is gone (HTTP ${status})`
+        : `source refuses automated fetching (${res.error || 'no body'}) — open it by hand before believing this`,
       reachable: false,
+      gone,
       details: [],
     };
   }
@@ -276,7 +293,22 @@ async function checkRecord(record, entities) {
       const branches = details.filter((d) => d.role === 'one-of');
       const needOk = need.length > 0 && need.every((d) => d.found);
       const branchesOk = branches.length === 0 || branches.some((d) => d.found);
-      const outcome = needOk && branchesOk ? 'supported' : met > 0 ? 'partial' : 'unsupported';
+
+      // A record whose only claims are informational — provisional dates the
+      // site already labels unconfirmed — has nothing to decide on. Reporting
+      // it as "unsupported" said the opposite of what was true: not "we checked
+      // and found nothing behind this", but "there was never anything here to
+      // check". Several destinations whose entire calendar is provisional read
+      // as unsourced for that reason alone.
+      const decisive = need.length + branches.length;
+      const outcome =
+        decisive === 0
+          ? 'partial'
+          : needOk && branchesOk
+            ? 'supported'
+            : met > 0
+              ? 'partial'
+              : 'unsupported';
       claims.push({
         field: target.field,
         entity: target.entity,
@@ -401,9 +433,10 @@ async function main() {
           ...(result.excerpt ? { excerpt: result.excerpt } : {}),
           ...(result.claims?.length ? { claims: result.claims } : {}),
         };
-        // An unreachable source is a fact about the source, not a judgement
-        // about the claim, and it IS something the engine must gate on.
-        if (!result.reachable) record.verificationState = 'unavailable';
+        // Only a source that is GONE gates the engine. A source that merely
+        // refuses robots is recorded in the sourceCheck and left alone — see
+        // the note where `gone` is set.
+        if (result.gone) record.verificationState = 'unavailable';
         changed = true;
       }
 

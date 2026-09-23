@@ -8,16 +8,36 @@
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the PDF, \"MOE Tuition Grant Freshmen Briefing Q&As\", published by the Ministry of Education on the Singapore government file service, 2026-09-23. The MOE website itself is behind a bot-detection service and would not serve its pages; this document is the ministry's own text and is the source relied on.",
+    "verificationState": "needs-review",
     "claim": "Breaking a Tuition Grant bond makes the student and both sureties liable for liquidated damages on the outstanding bond period; withdrawing from the course makes them liable for the grant received plus 10% compounded interest a year. Only full-time employment after graduation counts towards the bond, deferment for postgraduate study must be approved at least eight weeks in advance, and obtaining Singapore citizenship releases the student from the three-year obligation.",
     "excerpt": "B2. […] If I have […] decided to break the bond […] You will be required to pay liquidated damages for your outstanding bond period. […] B5. What happens if I am not able to find employment after graduation? A job seeker typically takes about 6 months to find a job in Singapore. […] B6. Can I fulfil my bond before I graduate (i.e. internships or working part-time during my studies)? Please note that only full-time employment after graduation will be considered towards serving your Tuition Grant bond obligation. […] B9. […] You must apply for bond deferment to pursue further studies. Please note that approval must be obtained at least 8 weeks before the start of the post-graduate studies. […] C2. […] If you have obtained Singapore Citizenship, you will be released from the 3-year bond obligation. […] D6. What happens if I withdraw from my course midway during my studies? You and your sureties will be liable to pay liquidated damages (LD) for the Tuition Grant received, computed based on the amount of grant you received, plus 10% compounded interest per annum. Late payment interest charged will apply.",
     "interpretation": "Three things here are not in any summary of the Tuition Grant and all three change the decision. First, the exposure is not limited to breaking the bond after graduating: withdrawing from the course part-way — illness, homesickness, a change of mind in second year — triggers liquidated damages on everything received, with 10% compounded interest. Second, the liability is joint, and it falls on two named sureties who are usually the student's parents, so this is a commitment the family signs, not just the student. Third, MOE's own answer to what happens if you cannot find work is that a job search typically takes about six months — which means the three years does not begin on graduation day and the clock a student is planning against is longer than three years. Nothing here says the grant is a bad deal; it says it is a contract, and it should be read as one.",
     "supports": [
-      { "entity": "sg", "field": "watchOuts" },
-      { "entity": "sg-autonomous-2027", "field": "submissionItems" }
+      {
+        "entity": "sg",
+        "field": "watchOuts"
+      },
+      {
+        "entity": "sg-autonomous-2027",
+        "field": "submissionItems"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "Read from the PDF, \"MOE Tuition Grant Freshmen Briefing Q&As\", published by the Ministry of Education on the Singapore government file service, 2026-09-23. The MOE website itself is behind a bot-detection service and would not serve its pages; this document is the ministry's own text and is the source relied on."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-sg-moe-tg-sureties",
@@ -28,15 +48,32 @@
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the PDF published by the Ministry of Education on the Singapore government file service, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "A Tuition Grant Agreement requires two sureties of any nationality, aged over 21 and under 65, who are not undischarged bankrupts, are not themselves Tuition Grant or Service Obligation applicants or recipients with an outstanding obligation, and are not surety to another recipient who failed to fulfil theirs.",
     "excerpt": "Criteria for sureties: Must be above 21 and below 65 years of age · Must not be an undischarged bankrupt · Can be of any nationality · Must not be a TG/ SO applicant or recipient with outstanding obligation · Must not be a surety of another TG/ SO recipient who failed to fulfil their obligation. You are encouraged to get your immediate family members to be your sureties.",
     "interpretation": "The sureties requirement is the part of the Tuition Grant that most often surprises a European family, and it is what makes the bond a household decision rather than a student one. MOE's freshmen briefing puts it plainly elsewhere: the surety must have the financial ability to assume the liability if the student fails to fulfil the bond. Two points of practical relief: sureties may be of any nationality and need not be physically in Singapore, because the agreement is signed digitally. One point of exposure: a parent under 65 today may be over 65 by the time a younger sibling applies.",
     "supports": [
-      { "entity": "sg", "field": "watchOuts" }
+      {
+        "entity": "sg",
+        "field": "watchOuts"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "Read from the PDF published by the Ministry of Education on the Singapore government file service, 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-sg-ntu-tuition-grant",
@@ -46,17 +83,126 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "International students obtain the MOE Tuition Grant by electing it on the online admission application form, then decide whether to accept their place with or without it, then register and sign the Tuition Grant Agreement with two sureties after term has started — and by signing are contractually obliged to work in a Singapore entity for three years upon graduation. The grant covers only the normal duration of the programme.",
     "excerpt": "SPR and International students who are interested in obtaining the MOE Tuition Grant […] are required to indicate that they are opting for TG in their online admission application form. If they are offered a Tuition Grant together with their university place, they will need to indicate their decision if they are accepting the offer with or without Tuition Grant by 17 July 2026. […] For all non-Singaporean students (including Singapore Permanent Residents), in exchange for the grant received under the Tuition Grant Scheme, they are required to sign the Tuition Grant Agreement in which they will be contractually obliged to work in a Singapore entity for three (3) years upon graduation. […] TWO sureties of any nationality are required. […] Online Signing on TG&S Portal 19 September 2026 - 18 October 2026 […] For students who do not apply for a Tuition Grant or do not complete the registration and signing process, they will be required to pay the non-subsidised fees. […] eligible for Tuition Grant and GST subsidy from MOE up to the normal duration taken to complete a degree programme.",
     "interpretation": "The sequence is what matters and it is easy to miss: the commitment is chosen on the application form, months before anyone explains it, confirmed at offer stage in mid-July, and only signed in September or October once the student is already in Singapore with a Student's Pass and a Singpass. By the time the contract is in front of them they have flown, paid a deposit and moved in. A Danish family should treat the tick-box on the application form as the decision point, not the signature. Note also the ceiling: the grant runs for the normal duration only, so a repeated year or a change of course is paid for at the unsubsidised rate.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" },
-      { "entity": "sg", "field": "watchOuts" },
-      { "entity": "sg-autonomous-2027", "field": "milestones" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "sg",
+        "field": "watchOuts"
+      },
+      {
+        "entity": "sg-autonomous-2027",
+        "field": "milestones"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "3 claims checked; weakest: milestones — 0 of 8 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…GCE A-Level Diploma awarded by a Polytechnic or equivalent institution in Singapore International Baccalaureate Diploma NUS High School Diploma International Qualifications Part Time…",
+      "claims": [
+        {
+          "field": "deadlines",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…GCE A-Level Diploma awarded by a Polytechnic or equivalent institution in Singapore International Baccalaureate Diploma NUS High School Diploma International Qualifications Part Time…",
+          "details": []
+        },
+        {
+          "field": "watchOuts",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "Tuition Grants | NTU Singapore Toggle notification Toggle search Toggle menu About Us…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "sg-autonomous-2027",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 8 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "NUS IB Diploma applications close — 2026-12-16",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU applications close — 2027-03-19",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU supporting documents due — 2027-03-22",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Grant NTU direct access to your IBO transcript — 2027-06-30",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU actual IB results due — 2027-07-09",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU applications open — 2026-10-15",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NUS outcome for May 2027 IB candidates — 2027-07-21",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "ev-sg-ntu-fees",
@@ -66,15 +212,43 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source fee table, 2026-09-22.",
+    "verificationState": "needs-review",
     "claim": "At NTU, an international student accepted in 2026 pays roughly SGD 21,400–21,800 a year with the MOE Tuition Grant and SGD 36,350 (non-laboratory) to SGD 40,600 (laboratory-based) without it, inclusive of 9% GST, with the rate fixed at the year-of-entry level for the whole degree.",
     "excerpt": "International Student with MOE Tuition Grant: approximately S$21,400–21,800 per year. International Student without MOE Tuition Grant: S$36,350 (non-lab) to S$40,600 (lab-based) per year, inclusive of 9% GST. Medicine, non-subsidised only, S$91,250 per year for non-ASEAN international students. Renaissance Engineering, non-subsidised only, S$32,000.",
     "interpretation": "This is the number the three-year bond is priced against, and it is the only figure in this Destination we could read directly from a fee table. The gap between the two columns is roughly SGD 15,000 to 19,000 a year, or SGD 60,000 to 75,000 across a four-year degree. That is what a student is being paid to stay for three years, which works out at something like SGD 20,000 to 25,000 a year of commitment — against Singapore graduate salaries, not an unreasonable trade, and not one to make by accident. NUS, SMU and SUTD fee tables could not be read and none of these figures may be carried to them.",
     "supports": [
-      { "entity": "sg", "field": "feeContext" }
+      {
+        "entity": "sg",
+        "field": "feeContext"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Accepted Programme Offer in 2026 | NTU Singapore Toggle notification Toggle search Toggle menu About Us Back…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "Accepted Programme Offer in 2026 | NTU Singapore Toggle notification Toggle search Toggle menu About Us Back…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-sg-ntu-ib-dates",
@@ -84,16 +258,114 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page's admissions stages table, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "For IB Diploma holders entering in AY2027-28, NTU's online application runs 15 October 2026 to 19 March 2027, supporting documents are due 22 March 2027, offers are released between March and May 2027, and a student sitting the May 2027 session must submit actual IB results within three days of their release in July 2027 — but may not apply at all to Medicine, Renaissance Engineering, or Arts and Science (Academic Discipline & Education).",
     "excerpt": "Students taking the May 2027 IB examinations may submit their applications during the application period for all programmes, except for Medicine, Renaissance Engineering, Arts (Academic Discipline & Education), and Science (Academic Discipline & Education). Actual IB results must be submitted within three days of the results release in July 2027. […] Note that it is MANDATORY to grant NTU direct access to your official transcripts via International Baccalaureate Organization (IBO) before July 2027. […] Online application 15 October 2026 - 19 March 2027 · Change of programme choices by 19 March 2027 · Payment of application fee by 19 March 2027 · Submission of supporting documents by 22 March 2027 · Submission of Art, Design & Media (ADM) additional materials by 19 March 2027 · Offer/Release of application outcome Between March to May 2027 […] Incomplete application after deadline will not be considered",
     "interpretation": "This is the clearest answer to the July problem anywhere in this repository, and it contains a restriction that is easy to read past. A student sitting the May 2027 session — which is the Danish IB timetable — is excluded from four NTU programmes outright, including Medicine and the Renaissance Engineering Programme, because those decide before results exist. For everything else NTU takes predicted grades and then wants the real thing within three days of release. Three days, in the first week of July, is a genuine trap for a family on holiday, and the IBO transcript access has to be granted months earlier for the result to reach NTU at all.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" },
-      { "entity": "sg-autonomous-2027", "field": "milestones" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "sg-autonomous-2027",
+        "field": "milestones"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the source page's admissions stages table, 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: milestones — 3 of 8 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "International Baccalaureate Diploma | NTU Singapore Toggle notification Toggle search Toggle menu About Us…",
+      "claims": [
+        {
+          "field": "deadlines",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "International Baccalaureate Diploma | NTU Singapore Toggle notification Toggle search Toggle menu About Us…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "sg-autonomous-2027",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "3 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…Design and Media (ADM) applicants only: ADM applicants must submit additional materials for assessment by 19 March 2027. Follow strictly the ADM submission requirements . For applicants sitting for the May 2027 IB…",
+          "details": [
+            {
+              "requirement": "NUS IB Diploma applications close — 2026-12-16",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU applications close — 2027-03-19",
+              "role": "required",
+              "found": true,
+              "matched": "19 March",
+              "weak": false
+            },
+            {
+              "requirement": "NTU supporting documents due — 2027-03-22",
+              "role": "required",
+              "found": true,
+              "matched": "22 March",
+              "weak": false
+            },
+            {
+              "requirement": "Grant NTU direct access to your IBO transcript — 2027-06-30",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU actual IB results due — 2027-07-09",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NTU applications open — 2026-10-15",
+              "role": "informational",
+              "found": true,
+              "matched": "15 October",
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "NUS outcome for May 2027 IB candidates — 2027-07-21",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "ev-sg-nus-important-dates",
@@ -103,17 +375,40 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page in a browser, 2026-09-23. A plain fetch of nus.edu.sg is refused by an Imperva bot-detection service and returns a challenge page rather than the content.",
+    "verificationState": "needs-review",
     "claim": "For AY2027/2028 NUS runs the IB Diploma as its own applicant group with an application period of 16 December 2026 to 17 February 2027, the same window as for other international qualifications, and tells IB applicants sitting the May 2027 examination that they will hear by the third week of July 2027. Offers are accepted through a shared Joint Acceptance Portal whose windows are not yet confirmed.",
     "excerpt": "Academic Year 2027 / 2028 — IB Diploma: Application Period 16 December 2026 to 17 February 2027. Singapore-Cambridge GCE A-Level: 18 February 2027 (Late Afternoon) to 19 March 2027. […] International Qualifications (except IB Diploma): 16 December 2026 to 17 February 2027. […] Most applicants can expect to receive admission outcome online by the 3rd week of May. IB applicants who are taking the May 2027 examination will hear from the University by the 3rd week of July 2027. […] Accept the offer of admission through the Joint Acceptance Portal (JAP). […] Window 1: To be Confirmed. Window 2: To be Confirmed. […] Autonomous Universities (AUs) refer to NUS, NTU, SIT, SMU, SUSS, SUTD.",
     "interpretation": "Two structural facts, beyond the dates. NUS treats the IB Diploma as a separate applicant group from other international qualifications, which is why a student searching under \"international\" can miss their own window. And NUS names the six Autonomous Universities in its own words — NUS, NTU, SIT, SMU, SUSS, SUTD — which is the official definition of the group this Destination is organised around. NUS closes a month before NTU, so the two most obvious choices in Singapore do not share a deadline and never have.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" },
-      { "entity": "sg", "field": "institutionGrouping" },
-      { "entity": "sg-autonomous-2027", "field": "milestones" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "sg",
+        "field": "institutionGrouping"
+      },
+      {
+        "entity": "sg-autonomous-2027",
+        "field": "milestones"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "Read from the source page in a browser, 2026-09-23. A plain fetch of nus.edu.sg is refused by an Imperva bot-detection service and returns a challenge page rather than the content."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "page has almost no readable text (JavaScript-rendered?)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-sg-joint-acceptance",
@@ -124,16 +419,36 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from both institutions' admissions pages in a browser, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Offers from Singapore's autonomous universities are accepted through a single shared Joint Acceptance Portal by a joint acceptance deadline, rather than to each university separately.",
     "excerpt": "NUS: \"Accept the offer of admission through the Joint Acceptance Portal (JAP). Acceptance indicated through the JAP will be reflected on Applicant Portal, three calendar days after the acceptance deadline.\" SIT: \"Successful applicants who are accepting our offer may do so via the Joint Acceptance Portal by the joint acceptance deadline.\"",
     "interpretation": "Singapore is often described as having no central admissions system, and for applying that is true — six universities, six forms, six fees, six deadlines. It is not true for accepting. Every offer a student holds across the autonomous universities lands in one portal and is settled in one exercise against one deadline, which is closer to the Danish or Dutch model than to the American one, and which means the choice between them is made once rather than offer by offer. Nobody tells international applicants this, and it changes how the spring is planned.",
     "supports": [
-      { "entity": "sg-joint-acceptance", "field": "replyModel" },
-      { "entity": "sg", "field": "applicationSystems" }
+      {
+        "entity": "sg-joint-acceptance",
+        "field": "replyModel"
+      },
+      {
+        "entity": "sg",
+        "field": "applicationSystems"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "Read from both institutions' admissions pages in a browser, 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "page has almost no readable text (JavaScript-rendered?)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-sg-sutd-window",
@@ -143,15 +458,43 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "SUTD publishes a 2026 admissions application window of 2 January to 2 March 2026 for all qualifications other than the Singapore-Cambridge GCE A-Level, which runs from the day of A-Level results release to 19 March 2026. No 2027 window is published. SUTD assesses holistically on academics, traits and portfolio, with an interview for selected candidates.",
     "excerpt": "2026 admissions application window — Singapore-Cambridge GCE A-Level qualification: from the day of release of A-Level results to 19 March 2026. All other qualifications: 2 January to 2 March 2026. […] SUTD's approach to Admissions is significantly different from most universities. […] Comprehensive application review: SUTD assesses students holistically – academic, qualities and traits, and portfolios (including but not limited to co-curricular activities). […] Interview: A conversation (for selected candidates) with our faculty/leader […]",
     "interpretation": "SUTD's international window is the shortest of the autonomous universities — two months against NTU's five — and it closes seventeen days before its own domestic one rather than after it, which is the opposite of what most systems do. The 2027 dates are not published, so the state recorded is not-yet-announced and the 2026 window is kept here as shape rather than substance. The admissions model is worth knowing before applying: SUTD asks for a portfolio and personal insight responses, so it needs months of preparation and not a week of form-filling.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (11/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Undergraduate admissions - Singapore University of Technology and Design (SUTD) Title Description Primary button Secondary button Title Description Primary button Secondary…",
+      "claims": [
+        {
+          "field": "deadlines",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Undergraduate admissions - Singapore University of Technology and Design (SUTD) Title Description Primary button Secondary button Title Description Primary button Secondary…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-sg-sit-cycle",
@@ -161,15 +504,32 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page in a browser, 2026-09-23. A plain fetch of singaporetech.edu.sg is refused by a bot-detection service.",
+    "verificationState": "needs-review",
     "claim": "SIT's 2026 cycle ran online applications from 8 January to 19 March 2026, with interviews from mid-February to mid-May, outcomes mid-April to mid-May, acceptance on 25 May 2026 through the Joint Acceptance Portal and an appeal window of 26 May to 2 June 2026. Every shortlisted applicant is interviewed. No 2027 dates are published.",
     "excerpt": "Online application period 8 January - 19 March 2026 […] All shortlisted applicants will be invited for an interview assessment, conducted in varying formats such as video interviews, face-to-face interviews, or written tests. Those who pass the required assessments will be made an offer. […] Offer/Release of application results Mid-April - Mid-May 2026. Acceptance of offer 25 May 2026. Appeal period 26 May - 2 June 2026. […] Successful applicants who are accepting our offer may do so via the Joint Acceptance Portal by the joint acceptance deadline.",
     "interpretation": "SIT's whole cycle finishes before IB results are released, which is the practical reason its intake is overwhelmingly domestic polytechnic graduates: its acceptance deadline in the 2026 cycle was 25 May, six weeks before the IB publishes. Nothing on the page says an IB student cannot apply, and SIT lists the International Baccalaureate among the qualifications it takes, but the calendar is built around a different applicant. The published appeal window is worth noting because few institutions in this repository have one at all.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "Read from the source page in a browser, 2026-09-23. A plain fetch of singaporetech.edu.sg is refused by a bot-detection service."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "page has almost no readable text (JavaScript-rendered?)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-sg-lasalle-window",
@@ -179,16 +539,92 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "For the August 2027 intake LASALLE opens applications on 1 October 2026 and asks applicants to apply by 1 November 2026, with outcomes by 23 December 2026; MA Art Therapy closes 31 January 2027 and both BA (Hons) Music and the Diploma in Music close 28 February 2027. Further windows may open if seats remain.",
     "excerpt": "Semester starts Aug 2027. APPLICATION WINDOW — Opens on 1 Oct 2026. Apply by 1 Nov 2026. Application outcomes will be announced by 23 Dec 2026. For MA Art Therapy Apply by 31 Jan 2027. Application outcomes will be announced by 19 Mar 2027. For BA (Hons) Music Apply by 28 Feb 2027. Application outcomes will be announced by 20 Apr 2027. For Diploma in Music Apply by 28 Feb 2027. Application outcomes will be announced by 2 Apr 2027. Please note that the timeline provided serves as a general guide. Actual outcome release dates may vary. Future application windows may open if programme seats remain available.",
     "interpretation": "This is why the arts institutions are recorded as their own Application Jurisdiction rather than folded into Singapore's universities. LASALLE's main deadline for an August 2027 start is 1 November 2026 — six weeks before NUS even opens, four and a half months before NTU closes, and eight months before IB results. A student who reads that Singapore applications run from December to March, which is true of the autonomous universities, will have missed LASALLE before they start looking. The escape hatch is real but soft: further windows may open if seats remain, which is not a promise of one.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" },
-      { "entity": "sg-arts-2027", "field": "milestones" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "sg-arts-2027",
+        "field": "milestones"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: milestones — 0 of 5 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and how to apply to our Diploma, BA (Hons) and MA programmes. Find out more Early Admissions Exercise for August 2027 intake The Early Admission Exercise (EAE) is an aptitude-based admissions exercise open to graduating…",
+      "claims": [
+        {
+          "field": "deadlines",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…and how to apply to our Diploma, BA (Hons) and MA programmes. Find out more Early Admissions Exercise for August 2027 intake The Early Admission Exercise (EAE) is an aptitude-based admissions exercise open to graduating…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "sg-arts-2027",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 5 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "LASALLE opens applications for August 2027 — 2026-10-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "LASALLE outcomes announced — 2026-12-23",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "LASALLE main application deadline — 2026-11-01",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "LASALLE — BA (Hons) Music and Diploma in Music deadline — 2027-02-28",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "ev-sg-uas-degrees",
@@ -198,16 +634,56 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the source page, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "The University of the Arts Singapore is an alliance of LASALLE and NAFA and now validates, confers and awards their degree programmes, with one intake each August. It states that Singapore Citizen and Permanent Resident students are eligible for the Tuition Grant for selected bachelor's programmes and does not say whether international students are.",
     "excerpt": "UAS is founded on an alliance of Singapore's leading arts institutions, LASALLE College of the Arts (LASALLE) and Nanyang Academy of Fine Arts (NAFA). […] UAS will validate, confer and award the degree programmes offered by LASALLE and NAFA. […] Singapore Citizen and Permanent Resident students will be eligible to take up the Tuition Grant for selected bachelor's programmes at UAS. […] Applications for the August 2026 intake are now open. Applications will close once all programme seats are filled. […] There is one intake commencing in August each year. […] Please visit NAFA or LASALLE to find out more information on your Tuition Grant eligibility.",
     "interpretation": "Two corrections and one gap. LASALLE's degrees were validated by Goldsmiths, University of London; they are now awarded by UAS, and a record still saying Goldsmiths is describing a qualification a 2027 entrant will not receive. The same applies to NAFA. The gap is more consequential: UAS names Singapore Citizens and Permanent Residents as eligible for the Tuition Grant and says nothing at all about international students, and directs the question back to LASALLE and NAFA. Whether a Danish student at LASALLE can obtain the grant — and whether they would therefore be bonded — is not established here, and must not be assumed either way from what the autonomous universities do.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" },
-      { "entity": "sg", "field": "sectorLandscape" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "sg",
+        "field": "sectorLandscape"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: deadlines — page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…KEITH Group Foundation The Stage Emma Yong Left Behind Inspiring Future Generations through Arts Education Admissions International students Scholarships and…",
+      "claims": [
+        {
+          "field": "deadlines",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…KEITH Group Foundation The Stage Emma Yong Left Behind Inspiring Future Generations through Arts Education Admissions International students Scholarships and…",
+          "details": []
+        },
+        {
+          "field": "sectorLandscape",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…term lease University of the Arts Singapore (UAS) Admissions FAQ Frequently asked…",
+          "details": []
+        }
+      ]
+    }
   },
   {
     "id": "ev-sg-smu-unreadable",
@@ -223,9 +699,21 @@
     "excerpt": "admissions.smu.edu.sg - Additional security check is required. The website you are visiting is protected and accelerated by Imperva. Your computer may have been infected by malware and therefore flagged by the Imperva network. Imperva displays this page for you to verify that an actual human is the source of the traffic to this site, and not malicious software.",
     "interpretation": "Recorded deliberately as a research gap rather than left as an absence, because the two look identical on a page and mean opposite things. Several Singapore institutions — SMU, SUSS, James Cook University Singapore, and the Ministry of Education's own website — sit behind bot-detection services that refuse automated retrieval, and one of them asks for a CAPTCHA, which is not something this project will complete. Where an official PDF existed we used it, which is how the Tuition Grant terms were established despite the MOE site being closed to us. Where it did not, the deadline is recorded as not established and the reason is here. A human opening these pages in an ordinary browser will get straight in. The state is needs-review rather than unavailable on purpose: unavailable means a citation has gone dead and the publication floor rightly refuses it, and this source is not dead — it is live, current, and refusing us specifically.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "page has almost no readable text (JavaScript-rendered?)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
+    }
   },
   {
     "id": "ev-sg-private-pei",
@@ -241,9 +729,45 @@
     "excerpt": "CRICOS Provider Code: 00301J. Curtin Education Centre PEI registration number: 200804822R. Period of registration: 20 May 2026 to 19 May 2032. Curtin Singapore is a trademark of Curtin University",
     "interpretation": "The registration number is the thing to look at, and it is on every one of these institutions' pages including LASALLE's and NAFA's. Singapore regulates private education institutions separately from its autonomous universities, with a time-limited registration rather than a standing charter, and the expiry date is public. For a student that is a genuine due-diligence check: a registration expiring inside the length of your degree is a question to ask before you enrol. What it does not tell you is when to apply — none of the private institutions or foreign branch campuses in this record publishes an undergraduate deadline for 2027.",
     "supports": [
-      { "entity": "sg", "field": "deadlines" },
-      { "entity": "sg", "field": "sectorLandscape" }
+      {
+        "entity": "sg",
+        "field": "deadlines"
+      },
+      {
+        "entity": "sg",
+        "field": "sectorLandscape"
+      }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: sectorLandscape — page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "RSS Comments Feed\" href=\"\"/> Admission criteria - Curtin Singapore Skip to the content Skip to main navigation Skip to search Skip to secondary navigation Current…",
+      "claims": [
+        {
+          "field": "deadlines",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "RSS Comments Feed\" href=\"\"/> Admission criteria - Curtin Singapore Skip to the content Skip to main navigation Skip to search Skip to secondary navigation Current…",
+          "details": []
+        },
+        {
+          "field": "sectorLandscape",
+          "entity": "sg",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "RSS Comments Feed\" href=\"\"/> Admission criteria - Curtin Singapore Skip to the content Skip to main navigation Skip to search Skip to secondary navigation Current…",
+          "details": []
+        }
+      ]
+    }
   }
 ]

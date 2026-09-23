@@ -62,6 +62,28 @@ async function j(url, tries = 5) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/**
+ * Readings of a recorded "city", simplest last, deduplicated.
+ *
+ *   "Abu Dhabi (Al Reem Island)"        -> Abu Dhabi (Al Reem Island), Abu Dhabi
+ *   "Mechelen, Antwerp, Turnhout, Geel" -> the whole string, then Mechelen
+ *   "Hasselt and Diepenbeek"            -> the whole string, then Hasselt
+ *   "Linz"                              -> Linz
+ *
+ * The full string is tried first because it is occasionally a real place name
+ * with a comma in it, and only then narrowed.
+ */
+function cityCandidates(city) {
+  const raw = String(city || "").trim();
+  if (!raw) return [];
+  const out = [raw];
+  const noParen = raw.replace(/\s*\([^)]*\)/g, '').trim();
+  if (noParen) out.push(noParen);
+  const first = noParen.split(/\s*(?:,| and | & )\s*/i)[0].trim();
+  if (first) out.push(first);
+  return [...new Set(out)].filter(Boolean);
+}
+
 /* --- Wikidata --------------------------------------------------------------- */
 
 async function qidFromWikipedia(wikipediaUrl) {
@@ -188,7 +210,22 @@ async function main() {
         if (cityCache.has(key)) {
           coords = cityCache.get(key);
         } else {
-          const cityQid = (qid ? await adminParent(qid) : null) || (await qidFromSearch(`${inst.city} ${country.name}`));
+          /* A "city" in these records is often not one word. It carries the
+           * district — "Abu Dhabi (Al Reem Island)" — or lists every campus —
+           * "Mechelen, Antwerp, Turnhout, Geel", "Hasselt and Diepenbeek".
+           * Searching Wikidata for the whole string matches nothing, so 46 of
+           * the 48 unplaced institutions had a perfectly good city recorded and
+           * no coordinate.
+           *
+           * So: try what the record says, then progressively simpler readings
+           * of it. The first campus listed is the one the pin lands on, at city
+           * precision, which the map already draws as a hollow marker meaning
+           * "the city, not the campus". */
+          let cityQid = qid ? await adminParent(qid) : null;
+          for (const candidate of cityCandidates(inst.city)) {
+            if (cityQid) break;
+            cityQid = await qidFromSearch(`${candidate} ${country.name}`);
+          }
           coords = await entityPlace(cityQid);
           cityCache.set(key, coords);
         }

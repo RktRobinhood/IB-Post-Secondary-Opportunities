@@ -64,7 +64,34 @@
       }
     },
     "verificationState": { "$ref": "common.schema.json#/$defs/verificationState" },
-    "verifiedBy": { "type": "string", "description": "Who confirmed it. 'automated' is allowed, but not for a consequential rule." },
+    "verifiedBy": { "type": "string", "description": "DEPRECATED. Replaced by attestation and review, because one free-text field could not tell 'I read the page' apart from 'someone else checked me', and in practice recorded the first while implying the second. Kept so older records still validate." },
+    "attestation": {
+      "type": "object",
+      "description": "Whoever wrote this record opened the source and read it. First-hand, single-pass and self-reported — worth a great deal, and not the same as having been checked. A record may carry an attestation and still sit at needs-review; that is the normal state of freshly researched work and it is honest. See src/lib/attestation.mjs.",
+      "required": ["by", "at", "method"],
+      "properties": {
+        "by": { "type": "string", "minLength": 2, "description": "WHO read it, named so a later reviewer can be checked against it — 'the Ireland research pass', 'M. Pilley'. Not 'Read': that describes the act, not the party, and 108 records described the act." },
+        "at": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "method": {
+          "enum": ["read-source", "read-browser", "read-pdf", "read-secondary", "derived"],
+          "description": "How it was read. 'read-browser' records that the page does not serve its content to a plain fetch, which is a finding in itself and explains why the automated checker cannot confirm it."
+        },
+        "note": { "type": "string", "maxLength": 800, "description": "What the reading turned up that the excerpt does not carry: two tables that disagree, a page stamped with its own update date, a figure that had to be summed." }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "description": "A SECOND party read the record back against its source and agreed. This is the only thing that earns verificationState 'verified'; scripts/test-sourcing.mjs fails a record that claims it without one, or that names the same party that attested it.",
+      "required": ["by", "at"],
+      "properties": {
+        "by": { "type": "string", "minLength": 2, "description": "Who checked it. Must not be the party named in attestation.by." },
+        "at": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "agreed": { "type": "boolean", "description": "False is a legitimate outcome and should be recorded rather than quietly corrected: it says the record was checked and found wrong, which is exactly what a reader needs to know happened." },
+        "note": { "type": "string", "maxLength": 800 }
+      },
+      "additionalProperties": false
+    },
     "role": {
       "enum": ["claim", "reference"],
       "description": "'claim' (the default) backs a specific published statement. 'reference' is a page consulted while building a record — an admissions hub, a key-figures report — which has no single sentence to match. A reference is still checked: it must stay live and stay about the same institution. The distinction exists so that citing background reading does not require inventing a claim to justify it."

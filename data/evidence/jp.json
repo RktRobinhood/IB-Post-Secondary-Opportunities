@@ -6,17 +6,43 @@
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the notice on the PEAK home page, dated 2025-12-10, retrieved 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "PEAK has stopped recruiting permanently. September 2026 was its final intake and no further applications will be accepted.",
     "excerpt": "The applications for September 2026 enrollment are now closed. As announced before, this was the final student recruitment for PEAK, and no further applications will be accepted.",
     "interpretation": "Confirmed rather than assumed, because a closure is the one fact a student must never act on second-hand. The wording is unambiguous and the notice has been standing since December 2025. What follows from it is not that the University of Tokyo has closed to English-speaking school-leavers, which is what this repository previously recorded — see the College of Design record beside this one.",
     "supports": [
-      { "entity": "jp", "field": "watchOuts" }
+      {
+        "entity": "jp",
+        "field": "watchOuts"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the notice on the PEAK home page, dated 2025-12-10, retrieved 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "The University of Tokyo, PEAK - Programs in English at Komaba | HOME Why PEAK Message from the Dean PEAK VIDEO ADMISSION…",
+      "claims": [
+        {
+          "field": "watchOuts",
+          "entity": "jp",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "The University of Tokyo, PEAK - Programs in English at Komaba | HOME Why PEAK Message from the Dean PEAK VIDEO ADMISSION…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -27,18 +53,78 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the College of Design's 2027 admission overview and 2027 application guidelines pages, retrieved 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "The University of Tokyo opens a new English-taught undergraduate faculty, the UTokyo College of Design, in September 2027. It takes 100 students on a five-year integrated bachelor's and master's programme through two routes, and Route B is for applicants using international qualifications, the International Baccalaureate Diploma named first among them. Applications run from 15 October 2026 at 09:00 to 5 November 2026 at 17:00 JST.",
     "excerpt": "100 Students (Route A: 50 students, Route B: 50 students) […] Route A is for people who wish to use the Japanese \"Common Test for University Admissions\" and Route B is for people who wish to use other standardized tests and qualifications designated by the University of Tokyo (e.g. International Baccalaureate, International A-Levels, or other tests that are standard in your country). There are no nationality restrictions for either route. […] International Baccalaureate Diploma (IB), Abitur, Baccalauréat, GCE A-level, International A-level, European Baccalaureate […] Application Period: October 15, 2026, 9:00 AM – November 5, 2026, 5:00 PM (JST) […] First screening results: December 22, 2026 (Route B) […] Final decisions: February 20, 2027 […] All courses are taught in English",
     "interpretation": "This is the far more useful half of the University of Tokyo story and it replaces the flat statement that Todai has closed. PEAK ended and a larger, differently shaped English-taught route opened in its place: a whole new faculty, the university's first in about seventy years, on a September intake deliberately chosen to match Europe and North America, with half its places reserved for the international route. For a Danish IB student the consequential detail is the date — applications close on 5 November 2026, six weeks after this was written, with the Route B result on 22 December 2026 and the final decision on 20 February 2027. It is the earliest deadline of any Japanese route recorded here, and it is decided entirely on predicted grades. Note also that this is a five-year integrated programme ending at master's level, not a three- or four-year bachelor's; a student comparing it with a Dutch bachelor is not comparing like with like.",
     "supports": [
-      { "entity": "jp-direct-2027", "field": "milestones" },
-      { "entity": "jp", "field": "watchOuts" }
+      {
+        "entity": "jp-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "jp",
+        "field": "watchOuts"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the College of Design's 2027 admission overview and 2027 application guidelines pages, retrieved 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: milestones — 2 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…The Admissions Office will notify applicants of the submission method. Video Assignment Submission: From November 13 at 12:00 PM to November 16 at 11:59 PM, 2026 (JST). Evaluation One evaluation must be submitted by a…",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "jp-direct-2027",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 3 recorded requirement(s) found on the page",
+          "excerpt": "…The Admissions Office will notify applicants of the submission method. Video Assignment Submission: From November 13 at 12:00 PM to November 16 at 11:59 PM, 2026 (JST). Evaluation One evaluation must be submitted by a…",
+          "details": [
+            {
+              "requirement": "UTokyo College of Design video assignment window — 2026-11-13",
+              "role": "required",
+              "found": true,
+              "matched": "13 November",
+              "weak": false
+            },
+            {
+              "requirement": "UTokyo College of Design first screening result, Route B — 2026-12-22",
+              "role": "informational",
+              "found": true,
+              "matched": "22 December",
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "watchOuts",
+          "entity": "jp",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…College of Design: either Route A or Route B. (Applicants are unable to apply through both routes in the same admission year.) Holistically reviewed admission process based on submitted documents, materials, and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -49,17 +135,64 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from Keio's PEARL admissions procedures page for September 2027 entry, retrieved 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Keio's PEARL economics degree admits about 100 students for entry on 22 September 2027 through three separate application periods, the last of which closes on 7 April 2027, and it accepts an IB Diploma or predicted IB grades.",
     "excerpt": "Period I: 10:00 a.m. on October 21, 2026 - 3:00 p.m. on December 2, 2026 (JST), results 10:00 a.m. on January 25, 2027 (JST). Period II: 10:00 a.m. on December 4, 2026 - 3:00 p.m. on January 27, 2027 (JST), results 10:00 a.m. on March 4, 2027 (JST). Period III: 10:00 a.m. on February 24, 2027 - 3:00 p.m. on April 7, 2027 (JST), results 10:00 a.m. on May 24, 2027 (JST). […] Entry: September 22, 2027 […] International Baccalaureate (IB) Diploma (or predicted grades) […] TOEFL iBT® scores […] IELTS Academic Module scores",
     "interpretation": "The friendliest Japanese calendar we found for an IB candidate, and the reason is Period III. It closes on 7 April 2027, by which point a May 2027 candidate's predicted grades are settled and their mock results exist, and it announces on 24 May — still before the diploma, but after the exams. Keio also says in as many words that predicted grades are acceptable, which most Japanese programmes leave to inference. The trade is that the three periods share one quota of about 100 places, so a later period is competing for what the earlier ones did not take. Applying in Period I is the stronger position; applying in Period III is the one that fits the Danish school year.",
     "supports": [
-      { "entity": "jp-direct-2027", "field": "milestones" }
+      {
+        "entity": "jp-direct-2027",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from Keio's PEARL admissions procedures page for September 2027 entry, retrieved 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "0 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "jp-direct-2027",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 3 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "UTokyo College of Design video assignment window — 2026-11-13",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "UTokyo College of Design first screening result, Route B — 2026-12-22",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -70,17 +203,64 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read from Waseda's English-based undergraduate programs page, retrieved 2026-09-23. The only application period on the page is labelled for 2026 September entry.",
+    "verificationState": "needs-review",
     "claim": "Waseda offers English-based undergraduate degrees at six schools, four of them September-entry only and two taking April entrants as well. As of 23 September 2026 the only application period published is the one for September 2026 entry, 8 January to 10 February 2026; no dates for September 2027 entry had been posted.",
     "excerpt": "School of Political Science and Economics – September; School of Social Sciences – September; School of International Liberal Studies (SILS) – September/April; School of Culture, Media and Society – September/April; School of Fundamental Science and Engineering – September; School of Creative Science and Engineering – September. […] Application Period for 2026 September Entry: 10:00 AM, Jan 8, 2026 ～ 5:00 PM, Feb 10, 2026 (JST). As the online application system will close at 5:00 PM on Feb. 10, 2026 automatically, please be sure to complete the application process by closing time. We cannot accept any application after the deadline with any reason.",
     "interpretation": "Recorded as an absence, deliberately. This repository previously carried 8 January to 10 February 2027 for Waseda, marked provisional and built by advancing last year's dates by a year. The page does not say that. It says January and February 2026, for September 2026 entry, and it has not yet published anything for 2027 — so the honest state is not-yet-announced rather than a provisional date, because a provisional date is something a student will put in a calendar. The shape is still worth knowing: one window covering all six schools, opening in the new year and closing in February, which is late enough to use settled predicted grades and is unusually friendly by Japanese standards.",
     "supports": [
-      { "entity": "jp-direct-2027", "field": "milestones" }
+      {
+        "entity": "jp-direct-2027",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from Waseda's English-based undergraduate programs page, retrieved 2026-09-23. The only application period on the page is labelled for 2026 September entry."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "0 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "jp-direct-2027",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 3 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "UTokyo College of Design video assignment window — 2026-11-13",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "UTokyo College of Design first screening result, Route B — 2026-12-22",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -97,11 +277,32 @@
     "excerpt": "6-month preparatory course and 4-year undergraduate program […] Bachelor's degree awarded upon graduation […] No Japanese language proficiency required […] the program provides intensive Japanese language classes […] New Application Guidelines for October 2027 Enrollment Now Available (July 1, 2026) […] Admission/tuition fee waivers and monthly scholarships",
     "interpretation": "Two things make iUP unusual and both are visible from the home page. It enrols in October rather than April or September, which is a third calendar again, and it front-loads six months of Japanese rather than requiring any at entry. What is not on the home page is the deadline: the guidelines exist as a downloadable document and the closing date is inside it, so this record establishes the programme and the intake month and stops short of a date. That gap is the next piece of work on this institution.",
     "supports": [
-      { "entity": "jp", "field": "language" }
+      {
+        "entity": "jp",
+        "field": "language"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Available: Prof Shiomi and Prof Ohkitani News Posted: July 1, 2026 New Application Guidelines for October 2027 Enrollment Now Available Kyoto iUP_Kyoto University Kyoto iUP：Move Forward Together Kyoto iUP：Introduction…",
+      "claims": [
+        {
+          "field": "language",
+          "entity": "jp",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…Available: Prof Shiomi and Prof Ohkitani News Posted: July 1, 2026 New Application Guidelines for October 2027 Enrollment Now Available Kyoto iUP_Kyoto University Kyoto iUP：Move Forward Together Kyoto iUP：Introduction…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -113,18 +314,35 @@
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-spring",
-    "verificationState": "verified",
-    "verifiedBy": "Read from pages 1 to 6 of the 2027 MEXT undergraduate application guidelines (Embassy Recommendation), published April 2026, retrieved 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "The MEXT undergraduate scholarship on the Embassy Recommendation runs for five years from April 2027 to March 2032, beginning with one year of preparatory education in Japanese. It pays 117,000 yen a month, waives entrance examination, matriculation and tuition fees and provides an economy air ticket. Applicants must be born on or after 2 April 2002 and have completed twelve years of schooling by March 2027, and in principle must arrive in Japan between 1 and 7 April 2027.",
     "excerpt": "Age: Applicants, in principle, must have been born on or after April 2, 2002. […] Academic Background: ① Applicants who have completed 12 years of schooling in countries other than Japan. (Applicants who will meet the above condition by March 2027 are eligible. However, applicants wishing to enroll from the autumn term through direct placement must be expected to complete 12 years of schooling by August 2027.) […] Arrival in Japan: In principle, applicants must be able to arrive in Japan between April 1, 2027, and April 7, 2027. […] The scholarship period will last for five years from April 2027 to March 2032, including one-year preparatory education in the Japanese language and other subjects […] Allowance: 117,000 yen per month […] Education Fees: Fees for the entrance examination, matriculation, and tuition at universities will be waived. […] All classes will be given in the Japanese language (except where a grantee is directly placed at a university which requires no Japanese language ability).",
     "interpretation": "The correction this makes is about what MEXT actually is. The old record described it as a route into Japan's English-taught degrees; the guidelines say the opposite — a preparatory year in Japanese, then a university course taught in Japanese, with English-medium study available only through 'direct placement', which MEXT decides and which is the exception rather than the norm. The second correction is the date. This is the 2027 round, applied for through the embassy in the spring of 2026, arriving April 2027, and it is closed. A candidate finishing the IB in May 2027 would meet neither the March 2027 completion condition nor the 1–7 April 2027 arrival window, so their round is 2028 — applied for in the spring of 2027, arriving April 2028. Note the exception in condition ①, which is the one an autumn-term applicant needs: completion by August rather than March, but only for direct placement.",
     "supports": [
-      { "entity": "jp-mext-embassy-2028", "field": "milestones" },
-      { "entity": "jp", "field": "livingContext" }
+      {
+        "entity": "jp-mext-embassy-2028",
+        "field": "milestones"
+      },
+      {
+        "entity": "jp",
+        "field": "livingContext"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from pages 1 to 6 of the 2027 MEXT undergraduate application guidelines (Embassy Recommendation), published April 2026, retrieved 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -134,17 +352,57 @@
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read from MEXT's undergraduate embassy-recommendation page on the Study in Japan site, retrieved 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "MEXT recruits embassy-recommended undergraduate scholars between April and May of the year before arrival, with first screening by the embassy or consulate between May and August; each country's exact schedule is set by its Japanese diplomatic mission.",
     "excerpt": "Recruitment for those arriving in Japan next April is made between April and May of the previous year. First screening is conducted between May and August by the Japanese Embassies or Consulates General. […] As the application process and specific schedule differ according to the country of your nationality, please inquire the Japanese Embassy or Consulate General in your country for details.",
     "interpretation": "This is the sentence that fixes a dating error this repository was carrying: a record written in September 2026 told students to contact the Embassy of Japan in Denmark 'in early 2026', which was already in the past when it was written. The rule is relative, not absolute — April and May of the year before arrival — so for an April 2028 arrival the window is April and May 2027, which is exactly when a Danish IB candidate is sitting their examinations. That collision is worth saying out loud: the MEXT application and the IB exam session fall in the same eight weeks, and the paperwork includes a health certificate and a recommendation letter that cannot be produced in a hurry. MEXT also says plainly that the exact dates are the embassy's to set, so the national page can never be the last word.",
     "supports": [
-      { "entity": "jp-mext-embassy-2028", "field": "milestones" }
+      {
+        "entity": "jp-mext-embassy-2028",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from MEXT's undergraduate embassy-recommendation page on the Study in Japan site, retrieved 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "0 of 2 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "jp-mext-embassy-2028",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Ask the Embassy of Japan in Copenhagen for the Danish dates — 2027-02-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "The MEXT application and the IB examination session overlap — 2027-05-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -154,17 +412,43 @@
     "publisherType": "national-agency",
     "sourceClass": "promotion-agency",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read from the Study in Japan educational system page, retrieved 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Japan admits international students to five kinds of higher education institution — colleges of technology, specialized training colleges on post-secondary courses, junior colleges, universities and graduate schools. Most institutions run an academic year from April to March and admit in April, though some operate an autumn admission system.",
     "excerpt": "there are 5 types of higher education institutions that international students can be admitted to, which are 1) colleges of technology, 2) specialized training colleges(post-secondary courses), 3) junior colleges, 4) universities (undergraduate) and 5) graduate schools. […] Most higher educational institutions in Japan set their academic year from April to March of the following year. […] In Japan, most schools admit students in April, but some schools have an autumn admission system.",
     "interpretation": "Used for the shape of the sector and for the calendar, not for any deadline — this is a promotion agency and it may describe the system without being the final word on any rule inside it. Two things in it matter. The five-type list names the routes English-language guidance never mentions: the kōsen, which takes students at fifteen for a five-year technical programme, and the senmon gakkō, the professional training college, which is Japan's answer to the question this project asks of every country. And the calendar sentence is the one a European reader most needs: April is the default and autumn admission is the exception, which is why the small set of September-entry English-taught programmes exists at all.",
     "supports": [
-      { "entity": "jp", "field": "sectorLandscape" }
+      {
+        "entity": "jp",
+        "field": "sectorLandscape"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the Study in Japan educational system page, retrieved 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Japanese Educational System｜Study in Japan Official Website Government-approved information…",
+      "claims": [
+        {
+          "field": "sectorLandscape",
+          "entity": "jp",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "Japanese Educational System｜Study in Japan Official Website Government-approved information…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -180,11 +464,32 @@
     "excerpt": "Admission Fee: ¥282,000 [paid one time only at admission]. Tuition Fee: ¥642,960 [per year].",
     "interpretation": "Recorded with two warnings rather than as a clean figure. The admission fee of 282,000 yen is the national standard and has been for years; the tuition is not — the national standard is 535,800 yen and Todai has raised its own above it, which is precisely the reason not to quote a national figure for any particular Japanese university. The page carries no price year and says nothing about the new College of Design, whose five-year integrated programme may not be priced like an ordinary bachelor's. Japan charges the same to every nationality, so there is no EU/non-EU split to look for; the thing to budget separately for is the admission fee, which is charged once and is substantial.",
     "supports": [
-      { "entity": "jp", "field": "feeContext" }
+      {
+        "entity": "jp",
+        "field": "feeContext"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Our Campuses Learn Discover Our People In Depth Why Tokyo? Why Japan? Research UTokyo FOCUS Research from Graduate…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "jp",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…Our Campuses Learn Discover Our People In Depth Why Tokyo? Why Japan? Research UTokyo FOCUS Research from Graduate…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -201,11 +506,20 @@
     "excerpt": "Average academic fees for the first academic year — Unit: JPY and USD (calculated at the rate of US$1 = ¥114) […] University undergraduate programs — National: Admission fee 282,000, Tuition fees etc. 535,800 […] Student Guide to Japan 2019 - 2020",
     "interpretation": "Kept as a finding rather than as a price. This is the table an English-speaking applicant will land on first, it looks official because it is, and it is six or seven years old — the University of Tokyo's own page now shows 642,960 yen a year against this table's 535,800. Recording it as superseded rather than deleting it means the next person to find it can see that we have already looked. The structural information in it survives: a one-off admission fee plus annual tuition, private universities well above national ones, and science and engineering above the humanities.",
     "supports": [
-      { "entity": "jp", "field": "feeContext" }
+      {
+        "entity": "jp",
+        "field": "feeContext"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -222,7 +536,10 @@
     "excerpt": "Access Denied — You don't have permission to access \"http://www.dk.emb-japan.go.jp/itpr_en/studyresearch.html\" on this server.",
     "interpretation": "Recorded because the gap is consequential and because a blank field would look like an absence of a requirement rather than a failure to check. MEXT says explicitly that the application process and the specific schedule differ by country and are the embassy's to set, so the embassy is the rule-owner for the only dates a Danish student actually needs, and we could not reach it. The page exists — the block is an edge-network refusal, not a missing document — so this is a call or an email rather than another fetch. The embassy is at Havneholmen 25, Copenhagen. Nothing on this page has been read and nothing is claimed from it.",
     "supports": [
-      { "entity": "jp-mext-embassy-2028", "field": "milestones" }
+      {
+        "entity": "jp-mext-embassy-2028",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -230,6 +547,12 @@
       "notes": [
         "verificationState is 'unavailable' on purpose. This record makes a gap visible; it supports no published figure."
       ]
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "source refuses automated fetching (HTTP 403) — open it by hand before believing this",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   }
 ]

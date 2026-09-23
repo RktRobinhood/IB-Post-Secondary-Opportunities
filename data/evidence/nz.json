@@ -7,19 +7,69 @@
     "publisherType": "national-agency",
     "sourceClass": "recognition-body",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Both pages read, 2026-09-23. Universities New Zealand is the body that sets the University Entrance standard for approved qualifications under the Education and Training Act 2020, which is why it is treated here as the recognition body rather than as a trade association.",
+    "verificationState": "needs-review",
     "claim": "There is no central admissions system in New Zealand: international applicants apply directly to each university, and a first-year international student is admitted either on a home-country qualification recognised as equivalent to the New Zealand University Entrance Standard, on University Entrance gained at a New Zealand secondary school, or through a recognised foundation programme.",
     "excerpt": "Applications should be made direct to the universities. [...] Complete a qualification in their home country, which is recognised in New Zealand as equivalent to the New Zealand University Entrance Standard [...] Complete a foundation programme at a university in New Zealand [...] Complete a recognised university foundation programme offered by a non-university provider in New Zealand. [...] For undergraduate level a minimum score of 6.0 in IELTS is required for admission at the first-year level. Some universities require higher scores for some programmes.",
     "interpretation": "The sentence is four words long and it is the whole architecture. New Zealand has no UCAS, no Studielink, no UAC - not a partial system with gaps, and not a system a student might qualify for under some condition, but none at all. That makes applying to three New Zealand universities three separate applications, which is worth planning for, and it also removes a whole category of thing to get wrong: there is no ranking of choices, no single national deadline, no limit on how many places you may hold open. The admission pathways list is recorded alongside because it names foundation programmes as a route in the peak body's own words, which is the only authoritative mention of them found in this pass.",
     "supports": [
-      { "entity": "nz-direct-2027", "field": "channel" },
-      { "entity": "nz", "field": "sectorLandscape.routes" },
-      { "entity": "nz", "field": "institutionGrouping" }
+      {
+        "entity": "nz-direct-2027",
+        "field": "channel"
+      },
+      {
+        "entity": "nz",
+        "field": "sectorLandscape.routes"
+      },
+      {
+        "entity": "nz",
+        "field": "institutionGrouping"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Both pages read, 2026-09-23. Universities New Zealand is the body that sets the University Entrance standard for approved qualifications under the Education and Training Act 2020, which is why it is treated here as the recognition body rather than as a trade association."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "3 claims checked; weakest: sectorLandscape.routes — page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…each of our world-class universities . Apply to your university of choice Applications should be made direct to the universities . Agents can make your journey to New Zealand easier. Find an agent near you . Apply…",
+      "claims": [
+        {
+          "field": "channel",
+          "entity": "nz-direct-2027",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (1/1 content words present)",
+          "excerpt": "…each of our world-class universities . Apply to your university of choice Applications should be made direct to the universities . Agents can make your journey to New Zealand easier. Find an agent near you . Apply…",
+          "details": []
+        },
+        {
+          "field": "sectorLandscape.routes",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "Next steps | Universities New Zealand - Te Pōkai Tara Jump to navigation Scholarships and Awards Quality assurance About…",
+          "details": []
+        },
+        {
+          "field": "institutionGrouping",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 1 content words appear",
+          "excerpt": null,
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -30,15 +80,23 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23, including the guaranteed-entry table stated to apply to 2027 entry.",
+    "verificationState": "needs-review",
     "claim": "The University of Auckland admits IB candidates on the full Diploma with at least 24 points, treats the IB total itself as the rank score with no conversion, and publishes the rank score each programme guarantees entry at: 26 for Arts, Fine Arts, Music, Psychology and most Science; 27 for Commerce, Communication, Design, Property, Urban Planning and Global Studies; 28 for Biomedical Science and Health Sciences; 31 for Architectural Studies and Nursing; 32 for Engineering (Honours); 34 for Engineering conjoints.",
     "excerpt": "You must have been awarded the full IB Diploma. Within this IB diploma, you must achieve a minimum of 24 points. [...] An IB Diploma satisfies the literacy and numeracy requirements with English as Language A at either Higher or Standard Level and any mathematics subject. [...] the University will also accept English Language B at Higher Level, with a minimum grade of 5, as satisfying the Literacy requirement for UE. [...] Your rank score is the same as your IB score. For example, if you achieve 27 points for IB, your rank score will be 27 points. The maximum rank score is 45.",
     "interpretation": "Read the sentence about rank score carefully, because it is the whole difference between New Zealand and Australia. Australia converts an IB total onto a separate national scale before anyone compares it to anything. New Zealand does not convert it at all: the rank score is the IB score. That is simpler and it is also less portable - this is the University of Auckland stating a rule about itself, not a national schedule, and another university may use a different threshold or no rank score at all. The second thing worth noticing is what 24 points buys. It is University Entrance, which is permission to be admitted to the university; it is not admission to a degree, and every guaranteed-entry number on the page is higher than it.",
     "supports": [
-      { "entity": "nz", "field": "ibRecognition.minimumPoints" },
-      { "entity": "nz", "field": "ibRecognition.subjectLevelRule" },
-      { "entity": "nz", "field": "ibRecognition.gradeConversion" }
+      {
+        "entity": "nz",
+        "field": "ibRecognition.minimumPoints"
+      },
+      {
+        "entity": "nz",
+        "field": "ibRecognition.subjectLevelRule"
+      },
+      {
+        "entity": "nz",
+        "field": "ibRecognition.gradeConversion"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -46,6 +104,48 @@
       "reviewBy": "2027-03-31",
       "notes": [
         "The guaranteed-entry table is republished per entry year. The values recorded are the ones stated for 2027 entry; a student starting in 2028 needs the 2028 table."
+      ]
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read, 2026-09-23, including the guaranteed-entry table stated to apply to 2027 entry."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: ibRecognition.minimumPoints — page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…release of IB results. University Entrance standard for admission in 2027 You must have been awarded the full IB Diploma. Within this IB diploma, you must achieve a minimum of 24 points. An IB Diploma completed with…",
+      "claims": [
+        {
+          "field": "ibRecognition.minimumPoints",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…release of IB results. University Entrance standard for admission in 2027 You must have been awarded the full IB Diploma. Within this IB diploma, you must achieve a minimum of 24 points. An IB Diploma completed with…",
+          "details": []
+        },
+        {
+          "field": "ibRecognition.subjectLevelRule",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…diploma, you must achieve a minimum of 24 points. An IB Diploma completed with the following satisfies the literacy and numeracy requirements for University Entrance: English as Language A at either Higher or Standard…",
+          "details": []
+        },
+        {
+          "field": "ibRecognition.gradeConversion",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…enrol at a New Zealand university. To learn more about International Baccalaureate UE requirements, visit Universities New Zealand's Other school-leavers qualifications page . You must also meet the entry requirements for the…",
+          "details": []
+        }
       ]
     }
   },
@@ -56,13 +156,15 @@
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Tables read row by row, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "For a Semester Two 2027 start the University of Auckland closes international applications on 8 June 2027, a month before the May-session IB results are released, while domestic applications for the same intake close on 4 July 2027; and for a Semester One 2028 start the competitive health programmes - Medicine and Surgery, Optometry, Pharmacy and Medical Imaging - close on 1 July 2027.",
     "excerpt": "Semester Two 2027: International applications for undergraduate programmes with a Semester Two intake - 8 June 2027. Domestic applications for undergraduate programmes with a Semester Two intake - 4 July 2027. Semester One 2028: Bachelor of Medical Imaging (Honours) - 1 July 2027. Bachelor of Medicine and Bachelor of Surgery - 1 July 2027. Bachelor of Optometry - 1 July 2027. Bachelor of Pharmacy - 1 July 2027. Semester One 2027: most undergraduate programmes - 8 December 2026.",
     "interpretation": "Two of these dates are the single most consequential thing on this page for a Danish candidate sitting the May 2027 session, and both fall before results exist. The mid-year route - which is the only way to start in 2027 rather than waiting until February 2028 - closes to international applicants on 8 June 2027, and closes a month later for domestic ones, so the earlier date is specifically ours. And the competitive health programmes for the following February close on 1 July 2027, days before IB results are published. Neither is a date a student would find by looking for a national deadline, because there is not one; both are a single university's dates, published on that university's own page, and the other seven universities will have their own. The lesson generalises even where the numbers do not: in New Zealand the deadline that matters is the one on the programme page, and for an international applicant it is frequently earlier than the domestic one.",
     "supports": [
-      { "entity": "nz-direct-2027", "field": "milestones" }
+      {
+        "entity": "nz-direct-2027",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -70,6 +172,65 @@
       "reviewBy": "2027-01-31",
       "notes": [
         "The Semester One 2028 table currently lists only the four limited-entry health programmes. The general Semester One 2028 closing date, which is the one most students need, had not been published when this was written."
+      ]
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "4 of 5 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…closing date International applications for undergraduate programmes with a Semester Two intake 8 June 2027 Domestic applications for undergraduate programmes with a Semester Two intake 4 July…",
+      "claims": [
+        {
+          "field": "milestones",
+          "entity": "nz-direct-2027",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "4 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…closing date International applications for undergraduate programmes with a Semester Two intake 8 June 2027 Domestic applications for undergraduate programmes with a Semester Two intake 4 July…",
+          "details": [
+            {
+              "requirement": "University of Auckland: international applications close for a July 2027 start — 2027-06-08",
+              "role": "required",
+              "found": true,
+              "matched": "8 June",
+              "weak": false
+            },
+            {
+              "requirement": "University of Auckland: Medicine, Optometry, Pharmacy and Medical Imaging close for February 2028 — 2027-07-01",
+              "role": "required",
+              "found": true,
+              "matched": "1 July",
+              "weak": false
+            },
+            {
+              "requirement": "IB results for the May 2027 session — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Decide between a July 2027 and a February 2028 start — 2026-11-01",
+              "role": "informational",
+              "found": true,
+              "matched": "1 November",
+              "weak": false
+            },
+            {
+              "requirement": "Check you will meet University Entrance — 2026-12-01",
+              "role": "informational",
+              "found": true,
+              "matched": "1 December",
+              "weak": false
+            }
+          ]
+        }
       ]
     }
   },
@@ -81,18 +242,43 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
     "appliesToApplicantGroup": "non-eu",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "University of Auckland international undergraduate tuition for 2026 runs from NZD 40,225 for a Bachelor of Arts to NZD 86,561 for the later years of Medicine and Surgery, for a full-time year of 120 points, plus a Student Services Fee of NZD 9.44 per point, about NZD 1,132.80 a year; the indicative 2027 Bachelor of Arts fee is NZD 42,236.40.",
     "excerpt": "Bachelor of Arts (except performance and science-based courses): NZ$40,225 (2026), NZ$42,236.40 (2027 indicative). Bachelor of Medicine and Bachelor of Surgery - Year 2 onwards: NZ$86,561 (2026). Fees quoted are full time for a full year (120 points). In 2026, you will also pay a Student Services Fee of $9.44 per point, estimated at $1,132.80 for full-time study (120 points).",
     "interpretation": "One worked example rather than a New Zealand rate, because there is no New Zealand rate. What it is useful for is the shape: the 2027 indicative figure is about five per cent above the 2026 one for the same degree, which is the university saying in numbers that the fee rises each year of your degree. A student budgeting three years at the first-year price will be short. The compulsory Student Services Fee is separate from tuition and separate again from the NZD 20,000 a year of living costs the visa requires.",
     "supports": [
-      { "entity": "nz", "field": "feeContext" }
+      {
+        "entity": "nz",
+        "field": "feeContext"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2027-01-31"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Undergraduate fees for international students – University of Auckland Accessibility Links Skip to site search Skip to main content Waipapa…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "Undergraduate fees for international students – University of Auckland Accessibility Links Skip to site search Skip to main content Waipapa…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -102,17 +288,42 @@
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Victoria University of Wellington admits on the IB Diploma with a minimum of 24 points, with literacy met by English as Language A (literature, or language and literature) at Standard or Higher Level or Language B at Higher Level, and numeracy by any mathematics subject, and states that applicants meeting this and any degree-specific requirement are automatically accepted.",
     "excerpt": "To achieve University Entrance you need: the IB Diploma (24 points minimum), and any mathematics subject, and English as the language in Language A - literature (at Standard or Higher level), or Language A - language and literature (at Standard or Higher level), or Language B (at Higher level). [...] you will be automatically accepted into programmes offered [...] Allow us electronic access to your IB results once they are released.",
     "interpretation": "The value of this record is that it is a second university saying almost exactly the same thing as the first, in almost the same words, without either of them citing a national rule. That is what a national standard looks like in New Zealand: Universities New Zealand sets University Entrance and the individual universities restate it. The one place they diverge is on English Language B - Auckland requires a minimum grade of 5 at Higher Level and Wellington's wording carries no grade. Where two authoritative sources differ about a requirement, the safe reading for a student is the stricter one, and the honest record is that they differ.",
     "supports": [
-      { "entity": "nz", "field": "ibRecognition.subjectLevelRule" }
+      {
+        "entity": "nz",
+        "field": "ibRecognition.subjectLevelRule"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (10/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Baccalaureate, you will need to achieve the IB Diploma (24 points minimum). You also need to satisfy literacy and numeracy requirements. To achieve this, you will need to complete any mathematics subject and English as…",
+      "claims": [
+        {
+          "field": "ibRecognition.subjectLevelRule",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…Baccalaureate, you will need to achieve the IB Diploma (24 points minimum). You also need to satisfy literacy and numeracy requirements. To achieve this, you will need to complete any mathematics subject and English as…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -122,17 +333,42 @@
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "The University of Canterbury admits anyone awarded the IB Diploma, with literacy met by English as Language A at Standard or Higher Level or Language B at Higher Level and numeracy by any mathematics subject, and states no separate points minimum.",
     "excerpt": "You can gain admission to UC if you have been awarded the IB Diploma. The literacy requirement for admission will be met if the IB diploma has been completed with English as the language in any of: Language A: literature (SL or HL), Language A: language and literature (SL or HL), or Language B: (HL). Any mathematics subject at IB meets numeracy requirement.",
     "interpretation": "Canterbury states the same rule and leaves the number out, which is not a disagreement: the Diploma is not awarded below 24 points, so 'awarded the Diploma' and '24 points' describe the same threshold from two directions. Recorded because a student comparing pages will see a difference that is not one, and because it is a reminder of what the 24 actually is - the award condition of the Diploma itself, not a bar New Zealand set.",
     "supports": [
-      { "entity": "nz", "field": "ibRecognition.minimumPoints" }
+      {
+        "entity": "nz",
+        "field": "ibRecognition.minimumPoints"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "IB International Baccalaureate Diploma | UC Skip to main content Future students Current students International Postgraduates Alumni UC…",
+      "claims": [
+        {
+          "field": "ibRecognition.minimumPoints",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "IB International Baccalaureate Diploma | UC Skip to main content Future students Current students International Postgraduates Alumni UC…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -142,17 +378,42 @@
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "Massey University gives an IB candidate a rank score equal to their IB total and sets the Preferential Entry Score for most undergraduate qualifications at 26 points.",
     "excerpt": "You will be given a rank score equivalent to your IB score. For example, if you achieve an IB score of 31 points, you will be given a rank score of 31. [...] The Preferential Entry Score from the International Baccalaureate (IB), for most undergraduate qualifications, is 26 points.",
     "interpretation": "A second university publishing the same one-to-one rule, which is what turns 'rank score equals IB score' from an Auckland quirk into a New Zealand convention. It is still a convention rather than a rule: each university states it about itself, nobody publishes it nationally, and the threshold each attaches to it differs. Massey's 26 for most undergraduate qualifications happens to match Auckland's 26 for Arts and Science, which is a coincidence worth not over-reading.",
     "supports": [
-      { "entity": "nz", "field": "ibRecognition.gradeConversion" }
+      {
+        "entity": "nz",
+        "field": "ibRecognition.gradeConversion"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…give preference to students from under-represented groups. To fill remaining places, we will give you a rank score based on your academic results. If you're 20 years or over (an adult student) we will calculate your…",
+      "claims": [
+        {
+          "field": "ibRecognition.gradeConversion",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…give preference to students from under-represented groups. To fill remaining places, we will give you a rank score based on your academic results. If you're 20 years or over (an adult student) we will calculate your…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -168,7 +429,10 @@
     "excerpt": "Structured restatement, not a verified quotation: the IB Diploma awarded with a minimum of 24 points, with literacy and numeracy satisfied by completing English as the language in IB Group 1 and any mathematics subject in IB Group 5. Individual AUT programmes may set entry requirements above the University Entrance standard.",
     "interpretation": "Recorded at needs-review rather than left out, because the alternative was to show AUT with no IB rule at all when it plainly has one. The substance matches the other universities; what is missing is that a person has read AUT's own page and confirmed the wording, and in particular whether AUT accepts English Language B at Higher Level the way Auckland and Wellington do. A student relying on English B should open the page themselves.",
     "supports": [
-      { "entity": "nz", "field": "ibRecognition.subjectLevelRule" }
+      {
+        "entity": "nz",
+        "field": "ibRecognition.subjectLevelRule"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -176,6 +440,12 @@
       "notes": [
         "Owed: a human read of aut.ac.nz/study/entry-requirements/university-entrance, and of the separate AUT rank scores page, which could not be retrieved either."
       ]
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "source refuses automated fetching (HTTP 403) — open it by hand before believing this",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -191,13 +461,34 @@
     "excerpt": "Degree level programmes: International Baccalaureate score 24+. Denmark, diploma level programmes: Senior High School (Studentereksamen) with an average grade of 8.0 on 11pt scale or successful completion of Hojere Forberedelseseksamen.",
     "interpretation": "The most directly useful thing found for a Danish reader in the whole New Zealand pass, and it is on a page nobody would think to open. At this provider the Danish school-leaving certificate on its own is mapped to diploma entry, a level below a bachelor degree, while the IB Diploma is mapped to degree entry. The IB is not a marginal advantage here; it is the difference between starting a degree and starting a diploma. Two cautions: this is one provider's mapping and says nothing about the universities, and the grading scale quoted is the old Danish 13-scale wording rather than the current 7-point scale, which suggests the row has not been revised recently.",
     "supports": [
-      { "entity": "nz", "field": "sectorLandscape.routes" }
+      {
+        "entity": "nz",
+        "field": "sectorLandscape.routes"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "notes": [
         "The reference to an 11-point scale does not match either Danish grading scale in current use. Worth querying with Unitec before a student relies on the Denmark row."
+      ]
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and study options Why choose Unitec Scholarships and Awards Application and funding Research and Enterprise Apply Now Contact us Current Students Student Life Study Support On…",
+      "claims": [
+        {
+          "field": "sectorLandscape.routes",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…and study options Why choose Unitec Scholarships and Awards Application and funding Research and Enterprise Apply Now Contact us Current Students Student Life Study Support On…",
+          "details": []
+        }
       ]
     }
   },
@@ -209,20 +500,105 @@
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "The Fee Paying Student Visa costs from NZD 850, can be granted for up to four years, requires an offer of place from an approved education provider, evidence of tuition paid or payable, and insurance acceptable to the provider, plus NZD 20,000 of living costs for each year of tertiary study; it allows part-time work of up to 25 hours a week during study and full-time work in scheduled holidays, and Immigration New Zealand advises applying at least three months before travel.",
     "excerpt": "From NZD $850. [...] Up to 4 years. [...] NZD $20,000 for each year if you are studying for 1 year or more. [...] be offered a place by an approved education provider [...] have insurance that is acceptable to your education provider [...] work part-time up to 25 hours a week while studying and full-time in holidays, depending on your visa conditions. [...] Apply for your student visa at least 3 months before you plan to travel. [...] 80% within 8 weeks.",
     "interpretation": "Cheaper and simpler than Australia's on every axis: a third of the visa charge, two thirds of the living-cost threshold, and no equivalent of the Ministerial Direction that orders Australian offshore applications. The one thing it shares is the structure - the visa is unlocked by the offer, not by a date, so there is no deadline to miss and no way to start early. The three-month figure is advice rather than a rule, and it is advice worth taking literally: the published service standard is that only eighty per cent are decided within eight weeks, so the other twenty per cent are the students who miss the start of term.",
     "supports": [
-      { "entity": "nz", "field": "livingContext.residency" },
-      { "entity": "nz", "field": "livingContext.workRights" },
-      { "entity": "nz-direct-2027", "field": "milestones" }
+      {
+        "entity": "nz",
+        "field": "livingContext.residency"
+      },
+      {
+        "entity": "nz",
+        "field": "livingContext.workRights"
+      },
+      {
+        "entity": "nz-direct-2027",
+        "field": "milestones"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2027-01-31"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "3 claims checked; weakest: milestones — 0 of 5 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Fee Paying Student Visa &raquo; Immigration New Zealand Fee Paying Student Visa :: Immigration New Zealand Skip to…",
+      "claims": [
+        {
+          "field": "livingContext.residency",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "Fee Paying Student Visa &raquo; Immigration New Zealand Fee Paying Student Visa :: Immigration New Zealand Skip to…",
+          "details": []
+        },
+        {
+          "field": "livingContext.workRights",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (12/12 content words present)",
+          "excerpt": "…in New Zealand on an approved course, including primary, secondary, tertiary study work part-time up to 25 hours a week while studying and full-time in holidays, depending on your visa conditions travel in and out of New…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "nz-direct-2027",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 5 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "University of Auckland: international applications close for a July 2027 start — 2027-06-08",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "University of Auckland: Medicine, Optometry, Pharmacy and Medical Imaging close for February 2028 — 2027-07-01",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results for the May 2027 session — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Decide between a July 2027 and a February 2028 start — 2026-11-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Check you will meet University Entrance — 2026-12-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -232,18 +608,55 @@
     "publisherType": "national-agency",
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23.",
+    "verificationState": "needs-review",
     "claim": "New Zealand's tertiary providers are universities, the New Zealand Institute of Skills and Technology and the polytechnics and institutes of technology, wananga, and private and government training establishments; degree-level education is mainly academic and research-led at the universities and vocational elsewhere; and NZQA quality assures programmes for every kind of provider except the universities.",
     "excerpt": "New Zealand Institute of Skills and Technology (NZIST), polytechnics, other institutes of technology [...] private and government training establishments [...] universities [...] wananga. Higher, degree-level education is mainly offered at universities. Programmes are generally research-led and academic. Vocational degree-level education is offered at NZIST, wananga, polytechnics, other institutes of technology, and some larger private training establishments. NZQA quality assures and approves programmes leading to qualifications, micro-credentials, and assessment and skill standards for tertiary education providers, except for universities.",
     "interpretation": "The exception at the end is the useful part and it is not a loophole. New Zealand's universities are not quality assured by NZQA because they assure each other, through the academic quality machinery of Universities New Zealand; everybody else is assured by NZQA. So a student checking whether a provider is legitimate looks in one register for a polytechnic or a private training establishment and in a different place for a university, and finding nothing in the first is not evidence of anything. Note also that degree-level study is not confined to the universities: wananga, polytechnics and the larger private providers award degrees too, and that is where a student whose IB total lands below the university thresholds should look before assuming the answer is no.",
     "supports": [
-      { "entity": "nz", "field": "sectorLandscape.summary" },
-      { "entity": "nz", "field": "sectorLandscape.routes" }
+      {
+        "entity": "nz",
+        "field": "sectorLandscape.summary"
+      },
+      {
+        "entity": "nz",
+        "field": "sectorLandscape.routes"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: sectorLandscape.routes — page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "About tertiary education in New Zealand - NZQA Skip to main content Contact us About…",
+      "claims": [
+        {
+          "field": "sectorLandscape.summary",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "About tertiary education in New Zealand - NZQA Skip to main content Contact us About…",
+          "details": []
+        },
+        {
+          "field": "sectorLandscape.routes",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "…range of programmes and micro-credentials help you transition from school to work and postgraduate study and research. Higher, degree-level education is mainly offered at universities. Programmes are generally research-led and…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -254,13 +667,15 @@
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
-    "verificationState": "verified",
-    "verifiedBy": "Read, 2026-09-23, announcement dated 2 July 2025.",
+    "verificationState": "needs-review",
     "claim": "From 1 January 2026 ten regional polytechnics were re-established under their own governance, including Otago Polytechnic and a merged Unitec and Manukau Institute of Technology, while four others remained inside the renamed national body; Te Pukenga continues only as a transitional entity.",
     "excerpt": "Standalone from 1 January 2026: Ara Institute of Canterbury, Eastern Institute of Technology, Nelson Marlborough Institute of Technology, Southern Institute of Technology, Toi Ohomai Institute of Technology, Waikato Institute of Technology, Unitec and Manukau Institute of Technology (merged), Otago Polytechnic, Universal College of Learning, The Open Polytechnic of New Zealand. Four other polytechnics will remain within Te Pukenga: NorthTec, Western Institute of Technology at Taranaki, Whitireia Community Polytechnic / Wellington Institute of Technology, Tai Poutini Polytechnic. Te Pukenga will continue to operate as a transitional entity for up to 1 year, managing unallocated programmes and supporting a smooth transition.",
     "interpretation": "This is why the vocational half of the New Zealand record has to be dated rather than described. Between 2020 and 2026 the sixteen polytechnics were amalgamated into one national body, Te Pukenga, and then taken apart again; two of the ten institutions on this country's profile - Unitec and Otago Polytechnic - are directly affected, and Unitec is now a merged entity with Manukau. Anything written about New Zealand polytechnics before 2026 describes a structure that no longer exists, and some of it is still on the internet with no date on it. For a student the practical consequence is small but real: the name on the degree and the entity you apply to may not be the one an older guide names, and Universities New Zealand's own sector page still says sixteen.",
     "supports": [
-      { "entity": "nz", "field": "sectorLandscape.routes" }
+      {
+        "entity": "nz",
+        "field": "sectorLandscape.routes"
+      }
     ],
     "meta": {
       "schemaVersion": "1.0",
@@ -268,6 +683,30 @@
       "reviewBy": "2027-01-31",
       "notes": [
         "The four polytechnics left inside the national body were to have their future decided in the first half of 2026. That decision was not looked for in this pass and should be checked."
+      ]
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read, 2026-09-23, announcement dated 2 July 2025."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Institute of Technology and Manukau Institute of Technology (MIT) – to merge and stand-alone Otago Polytechnic – to stand alone within the federation Universal College of Learning (UCOL) – to stand-alone…",
+      "claims": [
+        {
+          "field": "sectorLandscape.routes",
+          "entity": "nz",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…Institute of Technology and Manukau Institute of Technology (MIT) – to merge and stand-alone Otago Polytechnic – to stand alone within the federation Universal College of Learning (UCOL) – to stand-alone…",
+          "details": []
+        }
       ]
     }
   }

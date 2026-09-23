@@ -2,6 +2,7 @@ import { html, raw, md, plural } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, note, sectionHead, crumbs, facts, dataTable, stamp } from '../lib/components.mjs';
 import { STATE } from '../lib/primitives.mjs';
+import { summarise } from '../lib/attestation.mjs';
 import { assessAll, FLOOR_CHECKS } from '../lib/publication-floor.mjs';
 import { motionTable } from '../lib/motion.mjs';
 
@@ -24,6 +25,10 @@ export function trust(site) {
   }
 
   const ev = site.evidenceSummary || {};
+  // Counted here rather than taken from evidenceSummary, which does not yet
+  // know the difference between a record its author read and one a second
+  // party checked. src/lib/attestation.mjs holds the distinction.
+  const att = summarise([...(site.graph?.evidence?.values() || [])]);
 
   /* Where every Destination stands against the publication floor, computed at
      build time from the records rather than maintained by hand. A page that
@@ -91,40 +96,50 @@ ${hero({
           rows: [
             ['Discovered', 'A possible claim and a source have been found.', 'Nothing. It is not published.'],
             ['Structured', 'Entered as a record, with its applicability and its source.', 'Nothing yet.'],
-            ['Source checked', 'A script re-opened the page, found the supporting wording and quoted it onto the record. Not sign-off.', 'Shown, with the quotation available.'],
-            ['Verified', 'A person read the source and confirmed it supports the wording.', 'Shown normally.'],
+            ['Attested', 'Whoever wrote the record opened the source, read it and quoted the supporting sentence. First-hand, and not yet checked by anyone else.', 'Shown, with the quotation available.'],
+            ['Source checked', 'A script re-opened the page and found the wording still there. Confirms the words, not the meaning.', 'Shown, with the quotation available.'],
+            ['Verified', 'A second party read the record back against its source and agreed. Never the party that wrote it.', 'Shown normally.'],
             ['Published', 'Visible for a stated intake.', 'Shown with its intake and check date.'],
             ['Needs review', 'The interval elapsed, the source changed, or sources conflict.', 'Shown with a caveat, or held back entirely if the evidence is stale or contested.'],
             ['Superseded or unavailable', 'No longer current, but still traceable.', 'Not used as current evidence.'],
           ],
         })}
         <h3 id="numbers">Where this currently stands</h3>
-        <p>There are two separate questions here, and rolling them into one number would hide which of them
-        you are actually getting an answer to.</p>
+        <p>Three separate questions, kept apart. Rolling them into one number would let the strongest-sounding
+        one stand in for the others, which is exactly what happened here once already.</p>
         ${dataTable({
-          caption: `The condition of ${ev.total || 0} evidence records`,
+          caption: `The condition of ${att.total} evidence records`,
           head: ['', 'How many', 'What it means'],
           rows: [
             [
-              html`<strong>Signed off by a person</strong>`,
-              String(ev.verified || 0),
-              'Someone read the source and confirmed it says what we say it says. This is the number that carries real weight.',
+              html`<strong>Read first-hand</strong>`,
+              String(att.attested),
+              'Whoever wrote the record opened the source, read it, and quoted the sentence that carries the claim. First-hand and genuine — and done by the same party that wrote the record, so nobody has checked it.',
             ],
             [
-              html`<strong>Source re-read automatically</strong>`,
-              String(ev.sourceChecked || 0),
-              html`The cited page was fetched again and searched for the claim it is meant to support — ${String(ev.sourceSupported || 0)} carry the wording, ${String(ev.sourcePartial || 0)} partly, ${String(ev.sourceUnsupported || 0)} not at all. The supporting sentence is quoted onto the record.`,
+              html`<strong>Independently reviewed</strong>`,
+              String(att.reviewed),
+              html`A <em>second</em> party read the record back against its source and agreed. This is the number that carries real weight, and it is the one to watch.`,
+            ],
+            [
+              html`<strong>Source re-read by machine</strong>`,
+              String(att.sourceChecked),
+              'The cited page was fetched again and searched for the claim it supports, with the supporting sentence quoted onto the record. It confirms the words are still printed there; it cannot notice that the page now means something different by them.',
             ],
           ],
         })}
         ${note(
-          `**A machine finding the words is not the same as a person agreeing with them**, and this site will
-          not blur that line: an automated check can confirm that "Matematik A" is still printed on the page
-          it was taken from, and it cannot notice that the page now means something different by it. So the
-          automated pass never sets a record to verified — it only puts the quotation next to the claim, which
-          turns a reviewer's job from opening a hundred tabs into reading a hundred sentences.
-          ${ev.lastCheckedAt ? `Last run on ${ev.lastCheckedAt}.` : ''} Every build prints both numbers, so
-          neither can quietly rot.`,
+          `**Independently reviewed currently stands at ${att.reviewed}, and that is the honest number.**
+
+          It used to read 152. Those records were written by research passes that opened the official page,
+          quoted it, wrote the record, and marked their own work verified in the same breath. The reading was
+          real — it is kept, and counted in the first row — but nobody had checked it, and the site said
+          otherwise.
+
+          The rule now is not "a human must do it", because a human who writes a record from a page has not
+          been checked either. It is that **the party who read the source cannot be the party who confirms
+          it**. A test fails any record claiming otherwise, which is what the previous version of this
+          paragraph should have been instead of a paragraph.`,
           { kind: 'warn', title: 'The honest number' }
         )}
 
