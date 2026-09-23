@@ -7,7 +7,7 @@ This file exists so the work survives an interrupted session. See
 [PARALLEL_WORK.md](PARALLEL_WORK.md) for why, and for the rest of the
 conventions fan-out work here runs under.
 
-**Updated:** 2026-09-23. 14 of 35 Destinations at the floor; 430 dated events; #12, #13, #18 and #26 closed.
+**Updated:** 2026-09-23. 449 deadline entries across all 35 Destinations; 22 checks in one gate; #12, #13, #18, #21, #22, #23, #24, #26, #29, #30, #31, #32, #33 and #34 closed.
 
 **Current programme: close every open issue.** Twelve were open when it started,
 plus #34, filed from a mobile audit during it. The order and the reasoning are
@@ -165,23 +165,43 @@ The 44px rule is not missing from the repository. It is at
 never generalised. So this is the deletion test again, in CSS: one control
 policy that every control inherits, not 44px restated per component.
 
-### Track B — the deadline passes (#21, #22, #23)
+### Track B — the deadline passes (#21, #22, #23) — **done**
 
-These read as three issues and are one act: **open the official page for country
-X and fix its dates.** Sources that do not carry their claim, contradictions the
-data holds against itself, and dates buried in `notes` are three symptoms found
-in the same records, and splitting them by symptom would send three agents to
-the same page.
+These read as three issues and were one act: **open the official page for
+country X and fix its dates.** Grouping by symptom would have sent three
+agents to the same page, so they were grouped by country, in two waves of
+seven agents covering all 35 Destinations. **261 deadline entries became 449.**
 
-So they are grouped by country instead, which is also the ownership boundary
-that makes them safe to run in parallel:
+What the grouping bought, beyond tidiness: an agent holding one country's
+whole calendar can see that two of its pages disagree, and an agent holding
+one symptom across thirty-five countries cannot.
 
-| Agent | Countries | Hard record |
-|---|---|---|
-| Nordic + Baltic | `no se fi is nl lv` | `is` — two University of Iceland pages contradict each other |
-| Central Europe | `pl cz de be` | `pl` — Warsaw's IB result-upload extensions, written for IB candidates and buried in a note |
-| Western + Southern | `fr pt it gb` | `fr` — Parcoursup, cited on two entries from a page the record says could not be read |
-| Worldwide | `ae hk kr au jp` | `kr` — intake and deadlines describe different years |
+The corrections that would have cost a student something:
+
+- **Ireland said restricted-entry courses "cannot be added later".** They can,
+  for €10, through a facility that opens 5 February. A student who believed
+  that sentence and missed 1 February would have concluded medicine was gone.
+- **Austria's MedAT test date was wrong** — 8 July recorded, 3 July published,
+  confirmed by two official pages and a weekday check.
+- **Bocconi's Early Session closes 29 September 2026**, six days after this
+  programme ran, against a record saying Italian early rounds run "roughly
+  October–January".
+- **Japan's MEXT undergraduate scholarship is not offered to Danish
+  nationals**, and **Korea's GKS Embassy Track invites 74 countries without
+  Denmark.** Both were routes the site implied were open.
+- **UBC's final-transcript deadline falls six days before IB results exist.**
+- **Spain's 7 July admission deadline** and **Greece's eight-day ministry
+  window** were absent from the records entirely.
+
+Eight publisher self-contradictions are now Evidence pairs naming each other,
+so the refusal to state a date is enforced by the model rather than by a
+reader reaching the end of a note: Iceland, Luxembourg, Slovenia and Poznan,
+with Ireland's HPAT, Athens's MD eligibility, NUS and Otago recorded on their
+entries and still wanting pairs.
+
+`test-sourcing.mjs` now refuses a dated claim cited to a bare site root —
+#21's guard. It earns its place: two new instances appeared in Austria and
+Switzerland *during the pass that fixed the original seven*.
 
 ### Track C — the architectural seams (#29, #30, #31, #32, #33)
 
@@ -203,15 +223,18 @@ built last so it can include everything the others added.
 
 ### Track D — what is left
 
-- **#27** is partly landed (`b9292c0`): the Danish source check that never ran
-  now runs, and the trust page separates a person's review from a script's.
-  What remains is running the check across the eight Destinations it has never
-  covered, and fixing the cause in `RESEARCH_BRIEF.md`.
-- **#24** Course Results — the model landed in `fb4aca5`; the filter the issue
-  asks for has not.
-- **#15** is the standing research programme, not a closeable issue in one pass.
-- **#17** needs a person at the hero review queue. It is the only item here that
-  cannot be finished by an agent.
+- **#15** is the standing research programme, not a closeable issue. 449
+  deadline entries and 307 Evidence records later, the Destinations are no
+  longer sketches, but Opportunity coverage is still Denmark and the
+  Netherlands.
+- **#17** needs a person at the hero review queue — `npm run images:review`,
+  99 to look at, worst first. It is the only item in this programme an agent
+  cannot finish, and the machinery around it works: 7 pictures are withheld
+  below the floor and render a designed empty state instead.
+- **#35** and **#36** were filed from findings during this programme and
+  deliberately not started. #35 is the one that matters: three of four passes
+  independently hit the fact that a route the reader cannot take renders as a
+  route with a date.
 
 ---
 
