@@ -1,0 +1,87 @@
+{
+  "id": "ee-direct-2027",
+  "destination": "ee",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying to an Estonian institution for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://estonia.dreamapply.com/",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-tlu-open",
+      "type": "open",
+      "label": "Tallinn University: bachelor's applications open",
+      "date": "2026-11-01",
+      "consequence": "indicative",
+      "evidence": [
+        "ev-tlu-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-tlu-close",
+      "type": "submit",
+      "label": "Tallinn University: bachelor's applications close",
+      "date": "2027-03-01",
+      "consequence": "hard",
+      "audience": "any",
+      "note": "One university's date, and the only 2027 one published so far. Four months before IB results.",
+      "evidence": [
+        "ev-tlu-deadlines-2027"
+      ]
+    },
+    {
+      "id": "ms-eamt",
+      "type": "submit",
+      "label": "Academy of Music and Theatre: 2027 dates",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "The Academy says it will publish them in December 2026.",
+      "evidence": [
+        "ev-eamt-admission-dates"
+      ]
+    },
+    {
+      "id": "ms-others",
+      "type": "submit",
+      "label": "Every other institution: its own closing date",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Sharing the DreamApply portal does not mean sharing a deadline. For 2026 entry EUAS kept EU applications open until 20 September; TalTech's 2025 bachelor round closed on 1 June. Check each programme page from late 2026.",
+      "evidence": [
+        "ev-ee-dreamapply-portal",
+        "ev-euas-bachelors"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "After Tallinn University's deadline. Ask each institution how it treats results that arrive after you apply.",
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "supplementarySteps": [
+    "Most institutions share one DreamApply account at estonia.dreamapply.com. Tallinn Health University of Applied Sciences and the Baltic Methodist Theological Seminary take applications on their own sites.",
+    "Each institution sets its own deadline, fee, test and decision. Read the programme page, not the portal."
+  ],
+  "evidence": [
+    "ev-ee-dreamapply-portal",
+    "ev-tlu-deadlines-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-15",
+    "notes": [
+      "Channel is 'direct' although nine institutions share a portal: the portal publishes no common deadline or decision, so it is a shared front door rather than a central admission.",
+      "Not established: 2027 dates at the University of Tartu, TalTech and the Estonian University of Life Sciences. All three sites return 403 to automated requests and put a bot-check page in front of a browser, so none was read."
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "lt-lama-bpo-2027",
+  "destination": "lt",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "State-funded places through LAMA BPO, autumn 2027",
+  "channel": "consortium",
+  "portalUrl": "https://lamabpo.lt/en/",
+  "milestones": [
+    {
+      "id": "ms-main-open",
+      "type": "open",
+      "label": "Main admission opens",
+      "dateState": "not-yet-announced",
+      "consequence": "indicative",
+      "note": "In 2026 it opened on 1 June.",
+      "evidence": [
+        "ev-lamabpo-key-dates-2026"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Before the main round closes, if 2027 follows 2026.",
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    },
+    {
+      "id": "ms-main-close",
+      "type": "submit",
+      "label": "Main admission closes",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "audience": "eu-eea-ch",
+      "note": "In 2026: 23 July at 12:00, with offers on 30 July and contracts signed in person by 1 August. Two short additional rounds followed in August.",
+      "evidence": [
+        "ev-lamabpo-key-dates-2026"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "For EU and EFTA citizens only, and only for state-funded places. For a fee-paying place, apply to the university directly.",
+    "Upload the IB Diploma as it is — LAMA BPO says IB grades need no conversion.",
+    "English-taught Medicine and Dentistry are not state-funded; they go through the university's own procedure."
+  ],
+  "evidence": [
+    "ev-lamabpo-international",
+    "ev-vu-state-funded",
+    "ev-lamabpo-key-dates-2026"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-03-31",
+    "notes": [
+      "Not established: which English-taught programmes outside Vilnius University offer state-funded places, how many choices LAMA BPO allows, and how the competitive score is built from IB grades.",
+      "LAMA BPO is an association of institutions running joint admission, hence channel 'consortium'; no application-system record was created."
+    ]
+  }
+}

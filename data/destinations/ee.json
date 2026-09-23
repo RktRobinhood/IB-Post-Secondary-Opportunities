@@ -1,0 +1,77 @@
+{
+  "id": "ee",
+  "iso2": "ee",
+  "name": "Estonia",
+  "adjective": "Estonian",
+  "scope": "europe",
+  "region": "Baltics",
+  "capital": "Tallinn",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "A short menu, read end to end",
+  "summary": "Estonia teaches a great deal in English at master's level and far less at bachelor's: the national list has about thirty English-taught bachelor's programmes at eleven institutions. Nine of those institutions share one application portal, but each sets its own deadline and decides on its own, so the list is something to read whole rather than a system to search.",
+  "whyConsider": [
+    "A short, complete national list — you can see every English-taught bachelor's option in an evening.",
+    "One DreamApply account covers nine institutions, including Tartu, TalTech and Tallinn University."
+  ],
+  "watchOuts": [
+    "Deadlines are not aligned. Tallinn University closes on 1 March 2027; most others had not published 2027 dates in September 2026.",
+    "The Universities of Tartu, TalTech and the University of Life Sciences block automated reading of their sites, so their 2027 rules are not summarised here. Open their pages yourself."
+  ],
+  "language": {
+    "englishTaughtBachelors": "About thirty programmes nationally, at eleven institutions. Estonia's English-taught provision is mostly postgraduate.",
+    "localLanguageRequired": false,
+    "notes": [
+      "The Estonian Academy of Arts and Tartu Applied Health Sciences University have no English-taught bachelor's on the national list."
+    ]
+  },
+  "sectorLandscape": {
+    "summary": "Estonia has 18 higher education institutions in two kinds: the ülikool (university) and the rakenduskõrgkool (university of applied sciences, or professional higher education institution). Both award a three-to-four-year first degree that leads on to a master's; the university's is the theory-based bakalaureus, the other the professional rakenduskõrgharidus diploma. Only eleven of the 18 teach anything in English.",
+    "routes": [
+      {
+        "localName": "ülikool",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Research universities — Tartu, TalTech, Tallinn University, the University of Life Sciences, the arts and music academies, and Estonian Business School. Theory-based bachelor's of three to four years, plus six-year integrated Medicine and Veterinary Medicine.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "rakenduskõrgkool",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Professional higher education: practical, three to four years, and a full first-cycle qualification that gives access to a master's. Aviation, health, entrepreneurship and game design are where the English-taught options sit.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "Most teach only in Estonian. Tallinn Health's Assistant Pharmacist, EUAS's four programmes and the Aviation Academy are the English exceptions."
+      }
+    ],
+    "evidence": [
+      "ev-ee-sie-institutions",
+      "ev-ee-eurydice-first-cycle",
+      "ev-ee-sie-bachelors-list"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-ee-dreamapply-portal",
+    "ev-ee-sie-bachelors-list",
+    "ev-tlu-deadlines-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-15",
+    "notes": [
+      "Not established: IB conversion or minimum scores, and whether Estonian institutions make offers on predicted IB grades. The Harno recognition pages and the Tartu, TalTech and EMÜ sites refuse automated retrieval.",
+      "ibRecognition and feeContext deliberately omitted from this record; the country profile carries the inline-sourced version until Evidence exists for them.",
+      "Programme-level records not yet created."
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "lv",
+  "iso2": "lv",
+  "name": "Latvia",
+  "adjective": "Latvian",
+  "scope": "europe",
+  "region": "Baltics",
+  "capital": "Riga",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Riga, one university at a time",
+  "summary": "Latvia has no central application for international students: you apply to each institution on its own terms and its own calendar. The dates range widely — SSE Riga closes in early April with its own entrance test, Rīga Stradiņš closes Medicine for EU applicants on 1 July, and Turība takes autumn applications until 1 August.",
+  "whyConsider": [
+    "Some English-taught options close after IB results, which is rare in Europe — Turība's autumn window runs to 1 August.",
+    "SSE Riga is a small, selective, test-based business school with results published in June."
+  ],
+  "watchOuts": [
+    "Every institution sets its own deadline, test and fee. Rīga Stradiņš closes five days before IB results; SSE Riga in April.",
+    "Your diploma has to be recognised as part of every application. Start early.",
+    "The Art Academy of Latvia has no English-taught bachelor's degree."
+  ],
+  "language": {
+    "englishTaughtBachelors": "Available at the larger universities and the business schools; not at the Art Academy.",
+    "localLanguageRequired": false
+  },
+  "sectorLandscape": {
+    "summary": "Every Latvian higher education institution is an augstskola. The universitāte is the kind that offers academic as well as professional degrees; the other augstskolas, the akadēmijas and the koledžas offer professional programmes. The koledža is the one foreign guidance rarely mentions: a two-to-three-year first-level professional qualification that you can build on later.",
+    "routes": [
+      {
+        "localName": "universitāte",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Academic and professional bachelor's degrees — the University of Latvia, Riga Technical University, Rīga Stradiņš and others. Where most English-taught bachelor's and Medicine sit.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "augstskola",
+        "englishName": "higher education institution",
+        "kind": "applied",
+        "what": "Non-university institutions teaching professional bachelor's degrees, often more applied and more regional. Several private business schools, including SSE Riga and Turība, are in this group and teach in English.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Also the umbrella word for all higher education institutions, which is confusing on first reading."
+      },
+      {
+        "localName": "akadēmija",
+        "englishName": "academy",
+        "kind": "specialist",
+        "what": "Art and music academies admitting on portfolio or audition. The Art Academy of Latvia offers no English-taught bachelor's.",
+        "ibAccessible": "partly",
+        "englishTaught": "rare",
+        "note": "Not researched in detail here."
+      },
+      {
+        "localName": "koledža",
+        "englishName": "college",
+        "kind": "college",
+        "what": "First-level professional higher education, two to three years after secondary school. Qualifies you to work in the occupation or to continue into a related higher education programme.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Recorded so the route is visible. Not researched for international applicants."
+      }
+    ],
+    "evidence": [
+      "ev-lv-eurydice-institutions",
+      "ev-lv-eurydice-short-cycle",
+      "ev-lma-study-options"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-lv-studyinlatvia-admission",
+    "ev-rsu-when-apply-2027",
+    "ev-sseriga-admission-2027",
+    "ev-turiba-admission"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "Not established: whether an EU citizen from Denmark can compete for Latvian state-funded (budget) places on an English-taught programme; whether institutions admit on predicted IB grades.",
+      "ibRecognition and feeContext deliberately omitted; the country profile carries the inline-sourced version until Evidence exists for them.",
+      "Programme-level records not yet created."
+    ]
+  }
+}

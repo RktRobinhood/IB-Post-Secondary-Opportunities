@@ -1,0 +1,86 @@
+{
+  "id": "lt",
+  "iso2": "lt",
+  "name": "Lithuania",
+  "adjective": "Lithuanian",
+  "scope": "europe",
+  "region": "Baltics",
+  "capital": "Vilnius",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Two doors, and one opens after results day",
+  "summary": "Lithuania has two ways in for an EU student. Apply to the university directly for a fee-paying place, on its own calendar — or apply through LAMA BPO, the joint admission system, for a state-funded place. LAMA BPO's main round has closed in late July, after IB results, and it says IB grades need no conversion.",
+  "whyConsider": [
+    "EU citizens can compete for state-funded places on English-taught programmes, including at Vilnius University.",
+    "The joint round has closed after IB results are published, so you can apply knowing your grades."
+  ],
+  "watchOuts": [
+    "At Vilnius University, English-taught Medicine and Dentistry are not state-funded; they are applied for directly and paid for.",
+    "The 2027 LAMA BPO schedule is not yet published. In 2026 the main round ran 1 June to 23 July, and contracts had to be signed in person.",
+    "Recognition of your diploma can take a month or more. Start early."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "subjectLevelRule": "For a state-funded place through LAMA BPO, the IB Diploma is uploaded as it is; LAMA BPO says IB subjects and grades need no conversion.",
+    "evidence": [
+      "ev-lamabpo-international"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "Available at most universities and at some colleges.",
+    "localLanguageRequired": false,
+    "notes": [
+      "ISM accepts an IB Diploma as proof of English."
+    ]
+  },
+  "sectorLandscape": {
+    "summary": "Lithuania has two kinds of higher education institution: the universitetas, which teaches university-level degrees and does research, and the kolegija, which teaches college-level professional degrees and does applied research. The kolegija is the more practical route, and some teach programmes in English.",
+    "routes": [
+      {
+        "localName": "universitetas",
+        "englishName": "university",
+        "kind": "research",
+        "what": "University-level bachelor's and integrated degrees — Vilnius, KTU, LSMU, VMU, VILNIUS TECH and others. Where most English-taught bachelor's and English-taught Medicine sit.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "kolegija",
+        "englishName": "college (university of applied sciences)",
+        "kind": "applied",
+        "what": "College-level professional study with placements. Kauno kolegija, one of the largest, admits EU applicants to English-taught programmes through its own portal, 1 December to 1 June.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Only Kauno kolegija was read in this pass."
+      }
+    ],
+    "evidence": [
+      "ev-lt-eurydice-institutions",
+      "ev-kaunokolegija-application"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-lamabpo-international",
+    "ev-lamabpo-key-dates-2026",
+    "ev-vu-state-funded",
+    "ev-lt-studyin-procedure"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-03-31",
+    "notes": [
+      "Not established: how the LAMA BPO competitive score is built from IB grades; how many choices it allows; which English-taught programmes outside Vilnius University carry state-funded places.",
+      "Unreconciled: LAMA BPO says IB grades need no conversion, while Vilnius University says SKVC determines subject equivalents for foreign qualifications.",
+      "feeContext deliberately omitted; the country profile carries the inline-sourced version until Evidence exists for it.",
+      "Programme-level records not yet created."
+    ]
+  }
+}

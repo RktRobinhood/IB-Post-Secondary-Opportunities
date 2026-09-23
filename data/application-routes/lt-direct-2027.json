@@ -1,0 +1,122 @@
+{
+  "id": "lt-direct-2027",
+  "destination": "lt",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Lithuanian institution for autumn 2027",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-lsmu-open",
+      "type": "open",
+      "label": "LSMU: application portal opens",
+      "date": "2026-11-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "LSMU advises applying as early as possible; entrance tests begin in mid-January.",
+      "evidence": [
+        "ev-lsmu-calendar"
+      ]
+    },
+    {
+      "id": "ms-ism-early",
+      "type": "submit",
+      "label": "ISM: early admission closes",
+      "date": "2027-04-30",
+      "consequence": "priority",
+      "provisional": true,
+      "evidence": [
+        "ev-ism-admission"
+      ]
+    },
+    {
+      "id": "ms-others",
+      "type": "submit",
+      "label": "Most other institutions: their own closing date",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Study in Lithuania says most autumn deadlines fall in June. Kauno kolegija's EU window runs 1 December to 1 June.",
+      "evidence": [
+        "ev-lt-studyin-procedure",
+        "ev-kaunokolegija-application"
+      ]
+    },
+    {
+      "id": "ms-lsmu-primary",
+      "type": "submit",
+      "label": "LSMU: primary application deadline",
+      "date": "2027-07-06",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "The system closes at 00:00, so in practice the night before.",
+      "evidence": [
+        "ev-lsmu-calendar"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    },
+    {
+      "id": "ms-ism-main",
+      "type": "submit",
+      "label": "ISM: main admission closes (visa-free countries)",
+      "date": "2027-07-24",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": [
+        "ev-ism-admission"
+      ]
+    },
+    {
+      "id": "ms-lsmu-final",
+      "type": "submit",
+      "label": "LSMU: final application deadline",
+      "date": "2027-07-30",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Late applications are considered only if places remain.",
+      "evidence": [
+        "ev-lsmu-calendar"
+      ]
+    },
+    {
+      "id": "ms-ism-diploma",
+      "type": "document",
+      "label": "ISM: final diploma due",
+      "date": "2027-08-01",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": [
+        "ev-ism-admission"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply to each institution through its own portal. EU citizens can also try for a state-funded place through LAMA BPO.",
+    "Start diploma recognition early; it can take a month or more."
+  ],
+  "evidence": [
+    "ev-lt-studyin-procedure",
+    "ev-lsmu-calendar",
+    "ev-ism-admission"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-11-15",
+    "notes": [
+      "LSMU and ISM dates are their 2026 calendars carried forward one year, marked provisional.",
+      "Not established: 2027 dates at Vilnius University, KTU, VMU, VILNIUS TECH, MRU, Klaipėda, LCC and the arts academies."
+    ]
+  }
+}

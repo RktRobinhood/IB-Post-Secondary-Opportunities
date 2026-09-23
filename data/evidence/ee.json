@@ -1,0 +1,200 @@
+[
+  {
+    "id": "ev-ee-dreamapply-portal",
+    "sourceUrl": "https://estonia.dreamapply.com/",
+    "publisher": "Study in Estonia application portal (DreamApply)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Nine Estonian higher education institutions take international applications through one shared DreamApply portal: the Estonian Academy of Arts, the Estonian Academy of Music and Theatre, the Estonian Aviation Academy, Estonian Business School, the Estonian Entrepreneurship University of Applied Sciences, the Estonian University of Life Sciences, Tallinn University, Tallinn University of Technology and the University of Tartu.",
+    "excerpt": "Estonian Academy of Arts · Estonian Academy of Music and Theatre · Estonian Aviation Academy · Estonian Business School · Estonian Entrepreneurship University of Applied Sciences · Estonian University of Life Sciences · Tallinn University · Tallinn University of Technology · University of Tartu",
+    "interpretation": "One account, nine institutions, but not a central admission: the portal publishes no common deadline, fee or decision rule, and the dated items on it are each institution's own news (TalTech's 2025 bachelor round closing on 1 June; the Academy of Arts' master's deadline). So the route is recorded as direct, with this portal as the shared front door. Tallinn Health University of Applied Sciences and the Baltic Methodist Theological Seminary are not on it and take applications themselves.",
+    "supports": [
+      {
+        "entity": "ee-direct-2027",
+        "field": "channel"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-ee-sie-bachelors-list",
+    "sourceUrl": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes",
+    "publisher": "Study in Estonia (Education and Youth Board, Harno)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The national list of English-taught bachelor's programmes names about thirty programmes at eleven institutions. Tallinn University has the most (six); TalTech has four; the University of Tartu three, including six-year Medicine; the Estonian University of Life Sciences only Veterinary Medicine; Tallinn Health University of Applied Sciences only Assistant Pharmacist; the Baltic Methodist Theological Seminary only Theology and Mission.",
+    "excerpt": "Overview of all Bachelor's programmes taught in English by Estonian universities, including tuition fees and links to admissions portal.",
+    "interpretation": "Neither the Estonian Academy of Arts nor Tartu Applied Health Sciences University appears on the list, which agrees with the Academy of Arts requiring B2 Estonian for its bachelor's programmes and with Tartu Applied Health's English pages naming only master's and exchange study.",
+    "supports": [
+      {
+        "entity": "ee",
+        "field": "sectorLandscape"
+      },
+      {
+        "entity": "ee",
+        "field": "language"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "The page lists programmes without a total; the count of about thirty is ours, from the list."
+    }
+  },
+  {
+    "id": "ev-ee-sie-institutions",
+    "sourceUrl": "https://www.studyinestonia.ee/study/universities",
+    "publisher": "Study in Estonia (Education and Youth Board, Harno)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Estonia has 18 higher education institutions: six public research universities, one private research university, seven state universities of applied sciences and four private ones. Eleven of them teach programmes in English; the rest teach only in Estonian.",
+    "excerpt": "6 public research universities · 1 privately owned research university · 7 state universities of applied sciences · 4 private universities of applied sciences",
+    "supports": [
+      {
+        "entity": "ee",
+        "field": "sectorLandscape"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-ee-eurydice-first-cycle",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/eurypedia/estonia/bachelors-studies-and-studies-professional-higher-education",
+    "publisher": "Eurydice (European Commission), national description for Estonia",
+    "publisherType": "other",
+    "sourceClass": "encyclopaedic",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Estonian first-cycle higher education has two branches: theory-based bachelor's study at universities (ülikool) and professional higher education (rakenduskõrgharidus) at professional higher education institutions (rakenduskõrgkool). Both take three to four years (180–240 ECTS) and both give access to master's study.",
+    "excerpt": "The standard period of Bachelor's study as well as of professional higher education study is three to four years and the study load prescribed in the curriculum is 180–240 European Credit Transfer System credits.",
+    "supports": [
+      {
+        "entity": "ee",
+        "field": "sectorLandscape"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page last updated 24 November 2025. Used for the structure and the local names only."
+    }
+  },
+  {
+    "id": "ev-tlu-deadlines-2027",
+    "sourceUrl": "https://www.tlu.ee/en/application-deadlines",
+    "publisher": "Tallinn University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Applications to all Tallinn University bachelor's programmes for autumn 2027 run from 1 November 2026 to 1 March 2027.",
+    "excerpt": "All Bachelors's programmes … November 1, 2026 – March 1, 2027",
+    "interpretation": "The only 2027-entry bachelor's deadline published by an Estonian institution on the day this was read. It falls four months before IB results.",
+    "supports": [
+      {
+        "entity": "ee-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "The page gives no time of day and no separate EU and non-EU dates."
+    }
+  },
+  {
+    "id": "ev-eamt-admission-dates",
+    "sourceUrl": "https://eamt.ee/en/admissions/admission-dates/",
+    "publisher": "Estonian Academy of Music and Theatre",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The Academy will publish its 2027 admission dates in December 2026. English-language curricula are applied for through DreamApply; Estonian-language ones through SAIS.",
+    "excerpt": "Information about next year's admissions will be published in December 2026.",
+    "supports": [
+      {
+        "entity": "ee-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-euas-bachelors",
+    "sourceUrl": "https://euas.eu/admissions/bachelor_s_programs/",
+    "publisher": "Estonian Entrepreneurship University of Applied Sciences",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "EUAS lists four English-taught bachelor's programmes. The deadlines on the page are for 2026 entry only — non-EU citizens until 30 June 2026, EU citizens until 20 September 2026 — so no 2027 date is published.",
+    "excerpt": "Non-EU citizens: now until 30.06.2026 … EU citizens: now until 20.09.2026",
+    "interpretation": "Shows how late a university of applied sciences can run for EU applicants — after IB results — but it is the 2026 pattern, not a 2027 date.",
+    "supports": [
+      {
+        "entity": "ee-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Programmes listed: Creativity and Business Innovation (and a joint version), Artificial Intelligence Driven Software Technologies and Entrepreneurship, Game Design and Development. The national list still carries an older programme name."
+    }
+  }
+]

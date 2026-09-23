@@ -1,0 +1,132 @@
+{
+  "id": "lv-direct-2027",
+  "destination": "lv",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Latvian institution for autumn 2027",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-rsu-med-open",
+      "type": "open",
+      "label": "RSU: Medicine and Dentistry applications open",
+      "date": "2027-03-01",
+      "consequence": "indicative",
+      "evidence": [
+        "ev-rsu-when-apply-2027"
+      ]
+    },
+    {
+      "id": "ms-sse-close",
+      "type": "submit",
+      "label": "SSE Riga: BSc applications close",
+      "date": "2027-04-06",
+      "consequence": "hard",
+      "audience": "any",
+      "evidence": [
+        "ev-sseriga-admission-2027"
+      ]
+    },
+    {
+      "id": "ms-sse-test",
+      "type": "test",
+      "label": "SSE Riga: admissions test",
+      "date": "2027-04-17",
+      "timeOfDay": "10:00",
+      "timeZone": "Eastern European Time",
+      "consequence": "hard",
+      "note": "Mathematics, logical reasoning and English, about four hours. Top performers are interviewed 11–28 May.",
+      "evidence": [
+        "ev-sseriga-admission-2027"
+      ]
+    },
+    {
+      "id": "ms-rsu-noneu-close",
+      "type": "submit",
+      "label": "RSU: applications close for non-EU/EEA applicants",
+      "date": "2027-05-01",
+      "consequence": "hard",
+      "audience": "non-eu",
+      "evidence": [
+        "ev-rsu-when-apply-2027"
+      ]
+    },
+    {
+      "id": "ms-sse-results",
+      "type": "result",
+      "label": "SSE Riga: results for EU applicants",
+      "date": "2027-06-08",
+      "consequence": "indicative",
+      "note": "A month before IB results.",
+      "evidence": [
+        "ev-sseriga-admission-2027"
+      ]
+    },
+    {
+      "id": "ms-rsu-eu-close",
+      "type": "submit",
+      "label": "RSU: applications close for EU/EEA applicants",
+      "date": "2027-07-01",
+      "consequence": "hard",
+      "audience": "eu-eea-ch",
+      "note": "Medicine, Dentistry and International Business & Start-up Entrepreneurship. Five days before IB results.",
+      "evidence": [
+        "ev-rsu-when-apply-2027"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    },
+    {
+      "id": "ms-turiba-close",
+      "type": "submit",
+      "label": "Turība: autumn intake applications close",
+      "date": "2027-08-01",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Published as \"February 1 to August 1\" with no year. The one window found that stays open after IB results.",
+      "evidence": [
+        "ev-turiba-admission"
+      ]
+    },
+    {
+      "id": "ms-others",
+      "type": "submit",
+      "label": "Every other institution: its own closing date",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "There is no central application for international students. Check each programme page.",
+      "evidence": [
+        "ev-lv-studyinlatvia-admission"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Apply to each institution separately; there is no shared portal or ranking of choices.",
+    "Budget time for recognition of your diploma by the Academic Information Centre — it is a step in every application."
+  ],
+  "evidence": [
+    "ev-lv-studyinlatvia-admission",
+    "ev-rsu-when-apply-2027",
+    "ev-sseriga-admission-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "Not established: 2027 closing dates at the University of Latvia, Riga Technical University, LBTU, Ventspils, Liepāja, the music academy and TSI. rtu.lv and liepu.lv return 403 to automated requests.",
+      "Not established: whether Latvian institutions admit on predicted IB grades."
+    ]
+  }
+}

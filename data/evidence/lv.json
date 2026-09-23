@@ -1,0 +1,194 @@
+[
+  {
+    "id": "ev-lv-studyinlatvia-admission",
+    "sourceUrl": "https://studyinlatvia.lv/admission/entrance-requirements",
+    "publisher": "Study in Latvia (State Education Development Agency)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "There is no central application for international students in Latvia: each university runs its own admission procedure, on top of some general requirements binding on all institutions. Recognition of the school diploma is a step in every application.",
+    "excerpt": "Please contact the university to have detailed information on the admission procedure, because each university's admission procedure may vary!",
+    "supports": [
+      {
+        "entity": "lv-direct-2027",
+        "field": "channel"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "studyinlatvia.lv/admission redirects to /admission/entrance-requirements. The page does not mention the IB."
+    }
+  },
+  {
+    "id": "ev-lv-eurydice-institutions",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/national-education-systems/latvia/latvia",
+    "publisher": "Eurydice (European Commission), national description for Latvia",
+    "publisherType": "other",
+    "sourceClass": "encyclopaedic",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Latvian higher education is provided by autonomous public and private institutions (augstskola): universities (universitāte) offer academic and professional programmes; other augstskola, akadēmija or koledža offer professional programmes.",
+    "excerpt": "Higher education is provided by rather autonomous public and private higher education institutions (augstskola): these are universities (universitāte), offering both academic and professional tertiary programmes; other augstskola, akadēmija or koledža offer professional tertiary programmes.",
+    "supports": [
+      {
+        "entity": "lv",
+        "field": "sectorLandscape"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page last updated 3 September 2026."
+    }
+  },
+  {
+    "id": "ev-lv-eurydice-short-cycle",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/national-education-systems/latvia/short-cycle-higher-education",
+    "publisher": "Eurydice (European Commission), national description for Latvia",
+    "publisherType": "other",
+    "sourceClass": "encyclopaedic",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "First-level professional higher education — two to three years after secondary school — is offered at a koledža and at an augstskola, and allows working in the occupation or continuing in the relevant higher education programme.",
+    "excerpt": "First level higher professional education programmes (2-3 years after upper-secondary education) are available at koledža and augstskola.",
+    "supports": [
+      {
+        "entity": "lv",
+        "field": "sectorLandscape"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page last updated 14 January 2024."
+    }
+  },
+  {
+    "id": "ev-rsu-when-apply-2027",
+    "sourceUrl": "https://www.rsu.lv/en/study-here/admissions/when-apply",
+    "publisher": "Rīga Stradiņš University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "For the September 2027 intake, Medicine and Dentistry applications run 1 March to 1 July 2027 for EU/EEA applicants and 1 March to 1 May 2027 for non-EU/EEA applicants. International Business & Start-up Entrepreneurship closes on 1 July 2027 (EU/EEA) and 1 May 2027 (non-EU/EEA).",
+    "excerpt": "Medicine & Dentistry … EU/EEA: 1 Mar – 1 Jul 2027 … Non-EU/EEA: 1 Mar – 1 May 2027 … International Business & Start-up Entrepreneurship … EU/EEA: 1 Sep 2025 – 1 Jul 2027",
+    "interpretation": "The 1 Sep 2025 opening in the business row looks like the previous intake's date left in the table; the closing dates are not in doubt. Both EU closing dates fall five days before IB results.",
+    "supports": [
+      {
+        "entity": "lv-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-sseriga-admission-2027",
+    "sourceUrl": "https://www.sseriga.edu/education/bachelor/admission",
+    "publisher": "Stockholm School of Economics in Riga",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "For the 2027 BSc intake SSE Riga's application deadline is 6 April 2027, its admissions test is on 17 April 2027 from 10:00 Eastern European Time, interviews run 11–28 May, EU results are published 8 June and EU registration closes 25 July 2027.",
+    "excerpt": "April 6, 2027 … April 17, 2027, starting at 10:00 … May 11 to May 28, 2027 … June 8, 2027 … July 25, 2027",
+    "interpretation": "Results come a month before IB results. The page asks for minimum grades in Mathematics and English and does not mention the IB, so how it reads an IB transcript is a question to ask SSE Riga.",
+    "supports": [
+      {
+        "entity": "lv-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-turiba-admission",
+    "sourceUrl": "https://www.turiba.lv/en/admission/admission",
+    "publisher": "Turība University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Turība's autumn intake takes applications from 1 February to 1 August, with no year given. Applicants apply online, sit an English test and a subject test, pay a EUR 250 non-refundable fee and have a video interview.",
+    "excerpt": "From February 1 to August 1",
+    "interpretation": "No year on the page, so the 2027 dates in the route are this window carried forward and marked provisional. It is the one Latvian window found that stays open after IB results.",
+    "supports": [
+      {
+        "entity": "lv-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-lma-study-options",
+    "sourceUrl": "https://www.lma.lv/en/studies/study-options",
+    "publisher": "Art Academy of Latvia",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "The Art Academy of Latvia's English pages offer international students exchange study and a joint master's (Service Design and Innovations); they describe no English-taught bachelor's degree for degree-seeking students.",
+    "excerpt": "the new international program Service Design and Innovations for the joint MA degree is available for Master level studies",
+    "interpretation": "An absence, read on three pages (study options, study programmes, application — the last is for exchange students only). Recorded so the Academy is not read as an English-taught bachelor's option.",
+    "supports": [
+      {
+        "entity": "lv",
+        "field": "language"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Baltics research pass (Estonia, Latvia, Lithuania)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Also read: https://www.lma.lv/en/studies/study-programmes-1 and https://www.lma.lv/en/studies/application."
+    }
+  }
+]
