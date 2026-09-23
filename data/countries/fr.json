@@ -23,7 +23,7 @@
     "Parcoursup runs on French-school logic and closes wishes in March, long before your IB results, so everything rides on predicted grades and your dossier",
     "Grandes écoles fees are steep and mostly not income-adjusted: ESCP's BSc is €20,800 a year for European students in the 2027 intake, and École Polytechnique's Bachelor €15,900",
     "French universities can require proof of French (DELF/DALF or TCF) for French-taught degrees; requirements vary by institution and were not verified during research",
-    "The exact Parcoursup 2027 calendar was not published on an accessible official page at the time of research — treat the dates below as the shape of the year, not as confirmed"
+    "The Parcoursup 2027 calendar did not exist yet on 23 September 2026 — the official calendar page still showed the 2026 cycle, and the ministry publishes the next one in November or December, so treat the winter dates below as the shape of the year rather than as confirmed"
   ],
   "ibRecognition": {
     "accepted": true,
@@ -49,56 +49,108 @@
         "label": "Parcoursup — registration and wishes open",
         "date": "2026-01-19",
         "consequence": "indicative",
-        "year": "2026 entry — 2027 date not yet published",
-        "notes": "Campus France states that for 2026 entry, registration and the submission of wishes opened on 19 January 2026, with the programme catalogue browsable from 17 December 2025. Expect the 2027 cycle to open in mid-January 2027 and confirm on parcoursup.gouv.fr.",
-        "source": "https://www.campusfrance.org/en/parcoursup-2026-your-best-companion-for-an-overview-of-the-25000-training-courses-in-france"
+        "provisional": false,
+        "year": "2026 cycle — the 2027 opening date is not yet announced",
+        "notes": "Read on the official Parcoursup calendar page on 2026-09-23, in French, using a browser: that page returns HTTP 403 to automated retrieval but serves normally to a browser. It published the 2026 cycle as \"Du lundi 19 janvier au jeudi 12 mars 2026 : je m'inscris et je formule mes vœux\". As of 23 September 2026 the page still shows only the 2026 calendar, so the 2027 opening date is not announced; the ministry normally publishes the next calendar in November or December. Context, not a milestone: the 2026 programme catalogue opened for browsing on 17 December 2025 (\"Mercredi 17 décembre 2025 : je découvre la carte des formations Parcoursup 2026\"), which is a browsing date rather than something you must do.",
+        "source": "https://www.parcoursup.gouv.fr/calendrier"
       },
       {
         "label": "Sciences Po — first round for foreign secondary diplomas (2027 intake)",
         "date": "2026-11-04",
+        "timeOfDay": "23:59",
+        "timeZone": "Paris time",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Apply by this date and you get your result in mid-January 2027. Interviews for this round run 8–18 December 2026.",
+        "notes": "Sciences Po publishes all three round deadlines as \"Paris time (11.59pm)\". Apply by this date and you get your result in mid-January 2027 — the school publishes only the month, not a result day. The interview window for this round is a separate entry.",
+        "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
+      },
+      {
+        "label": "Sciences Po — interviews, first round (2027 intake)",
+        "date": "2026-12-08",
+        "endDate": "2026-12-18",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"from 8 December 2026 until 18 December 2026\". The remote interview is worth 50 of the 100 points, and Sciences Po states that missing it means rejection — so this window is a hard commitment, not a courtesy invitation. You are interviewed in this window if you applied in the 4 November 2026 round.",
         "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
       },
       {
         "label": "Sciences Po — second round, and Émile Boutmy scholarship deadline (2027 intake)",
         "date": "2027-01-13",
+        "timeOfDay": "23:59",
+        "timeZone": "Paris time",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Results at the beginning of April 2027; interviews 8–19 March 2027. This is also the deadline to apply for the Émile Boutmy scholarship.",
+        "notes": "Published as \"Paris time (11.59pm)\". Results at the beginning of April 2027 — the school publishes only the month. This is also the deadline to apply for the Émile Boutmy scholarship. The interview window for this round is a separate entry.",
         "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
       },
       {
         "label": "Sciences Po — final round and dual-degree deadline (2027 intake)",
         "date": "2027-03-01",
+        "timeOfDay": "23:59",
+        "timeZone": "Paris time",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Results in early May 2027; interviews 13–23 April 2027. Dual degrees with Freie Universität Berlin, Hong Kong University, Keio, ESCP and Luiss also close on 1 March 2027.",
+        "notes": "Published as \"Paris time (11.59pm)\". Results in early May 2027 — the school publishes only the month. Dual degrees with Freie Universität Berlin, Hong Kong University, Keio, ESCP and Luiss also close on this date. The interview window for this round is a separate entry.",
+        "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
+      },
+      {
+        "label": "Sciences Po — interviews, second round (2027 intake)",
+        "date": "2027-03-08",
+        "endDate": "2027-03-19",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"from 8 March 2027 until 19 March 2027\". You are interviewed in this window if you applied in the 13 January 2027 round. Missing the interview means rejection.",
+        "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
+      },
+      {
+        "label": "Sciences Po — interviews, final round (2027 intake)",
+        "date": "2027-04-13",
+        "endDate": "2027-04-23",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"from 13 April 2027 until 23 April 2027\". You are interviewed in this window if you applied in the 1 March 2027 round. Missing the interview means rejection.",
         "source": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
       },
       {
         "label": "Parcoursup — deadline to enter your wishes",
-        "dateState": "not-published",
+        "dateState": "not-yet-announced",
         "consequence": "hard",
-        "year": "2027 entry — not verified",
-        "notes": "In the 2026 cycle this fell in mid-March. The official Parcoursup calendar page could not be read during this research, so no date is recorded. Check https://www.parcoursup.gouv.fr/calendrier as soon as the 2027 calendar appears.",
+        "provisional": false,
+        "year": "2027 entry — the 2027 calendar is not yet published",
+        "notes": "Checked on the official Parcoursup calendar page on 2026-09-23. The page is live and readable in French in a browser, but it returns HTTP 403 to automated retrieval, which is what the earlier research recorded as \"could not be read\" — the page is not dead. On that date it still showed only the 2026 calendar, whose wording was \"Jeudi 12 mars 2026 : dernier jour pour formuler mes vœux\". No 2027 date exists yet; the ministry normally publishes the following year's calendar in November or December, so expect the 2027 date around mid-March 2027 and re-check the same page from December 2026. Aggregator sites already print 13 March 2027, but they label it prévisionnel and it is not on any official page, so it is not recorded here.",
         "source": "https://www.parcoursup.gouv.fr/calendrier"
       },
       {
         "label": "Parcoursup — deadline to confirm your wishes",
-        "dateState": "not-published",
+        "dateState": "not-yet-announced",
         "consequence": "hard",
-        "year": "2027 entry — not verified",
-        "notes": "In the 2026 cycle this fell at the start of April, with admission results from early June and the main phase ending in mid-July. The official Parcoursup calendar page could not be read during this research, so no date is recorded. Check https://www.parcoursup.gouv.fr/calendrier as soon as the 2027 calendar appears.",
+        "provisional": false,
+        "year": "2027 entry — the 2027 calendar is not yet published",
+        "notes": "Checked on the official Parcoursup calendar page on 2026-09-23, in French, in a browser; the page refuses automated retrieval with HTTP 403 but is otherwise live. It still showed only the 2026 calendar, whose wording was \"Mercredi 1er avril 2026 : dernier jour pour compléter mon dossier et confirmer mes vœux\". A wish you do not confirm is lost, so this is the second hard gate and it falls about three weeks after the first. No 2027 date is published yet.",
+        "source": "https://www.parcoursup.gouv.fr/calendrier"
+      },
+      {
+        "label": "Parcoursup — admission phase: answering the offers you receive",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry — the 2027 calendar is not yet published",
+        "notes": "Once the admission phase opens you must answer each offer within a short published window or lose it, so this is a period you have to be reachable in, not a single date. The 2026 calendar, read in French in a browser on 2026-09-23, ran it as \"Mardi 2 juin 2026 : début de la phase d'admission\" through \"Samedi 11 juillet 2026 : fin de la phase principale\", with the complementary phase from 11 June 2026 to 10 September 2026 and response deadlines suspended during the baccalauréat written exams. The 2027 equivalents are not yet published.",
         "source": "https://www.parcoursup.gouv.fr/calendrier"
       },
       {
         "label": "CVEC payment before administrative enrolment",
-        "dateState": "not-published",
+        "dateState": "no-central-deadline",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027/28",
-        "notes": "You pay the CVEC online and present the attestation before you can complete administrative enrolment, normally from early July once you have definitively accepted a place.",
+        "notes": "There is no fixed national date: the CVEC portal, read in French on 2026-09-23, says to pay \"au plus près de votre inscription effective\" and that payment must be made \"préalablement à son inscription\", because the attestation is what lets you enrol. In practice that means from early July once you have definitively accepted a place. Context, not a milestone: the same page gives 31 May 2027 as the close of the 2026-2027 refund campaign, which only concerns students who paid and were in fact exempt.",
         "source": "https://cvec.etudiant.gouv.fr/"
       }
     ],
@@ -419,9 +471,9 @@
       "retrieved": "2026-09-22"
     },
     {
-      "title": "Parcoursup — official calendar page (not accessible during research; check for the 2027 dates)",
+      "title": "Parcoursup — official calendar page (French; live, but refuses automated retrieval with HTTP 403 — read in a browser on 2026-09-23, and still showing the 2026 cycle only)",
       "url": "https://www.parcoursup.gouv.fr/calendrier",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-23"
     },
     {
       "title": "Sciences Po — undergraduate admissions for applicants from foreign secondary schools, 2027 intake dates",
