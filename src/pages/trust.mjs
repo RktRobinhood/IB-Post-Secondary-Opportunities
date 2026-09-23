@@ -2,6 +2,7 @@ import { html, raw, md, plural } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, note, sectionHead, crumbs, facts, dataTable, stamp } from '../lib/components.mjs';
 import { STATE } from '../lib/primitives.mjs';
+import { assessAll, FLOOR_CHECKS } from '../lib/publication-floor.mjs';
 
 /**
  * Trust, corrections and privacy — the page a counsellor reads before deciding
@@ -22,6 +23,14 @@ export function trust(site) {
   }
 
   const ev = site.evidenceSummary || {};
+
+  /* Where every Destination stands against the publication floor, computed at
+     build time from the records rather than maintained by hand. A page that
+     claims a standard has to be able to show its own working, and this is the
+     one number on the site that gets worse when we add a country. */
+  const floor = assessAll(site.countries, site.graph);
+  const met = floor.filter((f) => f.met);
+  const queue = floor.filter((f) => !f.met).sort((a, b) => b.missing.length - a.missing.length || a.name.localeCompare(b.name));
 
   const body = html`
 ${hero({
@@ -116,6 +125,45 @@ ${hero({
           ${ev.lastCheckedAt ? `Last run on ${ev.lastCheckedAt}.` : ''} Every build prints both numbers, so
           neither can quietly rot.`,
           { kind: 'warn', title: 'The honest number' }
+        )}
+
+        <h3 id="floor">How far each destination has been researched</h3>
+        <p>Coverage on this site is uneven by an order of magnitude, and for a long time every page presented
+        its own depth with the same confidence. The five checks below are what a destination has to clear
+        before we treat it as researched. They are run on every build against the records themselves —
+        nothing in a file can claim to have passed them.</p>
+
+        ${dataTable({
+          caption: 'What each check asks',
+          head: ['Check', 'What it means'],
+          rows: FLOOR_CHECKS.map((c) => [html`<strong>${c.title}</strong>`, c.why]),
+        })}
+
+        <p><strong>${met.length} of ${floor.length}</strong> destinations currently meet all five.
+        The rest are labelled on their own pages as outlines, at the top rather than the bottom — a student
+        who reads to the end of a sketch and only then learns it was a sketch has already been misled.</p>
+
+        ${queue.length
+          ? html`<details class="acc">
+              <summary>The ${queue.length} still short, and what each one is missing</summary>
+              ${dataTable({
+                caption: 'Outstanding research, worst first',
+                head: ['Destination', 'Short by', 'What is missing'],
+                rows: queue.map((f) => [
+                  f.name,
+                  `${f.missing.length} of ${FLOOR_CHECKS.length}`,
+                  f.missing.map((m) => m.detail).join('; '),
+                ]),
+              })}
+            </details>`
+          : ''}
+
+        ${note(
+          `Publishing a destination is an act that commits us to it. The moment a destination gets its
+          canonical record, the build starts holding it to all five checks and the test suite fails until it
+          meets them — so the cost of a half-finished country is a broken build rather than a page that
+          quietly looks as authoritative as Denmark's.`,
+          { kind: 'accent', title: 'Why this list can be trusted to be complete' }
         )}
 
         <h2 id="ai">What automation is and is not allowed to do</h2>
