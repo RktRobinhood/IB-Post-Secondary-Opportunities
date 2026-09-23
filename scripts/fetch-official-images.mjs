@@ -14,6 +14,7 @@
  *   node scripts/fetch-official-images.mjs --only=dtu,cbs
  *   node scripts/fetch-official-images.mjs --verify     # re-check existing links still resolve
  *   node scripts/fetch-official-images.mjs --report     # what is too heavy to publish
+ *   node scripts/fetch-official-images.mjs --shrink     # ask their CDN for a smaller copy
  *
  * Writes data/official-images.json. Anything that 404s later is caught by
  * `npm run check:links`, and the build silently falls back to the Commons photo.
@@ -42,6 +43,7 @@ const args = process.argv.slice(2);
 const REFRESH = args.includes('--refresh');
 const VERIFY_ONLY = args.includes('--verify');
 const REPORT_ONLY = args.includes('--report');
+const SHRINK_ONLY = args.includes('--shrink');
 const ONLY = (args.find((a) => a.startsWith('--only=')) || '').replace('--only=', '').split(',').filter(Boolean);
 
 const MIN_BYTES = 12_000;
@@ -88,12 +90,35 @@ function dimensions(buf, type) {
   return null;
 }
 
+/**
+ * Un-escape a URL taken out of an HTML attribute.
+ *
+ * Once is not enough: Malmö University publishes its og:image with the query
+ * separator written as `&amp;amp;`, so a single pass leaves `&amp;` in the
+ * stored URL, the template escapes it again on output, and the page ships
+ * `&amp;amp;` — which the built-site checker catches as a double-escaped
+ * entity. Loop until it stops changing.
+ */
+function unescapeUrl(value) {
+  let out = String(value).trim();
+  for (let i = 0; i < 4; i++) {
+    const next = out
+      .replace(/&amp;/gi, '&')
+      .replace(/&#0*38;/g, '&')
+      .replace(/&quot;/gi, '"')
+      .replace(/&#0*39;|&apos;/gi, "'");
+    if (next === out) break;
+    out = next;
+  }
+  return out;
+}
+
 function metaImages(html, baseUrl) {
   const found = [];
   const push = (v) => {
     if (!v) return;
     try {
-      const abs = new URL(v.trim().replace(/&amp;/g, '&'), baseUrl).href;
+      const abs = new URL(unescapeUrl(v), baseUrl).href;
       if (!REJECT.test(abs)) found.push(abs);
     } catch {}
   };
@@ -110,6 +135,46 @@ function metaImages(html, baseUrl) {
     while ((m = re.exec(html))) push(m[1]);
   }
   return [...new Set(found)];
+}
+
+/**
+ * Ask the institution's own CDN for a smaller copy.
+ *
+ * A press office exports at print size and the CMS serves it raw, so the best
+ * picture of a place is often the one we cannot afford to show. Most content
+ * platforms will resize on request, from the same server, which is theirs to do
+ * and ours to link to: AAU's Umbraco turns a 7.4 MB JPEG into a 150 KB WebP.
+ *
+ * Servers that do not support a parameter mostly ignore it and return the
+ * original, so a variant is only accepted if it actually came back smaller.
+ */
+const RESIZERS = [
+  { name: 'umbraco/webp', params: { width: '1600', format: 'webp' } },
+  { name: 'umbraco', params: { width: '1600' } },
+  { name: 'imgix', params: { w: '1600', fm: 'webp' } },
+  { name: 'wordpress', params: { resize: '1600,1000' } },
+  { name: 'sitecore', params: { mw: '1600' } },
+];
+
+async function shrink(url, originalBytes) {
+  for (const r of RESIZERS) {
+    let candidate;
+    try {
+      const u = new URL(url);
+      for (const [k, v] of Object.entries(r.params)) u.searchParams.set(k, v);
+      candidate = u.href;
+    } catch {
+      continue;
+    }
+    const info = await head(candidate);
+    if (!info) continue;
+    // Ignored parameters come back as the original file, byte for byte.
+    if (info.bytes >= originalBytes * 0.9) continue;
+    if (info.bytes > OFFICIAL_MAX_BYTES) continue;
+    if (info.dims && (info.dims.w < 600 || info.dims.w / info.dims.h < 1.1)) continue;
+    return { url: candidate, resizedBy: r.name, ...info };
+  }
+  return null;
 }
 
 async function officialImageFor(pages) {
@@ -179,6 +244,29 @@ function slug(s) {
 async function main() {
   let picks = {};
   try { picks = JSON.parse(await fs.readFile(OUT, 'utf8')); } catch {}
+
+  if (SHRINK_ONLY) {
+    const heavy = Object.entries(picks).filter(([, v]) => typeof v.bytes === 'number' && v.bytes > OFFICIAL_MAX_BYTES);
+    console.log(`${heavy.length} official image(s) over the ceiling\n`);
+    let fixed = 0;
+    for (const [key, v] of heavy) {
+      process.stdout.write(`  ${key.padEnd(48)}`);
+      const smaller = await shrink(v.url, v.bytes);
+      if (!smaller) {
+        console.log(` — its server will not resize; left on Commons`);
+        continue;
+      }
+      picks[key] = { ...v, ...smaller, originalUrl: v.url, originalBytes: v.bytes };
+      console.log(
+        ` ${(v.bytes / 1048576).toFixed(1)} MB → ${(smaller.bytes / 1024).toFixed(0)} KB  via ${smaller.resizedBy}`
+      );
+      fixed++;
+      await fs.writeFile(OUT, JSON.stringify(picks, null, 2));
+    }
+    await fs.writeFile(OUT, JSON.stringify(picks, null, 2));
+    console.log(`\n${fixed} of ${heavy.length} recovered at a publishable size.`);
+    return;
+  }
 
   if (REPORT_ONLY) {
     const sized = Object.entries(picks).filter(([, v]) => typeof v.bytes === 'number');
