@@ -21,6 +21,23 @@ import { evidenceBlock, preparationPath, filterQuestion, STATE } from '../lib/pr
 function universitySlides(site, inst, max = 4) {
   const own = picture(site, inst.id);
   const out = [];
+
+  // Further photographs of the institution itself, where they were collected:
+  // a different building, a different season, the same place from the other
+  // side. These come first because they are of the university, not of one
+  // department's marketing.
+  const key = inst.id.replace(/^[a-z]{2}-/, '');
+  for (const g of site.images?.[key]?.gallery || site.images?.[inst.id]?.gallery || []) {
+    if (out.length >= max) break;
+    if (g.review?.state === 'rejected') continue;
+    out.push({
+      rawSrc: g.src,
+      src: url(g.src),
+      caption: inst.shortName || inst.name,
+      credit: { text: `${g.author || 'Unknown'} · ${g.licence || 'Wikimedia Commons'}`, url: g.page },
+    });
+  }
+
   for (const p of inst.programmes) {
     if (out.length >= max) break;
     const pic = picture(site, p.id);

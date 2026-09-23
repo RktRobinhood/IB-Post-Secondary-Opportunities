@@ -17,7 +17,15 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const HEROES_ONLY = process.argv.includes('--heroes');
 
 const picks = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'images.json'), 'utf8'));
-const entries = Object.entries(picks).filter(([, v]) => (HEROES_ONLY ? v.kind === 'country' : true));
+
+// A gallery photograph is published exactly as a primary one is, so it counts
+// exactly as one. Reporting only the primaries would have flattered the number.
+const entries = [];
+for (const [key, v] of Object.entries(picks)) {
+  if (!HEROES_ONLY || v.kind === 'country') entries.push([key, v]);
+  if (HEROES_ONLY) continue;
+  for (const [i, g] of (v.gallery || []).entries()) entries.push([`${key} [${i + 2}]`, g]);
+}
 
 const reviewed = entries.filter(([, v]) => v.review?.state);
 const approved = entries.filter(([, v]) => v.review?.state === 'approved');

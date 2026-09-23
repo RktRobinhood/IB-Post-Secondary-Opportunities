@@ -19,6 +19,7 @@
  *   node scripts/fetch-images.mjs                # fetch only what is missing
  *   node scripts/fetch-images.mjs --refresh      # re-pick everything
  *   node scripts/fetch-images.mjs --only=dtu,se
+ *   node scripts/fetch-images.mjs --gallery=3 --only=dk-cbs  # more of the same place
  *
  * Picks live in data/images.json. To overrule a bad choice, set that entry's
  * "file" to any Commons filename, add "pin": true, and re-run with
@@ -222,7 +223,7 @@ function score({ title, info }, query, isPrimary) {
   return s;
 }
 
-async function pickImage(target) {
+async function pickImage(target, { all = false } = {}) {
   const subject = await resolveSubject(target.query, target.wikipedia);
   const candidates = new Map();
   let primaryTitle = null;
@@ -259,7 +260,7 @@ async function pickImage(target) {
     .filter((c) => c.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  return { best: ranked[0] || null, subject, considered: infos.length };
+  return { best: ranked[0] || null, ranked: all ? ranked : [], subject, considered: infos.length };
 }
 
 /**
@@ -371,11 +372,80 @@ async function exists(p) {
 
 /* --- main ----------------------------------------------------------------- */
 
+/**
+ * Collect further photographs of the same subject for the hero gallery.
+ *
+ * The winner is the best single picture; the runners-up are usually a different
+ * building, a different season, or the same place from the other side, which is
+ * exactly what a gallery wants. They are scored by the same rules, so an
+ * eclipse does not get in through the side door.
+ *
+ *   node scripts/fetch-images.mjs --gallery=3 --only=dk-cbs,dk-sdu
+ *
+ * Deliberately not run across all 447 institutions: three extra photographs
+ * each would add roughly 270 MB to a repository that is currently 100 MB, and
+ * a country page already has a gallery made of its own institutions.
+ */
+async function gallery(picks, targets, want) {
+  let added = 0;
+  for (const t of targets) {
+    process.stdout.write(`  ${t.key.padEnd(30)}`);
+    const existing = picks[t.key];
+    if (!existing) { console.log(' — no primary pick yet; run without --gallery first'); continue; }
+
+    let ranked;
+    try {
+      ({ ranked } = await pickImage(t, { all: true }));
+    } catch (err) {
+      console.log(` — failed: ${err.message}`);
+      continue;
+    }
+    const taken = new Set([existing.file, ...(existing.gallery || []).map((g) => g.file)]);
+    const chosen = [];
+    for (const cand of ranked) {
+      if (chosen.length >= want) break;
+      const file = cand.title.replace(/^File:/, '');
+      if (taken.has(file)) continue;
+      const name = `${t.key}-${chosen.length + 2}${EXT}`;
+      try {
+        const stored = await download(cand.info, path.join(IMG_DIR, name));
+        chosen.push({
+          ...creditFrom(cand.title, cand.info),
+          src: `/assets/img/places/${name}`,
+          width: stored.width, height: stored.height, bytes: stored.bytes,
+          score: cand.score,
+          fetched: new Date().toISOString().slice(0, 10),
+        });
+        taken.add(file);
+      } catch { /* a candidate that will not download is simply not used */ }
+    }
+    if (chosen.length) {
+      picks[t.key] = { ...existing, gallery: chosen };
+      await fs.writeFile(PICKS, JSON.stringify(picks, null, 2));
+      added += chosen.length;
+      console.log(` +${chosen.length}  ${chosen.map((c) => c.file.slice(0, 26)).join(', ')}`);
+    } else {
+      console.log(' — nothing else usable');
+    }
+  }
+  console.log(`\n${added} further photograph(s) added.`);
+}
+
 async function main() {
   await fs.mkdir(IMG_DIR, { recursive: true });
 
   let picks = {};
   try { picks = JSON.parse(await fs.readFile(PICKS, 'utf8')); } catch {}
+
+  const galleryArg = args.find((a) => a.startsWith('--gallery'));
+  if (galleryArg) {
+    const want = Number(galleryArg.split('=')[1] || 3);
+    const list = await targets();
+    const wanted = ONLY.length ? list.filter((t) => ONLY.includes(t.key)) : list;
+    console.log(`${wanted.length} target(s), up to ${want} further photograph(s) each\n`);
+    await gallery(picks, wanted, want);
+    return;
+  }
 
   const list = await targets();
   const wanted = ONLY.length ? list.filter((t) => ONLY.includes(t.key)) : list;
