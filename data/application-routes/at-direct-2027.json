@@ -1,0 +1,72 @@
+{
+  "id": "at-direct-2027",
+  "destination": "at",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to an Austrian university for winter semester 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.studienwahl.at/",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-entrance-procedure",
+      "type": "submit",
+      "label": "Degrees with an entrance procedure — registration closes in spring",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Medicine (MedAT), psychology, business and other access-regulated degrees have their own registration windows, usually in spring and months before IB results. Miss it and that degree is closed for the year.",
+      "evidence": ["ev-at-studyinaustria-application"]
+    },
+    {
+      "id": "ms-open",
+      "type": "open",
+      "label": "University of Vienna application period opens",
+      "date": "2027-06-22",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "The 2026/27 date carried forward. Other public universities run similar windows; check your own.",
+      "evidence": ["ev-at-univie-application-periods"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "ibCalendar": "2027-05/results-day",
+      "evidence": ["ev-ib-results-day-2027-05"]
+    },
+    {
+      "id": "ms-submit-third-country",
+      "type": "submit",
+      "label": "University of Vienna closes — non-EU/EEA applicants",
+      "date": "2027-08-03",
+      "consequence": "hard",
+      "provisional": true,
+      "audience": "non-eu",
+      "note": "The 2026/27 date carried forward.",
+      "evidence": ["ev-at-univie-application-periods"]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "General closing date at public universities — EU/EEA/Swiss applicants",
+      "date": "2027-09-05",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "5 September is the general public-university date for the winter semester. Fachhochschulen and private universities set their own, usually earlier.",
+      "evidence": ["ev-at-studyinaustria-application", "ev-at-univie-application-periods"]
+    }
+  ],
+  "evidence": ["ev-at-studyinaustria-application", "ev-at-univie-application-periods"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-03-01",
+    "notes": [
+      "Covers every listed institution: public universities, Fachhochschulen and private universities all take applications directly.",
+      "University of Vienna dates are the 2026/27 cycle carried forward and marked provisional."
+    ]
+  }
+}

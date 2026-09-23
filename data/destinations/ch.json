@@ -1,0 +1,96 @@
+{
+  "id": "ch",
+  "iso2": "ch",
+  "name": "Switzerland",
+  "adjective": "Swiss",
+  "scope": "europe",
+  "region": "Central Europe",
+  "capital": "Bern",
+  "currency": "CHF",
+  "membership": { "eu": false, "eea": false, "nordic": false, "schengen": true },
+  "targetIntake": "2027-autumn",
+  "tagline": "Cheap tuition, brutal living costs, and a very specific IB rule",
+  "summary": "Switzerland publishes one of Europe's clearest IB rules and one of its strictest: 32 of 42 points and a fixed six-subject shape, with ETH Zurich and EPFL asking for 38. Tuition is low by international standards, but living costs are high and almost every bachelor's degree is taught in German, French or Italian.",
+  "whyConsider": [
+    "ETH Zurich and EPFL are world-class, at a fraction of UK or US tuition.",
+    "The IB rule is written down, so you can check eligibility while choosing subjects.",
+    "With strong German, French or Italian the whole public system opens up."
+  ],
+  "watchOuts": [
+    "Check the swissuniversities subject rule against your IB choices early; points cannot fix a wrong combination.",
+    "Most bachelor's teaching is in German, French or Italian, not English.",
+    "Fees depend on residence, not EU citizenship: at ETH a student from Denmark pays the foreign rate.",
+    "Living costs are among the highest in Europe."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "32 of 42 points, bonus points not counted. ETH Zurich and EPFL require 38.",
+    "subjectLevelRule": "Six subjects, one from each of six categories, at least three at Higher Level, one of which must be mathematics or a natural science. ETH and EPFL are stricter.",
+    "evidence": ["ev-ch-swissuniversities-ib"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Rare at public universities; mostly at small private institutions.",
+    "englishProof": "Usually not the barrier - the local teaching language is.",
+    "localLanguageRequired": true
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "international-rate",
+      "summary": "At ETH Zurich, CHF 2,190 per semester for students coming from abroad; CHF 730 for Swiss residents. Other universities set their own fees.",
+      "priceYear": "from autumn 2025",
+      "evidence": ["ev-ch-eth-tuition"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Swiss higher education has three public pillars: the universities (the cantonal universities plus the two federal institutes of technology, ETH Zurich and EPFL), the Fachhochschulen / Hautes écoles spécialisées, and the Pädagogische Hochschulen for teacher training. A small group of accredited private institutions sits alongside them.",
+    "routes": [
+      {
+        "localName": "Universität / Université / ETH-EPFL",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The research universities and the two federal institutes of technology. Where the swissuniversities IB rule applies. Low tuition, but bachelor's teaching is in German, French or Italian.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "Fachhochschule / Haute école spécialisée",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Practice-oriented degrees in engineering, business, health, design and the arts, with close links to industry. Some programmes exist only here.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Admission of an IB applicant was not researched here; many programmes expect work experience."
+      },
+      {
+        "localName": "Pädagogische Hochschule / Haute école pédagogique",
+        "englishName": "university of teacher education",
+        "kind": "professional",
+        "what": "Trains teachers for Swiss schools, taught in the local language.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched here."
+      },
+      {
+        "localName": "private institution",
+        "englishName": "accredited private institution",
+        "kind": "specialist",
+        "what": "Small private institutions such as Franklin University Switzerland, Webster Geneva and EHL, where most English-taught bachelor's are found. Tuition is much higher than at public universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      }
+    ],
+    "evidence": ["ev-ch-swissuniversities-institutions"]
+  },
+  "institutionGrouping": "none",
+  "evidence": ["ev-ch-swissuniversities-ib", "ev-ch-swissuniversities-institutions", "ev-ch-eth-tuition"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "The swissuniversities IB rule is published as valid for 2026/27 and updated annually; re-read for 2027/28.",
+      "Not established: fees at universities other than ETH, and an official living-cost figure."
+    ]
+  }
+}

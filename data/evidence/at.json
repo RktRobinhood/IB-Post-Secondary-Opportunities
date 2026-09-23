@@ -1,0 +1,94 @@
+[
+  {
+    "id": "ev-at-bmfwf-ib-universitaetsreife",
+    "sourceUrl": "https://www.bmfwf.gv.at/wissenschaft/anerkennung/universit%C3%A4tsreife.html",
+    "publisher": "Bundesministerium für Frauen, Wissenschaft und Forschung (BMFWF)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "A properly acquired IB Diploma satisfies the general university entrance qualification (allgemeine Universitätsreife) in Austria.",
+    "excerpt": "Ein vorschriftsmäßig erworbenes „IB Diploma\", ein „Europäisches Abiturzeugnis\" oder ein mittels Staatsvertrag anerkanntes Reifezeugnis erfüllen ebenfalls die allgemeine Universitätsreife.",
+    "interpretation": "The IB is named in the ministry's own text, so there is no points table and no subject-combination rule at national level. Degree-specific extras (language proof, a supplementary exam) are set by each university and are not on this page.",
+    "supports": [
+      { "entity": "at", "field": "ibRecognition" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page in German. It does not mention besondere Universitätsreife or Ergänzungsprüfung, so the degree-level rules are not established from it."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-at-univie-studienbeitrag",
+    "sourceUrl": "https://studieren.univie.ac.at/studienbeitrag/hoehe-studienbeitrag/",
+    "publisher": "Universität Wien",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "At the University of Vienna, EU/EEA/Swiss students pay no tuition within the standard duration plus two tolerance semesters, then 363.36 EUR per semester; third-country nationals pay 726.72 EUR per semester from the first semester. Everyone pays the ÖH student union fee of 26.20 EUR per semester.",
+    "excerpt": "Studienbeitrag: 363,36 Euro […] ÖH-Beitrag: 26,20 Euro […] Studienbeitrag: 726,72 Euro […] ab dem ersten Semester",
+    "interpretation": "These are the statutory public-university amounts as the University of Vienna publishes them. Fachhochschulen and private universities set their own fees and are not covered.",
+    "supports": [
+      { "entity": "at", "field": "feeContext" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "German page. The English mirror (studieren.univie.ac.at/en/tuition-fee/...) returned 404 on 2026-09-23. Study in Austria's own tuition page still shows an older ÖH figure of 25.20 EUR."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-at-studyinaustria-application",
+    "sourceUrl": "https://studyinaustria.at/en/plan-your-studies/application-and-admission",
+    "publisher": "OeAD — Study in Austria",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "There is no central application in Austria: applicants apply to each institution. Higher education is divided into public universities, universities of applied sciences (Fachhochschulen), private universities and university colleges of teacher education (Pädagogische Hochschulen). Public universities' general closing date for the winter semester is 5 September.",
+    "excerpt": "the OeAD does not handle any study applications […] the closing dates for application for the winter semester are September 5",
+    "interpretation": "The four-way split is the sector landscape. 5 September is the general public-university date; Fachhochschulen, private universities and access-regulated degrees run their own, often much earlier, windows.",
+    "supports": [
+      { "entity": "at", "field": "sectorLandscape" },
+      { "entity": "at-direct-2027", "field": "channel" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-at-univie-application-periods",
+    "sourceUrl": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/",
+    "publisher": "Universität Wien",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "University of Vienna, winter semester 2026/27: application period 22 June to 5 September 2026 for EU/EEA/Swiss citizens, 22 June to 3 August 2026 for third-country nationals; admission period 13 July to 31 October 2026.",
+    "excerpt": "from 22 June to 5 September 2026 […] from 22 June to 3 August 2026 […] from 13 July to 31 October 2026",
+    "interpretation": "Only the 2026/27 cycle is published. The 2027 dates on the route carry the same day and month forward and are marked provisional. The window opens after IB results are almost out, which suits an IB applicant — except for degrees with an entrance procedure, which close in spring.",
+    "supports": [
+      { "entity": "at-direct-2027", "field": "milestones" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page shows winter semester 2026/27 only; 2027/28 not yet published on 2026-09-23."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  }
+]

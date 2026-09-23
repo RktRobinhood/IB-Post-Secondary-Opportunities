@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ev-ch-swissuniversities-ib",
+    "sourceUrl": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+    "publisher": "swissuniversities",
+    "publisherType": "national-agency",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Swiss universities recognise the IB Diploma with at least 32 of 42 points (bonus points not counted), six subjects one from each of six categories, at least three at Higher Level of which one must be mathematics or a natural science. ETH Zurich and EPFL set stricter conditions.",
+    "excerpt": "Recognised with a minimum of 32 out of 42 points (not counting bonus points) […] At least 3 of these subjects must be taken at Higher Level (one of which must be mathematics or another natural sciences subject)",
+    "interpretation": "Like Germany, a subject-shape rule that has to be checked when choosing IB subjects. The page is stamped valid for 2026/27 and is updated annually, so the 2027/28 version needs a re-read.",
+    "supports": [
+      { "entity": "ch", "field": "ibRecognition" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page states the requirements are valid for academic year 2026/27."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ch-swissuniversities-institutions",
+    "sourceUrl": "https://www.swissuniversities.ch/en/topics/studying/accredited-swiss-higher-education-institutions",
+    "publisher": "swissuniversities",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Accredited Swiss higher education institutions fall into universities, universities of applied sciences (Fachhochschulen / Hautes écoles spécialisées), universities of teacher education, and other institutions of the higher education sector.",
+    "excerpt": "This list of accredited Swiss higher education institutions is maintained by swissuniversities for information purposes only",
+    "interpretation": "The four headings on the list are the sector landscape. Accreditation itself is the Swiss Accreditation Council's responsibility, not swissuniversities'.",
+    "supports": [
+      { "entity": "ch", "field": "sectorLandscape" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "The older swissuniversities 'Swiss higher education system' page returned 404 on 2026-09-23."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ch-eth-how-to-apply",
+    "sourceUrl": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+    "publisher": "ETH Zurich",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "ETH Zurich takes bachelor applications with a non-Swiss certificate directly, from 1 December to 31 March, 23:59 CET, for the autumn semester. A non-refundable application fee is charged.",
+    "excerpt": "from 1 December to 31 March, 23:59 Central European Time",
+    "interpretation": "The window carries no year; for autumn 2027 entry it is read as 1 December 2026 to 31 March 2027, so the dates on the route are provisional. Applicants who need the ETH entrance exam were on an earlier timetable (apply by 31 March 2026).",
+    "supports": [
+      { "entity": "ch-direct-2027", "field": "milestones" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "The page gives day and month only, no year. Fee amount not stated on this page."
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-ch-eth-tuition",
+    "sourceUrl": "https://ethz.ch/students/en/studies/financial/tuition-fees.html",
+    "publisher": "ETH Zurich",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "From autumn semester 2025 ETH Zurich charges CHF 730 per semester to Swiss citizens and residents and CHF 2,190 per semester (threefold) to foreign students who do not meet the criteria for the reduced fee.",
+    "excerpt": "Simple tuition fee: CHF 730 / semester […] Threefold tuition fee: CHF 2190 / semester",
+    "interpretation": "Switzerland splits fees by residence, not by EU citizenship, so a student coming from Denmark pays the higher rate. Only ETH's fees are established here; other universities set their own.",
+    "supports": [
+      { "entity": "ch", "field": "feeContext" }
+    ],
+    "attestation": {
+      "by": "the Austria/Switzerland/Czechia floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  }
+]

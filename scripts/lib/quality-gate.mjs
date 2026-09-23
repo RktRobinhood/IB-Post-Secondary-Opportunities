@@ -176,6 +176,12 @@ export const CHECKS = [
     stage: 'data',
     title: 'No published picture is an unreviewed machine pick below the floor',
   },
+  {
+    id: 'ib-statements',
+    script: 'scripts/test-ib-statements.mjs',
+    stage: 'data',
+    title: 'An IB recognition statement is a touch and a link, never an import',
+  },
 
   // --- build --------------------------------------------------------------
   {

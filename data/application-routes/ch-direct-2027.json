@@ -1,0 +1,62 @@
+{
+  "id": "ch-direct-2027",
+  "destination": "ch",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Swiss university for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.swissuniversities.ch/en/themen/zulassung/zulassung-universitaere-hochschulen/international-baccalaureate",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-open-eth",
+      "type": "open",
+      "label": "ETH Zurich bachelor applications open",
+      "date": "2026-12-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "ETH publishes day and month only; the year is read for autumn 2027 entry.",
+      "evidence": ["ev-ch-eth-how-to-apply"]
+    },
+    {
+      "id": "ms-submit-eth",
+      "type": "submit",
+      "label": "ETH Zurich bachelor applications close",
+      "date": "2027-03-31",
+      "timeOfDay": "23:59",
+      "timeZone": "Europe/Zurich",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": ["ev-ch-eth-how-to-apply"]
+    },
+    {
+      "id": "ms-submit-others",
+      "type": "submit",
+      "label": "Every other university's own closing date",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "No national portal and no national date. Each university sets its own; most fall in spring, before IB results.",
+      "evidence": ["ev-ch-swissuniversities-institutions"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "ibCalendar": "2027-05/results-day",
+      "evidence": ["ev-ib-results-day-2027-05"]
+    }
+  ],
+  "evidence": ["ev-ch-eth-how-to-apply"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "Covers every listed institution: all Swiss universities and private institutions take applications directly.",
+      "The ETH entrance-exam timetable for autumn 2027 (apply by 31 March 2026) has passed and is recorded on the country profile, not here."
+    ]
+  }
+}

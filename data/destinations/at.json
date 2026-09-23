@@ -1,0 +1,102 @@
+{
+  "id": "at",
+  "iso2": "at",
+  "name": "Austria",
+  "adjective": "Austrian",
+  "scope": "europe",
+  "region": "Central Europe",
+  "capital": "Vienna",
+  "currency": "EUR",
+  "membership": { "eu": true, "eea": true, "nordic": false, "schengen": true },
+  "targetIntake": "2027-autumn",
+  "tagline": "Your IB Diploma is enough on paper - but almost everything is in German",
+  "summary": "The ministry names the IB Diploma as a full university entrance qualification, so there is no points table and no subject rule. For EU students public universities charge no tuition for the normal length of the degree. The catch is language: public-university bachelor's degrees are taught in German, so English-only applicants are mostly looking at Fachhochschulen and private universities.",
+  "whyConsider": [
+    "The IB Diploma is named in law as a university entrance qualification - no equivalence procedure.",
+    "EU/EEA students pay only the 26.20 EUR student union fee per semester during the normal length of the degree.",
+    "The general public-university deadline is 5 September, after IB results."
+  ],
+  "watchOuts": [
+    "German is the real barrier at public universities. Check the language of each programme on studienwahl.at.",
+    "Access-regulated degrees, including medicine, register in spring - before IB results.",
+    "Fachhochschulen and private universities set their own fees and deadlines."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "A properly acquired IB Diploma. No Austrian points threshold above the IB pass.",
+    "subjectLevelRule": "None nationally. Individual degrees may require a supplementary exam (Ergänzungsprüfung) or language proof.",
+    "evidence": ["ev-at-bmfwf-ib-universitaetsreife"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Limited at public universities; mostly at Fachhochschulen and private universities.",
+    "englishProof": "Set by each institution.",
+    "localLanguageRequired": true
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition at public universities for the standard duration plus two tolerance semesters, then 363.36 EUR per semester. ÖH fee 26.20 EUR per semester always.",
+      "priceYear": "2026/27",
+      "evidence": ["ev-at-univie-studienbeitrag"]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "726.72 EUR per semester at public universities from the first semester, plus the ÖH fee.",
+      "priceYear": "2026/27",
+      "evidence": ["ev-at-univie-studienbeitrag"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Austria has four kinds of higher education institution: public Universitäten, Fachhochschulen (universities of applied sciences), Privatuniversitäten and Pädagogische Hochschulen for teacher training. All take applications directly; there is no central portal.",
+    "routes": [
+      {
+        "localName": "Universität",
+        "englishName": "public university",
+        "kind": "research",
+        "what": "The public research universities, including the technical and medical universities. Near-free for EU students, open to anyone with the IB, and almost all bachelor's teaching is in German.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "Fachhochschule",
+        "englishName": "university of applied sciences",
+        "kind": "applied",
+        "what": "Practice-oriented bachelor's degrees with placements and limited places, chosen by the school's own selection process. Where most English-taught bachelor's are found.",
+        "ibAccessible": "yes",
+        "englishTaught": "some",
+        "note": "Each sets its own fees and deadlines."
+      },
+      {
+        "localName": "Privatuniversität",
+        "englishName": "private university",
+        "kind": "specialist",
+        "what": "Smaller accredited private institutions, several teaching in English (for example MODUL and Webster in Vienna). Tuition is real and set by each one.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "Pädagogische Hochschule",
+        "englishName": "university college of teacher education",
+        "kind": "professional",
+        "what": "Trains school teachers. Taught in German and aimed at teaching in Austrian schools.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched here."
+      }
+    ],
+    "evidence": ["ev-at-studyinaustria-application"]
+  },
+  "institutionGrouping": "none",
+  "evidence": ["ev-at-bmfwf-ib-universitaetsreife", "ev-at-univie-studienbeitrag", "ev-at-studyinaustria-application"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "MedAT 2027 dates were not published on 2026-09-23; the medical universities publish them from January.",
+      "Not established: which Fachhochschule and private-university programmes are English-taught for 2027, or their fees."
+    ]
+  }
+}

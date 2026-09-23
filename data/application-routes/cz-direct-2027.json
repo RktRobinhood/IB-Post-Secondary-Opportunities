@@ -1,0 +1,69 @@
+{
+  "id": "cz-direct-2027",
+  "destination": "cz",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Czech university or faculty for September 2027",
+  "channel": "direct",
+  "portalUrl": "https://studyin.gov.cz/study-programmes/",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-open-muni-sci",
+      "type": "open",
+      "label": "Masaryk Faculty of Science opens",
+      "date": "2026-11-01",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Published with no year; read onto the 2027 intake.",
+      "evidence": ["ev-cz-muni-how-to-apply"]
+    },
+    {
+      "id": "ms-submit-muni-sci",
+      "type": "submit",
+      "label": "Masaryk Faculty of Science closes",
+      "date": "2027-02-28",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": ["ev-cz-muni-how-to-apply"]
+    },
+    {
+      "id": "ms-submit-muni-fi",
+      "type": "submit",
+      "label": "Masaryk Faculty of Informatics closes",
+      "date": "2027-04-30",
+      "consequence": "hard",
+      "provisional": true,
+      "evidence": ["ev-cz-muni-how-to-apply"]
+    },
+    {
+      "id": "ms-submit-others",
+      "type": "submit",
+      "label": "Every other faculty's own closing date",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Each university, and usually each faculty, sets its own deadline, fee and exam. Most close between February and April; some medical and technical faculties close after IB results.",
+      "evidence": ["ev-cz-studyin-how-to-apply"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "ibCalendar": "2027-05/results-day",
+      "evidence": ["ev-ib-results-day-2027-05"]
+    }
+  ],
+  "evidence": ["ev-cz-studyin-how-to-apply", "ev-cz-muni-how-to-apply"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "Covers every listed institution: all Czech universities, public and private, take applications directly.",
+      "Faculty-level 2027 dates for Charles, VŠE and VSB are on the country profile's deadline list."
+    ]
+  }
+}

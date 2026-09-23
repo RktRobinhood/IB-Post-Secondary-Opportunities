@@ -1,0 +1,93 @@
+{
+  "id": "cz",
+  "iso2": "cz",
+  "name": "Czechia",
+  "adjective": "Czech",
+  "scope": "europe",
+  "region": "Central Europe",
+  "capital": "Prague",
+  "currency": "CZK",
+  "membership": { "eu": true, "eea": true, "nordic": false, "schengen": true },
+  "targetIntake": "2027-autumn",
+  "tagline": "Your IB skips the paperwork everyone else has to do",
+  "summary": "Since 1 March 2025 Czech law accepts the IB Diploma directly, with no nostrification. Study in Czech is free for everyone; English-taught degrees charge fees set by each university. There is no central portal: you apply faculty by faculty, and some deadlines fall after IB results.",
+  "whyConsider": [
+    "The IB is accepted by law without nostrification.",
+    "Many English-taught programmes, including medicine, at moderate fees and low living costs.",
+    "Some faculties close after IB results, so you can apply on real grades."
+  ],
+  "watchOuts": [
+    "Every faculty has its own application, fee, exam and deadline.",
+    "Most 2027 deadlines were not yet published in September 2026.",
+    "Older pages may still say the IB needs nostrification; the law changed on 1 March 2025."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "subjectLevelRule": "None nationally. Faculties set their own subject requirements, notably for medicine.",
+    "notes": [
+      "Section 48(4)(c) of Act No. 111/1998 Coll., in force since 1 March 2025, accepts the IB Diploma as proof of completed secondary education."
+    ],
+    "evidence": ["ev-cz-act-111-1998", "ev-cz-cuni-ib-recognition"]
+  },
+  "language": {
+    "englishTaughtBachelors": "Wide, concentrated at the large public universities and in medicine.",
+    "englishProof": "Set by each faculty.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "no-fee",
+      "summary": "Programmes taught in Czech at public universities are free, whatever your nationality.",
+      "evidence": ["ev-cz-studyin-tuition-free", "ev-cz-act-111-1998"]
+    },
+    {
+      "applicantGroup": "any",
+      "feeStatus": "international-rate",
+      "summary": "English-taught programmes charge fees set by each university, from a few hundred euros a year to over 20,000 for medicine. Some charge EU citizens less.",
+      "evidence": ["ev-cz-act-111-1998"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Czech higher education institutions (vysoké školy) are either university-type (univerzitní) or non-university-type (neuniverzitní), and public, state or private. Below them sit the vyšší odborné školy, tertiary professional schools outside the Higher Education Act.",
+    "routes": [
+      {
+        "localName": "univerzitní vysoká škola",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Charles, Masaryk, CTU and the other public universities: bachelor's, master's and doctorates, with English-taught programmes in many faculties, especially medicine, engineering and business.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "neuniverzitní vysoká škola",
+        "englishName": "non-university higher education institution",
+        "kind": "applied",
+        "what": "Institutions offering bachelor's and master's but not doctorates, many of them private and several teaching in English, such as Anglo-American University.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "vyšší odborná škola",
+        "englishName": "tertiary professional school",
+        "kind": "college",
+        "what": "Three-year practical programmes under the Education Act rather than the Higher Education Act, ending in a diploma rather than a degree.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched here; almost certainly taught in Czech."
+      }
+    ],
+    "evidence": ["ev-cz-act-111-1998"]
+  },
+  "institutionGrouping": "none",
+  "evidence": ["ev-cz-act-111-1998", "ev-cz-cuni-ib-recognition", "ev-cz-studyin-tuition-free"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "The statute was read through a fetch tool that paraphrased it; a person should read §§ 2, 48 and 58 in Czech.",
+      "The vyšší odborná škola description comes from a Czech ministry search result, not a page that could be opened; msmt.gov.cz pages returned 'page not found' on 2026-09-23."
+    ]
+  }
+}
