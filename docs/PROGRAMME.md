@@ -7,7 +7,7 @@ This file exists so the work survives an interrupted session. See
 [PARALLEL_WORK.md](PARALLEL_WORK.md) for why, and for the rest of the
 conventions fan-out work here runs under.
 
-**Updated:** 2026-09-23. 14 of 35 Destinations at the floor; 430 dated events.
+**Updated:** 2026-09-23. 14 of 35 Destinations at the floor; 430 dated events; #12, #13, #18 and #26 closed.
 
 ---
 
@@ -21,7 +21,10 @@ conventions fan-out work here runs under.
 | #15 step 1 | Research depth stated on every Destination page | `b3bb839` |
 | #15 step 2 | The publication floor — five checks, computed not asserted | `8057e2f` |
 | #17 | Imagery approval state, a floor derived from the score distribution, a designed empty state, a scorer that knows what it got wrong | `2490dac` |
-| #16 | The Application Jurisdiction model | `78d3e6d` |
+| #16 | The Application Jurisdiction model, worked through for Canada, the US, the UAE and Singapore | `78d3e6d` |
+| #18 | Arrival, chapter and close; MapChapter alive; one motion token deleted rather than spent; ADR 0003 | `b628281`, `4d308d9` |
+| #26 | The basemap at a visible opacity; a panel shape per viewport; 44px targets; pinch and double-tap | `b628281`, `82968ce` |
+| #15 step 4 | The first Opportunities outside Denmark — 16 Dutch, and ADR 0002 confirmed | `4c79b8f`, `73897e2` |
 | ADR 0002 | The IB scale as the lingua franca; Recognition Schemes; 201 requirements migrated | `f788173`, `f841942` |
 
 ### The data migrations
@@ -81,36 +84,38 @@ Destination that publishes its rules in IB terms genuinely needs no Recognition
 Scheme. If it does not, most of the world does not either, and the remaining
 Destinations are research rather than modelling.
 
-### 3. #26 — the maps are legible in neither direction
+### 3. #19 — the globe
 
-Raised by the user: "the maps right now are buggy and not nearly as
-interactive as they need to be". Measured rather than guessed, and they are
-right on four counts. Two are visual and are with the #18 pass; two are
-geometric and behavioural and are mine to do after it lands.
+A throwaway prototype is running to answer the issue's own question — *does
+geographic motion help a student find a credible option faster than a static
+map* — rather than to build a globe because the issue asked for one. The
+answer lands as `docs/adr/0004`.
 
-The headline numbers, so they are not lost: the basemap is drawn at
-`fill-opacity: .07`, giving **1.09** contrast between land and sea and
-**1.29** between coastline and land. Part one of #12 baked coastlines
-precisely so a reader could tell they were looking at Europe, then rendered
-them where they still cannot. On a 375px phone the map stage is **343 × 145**
-with **14 × 14** tap targets, because the SVG has one fixed 2.38:1 viewBox for
-every viewport and the authored "fingertip-sized" hit radius scales down with
-everything else. There are no touch gestures at all.
+The baseline has moved a long way under this issue since it was written. The
+flat map now has measured contrast, a keyboard camera, clustering,
+spiderfying, a panel shape per viewport and touch gestures, so "what the map
+becomes once it is correct" is a different question from the one #19 poses.
 
-### 4. #18 — the style pass against the reference sites
+### 4. #24 — Course Results
 
-Not started. It overlaps #12 at the world window, and the issue says to do it
-with #12 and #19 in view rather than ahead of them. #12 is now done, so this
-is unblocked.
+Raised by the author. An IB student who does not complete the full Diploma
+leaves with certificates for individual subjects, and that changes what is
+open to them without closing everything.
 
-### 5. #19 — the globe
+The engine already models it — `evaluateRule` handles `ib-diploma` against
+`profile.holdsDiploma`, and knows that a language exemption for Diploma
+holders does not transfer to a Course candidate. **And none of it has ever
+run**, because nothing sets `holdsDiploma`: there is no control for it, so
+every diploma requirement evaluates to `unknown` for every student.
 
-Deliberately not started. The issue itself says to prototype a vertical slice
-before committing to an engine, and asks the harder question of whether 3D is
-better here at all — a globe is worse than a flat map for comparing European
-Destinations, which is most of what these students do. The recommendation is to
-answer that question before building, and to record the answer as an ADR
-whichever way it goes.
+The hard half is data. 16 of 53 Opportunities record an `ib-diploma`
+requirement and the other 37 say nothing either way, so the feature needs
+three states rather than two — and "not established" must never render as
+"Course Results are fine". That is the one way this can do real harm.
+
+### 5. #25 — 64 dead admissions links
+
+In progress. One in seven `admissionsUrl` values is a 404.
 
 ### 6. #17 — the hero review
 
