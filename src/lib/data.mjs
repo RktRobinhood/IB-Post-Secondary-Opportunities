@@ -346,7 +346,29 @@ function publishable(official) {
   // No content-length is not a reason to reject — plenty of CDNs omit it — but
   // a known size over the ceiling is.
   if (typeof official.bytes === 'number' && official.bytes > OFFICIAL_MAX_BYTES) return null;
-  return official;
+  return rejected(official) ? null : official;
+}
+
+/**
+ * Whether a person has looked at this picture and said no.
+ *
+ * Two automated rules were tried for this and both failed in both directions.
+ * A score floor throws away "MCAST Campus.jpg", which scored 14 only because
+ * it is nearly square. Matching the institution's name in the filename keeps
+ * "Beer Die Bowdoin College - 1989.jpg" — students playing a drinking game —
+ * and "Atal Setu and bridges across Rio de Ourem", which is a bridge in India
+ * that matched South East Technological University on the word "setu"; while
+ * rejecting "Norges Idrettshøgskole.jpg" and "Biblioteka Uniwersytetu
+ * Medycznego w Poznaniu", which are the right buildings under their own names.
+ *
+ * Whether a photograph says something true about studying somewhere is not a
+ * property a scorer can reach. So the scorer proposes and a person disposes:
+ * `review.state` is the only thing that withholds a picture on editorial
+ * grounds, it is set by hand, and `npm run images:review` reports how much of
+ * what we publish nobody has actually looked at.
+ */
+function rejected(pick) {
+  return pick?.review?.state === 'rejected';
 }
 
 export function picture(site, key, { prefer = 'official', also = [] } = {}) {
@@ -371,7 +393,8 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   const pick = (store, field) => keys.map((k) => store?.[k]).find((r) => r && r[field]);
 
   const official = publishable(pick(site.officialImages, 'url'));
-  const commons = pick(site.images, 'src');
+  const commonsPick = pick(site.images, 'src');
+  const commons = rejected(commonsPick) ? null : commonsPick;
 
   if (prefer === 'official' && official) {
     return {
