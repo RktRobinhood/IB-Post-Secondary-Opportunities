@@ -221,6 +221,29 @@ identity is made unique before the catalogue is made destination-aware;
 Evidence policy is centralised once the records it reads are stable; the gate is
 built last so it can include everything the others added.
 
+### The thing this programme did not look at, and should have — #37
+
+Raised by the user from ordinary use, after a programme that closed thirteen
+issues without anyone opening a Destination page and reading it as a student
+would.
+
+**The pages are ordered backwards.** `/destinations/de/` is 5,950 words and
+52 phone screens, and "Where to study" — the universities — begins 79% of
+the way down, after 41 screens of scrolling. The sources come *before* the
+universities. It is the same on every Destination: "Where to study" is the
+second-to-last section on Poland, Spain, Japan and Canada alike.
+
+A student browsing is deciding whether this place is worth any effort at all,
+and what decides that is seeing something concrete and appealing. The page
+charges 2,200 words about an admissions system before naming one institution.
+The reading is the cost you pay *once you are interested*.
+
+Worth noticing about this programme's own blind spot: #34 measured the phone
+carefully and found the layout correct, because it asked "does this reflow"
+rather than "is this usable". A 52-screen page passes every check in the gate.
+Nothing in `npm run qa` can see it, which is why #37 asks for a word and
+screen budget with a guard behind it.
+
 ### Track D — what is left
 
 - **#15** is the standing research programme, not a closeable issue. 449
