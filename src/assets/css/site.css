@@ -129,6 +129,16 @@
   --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
 }
 
+
+/* The `hidden` attribute means hidden.
+   The browser's default is `[hidden] { display: none }` at the very bottom of
+   the cascade, so any component that sets its own `display` silently beats it.
+   Both of ours do: `.btn` is `inline-flex` and `.timeline > li` is `grid`. The
+   calendar filtered itself correctly, set `hidden` on every row out of scope,
+   reported "16 of 269 dates" — and went on showing all 269, because a grid item
+   with `display: grid` is not hidden by an attribute it outranks. */
+[hidden] { display: none !important; }
+
 /* --- 2. Reset ------------------------------------------------------------ */
 
 *, *::before, *::after { box-sizing: border-box; }
