@@ -14,6 +14,7 @@
     "validate": "node scripts/validate.mjs",
     "check": "node scripts/check.mjs",
     "check:links": "node scripts/check.mjs --external",
+    "check:institutions": "node scripts/check-institution-links.mjs",
     "migrate:dk": "node scripts/migrate-denmark.mjs",
     "migrate:scales": "node scripts/migrate-requirement-scales.mjs",
     "freshness": "node scripts/freshness.mjs",

@@ -1,0 +1,58 @@
+{
+  "$comment": "Read by scripts/check-institution-links.mjs. This file is DATA, on purpose: the checker contains no branch that names a host, a university or a country. Anything that needs special handling is an entry here with a reason beside it, so the next person can disagree with the reason rather than read the code.",
+
+  "hostsThatRefuseAutomatedRetrieval": [
+    {
+      "host": "www.ouac.on.ca",
+      "reason": "Returns 403 to every automated request regardless of user agent. Found by the Canada research pass; every OUAC page on file was read in a browser instead.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "immi.homeaffairs.gov.au",
+      "reason": "403 to automated retrieval, and it injects the visa charge by script, so even a successful scrape shows no price at all. Read in a browser by the Australia pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "www.aut.ac.nz",
+      "reason": "Bot wall; 403 to the verifier's user agent. Read in a browser by the New Zealand pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "www.mass.gov",
+      "reason": "403 to automated retrieval. Read in a browser by the United States pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "www.nyu.edu",
+      "reason": "403 to automated retrieval. Read in a browser by the United States pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "www.colby.edu",
+      "reason": "403 to automated retrieval. Read in a browser by the United States pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "admissions.nyu.edu",
+      "reason": "Same wall as www.nyu.edu — NYU's admissions subdomain refuses the verifier.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "umich.edu",
+      "reason": "403 to automated retrieval. Read in a browser by the United States pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "www.umich.edu",
+      "reason": "403 to automated retrieval. Read in a browser by the United States pass.",
+      "recordedOn": "2026-09-22"
+    },
+    {
+      "host": "admissions.umich.edu",
+      "reason": "Michigan's admissions subdomain refuses the verifier on the same wall as umich.edu.",
+      "recordedOn": "2026-09-23"
+    }
+  ],
+
+  "readDirectly": []
+}
