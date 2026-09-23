@@ -28,8 +28,8 @@
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
-      "outcome": "partial",
-      "reason": "page may be the wrong one — only 2 of 12 content words appear",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
       "excerpt": "Level of the IB diplomas | Nuffic Direct naar de zoekfunctie Direct naar de hoofdnavigatie Direct naar de…",
       "claims": [
@@ -37,8 +37,8 @@
           "field": "ibRecognition",
           "entity": "nl",
           "decisive": false,
-          "outcome": "partial",
-          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
           "excerpt": "Level of the IB diplomas | Nuffic Direct naar de zoekfunctie Direct naar de hoofdnavigatie Direct naar de…",
           "details": []
         }
@@ -76,17 +76,17 @@
     "sourceCheck": {
       "checkedAt": "2026-09-23",
       "outcome": "supported",
-      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
-      "excerpt": "…and work in the Netherlands Study and work in the Netherlands Studying in the Netherlands with a foreign diploma Education in the Netherlands Recognition projects Recognition projects Expertise centre for the…",
+      "excerpt": "…grade (fail) Students can earn 1, 2 or 3 points for these 3 subjects combined. These points count towards the total diploma score. Provisional…",
       "claims": [
         {
           "field": "ibRecognition",
           "entity": "nl",
           "decisive": false,
           "outcome": "supported",
-          "reason": "page is on-topic for this claim (4/12 content words present)",
-          "excerpt": "…and work in the Netherlands Study and work in the Netherlands Studying in the Netherlands with a foreign diploma Education in the Netherlands Recognition projects Recognition projects Expertise centre for the…",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…grade (fail) Students can earn 1, 2 or 3 points for these 3 subjects combined. These points count towards the total diploma score. Provisional…",
           "details": []
         }
       ]
@@ -219,7 +219,7 @@
     "sourceCheck": {
       "checkedAt": "2026-09-23",
       "outcome": "supported",
-      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "reason": "page is on-topic for this claim (4/6 content words present)",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
       "excerpt": "…tuition fees. You need to pay these to the university or HBO institution. There are 2 types of tuition fees: statutory and institutional. Statutory tuition fees Most students pay statutory tuition fees, which are…",
       "claims": [
@@ -228,7 +228,7 @@
           "entity": "nl",
           "decisive": false,
           "outcome": "supported",
-          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "reason": "page is on-topic for this claim (4/6 content words present)",
           "excerpt": "…tuition fees. You need to pay these to the university or HBO institution. There are 2 types of tuition fees: statutory and institutional. Statutory tuition fees Most students pay statutory tuition fees, which are…",
           "details": []
         }
@@ -2194,6 +2194,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "wetten.overheid.nl serves only the table of contents to a plain fetch of the consolidated law; the article text is in the print view at /0/afdrukken, which is what sourceUrl points at and what was read. A fetch of the canonical page, or of a per-article deep link, returns the heading 'Artikel 7.24 Vooropleidingseisen' and no body, and a summarising fetcher pointed at either one will paraphrase the article into something that reads like a quotation. The text here was taken from the print view and checked character by character."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…land van vestiging betrokken personen, voor zover zij die rechten ontlenen aan deze wet; h. de aard van de diplomatieke betrekkingen tussen Nederland en het desbetreffende land; i. de wijze waarop in het desbetreffende land…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…land van vestiging betrokken personen, voor zover zij die rechten ontlenen aan deze wet; h. de aard van de diplomatieke betrekkingen tussen Nederland en het desbetreffende land; i. de wijze waarop in het desbetreffende land…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2224,6 +2242,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read from the print view of the consolidated law, which is the only view that serves article bodies to a fetch. The Rijksoverheid page that restates these exemptions for the public renders this limb as 'wetenschappelijk of hoger onderwijs VOLGT in een Europees land dat een onderwijsverdrag heeft met Nederland' — is following a course of study there — where the statute says 'TOEGANG HEEFT TOT' — has access to. The statute is broader than the explanation of it, and the statute governs."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…land van vestiging betrokken personen, voor zover zij die rechten ontlenen aan deze wet; h. de aard van de diplomatieke betrekkingen tussen Nederland en het desbetreffende land; i. de wijze waarop in het desbetreffende land…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…land van vestiging betrokken personen, voor zover zij die rechten ontlenen aan deze wet; h. de aard van de diplomatieke betrekkingen tussen Nederland en het desbetreffende land; i. de wijze waarop in het desbetreffende land…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2254,6 +2290,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read from the print view of the consolidated law. Note that the Dutch-language public explanation of this article at rijksoverheid.nl names only art programmes as the exception to the age limit and omits both grounds in lid 3, so a reader of the public page would conclude the age limit is absolute for everyone outside the arts."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…land van vestiging betrokken personen, voor zover zij die rechten ontlenen aan deze wet; h. de aard van de diplomatieke betrekkingen tussen Nederland en het desbetreffende land; i. de wijze waarop in het desbetreffende land…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…land van vestiging betrokken personen, voor zover zij die rechten ontlenen aan deze wet; h. de aard van de diplomatieke betrekkingen tussen Nederland en het desbetreffende land; i. de wijze waarop in het desbetreffende land…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2283,6 +2337,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read in full on 2026-09-23. The same text is served at rijksoverheid.nl/wetten-en-regelingen/productbeschrijvingen/vrijstelling-van-vooropleidingseisen-hoger-onderwijs, which is a second URL for one page rather than a second source. Two older URLs for this material — /onderwerpen/hoger-onderwijs/toelating-hoger-onderwijs and /onderwerpen/hoger-onderwijs/vraag-en-antwoord/toelating-hbo-universiteit-zonder-diploma — now 404."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Met welke diploma's kan ik naar de universiteit of hogeschool? | Rijksoverheid.nl Ga direct naar inhoud Naar de homepage van…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "Met welke diploma's kan ik naar de universiteit of hogeschool? | Rijksoverheid.nl Ga direct naar inhoud Naar de homepage van…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2312,6 +2384,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23. Nuffic publishes no page about admission with a DP Course result: /education-systems/international-baccalaureate/admission-to-higher-education returns 404, and the IB section carries level, grades, schools and the chart only."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and work in the Netherlands Study and work in the Netherlands Studying in the Netherlands with a foreign diploma Education in the Netherlands Recognition projects Recognition projects Expertise centre for the…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…and work in the Netherlands Study and work in the Netherlands Studying in the Netherlands with a foreign diploma Education in the Netherlands Recognition projects Recognition projects Expertise centre for the…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2353,6 +2443,51 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23. The Dutch original is at /onderwijs/toelating-en-aanmelding/bsc-nederlands-diploma/1-toelatingseisen and carries the same three conditions."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "4 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (8/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-nanobiology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2394,6 +2529,51 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23, including the collapsed accordion sections, which are served in the HTML. The FAQ page at /bsc-international-diploma/faq returns 200 with an empty body and could not be checked."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "4 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (10/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-tudelft-nanobiology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…Cases Community Alumni Campus Life Events Social safety Science Centre About TU Delft Find employees Contact Locations Press…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2431,6 +2611,42 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23; the per-programme table is served in the HTML. Twente states elsewhere that its published requirements are for the September 2026 intake and that requirements for the following September are announced in October, so nothing on this page is specific to 2027 yet."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (10/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "BSc University of Twente | Application & admission | BSc University of Twente Skip to main…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-utwente-advanced-technology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "BSc University of Twente | Application & admission | BSc University of Twente Skip to main…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-utwente-creative-technology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "BSc University of Twente | Application & admission | BSc University of Twente Skip to main…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-utwente-technical-computer-science-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "BSc University of Twente | Application & admission | BSc University of Twente Skip to main…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2468,6 +2684,42 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23. Page stamped 'last update 5 Aug 2026'. Twente's admission pages state that requirements published now are for the September 2026 intake and that the 2027 requirements are announced in October."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (10/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "International Baccalaureate | Diploma equivalents | BSc University of Twente Skip to main content Nederlands English Deutsch LatAm website Italian website Education Bachelor…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-utwente-advanced-technology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "International Baccalaureate | Diploma equivalents | BSc University of Twente Skip to main content Nederlands English Deutsch LatAm website Italian website Education Bachelor…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-utwente-creative-technology-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "International Baccalaureate | Diploma equivalents | BSc University of Twente Skip to main content Nederlands English Deutsch LatAm website Italian website Education Bachelor…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-utwente-technical-computer-science-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "International Baccalaureate | Diploma equivalents | BSc University of Twente Skip to main content Nederlands English Deutsch LatAm website Italian website Education Bachelor…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2505,6 +2757,42 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23. The page is a JS shell to a summarising fetcher and serves its full content to a plain curl. Its own body says it lists diplomas equivalent for 'the academic year 2026-2027' while the page is linked from 2027-2028 programme pages; the intake the list belongs to should be re-read once UM publishes the 2027-2028 version."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (11/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Non-Dutch diplomas equivalent to the Dutch VWO diploma 2027-2028 - Maastricht University Skip to main content My UM Open menu Education Open Education Education Discover our…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Non-Dutch diplomas equivalent to the Dutch VWO diploma 2027-2028 - Maastricht University Skip to main content My UM Open menu Education Open Education Education Discover our…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-international-business-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Non-Dutch diplomas equivalent to the Dutch VWO diploma 2027-2028 - Maastricht University Skip to main content My UM Open menu Education Open Education Education Discover our…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Non-Dutch diplomas equivalent to the Dutch VWO diploma 2027-2028 - Maastricht University Skip to main content My UM Open menu Education Open Education Education Discover our…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2534,6 +2822,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (11/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Data Science and Artificial Intelligence - Come study at Maastricht University! - Maastricht University Skip to…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "Data Science and Artificial Intelligence - Come study at Maastricht University! - Maastricht University Skip to…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2571,6 +2877,42 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23. Maastricht's Faculty of Arts and Social Sciences publishes a second one at /entrance-exam-colloquium-doctum-FASoS, also 100 euro, examined on set readings and written in English, and University College Venlo's admission page carries a Colloquium Doctum section that University College Maastricht's does not."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "3 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (9/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Colloquium Doctum | Entrance exam Faculty of Law (FoL) - Maastricht University Skip to main content Nederlands NL My UM Open menu Education Open…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Colloquium Doctum | Entrance exam Faculty of Law (FoL) - Maastricht University Skip to main content Nederlands NL My UM Open menu Education Open…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-international-business-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Colloquium Doctum | Entrance exam Faculty of Law (FoL) - Maastricht University Skip to main content Nederlands NL My UM Open menu Education Open…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "Colloquium Doctum | Entrance exam Faculty of Law (FoL) - Maastricht University Skip to main content Nederlands NL My UM Open menu Education Open…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2604,6 +2946,33 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Both pages fetched in full and searched on 2026-09-23. Maastricht's /education/pre-bachelors page returns HTTP 403 to automated retrieval and is the one page that might carry a pre-bachelor or foundation route; it was not read, and UM's diploma list separately states that Foundation Programmes are not accepted for bachelor admission."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (11/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "University College Maastricht - Come study at Maastricht University! - Maastricht University Skip to main…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-international-business-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "University College Maastricht - Come study at Maastricht University! - Maastricht University Skip to main…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "University College Maastricht - Come study at Maastricht University! - Maastricht University Skip to main…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2637,6 +3006,33 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read in full on 2026-09-23, including the per-programme list, which was enumerated rather than sampled. No fee is published for the colloquium doctum itself; the cost sits with the external examining bodies. A Dutch mirror is at eur.nl/onderwijs/praktische-zaken/toelating/colloquium-doctum."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "2 claims checked; weakest: requirements[0].alternativeRoute — page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Admission via colloquium doctum (CD) | Erasmus University Rotterdam Skip to main content Skip to search Skip to subnavigation Erasmus University…",
+      "claims": [
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-erasmus-economics-and-business-economics-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Admission via colloquium doctum (CD) | Erasmus University Rotterdam Skip to main content Skip to search Skip to subnavigation Erasmus University…",
+          "details": []
+        },
+        {
+          "field": "requirements[0].alternativeRoute",
+          "entity": "nl-erasmus-international-business-administration-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "Admission via colloquium doctum (CD) | Erasmus University Rotterdam Skip to main content Skip to search Skip to subnavigation Erasmus University…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2667,6 +3063,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read from the print view of the consolidated regulation on 2026-09-23 and searched in full for every spelling of baccalaureate, International Baccalaureate and Course result. Retrieval note: wetten.overheid.nl serves article bodies only through /0/afdrukken; its own site search is JavaScript-only and its SRU endpoints reject the obvious queries, so a regulation has to be fetched whole and searched locally."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…vooropleidingseisen opleiding tot leraar basisonderwijs: eisen als bedoeld in artikel 7.25a van de wet ; diploma: 1. diploma, als bedoeld in artikel 7.24, eerste en tweede lid, van de wet , dan wel een daarmee…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…vooropleidingseisen opleiding tot leraar basisonderwijs: eisen als bedoeld in artikel 7.25a van de wet ; diploma: 1. diploma, als bedoeld in artikel 7.24, eerste en tweede lid, van de wet , dan wel een daarmee…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2696,6 +3110,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Fetched and read on 2026-09-23. The ten-year rules and the diploma application are on the sibling pages /particulier/staatsexamen-vo/index.jsp and /diploma-aanvragen.jsp; the required vwo subject package is published only as a PDF at duo.nl/images/vakken-vwo.pdf. No ministerial regulation currently states these fees — DUO publishes the amounts under the statutory mandate in article 2.72 lid 4 WVO 2020."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…examineren Vrijstelling of ontheffing examenvak Terugtrekken of uitstel Uitslag Diploma aanvragen Oefenexamens Vakinformatie Vakkenpakket Staatsexamen in Caribisch…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…examineren Vrijstelling of ontheffing examenvak Terugtrekken of uitstel Uitslag Diploma aanvragen Oefenexamens Vakinformatie Vakkenpakket Staatsexamen in Caribisch…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2726,6 +3158,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read from the print view of the consolidated act on 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 1 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…in combinatie met het volgen van leerwegondersteunend onderwijs, niet zal leiden tot het behalen van een diploma of een getuigschrift vmbo als bedoeld in artikel 2.58 . Artikel 2.30. Toelaatbaarheid en toelating…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 1 of 12 content words appear",
+          "excerpt": "…in combinatie met het volgen van leerwegondersteunend onderwijs, niet zal leiden tot het behalen van een diploma of een getuigschrift vmbo als bedoeld in artikel 2.58 . Artikel 2.30. Toelaatbaarheid en toelating…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2756,6 +3206,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read from the print view of the consolidated decree on 2026-09-23 and searched in full: 'Internationaal Baccalaureaat' occurs twice, at articles 3.66 lid 4 and 4.8 lid 4."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (3/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…waaronder betrekkingsomvang en de Bevordering Arbeidsparticipatie Ouderen (bapo) in fulltime equivalenten (fte) Functie (code en omschrijving) Functiecategorie Salarisschaal Salarisnummer Bruto…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…waaronder betrekkingsomvang en de Bevordering Arbeidsparticipatie Ouderen (bapo) in fulltime equivalenten (fte) Functie (code en omschrijving) Functiecategorie Salarisschaal Salarisnummer Bruto…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -2797,6 +3265,12 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "buas.nl returns HTTP 403 to a plain fetch — CDN bot protection — so every BUas page here was read through a fetching agent rather than directly. The Dutch sibling page at /opleidingen/21plus-regeling-matchingsopleidingen carries the same 150 euro fee and the dates 4 februari, 15 april and 20 mei 2027, and adds that a failed assessment cannot be resat in the same year and that enrolment is then only possible for the regular, not the accelerated, variant of a programme."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "host refuses automated fetching (HTTP 403) and is not yet in link-policy.json — open it by hand, and record the host there if it refuses everything",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -2838,6 +3312,12 @@
       "at": "2026-09-23",
       "method": "read-pdf",
       "note": "buas.nl refuses plain fetches with HTTP 403; the PDF was retrieved through a fetching agent and its text extracted and read locally on 2026-09-23. The regulation on the site is the 2025-2026 edition — the edition covering a 2027 intake is not published yet, so these articles should be re-read when it is. The dates in its annex are 2025 dates; the 2027 dates are on the public 21+ pages."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "host refuses automated fetching (HTTP 403) and is not yet in link-policy.json — open it by hand, and record the host there if it refuses everything",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -2880,6 +3360,12 @@
       "at": "2026-09-23",
       "method": "read-pdf",
       "note": "Retrieved through a fetching agent because buas.nl 403s a plain fetch, then extracted and searched locally on 2026-09-23: 'Course result' does not occur, and the only two IB rows are the ones quoted."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "host refuses automated fetching (HTTP 403) and is not yet in link-policy.json — open it by hand, and record the host there if it refuses everything",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   }
 ]

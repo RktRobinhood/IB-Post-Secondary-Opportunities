@@ -1,7 +1,7 @@
 [
   {
     "id": "ev-uni-lj-ib-no-recognition-needed",
-    "sourceUrl": "https://www.uni-lj.si/studij/prijava-sprejem/vpisna-dokumentacija",
+    "sourceUrl": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
     "publisher": "University of Ljubljana (Univerza v Ljubljani)",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
@@ -26,7 +26,8 @@
       "dataAsOf": "2026-09-23",
       "notes": [
         "Read as a Slovene-language PDF leaflet. The ministry's own joint-call PDF returns HTTP 404, so this leaflet is the best available source for the Slovenian cycle.",
-        "If recognition does turn out to be required, the leaflet warns a decision can take up to two months from a complete application, and the first-round selection on 24 July only covers candidates whose decision has already been issued."
+        "If recognition does turn out to be required, the leaflet warns a decision can take up to two months from a complete application, and the first-round selection on 24 July only covers candidates whose decision has already been issued.",
+        "The sourceUrl was first recorded as a plausible-looking uni-lj.si page that does not carry this wording. The source check caught it — \"only 0 of 12 content words appear\" — which is the failure mode issue #21 is about, committed while closing issue #21. Corrected to the Slovene PDF leaflet the research pass actually read."
       ]
     },
     "attestation": {
@@ -34,6 +35,12 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read in Slovene on 2026-09-23, alongside the national portal page it disagrees with."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -70,6 +77,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read on 2026-09-23 alongside the Ljubljana leaflet it disagrees with."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…FORM [recaptcha] Powered by: About this site Studyinslovenia.si is a comprehensive, official resource on higher education in Slovenia for prospective and current international students. Read…",
+      "claims": [
+        {
+          "field": "ibRecognition.notes",
+          "entity": "si",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…FORM [recaptcha] Powered by: About this site Studyinslovenia.si is a comprehensive, official resource on higher education in Slovenia for prospective and current international students. Read…",
+          "details": []
+        }
+      ]
     }
   }
 ]

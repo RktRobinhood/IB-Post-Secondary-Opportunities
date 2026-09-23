@@ -33,6 +33,12 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read in a browser because automated retrieval returns nothing, alongside the state portal page it disagrees with."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page serves almost no readable text to a plain fetch (JavaScript-rendered) — read it in a browser",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -69,6 +75,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read on 2026-09-23 alongside the university page it disagrees with."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…46 66 44 60 60 Fax: (+352) 46 66 44 36 060 Website: https://www.uni.lu/life-en/contacts/ Closed ⋅ Opens tomorrow at 13.30 Wednesday: 13.30 to 16.00 Thursday: 13.30 to 16.00 Friday: 13.30 to…",
+      "claims": [
+        {
+          "field": "application.deadlines",
+          "entity": "lu",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…46 66 44 60 60 Fax: (+352) 46 66 44 36 060 Website: https://www.uni.lu/life-en/contacts/ Closed ⋅ Opens tomorrow at 13.30 Wednesday: 13.30 to 16.00 Thursday: 13.30 to 16.00 Friday: 13.30 to…",
+          "details": []
+        }
+      ]
     }
   }
 ]

@@ -18,7 +18,9 @@
         "field": "application.deadlines"
       }
     ],
-    "conflictsWith": ["ev-pums-requirements-class-start"],
+    "conflictsWith": [
+      "ev-pums-requirements-class-start"
+    ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
@@ -31,6 +33,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read on 2026-09-23 alongside the admission-requirements page it disagrees with."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (6/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Information for Incoming Students Gallery Student Zone Student Zone On-line Services & Student E-mail School Regulations Campus Map Emergency Numbers NBME Examinations Student Problem Resolution Student…",
+      "claims": [
+        {
+          "field": "application.deadlines",
+          "entity": "pl",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…Information for Incoming Students Gallery Student Zone Student Zone On-line Services & Student E-mail School Regulations Campus Map Emergency Numbers NBME Examinations Student Problem Resolution Student…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -52,7 +72,9 @@
         "field": "application.deadlines"
       }
     ],
-    "conflictsWith": ["ev-pums-calendar-class-start"],
+    "conflictsWith": [
+      "ev-pums-calendar-class-start"
+    ],
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
@@ -65,6 +87,24 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "Read on 2026-09-23 alongside the application calendar it disagrees with."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (5/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…Information for Incoming Students Gallery Student Zone Student Zone On-line Services & Student E-mail School Regulations Campus Map Emergency Numbers NBME Examinations Student Problem Resolution Student…",
+      "claims": [
+        {
+          "field": "application.deadlines",
+          "entity": "pl",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (5/12 content words present)",
+          "excerpt": "…Information for Incoming Students Gallery Student Zone Student Zone On-line Services & Student E-mail School Regulations Campus Map Emergency Numbers NBME Examinations Student Problem Resolution Student…",
+          "details": []
+        }
+      ]
     }
   }
 ]

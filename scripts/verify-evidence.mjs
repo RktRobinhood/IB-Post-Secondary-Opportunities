@@ -110,9 +110,25 @@ async function loadEntities() {
     }
   }
   // Institutions also live nested under data/countries/*.json in this repo.
+  //
+  // And so does the country profile itself, which is the part this missed. A
+  // country profile is keyed by `code` rather than `id`, so indexing only the
+  // nested institutions left every Evidence record supporting a Destination's
+  // own fields — `pl` / `application.deadlines`, `si` / `ibRecognition.notes` —
+  // reporting "no record exists, so this evidence backs nothing".
+  //
+  // That is `unsupported`: the strongest negative this tool has, and the one
+  // that means a published claim has nothing behind it. It was being applied to
+  // records that were sound, which is worse than not checking them, because it
+  // manufactures alarm and buries the real unsupported ones among it.
+  //
+  // This is the second time: the comment above records `context-notes` doing
+  // exactly the same thing for the same reason. A list of directories that has
+  // to be kept in step with the model by hand will fall out of step with it.
   try {
     for (const f of (await fs.readdir(path.join(DATA, 'countries'))).filter((x) => x.endsWith('.json'))) {
       const c = await readJson(path.join(DATA, 'countries', f));
+      if (c?.code) byId.set(c.code, c);
       for (const inst of c.institutions || []) if (inst.id) byId.set(inst.id, inst);
     }
   } catch {
