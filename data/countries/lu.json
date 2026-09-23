@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "One small multilingual university, and a semester abroad built in",
   "summary": "Luxembourg has essentially one public university, founded in 2003, and it is unlike anywhere else on this site. Programmes are multilingual by design - many bachelor's are taught in two languages, typically French and English or French and German - and every bachelor student has to spend a semester abroad, which is written into the rules rather than offered as an option. It is small, well funded, and sits at the centre of EU institutions and international finance. The country is also one of the most expensive in Europe to live in, and there is only one annual intake, in September.",
@@ -21,6 +21,7 @@
   "watchOuts": [
     "English alone is often not enough. Many bachelor's require French or German as well as English, and the requirement is per programme. Read the language requirements of the individual programme before anything else.",
     "One intake a year, in September, with no spring or summer entry. Applications for 2027-2028 open on 1 February 2027, and the university has said the admission criteria for that year are under review and may change.",
+    "Every programme sets its own closing date and they are not the same. In the 2026-2027 cycle Computer Science closed for EU applicants on 15 July and a second programme was indexed as closing on 8 July. Read your own programme’s admissions page rather than any university-wide date, including the ones on this page.",
     "Very small choice. This is one university with a limited range of bachelor's - if your subject is not among them, Luxembourg is simply not an option.",
     "Cost of living is high. Rents in and around Luxembourg City are among the most expensive in the EU, and student housing is limited.",
     "The compulsory mobility semester is a real constraint if you have family or work commitments; waivers exist but are not automatic."
@@ -48,24 +49,55 @@
         "date": "2027-02-01",
         "consequence": "indicative",
         "provisional": false,
-        "year": "2027-2028 entry - stated on the university's own admissions page",
-        "notes": "The university offers only one annual intake for bachelor's and master's, in September. The closing date for 2027-2028 was not published at the time of research, and the university warns that the admission criteria for that year are under review and may change.",
+        "year": "2027-2028 entry - stated on the university’s own admissions page",
+        "notes": "Read in a browser on 23 September 2026, because uni.lu returns nothing at all to automated retrieval: \"The application period for the 2026–2027 academic year is now closed. Applications for the 2027–2028 academic year will open on 1 February 2027.\" The university offers one intake a year, in September, and states there are no spring or summer intakes. The same page warns that \"The application criteria for the 2027–2028 academic year are currently under review and may be subject to change\", so the eligibility rules you plan around today may not be the ones you apply under. There is an application fee, paid as step five of the application, before you can submit.",
         "source": "https://www.uni.lu/en/admissions/bachelor-master/"
       },
       {
-        "label": "Closing date for bachelor applications",
+        "label": "Closing date for bachelor applications - set per programme, not once for the university",
+        "date": null,
         "dateState": "not-yet-announced",
         "consequence": "hard",
-        "year": "2027-2028 entry - not yet published",
-        "notes": "For the 2026-2027 cycle the application period had already closed by September 2026. Luxembourg's public service portal describes enrolment as running from the end of April to mid-September but notes that enrolment periods for some bachelor programmes are subject to change and that its own page is being updated. Check uni.lu from February 2027.",
-        "source": "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html"
+        "provisional": false,
+        "year": "2027-2028 entry - the 2027-2028 closing dates were not published on 2026-09-23",
+        "audience": "EU citizens, including Danes",
+        "notes": "There is no single University of Luxembourg deadline: each programme publishes its own, on its own admissions page, and they differ by more than a week. Precedent, read in a browser on 23 September 2026 from the Bachelor in Computer Science admissions page: \"EU: 1 Feb 2026 – 15 Jul 2026\". That is nine days after IB results are released, which makes Luxembourg one of the very few destinations where an EU student can apply on actual results rather than predicted ones. Do not generalise it, though: a search index reported the Bachelor en Medecine closing for EU applicants on 8 July 2026, two days after results, and that page could not be confirmed because uni.lu began returning HTTP 403 to the browser partway through this research. Take the date from your own programme’s admissions page, and take it early.",
+        "source": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/",
+        "sources": [
+          "https://www.uni.lu/en/admissions/bachelor-master/"
+        ]
+      },
+      {
+        "label": "Closing date for bachelor applications, the much earlier non-EU window",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027-2028 entry - the 2027-2028 closing dates were not published on 2026-09-23",
+        "audience": "applicants who are not EU citizens",
+        "notes": "Promoted to its own entry on 23 September 2026; nothing here recorded that the non-EU window is a different thing entirely. Precedent, read in a browser on 23 September 2026 from the Bachelor in Computer Science admissions page: \"Non-EU: 1 Feb 2026 – 24 Mar 2026\" - nearly four months earlier than the EU window, and three and a half months before IB results exist. The same 24 March appeared for a second programme. If you are not an EU citizen, Luxembourg is a predicted-grades application and the July advantage that EU applicants get does not exist for you.",
+        "source": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/"
+      },
+      {
+        "label": "The application window and the enrolment window - the university and the state portal do not describe the same period",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027-2028 entry",
+        "notes": "\"Date not published\" above is our wording, not anyone else’s. Two official Luxembourgish pages describe the period for getting into the University of Luxembourg and they do not agree, so no single window is recorded here. The university’s own admissions page says applications for 2027-2028 \"will open on 1 February 2027\", and its programme pages give windows running from 1 February to July. The state portal guichet.public.lu, on its page \"Enrolling at the University of Luxembourg\", says enrolment runs \"from the end of April to mid-September\" for a bachelor. Both were read on 23 September 2026 and both are live. The likeliest explanation is that guichet is describing enrolment after admission while the university is describing application - but guichet’s page is headed \"This page is currently being updated\", which is the publisher telling you it may be stale, and this site is not going to resolve the difference in the direction that happens to suit. What to do instead: work to the dates on your own programme’s page at uni.lu, and if the guichet window is the one you were counting on, get it confirmed by the university’s student department (SEVE) before you rely on it.",
+        "source": "https://www.uni.lu/en/admissions/bachelor-master/",
+        "sources": [
+          "https://guichet.public.lu/en/citoyens/famille-education/etudes-superieures/inscription-etudes-superieures/inscription-uni-lux.html",
+          "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/"
+        ]
       }
     ],
     "steps": [
       "Choose a programme from the university's bachelor list and read its language requirements first - this is what decides whether Luxembourg is viable for you.",
       "Check the eligibility criteria for that programme, and note that the criteria for 2027-2028 were under review when this was written.",
       "Prepare your documents: IB transcript or predicted grades, school-leaving certificate, proof of the required languages, passport, motivation letter.",
-      "Create an account on the university's admission platform when applications open on 1 February 2027.",
+      "Create an account on the university’s admission platform when applications open on 1 February 2027, and find your own programme’s closing date on its admissions page - there is no single university-wide deadline.",
       "Complete the application and pay the application fee, then submit online.",
       "If admitted, enrol and pay the semester registration fee, and start looking for accommodation immediately - housing is the tightest constraint in Luxembourg.",
       "Plan for the compulsory semester abroad, normally taken in the third, fourth or fifth semester."
@@ -102,7 +134,7 @@
     "notes": [
       "The University of Luxembourg's fee pages could not be retrieved during this research - uni.lu returned CloudFront 403 errors and the Luxembourg public service page for enrolling at the university states that it is currently being updated. All fee fields are therefore left empty rather than guessed.",
       "Registration fees at the University of Luxembourg are charged per semester rather than per year, and are widely reported as being higher in the first year than in later years, with the same amount for EU and non-EU students. These figures were NOT confirmed on an official page and must be verified at uni.lu before you rely on them.",
-      "There is an application fee per application, which is reported to be deducted from your first semester fee if you enrol - again, verify this at uni.lu.",
+      "There is an application fee, and paying it is step five of the six-step application process shown on the university’s own admissions page, so you cannot submit without it. The amount could not be established: the university’s own news item announcing the fee is titled \"Uni.lu introduces a 50 EUR application fee\", while secondary sources describe a non-refundable 100 EUR fee deducted from the first semester’s tuition if you enrol. Neither figure was confirmed on a current official page, because uni.lu returned HTTP 403 before the fee pages could be read on 23 September 2026. Verify at uni.lu before budgeting.",
       "Luxembourg has one of the highest costs of living in the EU, driven mainly by rent. Budget well above what you would need in Belgium or the Netherlands, and check the university's own cost-of-living page."
     ]
   },
@@ -216,7 +248,7 @@
     {
       "title": "University of Luxembourg - Bachelor and Master admissions (2027-2028 applications open 1 February 2027)",
       "url": "https://www.uni.lu/en/admissions/bachelor-master/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-23"
     },
     {
       "title": "Guichet.lu - Enrolling at the University of Luxembourg",
@@ -237,6 +269,11 @@
       "title": "University of Luxembourg - Financial support and cost of living",
       "url": "https://www.uni.lu/life-en/financial-support/",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "University of Luxembourg - Bachelor in Computer Science, admissions (programme-level EU and non-EU application windows; read in a browser, uni.lu returns nothing to automated retrieval)",
+      "url": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

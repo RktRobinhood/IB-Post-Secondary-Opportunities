@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "The EU country where the whole university already runs in English",
   "summary": "Malta is the odd one out in the EU: English is an official language and the University of Malta states plainly that 'the language of instruction and communication at UM is English'. That means you get an EU degree, EU freedom of movement and no visa, without the language problem you hit in Slovenia or Greece. Better still, Malta treats the IB Diploma as a local qualification rather than a foreign one, and publishes exactly how IB grades map onto the Maltese Matriculation Certificate.",
@@ -22,8 +22,9 @@
     "Accommodation is the real cost: UM's own estimate is EUR 550-700 a month for a shared room and EUR 800-1,600 for a single",
     "Undergraduate tuition is published course by course rather than as one table, so you have to look it up per course in the online course search",
     "Malta is small - around 500,000 people - and the subject range is narrower than a large mainland university",
-    "Application deadlines for the October 2027 intake were not published as of September 2026; the pattern is that applications open the previous November",
-    "Subjects at IB ab initio level 'are not comparable to any subjects required for admission' - check your subject choices against the course requirements early"
+    "Application deadlines for the October 2027 intake were not published as of 23 September 2026. In the 2026 cycle the main deadline was 22 July at 14:00 - after IB results, which is unusual and good - but medicine closed on 16 March at 14:00 for IB holders, four months before results.",
+    "Subjects at IB ab initio level 'are not comparable to any subjects required for admission' - check your subject choices against the course requirements early",
+    "Every University of Malta deadline falls at 14:00 Malta time, not at midnight, and the late-application safety net does not apply to medicine or to any course with a limited number of places."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -45,42 +46,96 @@
     },
     "deadlines": [
       {
-        "label": "University of Malta - deadline for non-EU applicants needing a visa (previous cycle, for reference)",
-        "date": "2026-07-01",
-        "timeOfDay": "14:00",
+        "label": "University of Malta - main application deadline",
+        "date": null,
+        "dateState": "not-yet-announced",
         "consequence": "hard",
-        "provisional": true,
-        "year": "October 2026 intake - closed",
-        "notes": "As an EU citizen you are not bound by this earlier deadline.",
-        "source": "https://www.um.edu.mt/study/datesdeadlines/"
-      },
-      {
-        "label": "University of Malta - late application deadline (previous cycle, for reference)",
-        "date": "2026-09-15",
-        "timeOfDay": "14:00",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "October 2026 intake - closed. Use as a guide to the pattern only",
-        "notes": "The main deadline falls earlier; this was the late deadline.",
-        "source": "https://www.um.edu.mt/study/datesdeadlines/"
-      },
-      {
-        "label": "University of Malta - first semester start",
-        "date": "2026-10-05",
-        "consequence": "indicative",
         "provisional": false,
-        "year": "2026-27",
-        "notes": "Published as \"Monday 5 October 2026 for new students\". Second semester 8 February to 25 June 2027. The 2027-28 calendar was not published on 2026-09-22.",
-        "source": "https://www.um.edu.mt/study/datesdeadlines/importantdates/"
+        "year": "October 2027 intake - the 2027 deadlines were not published on 2026-09-23",
+        "notes": "Precedent, read on 23 September 2026: \"Applications for all courses are to be submitted online against the relevant application fee up to 22 July 2026 at 14:00.\" Note the time: 14:00 Malta time, not midnight. This is one of the very few main deadlines in Europe that falls after IB results are released, which is the single best reason for an IB student to look at Malta. The application fee is non-refundable, and the previous record here gave no main deadline at all - it said only that \"the main deadline falls earlier\" than the late one.",
+        "source": "https://www.um.edu.mt/study/admissionsadvice/admissionsfaqs/",
+        "sources": [
+          "https://www.um.edu.mt/study/datesdeadlines/"
+        ]
       },
       {
-        "label": "University of Malta - main application window",
+        "label": "Doctor of Medicine and Surgery - the deadline for applicants presenting an IB Diploma",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "October 2027 intake - the 2027 deadlines were not published on 2026-09-23",
+        "audience": "applicants to the M.D. presenting an IB Diploma, a European Baccalaureate or the MATSEC Matriculation Certificate",
+        "notes": "Promoted to its own entry on 23 September 2026. It was in no record, it names the IB explicitly, and it is more than four months earlier than the main deadline. Precedent, read on 23 September 2026: \"Applicants presenting qualifications considered local (e.g., IB, EB, or the Matriculation Certificate awarded by MATSEC) ... were required to submit their application by 16 March 2026 at 14:00.\" The useful half of this is that Malta counts an IB Diploma as a local qualification rather than an overseas one, which buys you six extra weeks over the overseas-qualification deadline. The dangerous half is that March is four months before your results, and the University does not accept late applications for the M.D. at all.",
+        "source": "https://www.um.edu.mt/study/datesdeadlines/"
+      },
+      {
+        "label": "Doctor of Medicine and Surgery - the earlier deadline for overseas qualifications",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "October 2027 intake - the 2027 deadlines were not published on 2026-09-23",
+        "audience": "applicants to the M.D. presenting qualifications other than the IB, the EB or a MATSEC certificate",
+        "notes": "Precedent, read on 23 September 2026: \"The closing date for receipt of applications from applicants presenting overseas qualifications and degrees awarded by institutions other than the University of Malta was 30 January 2026 at 14:00.\" Recorded here so that the IB deadline above is visible as the concession it is: if you are taking A-levels or a national diploma rather than the IB, you are applying to Maltese medicine in January.",
+        "source": "https://www.um.edu.mt/study/datesdeadlines/"
+      },
+      {
+        "label": "Faculty of Health Sciences, limited-number courses - last chance to change your order of preference",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "October 2027 intake - the 2027 deadline was not published on 2026-09-23",
+        "audience": "applicants who chose a Faculty of Health Sciences course with a limited number of places",
+        "notes": "Promoted to its own entry on 23 September 2026. It is the least visible date in the Maltese cycle and it decides which course you are actually offered. The University publishes it as: applicants selecting limited-enrolment programmes offered by the Faculty of Health Sciences may adjust their order of preference \"only until 31 August at 14:00\". After that the order you last saved is the order you are placed against. The wording carries no year, which is why no year is inferred here.",
+        "source": "https://www.um.edu.mt/study/admissionsadvice/admissionsfaqs/"
+      },
+      {
+        "label": "Late application deadline - and the courses it does not rescue",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "October 2027 intake - the 2027 deadlines were not published on 2026-09-23",
+        "notes": "Precedent, read on 23 September 2026: \"Late applications may be submitted up to 15 September 2026 at 14:00, where late application fees will be charged.\" The part that matters more than the date: late applications are not accepted for the M.D. course, nor for any course with a limited number of students. So the safety net exists for ordinary degrees and does not exist for exactly the courses people miss deadlines for.",
+        "source": "https://www.um.edu.mt/study/admissionsadvice/admissionsfaqs/",
+        "sources": [
+          "https://www.um.edu.mt/study/datesdeadlines/"
+        ]
+      },
+      {
+        "label": "Deadline for non-EU applicants who need a visa",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "October 2027 intake - the 2027 deadlines were not published on 2026-09-23",
+        "audience": "applicants who are not EU citizens and need a visa to travel to Malta",
+        "notes": "Precedent, read on 23 September 2026: \"The deadline for Non-EU applicants submitting an application towards courses commencing in October 2026, and requiring a visa to travel to Malta, is 1 July 2026 at 14:00.\" Applications received after it are deferred to the next intake rather than refused. As a Danish or other EU citizen you are not bound by this earlier date and the July main deadline is yours.",
+        "source": "https://www.um.edu.mt/study/datesdeadlines/",
+        "sources": [
+          "https://www.um.edu.mt/study/admissionsadvice/admissionsfaqs/"
+        ]
+      },
+      {
+        "label": "University of Malta - main application window opens",
         "date": null,
         "dateState": "not-published",
         "consequence": "indicative",
-        "year": "Annual pattern; the October 2027 dates were not published on 2026-09-22",
-        "notes": "Published only as \"Applications open from the November before the October start\". The UM academic year starts every October, with a smaller intake in February.",
+        "provisional": false,
+        "year": "Annual pattern; the October 2027 opening date was not published on 2026-09-23",
+        "notes": "Recorded in an earlier pass as \"Applications open from the November before the October start\". That wording could not be found again on the dates-and-deadlines page on 23 September 2026, which by then showed only that the October 2026 cycle had closed, so it is left here as an unverified description of the annual pattern rather than as a date. The University of Malta runs a main intake every October and a smaller one in February. Treat the opening as some time in the preceding winter and take the real date from um.edu.mt once the 2027 cycle is posted.",
         "source": "https://www.um.edu.mt/study/datesdeadlines/"
+      },
+      {
+        "label": "University of Malta - first semester begins for first-year students",
+        "date": "2027-10-04",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027-28 - published, not inferred",
+        "notes": "Published on the University’s academic calendar and read on 23 September 2026: \"Monday 4 October 2027 to Saturday 5 February 2028 - For first year students\", with continuing students starting a week earlier on 27 September 2027 and the opening ceremony on 4 October. The previous record here said the 2027-28 calendar was not published; it is, in full. First-semester examinations run 17 January to 5 February 2028, the second semester runs 7 February to 28 June 2028, and there is a September assessment period from 1 to 15 September 2028.",
+        "source": "https://www.um.edu.mt/study/datesdeadlines/importantdates/"
       }
     ],
     "steps": [
@@ -88,10 +143,10 @@
       "Check your IB subjects against the requirement: HL counts as Advanced Level, SL as Intermediate Level, and ab initio subjects do not count at all.",
       "Apply online through the UM application system, selecting 'Local Qualifications' because Malta treats the IB as local.",
       "Satisfy the English language requirement. Applicants educated outside Malta normally present a Secure English Language Test result; some are exempt, and UM runs its own ISET test on campus.",
-      "Submit before the published deadline for your intake and have your original documents verified.",
+      "Submit before the published deadline for your intake and have your original documents verified. In the 2026 cycle that meant 22 July at 14:00 for most courses, 16 March at 14:00 for the M.D., and 31 August at 14:00 as the last day to reorder your preferences for a limited-number Health Sciences course.",
       "As an EU citizen, move to Malta and apply to Identita for an eResidence card, which also gets you free public transport."
     ],
-    "selectionNotes": "Some courses apply a numerus clausus and admit a fixed number of students - medicine, dentistry and pharmacy are the usual candidates - but this was not confirmed on the pages read on 2026-09-22 and should be checked on the individual course page. Application fees are non-refundable."
+    "selectionNotes": "Some courses admit a fixed number of students. The University confirms this indirectly and in the place it matters: it does not accept late applications \"for the M.D. course or courses with limited student numbers\", and it lets applicants for limited-enrolment Faculty of Health Sciences programmes adjust their order of preference \"only until 31 August at 14:00\", which is how a ranked allocation behaves. The exact capped list and the numbers were not published on any page read on 2026-09-22 or 2026-09-23 - check the individual course page. Application fees are non-refundable, and late applications carry an additional fee."
   },
   "language": {
     "englishTaughtBachelors": "All of them. The University of Malta states that 'the language of instruction and communication at UM is English'. Maltese is the other official language of the country but is not needed for study.",

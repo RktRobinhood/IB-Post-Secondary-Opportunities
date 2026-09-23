@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Your IB Diploma is enough on paper - but almost everything is in German",
   "summary": "Austria is unusually simple on recognition: a properly acquired IB Diploma counts as a full Austrian university entrance qualification by law, with no points table and no subject-combination rule to satisfy. The catch is language. Public universities teach bachelor's degrees in German and expect you to prove it, so an IB student without solid German is pushed towards a handful of private universities and Fachhochschulen. For EU students the money side is easy: you pay about 26 EUR a semester in student union fees for the first few years and nothing else.",
@@ -22,7 +22,7 @@
     "German is the real barrier. Austrian universities expect proof of German, typically a school certificate showing at least four years of German lessons or a recognised language diploma.",
     "English-taught bachelor's at public universities are scarce. The English-taught options are mostly private universities and Fachhochschulen, which charge real fees.",
     "Popular subjects are access-regulated (zugangsgeregelt) and have their own registration windows that close months before the general deadline - often in spring, before your results exist.",
-    "Medicine is the extreme case: the MedAT registration window closed on 31 March 2026 for a test on 8 July 2026, so you must register long before IB results day.",
+    "Medicine is the extreme case: for the 2026 intake MedAT registration closed on 31 March 2026 for a test on 3 July 2026, so you commit to Austrian medicine three months before IB results day. The 2027 dates were not published on 23 September 2026.",
     "Once you pass the standard study duration plus two tolerance semesters, the 363.36 EUR per semester tuition fee starts, so a slow degree costs money."
   ],
   "ibRecognition": {
@@ -45,58 +45,100 @@
     },
     "deadlines": [
       {
-        "label": "MedAT — registration for the human and dental medicine entrance test",
-        "date": "2026-03-02",
-        "endDate": "2026-03-31",
+        "label": "MedAT — registration and fee payment for the human and dental medicine entrance test",
+        "date": null,
+        "dateState": "not-yet-announced",
         "consequence": "hard",
-        "year": "2026 entry - 2027 dates not yet published",
-        "notes": "Published as \"Registration 2 to 31 March\". For 2026 entry registration ran 2-31 March 2026. Registration closes months before IB results, so decide early. Re-check medizinstudieren.at from January 2027.",
-        "source": "https://www.medizinstudieren.at/"
+        "provisional": false,
+        "year": "2027 entry — the 2027 dates were not published on 2026-09-23",
+        "audience": "anyone applying for human or dental medicine at an Austrian public university",
+        "notes": "Precedent, read in German on medizinstudieren.at on 23 September 2026: registration for the 2026 intake ran \"02.03.2026 bis 31.03.2026 (24:00 Uhr)\", and the same window was the deadline for the Kostenbeteiligung, the participation fee of about 110 EUR. The fee must have reached the university's account inside the window rather than merely have been sent, so a bank transfer started in the last days of March can fail and take the registration with it. Registration is online at medizinstudieren.at and is binding. It closes more than three months before IB results day, so you commit to Austrian medicine before you know your grades. The four medical universities publish the binding dates for the following intake in January, so re-check from January 2027.",
+        "source": "https://www.medizinstudieren.at/anmeldung-zum-medat/internet-anmeldung-zum-medat/",
+        "sources": [
+          "https://www.medizinstudieren.at/allgemeine-informationen/basic-infos-der-medat/"
+        ]
       },
       {
         "label": "MedAT — test day for human and dental medicine",
-        "date": "2026-07-08",
+        "date": null,
+        "dateState": "not-yet-announced",
         "consequence": "hard",
-        "year": "2026 entry - 2027 dates not yet published",
-        "notes": "Published as \"test 8 July\". The 2026 test was held on 8 July 2026 for 1,950 places across the four medical universities. The 2027 sitting is a different day and had not been published; re-check medizinstudieren.at from January 2027.",
-        "source": "https://www.medizinstudieren.at/"
+        "provisional": false,
+        "year": "2027 entry — the 2027 date was not published on 2026-09-23",
+        "audience": "anyone applying for human or dental medicine at an Austrian public university",
+        "notes": "Precedent, read in German on medizinstudieren.at on 23 September 2026: \"Der Aufnahmetest findet am Freitag, 3. Juli 2026\". It is a single day, sat simultaneously at all four medical universities; 13,248 candidates sat it for 1,950 places (784 Vienna, 430 Innsbruck, 406 Graz, 330 Linz). Results follow in calendar week 32. No official page gives 8 July 2026, a date this record carried before 23 September 2026; the Testtag page and the Basic-Infos overview agree on 3 July, which was the Friday the site's own news item calls \"heutigen Freitag\". The 2027 sitting is a different day and was not published; commercial preparation sites predict early July 2027 and no official page confirms it.",
+        "source": "https://www.medizinstudieren.at/der-aufnahmetest-medat/testteilnahme-und-testtag/allgemeines/",
+        "sources": [
+          "https://www.medizinstudieren.at/allgemeine-informationen/basic-infos-der-medat/"
+        ]
       },
       {
-        "label": "General admission period for the winter semester, EU/EEA/Swiss applicants (University of Vienna)",
+        "label": "University of Vienna — application period for the winter semester",
         "date": "2027-06-22",
         "endDate": "2027-09-05",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026/27 entry - 2027/28 dates not yet published",
-        "notes": "Published as \"22 June to 5 September\" with no year. The 5 September cut-off is the standard Austrian winter-semester deadline and is comfortably after IB results day. Re-check the exact 2027 dates from spring 2027; other universities publish their own but usually land on the same date.",
-        "source": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
+        "year": "2027/28 entry — inferred from the 2026/27 window; the 2027/28 dates were not published on 2026-09-23",
+        "audience": "EU, EEA and Swiss citizens, and non-EU citizens with equivalent status",
+        "notes": "The University of Vienna page, read on 23 September 2026, dates this window precisely and for the cycle that has just closed: \"Winter semester 2026/27: from 22 June to 5 September 2026\". The 2027/28 window was not published. The 5 September close is the standard Austrian winter-semester cut-off and Study in Austria repeats it with no year at all, so it is carried here provisionally for 2027; the 22 June opening is the University of Vienna's own and could move. Other universities publish their own periods and usually land on the same September date. Applying is not the same as being admitted: admission itself has its own later period, which is a separate entry here.",
+        "source": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/",
+        "sources": [
+          "https://studyinaustria.at/en/plan-your-studies/application-and-admission"
+        ]
       },
       {
-        "label": "General admission period for the winter semester, third-country nationals (University of Vienna)",
+        "label": "University of Vienna — application period for the winter semester, the earlier third-country window",
         "date": "2027-06-22",
         "endDate": "2027-08-03",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026/27 entry - 2027/28 dates not yet published",
-        "notes": "Published as \"22 June to 3 August\" with no year. If you are not an EU/EEA/Swiss citizen, the window closes about a month earlier and you also need a residence permit, which takes months.",
+        "year": "2027/28 entry — inferred from the 2026/27 window; the 2027/28 dates were not published on 2026-09-23",
+        "audience": "third-country nationals, that is anyone who is not an EU, EEA or Swiss citizen",
+        "notes": "Published on the same page as \"Winter semester 2026/27: from 22 June to 3 August 2026\", so the year here is inferred one cycle forward and the day could move. If you are not an EU/EEA/Swiss citizen the window closes about a month earlier than everyone else's and you also need a residence permit, which takes months and cannot be started until you are admitted.",
         "source": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
       },
       {
-        "label": "Summer semester intake",
+        "label": "University of Vienna — admission period, when admission is actually granted and you enrol",
+        "date": "2027-07-13",
+        "endDate": "2027-10-31",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027/28 entry — inferred from the 2026/27 period; the 2027/28 dates were not published on 2026-09-23",
+        "notes": "Promoted to its own entry on 23 September 2026 because it was not recorded at all and it is the step that actually costs a place. The University of Vienna page, read on 23 September 2026, gives it as \"Winter semester 2026/27: from 13 July to 31 October 2026\". Submitting an application inside the June-to-September window does not enrol you; you complete admission, pay the OeH fee and are matriculated inside this later period, and 31 October is the statutory end of it for the winter semester. The 13 July opening is a week after IB results, which is why the Austrian calendar works for an IB student at all.",
+        "source": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
+      },
+      {
+        "label": "Summer semester intake — application closes",
         "date": "2028-02-05",
         "consequence": "hard",
         "provisional": true,
-        "year": "Standard Austrian deadline",
-        "notes": "Published as the standard 5 February deadline with no year. Resolved here to the summer semester of the 2027/28 academic year, which is the first one an IB student finishing in May 2027 could enter. Not all degrees admit in the summer semester.",
-        "source": "https://studyinaustria.at/en/plan-your-studies/application-and-admission"
+        "year": "Summer semester 2028, the first an IB student finishing in May 2027 could enter",
+        "audience": "EU, EEA and Swiss citizens; third-country nationals close a month earlier",
+        "notes": "Study in Austria publishes the summer-semester close as \"February 5\" with no year, which is why this is resolved here to the summer semester of 2027/28. The University of Vienna page dates the matching window for the cycle just gone as \"Summer semester 2027: from 16 November 2026 to 5 February 2027\", so the window opens in mid-November of the preceding year — about eleven weeks, not a single day. Third-country nationals get a shorter window, published as closing 7 January rather than 5 February. Not all degrees admit in the summer semester, and most IB students will be aiming at the September start instead.",
+        "source": "https://studyinaustria.at/en/plan-your-studies/application-and-admission",
+        "sources": [
+          "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
+        ]
       },
       {
-        "label": "Degrees with an entrance procedure (Aufnahmeverfahren)",
+        "label": "Degrees with an entrance procedure (Aufnahmeverfahren) — registration closes long before the general deadline",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
         "year": "2027/28 entry",
-        "notes": "Published as \"registration can close up to six months before the semester starts\". Study in Austria states that programmes with entrance examinations have earlier deadlines, up to six months before the start of the semester. For a September 2027 start that can mean registering in spring 2027, before you have any IB results.",
+        "notes": "Study in Austria states that for programmes with entrance examinations the \"closing date for application for entrance examinations can be up to 6 months before the beginning of the semester\", and names the medical universities, the arts universities and the Fachhochschulen. For a September 2027 start that can mean registering in spring 2027, before you have any IB results. There is no central list: the window belongs to the individual university and degree, so find it on that university's own admission page. The University of Vienna's own window is a worked example and has its own entry below.",
         "source": "https://studyinaustria.at/en/plan-your-studies/application-and-admission"
+      },
+      {
+        "label": "University of Vienna — application window for bachelor's degrees that have an entrance examination",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/28 entry — the 2027/28 window was not published on 2026-09-23",
+        "audience": "all applicants regardless of citizenship",
+        "notes": "Promoted to its own entry on 23 September 2026: the general Aufnahmeverfahren warning named no dates, and this is the least visible deadline on the page. Precedent, read on 23 September 2026: \"Academic year 2026/27: from 2 March to 4 May 2026\", applying to all applicants whatever their citizenship. That is four months before the ordinary application period opens and fifteen months before an IB student's results exist, so a Vienna degree with an entrance examination has to be decided in the spring of the year before. The Sport Science bachelor runs the same 2 March to 4 May window for the winter semester. The 2027/28 dates were not published; re-check the University of Vienna admission page from January 2027.",
+        "source": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
       }
     ],
     "steps": [
@@ -104,7 +146,7 @@
       "Check whether the degree is access-regulated. If it is, find the registration window now; it will close long before the general September deadline.",
       "Sort out German. If the degree is German-taught you need documented German, and building that takes a year, not a month.",
       "Register on the university's application portal when the admission period opens in June 2027 and upload your school documents.",
-      "Send your IB Diploma as soon as it arrives in early July 2027 and complete admission before 5 September 2027.",
+      "Send your IB Diploma as soon as it arrives in early July 2027. The application must be in by the September close; admission itself is completed in the separate admission period, which at the University of Vienna ran to 31 October.",
       "Pay the OeH fee, collect your student ID, and register your address (Meldezettel) and your EU registration certificate after you arrive."
     ],
     "selectionNotes": "Most Austrian degrees are open: meet the entrance qualification and the language requirement and you are admitted. A defined list of subjects is access-regulated with a capped number of places and its own entrance procedure - medicine and dentistry through the MedAT, and a set of high-demand subjects such as psychology, business, computer science, biology, pharmacy and architecture at individual universities. The exact list and place numbers change, so verify per university for 2027/28."
@@ -494,9 +536,19 @@
       "retrieved": "2026-09-22"
     },
     {
-      "title": "medizinstudieren.at - MedAT entrance test",
-      "url": "https://www.medizinstudieren.at/",
-      "retrieved": "2026-09-22"
+      "title": "medizinstudieren.at - Internet-Anmeldung zum MedAT (German; carries the 2.-31.3.2026 registration and fee window)",
+      "url": "https://www.medizinstudieren.at/anmeldung-zum-medat/internet-anmeldung-zum-medat/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "medizinstudieren.at - Testteilnahme und Testtag, Allgemeines (German; carries the 3 July 2026 test day)",
+      "url": "https://www.medizinstudieren.at/der-aufnahmetest-medat/testteilnahme-und-testtag/allgemeines/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "medizinstudieren.at - Basic-Infos: Der MedAT (German; the one-page timetable)",
+      "url": "https://www.medizinstudieren.at/allgemeine-informationen/basic-infos-der-medat/",
+      "retrieved": "2026-09-23"
     },
     {
       "title": "OeAD - entry and residence",

@@ -7,7 +7,7 @@
   "currency": "CHF",
   "eu": false,
   "eea": false,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Cheap tuition, brutal living costs, and a very specific IB rule",
   "summary": "Switzerland publishes one of the clearest IB rules in Europe and one of the strictest. swissuniversities sets a minimum of 32 out of 42 points and a fixed six-subject structure; ETH Zurich and EPFL raise the bar to 38 points and dictate exactly which subjects must sit at Higher Level. Tuition is low by international standards, but Switzerland is not outside the EU by accident - it is expensive to live in, and almost every bachelor's degree is taught in German, French or Italian. English-taught bachelor's exist, but they are mostly at small private institutions.",
@@ -21,7 +21,7 @@
   "watchOuts": [
     "ETH doubled down on international students: from autumn semester 2025 the tuition for foreign students is CHF 2,190 per semester against CHF 730 for Swiss residents. Coming straight from Denmark, you pay the higher rate.",
     "ETH requires Maths, a natural science and a Language A all at Higher Level. An IB student with HL Maths, HL Physics and three SLs including Visual Arts or Psychology falls outside the rule and faces an entrance examination in German.",
-    "The ETH entrance examination route runs on a very long lead time - for autumn 2027 entry the application deadline was 31 March 2026 and the exam was held 18-28 January 2027.",
+    "The ETH entrance examination route runs on a very long lead time: for autumn 2027 entry you had to apply by 31 March 2026 and the exam runs 18-28 January 2027, in German. That March deadline has already passed, so if you need the exam you are looking at autumn 2028.",
     "Language, not grades, is what stops most Danish IB students: ETH teaches bachelor's in German, the University of Zurich requires German at C1, and EPFL requires French at B2.",
     "Living costs are the highest in Europe. Budget accordingly - this research could not verify current official figures, so get them from your target university before committing.",
     "EPFL has capped its first-year bachelor intake at 3,000 students from 2025, with Swiss maturity holders guaranteed admission and everyone else ranked."
@@ -51,7 +51,8 @@
         "date": "2026-03-31",
         "consequence": "hard",
         "year": "2027 entry",
-        "notes": "This is the published timetable for starting in autumn semester 2027: application by 31 March 2026, exam registration 15 September to 15 October 2026, examination 18-28 January 2027. If your IB subject combination does not meet the exam-free rule, you had to be in the system eighteen months ahead. Do not discover this in your final year.",
+        "audience": "applicants whose IB subject combination does not meet the ETH exam-free rule",
+        "notes": "ETH publishes one cycle at a time, and the cycle live on 23 September 2026 is this one: \"You must apply by 31 March 2026 at the latest\" in order to sit the examination of 18-28 January 2027 and begin in autumn semester 2027. If your IB subject combination does not meet the exam-free rule, you had to be in the system eighteen months ahead. That deadline has now passed, so a student reading this in autumn 2026 who needs the examination is realistically applying for autumn 2028 instead - ETH had not published that cycle's dates on 23 September 2026. The other two steps of this timetable have their own entries here.",
         "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
       },
       {
@@ -60,7 +61,8 @@
         "endDate": "2026-10-15",
         "consequence": "hard",
         "year": "2027 entry",
-        "notes": "The second step of the published autumn-2027 timetable, after the 31 March 2026 application.",
+        "audience": "applicants who already applied by 31 March 2026 and were told they must sit the examination",
+        "notes": "The second step of the published autumn-2027 timetable, after the 31 March 2026 application. ETH's wording is blunt: \"The registration for the entrance examination is between 15 September and 15 October. After 15 October registration will no longer be possible.\" The examination costs CHF 550 (reduced) or CHF 800 (comprehensive) and ETH decides which one applies to you.",
         "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
       },
       {
@@ -69,38 +71,92 @@
         "endDate": "2027-01-28",
         "consequence": "hard",
         "year": "2027 entry",
-        "notes": "The examination itself, eight months before the semester it admits you to.",
+        "notes": "The examination itself, eight months before the semester it admits you to, and it falls in the middle of your final IB year. ETH states plainly that \"The examination is in German\", so this is not a route you can take on English alone.",
         "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html"
       },
       {
-        "label": "ETH Zurich - ordinary bachelor application deadline for the autumn semester",
-        "dateState": "not-published",
+        "label": "ETH Zurich - ordinary bachelor application period for the autumn semester",
+        "date": "2026-12-01",
+        "endDate": "2027-03-31",
+        "timeOfDay": "23:59",
+        "timeZone": "CET",
         "consequence": "hard",
-        "year": "2027 entry",
-        "notes": "Could not be verified from an official ETH page during this research. ETH states that it can only decide whether you need an entrance examination once a complete application has been submitted through eApply, so apply as early as the portal allows. Confirm the date and any application fee on ethz.ch.",
-        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html"
+        "provisional": true,
+        "year": "2027 entry - the period is published with no year, so the years here are inferred",
+        "notes": "Recorded as not published until 23 September 2026, when it was found on ETH's \"How to apply\" page rather than on the admission-prerequisites page that had been cited: the application period runs \"from 1 December to 31 March, 23:59 Central European Time\". The years are inferred forward to the autumn 2027 intake because the page gives none. This closes more than three months before IB results, so you apply on predicted grades and upload the Diploma when it arrives. ETH can only decide whether you need an entrance examination once a complete application has been submitted through eApply, which is why applying early inside the window matters. An application fee is charged; the amount was not stated on the page.",
+        "source": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+        "sources": [
+          "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/admission-prerequisites.html"
+        ]
       },
       {
-        "label": "EPFL - admission decision timing for holders of an IB or EU/EFTA certificate",
+        "label": "EPFL - application period for the bachelor, and the deadline for the application fee",
+        "date": "2027-04-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - the period is published with no year, so the year here is inferred",
+        "notes": "Promoted to its own entry on 23 September 2026; the previous record said the EPFL application deadline \"was not verified from an official page\". EPFL publishes it as \"Applications can be submitted from mid-November to the 30th of April to start your studies at EPFL the following September\", so the window opens in mid-November of the preceding year with no day given and there is no opening date here to count down to. 30 April is also the day the application fee must be paid - CHF 150 for a holder of a foreign certificate, CHF 50 for a Swiss one - and the fee is paid when the application is first submitted. Like ETH, EPFL closes before IB results exist.",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
+      },
+      {
+        "label": "EPFL - deadline for uploading supporting documents",
+        "date": "2027-07-10",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year, so the year here is inferred",
+        "notes": "Promoted to its own entry on 23 September 2026: it was in no record before, and it lands four days after IB results are released on 6 July. EPFL publishes 10 July as the deadline for uploading supporting documents, with \"September 30th exceptionally for certificates/diplomas delivered after July 10\". If your school cannot put the Diploma in your hands inside those four days, this is the exception you will be relying on - and the 30 September backstop is its own entry here, because missing that one cancels the admission.",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
+      },
+      {
+        "label": "EPFL - final deadline for the diploma itself, after which admission is cancelled",
+        "date": "2027-09-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year, so the year here is inferred",
+        "notes": "Promoted to its own entry on 23 September 2026 because it is the one EPFL date that costs the place outright. EPFL's wording: \"The document attesting the successful completion of the title granting admission to EPFL ... must be submitted no later than September 30th. Admission is otherwise canceled.\" That is after term has started. An IB Diploma issued in July is comfortably inside it; a re-mark, a November retake or a certificate held up in the post is not.",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/"
+      },
+      {
+        "label": "EPFL - admission decisions for holders of an IB or EU/EFTA/UK certificate",
+        "date": null,
         "dateState": "not-published",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Recorded as \"admissions confirmed at the beginning of August, within the places available\" — a month, not a date. EPFL ranks eligible applicants by overall academic performance because first-year places are capped at 3,000 from 2025. The application deadline itself was not verified from an official page in this research.",
-        "source": "https://www.epfl.ch/education/admission/en/bachelor/"
+        "audience": "holders of an IB Diploma or an EU, EFTA or UK school-leaving certificate",
+        "notes": "A month, not a date: \"Holders of an upper secondary school-leaving certificate from a country that is a member of EU, EFTA, or UK or of an International Baccalaureate (IB) will be accepted at the beginning of August within the places available.\" The source was corrected on 23 September 2026: this claim had been cited to the bachelor landing page at epfl.ch/education/admission/en/bachelor/, which does not carry it and never will, so the check could neither pass nor fail. The sentence is on the Bachelor/CMS admission criteria page, and the FAQ repeats \"Decisions are communicated ... beginning of August\" for the bachelor and \"at the end of July\" for the CMS preparatory year. \"Within the places available\" is the operative phrase: first-year places are capped at 3,000 from 2025 and selection for non-Swiss applicants is made \"based on the general average of the school-leaving certificate\".",
+        "source": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application",
+        "sources": [
+          "https://www.epfl.ch/education/admission/admission-2/frequently-asked-questions/"
+        ]
       },
       {
-        "label": "Other Swiss universities (Zurich, Bern, Basel, Geneva, Lausanne, Fribourg, Lucerne, Neuchatel, St Gallen, USI)",
+        "label": "University of Zurich - application period for the autumn semester",
+        "date": "2027-01-01",
+        "endDate": "2027-04-30",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry - published with no year, so the years here are inferred",
+        "audience": "holders of a foreign certificate who do not need a visa, which includes Danish and other EU citizens",
+        "notes": "Promoted to its own entry on 23 September 2026 as a worked example of what \"varies by institution\" actually means in Switzerland. UZH publishes \"1 January until 30 April\" as the ordinary autumn-semester window, \"1 May until 31 July\" as an extended window available for Swiss qualifications only, and \"1 January until 28 February\" for applicants who need a visa. A Danish citizen needs a residence permit rather than a visa, so 30 April is the deadline that applies - and the extended July window, which would have let you apply after results, is the one you cannot use. UZH also requires German at C1.",
+        "source": "https://www.uzh.ch/en/studies/application/deadlines.html"
+      },
+      {
+        "label": "Other Swiss universities (Bern, Basel, Geneva, Lausanne, Fribourg, Lucerne, Neuchatel, St Gallen, USI)",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
         "year": "2027 entry",
-        "notes": "Deadlines are set by each university and are typically in late winter or spring for the following autumn - much earlier than in Germany or Austria. This research could not verify the individual dates; take them from each university's admission page in autumn 2026.",
-        "source": "https://www.swissuniversities.ch/en/topics/studying/admission-to-universities/countries-1"
+        "notes": "There is no Swiss central admission system and no national application deadline: each university sets and publishes its own, and swissuniversities coordinates recommendations rather than applications. The source was corrected on 23 September 2026 - this had been cited to the swissuniversities country list, which is only about which certificates are recognised and says nothing at all about deadlines. The University of Zurich's own page is cited here instead as a page that does carry a deadline, and its window is a separate entry above; Basel and the other cantonal universities publish windows of the same shape, typically closing 30 April, but this research verified only Zurich. Take the rest from each university's own admission page in autumn 2026.",
+        "source": "https://www.uzh.ch/en/studies/application/deadlines.html",
+        "sources": [
+          "https://www.swissuniversities.ch/en/topics/studying/admission-to-universities/countries-1"
+        ]
       }
     ],
     "steps": [
       "In Y1, before your subject choices are locked, check your six subjects against the swissuniversities rule and, if you are aiming at ETH or EPFL, against their stricter rules.",
       "Decide on the teaching language early. German at C1 or French at B2 is a year or more of work, and it is the requirement most Danish IB students underestimate.",
-      "By autumn 2026, take the application deadline from each university's own page - Swiss deadlines fall much earlier than German or Austrian ones.",
+      "By autumn 2026, take the application deadline from each university's own page - Swiss deadlines fall much earlier than German or Austrian ones. ETH closes 31 March, EPFL and Zurich 30 April, all before your results exist.",
       "If ETH is the target and your combination does not meet the exam-free rule, apply in time for the entrance examination cycle, which starts more than a year ahead.",
       "Submit the application with predicted grades and school documents, and send the final Diploma as soon as it arrives in early July 2027.",
       "Once admitted, arrange the residence permit, compulsory Swiss health insurance and housing - all three take time and all three cost more than you expect."
@@ -494,6 +550,31 @@
       "title": "ETH Zurich - financial information and cost of living documents",
       "url": "https://ethz.ch/students/en/studies/financial.html",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ETH Zurich - How to apply with a non-Swiss matriculation certificate (carries the 1 December to 31 March application period)",
+      "url": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/how-to-apply.html",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "EPFL - Bachelor/CMS admission criteria and application (carries the \"beginning of August, within the places available\" sentence)",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "EPFL - How to apply (carries the 30 April close, the CHF 150 fee, the 10 July document deadline and the 30 September diploma backstop)",
+      "url": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "EPFL - admission frequently asked questions (decision timing and the 3,000-place first-year cap)",
+      "url": "https://www.epfl.ch/education/admission/admission-2/frequently-asked-questions/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "University of Zurich - application deadlines",
+      "url": "https://www.uzh.ch/en/studies/application/deadlines.html",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

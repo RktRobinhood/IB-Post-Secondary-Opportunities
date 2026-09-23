@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Free tuition for EU students, but very few English bachelor's",
   "summary": "Slovenia is cheap, safe, extremely good-looking, and free: as an EU citizen you pay no tuition for full-time bachelor study, exactly like a Slovenian. The catch is blunt - almost all bachelor teaching is in Slovene. Across the four public universities there are only around sixteen English-taught bachelor programmes in total, and the University of Ljubljana has just one. If one of those programmes happens to be what you want, Slovenia is one of the best-value places in Europe. If not, it is not an option.",
@@ -22,8 +22,9 @@
     "English-taught bachelor's are very thin: roughly 1 at Ljubljana, 5 at Maribor, 9 at Primorska, 1 at Nova Gorica",
     "Private international students are generally not eligible for university dormitories except in Maribor - dorms are reserved for exchange and scholarship students",
     "No page found gives IB-specific minimum points or a mapping onto the Slovenian Matura; you must ask the ENIC-NARIC Centre or the faculty directly",
-    "Recognition of your foreign qualification is compulsory and is done by the university itself, with cost and processing time not published",
-    "Some published non-EU fee figures are old (Primorska's range is labelled 2021/2022), so treat fee pages with suspicion"
+    "Whether your IB Diploma needs a formal recognition procedure depends on which official page you read, and the two do not agree - see the recognition notes. Do not assume either answer without getting it in writing.",
+    "Some published non-EU fee figures are old (Primorska's range is labelled 2021/2022), so treat fee pages with suspicion",
+    "Applying is not enrolling. Slovenia decides the first round on 24 July and expects you to enrol at the faculty by mid-August, and both of those dates land inside the Danish summer holidays."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -31,11 +32,13 @@
     "subjectLevelRule": null,
     "gradeConversion": null,
     "notes": [
-      "The IB is accepted as an admission qualification, but only through a formal recognition procedure ('priznavanje'). The national portal states a candidate who completed schooling abroad 'is obliged to acquire a decision on the recognition of the foreign education, if they have not obtained one already'.",
-      "The higher education institutions themselves are the competent bodies for the recognition procedure. The Slovenian ENIC-NARIC Centre, inside the Ministry of Higher Education, Science and Innovation, is the national information point (enic-naric@gov.si, +386 1 478 46 00).",
-      "The recognition application is submitted together with the study application through the eVS portal.",
-      "No page read on 2026-09-22 published IB-specific minimum points, an HL/SL mapping onto the Slovenian Matura, or a grade conversion table. Contact the ENIC-NARIC Centre and the specific faculty before you rely on anything here.",
-      "For domestic applicants the access requirement is the Matura, a final examination taken before 1 June 1995, or a vocational Matura plus an additional general Matura subject. How an IB Diploma is scored against this for selective programmes is not documented publicly."
+      "Two official Slovenian pages disagree about whether an IB Diploma needs a formal recognition procedure (priznavanje), and this site is not going to resolve it to the more comfortable answer.",
+      "The University of Ljubljana’s own Slovene admission leaflet, read on 23 September 2026, says it is not needed: \"Diploma o mednarodni maturi (International Baccalaureate - IB) in zakljucno spricevalo Evropske mature (European Baccalaureate Certificate) sta enakovredna maturitetnemu spricevalu v RS in zanju ni potreben postopek priznavanja tujega izobrazevanja.\" The same paragraph says the exemption is for the Diploma: \"Kandidati z IB certifikatom morajo dokazila prilozit sami in tudi opraviti postopek priznavanja izobrazevanja\" - a candidate holding IB certificates rather than the full Diploma does have to run the procedure.",
+      "The national Study in Slovenia portal states the obligation flatly and names no exemption at all: a candidate who finished school abroad \"is obliged to acquire a decision on the recognition of the foreign education, if they have not obtained one already\". It does not mention the International Baccalaureate anywhere.",
+      "Read together, the most likely reading is that the leaflet states a specific exemption the national portal simply does not mention. That is the convenient reading, which is exactly why it should not be relied on: get it in writing from the faculty, or from recognition@uni-lj.si, before you plan around it. If recognition does turn out to be required, the leaflet warns a decision can take up to two months from a complete application, and the first-round selection on 24 July only covers candidates whose recognition decision has already been issued.",
+      "The higher education institutions themselves are the competent bodies for the recognition procedure. The Slovenian ENIC-NARIC Centre, inside the Ministry of Higher Education, Science and Innovation, is the national information point (enic-naric@gov.si, +386 1 478 46 00). Where recognition is required the application is submitted together with the study application through the eVS portal.",
+      "No page read on 2026-09-22 or 2026-09-23 published IB-specific minimum points, an HL/SL mapping onto the Slovenian Matura, or a grade conversion table. Contact the ENIC-NARIC Centre and the specific faculty before you rely on anything here.",
+      "For domestic applicants the access requirement is the Matura, a final examination taken before 1 June 1995, or a vocational Matura plus an additional general Matura subject. How an IB Diploma is scored against this for capped programmes is not documented publicly."
     ]
   },
   "application": {
@@ -46,81 +49,139 @@
     },
     "deadlines": [
       {
-        "label": "University of Ljubljana - EU citizens, first application period",
-        "date": "2026-02-18",
-        "endDate": "2026-03-18",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2026/2027 entry - the autumn 2027 equivalent was not yet published; expect roughly the same window and re-check",
-        "notes": "Submitted through eVS and handled centrally by the VPIS office (vpis@uni-lj.si).",
-        "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
-      },
-      {
-        "label": "University of Ljubljana - non-EU citizens, first application period closes",
-        "date": "2026-03-18",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2026/2027 entry; re-check for autumn 2027",
-        "notes": "International contact: admission@uni-lj.si.",
-        "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
-      },
-      {
-        "label": "University of Ljubljana - EU citizens, second application period",
-        "date": "2026-08-20",
-        "endDate": "2026-08-27",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2026/2027 entry; re-check for autumn 2027",
-        "notes": "Only for programmes with places left after the first round.",
-        "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
-      },
-      {
-        "label": "University of Ljubljana - non-EU citizens, second application period",
-        "date": "2026-09-02",
-        "endDate": "2026-09-03",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2026/2027 entry; re-check for autumn 2027",
-        "notes": "The second non-EU period is handled by individual faculties, not the central VPIS office. International contact: admission@uni-lj.si.",
-        "source": "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
-      },
-      {
-        "label": "Calls for enrolment (razpis za vpis) published",
+        "label": "Joint call for enrolment (skupni razpis za vpis) published — until it is out, your cycle has no deadlines",
         "date": null,
         "dateState": "not-yet-announced",
         "consequence": "indicative",
-        "year": "Annual pattern; the autumn 2027 call was not published on 2026-09-22",
-        "notes": "Published only as \"at the beginning of February at the latest\". Until the razpis is out, the deadlines for your cycle do not formally exist.",
-        "source": "https://studyinslovenia.si/how-to-apply/academic-calendar-and-deadlines/"
+        "provisional": false,
+        "year": "2027/2028 entry — the 2027/2028 call was not published on 2026-09-23",
+        "notes": "Precedent: the government approved the 2026/2027 joint call on 29 January 2026 and the ministry published it on 30 January 2026 — the University of Ljubljana leaflet dates it \"MVZI, 30. januar 2026\". The previous record here said only \"at the beginning of February at the latest\", which is the ministry’s own hedge; the actual publication has been the end of January. One call covers the University of Ljubljana, the University of Maribor, the University of Primorska, the University of Nova Gorica and the accredited independent institutions, so it sets the same application periods for all of them. Until the call is out, the deadlines for your cycle do not formally exist, and neither does the number of places nor any cap on entry (omejitev vpisa).",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+        "sources": [
+          "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+          "https://studyinslovenia.si/how-to-apply/academic-calendar-and-deadlines/"
+        ]
       },
       {
-        "label": "University of Maribor - application periods",
+        "label": "First application period (prvi prijavni rok) — the one that matters",
         "date": null,
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "Not published in a readable form on 2026-09-22",
-        "notes": "Maribor publishes separate first, second and third application periods for EU/EEA citizens, for Slovenes abroad, and for non-EU citizens. Check the page directly.",
-        "source": "https://moja.um.si/en/future-students/Strani/UM-application-deadlines-for-enrolment.aspx"
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "audience": "Slovenian citizens, EU citizens including Danes, and Slovenes abroad",
+        "notes": "Precedent, read in Slovene from the University of Ljubljana VPIS leaflet on 23 September 2026: \"Prijava v prvem roku: od 18. februarja do 18. marca 2026\". You apply electronically through the eVS portal at portal.evs.gov.si using an electronic identity or an SI-PASS account, and you may name up to three study programmes in order of preference — the order decides which one you get if you clear the points threshold for more than one. The window closes in March, four months before IB results, so you apply on predicted grades and rank your three choices before you know what you scored. Any cap on entry (omejitev vpisa) is decided by 25 March and the number of applications per programme is published the same day, so you learn how competitive your choice was only after you are committed to it.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+        "sources": [
+          "https://www.uni-lj.si/studij/dodiplomski-in-enoviti-magistrski-studij/razpis-za-vpis",
+          "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
+        ]
       },
       {
-        "label": "University of Primorska - application and enrolment deadlines",
+        "label": "First application period, the separate non-EU timetable",
         "date": null,
-        "dateState": "not-published",
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "audience": "citizens of countries outside the EU",
+        "notes": "Precedent: the 2026/2027 non-EU handbook (rokovnik) was published on 27 January 2026, the first non-EU application period closed on 18 March 2026, and results followed on 27 August 2026 — a month later than the EU results. Applications go through the same eVS portal but the timetable and the contact differ; the University of Ljubljana routes non-EU applicants to admission@uni-lj.si rather than to the central VPIS office. One quirk runs the other way: the University of Ljubljana leaflet states that the English-taught Business and Economics degree at the Faculty of Economics may be chosen only in the non-EU rounds and by Slovenes abroad, so an EU applicant cannot select it in the ordinary EU round at all.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+        "sources": [
+          "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
+        ]
+      },
+      {
+        "label": "Have every document in by this day, or your decision slips from July to September",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "notes": "Promoted to its own entry on 23 September 2026. It was in no record before, it is the least visible date in the Slovenian cycle, and it is the one that costs a term. The University of Ljubljana leaflet, in Slovene: \"V prvem roku: do 24. julija 2026 za vse, ki bodo do 10. julija 2026 oddali vsa zahtevana dokazila in imeli izdano odlocitev o priznanju tuje izobrazbe.\" In plain terms, you are included in the first-round decision of 24 July only if all your evidence is in by 10 July. IB results are released on about 6 July, which leaves roughly four days. Miss it and you are not rejected — you move to the \"naknadno sprejeti\" list decided by 18 September and then enrol by 30 September, after term has started. The good news for an IB student is in the same leaflet: the IB Diploma and the European Baccalaureate certificate are equivalent to the Slovenian matura and need no recognition procedure at all. That exemption is for the full Diploma; a candidate holding IB certificates rather than the Diploma must run the recognition procedure, and the leaflet warns a recognition decision can take up to two months from a complete application.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf"
+      },
+      {
+        "label": "Outer deadline for evidence in the first round, and for proving Slovene at B2",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "audience": "candidates finishing school in the same year; anyone who finished earlier submits by the March close instead",
+        "notes": "Promoted to its own entry on 23 September 2026. The leaflet, in Slovene: \"V prvem prijavnem roku: letosnja generacija do 31. julija 2026. Kandidati, ki so ze koncali srednjesolsko izobrazevanje: do 18. marca 2026.\" The same 31 July is the deadline for evidence that you meet the enrolment conditions, which for almost every degree at the University of Ljubljana means a certificate of Slovene at B2 on the Common European Framework. Teaching is in Slovene; the B2 certificate is a separate examination taken at the Centre for Slovene as a Second and Foreign Language, and it is not something you arrange in the weeks after IB results.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf"
+      },
+      {
+        "label": "First-round selection result (sklep o rezultatu izbirnega postopka)",
+        "date": null,
+        "dateState": "not-yet-announced",
         "consequence": "indicative",
-        "year": "Not published in a readable form on 2026-09-22",
-        "notes": "Check the page directly closer to your cycle.",
-        "source": "https://www.upr.si/en/study--enrolment/application-and-enrolment-deadlines/"
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "notes": "Precedent: 24 July 2026 for Slovenian and EU citizens whose evidence was complete by 10 July, 5 August 2026 for Slovenes abroad, 27 August 2026 for non-EU citizens, and 18 September 2026 for anyone admitted late in the first round. The decision is not posted to you: you read it by logging in to your own application at portal.evs.gov.si. Your enrolment window opens when it appears, and it is short.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+        "sources": [
+          "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
+        ]
+      },
+      {
+        "label": "Enrolment (vpis) for everyone admitted in the first round — the place is not yours until you do this",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "notes": "Promoted to its own entry on 23 September 2026, because being admitted and being enrolled are two different things in Slovenia and only one of them was recorded here. The leaflet, in Slovene: \"Kandidati, ki so sprejeti v prvem roku, se vpisejo od 24. julija do najkasneje 14. avgusta 2026; naknadno sprejeti do 30. septembra 2026; sprejeti v drugem prijavnem roku in v roku za zapolnitev mest do 30. septembra 2026.\" The first-round window is about three weeks across late July and early August, it runs straight through the Danish summer holidays, and enrolment happens at the faculty rather than centrally — \"Vpis poteka na fakultetah in akademijah\", which contact you in writing or by e-mail. Plan to be reachable, and to be able to get to Ljubljana in the first half of August if your faculty asks you to come in person.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf"
+      },
+      {
+        "label": "Second application period (drugi prijavni rok) — only for places left over",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "notes": "Precedent: \"Prijava v drugem roku: od 20. do 27. avgusta 2026\", with the list of remaining places published on 19 August 2026, results on 21 September 2026 and enrolment by 30 September 2026. Only for programmes with places left after the first round, and the popular ones will not be on the list. The leaflet also limits who may use it: candidates who did not apply in the first round, who were accepted nowhere in it, who did not enrol by 14 August, or whose first-round selection had not concluded. Non-EU citizens run a separate second period — 2 and 3 September 2026 in the 2026/2027 cycle — which individual faculties handle rather than the central VPIS office.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+        "sources": [
+          "https://www.uni-lj.si/en/study/bachelors-and-single-cycle-masters-study/call-for-enrolment"
+        ]
+      },
+      {
+        "label": "Final round to fill any places still empty (rok za zapolnitev prostih vpisnih mest)",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "notes": "Precedent: \"Prijava v roku za zapolnitev se prostih vpisnih mest: od 23. do 24. septembra 2026 do 10. ure\", with the remaining places published on 22 September 2026 after 15:00, results by 25 September and enrolment by 30 September. Note the time of day: the window closes at 10:00 on the second morning, not at midnight, and evidence must be in by the same 10:00. One application, naming one programme, a week before term starts.",
+        "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf"
+      },
+      {
+        "label": "Maribor, Primorska and Nova Gorica — the same national periods, not separate ones",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027/2028 entry — not published on 2026-09-23",
+        "notes": "Corrected on 23 September 2026. This file previously carried two entries saying the University of Maribor and the University of Primorska publish deadlines that could not be read, which implied they set their own. They do not: gov.si states that undergraduate and integrated master’s admission at Ljubljana, Maribor, Primorska, Nova Gorica and the accredited independent institutions runs through one joint call, so the periods above are the national ones and apply to all of them. What does differ per university is the list of programmes, the number of places, any cap on entry, and the enrolment appointments, which each faculty arranges itself. Two pages refused automated retrieval on 23 September 2026 and were not read: the University of Maribor deadline page at moja.um.si returns its \"Application Period\" and \"Deadline\" headings with no values unless JavaScript runs, and the University of Primorska deadline page at upr.si returns navigation only. The ministry’s own joint-call PDF (gov.si/assets/ministrstva/MVZI/Visoko-solstvo/RAZPISI-2026_2027/Skupni-razpis/Skupne-dolocbe/Skupne-dolocbe.pdf) returned HTTP 404, so the dates here come from the University of Ljubljana VPIS leaflet instead.",
+        "source": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+        "sources": [
+          "https://moja.um.si/en/future-students/Strani/UM-application-deadlines-for-enrolment.aspx",
+          "https://www.upr.si/en/study--enrolment/application-and-enrolment-deadlines/"
+        ]
       }
     ],
     "steps": [
-      "Wait for the call for enrolment (razpis za vpis) for your year, published by February at the latest. It sets the deadlines and the number of places per programme.",
-      "Create a SI-PASS login and open an application in the eVS portal.",
-      "Enter your personal and residence details, then your secondary education - this is where you also trigger the recognition procedure for your IB Diploma.",
-      "Choose your programme or programmes. EU citizens apply for the places intended for Slovenian citizens; non-EU citizens apply through the separate quota for foreigners.",
-      "Upload your supporting documents. Scans and photographs are accepted.",
-      "Submit, then follow the individual institution's enrolment process once you are selected."
+      "Wait for the joint call for enrolment (skupni razpis za vpis) for your year. It has been published at the end of January two years running and it sets the deadlines, the programmes and the number of places.",
+      "Create a SI-PASS login and open an application in the eVS portal at portal.evs.gov.si. The portal itself would not render to automated retrieval on 23 September 2026, so expect to work through it in a browser.",
+      "Apply in the first period, which closed on 18 March in the 2026/2027 cycle. Name up to three programmes in order of preference - the order decides which one you get.",
+      "Ask the faculty in writing whether your IB Diploma needs a recognition decision. If it does, start it immediately: a decision can take two months and the July selection round only covers candidates who already hold one.",
+      "Get every document uploaded within days of IB results. In the 2026/2027 cycle the cut-off for the 24 July decision was 10 July; the outer deadline for that year’s school-leavers was 31 July, and so was the deadline for proving Slovene at B2.",
+      "If you are admitted on the July decision, enrol at the faculty itself before the mid-August deadline. Being selected is not being enrolled, and the enrolment window is about three weeks long."
     ],
-    "selectionNotes": "Programmes with more applicants than places apply 'omejitev vpisa' - an enrolment limitation - and rank applicants on points. The exact points formula, and how IB grades are converted into it, was not found on any page read on 2026-09-22; it is set out in each faculty's razpis for the relevant year. No separate application fee for eVS was found."
+    "selectionNotes": "Programmes with more applicants than places apply \"omejitev vpisa\" - an enrolment limitation - and rank applicants on points. Whether a cap applies is decided by 25 March, after the March application deadline has already closed, and the number of applications per programme is published the same day, so you commit to your three choices before you know how competitive they are. The exact points formula, and how IB grades are converted into it, was not found on any page read on 2026-09-22 or 2026-09-23; it is set out in each faculty’s razpis for the relevant year. No separate application fee for eVS was found."
   },
   "language": {
     "englishTaughtBachelors": "Very limited. Around 16 English-taught bachelor programmes across the four public universities: University of Ljubljana 1 (Business and Economics); University of Maribor 5 (Contemporary Tourism Practices; Economic and business sciences; Business administration; Economic and Technical Logistics; System logistics); University of Primorska 9 (Tourism; Tourism destination management; Anthropology; Cultural Heritage; Academic Bachelor in Management; Bioinformatics; Computer Science; Mathematics; Mathematics and Computer Science; plus Wood Innovation for Sustainability); University of Nova Gorica 1 (Physics and Astrophysics). Private colleges add a further handful.",
@@ -487,6 +548,21 @@
       "title": "Founding years, where given, are taken from the English Wikipedia article linked in each institution's wikipedia field, not from a fetched university page.",
       "url": "https://en.wikipedia.org/wiki/List_of_universities_in_Slovenia",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Univerza v Ljubljani, VPIS UL - Prijavno-sprejemni postopek za vpis v prvi letnik studija 2026 (Slovene PDF leaflet; carries the full rokovnik)",
+      "url": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Univerza v Ljubljani - Razpis za vpis, dodiplomski in enoviti magistrski studij (Slovene)",
+      "url": "https://www.uni-lj.si/studij/dodiplomski-in-enoviti-magistrski-studij/razpis-za-vpis",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "GOV.SI - Vpis v visokosolski studij (the joint call covering Ljubljana, Maribor, Primorska and Nova Gorica)",
+      "url": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {
