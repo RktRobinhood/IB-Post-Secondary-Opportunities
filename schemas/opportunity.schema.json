@@ -138,7 +138,7 @@
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "kind": {
           "enum": [
-            "ib-diploma", "ib-total-points", "ib-subject", "subject-combination",
+            "ib-diploma", "ib-course-results", "ib-total-points", "ib-subject", "subject-combination",
             "local-equivalency", "language-general", "language-programme",
             "test", "portfolio", "audition", "interview", "essay", "reference", "work-sample",
             "activity", "citizenship", "residency", "age", "prior-education",
@@ -177,13 +177,31 @@
         },
         "minGrade": {
           "type": "number",
-          "description": "On the scale named by `gradeScale` for a local-equivalency rule, or the IB's own 1-7 scale for an ib-subject rule."
+          "description": "On the scale named by `gradeScale` for a local-equivalency rule, or the IB's own 1-7 scale for an ib-subject rule. On an ib-course-results rule it is the IB grade every subject in the award must reach, not one named subject."
         },
         "gradeScale": {
           "type": "string",
           "description": "The id of the grade scale `minGrade` is measured on, matching a Recognition Scheme's gradeScale.id. Omitted on an ib-subject rule, where the scale is the IB's."
         },
         "minPoints": { "type": "integer", "minimum": 0, "maximum": 45 },
+
+        "minSubjects": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "For kind 'ib-course-results'. How many graded IB subjects the award must contain for it to qualify. Course Results are not awarded against a fixed shape the way a Diploma is, so a source that accepts them usually says how many subjects it wants to see."
+        },
+        "minHigherLevelSubjects": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6,
+          "description": "For kind 'ib-course-results'. How many of those subjects must be at HL."
+        },
+
+        "alternativeRoute": {
+          "type": "string",
+          "description": "For a rule an applicant cannot satisfy as they stand, the published route that still reaches this Opportunity — supplementary subjects, a retake, a different entry qualification. Only ever the source's own route, never our suggestion, and covered by the same `evidence` as the rule itself. Its reason for existing is that 'you do not meet this' and 'this is closed to you' are different sentences, and a rule that can only say the first of them tells a student to stop when the source did not."
+        },
 
         "operator": {
           "enum": ["all-of", "one-of", "at-least", "at-most", "equals", "exists"],

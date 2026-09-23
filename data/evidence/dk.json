@@ -5587,8 +5587,7 @@
     "publisherType": "institution",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read against the source page, 2026-09-22.",
+    "verificationState": "needs-review",
     "supports": [
       {
         "entity": "dk-ucph",
@@ -5605,7 +5604,12 @@
     },
     "sourceClass": "institutional-guidance",
     "claim": "The University of Copenhagen teaches all 78 of its bachelor programmes in Danish.",
-    "excerpt": "Kickstart your career at UCPH and explore 78 bachelor’s degree programmes - all are taught in Danish."
+    "excerpt": "Kickstart your career at UCPH and explore 78 bachelor’s degree programmes - all are taught in Danish.",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    }
   },
   {
     "id": "ev-ku-dk-vs4t0j",
@@ -5771,8 +5775,7 @@
     "sourceClass": "institutional-guidance",
     "retrievedAt": "2026-09-22",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "verified",
-    "verifiedBy": "Read against the source page, 2026-09-22.",
+    "verificationState": "needs-review",
     "claim": "Aalborg University teaches through problem-based project work, with each semester built around a large group assignment.",
     "excerpt": "The study method at Aalborg University (AAU) is called problem based project work, or “The Aalborg Model for Problem Based Learning (PBL)”... Each semester, you will work closely together with a group of fellow students on a large written assignment. You will also follow more traditional instruction.",
     "supports": [
@@ -5784,6 +5787,173 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-22"
+    },
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-22",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-ufsn-ib-course-results",
+    "sourceUrl": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/regler-og-raad/internationale-eksaminer/vejledning-om-ib/optagelse-af-ib-elever/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen (Danish Agency for Higher Education and Science)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "DP Course Results (formerly the IB Certificate) of at least 18 points, with at least grade 3 in all six subjects and at least three subjects at HL, are a qualifying examination in Denmark on the same terms as a two-year hf without overbygning: they give access to erhvervsakademi- and professionsbachelor programmes through quota 1 and quota 2, and to a university bachelor only after two successive raises of upper-secondary subject level, at least one to A level, taken as hf-enkeltfag. Course Results under 18 points, or containing any subject at grade 1 or 2, are not a qualifying examination at all. A full IB Diploma of 24 points or more gives access to every higher education programme in Denmark.",
+    "excerpt": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2. Ansøgere med et Diploma Programme (DP) Course Results på mindst 18 point og mindst karakteren 3 i alle fag kan derudover få adgang til en universitetsbacheloruddannelse gennem kvote 1 og 2 ved enten at supplere med enkeltfag efter samme regler som hf’erne eller tage deres IB-eksamen om for at få et IB Diploma – Retake.",
+    "interpretation": "This is the rule that decides whether a Course candidate can apply at all, and it is national: the Agency sets which examinations are adgangsgivende and every Danish institution applies the same one, so it is recorded once here and referenced from each Opportunity rather than restated per institution. No institution page read for this catalogue states it. The Agency says in as many words that IB Certificate is the former designation for DP Course Results, which is why this site uses Course Results throughout: \"Samme vilkår gælder for ansøgere med IB Certificate, som er den tidligere betegnelse for Diploma Programme (DP) Course Results.\" The Agency’s companion FAQ at .../spoergsmaal-og-svar-om-diploma-programme-dp-course-results-og-ib-certificate-i-forhold-til-optagelse-paa-en-videregaaende-uddannelse-i-danmark/ carries the same rule as a table and adds the detail that where an A-level subject other than Danish is already held, two raises to B level suffice. Two traps. GSK is NOT a route: \"en IB-elev kan ikke benytte gymnasial supplering, GSK-fag, til at hæve sit uddannelsesniveau\". GSK meets a specific subject requirement for somebody who already holds a qualifying examination; the level of the examination itself is raised only by hf-enkeltfag. data/ib-conversion.json currently reads \"Supplementary subjects are taken as hf-enkeltfag or GSK\", which this source contradicts and which should be corrected in that file. The second trap is that a Course candidate who later supplements or retakes is still converted on the ORIGINAL Course Results average, because that was the first qualifying examination. What this record does NOT establish: whether a diplomingeniør offered by a university is admitted under the professionsbachelor order or the university order. The Agency’s guidance names programme types and this one is a professional bachelor degree awarded by a university, so the three BEng Opportunities in this catalogue are left with no entry-award rule recorded and say so on their own records.",
+    "supports": [
+      {
+        "entity": "dk-aau-applied-industrial-electronics-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-aau-chemical-engineering-and-biotechnology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-aau-economics-and-business-administration-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-aau-energy-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-au-cognitive-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-au-computer-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-au-data-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-au-economics-and-business-administration-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-au-economics-and-business-administration-herning-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-au-it-product-development-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-digital-management-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-service-management-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-business-administration-and-sociology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-international-business-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-international-business-and-politics-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-cbs-international-shipping-and-trade-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-dtu-general-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-itu-data-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-itu-global-business-informatics-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-ruc-international-bachelor-in-natural-sciences-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-ruc-international-bachelor-in-social-sciences-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-artificial-intelligence-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-computer-science-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-economics-and-business-administration-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-electronics-sonderborg-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-engineering-innovation-and-business-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-european-studies-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-interactive-technology-engineering-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-market-and-management-anthropology-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-mechanical-engineering-sonderborg-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-mechatronics-sonderborg-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-software-engineering-sonderborg-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-software-engineering-vejle-2027-autumn",
+        "field": "requirements"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "reviewBy": "2027-03-01"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "Both Agency pages return their content only to a real browser; a plain fetch of the Eksamenshandbogen landing page does not carry the IB entry at all. Read in full, together with the companion FAQ, which states the same rule as a table."
     }
   }
 ]

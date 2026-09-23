@@ -350,7 +350,7 @@
       "founded": 1887,
       "website": "https://www.mcmaster.ca/",
       "admissionsUrl": "https://future.mcmaster.ca/",
-      "ibPageUrl": "https://future.mcmaster.ca/admission/requirements/",
+      "ibPageUrl": null,
       "englishBachelors": "Known for problem-based learning, which it pioneered in medicine and now uses across health and science programmes.",
       "notableFields": [
         "Health Sciences",
@@ -360,7 +360,9 @@
       "note": "The Bachelor of Health Sciences is one of the most sought-after undergraduate programmes in Canada and uses a supplementary application; the rest of the university is more accessible.",
       "wikipedia": "https://en.wikipedia.org/wiki/McMaster_University",
       "place": "ca-hamilton-ontario",
-      "jurisdiction": "ca-on"
+      "jurisdiction": "ca-on",
+      "ibPageState": "none-published",
+      "ibPageNote": "Checked 2026-09-23. McMaster publishes no IB page. The URL previously recorded here — future.mcmaster.ca/admission/requirements/ — now redirects to future.mcmaster.ca/apply/requirements/, which is a form: you pick a programme and tick \"International Baccalaureate\" and it generates the requirement. There is no URL that shows the IB requirements on their own."
     },
     {
       "name": "Western University",
@@ -370,7 +372,7 @@
       "founded": 1878,
       "website": "https://www.uwo.ca/",
       "admissionsUrl": "https://welcome.uwo.ca/",
-      "ibPageUrl": "https://welcome.uwo.ca/admissions/requirements/international-baccalaureate.html",
+      "ibPageUrl": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
       "englishBachelors": "Large first-year cohorts in broad faculties, with entry into Ivey Business School and other professional schools after year two.",
       "notableFields": [
         "Business (Ivey)",
@@ -488,9 +490,9 @@
       "city": "Ottawa, Ontario",
       "type": "Research university",
       "founded": 1848,
-      "website": "https://www.uottawa.ca/",
+      "website": "https://www.uottawa.ca/en",
       "admissionsUrl": "https://www.uottawa.ca/study/undergraduate-studies",
-      "ibPageUrl": "https://www.uottawa.ca/study/undergraduate-studies/international-applicants/other-recognized-country-curriculum",
+      "ibPageUrl": null,
       "englishBachelors": "Fully bilingual: you can take a degree in English, in French, or mix the two within the same programme.",
       "notableFields": [
         "Political Science and Public Policy",
@@ -500,7 +502,9 @@
       "note": "In the capital, across the street from Parliament, with internships in government and international organisations; the bilingual option is unusual and genuinely useful.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Ottawa",
       "place": "ca-ottawa-ontario",
-      "jurisdiction": "ca-on"
+      "jurisdiction": "ca-on",
+      "ibPageState": "unverifiable",
+      "ibPageNote": "Checked 2026-09-23. The URL previously recorded here — /study/undergraduate-studies/international-applicants/other-recognized-country-curriculum — now redirects to the general programme-prerequisites page, which says nothing about the IB. uOttawa's IB line has moved to /study/undergraduate-studies/program-prerequisites/admission-requirements-international-applicants, which answers 403 to every automated request and \"Access denied\" to a browser driven from here, so it could not be read and is not recorded. The block is by path rather than site-wide — uOttawa's other links here fetch normally — so the host is not in the link policy."
     },
     {
       "name": "Concordia University",

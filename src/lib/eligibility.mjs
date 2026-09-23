@@ -54,6 +54,36 @@ export const OUTCOME_LABEL = {
   [OUTCOME.NEEDS_REVIEW]: 'Needs review',
 };
 
+/**
+ * Which IB award a published rule says opens an Opportunity.
+ *
+ * Three states, and the third one is the reason this is an enumeration rather
+ * than a boolean. A record that requires the full Diploma and a record that
+ * accepts Course Results both say something; a record that says neither says
+ * nothing, and the overwhelming majority of records say nothing. Collapsing
+ * "nothing is recorded" into "Course Results are fine" would be the single most
+ * harmful thing this file could do — a Course candidate reads a door as open,
+ * applies, and is refused — so the absence has a name of its own and is carried
+ * through to the student as an absence.
+ */
+export const ENTRY_AWARD = {
+  DIPLOMA_REQUIRED: 'diploma-required',
+  COURSE_RESULTS_ACCEPTED: 'course-results-accepted',
+  NOT_ESTABLISHED: 'not-established',
+};
+
+/**
+ * Read that state off an Opportunity's own rules. Nothing is inferred from one
+ * Opportunity to another, from an institution, or from a jurisdiction: if this
+ * record does not carry the rule, this record does not know.
+ */
+export function entryAward(opportunity) {
+  const rules = (opportunity?.requirements || []).filter((r) => r.mandatory !== false);
+  if (rules.some((r) => r.kind === 'ib-course-results')) return ENTRY_AWARD.COURSE_RESULTS_ACCEPTED;
+  if (rules.some((r) => r.kind === 'ib-diploma')) return ENTRY_AWARD.DIPLOMA_REQUIRED;
+  return ENTRY_AWARD.NOT_ESTABLISHED;
+}
+
 /** The IB's own two levels. This is the one scale the engine is allowed to hold. */
 const IB_LEVEL_RANK = { SL: 1, HL: 2 };
 
@@ -267,6 +297,12 @@ const met = (message) => ({ status: 'met', message });
 const unmet = (message, actionable = false) => ({ status: 'unmet', message, actionable });
 const unsure = (message, actionable = false) => ({ status: 'unknown', message, actionable });
 
+/** "a, b and c" — a list a person can read aloud. */
+function listOf(parts) {
+  if (parts.length <= 1) return parts[0] || '';
+  return `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}`;
+}
+
 /** "HL", or "either level" where the source accepts both. */
 function ibLevelPhrase(level) {
   return !level || level === 'any' ? 'either level' : level;
@@ -385,15 +421,95 @@ function evaluateRule(rule, ctx) {
   const { profile } = ctx;
 
   switch (rule.kind) {
+    /* The two rules about which IB award opens the door.
+     *
+     * The unmet sentence used to name one jurisdiction's supplementary-subject
+     * route in the code. It was accurate where it came from and false
+     * everywhere else, and it was shown on every Opportunity that asked for the
+     * Diploma, including ones whose own source says in as many words that
+     * Course Results are not accepted at all. The route a source publishes is
+     * now carried by the record that published it, and this says only what is
+     * true of every such rule: the award asked for is the Diploma. */
     case 'ib-diploma':
-      if (profile.holdsDiploma === true) return met('You expect to hold a full IB Diploma.');
+      if (profile.holdsDiploma === true) return met('You expect to hold the full IB Diploma, which this asks for.');
       if (profile.holdsDiploma === false) {
         return unmet(
-          'This requires a full IB Diploma. Course Results reach professional bachelor programmes, and university bachelor programmes only with supplementary subjects or a retake.',
-          true
+          `This asks for the full IB Diploma, and Course Results on their own do not satisfy it.${
+            rule.alternativeRoute ? ` ${rule.alternativeRoute}` : ' No other route to this one is recorded here, so ask the institution what it will accept before you rule it out.'
+          }`,
+          !!rule.alternativeRoute
         );
       }
-      return unsure('Whether you will hold a full Diploma is not recorded in your profile.');
+      return unsure('Whether you will hold the full Diploma or Course Results is not recorded in your profile. Answer that question and this becomes a yes or a no.');
+
+    /* The positive half, and the only thing in the model that can say Course
+     * Results reach something. A source that accepts them almost always
+     * attaches conditions — how many subjects, how many at HL, a floor under
+     * every grade, a floor under the total — because Course Results have no
+     * fixed shape the way a Diploma does. Those conditions are checked, and
+     * where the profile cannot answer one the rule says so rather than passing:
+     * "Course Results are accepted here" is exactly the sentence that must not
+     * be said on a guess. */
+    case 'ib-course-results': {
+      if (profile.holdsDiploma === true) {
+        return met('You expect to hold the full IB Diploma, which clears this.');
+      }
+      if (profile.holdsDiploma !== false) {
+        return unsure('Whether you will hold the full Diploma or Course Results is not recorded in your profile. Answer that question and this becomes a yes or a no.');
+      }
+
+      const held = [...ctx.ib.held.values()];
+      const conditions = [];
+      const shortfalls = [];
+      const missing = [];
+
+      if (rule.minSubjects != null) {
+        conditions.push(`${rule.minSubjects} graded subjects`);
+        if (held.length < rule.minSubjects) {
+          shortfalls.push(`it counts ${rule.minSubjects} graded subjects and your profile records ${held.length}`);
+        }
+      }
+      if (rule.minHigherLevelSubjects != null) {
+        const higher = held.filter((s) => s.level === 'HL').length;
+        conditions.push(`${rule.minHigherLevelSubjects} of them at HL`);
+        if (higher < rule.minHigherLevelSubjects) {
+          shortfalls.push(`it asks for ${rule.minHigherLevelSubjects} subjects at HL and your profile records ${higher}`);
+        }
+      }
+      if (rule.minGrade != null) {
+        conditions.push(`at least ${rule.minGrade} in every subject`);
+        const below = held.filter((s) => s.grade != null && num(s.grade) < Number(rule.minGrade));
+        const ungraded = held.filter((s) => s.grade == null);
+        if (below.length) {
+          shortfalls.push(
+            `every subject must reach ${rule.minGrade} and your profile records ${below
+              .map((s) => `${s.name} at ${s.grade}`)
+              .join(', ')}`
+          );
+        } else if (ungraded.length) {
+          missing.push(`a grade for ${ungraded.map((s) => s.name).join(', ')}`);
+        }
+      }
+      if (rule.minPoints != null) {
+        conditions.push(`${rule.minPoints} points in total`);
+        if (profile.totalPoints == null) missing.push('your predicted total');
+        else if (profile.totalPoints < Number(rule.minPoints)) {
+          shortfalls.push(`it needs ${rule.minPoints} points and your profile says ${profile.totalPoints}`);
+        }
+      }
+
+      const asks = conditions.length ? ` It asks for ${listOf(conditions)}.` : '';
+      if (shortfalls.length) {
+        return unmet(
+          `Course Results are accepted here, but not as your profile stands: ${listOf(shortfalls)}.`,
+          shortfalls.length === 1
+        );
+      }
+      if (missing.length) {
+        return unsure(`Course Results are accepted here.${asks} Add ${listOf(missing)} to check that you clear it.`);
+      }
+      return met(`Course Results are accepted here and your profile clears the conditions.${asks}`);
+    }
 
     case 'ib-total-points': {
       const need = rule.minPoints;
@@ -568,6 +684,33 @@ export function assess(profile, opportunity, options) {
     if (result.status === 'met') matched.push(entry);
     else if (result.status === 'unmet') gaps.push(entry);
     else unknowns.push(entry);
+  }
+
+  /* The award nobody recorded.
+   *
+   * Most Opportunities carry no rule about which IB award opens them. For a
+   * student who will hold the Diploma that silence costs nothing — every
+   * recognition scheme this site has read treats the Diploma as a qualifying
+   * examination. For a Course candidate it is the whole question, and the
+   * answer is not in the record.
+   *
+   * So it is raised as an unknown rather than passed over. An unknown is not a
+   * refusal — it is the tool saying which question it could not answer, which
+   * is the only honest thing to do with a gap that decides whether someone
+   * applies at all. This fires only for a student who has said they expect
+   * Course Results: an unanswered profile is not quietly treated as one, and a
+   * Diploma holder is not shown a caveat about a question they do not have. */
+  if (profile.holdsDiploma === false && entryAward(opportunity) === ENTRY_AWARD.NOT_ESTABLISHED) {
+    unknowns.push({
+      id: 'entry-award-not-established',
+      label: 'Which IB award opens this',
+      kind: 'ib-course-results',
+      message:
+        'Nothing recorded here says whether Course Results are accepted or whether the full Diploma is required. That silence is not permission: ask the institution in writing before you count on this one.',
+      actionable: true,
+      evidence: [],
+      officialWording: null,
+    });
   }
 
   /* Data quality gates.

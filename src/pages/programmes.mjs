@@ -8,6 +8,74 @@ import { picture } from '../lib/data.mjs';
 import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
 import { evidenceBlock, preparationPath, filterQuestion, deadlineList, worldWindow } from '../lib/primitives.mjs';
 import { allEvents } from '../lib/calendar.mjs';
+import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
+
+/* What each of the three entry-award states is called where a student reads it.
+ *
+ * "Not established" is a real answer with a label of its own, not an empty
+ * string and not a missing chip. It is the state 3 of the 53 Opportunities are
+ * in, and the whole point of naming it is that a student can see it, filter to
+ * it, and know to ask — rather than meeting it as a silence that looks like
+ * permission. */
+const AWARD_LABEL = {
+  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'Asks for the full Diploma',
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'Reachable on Course Results',
+  [ENTRY_AWARD.NOT_ESTABLISHED]: 'Not established either way',
+};
+
+/**
+ * Which IB award opens one Opportunity, said on the Opportunity's own page.
+ *
+ * The subject requirements above this block are a comparison a student can lose
+ * on and still apply. This one is not: if the award they will hold is not the
+ * award the source asks for, nothing else on the page matters, which is why it
+ * gets a block of its own rather than a line in a list.
+ *
+ * All three states produce a block. The third is the one worth arguing about —
+ * an Opportunity we have established nothing for renders a paragraph saying so,
+ * rather than the nothing that would let a Course candidate read the silence as
+ * a yes. That is the same discipline as every other gap on this site, applied
+ * where it costs the most to get wrong.
+ */
+function awardBlock(opp) {
+  if (!opp) return '';
+  const award = entryAward(opp);
+  const rule = (opp.requirements || [])
+    .filter((r) => r.mandatory !== false)
+    .find((r) => r.kind === 'ib-diploma' || r.kind === 'ib-course-results');
+  const tail = [rule?.alternativeRoute, rule?.note].filter(Boolean).map((t) => `\n\n${t}`).join('');
+
+  if (award === ENTRY_AWARD.DIPLOMA_REQUIRED) {
+    return note(
+      `This asks for the **full IB Diploma**. DP Course Results — what the IB awards for individual Diploma
+      Programme subjects where the Diploma itself is not — do not satisfy it on their own.${tail}`,
+      { title: 'Which IB award this asks for' }
+    );
+  }
+
+  if (award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED) {
+    const asks = [
+      rule?.minSubjects != null ? `${rule.minSubjects} graded subjects` : null,
+      rule?.minHigherLevelSubjects != null ? `${rule.minHigherLevelSubjects} of them at HL` : null,
+      rule?.minGrade != null ? `at least ${rule.minGrade} in every subject` : null,
+      rule?.minPoints != null ? `${rule.minPoints} points in total` : null,
+    ].filter(Boolean);
+    return note(
+      `**DP Course Results** are accepted here — you do not need to have been awarded the full Diploma.${
+        asks.length ? ` The source asks for ${asks.slice(0, -1).join(', ')}${asks.length > 1 ? ' and ' : ''}${asks.at(-1)}.` : ''
+      }${tail}`,
+      { kind: 'ok', title: 'Which IB award this asks for' }
+    );
+  }
+
+  return note(
+    `Whether **DP Course Results** are accepted here, or whether the full IB Diploma is required, is **not
+    established**. No source recorded for this programme says either way, and an absence is not a yes — if you
+    will not hold the full Diploma, ask the institution in writing before the application deadline rather than
+    reading this page as permission.`,
+    { kind: 'warn', title: 'Which IB award this asks for' }
+  );
+}
 
 /* --- A Danish institution -------------------------------------------------- */
 
@@ -300,6 +368,8 @@ ${hero({
             ? ''
             : emptyState('No entry requirements have been recorded for this programme yet.')}
 
+        ${awardBlock(opp)}
+
         ${(p.extraRequirements || []).length
           ? html`<h3>On top of the subjects</h3>
               <ul>${p.extraRequirements.map((x) => html`<li>${x}</li>`)}</ul>`
@@ -451,8 +521,30 @@ export function programmesIndex(site) {
     summary: truncate(p.summary || '', 170),
     requirements: requirementLine(p.entryRequirements) || truncate(p.requirementsText || '', 150),
     entry: p.entryRequirements || null,
+    award: entryAward({ requirements: p.requirements }),
     search: [p.name, p.institutionName, p.field, p.campus, p.degree, p.summary].filter(Boolean).join(' ').toLowerCase(),
   }));
+
+  /* The filter is offered for the states this catalogue actually holds, with
+     counts, so it can never promise a choice that returns nothing. */
+  const awardCounts = new Map();
+  for (const p of index) awardCounts.set(p.award, (awardCounts.get(p.award) || 0) + 1);
+  const awardOptions = [
+    ENTRY_AWARD.DIPLOMA_REQUIRED,
+    ENTRY_AWARD.COURSE_RESULTS_ACCEPTED,
+    ENTRY_AWARD.NOT_ESTABLISHED,
+  ]
+    .filter((state) => awardCounts.get(state))
+    .map((state) => ({ value: state, label: AWARD_LABEL[state], count: awardCounts.get(state) }));
+
+  /* Every distinct route a source publishes for somebody who does not hold the
+     Diploma, gathered from the records rather than written here. This page does
+     not know what a route looks like in any particular country and must not: a
+     jurisdiction that publishes one gets its own sentence the moment a record
+     carries it, and one that publishes none contributes nothing. */
+  const routes = [...new Set(
+    site.programmes.flatMap((p) => (p.requirements || []).map((r) => r.alternativeRoute).filter(Boolean))
+  )];
 
   const body = html`
 ${hero({
@@ -508,6 +600,15 @@ ${hero({
           field: 'campus',
           options: campuses.map((c) => ({ value: c, label: c })),
         })}
+        ${awardOptions.length > 1
+          ? filterQuestion({
+              id: 'f-award',
+              question: 'Full Diploma, or Course Results?',
+              help: 'What the source says it will accept. Not established means nobody has recorded an answer — ask before you rule it in or out.',
+              field: 'award',
+              options: awardOptions,
+            })
+          : ''}
       </div>
       <div class="chips">
         <button type="button" class="chip" id="f-open" aria-pressed="false">Open admission only</button>
@@ -520,6 +621,28 @@ ${hero({
       <p class="result-count" id="prog-count" role="status" aria-live="polite" style="margin:0"></p>
       <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
     </div>
+
+    ${awardOptions.length > 1
+      ? note(
+          // Written once, server-side, and shown whether or not the filter is
+          // on — because a Course candidate who filters and gets a short list
+          // has been told the worst part of the truth and needs the rest of it
+          // on the same screen. The routes come from the records.
+          `Not every IB student leaves with the Diploma. Take individual Diploma Programme subjects, or sit the
+          Diploma and miss its conditions, and the IB awards **DP Course Results** instead — a real qualification,
+          read differently from a Diploma rather than not read at all.
+
+          ${awardOptions
+            .map((o) => `**${o.label}** — ${o.count} of ${programmeCount}.`)
+            .join(' ')}
+          ${routes.length ? `\n\nAsking for the Diploma is not the same as closing the door, and where a source publishes another way in it is written here.${routes.map((r) => `\n\n${r}`).join('')}` : ''}
+
+          **Not established** is the honest third answer and it is not a soft yes. It means no source recorded
+          here says either way, so nothing on this page should be read as saying Course Results are accepted.
+          Ask the institution in writing, and ask before the application deadline rather than after it.`,
+          { title: 'If you will not hold the full Diploma' }
+        )
+      : ''}
 
     <ul class="prog-list" id="prog-results"></ul>
     <noscript>
@@ -605,7 +728,7 @@ ${hero({
   variant: 'plain',
   eyebrow: 'Tool',
   title: 'Will my subjects get me in?',
-  lede: 'Enter the six subjects on your IB Diploma and the level you are taking each at. This converts them using the Danish Agency\'s official table, then checks them against every English-taught programme in Denmark — and shows its reasoning for each one.',
+  lede: 'Enter the IB subjects you are taking and the level you are taking each at, and say which IB award you expect to finish with. This converts them using the Danish Agency\'s official table, then checks them against every English-taught programme in Denmark — and shows its reasoning for each one.',
 })}
 
 <section class="section">
@@ -639,6 +762,26 @@ ${hero({
           <div class="field">
             <label for="p-total">Predicted total, including the TOK and EE bonus</label>
             <input type="number" id="p-total" min="18" max="45" step="1" placeholder="e.g. 34" inputmode="numeric">
+          </div>
+          <!-- One question, three honest answers, and no default.
+               A student who has not answered it is not assumed to be either
+               kind: the engine returns Needs review on anything that turns on
+               the award, which is the correct answer to a question nobody has
+               asked yet. Guessing "full Diploma" here — which this form used to
+               do, silently, in code — makes every Diploma-gated programme show
+               a clean pass to a Course candidate. -->
+          <div class="field">
+            <label for="p-award">Which IB award will you finish with?</label>
+            <select id="p-award">
+              <option value="">Not sure yet</option>
+              <option value="diploma">The full IB Diploma</option>
+              <option value="course-results">DP Course Results, not the full Diploma</option>
+            </select>
+            <p style="font-size:.8125rem;color:var(--ink-mute);margin:.35rem 0 0">
+              Course Results are what the IB awards for individual subjects where the Diploma is not — whether you
+              registered for courses rather than the Diploma, or sat it and did not meet its conditions. It changes
+              what some programmes will accept, and each result below says how.
+            </p>
           </div>
           <div class="field">
             <label for="p-group">Your fee status</label>

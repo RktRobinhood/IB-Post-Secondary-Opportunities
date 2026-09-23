@@ -31,13 +31,14 @@ const json = (id) => {
 const PROGRAMMES = json('programme-data') || [];
 const PLACES = json('place-data') || {};
 
-const state = { q: '', field: '', inst: '', campus: '', place: '', open: false, nomath: false };
+const state = { q: '', field: '', inst: '', campus: '', place: '', award: '', open: false, nomath: false };
 
 const els = {
   q: document.getElementById('f-q'),
   field: document.getElementById('f-field'),
   inst: document.getElementById('f-inst'),
   campus: document.getElementById('f-campus'),
+  award: document.getElementById('f-award'),
   open: document.getElementById('f-open'),
   nomath: document.getElementById('f-nomath'),
   reset: document.getElementById('f-reset'),
@@ -67,6 +68,11 @@ function matches(p) {
   if (state.inst && p.institutionId !== state.inst) return false;
   if (state.campus && p.campus !== state.campus) return false;
   if (state.place && p.placeId !== state.place) return false;
+  /* Which IB award the source says opens it. Three states, and "not
+     established" is one of them rather than a fall-through: a student filtering
+     for what Course Results reach must never be handed a programme whose record
+     is simply silent. */
+  if (state.award && p.award !== state.award) return false;
   if (state.open && p.restricted) return false;
   if (state.nomath && needsMathsA(p)) return false;
   if (state.q) {
@@ -129,14 +135,24 @@ function row(p) {
   </li>`;
 }
 
-const LABELS = { q: 'Search', field: 'Field', inst: 'Institution', campus: 'City', place: 'Place', open: 'Open admission', nomath: 'No Maths A' };
+const LABELS = { q: 'Search', field: 'Field', inst: 'Institution', campus: 'City', place: 'Place', award: 'IB award', open: 'Open admission', nomath: 'No Maths A' };
+
+/* A chip has to read as the thing the student chose, and for every select-backed
+   filter the words for that are already in the page — they are the option they
+   picked. Reading them back means the institution chip stops saying its record
+   id, and a state like "course-results-accepted" never reaches a human. */
+function chosenLabel(key, value) {
+  const el = els[key];
+  const option = el && el.options ? [...el.options].find((o) => o.value === value) : null;
+  return option ? option.textContent.trim().replace(/\s*\(\d+\)$/, '') : value;
+}
 
 function renderActive() {
   if (!els.active) return;
   const chips = [];
   for (const [k, v] of Object.entries(state)) {
     if (!v) continue;
-    const label = k === 'place' ? PLACES[v]?.name || v : v === true ? LABELS[k] : `${LABELS[k]}: ${v}`;
+    const label = k === 'place' ? PLACES[v]?.name || v : v === true ? LABELS[k] : `${LABELS[k]}: ${chosenLabel(k, v)}`;
     chips.push(`<li>${esc(label)} <button type="button" data-clear="${k}" aria-label="Remove ${esc(label)}">×</button></li>`);
   }
   els.active.innerHTML = chips.join('');
@@ -184,7 +200,7 @@ function syncUrl() {
 
 function readUrl() {
   const params = new URLSearchParams(location.search);
-  for (const k of ['q', 'field', 'inst', 'campus', 'place']) {
+  for (const k of ['q', 'field', 'inst', 'campus', 'place', 'award']) {
     const v = params.get(k);
     if (v) {
       state[k] = v;
@@ -202,7 +218,7 @@ function readUrl() {
 /* --- Wiring -------------------------------------------------------------------- */
 
 els.q?.addEventListener('input', (e) => { state.q = e.target.value; render(); });
-for (const k of ['field', 'inst', 'campus']) {
+for (const k of ['field', 'inst', 'campus', 'award']) {
   els[k]?.addEventListener('change', (e) => { state[k] = e.target.value; render(); });
 }
 for (const k of ['open', 'nomath']) {
@@ -213,9 +229,9 @@ for (const k of ['open', 'nomath']) {
   });
 }
 els.reset?.addEventListener('click', () => {
-  Object.assign(state, { q: '', field: '', inst: '', campus: '', place: '', open: false, nomath: false });
+  Object.assign(state, { q: '', field: '', inst: '', campus: '', place: '', award: '', open: false, nomath: false });
   if (els.q) els.q.value = '';
-  for (const k of ['field', 'inst', 'campus']) if (els[k]) els[k].value = '';
+  for (const k of ['field', 'inst', 'campus', 'award']) if (els[k]) els[k].value = '';
   for (const k of ['open', 'nomath']) els[k]?.setAttribute('aria-pressed', 'false');
   render();
 });

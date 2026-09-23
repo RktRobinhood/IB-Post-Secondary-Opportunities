@@ -64,11 +64,23 @@ function readProfile() {
     if (subject) subjects.push({ subject, level, grade: grade ? Number(grade) : null });
   }
   const total = Number(document.getElementById('p-total').value);
+
+  /* Three states, and null is one of them.
+   *
+   * This used to read `holdsDiploma: true` — a hidden answer to a question the
+   * form never asked, which meant every Diploma-gated rule in the engine
+   * evaluated in the student's favour and the whole distinction was invisible.
+   * An unanswered question is now unanswered: the engine has a branch for that
+   * and it says Needs review. */
+  const award = document.getElementById('p-award')?.value || '';
+  const holdsDiploma = award === 'diploma' ? true : award === 'course-results' ? false : null;
+
   return {
     subjects,
     totalPoints: Number.isFinite(total) && total >= 18 && total <= 45 ? total : null,
     applicantGroup: document.getElementById('p-group')?.value || null,
-    holdsDiploma: true,
+    award,
+    holdsDiploma,
     languages: [],
   };
 }
@@ -92,6 +104,12 @@ function restore() {
   });
   if (saved.totalPoints) document.getElementById('p-total').value = saved.totalPoints;
   if (saved.applicantGroup) document.getElementById('p-group').value = saved.applicantGroup;
+  /* Restored from `award` rather than from `holdsDiploma`, because the stored
+     boolean cannot tell "no" from "not answered" once it has been through JSON,
+     and a profile saved before this question existed must come back unanswered
+     rather than as a Diploma. */
+  const award = document.getElementById('p-award');
+  if (award && typeof saved.award === 'string') award.value = saved.award;
 }
 
 /* --- Rendering -------------------------------------------------------------- */
@@ -110,6 +128,17 @@ const BADGE = {
   [OUTCOME.POSSIBLE]: ['tag--sand', 'Possible with action'],
   [OUTCOME.NEEDS_REVIEW]: ['tag--warn', 'Needs review'],
   [OUTCOME.DOES_NOT_MEET]: ['', 'Does not currently meet'],
+};
+
+/* What the count line adds once the award is known — or is known not to be.
+ *
+ * The line for a Course candidate deliberately points at what is still open
+ * before it points at what is not. A result that says "six of fifty-three" and
+ * stops has told them the worst part of the truth and nothing else; the routes
+ * themselves are per-programme and come from the records, on each card. */
+const AWARD_NOTE = {
+  '': 'You have not said which IB award you will finish with. Anything that turns on it is shown as Needs review rather than guessed either way — answer it on the left and these become yes or no.',
+  'course-results': 'You expect Course Results rather than the full Diploma. That changes what some of these will accept and it closes fewer of them than it looks: open <em>Why this result</em> on any programme below and, where its source publishes another way in, it is written there. Where nothing has been established either way, it says that too rather than treating silence as a yes.',
 };
 
 const MATCH_CLASS = {
@@ -222,7 +251,8 @@ function render() {
     `<b>${tally[OUTCOME.DOES_NOT_MEET] || 0}</b> not currently met` +
     (profile.subjects.length < 6
       ? ` <span style="color:var(--warn)">(only ${profile.subjects.length} of 6 subjects entered)</span>`
-      : '');
+      : '') +
+    (AWARD_NOTE[profile.award] ? `<br><small>${AWARD_NOTE[profile.award]}</small>` : '');
 
   els.results.innerHTML = visible.length
     ? visible.map(renderCard).join('')
@@ -240,6 +270,8 @@ document.getElementById('p-reset')?.addEventListener('click', () => {
   for (const el of document.querySelectorAll('.p-subject, .p-grade')) el.value = '';
   for (const el of document.querySelectorAll('.p-level')) el.value = 'HL';
   document.getElementById('p-total').value = '';
+  const award = document.getElementById('p-award');
+  if (award) award.value = '';
   try { localStorage.removeItem(STORAGE_KEY); } catch {}
   render();
 });

@@ -27,8 +27,12 @@ _Avoid_: Year, cohort
 ## Student planning
 
 **Student Profile**:
-The student's actual or predicted IB subjects, levels, grades, total points, citizenship or fee status, languages, interests, and planning preferences. Personally identifying information is not part of the profile.
+The student's actual or predicted IB subjects, levels, grades, total points, which IB award they expect, citizenship or fee status, languages, interests, and planning preferences. Personally identifying information is not part of the profile.
 _Avoid_: Applicant, account
+
+**Course Results**:
+The IB award for individual Diploma Programme subjects, given where the Diploma itself is not awarded — to a student who registered for courses rather than for the Diploma, and to one who attempted the Diploma and did not meet its conditions. The IB's own name for the document is "Diploma Programme (DP) Course Results"; "IB Certificate" is the former name and still appears on official pages, including recognition authorities'. A student who expects one is a **Course candidate**. Course Results are a real qualification and are read as one, but they are read differently from a Diploma, and which of the two a student will hold decides what a Requirement means for them.
+_Avoid_: Course certificate, IB certificate, certificate student, partial diploma, failed diploma
 
 **Eligibility Assessment**:
 An explainable comparison of a Student Profile with the published Requirements for one Opportunity. It can establish requirement fit, not the probability of receiving an offer.

@@ -35,6 +35,26 @@
   },
   "requirements": [
     {
+      "id": "req-entry-award",
+      "kind": "ib-diploma",
+      "mandatory": true,
+      "label": "A qualifying upper-secondary examination",
+      "officialWording": {
+        "text": "International Baccalaureate (IB) med IB-Course Result på mindst 18 point sidestilles med en gymnasial eksamen, hvis ansøgeren har opnået mindst karakteren 3 i hvert af de 6 fag, der indgår i IB-forløbet. Endvidere skal ansøgeren have gennemført enkeltfag på gymnasialt niveau svarende til overbygning, jf. reglerne om overbygning i højere forberedelseseksamen (hf-eksamen) i lov om gymnasiale uddannelser.",
+        "language": "da",
+        "official": true
+      },
+      "alternativeRoute": "It does not close this one to you. The Danish Agency treats DP Course Results of at least 18 points, with at least grade 3 in all six subjects and at least three of them at HL, as equivalent to a qualifying examination for a Danish university bachelor once you have added two successive raises in the level of upper-secondary subjects, at least one of them to A level, taken as hf-enkeltfag or as a self-study candidate. If you already hold an A-level subject other than Danish, two raises to B level are enough. Retaking to be awarded the full IB Diploma is the other published route.",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national rather than this university's: the Danish Agency for Higher Education and Science sets which examinations are adgangsgivende, and every Danish institution applies the same one. Two things about it are easy to get wrong. GSK (gymnasial supplering) cannot be used for this — GSK raises a subject level for someone who already holds a qualifying examination, so it meets a specific subject requirement but never raises the level of the examination itself. And the average used in quota 1 is the one from the first qualifying examination, so a Course Results holder who supplements or retakes is still converted on the original Course Results result.",
+      "evidence": [
+        "ev-ufsn-ib-course-results"
+      ]
+    },
+    {
       "id": "req-all-1",
       "kind": "local-equivalency",
       "mandatory": true,
@@ -209,7 +229,8 @@
     "dk-optagelse-international-2027"
   ],
   "evidence": [
-    "ev-en-aau-dk-1xg0wsc"
+    "ev-en-aau-dk-1xg0wsc",
+    "ev-ufsn-ib-course-results"
   ],
   "meta": {
     "schemaVersion": "1.0",

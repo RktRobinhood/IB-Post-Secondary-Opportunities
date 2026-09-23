@@ -16,7 +16,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
-  assess, buildSubjectIndex, convertAverage, convertGrade, OUTCOME,
+  assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, OUTCOME,
 } from '../src/lib/eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -680,6 +680,215 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     for (const opp of opportunities) walk(opp.requirements, opp.id);
     check('every real subject requirement names a scale that exists, at a level it defines',
       stray.length === 0, stray.slice(0, 10).join('; '));
+  }
+}
+
+
+/* --- Which IB award opens a door, in three states -------------------------
+ *
+ * Not every IB student leaves with the Diploma. Take individual DP subjects, or
+ * sit the Diploma and miss its conditions, and the IB awards Course Results
+ * instead. Some sources say the Diploma is required, some say Course Results
+ * are accepted and on what terms, and most say nothing at all.
+ *
+ * Those are three states, and the third is the one these scenarios exist for.
+ * The tempting implementation has two — "requires a Diploma" and "does not" —
+ * and it silently converts every unresearched record into a promise that Course
+ * Results are fine. A Course candidate reads it, applies, and is refused. So
+ * the negative scenarios below are the load-bearing ones: nothing may tell a
+ * Course candidate they meet a Diploma-gated Opportunity, nothing may tell them
+ * an unrecorded Opportunity is open, and an unanswered profile may not be
+ * treated as either kind of student.
+ */
+{
+  const awardOpts = { ...ibOnlyOptions, evidenceStatus: verified };
+  const subjects = [
+    { subject: 'english-a-literature', level: 'HL', grade: 6 },
+    { subject: 'mathematics-aa', level: 'HL', grade: 6 },
+    { subject: 'physics', level: 'HL', grade: 5 },
+    { subject: 'chemistry', level: 'SL', grade: 5 },
+    { subject: 'economics', level: 'SL', grade: 5 },
+    { subject: 'history', level: 'SL', grade: 5 },
+  ];
+  const courseCandidate = (extra = {}) => profile(subjects, { holdsDiploma: false, totalPoints: 30, ...extra });
+  const diplomaHolder = profile(subjects, { holdsDiploma: true, totalPoints: 30 });
+  const undecided = profile(subjects, { holdsDiploma: null, totalPoints: 30 });
+
+  const opp = (requirements) => ({
+    id: 'opp-test-award', destination: 'zz', intake: '2027-autumn',
+    meta: { dataAsOf: '2026-09-22' }, evidence: ['ev-test'], admission: { restricted: false },
+    requirements,
+  });
+
+  /* 1. The Diploma is required, and the source publishes another way in. */
+  const gated = opp([
+    {
+      id: 'r1', kind: 'ib-diploma', mandatory: true, evidence: ['ev-test'],
+      label: 'A qualifying upper-secondary examination',
+      alternativeRoute: 'Two further subjects raised in level open this one without the Diploma.',
+    },
+  ]);
+
+  eq('a Diploma requirement is read as the Diploma state', entryAward(gated), ENTRY_AWARD.DIPLOMA_REQUIRED);
+  eq(
+    'a Diploma holder meets a Diploma-gated Opportunity',
+    assess(diplomaHolder, gated, awardOpts).outcome,
+    OUTCOME.MEETS
+  );
+
+  const gatedForCandidate = assess(courseCandidate(), gated, awardOpts);
+  check(
+    'a Course candidate is NOT told they meet a Diploma-gated Opportunity',
+    gatedForCandidate.outcome !== OUTCOME.MEETS,
+    gatedForCandidate.outcome
+  );
+  check(
+    'the gap is the award, and it says Course Results do not satisfy it',
+    gatedForCandidate.gaps.some((g) => /Course Results/.test(g.message) && /do not satisfy/.test(g.message)),
+    JSON.stringify(gatedForCandidate.gaps.map((g) => g.message))
+  );
+  check(
+    'the published route out is repeated to the student, from the record',
+    gatedForCandidate.gaps.some((g) => /raised in level/.test(g.message)),
+    JSON.stringify(gatedForCandidate.gaps.map((g) => g.message))
+  );
+  eq(
+    'a single published route makes it Possible with action, not a closed door',
+    gatedForCandidate.outcome,
+    OUTCOME.POSSIBLE
+  );
+
+  /* A record whose source publishes no way round says so and does not invent
+     one, and the outcome is correspondingly harder. */
+  const flatlyGated = opp([{ id: 'r1', kind: 'ib-diploma', mandatory: true, label: 'A full IB Diploma', evidence: ['ev-test'] }]);
+  const flat = assess(courseCandidate(), flatlyGated, awardOpts);
+  eq('with no route recorded, the engine does not invent one', flat.outcome, OUTCOME.DOES_NOT_MEET);
+  check(
+    'and it says nothing is recorded rather than that nothing exists',
+    flat.gaps.some((g) => /No other route to this one is recorded/.test(g.message)),
+    JSON.stringify(flat.gaps.map((g) => g.message))
+  );
+
+  eq(
+    'an unanswered profile is not treated as a Diploma holder',
+    assess(undecided, gated, awardOpts).outcome,
+    OUTCOME.NEEDS_REVIEW
+  );
+  check(
+    'and it is not treated as a Course candidate either — it asks the question',
+    assess(undecided, gated, awardOpts).unknowns.some((u) => /not recorded in your profile/.test(u.message)),
+    JSON.stringify(assess(undecided, gated, awardOpts).unknowns)
+  );
+
+  /* 2. Course Results are accepted, on the conditions the source attaches. */
+  const openToCourseResults = opp([
+    {
+      id: 'r1', kind: 'ib-course-results', mandatory: true, evidence: ['ev-test'],
+      label: 'Course Results accepted', minSubjects: 6, minHigherLevelSubjects: 3, minGrade: 3, minPoints: 18,
+    },
+  ]);
+  eq('a Course Results rule is read as the accepted state', entryAward(openToCourseResults), ENTRY_AWARD.COURSE_RESULTS_ACCEPTED);
+  eq(
+    'a Course candidate who clears the conditions meets it',
+    assess(courseCandidate(), openToCourseResults, awardOpts).outcome,
+    OUTCOME.MEETS
+  );
+  eq(
+    'a Diploma holder clears it too',
+    assess(diplomaHolder, openToCourseResults, awardOpts).outcome,
+    OUTCOME.MEETS
+  );
+
+  /* The conditions are conditions, not decoration. Course Results have no fixed
+     shape, so a source that accepts them says what it wants to see, and a
+     student who does not have it must not be told the door is open. */
+  const short = profile(subjects.slice(0, 4), { holdsDiploma: false, totalPoints: 30 });
+  const shortResult = assess(short, openToCourseResults, awardOpts);
+  check(
+    'a Course candidate with too few subjects is not told Course Results are enough',
+    shortResult.outcome !== OUTCOME.MEETS,
+    shortResult.outcome
+  );
+
+  const failing = profile(
+    [...subjects.slice(0, 5), { subject: 'history', level: 'SL', grade: 2 }],
+    { holdsDiploma: false, totalPoints: 30 }
+  );
+  check(
+    'a grade below the floor the source set is caught',
+    assess(failing, openToCourseResults, awardOpts).outcome !== OUTCOME.MEETS,
+    assess(failing, openToCourseResults, awardOpts).outcome
+  );
+
+  const noTotal = profile(subjects, { holdsDiploma: false });
+  eq(
+    'a missing total is a question, not a pass',
+    assess(noTotal, openToCourseResults, awardOpts).outcome,
+    OUTCOME.NEEDS_REVIEW
+  );
+
+  eq(
+    'an unanswered profile is not told Course Results are accepted for it',
+    assess(undecided, openToCourseResults, awardOpts).outcome,
+    OUTCOME.NEEDS_REVIEW
+  );
+
+  /* 3. Nothing recorded — the state most records are in, and the dangerous one. */
+  const silent = opp([ibReq('r1', 'english-a-literature', 'any')]);
+  eq('a record that says nothing is not established', entryAward(silent), ENTRY_AWARD.NOT_ESTABLISHED);
+  eq(
+    'a Diploma holder is not troubled by a question they do not have',
+    assess(diplomaHolder, silent, awardOpts).outcome,
+    OUTCOME.MEETS
+  );
+
+  const silentForCandidate = assess(courseCandidate(), silent, awardOpts);
+  check(
+    'silence is NOT read as "Course Results are fine"',
+    silentForCandidate.outcome !== OUTCOME.MEETS,
+    silentForCandidate.outcome
+  );
+  check(
+    'and the student is told which question could not be answered',
+    silentForCandidate.unknowns.some((u) => /silence is not permission/i.test(u.message)),
+    JSON.stringify(silentForCandidate.unknowns.map((u) => u.message))
+  );
+  check(
+    'a Diploma holder gets no such caveat',
+    !assess(diplomaHolder, silent, awardOpts).unknowns.some((u) => u.id === 'entry-award-not-established'),
+    'a caveat was raised for a Diploma holder'
+  );
+  check(
+    'and neither does an unanswered profile, which is asked the question instead',
+    !assess(undecided, silent, awardOpts).unknowns.some((u) => u.id === 'entry-award-not-established'),
+    'an unanswered profile was told a record was silent before it said which award it expects'
+  );
+
+  /* And the same three states over the real catalogue.
+   *
+   * The count is printed rather than asserted, because the number that is right
+   * today is wrong the moment somebody researches one more record — an
+   * assertion here would be a tax on doing the work. What IS asserted is that
+   * the states partition the catalogue, and that the state a Course candidate
+   * is most endangered by has not silently become the state everything is in. */
+  {
+    const dir = path.join(ROOT, 'data', 'opportunities');
+    const files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json'));
+    const records = [];
+    for (const f of files) records.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')));
+
+    const states = {
+      [ENTRY_AWARD.DIPLOMA_REQUIRED]: 0,
+      [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 0,
+      [ENTRY_AWARD.NOT_ESTABLISHED]: 0,
+    };
+    for (const o of records) states[entryAward(o)]++;
+    check(
+      'every Opportunity in the catalogue lands in exactly one of the three states',
+      Object.values(states).reduce((a, b) => a + b, 0) === records.length,
+      JSON.stringify(states)
+    );
+    console.log(`  entry award across the catalogue: ${JSON.stringify(states)}`);
   }
 }
 

@@ -155,7 +155,7 @@
       "type": "Business school",
       "founded": null,
       "website": "https://www.ie.edu/university/",
-      "admissionsUrl": "https://www.ie.edu/university/admissions/",
+      "admissionsUrl": "https://www.ie.edu/university/admission/",
       "ibPageUrl": null,
       "englishBachelors": "Almost the entire bachelor portfolio is taught in English",
       "notableFields": [
@@ -216,8 +216,8 @@
       "city": "Pamplona",
       "type": "Research university",
       "founded": 1952,
-      "website": "https://www.unav.edu/en/home",
-      "admissionsUrl": "https://www.unav.edu/en/admission-and-financial-aid",
+      "website": "https://en.unav.edu/",
+      "admissionsUrl": "https://en.unav.edu/admission-and-financial-aid/degree/estudia-un-grado",
       "ibPageUrl": "https://www.unav.edu/admision-y-ayudas/grado/bachillerato-internacional-ib",
       "englishBachelors": "A limited English-taught offer, with several bilingual degrees",
       "notableFields": [
@@ -227,7 +227,7 @@
         "Engineering",
         "Philosophy"
       ],
-      "note": "Private, Catholic, strongly ranked for Medicine and Communication, and one of the few Spanish universities with a published IB-specific admission pathway.",
+      "note": "Private, Catholic, strongly ranked for Medicine and Communication, and one of the few Spanish universities with a published IB-specific admission pathway. Checked 2026-09-23: the English site moved from www.unav.edu/en/ to its own host, en.unav.edu — the old English paths now serve Navarra's Spanish-language 404 page with a 200 status, which is why they read as working.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Navarra",
       "place": "es-pamplona"
     },
@@ -256,8 +256,8 @@
       "city": "Bellaterra (Barcelona)",
       "type": "Research university",
       "founded": 1968,
-      "website": "https://www.uab.cat/en/",
-      "admissionsUrl": "https://www.uab.cat/web/study-abroad/undergraduate-1345667292964.html",
+      "website": "https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html",
+      "admissionsUrl": "https://www.uab.cat/web/studies/undergraduate/admission/university-entrance-qualifications-for-eu-citizens-or-bilateral-agreements-1345666835462.html",
       "ibPageUrl": null,
       "englishBachelors": "A small number of English-taught bachelors",
       "notableFields": [
@@ -297,7 +297,7 @@
       "type": "Research university",
       "founded": 1890,
       "website": "https://www.comillas.edu/en/",
-      "admissionsUrl": "https://www.comillas.edu/en/admission/",
+      "admissionsUrl": "https://www.comillas.edu/en/informacion-de-admision-grado/",
       "ibPageUrl": null,
       "englishBachelors": "English-taught and bilingual bachelors in business, law and international relations",
       "notableFields": [
@@ -317,7 +317,7 @@
       "type": "Research university",
       "founded": 1968,
       "website": "https://www.uam.es/uam/en/inicio",
-      "admissionsUrl": "https://www.uam.es/uam/en/estudios/acceso-admision",
+      "admissionsUrl": "https://www.uam.es/uam/en/estudios/acceso-estudios-grado",
       "ibPageUrl": null,
       "englishBachelors": "A limited English-taught offer",
       "notableFields": [
@@ -337,7 +337,7 @@
       "type": "Research university",
       "founded": 1450,
       "website": "https://www.ub.edu/web/portal/en/",
-      "admissionsUrl": "https://www.ub.edu/portal/web/en/undergraduate",
+      "admissionsUrl": null,
       "ibPageUrl": null,
       "englishBachelors": "A small English-taught offer at bachelor level",
       "notableFields": [
@@ -348,7 +348,9 @@
       ],
       "note": "Spain's largest and most research-productive public university, but mostly teaching in Catalan and Spanish at bachelor level.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Barcelona",
-      "place": "es-barcelona"
+      "place": "es-barcelona",
+      "admissionsUrlState": "unverifiable",
+      "admissionsUrlNote": "Checked 2026-09-23. The URL previously recorded here — www.ub.edu/portal/web/en/undergraduate — is a 404. UB's English site has moved to web.ub.edu, and every page on that host, including the root, answers a Cloudflare bot challenge rather than a page: to an automated fetch, to this project's link checker, and to a browser driven from here. No replacement could be opened and read, so none is recorded. A person with an ordinary browser should start at web.ub.edu/en/web/informacio-academica/admission-with-foreign-qualifications, which is the page search engines index as UB's admission route for applicants holding a foreign qualification; it is not recorded here because nobody has confirmed it."
     },
     {
       "name": "Universidad Complutense de Madrid",
@@ -357,7 +359,7 @@
       "type": "Research university",
       "founded": 1293,
       "website": "https://www.ucm.es/english",
-      "admissionsUrl": "https://www.ucm.es/studies/undergraduate",
+      "admissionsUrl": "https://www.ucm.es/english/non-exchange-students",
       "ibPageUrl": null,
       "englishBachelors": "Very limited at bachelor level; some bilingual groups",
       "notableFields": [

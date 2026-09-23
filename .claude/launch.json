@@ -4,7 +4,9 @@
     {
       "name": "preview",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["scripts/serve.mjs"],
+      "runtimeArgs": [
+        "scripts/serve.mjs"
+      ],
       "port": 4321
     }
   ]

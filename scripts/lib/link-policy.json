@@ -51,8 +51,46 @@
       "host": "admissions.umich.edu",
       "reason": "Michigan's admissions subdomain refuses the verifier on the same wall as umich.edu.",
       "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "web.ub.edu",
+      "reason": "Cloudflare interstitial on every path including the root — 403 with a \"Just a moment...\" body to the verifier, to a plain fetch and to a scripted browser. The University of Barcelona moved its whole English site here, so no UB page can be read by this project at all. Nothing on this host is recorded as read directly, so UB's links stay unknowable rather than excused; see the note on the Universitat de Barcelona record.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "www.ub.edu",
+      "reason": "UB's old host, which now redirects every path to web.ub.edu and inherits its Cloudflare wall. Listed separately because the verifier looks the host up on the URL it was asked for, not on the one it was sent to.",
+      "recordedOn": "2026-09-23"
     }
   ],
 
-  "readDirectly": []
+  "readDirectly": [],
+
+  "$comment2": "The checker reads only the two keys above. The list below is a record, not an input: it is here because the reason for leaving a redirect alone is exactly the kind of judgement this file exists to hold, and because otherwise the next pass re-investigates the same nine links.",
+
+  "redirectsLeftAtTheOldUrl": [
+    {
+      "urls": [
+        "https://admission.skku.edu/",
+        "https://admission.ewha.ac.kr/",
+        "https://go.hanyang.ac.kr/",
+        "https://iadmission.khu.ac.kr/",
+        "https://www.postech.ac.kr/eng/",
+        "https://www.gist.ac.kr/en/",
+        "https://neweng.cau.ac.kr/"
+      ],
+      "reason": "Each of these resolves to its CMS's internal entry file — intro_221212.html, index.do, a jsessionid, main.html. The destination is an artefact of the software rather than an address the university publishes, and it will change the next time the CMS does. The clean URL recorded is the one the university advertises and the one that will still work. Followed and read 2026-09-23.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "urls": ["https://www.uib.no/en"],
+      "reason": "Redirects to www4.uib.no/en, a numbered host that reads as a migration staging name rather than a permanent home. Bergen advertises www.uib.no. Followed and read 2026-09-23.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "urls": ["https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/"],
+      "reason": "Redirects one level down to its own requirements/ sub-page, which is already recorded as CUHK's ibPageUrl. Following it would make the admissions link and the IB link the same address and lose the distinction. Followed and read 2026-09-23.",
+      "recordedOn": "2026-09-23"
+    }
+  ]
 }
