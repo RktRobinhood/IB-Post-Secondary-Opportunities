@@ -277,7 +277,11 @@ ${hero({
               ? html`<h3>You need all of these</h3>
                   <ul class="ticks">
                     ${req.all.map(
-                      (r) => html`<li><strong>${r.subject} ${r.level}</strong>${r.minGrade ? ` — minimum Danish grade ${r.minGrade}` : ''}</li>`
+                      // "minimum Danish grade" was true while every Opportunity
+                      // was Danish. A requirement written in IB terms carries a
+                      // grade on the IB's own 1–7 scale, and naming the wrong
+                      // scale beside a number is worse than naming none.
+                      (r) => html`<li><strong>${r.subject} ${r.level}</strong>${r.minGrade ? ` — minimum grade ${r.minGrade}` : ''}</li>`
                     )}
                   </ul>`
               : ''}
@@ -301,12 +305,23 @@ ${hero({
               <ul>${p.extraRequirements.map((x) => html`<li>${x}</li>`)}</ul>`
           : ''}
 
+        ${(p.selectionFactors || []).length
+          ? html`<h3>What decides who gets in</h3>
+              <p>These do not decide whether you <em>qualify</em>. They decide the order among everyone who
+              does, so not meeting one is not the same as being ineligible.</p>
+              <ul>${p.selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>`
+          : ''}
+
         ${p.restrictedAdmission
           ? note(
+              // The second sentence used to be unconditional and was about
+              // Danish national policy, which read as a fact about whichever
+              // programme you happened to be looking at. It now travels with
+              // the cut-off, which is the only part of it that is Danish.
               `This programme has restricted admission, so meeting the requirements does not guarantee a place.
-              ${p.quota1Cutoff?.gpa ? `The most recently published quota 1 cut-off was a Danish average of **${p.quota1Cutoff.gpa}**${p.quota1Cutoff.year ? ` for ${p.quota1Cutoff.year}` : ''}.` : ''}
-              Cut-offs move every year and the national policy is cutting intake, so treat any published figure
-              as a floor rather than a target.`,
+              ${p.quota1Cutoff?.gpa
+                ? `The most recently published quota 1 cut-off was a Danish average of **${p.quota1Cutoff.gpa}**${p.quota1Cutoff.year ? ` for ${p.quota1Cutoff.year}` : ''}. Cut-offs move every year and the national policy is cutting intake, so treat any published figure as a floor rather than a target.`
+                : 'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
               { kind: 'warn', title: 'Restricted admission' }
             )
           : note(
@@ -351,8 +366,9 @@ ${hero({
         })}
 
         <h2 id="check">Does your IB fit?</h2>
-        <p>The subject checker converts your six IB subjects into Danish levels and tells you whether they
-        satisfy this programme, and if not, exactly what is missing.</p>
+        <p>The subject checker reads your six IB subjects against this programme's published requirements —
+        converting them only where the destination publishes a conversion — and tells you whether they satisfy
+        it, and if not, exactly what is missing.</p>
         <p><a class="btn btn--primary" href="${url('/planner/')}">Check my subjects</a></p>
 
         ${p.url || p.source
@@ -395,6 +411,8 @@ ${hero({
 /* --- Programme explorer ---------------------------------------------------- */
 
 export function programmesIndex(site) {
+  const scope = site.opportunityScope;
+  const programmeCount = site.programmes.length;
   const fields = [...new Set(site.programmes.map((p) => p.field).filter(Boolean))].sort();
   const institutions = site.dkInstitutions
     .filter((i) => i.programmes.length)
@@ -439,14 +457,19 @@ export function programmesIndex(site) {
   const body = html`
 ${hero({
   variant: 'plain',
-  eyebrow: 'Denmark',
+  // Derived from the Opportunity records rather than asserted. This page said
+  // "in Denmark" in its eyebrow, its heading, its lede and its breadcrumb, and
+  // the day Delft appeared in the list all four became false at once.
+  eyebrow: scope.label,
   title: 'Every English-taught programme',
-  lede: `${plural(site.programmes.length, 'undergraduate degree')} you can take in English in Denmark. Filter them, or follow the map — both show the same set.`,
+  lede: `${plural(programmeCount, 'undergraduate degree')} you can take in English in ${scope.label}. Filter them, or follow the map — both show the same set.${
+    scope.complete ? '' : ' Coverage this deep exists for these destinations so far; every other destination has a country page.'
+  }`,
 })}
 
 <section class="section section--tight">
   <div class="wrap wrap--wide">
-    ${crumbs([{ href: '/denmark/', label: 'Denmark' }, { label: 'Programmes' }])}
+    ${crumbs([{ label: 'Find a degree' }])}
 
     <div id="prog-map">
       ${worldWindow({

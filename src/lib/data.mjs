@@ -8,7 +8,7 @@
 import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { slugify } from './html.mjs';
+import { slugify, listSentence } from './html.mjs';
 import { loadCanonical } from './canonical.mjs';
 import { publishable as editoriallyPublishable } from './imagery.mjs';
 
@@ -155,6 +155,7 @@ export async function load() {
   const migrated = [...canonical.graph.destinations.values()].map((d) => ({
     code: d.id,
     name: d.name,
+    articleName: d.articleName || null,
     flag: FLAGS[d.iso2 || d.id] || '',
     scope: d.scope || 'europe',
     region: d.region || 'Other',
@@ -203,9 +204,47 @@ export async function load() {
   /* Destinations for comparison and indexes: migrated first, then profiles. */
   const allDestinations = [...migrated, ...countries];
 
+  /* Which Destinations the Opportunity records actually cover.
+   *
+   * Every surface built on Opportunities used to assert "Denmark" in its
+   * heading, its eyebrow, its breadcrumb and a navigation chip, because for a
+   * long time that was true. The day the first Dutch Opportunities landed it
+   * stopped being true in four places at once, and a page that says "every
+   * English-taught degree in Denmark" over a list containing Delft is worse
+   * than one that says nothing — a student takes the heading at its word and
+   * stops looking.
+   *
+   * Derived, so it cannot be wrong again: add a Destination's Opportunities and
+   * the copy follows. `scripts/test-credentials.mjs` already forbids code that
+   * branches on a country; this is the same rule applied to prose. */
+  const scopeCodes = [...new Set([...canonical.graph.opportunities.values()].map((o) => o.destination))].filter(Boolean);
+  const scopeNames = scopeCodes
+    .map((code) => {
+      const d = allDestinations.find((x) => x.code === code);
+      // Inside a sentence some names take a definite article and the page
+      // cannot know which, so the record says.
+      return d?.articleName || d?.name || code;
+    })
+    .sort((a, b) => a.replace(/^the /, '').localeCompare(b.replace(/^the /, '')));
+  const opportunityScope = {
+    codes: scopeCodes,
+    names: scopeNames,
+    /** "Denmark", "Denmark and the Netherlands", "five destinations". */
+    label:
+      scopeNames.length === 0
+        ? 'no destinations yet'
+        : scopeNames.length <= 3
+          ? listSentence(scopeNames)
+          : `${scopeNames.length} destinations`,
+    /** For a navigation chip, where there is room for a word and not a list. */
+    chip: scopeNames.length === 1 ? scopeNames[0] : `${scopeNames.length} destinations`,
+    complete: scopeCodes.length >= allDestinations.length,
+  };
+
   return {
     countries,
     destinations: allDestinations,
+    opportunityScope,
     europe: countries.filter((c) => c.scope === 'europe'),
     world: countries.filter((c) => c.scope === 'worldwide'),
     dkInstitutions,

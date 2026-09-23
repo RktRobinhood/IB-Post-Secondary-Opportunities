@@ -47,6 +47,17 @@ export async function loadCanonical() {
       readDir(path.join(DATA, 'evidence')),
     ]);
 
+  /* The IB subject catalogue, so a requirement written in IB terms can be
+     rendered with the subject's published name rather than its id. It is the
+     one lookup the projection needs and it belongs to no Destination. */
+  let ibSubjectNames = new Map();
+  try {
+    const cat = JSON.parse(await fs.readFile(path.join(DATA, 'ib-subjects.json'), 'utf8'));
+    ibSubjectNames = new Map((cat.subjects || []).map((x) => [x.id, x.name]));
+  } catch {
+    /* A missing catalogue degrades to showing the id, which is ugly and true. */
+  }
+
   const evidence = new Map();
   for (const file of evidenceFiles) {
     for (const ev of Array.isArray(file) ? file : Object.values(file)) {
@@ -66,7 +77,7 @@ export async function loadCanonical() {
     evidence,
   };
 
-  return { graph, ...project(graph) };
+  return { graph, ...project(graph, ibSubjectNames) };
 }
 
 function index(list) {
@@ -116,7 +127,7 @@ export function evidenceStatus(graph, refs) {
 
 /* --- Projection into the shape the current templates expect ---------------- */
 
-function project(graph) {
+function project(graph, ibSubjectNames = new Map()) {
   const byInstitution = new Map();
   for (const opp of graph.opportunities.values()) {
     if (!byInstitution.has(opp.institution)) byInstitution.set(opp.institution, []);
@@ -144,10 +155,21 @@ function project(graph) {
         source: prog.links?.admissions || prog.links?.official || null,
         summary: prog.summary || null,
         requirementsText: opp.officialRequirementsText?.[0]?.text || null,
-        entryRequirements: denormalise(opp.requirements),
+        entryRequirements: denormalise(opp.requirements, ibSubjectNames),
         requirements: opp.requirements || [],
+        /* Things you must also do, and things that decide who gets in among
+           those who qualify. They were one list, and on the Dutch pages that
+           made "Your grade average — 75 per cent of the selection score" read
+           as a hurdle rather than as a ranking. `mandatory: false` is the
+           schema's own marker for a Selection Factor and says so in as many
+           words; nothing was reading it. */
         extraRequirements: (opp.requirements || [])
-          .filter((r) => ['essay', 'test', 'portfolio', 'interview', 'audition', 'other'].includes(r.kind))
+          .filter((r) => r.mandatory !== false)
+          .filter((r) => ['essay', 'test', 'portfolio', 'interview', 'audition', 'work-sample', 'activity', 'other'].includes(r.kind))
+          .map((r) => r.label)
+          .filter(Boolean),
+        selectionFactors: (opp.requirements || [])
+          .filter((r) => r.mandatory === false)
           .map((r) => r.label)
           .filter(Boolean),
         restrictedAdmission: !!opp.admission?.restricted,
@@ -212,21 +234,52 @@ function project(graph) {
 }
 
 /** Flatten canonical rules back into the {all, oneOf} form the current UI reads. */
-function denormalise(requirements) {
+/**
+ * Project a requirement into the `{ subject, level, minGrade }` shape the page
+ * renders, whichever vocabulary it was written in.
+ *
+ * Two vocabularies, since ADR 0002. A `local-equivalency` requirement names a
+ * subject on a declared scale — Denmark's "Mathematics A". An `ib-subject`
+ * requirement names an IB subject and HL or SL, which is how most of the world
+ * publishes its rules and needs no translation.
+ *
+ * This function used to handle only the first, and the day the first non-Danish
+ * Opportunities landed the consequence was visible on every one of them: TU
+ * Delft's Aerospace Engineering rendered a heading and then nothing, because
+ * "Mathematics: AA HL + Physics HL" projected to null. A requirement the engine
+ * assesses correctly and the page cannot draw is worse than one we never
+ * recorded — the student is told there is nothing to meet.
+ */
+function subjectOf(r, ibSubjectNames) {
+  if (r.kind === 'ib-subject' && r.ibSubject) {
+    return {
+      subject: ibSubjectNames.get(r.ibSubject) || r.ibSubject,
+      level: r.ibLevel === 'any' ? 'HL or SL' : r.ibLevel || '',
+      ...(r.minGrade ? { minGrade: r.minGrade } : {}),
+    };
+  }
+  if (r.subject && r.level) {
+    return { subject: r.subject, level: r.level, ...(r.minGrade ? { minGrade: r.minGrade } : {}) };
+  }
+  return null;
+}
+
+function denormalise(requirements, ibSubjectNames = new Map()) {
   if (!requirements?.length) return null;
   const all = [];
   let oneOf = null;
 
   for (const r of requirements) {
-    if (r.kind === 'local-equivalency' && r.subject && r.level) {
-      all.push({ subject: r.subject, level: r.level, ...(r.minGrade ? { minGrade: r.minGrade } : {}) });
-    } else if (r.kind === 'subject-combination' && r.alternatives?.length) {
-      oneOf = r.alternatives.map((group) =>
-        group
-          .filter((x) => x.subject && x.level)
-          .map((x) => ({ subject: x.subject, level: x.level, ...(x.minGrade ? { minGrade: x.minGrade } : {}) }))
-      );
+    if (r.kind === 'subject-combination' && r.alternatives?.length) {
+      oneOf = r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames)).filter(Boolean));
+      continue;
     }
+    /* A Selection Factor is `mandatory: false` — used in ranking, not in
+       eligibility. Listing one here would tell a student they do not qualify
+       when they merely are not top of a queue. */
+    if (r.mandatory === false) continue;
+    const projected = subjectOf(r, ibSubjectNames);
+    if (projected) all.push(projected);
   }
   if (!all.length && !oneOf) return null;
   return { ...(all.length ? { all } : {}), ...(oneOf ? { oneOf } : {}) };

@@ -430,6 +430,10 @@
         },
         "additionalProperties": false
       }
+    },
+    "articleName": {
+      "type": "string",
+      "description": "The name as it reads inside a sentence, where English takes a definite article: \"the Netherlands\", \"the United Kingdom\". A property of the name rather than of the country, so it belongs on the record — a page that composes a list of destinations cannot know which ones need one."
     }
   },
   "additionalProperties": false

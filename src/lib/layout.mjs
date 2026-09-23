@@ -52,14 +52,31 @@ const NAV = [
   { href: '/denmark/', label: 'Denmark' },
   { href: '/europe/', label: 'Europe' },
   { href: '/world/', label: 'Worldwide' },
-  { href: '/programmes/', label: 'Find a degree', scope: 'DK', scopeLabel: 'Denmark only' },
-  { href: '/planner/', label: 'Check my subjects', scope: 'DK', scopeLabel: 'Denmark only' },
+  /* These two are built on Opportunity records, so what they cover is whatever
+     has been researched to that depth. The chip used to read "DK" and the
+     tooltip "Denmark only"; both were hard-coded and both went stale the day a
+     second destination landed. `setScope()` is called once by the build. */
+  { href: '/programmes/', label: 'Find a degree', scope: 'opportunities' },
+  { href: '/planner/', label: 'Check my subjects', scope: 'opportunities' },
   { href: '/prepare/', label: 'Preparing' },
   { href: '/timeline/', label: 'Deadlines' },
 ];
 
 /** The nav link's accessible name, which spells out what the chip abbreviates. */
-const navLabel = (n) => (n.scope ? `${n.label} — ${n.scopeLabel}` : n.label);
+/* What the Opportunity-backed tools actually cover, handed in by the build so
+   the navigation cannot claim a scope the records do not support. */
+let SCOPE = null;
+export function setScope(scope) {
+  SCOPE = scope || null;
+}
+
+const scopeChip = (n) => (n.scope === 'opportunities' ? SCOPE?.chip : null);
+const scopeLong = (n) =>
+  n.scope === 'opportunities' && SCOPE ? (SCOPE.complete ? null : `${SCOPE.label} only`) : null;
+const navLabel = (n) => {
+  const long = scopeLong(n);
+  return long ? `${n.label} — ${long}` : n.label;
+};
 
 const FOOTER = [
   {
@@ -191,8 +208,8 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
       ${NAV.map(
         (n) =>
           html`<a href="${url(n.href)}"${o.section === n.href ? raw(' aria-current="page"') : ''}${
-            n.scope ? raw(` aria-label="${navLabel(n)}" title="${navLabel(n)}"`) : ''
-          }>${n.label}${n.scope ? html`<span class="nav__scope" aria-hidden="true">${n.scope}</span>` : ''}</a>`
+            scopeLong(n) ? raw(` aria-label="${navLabel(n)}" title="${navLabel(n)}"`) : ''
+          }>${n.label}${scopeChip(n) ? html`<span class="nav__scope" aria-hidden="true">${scopeChip(n)}</span>` : ''}</a>`
       )}
     </nav>
     <div class="masthead__tools">
@@ -210,7 +227,7 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
   ${NAV.map(
     (n) =>
       html`<a href="${url(n.href)}">${n.label}${
-        n.scope ? html`<span class="nav__scope nav__scope--long">${n.scopeLabel}</span>` : ''
+        scopeLong(n) ? html`<span class="nav__scope nav__scope--long">${scopeLong(n)}</span>` : ''
       }</a>`
   )}
   <a href="${url('/about/')}">About this site</a>
