@@ -201,5 +201,57 @@ check('a named person is not the same party as a research pass', () =>
   );
 }
 
+/* --- A site root cannot carry a date ---------------------------------------- */
+
+/**
+ * Issue #21's guard, and it is worth saying why it earns its place.
+ *
+ * A dated claim cited to a homepage is worse than one cited to a dead link. A
+ * dead link announces itself — the link check reports it and somebody fixes
+ * it. A homepage stays live forever and never carries the claim, so
+ * `npm run verify` can neither confirm nor refute it: it reports `partial`,
+ * and the record sits there indefinitely looking checked.
+ *
+ * Seven were found by reading all 177 deadline entries by hand. They came
+ * back — two more appeared in Austria and Switzerland during the very pass
+ * that fixed the first seven. That is the argument for a test rather than a
+ * sweep.
+ *
+ * The rule is narrow on purpose. A site root is a perfectly good source for
+ * something a site root can establish: that an institution exists, what it is
+ * called. It is refused only for a claim with a date on it.
+ */
+{
+  const dir = path.resolve(import.meta.dirname, '..', 'data', 'countries');
+  const offenders = [];
+  for (const f of (await fs.readdir(dir)).filter((n) => n.endsWith('.json'))) {
+    const country = JSON.parse(await fs.readFile(path.join(dir, f), 'utf8'));
+    for (const d of country.application?.deadlines || []) {
+      if (!d.date && !d.endDate) continue; // an undated entry makes no dated claim
+      const urls = [d.source, ...(Array.isArray(d.sources) ? d.sources : [])].filter(Boolean);
+      for (const url of urls) {
+        let u;
+        try {
+          u = new URL(url);
+        } catch {
+          offenders.push(`${f}: "${String(d.label).slice(0, 40)}" — unparseable source ${url}`);
+          continue;
+        }
+        if ((u.pathname === '/' || u.pathname === '') && !u.search && !u.hash) {
+          offenders.push(`${f}: "${String(d.label).slice(0, 40)}" — ${url}`);
+        }
+      }
+    }
+  }
+  check('a bare site root cannot support a dated claim', () => {
+    assert.deepEqual(
+      offenders,
+      [],
+      'a dated deadline is cited to a site root, which can never carry the date and so can never fail a check:\n          ' +
+        offenders.join('\n          ')
+    );
+  });
+}
+
 console.log(failures ? `\n${failures} failing\n` : '\nAll sourcing guards pass\n');
 process.exit(failures ? 1 : 0);

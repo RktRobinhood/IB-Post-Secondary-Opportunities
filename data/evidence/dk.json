@@ -3882,11 +3882,26 @@
       {
         "entity": "dk-sdu",
         "field": "about"
+      },
+      {
+        "entity": "dk-sdu-electronics-beng-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-mechanical-engineering-beng-2027-autumn",
+        "field": "requirements"
+      },
+      {
+        "entity": "dk-sdu-mechatronics-beng-2027-autumn",
+        "field": "requirements"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-22"
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Given its claim and excerpt on 2026-09-23, when three BEng Opportunities were found to depend on it. Its previous machine excerpt was the page navigation, which is what a source check quotes when the record gives it no claim to look for."
+      ]
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
@@ -3906,7 +3921,10 @@
         }
       ]
     },
-    "sourceClass": "institutional-guidance"
+    "sourceClass": "institutional-guidance",
+    "claim": "SDU splits its IB rule by programme type. A Bachelor of Engineering accepts DP Course Results with all six subjects passed at a minimum grade of 3 and at least three subjects at Higher Level; SDU bachelor programmes ask for the Diploma, or Course Results plus two supplementary subjects.",
+    "excerpt": "What you need to apply for bachelor of engineering programmes. You can apply to a Bachelor of Engineering programme at SDU if you hold the following IB qualifications: IB Diploma. Diploma Programme (DP) Course Results or IB Certificate provided that you have passed all six subjects with a minimum grade of 3, you have at least three subjects at Higher Level (HL).",
+    "interpretation": "This record backed only an institution blurb until three Bachelor of Engineering Opportunities were found to turn on it. The distinction it carries is the whole of issue #24 for Denmark: a Course candidate is shut out of SDU bachelor programmes without two supplementary subjects, and admitted to its BEng programmes on the Course Results alone. The national rule agrees — the Agency equates Course Results at 18 points to a two-year hf without overbygning, which qualifies specifically for diplomingenior programmes. \"IB Certificate\" is the former name for Course Results and SDU still uses it."
   },
   {
     "id": "ev-sdu-dk-toh5we",
