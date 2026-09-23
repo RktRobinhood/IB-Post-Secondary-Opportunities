@@ -9,6 +9,10 @@ conventions fan-out work here runs under.
 
 **Updated:** 2026-09-23. 14 of 35 Destinations at the floor; 430 dated events; #12, #13, #18 and #26 closed.
 
+**Current programme: close every open issue.** Twelve were open when it started,
+plus #34, filed from a mobile audit during it. The order and the reasoning are
+under ["This programme"](#this-programme) below.
+
 ---
 
 ## Done
@@ -134,6 +138,80 @@ The only item in the programme that a person has to do.
   are specifically IB-candidate deadlines.
 - **#25** — 64 dead `admissionsUrl` values of 437, the link a student follows
   at the moment they have decided to apply. `npm run check:institutions`.
+
+---
+
+## This programme
+
+The goal is every open issue closed, and the site checked on a phone as well as
+a laptop. Thirteen issues, grouped by what they actually are rather than by
+their numbers, because three of them turned out to be the same act.
+
+### Track A — the phone (#34)
+
+**Filed during this programme, from measurement rather than impression.** The
+audit is worth keeping because it contradicts the obvious diagnosis: at 375px
+`document.scrollWidth` is 375 on every page tested. **Nothing overflows.** The
+layout work was done. What fails is every control a thumb has to touch — selects
+at 24px, checkboxes at 13px, chips and buttons at 30px, the header's icon
+buttons at 36px — and eight type styles under 12px.
+
+The worst instance is the site's primary call to action. `/planner/` renders raw
+browser default selects, because the select styling is scoped to `.field select`
+and the picker's selects live in `.picker__slot`, which is not a `.field`.
+
+The 44px rule is not missing from the repository. It is at
+`primitives.css:319-324`, written for #26, applied to `.world__btn` alone and
+never generalised. So this is the deletion test again, in CSS: one control
+policy that every control inherits, not 44px restated per component.
+
+### Track B — the deadline passes (#21, #22, #23)
+
+These read as three issues and are one act: **open the official page for country
+X and fix its dates.** Sources that do not carry their claim, contradictions the
+data holds against itself, and dates buried in `notes` are three symptoms found
+in the same records, and splitting them by symptom would send three agents to
+the same page.
+
+So they are grouped by country instead, which is also the ownership boundary
+that makes them safe to run in parallel:
+
+| Agent | Countries | Hard record |
+|---|---|---|
+| Nordic + Baltic | `no se fi is nl lv` | `is` — two University of Iceland pages contradict each other |
+| Central Europe | `pl cz de be` | `pl` — Warsaw's IB result-upload extensions, written for IB candidates and buried in a note |
+| Western + Southern | `fr pt it gb` | `fr` — Parcoursup, cited on two entries from a page the record says could not be read |
+| Worldwide | `ae hk kr au jp` | `kr` — intake and deadlines describe different years |
+
+### Track C — the architectural seams (#29, #30, #31, #32, #33)
+
+All five are the same complaint in different places: **a policy that should live
+in one module has been re-decided by its callers.** Duplicate Destination
+identities (#29), a Denmark-shaped institution interface holding Dutch records
+(#30), Evidence status classified six different ways (#31), a canonical loader
+that fails open (#32), and a quality gate that is really a set union spread
+across three files (#33).
+
+These **cannot run in parallel.** Four of the five touch `src/lib/data.mjs` or
+`src/lib/canonical.mjs`, and `PARALLEL_WORK.md`'s own rule is that code agents
+run one per file. Order is dependency-first:
+
+**#32 → #29 → #30 → #31 → #33.** The loader is fixed before anything trusts it;
+identity is made unique before the catalogue is made destination-aware;
+Evidence policy is centralised once the records it reads are stable; the gate is
+built last so it can include everything the others added.
+
+### Track D — what is left
+
+- **#27** is partly landed (`b9292c0`): the Danish source check that never ran
+  now runs, and the trust page separates a person's review from a script's.
+  What remains is running the check across the eight Destinations it has never
+  covered, and fixing the cause in `RESEARCH_BRIEF.md`.
+- **#24** Course Results — the model landed in `fb4aca5`; the filter the issue
+  asks for has not.
+- **#15** is the standing research programme, not a closeable issue in one pass.
+- **#17** needs a person at the hero review queue. It is the only item here that
+  cannot be finished by an agent.
 
 ---
 
