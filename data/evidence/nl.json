@@ -2165,5 +2165,721 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-nl-whw-vooropleidingseisen",
+    "sourceUrl": "https://wetten.overheid.nl/BWBR0005682/2026-01-01/0/afdrukken",
+    "sourcePage": "https://wetten.overheid.nl/BWBR0005682/2026-01-01",
+    "publisher": "Wet op het hoger onderwijs en wetenschappelijk onderzoek (WHW), artikel 7.24 — wetten.overheid.nl",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Dutch law makes possession of a vwo diploma the entry requirement for a bachelor at a research university, and a vwo, havo or mbo-4 diploma the entry requirement for a bachelor at a hogeschool. What the article requires is a diploma; no partial or modular certificate appears in it.",
+    "excerpt": "Artikel 7.24. Vooropleidingseisen. 1 Onverminderd het derde lid geldt voor de inschrijving voor een opleiding in het wetenschappelijk onderwijs als opleidingseis het bezit van het diploma vwo, bedoeld in artikel 2.58, tweede lid, onderdeel a, of 2.80, tweede lid, onderdeel a, van de Wet voortgezet onderwijs 2020. 2 Onverminderd het derde en het vierde lid geldt voor de inschrijving voor een opleiding in het hoger beroepsonderwijs als vooropleidingseis het bezit van: a. het diploma vwo […] b. het diploma havo […] c. het diploma van een middenkaderopleiding of van een specialistenopleiding als bedoeld in artikel 7.2.2, eerste lid, onder d, onderscheidenlijk e, van de Wet educatie en beroepsonderwijs […]",
+    "interpretation": "This is the floor under every Dutch record in this catalogue, and the reason the answer for a Course candidate is a no rather than a silence. The article requires the POSSESSION OF A DIPLOMA. Nuffic, the Dutch ENIC-NARIC, compares DP Course Results not to a vwo diploma but to vwo-deelcertificaten — modular certificates for the subjects passed. Deelcertificaten are not the diploma this article requires, so the statutory entry requirement is not met, and article 7.28 lid 2 cannot help either: the exemption it obliges an institution to grant is for the holder of a DIPLOMA designated as at least equivalent, which a Course Result is not. The same article is why a hogeschool is not a softer landing in the way it is for other partial qualifications: an hbo bachelor still asks for a diploma, merely a havo one rather than a vwo one, and Nuffic's comparison of Course Results is to deelcertificaten at either level. The one IB award that does reach hbo without the Diploma is the Career-related Programme Certificate, which Nuffic compares to at least a havo diploma — the asymmetry is real and it is published.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "wetten.overheid.nl serves only the table of contents to a plain fetch of the consolidated law; the article text is in the print view at /0/afdrukken, which is what sourceUrl points at and what was read. A fetch of the canonical page, or of a per-article deep link, returns the heading 'Artikel 7.24 Vooropleidingseisen' and no body, and a summarising fetcher pointed at either one will paraphrase the article into something that reads like a quotation. The text here was taken from the print view and checked character by character."
+    }
+  },
+  {
+    "id": "ev-nl-whw-vrijstelling-diplomas",
+    "sourceUrl": "https://wetten.overheid.nl/BWBR0005682/2026-01-01/0/afdrukken",
+    "sourcePage": "https://wetten.overheid.nl/BWBR0005682/2026-01-01",
+    "publisher": "Wet op het hoger onderwijs en wetenschappelijk onderzoek (WHW), artikel 7.28 — wetten.overheid.nl",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The statutory exemptions from the diploma requirement are: holding a bachelor's, master's or associate degree; holding access to higher education in a country that has ratified the Lisbon Recognition Convention, subject to the institution's power to demonstrate a substantial difference; holding a diploma designated by ministerial regulation as at least equivalent, which the institution must accept; and holding a diploma the institution itself judges at least equivalent, which it may accept. A university may also admit the holder of an associate degree or of an hbo propedeuse certificate who holds no qualifying diploma.",
+    "excerpt": "Artikel 7.28. Vrijstelling op grond van andere diploma's. 1 […] Van de in de eerste volzin bedoelde vooropleidingseisen is eveneens vrijgesteld degene die toegang heeft tot het wetenschappelijk onderwijs of het hoger beroepsonderwijs in het land van een verdragspartij die het Verdrag inzake de erkenning van kwalificaties betreffende hoger onderwijs in de Europese regio (Trb. 2002, 137) heeft geratificeerd, onverminderd de bevoegdheid van het instellingsbestuur om op grond van artikel IV.1 van het genoemde verdrag een aanzienlijk verschil aan te tonen […] 1a Het instellingsbestuur kan met het oog op de inschrijving voor een bacheloropleiding aan een universiteit van de bezitter van een graad Associate degree of van de bezitter van een getuigschrift van een met goed gevolg afgelegd propedeutisch examen […] eisen dat hij aantoont over kennis, inzicht en vaardigheden te beschikken […]",
+    "interpretation": "Read for what it does and does not reach. The mandatory limb of lid 2 is about a DIPLOMA and cannot reach a Course Result. The Lisbon limb of lid 1 is different in kind: it turns on whether the applicant HAS ACCESS to higher education in a convention country rather than on what document they hold, and Denmark — where this site's readers sit their IB — publishes in as many words that DP Course Results of at least 18 points with grade 3 in all six subjects give access to Danish erhvervsakademi and professionsbachelor programmes. A Danish-resident Course candidate therefore has an argument under this limb that a candidate with no such access does not have. It is an argument and not an entitlement: the same sentence preserves the institution's power under article IV.1 of the convention to show a substantial difference between the access rules in the awarding country and the Dutch ones, and 'access to hbo in Denmark' against 'access to wo in the Netherlands' is exactly the kind of difference an institution may point at. No Dutch institution page read for this catalogue mentions the limb at all. It is recorded because a route that exists in the statute and is never advertised is precisely what a Course candidate cannot find alone, and it must be raised with the admissions office in writing, early, and in those terms.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the print view of the consolidated law, which is the only view that serves article bodies to a fetch. The Rijksoverheid page that restates these exemptions for the public renders this limb as 'wetenschappelijk of hoger onderwijs VOLGT in een Europees land dat een onderwijsverdrag heeft met Nederland' — is following a course of study there — where the statute says 'TOEGANG HEEFT TOT' — has access to. The statute is broader than the explanation of it, and the statute governs."
+    }
+  },
+  {
+    "id": "ev-nl-whw-colloquium-doctum",
+    "sourceUrl": "https://wetten.overheid.nl/BWBR0005682/2026-01-01/0/afdrukken",
+    "sourcePage": "https://wetten.overheid.nl/BWBR0005682/2026-01-01",
+    "publisher": "Wet op het hoger onderwijs en wetenschappelijk onderzoek (WHW), artikel 7.29 — wetten.overheid.nl",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "An institution may exempt an applicant of 21 or over who holds neither the required diploma nor a statutory exemption, if a committee it appoints finds them suited to the programme and sufficiently proficient in Dutch. The requirements are set in the institution's own teaching and examination regulations. The age limit may be waived for the holder of a foreign diploma that gives access to higher education in its own country, in special cases where no diploma can be produced, and for art programmes.",
+    "excerpt": "Artikel 7.29. Vrijstelling op grond van toelatingsonderzoek. 1 Het instellingsbestuur kan personen van eenentwintig jaar en ouder die niet voldoen aan de in artikel 7.24, eerste onderscheidenlijk tweede lid, bedoelde vooropleidingseis noch daarvan krachtens artikel 7.28 zijn vrijgesteld, van die vooropleidingseis vrijstellen, indien zij bij een onderzoek door een door het instellingsbestuur in te stellen commissie hebben blijk gegeven van geschiktheid voor het desbetreffende onderwijs en van voldoende beheersing van de Nederlandse taal […] 2 De bij het onderzoek te stellen eisen worden opgenomen in de onderwijs- en examenregeling. 3 Het instellingsbestuur kan ten aanzien van een bezitter van een buiten Nederland afgegeven diploma dat in het eigen land toegang geeft tot een opleiding aan een instelling voor hoger onderwijs, afwijken van de in het eerste lid genoemde leeftijdsgrens. Van die leeftijdsgrens kan het instellingsbestuur ook afwijken, indien in bijzondere gevallen geen diploma kan worden overgelegd.",
+    "interpretation": "This is the door the Netherlands actually publishes for someone without a qualifying diploma, and three things about it decide whether it is any use to an IB Course candidate. First, the age: twenty-one. A student who leaves school at eighteen with Course Results does not qualify for two or three years, and lid 3 makes the exceptions discretionary — the institution MAY waive the age limit, and the first of its two grounds is a foreign DIPLOMA that gives access at home, which a Course Result is not, leaving only the 'bijzondere gevallen' clause. Second, the language: the statute requires the committee to find sufficient command of DUTCH, which is a strange fit with the English-taught bachelor programmes this catalogue lists, and no institution page read for this catalogue explains how the two meet. Third, it is per programme and per institution: lid 2 puts the requirements in each programme's own onderwijs- en examenregeling, so there is no national syllabus and no national result, and passing one does not carry to another programme. None of this makes it a route a Course candidate can plan on at eighteen, and that is the finding rather than a gap in it.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the print view of the consolidated law. Note that the Dutch-language public explanation of this article at rijksoverheid.nl names only art programmes as the exception to the age limit and omits both grounds in lid 3, so a reader of the public page would conclude the age limit is absolute for everyone outside the arts."
+    }
+  },
+  {
+    "id": "ev-nl-rijksoverheid-toelating-zonder-vooropleiding",
+    "sourceUrl": "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/vraag-en-antwoord/met-welke-diploma-s-kan-ik-naar-de-universiteit-of-hogeschool",
+    "publisher": "Rijksoverheid (Government of the Netherlands) — Ministerie van Onderwijs, Cultuur en Wetenschap",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The government states that a university bachelor needs a vwo diploma or a completed hbo propedeuse, that a hogeschool needs a havo, vwo or mbo-4 diploma, and that an institution may admit an applicant without the right prior education after a toelatingsonderzoek or colloquium doctum for which the applicant must be 21 or over, decided by the institution's board, with the requirements set out in each programme's onderwijs- en examenregeling.",
+    "excerpt": "Met een havodiploma, een vwo-diploma of een mbo 4-diploma kunt u een opleiding gaan volgen aan een hogeschool. Voor toelating tot een universiteit heeft u een vwo-diploma of een propedeuse (eerste jaar) van een hbo-opleiding nodig. […] Toelating zonder juiste vooropleiding (colloquium doctum). Een hogeschool of universiteit mag u ook toelaten na een toelatingsonderzoek of colloquium doctum. Dat gebeurt als u niet de juiste vooropleiding heeft. Voor het toelatingsonderzoek moet u 21 jaar of ouder zijn. Tijdens het onderzoek kijkt de opleiding of uw kennisniveau voldoende is om de studie te volgen. Soms hoeft u geen 21 jaar of ouder te zijn voor een toelatingsonderzoek. Dit is het geval bij kunstopleidingen. Het bestuur van de universiteit of hbo-instelling bepaalt of u aan dit onderzoek mag deelnemen. […] Met buitenlands diploma naar hogeschool of universiteit. Heeft u een buitenlands of een ander Nederlands diploma? Informeer dan bij de opleiding van uw keuze naar de toelatingsmogelijkheden.",
+    "interpretation": "The ministry's own plain-language page, and the closest thing the Netherlands has to a national answer for a student without a qualifying diploma. Two things are worth taking from it. The first is what it does NOT contain: there is no national foundation year, no national credential-evaluation route that converts partial school results into access, and no mention of the IB in any form. The route it names for a foreign qualification is to ask the programme. The second is the propedeuse sentence, which is often read as a way in and closes on itself for a Course candidate: an hbo propedeuse gives access to a university bachelor, but entering the hbo in the first place needs a havo, vwo or mbo-4 diploma, so the propedeuse route is open to someone who already holds a qualifying diploma and shut to someone who does not. Where this page and the statute disagree — it narrows the Lisbon exemption to a student who is already studying in the convention country, and it omits article 7.29 lid 3's two grounds for waiving the age limit — the statute governs.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read in full on 2026-09-23. The same text is served at rijksoverheid.nl/wetten-en-regelingen/productbeschrijvingen/vrijstelling-van-vooropleidingseisen-hoger-onderwijs, which is a second URL for one page rather than a second source. Two older URLs for this material — /onderwerpen/hoger-onderwijs/toelating-hoger-onderwijs and /onderwerpen/hoger-onderwijs/vraag-en-antwoord/toelating-hbo-universiteit-zonder-diploma — now 404."
+    }
+  },
+  {
+    "id": "ev-nuffic-ib-course-results",
+    "sourceUrl": "https://www.nuffic.nl/en/education-systems/international-baccalaureate/secondary-education",
+    "publisher": "Nuffic (Dutch ENIC-NARIC)",
+    "publisherType": "qualification-body",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Nuffic states what a DP Course result is — what the IB awards when a student does not meet the requirements for the Diploma — and compares it to vwo-deelcertificaten for the subjects passed, against a full IB Diploma which it compares to a vwo diploma.",
+    "excerpt": "When students do not meet the requirements for a Diploma of the International Baccalaureate, they receive a DP Course result. We compare a DP Course result with VWO modular certificates (vwo-deelcertificaten) for the subjects with a pass. […] We compare a Diploma of the International Baccalaureate with a VWO diploma.",
+    "interpretation": "The Dutch recognition body says what a Course Result is worth and stops there: it publishes a comparison, not an admission rule, and it publishes nothing anywhere about what a holder of vwo-deelcertificaten may then do. That silence is the answer, because the admission rule is in article 7.24 WHW and asks for a diploma. It is recorded as a second Nuffic anchor beside ev-nuffic-ib-level because the two pages carry the comparison in different words, and because this one also states the CAUSE of a Course Result — the Diploma's conditions not being met — which is the sentence a student recognises themselves in. Retrieval: contrary to the note on ev-nuffic-ib-level, both Nuffic pages served their full content to a plain fetch with an ordinary browser user-agent on 2026-09-23, including the comparison table; that record's attestation should be re-read before anyone relies on the claim that Nuffic is browser-only.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23. Nuffic publishes no page about admission with a DP Course result: /education-systems/international-baccalaureate/admission-to-higher-education returns 404, and the IB section carries level, grades, schools and the chart only."
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-colloquium-doctum",
+    "sourceUrl": "https://www.tudelft.nl/en/education/admission-and-application/bsc-dutch-diploma/check-admission-requirements",
+    "publisher": "TU Delft — BSc Dutch diploma, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "TU Delft publishes a colloquium doctum for applicants who are not directly admissible on their diploma. It requires the applicant to be 21 or older on the day the programme starts and to hold sufficient proficiency in Dutch, which TU Delft states applies to its English-taught programmes as well, alongside the English requirement. No procedure, syllabus, deadline or fee is published; the page gives an email address. The same page carries TU Delft's hbo propaedeutic and associate degree route.",
+    "excerpt": "Colloquium Doctum. The colloquium doctum is a special and strict admission procedure for prospective students who: Are not directly admissible to a university programme based on their diploma; Are 21 years or older on the day the programme starts; Possess sufficient proficiency in the Dutch language. This is also a requirement for English-taught programmes. Meet the English language requirement as described under Language Requirements. This requirement also applies to programmes taught in Dutch. For more information about this procedure, please send an e-mail to contactcentre-esa@tudelft.nl, mentioning 'Colloquium Doctum'. […] Hbo Propaedeutic diploma and Associate Degree. Students who have obtained an hbo propaedeutic diploma or an associate degree can, under certain conditions, start with the first year of a TU Delft bachelor's programme. These students must meet the same profile requirements before the start of the bachelor's programme as students with a vwo diploma.",
+    "interpretation": "The route exists and an IB applicant is unlikely ever to see it: it is published on the Dutch-diploma branch of the site, and that same branch tells anyone holding an IB to leave — \"Do you have a different previous education than a Dutch vwo diploma? For example, an International Baccalaureate (IB) […] Then you have a non-Dutch previous education and you must follow the route of BSc - international diploma.\" The word 'colloquium' does not appear anywhere on the international-diploma pages. Its conditions matter more than its existence: 21 on the first day of the programme, and Dutch proficiency required even for the English-taught bachelor programmes this catalogue lists, which is a year or more of Dutch on top of the age wait. The hbo propedeuse line on the same page closes on itself for a Course candidate, because entry to a Dutch hogeschool needs a havo, vwo or mbo-4 diploma in the first place.",
+    "supports": [
+      {
+        "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-tudelft-nanobiology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23. The Dutch original is at /onderwijs/toelating-en-aanmelding/bsc-nederlands-diploma/1-toelatingseisen and carries the same three conditions."
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-partial-qualifications",
+    "sourceUrl": "https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/admission-requirements",
+    "publisher": "TU Delft — BSc international diploma, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "TU Delft requires a secondary school diploma equivalent to the Dutch VWO and states that it does not accept individual VWO subject certificates as a basis for admission. The Dutch foundation-year programmes it lists as an alternative are published inside a section that applies only to recognised refugees holding a Dutch residence permit, and TU Delft offers no foundation year itself.",
+    "excerpt": "To be eligible for admission, you must hold a secondary school diploma that is considered equivalent to the Dutch pre-university VWO diploma. […] Please note that TU Delft, in principle, does not accept separate Dutch language certificates, English language certificates, or individual VWO subject certificates as a basis for admission. Applicants must follow the same application procedure as all other prospective students holding a non-Dutch secondary school diploma. […] Refugees: This section is only relevant for recognised refugees who hold a valid Dutch residence permit. In most cases, refugees hold a secondary school diploma that is not considered equivalent to the Dutch pre-university (VWO) diploma. You may be eligible for admission after successfully completing one of the Dutch university Foundation Year programmes listed below […] Please note that TU Delft does not offer a Foundation Year programme itself.",
+    "interpretation": "This is as close as TU Delft comes to answering the question, and it answers it by category rather than by name. Nuffic compares DP Course Results to vwo-deelcertificaten — individual VWO subject certificates — and this page says those are not a basis for admission. An older page still live at /bsc-international-diploma/1-admission-requirements/ puts it flatly: \"TU Delft does not accept separate Dutch language, English language and VWO certificates but only diplomas.\" The foundation-year list is the trap. It is a genuine alternative route to a TU Delft bachelor, it names five Dutch providers and rejects the international ones by name, and it sits inside an accordion scoped to recognised refugees — so quoting it to a Course candidate as their route would be a straightforward misreading of the page. Nothing on tudelft.nl names DP Course Results, an IB Certificate or a partial IB. The only IB variant refused by name is the Career-related Programme, which is a different qualification.",
+    "supports": [
+      {
+        "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-tudelft-nanobiology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23, including the collapsed accordion sections, which are served in the HTML. The FAQ page at /bsc-international-diploma/faq returns 200 with an empty body and could not be checked."
+    }
+  },
+  {
+    "id": "ev-utwente-nl-colloquium-doctum",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/application-admission/colloquium-doctum/",
+    "publisher": "University of Twente — Colloquium Doctum",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Twente publishes its colloquium doctum in full: it is for applicants aged 21 or over on 1 September of the academic year they wish to start who do not hold Dutch VWO-level qualifications, applications open on 1 October through Studielink, and it publishes the VWO subjects examined for each bachelor programme and the bodies whose certificates it accepts — CCVX, James Boswell and the Dutch Official State Examination.",
+    "excerpt": "The Colloquium Doctum is for students aged 21 or over who do not have Dutch VWO-level qualifications. You must be at least 21 years old on 1 September of the academic year you wish to start. […] The Colloquium Doctum is regulated under the Dutch Higher Education and Research Act (WHW), Articles 7.25, 7.28, and 7.29. […] Applications open on 1 October via Studielink. You should submit a standard enrolment request before the application deadline. […] complete the Osiris questionnaire […] Please upload any diplomas you have already obtained, and also a blank PDF stating that you are applying for admission via a full Colloquium Doctum. Any alternative exams required for the Colloquium Doctum must be completed before the deadlines that apply to your chosen programme. […] For other subjects—Mathematics, Physics, Chemistry, and Biology—the University of Twente accepts certificates from CCVX, James Boswell, or the Official State Examination. […] Advanced Technology: VWO English, VWO Mathematics B, VWO Physics. Creative Technology: VWO English, VWO Mathematics A, B or C. Technical Computer Science: VWO English, VWO Mathematics B.",
+    "interpretation": "The most complete published alternative route of the five Dutch institutions in this catalogue, and the only one that can be planned rather than enquired about: a named age rule, a named application window, a named examining body and a subject list per programme. Two things are worth pulling out. Twente imposes no blanket Dutch-language requirement — VWO Dutch appears in the table only against Dutch-taught programmes, and not against Advanced Technology, Creative Technology or Technical Computer Science — which is the opposite of TU Delft, whose colloquium doctum demands Dutch proficiency for English-taught programmes too. And the age rule still bites: 21 on 1 September, so an IB Course candidate finishing school at eighteen waits two or three years before this route opens, whatever else they do. Twente's page is stamped 'Last update 1 Sept 2026'.",
+    "supports": [
+      {
+        "entity": "nl-utwente-advanced-technology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-utwente-creative-technology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-utwente-technical-computer-science-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23; the per-programme table is served in the HTML. Twente states elsewhere that its published requirements are for the September 2026 intake and that requirements for the following September are announced in October, so nothing on this page is specific to 2027 yet."
+    }
+  },
+  {
+    "id": "ev-utwente-nl-ib-certificates",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/application-admission/admission/diplomas/international-baccalaureate/",
+    "publisher": "University of Twente — Admission with the International Baccalaureate",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Twente requires a successfully completed IB Diploma before the start of the academic year, and mentions IB certificates only as something it may admit on in combination with another high school diploma.",
+    "excerpt": "A successfully completed International Baccalaureate diploma is required before the start of the academic year. In general, there is no minimum IB grade requirement. […] If you will be (conditionally) admitted based upon IB certificates in combination with another high school diploma, the possible grade requirement will be mentioned within your (conditional) admission letter.",
+    "interpretation": "The only sentence about IB certificates on any of the five Dutch institutions' sites, and it is conditional in a way that decides the answer: the certificates count IN COMBINATION WITH another high school diploma, which is a student who already holds a qualifying school-leaving qualification and is adding IB subjects to it. A Course candidate holding IB subjects and nothing else is not that student, and the same page's document list assumes a Diploma. Read against Twente's general rule — 'a certificate or diploma must be awarded upon completion' — this is a closed door for Course Results standing alone, stated as precisely as any Dutch institution states it.",
+    "supports": [
+      {
+        "entity": "nl-utwente-advanced-technology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-utwente-creative-technology-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-utwente-technical-computer-science-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23. Page stamped 'last update 5 Aug 2026'. Twente's admission pages state that requirements published now are for the September 2026 intake and that the 2027 requirements are announced in October."
+    }
+  },
+  {
+    "id": "ev-um-nl-vwo-equivalence",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/non-Dutch-diplomas-equivalent-VWO",
+    "publisher": "Maastricht University — Non-Dutch diplomas equivalent to the Dutch VWO diploma",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Maastricht lists the International Baccalaureate Diploma with at least three Higher Level subjects as equivalent to the Dutch VWO diploma, refuses Foundation Programmes for bachelor admission, refuses equivalency statements, assesses unlisted diplomas individually, and reserves a binding judgement on prior education. Nuffic may be consulted but the decision is the university's.",
+    "excerpt": "International Baccalaureate — International Baccalaureate Diploma, at least 3 Higher Level (HL) subjects. […] Maastricht University does not accept Foundation Programmes for admission to a bachelor's programme. […] Maastricht University does not accept equivalency statements. Applications will be assessed based on the curriculum as followed in the final two years of your secondary education. […] Diplomas not listed will be assessed individually. […] Maastricht University reserves the right to give a binding judgement regarding your prior education. The assessment of diplomas and eligibility for admission is carried out within the applicable legal framework, including the Dutch Higher Education and Research Act (WHW) […] In the evaluation of foreign diplomas and education systems, Nuffic may be consulted. Nuffic provides credential evaluations and advice; however, the final decision regarding admission always rests with Maastricht University.",
+    "interpretation": "Maastricht states its rule positively and never negatively: the entry names the IB DIPLOMA with three HL subjects, and nothing on the site names DP Course Results, an IB Certificate or a partial IB at all. That is silence rather than a published refusal, and it must not be read as room — the requirement is a diploma equivalent to VWO, and Nuffic compares Course Results to vwo-deelcertificaten, which are not one. Two doors this page closes explicitly and that a Course candidate might otherwise chase: Foundation Programmes are not accepted for bachelor admission at all, and an equivalency statement — including a Nuffic credential evaluation — is not a substitute for the diploma, because UM assesses the curriculum and decides for itself. The 'diplomas not listed will be assessed individually' sentence presupposes a diploma.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-maastricht-international-business-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23. The page is a JS shell to a summarising fetcher and serves its full content to a plain curl. Its own body says it lists diplomas equivalent for 'the academic year 2026-2027' while the page is linked from 2027-2028 programme pages; the intake the list belongs to should be re-read once UM publishes the 2027-2028 version."
+    }
+  },
+  {
+    "id": "ev-um-nl-colloquium-doctum-dsai",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/data-science-and-artificial-intelligence/admission-requirements",
+    "publisher": "Maastricht University — Data Science and Artificial Intelligence, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The Data Science and Artificial Intelligence programme publishes a Colloquium Doctum for applicants without the required diploma who are 21 or older: select the highest level of previous education in Studielink, upload a personal statement saying you are applying on that basis together with transcripts, and contact the faculty's admissions officer.",
+    "excerpt": "Applicants without the required diploma and 21 years of age or older. If you don't have the required diploma, and you are 21 years of age or older, you might still qualify for admission by passing the Colloquium Doctum (CD). If you pass the CD you will qualify for admission. If you wish to apply based on the CD, please: select the highest level of previous education you have completed in Studielink; upload a personal statement in the MyApplication portal stating you wish to apply based on the Colloquium Doctum, along with a diploma/grades transcript(s) of your previous education in the task 'Upload diploma/grades transcript'. For questions about the CD, please contact our admissions officer via dacs-admissions@maastrichtuniversity.nl.",
+    "interpretation": "This is the only one of the three Maastricht Opportunities in this catalogue whose own admission page publishes a route for somebody without the required diploma, and the difference between the three is editorial rather than legal: article 7.29 WHW is available to the university as a whole, and each faculty decides what to put on the page. What the page does not say is what the Colloquium Doctum for this programme consists of, when it is sat or what it costs; the faculty's admissions officer is named instead. The heading on the live page still carries an unresolved editorial marker, 'Applicants without the required diploma and 21 years of age or older[MS1]', which is a small sign of how recently this section was written.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23."
+    }
+  },
+  {
+    "id": "ev-um-nl-colloquium-doctum-law",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/admission-exam-colloquium-doctum-law",
+    "publisher": "Maastricht University, Faculty of Law — Colloquium Doctum entrance exam",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Maastricht's Faculty of Law publishes a fully specified Colloquium Doctum for 2027-2028: at least 21 at the start of the academic year, the English language requirement rather than a Dutch one, application through Studielink from 1 October 2026 with the whole process complete by 15 January 2027, a written exam on 12 May 2027 and an oral on 26 May 2027, sat in person in Maastricht, at a participation cost of 100 euro payable again for any resit — and passing it does not guarantee a place on a numerus fixus programme.",
+    "excerpt": "If you do not have the required diploma, or do not meet the additional requirements, you can still qualify for admission by passing an entrance exam (art. 7.29 WHW), the so-called 'Colloquium Doctum'. […] Conditions of participation: You are at least 21 years old at the start of the academic year you want to register for. You meet the language requirements for English language programmes. […] The exam will take place at the Faculty of Law building […] It is not possible to join the exam online. […] The written component of the Colloquium Doctum exam 2027-2028 will take place on Wednesday 12 May 2027, from 9.30 am to 4.00 pm. The oral component […] on Wednesday 26 May 2027 […] The participation costs for the Colloquium Doctum exam are € 100,-. […] Apply as soon as possible via Studielink. This is possible from 1 October 2026 onwards. Deadline for completing the entire application process is 15 January 2027, 23:59 CET. […] Passing the Colloquium Doctum does not automatically guarantee a place in the bachelor programme for academic year 2027-2028.",
+    "interpretation": "Recorded although none of the three Maastricht Opportunities in this catalogue is a law programme, because it is the proof that UM runs Colloquium Doctum admissions for 2027-2028 and what one actually costs a candidate in money, travel and dates. A student told by an SBE or UCM page that nothing exists can point at this. Note what it is not: the exam is a law-faculty exam on law-faculty terms, it cannot be sat for another programme, and the age condition is the same 21 everywhere. The language condition is the useful surprise — for an English-taught programme the requirement is the English one, not Dutch, which is the opposite of what TU Delft publishes and of what article 7.29 WHW itself says on its face.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-maastricht-international-business-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23. Maastricht's Faculty of Arts and Social Sciences publishes a second one at /entrance-exam-colloquium-doctum-FASoS, also 100 euro, examined on set readings and written in English, and University College Venlo's admission page carries a Colloquium Doctum section that University College Maastricht's does not."
+    }
+  },
+  {
+    "id": "ev-um-nl-no-colloquium-published",
+    "sourceUrl": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/university-college-maastricht/admission-requirements",
+    "publisher": "Maastricht University — University College Maastricht, admission requirements",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "University College Maastricht's 2027-2028 admission page states the qualification requirement as a VWO diploma, an HBO or OU propaedeutic diploma, or a non-Dutch diploma equivalent to VWO, and publishes no Colloquium Doctum or any other route for an applicant without one. The same is true of the International Business admission page.",
+    "excerpt": "The admission requirements for the academic year 2027-2028 for the bachelor's programme University College Maastricht (UCM) depend on your previous education. […] Applicants with a Dutch diploma: If you have one of the diplomas stated below, you qualify for admission: VWO diploma; HBO or OU-propaedeutic diploma. […] Applicants with a non-Dutch diploma: If you have a non-Dutch diploma equivalent to the Dutch VWO diploma, you qualify - in principle - for admission to this study programme.",
+    "interpretation": "An absence, checked and recorded as one. The word 'colloquium' appears on this page exactly once, in the site-wide menu, where it names a Law faculty research colloquium — not an admission route. The International Business admission page is the same. This matters because the sibling college, University College Venlo, publishes on its own 2027-2028 page an 'Applicants without required diploma or courses — Entrance assessment, Colloquium Doctum' section with the 21-year condition, so the omission at UCM is an editorial difference between two UM colleges rather than a house style. What could not be established: UCM's Education and Examination Regulations, which is the binding document and would say whether a Colloquium Doctum exists for UCM unpublished, could not be located. Article 7.29 WHW is a power the university holds, so 'not published' is not the same as 'not available' — it is, however, everything a student can find, and they should ask UCM admissions in writing rather than assume either way.",
+    "supports": [
+      {
+        "entity": "nl-maastricht-international-business-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Both pages fetched in full and searched on 2026-09-23. Maastricht's /education/pre-bachelors page returns HTTP 403 to automated retrieval and is the one page that might carry a pre-bachelor or foundation route; it was not read, and UM's diploma list separately states that Foundation Programmes are not accepted for bachelor admission."
+    }
+  },
+  {
+    "id": "ev-eur-nl-colloquium-doctum",
+    "sourceUrl": "https://www.eur.nl/en/education/practical-matters/bachelor-admission-and-application/colloquium-doctum",
+    "publisher": "Erasmus University Rotterdam — Admission via colloquium doctum",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Erasmus publishes a colloquium doctum under article 7.29 WHW for applicants who are 21 or older before 1 September and hold no qualifying prior education. Erasmus runs no examinations of its own: the applicant must obtain VWO partial certificates themselves through the Dutch State Examinations, OMPT, CCVX or Boswell Beta, register through Studielink by 15 January for numerus fixus programmes and 1 May otherwise, and submit the certificates by 1 August. The route is published for twelve named programmes, and neither International Business Administration nor Economics and Business Economics is among them.",
+    "excerpt": "If (before September 1 of the relevant academic year) you are 21 years of age or older and do not have a prior education that gives access to a university degree (e.g., HAVO), you may be admitted to a university degree program pursuant to Art. 7.29 of the Higher Education and Scientific Research Act (WHW) if you have successfully completed the required certificates. Partial certificates can be submitted until 1 August […] For selective bachelors (numerus fixus) the deadline is January 15, for all other programs you can register until May 1 at the latest. […] In Studielink, indicate for previous education/preparatory education: colloquium doctum. […] EUR does not have its own CD-tests. You must obtain the required certificates yourself, for example by obtaining vwo certificates through the State Examinations (Staatsexamens) (you can apply for these until December 31 preceding the academic year in which you wish to start). Certificates can also be obtained through OMPT, Central Committees for Examinations CCVX and Boswell Beta […] Dutch: VWO (partial) certificate Dutch with at least a 7.0.",
+    "interpretation": "Two findings, and the second is the one that decides both Erasmus records in this catalogue. First, the route is real and self-service: Erasmus assesses partial certificates rather than examining anyone, so the work is sitting Dutch VWO subject examinations at a 7.0 or 6.0 through the Staatsexamen or one of three named providers. For Business Administration that set includes a VWO partial certificate in DUTCH at 7.0, which makes it a route for a Dutch-resident applicant in practice. Second, the programmes it is published for are Business Administration, Criminology, Dutch Law, Health Sciences, Liberal Arts & Sciences, Medicine, Pedagogical Sciences, Philosophy, Psychology, Public Administration, Sociology and Tax Law — the English-taught International Business Administration at RSM and the International Bachelor Economics and Business Economics are not on the list, so for those two the university's own page does not offer this route. One detail worth keeping: under Business Administration, Erasmus accepts an 'International Baccalaureate Certificate' — English A SL 5, English A HL 4 or English B HL 5 — as the ENGLISH element of a colloquium doctum file. That is the only place in this catalogue where a Dutch institution gives an individual IB subject result any admission value, and it is proof of a language, not of a qualification.",
+    "supports": [
+      {
+        "entity": "nl-erasmus-economics-and-business-economics-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-erasmus-international-business-administration-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read in full on 2026-09-23, including the per-programme list, which was enumerated rather than sampled. No fee is published for the colloquium doctum itself; the cost sits with the external examining bodies. A Dutch mirror is at eur.nl/onderwijs/praktische-zaken/toelating/colloquium-doctum."
+    }
+  },
+  {
+    "id": "ev-nl-ratho-gelijkwaardig-diploma",
+    "sourceUrl": "https://wetten.overheid.nl/BWBR0035059/2026-09-01/0/afdrukken",
+    "sourcePage": "https://wetten.overheid.nl/BWBR0035059/2026-09-01",
+    "publisher": "Regeling aanmelding en toelating hoger onderwijs (RATHO), artikel 1.4 — wetten.overheid.nl",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The ministerial regulation that designates diplomas as at least equivalent to the vwo diploma, which institutions are obliged to accept under article 7.28 lid 2 WHW, lists only four: two BES school diplomas, a diploma from Aruba, Curaçao, Sint Maarten or Suriname, and the European Baccalaureate where it includes Dutch as a first or second language. The International Baccalaureate is not on the list in any form.",
+    "excerpt": "Artikel 1.4. Gelijkwaardig diploma. De volgende diploma's zijn tenminste gelijkwaardig als bedoeld in artikel 7.28, tweede lid, van de wet aan een diploma als bedoeld in artikel 7.24 van de wet: a. het schooldiploma als bedoeld in artikel 24, eerste lid, onderdeel a, van het Besluit Saba Comprehensive School en Gwendoline van Puttenschool BES voor wat betreft de toelating tot het wetenschappelijk onderwijs; b. […] voor wat betreft de toelating tot het hoger beroepsonderwijs; c. het diploma behaald in Aruba, Curaçao, Sint Maarten of Suriname […]; d. het diploma van het Europees baccalaureaat van de Europese school […] voor zover dat diploma het vak Nederlands als eerste of tweede taal omvat.",
+    "interpretation": "This closes the last door that could have been opened by regulation rather than by an institution's judgement, and it does so for the Diploma as well as for Course Results. Article 7.28 lid 2 WHW has two sentences: the institution MUST exempt the holder of a diploma named in this regulation, and it MAY exempt the holder of a diploma it judges equivalent itself. The IB appears nowhere in the regulation — the words 'baccalaureaat' occur twice in the whole instrument and both are the European Baccalaureate in 1.4(d) — so even a full IB Diploma is admitted at Dutch universities on the discretionary second sentence, which is why every Dutch institution publishes its own list and its own judgement. For Course Results the point is sharper still: both sentences say 'diploma', and Nuffic's comparison places Course Results below that word. The European Baccalaureate's privileged position comes from a treaty rather than from anything the IB could match.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the print view of the consolidated regulation on 2026-09-23 and searched in full for every spelling of baccalaureate, International Baccalaureate and Course result. Retrieval note: wetten.overheid.nl serves article bodies only through /0/afdrukken; its own site search is JavaScript-only and its SRU endpoints reject the obvious queries, so a regulation has to be fetched whole and searched locally."
+    }
+  },
+  {
+    "id": "ev-nl-staatsexamen-vwo",
+    "sourceUrl": "https://duo.nl/particulier/staatsexamen-vo/aanmelden-en-kosten.jsp",
+    "publisher": "DUO (Dienst Uitvoering Onderwijs) — Staatsexamen vo, aanmelden en kosten",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Anyone can register with DUO to sit Dutch state examinations subject by subject. For the 2027 examinations registration runs from 15 October to 31 December 2026, with changes accepted until 31 January 2027. Each subject costs 144 euro, or 71 euro where it has only a college examination, capped at 720 euro per examination year. No age condition is published.",
+    "excerpt": "U kunt zich vanaf 15 oktober tot en met 31 december 2026 aanmelden voor de staatsexamens in 2027. Wijzigingen voor bestaande aanmeldingen kunt u tot en met 31 januari 2027 doorgeven. […] U mag zich aanmelden voor de vakken die u nodig hebt om een diploma of certificaat binnen uw profiel te halen, met maximaal 1 extra vak. […] Deelnemen aan het staatsexamen kost € 144,- per vak. Een vak met alleen een college-examen kost € 71,-. U betaalt maximaal € 720,- per examenjaar.",
+    "interpretation": "The staatsexamen is the only route in the Dutch system that produces the qualification itself rather than an exemption from it: sit the subjects of a vwo package one at a time, collect the certificates, and apply for the diploma when the package is complete — DUO allows up to ten years and says the results may not be older than ten years. For a Course candidate it is the route that would actually satisfy article 7.24 WHW rather than working around it, and its price is in Dutch: every examination is sat in Dutch by statute. No age limit is published, which distinguishes it from every colloquium doctum in this catalogue, and registration closing on 31 December means the decision is taken more than half a year before IB results are released.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Fetched and read on 2026-09-23. The ten-year rules and the diploma application are on the sibling pages /particulier/staatsexamen-vo/index.jsp and /diploma-aanvragen.jsp; the required vwo subject package is published only as a PDF at duo.nl/images/vakken-vwo.pdf. No ministerial regulation currently states these fees — DUO publishes the amounts under the statutory mandate in article 2.72 lid 4 WVO 2020."
+    }
+  },
+  {
+    "id": "ev-nl-wvo-staatsexamen-taal",
+    "sourceUrl": "https://wetten.overheid.nl/BWBR0044212/2026-08-01/0/afdrukken",
+    "sourcePage": "https://wetten.overheid.nl/BWBR0044212/2026-08-01",
+    "publisher": "Wet voortgezet onderwijs 2020, artikelen 2.72 en 2.74 — wetten.overheid.nl",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The College voor Toetsen en Examens must give anyone who registers the annual opportunity to sit a state examination or a partial state examination for vwo, havo or vmbo, and those examinations are sat in Dutch, with other languages allowed only where the examination is about that language or where the nature of the teaching or the origin of the candidates makes it necessary.",
+    "excerpt": "Artikel 2.72. Staatsexamens en deelstaatsexamens. 1 Het College voor toetsen en examens geeft degenen die zich daarvoor hebben aangemeld, en, indien van toepassing, voldoen aan de bij of krachtens algemene maatregel van bestuur te stellen regels voor toelating tot het staatsexamen, jaarlijks de gelegenheid om een staatsexamen vwo, havo of vmbo of een daarvan onderdeel uitmakend deelstaatsexamen af te leggen. […] Artikel 2.74. Afnametaal bij toetsen en examens. 1 De toetsen en examens als onderdeel van het staatsexamen of deelstaatsexamen worden afgenomen in het Nederlands. 2 Bij het afnemen van de toetsen en examens kan een andere taal dan het Nederlands worden gebruikt als: a. de toetsen en examens betrekking hebben op die andere taal; b. dat noodzakelijk is vanwege de specifieke aard, de inrichting of de kwaliteit van het onderwijs; of c. dat noodzakelijk is vanwege de herkomst van de kandidaten.",
+    "interpretation": "Two things a Course candidate needs from the statute. The state examination is open to anyone who registers — the entitlement is not conditioned on age, residence or prior schooling — which makes it the one Dutch route that does not wait for a 21st birthday. And it is conducted in Dutch. Lid 2(c) leaves the College room to use another language 'vanwege de herkomst van de kandidaten', and the College sets a code of conduct for when it will, so the door is not nailed shut; but the default is Dutch and nothing published says the College opens it for foreign candidates. Anyone planning this route should ask the College what lid 2(c) means in practice before paying for subjects.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the print view of the consolidated act on 2026-09-23."
+    }
+  },
+  {
+    "id": "ev-nl-uitvoeringsbesluit-ib-ontheffing",
+    "sourceUrl": "https://wetten.overheid.nl/BWBR0045787/2026-08-01/0/afdrukken",
+    "sourcePage": "https://wetten.overheid.nl/BWBR0045787/2026-08-01",
+    "publisher": "Uitvoeringsbesluit WVO 2020, artikel 4.8 — wetten.overheid.nl",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The College voor Toetsen en Examens may, on application, exempt a state examination candidate from a subject where earlier education demonstrably gave them sufficient knowledge and skills in it, on the basis of a diploma, certificate or other document less than ten years old — and the documents that count include, in any event, those of the International Baccalaureate.",
+    "excerpt": "Artikel 4.8. Ontheffing staatsexamen wegens eerder gevolgd onderwijs. 1 Het college kan op aanvraag van de examenkandidaat voor het staatsexamen ontheffing verlenen voor een vak, indien de examenkandidaat op grond van eerder gevolgd onderwijs aantoonbaar in het bezit is van voldoende kennis en vaardigheden over dat vak. 2 De ontheffing, bedoeld in het eerste lid, kan worden verleend op basis van een diploma, getuigschrift, certificaat of ander bewijsstuk, al dan niet behaald in Nederland, dat door het college wordt aanvaard als bewijs van voldoende kennis en vaardigheden. […] 3 Het tweede lid is van toepassing indien na het jaar waarin het diploma, getuigschrift, certificaat of ander bewijsstuk is vastgesteld, nog geen tien jaar zijn verstreken. 4 Tot het diploma, getuigschrift, certificaat en ander bewijsstuk, bedoeld in het tweede lid, behoren in elk geval die van het Internationaal Baccalaureaat, het Europees Baccalaureaat en die van het overeenkomstige onderwijs in een lidstaat van de Europese Unie.",
+    "interpretation": "This is the only place in Dutch education law where the International Baccalaureate is named, and it is not in the higher-education statute at all — it is in the secondary-education decree, about exemptions from individual state examination subjects. What it means for a Course candidate is concrete: the IB subjects they did pass can be put to the College voor Toetsen en Examens as grounds for ontheffing, subject by subject, so that the vwo package they still have to sit is smaller than the whole of it. It confers nothing by itself — the College decides, an ontheffing is per subject, and the ten-year clock runs from the year the result was issued. But it is the mechanism that makes the staatsexamen route proportionate rather than absurd for somebody who already holds six graded IB subjects. The identical provision for the vavo route is article 3.66 lid 4 of the same decree.",
+    "supports": [
+      {
+        "entity": "nl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read from the print view of the consolidated decree on 2026-09-23 and searched in full: 'Internationaal Baccalaureaat' occurs twice, at articles 3.66 lid 4 and 4.8 lid 4."
+    }
+  },
+  {
+    "id": "ev-buas-nl-21-assessment",
+    "sourceUrl": "https://www.buas.nl/en/21-assessment-bachelors-programmes-with-selection",
+    "publisher": "Breda University of Applied Sciences — 21+ assessment, bachelor's programmes with selection",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "BUas publishes a 21+ assessment for applicants who do not meet the admission requirements: a computer-based capability test of mathematical, linguistic and spatial skills, costing 150 euro, sat on 4 February and 15 April 2027 for Applied Data Science & AI, Creative Business and Creative Media and Game Technologies and additionally on 20 May 2027 for Hotel Management, passed at 5 of 9 points, valid for two years and only at BUas. The applicant must be at least 21 when the programme starts and must still meet the English language requirement.",
+    "excerpt": "If you do not meet the admission requirements but you are aged 21 or over, you may take part in the 21+ assessment. […] You have to be at least 21 when the programme starts. […] the 21+ assessment means that you will do a computer-based test. The capability test measures your mathematical and linguistic skills as well as your spatial aptitude. […] If you meet the minimum requirements (5 out of 9 points for the ability test), you will be invited to participate in the selection procedure. […] The fee for the 21+ assesment is € 150. […] Applicants who wish to take part in this assessment test, first need to apply for the programme of choice via Studielink, after which additional questions need to be answered in My online application. […] If you have passed the 21+ assessment, this result is valid for 2 years and only at Breda University of Applied Sciences.",
+    "interpretation": "The published route at the only hogeschool in this catalogue, and the only one whose examination is an aptitude test rather than a set of Dutch school subjects: BUas tests numeracy, language and spatial reasoning itself, where Erasmus and Twente send the candidate to sit VWO subjects with an external body. The age condition on this page is flat — 21 when the programme starts — and the important qualification to it is not on this page but in the university's own Regeling aanmelding en inschrijving, which lets the Executive Board admit a holder of a qualification issued outside the Netherlands to the entrance assessment before 21. The English requirement is not waived by passing it. The Dutch-language page for the non-selection programmes publishes the same fee and dates and says the result cannot be resat within the year.",
+    "supports": [
+      {
+        "entity": "nl-breda-uas-applied-data-science-and-ai-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-creative-business-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-hotel-management-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "buas.nl returns HTTP 403 to a plain fetch — CDN bot protection — so every BUas page here was read through a fetching agent rather than directly. The Dutch sibling page at /opleidingen/21plus-regeling-matchingsopleidingen carries the same 150 euro fee and the dates 4 februari, 15 april and 20 mei 2027, and adds that a failed assessment cannot be resat in the same year and that enrolment is then only possible for the regular, not the accelerated, variant of a programme."
+    }
+  },
+  {
+    "id": "ev-buas-nl-regeling-toelatingsonderzoek",
+    "sourceUrl": "https://www.buas.nl/reglementen/regeling-aanmelding-en-inschrijving.pdf",
+    "publisher": "Breda University of Applied Sciences — Regeling aanmelding en inschrijving, studiejaar 2025-2026",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "BUas's own admission regulation, made under article 7.29 WHW, provides both the 21+ assessment for applicants of 21 and over who do not meet the entry requirements — registration through Studielink by 1 May, result valid two years and only at BUas — and a separate power for the Executive Board to let a holder of a qualification issued outside the Netherlands take the entrance assessment even before the age of 21, and likewise in special cases where no diploma can be produced.",
+    "excerpt": "Toelatingsonderzoek (21+ regeling), WHW artikel 7.29. 1 Het College van Bestuur van Breda University of Applied Sciences kan bepalen dat een studiekiezer van 21 jaar en ouder, die niet voldoet aan de vooropleidingseisen, wordt vrijgesteld van deze vooropleidingseisen. In plaats hiervan wordt de studiekiezer getoetst op geschiktheid voor het desbetreffende onderwijs via de 21+ assessment. 2 Indien een studiekiezer deel wil nemen aan een 21+ assessment dient die zich uiterlijk 1 mei in te schrijven voor zowel een bacheloropleiding of Associate degree opleiding […] De uitslag van de 21+ assessment is 2 jaar geldig en is alleen geldig bij de hogeschool waar de toets is gemaakt. […] Toelatingsonderzoek, WHW artikel 7.29. Het College van Bestuur van Breda University of Applied Sciences kan besluiten de studiekiezer, die in het bezit is van een buiten Nederland afgegeven getuigschrift, deel te laten nemen aan het toelatingsonderzoek, ook indien de leeftijd van 21 jaar nog niet bereikt is. Dit geldt eveneens in bijzondere gevallen, indien de studiekiezer geen diploma kan overleggen.",
+    "interpretation": "The single most useful sentence found anywhere in the Dutch material for a Course candidate, and it is in a regulation rather than on a web page. Article 7.29 lid 3 WHW lets an institution waive the age limit; most institutions never say whether they will, and BUas has written into its own rules that it may, for a holder of a getuigschrift issued outside the Netherlands. DP Course Results are exactly that — a document issued outside the Netherlands, and Nuffic calls it a transcript rather than a diploma, which also engages the second sentence about special cases where no diploma can be produced. What this is not: an entitlement. The verb is 'kan besluiten', the decision is the Executive Board's, and nothing published says how it has used the power or how often. It is a question worth putting in writing, naming the article, rather than a route that can be planned on. The edition read is 2025-2026, adopted 25 June 2024 and amended 25 November 2024; the annex prices the 21+ assessment at 150 euro and lists it as possible for every BUas hbo bachelor and the Associate degree, not possible for the BSc Tourism, and limited for the BSc Leisure Studies.",
+    "supports": [
+      {
+        "entity": "nl-breda-uas-applied-data-science-and-ai-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-creative-business-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-hotel-management-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "buas.nl refuses plain fetches with HTTP 403; the PDF was retrieved through a fetching agent and its text extracted and read locally on 2026-09-23. The regulation on the site is the 2025-2026 edition — the edition covering a 2027 intake is not published yet, so these articles should be re-read when it is. The dates in its annex are 2025 dates; the 2027 dates are on the public 21+ pages."
+    }
+  },
+  {
+    "id": "ev-buas-nl-diploma-list",
+    "sourceUrl": "https://www.buas.nl/documents/comparable-eductions.pdf",
+    "sourcePage": "https://www.buas.nl/en/international-students/admission-and-application/admission-requirements",
+    "publisher": "Breda University of Applied Sciences — BUas Educational requirements (list of comparable educations)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "BUas's list of international qualifications gives the International Baccalaureate exactly two entries: the Career-related Certificate of the International Baccalaureate against the Dutch havo, and the International Baccalaureate Diploma against the vwo. DP Course Results, IB Certificates and partial IB results appear nowhere in the document. The list states that it is not complete and that an applicant whose qualification is absent should apply and let the admissions officers judge.",
+    "excerpt": "BUas Educational requirements. PLEASE READ THIS FIRST: In the Netherlands we have three diplomas that give access to the degree programmes. In this list we have specified the international equivalents of these Dutch diplomas. […] Is your diploma not on this list? No worries, we are aware that this list is not complete and, in some cases, the comparison with the Dutch diplomas depends on the subjects taken (and results obtained). Just apply for the programme of your choice and submit your application in My Online Application, after which our admissions officers will inform you if your diploma (to be obtained) meets the admission requirements for this programme. […] International Baccalaureate — HAVO: Career-related Certificate of the International Baccalaureate. VWO: International Baccalaureate Diploma. […] No rights can be derived from this list.",
+    "interpretation": "The same asymmetry Nuffic publishes, restated by an institution: the Career-related Programme Certificate reaches havo and therefore reaches a hogeschool bachelor, and DP Course Results are not in the document at all. The 'just apply and we will tell you' sentence is worth taking at face value rather than as a formality — BUas says elsewhere that where there is any doubt it has the qualification evaluated by Nuffic for advice — but Nuffic's published advice on a DP Course result is that it compares to vwo-deelcertificaten, which is not a diploma, so a Course candidate should expect that route to end in the 21+ assessment or in nothing. The list carries no year and states that no rights can be derived from it.",
+    "supports": [
+      {
+        "entity": "nl-breda-uas-applied-data-science-and-ai-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-creative-business-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-creative-media-and-game-technologies-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      },
+      {
+        "entity": "nl-breda-uas-hotel-management-2027-autumn",
+        "field": "requirements[0].alternativeRoute"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Course Results pass (issue #24)",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "Retrieved through a fetching agent because buas.nl 403s a plain fetch, then extracted and searched locally on 2026-09-23: 'Course result' does not occur, and the only two IB rows are the ones quoted."
+    }
   }
 ]

@@ -35,6 +35,30 @@
   },
   "requirements": [
     {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "What you need to apply for bachelor of engineering programmes. You can apply to a Bachelor of Engineering programme at SDU if you hold the following IB qualifications: IB Diploma. Diploma Programme (DP) Course Results or IB Certificate provided that you have passed all six subjects with a minimum grade of 3, you have at least three subjects at Higher Level (HL).",
+        "language": "en",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "SDU publishes two different IB rules on one page, and the difference between them is the whole point. For a bachelor's programme it asks a Course candidate to have \"supplemented with at least two individual subjects (minimum one at A-level subject and one at B-level subject)\". For a Bachelor of Engineering it asks for nothing beyond the six subjects at grade 3 with three at HL. So a Course candidate reaches this programme with the award as it stands, and no hf-enkeltfag are needed. The national order underneath that: the Danish Agency treats DP Course Results of at least 18 points as equal to a two-year hf without overbygning, and an hf without overbygning is adgangsgivende to a diplomingeniør-uddannelse but not to a universitetsbacheloruddannelse. SDU's own Danish list of qualifying examinations says exactly that — \"Eksamener, der kun giver adgang til diplomingeniøruddannelser: Højere forberedelseseksamen (hf) uden overbygning aflagt efter gymnasiereformen 2017\" — and DTU publishes the same restriction for its own diplomingeniør intake. Two things this does not do. It does not waive the subject requirements below: Mathematics A, English B and Physics B or Geoscience A still bind, and a Course candidate meets them with IB subjects on the same conversion as anybody else. And the 18-point floor recorded here is the Agency's rather than SDU's: below 18 points, or with any subject at grade 1 or 2, the Course Results are not a qualifying examination at all and no Danish programme is reachable. Grade 3 in all six subjects already puts the subject total at 18, so the two conditions meet in the same place.",
+      "evidence": [
+        "ev-sdu-dk-9emnrq",
+        "ev-ufsn-ib-course-results"
+      ]
+    },
+    {
       "id": "req-all-1",
       "kind": "local-equivalency",
       "mandatory": true,
@@ -258,15 +282,17 @@
     "dk-optagelse-international-2027"
   ],
   "evidence": [
-    "ev-sdu-dk-1y1logc"
+    "ev-sdu-dk-1y1logc",
+    "ev-sdu-dk-9emnrq",
+    "ev-ufsn-ib-course-results"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-23",
     "notes": [
       "65 expected places; 51 admitted in 2026.",
       "Non-EU tuition at institution level: Set per programme and paid a full year in advance: EUR 17,300 per year for the engineering and IT programmes (Artificial Intelligence, Computer Science, Electronics, Engineering Innovation and Business, Interactive Technology Engineering, Mechanical, Mechatronics, Software Engineering, and the three BEng programmes) and EUR 15,000 per year for European Studies, Economics and Business Administration (Sønderborg) and Market and Management Anthropology. Application fee EUR 200 per applicant regardless of how many programmes you apply for. EU/EEA and Swiss citizens pay nothing.",
-      "Which IB award opens this one is NOT established. The national rule turns on the kind of programme: DP Course Results of at least 18 points, with grade 3 in all six subjects and at least three at HL, reach erhvervsakademi- and professionsbacheloruddannelser on their own, while a universitetsbacheloruddannelse needs supplementary hf-enkeltfag on top. This is a diplomingeniør, which is a professional bachelor degree awarded by a university, and no source read here says which of the two admission orders it is admitted under — the Agency's IB guidance names programme types, not this hybrid. It is therefore left unrecorded rather than guessed, and a Course candidate is told so. Establishing it needs SDU admissions, or the scope clause of bekendtgørelsen om adgang til erhvervsakademiuddannelser og professionsbacheloruddannelser, in writing."
+      "Which IB award opens this one IS established, and it is the opposite answer from SDU's university bachelor programmes. SDU's own IB page splits its rule by programme type and accepts DP Course Results (or an IB Certificate) for a Bachelor of Engineering with all six subjects at grade 3 and three at HL, with no supplementary hf-enkeltfag — where the same page requires two supplementary subjects for a bachelor's programme. Read 2026-09-23 at https://www.sdu.dk/en/uddannelse/bachelor/bachelor-admission/admission-requirements/educational-background/international-baccalaureate . The national rule behind it was confirmed the same day from SDU's Danish list of qualifying examinations, https://www.sdu.dk/da/uddannelse/ansoegning-optagelse/bachelor-diplomingenioer/adgangskrav/adgangsgivende-eksamener , which names hf uden overbygning as qualifying only for diplomingeniør programmes, and from DTU's equivalent page, which states the same restriction. This replaces the earlier note on this record, which left the question unrecorded because the Agency's guidance names programme types rather than this hybrid. Both SDU pages return their content to a plain fetch; the Danish page has no /international-baccalaureate child (404), so the English page is the only SDU page that states the IB rule."
     ]
   }
 }
