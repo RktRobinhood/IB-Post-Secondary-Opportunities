@@ -32,23 +32,23 @@ jobs:
       # No dependencies to install. The whole toolchain is Node's standard
       # library, which is why there is no lockfile and no npm ci step.
 
-      - name: Validate the entity records
-        run: node scripts/validate.mjs
-
-      - name: Run the eligibility scenarios
-        run: node scripts/test-eligibility.mjs
-
-      - name: Report data freshness
-        run: node scripts/freshness.mjs
-
-      - name: Build
+      # One gate, and the same one `npm test` runs.
+      #
+      # This step used to be five steps naming individual scripts, and that
+      # list had drifted from the one in package.json in both directions: CI
+      # was missing the calendar, publication-floor, jurisdiction and release
+      # checks that npm test also missed, plus the probe, sourcing, credential,
+      # map and imagery checks that npm test did run. Every one of them passed
+      # when run by hand, which is why nothing ever drew attention to it.
+      #
+      # scripts/lib/quality-gate.mjs is now the only list, and
+      # scripts/test-quality-gate.mjs fails if this file starts naming scripts
+      # again.
+      - name: Quality gate
         env:
           SITE_BASE: /IB-Post-Secondary-Opportunities
           SITE_ORIGIN: https://rktrobinhood.github.io
-        run: node src/build.mjs
-
-      - name: Check the built site
-        run: node scripts/check.mjs
+        run: node scripts/qa.mjs
 
       - uses: actions/configure-pages@v5
 

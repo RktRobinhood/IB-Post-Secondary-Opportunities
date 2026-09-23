@@ -94,13 +94,23 @@ the entire toolchain is Node's standard library.
 ```bash
 npm run dev          # build and serve on :4321, rebuilding on change
 npm run build        # generate dist/
-npm test             # validate, run the eligibility scenarios, build, check
+npm test             # the quality gate: every check a releasable build must pass
 ```
+
+**`npm test` is the gate, and deploy CI runs the same one.** Both call
+`scripts/qa.mjs`, which runs the list in `scripts/lib/quality-gate.mjs` — one
+manifest rather than a set union spread across `package.json` and the workflow
+file, which is how the two had come to run different checks from each other.
+`npm run qa:list` prints what it runs and what it deliberately leaves out.
 
 | Command | What it does |
 | --- | --- |
+| `npm test` / `npm run qa` | **The quality gate.** Every check, in stage order: data, build, built site. |
+| `npm run qa:data` | Just the checks that read `data/` — the fast loop while editing records. |
+| `npm run qa -- --only floor,map` | One or more checks by id, for when you know what you broke. |
+| `npm run qa:list` | The manifest: every check, and the network-dependent ones excluded on purpose. |
 | `npm run validate` | Records against schemas, and every cross-reference. Fails with the file and the field. |
-| `npm run test:eligibility` | 73 scenarios against the eligibility engine. |
+| `npm run test:eligibility` | 97 scenarios against the eligibility engine. |
 | `npm run test:probes` | Guards on the source-matching logic, including the negative cases. |
 | `npm run check` | The built site: structure, internal links, images, accessibility basics. |
 | `npm run check:links` | The above, plus every outbound link. |
@@ -173,7 +183,7 @@ bearing and should not be smoothed over to make the build summary look better.
 These are opinions, encoded, and they are the reason to trust the output.
 
 **Silence means "we do not know", never "not required".** A missing rule produces
-*Needs review*, not a pass. Several of the 73 eligibility scenarios exist purely
+*Needs review*, not a pass. Several of the 97 eligibility scenarios exist purely
 to assert that the engine refuses to be generous.
 
 **Four outcomes, and they mean what they say.** *Meets published requirements* ·
@@ -194,7 +204,7 @@ rule is the one failure this product cannot afford.
 The distinction is not pedantry. An automated check confirms that "Matematik A"
 is still printed on the page it came from; it cannot notice that the page now
 means something different by it. So the two are reported as separate numbers and
-never merged — currently **20 records signed off by a person, 99 with their source
+never merged — currently **8 records signed off by a person, 280 with their source
 re-read**, and the site says so on `/trust/` rather than quoting the flattering
 one.
 
