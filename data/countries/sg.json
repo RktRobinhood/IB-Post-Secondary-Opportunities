@@ -62,7 +62,7 @@
         "consequence": "hard",
         "year": "August 2027",
         "jurisdiction": "sg-arts",
-        "notes": "The earliest deadline in Singapore by a wide margin, and the one most likely to be missed. LASALLE opens on 1 October 2026 and asks you to apply by 1 November 2026, with outcomes announced by 23 December 2026 — eight months before IB results. It adds that future application windows may open if programme seats remain available, so this is a window rather than the only chance, but it is the one that gets first pick of the seats. Music is later: BA (Hons) Music and the Diploma in Music both close on 28 February 2027.",
+        "notes": "The earliest deadline in Singapore by a wide margin, and the one most likely to be missed. LASALLE opens on 1 October 2026 and asks you to apply by 1 November 2026, with outcomes announced by 23 December 2026 — eight months before IB results. LASALLE adds two hedges of its own: \"the timeline provided serves as a general guide. Actual outcome release dates may vary\", and that future application windows may open if programme seats remain available. So this is a window rather than the only chance, but it is the one that gets first pick of the seats, and the outcome dates are softer than the application ones. Music runs on its own later date and has its own entry below.",
         "source": "https://www.lasalle.edu.sg/admissions",
         "evidence": [
           "ev-sg-lasalle-window"
@@ -87,7 +87,7 @@
         "consequence": "hard",
         "year": "August 2027",
         "jurisdiction": "sg-autonomous",
-        "notes": "Three days after the application itself. NTU states that an incomplete application after the deadline will not be considered.",
+        "notes": "Three days after the application itself. NTU states that an incomplete application after the deadline will not be considered. A fourth NTU date sits a further four days out and has its own entry below: the photograph and appraisal form on 26 March 2027.",
         "source": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
         "evidence": [
           "ev-sg-ntu-ib-dates"
@@ -113,7 +113,7 @@
         "consequence": "hard",
         "year": "AY2027/2028",
         "jurisdiction": "sg-autonomous",
-        "notes": "NUS runs the IB Diploma as its own applicant group with its own window, separate from the one for other international qualifications — although for AY2027/2028 both happen to run 16 December 2026 to 17 February 2027. It closes a month before NTU's. NUS says most applicants hear by the third week of May, and that IB applicants taking the May 2027 examination will hear by the third week of July 2027.",
+        "notes": "NUS runs the IB Diploma as its own applicant group with its own window, separate from the one for other international qualifications — although for AY2027/2028 both happen to run 16 December 2026 to 17 February 2027. It closes a month before NTU's. NUS says most applicants hear by the third week of May, and that IB applicants taking the May 2027 examination will hear by the third week of July 2027. Read this page with one thing in mind, because it contradicts itself and we are not going to resolve it to the more convenient reading: on 23 September 2026 every AY2027/2028 window on the page, including this one, was stamped \"[Closed]\" and the application form was marked \"CLOSED\" — three months before the window it publishes is due to open. The dates and the status flag cannot both be true. The likeliest reading is that the status flag is left over from the previous cycle and has not been turned over yet, but NUS does not say so anywhere on the page, and the page's own instruction is \"Please check the information regularly below for the latest updates, as the details are subject to change.\" If you see \"[Closed]\" in December 2026, do not conclude that you have missed it — write to NUS Office of Admissions and ask. One thing this page does settle for an IB candidate: the three-day final-results rule it imposes applies to Advanced Placement, Gaokao, HKDSE, Indian Standard 12 and STPM candidates and the IB is not on that list, so NUS, unlike NTU, sets no three-day turnaround on you. How this page was read: it renders its tables in JavaScript and returns an empty body to automated fetch, so it was opened in a browser on 23 September 2026.",
         "source": "https://www.nus.edu.sg/oam/admissions/important-dates",
         "evidence": [
           "ev-sg-nus-important-dates"
@@ -129,7 +129,8 @@
         "source": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
         "evidence": [
           "ev-sg-smu-unreadable"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "Singapore University of Technology and Design — 2027 admissions application window",
@@ -141,7 +142,8 @@
         "source": "https://www.sutd.edu.sg/admissions/undergraduate/",
         "evidence": [
           "ev-sg-sutd-window"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "Singapore Institute of Technology — August 2027 intake",
@@ -153,7 +155,8 @@
         "source": "https://www.singaporetech.edu.sg/admissions/undergraduate",
         "evidence": [
           "ev-sg-sit-cycle"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "Singapore University of Social Sciences — August 2027 intake",
@@ -161,11 +164,9 @@
         "consequence": "hard",
         "year": "August 2027",
         "jurisdiction": "sg-autonomous",
-        "notes": "Not established, and again the gap is ours. SUSS's admissions pages sit behind a bot-detection service that refused every automated request, so we cannot say what SUSS has published for 2027. Open suss.edu.sg yourself.",
+        "notes": "Not established, and the gap is ours rather than SUSS's. SUSS's admissions pages sit behind a bot-detection service that refused every automated request on 23 September 2026, so nothing can be said about what SUSS has published for 2027 — not that it has published nothing. There is no Evidence record for this entry on purpose: the only thing that was read was a challenge page, and the SMU challenge record that used to be cited here is a record of a different university's block and does not carry this claim. Open suss.edu.sg yourself.",
         "source": "https://www.suss.edu.sg/full-time-undergraduate",
-        "evidence": [
-          "ev-sg-smu-unreadable"
-        ]
+        "date": null
       },
       {
         "label": "LASALLE College of the Arts — BA (Hons) Music and Diploma in Music",
@@ -173,7 +174,7 @@
         "consequence": "hard",
         "year": "August 2027",
         "jurisdiction": "sg-arts",
-        "notes": "Music runs four months behind the rest of LASALLE. Outcomes are announced by 20 April 2027 for the BA (Hons) and 2 April 2027 for the Diploma. MA Art Therapy closes on 31 January 2027.",
+        "notes": "Music runs four months behind the rest of LASALLE: both the BA (Hons) and the Diploma close on 28 February 2027, against 1 November 2026 for everything else. Outcomes are announced by 20 April 2027 for the BA (Hons) and 2 April 2027 for the Diploma, and shortlisted BA (Hons) applicants are invited to interview from February 2027 — so the interview invitations go out before the application even closes. LASALLE's MA Art Therapy closes on 31 January 2027, which is published on the same page and is recorded here only so that it is not mistaken for an undergraduate date: it is a master's programme and is not open to a school leaver.",
         "source": "https://www.lasalle.edu.sg/admissions",
         "evidence": [
           "ev-sg-lasalle-window"
@@ -185,10 +186,14 @@
         "consequence": "hard",
         "year": "August 2027",
         "jurisdiction": "sg-arts",
-        "notes": "NAFA's admissions guide on the site is the AY2026/27 one. The University of the Arts Singapore, which now validates and awards both NAFA's and LASALLE's degrees, says applications for the August 2026 intake are open and will close once all programme seats are filled, and that there is one intake commencing in August each year. Nothing for 2027 is published yet.",
+        "notes": "NAFA's admissions guide on the site is the AY2026/27 one and nothing for 2027 is published yet. The University of the Arts Singapore, which now validates, confers and awards both NAFA's and LASALLE's degree programmes, says applications for the August 2026 intake are open and will close once all programme seats are filled, and that there is one intake commencing in August each year — so the shape of the 2027 cycle is a single August intake that closes when the seats go, not on a date. That is the most that can honestly be said until NAFA publishes.",
         "source": "https://www.nafa.edu.sg/admissions",
         "evidence": [
           "ev-sg-uas-degrees"
+        ],
+        "date": null,
+        "sources": [
+          "https://www.uas.edu.sg/"
         ]
       },
       {
@@ -201,7 +206,8 @@
         "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
         "evidence": [
           "ev-sg-ntu-tuition-grant"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "MOE Tuition Grant — accept the offer with or without the grant",
@@ -213,7 +219,8 @@
         "source": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-grants",
         "evidence": [
           "ev-sg-ntu-tuition-grant"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "MOE Tuition Grant — sign the Tuition Grant Agreement with two sureties",
@@ -226,7 +233,8 @@
         "evidence": [
           "ev-sg-ntu-tuition-grant",
           "ev-sg-moe-tg-bond"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "Joint Acceptance Exercise — accepting an autonomous university offer",
@@ -238,7 +246,8 @@
         "source": "https://www.nus.edu.sg/oam/admissions/important-dates",
         "evidence": [
           "ev-sg-joint-acceptance"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "James Cook University Singapore — 2027 entry",
@@ -246,11 +255,9 @@
         "consequence": "indicative",
         "year": "2027 entry",
         "jurisdiction": "sg-private",
-        "notes": "Not established. JCU Singapore's application pages refused automated retrieval. It runs a trimester structure with several intakes a year rather than a single August one, so a missed date is less costly here than at an autonomous university — but that is a statement about the structure, not about a date we found.",
+        "notes": "Not established. JCU Singapore's application pages refused automated retrieval on 23 September 2026 and no Evidence record is cited, because the SMU bot-challenge record previously cited here is about a different university's block and does not carry this claim. JCU Singapore runs a trimester structure with several intakes a year rather than a single August one, so a missed date is less costly here than at an autonomous university — but that is a statement about the structure, taken from the way its programmes are advertised, not about a date we found.",
         "source": "https://www.jcu.edu.sg/apply-now",
-        "evidence": [
-          "ev-sg-smu-unreadable"
-        ]
+        "date": null
       },
       {
         "label": "Curtin Singapore — 2027 entry",
@@ -262,7 +269,8 @@
         "source": "https://curtin.edu.sg/admission/",
         "evidence": [
           "ev-sg-private-pei"
-        ]
+        ],
+        "date": null
       },
       {
         "label": "DigiPen Institute of Technology Singapore — 2027 entry",
@@ -270,11 +278,9 @@
         "consequence": "indicative",
         "year": "2027 entry",
         "jurisdiction": "sg-private",
-        "notes": "Not established. No application deadline appears on DigiPen Singapore's admissions page. Its degrees are awarded by DigiPen in the United States.",
+        "notes": "Not established. No application deadline appears on DigiPen Singapore's admissions page, which was read on 23 September 2026; the page is cited because the claim being made is about what that page does not contain. Its degrees are awarded by DigiPen in the United States, so the academic calendar that governs is Redmond's rather than Singapore's. No Evidence record is cited: the Curtin registration record previously cited here is about Curtin and does not carry this claim.",
         "source": "https://singapore.digipen.edu/admissions",
-        "evidence": [
-          "ev-sg-private-pei"
-        ]
+        "date": null
       },
       {
         "label": "Singapore Institute of Management (SIM Global Education) — 2027 entry",
@@ -282,11 +288,9 @@
         "consequence": "indicative",
         "year": "2027 entry",
         "jurisdiction": "sg-private",
-        "notes": "Not established. SIM delivers partner universities' degrees, and each partner runs its own intakes, so there is unlikely to be one date. Check the specific partner degree rather than SIM.",
+        "notes": "Not established, and probably not establishable at this level. SIM delivers partner universities' degrees and each partner runs its own intakes, so there is unlikely ever to be one SIM date. Check the specific partner degree rather than SIM. No Evidence record is cited: the Curtin registration record previously cited here is about Curtin and does not carry this claim.",
         "source": "https://www.sim.edu.sg/admissions",
-        "evidence": [
-          "ev-sg-private-pei"
-        ]
+        "date": null
       },
       {
         "label": "ESSEC Business School Asia-Pacific — 2027 entry",
@@ -294,21 +298,32 @@
         "consequence": "indicative",
         "year": "2027 entry",
         "jurisdiction": "sg-private",
-        "notes": "Not established. The ESSEC Global BBA is admitted to through ESSEC in France, not through the Singapore campus, and its deadlines belong to the French admissions cycle, which is outside this Destination and is not recorded here.",
+        "notes": "Not established, and deliberately not pursued. The ESSEC Global BBA is admitted to through ESSEC in France, not through the Singapore campus, so its deadlines belong to the French admissions cycle — which is a different Destination on this site and is where they should be read. No Evidence record is cited: the Curtin registration record previously cited here is about Curtin and does not carry this claim.",
         "source": "https://www.essec.edu/en/admissions/",
-        "evidence": [
-          "ev-sg-private-pei"
-        ]
+        "date": null
       },
       {
         "label": "IB results released",
         "date": "2027-07-06",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Singapore is the one Destination on this site that has thought this through and said so. NTU takes your application on predicted grades and then requires the actual results within three days of release — which is the tightest turnaround anywhere in this repository, and it falls in the middle of the Danish summer holiday. NUS tells IB applicants sitting the May 2027 session that they will hear by the third week of July. LASALLE, by contrast, closed the previous November.",
+        "notes": "Singapore is the one Destination on this site that has thought this through and said so. NTU takes your application on predicted grades and then requires the actual results within three days of release — the tightest turnaround anywhere in this repository, and it falls in the middle of the Danish summer holiday. NUS is gentler and tells IB applicants sitting the May 2027 session that they will hear by the third week of July, and its own three-day rule names Advanced Placement, Gaokao, HKDSE, Indian Standard 12 and STPM and does not name the IB. LASALLE, by contrast, closed the previous November and never sees your results before it decides. This entry carries no source and that is a known gap rather than an oversight: the release date is stated on ibo.org, which refuses both automated fetch and a browser, so it is recorded here on the same unsourced basis as on the other forty files in this repository.",
         "evidence": [
           "ev-sg-ntu-ib-dates",
           "ev-sg-nus-important-dates"
+        ]
+      },
+      {
+        "label": "Nanyang Technological University — photograph and appraisal form due",
+        "date": "2027-03-26",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "August 2027",
+        "jurisdiction": "sg-autonomous",
+        "notes": "A week after the application closes and four days after the supporting documents, and the last of NTU's four staggered deadlines. It is the one most likely to be missed because by 26 March 2027 a student believes the application is finished. The appraisal form is completed by somebody at your school, not by you, so it has to be requested in February. Promoted out of NTU's own dates table, where it was published alongside the other three and had never been recorded here.",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma",
+        "evidence": [
+          "ev-sg-ntu-ib-dates"
         ]
       }
     ],

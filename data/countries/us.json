@@ -52,47 +52,134 @@
         "year": "autumn 2027 intake",
         "route": "us-common-app-2027",
         "jurisdiction": "us-common-app",
-        "notes": "Migrated to the Common App Application Route, which carries the rounds and the evidence.",
+        "notes": "The rounds, the per-college dates and the evidence are on the Common App Application Route. The cited post is dated 31 July 2026 and announces the opening of the 2026-27 season, which is the season that leads to entry in autumn 2027; it was re-read and still carried that date on 23 September 2026.",
         "source": "https://www.commonapp.org/blog/common-app-opens-application-launch-2026-27-season/"
       },
       {
-        "label": "University of California application",
+        "label": "Applications close — and there is no American closing date, because no American body sets one",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "autumn 2027 intake",
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "This is the headline entry for the United States and it deliberately carries no date, because a single American deadline does not exist. There is no ministry, no clearing house and no national closing day; every college sets its own, and four different rounds run on four different promises. The shape, from the institutions recorded on this site and re-read on 23 September 2026: Early Action, Restrictive Early Action and Single-Choice Early Action all close 1 November 2026 (Harvard, Stanford, Yale, Illinois, Macalester) and are not binding. Early Decision I closes somewhere between 1 and 15 November 2026 — Macalester 1 November, Amherst 9 November, Bowdoin and Grinnell 15 November — and is binding; see the next entry. Early Decision II closes in early January 2027 — Macalester 1 January, Bowdoin and Grinnell 5 January — and is also binding. Regular Decision closes between 1 and 15 January 2027 — Harvard 1 January, Yale 2 January, Stanford, Amherst and Illinois 5 January, MIT 4 January, Grinnell and Macalester 15 January. The University of California is earlier than all of them and has its own entry below. After a college's own Regular Decision date that college is finished for the year: there is no Clearing, no late round and no second intake. Write each college's own date into your own calendar and do not carry one college's date to another.",
+        "source": "https://www.macalester.edu/admissions/apply/international/",
+        "sources": [
+          "https://www.grinnell.edu/admission/apply/international",
+          "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "https://www.commonapp.org/"
+        ],
+        "evidence": [
+          "ev-macalester-international",
+          "ev-grinnell-international",
+          "ev-harvard-deadlines-2027",
+          "ev-amherst-first-year-2027",
+          "ev-bowdoin-dates"
+        ]
+      },
+      {
+        "label": "Early Decision is binding — applying early is a commitment, not an early submission",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "autumn 2027 intake",
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "audience": "anyone considering an Early Decision application",
+        "notes": "This entry carries no date on purpose: the thing you need to know about Early Decision is not when it closes but what signing it costs you. Early Decision I (1 to 15 November 2026) and Early Decision II (early January 2027) are binding in the strongest sense the American system has. Amherst's wording is that you agree not to be an Early Decision candidate anywhere else and, if admitted, to withdraw your applications from every other college and enrol. It is a signed agreement — student, parent and school counsellor — filed inside the Common App for one college only. Two consequences follow and neither is obvious from a calendar. First, an admitted Early Decision applicant does not get the 1 May reply date: that decision was made in November. Second, and for a Danish family paying from abroad this is usually the more expensive loss, you can never compare financial aid offers, because you will only ever hold one. Early Action, Restrictive Early Action and Single-Choice Early Action are NOT binding — you keep every offer and still reply on 1 May — but Stanford's and Yale's restrict where else you may apply early, so they still decide your whole autumn in October. Missing an early round costs you that round's higher admit rate; signing an Early Decision agreement costs you the choice.",
+        "source": "https://www.macalester.edu/admissions/apply/international/",
+        "sources": [
+          "https://www.grinnell.edu/admission/apply/international"
+        ],
+        "evidence": [
+          "ev-amherst-first-year-2027",
+          "ev-macalester-international",
+          "ev-grinnell-international",
+          "ev-bowdoin-dates"
+        ]
+      },
+      {
+        "label": "SAT, registration closes for the 7 November 2026 sitting",
+        "date": "2026-10-23",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "autumn 2027 intake",
+        "audience": "applicants to colleges that require the SAT or ACT",
+        "notes": "The College Board's own dates page states that \"These test dates and deadlines apply to all students—U.S. and international—taking the SAT\", so a Copenhagen test centre runs the same calendar as an American one. This is the last sitting that can realistically reach a college which allows November scores into an early round; it is already after the 1 November early deadlines, so check each college's own policy on late-arriving scores before relying on it. Whether you need a test at all is a per-college question with no national answer: Yale, Harvard, Stanford and MIT require the SAT or ACT for autumn 2027 entry, and Yale states that IB results may accompany the test but not replace it; NYU, Michigan, Illinois and Amherst are test-optional. No ACT date is recorded on this site: act.org's registration page served only 2024 test dates and its test-dates URL returned HTTP 404 when both were read on 23 September 2026, so the 2026-27 ACT calendar could not be established. If your colleges accept the ACT, take its dates from act.org directly and do not assume they match the SAT's.",
+        "source": "https://satsuite.collegeboard.org/sat/registration/dates-deadlines"
+      },
+      {
+        "label": "SAT, registration closes for the 5 December 2026 sitting — the last SAT that reaches a January deadline",
+        "date": "2026-11-20",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "autumn 2027 intake",
+        "audience": "applicants to colleges that require the SAT or ACT",
+        "notes": "5 December 2026 is the final SAT sitting of the 2026-27 calendar before Regular Decision closes; the next one is 6 March 2027, by which time every Regular Decision file in this cycle has been read. If a college on your list requires the test, this registration date is the real end of the line, not the December sitting itself. The remaining 2026-27 sittings after it — 6 March, 1 May and 5 June 2027 — are recorded here only so that nobody mistakes them for a second chance at admission; they are of use for a gap year or a transfer, not for autumn 2027 entry.",
+        "source": "https://satsuite.collegeboard.org/sat/registration/dates-deadlines"
+      },
+      {
+        "label": "University of California application closes",
         "date": "2026-11-30",
         "consequence": "hard",
+        "provisional": false,
         "year": "fall 2027 intake",
         "route": "us-uc-2027",
         "jurisdiction": "us-uc",
-        "notes": "Migrated to the University of California Application Route, which carries the filing window, the fee and the July results deadline.",
+        "notes": "The cited page gives \"November 1 - 30\" as the \"Fall 2027 admission application filing period\", and the application itself opens on 1 August. It is the earliest deadline on the American list and there is no second round and no early round — the University of California runs neither Early Action nor Early Decision, does not read letters of recommendation, and asks four 350-word personal insight questions instead of the Common App essay. The University of California's three later dates — the 1 May reply, the 1 July final transcript and the 15 July IB results deadline — are each recorded as their own entry below rather than left in this note.",
         "source": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html"
       },
       {
-        "label": "Reply deadline",
-        "date": "2027-05-01",
+        "label": "MIT, financial aid documents for Early Action applicants",
+        "date": "2026-11-30",
         "consequence": "hard",
+        "provisional": true,
         "year": "autumn 2027 intake",
-        "route": "us-common-app-2027",
-        "jurisdiction": "us-common-app",
-        "notes": "Migrated to the Common App Application Route. The University of California and MIT use the same day under their own names.",
-        "source": "https://www.amherst.edu/admission/apply/firstyear"
+        "route": "us-direct-2027",
+        "jurisdiction": "us-own-application",
+        "audience": "applicants asking MIT for need-based aid",
+        "notes": "Published on MIT's deadlines page as \"November 30\" with no calendar year, as every date on that page is; the year here is read into the 2026-27 cycle that leads to autumn 2027 entry, which is why this entry is marked provisional. It falls a month after the 1 November Early Action application itself, so it is a date that is easy to miss precisely because the application is already in. Promoted out of the note on the financial aid entry below so that it can be sorted, counted and shown on a calendar.",
+        "source": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+        "evidence": [
+          "ev-mit-deadlines-2027"
+        ]
       },
       {
-        "label": "IB results released",
-        "date": "2027-07-06",
-        "consequence": "indicative",
+        "label": "MIT, financial aid documents for Regular Action applicants",
+        "date": "2027-02-15",
+        "consequence": "hard",
+        "provisional": true,
         "year": "autumn 2027 intake",
-        "route": "us-common-app-2027",
-        "jurisdiction": "us-common-app",
-        "notes": "Migrated to the Common App Application Route. Every American decision in this cycle is made before this date, on predicted grades."
+        "route": "us-direct-2027",
+        "jurisdiction": "us-own-application",
+        "audience": "applicants asking MIT for need-based aid",
+        "notes": "Published on MIT's deadlines page as \"February 15\" with no calendar year; the year here is read into the cycle this profile covers, hence provisional. MIT's Regular Action application closes on 4 January, so the aid papers are due six weeks after the application — long enough to forget about. Promoted out of the note on the financial aid entry below so that it can be sorted, counted and shown on a calendar.",
+        "source": "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+        "evidence": [
+          "ev-mit-deadlines-2027"
+        ]
       },
       {
-        "label": "Financial aid forms are due with the application, not after it",
+        "label": "Financial aid forms are due with the application, not after it — and the FAFSA is not the form you file",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
+        "provisional": false,
         "year": "autumn 2027 intake",
         "route": "us-common-app-2027",
         "jurisdiction": "us-common-app",
-        "notes": "Each institution's aid deadline is its own application deadline. Grinnell requires every financial aid form by the same deadline as the Common Application; Macalester states that aid cannot be awarded after an offer of admission has been made; Bowdoin's Regular Decision aid deadline is 1 February, a month after its application date; MIT's is 30 November for Early Action and 15 February for Regular Action. A family that applies first and asks about money in the spring has forfeited the money.",
+        "audience": "applicants seeking need-based aid",
+        "notes": "Each institution's aid deadline is its own, and at most of them it is the application deadline itself. Grinnell states that \"All financial aid forms must be submitted by the same deadline as the Common Application\". Macalester states that \"financial aid cannot be awarded after an offer of admission has been made, nor at any time during their studies at Macalester\" — that is a door that closes permanently, not a late penalty. Bowdoin's Regular Decision aid deadline is 1 February, a month after its application date. MIT's two aid dates, 30 November and 15 February, now have entries of their own above. A family that applies first and asks about money in the spring has forfeited the money. Which form: as a Danish citizen you file the CSS Profile, not the FAFSA. The FAFSA is the United States federal aid application and federal aid requires US citizenship or eligible-non-citizen status, which an F-1 student visa is not — so every FAFSA date you will meet on American admissions pages, including the 1 October opening and the 2 March deadline printed on the University of California's own dates page, is not yours. Grinnell asks for \"the 2027-28 CSS Profile\"; Macalester asks for the CSS Profile \"OR the 2027-2028 International Student Application for Financial Assistance (ISAFA)\" and points international applicants who cannot afford the CSS Profile fee at the free ISAFA instead, because neither college waives the CSS Profile fee for international applicants. The CSS Profile itself carries no national deadline — the colleges set them, typically 1 or 15 November for the early rounds and January to February for Regular Decision. Its opening date for 2027-28 could not be established from the College Board: cssprofile.collegeboard.org offered only a \"Fall 2027/Spring 2028\" sign-in with no opening date when read on 23 September 2026, the student-guide PDF could not be parsed, and profile.collegeboard.org returned HTTP 502. The customary opening is 1 October of the preceding year, and the most recent stated instance found on an official page is Cornell's \"The 2026-27 FAFSA form opens October 1, 2025\" — which is the previous cycle and about the wrong form, so nothing has been inferred from it here. Open the CSS Profile in early October 2026 and check the date yourself.",
         "source": "https://www.grinnell.edu/admission/apply/international",
+        "sources": [
+          "https://www.macalester.edu/admissions/apply/international/",
+          "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "https://cssprofile.collegeboard.org/",
+          "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html"
+        ],
         "evidence": [
           "ev-grinnell-international",
           "ev-macalester-international",
@@ -101,12 +188,67 @@
         ]
       },
       {
+        "label": "Reply deadline — the national candidates' reply date",
+        "date": "2027-05-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "autumn 2027 intake",
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "The one date in the American calendar that every institution shares, and the only national one on this page. Until 1 May 2027 you may hold every offer you have and compare the aid figures; after it, the offer you have not replied to is gone, and your place goes to somebody on a waiting list. The University of California states it with its year attached — \"Deadline for all fall 2027 admitted first-year students to submit their SIR\" — and calls it the Statement of Intent to Register; MIT, Harvard, Stanford, Illinois and the Common App colleges call it the reply date and publish it as a bare \"May 1\". An Early Decision admission is the exception: that choice was made in November and this date does not belong to you. A source note for whoever re-checks this: this entry previously cited only amherst.edu, which returns HTTP 405 Method Not Allowed to automated retrieval and so can never be confirmed by an automated verifier. Amherst is kept in the source list because it is the page that states the date with a full calendar year for a Common App college, but the primary source has been moved to the University of California's dates page, which carries the claim, carries the year and can be fetched.",
+        "source": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html",
+        "sources": [
+          "https://mitadmissions.org/apply/firstyear/deadlines-requirements/",
+          "https://www.amherst.edu/admission/apply/firstyear"
+        ],
+        "evidence": [
+          "ev-amherst-first-year-2027",
+          "ev-mit-deadlines-2027"
+        ]
+      },
+      {
+        "label": "University of California, final official transcript due",
+        "date": "2027-07-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "fall 2027 intake",
+        "route": "us-uc-2027",
+        "jurisdiction": "us-uc",
+        "audience": "applicants who have accepted a University of California offer",
+        "notes": "Published as \"Final, official transcripts must be postmarked or electronically submitted\". This is a condition of an offer you have already accepted, so missing it costs the place rather than the application. Your gymnasium sends it, not you, and a Danish school in the first week of July is a quieter place than it is in June — ask for it before the summer. Promoted out of the note on the University of California entry above, where it was described only as \"the July results deadline\".",
+        "source": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html"
+      },
+      {
+        "label": "IB results released",
+        "date": "2027-07-06",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "autumn 2027 intake",
+        "route": "us-common-app-2027",
+        "jurisdiction": "us-common-app",
+        "notes": "Every American decision in this cycle is made before this date, on predicted grades, a school report and everything else in the file — which is the whole shape of an American application and the reason the calendar above stops in May. What each college does if your actual results fall short of the predictions is set by that college and is not established here; ask before you accept. This entry carries no source, and that is a known gap rather than an oversight: the IB's own results-release date is stated on ibo.org, which refuses both automated fetch and a browser, so the date is recorded here on the same basis it is recorded on the other forty files in this repository and has never been confirmed against a primary source. The IB result that does have a hard American consequence is not this one — it is the University of California's 15 July deadline nine days later, which is the entry below."
+      },
+      {
+        "label": "University of California, official IB examination results due",
+        "date": "2027-07-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "fall 2027 intake",
+        "route": "us-uc-2027",
+        "jurisdiction": "us-uc",
+        "audience": "IB candidates who have accepted a University of California offer",
+        "notes": "Published as \"Deadline for official AP and IB examination results to be postmarked or electronically submitted\". This is the single most IB-specific deadline in the United States and it is the tightest: results are released on about 6 July 2027 and the University of California wants them, officially, nine days later. You request the transmission from the IB yourself, through candidate results services — it is not automatic and the university will not chase it. Promoted out of the University of California entry above, where it appeared only as the phrase \"the July results deadline\" with no date attached.",
+        "source": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/dates-and-deadlines.html"
+      },
+      {
         "label": "Rolling-admission priority date, Arizona State University",
+        "date": null,
         "dateState": "not-yet-announced",
         "consequence": "priority",
+        "provisional": false,
         "year": "autumn 2027 intake",
         "jurisdiction": "us-common-app",
-        "notes": "ASU publishes priority dates rather than closing dates and had published only fall 2026 (15 January 2026) and spring 2027 (1 November 2026) when this was checked on 23 September 2026. Nothing has been inferred for fall 2027. Recheck from about December 2026.",
+        "notes": "Arizona State is the one institution on this site that does not run a selection tournament: it publishes priority dates rather than closing dates and admits on a rolling basis against published criteria. When its international first-year page was read on 23 September 2026 it carried only fall 2026 (15 January 2026) and spring 2027 (1 November 2026), and nothing has been inferred for fall 2027 from either. The most recent actual fall priority date is therefore 15 January 2026, recorded here as precedent and not as a prediction. Recheck from about December 2026.",
         "source": "https://admission.asu.edu/apply/international/first-year",
         "evidence": [
           "ev-asu-international-first-year"

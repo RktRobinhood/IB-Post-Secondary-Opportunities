@@ -50,36 +50,137 @@
     },
     "deadlines": [
       {
-        "label": "Semester 1 2028 (main intake)",
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "2028 intake",
-        "notes": "Teaching starts late February 2028. The main New Zealand intake. Applications generally open mid-year the year before. Exact 2028 teaching dates had not been published at the time of writing - check each university's academic calendar.",
-        "source": null
-      },
-      {
-        "label": "Semester 2 2027 (mid-year intake)",
-        "dateState": "not-published",
-        "consequence": "indicative",
-        "year": "2027 intake",
-        "notes": "Teaching starts in July 2027. The fastest route from a May 2027 IB session. Not all degrees admit mid-year - engineering, health and most professional programmes are Semester 1 only. Verify per degree.",
-        "source": null
-      },
-      {
-        "label": "Programmes with early closing dates",
+        "label": "Semester 2 2027, the mid-year intake — the fastest route from a May 2027 IB session, and every university closes it on a different day",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
+        "provisional": false,
+        "year": "July 2027 intake",
+        "route": "nz-direct-2027",
+        "notes": "Teaching starts in July 2027. There is no national closing date and there is no central system to hold one: Universities New Zealand's own instruction is that \"Applications should be made direct to the universities\", so three New Zealand universities is three applications and three calendars. The three that have been read for this cycle close five and a half weeks apart — Otago 30 April 2027, Victoria University of Wellington 1 May, the University of Auckland 8 June 2027 — and each has its own entry, except Auckland's, which is carried as a milestone on the New Zealand application route. Every one of those dates falls before IB results are released on about 6 July 2027, so a mid-year start is applied for on predicted grades or not at all. Not all degrees admit mid-year: engineering, health and most professional programmes are Semester 1 only, so verify per degree before planning around July. Five of the eight universities remain unread for this cycle — Canterbury, Massey, Waikato, AUT and Lincoln — and no mid-year date has been guessed at for any of them.",
+        "source": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+        "sources": [
+          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines",
+          "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html"
+        ],
+        "evidence": [
+          "ev-unz-apply-direct",
+          "ev-auckland-closing-dates"
+        ]
+      },
+      {
+        "label": "University of Otago — international applications close for semester 2, 2027",
+        "date": "2027-04-30",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "July 2027 intake",
+        "route": "nz-direct-2027",
+        "audience": "international applicants",
+        "notes": "Published with its year attached as the \"Deadline for international applications commencing in semester 2, 2027\", and it is the earliest New Zealand deadline found anywhere in this cycle — five and a half weeks before Auckland's and more than two months before IB results exist. Otago's international application round for 2027 opened on 1 May 2026, so this is the closing day of a twelve-month window rather than a sudden date. Formal classes begin 12 July 2027 and compulsory international orientation runs 5 to 9 July 2027, which is the same week IB results are released. Read in a browser on 23 September 2026: otago.ac.nz returns HTTP 403 to automated fetch and the URL previously used for Otago's dates is a 404 on Otago's own site. There is no Evidence record behind this entry yet — data/evidence/nz.json has none for Otago — so it stands on its source alone and should be given one. One thing on that page contradicts itself and is recorded here rather than silently corrected: it prints \"5 July 2026 — Recommended last day to arrive on campus for new international students starting in semester 2, 2027\", while the line immediately below gives \"5-9 July 2027\" for that same semester's compulsory international orientation. A 2026 arrival cannot serve a July 2027 semester, so the two lines cannot both be right. The obvious reading is that 2026 is a typographical error for 2027, and this site still does not resolve a publisher's contradiction to the reading that suits it, because the cost of being wrong falls on the student. No Otago arrival date is therefore recorded anywhere on this site. Plan to be on campus before 5 July 2027 so that you make the orientation week Otago does date unambiguously, and confirm the day with Otago's international office before booking flights.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+      },
+      {
+        "label": "Victoria University of Wellington — Trimester 2 (July) applications close",
+        "date": "2027-05-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "July 2027 intake",
+        "route": "nz-direct-2027",
+        "notes": "Published as \"Trimester 2 (July)—application deadline 1 May\", a bare day with no calendar year, as all three of Victoria's trimester deadlines are; the year here is read into the cycle this profile covers, which is why the entry is marked provisional. Victoria softens it in a way the others do not: \"You can apply to study at Victoria University of Wellington at any time\" and \"Applications received after these dates will be assessed on a case-by-case basis\" — so this is a date you should not miss rather than a door that locks, and the university's own reason for it is that it gives you time to arrange a student visa and accommodation. Read in a browser on 23 September 2026. No Evidence record exists for Victoria's dates in data/evidence/nz.json; ev-vuw-ib covers its IB entry requirements and not its calendar, so it is deliberately not cited here.",
+        "source": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
+      },
+      {
+        "label": "University of Otago — accommodation for semester 2, 2027",
+        "date": "2027-05-15",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "July 2027 intake",
+        "audience": "applicants starting at Otago in July 2027",
+        "notes": "\"Deadline to apply for accommodation for semester 2 (in residential colleges or Uni Flats)\", two weeks after the application itself. Dunedin is a small city built around its university and its residential colleges fill; missing this does not cost you the place, it costs you where you live, which in Otago's case is most of the first year. Applications for semester 2 accommodation open on 1 April 2027.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+      },
+      {
+        "label": "Semester 1 2028, the main intake — applications open in the middle of 2027 and close in the last weeks of it",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "February 2028 intake",
+        "route": "nz-direct-2027",
+        "notes": "Teaching starts in late February 2028, which for a May 2027 IB candidate means eight months between the last exam and the first lecture. This is the main New Zealand intake and the one most Danish students will take. The universities publish recurring annual closing dates rather than a national one, and the two that have been read give 15 November for an offshore international applicant at Otago and 8 December at Victoria University of Wellington — both recorded as their own entries below. The University of Auckland's general Semester One 2028 date is not published: its 2028 table currently lists only the four clinical health programmes, and its Semester One 2027 equivalent was 8 December 2026, recorded here as precedent and not as a prediction. Exact 2028 teaching dates had not been published by any of the eight universities when this was checked on 23 September 2026.",
+        "source": "https://www.universitiesnz.ac.nz/international-students/next-steps",
+        "sources": [
+          "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
+        ],
+        "evidence": [
+          "ev-unz-apply-direct",
+          "ev-auckland-closing-dates"
+        ]
+      },
+      {
+        "label": "Accommodation applications open for a February 2028 start",
+        "date": "2027-08-01",
+        "consequence": "priority",
+        "provisional": true,
+        "year": "February 2028 intake",
+        "audience": "anyone planning to live in a hall or residential college",
+        "notes": "Both universities whose calendars have been read open hall applications on the same day, 1 August of the year before you start, and both say the same thing about it: apply as early as possible. Otago opens residential college and Uni Flats applications on 1 August, Victoria opens its Trimester 1 halls on \"1 August (the year before you begin your studies)\". Neither publishes the year, so 2027 is read into it here and the entry is provisional. This falls three and a half months before the application deadlines below, which is the opposite of the order a student expects — in New Zealand you apply for the room before you apply for the place.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students",
+        "sources": [
+          "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
+        ]
+      },
+      {
+        "label": "University of Otago — offshore international applications close for semester 1, 2028",
+        "date": "2027-11-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "February 2028 intake",
+        "audience": "offshore international applicants — anyone applying from outside New Zealand",
+        "notes": "Otago splits its international applicants in two and gives them different days, and the split is the trap for a Danish student. An offshore applicant — one applying from Denmark — closes on 15 November; an onshore one, already in New Zealand, has until 10 December. Take the later date and you have missed by twenty-five days. Otago published these as 15 November 2026 and 10 December 2026 for semester 1, 2027; the 2028 equivalents are not published, so the year here is carried forward on Otago's own statement that \"The main international student application period is 1 May–15 November, for most studies commencing in semester 1 (February)\", and the entry is marked provisional. Some programmes run different periods — teaching, oral health and dental technology are named — so check yours rather than assuming this date. Read in a browser; otago.ac.nz refuses automated fetch.",
+        "source": "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+      },
+      {
+        "label": "Victoria University of Wellington — Trimester 1 (February) applications close",
+        "date": "2027-12-08",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "February 2028 intake",
+        "notes": "Published as \"Trimester 1 (February)—application deadline 8 December\" with no calendar year, so 2027 is read into it here for a February 2028 start and the entry is marked provisional. Applications after it \"will be assessed on a case-by-case basis\", which is Victoria's phrasing everywhere and is softer than most. Note that this is three weeks after Otago's offshore date and that the University of Auckland's Semester One 2027 equivalent was the same day, 8 December — the three universities cluster in this window without agreeing on it, and there is no body that would make them agree.",
+        "source": "https://www.wgtn.ac.nz/international/applying/dates-and-deadlines"
+      },
+      {
+        "label": "Programmes with early closing dates — the ones that close before everything else",
+        "date": null,
+        "dateState": "varies-by-institution",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027/2028 intake",
-        "notes": "Some limited-entry programmes - medicine-track health sciences, architecture, fine arts, nursing - close months before the general deadline and may require a portfolio or interview. Check the specific programme page.",
-        "source": null
+        "route": "nz-direct-2027",
+        "notes": "Limited-entry programmes — the medicine-track health sciences, architecture, fine arts, nursing — close months before the general deadline and may require a portfolio or an interview. The worked example is the University of Auckland, whose four clinical health programmes (Medicine and Surgery, Optometry, Pharmacy, Medical Imaging) close for a February 2028 start on 1 July 2027, five days before IB results are released — that date is carried as a milestone on the New Zealand application route. Auckland also runs a separate and much earlier date for its Bachelor of Nursing (International): 1 November 2026 for a February 2027 start, five weeks before the general 8 December date, with no 2028 equivalent published. Otago names teaching, oral health and dental technology as running their own periods, and runs its Health Sciences First Year selection on a different basis again. None of these is findable by looking for a national deadline, because there is not one. Read the closing date off the page of the programme you are actually applying to, and read it twice if it is an international version of that programme.",
+        "source": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html",
+        "sources": [
+          "https://www.otago.ac.nz/international/future-students/prepare-for-otago/key-dates-for-new-international-students"
+        ],
+        "evidence": [
+          "ev-auckland-closing-dates"
+        ]
       },
       {
         "label": "Fee Paying Student Visa application",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027/2028 intake",
-        "notes": "After you accept an offer and pay fees. You apply once you have an offer of place and evidence of funds. The visa can be granted for up to 4 years.",
-        "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/"
+        "route": "nz-direct-2027",
+        "notes": "After you accept an offer and pay or arrange fees — there is no date, because the sequence is the constraint: the visa cannot start until there is an offer of place from an approved education provider, evidence that tuition is paid or payable, and insurance the provider accepts. Immigration New Zealand advises applying three months before you travel, which is advice rather than a rule, and it is worth reading next to the published service standard: eighty per cent of these visas are decided within eight weeks, which means one in five is not. October to March is the busy period, which is exactly when somebody starting in February applies. The visa can be granted for up to four years.",
+        "source": "https://www.immigration.govt.nz/visas/fee-paying-student-visa/",
+        "evidence": [
+          "ev-inz-fee-paying-student-visa"
+        ]
       }
     ],
     "steps": [

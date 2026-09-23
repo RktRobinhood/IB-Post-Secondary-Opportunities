@@ -42,10 +42,17 @@
     "deadlines": [
       {
         "label": "Check the IB mathematics rule against your subject choices",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027 admission",
-        "notes": "Not a date anyone publishes, and the earliest thing here that cannot be repaired later. Toronto accepts Mathematics: Applications and Interpretations SL for the Advanced Functions prerequisite only; UBC excludes it from its science programmes, the Faculty of Management, Sauder and the Vancouver School of Economics; McGill will not take it as a mathematics prerequisite at all. Dalhousie will. The choice is made in the first weeks of DP1.",
+        "notes": "Not a date anyone publishes, and the earliest thing here that cannot be repaired later. Toronto accepts Mathematics: Applications and Interpretations SL for the Advanced Functions prerequisite only; UBC excludes it from its science programmes, the Faculty of Management, Sauder and the Vancouver School of Economics; McGill will not take it as a mathematics prerequisite at all. Dalhousie will. The choice is made in the first weeks of DP1, two years before any deadline on this page, and no Canadian university has an appeal route for it.",
+        "source": "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate/",
+        "sources": [
+          "https://future.utoronto.ca/requirements-international-high-schools",
+          "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+          "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html"
+        ],
         "evidence": [
           "ev-utoronto-ib-2027",
           "ev-ubc-ib-2027",
@@ -55,119 +62,414 @@
       },
       {
         "label": "Ontario — OUAC application, international and out-of-province applicants (Group B)",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027 admission",
         "jurisdiction": "ca-on",
         "route": "ca-ouac-2027",
-        "notes": "The OUAC states that there is no OUAC deadline for a Group B applicant and that deadlines are set by each university and sometimes by each programme. It also warns that it needs time to process your choices before the university’s own date. Toronto’s is 15 January 2027; the other five Ontario universities in this record were not established.",
+        "audience": "international and out-of-province applicants (OUAC Group B)",
+        "notes": "The OUAC's wording is exact and it is the whole of the answer: \"There is no specific Undergraduate application deadline if you are a Group B applicant. Deadlines vary at each university and sometimes depend on the program.\" It adds the warning that costs people places: \"You must ensure the OUAC has enough time to process your choices before the universities' program deadlines\" — so the university's date is not the date you can submit on. Do not take the OUAC's own headline dates for yours. 15 January 2027 and 28 May 2027 are published on the same page under Group A, which is an applicant currently taking Ontario high school courses and under 21 — not a Danish IB candidate. The University of Toronto's own dates are recorded as separate entries below; the other five Ontario universities in this record were not established and no date has been invented for them. How this page was read: ouac.on.ca returns HTTP 403 to every automated fetch, so it was opened in a browser on 23 September 2026, where the page carries its own \"Last updated: September 14, 2026\". Its dates are inside collapsed accordions and are absent from the page text until each is clicked, so a scraped copy of this page shows no dates at all even if it gets past the 403.",
+        "source": "https://www.ouac.on.ca/guide/undergrad-dates/",
+        "sources": [
+          "https://www.ouac.on.ca/guide/105-guide/"
+        ],
         "evidence": [
           "ev-ouac-dates-2027",
           "ev-ouac-groups-2027"
         ]
       },
       {
+        "label": "Ontario — University of Toronto, recommended early application date",
+        "date": "2026-11-07",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-on",
+        "route": "ca-ouac-2027",
+        "notes": "Toronto's 2027 admissions table gives this under the heading \"Recommended early application date\" for Applied Science & Engineering, Architecture, Arts & Science at St George, the iSchool, Kinesiology & Physical Education, Mississauga and Scarborough. Applying by this date and getting your documents in by 1 December 2026 — its own entry below — buys early consideration, which is an earlier decision rather than a better one. Music runs its own recommended date of 1 December, and Medical Radiation Sciences has none. Missing it costs you nothing except the earlier answer; the date that closes the door is 15 January 2027.",
+        "source": "https://future.utoronto.ca/deadlines",
+        "evidence": [
+          "ev-utoronto-dates-2027"
+        ]
+      },
+      {
+        "label": "Ontario — University of Toronto, documents for early consideration",
+        "date": "2026-12-01",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-on",
+        "route": "ca-ouac-2027",
+        "audience": "applicants who applied by the 7 November early date",
+        "notes": "Early consideration is conditional on both halves: the application by 7 November 2026 and the required documents by this date. Applying early and sending the documents in January puts you back in the ordinary queue. Your gymnasium supplies most of what is wanted, so ask for it in October rather than in the last week of November. Promoted out of the Toronto early-application note so that it can be sorted, counted and shown on a calendar.",
+        "source": "https://future.utoronto.ca/deadlines",
+        "evidence": [
+          "ev-utoronto-dates-2027"
+        ]
+      },
+      {
+        "label": "Ontario — University of Toronto applications close",
+        "date": "2027-01-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-on",
+        "route": "ca-ouac-2027",
+        "notes": "Published on Toronto's 2027 admissions deadlines table under \"Deadline\" for Applied Science & Engineering, Architecture, Arts & Science at St George including the International Foundation Program, the iSchool, Kinesiology & Physical Education, Music, Nursing, Physician Assistant, Mississauga and Scarborough. Medical Radiation Sciences is the exception at 1 February. This is the university's own date, not the OUAC's, and you apply through the OUAC — which warns that it needs processing time before a university's date, so treat the first week of January as the real one. Promoted out of the OUAC Group B note above, where it was the only Ontario date on the record and was not sortable.",
+        "source": "https://future.utoronto.ca/deadlines",
+        "evidence": [
+          "ev-utoronto-dates-2027"
+        ]
+      },
+      {
+        "label": "Ontario — University of Toronto, supporting documents",
+        "date": "2027-02-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-on",
+        "route": "ca-ouac-2027",
+        "notes": "Two weeks after the application itself, and invisible to a student who thinks submitting the application ended the job. Music is the exception and wants its documents on 15 January with the application. An application whose documents never arrive is not assessed.",
+        "source": "https://future.utoronto.ca/deadlines",
+        "evidence": [
+          "ev-utoronto-dates-2027"
+        ]
+      },
+      {
         "label": "Ontario — accept the offer and pay the deposit",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
         "year": "2027 admission",
         "jurisdiction": "ca-on",
         "route": "ca-ouac-2027",
-        "notes": "Set in each university’s own offer letter. The OUAC rule that no financial commitment may be required before 1 June protects Group A applicants specifically, so do not assume it protects you.",
+        "notes": "Set in each university's own offer letter, and there is no Ontario-wide date for you. The OUAC publishes 1 June 2027 as \"the earliest date a Group A applicant may be required to respond to an Ontario university offer of admission and give a financial commitment\" — registration deposit, residence deposit, the lot. Read the words: it protects Group A applicants specifically, an applicant currently in an Ontario high school and under 21. It is not a promise to you, and an Ontario university may lawfully ask a Group B applicant for money before June. Ask the university what your response date is at the moment the offer arrives; do not count to 1 June.",
+        "source": "https://www.ouac.on.ca/guide/undergrad-dates/",
         "evidence": [
           "ev-ouac-dates-2027"
         ]
       },
       {
         "label": "British Columbia — create and confirm an EducationPlannerBC account",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027 admission",
         "jurisdiction": "ca-bc",
         "route": "ca-epbc-2027",
-        "notes": "Nothing can be submitted until the confirmation email has been acted on. Use a personal address rather than a school one: the platform warns that school accounts are deactivated at graduation and the institutions correspond with the address on the account long afterwards.",
+        "notes": "Nothing can be submitted until the confirmation email has been acted on, so this is a task to finish in the week the applications open rather than the week they close. Use a personal address rather than a school one: the platform warns that school accounts are deactivated at graduation and the institutions correspond with the address on the account long afterwards.",
+        "source": "https://www.educationplannerbc.ca/help",
         "evidence": [
           "ev-epbc-how-it-works"
         ]
       },
       {
+        "label": "British Columbia — UBC applications open",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "indicative",
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "notes": "UBC publishes this as \"Early October 2026\" — a month without a day — for the Winter Session running September 2027 to April 2028. There is no date here to count down to because UBC has not published one. Simon Fraser, on the same EducationPlannerBC platform, does give a day: 1 October 2026. Checking UBC's page in the last week of September 2026 is the only way to catch the opening.",
+        "source": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+        "evidence": [
+          "ev-ubc-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — UBC, the date for international applicants and for the International Scholars Program awards",
+        "date": "2026-11-15",
+        "timeOfDay": "23:59",
+        "timeZone": "PST",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "audience": "international applicants, and anyone seeking a UBC International Scholars Program award",
+        "notes": "Two months before UBC's general January deadline, and the single most missable date in British Columbia for a Danish applicant: it is the date by which an international student must have applied to UBC and submitted the award application to be considered for the International Scholars Program. The scholarship is the reason the date exists, and the scholarship is the thing that is gone on 16 November — the general admission route stays open until 15 January. Published with a time and a time zone, 11:59 p.m. PST, which is 08:59 the following morning in Denmark; a Danish applicant working to a local midnight has until the morning of 16 November, but do not use that margin.",
+        "source": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+        "evidence": [
+          "ev-ubc-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — Simon Fraser University, Undergraduate Scholars Entrance Scholarship closes",
+        "date": "2026-12-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "audience": "applicants seeking an SFU entrance scholarship",
+        "notes": "Six weeks before Simon Fraser's own application deadline, which is the trap: a student who applies in January, on time, has already missed the entrance scholarship by a month. The supporting documents for the scholarship are due separately on 31 January 2027, and the offers go out between mid-March and May. Read in a browser on 23 September 2026 from SFU's Fall 2027 dates page, because sfu.ca closes the socket on every automated fetch.",
+        "source": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html",
+        "evidence": [
+          "ev-sfu-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — UBC applications close",
+        "date": "2027-01-15",
+        "timeOfDay": "23:59",
+        "timeZone": "PST",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "notes": "Published as \"Deadline to apply for Winter Session (September 2027 to April 2028)\", 11:59 p.m. PST. Submitted through EducationPlannerBC, not to UBC directly. Promoted out of the University of Victoria note below, where it sat as a comparison rather than as a date of its own.",
+        "source": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+        "evidence": [
+          "ev-ubc-dates-2027",
+          "ev-ubc-apply-epbc"
+        ]
+      },
+      {
+        "label": "British Columbia — Simon Fraser University applications close",
+        "date": "2027-01-31",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "notes": "Published as \"Deadline to apply for Fall 2027 on Education Planner BC\", with applications opening 1 October 2026. Two weeks later than UBC, on the same platform, in the same city region — which is the argument against carrying one British Columbian date to another. Promoted out of the University of Victoria note below.",
+        "source": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html",
+        "evidence": [
+          "ev-sfu-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — UBC, documents and the English Language Admission Standard",
+        "date": "2027-01-31",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "audience": "international applicants",
+        "notes": "UBC gives international applicants sixteen days after the application to meet the English Language Admission Standard for direct entry and to submit the documents required for admission. An IB Diploma taught in English usually satisfies the standard, but UBC states the requirement without an automatic IB exemption, so establish in writing which of the standard's routes yours is before January rather than after it. A separate 15 February 2027 date exists for submitting evidence that the standard is met.",
+        "source": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+        "evidence": [
+          "ev-ubc-dates-2027",
+          "ev-ubc-ib-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — Simon Fraser University, Beedie and Contemporary Arts supplemental requirements",
+        "date": "2027-02-07",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "audience": "applicants to the Beedie School of Business or the School for the Contemporary Arts",
+        "notes": "Beedie applicants must complete every item on their To-Do List by this date; School for the Contemporary Arts applicants — excluding Art, Performance and Cinema Studies and Performance Production & Design — must complete an audition, interview or portfolio by it. A portfolio or audition is weeks of work, not an afternoon, and the date is published nowhere a student sees before applying.",
+        "source": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html",
+        "evidence": [
+          "ev-sfu-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — Simon Fraser University, admission documents",
+        "date": "2027-02-28",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "notes": "Published as the \"Admission document submission deadline for all High School Applicants\", four weeks after the application. Admission decisions are made on a rolling basis from January to late April, so documents that arrive in February are read against whatever places are left rather than against the whole field.",
+        "source": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html",
+        "evidence": [
+          "ev-sfu-dates-2027"
+        ]
+      },
+      {
         "label": "British Columbia — University of Victoria applications close",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
         "year": "2027 admission",
         "jurisdiction": "ca-bc",
         "route": "ca-epbc-2027",
-        "notes": "UVic publishes its deadlines on each programme page rather than centrally, and says so. Not established here. UBC closes on 15 January 2027 and Simon Fraser on 31 January 2027, so do not assume UVic matches either.",
+        "notes": "UVic publishes its deadlines on each programme page rather than centrally, and says so, so there is no single Victoria date to record and none has been invented. UBC's 15 January 2027 and Simon Fraser's 31 January 2027 are each recorded above as their own entries; do not assume UVic matches either, and read the date off the programme page you are actually applying to.",
+        "source": "https://www.uvic.ca/undergraduate/admissions/how-to-apply/index.php",
+        "sources": [
+          "https://www.educationplannerbc.ca/help"
+        ],
         "evidence": [
           "ev-uvic-apply-2027",
           "ev-epbc-how-it-works"
         ]
       },
       {
+        "label": "British Columbia — Simon Fraser University, accept your offer",
+        "date": "2027-05-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "audience": "applicants holding an SFU offer",
+        "notes": "Published as \"Accept your offer — Deadline for most students to accept their offer of admission\", and it is also the residence and housing application deadline, so a student who accepts on the last day is applying for a room on the last day too. \"Most students\" is SFU's own hedge; your offer letter governs. Note how far this is from Ontario's shape: the OUAC's 1 June protection does not exist in British Columbia, and 1 May here is a real date a month earlier.",
+        "source": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html",
+        "evidence": [
+          "ev-sfu-dates-2027"
+        ]
+      },
+      {
+        "label": "British Columbia — UBC, final official transcript, and the IB timing problem nobody resolves",
+        "date": "2027-06-30",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-bc",
+        "route": "ca-epbc-2027",
+        "audience": "applicants holding a UBC offer",
+        "notes": "Published as \"Deadline to have your final official transcript mailed to UBC\". For an IB candidate the two dates do not fit: IB results are released on about 6 July 2027, six days after this deadline. UBC's own IB page does not resolve it — it says only that \"Initial admission decisions are based on interim grades as reported by your high school. Once your final IB results are available, we will use them to confirm your admission decision\", and that to be assessed for first-year credit you must \"contact the IBO and have your official results submitted to UBC electronically\". Both pages were read on 23 September 2026 and neither states an IB-specific deadline or an exception to 30 June. This is a gap in UBC's publishing rather than a contradiction between two UBC statements, and it has not been resolved in either direction here. What to do: request the electronic transmission from the IB in the spring, so that it fires the day results are released, and ask UBC admissions in writing which date applies to an IB candidate before you rely on either.",
+        "source": "https://you.ubc.ca/applying-ubc/dates-deadlines/",
+        "sources": [
+          "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate/"
+        ],
+        "evidence": [
+          "ev-ubc-dates-2027",
+          "ev-ubc-ib-2027"
+        ]
+      },
+      {
         "label": "British Columbia — enrol in the Medical Services Plan on arrival",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027 intake",
         "jurisdiction": "ca-bc",
         "notes": "Compulsory for a study permit of six months or more, and cover begins only after the balance of the arrival month plus two more. Arrive in late August for a September start and you are outside the provincial plan until 1 November, so carry private insurance until then.",
+        "source": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/health-fee-international-students",
         "evidence": [
           "ev-bc-health-fee"
         ]
       },
       {
         "label": "Apply direct — build the list of dates yourself, one university at a time",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "personal",
         "year": "2027 admission",
         "route": "ca-apply-direct-2027",
-        "notes": "The defining property of the direct route. No portal, no shared account, no shared calendar. McGill closes on 15 January 2027 and Concordia on 1 March, two miles apart in the same province.",
+        "notes": "The defining property of the direct route, which serves Quebec, Alberta and Nova Scotia. No portal, no shared account, no shared calendar, and no page anywhere that lists your universities together. McGill's and Concordia's dates are recorded as their own entries below and they are six weeks apart for two universities two miles apart in the same city; Alberta publishes per programme and Dalhousie had not published 2027 at all when this was checked. Build the list yourself in the autumn of DP2 and put every date in your own calendar, because nothing will remind you.",
+        "source": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820",
+        "sources": [
+          "https://www.concordia.ca/admissions/undergraduate/apply.html"
+        ],
         "evidence": [
           "ev-mcgill-deadline-2027",
           "ev-concordia-deadline"
         ]
       },
       {
+        "label": "Quebec — McGill University applications close",
+        "date": "2027-01-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 admission",
+        "jurisdiction": "ca-qc",
+        "route": "ca-apply-direct-2027",
+        "audience": "applicants studying at, or last studied at, an overseas or US high school",
+        "notes": "McGill states it with the year and the weekday attached — \"Friday, January 15, 2027\" — as the \"Application deadline for Fall 2027 admission to undergraduate programs by applicants studying or who last studied in an overseas or U.S. high school\", which is the group a Danish IB candidate is in. No closing time is published on that page. McGill assesses on predicted IB results or, if you have them, on final ones. Promoted out of the apply-direct note above so that it can be sorted, counted and shown on a calendar.",
+        "source": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820",
+        "sources": [
+          "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib"
+        ],
+        "evidence": [
+          "ev-mcgill-deadline-2027",
+          "ev-mcgill-ib-2027"
+        ]
+      },
+      {
+        "label": "Quebec — Concordia University, US and international applicants",
+        "date": "2027-02-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 admission",
+        "jurisdiction": "ca-qc",
+        "route": "ca-apply-direct-2027",
+        "audience": "US and international applicants",
+        "notes": "Concordia's wording is \"U.S. and international applicants: Apply no later than February 1 to allow time for immigration document processing\" — a month before its own general deadline, and the reason is the Certificat d'acceptation du Quebec, which has its own entry below and has to be granted before the federal study permit. Published as a bare \"February 1\" with no calendar year, as every date in that section is, so the year here is read into the autumn 2027 intake this profile covers and the entry is marked provisional. This is the Concordia date that belongs to a Danish applicant; 1 March is not yours.",
+        "source": "https://www.concordia.ca/admissions/undergraduate/apply.html",
+        "evidence": [
+          "ev-concordia-deadline"
+        ]
+      },
+      {
+        "label": "Quebec — Concordia University, fall entry, general deadline",
+        "date": "2027-03-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 admission",
+        "jurisdiction": "ca-qc",
+        "route": "ca-apply-direct-2027",
+        "audience": "applicants who are not applying from outside Canada",
+        "notes": "Published as \"FALL ENTRY (September) Deadline: March 1\", a bare day with no calendar year, so the year here is read into the intake this profile covers and the entry is marked provisional. Recorded because it is the date a Danish student will see first on Concordia's page and it is the wrong one for them: the international date is 1 February, four weeks earlier, and it is the entry above.",
+        "source": "https://www.concordia.ca/admissions/undergraduate/apply.html",
+        "evidence": [
+          "ev-concordia-deadline"
+        ]
+      },
+      {
         "label": "Alberta — University of Alberta and University of Calgary applications close",
+        "date": null,
         "dateState": "varies-by-institution",
         "consequence": "hard",
         "year": "2027 admission",
         "jurisdiction": "ca-ab",
         "route": "ca-apply-direct-2027",
-        "notes": "Alberta publishes its Fall 2027 deadlines per programme behind a faculty-and-term filter rather than as one institutional date, so there is no single date to record. Read yours off the programme. The minimum admission average also varies by faculty and changes every year.",
+        "notes": "Alberta publishes its Fall 2027 deadlines per programme behind a faculty-and-term filter rather than as one institutional date, so there is no single date to record and none has been invented. The page states that its deadlines \"are valid for applications to the Fall 2027, Winter 2028, Spring 2028 and Summer 2028 terms\", so the 2027 dates do exist — they are simply not reachable without choosing a programme first. Read yours off the programme. The minimum admission average also varies by faculty and changes every year, so last year's cut-off is not a target.",
+        "source": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/undergraduate-program-admission-deadlines.html",
         "evidence": [
           "ev-ualberta-deadlines-2027"
         ]
       },
       {
         "label": "Nova Scotia — Dalhousie University applications close",
+        "date": null,
         "dateState": "not-yet-announced",
         "consequence": "rolling",
         "year": "2027 admission",
         "jurisdiction": "ca-ns",
         "route": "ca-apply-direct-2027",
-        "notes": "In September 2026 Dalhousie was still publishing September 2026 entry dates. Its shape is known: mid-February for the competitive health programmes, and applications to everything else considered up to the start of classes where space remains. The 2027 dates are not published and are not guessed at here.",
+        "notes": "In September 2026 Dalhousie was still publishing September 2026 entry dates and nothing for 2027. Its shape is known and is recorded here as precedent rather than as a prediction: for September 2026 entry the competitive health programmes — Nursing, Health Sciences, Medical Sciences and Social Work — closed on 15 February 2026, and applications to everything else were considered up to the start of classes where space remained. If 2027 follows 2026, mid-February is the date that matters and everything after it is a lottery on leftover places. Recheck from about November 2026.",
+        "source": "https://www.dal.ca/admissions/dates-and-deadlines.html",
         "evidence": [
           "ev-dalhousie-dates-2026"
         ]
       },
       {
-        "label": "Quebec — apply for the Certificat d’acceptation du Québec",
+        "label": "Quebec — apply for the Certificat d'acceptation du Quebec",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "hard",
         "year": "2027 intake",
         "jurisdiction": "ca-qc",
         "route": "ca-apply-direct-2027",
-        "notes": "A Quebec immigration document with its own fee and its own financial test, required in addition to the federal study permit and granted before it. This is the largest practical difference between choosing Montreal and choosing Toronto, and it is why Concordia asks international applicants to apply a month early.",
+        "notes": "A Quebec immigration document with its own fee and its own financial test, required in addition to the federal study permit and granted before it. There is no published deadline because it is gated on your offer, not on a date — which is why it is the largest practical difference between choosing Montreal and choosing Toronto, and why Concordia asks international applicants to apply on 1 February rather than 1 March. Start it the day the offer arrives.",
+        "source": "https://www.quebec.ca/en/education/study-quebec/required-conditions",
         "evidence": [
           "ev-quebec-study-conditions"
         ]
       },
       {
         "label": "Provincial Attestation Letter — outside Quebec",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "hard",
         "year": "2027 intake",
-        "notes": "Requested by the university after you accept its offer. In 2026 the allocations were Ontario 104,780, Quebec 93,069, British Columbia 32,596, Alberta 32,271 and Nova Scotia 8,480, out of 309,670 nationally. Master’s and doctoral students at public institutions stopped needing a letter on 1 January 2026; a bachelor’s student did not. No 2027 allocation had been published as of September 2026.",
+        "notes": "Requested by the university after you accept its offer, so there is no date you act on — but there is a quantity, and the quantity is the risk. In 2026 the allocations were Ontario 104,780, Quebec 93,069, British Columbia 32,596, Alberta 32,271 and Nova Scotia 8,480, out of 309,670 nationally: the maximum number of study permit applications Canada would accept for processing in the year. Master's and doctoral students at public institutions stopped needing a letter on 1 January 2026; a bachelor's student did not. No 2027 allocation had been published as of 23 September 2026, and the 2026 figures above are recorded as precedent, not as next year's ceiling.",
+        "source": "https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/2026-provincial-territorial-allocations-under-international-student-cap.html",
+        "sources": [
+          "https://www.ontario.ca/page/ontario-colleges"
+        ],
         "evidence": [
           "ev-ircc-cap-2026",
           "ev-ontario-pal-2026"
@@ -175,10 +477,12 @@
       },
       {
         "label": "Study permit application",
+        "date": null,
         "dateState": "no-central-deadline",
         "consequence": "hard",
         "year": "2027 intake",
-        "notes": "As soon as you hold the offer and the attestation letter or CAQ. A single applicant outside Quebec applying on or after 1 September 2026 must show CAD 23,448 for a year of living expenses, which excludes tuition and travel. Quebec sets its own figure through its immigration ministry.",
+        "notes": "As soon as you hold the offer and the attestation letter or CAQ — there is no published date and waiting for one is the mistake. A single applicant outside Quebec applying on or after 1 September 2026 must show CAD 23,448 for a year of living expenses, which excludes tuition and travel; the figure is updated each year, so check it rather than budgeting from this one. Quebec sets its own figure through its immigration ministry and it is not the federal one.",
+        "source": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
         "evidence": [
           "ev-ircc-funds-2026"
         ]

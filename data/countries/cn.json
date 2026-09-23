@@ -43,19 +43,56 @@
   "application": {
     "centralised": false,
     "portal": {
-      "name": "No central portal. Campus China (China Scholarship Council) is the official information and scholarship site; joint-venture universities use their own portals or the Common Application.",
-      "url": "https://www.campuschina.org/"
+      "name": "No central portal, and no replacement for the one that has gone. Campus China (China Scholarship Council) was the official information and scholarship site and its domain no longer resolves; joint-venture universities use the Common Application or their own portals, and the Chinese universities publish inside login-gated application systems of their own.",
+      "url": "https://www.commonapp.org/"
     },
     "deadlines": [
       {
-        "label": "Duke Kunshan University — Early Decision",
+        "label": "There is no Chinese national admissions deadline for an international applicant, and the two intakes are not one cycle",
+        "date": null,
+        "dateState": "no-central-deadline",
+        "consequence": "personal",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "China has no UCAS, no Common App and no ministry-run deadline for international undergraduates. The gaokao, which is the national examination the whole Chinese calendar bends around, is not a route a Danish IB candidate takes at all; international applicants are admitted by each university under its own 申请-审核 (application and review) procedure, on its own dates. Two things follow that the rest of this page depends on. First, every date below belongs to one institution and nothing generalises from it. Second, China runs two intakes — a September one, which is the main one and the one this profile covers, and a separate February or March spring intake which a smaller number of programmes offer. \"2027 entry\" on this page means September 2027 unless an entry says otherwise, and a deadline you find on a Chinese university's site may belong to the spring intake and be eight months out of step with the one you want. Check which intake a date is for before you plan around it. Note also that China's joint-venture universities — Duke Kunshan, NYU Shanghai, Xi'an Jiaotong-Liverpool, Nottingham Ningbo, CUHK-Shenzhen, United International College, Wenzhou-Kean — run on an entirely different calendar from Tsinghua, Peking, Fudan and Shanghai Jiao Tong, and several run on the American one.",
+        "source": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/"
+      },
+      {
+        "label": "Duke Kunshan University — Early Decision, and it is binding",
         "date": "2026-11-02",
         "timeOfDay": "23:59",
         "timeZone": "ET",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Binding.",
-        "source": "https://admissions.dukekunshan.edu.cn/en/"
+        "audience": "international applicants — DKU states these must be non-Chinese citizens",
+        "notes": "Published with its full calendar year on DKU's English international-admissions site as \"Early decision application deadline: November 2, 2026 (11:59pm ET)\", which is 05:59 on 3 November in Denmark. Applications are made through the Common App, which DKU began accepting for the 2027 entry term in August 2026, and Early Decision on the Common App is binding: you may hold one Early Decision application only, and if admitted you withdraw the rest and enrol. DKU's own How to Apply page does not restate those terms, so the binding force comes from the Common App agreement you sign rather than from anything DKU publishes — read it before you file. There is no application fee. The CSS Profile is required if you are seeking financial aid, and DKU is test-optional for the 2026-2027 cycle. A warning that matters more than any of this: DKU runs two entirely separate admissions tracks on the same domain. The Chinese-language site (admissions.dukekunshan.edu.cn, 中文 – 中国学生) publishes a 综合评价 comprehensive-evaluation route with rounds closing 3 January and 5 February, for Chinese students. Those are not your dates. A Danish applicant uses the English site marked \"English – International Students\", and DKU states that international applicants must be non-Chinese citizens.",
+        "source": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+        "sources": [
+          "https://admissions.dukekunshan.edu.cn/en/"
+        ]
+      },
+      {
+        "label": "NYU Shanghai — Early Decision I, and it is binding",
+        "date": "2026-11-01",
+        "timeOfDay": "23:59",
+        "timeZone": "EST",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "NYU Shanghai publishes \"November 1\" and \"11:59 p.m EST\" with no calendar year, so the year here is read into the cycle this profile covers and the entry is marked provisional. It is binding, and NYU's wording is more specific than most: if you are admitted to the campus you named as your primary interest, \"you must accept the offer within 25 days\", and \"If accepted, you'll also need to withdraw applications from other schools, and cannot submit new applications\" — so an NYU Shanghai Early Decision admission in December ends your application season, including applications you have already paid for elsewhere. One Common Application covers all three of NYU's degree-granting campuses, New York, Abu Dhabi and Shanghai, which is why an Early Decision here binds you against the others. This entry replaces one that said \"Exact dates not verified\" against a site root.",
+        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision"
+      },
+      {
+        "label": "NYU Shanghai — Early Decision II, also binding",
+        "date": "2027-01-01",
+        "timeOfDay": "23:59",
+        "timeZone": "EST",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Published as \"January 1\" with no calendar year; the year is read into this cycle, hence provisional. Same binding terms as Early Decision I, in the same window as Regular Decision, and it exists for a student whose first binding choice turned them down in December. The 25-day acceptance rule and the requirement to withdraw every other application apply here too.",
+        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision"
       },
       {
         "label": "Duke Kunshan University — Regular Decision",
@@ -63,49 +100,82 @@
         "timeOfDay": "23:59",
         "timeZone": "ET",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": null,
-        "source": "https://admissions.dukekunshan.edu.cn/en/"
-      },
-      {
-        "label": "Duke Kunshan University — acceptance deadline for admitted students",
-        "date": "2027-05-01",
-        "consequence": "hard",
-        "year": "2027 entry",
-        "notes": "Before IB results, so offers are conditional on predicted grades.",
-        "source": "https://admissions.dukekunshan.edu.cn/en/"
-      },
-      {
-        "label": "NYU Shanghai — Early Decision",
-        "dateState": "not-published",
-        "consequence": "hard",
-        "year": "2027 entry",
-        "notes": "Run on the American calendar via the Common Application. Exact dates not verified — check the admissions site from September 2026.",
-        "source": "https://shanghai.nyu.edu/admissions"
+        "audience": "international applicants — DKU states these must be non-Chinese citizens",
+        "notes": "Published with its full calendar year as \"Regular decision application deadline: January 4, 2027 (11:59pm ET)\", which is 05:59 on 5 January in Denmark. Not binding: you keep every offer you hold and reply on 1 May 2027, which is its own entry below. The DKU application is the Common App plus two DKU-specific essays, and DKU also lets an applicant to Duke University in North Carolina share that application with DKU — but only the materials submitted at that moment are shared, and transcripts, school reports, recommendations and CSS Profile documents that arrive later must be sent to both universities separately. That is the detail most likely to cost somebody an assessed application.",
+        "source": "https://admissions.dukekunshan.edu.cn/en/how-to-apply/",
+        "sources": [
+          "https://admissions.dukekunshan.edu.cn/en/"
+        ]
       },
       {
         "label": "NYU Shanghai — Regular Decision",
+        "date": null,
         "dateState": "not-published",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Run on the American calendar via the Common Application. Exact dates not verified — check the admissions site from September 2026.",
-        "source": "https://shanghai.nyu.edu/admissions"
+        "notes": "Not established, and the reason is ours. NYU Shanghai's Early Decision page gives both early dates and does not give the Regular Decision one, and NYU's university-wide first-year deadlines page at nyu.edu returns HTTP 405 Method Not Allowed to automated retrieval — the same refusal this project meets at Amherst — so it could not be read on 23 September 2026. NYU's Regular Decision date has for several cycles been 5 January and the same single Common Application covers New York, Abu Dhabi and Shanghai, but neither of those is a source and no date has been inferred from them here. What to do: open nyu.edu's first-year applicants page in a browser and read it off, or take the date from the Common App once NYU Shanghai is on your list. Do not assume it matches Duke Kunshan's 4 January.",
+        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision",
+        "sources": [
+          "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants.html"
+        ]
       },
       {
-        "label": "Domestic universities (Tsinghua, Peking, Fudan, SJTU) international undergraduate admission",
-        "dateState": "not-published",
-        "consequence": "indicative",
+        "label": "Duke Kunshan University — Regular Decision acceptance deadline",
+        "date": "2027-05-01",
+        "timeOfDay": "23:59",
+        "timeZone": "ET",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Typically open from late autumn and close in the winter or early spring for the September intake. Not verified. Four universities in one entry: nothing in the record tells their dates apart, so it has not been split.",
-        "source": "https://www.campuschina.org/"
+        "audience": "applicants holding a Duke Kunshan Regular Decision offer",
+        "notes": "Published on DKU's international-admissions homepage with its year as \"May 1, 2027 (11:59 PM ET) — Regular Decision Acceptance Deadline\". It is the same day as the American national candidates' reply date, which is no coincidence: DKU recruits against American colleges through the Common App and keeps their calendar. It falls more than two months before IB results are released, so the offer you accept is conditional on predicted grades, and what DKU does if your final results fall short is not published and has not been established here. Ask before you accept. An Early Decision admission does not get this date; that choice was made in November.",
+        "source": "https://admissions.dukekunshan.edu.cn/en/"
       },
       {
-        "label": "Chinese Government Scholarship (CSC)",
+        "label": "Tsinghua University — international undergraduate admission, in three batches whose dates are behind a login",
+        "date": null,
         "dateState": "not-published",
-        "consequence": "indicative",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "September 2027 entry",
+        "audience": "international applicants — Tsinghua requires a foreign passport, and foreign permanent residency does not qualify",
+        "notes": "Split out of a single entry that held Tsinghua, Peking, Fudan and Shanghai Jiao Tong together, because Tsinghua's shape is now established even though its dates are not. Tsinghua admits international undergraduates under 申请-审核, application and review, in three application batches. The batches take the same form and the same documents but have different application periods, different interview dates and different result dates, and applicants to the Design (设计学类) and Fine Arts (美术学类) programmes must apply in the first batch — so for those two, the earliest batch is the only batch. The dates themselves are not published on any open page: they live inside the online application system at apply.join-tsinghua.edu.cn, which requires an account before anything can be seen, and one email address may be registered only once per year. That is why this entry has no date. Two facts from Tsinghua's own Chinese-language applicant FAQ are more decision-relevant than any date and are recorded here because nothing else on this site says them: Tsinghua's undergraduate teaching is in Chinese (部分课程采用双语或英语教学 — some courses are bilingual or in English) with international students generally in the same classes as Chinese students, and the language requirement is HSK level 5 with at least 60 in every section, or HSK 4 on entry with HSK 5 to be reached within a year of enrolling or the place is withdrawn. Clinical Medicine does not take international undergraduates and Tsinghua accepts no transfer students. That FAQ is in Chinese only, has no English equivalent, and is dated to the 2017 cycle — so its structure is worth knowing and none of its numbers should be trusted for 2027. Confirm everything with admissions@tsinghua.edu.cn before building a plan on it.",
+        "source": "https://apply.join-tsinghua.edu.cn/international/res/SpecialWsbm/index.html",
+        "sources": [
+          "https://goglobal.tsinghua.edu.cn/tutorial/QCWQXvWmh",
+          "https://www.join-tsinghua.edu.cn/"
+        ]
+      },
+      {
+        "label": "Peking University, Fudan University and Shanghai Jiao Tong University — international undergraduate admission",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "September 2027 entry",
+        "notes": "Not established, and the honest statement is that nobody has looked properly rather than that the dates do not exist. Three universities are held in one entry here because nothing in this record tells their dates apart, and that is a gap in the research and not a fact about China — each of the three runs its own application-and-review procedure on its own calendar, and they will not agree. What is known from the one comparable Chinese university whose structure has been read, Tsinghua, is the shape to expect: several application batches opening in the late autumn and closing between the winter and the early spring for a September intake, with art and design programmes restricted to the earliest batch, and the dates frequently published only inside a login-gated application system. What is needed to close this: each university's own international-student admissions page (留学生本科招生) read in Chinese, because the English pages are consistently thinner than the Chinese ones and in at least one case on this page are absent altogether. This Destination has no Evidence records at all — there is no data/evidence/cn.json — so every entry on this page stands on its source URL alone and none has been through the Evidence process the rest of the site uses.",
+        "source": "https://www.join-tsinghua.edu.cn/"
+      },
+      {
+        "label": "Chinese Government Scholarship (CGS/CSC) — and the official portal this site used to cite no longer exists",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "Applied for through the Chinese embassy in Copenhagen (Type A) or directly through a participating university (Type B). Deadlines are normally in the late winter or early spring. Not verified.",
-        "source": "https://www.campuschina.org/"
+        "notes": "The Chinese Government Scholarship is applied for by one of three routes with three different calendars: Type A through the Chinese embassy in your country of residence, Type B directly to a CSC-designated Chinese university, and Type C through certain international organisations. Each embassy and each university sets its own closing date, so there is no single CGS deadline and this entry deliberately carries none. Two findings from 23 September 2026 matter more than a date. First, www.campuschina.org — the China Scholarship Council portal that this record previously cited as the source for both the scholarship and the domestic universities' deadlines, and which Chinese embassy notices still name as the application website — did not resolve: the domain returned NXDOMAIN to DNS lookup and ENOTFOUND to automated fetch, and the browser refused to navigate to it. It may have been retired, or it may be unreachable from northern Europe; either way nothing on this site should be sourced to it and nothing here now is. Second, the Chinese Embassy in Denmark's English site was read on the same day and publishes no Chinese Government Scholarship notice of any kind — no 2026/2027 notice and no 2027/2028 notice — so the Type A deadline that would apply to a student applying from Denmark is not established. What to do: from about October 2026, watch the Chinese Embassy in Denmark's own announcements for the 2027/2028 notice, and ask each university you are applying to for its Type B date at the moment you apply. Do not work from a deadline you find on another country's embassy page; they differ by months.",
+        "source": "https://dk.china-embassy.gov.cn/eng/"
+      },
+      {
+        "label": "IB results released",
+        "date": "2027-07-06",
+        "consequence": "indicative",
+        "provisional": true,
+        "year": "September 2027 entry",
+        "notes": "Recorded here because of where it sits rather than because anything in China is waiting for it. Every date on this page that has been established falls before it: Duke Kunshan closes Regular Decision in January and wants your acceptance on 1 May, and NYU Shanghai's binding early rounds are decided in December. So a Chinese joint-venture offer, like an American one, is made on predicted grades and accepted before you have real ones, and what happens if the results fall short is set by each university and is not established here. The Chinese universities' own timing is unknown for the same reason their deadlines are. This entry carries no source: the release date is stated on ibo.org, which refuses both automated fetch and a browser, so it is recorded on the same unsourced basis as on the other forty files in this repository."
       }
     ],
     "steps": [
@@ -465,9 +535,9 @@
       "retrieved": "2026-09-22"
     },
     {
-      "title": "Campus China — China Scholarship Council official study portal",
-      "url": "https://www.campuschina.org/",
-      "retrieved": "2026-09-22"
+      "title": "Campus China (China Scholarship Council) — checked 2026-09-23 and the domain no longer resolves (NXDOMAIN); retained so that nobody re-adds it as a source",
+      "url": "https://dk.china-embassy.gov.cn/eng/",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {
