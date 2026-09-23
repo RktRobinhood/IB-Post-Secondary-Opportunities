@@ -340,7 +340,20 @@ section { scroll-margin-top: 5.5rem; }
 @media (min-width: 62rem) {
   .layout-aside { grid-template-columns: minmax(0, 1fr) 19rem; }
   .layout-aside--left { grid-template-columns: 17rem minmax(0, 1fr); }
-  .layout-aside__side { position: sticky; top: 5.5rem; }
+  /* A sticky column taller than the window keeps the overflow permanently
+     off-screen. On the subject checker that overflow was the predicted total,
+     the fee status and the conversion result — the answers the page exists to
+     give — sitting 522px below the fold of a 768px laptop with no way to reach
+     them. Give the column the window's height and let it scroll itself. */
+  .layout-aside__side {
+    position: sticky; top: 5.5rem;
+    max-height: calc(100vh - 5.5rem - var(--s5));
+    max-height: calc(100dvh - 5.5rem - var(--s5));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding-right: var(--s2);
+  }
 }
 
 /* --- 5. Header ----------------------------------------------------------- */
@@ -865,9 +878,16 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 /* --- 16. Subject picker -------------------------------------------------- */
 
 .picker { display: grid; gap: var(--s4); }
+/* The subject select carries 36 options with names like "Mathematics: Analysis
+   and Approaches"; the level select carries "HL" and "SL". They were sharing a
+   row with the level given a fixed 7.5rem and the subject whatever was left,
+   which in this sidebar was 66px — so every subject read "Englis⌄", "Cherr⌄",
+   "Danis⌄", and a student could not check their own choices on the one page
+   built for exactly that. The subject now gets a row to itself and the two
+   short controls share the next one, which also holds at phone width. */
 .picker__slot {
-  display: grid; gap: var(--s3);
-  grid-template-columns: 2.25rem minmax(0, 1fr) 7.5rem;
+  display: grid; gap: var(--s2) var(--s3);
+  grid-template-columns: 2.25rem minmax(0, 1fr) 5rem;
   align-items: center;
   padding: var(--s3);
   background: var(--paper-2);
@@ -875,15 +895,14 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   border-radius: var(--radius);
 }
 .picker__slot select { width: 100%; }
+.picker__slot .p-subject { grid-column: 2 / -1; }
+.picker__slot .p-level { grid-column: 2; }
+.picker__slot .p-grade { grid-column: 3; }
 .picker__num {
   display: grid; place-items: center;
   width: 1.9rem; height: 1.9rem; border-radius: 50%;
   background: var(--paper); border: 1px solid var(--rule-strong);
   font: 650 .8125rem/1 var(--mono); color: var(--ink-mute);
-}
-@media (max-width: 34rem) {
-  .picker__slot { grid-template-columns: 2.25rem minmax(0, 1fr); }
-  .picker__slot select:last-child { grid-column: 2; }
 }
 
 .converted {
