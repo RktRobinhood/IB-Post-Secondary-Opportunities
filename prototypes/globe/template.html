@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" data-motion="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Globe prototype — throwaway slice for ADR 0004</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="globe.css">
+</head>
+<body>
+
+<p class="proto-banner">
+  <strong>Throwaway prototype.</strong> Not part of the site, not in the build, not shipped.
+  It exists to answer one question: does geographic motion help a student find a credible
+  option faster than the flat map already does? See <code>docs/adr/0004-*</code>.
+</p>
+
+<main id="main">
+
+  <!-- Everything from here to the end of the result list is server-rendered and
+       needs no JavaScript. That is the whole fallback argument, so it is first
+       in the document and not conditional on anything. -->
+
+  <header class="head">
+    <h1>Where could your IB take you?</h1>
+    <p class="lede"><!--COUNT--> places across <!--DESTS--> destinations, from the repository's
+      real Place and Destination records.</p>
+  </header>
+
+  <a class="skip" href="#results">Skip the map, go to the results</a>
+
+  <form class="filters" id="filters" method="get" aria-label="Narrow the results">
+    <fieldset>
+      <legend>Where</legend>
+      <label><input type="radio" name="scope" value="any" checked> Anywhere</label>
+      <label><input type="radio" name="scope" value="europe"> Europe</label>
+      <label><input type="radio" name="scope" value="worldwide"> Outside Europe</label>
+    </fieldset>
+    <fieldset>
+      <legend>Tuition for an EU/EEA applicant</legend>
+      <label><input type="radio" name="fee" value="any" checked> Any</label>
+      <label><input type="radio" name="fee" value="no-fee"> No fee</label>
+      <label><input type="radio" name="fee" value="eu-eea-rate"> EU/EEA rate</label>
+      <label><input type="radio" name="fee" value="international-rate"> International rate</label>
+    </fieldset>
+    <fieldset>
+      <legend>Local language</legend>
+      <label><input type="radio" name="lang" value="any" checked> Any</label>
+      <label><input type="radio" name="lang" value="no"> Not required</label>
+      <label><input type="radio" name="lang" value="yes"> Required somewhere</label>
+    </fieldset>
+    <noscript><button type="submit">Apply</button></noscript>
+  </form>
+
+  <p class="count" id="count" role="status" aria-live="polite">
+    <strong><!--COUNT--></strong> places in view.
+  </p>
+
+  <!-- The stage. With no JavaScript this is the flat Mercator window, drawn at
+       build time, identical in method to src/lib/primitives.mjs. app.js may
+       replace it with a canvas globe; if it cannot, this is what stays. -->
+  <figure class="world" id="world">
+    <div class="world__stage" id="stage">
+      <!--FLAT-->
+      <div class="world__controls" id="controls" hidden>
+        <button type="button" data-cam="left" aria-label="Rotate west">&larr;</button>
+        <button type="button" data-cam="right" aria-label="Rotate east">&rarr;</button>
+        <button type="button" data-cam="up" aria-label="Tilt north">&uarr;</button>
+        <button type="button" data-cam="down" aria-label="Tilt south">&darr;</button>
+        <button type="button" data-cam="in" aria-label="Zoom in">+</button>
+        <button type="button" data-cam="out" aria-label="Zoom out">&minus;</button>
+        <button type="button" data-cam="reset" class="wide">Whole world</button>
+      </div>
+      <div class="world__callout" id="callout" hidden aria-hidden="true"></div>
+    </div>
+    <figcaption class="world__caption" id="caption">
+      Larger means more recorded options here — never a better place.
+    </figcaption>
+  </figure>
+
+  <div class="engine" id="engine" hidden>
+    <span>Prototype controls, not a product feature:</span>
+    <label><input type="radio" name="engine" value="globe" checked> Globe</label>
+    <label><input type="radio" name="engine" value="flat"> Flat map</label>
+    <label><input type="checkbox" id="forceReduced"> Force reduced motion</label>
+    <label><input type="checkbox" id="forceNoCanvas"> Simulate no canvas / no WebGL</label>
+    <button type="button" id="bench">Run the bench</button>
+  </div>
+  <pre class="bench" id="benchOut" hidden></pre>
+
+  <section id="results" class="results">
+    <h2>Results</h2>
+    <ul class="res" id="list">
+      <!--LIST-->
+    </ul>
+  </section>
+
+  <aside class="detail" id="detail" hidden aria-labelledby="detailName" tabindex="-1">
+    <button type="button" class="detail__close" id="detailClose">Close</button>
+    <h2 id="detailName"></h2>
+    <div id="detailBody"></div>
+  </aside>
+
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
