@@ -47,59 +47,90 @@
     },
     "deadlines": [
       {
-        "label": "PCE registration — ordinary (May/June) call",
-        "date": "2026-03-16",
-        "endDate": "2026-04-28",
-        "consequence": "hard",
-        "year": "2026 entry — 2027 dates not yet published",
-        "notes": "Through a UNED collaborating centre the window opened earlier, on 18 February 2026, and closed on the same date. The 2027 equivalent is likely to fall in the same weeks but must be re-checked.",
-        "source": "https://unedasiss.uned.es/fechas_clave"
-      },
-      {
-        "label": "PCE exams — ordinary (May/June) call",
-        "date": "2026-05-25",
-        "endDate": "2026-05-29",
-        "consequence": "hard",
-        "year": "2026 entry — 2027 dates not yet published",
-        "notes": "Published as \"25 to 29 May 2026 (sittings in Spain)\". This window overlaps the IB examination session. Plan carefully, and check whether an overseas UNED centre can sit you on a different day. Re-check the 2027 calendar.",
-        "source": "https://unedasiss.uned.es/fechas_clave"
-      },
-      {
-        "label": "PCE registration — extraordinary (September) call",
-        "date": "2026-07-01",
-        "endDate": "2026-07-22",
-        "consequence": "hard",
-        "year": "2026 entry — 2027 dates not yet published",
-        "notes": "This is the realistic call for an IB student who wants to sit PCE after the IB exams, but it lands after most first-round university preinscripción closes, so you may only be competing for second-round places.",
-        "source": "https://unedasiss.uned.es/fechas_clave"
-      },
-      {
-        "label": "PCE exams — extraordinary (September) call",
-        "date": "2026-09-02",
-        "endDate": "2026-09-08",
-        "consequence": "hard",
-        "year": "2026 entry — 2027 dates not yet published",
-        "notes": "Results were reported as published by 20 September in the September call; this publication date was not confirmed on a UNED page.",
-        "source": "https://unedasiss.uned.es/fechas_clave"
-      },
-      {
-        "label": "UNEDasiss accreditation application window",
+        "label": "UNEDasiss accreditation request window",
         "date": "2027-02-04",
         "endDate": "2027-12-01",
         "consequence": "hard",
         "provisional": true,
-        "year": "opens annually — 2027 dates not yet published",
-        "notes": "Published as \"4 February to 1 December\" with no year. UNEDasiss states the online accreditation request opens on 4 February and closes on 1 December each year. Apply early: the accreditation has to exist before the university preinscripción closes in June/July. Confirm the 2027 dates when they are published.",
-        "source": "https://unedasiss.uned.es/fechas_clave"
+        "year": "2027 entry, from a rule UNED states as annual",
+        "notes": "The one Spanish date that is safe to carry forward, because UNED states it as a standing annual rule rather than a calendar entry: \"El plazo para solicitar la acreditación de UNEDasiss on line, se abre el 4 de febrero y se cierra el 1 de diciembre de cada año\" - read in Spanish on 23 September 2026. The 1 December end is misleading on its own and UNED says so in the next sentence: the accreditation has to exist before the university admission round closes in early July, and UNED asks for the request \"como mínimo, 6 semanas antes del cierre de inscripción universitaria\". It has three months in law to process a request and says the usual turnaround is three weeks from receiving form, payment and documents together. Add postal time: UNED states that documents posted from abroad take more than 15 working days to arrive. And avoid the shutdowns - UNED is closed 29 March to 6 April 2026, 1 to 15 August 2026, and 24 December 2026 to 7 January 2027.",
+        "source": "https://unedasiss.uned.es/fechas_clave#unedasiss",
+        "sources": [
+          "https://unedasiss.uned.es/fechas_clave#tramitacion",
+          "https://unedasiss.uned.es/fechas_clave#recepcion",
+          "https://unedasiss.uned.es/fechas_clave#vacaciones"
+        ]
+      },
+      {
+        "label": "PCE registration, ordinary (May/June) call",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle, published in Spanish as \"Convocatoria de mayo/junio de 2026: Puedes solicitar tus exámenes de PCE del 16 de marzo al 28 de abril de 2026 (puede sufrir pequeñas modificaciones)\" - UNED itself flags that the window can shift slightly, so even the precedent is soft. The same date, 28 April, is also the last day to change which subjects you sit or which centre you sit them in. Read in Spanish on https://unedasiss.uned.es/fechas_clave on 23 September 2026. The page is headed \"Fechas clave 2026\" and states its own scope: it gives the deadline \"para los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027\". Nothing for the 2027/2028 course had been published, which is why no date is recorded here. A previous pass recorded that a UNED collaborating centre opened the same window earlier, on 18 February 2026; that claim is not on the fechas clave page and could not be confirmed anywhere on unedasiss.uned.es on 23 September 2026, so it is repeated here as unconfirmed rather than carried as a date.",
+        "source": "https://unedasiss.uned.es/fechas_clave#pce"
+      },
+      {
+        "label": "PCE exams, ordinary (May/June) call - the window that collides with your IB exams",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle: \"Convocatoria de mayo/junio de 2026. España, del 25 al 29 de mayo.\" That is inside the IB May examination session, which is the single hardest thing about applying to Spain from an IB school, and it is why the September call exists as a fallback. UNED does not publish a per-subject timetable in advance: \"El resguardo ofrecerá las fechas exactas de realización de los exámenes de PCE/PAU una vez estén pagadas las correspondientes tasas\", and it tells you to re-download that resguardo a week before the exams because times, dates and the address of the centre can change. Candidates sitting outside Spain are told only \"Comprueba tu resguardo\" - the overseas dates are not published on the page at all. Read in Spanish on https://unedasiss.uned.es/fechas_clave on 23 September 2026. The page is headed \"Fechas clave 2026\" and states its own scope: it gives the deadline \"para los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027\". Nothing for the 2027/2028 course had been published, which is why no date is recorded here.",
+        "source": "https://unedasiss.uned.es/fechas_clave#examenes"
+      },
+      {
+        "label": "PCE registration, extraordinary (September) call",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle: \"Convocatoria de septiembre 2026: Puedes solicitar examinarte de PCE del 1 de julio al 22 de julio de 2026\", with 22 July also the last day to change subjects or exam centre. This is the realistic call for an IB student who will not sit PCE in the middle of the IB session - but read it against the public-university admission deadline, which for the 2026 cycle fell on 7 July, before this registration window had even closed. Sitting PCE in September means applying for admission in July on the strength of an accreditation that does not yet include a PCE mark. Read in Spanish on https://unedasiss.uned.es/fechas_clave on 23 September 2026. The page is headed \"Fechas clave 2026\" and states its own scope: it gives the deadline \"para los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027\". Nothing for the 2027/2028 course had been published, which is why no date is recorded here.",
+        "source": "https://unedasiss.uned.es/fechas_clave#pce"
+      },
+      {
+        "label": "PCE exams, extraordinary (September) call",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Precedent for the 2026 cycle: \"Convocatoria de septiembre de 2026: Los exámenes se realizarán del 2 al 8 de septiembre.\" Read in Spanish on https://unedasiss.uned.es/fechas_clave on 23 September 2026. The page is headed \"Fechas clave 2026\" and states its own scope: it gives the deadline \"para los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027\". Nothing for the 2027/2028 course had been published, which is why no date is recorded here. A previous pass recorded that results in the September call are published by 20 September; that date is not on the fechas clave page and was not confirmed on any UNED page on 23 September 2026, so it is not carried here as a date.",
+        "source": "https://unedasiss.uned.es/fechas_clave#examenes"
+      },
+      {
+        "label": "Admission to Spanish public universities closes - the real deadline, and it is not a university’s",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "international applicants with a foreign qualification",
+        "notes": "The date most likely to be missed, because it is published by UNED rather than by the university you are applying to. For the 2026 cycle UNED put it plainly, in Spanish: \"La fecha límite para solicitar la admisión en las universidades públicas por parte de los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027 es el 7 de julio de 2026.\" The surrounding sentence is the one to act on: \"Si en esa fecha aún no dispones de tu acreditación, te recomendamos que presentes igualmente tu solicitud de admisión. Podrás aportar la documentación pendiente hasta el 31 de julio.\" So the application itself is the hard deadline and the paperwork can follow by roughly three weeks. UNED also warns that preinscripción is run by each university on its own calendar - \"Las universidades públicas suelen cerrar su plazo de preinscripción en los primeros días del mes de julio, aunque algunas pueden tener plazos distintos\" - so the regional system you actually apply through (Madrid, Catalunya, Andalucía and the rest each run their own) may close earlier than the national date. Ask the university for its own date rather than planning against this one. Read in Spanish on https://unedasiss.uned.es/fechas_clave on 23 September 2026. The page is headed \"Fechas clave 2026\" and states its own scope: it gives the deadline \"para los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027\". Nothing for the 2027/2028 course had been published, which is why no date is recorded here.",
+        "source": "https://unedasiss.uned.es/fechas_clave#universidad"
+      },
+      {
+        "label": "Last date for late documents to change your admission grade",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "applicants whose documents are still being legalised",
+        "notes": "The end of the line for anything still in the post. For the 2026 cycle: \"Los estudiantes que remitan esta documentación pendiente o la credencial de homologación con fecha límite el 31 de octubre, podrán obtener una nueva acreditación con la calificación de admisión modificada si procede. La documentación recibida con posterioridad a esa fecha, no modificará la calificación de admisión en esa convocatoria.\" In practice: if a grade or a legalised document arrives after the end of October, your admission mark for that intake is whatever UNED already has. An IB Diploma is a Swiss document and needs no apostille, so this bites mainly on the school transcripts that go with it. Read in Spanish on https://unedasiss.uned.es/fechas_clave on 23 September 2026. The page is headed \"Fechas clave 2026\" and states its own scope: it gives the deadline \"para los estudiantes internacionales que deseen iniciar estudios en el curso 2026/2027\". Nothing for the 2027/2028 course had been published, which is why no date is recorded here.",
+        "source": "https://unedasiss.uned.es/fechas_clave#tramitacion"
       }
     ],
     "steps": [
-      "Before anything else, look up the admission criteria of the universities you want: which UNEDasiss services they demand, and which subjects they weight for your degree.",
-      "Create a UNEDasiss account and submit the accreditation request, selecting 'Europa' → 'Programa del Diploma IB' and ticking 'Calificación para Admisión Universidad española'.",
-      "Send the documents: passport copy, compulsed copy of the IB Diploma, compulsed copy of your last two years' grades.",
-      "If you need more than 10 points, register for PCE exams in the subjects your target degree weights — normally four to six subjects.",
-      "Sit the PCE exams and let UNEDasiss compute your nota de admisión out of 14.",
-      "Apply through the preinscripción system of the region you want (Madrid, Catalonia, Andalusia and the rest each run their own) or directly to a private university, quoting your UNEDasiss accreditation.",
+      "Before anything else, look up the admission criteria of the universities you want: which UNEDasiss services they demand, which subjects they weight for your degree, and - this is the one people skip - that university’s own preinscripción closing date, which can be earlier than the national one.",
+      "Create a UNEDasiss account and submit the accreditation request, selecting ‘Europa’ → ‘Programa del Diploma IB’ and ticking ‘Calificación para Admisión Universidad española’. UNED asks for this at least six weeks before the university round closes, and takes about three weeks to process it.",
+      "Send the documents: passport copy, compulsed copy of the IB Diploma, compulsed copy of your last two years’ grades. Posted from abroad they take more than 15 working days to reach UNED.",
+      "If you need more than 10 points, register for PCE exams in the subjects your target degree weights — normally four to six subjects. The May/June call collides with the IB session; the September call does not, but falls after the admission deadline.",
+      "Sit the PCE exams and let UNEDasiss compute your nota de admisión out of 14. Re-download your resguardo a week before each exam, because times and centres change.",
+      "Apply through the preinscripción system of the region you want (Madrid, Catalonia, Andalusia and the rest each run their own) or directly to a private university, quoting your UNEDasiss accreditation. Apply even if the accreditation has not arrived — UNED says to, and lets the paperwork follow.",
       "Accept your place and enrol (matrícula), which at public universities means paying per credit."
     ],
     "selectionNotes": "Public universities admit strictly by rank on the nota de admisión against a published cut-off (nota de corte) for each degree, which moves each year with demand. Private universities (IE, Navarra, ESADE, Deusto, Comillas) run their own selection: own admission test, essays and interview, usually with rolling rounds from the autumn."

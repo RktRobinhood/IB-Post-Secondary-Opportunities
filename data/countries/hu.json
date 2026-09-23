@@ -50,111 +50,201 @@
     },
     "deadlines": [
       {
-        "label": "CEU (Vienna) bachelor's — round 1 of four",
+        "label": "CEU (Vienna) bachelor’s - round 1 of four",
         "date": "2026-10-15",
         "timeOfDay": "23:59",
         "timeZone": "CET",
         "consequence": "priority",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "All at 23:59 CET. CEU's own financial aid is awarded in the first two rounds only, so apply early if you want it. Accepted students pay a 500-euro registration fee.",
+        "notes": "All four rounds close at 23:59 CET. CEU’s own financial aid is awarded in the first two rounds only, so apply in October or February if you want it. Accepted students pay a 500-euro registration fee. Note that CEU’s bachelor’s programmes are taught in Vienna, not in Budapest - it is here because it is the Hungarian-founded university an IB student is most likely to meet, but you would be living in Austria.",
         "source": "https://www.ceu.edu/admissions/bachelor"
       },
       {
-        "label": "University of Veterinary Medicine Budapest — rolling application window",
+        "label": "Corvinus applications open for 2027/28",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Corvinus publishes the month and not the day: \"The online admission platform for the Academic year 2027/28 will open in October 2026\", read on 23 September 2026. Nothing can be submitted before it opens, and because Corvinus runs rolling admissions with staged entrance-exam rounds, opening day is effectively the start of the queue - in the 2026 cycle the first \"early bird\" phase ran from 1 October 2025 to 26 January 2026 and those applicants got the February oral exams. The application fee is 100 euros and is payable before the application is processed at all.",
+        "source": "https://www.uni-corvinus.hu/post/landing-page/application/application-information/?lang=en",
+        "sources": [
+          "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en"
+        ]
+      },
+      {
+        "label": "University of Debrecen - application closes for the February 2027 intake",
+        "date": "2026-11-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "February 2027 intake",
+        "audience": "applicants to the January/February start, not the September one",
+        "notes": "Published with its year: Debrecen lists \"January/February 2026/2027 - all programs: 1st November 2026\". This is the only route in this profile that starts in February rather than September, which makes it the fallback for a student who misses a September round - and the nearest deadline on this whole page. Debrecen also states that it closed applications early for the September 2026 Medicine and Dentistry intake \"due to an exceptionally high number of applications received\", so treat its published deadlines as the latest possible date rather than a safe one. Application fee 150 USD, non-refundable.",
+        "source": "https://edu.unideb.hu/p/application-and-admission"
+      },
+      {
+        "label": "University of Pécs - applications open for 2027/28",
+        "date": "2026-11-01",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published with its year: \"the application period starts on 1st November 2026 and the application deadline is 30th June 2027 for the academic year 2027/2028 beginning from September 2027\". Pécs adds the sentence that makes the opening date matter: \"Since admission is continuous, the earlier you apply, the more spots we can offer.\" There is one intake a year. Read on 23 September 2026 at https://admissions.medschool.pte.hu/application-form; the page actually titled \"Deadlines & Requirements\" on the same site publishes no deadline at all, in a browser or otherwise, which is why this is cited to the online-application page instead.",
+        "source": "https://admissions.medschool.pte.hu/application-form"
+      },
+      {
+        "label": "University of Veterinary Medicine Budapest - rolling application window",
         "date": "2027-01-01",
         "endDate": "2027-06-30",
         "consequence": "rolling",
         "provisional": true,
-        "year": "annual standing rule, applies to 2027",
-        "notes": "Published as \"1 January - 30 June\" with no year; the year here is inferred from the standing rule. Later rounds are possible if places remain. Exams are arranged worldwide and online between March and July, with extra rounds in August if there are vacancies.",
+        "year": "annual standing rule, applied to 2027",
+        "notes": "Published as a standing rule with no year: \"Applications are accepted on a rolling basis from 1st January until 30th June (in cases of vacancies later)\"; the year here is inferred from the intake this profile covers. Decisions are made on a rolling basis through the window, so an early application is a better one. Entrance examinations are arranged online between March and July, with \"further rounds of entrance examinations organized in August depending on the number of vacancies\" - a real second chance, but one that depends on other people turning places down. An applicant still in the final year of school may apply, but the school leaving certificate must be presented before enrolment.",
         "source": "https://univet.hu/en/education/admission/application/application-and-admission-requirements/"
       },
       {
-        "label": "CEU (Vienna) bachelor's — round 2 of four",
+        "label": "CEU (Vienna) bachelor’s - round 2 of four",
         "date": "2027-02-02",
         "timeOfDay": "23:59",
         "timeZone": "CET",
         "consequence": "priority",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "All at 23:59 CET. CEU's own financial aid is awarded in the first two rounds only, so apply early if you want it. Accepted students pay a 500-euro registration fee.",
+        "notes": "All four rounds close at 23:59 CET. CEU’s own financial aid is awarded in the first two rounds only, so apply in October or February if you want it. Accepted students pay a 500-euro registration fee. Note that CEU’s bachelor’s programmes are taught in Vienna, not in Budapest - it is here because it is the Hungarian-founded university an IB student is most likely to meet, but you would be living in Austria.",
         "source": "https://www.ceu.edu/admissions/bachelor"
       },
       {
-        "label": "University of Pécs — entrance exams for the 2027 intake",
+        "label": "Central felvételi deadline - the Hungarian-language and state-funded route",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "applicants to Hungarian-taught or state-funded places only",
+        "notes": "Hungary does have a central admissions system, and it is not the one an IB student from Denmark normally uses: felvi.hu / E-felvételi handles Hungarian-language and state-funded places, while the English-taught programmes in this calendar are applied for directly to each university. Recorded here so the difference is visible rather than assumed. felvi states the rule in Hungarian rather than publishing a 2027 date: \"a szeptemberben induló képzésekre vonatkozó általános felvételi eljárás meghirdetései legkésőbb az előző év december 31-ig jelennek meg honlapunkon, a jelentkezési határidő többnyire a rákövetkező év február 15-én jár le\" - the programmes are announced by 31 December of the previous year at the latest and the application deadline usually falls on 15 February, with the point thresholds (ponthatárok) set in July. \"Többnyire\" is felvi’s own hedge, which is why no date is recorded. Semmelweis puts the division plainly from the other side: \"Our English language programs are fundamentally available for applicants having no Hungarian citizenship as the Hungarian citizens are eligible to apply for the Hungarian language programs through FELVI.\" Read in Hungarian on 23 September 2026.",
+        "source": "https://www.felvi.hu/felveteli/jelentkezes/mikor_es_mire/Mikor_lehet_jelentkezni",
+        "sources": [
+          "https://semmelweis.hu/admission/programs/medicine/"
+        ]
+      },
+      {
+        "label": "University of Pécs - entrance exams, every Wednesday",
         "date": "2027-03-03",
         "endDate": "2027-07-14",
         "consequence": "indicative",
         "provisional": false,
-        "year": "2027",
-        "notes": "Published as \"every Wednesday, 3 March - 14 July\": the window runs weekly, not continuously. Register two weeks in advance. Exams can be sat in Pécs, in Budapest at McDaniel College, or abroad through representative agencies. The 2027 application deadline itself was not published.",
-        "source": "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam"
+        "year": "2027 entry",
+        "notes": "Published with its year: \"Entrance exams are organized each Wednesday between 3rd March and 14th July 2027.\" The window runs weekly, not continuously - there are twenty Wednesdays in it and you sit one of them. Register two weeks in advance. Exams can be sat in Pécs, in Budapest at McDaniel College, or abroad through representative agencies, and there is a 250 USD entrance exam fee on top of the application fee.",
+        "source": "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam",
+        "sources": [
+          "https://admissions.medschool.pte.hu/application-form"
+        ]
       },
       {
-        "label": "CEU (Vienna) bachelor's — round 3 of four",
+        "label": "CEU (Vienna) bachelor’s - round 3 of four",
         "date": "2027-04-15",
         "timeOfDay": "23:59",
         "timeZone": "CET",
         "consequence": "priority",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "All at 23:59 CET. CEU's own financial aid is awarded in the first two rounds only, so apply early if you want it. Accepted students pay a 500-euro registration fee.",
+        "notes": "All four rounds close at 23:59 CET. CEU’s own financial aid is awarded in the first two rounds only, so apply in October or February if you want it. Accepted students pay a 500-euro registration fee. Note that CEU’s bachelor’s programmes are taught in Vienna, not in Budapest - it is here because it is the Hungarian-founded university an IB student is most likely to meet, but you would be living in Austria.",
         "source": "https://www.ceu.edu/admissions/bachelor"
       },
       {
-        "label": "Semmelweis University — application deadline for autumn 2027 entry",
+        "label": "University of Debrecen - application closes for September 2027",
+        "date": "2027-05-15",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Now published, and with its year: \"The application period for the September 2027 intake will open later this year, and the final application deadline will be May 15, 2027.\" An earlier pass recorded this as not yet announced and carried the 2026 precedent of 15 June; Debrecen has since brought it forward by a month, so the 15 June date in circulation elsewhere is wrong for 2027. The opening date is still only \"later this year\". Read on 23 September 2026. Debrecen closed its September 2026 Medicine and Dentistry applications ahead of the published deadline because of demand, so do not plan to use the last week of this window.",
+        "source": "https://edu.unideb.hu/p/application-and-admission"
+      },
+      {
+        "label": "Corvinus - applications close for September 2027",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Corvinus had published nothing beyond \"October 2026\" for the 2027/28 cycle when this was read on 23 September 2026, so no closing date is recorded. Precedent from the 2026 cycle, which shows how the shape of it matters more than the day: applications ran \"from 27 January onwards until 25 May 2026\", but admission is staged, and what you actually have to hit is the deadline to complete the written entrance exam or upload exemption evidence in order to be invited to the next oral round. Those fell on 8 February, 22 February, 29 March, 3 May and 26 May 2026, with oral exams on 11-13 February, 11-13 March, 15-17 April, 20-22 May and 10-12 June. Applying in the last week means the last oral round or none.",
+        "source": "https://www.uni-corvinus.hu/post/landing-page/application/application-information/?lang=en"
+      },
+      {
+        "label": "Semmelweis University - application closes for autumn 2027",
         "date": "2027-05-31",
         "consequence": "hard",
         "provisional": false,
-        "year": "2027",
-        "notes": "Stated on all three programme pages, so this is a genuine 2027 date. Applications run through the SEMAPHOR system. Entrance exams are held once or twice a week from early March until the end of June.",
+        "year": "2027 entry",
+        "notes": "Published with its year, as \"Application deadline: 31 May, 2027\", on all three programme pages, so this is a genuine 2027 date rather than an inferred one. The opening date is not: Semmelweis shows \"Application starts: (to be announced soon)\". Applications run through the SEMAPHOR system. Entrance exams are held once or twice a week from early March until the end of June, but Semmelweis publishes no calendar - \"The exact dates and times will be provided to the applicants having submitted their application(s)\" - so the exam dates are only visible from inside the system. One eligibility rule that catches younger IB candidates: you must be 18 by the end of the spring semester of year one, \"i.e., by the end of May 2027\".",
         "source": "https://semmelweis.hu/admission/programs/medicine/"
       },
       {
-        "label": "CEU (Vienna) bachelor's — round 4 of four",
+        "label": "University of Szeged - application deadline",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Still not published. The DreamApply course page read on 23 September 2026 shows \"Fall semester 2026/27 - Application period has ended\" and offers nothing for 2027/28. For the 2026/27 intake entrance exams ran from the end of February to the end of June, every second week. Szeged is worth watching for rather than writing off: it is the one Hungarian medical school in this profile that exempts strong IB science candidates from the entrance exam altogether, and it caps the English programme at roughly 200 students a year. Check the portal from late 2026.",
+        "source": "https://apply.u-szeged.hu/en_GB/courses/course/218-md-general-medicine"
+      },
+      {
+        "label": "University of Pécs - application closes for September 2027",
+        "date": "2027-06-30",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published with its year: \"the application deadline is 30th June 2027 for the academic year 2027/2028\". This was missing from an earlier pass, which recorded Pécs’s entrance-exam window but noted that the application deadline itself \"was not published\" - it is published, on the online-application page rather than on the page called \"Deadlines & Requirements\", which carries no dates at all. Because the entrance-exam window closes on 14 July and exams have to be arranged two weeks ahead, applying at the very end of June leaves almost no room to sit the exam, let alone re-sit it.",
+        "source": "https://admissions.medschool.pte.hu/application-form",
+        "sources": [
+          "https://admissions.medschool.pte.hu/application-arranging-the-entrance-exam"
+        ]
+      },
+      {
+        "label": "CEU (Vienna) bachelor’s - round 4 of four",
         "date": "2027-07-15",
         "timeOfDay": "23:59",
         "timeZone": "CET",
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "All at 23:59 CET. CEU's own financial aid is awarded in the first two rounds only, so apply early if you want it. Accepted students pay a 500-euro registration fee.",
+        "notes": "All four rounds close at 23:59 CET. CEU’s own financial aid is awarded in the first two rounds only, so apply in October or February if you want it. Accepted students pay a 500-euro registration fee. Note that CEU’s bachelor’s programmes are taught in Vienna, not in Budapest - it is here because it is the Hungarian-founded university an IB student is most likely to meet, but you would be living in Austria.",
         "source": "https://www.ceu.edu/admissions/bachelor"
       },
       {
-        "label": "Corvinus — English certificate deadline",
+        "label": "Corvinus - final diplomas, certificates and proof of English due",
         "date": "2027-08-01",
         "consequence": "hard",
         "provisional": true,
-        "year": "annual",
-        "notes": "Published as \"1 August\" with no year; the year here is inferred from the intake this profile covers. Corvinus applies through DreamApply, runs assessment exams monthly and returns results in two to three weeks. Application fee 95 euros.",
-        "source": "https://www.uni-corvinus.hu/post/landing-page/application/fees-and-costs/?lang=en"
+        "year": "2027 entry, inferred from an undated annual rule",
+        "notes": "Published as \"1 August\" with no year, twice: the application-information page lists \"Step 8 Submit final diplomas and certificates by 1 August\", and the admissions-requirements page says Corvinus \"accepts the following proof of English language proficiency (minimum equivalent B2 level) submitted no later than 1 August\". The year here is inferred from the intake this profile covers. This entry previously cited the fees and costs page, which says nothing about either deadline; the two pages that do carry it are cited here instead. Comfortable for an IB candidate - the diploma is issued in early July - but it is the last gate before enrolment, and an offer is conditional on it.",
+        "source": "https://www.uni-corvinus.hu/post/landing-page/application/admissions-requirements/?lang=en",
+        "sources": [
+          "https://www.uni-corvinus.hu/post/landing-page/application/application-information/?lang=en"
+        ]
       },
       {
-        "label": "University of Debrecen — application deadline",
-        "dateState": "not-yet-announced",
+        "label": "Semmelweis - upload your IB Diploma",
+        "date": "2027-08-21",
         "consequence": "hard",
-        "year": "2027 entry",
-        "notes": "Not published as of September 2026. For 2026 entry the September intake closed 15 June and the February intake 1 November. Expect something similar and check from late 2026.",
-        "source": "https://edu.unideb.hu/p/application-and-admission"
-      },
-      {
-        "label": "University of Szeged — application deadline",
-        "dateState": "not-yet-announced",
-        "consequence": "hard",
-        "year": "2027 entry",
-        "notes": "Not published as of September 2026; the portal showed the 2026/27 period as closed. Exams ran end of February to end of June every second week for the 2026/27 intake.",
-        "source": "https://apply.u-szeged.hu/en_GB/courses/course/218-md-general-medicine"
+        "provisional": true,
+        "year": "2027 entry, inferred from an undated annual rule",
+        "audience": "applicants who applied before their diploma was issued",
+        "notes": "Published as \"the 21st of August the year of application\", with no year; the year here is inferred from the intake this profile covers. Promoted out of prose because it is the step that turns a conditional place into a real one and it is buried three screens down a programme page. Semmelweis lets you apply and sit the entrance exam while still in your final year - \"Those who have not yet received this certificate can also submit their application and take the entrance examination\" - but \"The final deadline for uploading the Matriculation Certificate is the 21st of August.\" Your IB Diploma is issued in early July, so the gap is about six weeks; the risk is not the date but forgetting the step exists.",
+        "source": "https://semmelweis.hu/admission/programs/medicine/"
       }
     ],
     "steps": [
       "Work out the funding first. There is no Hungarian scholarship open to a Danish citizen, so budget the full tuition plus living costs before you commit to anything.",
+      "Decide whether you are applying in English or in Hungarian. They are different systems: English-taught programmes go direct to each university on its own portal, while felvi.hu / E-felvételi handles Hungarian-language and state-funded places on a central mid-February deadline.",
       "If you want medicine, decide early whether to target Szeged. Its IB exam exemption is worth a great deal of effort — grade 5 in two HL sciences and you skip the entrance exam altogether.",
       "Apply directly to each university through its own portal: SEMAPHOR at Semmelweis, DreamApply at Szeged and Corvinus, apply.univet.hu at the veterinary university, and their own systems at Debrecen and Pécs.",
-      "Pay the application fee, which varies enormously: 95 euros at Corvinus, 150 dollars at Debrecen, 200 dollars at Pécs, 200 euros at Univet, 300 euros at Szeged, 400 dollars at Semmelweis.",
+      "Apply early rather than close to the deadline. Pécs, Univet and Corvinus all admit on a rolling basis, and Debrecen closed its September 2026 medicine applications before the published date because of demand.",
+      "Pay the application fee, which varies enormously: 95 euros at Corvinus, 150 dollars at Debrecen, 200 dollars at Pécs, 200 euros at Univet, 300 euros at Szeged, 400 dollars at Semmelweis — and at Pécs a further 250 dollars for the entrance exam.",
       "Book your entrance exam. At the medical schools these run roughly March to July and are taken online — Szeged on Coospace monitored by Zoom, Semmelweis on Moodle, Pécs and Univet with an oral interview over Zoom or Teams.",
       "Pay the tuition deposit to hold your place. It is usually deducted from your first semester fee: 2,000 dollars at Semmelweis, 800 euros at Szeged and at Univet.",
+      "Upload your IB Diploma the week it arrives. Semmelweis wants it by 21 August and Corvinus by 1 August; Pécs will take it as late as September, and Univet before enrolment.",
       "After you arrive, register with the National Directorate-General for Aliens Policing within 93 days of entry. The registration certificate costs HUF 1,000 and never expires — and it is what unlocks unlimited work rights."
     ],
     "selectionNotes": "The English-taught medical programmes select on their own entrance exam, not on your IB points. The pattern is a written multiple-choice paper in biology and chemistry (or physics) plus English, followed by an oral interview over Zoom on motivation and subject knowledge. Debrecen can also place you in a preparatory Basic Medicine Course rather than admitting or rejecting outright. Szeged caps English-programme intake at around 200 students a year and Pécs at 180. At Corvinus, maths is either evidenced by your IB grade or tested in a 26-question online exam, and three programmes add an interview."

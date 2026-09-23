@@ -47,95 +47,227 @@
     },
     "deadlines": [
       {
-        "label": "CAO online application opens",
+        "label": "CAO application facility opens for 2027 entry",
         "date": "2026-11-05",
         "timeOfDay": "12:00",
+        "timeZone": "Irish time",
         "consequence": "indicative",
-        "provisional": true,
-        "year": "2026 entry - the 2027 timetable was not yet published when this was researched, expect early November 2026",
-        "notes": "Published as \"5 November, 12:00\" with no year; the year here is inferred from the intake this profile covers. For 2026 entry the facility opened at midday on 5 November 2025. Assume the same pattern for 2027 entry and confirm on cao.ie from autumn 2026.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The one date on the CAO timetable that carries its own year: the last line of the Timetable of Events reads \"5th November 2026 - CAO application facility opens for 2027 applications\", so this is published rather than inferred. Nothing can be submitted before midday. Every other CAO date in this calendar is rolled forward from the 2025-26 timetable, because that is the only one published as of 23 September 2026.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "Discounted application fee deadline",
+        "label": "Discounted application fee closes - 35 EUR becomes 50 EUR",
         "date": "2027-01-20",
         "timeOfDay": "17:00",
+        "timeZone": "Irish time",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published as \"20 January, 17:00\" with no year; the year here is inferred from the intake this profile covers. Apply online by this date and you pay the discounted fee of 35 EUR. Applications after this date cost more.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as \"20th January 2026 (17:00) - Apply online by this date to avail of the discounted application fee of €35\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. The fee ladder is in Table 1.1 of the CAO Handbook 2026 and is the part most often got wrong: early online (discounted) 35 EUR by 20 January, normal online 50 EUR by 1 February, late online 65 EUR by 1 May, Change of Mind nil. Amending your course choices between 5 February and 1 March costs a further 10 EUR. Application fees are non-refundable and CAO states that no extension to any closing date is allowed.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "Normal closing date - this is the one that matters",
+        "label": "HPAT registration closes - CAO and the test board publish different dates for this",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "applicants to undergraduate medicine only",
+        "notes": "No date is recorded here, deliberately, because the two official publishers disagree and the cheaper reading costs a medicine place. CAO’s Timetable of Events lists, against \"HPAT Test - Undergraduate Entry to Medicine\", a \"Registration Window: 5th November - 1st February\". ACER, which actually runs the test and takes the registration, says on its own registration page: \"Your online registration and payment must be completed by: 5:15pm GMT 16 January 2026\", with \"Late registrations will be accepted up to 5.15pm GMT 26 January 2026\" for an additional fee, and an exceptional late registration available only to applicants who have already applied to CAO. Both pages were read on 23 September 2026 and both are live. A student who trusts CAO’s page has already missed ACER’s standard closing date by a fortnight and its late date by a week. Neither publisher had put up 2027 dates by 23 September 2026, which is why the state here is \"not yet announced\" rather than a date. What to do instead: register with ACER, not CAO, and treat mid-January 2027 as the real deadline; the 2026 standard registration fee was 164 EUR. Your HPAT result reaches CAO automatically - the CAO Handbook says \"Current year HPAT results will be obtained directly from ACER\" - so the registration is the only thing you have to do yourself.",
+        "source": "https://hpat-ireland.acer.org/registration",
+        "sources": [
+          "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
+      },
+      {
+        "label": "Normal closing date - the one that matters",
         "date": "2027-02-01",
         "timeOfDay": "17:00",
+        "timeZone": "Irish time",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published as \"1 February, 17:00\" with no year; the year here is inferred from the intake this profile covers. Hard deadline for the standard application. Restricted-entry courses (those with tests, interviews or portfolios, including medicine) must be listed by this date and cannot be added later through Change of Mind.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as \"1st February (17:00) - Normal closing date for applications\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. The fee at this point is 50 EUR. Restricted-entry courses - those with a test, interview, portfolio or audition, including undergraduate medicine - must be on your course choices list by now, with one narrow escape: the handbook allows them to be \"added to your application using the facility to amend course choices (for a fee of 10) before 1 March at 5pm\". They cannot be introduced during the free Change of Mind window in May and June, except where a restricted course shares the exact same assessment procedures as one you already listed. The CAO Handbook also advises applying online before this date and time if you need to sit HPAT or GAMSAT.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "HPAT test for undergraduate medicine",
-        "date": "2027-02-13",
-        "endDate": "2027-02-16",
+        "label": "Facility to amend course choices opens - 10 EUR",
+        "date": "2027-02-05",
+        "timeOfDay": "12:00",
+        "timeZone": "Irish time",
         "consequence": "indicative",
         "provisional": true,
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published as \"13-16 February\" with no year; the year here is inferred from the intake this profile covers. Undergraduate medicine requires the HPAT aptitude test in addition to your points. You must register separately and sit it in the testing window.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as \"5th February (12:00) - Online facility to amend course choices becomes available (€10 Fee)\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. Promoted out of a note so that it can be sorted and counted: this is the first day on which a restricted-entry course you left off your 1 February list can be added at all, and it is the only window in the year in which that is possible. Nothing can be changed between 1 February and this day.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "Late applications",
+        "label": "HPAT test window - CAO and the test board publish different windows for this",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "applicants to undergraduate medicine only",
+        "notes": "The same disagreement as the registration date, on the same two pages. CAO’s Timetable of Events gives \"Test sitting: 13th February - 16th February\". ACER says \"The HPAT - Ireland test window will run across a number of days from 13-22 February 2026\". A student who blocks out only CAO’s four days may be sitting the test on a day they have given away. Both pages were read on 23 September 2026; neither had published a 2027 window, so no date is recorded. What to do instead: take the sitting date from the confirmation ACER sends you at registration, and keep the second half of February 2027 clear until you have it.",
+        "source": "https://hpat-ireland.acer.org/registration",
+        "sources": [
+          "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        ]
+      },
+      {
+        "label": "Closing date for amending course choices - last chance to add a restricted course",
+        "date": "2027-03-01",
+        "timeOfDay": "17:00",
+        "timeZone": "Irish time",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as \"1st March (17:00) - Closing date for amending course choices\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. After this time no restricted-entry course can be added to your application for the rest of the cycle: the free Change of Mind window that opens in May cannot introduce them, and a late application cannot include them either. If undergraduate medicine, or an art, design, architecture, music or drama course with a portfolio or audition, is not on your list by now, it is not available to you this year.",
+        "source": "https://www2.cao.ie/handbook/handbook2026/hb.pdf",
+        "sources": [
+          "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        ]
+      },
+      {
+        "label": "Late application window - 65 EUR, and no restricted courses",
         "date": "2027-03-05",
         "endDate": "2027-05-01",
         "timeOfDay": "17:00",
+        "timeZone": "Irish time",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published as \"5 March to 1 May, 17:00\" with no year; the year here is inferred from the intake this profile covers. The window opens on 5 March and closes at 17:00 on 1 May. A late application costs more and cannot include restricted-entry courses.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as two lines, \"5th March (12:00) - Late application facility opens\" and \"1st May (17:00) - Closing date for late applications\"; the time shown here is the closing one, because that is the one that costs something. The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. The fee is 65 EUR. Restricted-entry courses cannot be applied for at all in this window, and the handbook warns that individual institutions may refuse late applications outright: \"mature applicants, and those presenting qualifications other than recently taken EU school-leaving examinations, should check the relevant HEI website before making a late application\". An IB Diploma completed the same summer is a recently taken EU school-leaving examination, but the institution decides, not CAO.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "Change of Mind opens",
+        "label": "Change of Mind opens - free, and unlimited",
         "date": "2027-05-05",
         "timeOfDay": "12:00",
+        "timeZone": "Irish time",
         "consequence": "indicative",
         "provisional": true,
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published as part of \"5 May 12:00 to 1 July 17:00\" with no year; the year here is inferred from the intake this profile covers. Free. You can completely reorder or replace your course choices, except restricted-entry courses.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as \"5th May (12:00) - Online Change of Mind facility becomes available (Free)\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. You may use it as many times as you like to introduce, remove or reorder courses, but each Change of Mind \"cancels and supersedes all previous course choices in any category in which changes are made\", so the list you leave behind is the list that is read. Restricted-entry courses cannot be introduced here.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "Change of Mind closes",
+        "label": "Change of Mind closes - your final order of preference",
         "date": "2027-07-01",
         "timeOfDay": "17:00",
+        "timeZone": "Irish time",
         "consequence": "hard",
         "provisional": true,
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published as part of \"5 May 12:00 to 1 July 17:00\" with no year; the year here is inferred from the intake this profile covers. Use it - it closes days before your IB results arrive.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "year": "2027 entry, inferred from the 2026 timetable",
+        "notes": "CAO publishes this as \"1st July (17:00) - Change of Mind closes\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. This is the date the whole Irish system turns on, because offers follow your stated order of preference exactly and this is the last moment you can change it. It closes a few days before IB results are released in early July, so the order you submit is an order you choose without knowing your score. Decide it against your predicted grades and against last year’s points for each course, not against a result you do not have yet.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       },
       {
-        "label": "Offer rounds",
+        "label": "Ask your IB coordinator to give the Central Applications Office access to your results",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "personal",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "IB Diploma candidates",
+        "notes": "CAO requires this and publishes no date for it, which is why it is here with a state rather than a day. The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"If you are a May 2026 IB candidate, please ask your IB coordinator to list ‘Central Applications Office’ among the list of institutions that will have permission to access your results. In this way, when results are released, CAO will be able to access your May 2026 results (only) online and add them to your application file.\" If it is not done, CAO never receives your results and you are not considered, whatever your score. The IB’s own page on requesting transcripts (https://ibo.org/programmes/diploma-programme/assessment-and-exams/requesting-transcripts/) returned HTTP 403 to automated retrieval on 23 September 2026 and could not be read, so the IB-side cut-off for a coordinator to add an institution is not recorded here and should not be assumed. Set your own date: ask the coordinator in writing before study leave begins, and ask them to confirm CAO is on the list.",
+        "source": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
+        "sources": [
+          "https://www.cao.ie/index.php?page=scoring&s=ib"
+        ]
+      },
+      {
+        "label": "Your IB results must reach CAO to be read in Round One",
+        "date": "2027-08-01",
+        "consequence": "equal-consideration",
+        "provisional": true,
+        "year": "2027 entry, inferred from the 2026 booklet",
+        "audience": "IB Diploma candidates",
+        "notes": "The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"Results should arrive with CAO no later than 1 August. We cannot guarantee that results received after that will be processed in time for inclusion in Round 1. Inclusion in later rounds is subject to availability of places.\" The general rule behind it is \"documents should be with CAO 12 days before the relevant offer round\". Published as \"1 August\" with no year, in a booklet dated November 2025 for 2026 entry; the year here is inferred from the intake this profile covers. If your coordinator has listed CAO as an institution permitted to see your results this happens by itself when results are released in early July; if not, you must upload or post them, with an English translation where the document is not in English, and with your CAO number on every page. Missing it does not end the application - it moves you out of Round One and into whatever places are left.",
+        "source": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
+      },
+      {
+        "label": "Round One offers - the round an IB candidate is in",
+        "date": null,
         "dateState": "not-yet-announced",
         "consequence": "indicative",
-        "year": "2026 entry - re-check for 2027",
-        "notes": "Published only as prose: \"From early July (Round A) through to Round 5 at the start of October\", so no date is recorded here. For 2026 entry offers ran from 6 July to 1 October. Your IB results are released 5-6 July 2027, so you will normally be considered in the main rounds rather than Round A.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates"
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Not yet announced: CAO’s 2027 timetable did not exist on 23 September 2026, and the round dates move each year with the Irish Leaving Certificate results they wait for. For 2026 entry the published dates were Round A on 6 July at 10:00, Round 0 on 6 August at 10:00, Leaving Certificate results on 21 August, and Round One on 26 August at 14:00, with Rounds 2 to 5 through September. Round One is the one that matters to you: the CAO Handbook says \"Applicants applying on the basis of school leaving examination results/grades, regardless of the year completed, will compete for an offer in Round One\". Round A is for deferred, mature and Access applicants and those needing visa time, and Round Zero for graduate-entry medicine and QQI quota applicants - an IB candidate applying straight from school is in neither, so an empty inbox in July and early August means nothing has gone wrong. The booklet is blunt about why: \"EU applicants are considered in competition with Irish school leavers. Consequently, offers cannot issue until the 2026 Irish school leaving results are known.\"",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf",
+          "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf"
+        ]
+      },
+      {
+        "label": "Round One acceptance closes - about six days after the offer",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The least visible date in the Irish system and the one that actually loses places. An offer is not a place until you accept it online: \"If you receive an offer and you choose to accept this offer, you must do so online by the reply date indicated on the Offer email.\" For 2026 entry the gap was six days - Round One offers at 14:00 on 26 August, \"Round 1 acceptances closing date\" at 15:00 on 1 September - and the other rounds were tighter still, two or three days each. The 2027 dates were not published as of 23 September 2026, so no date is recorded; expect late August or early September and expect under a week. Two things worth knowing before the email arrives: you may accept only one offer per round, from either the Level 8 or the Level 7/6 list, and accepting a lower preference does not remove you from consideration for the higher preferences you listed above it in later rounds.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
+      },
+      {
+        "label": "Later offer rounds and the end of the offer season",
+        "date": null,
+        "dateState": "not-yet-announced",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Not getting an offer in Round One is not the end of the cycle. For 2026 entry CAO ran Rounds 2 to 5 on 7, 15, 22 and 29 September, each with its own acceptance date two days later, and the \"Offer Season Ends\" line fell on 1 October. An Available Places facility, for courses still unfilled, opened the day after Round One and is free to existing applicants. The 2027 dates were not published as of 23 September 2026.",
+        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "sources": [
+          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+        ]
       }
     ],
     "steps": [
-      "From November 2026, register on cao.ie and start your application; pay by 20 January 2027 to get the discounted fee.",
-      "List up to ten Level 8 (honours bachelor's) courses and up to ten Level 7/6 courses, strictly in the order you actually want them - Irish offers follow your preference order exactly.",
-      "Include any restricted-entry course (medicine, some art and design, some performance courses) before the 1 February closing date, and register separately for HPAT if you are applying to undergraduate medicine.",
-      "Ask your IB coordinator to grant the Central Applications Office access to your results so they arrive automatically in July 2027.",
-      "Use the free Change of Mind window in May and June 2027 to reorder your list once you have a clearer sense of your predicted grades.",
-      "Results are released 5-6 July 2027; CAO converts your overall score to points and matches you against the cut-off for each course in your order of preference.",
-      "Accept your offer online by the reply date in that round, then apply for accommodation immediately."
+      "From 5 November 2026, register on cao.ie and start your application; pay by 20 January 2027 to get the 35 EUR discounted fee rather than 50 EUR.",
+      "List up to ten Level 8 (honours bachelor’s) courses and up to ten Level 7/6 courses, strictly in the order you actually want them - Irish offers follow your preference order exactly.",
+      "Include any restricted-entry course (medicine, some art and design, some performance courses) before the 1 February closing date, or add it for 10 EUR through the amend-course-choices facility before 1 March; after that it cannot be added at all.",
+      "If you are applying for undergraduate medicine, register for HPAT with ACER, not with CAO, and work to ACER’s mid-January closing date rather than the later one on CAO’s timetable.",
+      "Ask your IB coordinator to list the Central Applications Office among the institutions permitted to see your results, so they reach CAO automatically in July 2027.",
+      "Use the free Change of Mind window from 5 May to 1 July 2027 to settle your final order of preference - it closes before your IB results arrive.",
+      "Results are released in early July; CAO converts your overall IB score to points on its own published scale and matches you against the cut-off for each course in your order of preference.",
+      "If your results do not reach CAO by 1 August they may miss Round One, so check your CAO account rather than assuming.",
+      "Accept your Round One offer online by the reply date on the offer email - roughly six days - and apply for accommodation immediately."
     ],
-    "selectionNotes": "Almost everything is decided by points. CAO ranks all applicants for each course and the cut-off is simply the points of the last person offered a place, which is why the requirement is only known after the fact. Exceptions: undergraduate medicine combines points with the HPAT test; some art, design, architecture, music and drama courses require a portfolio, audition or interview; and a small number of courses run interviews. Those are the 'restricted' courses you must list by 1 February."
+    "selectionNotes": "Almost everything is decided by points. CAO ranks all applicants for each course and the cut-off is simply the points of the last person offered a place, which is why the requirement is only known after the fact. An IB Diploma is converted on CAO’s own published scale, which is not linear: 45 points is 600, 40 is 553, 36 is 497, 30 is 412 and 24 - the minimum for the award of the diploma and the floor for a Level 8 course - is 350. A further 25 points are added for a grade 4 or better in Higher Level Mathematics. The score must come from a single sitting. Exceptions to points-only selection: undergraduate medicine combines points with the HPAT test; some art, design, architecture, music and drama courses require a portfolio, audition or interview; and a small number of courses run interviews. Those are the \"restricted\" courses you must list by 1 February, or add by 1 March for 10 EUR."
   },
   "language": {
     "englishTaughtBachelors": "All of them. Ireland teaches its degree programmes in English; Irish (Gaeilge) is required only for a handful of courses such as primary teaching and Irish-language programmes.",
