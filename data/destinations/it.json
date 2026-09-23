@@ -1,0 +1,116 @@
+{
+  "id": "it",
+  "iso2": "it",
+  "name": "Italy",
+  "adjective": "Italian",
+  "scope": "europe",
+  "region": "Southern Europe",
+  "capital": "Rome",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Public tuition set by family income, so it can be almost free",
+  "summary": "Italy has no national application system for EU students: you apply to each university on its own portal and calendar, and many degrees add an entrance test. Public universities charge by family income, so fees can be a few hundred euros; private ones such as Bocconi charge a flat fee. English-taught bachelors are a minority, concentrated in economics, engineering, design and international relations.",
+  "whyConsider": [
+    "Public fees are income-based: at Politecnico di Milano in 2026/27 the most anyone paid was about €3,943 a year.",
+    "As an EU citizen you need no visa and skip the Universitaly pre-enrolment queue.",
+    "Strong English-taught clusters: Bocconi and Luiss for economics, the two Politecnici for engineering and design."
+  ],
+  "watchOuts": [
+    "The selective universities close early. Bocconi's last round for 2027 entry closes on 26 January 2027, and there is no spring round.",
+    "No central calendar: every university and often every programme sets its own dates.",
+    "To get the income-based fee a foreign family needs an ISEE parificato from an Italian CAF office. Without it you pay the top rate.",
+    "Most bachelors are still taught in Italian. Check the language programme by programme."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "minimumPoints": "Full IB Diploma. No national minimum score; each university and programme sets its own.",
+    "gradeConversion": "No national IB-to-Italian conversion. Where places are limited, applicants are usually ranked on an entrance test (TOLC, IMAT or the university's own), not IB points.",
+    "notes": [
+      "Each institution evaluates foreign qualifications itself."
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "A meaningful minority, concentrated in economics and management, engineering, design, international relations and English-taught Medicine.",
+    "englishProof": "Set by each university; IB English is commonly accepted. Check the programme page.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "means-tested",
+      "summary": "Public universities charge by family income (ISEE). Politecnico di Milano 2026/27: €880.04 at enrolment plus €0–€3,003, at most €3,943.04 a year. Private universities charge a flat fee: Bocconi €17,000 a year in 2026-27.",
+      "priceYear": "2026/27",
+      "evidence": ["ev-it-polimi-fees-2026", "ev-it-bocconi-fees-2026"]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Most degrees are at an università, state-run (statale) or private (non statale); the Politecnici are universities specialising in engineering, architecture and design. Alongside them sit AFAM institutions for art, music and dance, schools for language mediators (SSML), and ITS Academy — two-year higher technical courses run with industry, applied to directly.",
+    "routes": [
+      {
+        "localName": "università statale",
+        "englishName": "state university",
+        "kind": "research",
+        "what": "Bologna, Padua, Sapienza, Milan, Turin, Trento and the Politecnici of Milan and Turin. Three-year laurea; fees by family income; many courses open-access, others ranked on an entrance test.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "università non statale",
+        "englishName": "private university",
+        "kind": "research",
+        "what": "Bocconi and Luiss among others. Own selection on school record, a test and sometimes an interview, early rounds, flat fees much higher than the state universities.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "AFAM (Alta Formazione Artistica, Musicale e Coreutica)",
+        "englishName": "higher arts, music and dance education",
+        "kind": "specialist",
+        "what": "Conservatori, Accademie di Belle Arti and similar, awarding a Diploma accademico di primo livello. Admission by audition or portfolio.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Not researched here."
+      },
+      {
+        "localName": "ITS Academy",
+        "englishName": "higher technical institute",
+        "kind": "professional",
+        "what": "Two-year higher technical courses designed with employers, in fields such as mechatronics, ICT and tourism. The route Italians rarely mention to foreigners.",
+        "ibAccessible": "unknown",
+        "englishTaught": "rare",
+        "note": "Applied to directly at each ITS. Not researched here."
+      },
+      {
+        "localName": "SSML (Scuola Superiore per Mediatori Linguistici)",
+        "englishName": "school for language mediators",
+        "kind": "specialist",
+        "what": "Accredited schools teaching translation and interpreting at bachelor level.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched here."
+      }
+    ],
+    "evidence": ["ev-it-mur-circolare-2026-2028"]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-it-mur-circolare-2026-2028",
+    "ev-it-bocconi-admissions-2027",
+    "ev-it-polimi-fees-2026"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "One system for an EU applicant: every listed institution is applied to directly, so institutionGrouping is none and one direct route covers all twelve.",
+      "Not established: the 2027 IMAT date (set by an annual ministerial decree; mur.gov.it refuses automated fetch), Politecnico di Milano's 2027/28 call, and whether AFAM, ITS Academy and SSML routes accept an IB Diploma on the same terms."
+    ]
+  }
+}

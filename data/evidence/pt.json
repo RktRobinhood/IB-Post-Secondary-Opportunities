@@ -1,0 +1,158 @@
+[
+  {
+    "id": "ev-pt-dges-calendario-2026",
+    "sourceUrl": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0",
+    "publisher": "Direção-Geral do Ensino Superior (DGES)",
+    "publisherType": "national-agency",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "In the 2026 Concurso Nacional de Acesso, candidates asking to substitute provas de ingresso with foreign exams applied in the first phase from 20 to 29 July; all other candidates from 20 July to 6 August. First-phase results were published on 23 August. The calendar was approved by Despacho n.º 9359-A/2026 of 23 July.",
+    "excerpt": "Apresentação da candidatura à 1ª fase do concurso nacional de acesso ao ensino superior - candidatos ao contingente prioritário para emigrantes, familiares que com eles residam e lusodescendentes e candidatos com pedido de substituição de provas de ingresso por exames estrangeiros",
+    "interpretation": "The date a student gets wrong: an IB candidate substituting IB exams for the Portuguese entrance exams is in the early group and closes on 29 July, a week before the date everyone else quotes. This is the 2026 calendar. The 2027 one is set by its own despacho, published in July of the year, so the route records the 2027 dates as not yet announced and gives these as precedent.",
+    "supports": [
+      { "entity": "pt-cna-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Portuguese. The English path for this page returns 404; the English mirror is wwwcdn.dges.gov.pt/en/node/3685."
+    }
+  },
+  {
+    "id": "ev-pt-dges-foreign-secondary",
+    "sourceUrl": "https://www.dges.gov.pt/en/node/172",
+    "publisher": "Direção-Geral do Ensino Superior (DGES)",
+    "publisherType": "national-agency",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "A candidate with foreign secondary education needs an equivalence certificate giving the final grade on the 0–200 scale, and may substitute provas de ingresso only with foreign exams on the list the CNAES publishes each year by 31 May.",
+    "excerpt": "A CNAES divulga, anualmente, até 31 maio do ano da candidatura, uma deliberação com a lista dos exames finais estrangeiros homólogos.",
+    "interpretation": "Two things for an IB student. The equivalence certificate is issued by a Portuguese secondary school or the Direção-Geral da Educação, not by the university, and takes time. And which IB subjects count in place of which Portuguese entrance exams is only certain once the list appears by 31 May 2027, under two months before the application window.",
+    "supports": [
+      { "entity": "pt", "field": "ibRecognition" },
+      { "entity": "pt-cna-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page text is in Portuguese despite the /en/ path."
+    }
+  },
+  {
+    "id": "ev-pt-dges-international-statute",
+    "sourceUrl": "https://www.dges.gov.pt/pt/pagina/concurso-especial-para-estudantes-internacionais",
+    "publisher": "Direção-Geral do Ensino Superior (DGES)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Nationals of an EU member state or of an EEA state are not international students under the international-student statute, so they cannot use the special contest for international students.",
+    "excerpt": "Os nacionais de um Estado membro da União Europeia ou os nacionais de um Estado Parte no Acordo sobre o Espaço Económico Europeu",
+    "interpretation": "The finding that shapes all of Portugal for a Danish student: the English-language 'international' routes at Porto, Nova SBE and elsewhere are closed to an EU citizen. Public universities are reached through the Concurso Nacional de Acesso, at the Portuguese fee.",
+    "supports": [
+      { "entity": "pt", "field": "watchOuts" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Portuguese; the excerpt is the list item under those not considered international students."
+    }
+  },
+  {
+    "id": "ev-pt-dges-propinas",
+    "sourceUrl": "https://www.dges.gov.pt/pt/pagina/propinas",
+    "publisher": "Direção-Geral do Ensino Superior (DGES)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The maximum annual propina for a licenciatura or integrated master's at a public institution in 2025-2026 is €697, unchanged from the previous year.",
+    "excerpt": "o valor máximo da propina a fixar pelas instituições de ensino superior não pode ser superior ao valor fixado no anterior ano letivo, mantendo-se assim em 697€",
+    "interpretation": "A legal maximum, not an average. The page gives no 2026-27 or 2027-28 figure, so €697 is recorded with its year.",
+    "supports": [
+      { "entity": "pt", "field": "feeContext" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-pt-dges-sistema",
+    "sourceUrl": "https://www.dges.gov.pt/pt/pagina/sistema-de-ensino-superior-portugues",
+    "publisher": "Direção-Geral do Ensino Superior (DGES)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "Portuguese higher education is a binary system of university and polytechnic education, in public and private institutions; since 2014 it also includes a short-cycle, non-degree course, the curso técnico superior profissional.",
+    "excerpt": "O ensino superior português organiza-se num sistema binário que integra o ensino universitário e o ensino politécnico e é ministrado em instituições públicas e privadas.",
+    "supports": [
+      { "entity": "pt", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-pt-dges-ctesp",
+    "sourceUrl": "https://www.dges.gov.pt/pt/pagina/curso-tecnico-superior-profissional-ctesp",
+    "publisher": "Direção-Geral do Ensino Superior (DGES)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "verificationState": "needs-review",
+    "claim": "A CTeSP is a two-year, 120-ECTS higher education course that does not confer a degree, leads to the diploma de técnico superior profissional, includes a work placement, and is applied to directly at the institution rather than through the national contest.",
+    "excerpt": "70% das horas de aulas das disciplinas de formação técnica são de aplicação prática",
+    "interpretation": "The Portuguese route nobody mentions to foreigners. Whether an IB Diploma is accepted for entry, and whether any CTeSP is taught in English, was not established.",
+    "supports": [
+      { "entity": "pt", "field": "sectorLandscape" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-pt-clsbe-how-apply",
+    "sourceUrl": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+    "publisher": "Católica Lisbon School of Business & Economics (Universidade Católica Portuguesa)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "Católica Lisbon's international bachelors are open to students of any nationality or education system, applied to directly, with predicted grades and a conditional offer. For the 2026 intake the Mathematics Admissions Test was on 3 June, the English certificate was due 3 July and final academic documents 17 July 2026.",
+    "excerpt": "All students, from any nationality or educational system, who fulfill the mandatory requirements, according to one of the following conditions",
+    "interpretation": "Católica is a private university outside the national contest, so unlike the public universities it is open to a Danish IB student directly, in English, on predicted grades. The dates are the 2026 intake's; 2027 not yet published.",
+    "supports": [
+      { "entity": "pt-catolica-direct-2027", "field": "milestones" }
+    ],
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "attestation": {
+      "by": "the Southern Europe floor pass (es, pt, it)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "The page lays out a seven-step checklist rather than numbered rounds, and gives no application closing date of its own."
+    }
+  }
+]

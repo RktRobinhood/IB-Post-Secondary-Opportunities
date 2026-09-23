@@ -1,0 +1,70 @@
+{
+  "id": "pt-cna-2027",
+  "destination": "pt",
+  "jurisdiction": "pt-public",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "Applying to a Portuguese public university through the national contest, autumn 2027",
+  "channel": "application-system",
+  "applicationSystem": "pt-cna",
+  "portalUrl": "https://www.dges.gov.pt/",
+  "choicesRanked": true,
+  "milestones": [
+    {
+      "id": "ms-equivalence",
+      "type": "document",
+      "label": "Get the equivalence certificate for your IB Diploma",
+      "consequence": "personal",
+      "note": "Issued by a Portuguese secondary school or the Direção-Geral da Educação, with the final grade on the 0–200 scale. Documents need an apostille and a Portuguese translation. Start early.",
+      "evidence": ["ev-pt-dges-foreign-secondary"]
+    },
+    {
+      "id": "ms-cnaes-list",
+      "type": "open",
+      "label": "CNAES publishes which foreign exams replace the Portuguese entrance exams",
+      "date": "2027-05-31",
+      "consequence": "indicative",
+      "provisional": false,
+      "note": "Published by this date each year. Until then you cannot be sure which IB subjects will count for your degree.",
+      "evidence": ["ev-pt-dges-foreign-secondary"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Before the national contest opens, so you apply with real results.",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day"
+    },
+    {
+      "id": "ms-submit-substitution",
+      "type": "submit",
+      "label": "1st phase closes for candidates substituting foreign exams — the IB candidate's deadline",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 this group applied 20–29 July, a week before the 6 August date other candidates had. The 2027 calendar is set by its own despacho, usually in July.",
+      "evidence": ["ev-pt-dges-calendario-2026"]
+    },
+    {
+      "id": "ms-results-1",
+      "type": "result",
+      "label": "1st phase placements",
+      "dateState": "not-yet-announced",
+      "consequence": "indicative",
+      "note": "23 August in 2026, with only four days to enrol after it. Second and third phases follow into October.",
+      "evidence": ["ev-pt-dges-calendario-2026"]
+    }
+  ],
+  "evidence": ["ev-pt-dges-calendario-2026", "ev-pt-dges-foreign-secondary"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-06-01",
+    "notes": [
+      "The dated 2026 events stay in the country profile's deadlines with their year; the route records 2027 as not yet announced rather than carrying a year forward."
+    ]
+  }
+}

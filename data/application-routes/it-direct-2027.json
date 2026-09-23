@@ -1,0 +1,71 @@
+{
+  "id": "it-direct-2027",
+  "destination": "it",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "Applying directly to an Italian university for autumn 2027",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-apply",
+      "type": "submit",
+      "label": "Each university's own application round",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "No national portal and no national date for an EU applicant. Each university, and often each programme, publishes its own round on its own site. Selective private universities close months before IB exams; open-access degrees often take applications into the summer.",
+      "evidence": ["ev-it-mur-circolare-2026-2028"]
+    },
+    {
+      "id": "ms-bocconi-winter",
+      "type": "submit",
+      "label": "Bocconi Winter Session closes — Bocconi's last round for 2027",
+      "date": "2027-01-26",
+      "timeOfDay": "15:00",
+      "timeZone": "Europe/Rome",
+      "consequence": "hard",
+      "provisional": false,
+      "note": "The example of how early the selective universities close. Bocconi has no spring round for 2027-28 entry. You need a test score first: the last Bocconi online test date for this session is 21 January 2027.",
+      "evidence": ["ev-it-bocconi-admissions-2027"]
+    },
+    {
+      "id": "ms-tolc",
+      "type": "test",
+      "label": "Sit the TOLC entrance test, if your degree uses one",
+      "dateState": "varies-by-institution",
+      "consequence": "personal",
+      "note": "Offered monthly from February to November, one sitting of each type per month, €35. The university's own notice says which sittings count. Sit it early so there is time to retake.",
+      "evidence": ["ev-it-cisia-tolc"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Selective rounds decide on predicted grades well before this; open-access degrees may still be taking applications.",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "supplementarySteps": [
+    "Choose the programme, not just the university: language, test and deadline are set per programme.",
+    "As an EU citizen you do not use Universitaly pre-enrolment and need no visa.",
+    "To pay the income-based fee at a public university, get an ISEE parificato through an Italian CAF office. Without one you pay the top rate."
+  ],
+  "evidence": [
+    "ev-it-mur-circolare-2026-2028",
+    "ev-it-bocconi-admissions-2027",
+    "ev-it-cisia-tolc"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "One route for all twelve listed institutions, because for an EU applicant every one of them, public or private, is applied to directly.",
+      "Not established: Politecnico di Milano's 2027/28 Laurea call was not published on 2026-09-23, nor the IMAT date for English-taught Medicine, which follows an annual ministerial decree."
+    ]
+  }
+}

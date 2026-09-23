@@ -1,0 +1,29 @@
+{
+  "id": "pt-cna",
+  "name": "Concurso Nacional de Acesso",
+  "localName": "Concurso Nacional de Acesso ao Ensino Superior Público",
+  "jurisdiction": {
+    "authorityType": "national",
+    "destination": "pt",
+    "authority": "Direção-Geral do Ensino Superior (DGES)",
+    "area": "Portugal"
+  },
+  "portalUrl": "https://www.dges.gov.pt/",
+  "coverage": {
+    "extent": "partial",
+    "includes": "Degrees at public universities and polytechnics.",
+    "excludes": "Private institutions such as Universidade Católica Portuguesa, which admit directly, and CTeSP short-cycle courses."
+  },
+  "choiceRules": {
+    "ranked": true,
+    "offersReceived": "one",
+    "note": "Several degree-and-institution pairs, ranked. The limit was not re-read for this record."
+  },
+  "decisionModel": "Ranking only. Each degree has fixed places; applicants are ranked on their secondary grade and entrance-exam results on a 0–200 scale, weighted as the institution sets.",
+  "replyModel": "Three phases, July to October. A placement must be taken up by enrolling within a few days.",
+  "evidence": ["ev-pt-dges-calendario-2026", "ev-pt-dges-foreign-secondary"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23"
+  }
+}

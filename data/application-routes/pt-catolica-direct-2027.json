@@ -1,0 +1,41 @@
+{
+  "id": "pt-catolica-direct-2027",
+  "destination": "pt",
+  "jurisdiction": "pt-private",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to Universidade Católica Portuguesa, autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/how-apply",
+  "milestones": [
+    {
+      "id": "ms-apply",
+      "type": "submit",
+      "label": "Apply on predicted grades",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "Open to any nationality. Offers are conditional on final grades. For the 2026 intake Católica Lisbon held its maths admissions test on 3 June and wanted the English certificate by 3 July and final documents by 17 July.",
+      "evidence": ["ev-pt-clsbe-how-apply"]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Final results confirm the conditional offer.",
+      "evidence": ["ev-ib-results-day-2027-05"],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "evidence": ["ev-pt-clsbe-how-apply"],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-01",
+    "notes": [
+      "Covers Católica Lisbon and the wider Universidade Católica Portuguesa. Only Católica Lisbon's process was read; the other campuses publish a 2026/27 international calendar that did not render its dates to an automated read."
+    ]
+  }
+}
