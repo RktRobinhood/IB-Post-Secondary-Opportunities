@@ -106,5 +106,183 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-nawa-ib-automatic-recognition",
+    "sourceUrl": "https://nawa.gov.pl/en/recognition/recognition-for-academic-purposes/applying-for-admission-to-first-long-cycle-studies",
+    "publisher": "NAWA (Polish National Agency for Academic Exchange)",
+    "publisherType": "national-agency",
+    "sourceClass": "recognition-body",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "An IB certificate needs no individual recognition statement from NAWA: it is automatically recognised for the purpose of applying to first-cycle and long-cycle studies in Poland.",
+    "excerpt": "The NAWA’s Director individual recognition statement is not required in the case of secondary school certificates issued in EU, OECD or EFTA member countries, those included in international agreements on recognition of education (e.g. agreements with China or Ukraine) as well as IB and EB certificates. Those documents are automatically recognised for the purpose of applying for admission to first-cycle studies or long-cycle studies",
+    "interpretation": "This closes the question the country profile left open: NAWA's position on the IB for admission, as distinct from recognition of secondary education. Automatic recognition is not admission; each university still applies its own conversion and subject rules.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-studygovpl-apply-directly",
+    "sourceUrl": "https://study.gov.pl/admission-requirements",
+    "publisher": "Study in Poland (NAWA)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "Admissions in Poland are run by each higher education institution, and candidates apply directly to the institution of their choice.",
+    "excerpt": "Admissions to the study programs are administrated by the higher educations institutions (HEIs) and candidates apply directly to the institution of their choice.",
+    "interpretation": "No national portal. Each university runs its own online registration (IRK) with its own dates, fee and requirements.",
+    "supports": [
+      {
+        "entity": "pl-direct-2027",
+        "field": "channel"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-studygovpl-polish-taught-free",
+    "sourceUrl": "https://study.gov.pl/tuition-fees",
+    "publisher": "Study in Poland (NAWA)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "Full-time Polish-language study at state higher education institutions is free for Polish students and for foreigners studying on Polish terms, including EU/EEA citizens.",
+    "excerpt": "Full-time studies (in the Polish language) at the state Higher Education Institutions (HEIs) are free for Polish students and foreigners who commence studies in Poland on terms applicable to Polish citizens (see: define your status). These include citizens of the EU/EEA",
+    "interpretation": "Polish-taught only. English-taught programmes may charge EU citizens, and whether they do is programme by programme — see ev-uw-tuition-2026-27.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-uw-tuition-2026-27",
+    "sourceUrl": "https://rekrutacja.uw.edu.pl/files/pdf/tuition_fees_2026-2027_06.2026.pdf",
+    "publisher": "University of Warsaw",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2026-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The University of Warsaw's 2026/27 fee schedule for English-taught programmes prints separate prices for EU/EFTA and non-EU citizens, and some programmes are free of charge for EU/EFTA citizens while others charge them.",
+    "excerpt": "Citizens of EU/EFTA (EEA parties) and Switzerland: free of charge […] Citizens of Non-EU/EFTA (EEA parties) and Switzerland: 5,500 EUR",
+    "interpretation": "The point for a pamphlet is the pattern, not the table: at the same university an English-taught programme can be free for an EU citizen or cost several thousand euros. Check the programme's own line. Prices are for 2026/27; 2027/28 was not yet published.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "A three-page PDF whose table does not survive text extraction cleanly; the column pairing of individual prices was not relied on here, only that both free-of-charge and charged EU prices appear."
+      ]
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-pdf",
+      "note": "Read with pdftotext; the layout scrambles which price belongs to which programme, so no programme-level price is recorded from this reading."
+    }
+  },
+  {
+    "id": "ev-pums-calendar-2027-deadline",
+    "sourceUrl": "https://pums.edu.pl/admissions/application-calendar/",
+    "publisher": "Poznan University of Medical Sciences",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "Poznan University of Medical Sciences opened admissions for Fall 2027 entry on 1 September 2026, and its last date to register an application online is 20 July 2027.",
+    "excerpt": "Admissions open Start of the admission season for the Fall 2027 entry. 1 Sep 2026 […] Application deadline The last possible date to register your application on-line via applicant.ump.edu.pl 20 Jul 2027",
+    "interpretation": "One university's dates, shown on the route only as an example of how far apart Polish institutions' calendars sit. It is not a national date.",
+    "supports": [
+      {
+        "entity": "pl-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-eurydice-pl-institution-types",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/eurypedia/poland/types-higher-education-institutions",
+    "publisher": "Eurydice (European Commission)",
+    "publisherType": "other",
+    "sourceClass": "encyclopaedic",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "Poland has two main types of higher education institution, university-type (uczelnia akademicka) and non-university (uczelnia zawodowa), with public institutions including specialist medical and art HEIs, and a large non-public sector.",
+    "excerpt": "There are two main types of higher education institutions (HEIs) in Poland: university-type HEIs (uczelnia akademicka) and non-university HEIs (uczelnia zawodowa).",
+    "interpretation": "Descriptive only, for the sector landscape. The page counts 359 HEIs in 2024, of which 207 non-public.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "sectorLandscape"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
   }
 ]

@@ -1,0 +1,125 @@
+{
+  "id": "pl",
+  "iso2": "pl",
+  "name": "Poland",
+  "adjective": "Polish",
+  "scope": "europe",
+  "region": "Central Europe",
+  "capital": "Warsaw",
+  "currency": "PLN",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Cheap, big, and more free English-taught places than you think",
+  "summary": "Poland recognises an IB Diploma automatically — no recognition statement needed — and has a large, affordable English-taught offer, from engineering in Kraków and Wrocław to medicine in Gdańsk and Poznań. You apply directly to each university on its own system and calendar. Polish-taught study is free for EU citizens; English-taught fees vary by programme, and some are free for EU citizens too.",
+  "whyConsider": [
+    "Your IB Diploma is automatically recognised for applying to university.",
+    "A large English-taught offer at modest fees, including six-year medicine.",
+    "Some English-taught programmes cost EU citizens nothing — check each programme's fee line."
+  ],
+  "watchOuts": [
+    "No central portal and no national deadline. Each university sets its own, and most had not published 2027 dates by September 2026.",
+    "HL versus SL matters more than your total. Universities convert them very differently, and some programmes require a science at HL.",
+    "Studying medicine here to practise in Denmark involves more than the diploma — read the medicine-abroad page before committing."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "notes": [
+      "NAWA, the recognition body, states that IB certificates are automatically recognised for applying to first-cycle and long-cycle studies, with no individual recognition statement. Each university then applies its own conversion of IB grades."
+    ],
+    "evidence": [
+      "ev-nawa-ib-automatic-recognition"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "Substantial, spread across many universities.",
+    "englishProof": "An IB Diploma taught in English is usually accepted. Confirm per university; some medical schools want IELTS.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "Full-time Polish-taught study at a state university is free for EU/EEA citizens. English-taught programmes vary: at the University of Warsaw some are free for EU citizens and others charge several thousand euros a year.",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-studygovpl-polish-taught-free",
+        "ev-uw-tuition-2026-27"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Poland divides its higher education into university-type institutions (uczelnia akademicka), which do research and can award doctorates, and non-university institutions (uczelnia zawodowa), which teach practically oriented bachelor's programmes. Medical universities and art academies are separate public institutions, and there is a large private (niepubliczna) sector.",
+    "routes": [
+      {
+        "localName": "uczelnia akademicka",
+        "englishName": "university-type institution",
+        "kind": "research",
+        "what": "Universities and technical universities (politechnika) — Warsaw, Jagiellonian, AGH, Wrocław Tech and others. Most English-taught bachelor's are here.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "uczelnia zawodowa",
+        "englishName": "non-university institution",
+        "kind": "applied",
+        "what": "Practice-oriented institutions offering bachelor's degrees (licencjat or inżynier). The kind of place nobody mentions to foreigners.",
+        "ibAccessible": "yes",
+        "englishTaught": "unknown",
+        "note": "Not researched for English-taught programmes."
+      },
+      {
+        "localName": "uczelnia medyczna",
+        "englishName": "medical university",
+        "kind": "professional",
+        "what": "Public medical universities, several with six-year English-taught medicine and dentistry.",
+        "ibAccessible": "yes",
+        "englishTaught": "common"
+      },
+      {
+        "localName": "uczelnia artystyczna",
+        "englishName": "art academy",
+        "kind": "specialist",
+        "what": "Fine art, music, theatre and film, admitting on portfolio or audition.",
+        "ibAccessible": "partly",
+        "englishTaught": "unknown",
+        "note": "Not researched in detail here."
+      },
+      {
+        "localName": "uczelnia niepubliczna",
+        "englishName": "private institution",
+        "kind": "applied",
+        "what": "A large private sector, mostly business and social sciences, including Kozminski University.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      }
+    ],
+    "evidence": [
+      "ev-eurydice-pl-institution-types"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-nawa-ib-automatic-recognition",
+    "ev-studygovpl-apply-directly",
+    "ev-studygovpl-polish-taught-free",
+    "ev-uw-tuition-2026-27",
+    "ev-pums-calendar-2027-deadline",
+    "ev-eurydice-pl-institution-types"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-28",
+    "notes": [
+      "Most 2027 university calendars were not published by September 2026; the country profile carries 2026 dates as provisional.",
+      "Not established: which uczelnie zawodowe teach in English.",
+      "'uczelnia medyczna' and 'uczelnia artystyczna' are ordinary Polish descriptive terms; the Eurydice page read names these categories in English ('a medical HEI', 'an HEI of art studies').",
+      "The PUMS class-start contradiction (country profile, ev-pums-calendar-class-start) is still open."
+    ]
+  }
+}

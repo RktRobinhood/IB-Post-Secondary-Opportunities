@@ -96,5 +96,129 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-gov-si-joint-call-evs",
+    "sourceUrl": "https://www.gov.si/teme/vpis-v-visokosolski-studij/",
+    "publisher": "Government of the Republic of Slovenia (gov.si)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "Undergraduate and single-cycle master's places at the four public universities and the concession-holding independent institutions are offered in one joint call, with selection in the first and second application periods run centrally; every candidate applies through the eVŠ portal by the deadline the call sets.",
+    "excerpt": "Prijavni roki so določeni z razpisom za vpis in se med razpisi lahko razlikujejo. Vsi kandidati morajo oddati elektronsko prijavo za vpis prek spletnega portala eVŠ",
+    "interpretation": "The central route, and the reason no date can be given yet: the periods are fixed by each year's call, and the 2027/28 call had not been published. An institution outside the joint call publishes its own call and runs its own selection, but the application itself still goes in through eVŠ.",
+    "supports": [
+      {
+        "entity": "si-evs-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "si-evs-2027",
+        "field": "channel"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Read in Slovene."
+      ]
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Slovene. The page names the four universities and \"koncesioniranih samostojnih visokošolskih zavodov\" as the joint-call participants."
+    }
+  },
+  {
+    "id": "ev-studyinslovenia-eu-as-slovenes",
+    "sourceUrl": "https://studyinslovenia.si/how-to-apply/bachelors-level/",
+    "publisher": "Study in Slovenia (national portal)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "Applications to public and private higher education institutions are made electronically through eVŠ, and EU citizens apply for the places intended for Slovenian citizens.",
+    "excerpt": "European Union member countries citizens may apply for enrolments that are intended for the citizens of the Republic of Slovenia, while the non-EU countries citizens and Slovenians without Slovenian citizenship may apply for enrolments for foreigners.",
+    "interpretation": "A Danish citizen applies on the Slovenian timetable, not the separate foreigners' one.",
+    "supports": [
+      {
+        "entity": "si-evs-2027",
+        "field": "channel"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-uni-lj-tuition-eu",
+    "sourceUrl": "https://www.uni-lj.si/en/study/tuition-fees-and-other-study-contributions",
+    "publisher": "University of Ljubljana",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "The University of Ljubljana charges no tuition for full-time bachelor's and master's study to Slovenians and to students from EU countries, Switzerland, Iceland, Liechtenstein and Norway.",
+    "excerpt": "No tuition fees for full-time bachelor's and master's studies for: Slovenians […] together with students from EU countries, Switzerland, Iceland, Liechtenstein, and Norway",
+    "interpretation": "Full-time only. Part-time study is charged, even to EU citizens. The page is undated.",
+    "supports": [
+      {
+        "entity": "si",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-eurydice-si-institution-types",
+    "sourceUrl": "https://eurydice.eacea.ec.europa.eu/eurypedia/slovenia/higher-education",
+    "publisher": "Eurydice (European Commission)",
+    "publisherType": "other",
+    "sourceClass": "encyclopaedic",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "Slovenian higher education is provided by public and private universities and by other institutions — faculties, art academies and professional colleges — alongside two-year higher vocational programmes.",
+    "excerpt": "The studies are organised by both public and private universities, and other higher education institutions, namely at faculties, art academies, and higher vocational colleges.",
+    "interpretation": "Descriptive only, used for the sector landscape. The same page describes the short-cycle higher vocational programmes as practice-oriented and two years long.",
+    "supports": [
+      {
+        "entity": "si",
+        "field": "sectorLandscape"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "attestation": {
+      "by": "the Hungary, Slovenia and Poland floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
   }
 ]

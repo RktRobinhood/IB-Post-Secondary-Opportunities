@@ -1,0 +1,116 @@
+{
+  "id": "hu",
+  "iso2": "hu",
+  "name": "Hungary",
+  "adjective": "Hungarian",
+  "scope": "europe",
+  "region": "Central Europe",
+  "capital": "Budapest",
+  "currency": "HUF",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Medicine in English — but you pay for all of it yourself",
+  "summary": "Hungary is where Scandinavians go to study medicine in English: five medical schools teach medicine, dentistry and pharmacy fully in English and set their own entrance exams. You apply directly to each university, on its own portal and to its own deadline. There is no EU discount on English-taught fees and the big Hungarian scholarships are closed to EU citizens, so plan to be self-funded.",
+  "whyConsider": [
+    "English-taught medicine, dentistry, pharmacy and veterinary medicine, with entrance exams that can often be sat online.",
+    "An IB Diploma counts as the Hungarian school-leaving certificate.",
+    "Living costs outside Budapest are low."
+  ],
+  "watchOuts": [
+    "Only the full IB Diploma counts. Course Results and provisional results are not accepted as a school-leaving certificate.",
+    "Every university has its own deadline, and several admit continuously — apply early rather than to the date.",
+    "No EU fee discount on English-taught programmes. Medicine runs to well over €15,000 a year."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "notes": [
+      "For the central Hungarian procedure only the IB Diploma is accepted as the school-leaving certificate; Certificates and Course Results are not. English-taught programmes run their own admissions — check the university's page."
+    ],
+    "evidence": [
+      "ev-felvi-ib-diploma-only"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "Strong in medicine and business; thinner elsewhere.",
+    "englishProof": "Set by each university. Several test English inside their own entrance exam.",
+    "localLanguageRequired": false
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "any",
+      "feeStatus": "international-rate",
+      "summary": "English-taught programmes charge everyone, EU citizens included. Semmelweis medicine is €9,340 a semester for 2027 entry.",
+      "priceYear": "2027 entry",
+      "evidence": [
+        "ev-semmelweis-medicine-2027"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Hungary has 64 accredited higher education institutions of two legal types, the egyetem (university) and the főiskola (college, often called a university of applied sciences in English). Medicine is a 10–12-semester undivided programme inside the universities, the arts have their own universities, and a two-year felsőoktatási szakképzés gives a vocational qualification without a degree.",
+    "routes": [
+      {
+        "localName": "egyetem",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The research universities, including the medical universities and faculties that teach medicine, dentistry and pharmacy in English. Where most English-taught bachelor's and all English-taught medicine sit.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "főiskola",
+        "englishName": "college / university of applied sciences",
+        "kind": "applied",
+        "what": "Smaller, practice-oriented institutions awarding bachelor's degrees and sometimes more.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "művészeti egyetem",
+        "englishName": "arts university",
+        "kind": "specialist",
+        "what": "Music, art and design — the Liszt Academy and MOME among them — admitting on audition or portfolio.",
+        "ibAccessible": "partly",
+        "englishTaught": "some",
+        "note": "Entry turns on the audition or portfolio, not IB points."
+      },
+      {
+        "localName": "felsőoktatási szakképzés",
+        "englishName": "higher vocational programme",
+        "kind": "college",
+        "what": "Four semesters at a higher education institution, ending in a vocational qualification but not a degree. Part of the credits count if you go on to a bachelor's.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched for international applicants."
+      }
+    ],
+    "evidence": [
+      "ev-studyinhungary-institution-types",
+      "ev-felvi-training-levels"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-felvi-ib-diploma-only",
+    "ev-studyinhungary-institution-types",
+    "ev-felvi-training-levels",
+    "ev-semmelweis-medicine-2027",
+    "ev-pte-application-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "The felvi.hu IB page read is the 2026 admission guide; the 2027 guide was not yet out.",
+      "Not established: whether any felsőoktatási szakképzés is taught in English, or open to an IB applicant from abroad.",
+      "The 'arts university' route name is the ordinary Hungarian term (as in Zeneművészeti Egyetem, Művészeti Egyetem); no official page defining it as a category was read.",
+      "Programme-level records not yet created. Detailed fees, exam exemptions and per-university dates are on the country profile."
+    ]
+  }
+}

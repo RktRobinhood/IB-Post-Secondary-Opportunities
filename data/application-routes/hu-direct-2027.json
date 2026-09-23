@@ -1,0 +1,65 @@
+{
+  "id": "hu-direct-2027",
+  "destination": "hu",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Hungarian university",
+  "channel": "direct",
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-apply",
+      "type": "submit",
+      "label": "Each university's own closing date",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "English-taught programmes are applied for on each university's own portal, not through the national felvi.hu system. Dates differ: Semmelweis closes medicine on 31 May 2027; Pécs takes applications from 1 November 2026 to 30 June 2027 and admits continuously. Several universities fill places as applications arrive, so treat a published deadline as the last possible day.",
+      "evidence": [
+        "ev-semmelweis-medicine-2027",
+        "ev-pte-application-2027"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "After most Hungarian deadlines. You apply on predicted grades and entrance exams, and upload the Diploma once you have it.",
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
+    },
+    {
+      "id": "ms-semmelweis-certificate",
+      "type": "document",
+      "label": "Semmelweis: upload your school-leaving certificate",
+      "date": "2027-08-21",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Semmelweis only. Published as a standing rule, '21st of August the year of application', so the year is inferred. Other universities set their own document deadline.",
+      "evidence": [
+        "ev-semmelweis-medicine-2027"
+      ]
+    }
+  ],
+  "supplementarySteps": [
+    "Most English-taught medicine, dentistry, pharmacy and veterinary programmes set their own entrance exam, often online. Book it early: at several schools the exam slot is what decides when you can be admitted.",
+    "CEU is listed with Hungary but teaches its bachelor's degrees in Vienna."
+  ],
+  "evidence": [
+    "ev-semmelweis-medicine-2027",
+    "ev-pte-application-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-01-31",
+    "notes": [
+      "Applying directly is the finding. The national felvi.hu / E-felvételi system covers Hungarian-language and state-funded places; the English-taught programmes behind this page run their own portals (Semmelweis SEMAPHOR, BME e-admission, apply.mome.hu, apply.metropolitan.hu, Pécs and Corvinus online forms).",
+      "Per-institution dates live on the country profile's deadline list. No single date is recorded as the route's closing date, because one university's date would stand in for thirteen others."
+    ]
+  }
+}

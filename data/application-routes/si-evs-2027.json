@@ -1,0 +1,65 @@
+{
+  "id": "si-evs-2027",
+  "destination": "si",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "Applying to Slovenia through eVŠ for autumn 2027",
+  "channel": "application-system",
+  "portalUrl": "https://portal.evs.gov.si/prijava/?locale=en",
+  "milestones": [
+    {
+      "id": "ms-call",
+      "type": "open",
+      "label": "Joint call for enrolment (razpis za vpis) published",
+      "dateState": "not-yet-announced",
+      "consequence": "indicative",
+      "note": "Every date in the Slovenian cycle is set by this call. Until the 2027/28 call is out, nothing here has a date.",
+      "evidence": [
+        "ev-gov-si-joint-call-evs"
+      ]
+    },
+    {
+      "id": "ms-submit",
+      "type": "submit",
+      "label": "First application period (prvi prijavni rok) closes",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "The period that matters. Later periods only fill places left over. As an EU citizen you apply on the Slovenian citizens' timetable, not the foreigners' one.",
+      "evidence": [
+        "ev-gov-si-joint-call-evs",
+        "ev-studyinslovenia-eu-as-slovenes"
+      ]
+    },
+    {
+      "id": "ms-ib",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "note": "Your results go into eVŠ after this. How late they may arrive for the first-round decision is set by the call.",
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day",
+      "provisional": true
+    }
+  ],
+  "supplementarySteps": [
+    "Log in to eVŠ with SI-PASS. Set this up before the application period opens.",
+    "Get it in writing from the faculty whether your IB Diploma needs a recognition procedure. Two official pages disagree, and if it is needed it can take up to two months."
+  ],
+  "evidence": [
+    "ev-gov-si-joint-call-evs",
+    "ev-studyinslovenia-eu-as-slovenes"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-15",
+    "notes": [
+      "The joint call covers the four public universities and the concession-holding independent institutions. Other private institutions publish their own calls, but applications still go in through eVŠ, so one route covers every institution listed.",
+      "No application-system record for eVŠ exists yet; creating one was outside this pass's file ownership. The portal is recorded as portalUrl instead.",
+      "The 2026 dates (first-round result on 24 July, and so on) are on the country profile. They are not carried here even as provisional, because the call can move them."
+    ]
+  }
+}

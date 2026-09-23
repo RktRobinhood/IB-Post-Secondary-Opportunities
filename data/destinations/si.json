@@ -1,0 +1,119 @@
+{
+  "id": "si",
+  "iso2": "si",
+  "name": "Slovenia",
+  "adjective": "Slovenian",
+  "scope": "europe",
+  "region": "Central Europe",
+  "capital": "Ljubljana",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Free tuition for EU students, but very few English bachelor's",
+  "summary": "As an EU citizen you study full-time in Slovenia without tuition, on the same terms as a Slovenian, and you apply for everything through one national portal, eVŠ. The catch is language: almost all bachelor teaching is in Slovene, and only a small number of programmes — most of them at Primorska in Koper — are taught in English. If one of those is what you want, it is one of the best-value options in Europe.",
+  "whyConsider": [
+    "No tuition for full-time study as an EU citizen.",
+    "One national application portal, eVŠ, for every institution.",
+    "Low living costs, and Ljubljana is an hour from both the Alps and the coast."
+  ],
+  "watchOuts": [
+    "Very few English-taught bachelor's. Check the programme still runs in English before you plan around it.",
+    "Two official pages disagree on whether an IB Diploma needs a recognition procedure. Get the answer in writing from the faculty.",
+    "The 2027/28 dates come from a joint call not yet published. The first round is decided in late July and enrolment follows in August — during the Danish summer holiday."
+  ],
+  "ibRecognition": {
+    "accepted": true,
+    "notes": [
+      "The University of Ljubljana says an IB Diploma is equivalent to the Slovenian matura and needs no recognition procedure, while IB certificates without the Diploma do. The national Study in Slovenia portal says anyone schooled abroad must obtain a recognition decision, and names no exemption. Ask the faculty before relying on either."
+    ],
+    "evidence": [
+      "ev-uni-lj-ib-no-recognition-needed",
+      "ev-study-in-slovenia-recognition-required"
+    ]
+  },
+  "language": {
+    "englishTaughtBachelors": "A small number, concentrated at the University of Primorska.",
+    "localLanguageRequired": true,
+    "notes": [
+      "Slovene is not required for the English-taught programmes, but it is for almost everything else."
+    ]
+  },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition for full-time bachelor's study for EU, EEA and Swiss citizens. Part-time study is charged.",
+      "evidence": [
+        "ev-uni-lj-tuition-eu"
+      ]
+    }
+  ],
+  "sectorLandscape": {
+    "summary": "Slovenia has four public universities (univerze) — Ljubljana, Maribor, Primorska and Nova Gorica — plus private universities and independent faculties, art academies and professional colleges (samostojni visokošolski zavodi). Alongside them, two-year higher vocational colleges (višje strokovne šole) offer practice-oriented short-cycle study.",
+    "routes": [
+      {
+        "localName": "univerza",
+        "englishName": "university",
+        "kind": "research",
+        "what": "The four public universities and their faculties and academies. Almost all English-taught bachelor's are here.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare"
+      },
+      {
+        "localName": "samostojni visokošolski zavod",
+        "englishName": "independent higher education institution",
+        "kind": "applied",
+        "what": "Private or independent faculties and professional colleges, often small and business-focused. Some hold a state concession and take part in the joint call.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "Several are online or part-time, which is charged. Check the mode of study as well as the language."
+      },
+      {
+        "localName": "umetniška akademija",
+        "englishName": "art academy",
+        "kind": "specialist",
+        "what": "Fine art, design, music and theatre, mostly within the universities.",
+        "ibAccessible": "partly",
+        "englishTaught": "unknown",
+        "note": "Not researched in detail here."
+      },
+      {
+        "localName": "višja strokovna šola",
+        "englishName": "higher vocational college",
+        "kind": "college",
+        "what": "Two-year, practice-oriented short-cycle programmes.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched for international applicants."
+      }
+    ],
+    "evidence": [
+      "ev-eurydice-si-institution-types"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-uni-lj-ib-no-recognition-needed",
+    "ev-study-in-slovenia-recognition-required",
+    "ev-uni-lj-tuition-eu",
+    "ev-gov-si-joint-call-evs",
+    "ev-studyinslovenia-eu-as-slovenes",
+    "ev-eurydice-si-institution-types"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-15",
+    "notes": [
+      "The 2027/28 joint call was not published when this was written. Every Slovenian milestone on the route is declared not-yet-announced.",
+      "Not established: whether any higher vocational college teaches in English or admits an IB applicant from abroad; the art academies' language of teaching.",
+      "The 'umetniška akademija' route name is the ordinary Slovene term; the Eurydice page read gives the category in English ('art academies').",
+      "IEDC-Bled and DOBA stay on the institution list deliberately: IEDC offers no bachelor at all, and DOBA's English-taught programmes for 2026/27 are master's and doctoral only. Both were read on their own sites on 2026-09-23."
+    ]
+  }
+}
