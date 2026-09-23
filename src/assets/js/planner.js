@@ -17,26 +17,39 @@ const json = (id) => JSON.parse(document.getElementById(id).textContent);
 const SUBJECTS = json('planner-subjects');
 const OPPORTUNITIES = json('planner-opportunities');
 const EVIDENCE = json('planner-evidence');
+const POLICY = json('planner-evidence-policy');
 const CONVERSION = json('planner-conversion');
 
 const subjectIndex = buildSubjectIndex(SUBJECTS);
 const STORAGE_KEY = 'ibp-profile-v2';
 
-/** Roll an Opportunity's evidence references up into one status. */
+/**
+ * Roll an Opportunity's evidence references up into one status.
+ *
+ * This used to be a second implementation of the precedence — conflict,
+ * unavailable, superseded, stale, needs-review, verified — written out again
+ * in the browser, including its own "is this past its review date" against the
+ * date the page happened to be opened. Two implementations of a load-bearing
+ * product rule cannot be kept in step by intention.
+ *
+ * Now each record arrives with its `level` already decided at build time, and
+ * POLICY carries the order and the labels. The only thing left here is "the
+ * weakest one wins", which is a roll-up and not a policy.
+ */
 function evidenceStatus(refs) {
   const records = (refs || []).map((r) => EVIDENCE[r]).filter(Boolean);
-  if (!records.length) return { level: 'none', label: 'No source recorded', records: [] };
-  if (records.some((r) => r.conflicts)) return { level: 'conflicting', label: 'Sources disagree', records };
-  const states = new Set(records.map((r) => r.state));
-  if (states.has('unavailable')) return { level: 'unavailable', label: 'Source unavailable', records };
-  if (states.has('superseded')) return { level: 'superseded', label: 'Superseded', records };
-  const checkedAt = records.map((r) => r.retrievedAt).filter(Boolean).sort().at(-1);
-  const today = new Date().toISOString().slice(0, 10);
-  if (records.some((r) => r.reviewBy && r.reviewBy < today)) {
-    return { level: 'stale', label: 'Past its review date', checkedAt, records };
-  }
-  if (states.has('needs-review')) return { level: 'needs-review', label: 'Not yet checked by a person', records, checkedAt };
-  return { level: 'verified', label: 'Verified', checkedAt, records };
+  if (!records.length) return { level: 'none', label: POLICY.labels.none, records: [] };
+
+  const rank = (level) => {
+    const i = POLICY.order.indexOf(level);
+    // An unrecognised level is not evidence of quality: treat it as the worst.
+    return i === -1 ? 0 : i;
+  };
+  let level = POLICY.order[POLICY.order.length - 1];
+  for (const r of records) if (rank(r.level) < rank(level)) level = r.level;
+
+  const checkedAt = records.map((r) => r.retrievedAt).filter(Boolean).sort().at(-1) || null;
+  return { level, label: POLICY.labels[level], checkedAt, records };
 }
 
 const options = {

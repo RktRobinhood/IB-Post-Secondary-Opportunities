@@ -20,6 +20,7 @@ import { trust } from './pages/trust.mjs';
 import { slugify } from './lib/html.mjs';
 import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
+import { summarise as summariseEvidence } from './lib/evidence-policy.mjs';
 
 const SCHEMA_VERSION = '1.0';
 
@@ -89,14 +90,14 @@ function favicon() {
  * verified rather than merely present.
  */
 function dataDump(site) {
-  const counts = { verified: 0, needsReview: 0, superseded: 0, unavailable: 0, conflicting: 0 };
-  for (const ev of site.graph?.evidence?.values() || []) {
-    if ((ev.conflictsWith || []).length) counts.conflicting++;
-    else if (ev.verificationState === 'verified') counts.verified++;
-    else if (ev.verificationState === 'needs-review') counts.needsReview++;
-    else if (ev.verificationState === 'superseded') counts.superseded++;
-    else if (ev.verificationState === 'unavailable') counts.unavailable++;
-  }
+  /* The public export used to count these itself, and it was the one output
+     that never looked at `meta.reviewBy` — so a record marked `verified` stayed
+     in the verified column of data.json after its review date had passed,
+     while `/trust/` and the build log both called the same record stale. There
+     are no stale records today, which is exactly why nobody had seen it: the
+     contradiction activates by itself on the first elapsed date, with no commit
+     in between. */
+  const counts = summariseEvidence([...(site.graph?.evidence?.values() || [])]);
 
   const g = site.graph || {};
   return JSON.stringify(
@@ -194,16 +195,7 @@ async function main() {
 
   /* Every build states the condition of its evidence. A number that drifts the
      wrong way is the earliest warning that the dataset is decaying. */
-  const ev = { verified: 0, needsReview: 0, stale: 0, superseded: 0, unavailable: 0, conflicting: 0 };
-  const todayIso = new Date().toISOString().slice(0, 10);
-  for (const e of site.graph?.evidence?.values() || []) {
-    if ((e.conflictsWith || []).length) ev.conflicting++;
-    else if (e.verificationState === 'unavailable') ev.unavailable++;
-    else if (e.verificationState === 'superseded') ev.superseded++;
-    else if (e.meta?.reviewBy && e.meta.reviewBy < todayIso) ev.stale++;
-    else if (e.verificationState === 'needs-review') ev.needsReview++;
-    else ev.verified++;
-  }
+  const ev = summariseEvidence([...(site.graph?.evidence?.values() || [])]);
   console.log(
     `  evidence: ${ev.verified} verified · ${ev.needsReview} awaiting review · ${ev.stale} stale · ` +
       `${ev.superseded} superseded · ${ev.unavailable} unavailable · ${ev.conflicting} conflicting`

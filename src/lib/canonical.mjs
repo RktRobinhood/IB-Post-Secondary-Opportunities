@@ -17,6 +17,7 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { statusFor } from './evidence-policy.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -192,28 +193,7 @@ export function resolveEvidence(graph, refs) {
  * show the claim at all.
  */
 export function evidenceStatus(graph, refs) {
-  const records = resolveEvidence(graph, refs);
-  if (!records.length) return { level: 'none', label: 'No source recorded', records };
-
-  const hasConflict = records.some((r) => (r.conflictsWith || []).length);
-  if (hasConflict) return { level: 'conflicting', label: 'Sources disagree', records };
-
-  const states = new Set(records.map((r) => r.verificationState));
-  if (states.has('unavailable')) return { level: 'unavailable', label: 'Source unavailable', records };
-  if (states.has('superseded')) return { level: 'superseded', label: 'Superseded', records };
-
-  const newest = records.map((r) => r.retrievedAt).filter(Boolean).sort().at(-1);
-
-  // Past its own review date is stale, whatever its verification state says.
-  const today = new Date().toISOString().slice(0, 10);
-  if (records.some((r) => r.meta?.reviewBy && r.meta.reviewBy < today)) {
-    return { level: 'stale', label: 'Past its review date', checkedAt: newest, records };
-  }
-
-  if (states.has('needs-review')) {
-    return { level: 'needs-review', label: 'Not yet checked by a person', checkedAt: newest, records };
-  }
-  return { level: 'verified', label: 'Verified', checkedAt: newest, records };
+  return statusFor(resolveEvidence(graph, refs));
 }
 
 /* --- Destination identity, carried into the projection --------------------- */

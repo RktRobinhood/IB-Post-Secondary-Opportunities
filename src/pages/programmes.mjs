@@ -9,6 +9,7 @@ import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
 import { evidenceBlock, preparationPath, filterQuestion, deadlineList, worldWindow } from '../lib/primitives.mjs';
 import { allEvents } from '../lib/calendar.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
+import { forBrowser, serialisePolicy } from '../lib/evidence-policy.mjs';
 
 /* What each of the three entry-award states is called where a student reads it.
  *
@@ -865,12 +866,17 @@ export function planner(site) {
     ? site.destinations.find((d) => d.code === soleScheme.destination)?.adjective || null
     : null;
 
+  /* Each record ships with its level already decided, and the policy ships
+     beside it. The browser used to classify these itself — a second
+     implementation of the precedence, in a second language, that could drift
+     from the server's without anything failing. It also had to ask "is this
+     past its review date", which depends on today's date: a page sitting in a
+     student's browser for a week would have answered that with the day they
+     opened it, and quietly disagreed with the server-rendered claim beside it. */
   const evidenceIndex = Object.fromEntries(
-    [...(site.graph?.evidence?.values() || [])].map((e) => [
-      e.id,
-      { state: e.verificationState, retrievedAt: e.retrievedAt, reviewBy: e.meta?.reviewBy || null, url: e.sourceUrl, publisher: e.publisher, conflicts: (e.conflictsWith || []).length },
-    ])
+    [...(site.graph?.evidence?.values() || [])].map((e) => [e.id, forBrowser(e)])
   );
+  const evidencePolicy = serialisePolicy();
 
   const body = html`
 ${hero({
@@ -1003,6 +1009,7 @@ ${hero({
 <script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes }))}</script>
 <script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
 <script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
+<script type="application/json" id="planner-evidence-policy">${raw(JSON.stringify(evidencePolicy))}</script>
 <script type="application/json" id="planner-conversion">${raw(
     JSON.stringify({
       average: soleScheme?.gradeConversion?.average?.table || [],
