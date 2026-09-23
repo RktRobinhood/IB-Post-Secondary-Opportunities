@@ -5,7 +5,7 @@ import {
   tags, stamp, dataTable, emptyState, pager, accordion, freshness,
   sectorLandscape, contextNotes,
 } from '../lib/components.mjs';
-import { picture, money, REGION_ORDER } from '../lib/data.mjs';
+import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
 import {
   worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, STATE,
 } from '../lib/primitives.mjs';
@@ -188,15 +188,12 @@ function countryCard(site, c) {
   if (c.institutions.length) meta.push(plural(c.institutions.length, 'institution'));
 
   // Coverage here is uneven and looks uniform, which is the worst combination.
-  // A country researched to the point of having its sector, its deadlines and
-  // its application system recorded sits beside one that has a profile and some
-  // links, and nothing on the card says which is which. So it says which.
-  const canonical = site.graph?.destinations?.get(c.code);
-  const depth = canonical?.sectorLandscape
-    ? [...(site.graph.opportunities?.values() || [])].some((o) => o.destination === c.code)
-      ? 'Programmes recorded'
-      : 'Researched in depth'
-    : null;
+  // This used to name the researched countries and stay silent about the rest,
+  // so a sketch was indistinguishable from an unlabelled anything. Every card
+  // now says which of the three depths it is.
+  const d = c.researchDepth;
+  const hasProgrammes = [...(site.graph?.opportunities?.values() || [])].some((o) => o.destination === c.code);
+  const depth = d.tier === 'researched' && hasProgrammes ? 'Programmes recorded' : RESEARCH_DEPTH[d.tier].label;
 
   return card({
     href: c.href,
@@ -206,9 +203,32 @@ function countryCard(site, c) {
     flag: c.flag,
     meta,
     tags: [
-      depth ? { label: depth, mod: 'brand' } : null,
+      { label: depth, mod: d.tier === 'outline' ? 'thin' : 'brand' },
       englishOffer ? truncate(englishOffer, 36) : null,
     ].filter(Boolean),
+  });
+}
+
+/**
+ * Say, on the Destination page itself, how far this one has actually been
+ * researched — and say it in counts, because a tier on its own is a grade and a
+ * grade invites an argument about where the line sits. "4 sources for 14
+ * institutions" does not.
+ *
+ * This sits above the summary deliberately. A student who reads to the bottom
+ * of a sketch and only then learns it was a sketch has already been misled.
+ */
+function researchDepthNote(c) {
+  const d = c.researchDepth;
+  const meta = RESEARCH_DEPTH[d.tier];
+  const counts = [
+    `${plural(d.sources, 'source')} recorded for ${plural(d.institutions, 'institution')} listed`,
+    d.undated ? `${d.undated} of ${plural(d.deadlines, 'deadline')} carry no published date` : null,
+  ].filter(Boolean);
+
+  return note(`${meta.summary}\n\n**On this page:** ${listSentence(counts)}.`, {
+    kind: d.tier === 'outline' ? 'warn' : d.tier === 'researched' ? 'ok' : 'accent',
+    title: meta.label,
   });
 }
 
@@ -403,6 +423,7 @@ ${hero({
           level: c.sources.length ? 'needs-review' : 'none',
           provisional: c.deadlines.filter((d) => /not yet published|indicative|re-check/i.test(`${d.year || ''} ${d.notes || ''}`)).length,
         })}
+        ${researchDepthNote(c)}
         <p class="lede">${c.summary}</p>
 
         ${mapPlaces.length
@@ -471,7 +492,16 @@ ${hero({
               <ul class="timeline">
                 ${c.deadlines.map(
                   (d) => html`<li>
-                    <div class="timeline__when">${d.date}${d.year ? html`<br><small>${d.year}</small>` : ''}</div>
+                    <div class="timeline__when">${
+                      // A missing date rendered as an empty cell reads as a
+                      // layout fault, not as a statement — and it is a
+                      // statement: we went to the official page and the date
+                      // was not on it. Twenty-eight deadlines are in this
+                      // position, mostly outside Europe. Say so.
+                      d.date == null
+                        ? html`<span class="timeline__unpublished">Date not published</span>`
+                        : d.date
+                    }${d.year ? html`<br><small>${d.year}</small>` : ''}</div>
                     <div class="timeline__what">
                       <h4>${d.label}</h4>
                       ${d.notes ? md(d.notes) : ''}

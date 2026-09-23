@@ -125,6 +125,8 @@ export async function load() {
         c.places.push(place);
       }
     }
+
+    c.researchDepth = researchDepth(c, canonical.graph);
   }
 
   for (const inst of dkInstitutions) {
@@ -249,6 +251,66 @@ function summariseEvidence(graph) {
   }
   return out;
 }
+
+/* --- Research depth -------------------------------------------------------- */
+
+/**
+ * How far a Destination has actually been researched, computed from what is on
+ * disk rather than asserted by hand.
+ *
+ * Coverage here is uneven by an order of magnitude — Poland cites 43 sources
+ * for 13 institutions, South Korea cites 4 for 14 — and every page presented it
+ * with the same confidence. A student could not tell a researched Destination
+ * from a sketch, which is the one thing that matters on a site whose whole
+ * promise is that a claim is backed by a source with a date.
+ *
+ * The tier gives the shape. The counts are carried alongside it and rendered,
+ * because a tier on its own is a grade, and a grade invites an argument about
+ * where the line sits; 4 sources for 14 institutions does not.
+ */
+function researchDepth(c, graph) {
+  const institutions = c.institutions.length;
+  const sources = c.sources.length;
+  const deadlines = c.deadlines.length;
+  // A date a student can act on, as opposed to null (we could not verify it) or
+  // prose like "No central deadline" (true, and not a date).
+  const dated = c.deadlines.filter((d) => typeof d.date === 'string' && !Number.isNaN(Date.parse(d.date))).length;
+  const undated = c.deadlines.filter((d) => d.date == null).length;
+
+  const canonical = graph?.destinations?.get(c.code) || null;
+  const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === c.code).length;
+  // Evidence attaches to whatever it establishes, which is usually not the
+  // country itself: the UK's one record supports `gb-ucas-2027`, its
+  // Application Route. So anything namespaced to the Destination counts.
+  const owned = (id) => id === c.code || String(id ?? '').startsWith(`${c.code}-`);
+  const evidence = [...(graph?.evidence?.values() || [])].filter((e) =>
+    (e.supports || []).some((s) => owned(s.entity))
+  ).length;
+
+  const tier = canonical?.sectorLandscape && evidence && routes
+    ? 'researched'
+    : institutions && sources >= institutions
+      ? 'profiled'
+      : 'outline';
+
+  return { tier, institutions, sources, deadlines, dated, undated, evidence, routes };
+}
+
+/** The wording for each tier. Descriptive, not a score. */
+export const RESEARCH_DEPTH = {
+  researched: {
+    label: 'Researched in depth',
+    summary: 'Its sector, application route and deadlines are recorded as evidence, each with a source and a date.',
+  },
+  profiled: {
+    label: 'Profile with sources',
+    summary: 'Every institution listed is backed by at least one source, but the claims are inline URLs rather than evidence records, so nothing here is tracked for freshness.',
+  },
+  outline: {
+    label: 'Outline only',
+    summary: 'Fewer sources than institutions listed. Treat this page as a starting point for your own research, not as a checked account of how admission works here.',
+  },
+};
 
 /* --- Picture resolution --------------------------------------------------- */
 

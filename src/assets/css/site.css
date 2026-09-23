@@ -613,6 +613,13 @@ section { scroll-margin-top: 5.5rem; }
 a.tag:hover { border-color: var(--rule-strong); color: var(--ink); }
 .tag--accent { background: var(--accent-tint); color: var(--accent-2); }
 .tag--brand  { background: var(--brand-tint); color: var(--brand-2); }
+/* "Outline only" — a claim about how thin our coverage is, not a feature of
+   the place. It should not wear the same confident tint as the researched
+   ones, and it should not be alarming either: it is an honest disclosure. */
+.tag--thin {
+  background: transparent; color: var(--ink-mute);
+  border: 1px dashed var(--rule-strong);
+}
 .tag--sand   { background: var(--sand-tint); color: #8A6A20; }
 .tag--ok     { background: var(--ok-tint); color: var(--ok); }
 .tag--warn   { background: var(--warn-tint); color: var(--warn); }
@@ -787,6 +794,12 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 .timeline__when {
   font: 650 .875rem/1.5 var(--sans);
   color: var(--accent); letter-spacing: .02em;
+}
+/* A deadline whose date the official page did not carry. It must not read as
+   an accent-coloured date, because it is the absence of one. */
+.timeline__unpublished {
+  font-weight: 500; font-style: italic;
+  color: var(--ink-mute); letter-spacing: 0;
 }
 .timeline__what h4 { margin-bottom: var(--s2); }
 .timeline__what > :last-child { margin-bottom: 0; }
