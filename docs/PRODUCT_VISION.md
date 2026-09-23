@@ -6,6 +6,43 @@ IB Post-Secondary Opportunities helps a student move from “I do not know what 
 
 The emotional arc matters. Discovery should begin with delight and possibility, then progressively reveal the detail needed for a serious decision. The product should feel closer to an illustrated, interactive book than to an administrative database.
 
+## It is a pamphlet, not a reference work
+
+Stated plainly because the implementation drifted from the paragraph above
+and nobody noticed for a long time.
+
+**The job is to get a student excited about what is possible. Once they are
+excited, they will do the work.** That order is not a nicety — it is the
+whole mechanism. A seventeen-year-old browsing has not decided that any of
+this is worth effort, and nothing in an admissions system will convince them.
+A named university, in a city they can picture, teaching something they want,
+in English, will.
+
+So the glitz is not decoration and it is not an indulgence. The cinematic map,
+the photography, the typography, the sense of a world worth going into — that
+is the part that does the persuading, and it earns the detail that follows.
+
+Which sets the proportion:
+
+- **A touch of the background, not all of it.** Full admissions detail for
+  every institution a student could apply to is not a reasonable goal and
+  would not help if it were achieved. Enough to be enticing and true.
+- **Then elaborate by reference, properly.** A short, correct answer with a
+  dated link to the source beats a complete answer nobody finishes. The depth
+  belongs one action away, not on the page by default.
+- **Short answers are the deliverable**, and the long form is what they point
+  at. Not the other way round.
+
+The research behind the long form is not wasted by this — it is what makes
+the short answer trustworthy, and it is what the reference link leads to. But
+it is the *backing*, not the page.
+
+The failure mode to watch for is the one already made: every individual
+sentence defensible, every section justified, and the sum a wall of text with
+the universities at the bottom. See #37, and the measurement that a
+Destination page ran to 52 phone screens with "Where to study" 79% of the way
+down, below the sources.
+
 ## Who it is for
 
 The primary user is an IB Diploma student exploring undergraduate study, initially with a Danish or EU/EEA perspective and a target intake tied to a known IB exam session. Counsellors and families are important secondary users.
