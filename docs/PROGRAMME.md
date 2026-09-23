@@ -7,7 +7,7 @@ This file exists so the work survives an interrupted session. See
 [PARALLEL_WORK.md](PARALLEL_WORK.md) for why, and for the rest of the
 conventions fan-out work here runs under.
 
-**Updated:** 2026-09-23.
+**Updated:** 2026-09-23. 14 of 35 Destinations at the floor; 430 dated events.
 
 ---
 
@@ -45,23 +45,32 @@ the brief.
 
 ### 1. Destinations still below the floor
 
-`npm run floor -- --report` is the authority; it is computed and cannot go
-stale. The order is worst-first, which is also roughly the order issue #15
-asked for.
+**14 of 35 meet it.** `npm run floor -- --report` is the authority; it is
+computed and cannot go stale. The order is worst-first, which is also roughly
+the order issue #15 asked for.
 
 Each one is a research pass against [RESEARCH_BRIEF.md](RESEARCH_BRIEF.md).
-Done so far: `au ca nz us` and, before this programme, `de gb ie nl no se`.
+
+- At the floor: `ae au ca de gb ie jp kr nl no nz se sg us`
+- Remaining worldwide: `cn hk`
+- Remaining European: `at be ch cz ee es fi fr gr hu is it lt lu lv mt pl pt si`
+
+A note on sequencing that cost time once: **a pass that edits
+`data/countries/*.json` cannot run at the same time as the repo-wide link
+sweep**, which owns every one of those files. Country research and cross-cutting
+data sweeps are mutually exclusive; plan them in separate waves.
 
 ### 2. Opportunity coverage past Denmark (#15 step 4)
 
 The largest piece of work in the repository, and it was blocked until
 `f841942` — the requirement model could not express a non-Danish entry
-requirement at all. It can now. The pilot should be one Destination that is
-already at the floor, taken to the same depth as Denmark: Institution records,
-Programme records, Opportunity records with requirements in IB terms.
+requirement at all. It can now.
 
-The Netherlands is the natural first, being the most-asked-about non-Danish
-destination and already at the floor with a route and evidence.
+**The Netherlands is the pilot, in progress.** It is the first real user of
+ADR 0002, and the question it answers for everything after it is whether a
+Destination that publishes its rules in IB terms genuinely needs no Recognition
+Scheme. If it does not, most of the world does not either, and the remaining
+Destinations are research rather than modelling.
 
 ### 3. #18 — the style pass against the reference sites
 
