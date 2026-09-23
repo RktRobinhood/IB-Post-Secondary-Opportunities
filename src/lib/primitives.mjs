@@ -29,9 +29,27 @@ import nodePath from 'node:path';
 export function artDirection(source = {}) {
   const hex = (v) => (/^#[0-9a-fA-F]{6}$/.test(v || '') ? v : null);
   const accent = hex(source.accent);
-  const accentDark = hex(source.accentDark);
   const pattern = ['none', 'latitude', 'grid', 'wave'].includes(source.pattern) ? source.pattern : 'none';
   const focal = /^\d{1,3}% \d{1,3}%$/.test(source.focal || '') ? source.focal : '50% 45%';
+
+  /*
+   * Every one of the thirty-four accents in `data/countries` was chosen against
+   * warm paper, and not one record carries an `accentDark`. In dark mode that
+   * put a mid-dark, saturated dot on a near-black sea with a near-black stroke
+   * around it — a country's identity, drawn in a colour nobody could see. The
+   * dark accent is therefore derived rather than demanded: the same hue, lifted
+   * towards the dark theme's ink until it reads on the dark sea.
+   *
+   * `#F3ECE0` is the literal the dark theme sets `--ink` to. It has to be a
+   * literal because this value is computed in every theme and only *used* in
+   * one, so reading `var(--ink)` here would mix the light theme's near-black
+   * into the light theme's accent and darken it for nobody's benefit.
+   *
+   * A record may still state its own `accentDark` and is believed when it does.
+   * This is still colour and nothing but colour: the whitelist has not grown,
+   * and art direction still cannot reorder, hide or re-rank a single thing.
+   */
+  const accentDark = hex(source.accentDark) || (accent ? `color-mix(in oklab, ${accent} 55%, #F3ECE0)` : null);
 
   const style = [
     accent ? `--art-accent:${accent}` : null,
@@ -133,9 +151,9 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
          aria-label="${activeLayer}: ${plural(plotted.length, 'place')} shown.">
       <defs>
         <radialGradient id="${id}-glow">
-          <stop offset="0%" stop-color="var(--art-accent, var(--sand))" stop-opacity=".9"/>
-          <stop offset="70%" stop-color="var(--art-accent, var(--sand))" stop-opacity=".18"/>
-          <stop offset="100%" stop-color="var(--art-accent, var(--sand))" stop-opacity="0"/>
+          <stop offset="0%" stop-color="var(--art, var(--sand))" stop-opacity=".9"/>
+          <stop offset="70%" stop-color="var(--art, var(--sand))" stop-opacity=".18"/>
+          <stop offset="100%" stop-color="var(--art, var(--sand))" stop-opacity="0"/>
         </radialGradient>
       </defs>
 
@@ -304,24 +322,103 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
    ======================================================================== */
 
 /**
- * Chapters are content, not code: a title, some copy, where the camera should
- * be, and which opportunities to light up. A new journey is a new data record.
+ * One step in a curated geographic journey: a number, the question this step
+ * asks, the copy that answers it, a camera pointed at the places it is about,
+ * and exactly one way out.
+ *
+ * Chapters are content, not code. A new journey is a new array of these, and
+ * nothing in here knows which journey it is on.
+ *
+ * **Where the camera is.** The Mapbox pattern this borrows from keeps one map
+ * on screen and flies it to the active chapter's target as the reader scrolls.
+ * That is not what happens here, and the difference is deliberate: the research
+ * doc forbids scroll hijacking and narrative text that leaves before it can be
+ * read, and the world window is dependency-free inline SVG precisely so that it
+ * works with JavaScript switched off. So a chapter's camera is resolved at
+ * build time — `bounds`, or the frame `places` implies — and the reader is
+ * handed the view already arrived at. `assets/js/map.js` then wires each one
+ * like any other world window, so the camera is still a camera: it pans, zooms
+ * and resets from the keyboard once the script is there.
+ *
+ * **There is no motion policy, and there was.** The doc's chapter carries one,
+ * and this took a `motion` parameter that wrote `data-motion` for the stylesheet
+ * to animate the frame's arrival. Both went: a CSS transform on a thousand-path
+ * inline SVG buys a composited layer on first paint for an effect no reader
+ * asked for, which is the wrong side of the performance contract, and the
+ * `geographic` token that wanted it was deleted rather than left unspent. The
+ * notes in `assets/css/primitives.css` and above `MOTION` in
+ * `src/lib/motion.mjs` carry the reasoning. A parameter declaring a policy that
+ * nothing enacts is the same lie as a primitive nothing calls, so it went too,
+ * and it comes back when something genuinely flies a camera.
+ *
+ * **What is highlighted.** A chapter's `places` *are* its highlighted set.
+ * There is no separate list of ids, because a highlight that no reader without
+ * JavaScript can see is a field that lies about what the page does — the frame
+ * is fitted to these places and only these places are lit.
+ *
+ * **One invitation.** `invitation` is a single link, not an array, and that is
+ * the whole enforcement of "one obvious invitation per scene": a chapter that
+ * wants to offer two things cannot, without someone changing this signature and
+ * having to argue for it.
+ *
+ * @param {object} o
+ * @param {number} [o.index]       chapter number, printed in the margin
+ * @param {string} [o.eyebrow]     the question this chapter asks
+ * @param {string} o.title
+ * @param {string} [o.copy]        markdown
+ * @param {string} [o.scope]       what the lights currently add up to, in a sentence
+ * @param {Array}  [o.places]      the chapter's highlighted set — and its camera
+ * @param {object} [o.bounds]      an explicit camera target, when the places do not imply one
+ * @param {string} [o.layer]       what the lights mean, for the legend and the label
+ * @param {object} [o.media]       a picture instead of a camera
+ * @param {object} [o.invitation]  { href, label } — exactly one
  */
-export function mapChapter({ title, copy, places = [], highlight = [], media, motion = 'geographic', index = 1 }) {
-  return html`<section class="chapter" data-motion="${motion}" data-chapter="${index}">
+export function mapChapter({
+  index = 1,
+  eyebrow,
+  title,
+  copy,
+  scope,
+  places = [],
+  bounds,
+  layer,
+  caption,
+  media,
+  invitation,
+}) {
+  const stage = media
+    ? html`<figure class="chapter__figure">
+        <img src="${url(media.src)}" alt="${media.alt || ''}" loading="lazy" decoding="async" width="900" height="560">
+        ${media.credit
+          ? html`<figcaption>${
+              media.credit.url
+                ? html`<a href="${media.credit.url}" rel="noopener nofollow">${media.credit.text}</a>`
+                : media.credit.text
+            }</figcaption>`
+          : ''}
+      </figure>`
+    : places.length
+      ? worldWindow({
+          places,
+          bounds,
+          id: `chapter-${index}`,
+          activeLayer: layer || title,
+          caption,
+        })
+      : null;
+
+  return html`<section class="chapter${stage ? '' : ' chapter--solo'}" data-chapter="${index}">
     <div class="chapter__text">
       <p class="chapter__num">${String(index).padStart(2, '0')}</p>
-      <h3>${title}</h3>
+      ${eyebrow ? html`<p class="chapter__q">${eyebrow}</p>` : ''}
+      <h2>${title}</h2>
       ${copy ? md(copy) : ''}
-      ${highlight.length
-        ? html`<p class="chapter__count">${plural(highlight.length, 'opportunity', 'opportunities')} in view</p>`
+      ${scope ? html`<p class="chapter__scope">${scope}</p>` : ''}
+      ${invitation
+        ? html`<p class="chapter__go"><a class="arrow-link" href="${url(invitation.href)}">${invitation.label}</a></p>`
         : ''}
     </div>
-    <div class="chapter__stage">
-      ${media
-        ? html`<img src="${url(media.src)}" alt="${media.alt || ''}" loading="lazy" width="900" height="560">`
-        : worldWindow({ places, id: `chapter-${index}`, activeLayer: title })}
-    </div>
+    ${stage ? html`<div class="chapter__stage">${stage}</div>` : ''}
   </section>`;
 }
 
@@ -382,10 +479,32 @@ export function opportunityTeaser({ opportunity: op, fit, evidence, media }) {
  * @param {string} o.id
  * @param {string} o.question   "Where would you like to be?"
  * @param {string} o.field      canonical query field, e.g. "destination"
- * @param {Array}  o.options    [{ value, label, count }]
- * @param {string} [o.type]     'select' | 'chips'
+ * @param {Array}  o.options    [{ value, label, count, href }]
+ * @param {string} [o.type]     'select' | 'chips' | 'links'
  */
 export function filterQuestion({ id, question, field, options = [], type = 'select', help }) {
+  /*
+   * `links` is the same question asked where there is no query state to change
+   * yet — on the home page, ahead of the explorer. Each option carries the URL
+   * that *is* the answer, so the first choice a student makes is a link rather
+   * than a control, works with JavaScript switched off, and arrives at the
+   * explorer with the filter already applied and already removable. The field
+   * is still declared, because it is still the canonical field the href sets.
+   */
+  if (type === 'links') {
+    return html`<div class="filter-q filter-q--links" data-field="${field}">
+      <p class="filter-q__question" id="${id}">${question}</p>
+      ${help ? html`<p class="filter-q__help">${help}</p>` : ''}
+      <ul class="chips chips--links" aria-labelledby="${id}">
+        ${options.map(
+          (o) => html`<li><a class="chip" href="${url(o.href)}" data-filter="${field}" data-value="${o.value}">
+            ${o.label}${o.count != null ? html` <span class="chip__count">${o.count}</span>` : ''}
+          </a></li>`
+        )}
+      </ul>
+    </div>`;
+  }
+
   if (type === 'chips') {
     return html`<fieldset class="filter-q" data-field="${field}">
       <legend>${question}</legend>

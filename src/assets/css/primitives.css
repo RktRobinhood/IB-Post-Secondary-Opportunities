@@ -7,6 +7,59 @@
 
 /* --- Art direction -------------------------------------------------------- */
 
+/*
+ * `--art` is "this Destination's accent, in the theme the reader is actually
+ * in". Everything that carries a destination's colour reads this and never
+ * `--art-accent` directly, because `--art-accent` is one fixed hex chosen
+ * against warm paper: on the dark theme it put a mid-dark dot on a near-black
+ * sea inside a near-black stroke, which is a country's identity rendered
+ * invisible. `artDirection()` supplies the dark value beside the light one.
+ *
+ * It has to be redeclared on `.art` as well as on `:root` because the hex
+ * itself arrives in an inline style on the destination wrapper, deep in the
+ * document: a `var()` resolved at `:root` cannot see it. `.art` is that
+ * wrapper, so the alias is computed exactly where the accent is set.
+ */
+:root, .art { --art: var(--art-accent, var(--brand-2)); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]),
+  :root:not([data-theme="light"]) .art { --art: var(--art-accent-dark, var(--brand-2)); }
+}
+:root[data-theme="dark"],
+:root[data-theme="dark"] .art { --art: var(--art-accent-dark, var(--brand-2)); }
+
+/*
+ * `--art-mark` is the same accent with a floor under it: what a marker may be
+ * painted, as opposed to what a keyline or a chapter number may be.
+ *
+ * An accent is chosen against a photograph, and nothing about that choice makes
+ * it legible as a five-pixel dot on a map. Measured against the land tone set
+ * below, the raw accents run from 5.14:1 (United Kingdom) down to 1.71:1
+ * (Malta), with Spain at 2.11, Australia 2.23 and Italy 2.40 — six Destinations
+ * whose markers sat under WCAG 1.4.11's 3:1 minimum for a non-text graphic, on
+ * a map whose whole job is to be looked at.
+ *
+ * Pushing the accent 35% of the way towards the theme's ink keeps the hue —
+ * Portugal is still terracotta, Greece still sea-blue — and lifts the worst case
+ * to **3.32:1 in light and 5.01:1 in dark**. The same expression works in both
+ * themes because `--ink` inverts with them: in light it darkens the accent
+ * against pale land, in dark it lightens it against dark land.
+ *
+ * Art direction has not lost anything it was ever allowed: it still supplies
+ * colour, and colour is still all it supplies. What it cannot do is supply a
+ * colour nobody can see.
+ */
+:root, .art { --art-mark: color-mix(in oklab, var(--art) 65%, var(--ink)); }
+
+/* A destination's accent, on its own page rather than only inside its map. One
+   keyline under the hero, and the same colour on the rules that separate the
+   page's sections — enough that Portugal and Finland are visibly different
+   pages, and never enough to be mistaken for a signal. Colour only: it marks
+   nothing, ranks nothing and hides nothing, which is the standing rule for
+   everything art direction is allowed to touch. */
+.art > .hero { border-bottom: 3px solid var(--art); }
+.art .section--rule { border-top-color: color-mix(in oklab, var(--art) 35%, var(--rule)); }
+
 .pattern {
   position: absolute;
   inset: 0;
@@ -58,25 +111,48 @@
   height: auto;
 }
 
-/* Sea and land. Both are deliberately quiet: the markers are the information
-   and the geography is what lets you read where they are, so the coastline has
-   to be legible without ever competing with a dot. */
+/*
+ * Sea, land and coastline: three surfaces a reader has to be able to tell
+ * apart. Quiet, because the markers are the information — but quiet is not the
+ * same as absent, and this was absent.
+ *
+ * **These numbers are measurements, not taste. Do not lower them without
+ * taking new ones.** They were `.07` and `.20`, which on `/europe/` in the
+ * light theme measured land against sea at **1.09:1** and coastline against
+ * land at **1.29:1**. 1.0 is invisible. The basemap was baked from Natural
+ * Earth in #12 specifically so that "a reader cannot tell they are looking at
+ * Europe" would stop being true, and it was then drawn at an opacity where it
+ * still was.
+ *
+ * At `.20` fill and `.55` stroke, in the light theme:
+ *
+ *   land against sea       1.52:1
+ *   coastline against land 3.34:1
+ *   coastline against sea  5.08:1
+ *   a default marker against land   4.63:1   (`--brand-2`)
+ *   the weakest Destination marker  3.32:1   (Malta, via `--art-mark`)
+ *   a selected marker against land  3.07:1   (`--accent`)
+ *
+ * and in the dark theme the same two numbers give 1.72, 4.09 and 7.05, because
+ * the tokens invert with the theme. Land deliberately stops well short of the
+ * 3:1 that the markers clear: it is the ground, and ground that competes with
+ * the figure is a worse map, not a more accessible one. The coastline carries
+ * the shape, and that is the line that has to be seen.
+ */
 .world__sea { fill: var(--paper-2); }
 .world__land path {
   fill: var(--ink);
-  fill-opacity: .07;
+  fill-opacity: .20;
   stroke: var(--ink);
-  stroke-opacity: .20;
+  stroke-opacity: .55;
   stroke-width: .8;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
-  :root:not([data-theme="light"]) .world__land path { fill-opacity: .13; stroke-opacity: .28; }
 }
 :root[data-theme="dark"] .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
-:root[data-theme="dark"] .world__land path { fill-opacity: .13; stroke-opacity: .28; }
 
 /* The markers are a picture of the list and nothing but: no focus, no name of
    their own, no tab stop. Everything they can do, the list entry can do. */
@@ -94,13 +170,34 @@
 }
 
 .world__dot {
-  fill: var(--art-accent, var(--brand-2));
+  fill: var(--art-mark);
   stroke: var(--paper);
   stroke-width: 1.5;
   pointer-events: none;
   transition: r var(--motion-set-change), fill var(--motion-set-change);
 }
-.world__glow { pointer-events: none; }
+
+/*
+ * The halo is a state, not a marker.
+ *
+ * It used to be drawn at rest, at 2.6 times the dot's own radius, so the thing
+ * a reader actually saw was a soft cloud two and a half times too big — and
+ * where two places were near each other the clouds merged into one larger
+ * cloud, which is precisely the density problem the grouping in `map.js` exists
+ * to solve, recreated in paint. A marker's job is to say "here", and "here" is
+ * a point.
+ *
+ * So the glow now only appears under the pointer or on the selected place,
+ * where a soft halo is doing real work: it says which one of these the rest of
+ * the page is talking about, at a size the eye catches from across the panel.
+ * The radius stays where it is because `map.js` writes it on every re-weight;
+ * this is opacity, which nothing else touches. With the script off there is no
+ * hover and no selection, and the map is dots on a coastline, which is what it
+ * should have looked like all along.
+ */
+.world__glow { pointer-events: none; opacity: 0; }
+.world__place[data-on] .world__glow,
+.world__place[data-selected] .world__glow { opacity: 1; }
 .world__land { pointer-events: none; }
 
 /* A dot the width of a full stop is not a target. The hit area is the size of a
@@ -111,7 +208,7 @@
 /* Hollow means we only know the city, not the campus. */
 .world__place[data-approx="true"] .world__dot {
   fill: none;
-  stroke: var(--art-accent, var(--brand-2));
+  stroke: var(--art-mark);
   stroke-width: 2;
 }
 /* Lit from either direction: the pointer on the marker, or the pointer or the
@@ -129,14 +226,14 @@
 /* Places that land on top of each other, said out loud rather than stacked and
    hoped for. The number is places, not opportunities. */
 .world__group-dot {
-  fill: var(--art-accent, var(--brand-2));
+  fill: var(--art-mark);
   stroke: var(--paper);
   stroke-width: 2;
   pointer-events: none;
 }
 .world__group-ring {
   fill: none;
-  stroke: var(--art-accent, var(--brand-2));
+  stroke: var(--art-mark);
   stroke-opacity: .35;
   stroke-width: 1.5;
   pointer-events: none;
@@ -152,12 +249,12 @@
 .world__group[data-selected] .world__group-dot { fill: var(--accent); }
 .world__group[data-dim] { opacity: .45; }
 .world__spider-leg {
-  stroke: var(--art-accent, var(--brand-2));
+  stroke: var(--art-mark);
   stroke-opacity: .5;
   stroke-width: 1.5;
   pointer-events: none;
 }
-.world__spider-hub { fill: var(--art-accent, var(--brand-2)); fill-opacity: .6; pointer-events: none; }
+.world__spider-hub { fill: var(--art-mark); fill-opacity: .6; pointer-events: none; }
 
 /* --- The camera ----------------------------------------------------------- */
 
@@ -235,14 +332,17 @@
   text-decoration: none;
   color: var(--ink-soft);
   background: var(--paper);
-  transition: border-color var(--motion-action-complete), color var(--motion-action-complete);
+  /* A hover is not a completed action, and this used to borrow the
+     `action-complete` token for one. Hover gets the same .15s the rest of the
+     site's links get; the token went to the things a student actually did. */
+  transition: border-color .15s ease, color .15s ease;
 }
 /* `data-on` is the same state the marker shows, set from the other end: the
    pointer over a dot lights the entry, the keyboard on an entry lights the dot. */
 .world__list a:hover,
 .world__list a:focus-visible,
 .world__list a[data-on] {
-  border-color: var(--art-accent, var(--accent));
+  border-color: var(--art, var(--accent));
   color: var(--ink);
 }
 .world__list a[aria-current="true"] {
@@ -268,38 +368,111 @@
 .world__legend-dot {
   display: inline-block;
   border-radius: 50%;
-  background: var(--art-accent, var(--brand-2));
+  background: var(--art-mark);
 }
 .world__legend-dot--sm { width: .4rem; height: .4rem; }
 .world__legend-dot--lg { width: .75rem; height: .75rem; }
 
 /* --- MapChapter ----------------------------------------------------------- */
 
+/* A journey is a run of chapters and nothing else. The alternation is scoped to
+   it rather than to `:nth-child`, so a chapter used on its own somewhere never
+   silently flips sides because of what happens to sit above it. */
+.journey { display: grid; }
+
 .chapter {
   display: grid;
   gap: var(--s6);
   align-items: center;
-  padding-block: var(--s7);
+  padding-block: clamp(var(--s7), 6vw, var(--s9));
   border-top: 1px solid var(--rule);
 }
 @media (min-width: 60rem) {
-  .chapter { grid-template-columns: 22rem minmax(0, 1fr); gap: var(--s8); }
-  .chapter:nth-child(even) .chapter__text { order: 2; }
+  .chapter { grid-template-columns: 24rem minmax(0, 1fr); gap: var(--s8); }
+  .journey > .chapter:nth-of-type(even) { grid-template-columns: minmax(0, 1fr) 24rem; }
+  .journey > .chapter:nth-of-type(even) .chapter__text { order: 2; }
 }
+/* A chapter with no camera and no picture is one reading column, centred,
+   rather than a text column with a hole beside it. */
+.chapter--solo { justify-items: center; text-align: center; }
+.chapter--solo .chapter__text { max-width: var(--measure); }
+.chapter--solo .chapter__q { justify-content: center; }
+@media (min-width: 60rem) {
+  .chapter--solo, .journey > .chapter--solo:nth-of-type(even) { grid-template-columns: minmax(0, 1fr); }
+}
+
 .chapter__num {
   font: 600 .75rem/1 var(--mono);
   letter-spacing: .12em;
-  color: var(--art-accent, var(--accent));
+  color: var(--art, var(--accent));
   margin: 0 0 var(--s3);
 }
-.chapter__count {
-  font-size: .8125rem;
+/* The question this chapter asks. It is the chapter's eyebrow, and it is set as
+   a question because the editorial rhythm is a sequence of questions — where,
+   what, what does it cost, when do I act — rather than a sequence of topics. */
+.chapter__q {
+  font: 600 .75rem/1.3 var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
   color: var(--ink-mute);
+  margin: 0 0 var(--s3);
+  display: flex; align-items: center; gap: var(--s3);
 }
+.chapter h2 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.3rem); }
+/* What the lights currently add up to, in a sentence. The count and the picture
+   change together, and this is the sentence that says what changed. */
+.chapter__scope {
+  font-size: .875rem;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--art, var(--rule-strong));
+  padding-left: var(--s4);
+  margin-bottom: var(--s5);
+}
+.chapter__go { margin: 0; }
+.chapter__figure { margin: 0; }
 .chapter__stage img {
   width: 100%;
   border-radius: var(--radius-lg);
 }
+/* The credit travels with the picture rather than living only on /credits/.
+   A photographer whose name is one click away on a page nobody opens has not
+   really been credited. */
+.chapter__figure figcaption {
+  margin-top: var(--s2);
+  font-size: .6875rem;
+  color: var(--ink-mute);
+}
+
+/*
+ * A chapter's map does not animate, and two rules from trying to make it are
+ * worth keeping.
+ *
+ * **Do not animate a transform on the world window.** This briefly carried the
+ * `geographic` motion token — each chapter's frame settling into its camera
+ * target once on load. A CSS transform promotes its element to a composited
+ * layer, and here that layer holds a thousand coastline paths, rasterised again
+ * for the animation; the performance contract is explicit that visual ambition
+ * must not cost the core tool on modest mobile hardware, and this cost it on
+ * first paint for an effect triggered by nothing the reader did. The token went
+ * with it; `src/lib/motion.mjs` carries the full record.
+ *
+ * **Nothing that carries information fades in from nothing.** An entrance
+ * animation written `from { opacity: 0 }` with `fill: both` hides its own
+ * content until the animation has run, and an animation is not a thing you get
+ * to assume has run — a backgrounded tab pauses them, which was caught here by
+ * reading a computed style that still said `playState: running, opacity: 0` two
+ * and a half seconds after load. EXPERIENCE_PRINCIPLES.md already says it for
+ * the cases that matter most: never make eligibility, deadlines or source links
+ * depend on animation completion. So the keyframes below move things and never
+ * reveal them, and at worst a reader sees a panel a few pixels short of where
+ * it settles with every word of it legible.
+ *
+ * `world-in` above is the one exception and a deliberate one. It fades markers,
+ * which are `aria-hidden` decoration whose every fact — name, count, placement
+ * cue — is already in the list underneath, so a marker that has not arrived yet
+ * costs a reader a picture and no information. It also cannot move a transform
+ * instead, because the script writes transforms on those same nodes.
+ */
 
 /* --- OpportunityTeaser ---------------------------------------------------- */
 
@@ -340,6 +513,25 @@
   font-size: .75rem;
   color: var(--ink-mute);
 }
+
+/* The same question asked as a scene rather than as a control. It is the first
+   thing a student is asked on the site, so it is set in the display face at a
+   size that says so — and the answers are links, sized like something you press
+   with a thumb rather than like a filter in a rail. */
+.filter-q--links { gap: var(--s4); }
+.filter-q__question {
+  font-family: var(--display);
+  font-size: clamp(1.375rem, 1.1rem + 1vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 28;
+  margin: 0;
+  color: var(--ink);
+}
+.filter-q--links .filter-q__help { font-size: .875rem; max-width: 62ch; }
+.filter-q--links .chips { gap: var(--s3); }
+.filter-q--links .chip { padding: .5rem 1rem; font-size: .9375rem; }
 .chip__count {
   font-variant-numeric: tabular-nums;
   opacity: .65;
@@ -356,15 +548,18 @@
   background: var(--paper);
   animation: fit-in var(--motion-overview-to-detail) both;
 }
+/* Transform only — see the note on camera-arrive. This panel carries the
+   eligibility outcome, and the principle that outcome must never wait on an
+   animation is written down rather than implied. */
 @keyframes fit-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: none; }
+  from { transform: translateY(6px); }
+  to   { transform: none; }
 }
 
 .fit__head { margin-bottom: var(--s4); }
 .fit__outcome {
   font-family: var(--display);
-  font-size: 1.35rem;
+  font-size: 1.375rem;
   font-weight: 600;
   margin: 0;
   font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 24;
@@ -441,6 +636,19 @@
 }
 .evidence[open] > summary::after { content: "–"; }
 .evidence > :not(summary) { padding-inline: var(--s4); }
+/* The audit drawer opening is `overview-to-detail` by the token's own wording —
+   "moving from a card or marker into the thing itself, a panel opening". It
+   runs when the panel is rendered, which is when the student opened it, and
+   under reduced motion the token is 1ms, so the sources are simply there. */
+.evidence[open] > :not(summary) {
+  animation: detail-open var(--motion-overview-to-detail) both;
+}
+/* Transform only — see the note on camera-arrive. This drawer is where the
+   source links live. */
+@keyframes detail-open {
+  from { transform: translateY(-4px); }
+  to   { transform: none; }
+}
 .evidence > :last-child { padding-bottom: var(--s4); }
 .evidence--conflict { border-color: var(--warn); background: var(--warn-tint); }
 .evidence--none { border-style: dashed; }
@@ -564,11 +772,25 @@
   display: flex; flex-wrap: wrap; gap: var(--s2);
   list-style: none; margin: 0; padding: 0;
 }
+/* An active-filter chip is the receipt for an action: it appears because the
+   student narrowed something, and it disappears when they clear it. Same token
+   as the chip that produced it, for the same reason — and under reduced motion
+   it simply appears, already readable, next to a live count that says the new
+   total out loud. */
 .shell__active li {
   display: inline-flex; align-items: center; gap: .3em;
   background: var(--brand-tint); color: var(--brand-2);
-  border-radius: 999px; padding: .15rem .55rem;
+  border-radius: 999px; padding: var(--pill);
   font-size: .75rem; font-weight: 600;
+  animation: action-landed var(--motion-action-complete) both;
+}
+/* Background only, for the reason in the note on camera-arrive: this chip says
+   which constraint is currently narrowing the results, and a chip that has not
+   faded in yet beside a count that has already changed is a page telling a
+   reader two different things. Unfilled, it is still a legible word. */
+@keyframes action-landed {
+  from { background-color: transparent; }
+  to   { background-color: var(--brand-tint); }
 }
 
 /* --- Motion preference control -------------------------------------------- */
@@ -589,7 +811,7 @@
   color: var(--ink);
   background: var(--accent-tint);
 }
-.chip--inline { padding: .1rem .5rem; font-size: .75rem; }
+.chip--inline { padding: var(--pill); font-size: .75rem; }
 
 .shell__active button {
   border: 0;
@@ -614,7 +836,7 @@
 /* Coverage is how much we know, never a quality score. */
 .coverage {
   display: inline-block;
-  padding: .1rem .5rem;
+  padding: var(--pill);
   border-radius: 999px;
   font: 600 .75rem/1.5 var(--mono);
   border: 1px solid var(--rule-strong);

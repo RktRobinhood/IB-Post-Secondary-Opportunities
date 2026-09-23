@@ -28,7 +28,24 @@ export function sectionHead({ num, eyebrow: eb, title, lede, id }) {
   </header>`;
 }
 
-/* --- Hero ---------------------------------------------------------------- */
+/* --- Scenes -------------------------------------------------------------- */
+
+/*
+ * A page has three kinds of scene and they are three different shapes.
+ *
+ *   **Arrival** — `hero({ variant: 'arrival' })`. Full-bleed, the largest type
+ *   on the site, one sentence, one invitation, and a quiet way past it.
+ *   **Chapter** — `mapChapter()` in primitives.mjs. A number, a question, a
+ *   camera, one invitation.
+ *   **Close** — `close()`. The end of the page: what to do now, once.
+ *
+ * Every one of them takes its invitation as a single object rather than a block
+ * of markup, which is how "one obvious invitation per scene" stops being advice
+ * and starts being something you would have to change a signature to break.
+ * `hero()`'s free-form `actions` slot survives for the interior pages that are
+ * not scenes — a country page opens with a heading, not with an arrival — and
+ * is ignored where an `invitation` is given, so the two cannot both render.
+ */
 
 /**
  * @param {object} o
@@ -36,20 +53,26 @@ export function sectionHead({ num, eyebrow: eb, title, lede, id }) {
  * @param {string} [o.lede]
  * @param {string} [o.eyebrow]
  * @param {object} [o.image]  { src, alt, focal, credit: {text, url} }
+ * @param {object} [o.invitation] { href, label } — exactly one, and it wins over `actions`
+ * @param {object} [o.escape]     { href, label } — the way past the invitation
  * @param {any}    [o.actions]
  * @param {any}    [o.aside]  extra content under the lede
- * @param {string} [o.variant] 'compact' | 'plain' | 'panel'
+ * @param {string} [o.variant] 'arrival' | 'compact' | 'plain' | 'panel'
  *
- * 'plain' is a hero that never wanted a photograph — About, Compare, the
- * glossary. 'panel' is a hero that wanted one and has none, because nothing
- * publishable was found: same typography, but it says so by looking deliberate
- * rather than by looking like a heading. They are different situations and a
- * reader can tell, which is the whole argument for not collapsing them.
+ * 'arrival' is the opening scene of a page that has one: full-bleed, and sized
+ * so that the sentence and the single invitation are the only things competing
+ * for attention. 'plain' is a hero that never wanted a photograph — About,
+ * Compare, the glossary. 'panel' is a hero that wanted one and has none,
+ * because nothing publishable was found: same typography, but it says so by
+ * looking deliberate rather than by looking like a heading. They are different
+ * situations and a reader can tell, which is the whole argument for not
+ * collapsing them.
  */
 export function hero(o) {
   const plain = o.variant === 'plain' || o.variant === 'panel';
   const cls = [
     'hero',
+    o.variant === 'arrival' && 'hero--arrival',
     o.variant === 'compact' && 'hero--compact',
     plain && 'hero--plain',
     o.variant === 'panel' && 'hero--panel',
@@ -74,7 +97,16 @@ export function hero(o) {
       <h1>${o.title}</h1>
       ${o.lede ? html`<p class="lede">${o.lede}</p>` : ''}
       ${o.aside || ''}
-      ${o.actions ? html`<div class="hero__actions">${o.actions}</div>` : ''}
+      ${o.invitation
+        ? html`<div class="hero__actions hero__actions--one">
+            <a class="btn btn--primary btn--lg" href="${url(o.invitation.href)}">${o.invitation.label}</a>
+            ${o.escape
+              ? html`<a class="hero__escape" href="${url(o.escape.href)}">${o.escape.label}</a>`
+              : ''}
+          </div>`
+        : o.actions
+          ? html`<div class="hero__actions">${o.actions}</div>`
+          : ''}
     </div>
     ${o.slides?.length
       ? html`<p class="hero__caption" data-hero-caption hidden></p>`
@@ -86,6 +118,40 @@ export function hero(o) {
             : o.image.credit.text
         }</p>`
       : ''}
+  </section>`;
+}
+
+/**
+ * The closing scene: what a student does now that they have read the page.
+ *
+ * It exists because every page on this site used to stop rather than end —
+ * the last section was whatever happened to be last, and the reader was left
+ * at the footer with four columns of links and no suggestion. One heading, one
+ * sentence, one invitation, and `also` for the things that are genuinely next
+ * but are not the point.
+ *
+ * @param {object} o
+ * @param {string} [o.eyebrow]
+ * @param {string} o.title
+ * @param {string} [o.copy]        markdown
+ * @param {object} o.invitation    { href, label } — exactly one
+ * @param {Array}  [o.also]        [{ href, label }] quieter links beside it
+ */
+export function close({ eyebrow, title, copy, invitation, also = [] }) {
+  return html`<section class="close">
+    <div class="wrap wrap--prose">
+      ${eyebrow ? html`<p class="eyebrow">${eyebrow}</p>` : ''}
+      <h2>${title}</h2>
+      ${copy ? md(copy) : ''}
+      ${invitation
+        ? html`<p class="close__go"><a class="btn btn--solid btn--lg" href="${url(invitation.href)}">${invitation.label}</a></p>`
+        : ''}
+      ${also.length
+        ? html`<p class="close__also">${also.map(
+            (a, i) => html`${i ? ' · ' : ''}<a href="${url(a.href)}">${a.label}</a>`
+          )}</p>`
+        : ''}
+    </div>
   </section>`;
 }
 

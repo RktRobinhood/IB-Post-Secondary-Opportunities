@@ -53,6 +53,14 @@
   --radius: 3px;
   --radius-lg: 6px;
 
+  /* The inside of a label pill. There were five of these — .1/.5, .15/.55,
+     .18/.55, .25/.6 and 0/.45em — on components that sit in the same row as
+     each other: a tag beside a coverage badge beside a freshness stamp, each a
+     different height for no reason anyone could have stated. A control pill
+     (`.chip`) keeps its own larger padding, because it is a tap target and a
+     label is not; that is the one distinction worth having. */
+  --pill: .18rem .55rem;
+
   /* Elevation — kept deliberately faint; this is paper, not glass */
   --lift-1: 0 1px 2px rgba(26, 22, 19, .05);
   --lift-2: 0 2px 10px rgba(26, 22, 19, .07);
@@ -199,6 +207,27 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s7) 0; }
 
 /* --- 3. Type ------------------------------------------------------------- */
 
+/*
+ * The ladder, written down because an audit found four steps inside two pixels
+ * of each other — 1.05, 1.1, 1.125 and 1.15rem — doing four different jobs that
+ * nobody could tell apart on screen, plus a lone .84rem on the small button.
+ * Nine sizes below the display clamps, and a new one needs an argument:
+ *
+ *   .6875  credits, hairline captions
+ *   .75    eyebrows, tags, legends, table notes
+ *   .8125  metadata, timings, chips, small print that is still read
+ *   .875   secondary prose — notes, callouts, evidence
+ *   .9375  interface prose — buttons, fields, list rows
+ *   1      the baseline
+ *   1.0625 body copy
+ *   1.125  a heading that is barely a heading: h4, a drawer title, a route name
+ *   1.25   a card title, a row title
+ *   1.375  a display line inside a component: the fit outcome, a pull quote
+ *
+ * Above that, headings are fluid clamps and are the only fluid type on the
+ * site, so a component never grows at a different rate from the heading over it.
+ */
+
 h1, h2, h3, h4, h5 {
   font-family: var(--display);
   font-weight: 600;
@@ -213,7 +242,7 @@ h1, h2, h3, h4, h5 {
 h1 { font-size: clamp(2.25rem, 1.4rem + 3.4vw, 4rem); }
 h2 { font-size: clamp(1.7rem, 1.2rem + 1.9vw, 2.6rem); }
 h3 { font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.65rem); }
-h4 { font-size: 1.15rem; letter-spacing: -0.005em; }
+h4 { font-size: 1.125rem; letter-spacing: -0.005em; }
 h5 { font-size: 1rem; }
 
 p { margin: 0 0 var(--s5); text-wrap: pretty; }
@@ -247,7 +276,7 @@ blockquote {
   padding-left: var(--s5);
   border-left: 3px solid var(--sand);
   font-family: var(--display);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.45;
   color: var(--ink-soft);
   font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 24;
@@ -312,10 +341,48 @@ section { scroll-margin-top: 5.5rem; }
   background: var(--brand);
   color: var(--paper);
 }
-:root[data-theme="dark"] .section--dark,
-:root:not([data-theme="light"]) .section--dark {
-  background: var(--paper-2);
+/* This panel is ink-on-pine in the light theme and has to become something else
+   in the dark one, where a darker-than-the-page panel is not available. Two
+   things were wrong with how it did that, and both were invisible to anyone
+   whose browser had already stored a theme.
+ *
+ *   The override changed the background and left the text colour alone, so in
+ *   the dark theme the heading was `--paper` (#14110E) on `--paper-2`
+ *   (#1C1815). About 1.1:1. The heading was not hard to read; it was not there.
+ *
+ *   Worse, it was never inside `@media (prefers-color-scheme: dark)`, while the
+ *   token block it was written to mirror is. `:root:not([data-theme="light"])`
+ *   matches a document with no `data-theme` at all — which is every first
+ *   visit — so a reader arriving on a light-mode machine got `#FBF7F0` text on
+ *   an `#F4EDE1` background. The whole panel, blank, for exactly the people who
+ *   had never been here before and had therefore stored no preference.
+ *
+ * The media query is the fix for the second and `color` is the fix for the
+ * first, and they have to travel together: a rule that repaints the background
+ * of an inverted panel and not its foreground will always be one theme away
+ * from illegible. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .section--dark {
+    background: var(--paper-2);
+    color: var(--ink);
+  }
+  :root:not([data-theme="light"]) .section--dark .eyebrow::after,
+  :root:not([data-theme="light"]) .section--dark .stats {
+    background: var(--rule);
+  }
+  :root:not([data-theme="light"]) .section--dark .stats { border-color: var(--rule); }
+  :root:not([data-theme="light"]) .section--dark .stat { background: var(--paper-3); }
+  :root:not([data-theme="light"]) .section--dark .stat__label { color: var(--ink-mute); }
 }
+:root[data-theme="dark"] .section--dark {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+:root[data-theme="dark"] .section--dark .eyebrow::after,
+:root[data-theme="dark"] .section--dark .stats { background: var(--rule); }
+:root[data-theme="dark"] .section--dark .stats { border-color: var(--rule); }
+:root[data-theme="dark"] .section--dark .stat { background: var(--paper-3); }
+:root[data-theme="dark"] .section--dark .stat__label { color: var(--ink-mute); }
 .section--dark h1, .section--dark h2, .section--dark h3 { color: inherit; }
 .section--dark .eyebrow { color: var(--sand); }
 .section--dark .eyebrow::after { background: rgba(255,255,255,.22); }
@@ -383,7 +450,7 @@ section { scroll-margin-top: 5.5rem; }
   display: inline-flex; align-items: center; gap: var(--s3);
   text-decoration: none; color: var(--ink);
   font-family: var(--display);
-  font-weight: 600; font-size: 1.15rem;
+  font-weight: 600; font-size: 1.125rem;
   letter-spacing: -0.01em;
   white-space: nowrap;
   font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 18;
@@ -472,7 +539,7 @@ section { scroll-margin-top: 5.5rem; }
 .drawer a {
   display: block; padding: var(--s4) 0;
   border-bottom: 1px solid var(--rule);
-  font-family: var(--display); font-size: 1.35rem;
+  font-family: var(--display); font-size: 1.375rem;
   color: var(--ink); text-decoration: none;
 }
 .drawer a:hover { color: var(--accent); }
@@ -545,6 +612,47 @@ section { scroll-margin-top: 5.5rem; }
 
 .hero--compact { min-height: 20rem; padding-block: var(--s8) var(--s6); }
 
+/* The arrival: the opening scene of a page that has one.
+   Taller than a hero, with the sentence and one invitation the only things in
+   it — and *not* a cinematic prelude, which the research doc rules out twice.
+   Nothing is delayed, nothing has to finish before the page is usable, and the
+   escape hatch beside the invitation goes straight to the search. The height is
+   capped in `vh` as well as `rem` so that at 200% zoom the heading and the
+   invitation still share a screen instead of the invitation being pushed off
+   the bottom by type that grew and a box that did not. */
+.hero--arrival {
+  min-height: clamp(30rem, 76vh, 46rem);
+  min-height: clamp(30rem, 76dvh, 46rem);
+  padding-block: var(--s10) var(--s9);
+}
+.hero--arrival h1 {
+  font-size: clamp(2.5rem, 1.4rem + 4.4vw, 5rem);
+  max-width: 15ch;
+}
+.hero--arrival .lede { font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.6rem); max-width: 46ch; }
+/* A short window is usually a zoomed one. At 200% on a 1280×800 laptop the
+   viewport is 640×400, and the arrival's generous padding was the only reason
+   the single invitation fell below the fold — the type had grown and the box
+   had not. The padding gives way first, because the sentence and the button are
+   the scene and the whitespace is not. */
+@media (max-height: 44rem) {
+  .hero--arrival { min-height: 0; padding-block: var(--s7) var(--s6); }
+  .hero--arrival .lede { font-size: 1.125rem; }
+}
+
+/* One invitation, and the quiet way past it. The escape hatch is a link rather
+   than a second button on purpose: two buttons is two invitations, and the
+   whole test this scene has to pass is that there is one. */
+.hero__actions--one { align-items: center; gap: var(--s5); }
+.hero__escape {
+  font: 600 .9375rem/1.2 var(--sans);
+  color: rgba(255,255,255,.9);
+  text-decoration-color: rgba(255,255,255,.4);
+}
+.hero__escape:hover { color: #fff; }
+.hero--plain .hero__escape { color: var(--ink-soft); text-decoration-color: var(--rule-strong); }
+.hero--plain .hero__escape:hover { color: var(--accent); }
+
 .hero--plain {
   color: var(--ink); min-height: 0;
   padding-block: var(--s8) var(--s6);
@@ -571,6 +679,26 @@ section { scroll-margin-top: 5.5rem; }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s6); }
 
+/* The close: the scene that ends a page rather than the section that happens to
+   be last. Ruled paper again, so an arrival and a close are visibly the same
+   family and the middle of the page is the part that changes. */
+.close {
+  padding-block: clamp(var(--s8), 8vw, var(--s10));
+  border-top: 1px solid var(--rule);
+  background:
+    repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 22px),
+    var(--paper-2);
+  text-align: center;
+}
+.close h2 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem); }
+.close .eyebrow { justify-content: center; }
+.close .eyebrow::after, .close .eyebrow::before {
+  content: ""; flex: 1 1 auto; height: 1px; background: var(--rule-strong); min-width: 1rem;
+}
+.close p { color: var(--ink-soft); }
+.close__go { margin: var(--s6) 0 var(--s4); }
+.close__also { font-size: .875rem; color: var(--ink-mute); margin: 0; }
+
 /* --- 7. Buttons ---------------------------------------------------------- */
 
 .btn {
@@ -592,7 +720,10 @@ section { scroll-margin-top: 5.5rem; }
 .btn--ghost:hover { background: color-mix(in oklab, currentColor 10%, transparent); color: inherit; }
 .btn--quiet { border-color: var(--rule-strong); color: var(--ink); background: var(--paper); }
 .btn--quiet:hover { background: var(--paper-2); color: var(--ink); }
-.btn--sm { padding: .4rem .8rem; font-size: .84rem; }
+.btn--sm { padding: .4rem .8rem; font-size: .8125rem; }
+/* The one invitation in an arrival or a close. Bigger because it is alone, not
+   because it is shouting. */
+.btn--lg { padding: .95rem 1.8rem; font-size: 1.0625rem; }
 
 .arrow-link {
   display: inline-flex; align-items: center; gap: .45em;
@@ -688,7 +819,7 @@ section { scroll-margin-top: 5.5rem; }
 .tags { display: flex; flex-wrap: wrap; gap: var(--s2); list-style: none; margin: 0; padding: 0; }
 .tag {
   display: inline-flex; align-items: center; gap: .3em;
-  padding: .18rem .55rem;
+  padding: var(--pill);
   font: 600 .75rem/1.5 var(--sans);
   letter-spacing: .02em;
   border-radius: 999px;
@@ -939,20 +1070,37 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 .field input:focus-visible, .field select:focus-visible { border-color: var(--accent); }
 
 .chips { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.chips--links { list-style: none; margin: 0; padding: 0; }
 .chip {
+  display: inline-flex; align-items: baseline; gap: .4em;
   padding: .3rem .7rem;
   font: 600 .8125rem/1.4 var(--sans);
   border: 1px solid var(--rule-strong);
   background: var(--paper);
   border-radius: 999px;
   cursor: pointer; color: var(--ink-soft);
-  transition: all .12s ease;
+  text-decoration: none;
+  /* A chip filling in is the `action-complete` token doing the job it was
+     defined for: "a student did something and it worked — saved to the
+     exploration list, copied a link, cleared filters". Pressing a filter chip,
+     and adding a destination to the comparison, are both exactly that, and
+     both are a background-colour change, which is what the token declares.
+     Under reduced motion the token is 1ms, so the chip is simply filled — a
+     static confirmation, which is its documented fallback, and the result count
+     beside it is a live region that announces the new total either way. */
+  transition:
+    background-color var(--motion-action-complete),
+    border-color var(--motion-action-complete),
+    color var(--motion-action-complete);
 }
 .chip:hover { border-color: var(--ink-mute); color: var(--ink); }
 .chip[aria-pressed="true"] {
   background: var(--brand); border-color: var(--brand); color: var(--paper);
 }
 :root[data-theme="dark"] .chip[aria-pressed="true"] { color: #10201D; }
+/* A link-shaped chip is a question, not a state, so it never takes the filled
+   look that means "this filter is on". */
+a.chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); }
 
 .result-count {
   font: 600 .875rem/1.5 var(--sans);
@@ -960,7 +1108,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   margin-bottom: var(--s4);
   display: flex; align-items: baseline; gap: var(--s3); flex-wrap: wrap;
 }
-.result-count b { color: var(--ink); font-size: 1.05rem; }
+.result-count b { color: var(--ink); font-size: 1.125rem; }
 
 .empty {
   padding: var(--s8) var(--s5);
@@ -981,7 +1129,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
 @media (min-width: 52rem) {
   .prog { grid-template-columns: minmax(0, 1fr) 15rem; align-items: start; }
 }
-.prog__name { margin: 0 0 var(--s2); font-size: 1.2rem; }
+.prog__name { margin: 0 0 var(--s2); font-size: 1.25rem; }
 .prog__name a { color: inherit; text-decoration: none; }
 .prog__name a:hover { color: var(--accent); }
 .prog__meta {
@@ -1084,7 +1232,7 @@ figcaption a { color: inherit; }
 }
 .pager a:hover { border-color: var(--rule-strong); background: var(--paper-2); }
 .pager span { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
-.pager b { font-family: var(--display); font-size: 1.1rem; font-weight: 600; }
+.pager b { font-family: var(--display); font-size: 1.125rem; font-weight: 600; }
 .pager a:last-child { text-align: right; }
 .pager a:only-child { text-align: left; }
 
@@ -1137,7 +1285,7 @@ figcaption a { color: inherit; }
   font: 600 .75rem/1.4 var(--sans);
   letter-spacing: .04em;
   color: var(--ink-mute);
-  padding: .25rem .6rem;
+  padding: var(--pill);
   border: 1px solid var(--rule);
   border-radius: 999px;
 }
@@ -1178,7 +1326,7 @@ details.acc summary {
   cursor: pointer; list-style: none;
   padding: var(--s4) 2rem var(--s4) 0;
   position: relative;
-  font-family: var(--display); font-size: 1.1rem; font-weight: 600;
+  font-family: var(--display); font-size: 1.125rem; font-weight: 600;
   font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 20;
 }
 details.acc summary::-webkit-details-marker { display: none; }
@@ -1369,7 +1517,7 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
 .timeline__consequence { margin: 0 0 var(--s2); font-size: .875rem; }
 .timeline__badge {
   display: inline-block;
-  padding: .1rem .5rem;
+  padding: var(--pill);
   border-radius: 999px;
   font: 650 .75rem/1.6 var(--sans);
   letter-spacing: .03em;

@@ -6,6 +6,11 @@
  * or a completed student action. Anything that does not is decoration competing
  * with reading, and does not get a token.
  *
+ * Three of those four have a token below. The fourth, geographic movement, has
+ * one spender — the camera in `assets/js/map.js` — and that file spends
+ * `overview-to-detail` on it; the note above `MOTION` records why its own token
+ * was removed rather than left sitting here unused.
+ *
  * Each token carries its purpose in the data, not in a comment, so the
  * generated stylesheet and the documentation cannot drift apart. Every token
  * declares what it becomes under `prefers-reduced-motion` — and that is never
@@ -24,15 +29,38 @@ export const EASING = {
   exit: 'cubic-bezier(0.4, 0, 1, 1)',
 };
 
+/*
+ * There used to be a fifth token, `geographic`: 900ms on the camera easing, for
+ * "the camera moves across the world — a country comes into view, or the map
+ * returns to the broad band". It is gone, and this is the record of why, so
+ * that whoever needs it back knows what they are walking into.
+ *
+ * **Nothing on this site moves a camera except `assets/js/map.js`, and that
+ * already spends `overview-to-detail` on it.** Every other camera — a
+ * destination's map, a chapter's frame — is projected and framed at build time
+ * and handed to the reader already arrived at, because the world window is
+ * dependency-free inline SVG precisely so that it works with the script off.
+ * So `geographic` was a token for a movement that only one file performs, and
+ * that file had already chosen a different token for it and written down why.
+ * Two tokens for one job is exactly the drift these tokens exist to prevent.
+ *
+ * **The one spend that could have been invented was not worth having.** The
+ * home page's journey chapters each carry their own camera, so the obvious move
+ * was to let each frame settle into its target once on load, with a CSS
+ * transform on the chapter's `<svg>`. It was built, and then removed, for two
+ * reasons that did not go away on inspection. It is triggered by the page
+ * loading rather than by anything a student did, so it explains nothing — which
+ * is the bar every token here is supposed to clear. And a CSS transform
+ * promotes its element to a composited layer, which on these maps means a
+ * thousand-path coastline rasterised twice; the performance contract in
+ * EXPERIENCE_PRINCIPLES.md is explicit that visual ambition cannot make the
+ * core tool feel sluggish on modest mobile hardware, and paying that on first
+ * paint for an effect nobody asked for is the wrong side of the trade.
+ *
+ * It comes back when something genuinely flies a camera — issue #19's globe is
+ * the obvious candidate — together with the code that spends it, in that order.
+ */
 export const MOTION = [
-  {
-    token: 'geographic',
-    purpose: 'The camera moves across the world — a country comes into view, or the map returns to the broad band.',
-    duration: 900,
-    easing: EASING.camera,
-    reduced: 'The view cuts directly to the new position and the place name is announced. No pan, no zoom.',
-    properties: ['transform', 'opacity'],
-  },
   {
     token: 'set-change',
     purpose: 'The filtered set changed: lights fade out, gather, or brighten as results are added or removed.',
