@@ -176,6 +176,84 @@ If a page is JavaScript-rendered, a PDF, or in a language nobody on the project
 reads, that is a finding. Record it. Several of this repository's most useful
 notes are of exactly that form.
 
+## The floor you are aiming at
+
+`researchDepth()` says how thin a page is. The **publication floor** says when it
+is finished, and it is checked mechanically by `npm run floor`.
+
+A Destination counts as *published* the moment someone writes its canonical
+record in `data/destinations/`. From that moment `scripts/test-floor.mjs` holds
+it to all five checks and `npm test` fails until it meets them. This is
+deliberate: the cost of a half-finished Destination is a failing test, not a
+page that quietly looks as authoritative as Denmark's. **Do not write the
+canonical record first.** Write it last, when the other four are already true.
+
+| Check | What it means |
+|---|---|
+| `sector` | The canonical record carries a `sectorLandscape` naming every route, in the local vocabulary |
+| `evidence` | At least one Evidence record in the Destination's namespace, none pointing at a dead source |
+| `route` | Every institution listed resolves to an Application Route |
+| `dates` | Every deadline carries an ISO date or one of the six declared date states |
+| `institutions` | Every institution listed is backed by a source at its own registrable domain |
+
+`npm run floor -- --report` prints the outstanding work per Destination, and the
+queue worst-first. Start from that, not from a guess.
+
+### Dates
+
+The `date` field takes ISO and nothing else. Where there is no date, say which
+of these it is — and choose deliberately, because the difference between the
+first two is the difference between research you owe and research you did:
+
+- `not-published` — you opened the official page and the date was not on it
+- `no-central-deadline` — there is no such date, and that is the finding
+- `varies-by-institution` — set by each institution rather than centrally
+- `rolling` — considered as they arrive
+- `not-yet-announced` — not published for this intake yet
+- `withdrawn` — no longer offered at all
+
+A year you inferred from a bare recurring date is `provisional: true`. A
+provisional date must never be shown as a confirmed one.
+
+`consequence` says what missing the date actually costs: `hard`,
+`equal-consideration`, `priority`, `rolling`, `indicative`, `personal`. Getting
+this wrong in either direction does real damage — an equal-consideration date
+rendered as a deadline frightens a student off applying at all, and a hard
+deadline rendered as indicative costs them the place.
+
+## When the country is not the unit
+
+Outside Europe especially, a country is often several Application Jurisdictions.
+Canada has at least three application routes; the United States has fifty-odd
+admissions environments and several shared systems across them; Switzerland,
+Germany, Belgium and Spain all vary below the national level.
+
+`CONTEXT.md` defines the term. The model is in `src/lib/jurisdictions.mjs` and
+it is entirely data-driven — **there is no code anywhere that knows the name of
+a country, and adding one must not introduce any.**
+
+Where a Destination divides:
+
+1. The canonical record declares `institutionGrouping` and lists its
+   `jurisdictions[]` — each with an `id`, a `name` as the student will meet it,
+   a `kind`, optionally the `applicationRoute` it uses, and `variations[]` for
+   what differs there in cost, health cover or deadlines.
+2. Every institution in the country profile declares its `jurisdiction`.
+3. Every Application Route declares the `jurisdiction` it serves, where it
+   serves only part of the Destination.
+
+Two distinctions the model will hold you to:
+
+- **Declaring one group is a finding; declaring nothing is not.** A country that
+  is genuinely one system should say `"institutionGrouping": "none"`.
+- **"Apply directly" is a route.** It gets an Application Route record with
+  `"channel": "direct"`, not an empty field. Having no route recorded means
+  nobody has looked.
+
+Per-jurisdiction variation belongs in `variations[]`, not in a prose note the
+reader has to disentangle. If health cover depends on the province, that is a
+row, not a sentence.
+
 ## Definition of done
 
 - Stages 1–3 answered, or the destination explicitly parked with the reason.
@@ -184,3 +262,5 @@ notes are of exactly that form.
 - `npm run validate` and `npm test` pass with no hand-editing of generated output.
 - `npm run verify` reports the new evidence as supported, or the exceptions are
   understood and written down.
+- `npm run floor` passes, or the canonical Destination record has deliberately
+  not been written yet and the report says exactly what is still owed.

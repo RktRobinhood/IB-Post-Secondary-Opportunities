@@ -35,7 +35,10 @@
     "migrate:credentials": "node scripts/migrate-credentials.mjs",
     "vocab": "node scripts/vocab.mjs",
     "images:review": "node scripts/images-review.mjs",
-    "basemap": "node scripts/make-basemap.mjs"
+    "basemap": "node scripts/make-basemap.mjs",
+    "floor": "node scripts/test-floor.mjs",
+    "test:jurisdictions": "node scripts/test-jurisdictions.mjs",
+    "test:calendar": "node scripts/test-calendar.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"
