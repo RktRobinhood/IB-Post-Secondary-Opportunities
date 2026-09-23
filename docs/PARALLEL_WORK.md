@@ -66,6 +66,19 @@ deadline migration is the worked example: the model and its guard landed before
 any of the four migration agents started, so "did it work" was a command rather
 than a judgement, and each agent could verify itself without waiting.
 
+## Two agents must not build at the same time
+
+`src/build.mjs` clears `dist/` and rewrites it. Two builds racing produce
+`ENOTEMPTY: directory not empty, rmdir dist/assets/img/places` and
+`ENOENT: dist/assets/css/motion.css`, and `scripts/check.mjs` reports
+`data.json: missing or unparseable` — three different errors, none of which
+names the cause, and all of which look like a real fault in whatever you last
+changed. The tell is that they move: a second run fails somewhere else.
+
+It cost a style pass half an hour of chasing a data collision that was really
+a second agent's `node src/build.mjs`. When a verification fails in a way that
+does not reproduce, check for another agent before believing it.
+
 ## Say what the *hard* record is
 
 An agent given eight records will do the first well and the last quickly. Name
