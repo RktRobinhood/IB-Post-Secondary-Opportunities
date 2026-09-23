@@ -1102,7 +1102,7 @@ ${hero({
             <div class="scope__grid">
               ${represented.map(
                 (c) => html`<label class="scope__opt">
-                  <input type="checkbox" name="scope" value="${c.code}"> <span>${c.flag} ${c.name}</span>
+                  <input type="checkbox" name="scope" value="${c.code}" data-sentence-name="${c.articleName || c.name}"> <span>${c.flag} ${c.name}</span>
                 </label>`
               )}
             </div>

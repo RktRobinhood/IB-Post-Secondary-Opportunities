@@ -21,8 +21,14 @@ if (scope) {
   const items = [...document.querySelectorAll('.timeline > li[data-destination]')];
   const lists = [...document.querySelectorAll('.timeline')];
 
+  /* Two names per Destination, because a checkbox and a sentence want
+     different ones. A list of tickboxes reads "Netherlands"; a sentence has to
+     read "scoped to Denmark and **the** Netherlands", and a page cannot work
+     out which names take a definite article — the record says, in
+     `articleName`. This line used to scrape the checkbox's own label for both
+     uses, which is why the calendar said "scoped to Denmark and Netherlands". */
   const names = new Map(
-    boxes.map((b) => [b.value, b.closest('label').textContent.trim().replace(/^\S+\s/, '')])
+    boxes.map((b) => [b.value, b.dataset.sentenceName || b.closest('label').textContent.trim().replace(/^\S+\s/, '')])
   );
 
   /* --- Where the scope comes from ---------------------------------------- */
