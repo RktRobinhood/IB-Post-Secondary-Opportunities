@@ -151,7 +151,14 @@ export function fromCountryDeadline(country, entry, index) {
     provisional: Boolean(entry.provisional),
     intake: clean(entry.year) || country.targetIntake || null,
     note: clean(entry.notes) || clean(entry.note),
-    sources: [clean(entry.source)].filter(Boolean),
+    /* Both spellings, because both are allowed and only one was read.
+       `test-calendar.mjs` whitelists `sources` as a legal field on a deadline
+       entry, and this took `source` alone — so a researcher who recorded a
+       second URL had it silently discarded, and the renderer below has always
+       been able to show several. Three passes worked around it by putting the
+       second URL inline in the note, which is the tell: the model advertised a
+       field that did nothing. */
+    sources: [...new Set([clean(entry.source), ...(Array.isArray(entry.sources) ? entry.sources : [entry.sources]).map(clean)])].filter(Boolean),
     /* When this date was last looked at. A source without one is an assertion
        with a URL attached: the page it points at may have changed the morning
        after it was read, and on a calendar that is the difference between a

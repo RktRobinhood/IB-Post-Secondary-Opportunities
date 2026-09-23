@@ -870,6 +870,9 @@ function deadlineItem(e, { showDestination }) {
     </div>
     <div class="timeline__what">
       <h4>${showDestination && e.destinationName ? html`<span class="timeline__where">${e.destinationName}</span> ` : ''}${e.label}</h4>
+      ${e.audience && e.audience !== 'any'
+        ? html`<p class="timeline__audience">Applies to: ${e.audience}</p>`
+        : ''}
       ${e.consequence && e.consequence !== 'indicative'
         ? html`<p class="timeline__consequence"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>
             <span class="timeline__consequence-note">${c.note}</span></p>`
@@ -877,7 +880,9 @@ function deadlineItem(e, { showDestination }) {
       ${e.routeLabel ? html`<p class="timeline__route">Via ${e.routeLabel}</p>` : ''}
       ${e.note ? md(e.note) : ''}
       ${e.sources.length
-        ? html`<p><small>${e.sources.map((s) => html`<a href="${s}" rel="noopener nofollow">Source</a>`)}</small></p>`
+        ? html`<p><small>${e.sources.map(
+            (s, i) => html`${i ? raw(' · ') : ''}<a href="${s}" rel="noopener nofollow">${e.sources.length > 1 ? `Source ${i + 1}` : 'Source'}</a>`
+          )}</small></p>`
         : ''}
     </div>
   </li>`;
