@@ -61,6 +61,27 @@
      label is not; that is the one distinction worth having. */
   --pill: .18rem .55rem;
 
+  /* The smallest a control may be under a thumb, and the smallest anything may
+     be set. Both numbers are here, once, because both were previously decided
+     per component and every component decided differently: the map buttons got
+     44px in #26 and nothing else ever did, and the type ladder's bottom rung
+     landed at 10.31px in the site header of every page.
+
+     `--tap` is 44px because that is the figure the map's own comment already
+     argued for and won. Its value is that it is *one* value: the guard in
+     scripts/test-controls.mjs fails if the literal `44px` shows up anywhere
+     else in these two stylesheets, so the eleventh control cannot quietly
+     decide it is a special case the way the first ten did.
+
+     `--type-floor` is 12px, which retires the `.6875` rung of the ladder
+     below. Measured at 375px, that rung produced 11px credits, 11px map-button
+     labels and 11px context eyebrows, and `small` at `.875em` of a `.8125rem`
+     parent produced 11.375px — 32 times on the programme finder alone. Eleven
+     pixels is small on a laptop and absent on a phone, and one floor beats two
+     rungs a pixel apart. */
+  --tap: 44px;
+  --type-floor: .75rem;
+
   /* Elevation — kept deliberately faint; this is paper, not glass */
   --lift-1: 0 1px 2px rgba(26, 22, 19, .05);
   --lift-2: 0 2px 10px rgba(26, 22, 19, .07);
@@ -205,6 +226,68 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s7) 0; }
 }
 .skip-link:focus { top: var(--s4); }
 
+/* --- 2b. The control policy ----------------------------------------------- */
+
+/*
+ * One rule for how big a control is, inherited by every control there is.
+ *
+ * The 44px minimum was not missing from this repository before #34. It was
+ * stated correctly, with a comment, on `.world__btn` in primitives.css — and
+ * only there. Measured at 375x812, everything that had not been told: selects
+ * in the subject checker 24px, checkboxes 13x13, chips 30px, `.btn--sm` 30px,
+ * the header's icon buttons 36x36, `.scope__pick`'s summary 21px. Six
+ * components, six different answers, none of them 44.
+ *
+ * So the number lives on `:root` as `--tap` and the policy is this one block.
+ * Three things about how it is written are load-bearing:
+ *
+ *   **`:root :is(...)` rather than a bare selector list.** site.css loads
+ *   before primitives.css, and `.world__btn` already declared `min-height:
+ *   2rem`. A policy written `button { min-height: var(--tap) }` is one class
+ *   selector and one stylesheet too weak to reach it, and would have lost
+ *   silently — which is exactly how the map's own first attempt at this failed,
+ *   per the note that used to sit at primitives.css:319. `:root :is(…)` is
+ *   (0,2,0), which clears every component in both files. `.world__btn` keeps
+ *   its 2rem, which is its mouse size; the policy raises it under a thumb.
+ *
+ *   **`min-height`, not `height`.** A minimum composes with whatever a
+ *   component already decided; a height replaces it and throws the design away.
+ *
+ *   **`(pointer: coarse)`.** Growing these unconditionally would have made the
+ *   laptop worse: `.chip` at 30px in a wrapped row is dense and good under a
+ *   mouse, and 36 chips at 44px is a wall. A phone has a thumb and fewer chips
+ *   on screen at once, so there it is right. The controls that were wrong at
+ *   every width — the unstyled selects, the 11px type — are fixed
+ *   unconditionally, further down, because those were never a mouse design.
+ */
+@media (pointer: coarse) {
+  :root :is(
+    button, [role="button"], .btn, .chip, .icon-btn, a.tag, .world__list a,
+    select, textarea, summary,
+    input:not([type="checkbox"], [type="radio"], [type="hidden"])
+  ) {
+    min-height: var(--tap);
+    min-width: var(--tap);
+  }
+
+  /* A checkbox is the one control whose target is not itself. The box is 13px
+     because that is what a checkbox looks like, and inflating it to 44 would
+     give `/timeline/` 37 enormous boxes; the label beside it is already the
+     click target the browser honours, so the *label* takes the minimum and the
+     whole row becomes tappable. Kept out of the list above so that the list
+     stays at (0,2,0) — `:has()` takes its argument's specificity, and a policy
+     that drifted to (0,3,0) would start outranking the deliberate exception in
+     primitives.css. */
+  :root label:has(> input[type="checkbox"]),
+  :root label:has(> input[type="radio"]) { min-height: var(--tap); }
+
+  /* `summary` is a block box, so a taller box leaves its one line of text at
+     the top. `align-content` centres it without `display: flex`, which would
+     strip the disclosure triangle off `.scope__pick`, the one summary on the
+     site that still uses the browser's. */
+  :root summary { align-content: center; }
+}
+
 /* --- 3. Type ------------------------------------------------------------- */
 
 /*
@@ -213,8 +296,13 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: var(--s7) 0; }
  * nobody could tell apart on screen, plus a lone .84rem on the small button.
  * Nine sizes below the display clamps, and a new one needs an argument:
  *
- *   .6875  credits, hairline captions
- *   .75    eyebrows, tags, legends, table notes
+ *   .75    eyebrows, tags, legends, table notes — and credits and hairline
+ *          captions, which used to have a .6875 rung of their own until #34
+ *          measured it at 11px on a phone; `--type-floor` is the bottom now
+ *          and nothing is set below it. A relative size that could fall under
+ *          it — `small` at `.875em`, which reached 11.375px inside `.prog__meta`
+ *          — is written `max(var(--type-floor), .875em)` so it still shrinks
+ *          against its parent right up to the floor and then stops.
  *   .8125  metadata, timings, chips, small print that is still read
  *   .875   secondary prose — notes, callouts, evidence
  *   .9375  interface prose — buttons, fields, list rows
@@ -259,13 +347,13 @@ a:hover { text-decoration-color: currentColor; }
 
 strong, b { font-weight: 650; }
 em, i { font-style: italic; }
-small { font-size: .875em; color: var(--ink-mute); }
+small { font-size: max(var(--type-floor), .875em); color: var(--ink-mute); }
 
 abbr[title] { text-decoration: underline dotted; cursor: help; }
 
 code, kbd, samp {
   font-family: var(--mono);
-  font-size: .875em;
+  font-size: max(var(--type-floor), .875em);
   background: var(--paper-3);
   padding: .1em .35em;
   border-radius: var(--radius);
@@ -484,7 +572,7 @@ section { scroll-margin-top: 5.5rem; }
   padding: .1em .35em;
   border: 1px solid var(--rule-strong);
   border-radius: 3px;
-  font: 650 .6875em/1.35 var(--mono);
+  font: 650 max(var(--type-floor), .6875em)/1.35 var(--mono);
   letter-spacing: .04em;
   color: var(--ink-mute);
   vertical-align: .08em;
@@ -503,12 +591,28 @@ section { scroll-margin-top: 5.5rem; }
    the band between first-fit and comfortable is tightened. A nav item never
    wraps at any width — a two-line link reads as two links. */
 .nav a { white-space: nowrap; }
-@media (min-width: 64rem) and (max-width: 78rem) {
+@media (min-width: 64rem) and (max-width: 82rem) {
   .masthead__inner { gap: var(--s4); }
   .nav { gap: 2px; }
   .nav a { padding: var(--s2) 6px; font-size: .875rem; }
   .nav a[aria-current="page"]::after { left: 6px; right: 6px; }
-  .nav__scope { margin-left: .3em; padding: .08em .28em; }
+  /* The tightening above was not enough, and #34's type floor made it worse.
+     Measured at exactly 1024px with the nav shown: `documentElement.scrollWidth`
+     was **1062** before this pass and **1105** after, against a 1024px viewport
+     — so "Deadlines", the last item, was already being clipped by
+     `body { overflow-x: hidden }` on the laptop this band exists to serve, and
+     raising `.nav__scope` off 9.6px to the 12px floor added another 43.
+
+     The scope chip is the thing that goes, because it is the only thing in the
+     masthead that is purely decorative: it is `aria-hidden`, the link carries
+     the same words in its `aria-label` and `title`, and the drawer prints them
+     in full. Dropping it in this band alone takes 1024px back to **1009**. It
+     reappears at 82rem, and this band's upper edge moved from 78rem to 82rem
+     for the same measurement one step out: at 1280px the masthead came to 1291
+     with the chips at 12px and 1265 without them. A clipped nav item is a
+     link a student cannot see; a missing badge is a note they can still get by
+     hovering, and already have from the page they land on. */
+  .nav__scope { display: none; }
 }
 
 .masthead__tools { display: flex; align-items: center; gap: var(--s2); margin-left: auto; }
@@ -606,7 +710,7 @@ section { scroll-margin-top: 5.5rem; }
 .hero .eyebrow::after { background: rgba(255,255,255,.3); }
 .hero__credit {
   position: absolute; right: var(--s3); bottom: var(--s2); z-index: 1;
-  font-size: .6875rem; color: rgba(255,255,255,.62);
+  font-size: var(--type-floor); color: rgba(255,255,255,.62);
 }
 .hero__credit a { color: inherit; text-decoration-color: rgba(255,255,255,.35); }
 
@@ -923,6 +1027,98 @@ table.data tbody tr:hover { background: var(--paper-2); }
 table.data tbody tr:last-child td { border-bottom: 0; }
 table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
 
+/*
+ * A wide table on a phone.
+ *
+ * `/compare/` renders a six-column table 857px wide inside a 343px window. It
+ * does not overflow the page — it scrolls, correctly — but scrubbing an 857px
+ * canvas sideways is not how anyone compares destinations, and by the third
+ * column you no longer know whose row you are on.
+ *
+ * There are two tables here and they want opposite answers, which is why the
+ * rule below asks a question about the markup rather than about the page.
+ *
+ *   **A table whose cells say what column they came from becomes cards.** That
+ *   is the right answer and it was already written, for `.tray__table` — the
+ *   comparison tray built by compare.js, which emits `data-label` on every
+ *   `td`. The transform was scoped to that one class; it is the same transform
+ *   for any table carrying the same attribute, so it now asks for the
+ *   attribute. The seven dimensions stay seven labelled rows inside one
+ *   destination's card: still separate, still never summed.
+ *
+ *   **A table whose cells do not cannot.** The "scan the whole set" index on
+ *   `/compare/` comes from `dataTable()`, which does not emit `data-label`, and
+ *   CSS cannot read a `th` into a `td`. Stacked without labels its cells read
+ *   "Limited.", "No tuition fee during the standard…", "About 1,300 EUR per
+ *   month…" — prose fragments with nothing to say which question each answers,
+ *   which is worse than the scroll, not better. **This is a deliberate
+ *   refusal, not an oversight.** The honest thing at this width is to keep it a
+ *   table and make the scroll work: the destination column pins, so the row
+ *   never loses its name, and a shadow appears at whichever edge has more
+ *   behind it, so the sideways movement is offered rather than discovered.
+ *
+ * The moment `dataTable()` emits `data-label="<column header>"` on each cell —
+ * one expression, in `dataTable()` in src/lib/components.mjs — this table and
+ * every other wide table on the site flips to cards with no further CSS. That
+ * is the change this pass wanted and did not own the file to make.
+ */
+@media (max-width: 52rem) {
+  /* Labelled cells: one card per row, each cell led by its column's name. */
+  table.data:has(td[data-label]) thead { display: none; }
+  table.data:has(td[data-label]),
+  table.data:has(td[data-label]) tbody,
+  table.data:has(td[data-label]) tr,
+  table.data:has(td[data-label]) th,
+  table.data:has(td[data-label]) td { display: block; width: auto; }
+  table.data:has(td[data-label]) tr {
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: var(--s3);
+    margin-bottom: var(--s3);
+  }
+  table.data:has(td[data-label]) th[scope="row"] {
+    font: 650 .75rem/1.4 var(--sans);
+    letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
+    padding-left: 0;
+  }
+  table.data:has(td[data-label]) td { padding-left: 0; border: 0; }
+  table.data:has(td[data-label]) td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: var(--type-floor);
+    color: var(--ink-mute);
+  }
+
+  /* Unlabelled cells: the row keeps its name while the rest of it scrolls. */
+  table.data:not(:has(td[data-label])) :is(thead th, tbody td):first-child {
+    position: sticky; left: 0; z-index: 1;
+    background: var(--paper);
+    border-right: 1px solid var(--rule-strong);
+  }
+  table.data:not(:has(td[data-label])) :is(th, td) { padding-inline: var(--s3); }
+  /* `thead th` is `nowrap` so a column heading never breaks mid-phrase on a
+     laptop, where there is room for that to be a kindness. On a phone it is the
+     single largest contributor to the width being scrolled: "English-taught
+     bachelors" and "Tuition (EU/EEA)" held the table open on their own.
+     Measured on `/compare/` in a 343px window: 857px as found, 810px once the
+     cell padding tightened above, 672px once the headings may wrap. Still a
+     scroll, and 185px less of one. */
+  table.data:not(:has(td[data-label])) thead th { white-space: normal; }
+
+  /* The affordance. Two `local` layers ride with the content and cover the two
+     `scroll` layers underneath, so a shadow is visible at an edge exactly when
+     there is something past it — the scrollbar a phone does not draw, said in
+     paint. No markup: `.table-scroll` is the scroll container itself, and an
+     absolutely-positioned overlay inside one scrolls away with the content. */
+  .table-scroll {
+    background:
+      linear-gradient(to right, var(--paper) 40%, transparent) left / 2.5rem 100% no-repeat local,
+      linear-gradient(to left,  var(--paper) 40%, transparent) right / 2.5rem 100% no-repeat local,
+      radial-gradient(farthest-side at 0 50%, color-mix(in oklab, var(--ink) 30%, transparent), transparent) left / 1rem 100% no-repeat scroll,
+      radial-gradient(farthest-side at 100% 50%, color-mix(in oklab, var(--ink) 30%, transparent), transparent) right / 1rem 100% no-repeat scroll;
+    overscroll-behavior-x: contain;
+  }
+}
+
 /* Definition-style fact list */
 /* Measured against its own width, not the window's.
    The label column is 13rem, which is right in the main column and absurd in a
@@ -1047,11 +1243,29 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   font: 650 .75rem/1.4 var(--sans);
   letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
 }
-.field input[type="text"],
-.field input[type="search"],
-.field input[type="number"],
-.field select {
-  width: 100%;
+/*
+ * What a select or a text input looks like, attached to the control rather
+ * than to the box it happens to sit in.
+ *
+ * This block used to be written `.field select`, and `.field` is a filter-bar
+ * wrapper. The subject checker's eighteen selects live in `.picker__slot`,
+ * which is not a `.field`, so none of this reached them: `/planner/` — the page
+ * the home page's one button points at — rendered its six rows of three as raw
+ * browser default controls, 24px tall, no site face, no site colour, no radius.
+ * Nothing was wrong with the styling. It was fastened to the wrong thing.
+ *
+ * A container may say how wide a control is, because width is genuinely a fact
+ * about the column. It may not say what a control *is*.
+ */
+select,
+textarea,
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"] {
   padding: .55rem .7rem;
   background: var(--paper);
   border: 1px solid var(--rule-strong);
@@ -1059,7 +1273,7 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   font-size: .9375rem;
   color: var(--ink);
 }
-.field select {
+select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%237C7266' stroke-width='1.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1067,7 +1281,43 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   background-size: .65rem;
   padding-right: 2rem;
 }
-.field input:focus-visible, .field select:focus-visible { border-color: var(--accent); }
+input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--accent); }
+
+/* The chevron's 2rem reserve is most of a narrow control. `.p-grade` sits in
+   the picker's 5rem column: 11px of left padding and 32px of chevron reserve
+   left 37px for the word "Grade", which needs about 42 — so the first thing
+   the restyled picker did at 375px was truncate it to "Grad⌄", which is the
+   exact failure the note on `.picker__slot` below exists to stop happening
+   again. The mark is the same mark, moved in, on the two controls narrow
+   enough for the difference to matter. */
+.picker__slot .p-level,
+.picker__slot .p-grade {
+  padding-inline: .5rem 1.25rem;
+  background-position: right .4rem center;
+}
+
+/* A field says how wide, and nothing else. */
+.field input,
+.field select,
+.field textarea { width: 100%; }
+
+/* A checkbox's ink stays a checkbox — 13px is what one looks like, and 37 of
+   them on `/timeline/` inflated to 44 would be a page of boxes. It comes up to
+   18px so the tick is visible on a phone, takes the site's own colour, and
+   refuses to shrink inside a flex row; its *target* is the label, which the
+   control policy sizes.
+
+   It comes after the `.field` width rule on purpose: `.field input` and
+   `input[type="checkbox"]` are the same specificity, so source order decides,
+   and the other way round a checkbox that ever landed inside a field would be
+   stretched to the full column. */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+  accent-color: var(--brand-2);
+}
 
 .chips { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .chips--links { list-style: none; margin: 0; padding: 0; }
@@ -1387,7 +1637,7 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
   font-family: var(--font-ui, inherit);
   text-transform: uppercase;
   letter-spacing: .08em;
-  font-size: .6875rem;
+  font-size: var(--type-floor);
   font-weight: 600;
   color: var(--ink-mute);
   margin: 0 0 var(--s2);
@@ -1558,4 +1808,17 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
   grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
   margin-top: var(--s3);
 }
-.scope__opt { display: flex; gap: var(--s2); align-items: baseline; font-size: .9375rem; }
+/* The whole row is the target, not the box. Thirty-seven of these render on
+   `/timeline/`, and a 13px checkbox is not something a thumb can aim at; the
+   label already is the click target as far as the browser is concerned, so it
+   is the label that takes the minimum from the control policy. `center` rather
+   than `baseline` because the box is now 18px tall and a baseline-aligned
+   square sits visibly low against its own word. */
+.scope__opt {
+  display: flex; gap: var(--s2); align-items: center; font-size: .9375rem;
+  padding-inline: var(--s2);
+  margin-inline: calc(var(--s2) * -1);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.scope__opt:hover { background: var(--paper-3); }

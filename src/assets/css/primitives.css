@@ -303,7 +303,7 @@
   cursor: pointer;
   box-shadow: var(--lift-1);
 }
-.world__btn--wide { font-size: .6875rem; letter-spacing: .04em; text-transform: uppercase; }
+.world__btn--wide { font-size: var(--type-floor); letter-spacing: .04em; text-transform: uppercase; }
 .world__btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
 /* A disabled control is dimmed, not made translucent. `opacity` applies to the
    whole element including its background, so a disabled button sitting on a map
@@ -316,13 +316,14 @@
   box-shadow: none;
 }
 
-/* A control under a thumb is at least 44px square. These were 52x32, which is
-   fine under a mouse and not under a thumb. It has to come after the base rule
-   rather than before it: same specificity, so source order decides, and the
-   first attempt at this lost silently. */
-@media (pointer: coarse) {
-  .world__btn { min-width: 44px; min-height: 44px; }
-}
+/* The 2rem above is this button's mouse size and stays its mouse size. What
+   used to sit here was the site's only touch-target rule — "a control under a
+   thumb is at least 44px square. These were 52x32, which is fine under a mouse
+   and not under a thumb" — applied to this one component in #26 and never
+   generalised, so every other control went on deciding for itself and all of
+   them decided wrong. It has moved, unchanged in intent, to the control policy
+   at site.css "2b", where `--tap` is declared once and `.world__btn` inherits
+   it along with every other control on the site. Nothing here restates 44. */
 
 /* Stacked, three 44px controls take 140px of a 274px panel. Along the top they
    take 44. */
@@ -483,7 +484,7 @@
    really been credited. */
 .chapter__figure figcaption {
   margin-top: var(--s2);
-  font-size: .6875rem;
+  font-size: var(--type-floor);
   color: var(--ink-mute);
 }
 
@@ -633,7 +634,7 @@
 .fit__group--met li::marker { color: var(--ok); }
 .fit__group--gap li::marker { color: var(--warn); }
 .fit__group--unknown li::marker { color: var(--ink-mute); }
-.fit__actionable { color: var(--ok); font-size: .875em; }
+.fit__actionable { color: var(--ok); font-size: max(var(--type-floor), .875em); }
 .fit__caveat,
 .fit__provenance {
   font-size: .8125rem;
@@ -757,24 +758,15 @@
 .tray__missing { color: var(--ink-mute); font-style: italic; }
 
 /* Below the width where a wide table stops being legible, the comparison
-   becomes one card per opportunity rather than a squeezed grid. */
-@media (max-width: 52rem) {
-  .tray__table thead { display: none; }
-  .tray__table, .tray__table tbody, .tray__table tr, .tray__table th, .tray__table td { display: block; width: auto; }
-  .tray__table tr { border-bottom: 1px solid var(--rule-strong); padding-bottom: var(--s3); margin-bottom: var(--s3); }
-  .tray__table th[scope="row"] {
-    font: 650 .75rem/1.4 var(--sans);
-    letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
-    padding-left: 0;
-  }
-  .tray__table td { padding-left: 0; border: 0; }
-  .tray__table td::before {
-    content: attr(data-label);
-    display: block;
-    font-size: .75rem;
-    color: var(--ink-mute);
-  }
-}
+   becomes one card per opportunity rather than a squeezed grid.
+
+   This transform used to be written out here against `.tray__table`. It is not
+   a fact about the comparison tray; it is a fact about any table whose cells
+   carry the column they came from, and #34 found a second wide table on the
+   same page that wanted it and could not have it. It now lives in site.css
+   section 12, keyed on `td[data-label]` — which is the thing the tray actually
+   does that makes the transform possible — so this component gets it by
+   satisfying the condition rather than by being named. */
 
 /* --- States --------------------------------------------------------------- */
 
@@ -867,6 +859,41 @@
   line-height: 1;
 }
 .shell__active button:hover { color: var(--accent); }
+
+/*
+ * The one control that keeps its ink and takes its target as an overlay.
+ *
+ * This is the × that dismisses an active-filter chip. It sits *inside* a pill
+ * that is 24px tall, and the control policy would make it 44 — which does not
+ * make the chip tappable, it makes the chip 44px tall with a word floating in
+ * it, and the receipt row that reads as a line of small confirmations becomes a
+ * stack of boxes. The whole pill is only about 90x24.
+ *
+ * So the button stays the size of the glyph and grows a transparent 44px
+ * square, centred on itself, that nothing can see and a thumb can hit. Two
+ * neighbouring × targets can overlap where chips are tight; each is still
+ * centred on its own chip, so the nearest one wins, which is the right answer.
+ *
+ * It has to outrank the policy: the policy is `:root :is(…)` at (0,2,0), and
+ * `:root .shell__active button` is (0,2,1). If a future edit lowers the policy
+ * back to a bare selector list this rule keeps working; if it raises the policy
+ * this rule stops, silently, and the × goes back to being 44px tall. That is
+ * the failure mode worth knowing about.
+ */
+@media (pointer: coarse) {
+  :root .shell__active button {
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+  }
+  :root .shell__active button::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--tap); height: var(--tap);
+  }
+}
 
 /* The selected place's programmes are marked in the list, so the connection
    between the two views is visible rather than implied. */

@@ -37,6 +37,8 @@ const check = (name, fn) => {
 console.log('\nMaps\n');
 
 const css = await fs.readFile(path.join(ROOT, 'src', 'assets', 'css', 'primitives.css'), 'utf8');
+/* The control policy lives in site.css since #34; the map's own styles stay here. */
+const siteCss = await fs.readFile(path.join(ROOT, 'src', 'assets', 'css', 'site.css'), 'utf8');
 const mapJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'map.js'), 'utf8');
 const primitives = await fs.readFile(path.join(ROOT, 'src', 'lib', 'primitives.mjs'), 'utf8');
 
@@ -107,8 +109,34 @@ check('the hit radius is derived from the measured scale, not authored in viewBo
 });
 
 check('the controls are at least 44px under a thumb', () => {
-  assert.match(css, /@media \(pointer: coarse\)[\s\S]{0,200}\.world__btn[^}]*min-height:\s*44px/,
-    'no coarse-pointer minimum on .world__btn');
+  /* This used to assert `.world__btn { min-height: 44px }` inside a coarse
+     media query in primitives.css, and it was right to until #34, when that
+     rule became the seed of a site-wide control policy and was deleted here on
+     purpose. The number now lives once on `:root` as `--tap`, and the map's
+     buttons are covered by being *named in the policy* rather than by
+     restating it.
+     *
+     * So the assertion moved with the rule. What it protects is unchanged —
+     * a control under a thumb is at least 44px — but it now fails in the two
+     * ways that would actually break the map: the policy dropping the map's
+     * controls, or the map opting itself back out. It deliberately does NOT
+     * require a 44 in primitives.css; `test-controls.mjs` fails if any
+     * component restates it, so requiring one here would make the two guards
+     * contradict each other. */
+  assert.match(siteCss, /--tap:\s*44px/, 'the touch minimum is no longer declared as --tap: 44px on :root');
+
+  const policy = siteCss.match(/@media \(pointer: coarse\)\s*\{[\s\S]{0,600}?min-height:\s*var\(--tap\)/);
+  assert.ok(policy, 'no coarse-pointer control policy applying --tap');
+  assert.ok(
+    /\.world__list a|(^|[\s,(])button([\s,)]|$)/m.test(policy[0]),
+    'the control policy no longer names the map buttons, so the map is back to whatever size it happens to be'
+  );
+
+  /* The base `min-height: 2rem` on `.world__btn` stays and is correct: it is
+     the mouse size, and the policy raises it under a coarse pointer. Whether a
+     component can escape the policy by specificity is `test-controls.mjs`'s
+     question, and it asks it properly — asserting it here too would mean two
+     guards with one opinion between them and two places to update. */
 });
 
 check('a disabled control is dimmed rather than made translucent', () => {

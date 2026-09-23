@@ -301,6 +301,23 @@ export function accordion(items) {
 }
 
 export function dataTable({ caption, head, rows, className = 'data' }) {
+  /* Each cell carries the heading of the column it is in.
+   *
+   * A wide table read through a phone is a canvas scrubbed sideways: the
+   * comparison index is six columns and fifty rows, and at 375px that was an
+   * 857px scroll inside a 343px window. The stylesheet can turn a table into
+   * one card per row at phone width — but only if a cell can say which
+   * question it answers, because CSS cannot read a `th` into a `td`. Without
+   * that, the cells stack as "Limited.", "No tuition fee during the
+   * standard..." — prose fragments with nothing to anchor them, which is worse
+   * than the scroll.
+   *
+   * So the label travels with the cell. `compare.js` already does this for the
+   * tray it builds in the browser, and the CSS is keyed on
+   * `table.data:has(td[data-label])` rather than on either component — a fact
+   * about labelled cells, so every table built through here gets it. */
+  const labelFor = (h) => (typeof h === 'object' ? h?.label : h) ?? '';
+
   return html`<div class="table-scroll">
     <table class="${className}">
       ${caption ? html`<caption>${caption}</caption>` : ''}
@@ -308,10 +325,10 @@ export function dataTable({ caption, head, rows, className = 'data' }) {
         typeof h === 'object' ? html`<th class="${h.num ? 'num' : ''}" scope="col">${h.label}</th>` : html`<th scope="col">${h}</th>`
       )}</tr></thead>
       <tbody>${rows.map(
-        (r) => html`<tr>${r.map((c) =>
+        (r) => html`<tr>${r.map((c, i) =>
           typeof c === 'object' && c && c.num !== undefined
-            ? html`<td class="num">${c.num}</td>`
-            : html`<td>${typeof c === 'string' ? md(c) : c}</td>`
+            ? html`<td class="num" data-label="${labelFor(head[i])}">${c.num}</td>`
+            : html`<td data-label="${labelFor(head[i])}">${typeof c === 'string' ? md(c) : c}</td>`
         )}</tr>`
       )}</tbody>
     </table>
