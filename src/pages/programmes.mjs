@@ -225,6 +225,16 @@ ${hero({
             )
           : ''}
 
+        ${/* #38 — the institution's own words, one quotation long, and the way
+              out to the rest. A touch, not an import: docs/IB_STATEMENTS.md. */
+          inst.ibRecognitionStatement
+          ? html`<h2 id="ib-statement">What it tells IB students</h2>
+              ${inst.ibRecognitionStatement.diplomaPolicy
+                ? html`<blockquote><p>${inst.ibRecognitionStatement.diplomaPolicy}</p></blockquote>`
+                : ''}
+              <p>${inst.ibRecognitionStatement.text ? html`${inst.ibRecognitionStatement.text[0].toUpperCase()}${inst.ibRecognitionStatement.text.slice(1)}. ` : ''}<a href="${inst.ibRecognitionStatement.url}" rel="noopener nofollow">Its full IB recognition statement<span aria-hidden="true"> ↗</span></a>, written by the university and published by the IB.</p>`
+          : ''}
+
         ${(inst.ibNotes || []).length
           ? html`<h2 id="ib">What this institution asks of IB students</h2>
               <ul>${inst.ibNotes.map((n) => html`<li>${n}</li>`)}</ul>`
@@ -273,6 +283,7 @@ ${hero({
               ${inst.website ? html`<li><a href="${inst.website}" rel="noopener nofollow">Main site</a></li>` : ''}
               ${inst.admissionsUrl ? html`<li><a href="${inst.admissionsUrl}" rel="noopener nofollow">Admissions</a></li>` : ''}
               ${inst.ibPageUrl ? html`<li><a href="${inst.ibPageUrl}" rel="noopener nofollow">Its IB page</a></li>` : ''}
+              ${inst.ibRecognitionStatement ? html`<li><a href="${inst.ibRecognitionStatement.url}" rel="noopener nofollow">Its IB statement</a></li>` : ''}
             </ul>`,
           },
         ])}

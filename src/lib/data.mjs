@@ -78,10 +78,44 @@ const FLAGS = {
   sg: '🇸🇬', si: '🇸🇮', us: '🇺🇸', ae: '🇦🇪',
 };
 
+/* --- IB recognition statements (#38) --------------------------------------- */
+
+/**
+ * What an institution card may say about its IB statement: one line and a
+ * link. The number is the persuasive part — IB students really do send their
+ * results here — and it counts transcripts *sent*, so the wording says "sent",
+ * never "admitted" or "enrolled". A statement that says the Diploma is not
+ * recognised says so first; silence about recognition says nothing at all.
+ *
+ * Below IB_TRANSCRIPT_FLOOR the number is not shown, only the link. A small
+ * count is more often an artefact than a signal — the Technical University of
+ * Munich's statement reads 1, because its record was re-created in 2023 — and
+ * "2 transcripts sent here" invites exactly the wrong conclusion about a place.
+ */
+export const IB_TRANSCRIPT_FLOOR = 25;
+
+export function ibStatementFacet(s) {
+  if (!s?.statementUrl) return null;
+  const n = Number.isInteger(s.transcripts5y) && s.transcripts5y >= IB_TRANSCRIPT_FLOOR ? s.transcripts5y : null;
+  let text = null;
+  if (s.recognises?.diploma === false) text = 'says it does not recognise the IB Diploma';
+  else if (n) text = `${n.toLocaleString('en-GB')} IB transcript${n === 1 ? '' : 's'} sent here in five years`;
+  return {
+    url: s.statementUrl,
+    text,
+    transcripts5y: n,
+    recognisesDiploma: s.recognises?.diploma ?? null,
+    recognisesCourseResults: s.recognises?.courseResults ?? null,
+    diplomaPolicy: s.diplomaPolicy || null,
+    ibAdmissions: s.links?.ibAdmissions || null,
+    retrievedAt: s.retrievedAt || null,
+  };
+}
+
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -98,7 +132,11 @@ export async function load() {
       // Recognition Schemes: one per Destination that publishes its entry rules
       // in its own vocabulary. A Destination with none is the normal case.
       readDir(path.join(DATA, 'recognition')),
+      // Each institution's own IB statement, as the IB publishes it (#38).
+      // A touch and a link — see docs/IB_STATEMENTS.md.
+      readJson(path.join(DATA, 'ib-statements.json'), { statements: {} }),
     ]);
+  const statementFor = (key) => ibStatementFacet(ibStatements.statements?.[key]);
 
   /* Denmark was the pilot: institution pages render from the canonical entity
      graph. The research files under data/dk stay as the input the migration
@@ -124,6 +162,7 @@ export async function load() {
       ...i,
       key: `${c.code}-${slugify(i.shortName || i.name)}`,
     }));
+    for (const inst of c.institutions) inst.ibRecognitionStatement = statementFor(inst.key);
     c.whyConsider = asArray(c.whyConsider);
     c.watchOuts = asArray(c.watchOuts);
     c.funding = asArray(c.funding);
@@ -148,6 +187,7 @@ export async function load() {
 
   for (const inst of institutions) {
     inst.href = `/universities/${inst.id}/`;
+    inst.ibRecognitionStatement = statementFor(inst.id);
     inst.programmes = asArray(inst.programmes).map((p) => ({
       ...p,
       id: p.id || `${inst.id}-${slugify(p.name)}`,

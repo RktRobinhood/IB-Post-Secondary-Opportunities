@@ -219,8 +219,14 @@ export function assessFloor(country, graph) {
   const canonical = graph?.destinations?.get(code) || null;
   const owned = (id) => id === code || String(id ?? '').startsWith(`${code}-`);
 
+  /* An institution's IB recognition statement (#38) is real Evidence, but it
+     is the university describing itself, and one exists for most institutions
+     whether or not anybody has researched the Destination. Counting it would
+     let a country with no researched claim at all pass `evidence` on the
+     strength of a database import. So the floor counts Evidence for
+     everything except that one field. */
   const evidence = [...(graph?.evidence?.values() || [])].filter((e) =>
-    (e.supports || []).some((s) => owned(s.entity))
+    (e.supports || []).some((s) => owned(s.entity) && s.field !== 'ibStatement')
   );
   const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === code);
   const institutions = Array.isArray(country.institutions) ? country.institutions : [];

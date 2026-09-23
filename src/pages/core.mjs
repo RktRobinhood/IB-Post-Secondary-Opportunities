@@ -985,7 +985,7 @@ function institutionCard(site, i) {
     // the IB's database — is a data change plus this one line, not a redesign
     // of the card. Nothing renders while the field is absent.
     aside: i.ibRecognitionStatement?.url
-      ? { label: 'IB recognition statement', href: i.ibRecognitionStatement.url }
+      ? { label: 'IB statement', href: i.ibRecognitionStatement.url, text: i.ibRecognitionStatement.text }
       : null,
   });
 }

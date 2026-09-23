@@ -35,6 +35,8 @@
     "test:chars": "node scripts/test-no-control-chars.mjs",
     "test:credentials": "node scripts/test-credentials.mjs",
     "test:images": "node scripts/test-images.mjs",
+    "test:ib-statements": "node scripts/test-ib-statements.mjs",
+    "import:ib-statements": "node scripts/import-ib-statements.mjs",
     "migrate:credentials": "node scripts/migrate-credentials.mjs",
     "vocab": "node scripts/vocab.mjs",
     "images:review": "node scripts/images-review.mjs",
