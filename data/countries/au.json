@@ -50,28 +50,27 @@
     "deadlines": [
       {
         "label": "IB results released",
-        "date": "2027-07-05",
-        "endDate": "2027-07-06",
+        "date": "2027-07-06",
         "consequence": "indicative",
         "year": "2027 results",
-        "notes": "For comparison: UAC states that NSW and ACT applicants who sat the IB in November 2026 received their scores on 18 December 2026. Denmark sits the May session, so your results arrive in early July - which is why a July 2027 start is tight and February 2028 is the realistic main option.",
-        "source": "https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants"
+        "notes": "This entry used to read 5–6 July while every other record on the site said 6 July. IB results day is one fact and it is now one date here. 6 July is when results reach the candidate; 5 July is the day before, when coordinators get school access, and that is where the two-day version comes from — it is not results day for a student. The IB's own pages could not be read to settle it: ibo.org answered every automated request, and the built-in browser, with a Cloudflare bot-verification interstitial on 23 September 2026. The date is held on the IB's settled pattern of 6 July in 2024, 2025 and 2026, which is a fixed calendar date rather than a weekday rule, and it carries no source for that reason. Re-check on ibo.org in spring 2027. Separately, on the page this entry used to cite: UAC's IB applicants page at https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants was opened on 23 September 2026 and carries no May-session release date at all. The only date on it is for the November session — UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\" — which is a useful comparison and not the claim this entry makes, so the citation has been removed rather than left to fail verification forever. Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
+        "source": null
       },
       {
         "label": "Semester 1 2028 (main intake)",
-        "dateState": "not-published",
+        "dateState": "varies-by-institution",
         "consequence": "indicative",
         "year": "2028 intake",
-        "notes": "Teaching starts late February or early March 2028. The main Australian intake. International applications generally open around a year ahead and many universities accept applications until a few weeks before teaching starts, subject to visa processing time. Exact 2028 teaching dates were not published at the time of writing - check each university's academic calendar.",
-        "source": null
+        "notes": "The state was not-published and that was too pessimistic: 2028 teaching dates do exist, they are simply set one university at a time and there is no national one to record. The Australian National University's published university calendar for 2028 gives \"Semester 1 begins — 21 Feb\" and \"Semester 1 ends — 26 May\", read on 23 September 2026, so late February is a figure anchored to a real calendar rather than a guess. Other universities will differ by a week or two and you must check the one you are applying to. There is likewise no national application deadline: international applications generally open around a year ahead and many universities accept them until a few weeks before teaching starts, subject to visa processing time, which is the constraint that actually binds. This is the main Australian intake and the realistic one for a May 2027 IB candidate.",
+        "source": "https://www.anu.edu.au/directories/university-calendar?year=2028"
       },
       {
         "label": "Semester 2 2027 (mid-year intake)",
-        "dateState": "not-published",
+        "dateState": "varies-by-institution",
         "consequence": "indicative",
         "year": "2027 intake",
-        "notes": "Teaching starts in July 2027. The option that gets you started soonest after the May 2027 exams. Not every degree admits mid-year; engineering, health and many professional degrees are Semester 1 only. Verify per degree.",
-        "source": null
+        "notes": "As with Semester 1 2028, the dates are published but only institution by institution. The Australian National University's 2027 calendar gives \"Semester 2 begins — 26 Jul\" and \"Semester 2 ends — 29 Oct\", read on 23 September 2026. That is the option that gets you started soonest after the May 2027 exams, and it is three weeks after IB results on 6 July 2027 — which is tight for an offer, a Confirmation of Enrolment and a subclass 500 visa in sequence, and is the reason February 2028 is the realistic choice rather than this one. Not every degree admits mid-year either; engineering, health and many professional degrees are Semester 1 only. Verify per degree and per university.",
+        "source": "https://www.anu.edu.au/directories/university-calendar?year=2027"
       },
       {
         "label": "Student visa (subclass 500) application",
@@ -424,7 +423,7 @@
   ],
   "sources": [
     {
-      "title": "UAC - IBAS and ATAR Equivalent for IB Students (conversion values and dates)",
+      "title": "UAC - IBAS and ATAR Equivalent for IB Students (conversion values; the only results date on it is the November session's, 18 December 2026)",
       "url": "https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants",
       "retrieved": "2026-09-22"
     },
@@ -452,6 +451,16 @@
       "title": "Study Australia (Australian Government) - Living and education costs",
       "url": "https://www.studyaustralia.gov.au/en/life-in-australia/living-and-education-costs",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Australian National University — University calendar 2027 (Semester 2 begins 26 July 2027)",
+      "url": "https://www.anu.edu.au/directories/university-calendar?year=2027",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Australian National University — University calendar 2028 (Semester 1 begins 21 February 2028)",
+      "url": "https://www.anu.edu.au/directories/university-calendar?year=2028",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {

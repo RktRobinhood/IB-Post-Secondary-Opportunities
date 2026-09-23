@@ -53,7 +53,7 @@
         "timeOfDay": "12:00",
         "consequence": "priority",
         "year": "2027 entry",
-        "notes": "Published as noon. Applications received after this are reviewed on a rolling basis.",
+        "notes": "Published as \"25 Nov (noon) 2026 — Submit your application for first-round evaluation\", and HKU's next row reads \"After 25 Nov 2026 — applications submitted after the first-round evaluation will be reviewed on a rolling basis\", so missing it costs the first round and not the application. HKU says shortlisted students may be invited for interviews between November and January, and that faculties and schools may set their own document timelines. The same list opens with \"23 Sept 2026 — Start your application\". Read 23 September 2026, the day the cycle opened.",
         "source": "https://admissions.hku.hk/apply/international-qualifications"
       },
       {
@@ -61,7 +61,7 @@
         "date": "2026-11-25",
         "consequence": "priority",
         "year": "2027 entry",
-        "notes": "Offers are announced from late December 2026 onwards. Applications after 26 November are considered on a rolling basis.",
+        "notes": "There is no gap between the round and the rolling period, and the record used to read as though there were. HKUST's Important Dates list two consecutive rows: \"25 Nov 2026 — Deadline for Priority Round Applications\" and \"26 Nov, 2026 onwards — Application on rolling basis from 26 Nov, 2026 onwards\". So the priority round closes at the end of 25 November and rolling consideration begins the next day. Offers are announced from late December 2026 onwards. Read 23 September 2026; the page carries machine date checkers reading 20261125 and 20270630, which confirm the two dates independently of the printed text.",
         "source": "https://join.hkust.edu.hk/admissions/international-qualifications"
       },
       {
@@ -75,18 +75,52 @@
       {
         "label": "HKU — final deadline",
         "date": "2027-08-25",
+        "timeOfDay": "12:00",
+        "timeZone": "HKT",
         "consequence": "hard",
         "year": "2027 entry",
-        "notes": "Well after IB results are published on 6 July 2027, so a late application is possible — but the best programmes and scholarships will already be allocated.",
+        "notes": "Published as \"25 Aug 2027 — Applications close at noon (HKT)\"; the time was missing from this record and is recorded now, because a deadline that reads as a whole day is wrong by twelve hours. Well after IB results are published on 6 July 2027, so a late application is possible — but the best programmes and scholarships will already be allocated. HKU also warns non-local applicants to allow four to six weeks for assessment and eight to ten weeks for a visa after an offer, which is the real reason the August date is not as generous as it looks. Read 23 September 2026.",
         "source": "https://admissions.hku.hk/apply/international-qualifications"
       },
       {
-        "label": "CUHK, PolyU and CityU non-local rounds",
+        "label": "CUHK — Advance Offer Round closes",
+        "date": "2026-11-12",
+        "consequence": "priority",
+        "year": "2027 entry",
+        "notes": "CUHK's Important Dates page is headed \"2027 Admissions Exercise\" and reads \"12 Nov 2026 — Application Deadline for Advance Offer Round\". Missing it does not close the door: CUHK states that only one application is required and that \"applicants who are not selected for an advance offer will automatically compete on equal footing with all other applicants in the Regular Round\". Notifications to successful Advance Offer applicants run from December 2026. Applications open in October 2026 and CUHK holds an Information Day for Undergraduate Admissions on 17 October 2026. Read 23 September 2026. This entry used to be one third of a single undated record covering CUHK, PolyU and CityU together.",
+        "source": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/"
+      },
+      {
+        "label": "CUHK — Regular Round closes",
+        "date": "2027-01-07",
+        "consequence": "hard",
+        "year": "2027 entry",
+        "notes": "Published as \"7 Jan 2027 — Application Deadline for Regular Round\". This is CUHK's last date; the first teaching term commences in early September 2027, and registration and course selection run August to September 2027. One reading caution, recorded rather than silently corrected: the row immediately below this one on CUHK's own page reads \"From Feb 2026 — Notifications to successful applicants in Regular Round\", which sits between a January 2027 deadline and an August 2027 registration and is on its face the publisher's typo for February 2027. It is transcribed here as printed and no February date is recorded as fact. A successful applicant must pay a first instalment of composition fees of HK$10,000 and complete acceptance by a specified date or the offer becomes void. Read 23 September 2026.",
+        "source": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/"
+      },
+      {
+        "label": "PolyU — Early Round closes",
+        "date": "2026-11-17",
+        "consequence": "priority",
+        "year": "2027 entry",
+        "notes": "From PolyU's \"Ug Admissions 2027/28 — International & Chinese Mainland Non-JEE Applicants\" timeline: applications start 23 September 2026, the Early Round application deadline is 17 November 2026, and Early Round admission announcements run from late December 2026 onwards. PolyU states that \"applicants without decisions will be considered in subsequent round in competition with other applicants\", so this is a priority date rather than a closing one. How this was read, because it matters for re-checking: PolyU publishes the whole timeline as a single PNG image (KeyDates_International_2027-28_PolyU_1300x650) and the page carries no equivalent text. The image was downloaded and read on 23 September 2026. No text-matching verifier will ever find these dates on that URL.",
+        "source": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates"
+      },
+      {
+        "label": "PolyU — Main Round closes",
+        "date": "2027-02-11",
+        "consequence": "priority",
+        "year": "2027 entry",
+        "notes": "Published on the same image timeline as \"Main Round Application Deadline — 11 Feb 2027\", with admission announcements from late February 2027 onwards. The consequence is priority rather than hard because PolyU's own footnote says applications received after the main round deadline \"will still be considered on a rolling basis till 14 May 2027, subject to the availability of study places\" — so 14 May 2027 is the real end of the cycle, and it still falls before IB results on 6 July 2027. PolyU adds that \"if there is no news by mid-July, you should assume that your application is unsuccessful\". Read from the PNG on 23 September 2026; see the Early Round entry for why the page carries no text.",
+        "source": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates"
+      },
+      {
+        "label": "CityU — non-local rounds, 2027 entry",
         "dateState": "not-published",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Not verified from official pages in this research. Check each university's non-JUPAS admissions page from September 2026. Three universities in one entry: nothing in the record tells their dates apart, so it has not been split.",
-        "source": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/"
+        "notes": "Not established, and the reason is the site rather than the research. CityU's undergraduate admissions pages sit behind Imperva/Incapsula bot protection: on 23 September 2026 both the Key Dates page at admo.cityu.edu.hk and the Application Period page at cityu.edu.hk returned an Incapsula block page to direct retrieval, and the built-in browser was refused the admo host outright and rendered the other as an empty document. Nothing about CityU's 2027 dates was read, and none has been inferred from the other Hong Kong universities. What is known from CityU's published description of its process, without dates attached, is that it runs an Early Round and a Main Round, that unsuccessful Early Round applicants are considered in the Main Round, and that international applications are processed on a rolling basis as documents arrive. To establish the dates a person needs to open the page in an ordinary browser. Previously this record covered CUHK, PolyU and CityU in one undated entry; the other two are now dated separately and this is the only one that genuinely has no date.",
+        "source": "https://www.cityu.edu.hk/admo/application-period"
       }
     ],
     "steps": [
@@ -445,6 +479,21 @@
       "title": "CUHK — Overseas and other qualifications (IB minimum 30 points)",
       "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CUHK — Important Dates, 2027 Admissions Exercise (overseas and other qualifications)",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "PolyU — International / Other Qualifications Key Dates, Ug Admissions 2027/28 (dates published only as an image)",
+      "url": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-key-dates",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "CityU — Application Period (blocked by Incapsula bot protection on 23 September 2026; no dates read)",
+      "url": "https://www.cityu.edu.hk/admo/application-period",
+      "retrieved": "2026-09-23"
     }
   ],
   "artDirection": {
