@@ -81,13 +81,29 @@ Destination that publishes its rules in IB terms genuinely needs no Recognition
 Scheme. If it does not, most of the world does not either, and the remaining
 Destinations are research rather than modelling.
 
-### 3. #18 — the style pass against the reference sites
+### 3. #26 — the maps are legible in neither direction
+
+Raised by the user: "the maps right now are buggy and not nearly as
+interactive as they need to be". Measured rather than guessed, and they are
+right on four counts. Two are visual and are with the #18 pass; two are
+geometric and behavioural and are mine to do after it lands.
+
+The headline numbers, so they are not lost: the basemap is drawn at
+`fill-opacity: .07`, giving **1.09** contrast between land and sea and
+**1.29** between coastline and land. Part one of #12 baked coastlines
+precisely so a reader could tell they were looking at Europe, then rendered
+them where they still cannot. On a 375px phone the map stage is **343 × 145**
+with **14 × 14** tap targets, because the SVG has one fixed 2.38:1 viewBox for
+every viewport and the authored "fingertip-sized" hit radius scales down with
+everything else. There are no touch gestures at all.
+
+### 4. #18 — the style pass against the reference sites
 
 Not started. It overlaps #12 at the world window, and the issue says to do it
 with #12 and #19 in view rather than ahead of them. #12 is now done, so this
 is unblocked.
 
-### 4. #19 — the globe
+### 5. #19 — the globe
 
 Deliberately not started. The issue itself says to prototype a vertical slice
 before committing to an engine, and asks the harder question of whether 3D is
@@ -96,12 +112,12 @@ Destinations, which is most of what these students do. The recommendation is to
 answer that question before building, and to record the answer as an ADR
 whichever way it goes.
 
-### 5. #17 — the hero review
+### 6. #17 — the hero review
 
 29 Destination heroes queued, worst first, through `npm run images:review`.
 The only item in the programme that a person has to do.
 
-### 6. Open follow-ups filed during this programme
+### 7. Open follow-ups filed during this programme
 
 - **#21** — seven dated claims cited to pages that do not carry them, mostly
   site roots. A homepage stays live forever and never carries the claim, so
@@ -111,6 +127,8 @@ The only item in the programme that a person has to do.
   deadlines describe different years.
 - **#23** — dated milestones still buried in `notes`, including several that
   are specifically IB-candidate deadlines.
+- **#25** — 64 dead `admissionsUrl` values of 437, the link a student follows
+  at the moment they have decided to apply. `npm run check:institutions`.
 
 ---
 
