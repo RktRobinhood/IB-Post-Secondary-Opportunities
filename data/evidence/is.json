@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ev-hi-is-deadline-page-5-june",
+    "sourceUrl": "https://english.hi.is/study/apply/application-deadline",
+    "publisher": "University of Iceland (Háskóli Íslands)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The University of Iceland's application deadline page lists the autumn undergraduate deadline of 5 June under a heading for Icelandic and Nordic citizens, a group that includes a Danish citizen applying from Denmark.",
+    "excerpt": "Icelandic and Nordic citizens — Undergraduate studies: 5 June",
+    "interpretation": "Read literally, this makes 5 June the deadline for a Danish applicant, because a Danish citizen is a Nordic citizen. That reading is contradicted by the university's own FAQ, which is recorded separately as ev-hi-is-faq-5-june. This record deliberately does not resolve the two: the convenient reading here is the later deadline, and preferring it is exactly the choice that costs a student a year if it is wrong.",
+    "supports": [
+      {
+        "entity": "is",
+        "field": "application.deadlines"
+      }
+    ],
+    "conflictsWith": [
+      "ev-hi-is-faq-5-june"
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "Both this page and the FAQ were read on 2026-09-23 and both were live. The contradiction is the publisher's, not a stale copy on our side."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Nordic and Baltic group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read against the source page on 2026-09-23, alongside the FAQ it contradicts."
+    }
+  },
+  {
+    "id": "ev-hi-is-faq-5-june",
+    "sourceUrl": "https://english.hi.is/faq/when-application-deadline",
+    "publisher": "University of Iceland (Háskóli Íslands)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The University of Iceland's FAQ gives the same 5 June deadline to international students who have lived in Iceland and are living in Iceland, and does not mention Nordic citizens at all.",
+    "excerpt": "International students who have lived in Iceland og are living in Iceland — 5 June",
+    "interpretation": "Read literally, this excludes a Danish applicant applying from Denmark, who has not lived in Iceland. It cannot both be true and ev-hi-is-deadline-page-5-june be true, because the two describe different groups as the one 5 June belongs to. The untranslated Icelandic \"og\" left in the middle of an English sentence is worth recording: it is what a partial translation that has fallen out of step with the page it contradicts looks like from the outside, and it is a reason to suspect this page is the stale one — but a suspicion is not a fact, and the product declines to state a date on the strength of it.",
+    "supports": [
+      {
+        "entity": "is",
+        "field": "application.deadlines"
+      }
+    ],
+    "conflictsWith": [
+      "ev-hi-is-deadline-page-5-june"
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23",
+      "notes": [
+        "The resolution is not ours to make. admission@hi.is is the address that can settle it, and the country record tells the student to ask before relying on 5 June."
+      ]
+    },
+    "attestation": {
+      "by": "the deadline research pass, Nordic and Baltic group",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read against the source page on 2026-09-23, alongside the deadline page it contradicts."
+    }
+  }
+]
