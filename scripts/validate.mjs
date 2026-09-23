@@ -14,6 +14,7 @@ import path from 'node:path';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
 import { assessSourcing, claimKindForField, isAuthoritative, CLAIM_KIND } from '../src/lib/source-classes.mjs';
 import { checkContextNote } from '../src/lib/context-voice.mjs';
+import { loadCanonical } from '../src/lib/canonical.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCHEMA_DIR = path.join(ROOT, 'schemas');
@@ -233,7 +234,18 @@ async function main() {
   }
 
   /* Report */
-  const total = schemaErrors.length + refErrors.length + sourcingErrors.length;
+  /* Graph integrity is asked of the loader rather than recomputed here.
+   *
+   * This file used to collect ids into Sets and never compare them, so a
+   * duplicate id passed validation and then silently overwrote a record at
+   * load time — two different modules each assuming the other one checked.
+   * The loader is the only place that can see both files claiming an id, so it
+   * is the only place that can name them, and asking it costs one call. */
+  const integrityErrors = (await loadCanonical({ strict: false })).diagnostics
+    .filter((d) => d.level === 'error')
+    .map((d) => d.message);
+
+  const total = schemaErrors.length + refErrors.length + sourcingErrors.length + integrityErrors.length;
   if (!QUIET) {
     console.log(`\nValidated ${parsed} records across ${COLLECTIONS.length} collections plus evidence.`);
     const counts = Object.entries(ids)
@@ -253,6 +265,12 @@ async function main() {
     console.log(`${refErrors.length} reference error(s):`);
     for (const e of refErrors.slice(0, 50)) console.log(`  ✗ ${e}`);
     if (refErrors.length > 50) console.log(`  … and ${refErrors.length - 50} more`);
+    console.log('');
+  }
+  if (integrityErrors.length) {
+    console.log(`${integrityErrors.length} graph integrity error(s) — a record would be lost or overwritten at load:`);
+    for (const e of integrityErrors.slice(0, 50)) console.log(`  ✗ ${e}`);
+    if (integrityErrors.length > 50) console.log(`  … and ${integrityErrors.length - 50} more`);
     console.log('');
   }
   if (sourcingErrors.length) {

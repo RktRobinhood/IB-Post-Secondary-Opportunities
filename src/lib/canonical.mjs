@@ -16,35 +16,87 @@ import path from 'node:path';
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
 
-async function readDir(dir) {
-  try {
-    const files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json')).sort();
-    const out = [];
-    for (const f of files) {
-      try {
-        out.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')));
-      } catch (err) {
-        console.warn(`  ! ${path.relative(ROOT, path.join(dir, f))}: ${err.message}`);
-      }
-    }
-    return out;
-  } catch {
-    return [];
+/**
+ * What a caller gets instead of a graph that is quietly missing things.
+ *
+ * The loader used to warn and carry on. A `console.warn` in a build that prints
+ * hundreds of lines and then says "wrote 125 pages" is not a failure anybody
+ * sees, so a Destination could disappear because its file had a trailing comma
+ * and the build would still report success. For a repository whose records
+ * decide eligibility, deadlines and Evidence, "missing because the JSON did not
+ * parse" cannot be a successful load.
+ *
+ * Every diagnostic is collected before this is thrown, so one run names every
+ * problem rather than only the first.
+ */
+export class CanonicalIntegrityError extends Error {
+  constructor(diagnostics) {
+    const errors = diagnostics.filter((d) => d.level === 'error');
+    super(
+      `canonical data is not loadable (${errors.length} error${errors.length === 1 ? '' : 's'}):\n` +
+        errors.map((d) => `  ${d.message}`).join('\n')
+    );
+    this.name = 'CanonicalIntegrityError';
+    this.diagnostics = diagnostics;
   }
 }
 
-export async function loadCanonical() {
+/**
+ * Read one directory of records, keeping each record's file with it.
+ *
+ * The file travels with the record because the only useful thing to say about a
+ * duplicate id is which two files claim it, and by the time the records are in
+ * a Map that information is gone.
+ *
+ * An absent directory and a malformed one are different answers. An optional
+ * directory legitimately may not exist; a directory that fails to open for any
+ * other reason is a fault. Only ENOENT is read as absence.
+ */
+async function readDir(dir, diagnostics) {
+  const rel = path.relative(ROOT, dir).split(path.sep).join('/');
+  let files;
+  try {
+    files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json')).sort();
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      diagnostics.push({ level: 'absent', dir: rel, message: `${rel}/: not present` });
+      return [];
+    }
+    diagnostics.push({ level: 'error', dir: rel, message: `${rel}/: ${err.message}` });
+    return [];
+  }
+  const out = [];
+  for (const f of files) {
+    const file = `${rel}/${f}`;
+    try {
+      out.push({ record: JSON.parse(await fs.readFile(path.join(dir, f), 'utf8')), file });
+    } catch (err) {
+      diagnostics.push({ level: 'error', file, message: `${file}: ${err.message}` });
+    }
+  }
+  return out;
+}
+
+/**
+ * Load the canonical graph, or refuse to.
+ *
+ * `strict` is the default because a caller that has not asked for diagnostics
+ * must not be handed a partial graph. The validator and the tests pass
+ * `strict: false` precisely because reporting every problem is their job.
+ */
+export async function loadCanonical({ dataDir = DATA, strict = true } = {}) {
+  const diagnostics = [];
   const [destinations, places, institutions, programmes, opportunities, systems, routes, contextNotes, evidenceFiles] =
     await Promise.all([
-      readDir(path.join(DATA, 'destinations')),
-      readDir(path.join(DATA, 'places')),
-      readDir(path.join(DATA, 'institutions')),
-      readDir(path.join(DATA, 'programmes')),
-      readDir(path.join(DATA, 'opportunities')),
-      readDir(path.join(DATA, 'application-systems')),
-      readDir(path.join(DATA, 'application-routes')),
-      readDir(path.join(DATA, 'context-notes')),
-      readDir(path.join(DATA, 'evidence')),
+      readDir(path.join(dataDir, 'destinations'), diagnostics),
+      readDir(path.join(dataDir, 'places'), diagnostics),
+      readDir(path.join(dataDir, 'institutions'), diagnostics),
+      readDir(path.join(dataDir, 'programmes'), diagnostics),
+      readDir(path.join(dataDir, 'opportunities'), diagnostics),
+      readDir(path.join(dataDir, 'application-systems'), diagnostics),
+      readDir(path.join(dataDir, 'application-routes'), diagnostics),
+      readDir(path.join(dataDir, 'context-notes'), diagnostics),
+      readDir(path.join(dataDir, 'evidence'), diagnostics),
     ]);
 
   /* The IB subject catalogue, so a requirement written in IB terms can be
@@ -52,36 +104,70 @@ export async function loadCanonical() {
      one lookup the projection needs and it belongs to no Destination. */
   let ibSubjectNames = new Map();
   try {
-    const cat = JSON.parse(await fs.readFile(path.join(DATA, 'ib-subjects.json'), 'utf8'));
+    const cat = JSON.parse(await fs.readFile(path.join(dataDir, 'ib-subjects.json'), 'utf8'));
     ibSubjectNames = new Map((cat.subjects || []).map((x) => [x.id, x.name]));
   } catch {
     /* A missing catalogue degrades to showing the id, which is ugly and true. */
   }
 
-  const evidence = new Map();
-  for (const file of evidenceFiles) {
-    for (const ev of Array.isArray(file) ? file : Object.values(file)) {
-      if (ev?.id) evidence.set(ev.id, ev);
-    }
-  }
+  /* Evidence is indexed across files, not within them. One id used in two
+     Destinations' files is the duplicate most likely to happen, and the one a
+     per-file check would miss. */
+  const evidence = index(
+    evidenceFiles.flatMap(({ record, file }) =>
+      (Array.isArray(record) ? record : Object.values(record)).map((ev) => ({ record: ev, file }))
+    ),
+    'evidence',
+    diagnostics
+  );
 
   const graph = {
-    destinations: index(destinations),
-    places: index(places),
-    institutions: index(institutions),
-    programmes: index(programmes),
-    opportunities: index(opportunities),
-    applicationSystems: index(systems),
-    applicationRoutes: index(routes),
-    contextNotes: index(contextNotes),
+    destinations: index(destinations, 'destination', diagnostics),
+    places: index(places, 'place', diagnostics),
+    institutions: index(institutions, 'institution', diagnostics),
+    programmes: index(programmes, 'programme', diagnostics),
+    opportunities: index(opportunities, 'opportunity', diagnostics),
+    applicationSystems: index(systems, 'application system', diagnostics),
+    applicationRoutes: index(routes, 'application route', diagnostics),
+    contextNotes: index(contextNotes, 'context note', diagnostics),
     evidence,
   };
 
-  return { graph, ...project(graph, ibSubjectNames) };
+  if (strict && diagnostics.some((d) => d.level === 'error')) throw new CanonicalIntegrityError(diagnostics);
+
+  return { graph, diagnostics, ...project(graph, ibSubjectNames) };
 }
 
-function index(list) {
-  return new Map(list.map((r) => [r.id, r]));
+/**
+ * Index records by id, and refuse to let one silently replace another.
+ *
+ * `new Map(list.map(...))` keeps the last of any repeated key. That is the
+ * quietest possible way to lose a record: nothing is missing from disk, the
+ * count in the build log is right, and one Opportunity is simply somebody
+ * else's. Both files are named, because knowing that an id is duplicated is not
+ * actionable without knowing where.
+ */
+function index(list, kind, diagnostics) {
+  const map = new Map();
+  const from = new Map();
+  for (const { record, file } of list) {
+    const id = record?.id;
+    if (!id) {
+      diagnostics.push({ level: 'error', file, message: `${file}: a ${kind} record has no id` });
+      continue;
+    }
+    if (map.has(id)) {
+      diagnostics.push({
+        level: 'error',
+        file,
+        message: `duplicate ${kind} id "${id}": ${from.get(id)} and ${file}`,
+      });
+      continue;
+    }
+    map.set(id, record);
+    from.set(id, file);
+  }
+  return map;
 }
 
 /** Follow an evidence reference list to the records themselves. */
