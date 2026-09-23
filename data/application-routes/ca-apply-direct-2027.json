@@ -135,7 +135,13 @@
     "notes": [
       "Applying directly is a researched finding about Quebec, Alberta and Nova Scotia, not an empty field. What has been established is that no shared system exists in those provinces, that the universities disagree with each other by six weeks, and that Quebec adds an immigration step the others do not have.",
       "This route carries no jurisdiction because it serves three of them. The Destination record points Quebec, Alberta and Nova Scotia at it by name. The Application Route schema allows a route to declare one jurisdiction or none, and there is no way to say 'these three' - see the report on this pass.",
-      "Not established: the University of Calgary's deadlines and fees, Dalhousie's 2027 dates, Concordia's fee, and whether any of these universities publishes an IB-specific rule beyond the ones recorded."
+      "Not established: the University of Calgary's deadlines and fees, Dalhousie's 2027 dates, Concordia's fee, and whether any of these universities publishes an IB-specific rule beyond the ones recorded.",
+      "Scoped to the three jurisdictions it actually serves. It carried no jurisdiction at all until the schema allowed a list, which made it the Destination-wide fallback — so an Ontario institution nobody had researched would have looked covered by it."
     ]
-  }
+  },
+  "jurisdiction": [
+    "ca-qc",
+    "ca-ab",
+    "ca-ns"
+  ]
 }

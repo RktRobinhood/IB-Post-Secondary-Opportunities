@@ -93,6 +93,17 @@
           },
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
+          },
+          "dateState": {
+            "enum": [
+              "not-published",
+              "no-central-deadline",
+              "varies-by-institution",
+              "rolling",
+              "not-yet-announced",
+              "withdrawn"
+            ],
+            "description": "Why there is no date, when there is none. A researched finding — \"there is no central deadline\", \"each institution sets its own\" — is not a missing value, and a milestone that cannot say which it is renders as \"Date not published\", which is a lie about work that was done. Mirrors the states a country profile deadline may declare; src/lib/publication-floor.mjs holds the list and src/lib/calendar.mjs reads it."
           }
         },
         "additionalProperties": false
@@ -162,6 +173,17 @@
           },
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
+          },
+          "dateState": {
+            "enum": [
+              "not-published",
+              "no-central-deadline",
+              "varies-by-institution",
+              "rolling",
+              "not-yet-announced",
+              "withdrawn"
+            ],
+            "description": "Why there is no date, when there is none. A researched finding — \"there is no central deadline\", \"each institution sets its own\" — is not a missing value, and a milestone that cannot say which it is renders as \"Date not published\", which is a lie about work that was done. Mirrors the states a country profile deadline may declare; src/lib/publication-floor.mjs holds the list and src/lib/calendar.mjs reads it."
           }
         },
         "additionalProperties": false
@@ -242,8 +264,19 @@
       "$ref": "common.schema.json#/$defs/recordMeta"
     },
     "jurisdiction": {
-      "$ref": "common.schema.json#/$defs/id",
-      "description": "The Application Jurisdiction this route serves, where the Destination declares several. A route with no jurisdiction and no appliesTo covers the whole Destination — the right shape for a centralised system and the wrong one for a federal one."
+      "description": "The Application Jurisdiction(s) this route serves, where the Destination declares several. One id, or an array where a route genuinely serves more than one — Canada’s apply-direct route covers Quebec, Alberta and Nova Scotia, and forcing that to be unscoped made it the destination-wide fallback, which is exactly what the route floor check exists to catch. A route with no jurisdiction and no appliesTo covers the whole Destination: the right shape for a centralised system and the wrong one for a federal one.",
+      "oneOf": [
+        {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "common.schema.json#/$defs/id"
+          }
+        }
+      ]
     }
   },
   "additionalProperties": false

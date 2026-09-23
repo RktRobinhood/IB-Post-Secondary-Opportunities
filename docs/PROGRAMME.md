@@ -102,35 +102,38 @@ Things the records could not say. Recorded here because more than one pass hit
 most of them independently, which is the signal that they are the model's fault
 and not the researcher's.
 
-### An Application Route milestone cannot say why it has no date
+### ~~An Application Route milestone cannot say why it has no date~~ — fixed
 
 **Hit independently by the Canada and United States passes; it cost Canada 16
-milestones.** `country.application.deadlines[]` accepts the six date states;
-`application-route.schema.json` does not, and `calendar.mjs` reads
-`milestone.dateState` that the schema rejects. So a researched finding — "there
-is no OUAC deadline for international applicants", "each college sets its own
-Early Decision date" — has to be moved back onto the country profile to be
-sayable at all, and a route left holding it renders as "Date not published",
+milestones.** `country.application.deadlines[]` accepted the six date states;
+`application-route.schema.json` did not, and `calendar.mjs` read a
+`milestone.dateState` the schema rejected. So a researched finding — "there is
+no OUAC deadline for international applicants", "each college sets its own
+Early Decision date" — had to be moved back onto the country profile to be
+sayable at all, and a route left holding it rendered "Date not published",
 which is a lie about work that was done.
 
-Routes are the migration target. They need the same six states.
+Rounds and milestones now take the same six states the profile does. The
+milestones that were displaced can move back onto their routes.
 
-### An Application Route serves one jurisdiction or all of them, never several
+### ~~An Application Route serves one jurisdiction or all of them~~ — fixed
 
-`jurisdiction` is a single id. Canada's apply-direct route serves Quebec,
-Alberta and Nova Scotia, so it carries no jurisdiction and becomes the
-destination-wide fallback — which weakens the `route` floor check, because
-`routeFor()` falls back to any unscoped route and a genuinely unresearched
-institution then looks covered. An array, or resolution through the
-Destination's `jurisdictions[].applicationRoute`, fixes both.
+`jurisdiction` was a single id. Canada's apply-direct route serves Quebec,
+Alberta and Nova Scotia, so it had to carry none — which made it the
+Destination-wide fallback, and the Destination-wide fallback is exactly what
+the `route` floor check exists to catch. An Ontario institution nobody had
+researched would have looked covered by it.
 
-### `appliesTo` has two incompatible readings
+It now takes an id or a list, and Canada's route declares its three.
 
-`publication-floor.mjs`'s `routeFor()` matches `route.appliesTo` against
-institution ids; `validate.mjs` requires every entry to be an Opportunity id.
-The most precise way to bind a route to institutions therefore cannot be used
-without failing the build, and route resolution is effectively
-jurisdiction-only. One of the two has to give.
+### ~~`appliesTo` has two incompatible readings~~ — resolved by deleting one
+
+`publication-floor.mjs`'s `routeFor()` matched `route.appliesTo` against
+institution ids while `validate.mjs` required Opportunity ids, so the most
+precise way to bind a route to institutions could never be used without
+failing the build. The floor's reading is gone, with a comment saying why:
+offering a binding that cannot be used is worse than not offering it. Route
+resolution is jurisdiction-based, and says so.
 
 ### `institutionGrouping` is a single axis
 

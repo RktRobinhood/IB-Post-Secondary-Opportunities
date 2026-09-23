@@ -29,6 +29,8 @@
  * rather than a thin layer everywhere.
  */
 
+import { serves } from './jurisdictions.mjs';
+
 /* --- Small helpers -------------------------------------------------------- */
 
 /**
@@ -251,13 +253,14 @@ export function assessFloor(country, graph) {
      * one, which is precisely what check `route` is here to expose.
      */
     routeFor(inst) {
-      const ids = [inst.institutionId, inst.key, inst.id].filter(Boolean);
-      const named = routes.find(
-        (r) => Array.isArray(r.appliesTo) && r.appliesTo.some((id) => ids.includes(id))
-      );
-      if (named) return named;
+      /* `appliesTo` deliberately does NOT appear here.
+         It was tried and it is a dead path: `scripts/validate.mjs` requires
+         every entry to be an Opportunity id, so a route can never name an
+         institution in it without failing the build. Matching against
+         institution ids here made the most precise binding look available when
+         it was not, which is worse than not offering it. */
       if (inst.jurisdiction) {
-        const byJurisdiction = routes.find((r) => r.jurisdiction === inst.jurisdiction);
+        const byJurisdiction = routes.find((r) => serves(r, inst.jurisdiction));
         if (byJurisdiction) return byJurisdiction;
       }
       return routes.find((r) => !r.jurisdiction && !(r.appliesTo || []).length) || null;

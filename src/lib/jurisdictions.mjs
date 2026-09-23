@@ -182,12 +182,27 @@ export function groupInstitutions(country, graph) {
   return { grouping, groups };
 }
 
+/**
+ * A route may serve one jurisdiction or several.
+ *
+ * `jurisdiction` started as a single id, and Canada broke it immediately: its
+ * apply-direct route serves Quebec, Alberta and Nova Scotia, so it had to be
+ * left unscoped — which turned it into the Destination-wide fallback, and the
+ * Destination-wide fallback is what the `route` floor check exists to catch. An
+ * Ontario institution nobody had researched would have looked covered by it.
+ */
+export function serves(route, key) {
+  const j = route?.jurisdiction;
+  if (Array.isArray(j)) return j.includes(key);
+  return j === key;
+}
+
 function routeForGroup(routes, key, meta) {
   if (meta?.applicationRoute) {
     const named = routes.find((r) => r.id === meta.applicationRoute);
     if (named) return named;
   }
-  return routes.find((r) => r.jurisdiction === key) || null;
+  return routes.find((r) => serves(r, key)) || null;
 }
 
 /* --- What a student is told ----------------------------------------------- */
