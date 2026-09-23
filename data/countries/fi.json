@@ -7,7 +7,7 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Your IB grades alone can win a place — no entrance exam",
   "summary": "Finland is the one country on this list where your IB transcript is converted into a published, field-by-field points table and used to admit you directly. It is called todistusvalinta, certificate-based selection, and it means you can skip the SAT and skip entrance exams at most universities. The main door is a single joint application at Studyinfo, open 7-21 January 2027 for degrees starting in August 2027, with up to six ranked choices. As a Danish citizen you pay no tuition at all, in any language of instruction.",
@@ -19,8 +19,8 @@
     "As a Nordic citizen you skip Migri entirely and just register your details with the population agency (dvv.fi)."
   ],
   "watchOuts": [
-    "The joint application window for autumn 2027 is 7-21 January 2027 — you apply fifteen months before you start, on predicted grades. Aalto's own page says 7-22 January, one day out from everyone else; check it nearer the time.",
-    "Helsinki is the exception: the IB route there is Admission Group 2, running 9-23 March 2027, not January. Åbo Akademi's bachelor application is also 9-23 March.",
+    "The joint application window for autumn 2027 is 7-21 January 2027 — you apply more than half a year before you start, on predicted grades. Aalto's own page still says 7-22 January; it is the only source that does and it is wrong, so work to the 21st.",
+    "Helsinki is the exception: the IB route there is Admission Group 2, running 9-23 March 2027 and closing at 15.00 Finnish time, not January. Helsinki's January round, Group 1, is defined as being for applicants who do not hold an IB Diploma, so it is not an alternative for you.",
     "Several famous names have almost nothing in English at bachelor level: Helsinki has two programmes, Turku two, Vaasa one, and Åbo Akademi teaches every single bachelor's degree in Swedish.",
     "Finnish medicine is taught in Finnish and uses a national entrance exam. No English-taught Finnish medicine bachelor's could be verified, and the health sciences points table may not cover medicine at all.",
     "Institutional scholarships exist only for fee-paying non-EU students. If you pay no tuition there is nothing to waive, and Finland has no government scholarship scheme.",
@@ -61,8 +61,9 @@
         "date": "2027-01-07",
         "endDate": "2027-01-21",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027",
-        "notes": "One form, maximum six programme choices. Confirmed for 2027 by Jyväskylä, Tampere, Oulu, Turku, Metropolia, TAMK, Arcada and Haaga-Helia. Aalto's page says 7-22 January, which contradicts every other source.",
+        "notes": "One form, maximum six programme choices. The window closes on 21 January, not 22 — the record used to leave that open and it is now settled. Study in Finland, the national agency's own service, publishes it as \"The joint application period to the English-taught Bachelor's and Master studies starting in August/September 2027 will be arranged 7 – 21 January 2027 at Studyinfo.fi\", and Jyväskylä (\"Application period opens: 7 January 2027 … Deadline for submitting the application: 21 January 2027\") and Metropolia (\"Spring Joint Application 7 - 21 January 2027\") say the same, as do Tampere, Oulu, Turku, TAMK, Arcada and Haaga-Helia. Aalto's own page still reads \"The next application period for programmes taught in English is 7–22 January 2027\", re-checked on 23 September 2026 and still live. Aalto is wrong: it is one participating university and it does not set the national window, and its 22nd looks like the end date of the 2025 round (8–22 January) left uncorrected. Do not plan on a 22nd. A closing time of 15:00 Finnish time is the standing convention for this round and is what the University of Helsinki publishes for its own rounds, but it could not be confirmed on a national page for the January 2027 round — Opintopolku serves no readable content to automated retrieval — so no closing time is recorded here. Treat the deadline as the 21st, early in the day. Note also that the URL of the cited page names the autumn 2026 round; the 2027 sentence sits on it under the heading \"Other applications coming up\", and Study in Finland had published no page of its own about the January 2027 round when this was checked.",
         "source": "https://www.studyinfinland.fi/news-events/joint-application-autumn-2026"
       },
       {
@@ -74,12 +75,32 @@
         "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
       },
       {
+        "label": "International UAS Exam — pre-identification window",
+        "date": "2027-03-10",
+        "endDate": "2027-03-12",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027",
+        "notes": "Promoted out of the note on the exam entry, where it was the one step in the whole UAS Exam process that can be missed silently. Published as \"from 10 March 2027 at 8:00 Finnish time (UTC/GMT+2) to 12 March 2027 at 15:00 Finnish time (UTC/GMT+2)\". You identify yourself in advance in the Candour ID app, using the same passport or biometric EU/EEA ID card whose number you gave on your Studyinfo application — a different document may get your pre-identification rejected. Miss this window and you cannot sit the exam, whatever else you have done.",
+        "source": "https://www.uasinfo.fi/international-uas-exam/"
+      },
+      {
+        "label": "International UAS Exam — invitation reaches you",
+        "date": "2027-03-22",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027",
+        "notes": "Promoted out of the note on the exam entry. Published as \"on 22 March 2027 at the latest, you will receive an invitation to the exam to the email address you provided in your Studyinfo application\". It is here as a date to check rather than a date to act on: if nothing has arrived by the end of this day, the day before the exam, chase it.",
+        "source": "https://www.uasinfo.fi/international-uas-exam/"
+      },
+      {
         "label": "University of Helsinki, Admission Group 2 (the IB route)",
         "date": "2027-03-09",
         "endDate": "2027-03-23",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027",
-        "notes": "Helsinki splits its rounds: Group 1 on SAT/ACT runs 5-19 January 2027, and the certificate-based Group 2 runs two months later. Åbo Akademi's bachelor application is also 9-23 March 2027.",
+        "notes": "Published as \"9–23 March 2027\", closing \"at 15.00 UTC+2\". Helsinki splits its rounds by what you are applying on, and as an IB Diploma candidate you belong in Group 2 and not in Group 1. Group 1, on SAT/ACT, runs 5–19 January 2027 and closes at the same time of day — but Helsinki defines it as being for applicants who have not completed a Finnish matriculation examination, an International Baccalaureate, a European Baccalaureate or a Reifeprüfung, so it is deliberately not recorded as a separate milestone here: it is a window you are excluded from, not one you can miss. The note this entry used to carry also said Åbo Akademi's bachelor application runs 9–23 March 2027. That has been removed: Åbo Akademi states that \"All undergraduate (bachelor level) programmes at Åbo Akademi University are taught in Swedish\", its bachelor round is the Swedish-taught one in mid-March, and it had published no 2027 dates when this was checked on 23 September 2026.",
         "source": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-bachelors-programmes"
       },
       {
@@ -88,24 +109,35 @@
         "timeOfDay": "12:00",
         "timeZone": "Finnish time",
         "consequence": "hard",
+        "provisional": false,
         "year": "2027",
-        "notes": "Taken remotely on your own computer from 12:00 Finnish time, proctored by SMOWL. Pre-identification 10-12 March, invitations by 22 March, results by 14 April 2027.",
+        "notes": "Published as \"on 23 March 2027 from 12:00 o'clock noon onwards (Finnish time, UTC/GMT+2)\". Taken remotely on your own computer, proctored by SMOWL. The three dates that used to sit in this sentence — pre-identification, the invitation and the results — are now entries of their own, because each is a thing that happens on a day and two of them can go wrong without you noticing.",
         "source": "https://www.uasinfo.fi/international-uas-exam/"
       },
       {
         "label": "Results published — SAT-based rounds",
         "date": "2027-03-31",
         "consequence": "indicative",
+        "provisional": true,
         "year": "2027",
-        "notes": "Aalto Round A by 31 March 2027.",
+        "notes": "Aalto publishes only a month: \"The admission results for admission round A are published by March 2027\", re-read on 23 September 2026. The 31st here is the last day of the month Aalto names, not a date Aalto has published, which is why this entry is marked provisional. If a day matters to you, ask Aalto admissions rather than reading one off this line. Contrast Round B, which Aalto does date to the day.",
         "source": "https://www.aalto.fi/en/admission-services/apply-to-bachelors-programmes-in-english"
+      },
+      {
+        "label": "International UAS Exam — results",
+        "date": "2027-04-14",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027",
+        "notes": "Promoted out of the note on the exam entry. Published as \"The results will be published on 14 April 2027 at the latest\" — an outside date, so the result may come sooner.",
+        "source": "https://www.uasinfo.fi/international-uas-exam/"
       },
       {
         "label": "Predicted IB grades to Studyinfo",
         "date": "2027-04-01",
         "consequence": "hard",
         "year": "2027",
-        "notes": "Jyväskylä's published 2027 date. Turku's 2026 equivalent was 31 March; its 2027 date was not published when this was researched.",
+        "notes": "Published by Jyväskylä as \"Deadline for submitting predicted grades on to your online application form on Studyinfo.fi: 1 April 2027\", with the exact time still to be announced. Turku set 31 March in the 2026 cycle — that is a date from a cycle that has already passed, kept here only as a warning that Turku runs a day earlier than Jyväskylä, and its 2027 date had not been published when this was checked. If Turku is on your list, assume 31 March until Turku says otherwise.",
         "source": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes"
       },
       {

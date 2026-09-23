@@ -7,7 +7,7 @@
   "currency": "NOK",
   "eu": false,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-23",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Free, close to home — and almost entirely in Norwegian",
   "summary": "Norway charges EU/EEA students no tuition, and your IB converts generously onto the Norwegian scale. The catch is language. Four of the biggest universities — NTNU, UiT, HVL and in practice UiB — offer no bachelor's degree taught in English at all. If you do not speak Norwegian, your realistic shortlist is about eight institutions and around fifteen programmes. If you are willing to reach B2 Norwegian, the entire free system opens up through one central application with ten ranked choices.",
@@ -47,21 +47,48 @@
     },
     "deadlines": [
       {
-        "label": "English-taught programmes, the early closers",
+        "label": "University of Oslo — Technology Systems: Science and Engineering, applicants without Norwegian",
         "date": "2026-12-01",
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "UiO's Technology Systems and NMBU's International Environment and Development Studies both close on 1 December 2026, for everyone including EU citizens.",
+        "notes": "Split out from a single entry that covered both UiO and NMBU on one source, so that each date is cited to the page that carries it. This is UiO's own admission page for applicants who cannot document Norwegian proficiency, which is the route a Danish IB student takes. UiO also requires that the general admission requirement be documented as met by this same day. The financing documentation the page demands does not apply to Norwegian, Nordic and EU/EEA citizens.",
+        "source": "https://www.uio.no/english/studies/programmes/technology-systems/admission/admission-no-norwegian.html"
+      },
+      {
+        "label": "NMBU — International Environment and Development Studies, applicants without Norwegian",
+        "date": "2026-12-01",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"1 December, the year before you plan to start\", which for autumn 2027 entry is 1 December 2026. Read the condition carefully: this deadline is for applicants who cannot document Norwegian at B2, which is the normal position for a Danish IB student. An applicant who can document Norwegian B2 applies instead through Samordna opptak by 15 April, which is a different entry with a different portal.",
         "source": "https://www.nmbu.no/en/studies/application-procedures-study-programmes-taught-english"
       },
       {
-        "label": "English-taught programmes, EU/EEA applicants (typical)",
-        "date": "2027-03-01",
+        "label": "Samordna opptak opens for the 2027 admission round",
+        "date": "2027-02-01",
         "consequence": "indicative",
         "provisional": true,
+        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
+        "notes": "Published as \"Opent for søking\" on 1 February, when the study overview for the round is also released. Promoted out of the note on the 15 April deadline so it can be sorted, counted and shown on a calendar. Nothing can be submitted through Samordna opptak before this day, and the same 1 February opening applies to the University of Agder's and Nord's own English-taught application webs.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      },
+      {
+        "label": "NHH Norwegian School of Economics — BSc in Business, Economics and Data Science, EU/EEA/Swiss",
+        "date": "2027-02-15",
+        "consequence": "hard",
+        "provisional": false,
         "year": "2027 entry",
-        "notes": "UiA opens 1 February and closes 1 March. NHH runs 1 January – 15 February 2027. Nord runs 1 February – 15 April.",
+        "notes": "Split out of the old \"EU/EEA applicants (typical)\" entry, which carried a single headline of 1 March over institutional deadlines running from 15 February to 15 April — a six-week spread rendered as one date. NHH publishes its window with the year on it: \"1 January – 15 February 2027: Submit application, test results, and diploma.\" The application, the test results and the diploma are all due on the closing day, not later. Non-EU/EEA/Swiss applicants have a separate and much earlier window, 1–15 November 2026, and predicted grades are not accepted from them.",
+        "source": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/application-process-bsc/"
+      },
+      {
+        "label": "University of Agder — English-taught bachelor's, EU/EEA applicants",
+        "date": "2027-03-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Split out of the old \"EU/EEA applicants (typical)\" entry, which used UiA's 1 March as the headline for every English-taught programme in Norway. It is UiA's date and nobody else's. Published as \"Application deadline for EU/EEA applicants\" with no year, so the year here is inferred from the intake this profile covers. UiA's application web opens 1 February, and UiA publishes its results to EU/EEA applicants on 1 June and 10 July.",
         "source": "https://www.uia.no/english/studies/how-to-apply/index.html"
       },
       {
@@ -69,9 +96,28 @@
         "date": "2027-04-15",
         "consequence": "hard",
         "provisional": true,
+        "timeOfDay": "23:59",
         "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
-        "notes": "Applications open 1 February. Up to ten ranked choices.",
+        "notes": "Published as \"15. april kl. 23.59 er siste frist for å søkje\". Up to ten ranked choices. The opening of the round on 1 February is now its own entry. Documentation for a regular applicant is due the same day, with the exception for spring-semester results that pushes the upload to 1 July.",
         "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      },
+      {
+        "label": "Nord University — English-taught bachelor's, EU/EEA and Nordic applicants",
+        "date": "2027-04-15",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Split out of the old \"EU/EEA applicants (typical)\" entry, where Nord's 15 April sat six weeks behind a headline of 1 March. Published as the window \"1 February - 15 April\" with no year, so the year here is inferred from the intake this profile covers. The application itself is due on this date; the educational documentation has a later deadline of its own, which is the next entry. Nord publishes results to EU/EEA applicants at the beginning of July. Note that the programme pages themselves do not carry these dates; they are on Nord's central admission page, which is what is cited here.",
+        "source": "https://www.nord.no/en/study-programmes/admission"
+      },
+      {
+        "label": "Nord University — documentation deadline for spring school-leavers",
+        "date": "2027-07-01",
+        "consequence": "hard",
+        "provisional": true,
+        "year": "2027 entry",
+        "notes": "Promoted out of the note on Nord's 15 April deadline, because this is the exception that exists for exactly this cohort and it was buried in a subordinate clause. Nord's general rule is that EU/EEA applicants document by 15 April, but applicants who finish secondary school in the spring — which every May-session IB candidate does — have until 1 July to upload their educational documentation. Published without a year, so the year here is inferred from the intake this profile covers. It falls on the same day as the Samordna opptak documentation deadline and, like that one, before IB results are released, so the same Request for Results arrangement applies.",
+        "source": "https://www.nord.no/en/study-programmes/admission"
       },
       {
         "label": "Samordna opptak documentation deadline",
@@ -79,7 +125,7 @@
         "consequence": "hard",
         "provisional": true,
         "year": "2027 entry — indicative",
-        "notes": "Falls before IB results are released on 6 July. Arrange the IBO Request for Results Service with your IB coordinator so results are sent directly.",
+        "notes": "Falls before IB results are released on 6 July, which is why it matters more here than it looks: arrange the IBO Request for Results Service with your IB coordinator so that results go to Samordna opptak directly. The 6 July date is context rather than a milestone of its own — nothing is required of you that day. This is also the omprioriteringsfrist, the last day on which you can reorder your ranked choices.",
         "source": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/laste-opp.html"
       },
       {
@@ -88,7 +134,17 @@
         "consequence": "indicative",
         "provisional": true,
         "year": "2027 entry — indicative",
-        "notes": "Deadline to accept an offer is 24 July.",
+        "notes": "The main admission result. Applications for vacant places (ledige studieplassar) open the same day. What you do next has its own entry and its own deadline, four days later.",
+        "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
+      },
+      {
+        "label": "Accept or decline your Samordna opptak offer",
+        "date": "2027-07-24",
+        "consequence": "hard",
+        "provisional": true,
+        "timeOfDay": "23:59",
+        "year": "2027 entry — 2027 calendar not yet published; 2026 pattern shown",
+        "notes": "Published as \"Siste frist for å svare\", at 23:59. Promoted out of a one-line note attached to the results entry, where it was the least visible date in this profile and the most expensive to miss: an offer you do not answer by this day is gone, and you have four days from the results to answer it. Put it in a calendar the day you apply, not the day you are offered a place.",
         "source": "https://www.samordnaopptak.no/universitet-og-hogskole/tidsfrister/"
       }
     ],
