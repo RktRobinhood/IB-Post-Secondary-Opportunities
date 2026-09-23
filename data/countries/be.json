@@ -21,7 +21,7 @@
   "watchOuts": [
     "English-taught bachelor's are rare. Flemish law restricts English-taught bachelor programmes, and most of what you will find in English at bachelor level sits at university colleges or in a handful of specific programmes. Check that the exact programme exists in English before you build a plan around Belgium.",
     "Medicine and dentistry are closed by examination, and from 2027 so is veterinary medicine. Flanders publishes real 2027 dates - registration 1 March to 17 May 2027, then examinations on 2, 3 and 4 July 2027 - and the July sitting falls before your IB results are released. French-speaking Belgium runs a single ranked concours in the second half of August, with a hard cap on non-resident students, and has not yet set its 2027 date.",
-    "Your diploma must be recognised before you can enrol, and the two communities do this differently: NARIC-Vlaanderen in Flanders, the equivalence service of the Fédération Wallonie-Bruxelles in the south. Start it early - these procedures take weeks and have their own deadlines.",
+    "Your diploma must be recognised before you can enrol, and the two communities do this differently: NARIC-Vlaanderen in Flanders, the equivalence service of the Fédération Wallonie-Bruxelles in the south. Start it early - these procedures take weeks and have their own deadlines. Exception: in the French-speaking community a full IB Diploma from an IB-recognised school needs no equivalence at all (equivalences.cfwb.be, read 2026-09-23).",
     "From 2026/27 the French-speaking community replaced its flat minerval with a four-tier means-tested scale, so what you pay depends on a grant assessment you have to apply for.",
     "Deadlines are set by each institution, not nationally, and KU Leuven does not publish a university-wide one at all. Its application-windows tool answers per programme, and as of September 2026 it offers no 2027-2028 academic year. The 1 March and 1 June figures this guide used to quote could not be found on any KU Leuven page and are no longer stated here. Look up your own programme.",
     "Two of the pages that matter most in Belgium cannot be read without a browser. The Flemish entrance-examination site moved to vlaanderen.be during 2026 and renders in JavaScript, and KU Leuven publishes its deadlines only through an interactive tool. Anything you read about Belgian dates in a summary elsewhere is second-hand by construction."
@@ -219,7 +219,8 @@
       ],
       "note": "The oldest Catholic university in the world and consistently the highest-ranked in Belgium, in a town where students outnumber everyone else.",
       "wikipedia": "https://en.wikipedia.org/wiki/KU_Leuven",
-      "place": "be-leuven"
+      "place": "be-leuven",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Ghent University",
@@ -239,7 +240,8 @@
       ],
       "note": "A large, research-heavy university in one of the most liveable student cities in Europe; almost everything at bachelor level is taught in Dutch.",
       "wikipedia": "https://en.wikipedia.org/wiki/Ghent_University",
-      "place": "be-ghent"
+      "place": "be-ghent",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "University of Antwerp",
@@ -259,7 +261,8 @@
       ],
       "note": "Publishes its tuition arithmetic transparently (305.40 EUR plus 14.60 EUR per credit for EEA students in 2026-2027) and sits in Belgium's commercial capital.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Antwerp",
-      "place": "be-antwerp"
+      "place": "be-antwerp",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Vrije Universiteit Brussel",
@@ -279,7 +282,8 @@
       ],
       "note": "The Dutch-speaking university of Brussels, secular and explicitly international, with the widest English offer of the Flemish universities at undergraduate level.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vrije_Universiteit_Brussel",
-      "place": "be-brussels"
+      "place": "be-brussels",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Hasselt University",
@@ -299,7 +303,8 @@
       ],
       "note": "Small and young, with a strong reputation for teaching quality and a much lower cost of living than the big student cities.",
       "wikipedia": "https://en.wikipedia.org/wiki/Hasselt_University",
-      "place": "be-hasselt-and-diepenbeek"
+      "place": "be-hasselt-and-diepenbeek",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "UCLouvain (Université catholique de Louvain)",
@@ -318,7 +323,8 @@
         "Law"
       ],
       "note": "The largest French-speaking university in Belgium, in a purpose-built car-free university town; a serious option only if you can study in French.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Universit%C3%A9_catholique_de_Louvain"
+      "wikipedia": "https://en.wikipedia.org/wiki/Universit%C3%A9_catholique_de_Louvain",
+      "jurisdiction": "be-fwb"
     },
     {
       "name": "Université libre de Bruxelles",
@@ -338,7 +344,8 @@
       ],
       "note": "Brussels' French-speaking university, free-thinking in tradition and close to the EU quarter; from 2026/27 its minerval follows the new four-tier means-tested scale.",
       "wikipedia": "https://en.wikipedia.org/wiki/Universit%C3%A9_libre_de_Bruxelles",
-      "place": "be-brussels"
+      "place": "be-brussels",
+      "jurisdiction": "be-fwb"
     },
     {
       "name": "University of Liège",
@@ -358,7 +365,8 @@
       ],
       "note": "The only public university in Wallonia, with the region's veterinary school; its medical faculty runs the community entrance examination information for candidates. Checked 2026-09-23: ULiège's English home page has been withdrawn and now redirects to the French one, so the main site here is the French one. Individual English pages still exist further in, including the enrolment page recorded as its admissions link.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Li%C3%A8ge",
-      "place": "be-liege"
+      "place": "be-liege",
+      "jurisdiction": "be-fwb"
     },
     {
       "name": "University of Mons",
@@ -378,7 +386,8 @@
       ],
       "note": "A small French-speaking university in a compact Walloon city, known for engineering and for translation and interpreting.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Mons",
-      "place": "be-mons"
+      "place": "be-mons",
+      "jurisdiction": "be-fwb"
     },
     {
       "name": "Vesalius College",
@@ -397,7 +406,8 @@
       ],
       "note": "Founded with VUB, this is one of the few places in Belgium offering an entirely English-taught, American-style liberal arts bachelor's - but it charges private-college tuition rather than the public EU rate. Checked 2026-09-23: it has not existed under its own name since February 2021, when it merged with the Institute for European Studies to form the Brussels School of Governance. vesalius.edu now redirects to a one-paragraph notice of that merger, and the degrees are taught, awarded and advertised as Brussels School of Governance BA programmes. The links here are the school's own. Its published IB line is 27 points with no specific subjects required.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vesalius_College",
-      "place": "be-brussels"
+      "place": "be-brussels",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Karel de Grote University of Applied Sciences and Arts",
@@ -416,7 +426,8 @@
       ],
       "note": "One of the few Flemish institutions with a clearly signposted English-taught bachelor application route.",
       "wikipedia": "https://en.wikipedia.org/wiki/Karel_de_Grote_University_College",
-      "place": "be-antwerp"
+      "place": "be-antwerp",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Thomas More University of Applied Sciences",
@@ -434,7 +445,8 @@
         "Digital Innovation"
       ],
       "note": "The largest Flemish university of applied sciences, practice-oriented with compulsory internships, and one of the more realistic English-taught bachelor routes in Belgium.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Thomas_More_University_of_Applied_Sciences"
+      "wikipedia": "https://en.wikipedia.org/wiki/Thomas_More_University_of_Applied_Sciences",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Howest University of Applied Sciences",
@@ -452,7 +464,8 @@
         "Industrial Product Design"
       ],
       "note": "Its game development programme is internationally known and taught in English, which makes Howest an outlier in the Belgian bachelor landscape.",
-      "wikipedia": "https://en.wikipedia.org/wiki/Howest"
+      "wikipedia": "https://en.wikipedia.org/wiki/Howest",
+      "jurisdiction": "be-fl"
     },
     {
       "name": "Odisee University of Applied Sciences",
@@ -472,7 +485,8 @@
       ],
       "note": "A large applied-sciences institution across Brussels and Flanders, useful if you want a practical degree with a Brussels base.",
       "wikipedia": "https://en.wikipedia.org/wiki/Odisee",
-      "place": "be-brussels-odisee"
+      "place": "be-brussels-odisee",
+      "jurisdiction": "be-fl"
     }
   ],
   "sources": [
@@ -569,6 +583,11 @@
     {
       "title": "Study in Flanders - How to apply (applications open around November-December; closing dates devolved to institutions)",
       "url": "https://www.studyinflanders.be/practical-information/how-to-apply",
+      "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Fédération Wallonie-Bruxelles - equivalence: European and international schools (IB exempt)",
+      "url": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
       "retrieved": "2026-09-23"
     }
   ],

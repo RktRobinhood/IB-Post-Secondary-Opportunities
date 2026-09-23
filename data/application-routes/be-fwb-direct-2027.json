@@ -1,0 +1,83 @@
+{
+  "id": "be-fwb-direct-2027",
+  "destination": "be",
+  "jurisdiction": "be-fwb",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a French-speaking Belgian institution for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.studyinbelgium.be/en/bachelors-degree-studies-french-speaking-belgium-admission-and-enrolment-conditions",
+  "milestones": [
+    {
+      "id": "ms-be-fwb-apply",
+      "type": "submit",
+      "label": "Apply on the institution's own website",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Wallonie-Bruxelles Campus recommends applying between February and 31 March. Each institution's own date is the binding one.",
+      "evidence": [
+        "ev-be-fwb-bachelor-apply"
+      ]
+    },
+    {
+      "id": "ms-be-fwb-concours-register",
+      "type": "test",
+      "label": "Register for the ARES medicine, dentistry and veterinary entrance exam",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 registration ran 18 May to 5 July, 23:59.",
+      "evidence": [
+        "ev-be-ares-concours-dates"
+      ]
+    },
+    {
+      "id": "ms-be-fwb-concours",
+      "type": "test",
+      "label": "ARES entrance exam (concours)",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "One sitting a year, in late August. In 2026 it was 27 August, with results on 4 September.",
+      "evidence": [
+        "ev-be-ares-concours-dates"
+      ]
+    },
+    {
+      "id": "ms-be-fwb-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-be-fwb-no-equivalence",
+      "label": "No diploma equivalence needed for a full IB Diploma",
+      "itemType": "document",
+      "responsibleParty": "authority",
+      "destinationOfItem": "Fédération Wallonie-Bruxelles equivalence service",
+      "note": "Other foreign diplomas need an equivalence by 15 July. An IB Diploma from an IB-recognised school does not.",
+      "evidence": [
+        "ev-be-fwb-ib-equivalence"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-be-fwb-bachelor-apply",
+    "ev-be-fwb-ib-equivalence",
+    "ev-be-ares-concours-dates"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-04-01",
+    "notes": [
+      "No central system in the Fédération Wallonie-Bruxelles. Institution closing dates were not collected on this pass."
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "lu",
+  "iso2": "lu",
+  "name": "Luxembourg",
+  "adjective": "Luxembourgish",
+  "scope": "europe",
+  "region": "Western Europe",
+  "capital": "Luxembourg City",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "One multilingual university, and a compulsory semester abroad",
+  "summary": "Luxembourg has one public university, founded in 2003, where many bachelor's degrees are taught in two languages and every bachelor student spends a semester abroad. There is one intake a year, in September, and applications for 2027 open on 1 February 2027. Language, not points, is what decides whether a programme is open to you.",
+  "whyConsider": [
+    "A small, well-funded university at the centre of EU institutions and international finance.",
+    "A semester abroad is built into every bachelor's degree.",
+    "In 2026 some programmes stayed open to EU applicants until after IB results, so you could apply on real grades rather than predicted ones."
+  ],
+  "watchOuts": [
+    "You must prove every teaching language of your programme. English alone is often not enough.",
+    "Each programme sets its own closing date. Check your programme's admissions page, not a university-wide date.",
+    "Sacred Heart University's Luxembourg campus and the BBI hospitality school, still listed on many study-abroad sites, are not options: one closed and the other's website no longer exists.",
+    "Luxembourg is one of the most expensive places in the EU to rent."
+  ],
+  "sectorLandscape": {
+    "summary": "Luxembourg higher education is small: the Université du Luxembourg is the only public university, lycées run two-year BTS programmes, and the ministry lists just two specialised private institutions with accredited programmes, LUNEX and the Luxembourg School of Business.",
+    "routes": [
+      {
+        "localName": "Université du Luxembourg",
+        "englishName": "University of Luxembourg",
+        "kind": "research",
+        "what": "The only public university. Three-year bachelor's degrees, often bilingual, with a compulsory semester abroad. Eligibility depends on your nationality, residence and where your diploma is from.",
+        "ibAccessible": "unknown",
+        "englishTaught": "some",
+        "note": "The IB is not named on the university's admission criteria page; its eligibility checker decides each case."
+      },
+      {
+        "localName": "brevet de technicien supérieur (BTS)",
+        "englishName": "higher technician certificate",
+        "kind": "college",
+        "what": "Two-year, 120-ECTS vocational higher education run by secondary schools (lycées), in commerce, health, industry, applied arts, crafts and services. 36 programmes, each with its own registration period.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "The ministry's page gives neither the teaching language nor whether a foreign diploma gives access. Not researched further."
+      },
+      {
+        "localName": "établissement d'enseignement supérieur spécialisé",
+        "englishName": "specialised private institution",
+        "kind": "specialist",
+        "what": "Private institutions with ministry-accredited programmes: LUNEX in Differdange (physiotherapy, sport and health, taught in English) and the Luxembourg School of Business. They charge private tuition.",
+        "ibAccessible": "yes",
+        "englishTaught": "common",
+        "note": "LUNEX asks for a university entrance qualification and English at B2, and takes applications all year."
+      }
+    ],
+    "evidence": [
+      "ev-lu-mengstudien-sector",
+      "ev-lu-mengstudien-bts",
+      "ev-lu-mengstudien-specialised",
+      "ev-lu-unilu-criteria",
+      "ev-lu-lunex-admissions"
+    ]
+  },
+  "institutionGrouping": "none",
+  "evidence": [
+    "ev-unilu-application-window-2027",
+    "ev-lu-mengstudien-sector",
+    "ev-lu-mengstudien-specialised"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-15",
+    "notes": [
+      "Removed from the institution list on 2026-09-23: Sacred Heart University Luxembourg (shu.lu is a parked domain; campus reported closed July 2022) and BBI (bbi-edu.eu now serves a gambling page). Neither is on the ministry's accredited list.",
+      "Not established: University of Luxembourg tuition and application fee (uni.lu fee pages not read), IB-specific entry rules, and whether BTS programmes admit foreign-diploma holders or teach in English.",
+      "The Luxembourg School of Business is named in the sector landscape but not added to the institution list: whether it offers a bachelor's degree was not checked."
+    ]
+  }
+}

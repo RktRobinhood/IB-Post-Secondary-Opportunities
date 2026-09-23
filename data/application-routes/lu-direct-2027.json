@@ -1,0 +1,83 @@
+{
+  "id": "lu-direct-2027",
+  "destination": "lu",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a Luxembourg institution for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.uni.lu/en/admissions/bachelor-master/",
+  "milestones": [
+    {
+      "id": "ms-lu-unilu-open",
+      "type": "open",
+      "label": "University of Luxembourg applications open",
+      "date": "2027-02-01",
+      "consequence": "indicative",
+      "note": "One intake a year, in September. The university says its 2027-2028 admission criteria are under review.",
+      "evidence": [
+        "ev-unilu-application-window-2027"
+      ]
+    },
+    {
+      "id": "ms-lu-unilu-close",
+      "type": "submit",
+      "label": "University of Luxembourg closing date - set per programme",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "Each programme publishes its own. In 2026 Computer Science closed on 15 July for EU applicants and 24 March for non-EU applicants. Check your programme's admissions page.",
+      "evidence": [
+        "ev-unilu-application-window-2027"
+      ]
+    },
+    {
+      "id": "ms-lu-lunex",
+      "type": "submit",
+      "label": "LUNEX - applications accepted year-round",
+      "dateState": "rolling",
+      "consequence": "rolling",
+      "evidence": [
+        "ev-lu-lunex-admissions"
+      ]
+    },
+    {
+      "id": "ms-lu-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "If the 2027 EU window matches 2026, some University of Luxembourg programmes are still open when results arrive.",
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "submissionItems": [
+    {
+      "id": "si-lu-languages",
+      "label": "Proof of every teaching language of the programme",
+      "itemType": "document",
+      "responsibleParty": "student",
+      "destinationOfItem": "The University of Luxembourg admission platform",
+      "note": "A French-English programme needs proof of both.",
+      "evidence": [
+        "ev-lu-unilu-criteria"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-unilu-application-window-2027",
+    "ev-lu-unilu-criteria",
+    "ev-lu-lunex-admissions"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2027-02-15",
+    "notes": [
+      "No central system: every institution is applied to directly. The Miami University Dolibois European Center is a study-abroad campus for Miami University students and is reached through Miami University, not applied to here.",
+      "uni.lu refuses automated retrieval (HTTP 202, empty body); its pages were read in a browser."
+    ]
+  }
+}

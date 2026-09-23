@@ -1,0 +1,176 @@
+[
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-fr-mesr-eu-parcoursup",
+    "sourceUrl": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
+    "publisher": "Ministère de l'Enseignement supérieur et de la Recherche",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "claim": "EU, EEA and Swiss nationals applying to the first year of a licence at a French university must use Parcoursup; non-EU applicants without a French or European baccalaureate use the demande d'admission préalable (DAP) instead.",
+    "excerpt": "Les candidats ressortissants Suisse ou d'un pays de l'Union européenne ou de l'Espace économique européen doivent se connecter à Parcoursup.",
+    "interpretation": "So a Danish IB student applies to a public university through the same platform as French school-leavers. A non-EU student uses the DAP (dossier blanc via the embassy, or dossier vert if resident in France), which this site does not record as a route.",
+    "supports": [
+      {
+        "entity": "fr-parcoursup-2027",
+        "field": "applicantGroup"
+      },
+      {
+        "entity": "fr",
+        "field": "jurisdictions"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "The host returns HTTP 403 to automated retrieval; read in a browser. The page is headed 2026-2027 and has not yet been updated for 2027-2028."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-fr-parcoursup-calendar-2026",
+    "sourceUrl": "https://www.parcoursup.gouv.fr/calendrier",
+    "publisher": "Parcoursup (Ministère de l'Enseignement supérieur et de la Recherche)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "claim": "The published Parcoursup calendar is still the 2026 one: wishes from 19 January to 12 March 2026, confirmation by 1 April, admission phase from 2 June to 11 July. The 2027 calendar is not yet published.",
+    "excerpt": "Du lundi 19 janvier au jeudi 12 mars 2026 : je m'inscris et je formule mes vœux […] Mercredi 1er avril 2026 : dernier jour pour compléter mon dossier et confirmer mes vœux […] Mardi 2 juin 2026 : début de la phase d'admission […] Samedi 11 juillet 2026 : fin de la phase principale",
+    "interpretation": "Recorded as the shape of the year, not as 2027 dates. Every 2027 milestone on the route is not-yet-announced.",
+    "supports": [
+      {
+        "entity": "fr-parcoursup-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "The host returns HTTP 403 to automated retrieval and a Cloudflare challenge on some pages; the calendar page itself loaded in a browser. No challenge was bypassed."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-fr-service-public-parcoursup-voeux",
+    "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F23476",
+    "publisher": "Service-Public.fr (Direction de l'information légale et administrative)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "claim": "On Parcoursup you enter at most 10 wishes and do not rank them; ranking only happens later, for wishes still on a waiting list.",
+    "excerpt": "vous devez saisir au maximum 10 vœux sans les classer",
+    "interpretation": "Unranked, so universities do not see where they sit in your list. The country profile previously described the wishes as ranked; that has been corrected.",
+    "supports": [
+      {
+        "entity": "fr-parcoursup-2027",
+        "field": "choicesRanked"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Page stamped 'Vérifié le 09 janvier 2026'."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-fr-sciencespo-rounds-2027",
+    "sourceUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+    "publisher": "Sciences Po",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "claim": "Sciences Po admits holders of a non-French secondary diploma through its own international pathway, in three rounds closing 4 November 2026, 13 January 2027 and 1 March 2027.",
+    "excerpt": "The international admission pathway is designed for all candidates who are preparing to sit for a non-French secondary school certificate or diploma. […] if you apply no later than 4 November 2026, you will have your admissions results mid-January 2027 […] if you apply by 13 January 2027 […] if you apply before March 1, 2027, you will have the results in early May 2027",
+    "supports": [
+      {
+        "entity": "fr-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-fr-polytechnique-rounds-2027",
+    "sourceUrl": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+    "publisher": "École polytechnique",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "claim": "École polytechnique's Bachelor of Science takes one application a year, via Parcoursup or its own system, in three rounds closing 20 October 2026, 6 January 2027 (23:59) and 8 February 2027 at 14:00.",
+    "excerpt": "Candidates can only apply once per academic year to the Bachelor Program, either via Parcoursup or via Ecole Polytechnique's online application system. […] Round 1 September 17, 2026 to October 20, 2026 at 11:59 PM (CEST) […] Round 2 October 21, 2026 to January 6, 2027 at 11:59 PM (CET) […] Round 3 January 7, 2027 to February 8, 2027 at 2 PM (CET)",
+    "interpretation": "The last round closes at 14:00, not midnight.",
+    "supports": [
+      {
+        "entity": "fr-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-fr-campusfrance-sector",
+    "sourceUrl": "https://www.campusfrance.org/en/French-higher-education",
+    "publisher": "Campus France",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "claim": "French higher education spans universities, engineering and business schools, public schools of art and architecture, classes préparatoires (CPGE), BTS sections and thousands of private schools.",
+    "excerpt": "78 universities and communities of institutions […] 227 engineering schools authorised to award the title of engineer […] 220 business and management schools […] 45 post-secondary public schools of art […] 22 schools of architecture […] classes préparatoires (CPGE) […] sections de techniciens supérieurs (STS), or classes in preparation for the national Brevet de technicien supérieur (BTS)",
+    "supports": [
+      {
+        "entity": "fr",
+        "field": "sectorLandscape"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
+  }
+]

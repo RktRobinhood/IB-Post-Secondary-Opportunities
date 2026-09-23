@@ -1,0 +1,120 @@
+{
+  "id": "fr-direct-2027",
+  "destination": "fr",
+  "jurisdiction": "fr-ecoles",
+  "intake": "2027-autumn",
+  "applicantGroup": "any",
+  "label": "Applying directly to a French grande école or private institution for autumn 2027",
+  "channel": "direct",
+  "portalUrl": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
+  "milestones": [
+    {
+      "id": "ms-fr-x-r1",
+      "type": "submit",
+      "label": "École polytechnique Bachelor - round 1 closes",
+      "date": "2026-10-20",
+      "timeOfDay": "23:59",
+      "timeZone": "CEST",
+      "consequence": "priority",
+      "note": "Rounds 2 and 3 follow, so missing this is not fatal.",
+      "evidence": [
+        "ev-fr-polytechnique-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-fr-sp-r1",
+      "type": "submit",
+      "label": "Sciences Po - first round closes",
+      "date": "2026-11-04",
+      "consequence": "priority",
+      "note": "Results mid-January 2027. Interviews 8-18 December 2026.",
+      "evidence": [
+        "ev-fr-sciencespo-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-fr-x-r2",
+      "type": "submit",
+      "label": "École polytechnique Bachelor - round 2 closes",
+      "date": "2027-01-06",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "priority",
+      "evidence": [
+        "ev-fr-polytechnique-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-fr-sp-r2",
+      "type": "submit",
+      "label": "Sciences Po - second round closes",
+      "date": "2027-01-13",
+      "consequence": "priority",
+      "note": "Results at the beginning of April 2027.",
+      "evidence": [
+        "ev-fr-sciencespo-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-fr-x-r3",
+      "type": "submit",
+      "label": "École polytechnique Bachelor - final round closes",
+      "date": "2027-02-08",
+      "timeOfDay": "14:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "note": "Closes at 2 pm, not midnight.",
+      "evidence": [
+        "ev-fr-polytechnique-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-fr-sp-r3",
+      "type": "submit",
+      "label": "Sciences Po - final round closes",
+      "date": "2027-03-01",
+      "consequence": "hard",
+      "note": "Results in early May 2027.",
+      "evidence": [
+        "ev-fr-sciencespo-rounds-2027"
+      ]
+    },
+    {
+      "id": "ms-fr-other-schools",
+      "type": "submit",
+      "label": "ESCP, ESSEC, EDHEC, emlyon and AUP - each on its own calendar",
+      "dateState": "varies-by-institution",
+      "consequence": "hard",
+      "note": "Not collected here. Check each school's admissions page.",
+      "evidence": [
+        "ev-fr-campusfrance-sector"
+      ]
+    },
+    {
+      "id": "ms-fr-direct-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "note": "Every round above closes before this. Offers are made on predicted grades.",
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "evidence": [
+    "ev-fr-sciencespo-rounds-2027",
+    "ev-fr-polytechnique-rounds-2027"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-15",
+    "notes": [
+      "Sciences Po and École polytechnique both hold interviews as part of selection. A student with a foreign diploma applies on the school's own platform rather than through Parcoursup (Sciences Po states this; École polytechnique allows either, but only one).",
+      "Dates for ESCP, ESSEC, EDHEC, emlyon and the American University of Paris were not collected on this pass."
+    ]
+  }
+}

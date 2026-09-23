@@ -16,6 +16,10 @@
       {
         "entity": "lu",
         "field": "application.deadlines"
+      },
+      {
+        "entity": "lu-direct-2027",
+        "field": "milestones"
       }
     ],
     "conflictsWith": [
@@ -93,6 +97,154 @@
           "details": []
         }
       ]
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "id": "ev-lu-mengstudien-sector",
+    "sourceUrl": "https://mengstudien.public.lu/en/etudier-luxembourg.html",
+    "publisher": "Ministry of Research and Higher Education (MengStudien.lu)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "claim": "Higher education in Luxembourg consists of the University of Luxembourg, the only public university; short-cycle BTS programmes; and a few specialised institutions offering accredited programmes.",
+    "excerpt": "The University of Luxembourg is the only public university in the country […] short cycle programmes (BTS - Brevet de technicien supérieur) […] Specialised higher education institutions offering accredited programmes",
+    "supports": [
+      {
+        "entity": "lu",
+        "field": "sectorLandscape"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Plain fetch works. The same page quotes University of Luxembourg fees of 200-400 EUR per semester; not carried here because the university’s own fee page was not read."
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "id": "ev-lu-mengstudien-bts",
+    "sourceUrl": "https://mengstudien.public.lu/en/etudier-luxembourg/brevets-de-technicien-superieur.html",
+    "publisher": "Ministry of Research and Higher Education (MengStudien.lu)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "claim": "The BTS is a two-year, 120-ECTS short-cycle higher education programme with a professional purpose; 36 are offered, and registration periods vary by course.",
+    "excerpt": "The Brevet de technicien supérieur (BTS) is a higher education short cycle study programme […] lasts in principle 2 years (minimum 120 ECTS) […] Registration periods and procedures vary from one course to another!",
+    "interpretation": "The page does not state the language of instruction or whether a foreign diploma such as the IB gives access, so both are recorded as unknown rather than inferred.",
+    "supports": [
+      {
+        "entity": "lu",
+        "field": "sectorLandscape"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source"
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "id": "ev-lu-mengstudien-specialised",
+    "sourceUrl": "https://mengstudien.public.lu/en/etudier-luxembourg/etablissements-d-enseignement-superieur-specialises-prives.html",
+    "publisher": "Ministry of Research and Higher Education (MengStudien.lu)",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "claim": "The ministry lists two specialised higher education institutions with accredited programmes besides the University of Luxembourg: LUNEX (Differdange) and the Luxembourg School of Business.",
+    "excerpt": "Aside from the University of Luxembourg, there are a few specialised higher education institutions offering programmes accredited by the Ministry of Research and Higher Education. Lunex : specialising in sports, motor skills and physiotherapy ; located in Differdange. Luxembourg School of Business (LSB) : specialising in business management ; located in Luxembourg-city.",
+    "interpretation": "Neither Sacred Heart University Luxembourg nor BBI appears. Both were removed from the country profile on this pass: shu.lu is a parked domain (\"This domain may be for sale\") and the campus is reported closed since July 2022; www.bbi-edu.eu now serves an Italian crypto-casino page. Absence from this list is not by itself proof an institution is closed, which is why the removal rests on the dead domains.",
+    "supports": [
+      {
+        "entity": "lu",
+        "field": "sectorLandscape"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Also opened https://www.shu.lu/ (parked domain page) and https://www.bbi-edu.eu/ (title \"Usdt casino e Tether casino 2026\") on the same date."
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "id": "ev-lu-unilu-criteria",
+    "sourceUrl": "https://www.uni.lu/en/admissions/admission-criteria/",
+    "publisher": "University of Luxembourg",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "appliesToApplicantGroup": "any",
+    "claim": "Admission depends on nationality, residence and where the qualification was earned, and every applicant must prove proficiency in all teaching languages of the chosen programme.",
+    "excerpt": "The admission of each applicant depends on their personal situation. In addition, the prerequisites may vary depending on the applicant’s nationality, their place of residence, and where they earned their qualification. […] All applicants must demonstrate proficiency in all teaching languages of their chosen programme at the University of Luxembourg, unless stated otherwise on the programme web page.",
+    "interpretation": "The IB is not named on this page; eligibility is decided per applicant by an interactive checker. The language rule is the practical filter: a bilingual programme needs proof in both languages.",
+    "supports": [
+      {
+        "entity": "lu",
+        "field": "sectorLandscape"
+      },
+      {
+        "entity": "lu-direct-2027",
+        "field": "submissionItems"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-browser",
+      "note": "uni.lu returns HTTP 202 with an empty body to automated retrieval; read in a browser after declining the cookie banner."
+    }
+  },
+  {
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "id": "ev-lu-lunex-admissions",
+    "sourceUrl": "https://lunex.lu/admissions/",
+    "publisher": "LUNEX University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "appliesToApplicantGroup": "any",
+    "claim": "LUNEX accepts applications at any time of year and asks for a university entrance qualification and English at B2.",
+    "excerpt": "Applying to LUNEX is easy and possible at any time of the year. […] University entrance qualification or equivalent qualification + English Language Skills B2 level (CEFR).",
+    "supports": [
+      {
+        "entity": "lu-direct-2027",
+        "field": "milestones"
+      }
+    ],
+    "attestation": {
+      "by": "the France, Belgium and Luxembourg floor pass",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "www.lunex.lu presents a certificate valid only for lunex.lu, so the www address fails in strict clients; the profile now links the bare domain."
     }
   }
 ]

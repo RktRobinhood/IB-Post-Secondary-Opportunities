@@ -1,0 +1,144 @@
+{
+  "id": "be",
+  "iso2": "be",
+  "name": "Belgium",
+  "adjective": "Belgian",
+  "scope": "europe",
+  "region": "Western Europe",
+  "capital": "Brussels",
+  "currency": "EUR",
+  "membership": {
+    "eu": true,
+    "eea": true,
+    "nordic": false,
+    "schengen": true
+  },
+  "targetIntake": "2027-autumn",
+  "tagline": "Cheap, excellent, and mostly not in English at bachelor level",
+  "summary": "Belgium is two higher education systems: Dutch-speaking Flanders and the French-speaking Fédération Wallonie-Bruxelles, each with its own rules, fees and calendar. EU tuition is low and most bachelor's degrees are open to anyone who qualifies. There is no central application system in either community: you apply to each institution directly.",
+  "whyConsider": [
+    "Low EU tuition at strong universities: KU Leuven, Ghent, UCLouvain, ULB.",
+    "Most programmes are open access. If you qualify and meet the language rule, you enrol.",
+    "Brussels is the centre of the EU institutions."
+  ],
+  "watchOuts": [
+    "English-taught bachelor's degrees are rare. Check that your exact programme is taught in English.",
+    "Medicine, dentistry and veterinary medicine need an entrance exam in both communities. The Flemish exam is on 2-4 July 2027, before IB results.",
+    "Every institution sets its own deadline. Look up your programme."
+  ],
+  "sectorLandscape": {
+    "summary": "Each language community runs its own binary system. Flanders has universiteiten and hogescholen (university colleges, also called universities of applied sciences); the Fédération Wallonie-Bruxelles has universités, hautes écoles and écoles supérieures des arts. Flemish hogescholen also run short associate degrees (graduaten) that lead on to a professional bachelor.",
+    "routes": [
+      {
+        "localName": "universiteit / université",
+        "englishName": "university",
+        "kind": "research",
+        "what": "Three-year academic bachelor's degrees with a theoretical focus, leading to a master's. Open access for most programmes; medicine, dentistry and veterinary medicine need an entrance exam.",
+        "ibAccessible": "yes",
+        "englishTaught": "rare",
+        "note": "In French-speaking Belgium a full IB Diploma needs no equivalence. In Flanders admission rests on a diploma giving university access where it was awarded."
+      },
+      {
+        "localName": "hogeschool / haute école",
+        "englishName": "university college (university of applied sciences)",
+        "kind": "applied",
+        "what": "Three-year professional bachelor's degrees combining theory with compulsory internships, aimed straight at a profession. Several Flemish hogescholen run a few English-taught bachelor's.",
+        "ibAccessible": "yes",
+        "englishTaught": "some"
+      },
+      {
+        "localName": "graduaat",
+        "englishName": "associate degree",
+        "kind": "college",
+        "what": "A 90-120 ECTS practice-based programme at a Flemish hogeschool, between secondary school and a professional bachelor's, which it can lead on to.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Flanders only. Not researched further."
+      },
+      {
+        "localName": "School of Arts / école supérieure des arts",
+        "englishName": "school of arts",
+        "kind": "specialist",
+        "what": "Art, music, drama and design. In Flanders the schools of arts sit inside the hogescholen and award academic and professional bachelor's degrees; in French-speaking Belgium they are separate institutions.",
+        "ibAccessible": "unknown",
+        "englishTaught": "unknown",
+        "note": "Not researched here."
+      }
+    ],
+    "evidence": [
+      "ev-be-fl-sector",
+      "ev-be-fwb-sector",
+      "ev-be-fwb-ib-equivalence",
+      "ev-be-fl-admission"
+    ]
+  },
+  "institutionGrouping": "jurisdiction",
+  "jurisdictions": [
+    {
+      "id": "be-fl",
+      "name": "Flanders (Dutch-speaking community)",
+      "kind": "authority",
+      "summary": "KU Leuven, Ghent, Antwerp, VUB, Hasselt and the Flemish hogescholen, including the Dutch-language institutions in Brussels. Apply to each directly; applications usually open around November-December.",
+      "applicationRoute": "be-fl-direct-2027",
+      "variations": [
+        {
+          "field": "deadlines",
+          "label": "Entrance exams",
+          "summary": "Medicine 2 July, dentistry 3 July, veterinary medicine 4 July 2027. Register 1 March to 17 May 2027.",
+          "source": "https://www.vlaanderen.be/toelatingsexamens",
+          "evidence": [
+            "ev-be-fl-entrance-exam-2027"
+          ]
+        }
+      ],
+      "evidence": [
+        "ev-be-fl-how-to-apply"
+      ]
+    },
+    {
+      "id": "be-fwb",
+      "name": "Fédération Wallonie-Bruxelles (French-speaking community)",
+      "kind": "authority",
+      "summary": "UCLouvain, ULB, Liège, Mons and the French-speaking hautes écoles. Apply on each institution's own website; February to 31 March is the recommended window.",
+      "applicationRoute": "be-fwb-direct-2027",
+      "variations": [
+        {
+          "field": "recognition",
+          "label": "Diploma equivalence",
+          "summary": "A full IB Diploma from an IB-recognised school needs no equivalence. Most other foreign diplomas do.",
+          "source": "https://equivalences.cfwb.be/equivalences-secondaires/equivalence/demander-une-equivalence/jai-termine-mes-etudes-secondaires/ecoles-europeennes-et-internationales",
+          "evidence": [
+            "ev-be-fwb-ib-equivalence"
+          ]
+        },
+        {
+          "field": "deadlines",
+          "label": "Entrance exam",
+          "summary": "One ARES concours a year in late August for medicine, dentistry and veterinary medicine. The 2027 date is not yet set; in 2026 it was 27 August.",
+          "source": "https://mesetudes.be/concours-entree/tout-savoir-sur-le-concours-dentree-en-medecine-et-dentisterie/dates-cles",
+          "evidence": [
+            "ev-be-ares-concours-dates"
+          ]
+        }
+      ],
+      "evidence": [
+        "ev-be-fwb-bachelor-apply"
+      ]
+    }
+  ],
+  "evidence": [
+    "ev-be-fl-how-to-apply",
+    "ev-be-fwb-bachelor-apply",
+    "ev-be-fwb-ib-equivalence"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-15",
+    "notes": [
+      "Belgium's German-speaking community is not covered; none of the listed institutions is in it.",
+      "Not established: institution closing dates for 2027; whether Flemish institutions treat the IB Diploma as giving access 'in the country where it was awarded'; IB access and teaching language for graduaten and schools of arts.",
+      "Fee figures remain on the country profile and were not re-read on this pass."
+    ]
+  }
+}

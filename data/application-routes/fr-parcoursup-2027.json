@@ -1,0 +1,85 @@
+{
+  "id": "fr-parcoursup-2027",
+  "destination": "fr",
+  "jurisdiction": "fr-universites",
+  "intake": "2027-autumn",
+  "applicantGroup": "eu-eea-ch",
+  "label": "Applying to a French public university through Parcoursup for autumn 2027",
+  "channel": "application-system",
+  "portalUrl": "https://www.parcoursup.gouv.fr/",
+  "choiceLimit": 10,
+  "choicesRanked": false,
+  "milestones": [
+    {
+      "id": "ms-fr-ps-open",
+      "type": "open",
+      "label": "Parcoursup registration and wishes open",
+      "dateState": "not-yet-announced",
+      "consequence": "indicative",
+      "note": "In 2026 this was 19 January. The 2027 calendar is usually published in late autumn.",
+      "evidence": [
+        "ev-fr-parcoursup-calendar-2026"
+      ]
+    },
+    {
+      "id": "ms-fr-ps-wishes",
+      "type": "submit",
+      "label": "Last day to enter your wishes",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 this was 12 March.",
+      "evidence": [
+        "ev-fr-parcoursup-calendar-2026"
+      ]
+    },
+    {
+      "id": "ms-fr-ps-confirm",
+      "type": "document",
+      "label": "Last day to complete your file and confirm your wishes",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 this was 1 April. An unconfirmed wish is lost.",
+      "evidence": [
+        "ev-fr-parcoursup-calendar-2026"
+      ]
+    },
+    {
+      "id": "ms-fr-ps-admission",
+      "type": "reply",
+      "label": "Admission phase: answer each offer within its deadline",
+      "dateState": "not-yet-announced",
+      "consequence": "hard",
+      "note": "In 2026 it ran from 2 June to 11 July. Offers arrive before IB results, on your file and predicted grades.",
+      "evidence": [
+        "ev-fr-parcoursup-calendar-2026"
+      ]
+    },
+    {
+      "id": "ms-fr-ps-ib-results",
+      "type": "result",
+      "label": "IB results released",
+      "date": "2027-07-06",
+      "consequence": "indicative",
+      "provisional": true,
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
+      "ibCalendar": "2027-05/results-day"
+    }
+  ],
+  "evidence": [
+    "ev-fr-mesr-eu-parcoursup",
+    "ev-fr-parcoursup-calendar-2026",
+    "ev-fr-service-public-parcoursup-voeux"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-23",
+    "reviewBy": "2026-12-15",
+    "notes": [
+      "For EU, EEA and Swiss nationals. Non-EU applicants to a first-year licence use the demande d'admission préalable (DAP), which is not recorded as a route here.",
+      "Up to 10 wishes, not ranked. Ranking only applies later, to wishes still on a waiting list.",
+      "parcoursup.gouv.fr returns HTTP 403 to automated retrieval and shows a bot challenge on some pages; the calendar was read in a browser."
+    ]
+  }
+}
