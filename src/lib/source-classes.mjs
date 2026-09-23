@@ -207,6 +207,8 @@ const CONSEQUENTIAL_FIELDS = [
   'requirements', 'milestones', 'deadline', 'deadlines', 'feeContext', 'fees', 'tuition',
   'quota', 'capacity', 'selection', 'admission', 'applicationRoutes', 'choiceRules',
   'ibRecognition', 'conversionTable', 'gradeConversion', 'minimumPoints', 'subjectLevelRule',
+  // Whether the reader may take a route at all (#35) — as consequential as a date.
+  'readerAccess',
 ];
 const PROCEDURAL_FIELDS = ['applicationSystems', 'sharedSteps', 'decisionModel', 'replyModel', 'channel', 'watchOuts'];
 const CULTURAL_FIELDS = ['culture', 'context', 'whatItIsLike', 'localContext'];

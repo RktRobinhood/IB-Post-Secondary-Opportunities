@@ -1789,6 +1789,15 @@ details.acc > :not(summary):last-child { margin-bottom: 0; }
   color: var(--ink-soft);
   border-bottom: 1px dotted var(--rule-strong);
 }
+/* A route the reader cannot take (#35). Muted, exclusion first, and nothing in
+   the accent colour a real date carries. */
+.timeline > li.timeline__closed { color: var(--ink-mute); }
+.timeline__closed h4 { color: var(--ink-soft); font-weight: 550; }
+.timeline__access {
+  font-weight: 600; font-style: normal;
+  color: var(--ink-mute); letter-spacing: 0;
+}
+.timeline__access-reason { margin: 0 0 var(--s2); font-size: .9375rem; }
 
 /* --- 24. Scoping a view --------------------------------------------------- */
 

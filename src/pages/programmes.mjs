@@ -7,7 +7,7 @@ import {
 import { picture } from '../lib/data.mjs';
 import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
 import { evidenceBlock, preparationPath, filterQuestion, deadlineList, worldWindow } from '../lib/primitives.mjs';
-import { allEvents } from '../lib/calendar.mjs';
+import { allEvents, isActionable, isClosed, readerAccessOf } from '../lib/calendar.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { forBrowser, serialisePolicy } from '../lib/evidence-policy.mjs';
 
@@ -425,7 +425,13 @@ export function programme(site, p, inst) {
      on. A Route may publish more than one closing date — the Netherlands has
      one for numerus fixus and a later one for everything else — so all of them
      are listed rather than one of them being picked. */
-  const closes = (route?.milestones || []).filter((m) => m.type === 'submit' && m.consequence === 'hard');
+  /* A route closed to the reader has no date for them to act on (#35). */
+  const routeClosed = readerAccessOf(route?.readerAccess)?.state === 'closed';
+  const closes = routeClosed
+    ? []
+    : (route?.milestones || []).filter(
+        (m) => m.type === 'submit' && m.consequence === 'hard' && readerAccessOf(m.readerAccess)?.state !== 'closed'
+      );
   const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
 
   const body = html`
@@ -533,11 +539,12 @@ ${hero({
           { label: 'Field', value: p.field },
         ])}
 
-        ${route?.milestones?.length
+        ${route?.milestones?.length && !routeClosed
           ? html`<h2 id="deadlines">Deadlines for this intake</h2>
               <ul class="timeline">
                 ${route.milestones
                   .filter((m) => ['submit', 'signature', 'document', 'result', 'reply'].includes(m.type))
+                  .filter((m) => readerAccessOf(m.readerAccess)?.state !== 'closed')
                   .map(
                     (m) => html`<li data-date="${m.date || ''}"${m.provisional ? raw(' data-provisional="true"') : ''}>
                       <div class="timeline__when">${m.date || 'Date not published'}${m.timeOfDay ? html`<br>${m.timeOfDay} ${m.timeZone || ''}` : ''}</div>
@@ -1065,8 +1072,11 @@ ${hero({
  */
 export function timeline(site) {
   const events = allEvents(site);
-  const dated = events.filter((e) => e.date);
-  const undated = events.filter((e) => !e.date);
+  /* A route the reader cannot take is listed on its own, after both groups a
+     student acts on, never sorted among them (#35). */
+  const dated = events.filter((e) => e.date && isActionable(e));
+  const undated = events.filter((e) => !e.date && isActionable(e));
+  const closed = events.filter(isClosed);
 
   /* Destinations that actually have something on the calendar, so the scope
      picker never offers a country with nothing to show. */
@@ -1123,6 +1133,13 @@ ${hero({
               than centrally. They are here rather than hidden, because "there is no date" is something you can
               act on and a blank is not.</p>
               ${deadlineList(undated, { showDestination: true })}`
+          : ''}
+
+        ${closed.length
+          ? html`<h2 id="closed">Not open to you</h2>
+              <p>Routes you may have heard of that a Danish IB student cannot take. Listed so you do not spend
+              months preparing for one.</p>
+              ${deadlineList(closed, { showDestination: true })}`
           : ''}
       </div>
 

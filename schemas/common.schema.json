@@ -36,6 +36,26 @@
       "description": "Who a rule applies to. 'any' means the rule does not vary by group."
     },
 
+    "readerAccess": {
+      "type": "object",
+      "required": ["state", "reason", "evidence"],
+      "properties": {
+        "state": {
+          "enum": ["closed", "conditional", "open"],
+          "description": "Whether this site's reader — an IB Diploma candidate in Denmark, on an EU passport — can take this route or act on this date. 'closed' means they cannot, and the entry must never render as something to act on. 'conditional' means only under a condition the reason names. 'open' is an explicit finding, for a route that sits beside a closed one."
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 240,
+          "description": "One sentence, rendered first. Says why, not what the route is."
+        },
+        "evidence": { "$ref": "#/$defs/evidenceRefs" }
+      },
+      "additionalProperties": false,
+      "description": "Whether the reader is eligible at all, as a field rather than a sentence in notes (#35). Distinct from applicantGroup, which says which fee or rule group a date is for, not whether the reader is excluded. On an Application Route it applies to every round and milestone unless one declares its own."
+    },
+
     "feeStatus": {
       "enum": ["no-fee", "eu-eea-rate", "international-rate", "means-tested", "unknown"]
     },

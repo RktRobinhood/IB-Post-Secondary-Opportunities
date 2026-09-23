@@ -13,7 +13,7 @@
  */
 import { html, raw, md, truncate, plural, slugify } from './html.mjs';
 import { url } from './layout.mjs';
-import { formatWhen, consequenceOf } from './calendar.mjs';
+import { formatWhen, consequenceOf, isClosed, READER_ACCESS } from './calendar.mjs';
 import fsSync from 'node:fs';
 import nodePath from 'node:path';
 
@@ -844,7 +844,32 @@ export function deadlineList(events, { showDestination = false, emptyText } = {}
   </ul>`;
 }
 
+/**
+ * A route or date the reader cannot take (#35). Shown rather than hidden — a
+ * student who heard of it elsewhere needs telling — but with the exclusion
+ * first and nothing a student could mistake for something to act on: no
+ * `data-date`, so `site.js` never marks it "next"; no consequence badge; no
+ * date in the when column.
+ */
+function closedItem(e, { showDestination }) {
+  return html`<li class="timeline__closed" data-access="closed"
+    ${e.destination ? raw(`data-destination="${e.destination}"`) : ''}
+  >
+    <div class="timeline__when"><span class="timeline__access">${READER_ACCESS.closed.label}</span></div>
+    <div class="timeline__what">
+      <h4>${showDestination && e.destinationName ? html`<span class="timeline__where">${e.destinationName}</span> ` : ''}${e.label}</h4>
+      <p class="timeline__access-reason">${e.access.reason}</p>
+      ${e.sources.length
+        ? html`<p><small>${e.sources.map(
+            (s, i) => html`${i ? raw(' · ') : ''}<a href="${s}" rel="noopener nofollow">${e.sources.length > 1 ? `Source ${i + 1}` : 'Source'}</a>`
+          )}</small></p>`
+        : ''}
+    </div>
+  </li>`;
+}
+
 function deadlineItem(e, { showDestination }) {
+  if (isClosed(e)) return closedItem(e, { showDestination });
   const when = formatWhen(e);
   const c = consequenceOf(e);
   const undated = !e.date;
@@ -870,6 +895,9 @@ function deadlineItem(e, { showDestination }) {
     </div>
     <div class="timeline__what">
       <h4>${showDestination && e.destinationName ? html`<span class="timeline__where">${e.destinationName}</span> ` : ''}${e.label}</h4>
+      ${e.access?.state === 'conditional'
+        ? html`<p class="timeline__access-reason"><strong>${READER_ACCESS.conditional.label}:</strong> ${e.access.reason}</p>`
+        : ''}
       ${e.audience && e.audience !== 'any'
         ? html`<p class="timeline__audience">Applies to: ${e.audience}</p>`
         : ''}

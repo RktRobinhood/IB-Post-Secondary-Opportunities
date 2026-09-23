@@ -24,7 +24,7 @@ This document describes the target model. Existing country and Danish institutio
 | Application Jurisdiction | authority type plus geographic or sector ID | shared admissions rules, responsible authority, covered systems |
 | Application System | durable operator/system ID | coverage, portal, choice rules, fees, shared steps, decision and reply model |
 | Application Route | Opportunity, applicant group, and Intake | submission channel, rounds, supplementary steps, submission items, milestones |
-| Application Milestone | route plus durable milestone ID | type, date/window, time zone, consequence, audience, evidence |
+| Application Milestone | route plus durable milestone ID | type, date/window, time zone, consequence, audience, readerAccess, evidence |
 | Submission Item | route plus durable item ID | document/action type, responsible party, destination, format, dependencies |
 | Application Plan | local anonymous plan ID | selected Opportunities, resolved routes, checklist state, personal target dates |
 
@@ -145,6 +145,36 @@ declared absence.
 publishes an *equal consideration* date, not a deadline, and rendering the two
 identically frightens students off applying at all in one direction and costs
 them a place in the other.
+
+### A route the reader cannot take says so in a field
+
+`readerAccess` — `{ state, reason, evidence }` — records whether this site's
+reader, an IB Diploma candidate in Denmark on an EU passport, can take a route
+or act on a date at all (#35). It is defined once in
+`schemas/common.schema.json` and allowed on an Application Route, on each of its
+`rounds[]` and `milestones[]`, and on a country profile's
+`application.deadlines[]` entry. A round or milestone inherits its route's
+value unless it declares its own.
+
+| state | meaning | renders as |
+|---|---|---|
+| `closed` | the reader cannot take this | one muted line, "Not open to you" first, then the reason; no date to act on |
+| `conditional` | only under the condition the reason names | the ordinary entry, with "Only if: reason" before everything else |
+| `open` | an explicit finding, for a route beside a closed one | the ordinary entry |
+
+A closed entry is **shown, not hidden**: a student who has heard of the route
+elsewhere needs telling it is closed. But it is never actionable. A closed
+route collapses to a single line (its rounds and milestones are not the
+reader's to act on, and a profile entry pointing at it is absorbed); it carries
+no `data-date`, so nothing marks it "next"; it has no consequence badge; and it
+sorts after every actionable entry. `isActionable` in `src/lib/calendar.mjs` is
+the one test every consumer asks, and `scripts/test-calendar.mjs` fails if a
+closed entry renders with a date, a badge or a countdown.
+
+It is not `applicantGroup`. That field names a fee-and-rule group and says who
+a date is *for*; `readerAccess` says the reader is *excluded*, and why. The
+reason is one sentence (at most 240 characters) and must cite evidence, because
+telling a student a route is closed is as consequential as giving them a date.
 
 ### Application Jurisdictions live on their Destination
 

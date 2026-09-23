@@ -32,6 +32,10 @@
     "applicantGroup": {
       "$ref": "common.schema.json#/$defs/applicantGroup"
     },
+    "readerAccess": {
+      "$ref": "common.schema.json#/$defs/readerAccess",
+      "description": "Whether this site’s reader can take this route at all. A closed route renders once, exclusion first, with no date to act on; its rounds and milestones inherit it."
+    },
     "label": {
       "type": "string"
     },
@@ -87,6 +91,9 @@
           },
           "consequence": {
             "$ref": "common.schema.json#/$defs/consequence"
+          },
+          "readerAccess": {
+            "$ref": "common.schema.json#/$defs/readerAccess"
           },
           "note": {
             "type": "string"
@@ -163,6 +170,9 @@
           },
           "audience": {
             "$ref": "common.schema.json#/$defs/applicantGroup"
+          },
+          "readerAccess": {
+            "$ref": "common.schema.json#/$defs/readerAccess"
           },
           "provisional": {
             "type": "boolean",

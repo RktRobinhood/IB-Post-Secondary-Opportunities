@@ -114,6 +114,49 @@ export function consequenceOf(event) {
   return CONSEQUENCE[event.consequence] || CONSEQUENCE.indicative;
 }
 
+/* --- Whether the reader can take this at all ------------------------------ */
+
+/**
+ * `readerAccess` — whether this site's reader can take a route or act on a
+ * date. #35: Korea's GKS Embassy Track and Japan's embassy MEXT undergraduate
+ * route were both closed to a Danish applicant, and the only place that could
+ * say so was `notes`, so both rendered as a date with a hard-deadline badge,
+ * sorted among the dates a student was meant to act on.
+ *
+ * A closed entry is shown, not hidden — a student who has heard of the route
+ * elsewhere needs telling it is closed — but it is never actionable: no
+ * `data-date` for the "next" marker, no consequence badge, and sorted after
+ * every entry that is. `isActionable` is the one test every consumer asks.
+ */
+export const READER_ACCESS = {
+  closed: { label: 'Not open to you' },
+  conditional: { label: 'Only if' },
+  open: { label: 'Open to you' },
+};
+
+/** A declared access, or null. An unknown state is not passed through. */
+export function readerAccessOf(...candidates) {
+  for (const a of candidates) {
+    if (a && READER_ACCESS[a.state] && clean(a.reason)) {
+      return { state: a.state, reason: clean(a.reason), evidence: Array.isArray(a.evidence) ? a.evidence : [] };
+    }
+  }
+  return null;
+}
+
+export function isClosed(event) {
+  return event?.access?.state === 'closed';
+}
+
+export function isActionable(event) {
+  return !isClosed(event);
+}
+
+/** Sort key that puts every closed entry after every actionable one. */
+function orderKey(event) {
+  return `${isClosed(event) ? '1' : '0'}${sortKey(event)}`;
+}
+
 /* --- How well an IB session date is actually established ------------------ */
 
 /**
@@ -258,6 +301,7 @@ export function fromCountryDeadline(country, entry, index) {
        date a student can plan around and one they cannot. */
     checkedAt: clean(country.dataAsOf),
     evidence: entry.evidence || [],
+    access: readerAccessOf(entry.readerAccess),
     origin: 'profile',
   };
 }
@@ -288,6 +332,7 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: milestone.evidence || [],
+    access: readerAccessOf(milestone.readerAccess, route.readerAccess),
     origin: 'route',
   };
 }
@@ -319,6 +364,43 @@ export function fromRouteRound(route, round, destinationName) {
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: round.evidence || [],
+    access: readerAccessOf(round.readerAccess, route.readerAccess),
+    origin: 'route',
+  };
+}
+
+/**
+ * A route the reader cannot take, as one entry rather than one per milestone.
+ *
+ * Every round and milestone of a closed route would otherwise print the same
+ * exclusion five times over. The route is the thing that is closed, so the
+ * route is the one line; the dates inside it are not the reader's to act on
+ * and are not listed.
+ */
+export function fromClosedRoute(route, destinationName) {
+  return {
+    id: route.id,
+    destination: route.destination,
+    destinationName,
+    routeId: route.id,
+    routeLabel: null,
+    jurisdiction: route.jurisdiction || null,
+    label: clean(route.label) || route.id,
+    date: null,
+    endDate: null,
+    timeOfDay: null,
+    timeZone: null,
+    dateState: null,
+    legacyDate: null,
+    consequence: 'indicative',
+    audience: route.applicantGroup || 'any',
+    provisional: false,
+    intake: route.intake || null,
+    note: null,
+    sources: route.portalUrl ? [route.portalUrl] : [],
+    checkedAt: clean(route.meta?.dataAsOf),
+    evidence: route.readerAccess?.evidence || [],
+    access: readerAccessOf(route.readerAccess),
     origin: 'route',
   };
 }
@@ -338,7 +420,12 @@ function isIso(v) {
 export function eventsForDestination(country, graph) {
   const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === country.code);
 
+  const closedRoutes = new Set(
+    routes.filter((r) => readerAccessOf(r.readerAccess)?.state === 'closed').map((r) => r.id)
+  );
+
   const fromRoutes = routes.flatMap((r) => {
+    if (closedRoutes.has(r.id)) return [fromClosedRoute(r, country.name)];
     const milestones = (r.milestones || []).map((x) => fromRouteMilestone(r, x, country.name));
 
     /* A round and its own closing milestone are the same day described twice.
@@ -354,12 +441,22 @@ export function eventsForDestination(country, graph) {
     return [...rounds, ...milestones];
   });
 
-  const claimed = new Set(fromRoutes.map((e) => normaliseLabel(e.label)));
+  /* A closed route's rounds and milestones still claim their labels after it
+     collapses to one line, so the profile entry it was migrated from is
+     recognised as the same fact and not listed again beside it. */
+  const claimed = new Set([
+    ...fromRoutes.map((e) => normaliseLabel(e.label)),
+    ...routes
+      .filter((r) => closedRoutes.has(r.id))
+      .flatMap((r) => [...(r.rounds || []), ...(r.milestones || [])].map((x) => normaliseLabel(x.label))),
+  ]);
   const fromProfile = (country.application?.deadlines || [])
     .map((d, i) => fromCountryDeadline(country, d, i))
-    .filter((e) => !claimed.has(normaliseLabel(e.label)));
+    /* A profile entry on a closed route is that route's fact, already stated
+       once by the route's own line. */
+    .filter((e) => !claimed.has(normaliseLabel(e.label)) && !closedRoutes.has(e.routeId));
 
-  return [...fromRoutes, ...fromProfile].sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
+  return [...fromRoutes, ...fromProfile].sort((a, b) => orderKey(a).localeCompare(orderKey(b)));
 }
 
 /**
@@ -402,7 +499,7 @@ export function allEvents(site) {
 
   return [...countries, ...canonicalOnly]
     .flatMap((c) => eventsForDestination(c, site.graph))
-    .sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
+    .sort((a, b) => orderKey(a).localeCompare(orderKey(b)));
 }
 
 function normaliseLabel(label) {
@@ -413,6 +510,7 @@ function normaliseLabel(label) {
 
 /** Where a date sits relative to today. The countdown chip needs no more. */
 export function standing(event, today = new Date().toISOString().slice(0, 10)) {
+  if (isClosed(event)) return 'closed';
   if (!event.date) return 'undated';
   if (event.endDate && event.endDate >= today && event.date <= today) return 'open';
   if (event.date < today) return 'past';
@@ -422,6 +520,6 @@ export function standing(event, today = new Date().toISOString().slice(0, 10)) {
 }
 
 export function daysUntil(event, today = new Date().toISOString().slice(0, 10)) {
-  if (!event.date) return null;
+  if (!event.date || isClosed(event)) return null;
   return Math.round((Date.parse(event.date) - Date.parse(today)) / 86400000);
 }

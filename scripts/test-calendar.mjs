@@ -26,9 +26,14 @@ import {
   eventsForDestination,
   formatWhen,
   fromCountryDeadline,
+  isActionable,
+  isClosed,
+  READER_ACCESS,
   sortKey,
   standing,
 } from '../src/lib/calendar.mjs';
+import { deadlineList } from '../src/lib/primitives.mjs';
+import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -124,6 +129,9 @@ const ALLOWED = new Set([
      reads it back; without it a deadline restating an IB date is indistinguishable
      from one the country published, which is how 61 copies of 6 July happened. */
   'ibCalendar',
+  /* Whether the reader can act on this at all (#35). Checked below, and by
+     the guard that a closed entry never renders as a date to act on. */
+  'readerAccess',
 ]);
 
 const problems = [];
@@ -142,7 +150,25 @@ for (const c of site.countries) {
     if (d.timeOfDay && !/^[0-2][0-9]:[0-5][0-9]$/.test(d.timeOfDay)) problems.push(`${where}: timeOfDay "${d.timeOfDay}" is not HH:MM`);
     if (ISO.test(String(d.date)) && d.endDate && d.endDate < d.date) problems.push(`${where}: endDate is before date`);
     if (d.date == null && !d.dateState) problems.push(`${where}: no date and no dateState — say which of the five it is`);
+    if (d.readerAccess) problems.push(...accessProblems(where, d.readerAccess));
   }
+}
+for (const r of site.graph.applicationRoutes.values()) {
+  const all = [['', r], ...(r.rounds || []).map((x) => [`.rounds ${x.id}`, x]), ...(r.milestones || []).map((x) => [`.milestones ${x.id}`, x])];
+  for (const [at, x] of all) if (x.readerAccess) problems.push(...accessProblems(`${r.id}${at}`, x.readerAccess));
+}
+
+/* Country profiles have no JSON schema, so the shape the route schema enforces
+   is enforced here for them; and on both, an exclusion must cite its source —
+   telling a student a route is closed is as consequential as giving a date. */
+function accessProblems(where, a) {
+  const out = [];
+  if (!READER_ACCESS[a.state]) out.push(`${where}: readerAccess.state "${a.state}" is not one of ${Object.keys(READER_ACCESS).join(', ')}`);
+  if (typeof a.reason !== 'string' || a.reason.trim().length < 10) out.push(`${where}: readerAccess has no reason — it is rendered first, so it must say why`);
+  if (typeof a.reason === 'string' && a.reason.length > 240) out.push(`${where}: readerAccess.reason is ${a.reason.length} characters — one sentence, please`);
+  if (!Array.isArray(a.evidence) || !a.evidence.length) out.push(`${where}: readerAccess cites no evidence`);
+  for (const k of Object.keys(a)) if (!['state', 'reason', 'evidence'].includes(k)) out.push(`${where}: readerAccess has unknown field "${k}"`);
+  return out;
 }
 
 check('every deadline record is the shape it says it is', () => {
@@ -207,6 +233,91 @@ check('a round and its own closing milestone are not two things to do', () => {
   const events = eventsForDestination({ code: 'xx', name: 'X' }, graph);
   assert.equal(events.length, 1, 'the same day was listed twice');
   assert.equal(events[0].label, 'Applications close', 'the round won, but the milestone is the one that says what closes');
+});
+
+/* --- A route the reader cannot take is not a date to act on (#35) ---------- */
+
+/* What "rendered as actionable" means, read off the markup the one renderer
+   produces: a `data-date` (which `site.js` and `calendar.js` use to mark the
+   next thing to do), a consequence badge, or a countdown chip. */
+function actionableMarks(markup) {
+  assert.ok(markup.includes('<li'), 'the renderer produced no list item, so this guard would pass on nothing');
+  return ['data-date=', 'data-consequence=', 'timeline__badge', 'data-countdown'].filter((m) => markup.includes(m));
+}
+
+check('the actionable-markup detector sees an ordinary hard deadline', () => {
+  const markup = toString(deadlineList([{ id: 'a', label: 'Apply', date: '2027-03-15', consequence: 'hard', sources: [], access: null }]));
+  assert.ok(actionableMarks(markup).includes('data-date='), 'the detector cannot see a date, so it cannot see a closed one rendered as one');
+});
+
+const CLOSED = { state: 'closed', reason: 'The reader is not eligible for this route at all.', evidence: ['ev-x'] };
+
+check('a closed route is one line, after every date a student acts on, with no standing', () => {
+  const graph = {
+    applicationRoutes: new Map([
+      ['shut', {
+        id: 'shut', destination: 'xx', intake: '2027-autumn', label: 'The closed route', readerAccess: CLOSED,
+        rounds: [{ id: 'rd', label: 'Window', opens: '2026-09-01', closes: '2026-09-30', consequence: 'hard' }],
+        milestones: [{ id: 'm1', type: 'result', label: 'Result', date: '2026-10-16', consequence: 'indicative' }],
+      }],
+      ['open', {
+        id: 'open', destination: 'xx', intake: '2027-autumn', label: 'The open route',
+        milestones: [{ id: 'm2', type: 'submit', label: 'Apply', date: '2027-03-15', consequence: 'hard' }],
+      }],
+    ]),
+  };
+  const country = { code: 'xx', name: 'X', application: { deadlines: [{ label: 'Profile copy of the window', date: '2026-09-30', consequence: 'hard', route: 'shut' }] } };
+  const events = eventsForDestination(country, graph);
+  const shut = events.filter(isClosed);
+  assert.equal(shut.length, 1, `a closed route printed ${shut.length} entries — its milestones, or the profile entry pointing at it, leaked out`);
+  assert.equal(events.at(-1).id, 'shut', 'a closed route was sorted among the dates to act on');
+  assert.equal(standing(shut[0], '2026-09-23'), 'closed');
+});
+
+check('a closed milestone on an open route keeps its date but loses its place and its badge', () => {
+  const graph = {
+    applicationRoutes: new Map([
+      ['r', {
+        id: 'r', destination: 'xx', intake: '2027-autumn',
+        milestones: [
+          { id: 'early', type: 'submit', label: 'Round for others', date: '2026-10-01', consequence: 'hard', readerAccess: CLOSED },
+          { id: 'late', type: 'submit', label: 'Apply', date: '2027-03-15', consequence: 'hard' },
+        ],
+      }],
+    ]),
+  };
+  const events = eventsForDestination({ code: 'xx', name: 'X' }, graph);
+  assert.deepEqual(events.map((e) => e.id), ['late', 'early'], 'the closed round was sorted by its date');
+  const markup = toString(deadlineList(events.filter(isClosed)));
+  assert.deepEqual(actionableMarks(markup), [], 'a closed milestone rendered as a date to act on');
+  assert.ok(markup.indexOf(READER_ACCESS.closed.label) < markup.indexOf('Round for others'), 'the exclusion is not stated first');
+});
+
+check('no closed entry anywhere on the site renders as actionable, or sorts among those that do', () => {
+  const all = allEvents(site);
+  const firstClosed = all.findIndex(isClosed);
+  if (firstClosed >= 0 && all.slice(firstClosed).some(isActionable)) throw new Error('a closed entry is sorted among the actionable ones');
+  const offenders = [];
+  for (const e of all.filter(isClosed)) {
+    const marks = actionableMarks(toString(deadlineList([e])));
+    if (marks.length) offenders.push(`${e.destination} "${e.label}": ${marks.join(', ')}`);
+  }
+  if (offenders.length) throw new Error(offenders.join('\n          '));
+});
+
+check('the two established closed routes are closed in a field, not in a sentence', () => {
+  /* Pinned because they are why the field exists: Korea's GKS Embassy Track
+     (Denmark is not among the invited countries) and Japan's embassy MEXT
+     undergraduate route (not offered to Danish nationals). If either is ever
+     reopened, it is reopened in its record and this line with it. */
+  for (const id of ['kr-gks-embassy-2027', 'jp-mext-embassy-2028']) {
+    const route = site.graph.applicationRoutes.get(id);
+    assert.ok(route, `${id} is gone`);
+    assert.equal(route.readerAccess?.state, 'closed', `${id} is not declared closed`);
+    const events = allEvents(site).filter((e) => e.routeId === id);
+    assert.ok(events.length >= 1, `${id} no longer reaches the calendar at all — it should be shown, not hidden`);
+    assert.ok(events.every(isClosed), `${id} still produces an actionable entry`);
+  }
 });
 
 /* --- Progress ------------------------------------------------------------- */

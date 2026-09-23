@@ -3,7 +3,14 @@
   "destination": "kr",
   "intake": "2027-spring",
   "applicantGroup": "any",
-  "label": "Global Korea Scholarship, Embassy Track — closed to Danish citizens for 2027",
+  "readerAccess": {
+    "state": "closed",
+    "reason": "Denmark is not one of the 74 countries invited to the 2027 Embassy Track. The University Track’s UIC Program is open to every nationality.",
+    "evidence": [
+      "ev-kr-gks-2027-countries"
+    ]
+  },
+  "label": "Global Korea Scholarship, Embassy Track",
   "channel": "application-system",
   "applicationSystem": "kr-gks",
   "portalUrl": "https://www.studyinkorea.go.kr/",
@@ -93,8 +100,7 @@
     }
   ],
   "supplementarySteps": [
-    "Check the invited-country list before anything else. The 2027 Embassy Track names 74 countries; Denmark is not among them and no Korean embassy in Denmark appears in the guidelines' own contact appendix. Sweden and Poland are on the list, so a student with a second citizenship may be in a different position — the track is decided by the citizenship you apply under.",
-    "This record is kept, rather than deleted, because it is the route most English-language advice about Korean funding describes, and a Danish reader needs to be told plainly that it is not open to them rather than left to discover it in the fifth round of a PDF."
+    "The track is decided by the citizenship you apply under. Sweden and Poland are on the 2027 list, so a student with a second citizenship may be in a different position."
   ],
   "evidence": [
     "ev-kr-gks-2027-schedule",

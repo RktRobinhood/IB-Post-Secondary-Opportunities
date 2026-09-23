@@ -254,10 +254,15 @@ screen budget with a guard behind it.
   99 to look at, worst first. It is the only item in this programme an agent
   cannot finish, and the machinery around it works: 7 pictures are withheld
   below the floor and render a designed empty state instead.
-- **#35** and **#36** were filed from findings during this programme and
-  deliberately not started. #35 is the one that matters: three of four passes
-  independently hit the fact that a route the reader cannot take renders as a
-  route with a date.
+- **#35** landed (branch `fix-35-closed-routes`): `readerAccess` —
+  `{ state: closed | conditional | open, reason, evidence }` — on an
+  Application Route, its rounds and milestones, and a country-profile
+  deadline. A closed route renders as one muted line, "Not open to you" first,
+  with no `data-date`, no consequence badge, and sorted after every actionable
+  date; `/timeline/` lists closed routes in their own group at the end. GKS
+  Embassy Track and embassy MEXT undergraduate are expressed through it, and
+  `scripts/test-calendar.mjs` fails if either, or any closed entry, renders as
+  actionable. #36 was filed alongside it.
 
 ---
 
@@ -277,7 +282,7 @@ A field that is legal to write and does nothing produces no error. It produces
 a workaround, repeated by everyone who meets it, each assuming they misread the
 schema. Fixed in `8c069ae`.
 
-### ~~A route the reader cannot take looks like a route with a date~~ — filed as #35
+### ~~A route the reader cannot take looks like a route with a date~~ — fixed in #35
 
 **Hit by three of the four deadline passes independently, and the most
 repeated shape across five countries.** Korea's GKS Embassy Track invites 74
@@ -289,6 +294,30 @@ deadline badge.
 This is the failure mode with the worst consequence on the site. A wrong date
 costs a student a round. A route they were never eligible for costs them the
 months they spent preparing for it.
+
+Fixed with `readerAccess` rather than `applicantGroup`. `applicantGroup` is a
+fee-and-rule group (`eu-eea-ch`, `non-eu`, …) and cannot say "citizens of 74
+named countries" or "only if already at university"; stretching it would have
+made it mean two things. Friction left behind by the fix:
+
+- **The 2027 GKS round is closed to a May 2027 IB candidate on both tracks**,
+  because it needs a graduation certificate by 31 December 2026. That is a
+  property of the *round year*, not of the route, and the University Track is
+  still recorded as open (its label even says "the one a Danish citizen can
+  use"). It is not marked closed here because that is a research judgment
+  beyond #35; it is still only in prose.
+- **`readerAccess` assumes one reader.** It is a statement about "an IB
+  candidate in Denmark on an EU passport". If the site ever serves a second
+  reader profile, this becomes a per-profile rule, and the natural shape is
+  eligibility conditions evaluated against the Student Profile — the same move
+  `applicantGroup` needs.
+- **`ev-jp-embassy-denmark-unreadable` contradicts the Japan profile.** The
+  Evidence record says the embassy's pages refused every request and nothing
+  was read; the profile note says they opened in an ordinary browser and
+  quotes them. The quotation now has its own record,
+  `ev-jp-embassy-denmark-mext-types` (needs-review), but the unreadable record
+  and the MEXT route's round notes ("whose pages we could not read") were left
+  as they were.
 
 ### ~~IB results day is one fact stored 61 times~~ — fixed in #36
 
