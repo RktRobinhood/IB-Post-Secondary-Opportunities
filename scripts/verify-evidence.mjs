@@ -35,12 +35,28 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fetchCached } from './lib/fetch-cache.mjs';
+import { loadLinkPolicy } from './lib/link-policy.mjs';
 import { htmlToText, pageTitle, looksLikeSoftError, excerptAround } from './lib/html-text.mjs';
 import { probesForRequirements, probesForMilestones, textProbes, probeCoverage, runProbes } from './lib/claim-probe.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
 const TODAY = new Date().toISOString().slice(0, 10);
+
+/* Shared with scripts/check-institution-links.mjs, so that a host discovered by
+   either tool is known to both. */
+const LINK_POLICY = await loadLinkPolicy();
+
+/* The IB subject catalogue, so a requirement written as `ibSubject: "mathematics-aa"`
+   can be looked for under the name a page would actually print. */
+const SUBJECT_CATALOGUE = await (async () => {
+  try {
+    const raw = JSON.parse(await fs.readFile(path.join(DATA, "ib-subjects.json"), "utf8"));
+    return new Map((raw.subjects || []).map((s) => [s.id, s]));
+  } catch {
+    return new Map();
+  }
+})();
 
 /* --- arguments ------------------------------------------------------------ */
 const argv = process.argv.slice(2);
@@ -67,7 +83,20 @@ async function readJson(p) {
 
 async function loadEntities() {
   const byId = new Map();
-  for (const dir of ['opportunities', 'programmes', 'institutions', 'places', 'destinations', 'application-routes', 'application-systems']) {
+  // context-notes was added to the model after this list was written, and its
+  // absence made every record backing a cultural observation report "no record
+  // exists, so this evidence backs nothing" — a confident false negative about
+  // records that were perfectly sound.
+  for (const dir of [
+    'opportunities',
+    'programmes',
+    'institutions',
+    'places',
+    'destinations',
+    'application-routes',
+    'application-systems',
+    'context-notes',
+  ]) {
     const full = path.join(DATA, dir);
     let files;
     try {
@@ -163,7 +192,7 @@ function claimsToCheck(record, entities) {
           type: 'requirements',
           field: support.field,
           entity: support.entity,
-          groups: probesForRequirements(entity.requirements),
+          groups: probesForRequirements(entity.requirements, SUBJECT_CATALOGUE),
         });
       } else {
         out.push({ type: 'unresolved', field: support.field, entity: support.entity });
@@ -192,26 +221,21 @@ async function checkRecord(record, entities) {
   const res = await fetchCached(record.sourceUrl, { maxAgeHours: OPTS.maxAgeHours });
   if (!res.ok || !res.body) {
     /* "We could not fetch it" and "it is not there" are different facts, and
-     * conflating them was costing real pages.
-     *
-     * A 404 or 410 means the page is gone, and a claim whose source is gone
-     * must not be published as current — that is what `unavailable` is for.
-     *
-     * A 403, 405, 429 or a timeout means the HOST REFUSES AUTOMATION. The page
-     * is very often fine, and a counsellor clicking the link sees it. Marking
-     * those `unavailable` blocked the release gate over a dozen perfectly good
-     * pages, which is both wrong and the kind of wrong that gets a gate
-     * switched off. It is recorded, and it does not gate.
-     */
-    const status = res.status;
-    const gone = status === 404 || status === 410;
+     * conflating them was costing real pages. The distinction is not this
+     * tool's to define — scripts/lib/link-policy.mjs holds it, shared with the
+     * link checker, which had it right while this had it backwards. A host
+     * either tool discovers is now known to both. */
+    const verdict = LINK_POLICY.classify(record.sourceUrl, res.status, res.error);
     return {
-      outcome: 'unsupported',
-      reason: gone
-        ? `source is gone (HTTP ${status})`
-        : `source refuses automated fetching (${res.error || 'no body'}) — open it by hand before believing this`,
+      /* Only a page that is GONE is "a claim with nothing behind it". A host
+       * that refuses us may be serving the source perfectly well to everyone
+       * else, so the honest outcome is "a person has to look" — which is what
+       * `partial` means here — rather than a verdict we are not entitled to. */
+      outcome: verdict.kind === 'gone' ? 'unsupported' : 'partial',
+      reason: verdict.reason,
       reachable: false,
-      gone,
+      gone: verdict.gates,
+      refusal: verdict.kind,
       details: [],
     };
   }
@@ -238,7 +262,19 @@ async function checkRecord(record, entities) {
     return { outcome: 'unsupported', reason: `page reports it does not exist ("${title}")`, reachable: false, details: [] };
   }
   if (text.length < 400) {
-    return { outcome: 'unsupported', reason: 'page has almost no readable text (JavaScript-rendered?)', reachable: true, details: [] };
+    /* Same category as a 403: the host is not serving its content to us. A
+     * page that renders in JavaScript is usually fine in a browser, and several
+     * of the records that land here say so in their own ids. "A person has to
+     * look" is the honest outcome; "nothing behind this claim" is not ours to
+     * say. Worth adding the host to scripts/lib/link-policy.json so the link
+     * checker knows it too. */
+    return {
+      outcome: 'partial',
+      reason: 'page serves almost no readable text to a plain fetch (JavaScript-rendered) — read it in a browser',
+      reachable: true,
+      refusal: 'javascript-rendered',
+      details: [],
+    };
   }
 
   // A REFERENCE record is a page consulted about an institution rather than

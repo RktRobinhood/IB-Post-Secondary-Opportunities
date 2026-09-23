@@ -1,6 +1,5 @@
 {
   "$comment": "Read by scripts/check-institution-links.mjs. This file is DATA, on purpose: the checker contains no branch that names a host, a university or a country. Anything that needs special handling is an entry here with a reason beside it, so the next person can disagree with the reason rather than read the code.",
-
   "hostsThatRefuseAutomatedRetrieval": [
     {
       "host": "www.ouac.on.ca",
@@ -61,13 +60,25 @@
       "host": "www.ub.edu",
       "reason": "UB's old host, which now redirects every path to web.ub.edu and inherits its Cloudflare wall. Listed separately because the verifier looks the host up on the URL it was asked for, not on the one it was sent to.",
       "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "www.nus.edu.sg",
+      "reason": "Serves almost no text to a plain fetch; the page is assembled client-side. Found by the evidence verifier, which was filing it as a claim with nothing behind it.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "www.singaporetech.edu.sg",
+      "reason": "Same shape as NUS — almost no text without JavaScript.",
+      "recordedOn": "2026-09-23"
+    },
+    {
+      "host": "admissions.smu.edu.sg",
+      "reason": "Imperva challenge on the admissions pages; the Singapore research pass could not read them either and recorded that as our gap rather than SMU’s.",
+      "recordedOn": "2026-09-23"
     }
   ],
-
   "readDirectly": [],
-
   "$comment2": "The checker reads only the two keys above. The list below is a record, not an input: it is here because the reason for leaving a redirect alone is exactly the kind of judgement this file exists to hold, and because otherwise the next pass re-investigates the same nine links.",
-
   "redirectsLeftAtTheOldUrl": [
     {
       "urls": [
@@ -83,12 +94,16 @@
       "recordedOn": "2026-09-23"
     },
     {
-      "urls": ["https://www.uib.no/en"],
+      "urls": [
+        "https://www.uib.no/en"
+      ],
       "reason": "Redirects to www4.uib.no/en, a numbered host that reads as a migration staging name rather than a permanent home. Bergen advertises www.uib.no. Followed and read 2026-09-23.",
       "recordedOn": "2026-09-23"
     },
     {
-      "urls": ["https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/"],
+      "urls": [
+        "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/"
+      ],
       "reason": "Redirects one level down to its own requirements/ sub-page, which is already recorded as CUHK's ibPageUrl. Following it would make the admissions link and the IB link the same address and lose the distinction. Followed and read 2026-09-23.",
       "recordedOn": "2026-09-23"
     }

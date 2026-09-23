@@ -588,5 +588,52 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-ufsn-gsk-cannot-raise-level",
+    "sourceUrl": "https://ufsn.dk/uddannelse/anerkendelse-og-dokumentation/find-vurderinger/eksamenshaandbogen/regler-og-raad/internationale-eksaminer/vejledning-om-ib/spoergsmaal-og-svar-om-diploma-programme-dp-course-results-og-ib-certificate-i-forhold-til-optagelse-paa-en-videregaaende-uddannelse-i-danmark/",
+    "publisher": "Uddannelses- og Forskningsstyrelsen (Danish Agency for Higher Education and Science)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-23",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "attestation": {
+      "by": "the trust-model pass (second session)",
+      "at": "2026-09-23",
+      "method": "read-source",
+      "note": "Read in Danish. The rule is question 5 of the Agency’s FAQ, phrased as the exact question a student would ask."
+    },
+    "claim": "An IB student cannot use GSK to raise their education level. Course Results reach university-bachelor standard only through hf-enkeltfag or self-study. GSK meets a specific subject requirement for somebody who already holds a qualifying examination.",
+    "excerpt": "5. Kan GSK-fag benyttes som supplering for at hæve et uddannelsesniveau? Nej, en IB-elev kan ikke benytte gymnasial supplering, GSK-fag, til at hæve sit uddannelsesniveau, så et Diploma Programme (DP) Course Results/IB Certificate giver generel studiekompetence til universitetsbacheloruddannelser. GSK er et tilbud til personer, der allerede har en eksamen, som giver generel studiekompetence til det pågældende uddannelsestrin [...] men som mangler et bestemt niveau i et eller flere fag. [...] Hvis et Diploma Programme (DP) Course Results/IB Certificate med mindst 3 i alle 6 fag og mindst 3 HL-fag skal give adgang til akademiske bacheloruddannelser, skal den enkelte supplere med hf-enkeltfag. [...] Fagene tages som hf-enkeltfag eller som selvstuderende.",
+    "interpretation": "This corrects data/ib-conversion.json rather than conflicting with anything. Our file said supplementary subjects \"are taken as hf-enkeltfag or GSK\" under the rule for Course Results reaching a university bachelor — which is the one use the Agency rules out by name. The two uses of a supplementary course are genuinely different and the difference is invisible unless stated: GSK fills a subject gap for somebody whose examination already qualifies them, and hf-enkeltfag raises the level of the examination itself. A Course Results student following our sentence would have taken a GSK course, passed it, and found their level unchanged. Worth keeping alongside: GSK IS the right tool for the same student aiming at an erhvervsakademi or professionsbachelor specific requirement, and a GSK subject taken for that purpose stays valid if they later switch to a university bachelor.",
+    "supports": [
+      {
+        "entity": "dk",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Spørgsmål og svar om Diploma Programme (DP) Course Results og IB Certificate i forhold til optagelse på en videregående uddannelse i…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "dk",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "Spørgsmål og svar om Diploma Programme (DP) Course Results og IB Certificate i forhold til optagelse på en videregående uddannelse i…",
+          "details": []
+        }
+      ]
+    }
   }
 ]

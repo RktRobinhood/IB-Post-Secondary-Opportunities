@@ -85,14 +85,31 @@ export function officialWordingProbe(req) {
   };
 }
 
-export function subjectProbes(req) {
-  const names = SUBJECT_NAMES[req.subject] || [req.subject];
-  const lvl = req.level ? esc(req.level) : null;
+export function subjectProbes(req, subjectCatalogue = null) {
   const out = [];
 
   // Tried first, because a verbatim match is worth more than any inference.
   const official = officialWordingProbe(req);
   if (official) out.push(official);
+
+  /* Two requirement shapes, and the newer one arrived after this file.
+   *
+   * ADR 0002 moved requirements into the IB's own units — `ibSubject` holding
+   * a catalogue id like "mathematics-aa", and `ibLevel` holding HL or SL — and
+   * every one of the 201 migrated records now uses it. This function still
+   * expected `subject` + `level`, so it called esc(undefined) and brought the
+   * whole run down at record 207.
+   *
+   * Both are handled, and they need different probes, because they are written
+   * in different languages: a local-scale requirement is matched against a page
+   * that says "Matematik A", and an IB-terms requirement against one that says
+   * "Mathematics HL". Where the record kept the source's own wording, that is
+   * tried before either and is worth more than both. */
+  if (req.ibSubject) return [...out, ...ibTermProbes(req, subjectCatalogue)];
+
+  const names = SUBJECT_NAMES[req.subject] || (req.subject ? [req.subject] : []);
+  if (!names.length) return out;
+  const lvl = req.level ? esc(req.level) : null;
 
   for (const name of names) {
     const n = esc(name);
@@ -143,6 +160,77 @@ export function subjectProbes(req) {
   return out;
 }
 
+/**
+ * Probes for a requirement written in the IB's own units.
+ *
+ * The record says `{ ibSubject: "mathematics-aa", ibLevel: "HL" }`. The page
+ * might say "Mathematics: Analysis and Approaches at Higher Level", or
+ * "Mathematics AA HL", or — if it is a Danish page — "Matematik A", which is a
+ * translation this file is deliberately not equipped to make. That last case is
+ * what `officialWording` exists for, and it is why the wording probe runs
+ * first.
+ *
+ * So these probes look for what an IB-terms requirement can honestly be
+ * expected to appear as: the subject's catalogue name or its id read as words,
+ * next to HL, SL, or the level spelled out.
+ *
+ * A catalogue is optional. Without one the id is read as words —
+ * "mathematics-aa" becomes "mathematics aa" — which matches a surprising
+ * amount and is better than crashing, which is what this replaced.
+ */
+function ibTermProbes(req, catalogue) {
+  const id = String(req.ibSubject || '');
+  if (!id) return [];
+
+  const entry = catalogue?.get?.(id) || null;
+  const fromId = id.replace(/-/g, ' ').trim();
+  const names = [...new Set([entry?.name, fromId].filter(Boolean))];
+
+  const level = String(req.ibLevel || '').toUpperCase();
+  const levelWords =
+    level === 'HL' ? '(?:HL|Higher\\s+Level)' : level === 'SL' ? '(?:SL|Standard\\s+Level)' : null;
+
+  const out = [];
+  for (const name of names) {
+    // The catalogue name carries punctuation a page will not reproduce —
+    // "Mathematics: Analysis and Approaches" — so the separators are loosened
+    // rather than escaped literally.
+    const loose = name
+      .split(/[^A-Za-z0-9\u00c0-\u024f]+/)
+      .filter(Boolean)
+      .map((w) => esc(w))
+      .join('[^A-Za-z0-9]{0,3}');
+    if (!loose) continue;
+
+    if (levelWords) {
+      out.push({
+        kind: 'must',
+        label: `${name} at ${level}`,
+        re: new RegExp(`\\b${loose}\\b[^.\\n]{0,40}?\\b${levelWords}\\b`, 'i'),
+      });
+      out.push({
+        kind: 'must',
+        weak: true,
+        label: `${name} / ${level} (adjacent lines)`,
+        re: new RegExp(`\\b${loose}\\b[ \\t]*\\n(?:[^\\n]{0,70}\\n){0,2}?[^\\n]{0,40}?\\b${levelWords}\\b`, 'i'),
+      });
+    } else {
+      out.push({ kind: 'must', label: name, re: new RegExp(`\\b${loose}\\b`, 'i') });
+    }
+  }
+
+  if (req.minGrade != null) {
+    const g = esc(String(req.minGrade));
+    out.push({
+      kind: 'support',
+      label: `minimum grade ${req.minGrade}`,
+      re: new RegExp(`(?:minimum|mindst|at least|grade|karakter(?:en)?)[^.\\n]{0,30}\\b${g}\\b`, 'i'),
+    });
+  }
+
+  return out;
+}
+
 export function languageProbes(req) {
   const text = norm(req.label || '');
   const out = [];
@@ -182,7 +270,7 @@ const STOP = new Set([
 ]);
 
 /** Collect every probe for an opportunity's mandatory requirements. */
-export function probesForRequirements(requirements) {
+export function probesForRequirements(requirements, subjectCatalogue = null) {
   const groups = [];
   const walk = (rules, role) => {
     for (const r of rules || []) {
@@ -193,9 +281,16 @@ export function probesForRequirements(requirements) {
         // construction, since the student only needs one.
         for (const alt of r.alternatives || []) walk(alt, 'one-of');
       } else if (r.kind === 'ib-subject') {
-        groups.push({ requirement: r.label || r.subject, role, probes: subjectProbes(r) });
+        const probes = subjectProbes(r, subjectCatalogue);
+        // A requirement nothing can be looked for is not a passed check, and
+        // silently dropping it would let a record report "all requirements
+        // found" having looked for none of them.
+        if (probes.length) {
+          groups.push({ requirement: r.label || r.ibSubject || r.subject, role, probes });
+        }
       } else if (r.kind === 'language-general') {
-        groups.push({ requirement: r.label || 'Language', role, probes: languageProbes(r) });
+        const probes = languageProbes(r);
+        if (probes.length) groups.push({ requirement: r.label || 'Language', role, probes });
       }
     }
   };

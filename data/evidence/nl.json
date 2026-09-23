@@ -25,6 +25,24 @@
       "at": "2026-09-22",
       "method": "read-browser",
       "note": "Read from the source page in a browser, 2026-09-22. The page is JavaScript-rendered and returns nothing to a plain fetch."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "page may be the wrong one — only 2 of 12 content words appear",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "Level of the IB diplomas | Nuffic Direct naar de zoekfunctie Direct naar de hoofdnavigatie Direct naar de…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "Level of the IB diplomas | Nuffic Direct naar de zoekfunctie Direct naar de hoofdnavigatie Direct naar de…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -54,6 +72,24 @@
       "at": "2026-09-22",
       "method": "read-browser",
       "note": "Read from the source page in a browser, 2026-09-22."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (4/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…and work in the Netherlands Study and work in the Netherlands Studying in the Netherlands with a foreign diploma Education in the Netherlands Recognition projects Recognition projects Expertise centre for the…",
+      "claims": [
+        {
+          "field": "ibRecognition",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (4/12 content words present)",
+          "excerpt": "…and work in the Netherlands Study and work in the Netherlands Studying in the Netherlands with a foreign diploma Education in the Netherlands Recognition projects Recognition projects Expertise centre for the…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -87,6 +123,69 @@
       "at": "2026-09-22",
       "method": "read-browser",
       "note": "Read from the source page in a browser, 2026-09-22."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: milestones — 0 of 5 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…van een DigiD duurt ongeveer 5 dagen. Aanmelden voor fixusopleidingen: 15 januari Voor opleidingen met een numerus fixus geldt een uiterste aanmelddatum van 15 januari. Studenten kunnen zich bij Studielink voor maximaal 2…",
+      "claims": [
+        {
+          "field": "choiceRules",
+          "entity": "nl-studielink",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 2 of 12 content words appear",
+          "excerpt": "…van een DigiD duurt ongeveer 5 dagen. Aanmelden voor fixusopleidingen: 15 januari Voor opleidingen met een numerus fixus geldt een uiterste aanmelddatum van 15 januari. Studenten kunnen zich bij Studielink voor maximaal 2…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "nl-studielink-2027",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 5 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Numerus fixus applications close — 2027-01-15 23:59",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Applications close for everything else — 2027-05-01",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Ranking numbers issued — 2027-04-15",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "IB results released — 2027-07-06",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Obtain a DigiD, if you need one — 2026-12-01",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -116,6 +215,24 @@
       "at": "2026-09-22",
       "method": "read-browser",
       "note": "Read from the source page in a browser, 2026-09-22."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "page is on-topic for this claim (7/12 content words present)",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…tuition fees. You need to pay these to the university or HBO institution. There are 2 types of tuition fees: statutory and institutional. Statutory tuition fees Most students pay statutory tuition fees, which are…",
+      "claims": [
+        {
+          "field": "feeContext",
+          "entity": "nl",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (7/12 content words present)",
+          "excerpt": "…tuition fees. You need to pay these to the university or HBO institution. There are 2 types of tuition fees: statutory and institutional. Statutory tuition fees Most students pay statutory tuition fees, which are…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -142,7 +259,7 @@
       "dataAsOf": "2026-09-22"
     },
     "sourceCheck": {
-      "checkedAt": "2026-09-22",
+      "checkedAt": "2026-09-23",
       "outcome": "partial",
       "reason": "page may be the wrong one — only 2 of 12 content words appear",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
@@ -199,6 +316,153 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. The IB table is the last of nine per-qualification tables on the page and is reproduced here in the wording the page uses."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "4 claims checked; weakest: requirements — 2 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…of Science (BSc) Programme Required IB examination subjects Aerospace Engineering (English stream) Mathematics: AA HL + Physics HL Earth, Climate and Technology (Previously Applied Earth Sciences )(English…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "2 of 3 recorded requirement(s) found on the page",
+          "excerpt": "…of Science (BSc) Programme Required IB examination subjects Aerospace Engineering (English stream) Mathematics: AA HL + Physics HL Earth, Climate and Technology (Previously Applied Earth Sciences )(English…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": true,
+              "matched": "mathematics aa at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "1 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…of Science (BSc) Programme Required IB examination subjects Aerospace Engineering (English stream) Mathematics: AA HL + Physics HL Earth, Climate and Technology (Previously Applied Earth Sciences )(English…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": true,
+              "matched": "mathematics aa at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-nanobiology-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "4 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…of Science (BSc) Programme Required IB examination subjects Aerospace Engineering (English stream) Mathematics: AA HL + Physics HL Earth, Climate and Technology (Previously Applied Earth Sciences )(English…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": true,
+              "matched": "mathematics aa at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Biology at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Biology at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at SL or above",
+              "role": "required",
+              "found": true,
+              "matched": "Chemistry at SL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "3 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…of Science (BSc) Programme Required IB examination subjects Aerospace Engineering (English stream) Mathematics: AA HL + Physics HL Earth, Climate and Technology (Previously Applied Earth Sciences )(English…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": true,
+              "matched": "mathematics aa at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at SL or above",
+              "role": "required",
+              "found": true,
+              "matched": "Chemistry at SL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -244,6 +508,162 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. The language-requirement wording sits inside a collapsed accordion that a plain fetch does not return; it was expanded before reading."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "5 claims checked; weakest: requirements — 2 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…diplomas : Leaving Certificate (at least 6 exam subjects of which at least Mathematics and Physics at higher level with a result of H1-H4) Indonesia* This secondary school diploma is not considered to be equivalent to the…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "2 of 3 recorded requirement(s) found on the page",
+          "excerpt": "…diplomas : Leaving Certificate (at least 6 exam subjects of which at least Mathematics and Physics at higher level with a result of H1-H4) Indonesia* This secondary school diploma is not considered to be equivalent to the…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": true,
+              "matched": "English language requirement",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "1 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…necessary) A certified copy of your complete list of grade 2 Proof of language proficiency TOEFL, IELTS or Cambridge 3 CV An extensive resume written in English. 4 Proof of…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": true,
+              "matched": "English language requirement",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-nanobiology-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "2 of 5 recorded requirement(s) found on the page",
+          "excerpt": "…diplomas : Leaving Certificate (at least 6 exam subjects of which at least Mathematics and Physics at higher level with a result of H1-H4) Indonesia* This secondary school diploma is not considered to be equivalent to the…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Biology at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at SL or above",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": true,
+              "matched": "English language requirement",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-earth-climate-and-technology-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "2 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…diplomas : Leaving Certificate (at least 6 exam subjects of which at least Mathematics and Physics at higher level with a result of H1-H4) Indonesia* This secondary school diploma is not considered to be equivalent to the…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Chemistry at SL or above",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": true,
+              "matched": "English language requirement",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "about",
+          "entity": "nl-tudelft",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…and the passport expiration date. If applicable 5 If you already live in the Netherlands: residence permit Copy of residence permit, front and back side of the card 6 Numerus…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -273,6 +693,55 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-12-19"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: requirements — 0 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…The deadline to apply is 15 January 2026. The bachelor programme Aerospace Engineering has a cap (numerus clausus) on the number of new students that can be admitted each year. There are 440 places available for the…",
+      "claims": [
+        {
+          "field": "admission",
+          "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…The deadline to apply is 15 January 2026. The bachelor programme Aerospace Engineering has a cap (numerus clausus) on the number of new students that can be admitted each year. There are 440 places available for the…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-aerospace-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 3 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Physics at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -306,6 +775,48 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. This page is already published for 2027-2028 and names that academic year explicitly."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: requirements — 0 of 2 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…procedure The Computer Science & Engineering bachelor's programme at TU Delft has a Matching & Selection (Numerus Fixus) procedure. This means that only a limited number of spots are available, and all candidates are…",
+      "claims": [
+        {
+          "field": "admission",
+          "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (10/12 content words present)",
+          "excerpt": "…procedure The Computer Science & Engineering bachelor's programme at TU Delft has a Matching & Selection (Numerus Fixus) procedure. This means that only a limited number of spots are available, and all candidates are…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-tudelft-computer-science-and-engineering-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 2 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -338,6 +849,13 @@
       "by": "the research pass that wrote this record",
       "at": "2026-09-23",
       "method": "read-source"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "supported",
+      "reason": "reference page is live and still names Delft University of Technology",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…high contrast Close menu Search Close search Delft University of Technology Students & Education Programmes Bachelors Bachelors Do you want to study at TU Delft? Then think…"
     }
   },
   {
@@ -371,6 +889,71 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-10-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "3 claims checked; weakest: requirements — 1 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…with classmates from around the world, you need to have a good command of the English language. Review the English requirements for your specific diploma. If required English grades are not met, your ranking will drop. Depending on…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-erasmus-international-business-administration-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "1 of 4 recorded requirement(s) found on the page",
+          "excerpt": "…with classmates from around the world, you need to have a good command of the English language. Review the English requirements for your specific diploma. If required English grades are not met, your ranking will drop. Depending on…",
+          "details": [
+            {
+              "requirement": "mathematics-aa at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-aa at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": true,
+              "matched": "English language requirement",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "admission",
+          "entity": "nl-erasmus-international-business-administration-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (11/12 content words present)",
+          "excerpt": "…your interest and fit for the programme. Be sure to review our tips for writing a good motivation . Numerus Fixus IBA is a Numerus Fixus programme, meaning limited spots are available. You can apply to a maximum of…",
+          "details": []
+        },
+        {
+          "field": "codes",
+          "entity": "nl-erasmus",
+          "decisive": false,
+          "outcome": "partial",
+          "reason": "page may be the wrong one — only 0 of 1 content words appear",
+          "excerpt": null,
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -404,6 +987,62 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: requirements — 0 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…education in your own country and is deemed equivalent to a VWO diploma in the Netherlands. As a numerux fixus programme, IBA applicants are given selection points, which are used for ranking and selecting the top 650…",
+      "claims": [
+        {
+          "field": "admission",
+          "entity": "nl-erasmus-international-business-administration-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…education in your own country and is deemed equivalent to a VWO diploma in the Netherlands. As a numerux fixus programme, IBA applicants are given selection points, which are used for ranking and selecting the top 650…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-erasmus-international-business-administration-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 4 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "mathematics-aa at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-aa at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -433,6 +1072,90 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-11-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: requirements — 1 of 8 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…this page). International diplomas International Baccalaureate English A HL (4) or English A SL (5) or English B HL (5) Mathematics: Analysis & Approaches HL minimum grade 4 or; Analysis & Approaches SL minimum grade 5…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-erasmus-economics-and-business-economics-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "1 of 8 recorded requirement(s) found on the page",
+          "excerpt": "…this page). International diplomas International Baccalaureate English A HL (4) or English A SL (5) or English B HL (5) Mathematics: Analysis & Approaches HL minimum grade 4 or; Analysis & Approaches SL minimum grade 5…",
+          "details": [
+            {
+              "requirement": "mathematics-aa at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-aa at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-literature at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": true,
+              "matched": "English B at HL",
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "admission",
+          "entity": "nl-erasmus-economics-and-business-economics-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…Economics? You are in the right place! Be aware of the 15 January deadline, since this study programme is a numerus-fixus programme. Below, you will find everything you need to know about admission requirement and the…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -478,6 +1201,12 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. The exemption list is inside a collapsed panel whose contents a plain fetch does not return; it was opened before reading."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "host refuses automated fetching (HTTP 403) and is not yet in link-policy.json — open it by hand, and record the host there if it refuses everything",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -524,6 +1253,12 @@
       "at": "2026-09-23",
       "method": "read-pdf",
       "note": "The PDF was downloaded and its text extracted and read in full, 2026-09-23. It is the regulation itself rather than a summary of it: the cover states 'Academic year 2027-2028' and page 1 records 'As established in the meeting of the Executive Board on: 25 August 2026'. This is the only source found in this pass that is already formally adopted for the target intake."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "host refuses automated fetching (HTTP 403) and is not yet in link-policy.json — open it by hand, and record the host there if it refuses everything",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
   },
   {
@@ -561,6 +1296,87 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. The page is headed 'Additional subject requirements 2027-2028', so it is published for the target intake rather than carried from the previous one. The International Baccalaureate table is one of eleven per-diploma panels and had to be opened."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "3 claims checked; weakest: requirements — 0 of 1 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…bachelor's programme Required subjects Biomedical Sciences Biology HL, Physics SL, Chemistry SL, Mathematics Analysis and Approaches SL/HL, or Mathematics Applications and Interpretation HL Geneeskunde Biology HL, Physics SL, Chemistry SL,…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-maastricht-international-business-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "2 of 3 recorded requirement(s) found on the page",
+          "excerpt": "…bachelor's programme Required subjects Biomedical Sciences Biology HL, Physics SL, Chemistry SL, Mathematics Analysis and Approaches SL/HL, or Mathematics Applications and Interpretation HL Geneeskunde Biology HL, Physics SL, Chemistry SL,…",
+          "details": [
+            {
+              "requirement": "mathematics-aa at SL",
+              "role": "one-of",
+              "found": true,
+              "matched": "Mathematics: Analysis and Approaches at SL",
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at SL",
+              "role": "one-of",
+              "found": true,
+              "matched": "Mathematics: Applications and Interpretation at SL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "1 of 2 recorded requirement(s) found on the page",
+          "excerpt": "…bachelor's programme Required subjects Biomedical Sciences Biology HL, Physics SL, Chemistry SL, Mathematics Analysis and Approaches SL/HL, or Mathematics Applications and Interpretation HL Geneeskunde Biology HL, Physics SL, Chemistry SL,…",
+          "details": [
+            {
+              "requirement": "Mathematics: Analysis and Approaches at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Mathematics: Analysis and Approaches at HL",
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 1 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -590,6 +1406,55 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-11-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: requirements — 0 of 3 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…time Start date September Location Maastricht Get in touch with us! Bachelor International Business Numerus fixus In the International Business programme, you’ll learn the strategy, resources and management required…",
+      "claims": [
+        {
+          "field": "admission",
+          "entity": "nl-maastricht-international-business-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (9/12 content words present)",
+          "excerpt": "…time Start date September Location Maastricht Get in touch with us! Bachelor International Business Numerus fixus In the International Business programme, you’ll learn the strategy, resources and management required…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-maastricht-international-business-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 3 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "mathematics-aa at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -627,6 +1492,114 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. The page is headed for academic year 2027-2028 and its deadline table gives 2026 and 2027 dates, so it is published for the target intake."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "3 claims checked; weakest: requirements — 0 of 1 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. Apply now Application deadlines The bachelor’s programme University College…",
+      "claims": [
+        {
+          "field": "admission",
+          "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (8/12 content words present)",
+          "excerpt": "…your academic interests and what UCM offers, we use a selective admissions process. Each year, we have 250 places available for new students. Apply now Application deadlines The bachelor’s programme University College…",
+          "details": []
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-maastricht-university-college-maastricht-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 1 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "Documented English proficiency",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "milestones",
+          "entity": "nl-maastricht-selection-2027",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "5 of 9 recorded requirement(s) found on the page",
+          "excerpt": "…October 2026 Apply via Studielink* (open for applications for the academic year 2027-2028 from 1 October) 1 February 2027, 23:59 CET Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink complete…",
+          "details": [
+            {
+              "requirement": "University College Maastricht closes for non-EU/EEA applicants — 2027-02-01 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "1 February",
+              "weak": false
+            },
+            {
+              "requirement": "International Business numerus fixus application closes — 2027-01-15 23:59",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "University College Maastricht closes for EU/EEA and Swiss applicants — 2027-04-01 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "1 April",
+              "weak": false
+            },
+            {
+              "requirement": "Data Science and AI closes for non-EU/EEA applicants — 2027-04-01 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "1 April",
+              "weak": false
+            },
+            {
+              "requirement": "Data Science and AI closes for EU/EEA and Swiss applicants — 2027-05-01 23:59",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "All enrolment tasks complete — 2027-08-31 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "31 August",
+              "weak": false
+            },
+            {
+              "requirement": "International Business ranking number published — 2027-04-15 23:59",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics sufficiency syllabus, EU/EEA and Swiss applicants — 2027-06-01 23:59",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Studielink opens for 2027-2028 — 2026-10-01",
+              "role": "required",
+              "found": true,
+              "matched": "1 October",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -660,6 +1633,97 @@
       "at": "2026-09-23",
       "method": "read-browser",
       "note": "Read from the source page in my own browser tab, 2026-09-23. The page is headed for academic year 2027-2028 and gives 2027 dates."
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "2 claims checked; weakest: milestones — 6 of 9 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…experiments Open Animal experiments Animal experiments Legislation and regulation of animal testing Procedure Maastricht University Animal Ethics Committee Flow cytometry Open Flow cytometry Flow…",
+      "claims": [
+        {
+          "field": "admission",
+          "entity": "nl-maastricht-data-science-and-artificial-intelligence-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (6/12 content words present)",
+          "excerpt": "…experiments Open Animal experiments Animal experiments Legislation and regulation of animal testing Procedure Maastricht University Animal Ethics Committee Flow cytometry Open Flow cytometry Flow…",
+          "details": []
+        },
+        {
+          "field": "milestones",
+          "entity": "nl-maastricht-selection-2027",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "6 of 9 recorded requirement(s) found on the page",
+          "excerpt": "…October 2026 Apply via Studielink* (open for applications for the academic year 2027-2028 from 1 October) 1 April 2027, 23:59 CET Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink complete…",
+          "details": [
+            {
+              "requirement": "University College Maastricht closes for non-EU/EEA applicants — 2027-02-01 23:59",
+              "role": "required",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "International Business numerus fixus application closes — 2027-01-15 23:59",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "University College Maastricht closes for EU/EEA and Swiss applicants — 2027-04-01 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "1 April",
+              "weak": false
+            },
+            {
+              "requirement": "Data Science and AI closes for non-EU/EEA applicants — 2027-04-01 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "1 April",
+              "weak": false
+            },
+            {
+              "requirement": "Data Science and AI closes for EU/EEA and Swiss applicants — 2027-05-01 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "1 May",
+              "weak": false
+            },
+            {
+              "requirement": "All enrolment tasks complete — 2027-08-31 23:59",
+              "role": "required",
+              "found": true,
+              "matched": "31 August",
+              "weak": false
+            },
+            {
+              "requirement": "International Business ranking number published — 2027-04-15 23:59",
+              "role": "informational",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "Mathematics sufficiency syllabus, EU/EEA and Swiss applicants — 2027-06-01 23:59",
+              "role": "informational",
+              "found": true,
+              "matched": "1 June",
+              "weak": false
+            },
+            {
+              "requirement": "Studielink opens for 2027-2028 — 2026-10-01",
+              "role": "required",
+              "found": true,
+              "matched": "1 October",
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -697,6 +1761,159 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-11-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "4 claims checked; weakest: requirements — 0 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…is required for admission. Please check ‘Not the required grade, subject or level?’ . Advanced Technology Mathematics Analysis and Approaches - Higher Level Physics - Higher Level English Applied Mathematics Mathematics Analysis and Approaches - Higher…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-utwente-advanced-technology-2027-autumn",
+          "decisive": true,
+          "outcome": "supported",
+          "reason": "2 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…is required for admission. Please check ‘Not the required grade, subject or level?’ . Advanced Technology Mathematics Analysis and Approaches - Higher Level Physics - Higher Level English Applied Mathematics Mathematics Analysis and Approaches - Higher…",
+          "details": [
+            {
+              "requirement": "mathematics-aa at HL",
+              "role": "one-of",
+              "found": true,
+              "matched": "Mathematics: Analysis and Approaches at HL",
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-utwente-technical-computer-science-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 4 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "requirements",
+          "entity": "nl-utwente-creative-technology-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 4 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "about",
+          "entity": "nl-utwente",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…can skip as they are not mandatory. After submitting your application, you will be informed via email. The Netherlands has different Mathematics subjects. For the social sciences bachelor's programmes, VWO Mathematics A is…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -722,6 +1939,74 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-11-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "partial",
+      "reason": "1 of 7 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…good A-level results or International Baccalaureate with good grades in at least: Mathematics Higher Level Physics Higher Level Please check your country of origin if your diploma matches these requirements . You can apply even though…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-utwente-advanced-technology-2027-autumn",
+          "decisive": true,
+          "outcome": "partial",
+          "reason": "1 of 7 recorded requirement(s) found on the page",
+          "excerpt": "…good A-level results or International Baccalaureate with good grades in at least: Mathematics Higher Level Physics Higher Level Please check your country of origin if your diploma matches these requirements . You can apply even though…",
+          "details": [
+            {
+              "requirement": "mathematics-aa at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "mathematics-ai at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "physics at HL",
+              "role": "required",
+              "found": true,
+              "matched": "Physics at HL",
+              "weak": false
+            },
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -752,6 +2037,62 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-11-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "2 claims checked; weakest: requirements — 0 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "excerpt": "…level of English and your level of mathematics . Please keep in mind that you also need to take part in the matching procedure before you can start the Bachelor's. Level of education International diploma You are admissible…",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-utwente-technical-computer-science-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 4 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        },
+        {
+          "field": "admission",
+          "entity": "nl-utwente-technical-computer-science-2027-autumn",
+          "decisive": false,
+          "outcome": "supported",
+          "reason": "page is on-topic for this claim (3/12 content words present)",
+          "excerpt": "…level of English and your level of mathematics . Please keep in mind that you also need to take part in the matching procedure before you can start the Bachelor's. Level of education International diploma You are admissible…",
+          "details": []
+        }
+      ]
     }
   },
   {
@@ -777,6 +2118,52 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "reviewBy": "2026-11-01"
+    },
+    "sourceCheck": {
+      "checkedAt": "2026-09-23",
+      "outcome": "unsupported",
+      "reason": "0 of 4 recorded requirement(s) found on the page",
+      "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)",
+      "claims": [
+        {
+          "field": "requirements",
+          "entity": "nl-utwente-creative-technology-2027-autumn",
+          "decisive": true,
+          "outcome": "unsupported",
+          "reason": "0 of 4 recorded requirement(s) found on the page",
+          "excerpt": null,
+          "details": [
+            {
+              "requirement": "english-a-literature at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-a-lang-lit at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at SL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            },
+            {
+              "requirement": "english-b at HL",
+              "role": "one-of",
+              "found": false,
+              "matched": null,
+              "weak": false
+            }
+          ]
+        }
+      ]
     }
   }
 ]
