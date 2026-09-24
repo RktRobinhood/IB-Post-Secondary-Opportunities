@@ -52,7 +52,8 @@
     "test:catalogue": "node scripts/test-catalogue.mjs",
     "test:gate": "node scripts/test-quality-gate.mjs",
     "test:ib-calendar": "node scripts/test-ib-calendar.mjs",
-    "migrate:ib-results": "node scripts/migrate-ib-results-day.mjs"
+    "migrate:ib-results": "node scripts/migrate-ib-results-day.mjs",
+    "share-card": "node scripts/make-share-card.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.4"

@@ -160,7 +160,11 @@ export function page(o) {
   const title = o.title ? `${o.title} · ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
   const desc = o.description || SITE.description;
   const canonical = o.path || '/';
-  const og = o.ogImage || '/assets/img/og-default.svg';
+  // A JPEG, and an absolute address: the places a link gets pasted — Teams,
+  // Outlook, Facebook, LinkedIn — show neither SVG nor relative previews.
+  // Regenerate with `npm run share-card`.
+  const og = o.ogImage || '/assets/img/share-card.jpg';
+  const origin = process.env.SITE_ORIGIN || 'https://rktrobinhood.github.io';
 
   return toString(html`<!doctype html>
 <html lang="${SITE.locale}" data-base="${BASE || '/'}">
@@ -177,7 +181,10 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
 <meta property="og:site_name" content="${SITE.name}">
 <meta property="og:title" content="${o.title || SITE.name}">
 <meta property="og:description" content="${desc}">
-<meta property="og:image" content="${url(og)}">
+<meta property="og:image" content="${/^https?:/.test(og) ? og : origin + url(og)}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="${origin}${url(canonical)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${url('/assets/img/favicon.svg')}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${url('/assets/img/apple-touch-icon.svg')}">
