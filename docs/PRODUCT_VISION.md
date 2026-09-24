@@ -45,7 +45,14 @@ down, below the sources.
 
 ## Who it is for
 
-The primary user is an IB Diploma student exploring undergraduate study, initially with a Danish or EU/EEA perspective and a target intake tied to a known IB exam session. Counsellors and families are important secondary users.
+The primary user is an IB Diploma student at an IB school in Denmark, exploring undergraduate study with a target intake tied to a known IB exam session. Counsellors and families are important secondary users.
+
+**Most of these students are not Danish.** About a fifth of the school's students are Danish. The rest come from across Europe, from the Czech Republic, Germany, Norway, Sweden and elsewhere, and which countries does not matter. So the default reader is an **EU/EEA citizen living in Denmark**, not a Dane:
+
+- Eligibility and fees are stated in EU/EEA terms, never as "a Dane" or "a Danish applicant".
+- Denmark is where the student goes to school, not necessarily home. Copy never assumes it is home ("not far from home", "a Danish family").
+- Staying in Denmark is a real option, written for a non-Danish student already living here.
+- A fact that holds only for Danish citizens is labelled as such ("if you hold Danish citizenship…"). The Danish fifth mostly know their own system already.
 
 The first promise is English-taught post-secondary study. Local-language opportunities may be included when an IB student's language profile makes them genuinely accessible, but they must be clearly labelled rather than mixed into the English-taught set.
 
