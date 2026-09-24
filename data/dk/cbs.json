@@ -6,7 +6,9 @@
   "type": "Business school",
   "founded": 1917,
   "city": "Frederiksberg",
-  "campuses": ["Frederiksberg"],
+  "campuses": [
+    "Frederiksberg"
+  ],
   "region": "Capital Region",
   "website": "https://www.cbs.dk/en",
   "admissionsUrl": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
@@ -14,7 +16,11 @@
   "wikipedia": "https://en.wikipedia.org/wiki/Copenhagen_Business_School",
   "ibisCode": "000151",
   "about": "CBS is a single-subject university: everything it teaches is business, economics or something deliberately bolted onto business — sociology, politics, philosophy, shipping. It has about 21,000 students on one compact campus in Frederiksberg, a tram ride from central Copenhagen, and roughly one student in five is international. Six of its fifteen bachelor programmes are taught in English and they are among the hardest degrees in Denmark to get into on grades alone: in 2026 the quota 1 cut-off for International Business was 11.1 out of a maximum 12.",
-  "knownFor": ["Business administration", "International business and politics", "Shipping and trade"],
+  "knownFor": [
+    "Business administration",
+    "International business and politics",
+    "Shipping and trade"
+  ],
   "students": 21062,
   "internationalShare": 20,
   "ibNotes": [
@@ -74,15 +80,51 @@
   "tuitionNonEu": "EUR 6,500 per semester (EUR 13,000 per year), or DKK 49,000 per semester (DKK 98,000 per year), for bachelor programmes. Application fee EUR 150 (approximately DKK 1,125) per applicant per admission round, payable by 15 March at 12.00 CET. EU/EEA and Swiss citizens pay neither.",
   "dataAsOf": "2026-09-22",
   "sources": [
-    { "title": "CBS – Bachelor programmes", "url": "https://www.cbs.dk/en/study/bachelor", "retrieved": "2026-09-22" },
-    { "title": "CBS – Application and admission (bachelor)", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission", "retrieved": "2026-09-22" },
-    { "title": "CBS – BSc in Business Administration and Digital Management", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-digital-management", "retrieved": "2026-09-22" },
-    { "title": "CBS – BSc in Business Administration and Service Management", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-service-management", "retrieved": "2026-09-22" },
-    { "title": "CBS – BSc in Business Administration and Sociology", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-sociology", "retrieved": "2026-09-22" },
-    { "title": "CBS – BSc in International Business", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business", "retrieved": "2026-09-22" },
-    { "title": "CBS – BSc in International Business and Politics", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business-and-politics", "retrieved": "2026-09-22" },
-    { "title": "CBS – BSc in International Shipping and Trade", "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-shipping-and-trade", "retrieved": "2026-09-22" },
-    { "title": "CBS – Reports and key figures", "url": "https://www.cbs.dk/en/about-cbs/profile/reports-and-key-figures", "retrieved": "2026-09-22" }
+    {
+      "title": "CBS – Bachelor programmes",
+      "url": "https://www.cbs.dk/en/study/bachelor",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – Application and admission (bachelor)",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/application-and-admission",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – BSc in Business Administration and Digital Management",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-digital-management",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – BSc in Business Administration and Service Management",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-service-management",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – BSc in Business Administration and Sociology",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-sociology",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – BSc in International Business",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – BSc in International Business and Politics",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business-and-politics",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – BSc in International Shipping and Trade",
+      "url": "https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-shipping-and-trade",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CBS – Reports and key figures",
+      "url": "https://www.cbs.dk/en/about-cbs/profile/reports-and-key-figures",
+      "retrieved": "2026-09-22"
+    }
   ],
   "notes": [
     "A, B and C are Danish subject levels, not grades. The minimum grade of 6.0 attached to English B (and to Mathematics B on the Sociology programme) is a grade on the Danish 7-point scale, and corresponds to an IB subject grade of 5 under CBS's own conversion.",
@@ -110,16 +152,51 @@
       "requirementsText": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "A" },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -151,16 +228,51 @@
       "requirementsText": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "A" },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -192,16 +304,52 @@
       "requirementsText": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B with a minimum grade of 6.0. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "A" },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Mathematics", "level": "B", "minGrade": 6.0 }
+          {
+            "subject": "English",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B",
+            "minGrade": 6
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -234,16 +382,51 @@
       "requirementsText": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "A" },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -277,16 +460,51 @@
       "requirementsText": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "A" },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -318,16 +536,51 @@
       "requirementsText": "Specific entry requirements: English level B with a minimum grade of 6.0. Mathematics level B. History level B or International Economics level B or Social Studies level B or History of Ideas level B or Contemporary History level B. Language requirement: English level A. You must fulfil both the specific entry requirements and the language requirement to be eligible for the programme.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "A" },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,

@@ -6,7 +6,9 @@
   "type": "Research university",
   "founded": 1999,
   "city": "Copenhagen",
-  "campuses": ["Copenhagen S (Rued Langgaards Vej 7)"],
+  "campuses": [
+    "Copenhagen S (Rued Langgaards Vej 7)"
+  ],
   "region": "Capital Region",
   "website": "https://en.itu.dk",
   "admissionsUrl": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme",
@@ -14,7 +16,12 @@
   "wikipedia": "https://en.wikipedia.org/wiki/IT_University_of_Copenhagen",
   "ibisCode": "003934",
   "about": "ITU is Denmark's smallest and youngest university, founded in 1999 and built around a single subject: information technology and what it does to people, business and society. Everything happens in one building in Ørestad in southern Copenhagen, with roughly 2,900 students in total, so it feels much more like a large department than a campus university. All four bachelor's degrees have restricted admission and published GPA cut-offs, and only two of them are taught in English.",
-  "knownFor": ["Computer science", "Data science", "Digital design", "Business informatics"],
+  "knownFor": [
+    "Computer science",
+    "Data science",
+    "Digital design",
+    "Business informatics"
+  ],
   "students": 2941,
   "internationalShare": null,
   "ibNotes": [
@@ -58,15 +65,51 @@
   "tuitionNonEu": "EUR 8,250 per semester, EUR 49,500 for the full three-year programme (2026 admission). Application fee EUR 150. No scholarships are available at bachelor's level.",
   "dataAsOf": "2026-09-22",
   "sources": [
-    { "title": "ITU – BSc programmes", "url": "https://en.itu.dk/programmes/bsc-programmes", "retrieved": "2026-09-22" },
-    { "title": "ITU – BSc in Data Science", "url": "https://en.itu.dk/programmes/bsc-programmes/data-science", "retrieved": "2026-09-22" },
-    { "title": "ITU – BSc in Global Business Informatics", "url": "https://en.itu.dk/programmes/bsc-programmes/global-business-informatics", "retrieved": "2026-09-22" },
-    { "title": "ITU – BSc in Software Development", "url": "https://en.itu.dk/programmes/bsc-programmes/software-development", "retrieved": "2026-09-22" },
-    { "title": "ITU – BSc in Digital Design and Interactive Technologies", "url": "https://en.itu.dk/programmes/bsc-programmes/digital-design-and-interactive-technologies", "retrieved": "2026-09-22" },
-    { "title": "ITU – General admission requirements", "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/general-admission-requirements", "retrieved": "2026-09-22" },
-    { "title": "ITU – Application and tuition fees", "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/application-and-tuition-fees", "retrieved": "2026-09-22" },
-    { "title": "ITU – Application deadlines and important dates", "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/application-deadlines-and-important-dates", "retrieved": "2026-09-22" },
-    { "title": "ITU – About ITU", "url": "https://en.itu.dk/about-itu", "retrieved": "2026-09-22" }
+    {
+      "title": "ITU – BSc programmes",
+      "url": "https://en.itu.dk/programmes/bsc-programmes",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – BSc in Data Science",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/data-science",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – BSc in Global Business Informatics",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/global-business-informatics",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – BSc in Software Development",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/software-development",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – BSc in Digital Design and Interactive Technologies",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/digital-design-and-interactive-technologies",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – General admission requirements",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/general-admission-requirements",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – Application and tuition fees",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/application-and-tuition-fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – Application deadlines and important dates",
+      "url": "https://en.itu.dk/programmes/bsc-programmes/applying-to-a-bsc-programme/application-deadlines-and-important-dates",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "ITU – About ITU",
+      "url": "https://en.itu.dk/about-itu",
+      "retrieved": "2026-09-22"
+    }
   ],
   "notes": [
     "ITU offers four bachelor's degrees but only two are taught in English. BSc Software Development is taught in Danish and requires Danish A; BSc Digital Design and Interactive Technologies is mainly Danish (only the second year is taught entirely in English) and also requires Danish A. Neither is listed here.",
@@ -90,8 +133,16 @@
       "requirementsText": "A qualifying examination certificate equal to a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish A-level with an average mark of at least 6. English corresponding to the Danish B-level with an average mark of at least 6 (no grade requirement if you have passed English at Danish A-level).",
       "entryRequirements": {
         "all": [
-          { "subject": "Mathematics", "level": "A", "minGrade": 6.0 },
-          { "subject": "English", "level": "B", "minGrade": 6.0 }
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 6
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          }
         ],
         "oneOf": []
       },
@@ -123,9 +174,20 @@
       "requirementsText": "A qualifying examination certificate that can be equated with a Danish upper secondary school leaving certificate. Mathematics corresponding to the Danish B-level with an average mark of at least 6. English corresponding to the Danish B-level with an average mark of at least 6. Danish at A level is a requirement. No required mark but the subject must be passed. You must be proficient in oral and written English, as the programme is taught in English.",
       "entryRequirements": {
         "all": [
-          { "subject": "Mathematics", "level": "B", "minGrade": 6.0 },
-          { "subject": "English", "level": "B", "minGrade": 6.0 },
-          { "subject": "Danish", "level": "A" }
+          {
+            "subject": "Mathematics",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "English",
+            "level": "B",
+            "minGrade": 6
+          },
+          {
+            "subject": "Danish",
+            "level": "A"
+          }
         ],
         "oneOf": []
       },

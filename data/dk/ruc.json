@@ -6,7 +6,9 @@
   "type": "Research university",
   "founded": 1972,
   "city": "Roskilde",
-  "campuses": ["Roskilde (Trekroner)"],
+  "campuses": [
+    "Roskilde (Trekroner)"
+  ],
   "region": "Zealand",
   "website": "https://ruc.dk/en",
   "admissionsUrl": "https://ruc.dk/en/admission-bachelors-programmes",
@@ -14,7 +16,11 @@
   "wikipedia": "https://en.wikipedia.org/wiki/Roskilde_University",
   "ibisCode": null,
   "about": "Roskilde University was set up in 1972 to experiment with how knowledge is taught, and it still works differently from every other Danish university. You do not apply to a named subject. You apply to one of three broad international bachelor programmes, spend the whole first year in an interdisciplinary basic studies section, and only then choose the two bachelor subjects you will study for the remaining two years. Roughly half of all study time is group project work on real problems rather than lectures and exams, and the campus at Trekroner, 30 minutes by train from Copenhagen, has about 7,900 students.",
-  "knownFor": ["Problem-oriented project learning", "Interdisciplinary degrees", "Combining two subjects"],
+  "knownFor": [
+    "Problem-oriented project learning",
+    "Interdisciplinary degrees",
+    "Combining two subjects"
+  ],
   "students": 7942,
   "internationalShare": null,
   "ibNotes": [
@@ -49,15 +55,51 @@
   "tuitionNonEu": "Entry September 2026: Global Humanities and Social Sciences EUR 10,000 per year (EUR 5,000 per semester, EUR 30,000 for the full degree); Natural Sciences EUR 16,000 per year (EUR 8,000 per semester, EUR 48,000 for the full degree). Application fee EUR 200. EU/EEA and Swiss citizens pay nothing.",
   "dataAsOf": "2026-09-22",
   "sources": [
-    { "title": "RUC – Bachelor programmes", "url": "https://ruc.dk/en/bachelor", "retrieved": "2026-09-22" },
-    { "title": "RUC – International Bachelor in Natural Sciences (int)", "url": "https://ruc.dk/en/bachelor/international-bachelor-natural-sciences-int", "retrieved": "2026-09-22" },
-    { "title": "RUC – International Bachelor in Social Sciences (int)", "url": "https://ruc.dk/en/bachelor/international-bachelor-social-sciences-int", "retrieved": "2026-09-22" },
-    { "title": "RUC – Bachelor in Global Humanities (int)", "url": "https://ruc.dk/en/bachelor/bachelor-global-humanities-int", "retrieved": "2026-09-22" },
-    { "title": "RUC – Specific admission requirements", "url": "https://ruc.dk/en/specific-admission-requirements", "retrieved": "2026-09-22" },
-    { "title": "RUC – Guaranteed admission for qualified applicants", "url": "https://ruc.dk/en/guaranteed-admission-qualified-applicants", "retrieved": "2026-09-22" },
-    { "title": "RUC – Application deadlines", "url": "https://ruc.dk/en/step-1-application-deadlines-bachelor", "retrieved": "2026-09-22" },
-    { "title": "RUC – Application fee and tuition fees", "url": "https://ruc.dk/en/step-4-application-fee-and-tuition-fees", "retrieved": "2026-09-22" },
-    { "title": "RUC – About Roskilde University", "url": "https://ruc.dk/en/about-roskilde-university", "retrieved": "2026-09-22" }
+    {
+      "title": "RUC – Bachelor programmes",
+      "url": "https://ruc.dk/en/bachelor",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – International Bachelor in Natural Sciences (int)",
+      "url": "https://ruc.dk/en/bachelor/international-bachelor-natural-sciences-int",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – International Bachelor in Social Sciences (int)",
+      "url": "https://ruc.dk/en/bachelor/international-bachelor-social-sciences-int",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – Bachelor in Global Humanities (int)",
+      "url": "https://ruc.dk/en/bachelor/bachelor-global-humanities-int",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – Specific admission requirements",
+      "url": "https://ruc.dk/en/specific-admission-requirements",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – Guaranteed admission for qualified applicants",
+      "url": "https://ruc.dk/en/guaranteed-admission-qualified-applicants",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – Application deadlines",
+      "url": "https://ruc.dk/en/step-1-application-deadlines-bachelor",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – Application fee and tuition fees",
+      "url": "https://ruc.dk/en/step-4-application-fee-and-tuition-fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "RUC – About Roskilde University",
+      "url": "https://ruc.dk/en/about-roskilde-university",
+      "retrieved": "2026-09-22"
+    }
   ],
   "notes": [
     "RUC's structure is the thing to understand before applying. You apply to a broad programme, not to a named subject. Year one is a shared interdisciplinary basic studies section; years two and three are spent on two bachelor subjects you choose at the end of year one. Your degree title is the combination.",
@@ -81,14 +123,60 @@
       "requirementsText": "English at Danish B-level. Mathematics at Danish A-level. One of the following combinations: Physics B and Chemistry B; Physics B and Biotechnology A; Chemistry B and Geoscience A; or Chemistry B and Biology A and Physics C.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A"
+          }
         ],
         "oneOf": [
-          [ { "subject": "Physics", "level": "B" }, { "subject": "Chemistry", "level": "B" } ],
-          [ { "subject": "Physics", "level": "B" }, { "subject": "Biotechnology", "level": "A" } ],
-          [ { "subject": "Chemistry", "level": "B" }, { "subject": "Geoscience", "level": "A" } ],
-          [ { "subject": "Chemistry", "level": "B" }, { "subject": "Biology", "level": "A" }, { "subject": "Physics", "level": "C" } ]
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            },
+            {
+              "subject": "Chemistry",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            },
+            {
+              "subject": "Biotechnology",
+              "level": "A"
+            }
+          ],
+          [
+            {
+              "subject": "Chemistry",
+              "level": "B"
+            },
+            {
+              "subject": "Geoscience",
+              "level": "A"
+            }
+          ],
+          [
+            {
+              "subject": "Chemistry",
+              "level": "B"
+            },
+            {
+              "subject": "Biology",
+              "level": "A"
+            },
+            {
+              "subject": "Physics",
+              "level": "C"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -115,14 +203,40 @@
       "requirementsText": "English at Danish B-level. Mathematics at Danish B-level. History or Social Science or Contemporary History or History of Ideas at Danish B-level. You must also meet one of the following minimum grade requirements: a grade point average of at least 6.0 on the Danish 7-point grading scale from your entry qualification, or an average of at least 4.0 on the Danish 7-point grading scale in English and Mathematics combined.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -150,13 +264,34 @@
       "requirementsText": "English at Danish B-level. History or History of Ideas or Contemporary History at Danish B-level. One additional language — either a beginner's language at Danish A-level or an advanced language at Danish B-level. The additional language cannot be English or the language of instruction of your upper secondary education.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Second Foreign Language", "level": "B" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Second Foreign Language",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,

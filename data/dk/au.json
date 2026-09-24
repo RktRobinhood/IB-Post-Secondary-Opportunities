@@ -6,7 +6,13 @@
   "type": "Research university",
   "founded": 1928,
   "city": "Aarhus",
-  "campuses": ["Aarhus", "Herning", "Emdrup (Copenhagen)", "Foulum", "Roskilde"],
+  "campuses": [
+    "Aarhus",
+    "Herning",
+    "Emdrup (Copenhagen)",
+    "Foulum",
+    "Roskilde"
+  ],
   "region": "Central Jutland",
   "website": "https://international.au.dk",
   "admissionsUrl": "https://bachelor.au.dk/en/international-applicants",
@@ -14,7 +20,11 @@
   "wikipedia": "https://en.wikipedia.org/wiki/Aarhus_University",
   "ibisCode": "000150",
   "about": "Aarhus is Denmark's second university and second city, with roughly 38,000 students and a park campus of yellow-brick buildings that runs right into the middle of town. Almost everything it teaches at bachelor level is in Danish; six degrees are taught in English, four of them in Aarhus itself, one in the small town of Herning an hour west, and all of them in computing, economics or cognitive science. AU is also unusually explicit about the numbers: every programme page publishes last year's quota 1 cut-off, the standby cut-off and the admission area number.",
-  "knownFor": ["Computer science and data science", "Cognitive science", "Business and social sciences"],
+  "knownFor": [
+    "Computer science and data science",
+    "Cognitive science",
+    "Business and social sciences"
+  ],
   "students": 38000,
   "internationalShare": null,
   "ibNotes": [
@@ -74,20 +84,76 @@
   "tuitionNonEu": "Academic year 2026/2027, per year (60 ECTS): EUR 13,000 for Cognitive Science and for Economics and Business Administration in both Aarhus and Herning; EUR 17,300 for Computer Science, Data Science and IT Product Development. Application fee EUR 150 (DKK 1,125) per applicant, payable by 15 March and refunded only if you enrol and are still enrolled on 1 October. AU states: \"Aarhus University does not offer scholarships for any of our Bachelor's degree programmes.\" EU/EEA and Swiss citizens pay nothing.",
   "dataAsOf": "2026-09-22",
   "sources": [
-    { "title": "AU – Bachelor's degree programmes", "url": "https://bachelor.au.dk/en", "retrieved": "2026-09-22" },
-    { "title": "AU – International Baccalaureate (IB)", "url": "https://bachelor.au.dk/en/international-applicants/moreinfo/international-baccalaureate-ib", "retrieved": "2026-09-22" },
-    { "title": "AU – Learn about quota 1 and 2", "url": "https://bachelor.au.dk/en/international-applicants/learn-about-quota-1-and-2", "retrieved": "2026-09-22" },
-    { "title": "AU – Deadlines & important dates", "url": "https://bachelor.au.dk/en/international-applicants/deadlines-important-dates", "retrieved": "2026-09-22" },
-    { "title": "AU – Standby and preapproved admission", "url": "https://bachelor.au.dk/en/international-applicants/moreinfo/standby-and-preapproved-admission", "retrieved": "2026-09-22" },
-    { "title": "AU – Tuition fees and application fee", "url": "https://bachelor.au.dk/en/international-applicants/moreinfo/tuition-fees-and-application-fee", "retrieved": "2026-09-22" },
-    { "title": "AU – Tuition fee rates for bachelor's programmes 2026/2027 (PDF)", "url": "https://bachelor.au.dk/fileadmin/ingen_mappe_valgt/_default/Tuition_Fee_Bachelor_2026-2027.pdf", "retrieved": "2026-09-22" },
-    { "title": "AU – Bachelor's Programme in Cognitive Science", "url": "https://bachelor.au.dk/en/cognitivescience", "retrieved": "2026-09-22" },
-    { "title": "AU – Bachelor's Programme in Computer Science", "url": "https://bachelor.au.dk/en/computer-science", "retrieved": "2026-09-22" },
-    { "title": "AU – Bachelor's Programme in Data Science", "url": "https://bachelor.au.dk/en/data-science", "retrieved": "2026-09-22" },
-    { "title": "AU – Bachelor's Programme in IT Product Development", "url": "https://bachelor.au.dk/en/it-product-development", "retrieved": "2026-09-22" },
-    { "title": "AU – Bachelor's Programme in Economics and Business Administration", "url": "https://bachelor.au.dk/en/economics-and-business-administration", "retrieved": "2026-09-22" },
-    { "title": "AU – Bachelor's Programme in Economics and Business Administration (Herning)", "url": "https://bachelor.au.dk/en/economics-and-business-administration-auhe", "retrieved": "2026-09-22" },
-    { "title": "Wikipedia – Aarhus University (background figures only)", "url": "https://en.wikipedia.org/wiki/Aarhus_University", "retrieved": "2026-09-22" }
+    {
+      "title": "AU – Bachelor's degree programmes",
+      "url": "https://bachelor.au.dk/en",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – International Baccalaureate (IB)",
+      "url": "https://bachelor.au.dk/en/international-applicants/moreinfo/international-baccalaureate-ib",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Learn about quota 1 and 2",
+      "url": "https://bachelor.au.dk/en/international-applicants/learn-about-quota-1-and-2",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Deadlines & important dates",
+      "url": "https://bachelor.au.dk/en/international-applicants/deadlines-important-dates",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Standby and preapproved admission",
+      "url": "https://bachelor.au.dk/en/international-applicants/moreinfo/standby-and-preapproved-admission",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Tuition fees and application fee",
+      "url": "https://bachelor.au.dk/en/international-applicants/moreinfo/tuition-fees-and-application-fee",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Tuition fee rates for bachelor's programmes 2026/2027 (PDF)",
+      "url": "https://bachelor.au.dk/fileadmin/ingen_mappe_valgt/_default/Tuition_Fee_Bachelor_2026-2027.pdf",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Bachelor's Programme in Cognitive Science",
+      "url": "https://bachelor.au.dk/en/cognitivescience",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Bachelor's Programme in Computer Science",
+      "url": "https://bachelor.au.dk/en/computer-science",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Bachelor's Programme in Data Science",
+      "url": "https://bachelor.au.dk/en/data-science",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Bachelor's Programme in IT Product Development",
+      "url": "https://bachelor.au.dk/en/it-product-development",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Bachelor's Programme in Economics and Business Administration",
+      "url": "https://bachelor.au.dk/en/economics-and-business-administration",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AU – Bachelor's Programme in Economics and Business Administration (Herning)",
+      "url": "https://bachelor.au.dk/en/economics-and-business-administration-auhe",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "Wikipedia – Aarhus University (background figures only)",
+      "url": "https://en.wikipedia.org/wiki/Aarhus_University",
+      "retrieved": "2026-09-22"
+    }
   ],
   "notes": [
     "A, B and C are Danish subject levels, not grades. AU repeats this on each programme page: \"B-level is the Danish subject level, not the grade.\"",
@@ -114,14 +180,40 @@
       "requirementsText": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics B. History B or History of Ideas B or Social Studies B or Contemporary History B. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -154,8 +246,15 @@
       "requirementsText": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics A. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 and a minimum GPA of 6.0 in Mathematics A on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A", "minGrade": 6.0 }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 6
+          }
         ],
         "oneOf": []
       },
@@ -190,8 +289,15 @@
       "requirementsText": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics A. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 and a minimum GPA of 6.0 in Mathematics A on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A", "minGrade": 6.0 }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 6
+          }
         ],
         "oneOf": []
       },
@@ -226,8 +332,15 @@
       "requirementsText": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics A. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 and a minimum GPA of 6.0 in Mathematics A on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A", "minGrade": 6.0 }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 6
+          }
         ],
         "oneOf": []
       },
@@ -262,15 +375,46 @@
       "requirementsText": "Specific admission requirements: You must fulfil the following specific admission requirements: English B. Mathematics B. History B or History of Ideas B or Social Studies B or Contemporary History B or International Economics B. B-level is the Danish subject level, not the grade. Grade point Average (GPA) requirement of 6.0 in quota 1: You must have a minimum GPA of 6.0 on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -303,15 +447,46 @@
       "requirementsText": "A qualifying examination as well as the following specific admission requirements (A, B and C refers to the subject level in the Danish upper secondary school with A being the highest level possible): English B. Mathematics B. History B or History of Ideas B or Contemporary History B or Social Science B or International Economics B. The admission requirements must be met and documented by 5 July in the year of application unless you apply for conditional admission.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,

@@ -6,7 +6,11 @@
   "type": "Research university",
   "founded": 1974,
   "city": "Aalborg",
-  "campuses": ["Aalborg", "Esbjerg", "Copenhagen"],
+  "campuses": [
+    "Aalborg",
+    "Esbjerg",
+    "Copenhagen"
+  ],
   "region": "North Jutland",
   "website": "https://www.en.aau.dk",
   "admissionsUrl": "https://www.en.aau.dk/education/apply/bachelor",
@@ -14,7 +18,11 @@
   "wikipedia": "https://en.wikipedia.org/wiki/Aalborg_University",
   "ibisCode": "000148",
   "about": "Aalborg University has about 17,700 students across three campuses — Aalborg, Esbjerg and Copenhagen — and is built entirely around problem-based learning, the 'Aalborg model'. Each semester splits into taught courses at the start and then a long group project, where four to six students work on a real problem, often one supplied by a company or public body, and are examined on the project as much as on the courses. You will spend a great deal of your degree in a project group room rather than a lecture hall. Only a handful of AAU's bachelor's degrees are taught in English, and most of them are engineering degrees in Esbjerg.",
-  "knownFor": ["Problem-based learning", "Energy and electronics engineering", "Industry collaboration"],
+  "knownFor": [
+    "Problem-based learning",
+    "Energy and electronics engineering",
+    "Industry collaboration"
+  ],
   "students": 17700,
   "internationalShare": null,
   "ibNotes": [
@@ -65,14 +73,46 @@
   "tuitionNonEu": "Academic year 2026 (two semesters): DKK 115,700 for BSc Applied Industrial Electronics, BSc Chemical Engineering and Biotechnology and BSc Energy Engineering; DKK 55,600 for BSc Economics and Business Administration. Application fee EUR 150. EU/EEA students pay nothing.",
   "dataAsOf": "2026-09-22",
   "sources": [
-    { "title": "AAU – Bachelor's programmes (international)", "url": "https://www.en.aau.dk/education/bachelor", "retrieved": "2026-09-22" },
-    { "title": "AAU – Applied Industrial Electronics", "url": "https://www.en.aau.dk/education/bachelor/applied-industrial-electronics", "retrieved": "2026-09-22" },
-    { "title": "AAU – Chemical Engineering and Biotechnology", "url": "https://www.en.aau.dk/education/bachelor/chemicalengineering-biotechnology", "retrieved": "2026-09-22" },
-    { "title": "AAU – Economics and Business Administration", "url": "https://www.en.aau.dk/education/bachelor/economics-and-business-administration", "retrieved": "2026-09-22" },
-    { "title": "AAU – Energy Engineering", "url": "https://www.en.aau.dk/education/bachelor/energy-engineering", "retrieved": "2026-09-22" },
-    { "title": "AAU – International Baccalaureate (IB)", "url": "https://www.en.aau.dk/education/apply/bachelor/international-baccalaureate-ib", "retrieved": "2026-09-22" },
-    { "title": "AAU – Finance and fees", "url": "https://www.en.aau.dk/education/apply/bachelor/finance-and-fees", "retrieved": "2026-09-22" },
-    { "title": "AAU – About AAU", "url": "https://www.en.aau.dk/about-aau", "retrieved": "2026-09-22" }
+    {
+      "title": "AAU – Bachelor's programmes (international)",
+      "url": "https://www.en.aau.dk/education/bachelor",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – Applied Industrial Electronics",
+      "url": "https://www.en.aau.dk/education/bachelor/applied-industrial-electronics",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – Chemical Engineering and Biotechnology",
+      "url": "https://www.en.aau.dk/education/bachelor/chemicalengineering-biotechnology",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – Economics and Business Administration",
+      "url": "https://www.en.aau.dk/education/bachelor/economics-and-business-administration",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – Energy Engineering",
+      "url": "https://www.en.aau.dk/education/bachelor/energy-engineering",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – International Baccalaureate (IB)",
+      "url": "https://www.en.aau.dk/education/apply/bachelor/international-baccalaureate-ib",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – Finance and fees",
+      "url": "https://www.en.aau.dk/education/apply/bachelor/finance-and-fees",
+      "retrieved": "2026-09-22"
+    },
+    {
+      "title": "AAU – About AAU",
+      "url": "https://www.en.aau.dk/about-aau",
+      "retrieved": "2026-09-22"
+    }
   ],
   "notes": [
     "AAU lists exactly five bachelor's degrees for international students. Four are taught in English and are listed here. The fifth, Language and International Studies, English (Aalborg), is listed on the same page but its own programme page states the language of instruction is Danish and requires Danish A, so it is not included.",
@@ -98,12 +138,29 @@
       "requirementsText": "Upper secondary school exam. English B. Mathematics A with a minimum average grade of 4.0. Physics B or Geoscience A.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A", "minGrade": 4.0 }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 4
+          }
         ],
         "oneOf": [
-          [ { "subject": "Physics", "level": "B" } ],
-          [ { "subject": "Geoscience", "level": "A" } ]
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Geoscience",
+              "level": "A"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -134,13 +191,47 @@
       "requirementsText": "Upper secondary school exam. English B. Mathematics A with a minimum grade of 4,0 in average. Physics B and Chemistry B, or Physics B and Biotechnology A, or Geoscience A and Chemistry B.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A", "minGrade": 4.0 }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 4
+          }
         ],
         "oneOf": [
-          [ { "subject": "Physics", "level": "B" }, { "subject": "Chemistry", "level": "B" } ],
-          [ { "subject": "Physics", "level": "B" }, { "subject": "Biotechnology", "level": "A" } ],
-          [ { "subject": "Geoscience", "level": "A" }, { "subject": "Chemistry", "level": "B" } ]
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            },
+            {
+              "subject": "Chemistry",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            },
+            {
+              "subject": "Biotechnology",
+              "level": "A"
+            }
+          ],
+          [
+            {
+              "subject": "Geoscience",
+              "level": "A"
+            },
+            {
+              "subject": "Chemistry",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -171,15 +262,46 @@
       "requirementsText": "Upper secondary school exam. English B. Mathematics B. History B or History of Ideas B or Contemporary History B or Social Studies B or International Economics B.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "B" }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
         ],
         "oneOf": [
-          [ { "subject": "History", "level": "B" } ],
-          [ { "subject": "History of Ideas", "level": "B" } ],
-          [ { "subject": "Contemporary History", "level": "B" } ],
-          [ { "subject": "Social Studies", "level": "B" } ],
-          [ { "subject": "International Economics", "level": "B" } ]
+          [
+            {
+              "subject": "History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "History of Ideas",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Contemporary History",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Social Studies",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "International Economics",
+              "level": "B"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
@@ -210,13 +332,47 @@
       "requirementsText": "Upper secondary school exam. English B. Mathematics A with a minimum average grade of 4.0. Physics B and Chemistry C, or Physics B and Biotechnology A, or Geoscience A and Chemistry C.",
       "entryRequirements": {
         "all": [
-          { "subject": "English", "level": "B" },
-          { "subject": "Mathematics", "level": "A", "minGrade": 4.0 }
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "A",
+            "minGrade": 4
+          }
         ],
         "oneOf": [
-          [ { "subject": "Physics", "level": "B" }, { "subject": "Chemistry", "level": "C" } ],
-          [ { "subject": "Physics", "level": "B" }, { "subject": "Biotechnology", "level": "A" } ],
-          [ { "subject": "Geoscience", "level": "A" }, { "subject": "Chemistry", "level": "C" } ]
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            },
+            {
+              "subject": "Chemistry",
+              "level": "C"
+            }
+          ],
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            },
+            {
+              "subject": "Biotechnology",
+              "level": "A"
+            }
+          ],
+          [
+            {
+              "subject": "Geoscience",
+              "level": "A"
+            },
+            {
+              "subject": "Chemistry",
+              "level": "C"
+            }
+          ]
         ]
       },
       "restrictedAdmission": true,
