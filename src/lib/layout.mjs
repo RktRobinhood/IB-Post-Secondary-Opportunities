@@ -70,6 +70,14 @@ export function setScope(scope) {
   SCOPE = scope || null;
 }
 
+/* A feedback link shown on every page while the site is being tried out with
+   students and counsellors. Set in data/site-config.json under `feedback`;
+   with no `url` there, nothing renders. */
+let FEEDBACK = null;
+export function setFeedback(feedback) {
+  FEEDBACK = feedback?.url ? feedback : null;
+}
+
 const scopeChip = (n) => (n.scope === 'opportunities' ? SCOPE?.chip : null);
 const scopeLong = (n) =>
   n.scope === 'opportunities' && SCOPE ? (SCOPE.complete ? null : `${SCOPE.label} only`) : null;
@@ -241,6 +249,14 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
   <a href="${url('/counsellors/')}">For counsellors</a>
 </div>
 
+${FEEDBACK
+  ? html`<aside class="feedback-bar" aria-label="Feedback">
+      <div class="wrap wrap--wide">
+        <span>${FEEDBACK.message || 'This is a preview.'}</span>
+        <a href="${FEEDBACK.url}" rel="noopener">${FEEDBACK.label || 'Tell us what you think'}</a>
+      </div>
+    </aside>`
+  : ''}
 <main id="main">
 ${o.body}
 </main>

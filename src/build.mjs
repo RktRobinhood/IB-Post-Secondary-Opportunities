@@ -9,7 +9,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { load, validate } from './lib/data.mjs';
-import { setBase, setGuides, setRevision, setScope, url, SITE } from './lib/layout.mjs';
+import { setBase, setGuides, setRevision, setScope, setFeedback, url, SITE } from './lib/layout.mjs';
 import { home } from './pages/home.mjs';
 import { europeIndex, worldIndex, destination } from './pages/destinations.mjs';
 import { compare } from './pages/compare.mjs';
@@ -198,6 +198,7 @@ async function main() {
   /* What the Opportunity-backed tools cover, so the navigation cannot claim a
      scope the records do not support. */
   setScope(site.opportunityScope);
+  setFeedback(site.config?.feedback);
 
   /* Every build states the condition of its evidence. A number that drifts the
      wrong way is the earliest warning that the dataset is decaying. */
