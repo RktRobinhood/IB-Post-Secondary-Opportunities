@@ -26,8 +26,12 @@ Result: **list complete, nothing to remove.**
 - The English bachelor portal lists exactly six programmes: Cognitive Science, IT Product Development, Economics and Business Administration, Computer Science, Economics and Business Administration (Herning), Data Science. https://bachelor.au.dk/en
 - AU Engineering: "The Bachelor of Engineering programmes are only offered in Danish." Global Management and Manufacturing (Herning) now runs in Danish as "Global ledelse og design af produktionsnetværk" — correctly excluded. https://ingenioer.au.dk/en/education/bachelor-of-engineering
 - Spot checks (no closure notices; 2026 figures):
-  - Data Science: English B, Mathematics A; quota 1 requires GPA ≥ 6.0 and Mathematics A ≥ 6.0; ~11 quota 1 places. https://bachelor.au.dk/en/data-science
-  - IT Product Development: English B, Mathematics A; same 6.0 / Maths 6.0 rule. https://bachelor.au.dk/en/it-product-development
+  - Data Science: English B, Mathematics A; quota 1 needs GPA ≥ 6.0 and Mathematics A ≥ 6.0; 2026 quota 1 cut-off 11.2 (standby 10.1). https://bachelor.au.dk/en/data-science
+  - IT Product Development: English B, Mathematics A; same 6.0 / Maths 6.0 floor; 2026 cut-off 10.1 (standby 6.9). https://bachelor.au.dk/en/it-product-development
+  - Computer Science: English B, Mathematics A; same floor; 2026 cut-off 11.4 (standby 10.5). https://bachelor.au.dk/en/computer-science
+  - Cognitive Science: English B, Mathematics B, History B (or equivalent); 2026 cut-off 10.7 (standby 10.5). https://bachelor.au.dk/en/cognitivescience
+  - Economics and Business Administration (Aarhus): English B, Mathematics B, History B (or equivalent); 2026 cut-off 9.2 (standby 8.6). https://bachelor.au.dk/en/economics-and-business-administration
+  - (AU pages print cut-offs with a decimal comma, e.g. "Quota 1 2026: 10,7 (Standby: 10,5)".)
   - Economics and Business Administration (Herning): English B (≥ 3.0), Mathematics B, History B or Social Studies B (or equivalent); 2026 quota 1 cut-off 6.9. The AP top-up entry has closed, the 3-year BSc continues. https://bachelor.au.dk/en/economics-and-business-administration-auhe
 
 ### CBS — Copenhagen Business School
@@ -41,12 +45,15 @@ Result: **list complete, nothing to remove.**
   - Business Administration and Sociology: English B (≥ 6.0), Mathematics B (≥ 6.0), History/Social Studies/Int. Econ. B; cut-off 9.8. https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-sociology
   - Business Administration and Service Management: cut-off 9.4. https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-service-management
   - Business Administration and Digital Management: cut-off 9.8. https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-business-administration-and-digital-management
+  - International Business: 2026 cut-off 11.1. https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business
+  - International Business and Politics: English B (≥ 6.0), a further foreign language at A, Mathematics B, History/Social Studies/Int. Econ. B; 2026 cut-off 10.7. https://www.cbs.dk/en/study-programmes/bachelor-programmes/bsc-international-business-and-politics
 
 ### DTU — Technical University of Denmark
 
 Result: **list complete, nothing to remove.**
 
 - DTU offers one English-taught full-degree BSc, General Engineering; "All other undergraduate programmes are taught in Danish" (all BEng/diplomingeniør programmes included). https://www.dtu.dk/english/education/undergraduate
+- General Engineering (Lyngby) is recruiting for 2027: 150 places, August start, deadlines 15 March (quota 2, international exams) and 5 July (quota 1); Mathematics A, Physics B, Chemistry B, English B. https://www.dtu.dk/english/education/undergraduate/general-engineering
 
 ### ITU — IT University of Copenhagen
 
@@ -87,4 +94,17 @@ Result: **confirmed, no English-taught bachelor's.**
 ### Cross-check against studyindenmark.dk
 
 - The Study in Denmark programme catalogue (fetched through its public Plone REST API, `https://studyindenmark.dk/++api++/portal/@search?portal_type=program`) holds 463 programme records, 58 of them bachelor's. It carries the notice "Study in Denmark is being revised". https://studyindenmark.dk/portal
-- For the eight universities, the catalogue adds no English-taught bachelor's that the site lacks. Its only extra university entry is AAU Language and International Studies, English, which needs Danish A and is excluded above. The catalogue is also incomplete: it leaves out AU Cognitive Science, Computer Science and IT Product Development, DTU General
+- For the eight universities, the catalogue adds no English-taught bachelor's that the site lacks. Its only extra university entry is AAU Language and International Studies, English, which needs Danish A and is excluded above. The catalogue is also incomplete: it leaves out AU Cognitive Science, Computer Science and IT Product Development, DTU General Engineering and both ITU programmes, all of which the official university pages confirm. So it can back up the list but cannot serve as the source for it.
+
+### Task 1 summary
+
+- **Missing:** none. Every university's official English listing matches the site's list, apart from exclusions the data already explains.
+- **To remove:** none. Every listed programme has a live 2026/27 page with no closure notice.
+- **Caveats to show on the site:** AAU Applied Industrial Electronics has restricted admission from 2027 (it was open to all qualified applicants in 2026). ITU Global Business Informatics needs Danish A even though it is taught in English (already in the data).
+
+---
+
+## Task 2 — university colleges, business academies, art/architecture schools
+
+Scope: English-taught first-cycle programmes (professional bachelor = PBA/BA prof.; academy profession = AP), excluding top-ups that need a prior AP degree. Autumn intake unless noted.
+
