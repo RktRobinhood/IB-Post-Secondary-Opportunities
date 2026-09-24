@@ -78,7 +78,8 @@ export function setFeedback(feedback) {
   FEEDBACK = feedback?.url ? feedback : null;
 }
 
-const scopeChip = (n) => (n.scope === 'opportunities' ? SCOPE?.chip : null);
+/* The scope is said in the accessible name and the tooltip, and on the pages
+   themselves. A visible chip in the masthead read as clutter, not as honesty. */
 const scopeLong = (n) =>
   n.scope === 'opportunities' && SCOPE ? (SCOPE.complete ? null : `${SCOPE.label} only`) : null;
 const navLabel = (n) => {
@@ -224,7 +225,7 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
         (n) =>
           html`<a href="${url(n.href)}"${o.section === n.href ? raw(' aria-current="page"') : ''}${
             scopeLong(n) ? raw(` aria-label="${navLabel(n)}" title="${navLabel(n)}"`) : ''
-          }>${n.label}${scopeChip(n) ? html`<span class="nav__scope" aria-hidden="true">${scopeChip(n)}</span>` : ''}</a>`
+          }>${n.label}</a>`
       )}
     </nav>
     <div class="masthead__tools">
@@ -241,9 +242,9 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
 <div class="drawer" id="drawer" data-open="false">
   ${NAV.map(
     (n) =>
-      html`<a href="${url(n.href)}">${n.label}${
-        scopeLong(n) ? html`<span class="nav__scope nav__scope--long">${scopeLong(n)}</span>` : ''
-      }</a>`
+      html`<a href="${url(n.href)}"${
+        scopeLong(n) ? raw(` aria-label="${navLabel(n)}"`) : ''
+      }>${n.label}</a>`
   )}
   <a href="${url('/about/')}">About this site</a>
   <a href="${url('/counsellors/')}">For counsellors</a>

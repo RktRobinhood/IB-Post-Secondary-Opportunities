@@ -563,27 +563,6 @@ section { scroll-margin-top: 5.5rem; }
   height: 2px; background: var(--accent); border-radius: 2px;
 }
 
-/* Marks a nav item whose tool covers one Destination only. The chip is
-   decorative — the link's accessible name spells the scope out — and the
-   drawer, which has the room, prints the words instead of the abbreviation. */
-.nav__scope {
-  display: inline-block;
-  margin-left: .35em;
-  padding: .1em .35em;
-  border: 1px solid var(--rule-strong);
-  border-radius: 3px;
-  font: 650 max(var(--type-floor), .6875em)/1.35 var(--mono);
-  letter-spacing: .04em;
-  color: var(--ink-mute);
-  vertical-align: .08em;
-}
-.nav a:hover .nav__scope, .nav a[aria-current="page"] .nav__scope { color: var(--ink-soft); }
-.nav__scope--long {
-  border: 0; padding: 0; margin-left: .6em;
-  font: 400 .8125rem/1 var(--sans, inherit);
-  letter-spacing: 0; text-transform: none;
-}
-
 /* The nav appears at 64rem, but at 64rem it does not yet fit: "Find a degree"
    and "Check my subjects" broke over two lines and left the masthead ragged on
    a 1024px laptop, which is what most of the school's students are reading this
@@ -596,23 +575,6 @@ section { scroll-margin-top: 5.5rem; }
   .nav { gap: 2px; }
   .nav a { padding: var(--s2) 6px; font-size: .875rem; }
   .nav a[aria-current="page"]::after { left: 6px; right: 6px; }
-  /* The tightening above was not enough, and #34's type floor made it worse.
-     Measured at exactly 1024px with the nav shown: `documentElement.scrollWidth`
-     was **1062** before this pass and **1105** after, against a 1024px viewport
-     — so "Deadlines", the last item, was already being clipped by
-     `body { overflow-x: hidden }` on the laptop this band exists to serve, and
-     raising `.nav__scope` off 9.6px to the 12px floor added another 43.
-
-     The scope chip is the thing that goes, because it is the only thing in the
-     masthead that is purely decorative: it is `aria-hidden`, the link carries
-     the same words in its `aria-label` and `title`, and the drawer prints them
-     in full. Dropping it in this band alone takes 1024px back to **1009**. It
-     reappears at 82rem, and this band's upper edge moved from 78rem to 82rem
-     for the same measurement one step out: at 1280px the masthead came to 1291
-     with the chips at 12px and 1265 without them. A clipped nav item is a
-     link a student cannot see; a missing badge is a note they can still get by
-     hovering, and already have from the page they land on. */
-  .nav__scope { display: none; }
 }
 
 .masthead__tools { display: flex; align-items: center; gap: var(--s2); margin-left: auto; }
