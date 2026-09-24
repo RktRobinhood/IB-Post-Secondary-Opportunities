@@ -20,21 +20,26 @@
     "offersReceived": "one",
     "note": "You receive at most one offer: the highest-ranked programme that admits you. Lower choices are dropped automatically, so ranking a long shot first costs nothing. Rank by where you would rather be, not by how hard something is to get into."
   },
-  "identityRequirement": "MitID. Sort this out in January — it is not something to discover on 14 March.",
+  "identityRequirement": "MitID if you have a Danish CPR number; otherwise log in with your email address. Without MitID you must also send a signed signature page to every institution by 15 March, 12:00.",
   "sharedSteps": [
-    "Create the application in optagelse.dk using MitID and add up to eight programmes in priority order.",
+    "Create the application in optagelse.dk (MitID, or email if you have no Danish CPR number) and add up to eight programmes in priority order.",
     "Upload documentation of anything you want counted, including work experience for quota 2.",
     "Ask your IB coordinator to register you for the IB's results service so results reach the institutions directly.",
-    "Check whether any of your chosen institutions still requires a signature page — it is printed, signed by hand, and sent separately by post or email, never uploaded.",
-    "You can reorder priorities and add annexes until 12:00 on 5 July."
+    "Sign every application by 15 March, 12:00. With MitID you sign inside optagelse.dk; without it, print the signature page, sign it by hand and email or post it to each institution — it is never uploaded.",
+    "You can reorder priorities until 12:00 on 5 July. Documentation deadlines are set by each institution — from 15 March to 5 July."
   ],
-  "decisionModel": "Programmes with more applicants than places split their intake into quota 1, allocated on the converted grade average alone, and quota 2, which weighs subject grades, up to twelve months of documented relevant work or study, and sometimes a test or essay. Applying by 15 March puts you in both automatically, provided your average can be converted to the Danish scale.",
+  "decisionModel": "Programmes with more applicants than places split their intake into quota 1, allocated on the converted grade average alone, and quota 2, which weighs subject grades, relevant work or education as each institution defines it (Aalborg counts up to twelve months), and sometimes a test or essay. Applying by 15 March puts you in both automatically, provided your average can be converted to the Danish scale.",
   "replyModel": "Offers are published on 28 July together with every programme's quota 1 cut-off. You have a few days in early August to accept. Vacant places appear the same week.",
-  "evidence": ["ev-ufsn-adgang-frister", "ev-ufsn-kvoter"],
+  "evidence": [
+    "ev-ufsn-adgang-frister",
+    "ev-ufsn-kvoter"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-22",
     "reviewBy": "2026-12-01",
-    "notes": ["Aalborg is explicit that motivational letters and recommendations are not considered in its quota 2. Copenhagen Business School does want an essay. The rule is per institution."]
+    "notes": [
+      "Aalborg is explicit that motivational letters and recommendations are not considered in its quota 2. Copenhagen Business School does want an essay. The rule is per institution."
+    ]
   }
 }

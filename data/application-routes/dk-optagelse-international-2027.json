@@ -64,12 +64,12 @@
     {
       "id": "ms-signature",
       "type": "signature",
-      "label": "Signature page must reach the institution",
+      "label": "Sign the application (signature page if you have no MitID)",
       "date": "2027-03-15",
       "timeOfDay": "12:00",
       "timeZone": "CET",
       "consequence": "hard",
-      "note": "Required by some institutions only — Aalborg is explicit about it. Printed, signed by hand, sent by post or email. Never uploaded to optagelse.dk. The application is not complete without it.",
+      "note": "With MitID you sign inside optagelse.dk. Without MitID, print the signature page, sign it by hand and email or post it to every institution you apply to. Never uploaded. The application is not complete without it.",
       "evidence": [
         "ev-ufsn-adgang-frister"
       ]
@@ -77,12 +77,12 @@
     {
       "id": "ms-documents",
       "type": "document",
-      "label": "Documentation deadline",
+      "label": "Last day to reorder priorities; documentation at some institutions",
       "date": "2027-07-05",
       "timeOfDay": "12:00",
       "timeZone": "CET",
-      "consequence": "hard",
-      "note": "Everything except your IB results. You can also still reorder your priorities until this moment.",
+      "consequence": "indicative",
+      "note": "Priorities can be reordered until 12:00. Documentation deadlines are set by each institution: Aarhus and Aalborg accept documents until 5 July, Copenhagen wants them with the application on 15 March, and some academies set 1 April. Check each one you list.",
       "evidence": [
         "ev-ufsn-adgang-frister"
       ]
@@ -116,10 +116,10 @@
       "id": "ms-reply",
       "type": "reply",
       "label": "Accept your place",
-      "date": "2027-08-05",
+      "date": "2027-08-02",
       "consequence": "hard",
       "provisional": true,
-      "note": "A few days after offers. Confirm the exact date with the institution — Aalborg has previously set 5 August.",
+      "note": "Set by each institution, a few days after offers. In 2026: Copenhagen 2 August, Southern Denmark 3 August, Aalborg 5 August. Dated here at the earliest known.",
       "evidence": [
         "ev-ufsn-adgang-frister"
       ]

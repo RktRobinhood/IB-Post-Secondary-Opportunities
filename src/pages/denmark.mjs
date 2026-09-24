@@ -81,8 +81,8 @@ export function denmarkHub(site) {
       short: 'Quota 1 ranks on your converted average alone; quota 2 weighs other things. You are considered for both.',
       body: html`<p>Programmes with more applicants than places split their intake into two quotas.
         <strong>Quota 1</strong> takes most of the places. <strong>Quota 2</strong> takes a smaller number and
-        weighs grades in the required subjects, up to twelve months of relevant work or study, and sometimes an
-        admission test or an essay.</p>
+        weighs whatever each institution publishes — typically grades in the required subjects, relevant work or
+        study (Aalborg counts up to twelve months), and sometimes an admission test or an essay.</p>
         <p>If you apply by 15 March and your average can be converted to the Danish scale, you are automatically
         considered in quota 1 as well as quota 2.</p>
         <p>Aalborg's admissions office is unusually blunt about what does <em>not</em> count in its quota 2:
@@ -113,7 +113,7 @@ export function denmarkHub(site) {
       id: 'money',
       title: 'What it costs',
       short: 'Nothing for EU, EEA and Swiss citizens. Everyone else pays roughly €6,000–16,000 a year.',
-      body: html`<p>Non-EU students also pay a DKK 3,060 fee for the residence permit.</p>
+      body: html`<p>Non-EU students also pay an application fee of roughly €100–200 to each university, and DKK 3,060 (2026 rate) for the residence permit.</p>
         <p>Danish students can claim SU — DKK 7,426 a month before tax in 2026 if you live away from home.
         Non-Danish EU citizens have to earn equal-treatment status first, usually by working 10–12 hours a week.</p>
         <p><a class="arrow-link" href="${url('/denmark/money/')}">Money, SU and the cost of living</a></p>`,
@@ -244,11 +244,11 @@ ${hero({
             <p><a class="arrow-link" href="${url('/planner/')}">Check my subjects</a></p>
           </li>
           <li>
-            <h3>January–February 2027 — get a MitID and gather documents</h3>
-            <p>You apply on <a href="https://www.optagelse.dk" rel="noopener nofollow">optagelse.dk</a>, which
-            uses MitID. Sort that out early; it is not something to discover on 14 March. You will need your
-            most recent transcript, documentation of anything you want counted in quota 2, and a passport copy
-            if you are not an EU citizen.</p>
+            <h3>January–February 2027 — log in and gather documents</h3>
+            <p>You apply on <a href="https://www.optagelse.dk" rel="noopener nofollow">optagelse.dk</a>. Log in
+            with MitID if you have one; without a Danish CPR number you log in with your email address instead.
+            You will need your most recent transcript, documentation of anything you want counted in quota 2, and
+            a passport copy if you are not an EU citizen.</p>
           </li>
           <li>
             <h3>Before 15 March — ask your IB coordinator for the results service</h3>
@@ -262,14 +262,16 @@ ${hero({
             <p>You may apply to up to eight programmes, listed in order of priority. You will receive at most
             one offer — the highest-priority programme that admits you. Order matters; think about it properly
             rather than ranking by prestige.</p>
-            <p>Some institutions still require a <strong>signature page</strong> printed, signed by hand and
-            sent separately by post or email. It is never uploaded to optagelse.dk, and your application is not
-            complete without it. Aalborg is explicit about this.</p>
+            <p><strong>Sign every application by the same deadline.</strong> With MitID you sign inside
+            optagelse.dk. Without MitID you must print the <strong>signature page</strong>, sign it by hand and
+            email or post it to every institution you apply to — it is never uploaded, and your application is
+            not complete without it.</p>
           </li>
           <li>
-            <h3>Until 5 July — top up your documentation</h3>
-            <p>You can upload annexes and reorder your priorities until 12:00 on 5 July. Everything other than
-            your IB results must be in by then.</p>
+            <h3>Spring to 5 July — top up your documentation</h3>
+            <p>You can reorder your priorities until 12:00 on 5 July. Documentation deadlines are set by each
+            institution: Aarhus and Aalborg accept documents until 5 July, but Copenhagen wants them with the
+            application on 15 March and some academies set 1 April. Check each one you list.</p>
           </li>
           <li>
             <h3>6 July — results day</h3>
@@ -283,8 +285,9 @@ ${hero({
           </li>
           <li>
             <h3>Early August — accept</h3>
-            <p>You have a few days to accept. Then housing, CPR registration and a bank account — in that order,
-            because each one depends on the last.</p>
+            <p>You have a few days to accept, and the deadline is the institution's: in 2026 it was 2 August at
+            Copenhagen, 3 August at Southern Denmark and 5 August at Aalborg. Then housing, CPR registration and a
+            bank account — in that order, because each one depends on the last.</p>
           </li>
         </ol>
 
@@ -307,7 +310,7 @@ ${hero({
         <h2 id="deferring">Taking a sabbatår</h2>
         <p>Taking a year out after the IB is ordinary in Denmark and carries no penalty in quota 1 — your average
         is your average. The old bonus for applying within two years of finishing no longer exists. A year of
-        relevant work can genuinely help in quota 2, where up to twelve documented months counts.</p>
+        relevant work can genuinely help in quota 2, where many institutions count documented work — Aalborg up to twelve months.</p>
       </div>
 
       <aside class="layout-aside__side stack">
@@ -316,7 +319,7 @@ ${hero({
           { label: 'Deadline', value: '15 March 2027, 12:00 CET' },
           { label: 'Max programmes', value: '8, ranked' },
           { label: 'Offers', value: '28 July 2027' },
-          { label: 'Documentation', value: '5 July 2027, 12:00' },
+          { label: 'Documentation', value: 'Set by each institution — 15 March to 5 July' },
         ])}
         ${note(
           `Rank your eight choices by where you would actually rather be, not by how hard they are to get into.
@@ -515,8 +518,10 @@ ${hero({
         holding permanent residence or a temporary permit that can lead to it. Everyone else pays. Study in
         Denmark quotes a range of roughly <strong>€6,000–16,000 per year</strong> — about DKK 45,000–120,000 —
         but no year is attached to that figure, so treat it as indicative and ask the institution.</p>
-        <p>There is no central application fee. Non-EU students pay <strong>DKK 3,060</strong> for the residence
-        permit itself.</p>
+        <p>optagelse.dk charges nothing, but most universities charge non-EU/EEA applicants an
+        <strong>application fee of roughly €100–200 per institution</strong>, payable by 15 March — Aalborg €150,
+        Roskilde €200. An unpaid fee stops the application. Non-EU students then pay <strong>DKK 3,060</strong>
+        (2026 rate) for the residence permit itself.</p>
 
         <h2 id="su">SU — the Danish state grant</h2>
         <p>SU is the reason Danish students can live independently at nineteen. For 2026 the rate for a student
