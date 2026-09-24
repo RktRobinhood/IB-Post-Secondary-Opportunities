@@ -45,6 +45,24 @@ September 2026.
   correction and all were applied. See `docs/research/DK_PROGRAMME_CHECK.md`.
 - **Coverage:** all English-taught bachelor's degrees at the eight Danish
   universities are listed; nothing was missing. See `docs/research/DK_COVERAGE.md`.
+- **Colleges and academies** (added 2026-09-24): 20 English-taught degrees at VIA,
+  Absalon, Zealand, Business Academy Aarhus, SEA, Dania and the Royal Danish
+  Academy, each checked on its official page when added. Academy profession (AP)
+  degrees are labelled as not bachelor's. Not yet covered: UCN's two new degrees
+  (awaiting approval) and the music conservatories (audition route, 1 December
+  deadline). See `docs/research/DK_COLLEGES_ADDED.md`.
+
+## Left for a person
+
+- **Photos to look at:** 490 of the 496 hosted photographs were chosen by script
+  and published on their score; no person has looked at them. `npm run
+  images:review` lists the 107 most worth a look, worst first. The 17 replaced on
+  2026-09-24 are explained in `docs/research/PHOTO_CURATION.md`. SEA and Dania
+  have no photo yet.
+- **A few universities' own share images are logos or text banners** (TUM,
+  McMaster, Rīga Stradiņš, THEi). Rejecting one in `data/official-images.json`
+  falls back to the Commons photograph.
+- **Signing off sources:** see `/trust/` and `docs/UPDATING.md` §10.
 - **No record has yet been signed off by a person.** Every source is marked
   *needs review* until someone reads it and says so — the site states this on
   `/trust/` rather than hiding it. A counsellor reading a programme page and
