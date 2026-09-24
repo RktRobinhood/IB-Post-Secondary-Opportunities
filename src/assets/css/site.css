@@ -2140,3 +2140,15 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .option__what { margin: 0; font-size: .9375rem; color: var(--ink-soft); }
 .option__more > summary { cursor: pointer; font: 600 .875rem/1.5 var(--sans); color: var(--accent); }
 .prose .options { max-width: none; }
+
+/* A picture beside each result in the programme finder: the place first. */
+.prog__thumb {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: var(--radius-lg); background: var(--paper-3);
+}
+.prog--pic { grid-template-columns: 6rem minmax(0, 1fr); }
+.prog--pic > .prog__side { grid-column: 2; }
+@media (min-width: 52rem) {
+  .prog--pic { grid-template-columns: 10rem minmax(0, 1fr) 15rem; }
+  .prog--pic > .prog__side { grid-column: auto; }
+}

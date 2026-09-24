@@ -116,7 +116,8 @@ function paintMap(hits) {
 function row(p) {
   const meta = [p.degree, p.campus, p.ects ? `${p.ects} ECTS` : null].filter(Boolean);
   return `
-  <li class="prog" data-place="${esc(p.placeId)}">
+  <li class="prog${p.image ? ' prog--pic' : ''}" data-place="${esc(p.placeId)}">
+    ${p.image ? `<img class="prog__thumb" src="${esc(p.image)}" alt="" loading="lazy" decoding="async" width="320" height="240">` : ''}
     <div>
       <h3 class="prog__name"><a href="${BASE}${p.href}">${esc(p.name)}</a></h3>
       <p class="prog__meta">

@@ -1,6 +1,7 @@
 import { html, raw, plural, truncate } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { hero, note, crumbs, requirementLine } from '../lib/components.mjs';
+import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { AWARD_LABEL } from './programme-facts.mjs';
@@ -47,6 +48,11 @@ export function programmesIndex(site) {
     ects: p.ects || null,
     restricted: !!p.restrictedAdmission,
     cutoff: p.cutoff?.value || null,
+    // A picture of the place: the programme's own, or its institution's.
+    image: (() => {
+      const pic = picture(site, p.id, { prefer: 'commons' }) || picture(site, p.institutionId, { prefer: 'commons' });
+      return pic ? (pic.external ? pic.src : url(pic.src)) : null;
+    })(),
     summary: truncate(p.summary || '', 170),
     requirements: requirementLine(p.entryRequirements) || truncate(p.requirementsText || '', 150),
     entry: p.entryRequirements || null,
