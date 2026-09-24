@@ -75,7 +75,7 @@ ${hero({
   variant: 'compact',
   eyebrow: `${inst.shortName || inst.name}${p.campus ? ` · ${p.campus}` : ''}`,
   title: p.name,
-  lede: firstSentence(p.summary, 28),
+  lede: firstSentence(p.summary, 20),
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
 })}
 

@@ -137,7 +137,7 @@ ${hero({
   // every institution on the site was Danish and is a riddle now.
   eyebrow: [inst.city, dest?.name, inst.type].filter(Boolean).join(' · '),
   title: inst.name,
-  lede: firstSentence(inst.about, 30),
+  lede: firstSentence(inst.about, 22),
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
   slides: pic ? universitySlides(site, inst) : [],
   variant: pic ? undefined : 'panel',
