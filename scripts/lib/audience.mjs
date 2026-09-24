@@ -15,9 +15,14 @@ const ROOT = path.resolve(import.meta.dirname, "..", "..");
 
 export const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-export function audienceRules({ adjective, singular, plural, name, grants = [] }) {
+export function audienceRules({ adjective, singular, plural, name, grants = [], groups = [] }) {
   const a = esc(adjective);
   const n = esc(name);
+  /* Groups declared `within` the reader's group in data/applicant-groups.json:
+     citizens with rights of their own that most readers do not share. */
+  const grp = groups.length ? `(?:${groups.map(esc).join('|')})` : '(?!)';
+  /* "you are X" as a statement, not as a condition ("if you are X"). */
+  const youAre = `(?<!\\b(?:if|unless|whether|when|once) )\\byou(?:'re|’re| are)`;
   const g = grants.length ? `(?:${grants.map(esc).join('|')})` : '(?!)';
   const who = '(?:student|applicant|candidate|IB student|IB candidate|school[- ]leaver|reader|pupil)';
   return [
@@ -25,7 +30,13 @@ export function audienceRules({ adjective, singular, plural, name, grants = [] }
        the University Track is available to a [x] citizen" is a statement about
        citizens, i.e. a label, and is left to the B rules. */
     { id: 'identity', cls: 'A', why: 'treats the reader as a citizen of the school country',
-      re: new RegExp(`\\bas an? ${a}(?: \\(EU\\)| EU| or other EU(?:/EEA)?)? (?:citizen|national|speaker|${who})\\b|\\b(?:for|to) an? ${a} ${who}\\b|\\b${a} (?:and|or) other EU\\b`, 'i') },
+      re: new RegExp(`\\bas an? ${a}(?: \\(EU\\)| EU| or other EU(?:/EEA)?)? (?:citizen|national|speaker|${who})\\b|\\b(?:for|to) an? ${a} ${who}\\b|\\b${a} (?:and|or) other EU\\b|${youAre} (?:an? )?${a}\\b(?![- ]taught)`, 'i') },
+    /* The same shape one level down: a right only some EU/EEA citizens have,
+       stated as the reader's own. No label excuses it — the fix is to make it
+       conditional and say what everyone else does. */
+    { id: 'group-identity', cls: 'A', unlabelled: true,
+      why: 'states a rule for one group of citizens as the reader\'s own; write "if you are a … citizen" and say what other EU/EEA citizens do',
+      re: new RegExp(`\\bas an? ${grp} (?:citizen|national|student|passport holder)s?\\b|${youAre} an? ${grp} (?:citizen|national)\\b`, 'i') },
     { id: 'reader-noun', cls: 'A', why: 'the school country\'s students as the default reader',
       re: new RegExp(`\\b(?:a|an|the|any|every|most|many|typical) ${a} ${who}s?\\b|\\b${a} (?:students|applicants|candidates|IB students|IB candidates|school[- ]leavers)\\b`, 'i') },
     { id: 'family', cls: 'A', why: 'assumes the family is from the school country',
@@ -34,8 +45,10 @@ export function audienceRules({ adjective, singular, plural, name, grants = [] }
       re: new RegExp(`\\b(?:your|with an?|bring an?) ${a} (?:passport|ID card|national ID|EHIC|blue card|yellow card|health card|cover|insurance)\\b|\\b(?:Health Insurance Card|EHIC)\\b[^.]{0,25}\\bfrom ${n}\\b`, 'i') },
     { id: 'people', cls: 'A', why: 'names the reader by the school country\'s demonym',
       re: new RegExp(`\\b(?:${esc(singular)}|${esc(plural)})\\b`) },
-    { id: 'home', cls: 'A', why: 'assumes the school country is home',
-      re: /\b(?:close to|not far from|near|back) home\b/i },
+    /* A label ("equal status", "if you hold … citizenship") says nothing about
+       where home is, so none excuses this rule. */
+    { id: 'home', cls: 'A', unlabelled: true, why: 'assumes the school country is home',
+      re: new RegExp(`\\b(?:close to|not far from|near|back) home\\b|\\byour home country,? ${n}\\b`, 'i') },
     { id: 'standards', cls: 'A', why: 'treats the school country\'s norms as the reader\'s',
       re: new RegExp(`\\bby ${a} standards\\b`, 'i') },
     /* B rules: allowed when labelled, anywhere in the same string. */
@@ -54,7 +67,8 @@ export function audienceLabels({ adjective }) {
   return [
     new RegExp(`\\b(?:if|unless|when|once|whether) you (?:hold|have|are)(?: an?)? ${a} (?:citizen(?:ship)?|national(?:ity)?|passport)`, 'i'),
     new RegExp(`\\b${a} citizens? only\\b|\\bonly (?:to|for) ${a} (?:citizens|nationals)\\b|\\bfor ${a} (?:citizens|nationals)\\b`, 'i'),
-    new RegExp(`\\b(?:without|not|non-)\\s?${a}\\b|\\bnot ${a} citizens?\\b`, 'i'),
+    /* "not [x]-taught" is about a language, not a passport, and excuses nothing. */
+    new RegExp(`\\b(?:without|not|non-)\\s?${a} (?:citizens?|citizenship|nationals?|nationality|passports?)\\b|\\b(?:if|unless) you are not ${a}\\b`, 'i'),
     new RegExp(`\\bon an? ${a} passport\\b`, 'i'),
     new RegExp(`\\b${a} citizens?,? (?:or|and) (?:an? )?(?:other )?EU`, 'i'),
     /\b(?:if you|anyone who|who) (?:can claim|qualify for|may qualify for|are eligible for|is eligible for)\b/i,
@@ -86,7 +100,7 @@ export function problemsIn(text, rules, labels, context = text) {
     }
     for (const s of sentences(text)) {
       const m = s.match(rule.re);
-      if (m && !labels.some((l) => l.test(s)) && !quoted(s, m)) out.push({ rule, match: m[0] });
+      if (m && (rule.unlabelled || !labels.some((l) => l.test(s))) && !quoted(s, m)) out.push({ rule, match: m[0] });
     }
   }
   return out;

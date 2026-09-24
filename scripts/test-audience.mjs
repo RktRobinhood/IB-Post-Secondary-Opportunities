@@ -52,7 +52,7 @@ console.log('\nAudience guards\n');
 
 /* --- Fixtures. A made-up country, on purpose. ------------------------------ */
 
-const FIX = { name: 'Flatland', adjective: 'Flatlandish', singular: 'Flatlander', plural: 'Flatlanders', grants: ['FG'] };
+const FIX = { name: 'Flatland', adjective: 'Flatlandish', singular: 'Flatlander', plural: 'Flatlanders', grants: ['FG'], groups: ['Coastal'] };
 const fr = audienceRules(FIX);
 const fl = audienceLabels(FIX);
 const flags = (t) => problemsIn(t, fr, fl).map((p) => p.rule.id);
@@ -64,6 +64,20 @@ check('refuses the school country as the reader', () => {
   assert.deepEqual(flags('Cheap, close to home, and English-taught'), ['home']);
   assert.deepEqual(flags('Bring your Flatlandish passport or ID card.'), ['documents']);
   assert.deepEqual(flags('a Flatlandish family on a normal income'), ['family']);
+});
+
+check("refuses a smaller group's rule stated as the reader's own, whatever the label", () => {
+  assert.deepEqual(flags('As a Coastal citizen you do not register with the police.'), ['group-identity']);
+  assert.deepEqual(flags('As a Coastal citizen you skip the queue, with equal status.'), ['group-identity']);
+  assert.deepEqual(flags('If you are a Coastal citizen, you do not register; other EU/EEA citizens do.'), []);
+});
+
+check('the loopholes the first critique found are closed', () => {
+  assert.deepEqual(flags('As a Flatlandish citizen you skip the queue, and the course is not Flatlandish-taught.'), ['identity']);
+  assert.deepEqual(flags('Since you are Flatlandish, you pay home fees.'), ['identity']);
+  assert.deepEqual(flags('If you are Flatlandish, you pay home fees.'), []);
+  assert.deepEqual(flags('Your home country, Flatland, pays FG.').includes('home'), true);
+  assert.deepEqual(flags('Close to home — and equal status if you have it.'), ['home']);
 });
 
 check('refuses a citizens-only fact offered to everyone', () => {
@@ -95,7 +109,10 @@ check('accepts the school country described as a place, not a nationality', () =
 const audience = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site-config.json'), 'utf8')).audience;
 if (!audience?.schoolCountry) throw new Error('data/site-config.json has no audience block — the guard reads the school country from it');
 const destination = JSON.parse(fs.readFileSync(path.join(ROOT, `data/destinations/${audience.schoolCountry}.json`), 'utf8'));
-const who = { adjective: destination.adjective, name: destination.name, ...audience.schoolCountryPeople, grants: audience.citizenGrants || [] };
+/* Groups inside the reader's group that have rights of their own (data/applicant-groups.json). */
+const groupTable = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/applicant-groups.json'), 'utf8')).groups || [];
+const groups = groupTable.filter((g) => g.adjective && (g.within || []).includes(audience.readerGroup)).map((g) => g.adjective);
+const who = { adjective: destination.adjective, name: destination.name, ...audience.schoolCountryPeople, grants: audience.citizenGrants || [], groups };
 const rules = audienceRules(who);
 const labels = audienceLabels(who);
 
@@ -133,7 +150,7 @@ check('every allowlist entry still matches something, and says why', () => {
 
 check('the guard names no country — the data does', () => {
   const src = [HERE, path.join(import.meta.dirname, 'lib', 'audience.mjs')].map((f) => fs.readFileSync(f, 'utf8')).join('\n');
-  for (const word of [who.adjective, who.name, who.singular, who.plural, ...who.grants]) {
+  for (const word of [who.adjective, who.name, who.singular, who.plural, ...who.grants, ...who.groups]) {
     assert.ok(!new RegExp(`\\b${esc(word)}\\b`).test(src), `this file contains "${word}"; read it from data instead`);
   }
 });

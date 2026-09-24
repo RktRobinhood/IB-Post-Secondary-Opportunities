@@ -53,13 +53,19 @@
       "file": "src/lib/publication-floor.mjs",
       "match": "Telling a Danish student about",
       "rule": "reader-noun",
-      "reason": "A developer-facing explanation of why category names do not translate; never rendered to students."
+      "reason": "Rendered on /trust/ as one example among several (\"a Danish student … or a French student\") of why category names do not translate; it describes how a term reads to someone from a system, not the reader's nationality."
     },
     {
       "file": "data/countries/is.json",
       "match": "study assistance from another state, which includes Danish SU",
       "rule": "grant",
       "reason": "Reports Iceland's own rule that its student loan cannot be combined with another state's grant; it names Danish SU as an example, it does not offer it."
+    },
+    {
+      "file": "data/countries/is.json",
+      "match": "moving to Iceland as a Nordic national",
+      "rule": "group-identity",
+      "reason": "The title of Registers Iceland's own page for Nordic nationals, cited as a source; it names the page, it does not address the reader."
     }
   ]
 }

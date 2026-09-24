@@ -1,6 +1,6 @@
 {
   "title": "Applicant groups a student can say they belong to, and which groups contain which",
-  "description": "The fee-status choices the subject checker offers, in order, and the containment the eligibility engine needs to read them. A Nordic citizen is also an EU/EEA citizen, so a rule written for 'eu-eea-ch' applies to them — declared here rather than written into the engine, which names no group and no country. Group ids are the applicantGroup values in schemas/common.schema.json.",
+  "description": "The fee-status choices the subject checker offers, in order, and the containment the eligibility engine needs to read them. A Nordic citizen is also an EU/EEA citizen, so a rule written for 'eu-eea-ch' applies to them — declared here rather than written into the engine, which names no group and no country. Group ids are the applicantGroup values in schemas/common.schema.json. A group with an `adjective` that sits within the reader's group is also read by scripts/test-audience.mjs, which refuses \"as a <adjective> citizen, you …\" stated as the reader's own case.",
   "dataAsOf": "2026-09-24",
   "groups": [
     {
@@ -11,7 +11,10 @@
     {
       "id": "nordic",
       "label": "Nordic citizen (Danish, Finnish, Icelandic, Norwegian or Swedish)",
-      "within": ["eu-eea-ch"]
+      "within": [
+        "eu-eea-ch"
+      ],
+      "adjective": "Nordic"
     },
     {
       "id": "non-eu",

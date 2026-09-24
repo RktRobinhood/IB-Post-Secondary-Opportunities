@@ -566,3 +566,93 @@ not touched here.
 - "a Swedish or Danish student taking time out" (SE);
 - AU's own words, quoted: "Danish applicants";
 - BAAA's quoted fee source.
+
+## Round 1 fixes (critique-round-1.md, scored 6/10)
+
+Verification is in `verification.md` §8 (klip) and §9 (Ukraine). The data
+edits are in `apply-round1.mjs` (re-runnable).
+
+1. **Nordic-only admin steps are now conditional, each with the EU/EEA step
+   beside it.**
+   - **Norway** (steps and residency): "If you are a Nordic citizen, you do not
+     register with the police. Other EU/EEA citizens staying more than three
+     months register with the police within three months of arriving." Source:
+     UiO, already cited.
+   - **Finland** (why-it-suits, steps, residency): "If you are a Nordic
+     citizen…", plus "Other EU/EEA citizens … Migri". Source: Migri, already
+     cited.
+   - **Iceland** (residency): EU/EEA and Swiss students register with Registers
+     Iceland within three months. Nordic citizens' track is simpler. Source:
+     skra.is student page, added.
+   - **New guard rule, `group-identity`.** It is built from
+     `data/applicant-groups.json`: every group `within` the reader group that
+     declares an `adjective`, currently `nordic` → "Nordic". It refuses "as a
+     {group} citizen/national/student" and "you are a {group} citizen" as a
+     statement. No label excuses it, and only "if you are…" passes. It names no
+     group in code; the read-back check covers the group names too.
+2. **GKS 2027 University Track closed.**
+   - `kr-gks-university-2027` has `readerAccess: closed` with the
+     graduation-date reason, and its label no longer says "open to every
+     nationality".
+   - The Korea page leads with "No May 2027 IB candidate can use the 2027
+     round, on either track … Plan for 2028", then the 2028 nationality test
+     (`kr.json` ×4, `destinations/kr.json` ×2).
+   - `test-calendar.mjs` pins both 2027 tracks as closed.
+3. **The shared SU record is reworded.**
+   - `label` (for Denmark) now says "five years living in Denmark", not "here",
+     with no nested parenthesis.
+   - The new `abroad.label` (schema added) is used on every other
+     Destination's page: "…equal status under EU rules) and meet the
+     ties-to-Denmark requirement". `fundingLine()` chooses it by comparing
+     the page's destination with the scheme's.
+   - `abroad.ties` is now a full sentence. `rate.basis` reads "a student … their
+     parents".
+   - The duplicated "ties" clause was removed from 19 country notes.
+   - The seven legalistic "(…and in both cases the ties-to-Denmark
+     requirement)" parentheticals are cut to "If you can claim Danish SU, …";
+     the page's funding line carries the conditions. "If you are not Danish,
+     check…" became "If you cannot claim it, check…".
+4. **Klip question settled on su.dk** ("Hvad kan du få"). Nordic study is paid
+   as if in Denmark and does use SU klip, within the overall 70-klip frame for
+   higher education abroad.
+   - The FAQ's "does not consume your klippekort" is removed.
+   - Norway's "same SU-klip as a Danish degree" now reads "uses SU-klip, within
+     the 70-klip frame…".
+   - The record states that the reform's effect on the frame is not yet on
+     su.dk.
+   - The FAQ answer now leads with the answer.
+5. **Hungary.**
+   - Stipendium Hungaricum is "closed to EU citizens … (Ukraine, among other
+     non-EU countries, is)".
+   - The Diaspora Scholarship is "closed to anyone living in the EU".
+   - The watch-out ends "Unless it is, plan to be self-funded".
+   - The destination summary is conditional.
+   - The tagline is now "Medicine in English — usually paid for yourself".
+6. **Displaced persons from Ukraine.** One labelled line each on the `/denmark/`
+   money topic and the `/denmark/money/` tuition paragraph: no tuition and no
+   application fee under Act no. 324 of 16 March 2022. Verified on AU's
+   bachelor fee page and the Royal Danish Academy's page; the AU source was
+   added. SU for this group was not verified, so the line says nothing about
+   it. The money page lede now says "EU, EEA and Swiss citizens".
+7. **Guard hygiene.**
+   - The `not {A}` label now needs "citizen(ship)/national(ity)/passport", or
+     "if/unless you are not {A}"; "not Danish-taught" no longer excuses.
+   - `home` cannot be excused by a label, and also catches "your home country,
+     {N}".
+   - `identity` catches "you are {A}" as a statement.
+   - There are new fixtures for each loophole the critic listed.
+   - The `publication-floor.mjs` allowlist reason now says it is rendered on
+     `/trust/`.
+   - One new allowlist entry covers Registers Iceland's own page title.
+8. **Housekeeping.**
+   - The MEXT `readerAccess.reason` ends at "…each decides what it offers.";
+     the Copenhagen fact stays once, in the steps and watch-outs.
+   - Reykjavik University's fee is recomputed: ISK 656,000 ≈ €4,750.
+   - README count left alone, as instructed.
+   - Prose:
+     - the Norway context note ("Doing so" / "will not") was rewritten;
+     - the Finland "If you are not Danish" line became "If you cannot claim SU".
+
+**Gate** (PowerShell, `SITE_BASE=/IB-Post-Secondary-Opportunities`): **all 30
+checks pass**, including `audience`, `calendar`, `validate`, `release` and
+`image-records` (now green after the photo agent's work).

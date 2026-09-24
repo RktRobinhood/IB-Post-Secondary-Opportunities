@@ -650,12 +650,12 @@ function localEquivalencyRule(rule, ctx) {
       );
     }
     return met(
-      `Your ${have.ibSubject} at ${have.grade} meets ${wanted || terms.local}: it counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}. (${asked}.)`
+      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}. (${asked}.)`
     );
   }
 
   return met(
-    `Your ${have.ibSubject} meets ${wanted || terms.local}: it counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}. (${asked}.)`
+    `Needs ${wanted || terms.local}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}. (${asked}.)`
   );
 }
 

@@ -86,3 +86,31 @@ Open for a critic:
   (Global Politics is decided case by case); the card says the short form, the
   programme page and the conversion table give the reason.
 - Cards for programmes with long one-of lists (AU Economics) run to ~6 lines.
+
+## Round 0b — shorter cards (coordinator's pass)
+
+12. **Collapse by area, from the data.** `data/ib-subjects.json` gains an
+    optional `area` ("English" on English A Literature, English A Lang & Lit and
+    English B; "Maths" on AA and AI; "Danish" on the three Danishes). When a rule
+    accepts *every* catalogue subject in an area at the same levels,
+    `ibTermsPhrase` names the area: both levels → "Any IB English" / "Any IB
+    Maths"; one level → "Maths HL (AA or AI)". No subject name is in the code —
+    the collapse is "accepted set == catalogue members of that area". Levels
+    are now written "History (SL or HL)", "Biology HL". Caveat: "Any IB
+    English" means any English in our catalogue — it has no English ab initio.
+13. **Cards list only options with an IB route**; the rest become a muted
+    "+ 3 options with no IB route" (named, with the reasons, on the programme
+    page). A one-of with a single IB option drops the "one of:" label only when
+    nothing else is hidden.
+14. **Danish grades written the Danish way.** The Recognition Scheme's
+    `gradeScale` gains optional `grades: [{value, label}]` (schema updated), so
+    02 prints as "02" and 00 as "00" — card small line, programme page,
+    planner. A value not on the scale (CBS's "6") prints as the number.
+15. **Planner "met" lines lead with the IB requirement**: "Needs Any IB English:
+    your English B SL counts as English at B level. (Danish requirement:
+    English B.)" — "Your English B SL meets Any IB English" read badly.
+
+Result: a typical card is "Needs Any IB English · Maths HL (AA or AI)" (one
+line); the longest Aarhus cards (Economics, 2 IB options + 3 hidden) take 3–4
+lines at desktop width, Cognitive Science 2 lines plus the muted note.
+Gate: all 30 checks pass. Screenshots in `round-0b/`.
