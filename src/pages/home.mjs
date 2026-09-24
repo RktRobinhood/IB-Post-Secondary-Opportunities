@@ -78,7 +78,7 @@ ${hero({
       {
         href: '/denmark/',
         eyebrow: 'Denmark',
-        title: 'Close to home',
+        title: 'Where you already are',
         count: `${plural(dkProgrammes, 'degree')} in English · ${institutionCount(dk)}`,
         line: 'Each mapped subject by subject.',
         image: doorImages.denmark,
@@ -169,9 +169,16 @@ ${hero({
  * is a fact about where IB students go, not a judgement of the place. Denmark
  * contributes its institutions with the most English-taught degrees. The same
  * set comes back on every build.
+ *
+ * An institution listed in `homeReel.skip` (data/site-config.json) is passed
+ * over and the next one in its group takes the tile: a photograph can be right
+ * for a 16:10 page and still not hold the reel's 4:5 crop. That is an editorial
+ * decision about a picture, so it lives in the config, not here.
  */
 function showcase(site, exclude = new Set()) {
+  const skip = new Set(site.config?.homeReel?.skip || []);
   const photo = (key) => {
+    if (skip.has(key)) return null;
     const p = picture(site, key, { prefer: 'commons' });
     return p && !p.external && !exclude.has(p.src) ? p : null;
   };

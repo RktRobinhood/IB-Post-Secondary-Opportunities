@@ -50,7 +50,13 @@ const writeJson = (f, j) => fs.writeFile(f, `${JSON.stringify(j, null, 2)}\n`);
 
 const verdicts = new Map();
 let malformed = 0;
-for (const name of (await fs.readdir(DIR)).filter((f) => f.endsWith('-verdicts.jsonl'))) {
+// Regional rounds first, then iteration rounds in order, so a later critique's
+// fix overrides the verdict it was correcting.
+const order = (f) => (/^iteration-(\d+)/.exec(f) ? 1000 + Number(RegExp.$1) : 0);
+const files = (await fs.readdir(DIR))
+  .filter((f) => f.endsWith('-verdicts.jsonl'))
+  .sort((a, b) => order(a) - order(b) || a.localeCompare(b));
+for (const name of files) {
   for (const line of (await fs.readFile(path.join(DIR, name), 'utf8')).split('\n')) {
     if (!line.trim()) continue;
     try {
@@ -84,9 +90,24 @@ const galleries = Object.fromEntries(
   Object.entries(images).filter(([, r]) => r.gallery?.length).map(([k, r]) => [k, r.gallery])
 );
 
+/* Whether a record really holds this Commons file, rather than only its name.
+   The fetcher rewrites the whole record — page, credit, file on disk — when a
+   download lands; when it does not, a pinned name sits on top of the old
+   picture and the old credit. Trusting the name signed three approvals onto
+   photographs nobody had looked at (September 2026, photo round 2). */
+const commonsTitle = (page) =>
+  decodeURIComponent(String(page || '').replace(/^.*\/File:/, '')).replace(/_/g, ' ');
+const landed = (record, file) => Boolean(record && record.file === file && commonsTitle(record.page) === file);
+
 const replacements = [...verdicts.values()].filter(
-  (v) => v.target === 'commons-main' && v.verdict === 'reject' && v.replacement?.commonsFile
+  (v) =>
+    v.target === 'commons-main' &&
+    v.verdict === 'reject' &&
+    v.replacement?.commonsFile &&
+    // Already fetched on an earlier run: nothing to download again.
+    !landed(images[v.key], v.replacement.commonsFile.replace(/^File:/, ''))
 );
+const previous = structuredClone(images);
 for (const v of replacements) {
   const file = v.replacement.commonsFile.replace(/^File:/, '');
   console.log(`  replace ${v.key.padEnd(28)} → ${file}`);
@@ -104,10 +125,33 @@ if (replacements.length && !DRY) {
         stdio: 'inherit',
       });
     } catch {
-      console.log(`  the fetcher reported a failure for part of: ${only}`);
+      // One failure fails the batch; retry its keys one at a time so the rest land.
+      console.log(`  the fetcher reported a failure; retrying one at a time: ${only}`);
+      for (const key of keys.slice(i, i + 20)) {
+        try {
+          execFileSync(process.execPath, ['scripts/fetch-images.mjs', '--refresh', `--only=${key}`], { cwd: ROOT, stdio: 'inherit' });
+        } catch {
+          console.log(`  ${key}: fetch failed`);
+        }
+      }
     }
   }
   images = await readJson(IMAGES);
+  // A replacement that did not land goes back to the record it replaced, so no
+  // name ever sits on top of a different picture.
+  for (const v of replacements) {
+    const file = v.replacement.commonsFile.replace(/^File:/, '');
+    if (!landed(images[v.key], file)) {
+      console.log(
+        previous[v.key]
+          ? `  ${v.key}: ${file} did not land; the previous record is restored`
+          : `  ${v.key}: ${file} did not land; there is no record for it (is the institution still in the data?)`
+      );
+      if (previous[v.key]) images[v.key] = { ...previous[v.key] };
+      else delete images[v.key];
+      if (images[v.key]?.pin && !landed(images[v.key], images[v.key].file)) delete images[v.key].pin;
+    }
+  }
   for (const [k, g] of Object.entries(galleries)) if (images[k] && !images[k].gallery) images[k].gallery = g;
 }
 
@@ -131,7 +175,7 @@ for (const v of verdicts.values()) {
   if (v.target === 'commons-main') {
     const replaced = v.verdict === 'reject' && v.replacement?.commonsFile;
     const wanted = replaced ? v.replacement.commonsFile.replace(/^File:/, '') : v.file;
-    if (replaced && record.file !== wanted) {
+    if (replaced && !landed(record, wanted)) {
       // The fetch did not land; leave the old picture unjudged rather than
       // sign a verdict onto a file nobody looked at.
       console.log(`  ${v.key}: replacement not fetched, left for the next run`);

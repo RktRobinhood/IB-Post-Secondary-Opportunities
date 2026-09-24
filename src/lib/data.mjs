@@ -12,7 +12,7 @@ import { slugify, listSentence } from './html.mjs';
 import { destinationFacet, loadCanonical } from './canonical.mjs';
 import { reconcileDestinations } from './catalogue.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
-import { publishable as editoriallyPublishable } from './imagery.mjs';
+import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -112,10 +112,30 @@ export function ibStatementFacet(s) {
   };
 }
 
+/* --- Funding lines that name a shared scheme ------------------------------
+
+   A Destination's funding list may hold { "fund": "<id>", "note": "…" }
+   instead of a sentence. It names a record in data/funding/, whose `label`
+   (who can claim it) and `otherwise` (what to do if you cannot) are written
+   once there, so every page naming the scheme carries the same condition.
+   The note is only what is particular to this Destination. */
+
+export function fundingLine(item, schemes = {}, adjectiveOf = () => null, where = null) {
+  if (typeof item === 'string' || !item?.fund) return item;
+  const f = schemes[item.fund];
+  if (!f) throw new Error(`funding line names "${item.fund}", which has no record in data/funding/`);
+  const adjective = adjectiveOf(f.destination);
+  const name = adjective ? `${adjective} ${f.name}` : f.name;
+  /* On another Destination's page the scheme is being taken abroad, which
+     usually carries conditions of its own. */
+  const label = where && where !== f.destination && f.abroad?.label ? f.abroad.label : f.label;
+  return [`${name}, ${label}.`, item.note, f.otherwise].filter(Boolean).join(' ');
+}
+
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements, fundingSchemes, applicantGroups] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -135,8 +155,16 @@ export async function load() {
       // Each institution's own IB statement, as the IB publishes it (#38).
       // A touch and a link — see docs/IB_STATEMENTS.md.
       readJson(path.join(DATA, 'ib-statements.json'), { statements: {} }),
+      // Grants whose eligibility turns on who the student is, written once so
+      // every page naming one carries the same condition (data/funding/).
+      readDir(path.join(DATA, 'funding')),
+      // The fee-status groups a student can choose, and which contains which.
+      readJson(path.join(DATA, 'applicant-groups.json'), { groups: [] }),
     ]);
   const statementFor = (key) => ibStatementFacet(ibStatements.statements?.[key]);
+  const fundingById = Object.fromEntries(fundingSchemes.map((f) => [f.id, f]));
+  const adjectiveOf = (code) => canonical.graph.destinations.get(code)?.adjective || null;
+  const resolveFunding = (list, where) => asArray(list).map((x) => fundingLine(x, fundingById, adjectiveOf, where));
 
   /* Denmark was the pilot: institution pages render from the canonical entity
      graph. The research files under data/dk stay as the input the migration
@@ -165,7 +193,7 @@ export async function load() {
     for (const inst of c.institutions) inst.ibRecognitionStatement = statementFor(inst.key);
     c.whyConsider = asArray(c.whyConsider);
     c.watchOuts = asArray(c.watchOuts);
-    c.funding = asArray(c.funding);
+    c.funding = resolveFunding(c.funding, c.code);
     c.sources = asArray(c.sources);
     c.deadlines = asArray(c.application?.deadlines);
 
@@ -262,6 +290,7 @@ export async function load() {
      36 codes and put two disagreeing Australias in the comparison table. The
      precedence rule lives in catalogue.mjs so no caller has to re-decide it. */
   const allDestinations = reconcileDestinations(migrated, countries);
+  for (const d of allDestinations) if (d.funding) d.funding = resolveFunding(d.funding, d.code);
 
   /* Which Destinations the Opportunity records actually cover.
    *
@@ -307,6 +336,9 @@ export async function load() {
     graph: canonical.graph,
     ibSubjects: ibSubjects.subjects || [],
     recognitionSchemes,
+    fundingSchemes,
+    funding: fundingById,
+    applicantGroups: applicantGroups.groups || [],
     preparation,
     config,
     evidenceSummary: summariseEvidence(canonical.graph),
@@ -620,7 +652,11 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   const commonsPick = pick(site.images, 'src');
   const commons = editoriallyPublishable(commonsPick) ? commonsPick : null;
 
-  if (prefer === 'official' && official) {
+  // A photograph reviewed and approved as showing the place beats the
+  // institution's own share image, which is as often a stock shot of students
+  // with laptops as a picture of the campus. The share image still stands in
+  // wherever there is no approved photograph.
+  if (prefer === 'official' && official && !(commons && isApproved(commonsPick))) {
     return {
       src: official.url,
       external: true,

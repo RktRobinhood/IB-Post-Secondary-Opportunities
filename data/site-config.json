@@ -62,7 +62,7 @@
   "homeDoors": {
     "decision": "Which photographs open the home page: the hero (in order) and each door, as image keys in data/images.json. An editorial choice, made by looking at the pictures, and chosen so that no photograph on the home page appears twice.",
     "denmark": {
-      "image": "dk-au"
+      "image": "ucph"
     },
     "europe": {
       "image": "gb"
@@ -76,10 +76,28 @@
       "mt"
     ]
   },
+  "homeReel": {
+    "decision": "Institutions left out of the home page reel, by id, because their photograph does not hold the reel's portrait (4:5) crop. The reel then takes the next institution from the same group. An editorial choice, made by looking at the crop; the photograph still shows on the institution's own page.",
+    "skip": [
+      "dk-via"
+    ]
+  },
   "feedback": {
     "decision": "While the site is shown to students and counsellors for feedback, a slim bar on every page links to a feedback form. Paste the form link (Microsoft Forms, Google Forms or similar) into url; set url to null to remove the bar.",
     "url": null,
     "message": "This is a preview for students and counsellors.",
     "label": "Tell us what you think"
+  },
+  "audience": {
+    "decision": "Who the site is written for (docs/PRODUCT_VISION.md, \"Who it is for\"). The default reader is an EU/EEA or Swiss citizen who is an IB Diploma candidate at a school in the school country and lives there. About a fifth of the school's students are its citizens; the rest come from across Europe. scripts/test-audience.mjs reads the school country's people and its citizens-only grants from here, so no code names them.",
+    "schoolCountry": "dk",
+    "readerGroup": "eu-eea-ch",
+    "schoolCountryPeople": {
+      "singular": "Dane",
+      "plural": "Danes"
+    },
+    "citizenGrants": [
+      "SU"
+    ]
   }
 }
