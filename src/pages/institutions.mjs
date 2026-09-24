@@ -286,7 +286,7 @@ ${hero({
                 const p = institutionPicture(site, i);
                 return card({
                   href: i.href,
-                  title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
+                  title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
                   text: firstSentence(i.about, 24),
                   image: p ? { src: p.src, alt: p.alt } : null,
                   placeholder: i.shortName || i.name,
