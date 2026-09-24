@@ -5,6 +5,12 @@ research pass per Destination, a migration per batch of records, a front-end
 pass per issue. That only works if a few things are true, and they are not
 obvious, so they are written down.
 
+**Accepting the result is a step of its own.** Before a workflow's output is
+committed as done, the coordinator puts it through the critic loop in
+[QA_CRITIC_LOOP.md](QA_CRITIC_LOOP.md): a separate critic scores it 0–10, 8 or
+above is accepted, and after five rounds below 8 the problem becomes an issue.
+Agents doing a single scoped task inside the workflow do not run the loop.
+
 ## Every finding goes into the repository, not into a report
 
 **This is the rule the others exist to protect.** An agent's report is a
