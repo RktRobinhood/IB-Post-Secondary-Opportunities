@@ -108,3 +108,34 @@ Result: **confirmed, no English-taught bachelor's.**
 
 Scope: English-taught first-cycle programmes (professional bachelor = PBA/BA prof.; academy profession = AP), excluding top-ups that need a prior AP degree. Autumn intake unless noted.
 
+Lead source: the Study in Denmark catalogue (see Task 1 cross-check) says it is being revised, and most of its non-university entries turned out to be stale. Every row below was confirmed on the institution's own site.
+
+### Business academies — Copenhagen and Zealand (EK, Zealand, Niels Brock)
+
+| Institution | Programme | City | Degree | Intake | Official URL | Note |
+|---|---|---|---|---|---|---|
+| Zealand – Academy of Technologies and Business | Architectural Technology and Construction Management | Næstved | PBA (210 ECTS) | Aug 2027 (first English intake) | https://zealand.com/fuldtid/architectural-technology-and-construction-management/ | New English programme from summer 2027; IB accepted; Mathematics C; deadline 15 Mar 2027 |
+| Zealand – Academy of Technologies and Business | Cybersecurity | Næstved | PBA | Aug 2027 (first English intake) | https://zealand.com/fuldtid/cybersecurity/ | New from 2027; Mathematics B, English B. Length conflict: the web page says 210 ECTS, the Sept 2026 brochure says 195 ECTS (https://www.zealand.dk/wp-content/uploads/2026/09/International-brochure_DONE.pdf) |
+
+Nothing else qualifies:
+- **EK – Business Academy Copenhagen** (KEA and Cphbusiness merged; kea.dk/en and cphbusiness.dk/english now redirect to ek.dk). EK states "our full degree programmes only are offered in Danish". Its English offers (Global Business, Digital Product Development, Creative Branding) are exchange semesters only. Architectural Technology and Jewellery, Technology & Business are Danish-only PBAs. https://www.ek.dk/english/about-us/programmes-at-ek ; https://www.ek.dk/english/exchange/global-business
+- **Niels Brock** gives no Danish-accredited AP/PBA through optagelse.dk. Its UK-partner BA/BSc (Hons) degrees are all marked "Not accepting new students". https://www.nielsbrock.com/en/about-us/all-our-educations/
+
+### Business academies — Jutland and Funen (BAAA, SEA/EASV, UCL, Dania, IBA, EAMV)
+
+| Institution | Programme | City | Degree | Intake | Official URL | Note |
+|---|---|---|---|---|---|---|
+| Business Academy Aarhus | Multimedia Design | Aarhus (Viby J) | AP (2 yrs) | Aug 2027 | https://www.baaa.dk/programmes/multimedia-design/ | "Entire programme taught in English"; deadlines 15 Mar (quota 2) and 5 Jul (quota 1) |
+| SEA – Syddansk Erhvervsakademi (was EASV until Jan 2026) | Computer Science | Esbjerg | AP (2.5 yrs) | Aug 2027 | https://www.s-e-a.dk/uddannelser/computer-science | Mathematics B; IB holders exempt from the English test |
+| SEA – Syddansk Erhvervsakademi | Multimedia Design | Esbjerg | AP (2 yrs) | Aug 2027 | https://www.s-e-a.dk/uddannelser/multimedia-design | Mathematics C; deadline 15 Mar 2027. The old easv.dk/en URLs return 404 |
+| Dania Academy | Cyber Security | Viborg | Professional bachelor (195 ECTS, 3¼ yrs) | Sep 2027 (first intake) | https://eadania.com/programmes/our-english-taught-programmes/cyber-security/ | English B, Mathematics B; deadline 15 Mar 2027 via optagelse.dk |
+| IBA Kolding | Euro-Asia Business Management | Kolding, then Shanghai | PBA / double degree (4 yrs) | Aug 2027 | https://iba.dk/fuldtidsuddannelser/professionsbachelor/euro-asia-business-management/ | **Borderline, exclude.** The page says "most teaching in English", but years 1–2 follow the Danish Marketing Management (markedsføringsøkonom) track |
+
+Nothing else qualifies:
+- **UCL University College**: its international full-degree programmes were "phased out from 2022" (UCL is "not allowed to admit new students… from 2022 and onwards"); the English options left are top-ups. https://www.ucl.dk/international/full-degree/full-degree-programmes
+- **Business Academy Aarhus** Digital Concept Development and **SEA** Software Development, Web Development and International Sales & Marketing are top-ups. https://www.baaa.dk/programmes/digital-concept-development/ ; https://www.s-e-a.dk/international
+- **Dania**: the old English AP programmes are gone (the old English-programmes URL returns 410), and Cyber Security is the only English programme on the current list. https://eadania.com/programmes/
+- **IBA**: Marketing Management and Multimedia Design are now Danish-only; the BA (Hons) International Business top-up is "Closed for Applications". https://iba.dk/fuldtidsuddannelser/erhvervsakademiuddannelser/multimediedesigner/ ; https://iba.dk/international/bachelor/international-business-full-time/
+- **EAMV (Herning/Holstebro)**: no English programmes; the catalogue is Danish-only. https://www.eamv.dk/videregaaende-uddannelser/alle-videregaaende-uddannelser
+- **UCN** has no English AP programmes (its English bachelor's are covered under university colleges below). https://www.ucn.dk/english/education-and-programmes/full-degree-programmes/
+
