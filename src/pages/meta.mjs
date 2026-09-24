@@ -14,7 +14,7 @@ ${hero({
   variant: 'plain',
   eyebrow: 'About',
   title: 'What this is, and what it is not',
-  lede: 'A guidance resource for IB Diploma students, built and maintained at a Danish gymnasium.',
+  lede: 'A guidance resource for IB Diploma students, built and maintained at an IB school in Denmark.',
 })}
 
 <section class="section">
@@ -108,15 +108,24 @@ const TERMS = [
   { term: 'Samordna opptak', where: 'Norway', def: 'Norway\'s central admissions service — for Norwegian-taught programmes only. English-taught programmes apply direct to the institution.' },
   { term: 'Studielink', where: 'Netherlands', def: 'The Dutch national application portal. You register there and then usually complete a second application with the university itself.' },
   { term: 'Studieprøven', where: 'Denmark', def: 'The Danish language test for higher education. It can substitute for Danish A at most universities, but it is not an upper-secondary subject and can never meet a subject grade requirement.' },
-  { term: 'SU', where: 'Denmark', def: 'Statens Uddannelsesstøtte — the Danish state education grant. DKK 7,426 a month before tax in 2026 for students living away from home. Non-Danish EU citizens must earn equal-treatment status first.' },
   { term: 'Todistusvalinta', where: 'Finland', def: 'Finland\'s certificate-based admission. Your IB grades are scored directly against published per-field tables, with no entrance exam.' },
   { term: 'UCAS', where: 'UK', def: 'The UK\'s central application service. One form, up to five choices, and two deadlines — mid-October for Oxbridge and medicine, mid-January for everything else.' },
   { term: 'UNEDasiss', where: 'Spain', def: 'The accreditation Spanish universities require from IB holders. It converts your diploma into a Spanish admission mark and is the gateway to the whole system.' },
 ];
 
-export function glossary() {
+/** A grant's glossary entry, from its record — who can claim it travels with the name. */
+function fundingTerm(f, site) {
+  const where = site.destinations?.find((d) => d.code === f.destination)?.name || f.destination;
+  const r = f.rate;
+  const rate = r ? ` ${r.currency} ${Number(r.amount).toLocaleString('en-GB')} a ${r.per} (${r.basis}) in ${r.year}.` : '';
+  return { term: f.name, where, def: `${f.longName ? `${f.longName}. ` : ''}${f.summary}${rate} ${f.otherwise}` };
+}
+
+export function glossary(site = {}) {
+  const terms = [...TERMS, ...(site.fundingSchemes || []).map((f) => fundingTerm(f, site))]
+    .sort((a, b) => a.term.localeCompare(b.term));
   const grouped = new Map();
-  for (const t of TERMS) {
+  for (const t of terms) {
     const letter = t.term[0].toUpperCase();
     if (!grouped.has(letter)) grouped.set(letter, []);
     grouped.get(letter).push(t);
@@ -194,12 +203,16 @@ const QUESTIONS = [
     took Danish A1 or Danish A Literature at either level, the Danish-taught system is open to you too.`,
   },
   {
-    q: 'Will Danish SU follow me abroad?',
-    a: `If you are a Danish citizen, usually yes — for a complete degree abroad, provided the programme is
-    recognised in that country and the qualification is usable in Denmark without extra courses. Study in
-    another Nordic country is treated especially well: it is supported for the prescribed duration plus up to
-    twelve months, and it does not consume your Danish higher-education klippekort. Outside the Nordics the cap
-    is four years. Apply through minSU's Fast Track, no later than the first month you want the grant for.`,
+    q: 'Will my student grant follow me abroad?',
+    a: `Often, yes — but which grant depends on your passport. Danish SU can pay for a complete degree abroad if
+    you can claim it (as a Danish citizen, or as an EU/EEA citizen with equal status under EU rules, for example
+    through a parent who works in Denmark) and you meet the ties-to-Denmark requirement, such as two years living
+    in Denmark in the last ten. The programme must be recognised in that country and usable in Denmark without
+    extra courses. In another Nordic country it is paid as if you studied in Denmark — for anyone starting from
+    July 2025, for the programme's prescribed length. Elsewhere it is capped at four years. Either way it uses SU
+    klip, within an overall frame of 70 for higher education abroad. Apply through minSU's Fast Track, no later
+    than the first month you want the grant for. If you cannot claim SU, look first at your own country's student
+    finance: several EU/EEA systems fund a full degree in another country.`,
   },
   {
     q: 'Is a gap year going to hurt my application?',
@@ -220,15 +233,15 @@ const QUESTIONS = [
     a: `Tuition is genuinely free for EU/EEA citizens across the Nordics, Germany, Austria, Czechia and Poland
     — with important asterisks. Norway and Iceland charge a semester or registration fee. Germany charges a
     semester contribution. Czechia and Poland are free only for programmes taught in the local language.
-    Living costs are the real number: Norway budgets NOK 15,488 a month, Denmark DKK 8,450–13,700. Free tuition
+    Living costs are the real number: Norway budgets NOK 15,488 a month (about €1,435), Denmark DKK 8,450–13,700 (about €1,130–1,830), at the ECB rate of 24 September 2026. Free tuition
     and an expensive city can still come to more than modest tuition somewhere cheap.`,
   },
   {
-    q: 'I want to study medicine but I will not make the Danish cut-off.',
+    q: 'I want to study medicine but my grades will not reach the cut-offs.',
     a: `You are far from alone, and English-taught medicine in Central Europe is a well-trodden route —
     Hungary, Czechia, Poland, Latvia and Lithuania all recruit heavily from Scandinavia. It is expensive, often
     €12,000–19,000 a year, and requires an entrance exam, though several waive it for strong IB science grades.
-    The thing to check before anything else is whether the degree will let you practise in Denmark.`,
+    The thing to check before anything else is whether the degree will let you practise in the country where you want to work — Denmark included.`,
   },
   {
     q: 'How many places can I apply to?',
@@ -334,6 +347,13 @@ ${hero({
             ]),
           })
         : html`<p><em>None recorded yet.</em></p>`}
+
+      <h2 id="globe">The globe</h2>
+      <p>The Earth on the maps is NASA's <a href="https://visibleearth.nasa.gov/images/74092" rel="noopener">Blue Marble: Next Generation</a>
+      (July 2004, NASA Earth Observatory / Reto Stöckli, NASA Goddard Space Flight Center), and its clouds are NASA's
+      <a href="https://visibleearth.nasa.gov/images/57747" rel="noopener">Blue Marble cloud layer</a> — both public domain.
+      Country borders are from <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, also public domain.
+      NASA does not endorse this site.</p>
 
       <h2 id="reuse">Reusing this</h2>
       <p>The text and data on this site are published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>

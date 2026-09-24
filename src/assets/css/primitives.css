@@ -117,13 +117,17 @@
  * cropping the sides rather than shrinking (see `slice` on the element).
  */
 .world__stage {
-  aspect-ratio: 1000 / 420;
+  /* 2:1 since the globe (ADR 0005): a little taller than the flat map's 2.38:1
+     so a tilted camera has room for the horizon, and the flat first paint
+     simply crops a little less sea. */
+  aspect-ratio: 2 / 1;
+  max-height: 78vh;
 }
+/* A phone is tall. Square shows a useful amount of a continent — or of a
+   planet — at a size a thumb can work with, and the whole panel is still in
+   the first screen of /programmes/. */
 @media (max-width: 44rem) {
-  /* A phone is tall. Nearly square shows a useful amount of a continent at a
-     size a thumb can work with; the width it gives up over a Europe frame is
-     ocean. */
-  .world__stage { aspect-ratio: 5 / 4; }
+  .world__stage { aspect-ratio: 1 / 1; }
 }
 .world__svg {
   display: block;
@@ -417,6 +421,257 @@
 }
 .world__legend-dot--sm { width: .4rem; height: .4rem; }
 .world__legend-dot--lg { width: .75rem; height: .75rem; }
+
+/* --- The globe (ADR 0005) -------------------------------------------------
+ *
+ * `assets/js/globe.js` lays a WebGL canvas, a layer of pins, a card and the
+ * camera buttons over the flat SVG, and cross-fades the SVG out once the first
+ * frame is drawn. The SVG stays in the page: it is the first paint, the no-JS
+ * map and the no-WebGL map, and `data-globe="off"` means it is the map now.
+ *
+ * The frame is space in both site themes — a night sky is not a colour scheme
+ * — so everything drawn over it (pins, labels, the hint, the credit) uses
+ * fixed light-on-dark values rather than the theme's ink. The card and the
+ * buttons are the site's own surfaces and follow the theme like any other.
+ */
+.world[data-globe]:not([data-globe="off"]) .world__stage {
+  background: radial-gradient(120% 100% at 50% 110%, #0b1426, #03050b 70%);
+  border-color: var(--rule-strong);
+}
+.world__globe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: opacity .6s var(--ease-enter, ease);
+}
+.world[data-globe="on"] .world__globe { opacity: 1; }
+.world__svg { transition: opacity .6s var(--ease-exit, ease), visibility 0s .6s; }
+.world[data-globe="on"] .world__svg { opacity: 0; visibility: hidden; }
+.world[data-globe="on"] .world__stage { cursor: grab; }
+.world[data-globe="on"] .world__stage[data-dragging] { cursor: grabbing; }
+.world[data-globe="on"] .world__stage:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.world__pins {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  --pin: #E3B863;           /* the site's sand, lifted for a night sky */
+  --pin-hot: #F4935F;       /* the site's accent, the same way */
+  --pin-ring: #FBF7F0;      /* paper */
+  --pin-ink: #F3ECE0;
+}
+.world__pin, .world__cluster {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  --r: 6px;
+  will-change: transform;
+}
+.world__pin[hidden], .world__cluster[hidden] { display: none; }
+/* The target is the size of a fingertip whatever the dot is, and invisible. */
+.world__pin::before, .world__cluster::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+}
+@media (pointer: coarse) {
+  .world__pin::before, .world__cluster::before {
+    left: calc(var(--tap) / -2);
+    top: calc(var(--tap) / -2);
+    width: var(--tap);
+    height: var(--tap);
+  }
+}
+.world__pin-dot {
+  position: absolute;
+  left: calc(var(--r) * -1);
+  top: calc(var(--r) * -1);
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border-radius: 50%;
+  background: var(--pin);
+  box-shadow: 0 0 0 1.5px var(--pin-ring), 0 0 10px 2px rgba(227, 184, 99, .55), 0 1px 3px rgba(0, 0, 0, .6);
+  pointer-events: none;
+  transition: background-color .15s ease, transform .15s ease;
+}
+/* Hollow means we only know the city, not the campus. */
+.world__pin[data-approx] .world__pin-dot {
+  background: rgba(8, 12, 20, .35);
+  box-shadow: inset 0 0 0 2.5px var(--pin), 0 0 0 1px var(--pin-ring), 0 0 10px 2px rgba(227, 184, 99, .45);
+}
+.world__pin[data-on] .world__pin-dot,
+.world__pin[data-selected] .world__pin-dot {
+  background: var(--pin-hot);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 2px var(--pin-ring), 0 0 16px 5px rgba(244, 147, 95, .7);
+}
+.world__pin[data-dim] .world__pin-dot { background: #8A8F99; box-shadow: 0 0 0 1px rgba(251, 247, 240, .6); }
+.world__pin-label {
+  position: absolute;
+  left: calc(var(--r) + 5px);
+  top: 0;
+  transform: translateY(-50%);
+  display: none;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(6, 10, 18, .74);
+  color: var(--pin-ink);
+  font: 600 12px/1.35 var(--sans);
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+.world__pin[data-label] .world__pin-label,
+.world__pin[data-on] .world__pin-label { display: block; }
+.world__pin[data-on] .world__pin-label { background: rgba(6, 10, 18, .9); box-shadow: 0 0 0 1px var(--pin-hot); }
+.world__pin[data-on], .world__pin[data-selected] { z-index: 2; }
+
+.world__cluster-n {
+  position: absolute;
+  left: calc(var(--r) * -1);
+  top: calc(var(--r) * -1);
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pin);
+  color: #1A1613;
+  font: 700 13px/1 var(--sans);
+  box-shadow: 0 0 0 2px var(--pin-ring), 0 0 0 7px rgba(227, 184, 99, .28), 0 0 14px 4px rgba(227, 184, 99, .4);
+  pointer-events: none;
+}
+.world__cluster[data-on] .world__cluster-n,
+.world__cluster[data-selected] .world__cluster-n { background: var(--pin-hot); }
+.world__cluster[data-dim] .world__cluster-n { background: #8A8F99; }
+
+/* The card: what was chosen, how much is there, and the one way on. A site
+   surface, so it follows the theme. */
+.world__card {
+  position: absolute;
+  z-index: 3;
+  top: var(--s3);
+  left: var(--s3);
+  width: min(19rem, calc(100% - 5.5rem));
+  max-height: calc(100% - 1.5rem);
+  overflow: auto;
+  padding: var(--s3) var(--s4) var(--s4);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .35);
+  cursor: auto;
+  animation: world-card-in var(--motion-overview-to-detail) both;
+}
+.world__card[hidden] { display: none; }
+@keyframes world-card-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+/* Over the corner of the card — and of its photograph, when it has one — on
+   a small disc of the card's own paper, so it reads on either. */
+.world__card-close {
+  position: absolute;
+  z-index: 1;
+  top: .35rem;
+  right: .35rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  color: var(--ink-soft);
+  font: 400 1.3rem/1 var(--sans);
+  cursor: pointer;
+}
+.world__card-close:hover { color: var(--accent); }
+.world__card-img {
+  display: block;
+  width: calc(100% + 2 * var(--s4));
+  max-width: none;
+  margin: calc(var(--s3) * -1) calc(var(--s4) * -1) var(--s3);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.world__card-title { margin: 0 0 .25rem; padding-right: 1.75rem; font-size: 1.05rem; line-height: 1.25; }
+.world__card-img + .world__card-title { padding-right: 0; }
+.world__card-title:focus { outline: none; }
+.world__card-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.world__card-meta { margin: 0 0 .35rem; font-size: .8125rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.world__card-cue, .world__card-where { margin: 0 0 .35rem; font-size: .75rem; color: var(--ink-mute); }
+.world__card-go { display: inline-block; margin-top: .35rem; font-weight: 600; font-size: .875rem; }
+.world__card-go::after { content: " \2192"; }
+.world__card-list { list-style: none; margin: .25rem 0 .35rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+.world__card-list button {
+  padding: .2rem .6rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font: 600 .75rem/1.4 var(--sans);
+  cursor: pointer;
+}
+.world__card-list button:hover { border-color: var(--accent); color: var(--ink); }
+@media (max-width: 44rem) {
+  /* On a phone the card sits along the bottom, clear of the thumb's globe. */
+  .world__card { top: auto; bottom: var(--s2); left: var(--s2); right: var(--s2); width: auto; max-height: 62%; }
+  /* A strip of the photograph, not the photograph: the title, the facts and
+     the way on have to show without scrolling inside a card on a 358px stage.
+     globe.js flies the place into the room above the card. */
+  .world__card-img { aspect-ratio: auto; height: 5.5rem; }
+}
+
+.world__hint {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: var(--s4);
+  transform: translateX(-50%);
+  margin: 0;
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  background: rgba(6, 10, 18, .82);
+  color: #F3ECE0;
+  font: 600 .8125rem/1.3 var(--sans);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.world__hint[hidden] { display: none; }
+.world__credit {
+  position: absolute;
+  right: var(--s2);
+  bottom: var(--s1);
+  margin: 0;
+  font-size: var(--type-floor);
+  color: rgba(243, 236, 224, .6);
+}
+.world__credit a { color: inherit; text-decoration: none; }
+.world__credit a:hover { text-decoration: underline; }
+
+/* Reduced motion: the globe still arrives, it just does not fade in, and the
+   card does not slide. The camera itself is instant in globe.js. */
+@media (prefers-reduced-motion: reduce) {
+  .world__globe, .world__svg, .world__pin-dot { transition: none; }
+  .world__card { animation: none; }
+}
+:root[data-motion="reduced"] .world__globe,
+:root[data-motion="reduced"] .world__svg,
+:root[data-motion="reduced"] .world__pin-dot { transition: none; }
+:root[data-motion="reduced"] .world__card { animation: none; }
 
 /* --- MapChapter ----------------------------------------------------------- */
 

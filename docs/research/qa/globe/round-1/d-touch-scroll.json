@@ -1,0 +1,47 @@
+{
+ "target": {
+  "x": 154,
+  "y": 469.18438720703125,
+  "cls": "world__pin",
+  "txt": "Enschede"
+ },
+ "events": [
+  "pointerdown:touch:world__pin",
+  "touchstart::world__pin",
+  "pointerup:touch:world__pin",
+  "touchend::world__pin",
+  "click:touch:world__pin"
+ ],
+ "state": {
+  "view": {
+   "lat": 52.2425,
+   "lon": 6.852499999999964,
+   "alt": 0.32
+  },
+  "card": "Enschede",
+  "ta": "none"
+ },
+ "swipeUpAfterHold": {
+  "scrolled": 0,
+  "view": {
+   "lat": 52.2425,
+   "lon": 6.852499999999964,
+   "alt": 0.32
+  }
+ },
+ "gestureScrollAfterHold": 0,
+ "pinch": {
+  "alt0": 0.32,
+  "alt1": 0.32
+ },
+ "scrollCalls": [
+  "scroll 761",
+  "scroll 762"
+ ],
+ "stageTopAfter": -230,
+ "manualNearest": -65,
+ "overflow": [
+  "BODY. hidden auto/auto"
+ ],
+ "logs": []
+}

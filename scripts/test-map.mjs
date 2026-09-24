@@ -39,7 +39,13 @@ console.log('\nMaps\n');
 const css = await fs.readFile(path.join(ROOT, 'src', 'assets', 'css', 'primitives.css'), 'utf8');
 /* The control policy lives in site.css since #34; the map's own styles stay here. */
 const siteCss = await fs.readFile(path.join(ROOT, 'src', 'assets', 'css', 'site.css'), 'utf8');
-const mapJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'map.js'), 'utf8');
+/* Since ADR 0005 the flat interaction layer lives in map-flat.js (the fallback)
+   and map.js only decides between it and the globe. The flat map's guards
+   follow the flat map; the globe has its own at the end. */
+const mapJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'map-flat.js'), 'utf8');
+const entryJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'map.js'), 'utf8');
+const globeJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'globe.js'), 'utf8');
+const texturesReadme = await fs.readFile(path.join(ROOT, 'src', 'assets', 'img', 'globe', 'README.md'), 'utf8').catch(() => '');
 const primitives = await fs.readFile(path.join(ROOT, 'src', 'lib', 'primitives.mjs'), 'utf8');
 
 const decl = (selector, prop) => {
@@ -97,7 +103,7 @@ check('a narrow viewport gets its own panel shape', () => {
 
 check('the touch target is at least 44px', () => {
   const m = mapJs.match(/const TOUCH_TARGET\s*=\s*(\d+)/);
-  assert.ok(m, 'TOUCH_TARGET is gone from map.js');
+  assert.ok(m, 'TOUCH_TARGET is gone from map-flat.js');
   assert.ok(Number(m[1]) >= 44, `TOUCH_TARGET is ${m[1]}`);
 });
 
@@ -164,7 +170,7 @@ check('the page can still be scrolled with the map at rest', () => {
   );
 });
 
-check('the wheel still does not zoom', () => {
+check('the flat map still does not zoom on the wheel', () => {
   // DYNAMIC_SITE_INSPIRATION.md is explicit, and it is the easiest thing to add
   // by accident when adding the other gestures.
   assert.ok(!/addEventListener\(\s*'wheel'/.test(mapJs), 'a wheel handler appeared; page scrolling must not zoom the map');
@@ -179,6 +185,185 @@ check('markers stay decorative, so the list stays the one control surface', () =
       'and a marker disappears when its place is grouped, so it is a control that vanishes while in use'
   );
 });
+
+check('the globe zooms on the wheel only once it has been taken hold of', () => {
+  /* The owner asked for wheel zoom (ADR 0005); the research doc forbids a map
+     that eats the page's scroll. Both hold if the wheel zooms only after a
+     click or drag on the globe, or with Ctrl/Cmd held (which is also what a
+     trackpad pinch sends) — and nothing cancels the scroll before that test. */
+  const handler = globeJs.match(/addEventListener\(\s*'wheel',\s*\(e\)\s*=>\s*\{([\s\S]{0,400})/);
+  assert.ok(handler, 'no wheel handler found on the globe');
+  const body = handler[1];
+  const guard = body.search(/if\s*\(\s*!engaged\s*&&\s*!e\.ctrlKey\s*&&\s*!e\.metaKey\s*\)/);
+  const prevent = body.indexOf('e.preventDefault()');
+  assert.ok(guard >= 0, 'the wheel handler no longer checks that the globe is engaged (or Ctrl/Cmd held)');
+  assert.ok(prevent > guard, 'the wheel handler cancels the page scroll before checking that the globe is engaged');
+  assert.match(globeJs, /'pointerleave'[\s\S]{0,200}disengage\(\)/,
+    'leaving the globe no longer lets go of it, so a wheel passing over later would zoom');
+});
+
+check('on the globe, a thumb can still scroll the page until it takes hold', () => {
+  assert.match(globeJs, /touchAction\s*=\s*engaged \? 'none' : 'pan-y'/,
+    'touch-action is not pan-y until the globe is engaged — a thumb swiping up the page would spin the planet instead');
+});
+
+/* --- The globe's fallback and reduced-motion guarantees (ADR 0005) -------- */
+
+console.log('\nGlobe\n');
+
+check('the flat SVG is still the first paint: built into the page, with the globe data beside it', () => {
+  assert.match(primitives, /<svg viewBox="0 0 \$\{W\} \$\{H\}"/,
+    'worldWindow() no longer writes the inline SVG — without it there is no map with JavaScript or WebGL off');
+  assert.match(primitives, /class="world__data"/, 'worldWindow() no longer writes the places for the globe');
+});
+
+check('the globe is loaded progressively, never in the first request', () => {
+  assert.ok(!/^\s*import[^;]*['"]\.\/globe\.js['"]/m.test(entryJs),
+    'map.js imports globe.js statically, so every page pays for the engine before first paint');
+  assert.match(entryJs, /await import\(\s*'\.\/globe\.js'\s*\)/, 'map.js no longer imports the globe on demand');
+  assert.match(entryJs, /IntersectionObserver/, 'the globe no longer waits for the map to come near the viewport');
+});
+
+check('without WebGL, or when the globe fails, the flat map takes over', () => {
+  assert.match(entryJs, /WebGLRenderingContext/, 'map.js no longer checks for WebGL before trying the globe');
+  assert.match(entryJs, /catch\s*\(err\)\s*\{[\s\S]{0,200}flat\(/, 'a globe that throws no longer falls back to the flat map');
+  assert.match(entryJs, /onFail:\s*\(\w*\)\s*=>\s*flat\(/, 'a lost WebGL context no longer falls back to the flat map');
+  assert.match(globeJs, /failIfMajorPerformanceCaveat/, 'the globe no longer refuses a software-rendered context');
+  assert.match(globeJs, /swiftshader\|llvmpipe/i, 'the globe no longer refuses a renderer that names itself as software');
+  assert.match(globeJs, /onFail\?\.\('frames too slow'\)/, 'a globe the machine cannot draw fast enough no longer hands over to the flat map');
+  assert.match(globeJs, /webglcontextlost/, 'the globe no longer listens for a lost context');
+  assert.match(entryJs, /get\('map'\)\s*===\s*'flat'/, '?map=flat no longer forces the fallback, so nobody can look at it on purpose');
+});
+
+check('the SVG is hidden only once the globe has drawn', () => {
+  const hides = [...css.matchAll(/([^{}]*\.world__svg[^{}]*)\{([^}]*)\}/g)]
+    .filter(([, , body]) => /opacity:\s*0\b|visibility:\s*hidden|display:\s*none/.test(body));
+  assert.ok(hides.length, 'no rule hides the SVG under the globe');
+  for (const [, sel] of hides) {
+    assert.match(sel, /\[data-globe="on"\]/,
+      `"${sel.trim()}" hides the flat map without waiting for the globe — a failed globe would leave no map`);
+  }
+});
+
+check('reduced motion makes every camera move instant and stops the idle spin, the drift and the rush', () => {
+  assert.match(globeJs, /getAttribute\('data-motion'\)\s*===\s*'reduced'/, "the globe ignores the site's own motion toggle");
+  assert.match(globeJs, /prefers-reduced-motion: reduce/, 'the globe ignores the operating-system setting');
+  const fly = globeJs.match(/function flyTo\([\s\S]*?\n  \}/);
+  assert.ok(fly, 'flyTo is gone');
+  assert.match(fly[0], /if \(reducedMotion\(\)\) \{[\s\S]{0,200}Object\.assign\(view, to\)[\s\S]{0,200}return;/,
+    'under reduced motion flyTo no longer jumps straight to the target');
+  assert.match(globeJs, /let idle = !reducedMotion\(\)/, 'the idle spin no longer starts off under reduced motion');
+  assert.match(globeJs, /idle && !reducedMotion\(\)/, 'the idle spin no longer checks reduced motion each frame');
+  assert.match(globeJs, /reducedMotion\(\) \? 0 :/, 'the cloud drift no longer stops under reduced motion');
+  assert.match(globeJs, /function stopMotion\(\)[\s\S]{0,120}rush = 0/, 'reduced motion no longer cancels the cloud rush');
+});
+
+check('the globe pauses offscreen and in a hidden tab, and caps the pixel ratio', () => {
+  assert.match(globeJs, /document\.hidden/, 'the render loop no longer stops in a hidden tab');
+  assert.match(globeJs, /new IntersectionObserver/, 'the render loop no longer stops when the map is scrolled away');
+  const cap = globeJs.match(/const DPR_CAP = ([\d.]+)/);
+  assert.ok(cap && Number(cap[1]) <= 2, 'devicePixelRatio is no longer capped at 2 or below');
+});
+
+check('pins stay decorative, so the list stays the one control surface', () => {
+  assert.match(globeJs, /class: 'world__pins', 'aria-hidden': 'true'/, 'the pin layer is no longer hidden from assistive technology');
+  assert.ok(!/world__pin[^\n]*tabindex/i.test(globeJs), 'a pin became focusable');
+  assert.match(globeJs, /for \(const \[id, a\] of links\)[\s\S]{0,300}'focus'/, 'focusing a list entry no longer lights its pin');
+});
+
+check('the globe does not branch on a country', () => {
+  /* Behaviour comes from the records. A country code or name written into the
+     engine is a rule for one Destination hiding in code. */
+  const codes = globeJs.match(/['"](dk|nl|gb|uk|de|fr|se|no|fi|us|ca|au|Denmark|Netherlands)['"]/g);
+  assert.ok(!codes, `country literals in globe.js: ${codes}`);
+});
+
+{
+  /* The budget, as the owner moved it in round 1: what the first frame waits
+     for stays small; the big textures are fetched only later (the 4096 day map
+     once the globe is idle, the detail texture on a close approach), and the
+     engine must actually load them lazily for this to be a budget at all. */
+  const dir = path.join(ROOT, 'src', 'assets', 'img', 'globe');
+  const probe = async (f) => {
+    try {
+      const buf = await fs.readFile(path.join(dir, f));
+      // A lossy WebP's VP8 frame header carries the size at bytes 26..29.
+      return { f, bytes: buf.length, w: buf.readUInt16LE(26) & 0x3fff, h: buf.readUInt16LE(28) & 0x3fff };
+    } catch {
+      return { f, bytes: 0, w: 0, h: 0 };
+    }
+  };
+  const firstLoad = await Promise.all(['earth-day.webp', 'earth-clouds.webp'].map(probe));
+  const lazy = await Promise.all(['earth-day-4096.webp', 'earth-detail-europe.webp'].map(probe));
+  const detailJson = await fs.readFile(path.join(dir, 'detail.json'), 'utf8').then(JSON.parse).catch(() => null);
+  check('the first frame waits for at most 2048 x 1024 textures, under 500 kB together', () => {
+    for (const t of firstLoad) {
+      assert.ok(t.w && t.h, `${t.f} is missing or not a lossy WebP`);
+      assert.ok(t.w <= 2048 && t.h <= 1024, `${t.f} is ${t.w}x${t.h}`);
+    }
+    const total = firstLoad.reduce((n, t) => n + t.bytes, 0);
+    assert.ok(total < 500 * 1024, `the first-load textures are ${Math.round(total / 1024)} kB`);
+  });
+  check('the big textures are at most 4096 x 2048, under 600 kB each, and loaded lazily', () => {
+    for (const t of lazy) {
+      assert.ok(t.w && t.h, `${t.f} is missing or not a lossy WebP`);
+      assert.ok(t.w <= 4096 && t.h <= 2048, `${t.f} is ${t.w}x${t.h}`);
+      assert.ok(t.bytes < 600 * 1024, `${t.f} is ${Math.round(t.bytes / 1024)} kB`);
+    }
+    assert.ok(detailJson && ['west', 'east', 'south', 'north'].every((k) => Number.isFinite(detailJson[k])),
+      'detail.json does not say where the detail texture sits');
+    assert.match(globeJs, /function upgradeDay\(\)[\s\S]{0,400}earth-day-4096\.webp/, 'the 4096 day map is no longer loaded on its own, after the first frame');
+    assert.match(globeJs, /function maybeDetail\([\s\S]{0,300}at\.alt > FINE_ALT/, 'the detail texture is no longer held back until a close approach');
+    assert.match(globeJs, /requestIdleCallback/, 'the big day map is no longer deferred to idle time');
+  });
+  check("the textures' source and licence are recorded beside them", () => {
+    assert.match(texturesReadme, /public domain/i, 'no licence in src/assets/img/globe/README.md');
+    assert.match(texturesReadme, /eoimages\.gsfc\.nasa\.gov/, 'no source URL in src/assets/img/globe/README.md');
+  });
+}
+
+{
+  /* Every light is in its own country. Canada's light sat in Minnesota for a
+     round because a country's light was the mean of its campuses; now it is
+     the medoid (src/lib/geo.mjs), and this reads every light the maps can draw
+     back against the finer borders the globe dives into. A coastal city may
+     fall just offshore at 50m, so "inside or within 30 km" is the test. */
+  const { load } = await import('../src/lib/data.mjs');
+  const { centroid } = await import('../src/pages/destinations.mjs');
+  const { insideRings, kmToRings } = await import('../src/lib/geo.mjs');
+  const borders = JSON.parse(await fs.readFile(path.join(ROOT, 'src', 'assets', 'geo', 'borders-50m.json'), 'utf8'));
+  const ringsOf = new Map();
+  for (const c of borders.countries) if (c.id) ringsOf.set(c.id, [...(ringsOf.get(c.id) || []), ...c.rings]);
+  const site = await load({ quiet: true });
+  const lights = [];
+  for (const c of site.countries) {
+    const at = centroid(c);
+    if (at) lights.push({ what: `${c.name} (its country light)`, country: c.code, ...at });
+    for (const i of c.institutions || []) if (i.coords) lights.push({ what: i.shortName || i.name, country: c.code, ...i.coords });
+  }
+  for (const p of site.graph?.places?.values() || []) {
+    if (p.coordinates && p.destination) lights.push({ what: p.id, country: p.destination, ...p.coordinates });
+  }
+  /* True exceptions, by place id, each with its reason: an institution
+     listed under one Destination whose campus is in another country. The light
+     is right to be where the campus is. A new entry needs a reason as good. */
+  const ABROAD = new Map([
+    ['hu-vienna-austria', 'Central European University is accredited in Hungary and teaches in Vienna'],
+  ]);
+  const placeOf = new Map();
+  for (const c of site.countries) for (const i of c.institutions || []) if (i.place) placeOf.set(i.shortName || i.name, i.place);
+  const misplaced = lights
+    .filter((l) => !ABROAD.has(l.what) && !ABROAD.has(placeOf.get(l.what)))
+    .filter((l) => ringsOf.has(l.country))
+    .filter((l) => {
+      const rings = ringsOf.get(l.country);
+      return !insideRings(l.lat, l.lon, rings) && kmToRings(l.lat, l.lon, rings) > 30;
+    })
+    .map((l) => `${l.what} [${l.country}] at ${l.lat.toFixed(2)}, ${l.lon.toFixed(2)}`);
+  check(`every light sits inside its own country (${lights.length} lights, within 30 km of the 50m outline)`, () => {
+    assert.deepEqual(misplaced, [], 'these lights are drawn outside their own country');
+  });
+}
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll map guards pass\n');
 process.exit(failures ? 1 : 0);

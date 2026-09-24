@@ -42,6 +42,7 @@ work passes only when each scores 8 or above.
 | Photographs | **Photo editor** — is it the right place, is it beautiful, would a 17-year-old stop scrolling for it; no logos, maps, events, car parks. |
 | Research and data | **Admissions counsellor** — would I repeat this to a student in a meeting? Checks a sample against the cited official pages; one wrong deadline fails the round. |
 | Copy | **Editor** — short, concrete, true; no hedging paragraphs, no jargon a student would not know. |
+| The globe, or any camera motion | **Art director** as above, plus a **motion critic** — does it feel like holding a world (drag, spin, fly, the dive through the clouds), does it stay readable while it moves, and does reduced motion still arrive everywhere? Judges `docs/research/qa/globe/shoot.mjs` output, which renders mid-flight frames deterministically, at desktop and phone width and in both themes. |
 | Code and structure | **Maintainer** — could the owner make next year's update without reading this code? Modular, named for what it holds, no country branches, tests that fail when it breaks. |
 
 ## The brief every critic is given

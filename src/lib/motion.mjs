@@ -6,10 +6,11 @@
  * or a completed student action. Anything that does not is decoration competing
  * with reading, and does not get a token.
  *
- * Three of those four have a token below. The fourth, geographic movement, has
- * one spender — the camera in `assets/js/map.js` — and that file spends
- * `overview-to-detail` on it; the note above `MOTION` records why its own token
- * was removed rather than left sitting here unused.
+ * All four have a token below. The fourth, `geographic`, came back with the
+ * globe (ADR 0005): the camera in `assets/js/globe.js` is its one spender, and
+ * the note above `MOTION` records why it was once removed and what brought it
+ * back. The flat fallback (`assets/js/map-flat.js`) still pans on
+ * `overview-to-detail`, as it always did.
  *
  * Each token carries its purpose in the data, not in a comment, so the
  * generated stylesheet and the documentation cannot drift apart. Every token
@@ -30,6 +31,12 @@ export const EASING = {
 };
 
 /*
+ * **Since ADR 0005 this history is closed: `geographic` is back, below, and
+ * the globe spends it.** What follows is why it was once removed, kept because
+ * both reasons still bind the token now that it exists — it is spent only on a
+ * camera a student set moving, never on a page load, and never on a CSS
+ * transform over the inline SVG.
+ *
  * There used to be a fifth token, `geographic`: 900ms on the camera easing, for
  * "the camera moves across the world — a country comes into view, or the map
  * returns to the broad band". It is gone, and this is the record of why, so
@@ -59,8 +66,18 @@ export const EASING = {
  *
  * It comes back when something genuinely flies a camera — issue #19's globe is
  * the obvious candidate — together with the code that spends it, in that order.
+ * (It did: ADR 0005, 24 September 2026.)
  */
 export const MOTION = [
+  {
+    token: 'geographic',
+    purpose:
+      'The camera travels across the world because a student chose a place: pull out, travel, dive in — through the clouds when it comes down past them. The base length of a flight; the globe scales it with the distance travelled.',
+    duration: 1400,
+    easing: EASING.camera,
+    reduced: 'The camera is at the place at once. No flight, no idle spin, no cloud rush; the live region still says where it went.',
+    properties: ['camera'],
+  },
   {
     token: 'set-change',
     purpose: 'The filtered set changed: lights fade out, gather, or brighten as results are added or removed.',

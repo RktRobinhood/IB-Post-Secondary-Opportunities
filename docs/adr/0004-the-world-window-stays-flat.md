@@ -1,5 +1,10 @@
 # The world window stays flat: a globe spends two-thirds of the panel on fidelity the task never uses
 
+> **Superseded by [ADR 0005](0005-the-world-window-becomes-a-globe.md)** on
+> 24 September 2026. The site owner overruled this decision and asked for a
+> rotating, flyable 3D globe; 0005 records how that build answers each cost
+> measured here. The measurements below stand as measurements.
+
 ## What forced the decision
 
 Issue #19 asks for a rotating, flyable 3D globe — "the thing a student remembers

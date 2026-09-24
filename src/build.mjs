@@ -27,6 +27,7 @@ import { slugify } from './lib/html.mjs';
 import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
 import { summarise as summariseEvidence } from './lib/evidence-policy.mjs';
+import { destinationFacet } from './lib/canonical.mjs';
 
 const SCHEMA_VERSION = '1.0';
 
@@ -40,7 +41,9 @@ function dataRevision() {
 }
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+/* DIST_DIR builds somewhere other than dist/ — for an agent that needs a
+   build nobody else will wipe while it is being looked at (PARALLEL_WORK.md). */
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const ASSETS = path.join(ROOT, 'src', 'assets');
 
 const BASE = (process.env.SITE_BASE || '').replace(/\/$/, '');
@@ -276,7 +279,7 @@ async function main() {
 
   /* Meta */
   await write('/about/', meta.about(site));
-  await write('/glossary/', meta.glossary());
+  await write('/glossary/', meta.glossary(site));
   await write('/faq/', meta.faq());
   await write('/credits/', meta.credits(site));
   await write('/trust/', trust(site));
@@ -296,6 +299,27 @@ async function main() {
   // the documented purpose of each token cannot drift apart.
   await fs.writeFile(path.join(DIST, 'assets', 'css', 'motion.css'), motionCss());
   await fs.writeFile(path.join(DIST, 'data.json'), dataDump(site));
+  // The globe (assets/js/globe.js, ADR 0005) draws borders from the same
+  // basemap the flat map is baked from, and names a clicked country's page
+  // from the Destination records. Both are site-wide and fetched once, after
+  // the flat map has painted, so neither is inlined into any page.
+  await fs.mkdir(path.join(DIST, 'assets', 'geo'), { recursive: true });
+  await fs.copyFile(
+    path.join(ROOT, 'data', 'geo', 'countries.json'),
+    path.join(DIST, 'assets', 'geo', 'countries.json')
+  );
+  await fs.writeFile(
+    path.join(DIST, 'assets', 'geo', 'destinations.json'),
+    /* Every Destination, with the page it actually lives at — a Destination
+       with a hand-written section (canonical.mjs DESTINATION_HUBS) links there,
+       the rest to their generated page. From the records, never a name here. */
+    JSON.stringify((site.destinations || site.countries).map((d) => ({
+      code: d.code,
+      name: d.name,
+      flag: d.flag || '',
+      href: url(destinationFacet(site.graph?.destinations?.get(d.code) || d, d.code).href),
+    })))
+  );
 
   /* GitHub Pages must not run Jekyll over this. */
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');

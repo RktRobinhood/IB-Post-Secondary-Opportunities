@@ -110,3 +110,8 @@ _Avoid_: Primary source (when responsibility is unclear)
 One Destination's published rules for reading an IB Diploma in its own vocabulary: the authority that publishes them, the subject scale and grade scale they are written on, and the tables that translate an IB subject and an IB grade into those scales. A Requirement written on a local scale names that scale and is assessed through the Scheme that defines it; a Requirement written in IB terms is assessed directly and needs no Scheme at all, which is why most Destinations have none.
 _Avoid_: Conversion table, equivalence, mapping
 
+## Surfaces
+
+**World Window**:
+The geographic view of the places a page holds, drawn from the same list that sits beneath it: a globe where WebGL runs (ADR 0005), the build-time flat map everywhere else and as the first paint. It lights, groups and flies to Places; the list under it is the control, and the two can never disagree because the view is drawn from the list.
+_Avoid_: Map widget, globe component, hero map

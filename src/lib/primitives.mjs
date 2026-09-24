@@ -100,6 +100,19 @@ const BASEMAP = JSON.parse(
  * @param {object} [o.bounds] { north, south, west, east } — defaults to Europe
  * @param {string} [o.caption]
  * @param {string} [o.activeLayer] what the lights currently mean
+ * @param {string} [o.unit]   what `count` counts, singular ("programme"), for
+ *                            the globe's cards. Absent: the cards show no count.
+ *
+ * A place may also carry `country` (the ISO code of the Destination it sits in,
+ * so the globe can total a country without guessing from a raster), `image`
+ * (a picture the page already shows of it) and `external` (its `href` leaves
+ * the site). All three are optional and none of them changes the SVG.
+ *
+ * **The SVG is the first paint and the fallback, not the map.** Since ADR 0005
+ * `assets/js/map.js` replaces it with a WebGL globe once the figure is near the
+ * viewport and WebGL is there. The globe reads the places from the JSON block
+ * this writes, not from the markers, because it needs every place — a place
+ * outside the flat frame is still somewhere on a sphere.
  */
 /*
  * A note on `preserveAspectRatio="xMidYMid slice"`, since it decides the shape
@@ -114,7 +127,7 @@ const BASEMAP = JSON.parse(
  * With `slice` the panel keeps whatever height the stylesheet gives it and
  * gives up the sides instead. For a Europe frame what it gives up is Atlantic.
  */
-export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world' }) {
+export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '' }) {
   const W = 1000;
   const H = 420;
   const view = frameFor(bounds || boundsFor(places), W / H);
@@ -158,7 +171,26 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
         ? 'Placed at the country, not at a campus'
         : 'Placed at the city, not at the campus';
 
-  return html`<figure class="world" id="${id}" data-world>
+  // What the globe needs about every place, including the ones the flat frame
+  // leaves out. `<` is escaped so no record can close the script element.
+  const globeData = JSON.stringify(
+    dots.map((d) => ({
+      id: d.id,
+      name: d.name,
+      lat: +d.lat.toFixed(4),
+      lon: +d.lon.toFixed(4),
+      count: d.count || 0,
+      href: d.href ? url(d.href) : '',
+      state: d.state || '',
+      cue: cueFor(d),
+      country: d.country || '',
+      image: d.image ? url(d.image) : '',
+      external: !!d.external,
+    }))
+  ).replace(/</g, '\\u003c');
+
+  return html`<figure class="world" id="${id}" data-world${unit ? html` data-unit="${unit}"` : ''}${
+    bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}>
   <div class="world__stage">
     <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"
          class="world__svg" role="img" data-w="${W}" data-h="${H}"
@@ -198,6 +230,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       </g>
       <g class="world__groups" aria-hidden="true"></g>
     </svg>
+    <script type="application/json" class="world__data">${raw(globeData)}</script>
   </div>
 
   <!-- The semantic list is the interaction source of truth. The picture is an
@@ -208,7 +241,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
   <ul class="world__list" aria-label="${activeLayer}">
     ${dots.map(
       (d) => html`<li>
-        <a href="${d.href ? url(d.href) : `#${id}`}" data-place="${d.id}">
+        <a href="${d.href ? url(d.href) : `#${id}`}" data-place="${d.id}"${d.href && d.external ? raw(' rel="noopener nofollow"') : ''}>
           <span class="world__name">${d.name}</span>
           ${d.count ? html`<span class="world__count">${d.count}</span>` : ''}
           ${d.state ? html`<span class="visually-hidden">. ${d.state}</span>` : ''}
@@ -833,6 +866,16 @@ export const STATE = {
  * so an undated event carries none and is simply never marked — which is
  * correct, and is why the attribute is omitted rather than left empty.
  */
+/* The applicant groups in schemas/common.schema.json, as a student reads them.
+   The raw value ("non-eu") reached the page for a while and read as "not for
+   you" to the EU citizens this site is mostly for. */
+const AUDIENCE = {
+  'eu-eea-ch': 'EU, EEA and Swiss citizens',
+  nordic: 'Nordic citizens',
+  domestic: 'citizens and residents of this country',
+  'non-eu': 'applicants from outside the EU, EEA and Switzerland',
+};
+
 export function deadlineList(events, { showDestination = false, emptyText } = {}) {
   if (!events.length) {
     return STATE.empty(
@@ -901,7 +944,7 @@ function deadlineItem(e, { showDestination }) {
         ? html`<p class="timeline__access-reason"><strong>${READER_ACCESS.conditional.label}:</strong> ${e.access.reason}</p>`
         : ''}
       ${e.audience && e.audience !== 'any'
-        ? html`<p class="timeline__audience">Applies to: ${e.audience}</p>`
+        ? html`<p class="timeline__audience">Applies to: ${AUDIENCE[e.audience] || e.audience}</p>`
         : ''}
       ${e.consequence && e.consequence !== 'indicative'
         ? html`<p class="timeline__consequence"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>

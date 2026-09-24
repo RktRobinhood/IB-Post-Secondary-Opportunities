@@ -1,0 +1,43 @@
+{
+  "programmes": "on",
+  "pinCard": {
+    "name": "Sønderborg",
+    "visibility": "visible",
+    "cardOpacity": "0",
+    "anims": [
+      [
+        "world-card-in",
+        "running",
+        0
+      ]
+    ]
+  },
+  "reducedMotion": true,
+  "dark": "on",
+  "phoneFirstScreen": {
+    "top": 486,
+    "bottom": 844,
+    "vh": 844
+  },
+  "phone": "on",
+  "/europe/": "on",
+  "/world/": "on",
+  "/destinations/nl/": "on",
+  "flat": "off",
+  "interaction": {
+    "wheelUntouchedScrollsPage": true,
+    "ctrlWheelZooms": true,
+    "dragSpins": true,
+    "wheelWhenHeldZooms": true,
+    "countryUnderClick": "se",
+    "countryClickCard": "🇸🇪 Sweden",
+    "listClickCard": "🇵🇹 Portugal",
+    "listClickCamera": {
+      "lat": 40,
+      "lon": -9
+    },
+    "url": "/europe/"
+  },
+  "drawMs": 0.331,
+  "console": []
+}

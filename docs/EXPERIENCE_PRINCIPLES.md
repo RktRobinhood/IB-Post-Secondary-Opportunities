@@ -8,6 +8,8 @@ The experience should feel generous, editorial, and full of discovery. Beauty is
 
 Use a wide, cropped view of the earth or map as a recurring stage. It may curve, pan, rotate slightly, or zoom into regions, but it should not default to a small complete globe surrounded by dead space.
 
+Since [ADR 0005](adr/0005-the-world-window-becomes-a-globe.md) the stage is a real globe (`assets/js/globe.js`): at rest it sits large and cropped, the horizon curving across the top of the frame over the places the page holds; a student can drag it, spin it, zoom it, and click a country or a light to fly there — out, across, and down through the clouds. The build-time flat map stays underneath as the first paint and the fallback, and the list of places under it stays the control surface.
+
 The map and results must share one state:
 
 - changing a filter updates visible locations and their intensity;
@@ -21,6 +23,8 @@ Location lights can communicate availability, clustering, or current filter rele
 ## Motion language
 
 Motion should explain one of four things: geographic movement, a change in the filtered set, progression from overview to detail, or a completed student action. Avoid perpetual motion that competes with reading.
+
+The globe's one exception is deliberate and bounded: until the first touch it turns slowly (a whole-world view) or sways a few degrees (a close one), so it reads as something to pick up. It stops for good at the first drag, click, key or list activation, never runs under reduced motion, and never runs offscreen. A flight is geographic movement a student asked for, and spends the `geographic` token.
 
 - Prefer slow camera easing, staggered lights, route traces, and gentle reveals over bouncy interface animation.
 - Keep text and controls stable while the geographic layer moves.
