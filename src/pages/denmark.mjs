@@ -7,12 +7,21 @@ import {
 import { picture } from '../lib/data.mjs';
 import { contextFor } from '../lib/canonical.mjs';
 
+/** The first publishable photograph among these image keys, shaped for a hero. */
+function photo(site, keys) {
+  for (const key of keys) {
+    const p = picture(site, key, { prefer: 'commons' });
+    if (p?.src) return { src: p.src, alt: p.alt, credit: p.credit };
+  }
+  return null;
+}
+
 /* --- Denmark hub ---------------------------------------------------------- */
 
 export function denmarkHub(site) {
   const pic =
     picture(site, 'ucph', { prefer: 'commons' }) ||
-    picture(site, 'au', { prefer: 'commons' }) ||
+    picture(site, 'dk-au', { prefer: 'commons' }) ||
     picture(site, 'dtu', { prefer: 'commons' });
 
   // Denmark's programmes, not every programme on the site. `site.programmes`
@@ -124,7 +133,7 @@ export function denmarkHub(site) {
 ${hero({
   eyebrow: 'Denmark · ' + SITE.cycle.label,
   title: 'Denmark',
-  lede: `${plural(totalProgrammes, 'degree')} taught in English, across ${plural(teaching, 'university', 'universities')} — every one checked subject by subject.`,
+  lede: `${plural(totalProgrammes, 'degree')} taught in English, across ${plural(teaching, 'university', 'universities')} — each mapped subject by subject.`,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
   // The universities a student could actually go to, each named, in turn.
   slides: institutions
@@ -214,7 +223,8 @@ ${institutions.length
 export function denmarkApply(site) {
   const body = html`
 ${hero({
-  variant: 'plain',
+  variant: 'compact',
+  image: photo(site, ['itu','cbs']),
   eyebrow: 'Denmark',
   title: 'How to apply, step by step',
   lede: 'From choosing programmes in autumn 2026 to accepting a place in August 2027.',
@@ -339,7 +349,8 @@ export function denmarkConversion(site) {
 
   const body = html`
 ${hero({
-  variant: 'plain',
+  variant: 'compact',
+  image: photo(site, ['dtu','sdu']),
   eyebrow: 'Denmark · Official rules',
   title: 'How Denmark converts your IB',
   lede: 'The official tables, from the Agency\'s Eksamenshåndbogen — not the out-of-date summaries some universities publish.',
@@ -487,7 +498,8 @@ ${hero({
 export function denmarkMoney(site) {
   const body = html`
 ${hero({
-  variant: 'plain',
+  variant: 'compact',
+  image: photo(site, ['cbs','ruc']),
   eyebrow: 'Denmark',
   title: 'Money, SU and what it actually costs',
   lede: 'Tuition is free for EU citizens. Everything else is not.',

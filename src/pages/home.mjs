@@ -75,7 +75,7 @@ ${hero({
         eyebrow: 'Denmark',
         title: 'Close to home',
         count: `${plural(dkProgrammes, 'degree')} in English · ${plural(dk.length, 'university', 'universities')}`,
-        line: 'Every one checked subject by subject.',
+        line: 'Each mapped subject by subject.',
         image: doorImages.denmark,
       },
       {
