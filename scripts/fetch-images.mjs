@@ -285,7 +285,10 @@ const PENALTIES = [
     why: 'EPFL was represented by "Location of CH B3 31 room in EPFL campus.png", which is a diagram telling you where a seminar room is. It names the institution, it is wide, and it is a map. The hard NOT_A_PLACE rejection above catches the word "floor plan"; this catches the ones phrased as directions.',
     test: ({ name, blurb }) =>
       /location of\b|directions to\b|how to (?:find|get)|\bwayfinding\b|\bsite plan\b|\bcampus map\b|\broom [A-Z]?\d/i.test(
-        `${name} ${blurb}`
+        // "…missing SDC location of creation" is a Commons maintenance
+        // category on thousands of ordinary photographs, not a direction. It
+        // used to trip this rule and sink some of the best candidates.
+        `${name} ${blurb}`.replace(/\bSDC location of creation\b/gi, '')
       ),
   },
   {

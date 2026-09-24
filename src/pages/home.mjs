@@ -42,7 +42,11 @@ export function home(site) {
     europe: photo(choices.europe?.image),
     world: photo(choices.world?.image),
   };
-  const heroImages = (choices.hero || []).map(photo).filter(Boolean);
+  // Each named, when the key is a country's: the caption says where you are looking.
+  const placeName = (key) => site.countries.find((c) => c.code === key)?.name || null;
+  const heroImages = (choices.hero || [])
+    .map((key) => ({ ...photo(key), caption: placeName(key) }))
+    .filter((p) => p.src);
   const places = showcase(
     site,
     new Set([...Object.values(doorImages), ...heroImages].map((p) => p?.src).filter(Boolean))
@@ -63,7 +67,7 @@ ${hero({
   title: 'Your IB is a passport. This is the map.',
   lede: 'English-taught degrees in Denmark, across Europe and around the world.',
   image: first ? { src: first.src, alt: first.alt, credit: first.credit } : null,
-  slides: rest.map((p) => ({ src: url(p.src), caption: null, credit: p.credit || null })),
+  slides: rest.map((p) => ({ src: url(p.src), ...(p.caption ? { caption: p.caption } : {}), credit: p.credit || null })),
   invitation: { href: '#where', label: 'Where could I go?' },
   escape: { href: '/programmes/', label: 'Or search every degree' },
 })}
