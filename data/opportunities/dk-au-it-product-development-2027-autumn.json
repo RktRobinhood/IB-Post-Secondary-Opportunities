@@ -89,12 +89,10 @@
       "id": "req-all-2",
       "kind": "local-equivalency",
       "mandatory": true,
-      "label": "Mathematics at A level, minimum grade 6",
+      "label": "Mathematics at A level",
       "subject": "Mathematics",
       "levelScale": "dk-abc",
       "level": "A",
-      "minGrade": 6,
-      "gradeScale": "dk-7-point",
       "operator": "at-least",
       "applicability": {
         "intake": "2027-autumn",
@@ -102,7 +100,8 @@
       },
       "evidence": [
         "ev-bachelor-au-dk-12s3rs2"
-      ]
+      ],
+      "note": "The 6.0 in Mathematics A that AU publishes is a quota 1 floor. In quota 2 only the subject is required."
     }
   ],
   "officialRequirementsText": [

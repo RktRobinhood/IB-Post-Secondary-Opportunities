@@ -119,7 +119,7 @@ file, which is how the two had come to run different checks from each other.
 | `npm run watch:sources` | Which source pages have changed since they were last read. |
 | `npm run verify` | Re-read every cited source and report whether it still carries the claim. |
 | `npm run verify:write` | The same, recording the finding and the supporting quotation on each record. |
-| `npm run migrate:dk` | Regenerate the Danish entity records from `data/dk/`. |
+| `npm run migrate:dk` | The one-way Danish migration. Refuses to run without `--force`; see docs/UPDATING.md. |
 | `npm run images` | Find and self-host a freely licensed photograph per institution. |
 | `npm run images:official` | Collect each institution's own Open Graph image to link to. |
 | `npm run images:official -- --report` | Which official images are too heavy to hot-link, so the page falls back to Commons. |
@@ -138,15 +138,20 @@ editing one JSON file.
 
 ### Fixing a Danish programme
 
-Danish research lives in `data/dk/<institution>.json`, one file per institution
-with its programmes nested. Edit it, then:
+**Step-by-step recipes for every yearly change are in [docs/UPDATING.md](docs/UPDATING.md).**
+
+Edit the canonical records directly: `data/programmes/dk-<id>.json` for the name,
+field, summary and official link; `data/opportunities/dk-<id>-2027-autumn.json`
+for requirements, cut-offs, selection notes and start month. Keep the research
+notes in `data/dk/<institution>.json` in step. Then:
 
 ```bash
-npm run migrate:dk && npm run validate && npm run build
+npm run validate && npm run build
 ```
 
-The migration is deterministic and idempotent: the same input always produces the
-same ids, so nothing a student saved breaks.
+Do **not** run `npm run migrate:dk`. The migration was one-way and has happened;
+the canonical records have been improved since, and re-running it would discard
+that work. It now refuses unless given `--force`.
 
 ### Fixing a country
 

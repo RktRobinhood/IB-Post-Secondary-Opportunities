@@ -22,6 +22,27 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
 const DRY = process.argv.includes('--dry-run');
 
+/* This was a one-way migration, and it has happened. Since it ran, the
+   canonical Danish records have been improved in place — source quotations
+   written onto Evidence by verify:write, reader-access and attestation fields,
+   campus records split by hand — and none of that is in data/dk/. Running this
+   again deletes every dk-* record and regenerates it from the research files,
+   which in September 2026 threw away about 6,000 lines of Evidence and brought
+   back four stale programme ids. So it refuses unless asked twice.
+
+   To change a Danish programme, edit its canonical records directly (see
+   docs/UPDATING.md). To try the migration, use --dry-run, or run it with
+   --force on a copy of the repository and bring across only what you need. */
+if (!DRY && !process.argv.includes('--force')) {
+  console.error(
+    '\nmigrate-denmark: refusing to overwrite the canonical Danish records.\n' +
+      'They have been edited since the migration ran, and this would discard those edits.\n' +
+      'Edit data/programmes and data/opportunities directly (docs/UPDATING.md),\n' +
+      'or use --dry-run, or --force on a copy of the repository.\n'
+  );
+  process.exit(1);
+}
+
 const SCHEMA_VERSION = '1.0';
 const INTAKE = '2027-autumn';
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -138,8 +159,31 @@ const FIELD = [
   [/tourism|hospitality/i, 'hospitality-tourism'],
 ];
 
+/* The field the researcher wrote down, in the research files' own words. It
+   wins over any guess: the guess below used to read the summary as well as the
+   name, so a business degree whose summary mentioned "data" was filed as
+   computing — sixteen of thirty-seven Danish programmes were in the wrong
+   field. */
+const DECLARED_FIELD = {
+  'business & economics': 'business',
+  'computing & it': 'computing',
+  engineering: 'engineering',
+  'social sciences': 'social-sciences',
+  'natural sciences': 'natural-sciences',
+  humanities: 'humanities',
+  'design & architecture': 'design-architecture',
+  'health': 'health',
+  'arts & music': 'arts-music',
+  'hospitality & tourism': 'hospitality-tourism',
+  education: 'education',
+  law: 'law',
+};
+
 function fieldOf(p) {
-  const hay = `${p.field || ''} ${p.name || ''} ${p.degree || ''} ${p.summary || ''}`;
+  const declared = DECLARED_FIELD[String(p.field || '').trim().toLowerCase()];
+  if (declared) return declared;
+  // No declared field: guess from the name alone, never the summary.
+  const hay = `${p.name || ''} ${p.degree || ''}`;
   for (const [re, f] of FIELD) if (re.test(hay)) return f;
   return 'interdisciplinary';
 }

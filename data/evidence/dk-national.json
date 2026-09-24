@@ -635,5 +635,50 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-ufsn-kot-hovedtal-2026",
+    "sourceUrl": "https://ufsn.dk/media/dfsd5xtn/kot-hovedtal-2026.pdf",
+    "publisher": "Uddannelses- og Forskningsstyrelsen",
+    "publisherType": "national-agency",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "excerpt": "KOT Hovedtal 2026 — kvotient og optagne pr. uddannelse, 28. juli 2026.",
+    "claim": "The quota 1 cut-off (or \"all qualified admitted\") and the number admitted for every Danish programme in the 2026 intake.",
+    "supports": [
+      {
+        "entity": "dk-aau-energy-engineering-2027-autumn",
+        "field": "admission.historicalCutoffs"
+      },
+      {
+        "entity": "dk-dtu-general-engineering-2027-autumn",
+        "field": "admission.historicalCutoffs"
+      },
+      {
+        "entity": "dk-ruc-international-bachelor-in-natural-sciences-2027-autumn",
+        "field": "admission.historicalCutoffs"
+      },
+      {
+        "entity": "dk-ruc-international-bachelor-in-social-sciences-2027-autumn",
+        "field": "admission.historicalCutoffs"
+      },
+      {
+        "entity": "dk-ruc-bachelor-in-global-humanities-2027-autumn",
+        "field": "admission.historicalCutoffs"
+      }
+    ],
+    "verificationState": "needs-review",
+    "interpretation": "The official national list published with the offers on 28 July 2026. It moved from ufm.dk to ufsn.dk; the old ufm.dk statistics pages return 404.",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2027-07-28"
+    },
+    "sourceClass": "official-rule-owner",
+    "attestation": {
+      "by": "the research pass that wrote this record",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
   }
 ]

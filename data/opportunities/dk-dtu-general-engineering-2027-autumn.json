@@ -5,13 +5,24 @@
   "destination": "dk",
   "place": "dk-kongens-lyngby",
   "intake": "2027-autumn",
-  "startMonth": "September",
+  "startMonth": "August",
   "language": {
     "instruction": "English",
     "fullyInLanguage": true
   },
   "admission": {
-    "restricted": true
+    "restricted": true,
+    "historicalCutoffs": [
+      {
+        "intake": "2026-autumn",
+        "quota": "Quota 1",
+        "value": "10.6",
+        "scale": "dk-7-point",
+        "evidence": [
+          "ev-ufsn-kot-hovedtal-2026"
+        ]
+      }
+    ]
   },
   "requirements": [
     {
