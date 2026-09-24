@@ -2152,3 +2152,8 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   .prog--pic { grid-template-columns: 10rem minmax(0, 1fr) 15rem; }
   .prog--pic > .prog__side { grid-column: auto; }
 }
+
+/* Photo tiles carry white text, so what shows before (or instead of) the
+   photograph must be dark in both themes. `--brand` turns pale mint in dark
+   mode, which is right for text and wrong under white type. */
+.door, .tile, .tile--bare { background-color: #16302b; }
