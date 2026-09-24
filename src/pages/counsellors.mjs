@@ -30,6 +30,10 @@ export function counsellors(site) {
     code;
   const deepCountries = [...new Set(opportunities.map((o) => o.destination))].map(nameFor).sort();
   const researched = destinations.filter((d) => d.sectorLandscape).map((d) => d.name).sort();
+  // Countries with a profile but no national-level research yet. Counted by
+  // name, not by subtracting totals: the two lists are not the same set, and
+  // the subtraction once printed "the remaining -1 countries".
+  const outline = countries.filter((c) => !researched.includes(nameFor(c.code)));
   const instCount =
     (site.institutionCatalogue?.all.length || 0) + countries.reduce((n, c) => n + (c.institutions?.length || 0), 0);
 
@@ -47,7 +51,7 @@ ${hero({
     <div class="layout-aside">
       <div class="prose">
         <h2 id="depth">The coverage is uneven, on purpose</h2>
-        <p class="lede">Three different depths of information sit on this site, and they look more alike
+        <p class="lede">${outline.length ? 'Three' : 'Two'} different depths of information sit on this site, and they look more alike
         than they are. Knowing which one you are reading is the single most useful thing on this page.</p>
 
         ${dataTable({
@@ -63,21 +67,25 @@ ${hero({
             ],
             [
               html`<strong>National level</strong>`,
-              researched.length ? researched.join(', ') : 'Denmark',
+              researched.length === destinations.length
+                ? `All ${destinations.length} destinations on the site`
+                : researched.join(', '),
               `How the IB is recognised, the deadlines, the fees, the application system and how the post-secondary sector is structured — including the non-university routes. Enough to advise a student on whether a country is worth pursuing, not enough to tell them whether they qualify for a given degree.`,
             ],
-            [
-              html`<strong>Orientation</strong>`,
-              `The remaining ${countries.length - researched.length} countries`,
-              `A researched profile with what to watch out for, and ${instCount} institutions with links. Treat as a starting point for a conversation, not as an answer.`,
-            ],
-          ],
+            outline.length
+              ? [
+                  html`<strong>Orientation</strong>`,
+                  `The remaining ${plural(outline.length, 'country', 'countries')}: ${outline.map((c) => c.name).join(', ')}`,
+                  `A researched profile with what to watch out for. Treat as a starting point for a conversation, not as an answer.`,
+                ]
+              : null,
+          ].filter(Boolean),
         })}
 
         ${note(
-          `**If you take one thing from this page:** the subject checker gives a real answer for Danish
-          programmes and cannot give one anywhere else yet, because nowhere else has requirements recorded
-          at programme level. It says so when you ask it. It does not guess.`,
+          `**If you take one thing from this page:** the subject checker gives a real answer for programmes in
+          ${deepCountries.join(' and ')} and cannot give one anywhere else yet, because nowhere else has
+          requirements recorded at programme level. It says so when you ask it. It does not guess.`,
           { kind: 'warn', title: 'The limit worth knowing' }
         )}
 
