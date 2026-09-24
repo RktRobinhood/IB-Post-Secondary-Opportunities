@@ -1,3 +1,4 @@
+import { plural } from '../lib/html.mjs';
 import { note } from '../lib/components.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 
@@ -116,4 +117,19 @@ export function prettyDate(iso) {
   return Number.isNaN(d.getTime())
     ? iso
     : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+/**
+ * "7 universities", or "7 universities and 12 colleges": how many places a
+ * list of institutions is, in the words a student would use. University
+ * colleges, business academies and art schools are colleges here; calling them
+ * universities would be wrong, and counting them as "institutions" hides that
+ * the list now reaches beyond the universities.
+ */
+export function institutionCount(list) {
+  const college = (i) => /college|academy|artistic|art school/i.test(String(i.type || ''));
+  const colleges = list.filter(college).length;
+  const universities = list.length - colleges;
+  const u = plural(universities, 'university', 'universities');
+  return colleges ? `${u} and ${plural(colleges, 'college')}` : u;
 }

@@ -6,6 +6,7 @@ import {
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { contextFor } from '../lib/canonical.mjs';
+import { institutionCount } from './programme-facts.mjs';
 
 /** The first publishable photograph among these image keys, shaped for a hero. */
 function photo(site, keys) {
@@ -133,7 +134,7 @@ export function denmarkHub(site) {
 ${hero({
   eyebrow: 'Denmark · ' + SITE.cycle.label,
   title: 'Denmark',
-  lede: `${plural(totalProgrammes, 'degree')} taught in English, across ${plural(teaching, 'university', 'universities')} — each mapped subject by subject.`,
+  lede: `${plural(totalProgrammes, 'degree')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
   // The universities a student could actually go to, each named, in turn.
   slides: institutions

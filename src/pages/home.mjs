@@ -3,6 +3,7 @@ import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, doors, reel, toolkit } from '../lib/components.mjs';
 import { picture, REGION_ORDER } from '../lib/data.mjs';
 import { filterQuestion } from '../lib/primitives.mjs';
+import { institutionCount } from './programme-facts.mjs';
 
 /* The home page: photographs, three doors, a reel of places, then the tools. */
 
@@ -74,7 +75,7 @@ ${hero({
         href: '/denmark/',
         eyebrow: 'Denmark',
         title: 'Close to home',
-        count: `${plural(dkProgrammes, 'degree')} in English · ${plural(dk.length, 'university', 'universities')}`,
+        count: `${plural(dkProgrammes, 'degree')} in English · ${institutionCount(dk)}`,
         line: 'Each mapped subject by subject.',
         image: doorImages.denmark,
       },
