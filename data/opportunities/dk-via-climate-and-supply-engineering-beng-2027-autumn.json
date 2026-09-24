@@ -1,0 +1,253 @@
+{
+  "id": "dk-via-climate-and-supply-engineering-beng-2027-autumn",
+  "programme": "dk-via-climate-and-supply-engineering-beng",
+  "institution": "dk-via",
+  "destination": "dk",
+  "place": "dk-horsens",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Applications received by 15 March are assessed on a motivational video, upper-secondary exam results, the grade average in Mathematics A and English B, work experience, relevant courses and other documented qualifications.",
+        "evidence": [
+          "ev-via-cse"
+        ]
+      },
+      {
+        "type": "interview",
+        "description": "Qualified applicants may be called for a personal interview, if relevant.",
+        "evidence": [
+          "ev-via-cse"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a diplomingeniør programme at a university college, which is a professionsbachelor programme: VIA calls its Bachelor of Engineering degrees professional bachelor's degrees (\"Bachelor's degrees at University Colleges are called Professional Bachelor's degrees\"). The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-via-cse",
+        "ev-via-programme-list"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "Mathematics at A level, minimum grade 2",
+      "subject": "Mathematics",
+      "levelScale": "dk-abc",
+      "level": "A",
+      "minGrade": 2,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-cse"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "English at B level, minimum grade 2",
+      "subject": "English",
+      "levelScale": "dk-abc",
+      "level": "B",
+      "minGrade": 2,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-cse"
+      ]
+    },
+    {
+      "id": "req-oneof-1",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "Physics at B level or Geoscience at A level (minimum 2.0)",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Physics at B level, minimum grade 2",
+            "subject": "Physics",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-cse"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Geoscience at A level, minimum grade 2",
+            "subject": "Geoscience",
+            "levelScale": "dk-abc",
+            "level": "A",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-cse"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-cse"
+      ]
+    },
+    {
+      "id": "req-oneof-2",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "Chemistry at C level or Biotechnology at A level (minimum 2.0)",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Chemistry at C level, minimum grade 2",
+            "subject": "Chemistry",
+            "levelScale": "dk-abc",
+            "level": "C",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-cse"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Biotechnology at A level, minimum grade 2",
+            "subject": "Biotechnology",
+            "levelScale": "dk-abc",
+            "level": "A",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-cse"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-cse"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Mathematics equivalent to a Danish A-level. Physics equivalent to a Danish B-level or Geoscience equivalent to a Danish A-level. Chemistry equivalent to a Danish C-level or Biotechnology equivalent to a Danish A-level. English equivalent to a Danish B-level. [...] Each of the subjects above must be passed with a min. average of 2.0 on the Danish grading scale.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-via-cse"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-via-cse"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-via-cse",
+    "ev-via-programme-list"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "Area code on optagelse.dk: 49705."
+    ]
+  }
+}

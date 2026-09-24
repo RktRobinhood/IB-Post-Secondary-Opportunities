@@ -1,0 +1,207 @@
+{
+  "id": "dk-zealand-architectural-technology-and-construction-management-2027-autumn",
+  "programme": "dk-zealand-architectural-technology-and-construction-management",
+  "institution": "dk-zealand",
+  "destination": "dk",
+  "place": "dk-naestved",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Applicants are ranked on the grade average of their qualifying exam, other relevant higher education, at least three months of relevant work, at least three months of study abroad, volunteering or military service, and required subjects passed at a higher level than required.",
+        "evidence": [
+          "ev-zealand-admission"
+        ]
+      },
+      {
+        "type": "interview",
+        "description": "In certain cases Zealand holds an admission interview.",
+        "evidence": [
+          "ev-zealand-admission"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a professionsbachelor programme, which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-zealand-atcm"
+      ]
+    },
+    {
+      "id": "req-maths",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "An IB mathematics course at standard level or higher",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-maths-ai",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Mathematics: Applications and Interpretation at SL or HL",
+            "ibSubject": "mathematics-ai",
+            "ibLevel": "SL",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-zealand-atcm",
+              "ev-zealand-admission"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-maths-aa",
+            "kind": "ib-subject",
+            "mandatory": true,
+            "label": "Mathematics: Analysis and Approaches at SL or HL",
+            "ibSubject": "mathematics-aa",
+            "ibLevel": "SL",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-zealand-atcm",
+              "ev-zealand-admission"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The source asks IB applicants for \"Mathematical Studies, standard level (SL)\". The IB replaced Mathematical Studies with Mathematics: Applications and Interpretation (first teaching 2019), and any 2027 candidate will hold that course or Analysis and Approaches. Either one at SL or HL is recorded as meeting the requirement, because both are at least the level the source names. Confirm with the institution if in doubt.",
+      "evidence": [
+        "ev-zealand-atcm",
+        "ev-zealand-admission"
+      ]
+    },
+    {
+      "id": "req-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "English at B level, or an accepted English test",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-english-b",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-zealand-admission"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "language-general",
+            "mandatory": true,
+            "label": "An accepted English test instead (for example IELTS Academic 6.5)",
+            "officialWording": {
+              "text": "English B or equivalent level of English. [...] You may also fulfill the English requirements with one of the following test results: IELTS (Academic) with a minimum average score of 6.5 [...]",
+              "language": "en",
+              "official": true
+            },
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-zealand-admission"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-zealand-admission"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "The International Baccalaureate + Mathematical Studies, standard level (SL). [...] English B or equivalent level of English. A Danish B-level in English is a minimum of 210 study hours of 60 minutes each obtained during the final three years in Upper Secondary School. You may also fulfill the English requirements with one of the following test results [...]",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-zealand-admission"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-zealand-admission"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-zealand-atcm",
+    "ev-zealand-admission"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "The start date is shown as \"Summer intake 2027: xxx August\"; the exact day is not yet published."
+    ]
+  }
+}

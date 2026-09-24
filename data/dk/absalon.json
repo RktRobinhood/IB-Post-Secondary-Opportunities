@@ -1,0 +1,185 @@
+{
+  "id": "absalon",
+  "canonicalId": "dk-absalon",
+  "name": "University College Absalon",
+  "shortName": "Absalon",
+  "danishName": "Professionshøjskolen Absalon",
+  "type": "University college (professionshøjskole)",
+  "founded": null,
+  "city": "Kalundborg",
+  "campuses": [
+    "Kalundborg"
+  ],
+  "region": null,
+  "website": "https://en.phabsalon.dk",
+  "admissionsUrl": "https://en.phabsalon.dk/full-degree-programmes",
+  "ibPageUrl": null,
+  "wikipedia": null,
+  "ibisCode": null,
+  "about": "Absalon is a university college (professionshøjskole) on Zealand. Its only fully English-taught degrees are two engineering degrees in Kalundborg, a small industrial town on the west coast of Zealand with Novo Nordisk, Novonesis and Denmark's largest refinery on its doorstep. Biotechnology has run in English for some years. Robot Systems is new and takes its first students in September 2027.",
+  "knownFor": [
+    "Biotechnology engineering",
+    "Links to the Kalundborg biotech industry"
+  ],
+  "students": null,
+  "internationalShare": null,
+  "ibNotes": [
+    "No page read for this institution mentions DP Course Results. The canonical Opportunities apply the national rule (ev-ufsn-ib-course-results): Course Results of at least 18 points, with grade 3 in all six subjects and three at HL, give access to AP and professional bachelor programmes."
+  ],
+  "quotaNotes": null,
+  "deadlines": [
+    {
+      "label": "Application (IB and all international qualifications)",
+      "date": "2027-03-15",
+      "time": "12:00 CET",
+      "notes": "Through optagelse.dk, which opens on 1 February.",
+      "source": "https://en.phabsalon.dk/full-degree-programmes"
+    }
+  ],
+  "tuitionNonEu": null,
+  "dataAsOf": "2026-09-24",
+  "sources": [
+    {
+      "title": "Absalon lists three programmes taught fully or partly in English: the Bachelor of Engineering in Biotechnology, the Bachelor of Engineering in Robot Systems, and the Professional Bachelor's Degree in Education.",
+      "url": "https://en.phabsalon.dk/full-degree-programmes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Absalon states that the political agreement to reduce English-taught programmes does not affect its English-taught biotechnology BEng in Kalundborg.",
+      "url": "https://phabsalon.dk/fortsat-engelsksprogede-diplomingenioerer-i-kalundborg",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The Bachelor of Engineering in Biotechnology (Kalundborg) has a 15 March deadline for all applicants with an international exam, including the IB, interviews every quota 2 applicant, and charges no tuition to EU or EEA citizens.",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-biotechnology",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Absalon lists the biotechnology diplomingeniør as a professionsbachelor, taught in Danish or English in Kalundborg, with a study start of 1 September.",
+      "url": "https://phabsalon.dk/uddannelser/diplomingenioer-i-bioteknologi",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The Biotechnology BEng needs Mathematics A, Physics B or Geoscience A, Chemistry B or Biotechnology A, and English B. Every quota 2 applicant, including those with an international qualification, is interviewed, and places split 65/35 between quota 1 and quota 2.",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-biotechnology/admission-requirements-bachelor-engineering",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The Bachelor of Engineering in Robot Systems is a new English-taught programme in Kalundborg, starting in September 2027.",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-robot-systems",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The Robot Systems BEng runs over seven semesters, with a 30 ECTS internship in the fifth.",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-robot-systems/about-bachelor-engineering-robot-systems",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The Robot Systems BEng needs Mathematics A, Physics B or Geoscience A, and English B, all passed. Its assessment criteria are not yet final, and applicants may be asked for an interview or a short video.",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-robot-systems/admission-requirements-bachelor-engineering-robot",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "notes": [
+    "Research notes kept for the record. The site renders the canonical records in data/institutions, data/programmes and data/opportunities, whose evidence is in data/evidence/dk-colleges.json.",
+    "The Professional Bachelor's Degree in Education (Vordingborg) is not listed: its own page says it \"is taught partly in English and partly in Danish\", and students who do not already meet the Danish requirement must learn Danish during the degree.",
+    "Absalon interviews every quota 2 applicant for Biotechnology, including every applicant with an international qualification such as the IB. Places split 65 per cent quota 1 and 35 per cent quota 2.",
+    "Absalon states that the political agreement to reduce English-taught programmes does not affect its English-taught biotechnology BEng in Kalundborg.",
+    "Absalon's administrative address is in Slagelse. Only Kalundborg is listed here, because that is where both English-taught degrees are taught."
+  ],
+  "programmes": [
+    {
+      "id": "dk-absalon-biotechnology-beng",
+      "name": "Biotechnology",
+      "degree": "BEng",
+      "field": "Engineering",
+      "ects": null,
+      "years": null,
+      "campus": "Kalundborg",
+      "language": "English",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-biotechnology",
+      "summary": "Engineering for biotechnological production: using cells and microorganisms to make medicines, food and fuels, and to treat waste water. It is taught in Kalundborg with Novo Nordisk, Novonesis and Lundbeck nearby, and includes a five-month internship. Needs Maths A, Physics B, Chemistry B and English B, and every quota 2 applicant is interviewed.",
+      "requirementsText": "Mathematics equivalent to a Danish A-level and Physics equivalent to a Danish B-level or Geoscience equivalent to a Danish A-level and Chemistry equivalent to a Danish B-level or Biotechnology equivalent to a Danish A-level and English equivalent to Danish B-level.",
+      "entryRequirements": {
+        "all": [
+          {
+            "subject": "Mathematics",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B"
+          }
+        ],
+        "oneOf": [
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Geoscience",
+              "level": "A"
+            }
+          ]
+        ]
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [
+        "Chemistry at B level or Biotechnology at A level",
+        "An admission interview (every quota 2 applicant, including IB applicants)"
+      ],
+      "startMonth": "September",
+      "source": "https://en.phabsalon.dk/full-degree/bachelor-engineering-biotechnology/admission-requirements-bachelor-engineering",
+      "verified": "2026-09-24"
+    },
+    {
+      "id": "dk-absalon-robot-systems-beng",
+      "name": "Robot Systems",
+      "degree": "BEng",
+      "field": "Engineering",
+      "ects": null,
+      "years": 3.5,
+      "campus": "Kalundborg",
+      "language": "English",
+      "url": "https://en.phabsalon.dk/full-degree/bachelor-engineering-robot-systems",
+      "summary": "A new engineering degree in industrial robotics and automation: integrating robots, sensors, PLCs, data and AI into production systems. It is taught in Kalundborg over seven semesters, with a one-semester internship. The first intake is September 2027. Needs Maths A, Physics B and English B.",
+      "requirementsText": "With passed: Mathematics equivalent to a Danish A-level and Physics equivalent to a Danish B-level or Geoscience equivalent to a Danish A-level and English equivalent to Danish B-level.",
+      "entryRequirements": {
+        "all": [
+          {
+            "subject": "Mathematics",
+            "level": "A"
+          },
+          {
+            "subject": "English",
+            "level": "B"
+          }
+        ],
+        "oneOf": [
+          [
+            {
+              "subject": "Physics",
+              "level": "B"
+            }
+          ],
+          [
+            {
+              "subject": "Geoscience",
+              "level": "A"
+            }
+          ]
+        ]
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [],
+      "startMonth": "September",
+      "source": "https://en.phabsalon.dk/full-degree/bachelor-engineering-robot-systems/admission-requirements-bachelor-engineering-robot",
+      "verified": "2026-09-24"
+    }
+  ]
+}

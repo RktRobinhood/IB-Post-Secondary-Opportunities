@@ -1,0 +1,261 @@
+{
+  "id": "dk-absalon-biotechnology-beng-2027-autumn",
+  "programme": "dk-absalon-biotechnology-beng",
+  "institution": "dk-absalon",
+  "destination": "dk",
+  "place": "dk-kalundborg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "interview",
+        "description": "The interview assesses academic qualifications, English and motivation for study.",
+        "evidence": [
+          "ev-absalon-biotech-admission"
+        ]
+      },
+      {
+        "type": "subject-grades",
+        "description": "Applications received by 15 March are also assessed on upper-secondary exam results, work experience, relevant courses and other documented qualifications. Places split 65 per cent quota 1 and 35 per cent quota 2.",
+        "evidence": [
+          "ev-absalon-biotech-admission"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a diplomingeniør programme at a university college, which is a professionsbachelor programme: Absalon lists the programme on its Danish page as a professionsbachelor (\"Professionsbachelor — Diplomingeniør i bioteknologi\"). The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-absalon-biotech-da",
+        "ev-absalon-biotech"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "Mathematics at A level",
+      "subject": "Mathematics",
+      "levelScale": "dk-abc",
+      "level": "A",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "levelScale": "dk-abc",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission"
+      ]
+    },
+    {
+      "id": "req-oneof-1",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "Physics at B level or Geoscience at A level",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Physics at B level",
+            "subject": "Physics",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-absalon-biotech-admission"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Geoscience at A level",
+            "subject": "Geoscience",
+            "levelScale": "dk-abc",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-absalon-biotech-admission"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission"
+      ]
+    },
+    {
+      "id": "req-oneof-2",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "Chemistry at B level or Biotechnology at A level",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt3-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Chemistry at B level",
+            "subject": "Chemistry",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-absalon-biotech-admission"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt4-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Biotechnology at A level",
+            "subject": "Biotechnology",
+            "levelScale": "dk-abc",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-absalon-biotech-admission"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission"
+      ]
+    },
+    {
+      "id": "req-interview",
+      "kind": "interview",
+      "mandatory": true,
+      "label": "An admission interview (every quota 2 applicant, including IB applicants)",
+      "officialWording": {
+        "text": "All quota 2 applicants, including applicants with a foreign or international upper secondary qualification, must attend an admission interview to be eligible for admission to the programme.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-absalon-biotech-admission"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Mathematics equivalent to a Danish A-level and Physics equivalent to a Danish B-level or Geoscience equivalent to a Danish A-level and Chemistry equivalent to a Danish B-level or Biotechnology equivalent to a Danish A-level and English equivalent to Danish B-level.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-absalon-biotech"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-absalon-biotech"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-absalon-biotech-da",
+    "ev-absalon-biotech",
+    "ev-absalon-biotech-admission"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "Absalon does not state the length of the programme on the pages read, so none is recorded here.",
+      "An English test (IELTS 6.5 or TOEFL) can only replace English B for applicants without a qualifying English level. Absalon also takes an Online Mathematics Placement Test into account when it assesses applicants individually."
+    ]
+  }
+}

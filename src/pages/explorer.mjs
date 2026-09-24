@@ -46,7 +46,8 @@ export function programmesIndex(site) {
     placeId: p.placeId || '',
     degree: p.degree || '',
     ects: p.ects || null,
-    restricted: !!p.restrictedAdmission,
+    restricted: p.restrictedAdmission === true,
+    open: p.restrictedAdmission === false,
     cutoff: p.cutoff?.value || null,
     // A picture of the place: the programme's own, or its institution's.
     image: (() => {

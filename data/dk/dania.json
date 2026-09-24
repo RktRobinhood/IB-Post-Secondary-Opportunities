@@ -1,0 +1,92 @@
+{
+  "id": "dania",
+  "canonicalId": "dk-dania",
+  "name": "Dania Academy",
+  "shortName": "Dania",
+  "danishName": "Erhvervsakademi Dania",
+  "type": "Business academy (erhvervsakademi)",
+  "founded": null,
+  "city": "Viborg",
+  "campuses": [
+    "Viborg"
+  ],
+  "region": null,
+  "website": "https://eadania.com",
+  "admissionsUrl": "https://eadania.com/programmes/cyber-security/",
+  "ibPageUrl": null,
+  "wikipedia": null,
+  "ibisCode": null,
+  "about": "Dania Academy is a business academy (erhvervsakademi) in Jutland. Its one English-taught first degree is new: a professional bachelor in Cyber Security in Viborg, 195 ECTS over three and a quarter years with a six-month internship. The first intake is September 2027.",
+  "knownFor": [
+    "Cyber security",
+    "Small classes"
+  ],
+  "students": null,
+  "internationalShare": null,
+  "ibNotes": [
+    "No page read for this institution mentions DP Course Results. The canonical Opportunities apply the national rule (ev-ufsn-ib-course-results): Course Results of at least 18 points, with grade 3 in all six subjects and three at HL, give access to AP and professional bachelor programmes."
+  ],
+  "quotaNotes": null,
+  "deadlines": [
+    {
+      "label": "Application (IB and all international qualifications)",
+      "date": "2027-03-15",
+      "time": "12:00 CET",
+      "notes": "Through optagelse.dk, which opens on 1 February.",
+      "source": "https://eadania.com/programmes/cyber-security/"
+    }
+  ],
+  "tuitionNonEu": null,
+  "dataAsOf": "2026-09-24",
+  "sources": [
+    {
+      "title": "Cyber Security at Dania Academy (Viborg) is a new English-taught bachelor of 195 ECTS over 3¼ years, starting in September 2027. It needs English B and Mathematics B, and charges no tuition to EU/EEA students.",
+      "url": "https://eadania.com/programmes/cyber-security/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "The title awarded is Professionsbachelor i Cybersikkerhed, 195 ECTS over 3¼ years. Students may leave after two years or continue to the professionsbachelor.",
+      "url": "https://eadania.dk/uddannelser/cybersikkerhed/",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "notes": [
+    "Research notes kept for the record. The site renders the canonical records in data/institutions, data/programmes and data/opportunities, whose evidence is in data/evidence/dk-colleges.json.",
+    "The Danish page says students on Cyber Security can finish after two years or continue to the full professionsbachelor. Either way, you apply to the professionsbachelor programme.",
+    "The English page repeats a sentence that lets English C plus a test meet the language requirement. Its specific entry requirement is still English B, and that is what the record holds."
+  ],
+  "programmes": [
+    {
+      "id": "dk-dania-cyber-security",
+      "name": "Cyber Security",
+      "degree": "Professional bachelor (PBA)",
+      "field": "Computing & IT",
+      "ects": 195,
+      "years": 3.25,
+      "campus": "Viborg",
+      "language": "English",
+      "url": "https://eadania.com/programmes/cyber-security/",
+      "summary": "A new professional bachelor in protecting organisations against cyber attacks: network security, encryption, secure software, and security governance and compliance. It includes a six-month internship. It is 195 ECTS over three and a quarter years in Viborg, starting September 2027. Needs English B and Maths B.",
+      "requirementsText": "Specific entry requirements: English at the Danish B-level. This means that international applicants must have had English for at least 210 hours (60 minutes each) during the last three years of their upper-secondary education. And Mathematics at the Danish B-level. This means that international applicants must have had mathematics for at least 250 hours (60 minutes each) during the last three years of their upper-secondary education.",
+      "entryRequirements": {
+        "all": [
+          {
+            "subject": "English",
+            "level": "B"
+          },
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          }
+        ],
+        "oneOf": []
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [],
+      "startMonth": "September",
+      "source": "https://eadania.com/programmes/cyber-security/",
+      "verified": "2026-09-24"
+    }
+  ]
+}

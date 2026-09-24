@@ -1,0 +1,175 @@
+{
+  "id": "dk-via-architectural-technology-and-construction-management-2027-autumn",
+  "programme": "dk-via-architectural-technology-and-construction-management",
+  "institution": "dk-via",
+  "destination": "dk",
+  "place": "dk-horsens",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Applications received by 15 March are assessed on a motivational video, upper-secondary exam results, work experience (at least 30 hours a week for three months), stays abroad of at least three months and relevant courses of at least six months.",
+        "evidence": [
+          "ev-via-atcm"
+        ]
+      },
+      {
+        "type": "interview",
+        "description": "Qualified applicants may be called for a personal interview.",
+        "evidence": [
+          "ev-via-atcm"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a professionsbachelor programme, which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-via-atcm"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "Mathematics at C level, minimum grade 2",
+      "subject": "Mathematics",
+      "levelScale": "dk-abc",
+      "level": "C",
+      "minGrade": 2,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-atcm"
+      ]
+    },
+    {
+      "id": "req-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "English at B level (minimum 2.0), or an accepted English test",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-english-b",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level, minimum grade 2",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-english"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "language-general",
+            "mandatory": true,
+            "label": "An accepted English test instead (for example IELTS Academic 6.5)",
+            "officialWording": {
+              "text": "To meet the English proficiency requirement through your Upper Secondary School you must document that your English proficiency can be equated to a Danish B-level with a minimum weighted grade point average score of 2.0 on the Danish grading scale. [...] If your English proficiency from your Upper Secondary School does not meet the required level and scores, you must instead deliver an English language test.",
+              "language": "en",
+              "official": true
+            },
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-english"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-english"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Admission requirements - One of the following: Upper secondary school leaving certificate/high school exam; The International or the European Baccalaureate; The Danish Admission course for Engineering programmes; [...] Specific admission requirements: A C-level in Mathematics = 125 instructional hours of 60 minutes each. [...] Each of the subjects above must be passed with a min. average of 2.0 on the Danish grading scale.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-via-atcm"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-via-atcm"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-via-atcm",
+    "ev-via-english"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "The programme also has a February start. Only the August 2027 intake is recorded here.",
+      "Area code on optagelse.dk: 41165."
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "dk-sea-computer-science-ap-2027-autumn",
+  "programme": "dk-sea-computer-science-ap",
+  "institution": "dk-sea",
+  "destination": "dk",
+  "place": "dk-esbjerg",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Quota 2 applicants are assessed on other qualifications as well, and must attach documentation and a motivation letter on SEA's form.",
+        "evidence": [
+          "ev-sea-computer-science"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is an erhvervsakademiuddannelse (AP degree), which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-sea-computer-science"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "Mathematics at B level",
+      "subject": "Mathematics",
+      "levelScale": "dk-abc",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sea-computer-science"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "levelScale": "dk-abc",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sea-computer-science"
+      ],
+      "note": "SEA exempts IB holders from its English test, but English at B level is also a named subject requirement here, so the subject still has to be met."
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Notice: You must have passed maths at B level and english at B level if you want the english course. [...] Mathematic B (required for Computer Science). Mathematic B-level is equivalent to 250 full teaching hours (60 minutes per hour).",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-sea-computer-science"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "An AP degree is a short-cycle qualification (EQF level 5), not a bachelor's degree.",
+      "The programme takes five semesters."
+    ]
+  }
+}

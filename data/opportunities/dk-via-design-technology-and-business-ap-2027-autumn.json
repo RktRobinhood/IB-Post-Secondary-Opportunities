@@ -1,0 +1,206 @@
+{
+  "id": "dk-via-design-technology-and-business-ap-2027-autumn",
+  "programme": "dk-via-design-technology-and-business-ap",
+  "institution": "dk-via",
+  "destination": "dk",
+  "place": "dk-herning",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Every applicant does an admissions assignment, which differs by specialisation (Fashion Design or Branding and Marketing Management).",
+        "evidence": [
+          "ev-via-dtb"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is an erhvervsakademiuddannelse (AP degree), which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-via-dtb"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "Mathematics at C level, minimum grade 2",
+      "subject": "Mathematics",
+      "levelScale": "dk-abc",
+      "level": "C",
+      "minGrade": 2,
+      "gradeScale": "dk-7-point",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-dtb"
+      ]
+    },
+    {
+      "id": "req-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "English at B level, or English at C level plus a valid English test (minimum 2.0)",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-english-b",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level, minimum grade 2",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-dtb"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-c",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at C level, minimum grade 2",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "C",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-dtb"
+            ]
+          },
+          {
+            "id": "req-english-test",
+            "kind": "language-general",
+            "mandatory": true,
+            "label": "An accepted English test instead (for example IELTS Academic 6.5)",
+            "officialWording": {
+              "text": "English equivalent to a Danish B-level (210 hours instructional hours of 60 minutes each) or a Danish C-level (75 hours instructional hours of 60 minutes each) AND a valid English test",
+              "language": "en",
+              "official": true
+            },
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-via-dtb"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-dtb"
+      ]
+    },
+    {
+      "id": "req-assignment",
+      "kind": "work-sample",
+      "mandatory": true,
+      "label": "An admissions assignment for your chosen specialisation",
+      "officialWording": {
+        "text": "In addition to fulfilling the basic and specific admissions requirements, you are required to do an admissions assignment.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-via-dtb"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Mathematics equivalent to a Danish C-level (125 instructional hours of 60 minutes each). English equivalent to a Danish B-level (210 hours instructional hours of 60 minutes each) or a Danish C-level (75 hours instructional hours of 60 minutes each) AND a valid English test. All of the above subjects must be passed with a minimum average of 2.0 on the Danish grading scale.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-via-dtb"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-via-dtb"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-via-dtb"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "An AP degree is a short-cycle qualification (EQF level 5), not a bachelor's degree.",
+      "VIA's page carries a notice: \"Changes to the options for further studies with top-up degree from 2028.\" Check how the top-up to a full professional bachelor will work before relying on it.",
+      "VIA reserves the right not to start a class if there are too few applicants.",
+      "Area code on optagelse.dk: 73115."
+    ]
+  }
+}

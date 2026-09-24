@@ -220,7 +220,7 @@ ${institutions.length
   return page({
     title: 'Denmark',
     description:
-      'How IB students apply to Danish universities: the 15 March deadline, quota 1 and quota 2, the official conversion tables, and every English-taught bachelor programme.',
+      'How IB students apply in Denmark: the 15 March deadline, quota 1 and quota 2, the official conversion tables, and every English-taught degree at the universities and colleges.',
     path: '/denmark/',
     section: '/denmark/',
     body,

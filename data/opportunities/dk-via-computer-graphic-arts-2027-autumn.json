@@ -1,0 +1,205 @@
+{
+  "id": "dk-via-computer-graphic-arts-2027-autumn",
+  "programme": "dk-via-computer-graphic-arts",
+  "institution": "dk-via",
+  "destination": "dk",
+  "place": "dk-viborg",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "capacityNote": "27 admitted from 131 applicants in 2025, according to The Animation Workshop.",
+    "selection": [
+      {
+        "type": "portfolio",
+        "description": "The portfolio is assessed on how well it meets the programme's portfolio requirements, skill level in the relevant categories, creative vision, and how clearly the work is curated and presented.",
+        "evidence": [
+          "ev-taw-portfolio"
+        ]
+      },
+      {
+        "type": "test",
+        "description": "A 4-hour individual online test of small drawing assignments, testing time management, following directions, and drawing and storytelling skills.",
+        "evidence": [
+          "ev-taw-test-interview"
+        ]
+      },
+      {
+        "type": "interview",
+        "description": "A 20 to 25 minute interview with two or three faculty members, in person in Viborg (or online by arrangement), about motivation, the test and portfolio, and past experience.",
+        "evidence": [
+          "ev-taw-test-interview"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a professionsbachelor programme, which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-taw-entry",
+        "ev-taw-how-to-apply"
+      ]
+    },
+    {
+      "id": "req-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "English at B level (minimum 2.0), or an accepted English test",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-english-b",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level, minimum grade 2",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "minGrade": 2,
+            "gradeScale": "dk-7-point",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-taw-entry"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "language-general",
+            "mandatory": true,
+            "label": "An accepted English test instead (for example IELTS Academic 6.5)",
+            "officialWording": {
+              "text": "All applicants (including native English speakers) must document English proficiency. It must be equivalent to a Danish B-level with a minimum weighted grade point average score of 2.0 on the Danish grading scale. [...] If your upper secondary qualification does not meet the required level and scores, you must take an English proficiency test.",
+              "language": "en",
+              "official": true
+            },
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-taw-entry"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-taw-entry"
+      ]
+    },
+    {
+      "id": "req-portfolio",
+      "kind": "portfolio",
+      "mandatory": true,
+      "label": "A portfolio, cover letter and video introduction, uploaded by 15 March",
+      "officialWording": {
+        "text": "Your portfolio must contain: A filled in official cover letter; An active link to your video introduction, which serves as a motivational letter; Examples of your work fulfilling the requirements for the programme.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-taw-portfolio"
+      ]
+    },
+    {
+      "id": "req-test",
+      "kind": "test",
+      "mandatory": true,
+      "label": "An online admission test and an interview, if invited",
+      "officialWording": {
+        "text": "Admission to the programme is talent-based [...] all applicants must complete an admissions test to show whether they qualify for enrolment.",
+        "language": "en",
+        "official": true
+      },
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-taw-computer-graphic-arts",
+        "ev-taw-test-interview"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "You can apply based on a foreign upper secondary school certificate (high school, baccalaureate, IB or similar). [...] All applicants (including native English speakers) must document English proficiency. It must be equivalent to a Danish B-level with a minimum weighted grade point average score of 2.0 on the Danish grading scale.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-taw-character-animation"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-taw-character-animation"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-taw-entry",
+    "ev-taw-how-to-apply",
+    "ev-taw-portfolio",
+    "ev-taw-computer-graphic-arts",
+    "ev-taw-test-interview",
+    "ev-taw-character-animation"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "Area code on optagelse.dk: 50610 (the Bachelor's Degree in Animation), with Computer Graphic Arts chosen as the study line."
+    ]
+  }
+}

@@ -229,7 +229,7 @@ ${hero({
     title: inst.name,
     description: truncate(
       inst.about ||
-        `${inst.name}${dest ? ` in ${dest.sentenceName}` : ''} — English-taught bachelor programmes and entry requirements for IB students.`,
+        `${inst.name}${dest ? ` in ${dest.sentenceName}` : ''} — English-taught degrees and entry requirements for IB students.`,
       155
     ),
     path: inst.href,

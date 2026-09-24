@@ -1,0 +1,220 @@
+{
+  "id": "dk-baaa-multimedia-design-ap-2027-autumn",
+  "programme": "dk-baaa-multimedia-design-ap",
+  "institution": "dk-baaa",
+  "destination": "dk",
+  "place": "dk-aarhus",
+  "intake": "2027-autumn",
+  "startMonth": "August",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Applications made before 15 March at 12:00 are assessed in quota 2, where additional qualifications count as well as the required ones.",
+        "evidence": [
+          "ev-baaa-mmd"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is an erhvervsakademiuddannelse (AP degree), which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-baaa-mmd"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "English at C level",
+      "subject": "English",
+      "levelScale": "dk-abc",
+      "level": "C",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-baaa-mmd"
+      ]
+    },
+    {
+      "id": "req-oneof-1",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "Mathematics at C level or Economics at C level",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-alt1-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Mathematics at C level",
+            "subject": "Mathematics",
+            "levelScale": "dk-abc",
+            "level": "C",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-baaa-mmd"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-alt2-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "Economics at C level",
+            "subject": "Economics",
+            "levelScale": "dk-abc",
+            "level": "C",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-baaa-mmd"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-baaa-mmd"
+      ]
+    },
+    {
+      "id": "req-english",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "label": "English at B level, or an accepted English test",
+      "operator": "one-of",
+      "alternatives": [
+        [
+          {
+            "id": "req-english-b",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-baaa-mmd"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "language-general",
+            "mandatory": true,
+            "label": "An accepted English test instead (for example IELTS Academic 6.5)",
+            "officialWording": {
+              "text": "The language requirement is English at the Danish B-level [...] However, if you only fulfil the specific entry requirement of English at C level [...] then the language requirement can be satisfied with an English test. [...] IELTS Academic: 6,5",
+              "language": "en",
+              "official": true
+            },
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-baaa-mmd"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-baaa-mmd"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "English at the Danish C-level. [...] And Mathematics at the Danish C-level. [...] Or Economics at the Danish C-level. [...] The language requirement is English at the Danish B-level (at least 210 hours during the last three years of their upper-secondary education). However, if you only fulfil the specific entry requirement of English at C level, then the language requirement can be satisfied with an English test.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-baaa-tuition"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-baaa-tuition"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-baaa-mmd",
+    "ev-baaa-tuition"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "An AP degree is a short-cycle qualification (EQF level 5), not a bachelor's degree.",
+      "The international line carries 10 extra ECTS in programming on top of the 120.",
+      "Non-EU tuition, valid from 2026: EUR 6,000 per semester, EUR 24,000 for the whole programme. The obligatory second-semester study trip costs about EUR 550.",
+      "Admission area number on optagelse.dk: 81565. Taught at Sønderhøj 30, Viby J (Aarhus)."
+    ]
+  }
+}

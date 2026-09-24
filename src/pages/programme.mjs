@@ -83,15 +83,22 @@ ${hero({
   <div class="wrap">
     ${glance([
       { label: 'Where', value: [p.campus || inst.city, dest?.name].filter(Boolean).join(', ') || null },
+      // The kind of degree first, because an academy profession degree is not a
+      // bachelor's and a student comparing the two needs to see that at once.
+      {
+        label: 'Degree',
+        value: p.degree ? p.degree.replace(/ – academy profession, not a bachelor's$/, '') : null,
+        note: /not a bachelor/.test(p.degree || '') ? "Academy profession degree — not a bachelor's" : null,
+      },
       { label: 'Length', value: p.years ? `${p.years} years` : p.ects ? `${p.ects} ECTS` : null },
       { label: 'Taught in', value: p.language || 'English' },
       { label: 'Starts', value: p.startMonth },
       { label: 'Apply by', value: closes.length ? prettyDate(closes[0].date) : null },
       {
         label: p.restrictedAdmission ? 'Last cut-off' : 'Admission',
-        value: p.restrictedAdmission
+        value: p.restrictedAdmission === true
           ? numericCutoff ? String(p.cutoff.value) : 'Restricted'
-          : 'Open to all who qualify',
+          : p.restrictedAdmission === false ? 'Open to all who qualify' : 'Not recorded',
         note: p.restrictedAdmission && numericCutoff ? [p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ') : null,
       },
     ])}
@@ -132,7 +139,7 @@ ${hero({
             p.restrictedAdmission ? 'Meeting the requirements does not guarantee a place.' : null,
           ].filter(Boolean).join(' ') || null,
           body: html`
-            ${p.requirementsText ? note(p.requirementsText, { title: 'In the university\'s own words' }) : ''}
+            ${p.requirementsText ? note(p.requirementsText, { title: 'In the institution\'s own words' }) : ''}
             ${award !== ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
             ${(p.extraRequirements || []).length
               ? html`<h3>On top of the subjects</h3>
@@ -144,7 +151,13 @@ ${hero({
                   does, so not meeting one is not the same as being ineligible.</p>
                   <ul>${p.selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>`
               : ''}
-            ${p.restrictedAdmission
+            ${p.restrictedAdmission === null
+              ? note(
+                  `Whether places on this programme are limited is not recorded here. Check the institution's own
+                  page: if it is restricted, meeting the requirements does not guarantee a place.`,
+                  { kind: 'warn', title: 'Admission not recorded' }
+                )
+              : p.restrictedAdmission
               ? note(
                   `This programme has restricted admission, so meeting the requirements does not guarantee a place.
                   ${cutoffSentence(p.cutoff, cutoffScale) ||

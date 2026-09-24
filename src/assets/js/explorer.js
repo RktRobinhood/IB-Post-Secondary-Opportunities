@@ -73,7 +73,7 @@ function matches(p) {
      for what Course Results reach must never be handed a programme whose record
      is simply silent. */
   if (state.award && p.award !== state.award) return false;
-  if (state.open && p.restricted) return false;
+  if (state.open && !p.open) return false;
   if (state.nomath && needsMathsA(p)) return false;
   if (state.q) {
     const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
@@ -130,7 +130,7 @@ function row(p) {
       ${p.requirements ? `<p class="prog__req"><strong>Requires:</strong> ${esc(p.requirements)}</p>` : ''}
       ${p.restricted
         ? '<p><span class="tag tag--warn">Restricted admission</span></p>'
-        : '<p><span class="tag tag--ok">Open admission</span></p>'}
+        : p.open ? '<p><span class="tag tag--ok">Open admission</span></p>' : ''}
       ${p.cutoff ? `<p><small>Most recent cut-off ${esc(p.cutoff)} — history, not a forecast.</small></p>` : ''}
     </div>
   </li>`;

@@ -1,0 +1,139 @@
+{
+  "id": "sea",
+  "canonicalId": "dk-sea",
+  "name": "SEA – Syddansk Erhvervsakademi",
+  "shortName": "SEA",
+  "danishName": "Syddansk Erhvervsakademi",
+  "type": "Business academy (erhvervsakademi)",
+  "founded": null,
+  "city": "Esbjerg",
+  "campuses": [
+    "Esbjerg"
+  ],
+  "region": null,
+  "website": "https://www.s-e-a.dk/international",
+  "admissionsUrl": "https://www.s-e-a.dk/international",
+  "ibPageUrl": null,
+  "wikipedia": null,
+  "ibisCode": null,
+  "about": "SEA is a business academy (erhvervsakademi) with campuses in Esbjerg and Sønderborg, formerly Erhvervsakademi SydVest (EASV). In Esbjerg it teaches two AP degrees in English, Computer Science and Multimedia Design, both of them shorter than a bachelor's. It also runs English-taught top-ups for AP graduates.",
+  "knownFor": [
+    "Computer science",
+    "Multimedia design"
+  ],
+  "students": null,
+  "internationalShare": null,
+  "ibNotes": [
+    "No page read for this institution mentions DP Course Results. The canonical Opportunities apply the national rule (ev-ufsn-ib-course-results): Course Results of at least 18 points, with grade 3 in all six subjects and three at HL, give access to AP and professional bachelor programmes."
+  ],
+  "quotaNotes": null,
+  "deadlines": [
+    {
+      "label": "Application (IB and all international qualifications)",
+      "date": "2027-03-15",
+      "time": "12:00 CET",
+      "notes": "Through optagelse.dk, which opens on 1 February.",
+      "source": "https://www.s-e-a.dk/international"
+    }
+  ],
+  "tuitionNonEu": null,
+  "dataAsOf": "2026-09-24",
+  "sources": [
+    {
+      "title": "SEA's English-taught programmes in Esbjerg are the Computer Science and Multimedia Design AP degrees, plus two top-up bachelors (Software Development and Web Development).",
+      "url": "https://www.s-e-a.dk/international",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Computer Science at SEA (Esbjerg) is a 2.5-year AP degree taught in English with an August start. It needs Mathematics B and English B.",
+      "url": "https://www.s-e-a.dk/uddannelser/computer-science",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Multimedia Design at SEA (Esbjerg) is a two-year AP degree taught in English with an August start. It needs English B plus Mathematics C, Managerial Economics C or Business Economics C.",
+      "url": "https://www.s-e-a.dk/uddannelser/multimedia-design",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "notes": [
+    "Research notes kept for the record. The site renders the canonical records in data/institutions, data/programmes and data/opportunities, whose evidence is in data/evidence/dk-colleges.json.",
+    "SEA was formerly Erhvervsakademi SydVest (EASV), and older lists still use that name.",
+    "SEA exempts IB holders from its English test, but both English-taught AP degrees still require English at B level as a subject.",
+    "SEA does not publish a tuition fee for non-EU students on the pages read, so no fee is recorded here."
+  ],
+  "programmes": [
+    {
+      "id": "dk-sea-computer-science-ap",
+      "name": "Computer Science",
+      "degree": "AP degree – academy profession, not a bachelor's",
+      "field": "Computing & IT",
+      "ects": null,
+      "years": 2.5,
+      "campus": "Esbjerg",
+      "language": "English",
+      "url": "https://www.s-e-a.dk/uddannelser/computer-science",
+      "summary": "A two-and-a-half-year academy profession (AP) degree in programming and system development, with an internship in the fifth semester. It is taught in Esbjerg and is shorter than a bachelor's. Needs Maths B and English B.",
+      "requirementsText": "Notice: You must have passed maths at B level and english at B level if you want the english course. [...] Mathematic B (required for Computer Science). Mathematic B-level is equivalent to 250 full teaching hours (60 minutes per hour).",
+      "entryRequirements": {
+        "all": [
+          {
+            "subject": "Mathematics",
+            "level": "B"
+          },
+          {
+            "subject": "English",
+            "level": "B"
+          }
+        ],
+        "oneOf": []
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [],
+      "startMonth": "August",
+      "source": "https://www.s-e-a.dk/uddannelser/computer-science",
+      "verified": "2026-09-24"
+    },
+    {
+      "id": "dk-sea-multimedia-design-ap",
+      "name": "Multimedia Design",
+      "degree": "AP degree – academy profession, not a bachelor's",
+      "field": "Computing & IT",
+      "ects": null,
+      "years": 2,
+      "campus": "Esbjerg",
+      "language": "English",
+      "url": "https://www.s-e-a.dk/uddannelser/multimedia-design",
+      "summary": "A two-year academy profession (AP) degree in digital design and web development, with technical, creative and communication coursework and an internship in the fourth semester. It is taught in Esbjerg and is shorter than a bachelor's. Needs English B plus Maths or business economics at C level.",
+      "requirementsText": "Notice: You must have passed English level B plus either Maths or Managerial Economics level C or Business Economics level C. [...] Mathematic C (required for Multimedia Design). Mathematic C-level equivalent to 125 full teaching hours (60 minutes per hour).",
+      "entryRequirements": {
+        "all": [
+          {
+            "subject": "English",
+            "level": "B"
+          }
+        ],
+        "oneOf": [
+          [
+            {
+              "subject": "Mathematics",
+              "level": "C"
+            }
+          ],
+          [
+            {
+              "subject": "Business Economics",
+              "level": "C"
+            }
+          ]
+        ]
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [],
+      "startMonth": "August",
+      "source": "https://www.s-e-a.dk/uddannelser/multimedia-design",
+      "verified": "2026-09-24"
+    }
+  ]
+}

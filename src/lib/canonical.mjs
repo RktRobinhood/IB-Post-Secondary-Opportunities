@@ -301,7 +301,9 @@ function project(graph, ibSubjectNames = new Map()) {
           .filter((r) => r.mandatory === false)
           .map((r) => r.label)
           .filter(Boolean),
-        restrictedAdmission: !!opp.admission?.restricted,
+        // Three states. A record that does not say is not open admission: it is
+        // unrecorded, and the pages say so rather than reading silence as a yes.
+        restrictedAdmission: typeof opp.admission?.restricted === 'boolean' ? opp.admission.restricted : null,
         /* This was `quota1Cutoff: { gpa, year }`. Quota 1 is the name of a
            Danish national mechanism and `gpa` is a scale nobody named, so the
            field asserted in its own key what only the record can say: which

@@ -1,0 +1,127 @@
+{
+  "id": "dk-dania-cyber-security-2027-autumn",
+  "programme": "dk-dania-cyber-security",
+  "institution": "dk-dania",
+  "destination": "dk",
+  "place": "dk-viborg",
+  "intake": "2027-autumn",
+  "startMonth": "September",
+  "language": {
+    "instruction": "English",
+    "fullyInLanguage": true
+  },
+  "admission": {
+    "restricted": true,
+    "selection": [
+      {
+        "type": "other",
+        "description": "Applications made before 15 March at 12:00 are assessed in quota 2, where additional qualifications count as well as the required ones.",
+        "evidence": [
+          "ev-dania-cyber"
+        ]
+      }
+    ]
+  },
+  "requirements": [
+    {
+      "id": "req-entry-award",
+      "kind": "ib-course-results",
+      "mandatory": true,
+      "label": "An IB Diploma, or DP Course Results with at least 18 points, grade 3 in all six subjects and three of them at HL",
+      "officialWording": {
+        "text": "IB-elever uden IB Diploma, men med mindst 18 point (Diploma Programme (DP) Course Results), har adgang til videregående uddannelser i Danmark på lige vilkår med ansøgere med den 2-årige hf-eksamen uden overbygning. Det kræver, at alle 6 IB-fag (3 HL-fag og 3 SL- eller 4 HL-fag og 2 SL-fag) er bestået med mindst karakteren 3. Det betyder, at de har adgang til at søge optagelse på erhvervsakademi- og professionsbacheloruddannelser gennem kvote 1 og 2.",
+        "language": "da",
+        "official": true
+      },
+      "minSubjects": 6,
+      "minHigherLevelSubjects": 3,
+      "minGrade": 3,
+      "minPoints": 18,
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "note": "The rule is national, not this institution's. The Danish Agency for Higher Education and Science treats DP Course Results of at least 18 points, with grade 3 or more in all six subjects and three at HL, like a two-year hf without overbygning, which gives access to erhvervsakademi and professionsbachelor programmes through quota 1 and quota 2. This is a professionsbachelor programme, which the Agency names directly. The institution's own page names the IB but says nothing about Course Results, so a Course candidate should confirm with admissions in writing. The award does not waive the subject requirements below.",
+      "evidence": [
+        "ev-ufsn-ib-course-results",
+        "ev-dania-cyber-da"
+      ]
+    },
+    {
+      "id": "req-all-1",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "English at B level",
+      "subject": "English",
+      "levelScale": "dk-abc",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dania-cyber"
+      ]
+    },
+    {
+      "id": "req-all-2",
+      "kind": "local-equivalency",
+      "mandatory": true,
+      "label": "Mathematics at B level",
+      "subject": "Mathematics",
+      "levelScale": "dk-abc",
+      "level": "B",
+      "operator": "at-least",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-dania-cyber"
+      ]
+    }
+  ],
+  "officialRequirementsText": [
+    {
+      "text": "Specific entry requirements: English at the Danish B-level. This means that international applicants must have had English for at least 210 hours (60 minutes each) during the last three years of their upper-secondary education. And Mathematics at the Danish B-level. This means that international applicants must have had mathematics for at least 250 hours (60 minutes each) during the last three years of their upper-secondary education.",
+      "language": "en",
+      "official": true
+    }
+  ],
+  "cost": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-dania-cyber"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-dania-cyber"
+      ]
+    }
+  ],
+  "applicationRoutes": [
+    "dk-optagelse-international-2027"
+  ],
+  "evidence": [
+    "ev-ufsn-ib-course-results",
+    "ev-dania-cyber-da",
+    "ev-dania-cyber"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "New programme: the first intake is September 2027, and the exact start date is still to be announced.",
+      "According to Dania's Danish page, students can finish after two years or continue to the full professionsbachelor. Either way, you apply to the professionsbachelor.",
+      "Dania says non-EU tuition details \"will follow\"."
+    ]
+  }
+}

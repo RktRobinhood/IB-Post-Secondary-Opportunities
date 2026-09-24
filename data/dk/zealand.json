@@ -1,0 +1,122 @@
+{
+  "id": "zealand",
+  "canonicalId": "dk-zealand",
+  "name": "Zealand – Academy of Technologies and Business",
+  "shortName": "Zealand",
+  "danishName": null,
+  "type": "Business academy (erhvervsakademi)",
+  "founded": null,
+  "city": "Næstved",
+  "campuses": [
+    "Næstved"
+  ],
+  "region": null,
+  "website": "https://zealand.com",
+  "admissionsUrl": "https://zealand.com/admission-full-time-degree/",
+  "ibPageUrl": null,
+  "wikipedia": null,
+  "ibisCode": null,
+  "about": "Zealand is a business academy (erhvervsakademi) with several campuses on Zealand. It offers two fully English-taught first degrees, both three-and-a-half-year professional bachelor degrees on its Næstved campus: Architectural Technology and Construction Management, and Cybersecurity. Both include a one-semester internship.",
+  "knownFor": [
+    "Construction management",
+    "Cybersecurity"
+  ],
+  "students": null,
+  "internationalShare": null,
+  "ibNotes": [
+    "No page read for this institution mentions DP Course Results. The canonical Opportunities apply the national rule (ev-ufsn-ib-course-results): Course Results of at least 18 points, with grade 3 in all six subjects and three at HL, give access to AP and professional bachelor programmes."
+  ],
+  "quotaNotes": null,
+  "deadlines": [
+    {
+      "label": "Application (IB and all international qualifications)",
+      "date": "2027-03-15",
+      "time": "12:00 CET",
+      "notes": "Through optagelse.dk, which opens on 1 February.",
+      "source": "https://zealand.com/admission-full-time-degree/"
+    }
+  ],
+  "tuitionNonEu": null,
+  "dataAsOf": "2026-09-24",
+  "sources": [
+    {
+      "title": "Zealand's admission page for its English-taught degrees gives the same subject requirements. For ATCM, English B or an accepted test (IELTS Academic 6.5 and others). It ranks applicants on grade average, other education, work, time abroad and higher subject levels, and sometimes interviews. Non-EU applicants pay a EUR 300 application fee.",
+      "url": "https://zealand.com/admission-full-time-degree/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Architectural Technology and Construction Management at Zealand (Næstved) is a 3.5-year, 210 ECTS professionsbachelor taught in English, with an August 2027 intake. IB applicants need Mathematical Studies at standard level.",
+      "url": "https://zealand.com/fuldtid/architectural-technology-and-construction-management/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Cybersecurity at Zealand (Næstved) is a 3.5-year, 210 ECTS professionsbachelor taught in English, with an August 2027 intake. IB applicants need Mathematical Studies at standard level, and English B is a specific requirement that a test cannot replace.",
+      "url": "https://zealand.com/fuldtid/cybersecurity/",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "notes": [
+    "Research notes kept for the record. The site renders the canonical records in data/institutions, data/programmes and data/opportunities, whose evidence is in data/evidence/dk-colleges.json.",
+    "For IB applicants, Zealand still asks for \"Mathematical Studies, standard level (SL)\", a course the IB replaced from 2019. Mathematics: Applications and Interpretation or Analysis and Approaches at SL or HL is recorded as meeting it.",
+    "Non-EU applicants without a Danish residence permit that gives free tuition pay a one-time application fee of EUR 300 by 15 March. It is deducted from the first year's tuition if they accept a place.",
+    "The admission pages put Zealand's contact address in Køge. Both English-taught programmes are taught in Næstved."
+  ],
+  "programmes": [
+    {
+      "id": "dk-zealand-architectural-technology-and-construction-management",
+      "name": "Architectural Technology and Construction Management",
+      "degree": "Professional bachelor (PBA)",
+      "field": "Design & architecture",
+      "ects": 210,
+      "years": 3.5,
+      "campus": "Næstved",
+      "language": "English",
+      "url": "https://zealand.com/fuldtid/architectural-technology-and-construction-management/",
+      "summary": "Construction management: planning, coordinating and delivering building projects from housing to multi-storey and renovation work, with BIM and a 20-week internship. A three-and-a-half-year professional bachelor in Næstved. For IB applicants the only subject requirement is a maths course at SL.",
+      "requirementsText": "The International Baccalaureate + Mathematical Studies, standard level (SL). [...] English B or equivalent level of English. A Danish B-level in English is a minimum of 210 study hours of 60 minutes each obtained during the final three years in Upper Secondary School. You may also fulfill the English requirements with one of the following test results [...]",
+      "entryRequirements": {
+        "all": [],
+        "oneOf": []
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [
+        "An IB mathematics course at standard level or higher",
+        "English at B level, or an accepted English test"
+      ],
+      "startMonth": "August",
+      "source": "https://zealand.com/admission-full-time-degree/",
+      "verified": "2026-09-24"
+    },
+    {
+      "id": "dk-zealand-cybersecurity",
+      "name": "Cybersecurity",
+      "degree": "Professional bachelor (PBA)",
+      "field": "Computing & IT",
+      "ects": 210,
+      "years": 3.5,
+      "campus": "Næstved",
+      "language": "English",
+      "url": "https://zealand.com/fuldtid/cybersecurity/",
+      "summary": "Securing digital infrastructure: preventing, detecting and responding to cyber threats, combined with risk management and security culture in organisations. It includes an internship in the sixth semester. A three-and-a-half-year professional bachelor in Næstved, and English B is a hard requirement that a test cannot replace.",
+      "requirementsText": "The International Baccalaureate + Mathematical Studies, standard level (SL). [...] Please note that the English requirements cannot be replaced by an English test, as English B is a specific requirement for admission to the program, whether it is the Danish- or English-taught version.",
+      "entryRequirements": {
+        "all": [
+          {
+            "subject": "English",
+            "level": "B"
+          }
+        ],
+        "oneOf": []
+      },
+      "restrictedAdmission": true,
+      "quota1Cutoff": null,
+      "extraRequirements": [
+        "An IB mathematics course at standard level or higher"
+      ],
+      "startMonth": "August",
+      "source": "https://zealand.com/admission-full-time-degree/",
+      "verified": "2026-09-24"
+    }
+  ]
+}
