@@ -272,6 +272,24 @@ all 471 entries on a Tuesday — cannot happen. `scripts/test-images.mjs` reads
 the fetcher's source back to keep it that way. An approval a script could forge
 would not be worth recording.
 
+### Who reviews
+
+**Since 24 September 2026 the site owner has delegated photo review to an
+automated visual check**, and no human sign-off is required. The reviewer looks
+at every picture, and where it is unsure a Commons photograph really shows the
+institution it triangulates — against the institution's own website and share
+image first, and its social media second. The institution is the source of
+truth for what it looks like.
+
+Its judgements are recorded exactly like a person's: a `review` with `state`,
+`by`, `at`, the `file` it judged and a `note` saying why and what it was checked
+against. `by` names the reviewer honestly — "Claude (automated visual review,
+delegated by the site owner)" — so an automated approval can never be mistaken
+for a person's. Verdicts are written to `docs/research/photo-review/*-verdicts.jsonl`
+and applied by `node scripts/apply-photo-review.mjs`, which also re-fetches
+proposed replacements through the ordinary fetcher. What follows about "a
+person" still describes the mechanism; the owner has decided who that may be.
+
 ### The floor
 
 `IMAGE_SCORE_FLOOR` is **40**. An unreviewed machine pick scoring below it is
