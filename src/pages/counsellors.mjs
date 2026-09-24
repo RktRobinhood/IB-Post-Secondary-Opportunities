@@ -38,7 +38,7 @@ ${hero({
   variant: 'plain',
   eyebrow: 'For guidance counsellors',
   title: 'What this covers, and where it will fail you first',
-  lede: 'Written for the person who has to answer a student on the spot, and who will be blamed if the answer is wrong. It is about coverage and limits rather than features.',
+  lede: 'What this site covers, where it stops, and how far to rely on it.',
 })}
 
 <section class="section">

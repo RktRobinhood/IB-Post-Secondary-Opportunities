@@ -43,7 +43,7 @@ ${hero({
   variant: 'plain',
   eyebrow: 'Trust',
   title: 'How to tell whether to believe this',
-  lede: 'This site can influence an expensive, time-sensitive decision made by someone under eighteen. That deserves operational rules rather than a promise to be careful.',
+  lede: 'How far to trust each page, and how to tell us when something is wrong.',
 })}
 
 <section class="section">

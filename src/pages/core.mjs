@@ -3,12 +3,12 @@ import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
   tags, stamp, dataTable, emptyState, pager, accordion, freshness,
-  sectorLandscape, contextNotes, close, topic,
+  sectorLandscape, contextNotes, close, topic, doors, reel, toolkit,
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
 import {
-  worldWindow, evidenceBlock, artDirection, patternLayer, opportunityTeaser, deadlineList, STATE,
-  mapChapter, filterQuestion,
+  worldWindow, evidenceBlock, artDirection, patternLayer, deadlineList, STATE,
+  filterQuestion,
 } from '../lib/primitives.mjs';
 import { DIMENSIONS, assessDestination, coverageSummary, COVERAGE } from '../lib/dimensions.mjs';
 import { contextFor } from '../lib/canonical.mjs';
@@ -18,125 +18,103 @@ import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdic
 /* --- Home ---------------------------------------------------------------- */
 
 /**
- * The home page is the one place on this site that is a *journey* rather than a
- * reference page, and it is laid out in the order `DYNAMIC_SITE_INSPIRATION.md`
- * sets out: invitation, first choice, world response, possibility cards,
- * personal fit, preparation, decision.
+ * The home page sells the trip before it hands over the paperwork.
  *
- * Three things about that are deliberate and would be easy to undo by accident.
+ * Order, top to bottom: photographs of real universities; three doors —
+ * Denmark, Europe, Worldwide — at equal weight; a reel of named places a
+ * student could picture themselves in; one question about what they want to
+ * study; and only then the tools. Every block is a picture or a list of ways
+ * in, and no block carries more than one sentence of copy. The detail is on
+ * the page each of them opens, one click away — that is where it belongs.
  *
- * **Every scene carries one invitation.** Not one prominent link among several
- * — one. `hero({ variant: 'arrival' })`, `mapChapter()` and `close()` all take
- * their invitation as a single object rather than a block of markup, so a scene
- * that wants to offer two things cannot without someone changing a signature.
- * The arrival's second link is an `escape` — the way *past* the invitation,
- * straight to the search — because the research doc forbids forcing a prelude
- * in front of the useful part of the product.
- *
- * **The first choice is a link, not a control.** Four fields, with counts, each
- * linking to `/programmes/?field=…`. The explorer reads that field off the URL
- * and shows it as a removable chip, so a student's first answer survives the
- * page boundary — and it does that with JavaScript switched off, which a
- * control on this page could not.
- *
- * **The dashboard is gone on purpose.** This page used to open with a band of
- * four statistics and a grid of four feature cards. The doc's home-page note
- * rules out exactly that — "a dashboard of every feature" — and asks for "a
- * living sample of opportunities rather than generic statistics". The numbers
- * that survived are the ones attached to something a student can then go and
- * look at: the scope sentence beside each camera, and the count on each field.
+ * Denmark is the first door, not the whole page. Most readers are at a Danish
+ * school and will look there anyway; what they have not yet seen is how much
+ * else is open to them, which is the thing this page exists to show.
  */
 export function home(site) {
-  // 'dk-ku' was a guess at the University of Copenhagen's key and never matched
-  // anything — the Danish institutions use bare ids, and Copenhagen's is 'ucph'.
-  // So the home page quietly fell through to the Swedish country picture, which
-  // for a while was a stock-market index chart. Wrong key, wrong fallback,
-  // wrong picture, and nothing anywhere failed.
-  const heroPic =
-    picture(site, 'ucph') ||
-    picture(site, 'dtu') ||
-    picture(site, 'aau') ||
-    picture(site, 'se') ||
-    picture(site, 'de');
-  const europeCount = site.europe.length;
-  const worldCount = site.world.length;
+  const dk = site.dkInstitutions.filter((i) => i.programmes?.length);
+  const dkProgrammes = dk.reduce((n, i) => n + i.programmes.length, 0);
+  const europeInstitutions = site.europe.reduce((n, c) => n + c.institutions.length, 0);
+  const worldInstitutions = site.world.reduce((n, c) => n + c.institutions.length, 0);
 
-  /* The first choice: the same question the explorer asks, asked where there is
-     no query state yet. Counted from the same array the explorer filters, so
-     the number on the chip and the number the student lands on are the same
-     number by construction. */
+  // Which photographs open the hero and each door is an editorial decision,
+  // recorded in data/site-config.json rather than here, and chosen so that no
+  // picture on this page appears twice. The reel then skips all of them.
+  const photo = (key) => {
+    const p = key ? picture(site, key, { prefer: 'commons' }) : null;
+    return p && !p.external ? p : null;
+  };
+  const choices = site.config?.homeDoors || {};
+  const doorImages = {
+    denmark: photo(choices.denmark?.image),
+    europe: photo(choices.europe?.image),
+    world: photo(choices.world?.image),
+  };
+  const heroImages = (choices.hero || []).map(photo).filter(Boolean);
+  const places = showcase(
+    site,
+    new Set([...Object.values(doorImages), ...heroImages].map((p) => p?.src).filter(Boolean))
+  );
+
   const fieldCounts = new Map();
   for (const p of site.programmes) {
     if (p.field) fieldCounts.set(p.field, (fieldCounts.get(p.field) || 0) + 1);
   }
   const fields = [...fieldCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 
-  /* Chapter one's camera: where the programmes actually are, sized by how many
-     are there. Every light is a link into the explorer already filtered to that
-     place, so the picture is a way in rather than an illustration of one.
-   *
-   * Which Destinations that covers is read off the records rather than assumed.
-   * It was assumed for about an hour, and in that hour the Netherlands arrived:
-   * the chapter drew Delft and Rotterdam under a heading that said Denmark, and
-   * counted them in a sentence that said Danish. A chapter that names its own
-   * scope has to compute it, because the scope is the thing that changes. */
-  const programmeDestinations = [
-    ...new Set([...(site.graph?.opportunities?.values() || [])].map((o) => o.destination).filter(Boolean)),
-  ]
-    .map((code) => site.graph?.destinations?.get(code)?.name || code)
-    .sort((a, b) => a.localeCompare(b));
-
-  const dkPlaces = [];
-  for (const [id, place] of site.graph?.places || new Map()) {
-    const count = site.programmes.filter((p) => p.placeId === id).length;
-    if (!count || !place.coordinates) continue;
-    dkPlaces.push({
-      id,
-      name: place.name,
-      lat: place.coordinates.lat,
-      lon: place.coordinates.lon,
-      count,
-      href: `/programmes/?place=${id}`,
-      precision: place.coordinatePrecision,
-      state: plural(count, 'programme'),
-    });
-  }
-
-  /* Chapter two's camera: one light per European destination, sized by how many
-     institutions are recorded there and captioned with how far the research has
-     actually got. A light that says nothing about its own evidence is the kind
-     of confidence this site is not allowed to imply. */
-  const europePlaces = site.europe
-    .map((c) => ({ c, pos: centroid(c) }))
-    .filter((x) => x.pos)
-    .map(({ c, pos }) => ({
-      id: c.code,
-      name: `${c.flag} ${c.name}`,
-      lat: pos.lat,
-      lon: pos.lon,
-      href: c.href,
-      count: c.institutions.length,
-      precision: 'region',
-      state: RESEARCH_DEPTH[c.researchDepth.tier]?.label,
-    }));
-  const europeInstitutions = site.europe.reduce((n, c) => n + c.institutions.length, 0);
-  const worldInstitutions = site.world.reduce((n, c) => n + c.institutions.length, 0);
-
-  const worldPic = picture(site, 'us', { prefer: 'commons' }) || picture(site, 'au', { prefer: 'commons' });
+  const [first, ...rest] = heroImages;
 
   const body = html`
 ${hero({
   variant: 'arrival',
   eyebrow: SITE.cycle.label,
   title: 'Your IB is a passport. This is the map.',
-  lede: `What each country actually asks of an IB Diploma, when you have to apply, what it costs, and which
-    degrees are taught in English. Built for students finishing in ${SITE.cycle.session}.`,
-  image: heroPic
-    ? { src: heroPic.src, alt: heroPic.alt, credit: heroPic.credit, focal: '50% 40%' }
-    : null,
-  invitation: { href: '/planner/', label: 'Check my subjects' },
-  escape: { href: '/programmes/', label: 'Or search every English-taught degree' },
+  lede: 'English-taught degrees in Denmark, across Europe and around the world.',
+  image: first ? { src: first.src, alt: first.alt, credit: first.credit } : null,
+  slides: rest.map((p) => ({ src: url(p.src), caption: null, credit: p.credit || null })),
+  invitation: { href: '#where', label: 'Where could I go?' },
+  escape: { href: '/programmes/', label: 'Or search every degree' },
 })}
+
+<section class="section section--doors" id="where">
+  <div class="wrap wrap--wide">
+    ${doors([
+      {
+        href: '/denmark/',
+        eyebrow: 'Denmark',
+        title: 'Close to home',
+        count: `${plural(dkProgrammes, 'degree')} in English · ${plural(dk.length, 'university', 'universities')}`,
+        line: 'Every one checked subject by subject.',
+        image: doorImages.denmark,
+      },
+      {
+        href: '/europe/',
+        eyebrow: 'Europe',
+        title: 'A short flight away',
+        count: `${plural(site.europe.length, 'country', 'countries')} · ${plural(europeInstitutions, 'university', 'universities')}`,
+        line: 'From Dublin to Athens.',
+        image: doorImages.europe,
+      },
+      {
+        href: '/world/',
+        eyebrow: 'Worldwide',
+        title: 'As far as you like',
+        count: `${plural(site.world.length, 'country', 'countries')} · ${plural(worldInstitutions, 'university', 'universities')}`,
+        line: 'From Toronto to Singapore.',
+        image: doorImages.world,
+      },
+    ])}
+  </div>
+</section>
+
+<section class="section section--reel">
+  <div class="wrap wrap--wide">
+    <header class="reel-head">
+      <h2>Picture yourself here</h2>
+    </header>
+  </div>
+  ${reel(places)}
+</section>
 
 <section class="section section--tinted">
   <div class="wrap">
@@ -145,9 +123,7 @@ ${hero({
       question: 'What do you want to study?',
       field: 'field',
       type: 'links',
-      help: `One answer is enough to start, and it carries through to the programme finder where you can take
-        it off again. ${plural(site.programmes.length, 'English-taught bachelor’s degree')} mapped to the
-        subject and grade so far, and nothing here is a shortlist.`,
+      help: `${plural(site.programmes.length, 'degree')} mapped to the subject so far.`,
       options: fields.map(([label, count]) => ({
         value: label,
         label,
@@ -158,149 +134,25 @@ ${hero({
   </div>
 </section>
 
-<div class="wrap wrap--wide">
-  <div class="journey">
-    ${mapChapter({
-      index: 1,
-      eyebrow: 'Where is the detail deepest?',
-      title: 'Some of it is mapped programme by programme',
-      copy: `Most of this site is a country guide. Part of it goes all the way down: every English-taught
-        bachelor's degree, the exact subjects and levels each one demands, and the official rules that
-        decide how an IB Diploma converts. Denmark was first and is still the deepest, because most of you
-        will apply there whatever else you do.\n\nIts conversion tables come from the Danish Agency's
-        *Eksamenshåndbogen* — the handbook every Danish university is supposed to follow. Several
-        universities publish their own summaries of it, and several of those summaries are out of date.`,
-      scope: `${plural(site.programmes.length, 'programme')} in ${listSentence(programmeDestinations)},
-        across ${plural(dkPlaces.length, 'town and city', 'towns and cities')} at
-        ${plural(site.institutionCatalogue.all.length, 'institution')}. Follow a light to see only that place.`,
-      places: dkPlaces,
-      layer: 'Places with English-taught programmes',
-      caption: 'Each light is a town, sized by how many programmes are there.',
-      invitation: { href: '/programmes/', label: 'Browse every programme' },
-    })}
-
-    ${mapChapter({
-      index: 2,
-      eyebrow: 'And if you leave?',
-      title: 'Europe, honestly assessed',
-      copy: `Including the places where the English-taught offer is thinner than the brochures suggest. A
-        country page that tells you there is nothing here for you has done its job, and several of them do.`,
-      scope: `${plural(europeCount, 'European destination')} and ${plural(europeInstitutions, 'institution')}.
-        A light is how many institutions are recorded there and how far the research has got — never how good
-        a country is.`,
-      places: europePlaces,
-      layer: 'European destinations covered',
-      caption: 'Each light is a destination. Follow one, or read down the list.',
-      invitation: { href: '/europe/', label: `All ${europeCount} European destinations` },
-    })}
-
-    ${mapChapter({
-      index: 3,
-      eyebrow: 'How far are you willing to go?',
-      title: 'And further out',
-      copy: `The IB is built to travel. If you are willing to go a long way and can fund it, these systems
-        already know what your diploma is worth — and several of them close their applications before you
-        have predicted grades, let alone results.`,
-      scope: `${plural(worldCount, 'destination')} beyond Europe and ${plural(worldInstitutions, 'institution')},
-        with the fee status and the deadline stated for each.`,
-      media: worldPic ? { src: worldPic.src, alt: worldPic.alt, credit: worldPic.credit } : null,
-      invitation: { href: '/world/', label: 'Everything beyond Europe' },
-    })}
-  </div>
-</div>
-
-<section class="section section--rule">
-  <div class="wrap">
-    ${sectionHead({
-      eyebrow: 'Three to look at',
-      title: 'Not a shortlist, and not a ranking',
-      lede: `Three programmes picked for contrast — a different field and a different institution each time —
-        so the first things you see are unlike one another. There is no order here and no score.`,
-    })}
-    <div class="grid grid--3">
-      ${contrastingProgrammes(site, 3).map((p) =>
-        opportunityTeaser({
-          opportunity: {
-            name: p.name,
-            href: p.href,
-            institution: p.institutionName,
-            place: p.campus,
-            field: p.field,
-            credential: p.degree,
-          },
-          evidence: p.evidence?.length
-            ? { level: 'needs-review', label: `${plural(p.evidence.length, 'source')} recorded` }
-            : { level: 'none', label: 'No source recorded yet' },
-        })
-      )}
-    </div>
-  </div>
-</section>
-
-<section class="section section--dark">
-  <div class="wrap">
-    <div class="layout-aside">
-      <div>
-        <p class="eyebrow">Does any of it fit?</p>
-        <h2>Your six subjects decide more than your total does</h2>
-        <p class="lede">A Danish programme can demand Mathematics at A level, or Physics at B, and no number
-        of points substitutes for a subject you did not take. The subject checker compares what you are
-        actually sitting against every programme here, and tells you which ones you are one subject short
-        of.</p>
-        <p>It runs in your browser. Nothing you type is sent anywhere, and nothing is kept beyond this
-        device.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="${url('/planner/')}">Check my subjects</a>
-        </div>
-      </div>
-      <aside class="layout-aside__side">
-        ${note(
-          `Meeting the published requirements is not the same as being offered a place. Where a programme
-          restricts admission, its page shows the most recent cut-off and says plainly that it is history
-          rather than a forecast.`,
-          { kind: '', title: 'What this cannot tell you' }
-        )}
-      </aside>
-    </div>
-  </div>
-</section>
-
 <section class="section">
-  <div class="wrap wrap--prose">
-    ${sectionHead({
-      eyebrow: 'Before any of it',
-      title: 'What is worth doing now, and what only looks like it is',
-      lede: `CAS, the Extended Essay, tests, portfolios and volunteering are not all the same kind of thing.
-        Some are required, some are weighed when places are allocated, and some are simply worth doing.`,
-    })}
-    <p>Every preparation step on this site is labelled as one of those three, and the ones that are neither
-    required nor weighed say so in as many words. The point is to stop you spending a year on something in
-    the belief that an admissions office will count it.</p>
-    <p><a class="arrow-link" href="${url('/prepare/')}">CAS, the EE and what actually counts</a></p>
+  <div class="wrap">
+    <h2 class="toolkit-head">When you are ready</h2>
+    ${toolkit([
+      { href: '/planner/', title: 'Check my subjects', line: 'Your six subjects against every mapped degree.' },
+      { href: '/timeline/', title: 'Every deadline', line: 'Some close before you have predicted grades.' },
+      { href: '/prepare/', title: 'What counts', line: 'CAS, the EE, tests: required, weighed, or neither.' },
+      { href: '/compare/', title: 'Compare countries', line: 'Fees, language and dates side by side.' },
+    ])}
+    <p class="small-print">Every figure carries its date and source. Confirm anything that matters at the source.
+      <a href="${url('/about/')}">How this is built</a> · <a href="${url('/trust/')}">Something wrong?</a></p>
   </div>
-</section>
-
-${close({
-  eyebrow: 'When you are ready to choose',
-  title: 'Put them side by side, and look at the dates',
-  copy: `Every figure here carries the date it was checked and a link to where it came from. Admission rules
-    change every year and several of the ones on this site are scheduled to change before autumn 2027, so
-    treat it as a map rather than a contract and confirm anything consequential at the source.`,
-  invitation: { href: '/compare/', label: 'Compare destinations' },
-  also: [
-    { href: '/denmark/', label: 'The Denmark guide' },
-    { href: '/timeline/', label: 'Every deadline, in order' },
-    { href: '/about/', label: 'How this site is built' },
-    { href: '/trust/', label: 'Something wrong? Tell us' },
-  ],
-})}`;
+</section>`;
 
   return page({
     title: null,
     description: SITE.description,
     path: '/',
     body,
-    scripts: ['map.js'],
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
@@ -311,68 +163,100 @@ ${close({
 }
 
 /**
- * A few opportunities chosen so that they are unlike each other.
+ * The places the home page shows: named universities with a photograph,
+ * spread across Denmark, Europe and the rest of the world.
  *
- * Deliberately not "the best", "the most popular" or "featured": the doc's
- * possibility cards are "three contrasting, evidence-backed opportunities — not
- * a prestige ranking", and this site has no basis on which to rank a programme
- * and no intention of acquiring one. The rule is contrast and nothing else — a
- * field not already shown, then an institution not already shown — walked over
- * a stable alphabetical order, so the same three come back on every build and a
- * reader who returns is not shown a slot machine.
+ * Chosen for spread and nothing else. One Destination from each region (the
+ * one with the most institutions recorded, so the choice follows the records),
+ * and from it one institution that teaches bachelor's degrees in English and
+ * has a self-hosted photograph — the one the most IB transcripts go to, which
+ * is a fact about where IB students go, not a judgement of the place. Denmark
+ * contributes its institutions with the most English-taught degrees. The same
+ * set comes back on every build.
  */
-function contrastingProgrammes(site, want) {
-  const pool = site.programmes.slice().sort((a, b) => a.name.localeCompare(b.name));
-  const out = [];
-  for (const key of ['field', 'institutionId']) {
-    for (const p of pool) {
-      if (out.length >= want) break;
-      if (out.includes(p)) continue;
-      if (out.some((q) => q[key] === p[key])) continue;
-      out.push(p);
+function showcase(site, exclude = new Set()) {
+  const photo = (key) => {
+    const p = picture(site, key, { prefer: 'commons' });
+    return p && !p.external && !exclude.has(p.src) ? p : null;
+  };
+
+  const denmark = site.dkInstitutions
+    .filter((i) => i.programmes?.length && photo(i.id))
+    .sort((a, b) => b.programmes.length - a.programmes.length || a.name.localeCompare(b.name))
+    .map((i) => ({
+      scope: 'denmark',
+      name: i.name,
+      where: `${i.city}, Denmark`,
+      flag: '🇩🇰',
+      href: i.href,
+      image: photo(i.id),
+    }));
+
+  const fromRegions = (list, scope) => {
+    const byRegion = new Map();
+    for (const c of list) {
+      const best = byRegion.get(c.region);
+      if (!best || c.institutions.length > best.institutions.length) byRegion.set(c.region, c);
     }
+    const order = (r) => (REGION_ORDER.indexOf(r) + 99) % 99;
+    return [...byRegion.values()]
+      .sort((a, b) => order(a.region) - order(b.region) || a.name.localeCompare(b.name))
+      .map((c) => {
+        const i = c.institutions
+          .filter((x) => x.englishBachelors && photo(x.key))
+          .sort((a, b) => (b.ibRecognitionStatement?.transcripts5y || 0) - (a.ibRecognitionStatement?.transcripts5y || 0))[0];
+        return i
+          ? {
+              scope,
+              name: i.name,
+              where: `${i.city ? `${i.city}, ` : ''}${c.name}`,
+              flag: c.flag,
+              href: `${c.href}#institutions`,
+              image: photo(i.key),
+            }
+          : null;
+      })
+      .filter(Boolean);
+  };
+
+  const europe = fromRegions(site.europe, 'europe');
+  const world = fromRegions(site.world, 'world');
+
+  // Interleaved, so no stretch of the reel is all one place.
+  const out = [];
+  const queues = [europe, world, denmark];
+  while (queues.some((q) => q.length) && out.length < 12) {
+    for (const q of queues) if (q.length && out.length < 12) out.push(q.shift());
   }
-  // A catalogue too small to be contrasting still has to fill the row.
-  for (const p of pool) {
-    if (out.length >= want) break;
-    if (!out.includes(p)) out.push(p);
-  }
-  return out.slice(0, want);
+  return out;
 }
 
 /* --- Country cards and indexes -------------------------------------------- */
 
-function countryCard(site, c) {
+/**
+ * A country as a photograph with its name on it: the place, the one-line
+ * tagline, how many universities, and how far the research has got. Fees,
+ * language and the rest are on the country page — a card that tried to carry
+ * them cut each one off mid-sentence.
+ */
+function countryTile(site, c) {
   const pic = picture(site, c.code, { prefer: 'commons' });
-  const englishOffer = c.language?.englishTaughtBachelors;
-  const meta = [];
-  const eu = money(c.costs?.tuitionEuEea);
-  if (eu) meta.push(truncate(eu.value, 42));
-  if (c.institutions.length) meta.push(plural(c.institutions.length, 'institution'));
 
-  // Coverage here is uneven and looks uniform, which is the worst combination.
-  // This used to name the researched countries and stay silent about the rest,
-  // so a sketch was indistinguishable from an unlabelled anything. Every card
-  // now says which of the three depths it is.
+  // Coverage here is uneven and looks uniform, which is the worst combination,
+  // so every tile still says which of the three depths it is — in the count
+  // line, where it costs four words rather than a pill.
   const d = c.researchDepth;
   const hasProgrammes = [...(site.graph?.opportunities?.values() || [])].some((o) => o.destination === c.code);
   const depth = d.tier === 'researched' && hasProgrammes ? 'Programmes recorded' : RESEARCH_DEPTH[d.tier].label;
 
-  return card({
-    href: c.href,
-    title: c.name,
-    text: c.tagline || truncate(c.summary, 130),
-    image: pic ? { src: pic.src, alt: pic.alt } : null,
-    // This card shows a photograph when there is one to show, so when there is
-    // not it gets the typographic panel rather than a hole in the grid.
-    placeholder: true,
-    flag: c.flag,
-    meta,
-    tags: [
-      { label: depth, mod: d.tier === 'outline' ? 'thin' : 'brand' },
-      englishOffer ? truncate(englishOffer, 36) : null,
-    ].filter(Boolean),
-  });
+  return html`<li><a class="tile tile--place${pic ? '' : ' tile--bare'}" href="${url(c.href)}">
+    ${pic ? html`<img class="tile__img" src="${url(pic.src)}" alt="${pic.alt || ''}" loading="lazy" decoding="async" width="800" height="600">` : ''}
+    <span class="tile__text">
+      <span class="tile__name">${c.name}</span>
+      ${c.tagline ? html`<span class="tile__line">${c.tagline}</span>` : ''}
+      <span class="tile__where">${plural(c.institutions.length, 'university', 'universities')} · ${depth}</span>
+    </span>
+  </a></li>`;
 }
 
 /**
@@ -483,9 +367,26 @@ ${hero({
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
 })}
 
+${/* The countries first, as photographs; the map after them, for anyone who
+     thinks in distances. */ ''}
+<section class="section section--tight">
+  <div class="wrap wrap--wide">
+    ${regions.map(
+      (region) => html`
+      <div class="region">
+        <h2 class="region__name">${regionHeadline(region)}</h2>
+        <ul class="tiles" role="list">
+          ${byRegion.get(region).sort((a, b) => a.name.localeCompare(b.name)).map((c) => countryTile(site, c))}
+        </ul>
+      </div>`
+    )}
+  </div>
+</section>
+
 ${mapPlaces.length
-  ? html`<section class="section section--tight">
+  ? html`<section class="section section--tinted">
       <div class="wrap wrap--wide">
+        <h2 class="region__name">On the map</h2>
         ${worldWindow({
           places: mapPlaces,
           id: `index-${scope}`,
@@ -496,27 +397,10 @@ ${mapPlaces.length
     </section>`
   : ''}
 
-<section class="section">
-  <div class="wrap">
-    ${regions.map(
-      (region) => html`
-      <div style="margin-bottom:var(--s8)">
-        ${sectionHead({ eyebrow: region, title: regionHeadline(region), lede: null })}
-        <div class="grid grid--3">
-          ${byRegion.get(region).sort((a, b) => a.name.localeCompare(b.name)).map((c) => countryCard(site, c))}
-        </div>
-      </div>`
-    )}
-  </div>
-</section>
-
 ${close({
-  eyebrow: 'Once you have two or three in mind',
-  title: 'Want them side by side?',
-  copy: `The comparison table puts tuition, living costs, language of instruction and application deadlines
-    for every country on one screen — seven dimensions kept apart, with no overall score, because the
-    weighting would be ours and the decision is yours.`,
-  invitation: { href: '/compare/', label: 'Compare every destination' },
+  title: 'Two or three in mind?',
+  copy: 'Put their fees, language and deadlines side by side.',
+  invitation: { href: '/compare/', label: 'Compare destinations' },
   also: [{ href: '/timeline/', label: 'Every deadline, in order' }],
 })}`;
 
@@ -544,7 +428,7 @@ export function europeIndex(site) {
     scope: 'europe',
     eyebrow: `${site.europe.length} countries`,
     title: 'Europe, country by country',
-    lede: 'What each system asks of an IB student, what it costs, and how much of it is actually available in English.',
+    lede: 'Where the English-taught degrees are, and what each country asks of your IB.',
     path: '/europe/',
     heroKey: 'it',
   });
@@ -555,7 +439,7 @@ export function worldIndex(site) {
     scope: 'worldwide',
     eyebrow: `${site.world.length} countries`,
     title: 'Beyond Europe',
-    lede: 'Systems that know the IB well and teach in English — and, for most of them, charge international fees to match.',
+    lede: 'Systems that know the IB well — most with international fees to match.',
     path: '/world/',
     heroKey: 'us',
   });

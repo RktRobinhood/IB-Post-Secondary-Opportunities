@@ -1,8 +1,8 @@
-import { html, raw, md, plural, truncate } from '../lib/html.mjs';
+import { html, raw, md, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
-  stamp, dataTable, emptyState, pager, accordion, requirementLine, tags, contextNotes, sectorLandscape,
+  stamp, dataTable, emptyState, pager, accordion, requirementLine, tags, contextNotes, sectorLandscape, topic,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { contextFor } from '../lib/canonical.mjs';
@@ -20,165 +20,184 @@ export function denmarkHub(site) {
   // and this page went on counting them under "Where you can study in English".
   const dkProgrammes = site.dkInstitutions.flatMap((i) => i.programmes || []);
   const totalProgrammes = dkProgrammes.length;
-  const fields = [...new Set(dkProgrammes.map((p) => p.field).filter(Boolean))];
+  const institutions = site.dkInstitutions
+    .slice()
+    .sort((a, b) => (b.programmes.length || 0) - (a.programmes.length || 0));
+  const teaching = institutions.filter((i) => i.programmes.length).length;
+
+  /* What is possible before what is required. This page used to open with
+     1,700 words on conversion rules and quotas and put the universities last.
+     Now: the place, four facts, the universities, and then each rule as a
+     heading and a short answer, with the full explanation one tap beneath.
+     Nothing was cut; it moved behind `<details>`. */
+  const notes = [
+    ...contextFor(site.graph, 'destination', 'dk'),
+    ...contextFor(site.graph, 'application-system', 'dk-optagelse'),
+  ];
+
+  const topics = [
+    topic({
+      id: 'points',
+      title: 'Your points become a grade average',
+      short: 'The Agency converts your IB total to the Danish scale: 30 points is 6.9, 36 is 9.3, 40 is 10.7.',
+      body: html`<p>The Agency publishes a conversion table each year. That average is what you compete on in
+        quota 1.</p>
+        <p><a class="arrow-link" href="${url('/denmark/ib-conversion/')}">The full table</a></p>`,
+      more: 'How it is used',
+    }),
+    topic({
+      id: 'subjects',
+      title: 'Your subjects become Danish levels',
+      short: 'HL generally becomes A level and SL becomes B — but not always, and the exceptions matter.',
+      body: html`<p>Both mathematics courses — Analysis and Approaches and Applications and Interpretation — count
+        the same way at each level. Global Politics has no fixed equivalence at all.</p>
+        <p>Almost every programme names subjects and levels, and some name minimum grades too. Meeting the general
+        entry requirement is not enough on its own.</p>
+        <p><a class="arrow-link" href="${url('/planner/')}">Check yours against real programmes</a></p>`,
+      more: 'The exceptions',
+    }),
+    topic({
+      id: 'deadline',
+      title: 'You apply before you have results',
+      short: 'Applications close at **12:00 noon CET on 15 March 2027** — not midnight. Results come out on 6 July.',
+      body: html`<p>That deadline applies to every applicant with an international qualification, including an IB
+        taken at a Danish school, and whether you are aiming at quota 1 or quota 2. Your IB coordinator sends your
+        results directly through the IB's results service — you do not wait and upload them yourself.</p>
+        <p><a class="arrow-link" href="${url('/denmark/apply/')}">Step by step: how to apply</a></p>`,
+      more: 'What happens after',
+    }),
+    topic({
+      id: 'quotas',
+      title: 'Quota 1 and quota 2',
+      short: 'Quota 1 ranks on your converted average alone; quota 2 weighs other things. You are considered for both.',
+      body: html`<p>Programmes with more applicants than places split their intake into two quotas.
+        <strong>Quota 1</strong> takes most of the places. <strong>Quota 2</strong> takes a smaller number and
+        weighs grades in the required subjects, up to twelve months of relevant work or study, and sometimes an
+        admission test or an essay.</p>
+        <p>If you apply by 15 March and your average can be converted to the Danish scale, you are automatically
+        considered in quota 1 as well as quota 2.</p>
+        <p>Aalborg's admissions office is unusually blunt about what does <em>not</em> count in its quota 2:
+        motivational letters and recommendations are not considered relevant and are not required. Other
+        institutions — Copenhagen Business School in particular — do want an essay. Check each one.</p>
+        ${note(
+          `Denmark's universities must cut their bachelor intake by about ten per cent between 2025 and 2029
+          under the national dimensioning policy. Some programmes have fewer places than they did when older
+          cut-off figures were published.`,
+          { kind: 'warn', title: 'Fewer places than before' }
+        )}`,
+      more: 'How the quotas work',
+    }),
+    topic({
+      id: 'danish',
+      title: 'Most degrees are taught in Danish',
+      short: 'The English-taught set is much smaller — and it is the set on this site.',
+      body: html`<p>This is the single biggest constraint on studying in Denmark with an IB. The University of
+        Copenhagen puts it plainly on its own bachelor page: 78 programmes, <em>all</em> taught in Danish. Aalborg
+        has historically taught four in English. Most of the English-taught provision sits at Copenhagen Business
+        School, Southern Denmark, the IT University, Roskilde and the university colleges.</p>
+        <p>If you took Danish A1 or Danish A Literature — at either level — you are fine. If you did not, and the
+        programme is taught in Danish, you will need the <em>Studieprøven</em> language test or an equivalent.</p>
+        ${sectorLandscape(site.graph.destinations.get('dk')?.sectorLandscape, { destinationName: 'Denmark' })}`,
+      more: 'Where the English-taught degrees are',
+    }),
+    topic({
+      id: 'money',
+      title: 'What it costs',
+      short: 'Nothing for EU, EEA and Swiss citizens. Everyone else pays roughly €6,000–16,000 a year.',
+      body: html`<p>Non-EU students also pay a DKK 3,060 fee for the residence permit.</p>
+        <p>Danish students can claim SU — DKK 7,426 a month before tax in 2026 if you live away from home.
+        Non-Danish EU citizens have to earn equal-treatment status first, usually by working 10–12 hours a week.</p>
+        <p><a class="arrow-link" href="${url('/denmark/money/')}">Money, SU and the cost of living</a></p>`,
+      more: 'SU and living costs',
+    }),
+    notes.length &&
+      topic({
+        id: 'context',
+        title: 'What it is actually like',
+        short: `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`,
+        body: contextNotes(notes, { heading: false }),
+        more: 'Read them',
+      }),
+  ].filter(Boolean);
 
   const body = html`
 ${hero({
   eyebrow: 'Denmark · ' + SITE.cycle.label,
-  title: 'Applying in Denmark with an IB Diploma',
-  lede: 'One deadline, one portal, no tuition — and a set of conversion rules that decide everything. Here is how it works, in the detail you will actually need.',
+  title: 'Denmark',
+  lede: `${plural(totalProgrammes, 'degree')} taught in English, across ${plural(teaching, 'university', 'universities')} — every one checked subject by subject.`,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
+  // The universities a student could actually go to, each named, in turn.
+  slides: institutions
+    .filter((i) => i.programmes.length)
+    .map((i) => ({ i, p: picture(site, i.id, { prefer: 'commons' }) }))
+    .filter(({ p }) => p?.src && p.src !== pic?.src)
+    .slice(0, 4)
+    .map(({ i, p }) => ({ src: p.external ? p.src : url(p.src), caption: `${i.name} · ${i.city}`, credit: p.credit || null })),
   actions: html`
-    <a class="btn btn--primary" href="${url('/planner/')}">Check my subjects</a>
-    <a class="btn btn--ghost" href="${url('/denmark/ib-conversion/')}">See the conversion tables</a>`,
+    <a class="btn btn--primary" href="${url('/programmes/')}">See every degree</a>
+    <a class="btn btn--ghost" href="${url('/planner/')}">Check my subjects</a>`,
 })}
 
-<section class="section section--tinted">
+<section class="section section--tinted section--tight">
   <div class="wrap">
     ${stats([
-      { value: '15 March', label: 'Application deadline, 12:00 noon CET' },
-      { value: '24', label: 'IB points for access to everything' },
+      { value: '15 March', label: 'Deadline, 12:00 noon CET' },
+      { value: '24', label: 'IB points for general access' },
       { value: '8', label: 'Programmes you may list' },
       { value: '28 July', label: 'You get an answer' },
     ])}
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="layout-aside">
-      <div class="prose">
-        <p class="lede">If you hold an IB Diploma with 24 points or more, you can apply to every higher
-        education programme in Denmark — provided you also meet the specific subject requirements for the
-        programme you want. That second half is where most applications come unstuck.</p>
-
-        <h2 id="five">The five things that decide your application</h2>
-        <ol class="steps">
-          <li>
-            <h3>Your total points become a Danish grade average</h3>
-            <p>The Agency publishes a conversion table each year. 30 points is a Danish 6.9; 36 is 9.3;
-            40 is 10.7. That average is what you compete on in quota 1.</p>
-            <p><a class="arrow-link" href="${url('/denmark/ib-conversion/')}">The full table</a></p>
-          </li>
-          <li>
-            <h3>Your subjects become Danish levels</h3>
-            <p>HL generally becomes A level and SL becomes B level, but not always, and the exceptions matter.
-            Both mathematics courses — Analysis and Approaches and Applications and Interpretation — count the
-            same way at each level. Global Politics has no fixed equivalence at all.</p>
-            <p><a class="arrow-link" href="${url('/planner/')}">Check yours against real programmes</a></p>
-          </li>
-          <li>
-            <h3>The programme sets specific requirements</h3>
-            <p>Almost every programme names subjects and levels, and some name minimum grades too. Meeting the
-            general entry requirement is not enough on its own.</p>
-          </li>
-          <li>
-            <h3>Language decides most of the shortlist</h3>
-            <p>Most Danish bachelor's degrees are taught in Danish and need Danish at A level. The
-            English-taught ones are a much smaller set — and the ones on this site.</p>
-          </li>
-          <li>
-            <h3>You apply before you have your results</h3>
-            <p>Applications close on 15 March. IB results come out on 6 July. Your IB coordinator sends your
-            results directly through the IB's results service — you do not wait and upload them yourself.</p>
-          </li>
-        </ol>
-
-        ${note(
-          `Applications close at **12:00 noon CET on 15 March 2027** — not midnight, and not the end of the day.
-          That deadline applies to every applicant with an international qualification, including an IB taken at
-          a Danish school, and it applies whether you are aiming at quota 1 or quota 2.`,
-          { kind: 'warn', title: 'The deadline that catches people out' }
-        )}
-
-        <h2 id="quotas">Quota 1 and quota 2</h2>
-        <p>Programmes with more applicants than places split their intake into two quotas. <strong>Quota 1</strong>
-        takes most of the places and ranks purely on your converted grade average. <strong>Quota 2</strong> takes
-        a smaller number and weighs other things — grades in the required subjects, up to twelve months of
-        relevant work or study, and sometimes an admission test or an essay.</p>
-        <p>You do not choose between them. If you apply by 15 March and your average can be converted to the
-        Danish scale, you are automatically considered in quota 1 as well as quota 2.</p>
-        <p>Aalborg's admissions office is unusually blunt about what does <em>not</em> count in its quota 2:
-        motivational letters and recommendations are not considered relevant and are not required. Other
-        institutions — Copenhagen Business School in particular — do want an essay. Check each one.</p>
-
-        <h2 id="danish">The Danish-language problem</h2>
-        <p>This is the single biggest constraint on studying in Denmark with an IB, and it is easy to miss
-        because it is rarely stated as a headline. The University of Copenhagen puts it plainly on its own
-        bachelor page: 78 programmes, <em>all</em> taught in Danish. Aalborg has historically taught four in English. Most of the English-taught
-        provision sits at Copenhagen Business School, Southern Denmark, the IT University, Roskilde and the
-        university colleges.</p>
-        <p>If you took Danish A1 or Danish A Literature — at either level — you are fine. If you did not, and the
-        programme is taught in Danish, you will need the <em>Studieprøven</em> language test or an equivalent.</p>
-
-        ${sectorLandscape(site.graph.destinations.get('dk')?.sectorLandscape, { destinationName: 'Denmark' })}
-
-        ${contextNotes([
-          ...contextFor(site.graph, 'destination', 'dk'),
-          ...contextFor(site.graph, 'application-system', 'dk-optagelse'),
-        ])}
-
-        <h2 id="money">What it costs</h2>
-        <p>Nothing, if you are an EU, EEA or Swiss citizen: Danish higher education charges no tuition. Everyone
-        else pays roughly €6,000–16,000 a year, and a DKK 3,060 fee for the residence permit.</p>
-        <p>Danish students can claim SU — DKK 7,426 a month before tax in 2026 if you live away from home.
-        Non-Danish EU citizens have to earn equal-treatment status first, usually by working 10–12 hours a week.</p>
-        <p><a class="arrow-link" href="${url('/denmark/money/')}">Money, SU and the cost of living</a></p>
-      </div>
-
-      <aside class="layout-aside__side stack">
-        ${stamp(site.conversion?.dataAsOf)}
-        <div class="card card--flat">
-          <div class="card__body">
-            <p class="eyebrow eyebrow--plain">Jump to</p>
-            <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
-              <li><a href="${url('/denmark/apply/')}">Step by step: how to apply</a></li>
-              <li><a href="${url('/denmark/ib-conversion/')}">Conversion tables</a></li>
-              <li><a href="${url('/denmark/money/')}">Money, SU and living costs</a></li>
-              <li><a href="${url('/programmes/')}">Every English-taught programme</a></li>
-              <li><a href="${url('/planner/')}">Subject checker</a></li>
-              <li><a href="${url('/timeline/')}">The 2027 calendar</a></li>
-            </ul>
-          </div>
-        </div>
-        ${note(
-          `Denmark's universities must cut their bachelor intake by about ten per cent between 2025 and 2029
-          under the national dimensioning policy. Some programmes have fewer places than they did when older
-          cut-off figures were published.`,
-          { kind: 'warn', title: 'Fewer places than before' }
-        )}
-      </aside>
-    </div>
-  </div>
-</section>
-
-${site.dkInstitutions.length
-  ? html`<section class="section section--tinted section--rule">
+${institutions.length
+  ? html`<section class="section">
       <div class="wrap">
         ${sectionHead({
-          eyebrow: plural(site.dkInstitutions.length, 'institution'),
+          eyebrow: plural(institutions.length, 'institution'),
           title: 'Where you can study in English',
-          lede: `${totalProgrammes ? `${totalProgrammes} programmes across ${fields.length} fields.` : ''} Each page lists every English-taught degree and its exact entry requirements.`,
+          id: 'institutions',
         })}
         <div class="grid grid--3">
-          ${site.dkInstitutions
-            .slice()
-            .sort((a, b) => (b.programmes.length || 0) - (a.programmes.length || 0))
-            .map((i) => {
-              const p = picture(site, i.id);
-              return card({
-                href: i.href,
-                title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
-                text: i.about,
-                image: p ? { src: p.src, alt: p.alt } : null,
-                placeholder: i.shortName || i.name,
-                meta: [i.city, plural(i.programmes.length, 'programme')].filter(Boolean),
-              });
-            })}
+          ${institutions.map((i) => {
+            const p = picture(site, i.id);
+            return card({
+              href: i.href,
+              title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
+              text: firstSentence(i.about, 24),
+              image: p ? { src: p.src, alt: p.alt } : null,
+              placeholder: i.shortName || i.name,
+              meta: [i.city, plural(i.programmes.length, 'programme')].filter(Boolean),
+            });
+          })}
         </div>
       </div>
     </section>`
-  : ''}`;
+  : ''}
+
+<section class="section section--tinted section--rule">
+  <div class="wrap">
+    <div class="layout-aside">
+      <div class="prose">
+        <h2 id="how">How it works</h2>
+        <p class="lede">An IB Diploma with 24 points opens every programme in Denmark — if you also meet that
+        programme's subject requirements.</p>
+        ${topics}
+      </div>
+      <aside class="layout-aside__side stack">
+        ${stamp(site.conversion?.dataAsOf)}
+        <nav aria-label="Denmark guides">
+          <p class="eyebrow eyebrow--plain">Go deeper</p>
+          <ul class="side-links">
+            <li><a href="${url('/denmark/apply/')}">How to apply, step by step</a></li>
+            <li><a href="${url('/denmark/ib-conversion/')}">Conversion tables</a></li>
+            <li><a href="${url('/denmark/money/')}">Money, SU and living costs</a></li>
+            <li><a href="${url('/timeline/')}">The 2027 calendar</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </div>
+</section>`;
 
   return page({
     title: 'Denmark',
@@ -323,7 +342,7 @@ ${hero({
   variant: 'plain',
   eyebrow: 'Denmark · Official rules',
   title: 'How Denmark converts your IB',
-  lede: 'The tables every Danish university is supposed to use, taken from the Agency\'s Eksamenshåndbogen. Several universities publish their own summaries; several of those are out of date.',
+  lede: 'The official tables, from the Agency\'s Eksamenshåndbogen — not the out-of-date summaries some universities publish.',
 })}
 
 <section class="section">

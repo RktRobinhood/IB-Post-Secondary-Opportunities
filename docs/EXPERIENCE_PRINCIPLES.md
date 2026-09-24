@@ -49,6 +49,25 @@ On a Destination page that means, in this order:
 
 **Short answers are the deliverable; the long form is what they point at.** A short answer is taken from the record — its summary, or the first sentence of the field — and never written fresh in the template. Nothing is deleted to make a page short: the depth is relocated behind a disclosure and reachable in one action. Disclosure summaries are controls and take their minimum size from the touch policy like every other control.
 
+### Every page, not only Destinations
+
+The same order holds everywhere: a picture or a list of ways in first, one sentence of copy per block, and the rules one tap beneath. As rebuilt in September 2026:
+
+| Page | Opens with | Then |
+|---|---|---|
+| Home | Photo hero, then three equal doors — Denmark, Europe, Worldwide | A reel of named universities; "What do you want to study?"; the tools, one line each |
+| Denmark | Photo hero, four facts, the universities | "How it works" as short answers |
+| Europe / Worldwide | Photo tiles per country, by region | The map; compare |
+| University | Photo hero, a glance band, the degrees | What it tells IB students, notes, sources — short answers |
+| Programme | Photo hero with one sentence, a glance band, required subjects as chips | The fine print, what it is, deadlines — short answers |
+| Preparing | A board: decides / weighed / changes nothing | Each action, reasoning behind "Why" |
+| Deadlines | The dated list, one line per date | Details, undated dates and closed routes behind a tap |
+| Guides | The options | Sections as short answers |
+
+**Denmark is one of three doors, not the front page.** Most readers are at a Danish school and will look at Denmark anyway. What the home page exists to show them is how much else is open. Denmark goes first and at equal weight; it does not get its own map, its own chapter, or its own copy on the home page.
+
+A hero lede is one sentence. Where a record's summary is longer, the hero takes its first sentence (`firstSentence`) and the page carries the rest.
+
 ### The budget
 
 Measured at 375px on the rebuilt pages, and enforced by `scripts/test-page-budget.mjs` in the gate's built stage. "Default view" means the words inside `<main>` a reader sees without opening anything — a closed `<details>` counts its summary line only — less navigation, scripts and SVG (`scripts/lib/page-measure.mjs`).

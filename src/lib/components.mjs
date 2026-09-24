@@ -218,6 +218,87 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
   </article>`;
 }
 
+/* --- Ways in ------------------------------------------------------------- */
+
+/**
+ * Large photographic doors: where a page offers a few places to go next and
+ * each is a place. The picture fills the tile and the words sit on it — a
+ * name, a count and one line — because the door is the invitation and the
+ * page behind it is the explanation.
+ *
+ * @param {Array} items [{ href, eyebrow, title, count, line, image }]
+ */
+export function doors(items) {
+  return html`<div class="doors">${items.map(
+    (d) => html`<a class="door" href="${url(d.href)}">
+      ${d.image
+        ? html`<img class="door__img" src="${url(d.image.src)}" alt="" loading="lazy" decoding="async" width="900" height="1100">`
+        : ''}
+      <span class="door__text">
+        <span class="door__eyebrow">${d.eyebrow}</span>
+        <span class="door__title">${d.title}</span>
+        ${d.count ? html`<span class="door__count">${d.count}</span>` : ''}
+        ${d.line ? html`<span class="door__line">${d.line}</span>` : ''}
+      </span>
+      ${d.image?.credit?.text ? html`<span class="door__credit">${d.image.credit.text}</span>` : ''}
+    </a>`
+  )}</div>`;
+}
+
+/**
+ * A horizontal run of named places, each a photograph with a caption. Scrolls
+ * sideways by touch or trackpad and snaps; on a keyboard every tile is a link
+ * in order. Nothing moves on its own.
+ *
+ * @param {Array} items [{ href, name, where, flag, image }]
+ */
+export function reel(items) {
+  if (!items?.length) return '';
+  return html`<ul class="reel" role="list">${items.map(
+    (p) => html`<li class="reel__item">
+      <a class="tile" href="${url(p.href)}">
+        <img class="tile__img" src="${url(p.image.src)}" alt="${p.image.alt || ''}" loading="lazy" decoding="async" width="600" height="750">
+        <span class="tile__text">
+          <span class="tile__name">${p.name}</span>
+          <span class="tile__where">${p.flag ? html`<span aria-hidden="true">${p.flag}</span> ` : ''}${p.where}</span>
+        </span>
+      </a>
+    </li>`
+  )}</ul>`;
+}
+
+/**
+ * The tools, once a reader wants them: a name and one line each.
+ *
+ * @param {Array} items [{ href, title, line }]
+ */
+export function toolkit(items) {
+  return html`<ul class="toolkit" role="list">${items.map(
+    (t) => html`<li><a class="toolkit__item" href="${url(t.href)}">
+      <span class="toolkit__title">${t.title}</span>
+      <span class="toolkit__line">${t.line}</span>
+    </a></li>`
+  )}</ul>`;
+}
+
+/**
+ * The handful of facts a student compares on, in a row under the hero: a
+ * label, a value, and at most a few words of qualification. Rows with no value
+ * are left out rather than shown empty.
+ *
+ * @param {Array} items [{ label, value, note }]
+ */
+export function glance(items) {
+  const real = items.filter((i) => i && i.value !== null && i.value !== undefined && i.value !== '');
+  if (!real.length) return '';
+  return html`<dl class="glance">${real.map(
+    (i) => html`<div class="glance__item">
+      <dt>${i.label}</dt>
+      <dd>${i.value}${i.note ? html`<small>${i.note}</small>` : ''}</dd>
+    </div>`
+  )}</dl>`;
+}
+
 /* --- Small pieces -------------------------------------------------------- */
 
 export function note(body, { kind = '', title } = {}) {

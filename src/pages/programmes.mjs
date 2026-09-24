@@ -1,8 +1,8 @@
-import { html, raw, md, plural, truncate, listSentence } from '../lib/html.mjs';
+import { html, raw, md, plural, truncate, listSentence, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
-  stamp, dataTable, emptyState, pager, tags, requirementLine, freshness,
+  stamp, dataTable, emptyState, pager, tags, requirementLine, freshness, topic, glance,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
@@ -181,6 +181,75 @@ export function university(site, inst, { prev, next }) {
     byField.get(f).push(p);
   }
 
+  /* The degrees first, as pictures a student can click; what the institution
+     says about the IB, how it runs its admissions and the notes after them,
+     each as a short answer with the rest one tap beneath. */
+  const programmeCards = [...inst.programmes]
+    .sort((a, b) => (a.field || '').localeCompare(b.field || '') || a.name.localeCompare(b.name))
+    .map((p) => {
+      // Most programmes have no photograph of their own, and a grid of
+      // monograms reads as unfinished; the pictures of the place are in the
+      // hero above. So these are text cards, and all the same shape.
+      const req = requirementLine(p.entryRequirements);
+      return card({
+        href: p.href,
+        title: p.name,
+        text: req ? `Needs ${req}` : null,
+        meta: [p.field, p.years ? `${p.years} years` : null, p.campus && p.campus !== inst.city ? p.campus : null].filter(Boolean),
+        tags: p.restrictedAdmission
+          ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? `Last cut-off ${p.cutoff.value}` : 'Restricted admission', mod: 'sand' }]
+          : null,
+      });
+    });
+
+  const statement = inst.ibRecognitionStatement;
+  const topics = [
+    statement &&
+      topic({
+        id: 'ib-statement',
+        title: 'What it tells IB students',
+        short: statement.text
+          ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.`
+          : 'It publishes an IB recognition statement.',
+        body: html`${statement.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
+          <p><a href="${statement.url}" rel="noopener nofollow">Its full IB recognition statement<span aria-hidden="true"> ↗</span></a>,
+          written by the university and published by the IB.</p>`,
+        more: 'In its own words',
+      }),
+    (inst.ibNotes || []).length &&
+      topic({
+        id: 'ib',
+        title: 'What it asks of IB students',
+        short: firstSentence(inst.ibNotes[0], 30),
+        body: html`<ul>${inst.ibNotes.map((n) => html`<li>${n}</li>`)}</ul>`,
+        more: `All ${plural(inst.ibNotes.length, 'note')}`,
+      }),
+    inst.quotaNotes &&
+      topic({
+        id: 'quota',
+        title: 'How it runs quota 2',
+        short: firstSentence(inst.quotaNotes, 30),
+        body: md(inst.quotaNotes),
+        more: 'In full',
+      }),
+    (inst.notes || []).length &&
+      topic({
+        id: 'notes',
+        title: 'Worth knowing',
+        short: firstSentence(inst.notes[0], 30),
+        body: html`<ul>${inst.notes.map((n) => html`<li>${n}</li>`)}</ul>`,
+        more: `All ${plural(inst.notes.length, 'note')}`,
+      }),
+    (inst.sources || []).length &&
+      topic({
+        id: 'sources',
+        title: 'Sources',
+        short: `The ${plural(inst.sources.length, 'page')} this was written from.`,
+        body: sources(inst.sources, { title: null }),
+        more: 'All sources',
+      }),
+  ].filter(Boolean);
+
   const body = html`
 ${hero({
   // The country belongs in the eyebrow now that there is more than one of
@@ -188,11 +257,23 @@ ${hero({
   // every institution on the site was Danish and is a riddle now.
   eyebrow: [inst.city, dest?.name, inst.type].filter(Boolean).join(' · '),
   title: inst.name,
-  lede: inst.about,
+  lede: firstSentence(inst.about, 30),
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
   slides: pic ? universitySlides(site, inst) : [],
   variant: pic ? undefined : 'panel',
 })}
+
+<section class="section section--tinted section--glance">
+  <div class="wrap">
+    ${glance([
+      { label: 'In English', value: plural(inst.programmes.length, 'degree') },
+      { label: 'City', value: inst.city },
+      { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
+      { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
+      { label: 'Tuition, non-EU', value: inst.tuitionNonEu ? truncate(inst.tuitionNonEu, 40) : null },
+    ])}
+  </div>
+</section>
 
 <section class="section">
   <div class="wrap">
@@ -202,88 +283,49 @@ ${hero({
       { label: inst.shortName || inst.name },
     ])}
 
+    ${inst.programmes.length
+      ? html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
+          <div class="grid grid--3">${programmeCards}</div>`
+      : note(
+          // This used to name Danish at A level and the Studieprøven, which
+          // is the right advice at a Danish institution and nonsense at a
+          // Dutch one. The specific language qualification is a fact about
+          // a Destination's own rules and belongs on that Destination's
+          // pages, where it can be sourced. What belongs here is the part
+          // that holds at any institution teaching in its own language —
+          // and the language comes off the record, because two of the Dutch
+          // institutions teach in English and the country does not.
+          `No fully English-taught bachelor programmes are listed here for 2027 entry. That does not
+          mean you cannot study here — it means you would need to meet its
+          ${inst.teachingLanguage ? `${inst.teachingLanguage}-language` : 'local-language'} entry
+          requirements and apply to the programmes it teaches in
+          ${inst.teachingLanguage || 'its own language'} instead.${
+            dest ? ` ${dest.name}'s own section explains what that takes.` : ''
+          }`,
+          { kind: 'warn', title: 'Nothing in English' }
+        )}
+  </div>
+</section>
+
+<section class="section section--tinted section--rule">
+  <div class="wrap">
     <div class="layout-aside">
       <div class="prose">
-        ${inst.programmes.length === 0
-          ? note(
-              // This used to name Danish at A level and the Studieprøven, which
-              // is the right advice at a Danish institution and nonsense at a
-              // Dutch one. The specific language qualification is a fact about
-              // a Destination's own rules and belongs on that Destination's
-              // pages, where it can be sourced. What belongs here is the part
-              // that holds at any institution teaching in its own language —
-              // and the language comes off the record, because two of the Dutch
-              // institutions teach in English and the country does not.
-              `No fully English-taught bachelor programmes are listed here for 2027 entry. That does not
-              mean you cannot study here — it means you would need to meet its
-              ${inst.teachingLanguage ? `${inst.teachingLanguage}-language` : 'local-language'} entry
-              requirements and apply to the programmes it teaches in
-              ${inst.teachingLanguage || 'its own language'} instead.${
-                dest ? ` ${dest.name}'s own section explains what that takes.` : ''
-              }`,
-              { kind: 'warn', title: 'Nothing in English' }
-            )
-          : ''}
-
-        ${/* #38 — the institution's own words, one quotation long, and the way
-              out to the rest. A touch, not an import: docs/IB_STATEMENTS.md. */
-          inst.ibRecognitionStatement
-          ? html`<h2 id="ib-statement">What it tells IB students</h2>
-              ${inst.ibRecognitionStatement.diplomaPolicy
-                ? html`<blockquote><p>${inst.ibRecognitionStatement.diplomaPolicy}</p></blockquote>`
-                : ''}
-              <p>${inst.ibRecognitionStatement.text ? html`${inst.ibRecognitionStatement.text[0].toUpperCase()}${inst.ibRecognitionStatement.text.slice(1)}. ` : ''}<a href="${inst.ibRecognitionStatement.url}" rel="noopener nofollow">Its full IB recognition statement<span aria-hidden="true"> ↗</span></a>, written by the university and published by the IB.</p>`
-          : ''}
-
-        ${(inst.ibNotes || []).length
-          ? html`<h2 id="ib">What this institution asks of IB students</h2>
-              <ul>${inst.ibNotes.map((n) => html`<li>${n}</li>`)}</ul>`
-          : ''}
-
-        ${inst.quotaNotes
-          ? html`<h2 id="quota">How it runs quota 2</h2>${md(inst.quotaNotes)}`
-          : ''}
-
-        ${(inst.notes || []).length
-          ? html`<h2 id="notes">Worth knowing</h2>
-              <ul>${inst.notes.map((n) => html`<li>${n}</li>`)}</ul>`
-          : ''}
-
-        ${inst.programmes.length
-          ? html`<h2 id="programmes">English-taught programmes</h2>
-              ${[...byField.entries()]
-                .sort((a, b) => a[0].localeCompare(b[0]))
-                .map(
-                  ([field, list]) => html`
-                  <h3>${field}</h3>
-                  <ul class="prog-list">
-                    ${list
-                      .slice()
-                      .sort((a, b) => a.name.localeCompare(b.name))
-                      .map((p) => programmeRow(p))}
-                  </ul>`
-                )}`
-          : ''}
-
-        ${sources(inst.sources)}
+        ${topics}
       </div>
 
       <aside class="layout-aside__side stack">
         ${stamp(inst.dataAsOf)}
         ${facts([
-          { label: 'City', value: inst.city },
           { label: 'Campuses', value: (inst.campuses || []).join(', ') || null },
-          { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
-          { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
           { label: 'IB results code', value: inst.ibisCode },
-          { label: 'Tuition, non-EU', value: inst.tuitionNonEu },
           {
             label: 'Links',
             value: html`<ul style="list-style:none;padding:0;margin:0">
               ${inst.website ? html`<li><a href="${inst.website}" rel="noopener nofollow">Main site</a></li>` : ''}
               ${inst.admissionsUrl ? html`<li><a href="${inst.admissionsUrl}" rel="noopener nofollow">Admissions</a></li>` : ''}
               ${inst.ibPageUrl ? html`<li><a href="${inst.ibPageUrl}" rel="noopener nofollow">Its IB page</a></li>` : ''}
-              ${inst.ibRecognitionStatement ? html`<li><a href="${inst.ibRecognitionStatement.url}" rel="noopener nofollow">Its IB statement</a></li>` : ''}
+              ${statement ? html`<li><a href="${statement.url}" rel="noopener nofollow">Its IB statement</a></li>` : ''}
             </ul>`,
           },
         ])}
@@ -365,8 +407,7 @@ ${hero({
   variant: 'plain',
   eyebrow: scope.label,
   title: 'Where you can study',
-  lede: `Every institution in ${scope.label} that teaches at least some of its undergraduate degrees in
-    English — and the ones that do not, so you know.`,
+  lede: `Every institution in ${scope.label} with degrees taught in English — and the ones without, so you know.`,
 })}
 <section class="section">
   <div class="wrap">
@@ -388,7 +429,7 @@ ${hero({
                 return card({
                   href: i.href,
                   title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,
-                  text: i.about,
+                  text: firstSentence(i.about, 24),
                   image: p ? { src: p.src, alt: p.alt } : null,
                   placeholder: i.shortName || i.name,
                   meta: [i.city, plural(i.programmes.length, 'English-taught programme')],
@@ -445,14 +486,56 @@ export function programme(site, p, inst) {
       );
   const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
 
+  /* What it is, at a glance, before what it takes. The hero carries one
+     sentence; the band under it carries the facts a student compares on; the
+     subjects are chips; and every paragraph of rules and qualifications is one
+     tap beneath its heading. Nothing was removed — see #37 for the argument. */
+  const award = opp ? entryAward(opp) : null;
+  const numericCutoff = p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim());
+  const deadlineRows = (route?.milestones || [])
+    .filter((m) => ['submit', 'signature', 'document', 'result', 'reply'].includes(m.type))
+    .filter((m) => readerAccessOf(m.readerAccess)?.state !== 'closed');
+
+  const need = html`${req?.all?.length
+      ? html`<ul class="need" aria-label="Required subjects">${req.all.map(
+          (r) => html`<li class="need__item"><strong>${r.subject} ${r.level}</strong>${r.minGrade ? html`<span>minimum ${r.minGrade}</span>` : ''}</li>`
+        )}</ul>`
+      : ''}
+    ${req?.oneOf?.length
+      ? html`<p class="need__or">And one of these combinations:</p>
+          <ul class="need need--or">${req.oneOf.map(
+            (group) => html`<li class="need__item">${group.map((r, n) => html`${n ? ' + ' : ''}<strong>${r.subject} ${r.level}</strong>${r.minGrade ? ` (min ${r.minGrade})` : ''}`)}</li>`
+          )}</ul>`
+      : ''}
+    ${!req && !p.requirementsText ? emptyState('No entry requirements have been recorded for this programme yet.') : ''}`;
+
   const body = html`
 ${hero({
   variant: 'compact',
   eyebrow: `${inst.shortName || inst.name}${p.campus ? ` · ${p.campus}` : ''}`,
   title: p.name,
-  lede: p.summary,
+  lede: firstSentence(p.summary, 28),
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
 })}
+
+<section class="section section--tinted section--glance">
+  <div class="wrap">
+    ${glance([
+      { label: 'Where', value: [p.campus || inst.city, dest?.name].filter(Boolean).join(', ') || null },
+      { label: 'Length', value: p.years ? `${p.years} years` : p.ects ? `${p.ects} ECTS` : null },
+      { label: 'Taught in', value: p.language || 'English' },
+      { label: 'Starts', value: p.startMonth },
+      { label: 'Apply by', value: closes.length ? prettyDate(closes[0].date) : null },
+      {
+        label: p.restrictedAdmission ? 'Last cut-off' : 'Admission',
+        value: p.restrictedAdmission
+          ? numericCutoff ? String(p.cutoff.value) : 'Restricted'
+          : 'Open to all who qualify',
+        note: p.restrictedAdmission && numericCutoff ? [p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ') : null,
+      },
+    ])}
+  </div>
+</section>
 
 <section class="section">
   <div class="wrap">
@@ -465,6 +548,11 @@ ${hero({
 
     <div class="layout-aside">
       <div class="prose">
+        <h2 id="requirements">What you need</h2>
+        ${need}
+        ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
+        <p class="need__cta"><a class="btn btn--primary" href="${url('/planner/')}">Check my subjects against it</a></p>
+
         ${ev
           ? freshness({
               intake: opp?.intake,
@@ -474,99 +562,77 @@ ${hero({
             })
           : ''}
 
-        <h2 id="requirements">Entry requirements</h2>
-        ${req
-          ? html`
-            ${req.all?.length
-              ? html`<h3>You need all of these</h3>
-                  <ul class="ticks">
-                    ${req.all.map(
-                      // "minimum Danish grade" was true while every Opportunity
-                      // was Danish. A requirement written in IB terms carries a
-                      // grade on the IB's own 1–7 scale, and naming the wrong
-                      // scale beside a number is worse than naming none.
-                      (r) => html`<li><strong>${r.subject} ${r.level}</strong>${r.minGrade ? ` — minimum grade ${r.minGrade}` : ''}</li>`
-                    )}
-                  </ul>`
+        ${topic({
+          id: 'fine-print',
+          title: 'The fine print',
+          short: [
+            award === ENTRY_AWARD.DIPLOMA_REQUIRED ? 'Asks for the full IB Diploma.' : null,
+            award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED ? 'DP Course Results are accepted.' : null,
+            p.restrictedAdmission ? 'Meeting the requirements does not guarantee a place.' : null,
+          ].filter(Boolean).join(' ') || null,
+          body: html`
+            ${p.requirementsText ? note(p.requirementsText, { title: 'In the university\'s own words' }) : ''}
+            ${award !== ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
+            ${(p.extraRequirements || []).length
+              ? html`<h3>On top of the subjects</h3>
+                  <ul>${p.extraRequirements.map((x) => html`<li>${x}</li>`)}</ul>`
               : ''}
-            ${req.oneOf?.length
-              ? html`<h3>And one of these combinations</h3>
-                  <ul>
-                    ${req.oneOf.map(
-                      (group) => html`<li>${group.map((r, n) => html`${n ? ' + ' : ''}<strong>${r.subject} ${r.level}</strong>${r.minGrade ? ` (min ${r.minGrade})` : ''}`)}</li>`
-                    )}
-                  </ul>`
-              : ''}`
+            ${(p.selectionFactors || []).length
+              ? html`<h3>What decides who gets in</h3>
+                  <p>These do not decide whether you <em>qualify</em>. They decide the order among everyone who
+                  does, so not meeting one is not the same as being ineligible.</p>
+                  <ul>${p.selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>`
+              : ''}
+            ${p.restrictedAdmission
+              ? note(
+                  `This programme has restricted admission, so meeting the requirements does not guarantee a place.
+                  ${cutoffSentence(p.cutoff, cutoffScale) ||
+                    'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
+                  { kind: 'warn', title: 'Restricted admission' }
+                )
+              : note(
+                  `As recorded here, this programme does not have restricted admission — everyone who meets the
+                  entry requirements is admitted. Confirm on the university's own page before you rely on it.`,
+                  { kind: 'ok', title: 'Open admission' }
+                )}`,
+          more: 'Requirements in full, and how places are allocated',
+        })}
+
+        ${p.summary
+          ? topic({
+              id: 'what',
+              title: 'What it is',
+              short: p.summary,
+              body: facts([
+                { label: 'Degree', value: p.degree },
+                { label: 'Length', value: p.years ? `${p.years} years${p.ects ? `, ${p.ects} ECTS` : ''}` : p.ects ? `${p.ects} ECTS` : null },
+                { label: 'Field', value: p.field },
+              ]),
+              more: 'Degree and length',
+            })
           : ''}
-        ${p.requirementsText
-          ? note(p.requirementsText, { title: 'In the university\'s own words' })
-          : req
-            ? ''
-            : emptyState('No entry requirements have been recorded for this programme yet.')}
 
-        ${awardBlock(opp)}
-
-        ${(p.extraRequirements || []).length
-          ? html`<h3>On top of the subjects</h3>
-              <ul>${p.extraRequirements.map((x) => html`<li>${x}</li>`)}</ul>`
-          : ''}
-
-        ${(p.selectionFactors || []).length
-          ? html`<h3>What decides who gets in</h3>
-              <p>These do not decide whether you <em>qualify</em>. They decide the order among everyone who
-              does, so not meeting one is not the same as being ineligible.</p>
-              <ul>${p.selectionFactors.map((x) => html`<li>${x}</li>`)}</ul>`
-          : ''}
-
-        ${p.restrictedAdmission
-          ? note(
-              // The second sentence used to be unconditional and was about
-              // Danish national policy, which read as a fact about whichever
-              // programme you happened to be looking at. It now travels with
-              // the cut-off — and the competition it came out of and the scale
-              // it is measured on are read off the record and the Recognition
-              // Scheme rather than named here, because "quota 1" and "a Danish
-              // average" are the names of one country's machinery and this
-              // paragraph is printed over every country's programmes.
-              `This programme has restricted admission, so meeting the requirements does not guarantee a place.
-              ${cutoffSentence(p.cutoff, cutoffScale) ||
-                'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
-              { kind: 'warn', title: 'Restricted admission' }
-            )
-          : note(
-              `As recorded here, this programme does not have restricted admission — everyone who meets the
-              entry requirements is admitted. Confirm on the university's own page before you rely on it.`,
-              { kind: 'ok', title: 'Open admission' }
-            )}
-
-        <h2 id="what">What it is</h2>
-        ${p.summary ? md(p.summary) : ''}
-        ${facts([
-          { label: 'Degree', value: p.degree },
-          { label: 'Length', value: p.years ? `${p.years} years${p.ects ? `, ${p.ects} ECTS` : ''}` : p.ects ? `${p.ects} ECTS` : null },
-          { label: 'Taught in', value: p.language || 'English' },
-          { label: 'Campus', value: p.campus },
-          { label: 'Starts', value: p.startMonth },
-          { label: 'Field', value: p.field },
-        ])}
-
-        ${route?.milestones?.length && !routeClosed
-          ? html`<h2 id="deadlines">Deadlines for this intake</h2>
-              <ul class="timeline">
-                ${route.milestones
-                  .filter((m) => ['submit', 'signature', 'document', 'result', 'reply'].includes(m.type))
-                  .filter((m) => readerAccessOf(m.readerAccess)?.state !== 'closed')
-                  .map(
-                    (m) => html`<li data-date="${m.date || ''}"${m.provisional ? raw(' data-provisional="true"') : ''}>
-                      <div class="timeline__when">${m.date || 'Date not published'}${m.timeOfDay ? html`<br>${m.timeOfDay} ${m.timeZone || ''}` : ''}</div>
-                      <div class="timeline__what">
-                        <h4>${m.label}</h4>
-                        ${m.note ? md(m.note) : ''}
-                        ${m.consequence === 'hard' ? html`<p><small>Missing this closes the door for this intake.</small></p>` : ''}
-                      </div>
-                    </li>`
-                  )}
-              </ul>`
+        ${deadlineRows.length && !routeClosed
+          ? topic({
+              id: 'deadlines',
+              title: 'Deadlines for this intake',
+              short: closes.length
+                ? `Applications close **${prettyDate(closes[0].date)}**${closes[0].timeOfDay ? ` at ${closes[0].timeOfDay} ${closes[0].timeZone || ''}` : ''}.`
+                : `${plural(deadlineRows.length, 'date')} recorded.`,
+              body: html`<ul class="timeline">
+                ${deadlineRows.map(
+                  (m) => html`<li data-date="${m.date || ''}"${m.provisional ? raw(' data-provisional="true"') : ''}>
+                    <div class="timeline__when">${m.date || 'Date not published'}${m.timeOfDay ? html`<br>${m.timeOfDay} ${m.timeZone || ''}` : ''}</div>
+                    <div class="timeline__what">
+                      <h4>${m.label}</h4>
+                      ${m.note ? md(m.note) : ''}
+                      ${m.consequence === 'hard' ? html`<p><small>Missing this closes the door for this intake.</small></p>` : ''}
+                    </div>
+                  </li>`
+                )}
+              </ul>`,
+              more: `All ${plural(deadlineRows.length, 'date')}`,
+            })
           : ''}
 
         ${evidenceBlock({
@@ -574,12 +640,6 @@ ${hero({
           records: site.graph ? resolveEvidence(site.graph, opp?.evidence) : [],
           summary: 'Open this to see the exact page each rule came from, when it was read, and whether a person has checked it.',
         })}
-
-        <h2 id="check">Does your IB fit?</h2>
-        <p>The subject checker reads your six IB subjects against this programme's published requirements —
-        converting them only where the destination publishes a conversion — and tells you whether they satisfy
-        it, and if not, exactly what is missing.</p>
-        <p><a class="btn btn--primary" href="${url('/planner/')}">Check my subjects</a></p>
 
         ${p.url || p.source
           ? sources([
@@ -617,8 +677,7 @@ ${hero({
           },
         ])}
         ${note(
-          `Requirements change between admission years. Before you apply, open the official page and check that
-          what it says still matches what you see here.`,
+          `Requirements change between admission years. Check the official page before you apply.`,
           { kind: 'warn', title: 'Always verify' }
         )}
       </aside>
@@ -715,9 +774,7 @@ ${hero({
   // the day Delft appeared in the list all four became false at once.
   eyebrow: scope.label,
   title: 'Every English-taught programme',
-  lede: `${plural(programmeCount, 'undergraduate degree')} you can take in English in ${scope.label}. Filter them, or follow the map — both show the same set.${
-    scope.complete ? '' : ' Coverage this deep exists for these destinations so far; every other destination has a country page.'
-  }`,
+  lede: `${plural(programmeCount, 'degree')} taught in English in ${scope.label}. Filter them, or follow the map.`,
 })}
 
 <section class="section section--tight">
@@ -906,11 +963,9 @@ ${hero({
   // which is most of the world and now most of this catalogue — so the sentence
   // names a Scheme only where one Scheme covers everything on the page, and
   // names the Destinations the catalogue actually holds either way.
-  lede: `Enter the IB subjects you are taking and the level you are taking each at, and say which IB award you
-    expect to finish with. ${
-      soleScheme ? `This converts them using ${soleScheme.label}, then checks` : 'This checks'
-    } them against every English-taught programme in ${site.opportunityScope.label} — and shows its reasoning
-    for each one.`,
+  lede: `Enter your six subjects. See which of the ${site.opportunityScope.label} degrees they open, and why${
+      soleScheme ? ` — converted using ${soleScheme.label}` : ''
+    }.`,
 })}
 
 <section class="section">
@@ -1103,7 +1158,7 @@ ${hero({
   variant: 'plain',
   eyebrow: SITE.cycle.label,
   title: 'The calendar',
-  lede: 'Every deadline that matters, in order. Some of them close before you have predicted grades, and one of them closes at noon.',
+  lede: 'Every deadline, in order. Some close before you have predicted grades.',
 })}
 
 <section class="section">
@@ -1138,33 +1193,34 @@ ${hero({
 
         ${deadlineList(dated, { showDestination: true })}
 
+        ${/* Both of these are real answers — "there is no date" is something a
+              student can act on, and a blank is not — but they are not what a
+              student opened a calendar for. Named, counted, and one tap away. */ ''}
         ${undated.length
-          ? html`<h2 id="undated">${plural(undated.length, 'date')} we could not pin down</h2>
-              <p>Every one of these was looked for and was not published, or is set by each institution rather
-              than centrally. They are here rather than hidden, because "there is no date" is something you can
-              act on and a blank is not.</p>
-              ${deadlineList(undated, { showDestination: true })}`
+          ? topic({
+              id: 'undated',
+              title: `${plural(undated.length, 'date')} we could not pin down`,
+              short: 'Looked for and not published, or set by each institution rather than centrally.',
+              body: deadlineList(undated, { showDestination: true }),
+              more: `Show all ${undated.length}`,
+            })
           : ''}
 
         ${closed.length
-          ? html`<h2 id="closed">Not open to you</h2>
-              <p>Routes you may have heard of that a Danish IB student cannot take. Listed so you do not spend
-              months preparing for one.</p>
-              ${deadlineList(closed, { showDestination: true })}`
+          ? topic({
+              id: 'closed',
+              title: 'Not open to you',
+              short: 'Routes you may have heard of that a Danish IB student cannot take.',
+              body: deadlineList(closed, { showDestination: true }),
+              more: 'Which ones',
+            })
           : ''}
       </div>
 
       <aside class="layout-aside__side stack">
         ${note(
-          `Every date here comes from a country record or an Application Route, with the source it was read
-          from. Nothing on this page is typed in by hand — if a date is wrong, it is wrong on the destination
-          page too, and fixing it there fixes it here.`,
-          { title: 'Where these come from' }
-        )}
-        ${note(
-          `Anything marked **provisional** is carried over from the previous cycle because the authority has
-          not republished it yet. The day and month have usually been stable for years; the year has not been
-          confirmed. Treat a provisional date as a warning to check, not as a date.`,
+          `**Provisional** means carried over from last cycle because the authority has not republished it.
+          Treat it as a warning to check, not as a date.`,
           { kind: 'warn', title: 'Provisional dates' }
         )}
         ${stats([

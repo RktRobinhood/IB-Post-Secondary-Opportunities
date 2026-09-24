@@ -692,16 +692,18 @@ const RELEVANCE = {
  * @param {string} [o.why]
  * @param {Array}  [o.evidence]
  */
-export function preparationPath({ goal, relevance = 'preparation', timing, why, evidence = [], scope = null }) {
+export function preparationPath({ id, goal, relevance = 'preparation', timing, why, evidence = [], scope = null }) {
   const [cls, label] = RELEVANCE[relevance] || RELEVANCE.preparation;
-  return html`<article class="prep" data-relevance="${relevance}">
+  return html`<article class="prep" data-relevance="${relevance}"${id ? raw(` id="${id}"`) : ''}>
     <header class="prep__head">
       <span class="tag ${cls}">${label}</span>
       ${scope ? html`<span class="prep__scope">${scope}</span>` : ''}
       ${timing ? html`<span class="prep__timing">${timing}</span>` : ''}
     </header>
     <h4>${goal}</h4>
-    ${why ? md(why) : ''}
+    ${/* The reasoning is the long part, and it is one tap away: the goal and
+          its timing are what a student scans for. */
+      why ? html`<details class="prep__why"><summary>Why</summary>${md(why)}</details>` : ''}
     ${relevance !== 'required'
       ? html`<p class="prep__caveat">${
           relevance === 'selection'
@@ -903,15 +905,25 @@ function deadlineItem(e, { showDestination }) {
         : ''}
       ${e.consequence && e.consequence !== 'indicative'
         ? html`<p class="timeline__consequence"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>
-            <span class="timeline__consequence-note">${c.note}</span></p>`
-        : ''}
-      ${e.routeLabel ? html`<p class="timeline__route">Via ${e.routeLabel}</p>` : ''}
-      ${e.note ? md(e.note) : ''}
-      ${e.sources.length
-        ? html`<p><small>${e.sources.map(
-            (s, i) => html`${i ? raw(' · ') : ''}<a href="${s}" rel="noopener nofollow">${e.sources.length > 1 ? `Source ${i + 1}` : 'Source'}</a>`
-          )}</small></p>`
-        : ''}
+            ${e.routeLabel ? html`<span class="timeline__route">Via ${e.routeLabel}</span>` : ''}</p>`
+        : e.routeLabel ? html`<p class="timeline__route">Via ${e.routeLabel}</p>` : ''}
+      ${/* The date, what it is and what missing it costs are the line a student
+            scans. What the consequence means, the note and the sources are one
+            tap beneath it — the calendar was 66,000 words long with every one of
+            them open. */
+        (e.consequence && e.consequence !== 'indicative') || e.note || e.sources.length
+          ? html`<details class="timeline__more"><summary>Details</summary>
+              ${e.consequence && e.consequence !== 'indicative'
+                ? html`<p class="timeline__consequence-note">${c.note}</p>`
+                : ''}
+              ${e.note ? md(e.note) : ''}
+              ${e.sources.length
+                ? html`<p><small>${e.sources.map(
+                    (s, i) => html`${i ? raw(' · ') : ''}<a href="${s}" rel="noopener nofollow">${e.sources.length > 1 ? `Source ${i + 1}` : 'Source'}</a>`
+                  )}</small></p>`
+                : ''}
+            </details>`
+          : ''}
     </div>
   </li>`;
 }

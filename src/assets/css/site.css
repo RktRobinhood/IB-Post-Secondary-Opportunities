@@ -1916,3 +1916,227 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   cursor: pointer;
 }
 .scope__opt:hover { background: var(--paper-3); }
+
+/* --- 20. Ways in: doors, the reel, the toolkit ---------------------------- */
+
+/* The possibilities come before the particulars. These three components are
+   what a page shows first when it has places to offer: photographs that are
+   links, with a name and one line on each. The explanation is on the page the
+   link opens. */
+
+.section--doors { padding-block: var(--s6) var(--s7); }
+.doors {
+  display: grid; gap: var(--s4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+.door {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; align-items: flex-end;
+  min-height: clamp(18rem, 42vh, 30rem);
+  border-radius: var(--radius-lg);
+  background: var(--brand);
+  color: #fff; text-decoration: none;
+}
+.door__img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+.door::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, rgba(8, 20, 18, .92) 0%, rgba(8, 20, 18, .55) 40%, rgba(8, 20, 18, .05) 75%);
+}
+.door:hover .door__img, .door:focus-visible .door__img { transform: scale(1.04); }
+.door:hover, .door:focus-visible { color: #fff; }
+.door__text { display: grid; gap: var(--s1); padding: var(--s5) var(--s5) var(--s6); }
+.door__eyebrow {
+  font: 700 .8125rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sand);
+}
+.door__title {
+  font: 600 clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem)/1.05 var(--display);
+  margin-block: var(--s2) var(--s2);
+}
+.door__count { font: 600 .9375rem/1.4 var(--sans); color: #fff; }
+.door__line { font: 400 .9375rem/1.4 var(--sans); color: rgba(255,255,255,.8); }
+.door__title::after {
+  content: " →"; font-family: var(--sans); font-weight: 400;
+  display: inline-block; transition: transform .2s ease;
+}
+.door:hover .door__title::after { transform: translateX(4px); }
+
+.section--reel { padding-block: var(--s7); overflow: hidden; }
+.reel-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--s4); flex-wrap: wrap;
+  margin-bottom: var(--s5);
+}
+.reel-head h2 { margin: 0; font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem); }
+.reel {
+  list-style: none; margin: 0; padding: 0 var(--gutter) var(--s3);
+  display: grid; grid-auto-flow: column;
+  grid-auto-columns: clamp(13rem, 22vw, 17rem);
+  gap: var(--s4);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+}
+@media (min-width: 90rem) {
+  .reel { padding-inline: calc((100vw - var(--page-wide)) / 2); scroll-padding-inline: calc((100vw - var(--page-wide)) / 2); }
+}
+.reel__item { scroll-snap-align: start; }
+.tile {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; align-items: flex-end;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  background: var(--paper-3);
+  color: #fff; text-decoration: none;
+}
+.tile__img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s ease;
+}
+.tile::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to top, rgba(8, 20, 18, .88) 0%, rgba(8, 20, 18, .2) 50%, transparent 70%);
+}
+.tile:hover .tile__img, .tile:focus-visible .tile__img { transform: scale(1.05); }
+.tile:hover, .tile:focus-visible { color: #fff; }
+.tile__text { display: grid; gap: var(--s1); padding: var(--s4); }
+.tile__name { font: 600 1.125rem/1.2 var(--display); }
+.tile__where { font: 500 .8125rem/1.3 var(--sans); color: rgba(255,255,255,.82); }
+
+.toolkit-head { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem); margin-bottom: var(--s5); }
+.toolkit {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden;
+}
+.toolkit__item {
+  display: grid; gap: var(--s1); height: 100%;
+  padding: var(--s5);
+  background: var(--paper); color: var(--ink); text-decoration: none;
+  transition: background .15s ease;
+}
+.toolkit__item:hover { background: var(--paper-2); color: var(--ink); }
+.toolkit__title { font: 600 1.125rem/1.25 var(--display); color: var(--accent); }
+.toolkit__title::after { content: " →"; font-family: var(--sans); }
+.toolkit__line { font-size: .9375rem; color: var(--ink-soft); }
+.small-print { margin: var(--s5) 0 0; font-size: .8125rem; color: var(--ink-mute); }
+
+@media (prefers-reduced-motion: reduce) {
+  .door__img, .tile__img, .door__title::after { transition: none; }
+}
+:root[data-motion="reduced"] :is(.door__img, .tile__img, .door__title::after) { transition: none; }
+.door__credit {
+  position: absolute; top: var(--s2); right: var(--s3);
+  font-size: var(--type-floor); color: rgba(255,255,255,.7);
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+.door__title::after { content: "\00a0→"; }
+.hero .eyebrow { text-shadow: 0 1px 2px rgba(0,0,0,.3); }
+.door__title::after { display: inline; }
+.door:hover .door__title::after { transform: none; }
+.side-links { list-style: none; padding: 0; margin: 0; font-size: .9375rem; }
+.side-links li { padding: .3rem 0; }
+
+/* A topic's heading is a question inside a section, not a section. At h2 size
+   seven of them in a row read as seven chapters. */
+.topic > h2 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.6rem); }
+
+/* Country tiles on the Europe and Worldwide indexes: a grid of the same tile
+   the home page's reel uses, landscape rather than portrait. */
+.region + .region { margin-top: var(--s7); }
+.region__name {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem);
+  margin: 0 0 var(--s4);
+}
+.tiles {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: var(--s4);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+.tile--place { aspect-ratio: 5 / 4; }
+.tile--place .tile__name { font-size: 1.5rem; }
+.tile--place::after {
+  background: linear-gradient(to top, rgba(8, 20, 18, .92) 0%, rgba(8, 20, 18, .5) 45%, rgba(8, 20, 18, .05) 75%);
+}
+.tile--bare { background: var(--brand-2); }
+.tile__line { font: 400 .9375rem/1.35 var(--sans); color: rgba(255,255,255,.9); }
+
+/* At a glance: the facts under a programme's hero. */
+.section--glance { padding-block: var(--s5); }
+.glance {
+  margin: 0; display: grid; gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+  background: var(--rule); border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden;
+}
+.glance__item { background: var(--paper); padding: var(--s4) var(--s4); display: grid; gap: var(--s1); align-content: start; }
+.glance dt {
+  font: 700 .75rem/1.2 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-mute);
+}
+.glance dd { margin: 0; font: 600 1.125rem/1.3 var(--display); color: var(--ink); }
+.glance dd small { display: block; font: 400 .75rem/1.3 var(--sans); color: var(--ink-mute); margin-top: var(--s1); }
+
+/* Required subjects as chips: what a student checks their own six against. */
+.need { list-style: none; padding: 0; margin: var(--s4) 0; display: flex; flex-wrap: wrap; gap: var(--s2); }
+.prose .need { padding-left: 0; }
+.need__item {
+  display: inline-flex; align-items: baseline; gap: var(--s2);
+  padding: .5rem .9rem; margin: 0;
+  background: var(--brand-tint); color: var(--brand);
+  border-radius: 999px; font-size: 1rem;
+}
+.need__item span { font-size: .8125rem; color: var(--ink-soft); }
+.need--or .need__item { background: var(--paper-2); color: var(--ink); }
+.need__or { margin: var(--s4) 0 0; font-size: .9375rem; color: var(--ink-soft); }
+.need__cta { margin: var(--s5) 0 var(--s6); }
+
+/* The preparation board: every action, sorted into the three kinds. */
+.board {
+  display: grid; gap: var(--s4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+.board__col {
+  border-radius: var(--radius-lg); padding: var(--s5);
+  background: var(--paper-2); border-top: 4px solid var(--brand-2);
+}
+.board__col[data-relevance="required"] { border-top-color: var(--warn); background: var(--warn-tint); }
+.board__col[data-relevance="selection"] { border-top-color: var(--sand); background: var(--sand-tint); }
+.board__col[data-relevance="preparation"] { border-top-color: var(--brand-2); background: var(--brand-tint); }
+.board__head { display: grid; grid-template-columns: auto 1fr; column-gap: var(--s3); align-items: baseline; margin-bottom: var(--s4); }
+.board__count { grid-row: span 2; font: 600 2.6rem/1 var(--display); color: var(--ink); }
+.board__head h2 { margin: 0; font-size: 1.5rem; }
+.board__head p { margin: 0; font-size: .9375rem; color: var(--ink-soft); }
+.board__list { margin: 0; padding-left: 1.2em; display: grid; gap: var(--s2); font-size: .9375rem; }
+.board__list a { color: var(--ink); text-decoration-color: var(--rule-strong); }
+.board__list a:hover { color: var(--accent); }
+.board__bottom { margin: var(--s6) 0 0; font-size: clamp(1.05rem, 1rem + .3vw, 1.25rem); max-width: 60ch; }
+.prep__why > summary { cursor: pointer; font: 600 .875rem/1.5 var(--sans); color: var(--accent); }
+.prep__why[open] > summary { margin-bottom: var(--s2); }
+.hero--plain .eyebrow { text-shadow: none; }
+
+.timeline__more { margin-top: var(--s2); }
+.timeline__more > summary { cursor: pointer; font: 600 .8125rem/1.5 var(--sans); color: var(--accent); }
+.timeline__more[open] > summary { margin-bottom: var(--s2); }
+.timeline__consequence .timeline__route { margin-left: var(--s2); font-size: .8125rem; color: var(--ink-mute); }
+@media (max-width: 40rem) {
+  .door { min-height: 15rem; }
+}
+/* Four facts stacked one per row is a phone screen of numbers before anything
+   else; two by two they are a glance. Same for the programme glance band. */
+@media (max-width: 40rem) {
+  .stats, .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat { padding: var(--s4); }
+}
+
+/* Guide options: a grid of the routes, each a name, a place and a sentence. */
+.options { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); margin: var(--s5) 0 var(--s7); }
+.option { background: var(--paper-2); border-radius: var(--radius-lg); padding: var(--s5); display: grid; gap: var(--s2); align-content: start; border-top: 3px solid var(--accent); }
+.option__name { margin: 0; font-size: 1.25rem; }
+.option__where { margin: 0; font: 600 .875rem/1.4 var(--sans); color: var(--ink-mute); }
+.option__what { margin: 0; font-size: .9375rem; color: var(--ink-soft); }
+.option__more > summary { cursor: pointer; font: 600 .875rem/1.5 var(--sans); color: var(--accent); }
+.prose .options { max-width: none; }

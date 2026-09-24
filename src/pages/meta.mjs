@@ -1,8 +1,8 @@
-import { html, raw, md, plural, slugify, truncate } from '../lib/html.mjs';
+import { html, raw, md, plural, slugify, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, note, facts, sources, crumbs, sectionHead, accordion,
-  dataTable, emptyState, card, stamp, tags,
+  dataTable, emptyState, card, stamp, tags, topic as topic_,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 
@@ -354,37 +354,45 @@ ${hero({
   variant: 'plain',
   eyebrow: 'Guide',
   title: topic.title,
-  lede: topic.intro,
+  lede: firstSentence(topic.intro, 40),
 })}
 <section class="section">
   <div class="wrap">
     ${crumbs([{ label: topic.title }])}
     <div class="layout-aside">
       <div class="prose">
-        ${(topic.sections || []).map(
-          (s) => html`
-          <h2 id="${slugify(s.heading || '')}">${s.heading}</h2>
-          ${s.body ? md(s.body) : ''}
-          ${(s.bullets || []).length ? html`<ul>${s.bullets.map((b) => html`<li>${b}</li>`)}</ul>` : ''}`
-        )}
+        ${/* The options are what a student came for, so they come first — each
+              a name, a place and one sentence, with the rest one tap beneath. The
+              explanation of why the routes exist follows them. */ ''}
         ${(topic.options || []).length
           ? html`<h2 id="options">The options</h2>
-              ${topic.options.map(
-                (o) => html`<div class="card card--flat" style="margin-bottom:var(--s5)">
-                  <div class="card__body">
-                    <h3 class="card__title">${o.url ? html`<a href="${o.url}" rel="noopener nofollow">${o.name}</a>` : o.name}</h3>
-                    ${o.where ? html`<p class="card__text"><strong>${o.where}</strong></p>` : ''}
+              <div class="options">${topic.options.map(
+                (o) => html`<article class="option">
+                  <h3 class="option__name">${o.url ? html`<a href="${o.url}" rel="noopener nofollow">${o.name}</a>` : o.name}</h3>
+                  ${o.where ? html`<p class="option__where">${o.where}</p>` : ''}
+                  ${o.what ? html`<p class="option__what">${firstSentence(o.what, 30)}</p>` : ''}
+                  ${tags(o.tags || [], 'tag--brand')}
+                  <details class="option__more"><summary>Who it suits, cost, deadlines</summary>
                     ${o.what ? md(o.what) : ''}
                     ${facts([
                       { label: 'Who it suits', value: o.whoItSuits },
                       { label: 'Cost', value: o.cost },
                       { label: 'Deadlines', value: o.deadlineNote },
                     ])}
-                    ${tags(o.tags || [], 'tag--brand')}
-                  </div>
-                </div>`
-              )}`
+                  </details>
+                </article>`
+              )}</div>`
           : ''}
+        ${(topic.sections || []).map((s) =>
+          topic_({
+            id: slugify(s.heading || ''),
+            title: s.heading,
+            short: s.body ? firstSentence(s.body, 35) : null,
+            body: html`${s.body ? md(s.body) : ''}
+              ${(s.bullets || []).length ? html`<ul>${s.bullets.map((b) => html`<li>${b}</li>`)}</ul>` : ''}`,
+            more: 'Read more',
+          })
+        )}
         ${sources(topic.sources)}
       </div>
       <aside class="layout-aside__side stack">
