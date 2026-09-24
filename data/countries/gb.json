@@ -278,7 +278,7 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "The LNAT dates page runs a separate late route for international applicants who send the UCAS form by 30 June 2027: book the test slot by 25 July 2027 and sit it by 31 July 2027. As a Danish applicant this is the only LNAT window still open after the January deadlines have passed, so it is worth knowing it exists — but it depends on the law course still having places.",
+        "notes": "The LNAT dates page runs a separate late route for international applicants who send the UCAS form by 30 June 2027: book the test slot by 25 July 2027 and sit it by 31 July 2027. As an international applicant this is the only LNAT window still open after the January deadlines have passed, so it is worth knowing it exists — but it depends on the law course still having places.",
         "source": "https://lnat.ac.uk/registration/dates-and-deadlines/"
       },
       {
@@ -329,7 +329,7 @@
       "source": "https://www.gla.ac.uk/undergraduate/fees/intlfees/"
     },
     "tuitionNonEu": {
-      "value": "University of Glasgow 2027/28: Arts and Social Sciences GBP 28,275; Science, Engineering, Nursing and Medical/Veterinary/Life Sciences GBP 33,708; Veterinary Medicine and Surgery GBP 38,670 (Medicine MBChB and Dentistry BDS listed as TBC). Glasgow 2026/27 for comparison: Arts and Social Sciences GBP 27,720; Science and Engineering GBP 33,210; Medicine MBChB GBP 62,730; Dentistry BDS GBP 58,500. Across the sector a realistic 2026/27 planning range for a Danish IB student is roughly GBP 22,000-40,000 a year for a normal degree, and GBP 45,000-70,000 a year for clinical medicine.",
+      "value": "University of Glasgow 2027/28: Arts and Social Sciences GBP 28,275; Science, Engineering, Nursing and Medical/Veterinary/Life Sciences GBP 33,708; Veterinary Medicine and Surgery GBP 38,670 (Medicine MBChB and Dentistry BDS listed as TBC). Glasgow 2026/27 for comparison: Arts and Social Sciences GBP 27,720; Science and Engineering GBP 33,210; Medicine MBChB GBP 62,730; Dentistry BDS GBP 58,500. Across the sector a realistic 2026/27 planning range for an IB student from Denmark paying international fees is roughly GBP 22,000-40,000 (about €25,600-46,500) a year for a normal degree, and GBP 45,000-70,000 (about €52,300-81,400) a year for clinical medicine, at the ECB rate of 24 September 2026.",
       "year": "2027/28 (Glasgow) and 2026/27 (Glasgow, sector range)",
       "source": "https://www.gla.ac.uk/undergraduate/fees/intlfees/"
     },
@@ -349,13 +349,16 @@
   "funding": [
     "UK tuition fee loans and maintenance loans are not available to you as an EU citizen without settled or pre-settled status. Assume you are paying every year in full.",
     "University-run international scholarships are the main realistic source. Almost every university runs merit awards for international undergraduates, usually a partial fee discount of a few thousand pounds; amounts and deadlines are set per university, so check each one.",
-    "Danish SU can in principle be used for a full degree abroad if Uddannelses- og Forskningsstyrelsen approves the programme. This is the single most important thing to check with your studievejleder.",
+    {
+      "fund": "fund-dk-su",
+      "note": "The UK is outside the EU/EEA, so a full degree there follows separate rules, with its own ties-to-Denmark form: check su.dk early."
+    },
     "Some universities still run specific EU-transition or country scholarships; check each course page rather than assuming."
   ],
   "workRights": "On a Student visa for a full-time degree at a university, you can work up to 20 hours a week in term time and full time in the holidays (Immigration Rules, Appendix Student, ST 26.1). Your exact limit is printed on your visa.",
   "residency": "You need a Student visa. EU citizenship gives you no shortcut since Brexit. You can apply from outside the UK up to 6 months before your course starts; the fee is GBP 558 and you also pay the Immigration Health Surcharge of GBP 776 for each year of your course. You need a Confirmation of Acceptance for Studies (CAS) from your university and you must show money for living costs: GBP 1,529 per month for up to 9 months in London, or GBP 1,171 per month outside London, held in your account for 28 consecutive days ending no more than 31 days before you apply. At degree level you can normally stay up to 5 years.",
   "housing": "Almost all UK universities guarantee a place in university accommodation to first-year international students who apply by the stated deadline, which is usually in the summer once you have firmly accepted an offer. This is much easier than the Netherlands or Denmark. Apply the moment your firm choice is confirmed.",
-  "healthcare": "You pay the Immigration Health Surcharge of GBP 776 per year as part of the visa application. That gives you access to the NHS on the same basis as a UK resident for the length of your visa. Register with a local GP when you arrive. An EHIC or the Danish yellow card does not replace this.",
+  "healthcare": "You pay the Immigration Health Surcharge of GBP 776 (about €900) per year as part of the visa application. That gives you access to the NHS on the same basis as a UK resident for the length of your visa. Register with a local GP when you arrive. An EHIC or the Danish yellow card does not replace this.",
   "institutions": [
     {
       "name": "University of Oxford",

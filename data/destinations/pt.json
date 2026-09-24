@@ -44,9 +44,16 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "eu-eea-rate",
-      "summary": "Public institutions charge at most €697 a year for a licenciatura or integrated master's. Private institutions set their own fees.",
+      "summary": "Public institutions charge at most €697 a year for a licenciatura or integrated master's. Private institutions set their own: Católica Lisbon charges EU students €780 a month over ten months in 2026-27.",
       "priceYear": "2025/26",
-      "evidence": ["ev-pt-dges-propinas"]
+      "evidence": ["ev-pt-dges-propinas", "ev-pt-clsbe-fees-2026"]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Under the international-student statute each institution sets its own fee: €3,500–€16,500 a year at the University of Porto for 2026/27. Católica Lisbon charges €858 a month over ten months.",
+      "priceYear": "2026/27",
+      "evidence": ["ev-pt-up-iss-2026", "ev-pt-clsbe-fees-2026"]
     }
   ],
   "sectorLandscape": {
@@ -67,7 +74,7 @@
         "what": "More applied licenciaturas in engineering, business, health and the arts, also through the national contest for public places.",
         "ibAccessible": "yes",
         "englishTaught": "rare",
-        "note": "None is on this guide's list. Not researched here."
+        "note": "None is listed on this page; not covered here."
       },
       {
         "localName": "universidade privada / concordatária",
@@ -84,7 +91,7 @@
         "what": "Two years, 120 ECTS, with a work placement, mostly at polytechnics. Not a degree; applied to directly at the institution.",
         "ibAccessible": "unknown",
         "englishTaught": "unknown",
-        "note": "Not researched here."
+        "note": "Not covered here."
       }
     ],
     "evidence": ["ev-pt-dges-sistema", "ev-pt-dges-ctesp"]
@@ -125,11 +132,12 @@
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-06-01",
     "notes": [
       "Nova SBE is public: an EU applicant reaches it through the national contest, not its international route.",
-      "Not established: the 2027 national contest calendar, the 2026/27 and 2027/28 propina cap, Católica's 2027 dates, and whether a CTeSP accepts an IB Diploma."
+      "Audited 2026-09-24: see docs/research/audit/pt.md.",
+      "Not established: the 2027 national contest calendar, the 2026/27 and 2027/28 propina cap on an official page (press reports say it stayed at €697 for 2026/27), Católica's 2027 dates, and whether a CTeSP accepts an IB Diploma."
     ]
   }
 }

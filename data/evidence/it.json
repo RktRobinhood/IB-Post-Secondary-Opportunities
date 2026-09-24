@@ -11,7 +11,7 @@
     "verificationState": "needs-review",
     "claim": "There is no national application deadline: outside numero programmato courses, each institution sets and publishes its own pre-enrolment dates. The visa and residence-permit procedures do not apply to EU citizens. Italian tertiary education includes universities, AFAM institutions (art, music, dance), Scuole Superiori per Mediatori Linguistici and ITS Academy, which are applied to directly.",
     "excerpt": "I termini previsti per le procedure relative alle preiscrizioni ai corsi di studio, ad eccezione di quelli a numero programmato, sono definiti da ogni singola Istituzione della formazione superiore e pubblicati nei rispettivi siti. […] le sole procedure relative al rilascio del visto di ingresso e del relativo permesso di soggiorno non si applicano: d) ai cittadini appartenenti ai Paesi dell'Unione Europea",
-    "interpretation": "The document is written for visa applicants, and most of it does not concern a Danish student: Universitaly pre-enrolment is for non-EU applicants who need a visa. What it establishes for an EU applicant is the absence of a central system — you apply on each university's own portal on its own calendar. The same circular names the sectors (università, AFAM, SSML, ITS Academy) and says ITS Academy candidates apply directly to the ITS, which is why the sector landscape cites it. It is explicitly valid for two academic years, 2026-27 and 2027-28, so it does cover autumn 2027 entry.",
+    "interpretation": "The document is written for visa applicants, and most of it does not concern an EU/EEA student: Universitaly pre-enrolment is for non-EU applicants who need a visa. What it establishes for an EU applicant is the absence of a central system — you apply on each university's own portal on its own calendar. The same circular names the sectors (università, AFAM, SSML, ITS Academy) and says ITS Academy candidates apply directly to the ITS, which is why the sector landscape cites it. It is explicitly valid for two academic years, 2026-27 and 2027-28, so it does cover autumn 2027 entry.",
     "supports": [
       { "entity": "it-direct-2027", "field": "milestones" },
       { "entity": "it", "field": "sectorLandscape" }
@@ -30,7 +30,7 @@
     "publisher": "Università Bocconi",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "Bocconi runs two selection sessions for 2027-28 entry: Early, 2–29 September 2026, and Winter, 25 November 2026 – 26 January 2027, both closing at 15:00 Italian time. The last Winter Session online test date is 21 January 2027.",
@@ -53,7 +53,7 @@
     "publisher": "CISIA (Consorzio Interuniversitario Sistemi Integrati per l'Accesso)",
     "publisherType": "other",
     "sourceClass": "admissions-authority",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "A TOLC entrance test can be sat once a month per type, from February to November, and costs €35. Each university's own admission notice sets which sitting counts for its round.",
@@ -76,7 +76,7 @@
     "publisher": "Politecnico di Milano",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "Politecnico di Milano 2026/27: first instalment €880.04; second instalment €0–€3,003 depending on ISEE; maximum €3,943.04 a year for an ISEE above €30,000; €157.04 second instalment for an ISEE up to €22,000.",
@@ -98,7 +98,7 @@
     "publisher": "Università Bocconi",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "Bocconi bachelor tuition and fees for first-year students in 2026-27 are €17,000 a year.",
@@ -112,6 +112,34 @@
       "by": "the Southern Europe floor pass (es, pt, it)",
       "at": "2026-09-23",
       "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-it-unisr-ib-documents",
+    "sourceUrl": "https://www.unisr.it/attachments/Foreign-qualifications---study-visa/2597eb5d-c87f-4a6b-8d08-e6ec19c70075/d762f86d-f2d3-4ea4-bf6b-53fd5cd82d24.pdf",
+    "publisher": "Università Vita-Salute San Raffaele",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "claim": "At San Raffaele an IB Diploma needs no Declaration of Value or Statement of Comparability and no translation, but must be apostilled; the DP Course Results certificate alone is not sufficient.",
+    "excerpt": "The Declaration of Value or the Statement of Comparability are NOT required if the qualification obtained is an IB Diploma. The IB Diploma must be Apostilled in all cases.",
+    "interpretation": "One university's rule, not a national one; the same document says each university may request whatever documentation it deems useful. It gives the example that an IB Diploma must be apostilled in Switzerland. The PDF's metadata dates it to 2021 and it names no academic year.",
+    "supports": [
+      {
+        "entity": "it",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2027-03-01"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-pdf"
     }
   }
 ]

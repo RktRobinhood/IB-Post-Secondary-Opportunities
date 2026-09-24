@@ -154,7 +154,7 @@ export const DIMENSIONS = [
     forDestination(c) {
       const bits = [];
       if (c.region) bits.push(c.region);
-      if (c.membership?.nordic || /Nordics/i.test(c.region || '')) bits.push('Nordic — close to home, and Danish SU travels differently here');
+      if (c.membership?.nordic || /Nordics/i.test(c.region || '')) bits.push('Nordic — a short trip from Denmark, extra rights for Nordic citizens, and Nordic terms for Danish SU if you can claim it');
       else if (c.eu || c.membership?.eu) bits.push('EU — freedom of movement, no visa');
       else bits.push('Outside the EU — a visa and international fees');
       if (c.capital) bits.push(`Capital: ${c.capital}`);

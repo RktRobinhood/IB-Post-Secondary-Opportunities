@@ -13,7 +13,7 @@
       "type": "submit",
       "label": "Each private university's own admission rounds",
       "dateState": "varies-by-institution",
-      "consequence": "hard",
+      "consequence": "indicative",
       "note": "IE, Navarra, ESADE, Deusto and Comillas run their own tests, interviews and rolling rounds from the autumn before entry, and make conditional offers on predicted grades. Earlier rounds have more places.",
       "evidence": ["ev-es-ie-admissions-rounds-2027"]
     },
@@ -24,8 +24,19 @@
       "date": "2027-01-15",
       "consequence": "hard",
       "provisional": false,
-      "note": "An example of the private calendar. IE's other 2027-28 rounds close 18 September 2026, 6 November 2026 and 5 March 2027; after that, from May, only if places remain.",
+      "note": "An example of the private calendar. IE's other 2027-28 rounds close 18 September 2026 (already passed), 6 November 2026 and 5 March 2027; after that, from May 2027, only if places remain.",
       "evidence": ["ev-es-ie-admissions-rounds-2027"]
+    },
+    {
+      "id": "ms-deusto-apply",
+      "type": "submit",
+      "label": "Universidad de Deusto applications for 2027–2028",
+      "date": "2026-11-02",
+      "endDate": "2026-11-30",
+      "consequence": "hard",
+      "provisional": false,
+      "note": "A second example, and a short one: Deusto takes undergraduate applications for 2027–2028 only from 2 to 30 November 2026.",
+      "evidence": ["ev-es-deusto-admission-2027"]
     },
     {
       "id": "ms-ib",
@@ -39,13 +50,13 @@
       "ibCalendar": "2027-05/results-day"
     }
   ],
-  "evidence": ["ev-es-ie-admissions-rounds-2027"],
+  "evidence": ["ev-es-ie-admissions-rounds-2027", "ev-es-deusto-admission-2027"],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-12-01",
     "notes": [
-      "Only IE's rounds were read for this route. Navarra, ESADE, Deusto and Comillas publish their own."
+      "IE's rounds and Deusto's window were read for this route. Navarra, Esade (online test weekly, October to June), Comillas and CEU San Pablo publish their own."
     ]
   }
 }

@@ -25,7 +25,7 @@
       "date": "2027-01-21",
       "consequence": "hard",
       "provisional": true,
-      "note": "McGill's IB requirements page publishes 21 January without a year. Read here as the 2027 cycle and marked provisional for that reason. Six days after the application itself, so it is not something to start after applying.",
+      "note": "McGill's IB requirements page publishes 21 January without a year. So 2027 is expected rather than confirmed. Six days after the application itself, so it is not something to start after applying.",
       "evidence": [
         "ev-mcgill-ib-2027"
       ]
@@ -41,6 +41,17 @@
       "evidence": [
         "ev-concordia-deadline",
         "ev-quebec-study-conditions"
+      ]
+    },
+    {
+      "id": "ms-dal-health",
+      "type": "submit",
+      "label": "Dalhousie - Nursing, Health Sciences, Medical Sciences and Social Work close; entrance scholarships close",
+      "date": "2027-02-15",
+      "consequence": "hard",
+      "note": "Published for September 2027 entry. Other Dalhousie programmes are considered where space is available until classes start, but the scholarship deadline is the same day.",
+      "evidence": [
+        "ev-dalhousie-dates-2027"
       ]
     },
     {
@@ -62,7 +73,7 @@
       "date": "2027-03-01",
       "consequence": "hard",
       "provisional": true,
-      "note": "Six weeks after McGill's, two miles away, in the same province. The year is inferred from a recurring date. Concordia takes three ranked programme choices on one application, which is the only ranked choice model anywhere in this Destination.",
+      "note": "Six weeks after McGill's, two miles away, in the same province. The year is inferred from a recurring date. Concordia takes three ranked programme choices on one application.",
       "evidence": [
         "ev-concordia-deadline"
       ]
@@ -100,7 +111,7 @@
       "itemType": "payment",
       "responsibleParty": "student",
       "destinationOfItem": "Each university",
-      "note": "CAD 150 at the University of Alberta for a new applicant. Not established for McGill, Concordia, Calgary or Dalhousie.",
+      "note": "CAD 150 at the University of Alberta for a new applicant. Not established for McGill, Concordia, Calgary, Dalhousie, Manitoba or Saskatchewan.",
       "evidence": [
         "ev-ualberta-deadlines-2027"
       ]
@@ -111,7 +122,7 @@
       "itemType": "document",
       "responsibleParty": "student",
       "destinationOfItem": "A condition of the CAQ, enforced by the university on enrolment",
-      "note": "Quebec requires continuous cover for the entire study stay as a condition of the acceptance certificate, not merely on arrival. The CAQ itself is on the Destination's Quebec deadline row rather than here, because it has no date and a route milestone cannot declare one.",
+      "note": "Quebec requires continuous cover for the entire study stay as a condition of the acceptance certificate, not merely on arrival. The CAQ itself has no fixed date: start it the day an offer arrives.",
       "evidence": [
         "ev-quebec-study-conditions"
       ]
@@ -126,24 +137,27 @@
     "ev-mcgill-deadline-2027",
     "ev-mcgill-ib-2027",
     "ev-concordia-deadline",
-    "ev-dalhousie-dates-2026",
+    "ev-dalhousie-dates-2027",
     "ev-ualberta-deadlines-2027",
     "ev-quebec-study-conditions"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-12-01",
     "notes": [
-      "Applying directly is a researched finding about Quebec, Alberta and Nova Scotia, not an empty field. What has been established is that no shared system exists in those provinces, that the universities disagree with each other by six weeks, and that Quebec adds an immigration step the others do not have.",
+      "Applying directly is a researched finding about Quebec, Alberta, Nova Scotia, Manitoba and Saskatchewan, not an empty field. What has been established is that no shared system exists in those provinces, that the universities disagree with each other by six weeks, and that Quebec adds an immigration step the others do not have.",
       "This route carries no jurisdiction because it serves three of them. The Destination record points Quebec, Alberta and Nova Scotia at it by name. The Application Route schema allows a route to declare one jurisdiction or none, and there is no way to say 'these three' - see the report on this pass.",
-      "Not established: the University of Calgary's deadlines and fees, Dalhousie's 2027 dates, Concordia's fee, and whether any of these universities publishes an IB-specific rule beyond the ones recorded.",
-      "Scoped to the three jurisdictions it actually serves. It carried no jurisdiction at all until the schema allowed a list, which made it the Destination-wide fallback — so an Ontario institution nobody had researched would have looked covered by it."
+      "Not established: the University of Calgary's deadlines and fees, Concordia's fee, and whether any of these universities publishes an IB-specific rule beyond the ones recorded.",
+      "Scoped to the three jurisdictions it actually serves. It carried no jurisdiction at all until the schema allowed a list, which made it the Destination-wide fallback — so an Ontario institution nobody had researched would have looked covered by it.",
+      "Manitoba and Saskatchewan added on 2026-09-24 with the University of Manitoba and the University of Saskatchewan, which both take applications on their own systems. Their dates and fees have not been read."
     ]
   },
   "jurisdiction": [
     "ca-qc",
     "ca-ab",
-    "ca-ns"
+    "ca-ns",
+    "ca-mb",
+    "ca-sk"
   ]
 }

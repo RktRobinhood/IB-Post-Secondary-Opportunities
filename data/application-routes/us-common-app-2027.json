@@ -14,7 +14,7 @@
       "id": "round-ed1",
       "label": "Early Decision I — binding, and each college sets its own date",
       "consequence": "priority",
-      "note": "Closes somewhere between 1 and 15 November 2026 depending on the college, and there is no common date: Macalester 1 November, Amherst 9 November, Bowdoin and Grinnell 15 November. Binding in the strongest sense — Amherst's wording is that you agree not to be an Early Decision candidate anywhere else and, if admitted, to withdraw your applications from other colleges and enrol. Missing it does not cost you the college; it costs you this round, and with it the higher admit rate that is the only reason to accept the binding terms. It also ends any possibility of comparing financial aid offers, which for a Danish family paying from abroad is usually the more expensive loss.",
+      "note": "Closes somewhere between 1 and 15 November 2026 depending on the college, and there is no common date: Macalester 1 November, Amherst 9 November, Bowdoin and Grinnell 15 November. Binding in the strongest sense — Amherst's wording is that you agree not to be an Early Decision candidate anywhere else and, if admitted, to withdraw your applications from other colleges and enrol. Missing it does not cost you the college; it costs you this round, and with it the higher admit rate that is the main reason to accept the binding terms. It also ends any possibility of comparing financial aid offers, which for a family paying from abroad is usually the more expensive loss.",
       "evidence": [
         "ev-amherst-first-year-2027",
         "ev-macalester-international",
@@ -41,7 +41,7 @@
       "id": "round-ed2",
       "label": "Early Decision II — binding, a second chance in early January",
       "consequence": "priority",
-      "note": "Early January 2027, set by each college — Macalester 1 January, Bowdoin and Grinnell 5 January. Same binding terms as Early Decision I, in the same window as Regular Decision, and it exists for students whose first binding choice refused them in December. It is the least-known round in the American calendar and for a student who has just been turned down by their Early Decision college it is the most useful.",
+      "note": "Early January 2027, set by each college — Macalester 1 January, Bowdoin and Grinnell 5 January. Same binding terms as Early Decision I, in the same window as Regular Decision, and it exists for students whose first binding choice refused them in December. It is little known, and for a student who has just been turned down by their Early Decision college it is very useful.",
       "evidence": [
         "ev-macalester-international",
         "ev-grinnell-international",
@@ -51,8 +51,9 @@
     {
       "id": "round-rd",
       "label": "Regular Decision — each college sets its own date",
-      "consequence": "hard",
-      "note": "There is no American Regular Decision date. Among five institutions here it is 1 January (Harvard), 2 January (Yale), 5 January (Stanford, Amherst, Illinois) and 15 January (Grinnell) — and Illinois wants the supporting documents a further week later, on 11 January. This one is genuinely hard: after a college's Regular Decision date it is finished for the year, because there is no Clearing, no late round and no second intake. Put each college's own date in your own calendar; do not carry one college's date to another.",
+      "dateState": "varies-by-institution",
+      "consequence": "indicative",
+      "note": "There is no American Regular Decision date. Among five institutions here it is 1 January (Harvard), 2 January (Yale), 5 January (Stanford, Amherst, Illinois) and 15 January (Grinnell) — and Illinois wants the supporting documents a further week later, on 11 January. Each college's own date is final: after a college's Regular Decision date it is finished for the year, because there is no Clearing, no late round and no second intake. Put each college's own date in your own calendar; do not carry one college's date to another.",
       "evidence": [
         "ev-harvard-deadlines-2027",
         "ev-yale-apply-platforms",
@@ -82,7 +83,7 @@
       "date": "2026-06-30",
       "consequence": "personal",
       "provisional": true,
-      "note": "Not a published deadline — a date worth setting yourself, and inferred from the round dates rather than taken from any source. Yale requires the SAT or ACT from every applicant and states that IB results may accompany it but not replace it; Harvard requires it too and accepts IB predicted grades only where testing is genuinely inaccessible, which Copenhagen is not. Sitting it by the summer leaves a retake before the November round. NYU, Michigan and Amherst are test-optional, so the requirement is per college and has to be checked per college.",
+      "note": "Not a published deadline — a date worth setting yourself, worked back from the round dates. Yale requires the SAT or ACT from every applicant and states that IB results may accompany it but not replace it; Harvard requires it too and accepts IB predicted grades only where testing is genuinely inaccessible, which Copenhagen is not. Sitting it by the summer leaves a retake before the November round. NYU, Michigan and Amherst are test-optional, so the requirement is per college and has to be checked per college.",
       "evidence": [
         "ev-yale-testing-policy",
         "ev-harvard-deadlines-2027",
@@ -244,7 +245,7 @@
   ],
   "supplementarySteps": [
     "The Common App is not the only front door. Yale accepts the Coalition Application on SCOIR and the QuestBridge Application; Amherst and Bowdoin accept the same alternatives; Arizona State accepts its own application with no stated preference between the two. Where several are offered none is preferred.",
-    "Arizona State is the one institution on this route that does not run a selection tournament: it publishes priority dates rather than closing dates and decides on a rolling basis against published criteria. Its fall 2027 priority date is not published yet.",
+    "Unlike the other colleges on this route, Arizona State does not run a selection tournament: it publishes priority dates rather than closing dates and decides on a rolling basis against published criteria. Its fall 2027 priority date is not published yet.",
     "After you accept an offer: the college issues Form I-20, you pay the 350 USD I-901 SEVIS fee, complete the DS-160 and attend an F-1 visa interview at the US Embassy in Copenhagen. Bring the SEVIS receipt to the interview."
   ],
   "evidence": [

@@ -5,7 +5,7 @@
     "publisher": "UNED — UNEDasiss",
     "publisherType": "national-agency",
     "sourceClass": "admissions-authority",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2026-autumn",
     "verificationState": "needs-review",
     "claim": "UNEDasiss accreditation can be requested from 4 February to 1 December each year. For 2026/27 the deadline for international students to request admission to public universities was 7 July 2026, with pending documents accepted until 31 July. Public universities usually close preinscripción in early July, and some differ.",
@@ -49,21 +49,21 @@
     "publisher": "Boletín Oficial del Estado — Real Decreto 534/2024",
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "verificationState": "needs-review",
     "claim": "Holders of the IB Diploma, like holders of a Técnico Superior title in vocational training, plastic arts and design or sport, are exempt from the Spanish university access test, provided they meet the academic requirements for university access in their system.",
     "excerpt": "quedarán exentos de la realización de esta prueba quienes hayan obtenido un título de Técnico Superior de Formación Profesional, de Técnico Superior de Artes Plásticas y Diseño o de Técnico Deportivo Superior, así como aquellos que se encuentren en posesión del título de Bachillerato Europeo o del Diploma del Bachillerato Internacional",
-    "interpretation": "The rule that puts the IB Diploma on the same footing as a Spanish Bachillerato for access, with no homologation. The same text names the non-university higher routes (Técnico Superior in FP, in Artes Plásticas y Diseño, and Enseñanzas Artísticas Superiores), which is why the sector landscape cites it. Amended by RD 482/2025; the amendment was not re-read.",
+    "interpretation": "The rule that puts the IB Diploma on the same footing as a Spanish Bachillerato for access, with no homologation. The same text names the non-university higher routes (Técnico Superior in FP, in Artes Plásticas y Diseño, and Enseñanzas Artísticas Superiores), which is why the sector landscape cites it. Article 6.1(c) names the IB Diploma and 6.2 says no homologation is needed; article 23.3 takes the grade obtained in the foreign system as the access grade. Re-read 2026-09-24 in the consolidated text last updated 2 July 2026: RD 482/2025 amended the transitional provision, and RD 535/2026 amended article 23.2 (vocational titles only). Neither changes the IB rule.",
     "supports": [
       { "entity": "es", "field": "ibRecognition" },
       { "entity": "es", "field": "sectorLandscape" }
     ],
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" },
     "attestation": {
       "by": "the Southern Europe floor pass (es, pt, it)",
       "at": "2026-09-23",
       "method": "read-source",
-      "note": "Read in Spanish from the consolidated text; the excerpt is from the preamble."
+      "note": "Read in Spanish from the consolidated text; the excerpt is from the preamble. Re-read by the Southern Europe audit on 2026-09-24."
     }
   },
   {
@@ -94,7 +94,7 @@
     "publisher": "Universidad Carlos III de Madrid",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "verificationState": "needs-review",
     "claim": "UC3M 2026/27 first-enrolment prices per credit, for Spanish and EU students: €16.92 (business, law, economics), €19.43 (engineering, computer science), €20.68 (biomedical engineering, neuroscience).",
     "excerpt": "students of Spanish nationality or of any member state of the European Union, as well as to people with a valid Residence Permit in Spain",
@@ -115,7 +115,7 @@
     "publisher": "IE University",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "IE University's admission rounds for 2027-2028: Early 18 September 2026, Round 1 6 November 2026, Round 2 15 January 2027, Round 3 5 March 2027, each with a decision deadline; after Round 3 applications may be considered from May 2027 subject to availability. Conditional admission is based on final high school results.",
@@ -130,6 +130,92 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "The page loops redirects for a cookieless fetch; read with a cookie-keeping HTTP client, which served it normally."
+    }
+  },
+  {
+    "id": "ev-es-unedasiss-precios",
+    "sourceUrl": "https://unedasiss.uned.es/precios",
+    "publisher": "UNED — UNEDasiss",
+    "publisherType": "national-agency",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "claim": "UNEDasiss prices: access grade €70; PCE €35 (one subject) to €140 (six); modalidad €25; language accreditation €25 per language; file opening €30.30 and secretarial fee €15.15, never refunded.",
+    "excerpt": "Calificación de Acceso 70 euros […] Exámenes-PCE 1 asignatura 35 euros […] 6 asignaturas 140 euros […] Apertura de expediente 30,30 euros Tasas de secretaría 15,15 euros",
+    "interpretation": "The prices are in an image (precios25.jpg) linked from the page, read directly; the page itself states no year. The page text says secretarial and file-opening fees are never refunded and services must be paid even if refused.",
+    "supports": [
+      {
+        "entity": "es",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2027-02-01"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Price table read from https://qinnova-app.uned.es/archivos_publicos/qweb_paginas/16715/precios25.jpg."
+    }
+  },
+  {
+    "id": "ev-es-uc3m-prices-noneu-2026",
+    "sourceUrl": "https://www.uc3m.es/bachelor-degree/admission/application/enrollment/prices/non-eu",
+    "publisher": "Universidad Carlos III de Madrid",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "UC3M 2026/27 first-enrolment prices for international students without Spanish resident status: €113.71 to €136.44 per credit, €6,822.60 to €8,186.40 for 60 credits.",
+    "excerpt": "UC3M will charge the specific enrollment fees in the chart below to international students without resident status.",
+    "interpretation": "About seven times the EU price. The page adds that a student residence permit does not equal resident status (RD 557/2011). One Madrid university; other regions differ.",
+    "supports": [
+      {
+        "entity": "es",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-es-deusto-admission-2027",
+    "sourceUrl": "https://www.deusto.es/en/home/study/admissions/undergraduate",
+    "publisher": "Universidad de Deusto",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Deusto's undergraduate application period for 2027–2028 runs from 2 to 30 November 2026.",
+    "excerpt": "The application period for undergraduate programmes for the 2027–2028 academic year will be open from 2 to 30 November 2026.",
+    "supports": [
+      {
+        "entity": "es-private-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2026-11-01"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-browser",
+      "note": "The host answers 403 to automated fetch; read in the browser pane."
     }
   }
 ]

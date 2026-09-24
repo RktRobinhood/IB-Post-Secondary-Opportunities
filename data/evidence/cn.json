@@ -44,7 +44,7 @@
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
-    "claim": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications.",
+    "claim": "NYU Shanghai requires the Common Application. Early Decision I closes on 1 November, Early Decision II on 1 January and Regular Decision on 5 January, at 11:59 p.m. EST. Early Decision is binding: an admitted student must accept within 25 days and withdraw other applications. The application fee is US$85, with waivers available, and the IB Diploma is one of the accepted testing options.",
     "excerpt": "The Common Application is required for students applying to any or all of NYU's three degree-granting campuses […] Regular Decision - January 5 […] you must accept the offer within 25 days",
     "interpretation": "No year is printed on any of the three dates, so the route records them in this cycle as provisional. Regular Decision was 'not published' in the country profile because the ED page leaves it out. It is on the How to Apply page.",
     "supports": [
@@ -64,13 +64,14 @@
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
-    "claim": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. The IB Diploma requirement stated for Year Two entry is 30 points.",
+    "claim": "International applicants apply through XJTLU's own online system. For most undergraduate programmes the closing date for September 2027 entry is 31 May 2027. International applicants who have completed the IB are considered for Year Two entry, which asks for 30 points and IELTS 6.5 (5.5 in each section) or TOEFL iBT 90.",
     "excerpt": "For most undergraduate programmes, the closing date for September 2027 entry is 31 May 2027. […] IB Diploma: 30 points",
     "supports": [
-      { "entity": "cn-joint-direct-2027", "field": "milestones" }
+      { "entity": "cn-joint-direct-2027", "field": "milestones" },
+      { "entity": "cn", "field": "ibRecognition" }
     ],
-    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "The 30-point figure is quoted for Year Two entry. XJTLU students normally start in Year One or Year Two depending on qualification; which applies to the IB was not established." },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "attestation": { "by": "the country audit pass", "at": "2026-09-24", "method": "read-source", "note": "Re-read 2026-09-24. The deadline is on the how-to-apply page; the 30 points and the English scores are on the entry-requirements page (sourcePage), which says Year Two admits those who \"have completed A-levels or International Baccalaureate (or equivalent)\" and Year One asks for a B average." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-cn-bnbu-periods",
@@ -83,13 +84,30 @@
     "verificationState": "needs-review",
     "claim": "BNBU, the former BNU-HKBU United International College (renamed in March 2025), takes international applications through its International Development Office in two periods: 1 September to 31 December, and 10 February to 15 May.",
     "excerpt": "Application Period I: September 1st to December 31st. Application Period II: February 10th to May 15th.",
-    "interpretation": "The periods are printed without a year, as a standing pattern. The page does not say whether IB holders are accepted; it points to a separate overseas-qualifications page that was not read.",
+    "interpretation": "The periods are printed without a year, and on re-reading (2026-09-24) the same FAQ page refers to \"2025 entry\" and the \"2025-2026 International Student Application\", so they are last cycle's pattern and are kept provisional. The page does not say whether IB holders are accepted; it asks for TOEFL iBT 79 or IELTS 6.0 and points to a separate overseas-qualifications page that was not read.",
     "supports": [
       { "entity": "cn-joint-direct-2027", "field": "milestones" },
       { "entity": "cn", "field": "institutions" }
     ],
     "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "The renaming is confirmed on BNBU's President and University Office page: 'officially renamed itself Beijing Normal-Hong Kong Baptist University (BNBU)'. The old uic.edu.cn domain serves an expired TLS certificate." },
     "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-cn-bnbu-deadline-2026",
+    "sourceUrl": "https://admission.bnbu.edu.cn/ido/faqs.htm",
+    "publisher": "Beijing Normal-Hong Kong Baptist University",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "claim": "For 2026 entry, BNBU gave international applicants a single deadline of 15 May. It has published no dates for 2027 entry.",
+    "excerpt": "What is the application period for International Student Application for 2026 entry? Application deadline is May 15th.",
+    "interpretation": "This is the newer of BNBU's two FAQ pages. The older one (ev-cn-bnbu-periods) gives two periods for 2025 entry; this one gives only a closing day for 2026 entry. Neither gives 2027 dates, so the route shows the deadline as not yet announced, with both precedents in the note.",
+    "supports": [
+      { "entity": "cn-joint-direct-2027", "field": "milestones" }
+    ],
+    "attestation": { "by": "the country audit round-2 fixes", "at": "2026-09-24", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-cn-tsinghua-apply",
@@ -138,12 +156,31 @@
     "verificationState": "needs-review",
     "claim": "From the 2026/2027 academic year, anyone applying for a bachelor's degree in China must sit the CSCA (来华留学本科入学学业水平测试) before applying. The China Scholarship Council runs it, and registration is at www.csca.cn.",
     "excerpt": "自2026/2027学年起，来华攻读学士学位的申请人须在提交申请前参加“来华留学本科入学学业水平测试” […] CSCA由中国国家留学基金管理委员会（CSC）组织",
-    "interpretation": "A new national test, and the most useful thing a Danish IB student needs to know about the Chinese universities. It is quoted from a Chinese embassy notice because csca.cn renders nothing to an automated fetch. Whether the Sino-foreign joint universities require it was not established.",
+    "interpretation": "A new national test, and the most useful thing an IB student applying from Denmark needs to know about the Chinese universities. It is quoted from a Chinese embassy notice because csca.cn renders nothing to an automated fetch. Whether the Sino-foreign joint universities require it was not established.",
     "supports": [
       { "entity": "cn-national-direct-2027", "field": "submissionItems" },
       { "entity": "cn", "field": "watchOuts" }
     ],
-    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source", "note": "The Danish embassy site did not carry an equivalent notice that this pass could find. Read in Chinese." },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "attestation": { "by": "the country audit pass", "at": "2026-09-24", "method": "read-source", "note": "Re-read 2026-09-24: five sittings a year (1月、3月、4月、6月及12月), two specialised-Chinese papers and three basic subjects (mathematics, physics, chemistry), registration at www.csca.cn. The notice says nothing about English-taught programmes or the joint universities. The Danish embassy site still carried no equivalent notice. Read in Chinese." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
+  },
+  {
+    "id": "ev-cn-cuhksz-intl",
+    "sourceUrl": "https://intladmissions.cuhk.edu.cn/",
+    "publisher": "The Chinese University of Hong Kong, Shenzhen",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "CUHK-Shenzhen runs a separate international undergraduate admissions site, whose application system is open from September to April; it links a 2027 prospectus.",
+    "excerpt": "The Application System opens to receive applications from September to April.",
+    "interpretation": "No closing day is printed, so the joint-university route records CUHK-Shenzhen as a window, not a date.",
+    "supports": [
+      { "entity": "cn-joint-direct-2027", "field": "milestones" },
+      { "entity": "cn", "field": "institutions" }
+    ],
+    "attestation": { "by": "the country audit pass", "at": "2026-09-24", "method": "read-source" },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   }
 ]

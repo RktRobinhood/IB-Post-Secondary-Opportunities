@@ -15,42 +15,42 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "English-taught, IB-literate, and the early rounds close in November",
-  "summary": "Hong Kong's universities teach in English and read the IB directly. A Danish student is a non-local applicant: you apply to each university on its own site, not through JUPAS. The early rounds close in November 2026, on predicted grades. Fees are high, about HK$250,000 to 280,000 a year at HKU.",
+  "summary": "Hong Kong's universities teach in English and read the IB directly. An EU/EEA student is a non-local applicant: you apply to each university on its own site, not through JUPAS. The early rounds close in November 2026, on predicted grades. Fees are high, about HK$250,000 to 280,000 (about €28,000–31,400 at the ECB rate of 24 September 2026) a year at HKU.",
   "whyConsider": [
     "HKU, CUHK and HKUST teach in English and take the IB as a standard qualification.",
-    "Several universities keep applications open after IB results day. HKU closes on 25 August 2027."
+    "HKU keeps applications open after IB results day, until 25 August 2027. Of the five universities covered here, it is the only one."
   ],
   "watchOuts": [
-    "The first rounds close from 12 November 2026 (CUHK) to 25 November (HKU, HKUST). Most places are decided there, on predicted grades.",
+    "The first rounds close from 12 November 2026 (CUHK) to 25 November (HKU, HKUST), with CityU on 15 and PolyU on 17 November. Most places are decided there, on predicted grades.",
     "Each university is a separate application, with its own fee and its own dates.",
-    "CityU's admissions pages block automated reading, so its dates are not recorded here. Check them yourself."
+    "Dates and fees here are for HKU, HKUST, CUHK, PolyU and CityU only. Check every other university on its own site."
   ],
   "ibRecognition": {
     "accepted": true,
-    "minimumPoints": "Set per university and programme.",
+    "minimumPoints": "Set per university and programme. CUHK's general minimum is 30 of 45.",
     "notes": [
       "Offers made on predicted grades are conditional on the final diploma."
     ],
-    "evidence": ["ev-hk-hku-dates"]
+    "evidence": ["ev-hk-hku-dates", "ev-hk-cuhk-requirements"]
   },
   "language": {
     "englishTaughtBachelors": "Most programmes at the main universities.",
-    "englishProof": "The IB is normally accepted. Check each university.",
+    "englishProof": "Set per university. CUHK accepts an IB English grade of 4. Check each of the others.",
     "localLanguageRequired": false
   },
   "feeContext": [
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "international-rate",
-      "summary": "Hong Kong has no EU category. A Danish student is non-local and pays the non-local fee.",
+      "summary": "Hong Kong has no EU category. An EU/EEA citizen is non-local and pays the non-local fee.",
       "evidence": ["ev-hk-hku-fees"]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "summary": "HKU 2027/28: HK$280,000 a year in STEM faculties and HK$250,000 in the others.",
+      "summary": "2027/28 non-local tuition: HKU HK$280,000 a year in STEM faculties and HK$250,000 in the others; HKUST HK$260,000; PolyU HK$240,000; CUHK HK$230,000.",
       "priceYear": "2027/28",
-      "evidence": ["ev-hk-hku-fees"]
+      "evidence": ["ev-hk-hku-fees", "ev-hk-hkust-fees", "ev-hk-polyu-fees", "ev-hk-cuhk-fees"]
     }
   ],
   "sectorLandscape": {
@@ -71,7 +71,7 @@
         "what": "Degrees in dance, drama, music, film and theatre production. Admission is by audition or portfolio.",
         "ibAccessible": "unknown",
         "englishTaught": "unknown",
-        "note": "Its admissions pages were not read in detail."
+        "note": "Its admissions pages are not covered in detail here."
       },
       {
         "localName": "self-financing university",
@@ -80,16 +80,16 @@
         "what": "Hang Seng University, Metropolitan University, Shue Yan University and THEi. Degree-awarding, without recurrent government funding, and more career-focused than the UGC eight.",
         "ibAccessible": "unknown",
         "englishTaught": "some",
-        "note": "Their entry for non-local IB students was not researched."
+        "note": "Their entry for non-local IB students is not covered here."
       },
       {
         "localName": "associate degree / higher diploma",
         "englishName": "sub-degree programme",
         "kind": "college",
-        "what": "Two-year programmes at community colleges and institution-linked schools. Many Hong Kong students use them to top up into a degree later. This is the route foreign guides never mention.",
+        "what": "Two-year programmes at community colleges and institution-linked schools. Many Hong Kong students use them to top up into a degree later. Foreign guides rarely mention this route.",
         "ibAccessible": "unknown",
         "englishTaught": "unknown",
-        "note": "Named so the route is visible. Not researched."
+        "note": "Named so the route is visible; not covered here."
       }
     ],
     "evidence": ["ev-hk-ugc-funded"]
@@ -98,11 +98,12 @@
   "evidence": ["ev-hk-ugc-funded", "ev-hk-hku-dates"],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
+      "Audited 2026-09-24 (docs/research/audit/hk.md): CityU's dates and fees were read in a browser; HKUST, CUHK and PolyU 2027/28 fees added.",
       "Written to the publication floor by the Greece, China and Hong Kong pass on 2026-09-23. One direct route covers every institution because every one of them admits non-local students directly.",
-      "Not established: CityU's dates (the site blocks bots), and the dates at HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities. The Concourse site (cspe.edu.hk) renders its institution list in JavaScript and serves a broken TLS chain."
+      "Not established: the dates at HKBU, Lingnan, EdUHK, HKAPA and the self-financing universities. The Concourse site (cspe.edu.hk) renders its institution list in JavaScript and serves a broken TLS chain."
     ]
   }
 }

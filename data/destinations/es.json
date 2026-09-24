@@ -23,7 +23,7 @@
   ],
   "watchOuts": [
     "The public-university deadline is early July — 7 July in 2026, the day after IB results — not the 1 December end of the UNEDasiss window.",
-    "The May PCE subject tests, which lift your grade above 10, clash with the IB exams.",
+    "The May PCE subject tests, which lift your grade above 10, come the week straight after the IB exams end.",
     "Private universities (IE, Navarra, ESADE, Deusto, Comillas) close rounds from September of the year before and charge far more."
   ],
   "ibRecognition": {
@@ -49,6 +49,13 @@
       "summary": "Public universities charge per credit at a regionally set price: at Carlos III in 2026/27, €16.92–€20.68 per credit, about €1,015–€1,241 for a 60-credit year. Private universities set their own, much higher, fees.",
       "priceYear": "2026/27",
       "evidence": ["ev-es-uc3m-prices-2026"]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Set by each region and university. At Carlos III in 2026/27, non-EU students without Spanish resident status pay €113.71–€136.44 per credit, about €6,823–€8,186 for a 60-credit year. A study permit does not count as residence.",
+      "priceYear": "2026/27",
+      "evidence": ["ev-es-uc3m-prices-noneu-2026"]
     }
   ],
   "sectorLandscape": {
@@ -77,7 +84,7 @@
         "what": "Two-year practical courses with a work placement, and a recognised route on into a university degree. The Spanish route foreigners are rarely told about.",
         "ibAccessible": "unknown",
         "englishTaught": "rare",
-        "note": "Not researched here. The ministry's FP portal (todofp.es) did not answer an automated fetch."
+        "note": "Not covered here; see the ministry's FP portal, todofp.es."
       },
       {
         "localName": "Enseñanzas Artísticas Superiores",
@@ -86,7 +93,7 @@
         "what": "Music, dance, drama, design and conservation at conservatorios and escuelas superiores, with their own entrance tests.",
         "ibAccessible": "unknown",
         "englishTaught": "rare",
-        "note": "Not researched here."
+        "note": "Not covered here."
       }
     ],
     "evidence": ["ev-es-boe-rd-534-2024"]
@@ -122,15 +129,18 @@
   "evidence": [
     "ev-es-unedasiss-fechas-2026",
     "ev-es-boe-rd-534-2024",
-    "ev-es-uc3m-prices-2026"
+    "ev-es-uc3m-prices-2026",
+    "ev-es-uc3m-prices-noneu-2026",
+    "ev-es-unedasiss-precios"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-02-01",
     "notes": [
-      "Institution jurisdictions to add to data/countries/es.json on publishing: es-private = IE, Navarra, ESADE, Deusto, Comillas; es-public = UC3M, UPF, UAB, UAM, UB, UCM, UPC.",
-      "Not established: 2027 PCE and preinscripción dates, private-university fees, and whether FP de grado superior and Enseñanzas Artísticas Superiores accept an IB Diploma."
+      "Institution jurisdictions to add to data/countries/es.json on publishing: es-private = IE, Navarra, ESADE, Deusto, Comillas, CEU San Pablo; es-public = UC3M, UPF, UAB, UAM, UB, UCM, UPC.",
+      "Audited 2026-09-24: see docs/research/audit/es.md.",
+      "Not established: 2027 PCE and preinscripción dates, private-university fees other than Esade's (BBA €21,300 for 2027/28), and whether FP de grado superior and Enseñanzas Artísticas Superiores accept an IB Diploma."
     ]
   }
 }

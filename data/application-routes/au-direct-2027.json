@@ -21,8 +21,9 @@
       "id": "ms-apply",
       "type": "submit",
       "label": "Each university's own closing date",
-      "consequence": "hard",
-      "note": "There is no national date and no national portal for a direct application. Each university publishes its own closing date for international applicants, per intake and sometimes per degree, and missing it closes that university for that intake. No date is recorded here because recording one would mean choosing a university's date and applying it to thirteen others.",
+      "dateState": "varies-by-institution",
+      "consequence": "indicative",
+      "note": "There is no national date and no national portal for a direct application. Each university publishes its own closing date for international applicants, per intake and sometimes per degree, and missing it closes that university for that intake. Take the date from the page of the university you are applying to.",
       "evidence": [
         "ev-uac-international-ib-eligible",
         "ev-vtac-international-eligibility"
@@ -43,7 +44,7 @@
       "type": "document",
       "label": "Assemble the financial evidence before you need it",
       "consequence": "personal",
-      "note": "AUD 29,710 of living costs for twelve months, plus the first twelve months of the actual course fee, plus about AUD 2,000 of travel from Europe - or, instead of savings, a parent's or partner's documented annual income of at least AUD 87,856, evidenced by official tax documents rather than bank statements. Gathering tax documents from a Danish parent takes longer than gathering a bank statement.",
+      "note": "AUD 29,710 of living costs for twelve months, plus the first twelve months of the actual course fee, plus about AUD 2,000 of travel from Europe - or, instead of savings, a parent's or partner's documented annual income of at least AUD 87,856, evidenced by official tax documents rather than bank statements. Gathering a parent's tax documents, from whichever country they are taxed in, takes longer than gathering a bank statement.",
       "evidence": [
         "ev-homeaffairs-student-500"
       ]
@@ -86,7 +87,7 @@
   "supplementarySteps": [
     "Convert your predicted IB total to a Combined Rank first. Australian degree pages publish the rank they want, and some publish a guaranteed-entry rank, which turns the whole question into arithmetic.",
     "Ask each university's international office which route it wants. In New South Wales and the ACT you have a choice between UAC and applying direct; everywhere else, direct is the route.",
-    "Ask, in writing, whether the tuition fee can rise between years of the degree. That question is not answered here and the answer is not the same at every university."
+    "Ask, in writing, whether the tuition fee can rise between years of the degree. The answer is not the same at every university."
   ],
   "evidence": [
     "ev-uac-international-ib-eligible",
@@ -100,7 +101,7 @@
     "dataAsOf": "2026-09-23",
     "reviewBy": "2027-04-30",
     "notes": [
-      "This route exists because applying directly is a finding, not a blank. Three of Australia's five tertiary admissions centres state in their own words that an international applicant who is not sitting an Australian Year 12 or the IB inside Australia - or, in Western Australia, who is not a citizen or permanent resident - applies directly to the institution. That is the situation a Danish candidate is in everywhere except New South Wales and the ACT.",
+      "This route exists because applying directly is a finding, not a blank. Three of Australia's five tertiary admissions centres state in their own words that an international applicant who is not sitting an Australian Year 12 or the IB inside Australia - or, in Western Australia, who is not a citizen or permanent resident - applies directly to the institution. That is the situation an IB candidate at a school in Denmark is in everywhere except New South Wales and the ACT.",
       "Not established: whether Queensland's admissions centre, QTAC, accepts an offshore International Baccalaureate candidate. QTAC's international Year 12 qualifications page lists Cambridge A Levels, US senior schooling and New Zealand qualifications and does not mention the IB at all, and its how-to-apply page sends international applicants to the institution's own international office. The absence of the IB from a list headed 'international qualifications' is not the same as an exclusion, and it has not been resolved here. A student looking at Queensland should ask QTAC directly and should in any case apply to UQ or QUT through their own international admissions.",
       "Not established: whether conditional offers on predicted IB grades are normal for direct applications. They are documented for the UAC route and were not confirmed for direct applications at any individual university in this pass. Ask the university.",
       "No dated closing milestone is recorded, deliberately. Every institution sets its own, and one institution's date standing in for fourteen would be the most damaging single field on this page."

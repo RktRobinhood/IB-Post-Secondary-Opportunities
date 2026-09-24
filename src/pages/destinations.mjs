@@ -5,6 +5,7 @@ import {
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
 import { worldWindow, evidenceBlock, artDirection, patternLayer, deadlineList } from '../lib/primitives.mjs';
+import { representativePoint } from '../lib/geo.mjs';
 import { contextFor } from '../lib/canonical.mjs';
 import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
@@ -103,14 +104,11 @@ function heroSlides(site, c, max = 4) {
   return out;
 }
 
-/** A country's position on the map: the mean of the places we actually know. */
-function centroid(c) {
-  const pts = c.places?.map((p) => p.coordinates).filter(Boolean) || [];
-  if (!pts.length) return null;
-  return {
-    lat: pts.reduce((n, p) => n + p.lat, 0) / pts.length,
-    lon: pts.reduce((n, p) => n + p.lon, 0) / pts.length,
-  };
+/** A country's position on the map: the one of its own places nearest the
+    rest (src/lib/geo.mjs). The mean of its places used to be used, and the
+    mean of Canada's campuses is in Minnesota. */
+export function centroid(c) {
+  return representativePoint(c.places?.map((p) => p.coordinates).filter(Boolean) || []);
 }
 
 function countryIndex(site, { scope, title, lede, eyebrow, path: pagePath, heroKey }) {
@@ -126,6 +124,9 @@ function countryIndex(site, { scope, title, lede, eyebrow, path: pagePath, heroK
       lon: pos.lon,
       href: c.href,
       count: c.institutions.length,
+      country: c.code,
+      // The picture its own tile already shows, for the globe's card.
+      image: (() => { const p = picture(site, c.code, { prefer: 'commons' }); return p && !p.external ? p.src : ''; })(),
       precision: 'region',
       // How much is known about this destination, in the same words the page
       // itself uses — a light that says nothing about its own evidence is the
@@ -182,6 +183,7 @@ ${mapPlaces.length
         ${worldWindow({
           places: mapPlaces,
           id: `index-${scope}`,
+          unit: 'institution',
           activeLayer: 'Destinations covered',
           caption: 'Each light is a destination. Follow one, or read down the list.',
         })}
@@ -285,7 +287,12 @@ export function destination(site, c, { prev, next }) {
       name: i.shortName || i.name,
       lat: i.coords.lat,
       lon: i.coords.lon,
-      href: null,
+      // The institution's own site, which is where its card on this page goes
+      // too. It leaves the site, so it opens in a new tab (site.js).
+      href: i.website || null,
+      external: !!i.website,
+      country: c.code,
+      image: (() => { const p = picture(site, i.key); return p && !p.external ? p.src : ''; })(),
       precision: i.coordinatePrecision,
       count: 1,
     }));
@@ -603,7 +610,7 @@ ${/* What is required: every question, short answer first. */ ''}
           { label: 'Capital', value: c.capital },
           { label: 'Currency', value: c.currency },
           { label: 'EU member', value: c.eu === true ? 'Yes' : c.eu === false ? 'No' : null },
-          { label: 'EEA / fee status', value: c.eea === true ? 'EU/EEA — Danish students treated as home students for fees in most systems' : null },
+          { label: 'EEA / fee status', value: c.eea === true ? 'EU/EEA — EU/EEA citizens usually pay the home-student rate' : null },
           { label: 'Target intake', value: c.targetIntake },
         ])}
         <nav aria-label="On this page">

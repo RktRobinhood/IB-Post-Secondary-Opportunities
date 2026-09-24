@@ -8,7 +8,7 @@
   "currency": "AUD",
   "eu": false,
   "eea": false,
-  "dataAsOf": "2026-09-23",
+  "dataAsOf": "2026-09-24",
   "targetIntake": "Autumn 2027 (May 2027 IB session). In Australia this means either the July 2027 mid-year intake or, more usually, Semester 1 starting late February 2028.",
   "tagline": "Three-year degrees, published IB conversion, and a calendar that runs backwards",
   "summary": "Australia runs on the southern hemisphere academic year: the main intake, Semester 1, starts in late February or early March, and a smaller second intake starts in July. That means finishing the IB in May 2027 does not lead to an 'autumn 2027' start - it leads either to a July 2027 start, if the university offers your degree mid-year, or to February 2028, which gives you roughly eight months between your IB exams and your first lecture. Most bachelor's degrees are three years, entry is decided almost entirely by a published score, and the Universities Admissions Centre publishes an official table that turns your IB result into an ATAR-equivalent 'Combined Rank'.",
@@ -18,7 +18,7 @@
     "A degree gives access to the Temporary Graduate visa (subclass 485), Post-Higher Education Work stream, which usually lasts two to three years.",
     "You can work up to 48 hours a fortnight while your course is in session, and full-time during breaks.",
     "The gap between your May 2027 exams and a February 2028 start is long enough for a real job, a language course or travel - which some students want and others hate.",
-    "If you are looking at Sydney or Canberra, an IB Diploma puts you inside UAC - one application, one fee, several universities - which is the only shared admissions system in Australia open to a candidate sitting the exams in Europe."
+    "If you are looking at Sydney or Canberra, an IB Diploma puts you inside UAC - one application, one fee, several universities - and UAC is open to a candidate sitting the exams in Europe; the Victorian, South Australian and Western Australian centres are not."
   ],
   "watchOuts": [
     "Hemisphere timing. If you start in February 2028 you are effectively taking a gap year. If you find a July 2027 mid-year intake you start almost straight after your exams - but not every degree has one, and engineering and health degrees often do not.",
@@ -34,7 +34,7 @@
     "subjectLevelRule": "Entry is on the overall converted rank, with named prerequisite subjects on top - typically Mathematics at a specified level for engineering, economics and science, and Chemistry or Biology for health degrees. Whether an SL subject satisfies a prerequisite is decided by the university.",
     "gradeConversion": "UAC converts an IB Diploma into a Combined Rank, which it states is comparable with the ATAR for tertiary entrance in every Australian state and territory. There are two schedules on one page and they give different answers. Candidates who sat the IB in Australia from November 2022 are converted from a fine-grained IB Admissions Score in quarter-point steps; everyone else, including anyone sitting the May session in Denmark, is converted from the whole diploma score out of 45. The schedule underneath both is agreed nationally by the Australasian Conference of Tertiary Admissions Centres and re-determined every February.",
     "notes": [
-      "Read the right table. The IBAS schedule is the more precise-looking one and it is not yours: it converts 24.00 to 64.40 where the table that applies to a Danish candidate converts 24 to 64.60, and the gap widens in the thirties.",
+      "Read the right table. The IBAS schedule is the more precise-looking one and it is not yours: it converts 24.00 to 64.40 where the table that applies to a candidate sitting the IB in Denmark converts 24 to 64.60, and the gap widens in the thirties.",
       "Because you are converted from a whole number, every single point is a step. There is no partial credit for being high within a grade band, which is precisely what the Australian-sat IBAS schedule exists to give.",
       "The Combined Rank travels even though the application does not. UAC only runs admissions for New South Wales and the ACT, but the conversion is national, so a rank quoted by a university in Perth means the same thing.",
       "The schedule is republished annually and the values move. A table found on a coaching site or remembered from a sibling's year is the wrong table by definition.",
@@ -53,7 +53,7 @@
         "date": "2027-07-06",
         "consequence": "indicative",
         "year": "2027 results",
-        "notes": "This entry once gave results day as a two-day window while every other record on the site gave a single day, and the explanation written here to reconcile them — that the earlier day was when coordinators got school access — was invented and is wrong. That earlier day is the IB's transcript-request cut-off, a separate IB deadline the site did not hold at all, and it is now recorded as one. Results reach the candidate on 6 July. The date is inferred rather than cited, and both the inference and the reason it could not be checked are held once, in data/ib-calendar.json with the Evidence record ev-ib-results-day-2027-05. It is marked provisional here for that reason. Separately, on the page this entry used to cite: UAC's IB applicants page at https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants was opened on 23 September 2026 and carries no May-session release date at all. The only date on it is for the November session — UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\" — which is a useful comparison and not the claim this entry makes, so the citation has been removed rather than left to fail verification forever. Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
+        "notes": "Results reach the candidate on 6 July 2027, the IB's usual results day, not yet confirmed by the IB for 2027. An earlier date sometimes quoted is the IB's transcript-request cut-off, a separate IB deadline. UAC's IB applicants page (https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants) gives no May-session release date; its only date is for the November session, when UAC will notify NSW and ACT applicants of their IB Admissions Score \"via email on Friday 18 December 2026\". Denmark sits the May session, which is why a July 2027 start is tight and February 2028 is the realistic main option.",
         "source": null,
         "ibCalendar": "2027-05/results-day",
         "provisional": true,
@@ -66,7 +66,7 @@
         "dateState": "varies-by-institution",
         "consequence": "indicative",
         "year": "2028 intake",
-        "notes": "The state was not-published and that was too pessimistic: 2028 teaching dates do exist, they are simply set one university at a time and there is no national one to record. The Australian National University's published university calendar for 2028 gives \"Semester 1 begins — 21 Feb\" and \"Semester 1 ends — 26 May\", read on 23 September 2026, so late February is a figure anchored to a real calendar rather than a guess. Other universities will differ by a week or two and you must check the one you are applying to. There is likewise no national application deadline: international applications generally open around a year ahead and many universities accept them until a few weeks before teaching starts, subject to visa processing time, which is the constraint that actually binds. This is the main Australian intake and the realistic one for a May 2027 IB candidate.",
+        "notes": "2028 teaching dates are set one university at a time; there is no national one. The Australian National University's published university calendar for 2028 gives \"Semester 1 begins — 21 Feb\" and \"Semester 1 ends — 26 May\", so expect late February. Other universities will differ by a week or two and you must check the one you are applying to. There is likewise no national application deadline: international applications generally open around a year ahead and many universities accept them until a few weeks before teaching starts, subject to visa processing time, which is the constraint that actually binds. This is the main Australian intake and the realistic one for a May 2027 IB candidate.",
         "source": "https://www.anu.edu.au/directories/university-calendar?year=2028"
       },
       {
@@ -74,7 +74,7 @@
         "dateState": "varies-by-institution",
         "consequence": "indicative",
         "year": "2027 intake",
-        "notes": "As with Semester 1 2028, the dates are published but only institution by institution. The Australian National University's 2027 calendar gives \"Semester 2 begins — 26 Jul\" and \"Semester 2 ends — 29 Oct\", read on 23 September 2026. That is the option that gets you started soonest after the May 2027 exams, and it is three weeks after IB results on 6 July 2027 — which is tight for an offer, a Confirmation of Enrolment and a subclass 500 visa in sequence, and is the reason February 2028 is the realistic choice rather than this one. Not every degree admits mid-year either; engineering, health and many professional degrees are Semester 1 only. Verify per degree and per university.",
+        "notes": "As with Semester 1 2028, the dates are published but only institution by institution. The Australian National University's 2027 calendar gives \"Semester 2 begins — 26 Jul\" and \"Semester 2 ends — 29 Oct\". That is the option that gets you started soonest after the May 2027 exams, and it is three weeks after IB results on 6 July 2027 — which is tight for an offer, a Confirmation of Enrolment and a subclass 500 visa in sequence, and is the reason February 2028 is the realistic choice rather than this one. Not every degree admits mid-year either; engineering, health and many professional degrees are Semester 1 only. Verify per degree and per university.",
         "source": "https://www.anu.edu.au/directories/university-calendar?year=2027"
       },
       {
@@ -89,18 +89,18 @@
     "steps": [
       "Decide first whether you want July 2027 or February 2028, then check whether the specific degree has a mid-year intake - this single choice changes your whole timeline, and engineering, health and most professional degrees are semester 1 only.",
       "Convert your predicted IB total to a Combined Rank on UAC's current schedule, then look up the rank each degree requires. Some universities publish a guaranteed-entry rank, which turns the question into arithmetic.",
-      "Work out which route your state uses. For New South Wales and the ACT you may apply through UAC on one application and one fee; for Victoria, Queensland, South Australia and Western Australia the state admissions centre will not take an IB candidate sitting the exams in Denmark, so you apply directly to each university.",
+      "Work out which route your state uses. For New South Wales and the ACT you may apply through UAC on one application and one fee; for Victoria, South Australia and Western Australia the state admissions centre will not take an IB candidate sitting the exams in Denmark, and Queensland's is unresolved, so you apply directly to each university.",
       "Ask your school's IB Diploma coordinator to authorise the IB to release your results - to UAC if you are using it, and to each university if you are not. Your school does this, not you.",
       "Submit predicted IB grades. Through UAC an international applicant receives a conditional offer about 48 hours later, which can be used for pre-visa assessment but not to enrol.",
       "Accept the offer, pay the deposit, and take out Overseas Student Health Cover - it is a visa condition, not a university one.",
       "Receive the Confirmation of Enrolment, then apply online for the Student visa subclass 500, paying from AUD 2,500 and showing AUD 29,710 of living costs, the first twelve months of tuition and about AUD 2,000 of travel.",
       "Book accommodation - Australian universities house a much smaller share of students than British or American ones, and Sydney and Melbourne rentals are tight."
     ],
-    "selectionNotes": "Entry is overwhelmingly rank-based against a published threshold, plus subject prerequisites. A few degrees add an interview, portfolio or admissions test - medicine and dentistry in particular. Some universities publish guaranteed-entry ranks, which means an offer is automatic if you meet the number. There is no personal statement culture and no essay for most degrees. Whether a conditional offer on predicted grades is normal for a direct application, as it is through UAC, was not established for any individual university and is worth asking."
+    "selectionNotes": "Entry is overwhelmingly rank-based against a published threshold, plus subject prerequisites. A few degrees add an interview, portfolio or admissions test - medicine and dentistry in particular. Some universities publish guaranteed-entry ranks, which means an offer is automatic if you meet the number. There is no personal statement culture and no essay for most degrees. Whether a conditional offer on predicted grades is normal for a direct application, as it is through UAC, is worth asking each university about."
   },
   "language": {
     "englishTaughtBachelors": "The whole system. Every bachelor's degree here is taught in English.",
-    "englishProof": "Universities accept the IB Diploma with English A as evidence of English for most courses, and the subclass 500 visa also has its own English requirement. Exact IELTS and TOEFL thresholds vary by university and by course and were not verified individually for this guide - typical minimums are IELTS 6.5 overall with no band below 6.0.",
+    "englishProof": "Universities accept the IB Diploma with English A as evidence of English for most courses, and the subclass 500 visa also has its own English requirement. Exact IELTS and TOEFL thresholds vary by university and by course - typical minimums are IELTS 6.5 overall with no band below 6.0.",
     "localLanguageRequired": false,
     "notes": [
       "The visa English requirement and the university English requirement are separate. Meeting the university's does not automatically satisfy Home Affairs - check the subclass 500 English criteria."
@@ -117,7 +117,7 @@
       "year": "2026",
       "source": "https://www.unsw.edu.au/student/managing-your-studies/fees/international"
     },
-    "applicationFee": "Most Australian universities charge either no application fee or AUD 100-150 for international direct applications. State admissions centres (UAC, VTAC, QTAC, SATAC) charge their own processing fees. Not verified per institution.",
+    "applicationFee": "Most Australian universities charge either no application fee or AUD 100-150 for international direct applications. State admissions centres (UAC, VTAC, QTAC, SATAC) charge their own processing fees. Check each university's own fee.",
     "livingCostMonthly": {
       "value": "The Department of Home Affairs requires evidence of AUD 29,710 in living costs for twelve months for a single student - about AUD 2,476 a month. Home Affairs states plainly that this is the visa minimum and that actual living costs vary across Australia and may be much higher.",
       "year": "2026",
@@ -133,11 +133,14 @@
     ]
   },
   "funding": [
-    "University international scholarships. Most Australian universities publish entrance scholarships for international undergraduates, usually a percentage discount on tuition (often 10-25%) awarded automatically on your admission score or by separate application. Amounts were not verified per institution - check each university's scholarship page when you apply.",
+    "University international scholarships. Most Australian universities publish entrance scholarships for international undergraduates, usually a percentage discount on tuition (often 10-25%) awarded automatically on your admission score or by separate application. Amounts vary - check each university's scholarship page when you apply.",
     "Destination Australia and similar government-funded schemes support study at regional campuses; these are aimed at moving students outside Sydney and Melbourne and can be substantial.",
     "Faculty-specific awards, particularly in engineering and science, awarded after first year on results.",
     "Part-time work. The visa allows up to 48 hours a fortnight during teaching periods and unrestricted hours in scheduled breaks, and Australian minimum wages are high by European standards - but you cannot count on work income for the visa financial test, which explicitly requires you to show funds without relying on employment in Australia.",
-    "Danish SU may in some circumstances support a full degree abroad - check su.dk and ask your studievejleder well before you apply.",
+    {
+      "fund": "fund-dk-su",
+      "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting."
+    },
     "There is no Australian government loan scheme for international undergraduates."
   ],
   "workRights": "On a Student visa subclass 500 you may work up to 48 hours per fortnight while your course of study or training is in session, and without limit during scheduled course breaks. After you graduate, the Temporary Graduate visa (subclass 485), Post-Higher Education Work stream, is for international students with a recent degree from an Australian institution and usually allows a stay of between two and three years depending on the qualification. You must be 35 or under when you apply, and you must have held a Student visa within the previous six months. Sources: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500 and https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485",
@@ -160,7 +163,7 @@
         "Commerce",
         "Architecture and Design"
       ],
-      "note": "The closest Australian equivalent to a European bachelor-then-master structure, which suits IB students who do not want to commit to a profession at 18 - but it does mean law, medicine and engineering are graduate entry here.",
+      "note": "Broad bachelor's degrees first, then a professional master's, as in much of Europe. Law, medicine and engineering are graduate entry, which suits students not ready to pick a profession at 18.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Melbourne",
       "place": "au-melbourne-victoria",
       "jurisdiction": "au-vic"
@@ -180,7 +183,7 @@
         "Law",
         "Engineering"
       ],
-      "note": "Australia's oldest university, on a grand sandstone campus close to central Sydney; publishes guaranteed-entry ATAR-equivalent scores for many degrees, so you can check your chances against your predicted IB conversion.",
+      "note": "Australia's oldest university, on a sandstone campus near central Sydney. It publishes guaranteed-entry ranks for many degrees, so you can check them against your predicted IB conversion.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Sydney",
       "place": "au-sydney-new-south-wales",
       "jurisdiction": "au-nsw-act"
@@ -200,7 +203,7 @@
         "Astronomy and Astrophysics",
         "Public Policy"
       ],
-      "note": "Founded as a research institution and located in the capital, so politics, diplomacy and public policy students sit next to the institutions they study; Canberra is small, cold by Australian standards and much cheaper than Sydney.",
+      "note": "A research university in the capital, next to the institutions its politics students study. Canberra is small, cold by Australian standards and much cheaper than Sydney.",
       "wikipedia": "https://en.wikipedia.org/wiki/Australian_National_University",
       "place": "au-canberra-australian-capital-territory",
       "jurisdiction": "au-nsw-act"
@@ -220,7 +223,7 @@
         "Environmental Science",
         "Biotechnology"
       ],
-      "note": "Subtropical Brisbane, a riverside campus and a serious life-sciences research base; noticeably cheaper to live in than Sydney or Melbourne and the weather removes a whole category of complaint.",
+      "note": "A riverside campus in subtropical Brisbane with strong life-sciences research. Living costs are noticeably lower than in Sydney or Melbourne.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Queensland",
       "place": "au-brisbane-queensland",
       "jurisdiction": "au-qld"
@@ -240,7 +243,7 @@
         "Engineering",
         "Design"
       ],
-      "note": "Unlike Melbourne, Monash lets you enter professional degrees directly at 18, which matters if you already know you want medicine or engineering; it also has campuses in Malaysia and Italy you can transfer between.",
+      "note": "Lets you enter professional degrees such as medicine and engineering straight from school. Melbourne makes them graduate entry; Monash also has a campus in Malaysia and a study centre in Prato, Italy.",
       "wikipedia": "https://en.wikipedia.org/wiki/Monash_University",
       "place": "au-melbourne-victoria",
       "jurisdiction": "au-vic"
@@ -260,7 +263,7 @@
         "Business",
         "Built Environment"
       ],
-      "note": "Publishes its international fees openly per unit of credit (AUD 985 for Arts up to AUD 1,180 for Accounting in 2026, on a 48-unit year), which makes it one of the easiest Australian universities to budget for.",
+      "note": "Publishes its international fees per unit of credit, which makes budgeting simple. In 2026 that was AUD 985 for Arts up to AUD 1,180 for Accounting, on a 48-unit year.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_South_Wales",
       "place": "au-sydney-new-south-wales",
       "jurisdiction": "au-nsw-act"
@@ -280,28 +283,28 @@
         "Geology and Mining Engineering",
         "Agriculture"
       ],
-      "note": "The most isolated major university in the world and proud of it; excellent for earth sciences and marine biology, and Perth is in the same time zone as most of Asia but a very long way from everywhere else.",
+      "note": "Strong in earth sciences and marine biology, in Perth. Perth shares a time zone with much of Asia but is a very long way from everywhere else.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Western_Australia",
       "place": "au-perth-western-australia",
       "jurisdiction": "au-wa"
     },
     {
-      "name": "University of Adelaide",
+      "name": "Adelaide University",
       "shortName": "Adelaide",
       "city": "Adelaide, South Australia",
       "type": "Research university",
-      "founded": 1874,
-      "website": "https://www.adelaide.edu.au/",
-      "admissionsUrl": "https://www.adelaide.edu.au/study/",
+      "founded": 2026,
+      "website": "https://adelaide.edu.au/",
+      "admissionsUrl": "https://adelaide.edu.au/study/international-students/",
       "ibPageUrl": null,
-      "englishBachelors": "Three-year degrees with direct entry to professional programmes including engineering and health sciences.",
+      "englishBachelors": "Bachelor's degrees across seven campuses in South Australia, including engineering, health and agricultural and wine science.",
       "notableFields": [
         "Wine and Agricultural Science",
         "Engineering",
         "Health and Medical Sciences"
       ],
-      "note": "A Group of Eight university in Australia's most affordable mainland capital; entry ranks are generally lower than Sydney or Melbourne for the same field, which makes it a sensible second choice.",
-      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Adelaide",
+      "note": "Opened in January 2026, replacing the University of Adelaide and UniSA. It is now South Australia's largest university, and international students apply to it directly.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Adelaide_University",
       "place": "au-adelaide-south-australia",
       "jurisdiction": "au-sa-nt"
     },
@@ -320,7 +323,7 @@
         "Design and Architecture",
         "Communication"
       ],
-      "note": "Industry-facing and in the centre of Sydney rather than on a suburban campus; entry requirements are more forgiving than the Group of Eight and the teaching is deliberately applied.",
+      "note": "Applied, industry-facing teaching on a campus in central Sydney. Entry ranks are usually lower than at the Group of Eight universities.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Technology_Sydney",
       "place": "au-sydney-new-south-wales",
       "jurisdiction": "au-nsw-act"
@@ -340,7 +343,7 @@
         "Aerospace Engineering",
         "Fashion"
       ],
-      "note": "If your interest is design, architecture or applied engineering rather than research, RMIT is often the better fit than a Group of Eight university - and it is in the middle of Melbourne.",
+      "note": "Strong in design, architecture and applied engineering, in the middle of Melbourne. A good fit if you want practice rather than research.",
       "wikipedia": "https://en.wikipedia.org/wiki/RMIT_University",
       "place": "au-melbourne-victoria",
       "jurisdiction": "au-vic"
@@ -360,7 +363,7 @@
         "Creative Industries",
         "Health Information Systems"
       ],
-      "note": "Strong robotics and creative-industries programmes at lower entry ranks and lower living costs than the Sydney and Melbourne equivalents; apply via QTAC or direct.",
+      "note": "Strong in robotics and the creative industries, at lower entry ranks. Living costs are lower than in Sydney or Melbourne; apply directly, since whether QTAC takes an offshore IB candidate is unresolved.",
       "wikipedia": "https://en.wikipedia.org/wiki/Queensland_University_of_Technology",
       "place": "au-brisbane-queensland",
       "jurisdiction": "au-qld"
@@ -380,7 +383,7 @@
         "Computer Science",
         "Nursing"
       ],
-      "note": "The non-capital-city option: a beach town with a proper research university, much cheaper rent than Sydney, and it counts as a regional location for some scholarship and post-study work purposes - check whether your campus qualifies.",
+      "note": "A research university in a beach town, with much cheaper rent than Sydney. It counts as a regional location for some scholarship and post-study work purposes, so check whether your campus qualifies.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wollongong",
       "place": "au-wollongong-new-south-wales",
       "jurisdiction": "au-nsw-act"
@@ -400,7 +403,7 @@
         "Actuarial Studies",
         "Ancient History"
       ],
-      "note": "Sits inside Sydney's main technology corridor with genuinely good internship access, and entry ranks are more achievable than USyd or UNSW for the same subjects.",
+      "note": "In Sydney's technology corridor, with good internship access. Entry ranks are more achievable than at USyd or UNSW for the same subjects.",
       "wikipedia": "https://en.wikipedia.org/wiki/Macquarie_University",
       "place": "au-sydney-new-south-wales",
       "jurisdiction": "au-nsw-act"
@@ -420,10 +423,67 @@
         "Nutrition and Dietetics",
         "Cyber Security"
       ],
-      "note": "Widely accessible entry requirements, well-regarded sport science, and the Geelong campuses are considerably cheaper to live in than central Melbourne.",
+      "note": "Accessible entry requirements and well-regarded sport science. The Geelong campuses are much cheaper to live near than central Melbourne.",
       "wikipedia": "https://en.wikipedia.org/wiki/Deakin_University",
       "place": "au-melbourne-and-geelong-victoria",
       "jurisdiction": "au-vic"
+    },
+    {
+      "name": "University of Tasmania",
+      "shortName": "UTAS",
+      "city": "Hobart, Tasmania",
+      "type": "Research university",
+      "founded": 1890,
+      "website": "https://www.utas.edu.au/",
+      "admissionsUrl": "https://www.utas.edu.au/study/apply",
+      "ibPageUrl": "https://www.utas.edu.au/study/apply/admission-requirements/international-baccalaureate",
+      "englishBachelors": "Bachelor's degrees across arts, science, business, health and marine and Antarctic studies, with campuses in Hobart, Launceston and Burnie.",
+      "notableFields": [
+        "Marine and Antarctic Science",
+        "Agriculture",
+        "Health"
+      ],
+      "note": "Treats a completed IB Diploma as meeting its general entry requirements and can collect your results from the IB if your coordinator gives permission.",
+      "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tasmania",
+      "jurisdiction": "au-tas"
+    },
+    {
+      "name": "Griffith University",
+      "shortName": "Griffith",
+      "city": "Brisbane, Queensland",
+      "type": "Research university",
+      "founded": 1971,
+      "website": "https://www.griffith.edu.au/",
+      "admissionsUrl": "https://www.griffith.edu.au/apply/international",
+      "ibPageUrl": "https://www.griffith.edu.au/apply/undergraduate-study/international-baccalaureate-diploma",
+      "englishBachelors": "More than 200 degrees open to international students, on campuses in Brisbane and on the Gold Coast.",
+      "notableFields": [
+        "Health",
+        "Business",
+        "Environmental Science"
+      ],
+      "note": "Converts an IB Diploma into a Combined Rank for entry, the same national rank the other universities here use. International students apply to it directly.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Griffith_University",
+      "jurisdiction": "au-qld"
+    },
+    {
+      "name": "Curtin University",
+      "shortName": "Curtin",
+      "city": "Perth, Western Australia",
+      "type": "Research university",
+      "founded": 1966,
+      "website": "https://www.curtin.edu.au/",
+      "admissionsUrl": "https://www.curtin.edu.au/study/international-students/",
+      "ibPageUrl": "https://www.curtin.edu.au/study/applying/ib-diploma/",
+      "englishBachelors": "Bachelor's degrees in engineering, mining, health, business, design and the sciences at its main campus in Perth.",
+      "notableFields": [
+        "Mining and Minerals Engineering",
+        "Health Sciences",
+        "Business"
+      ],
+      "note": "Asks for a full IB Diploma with at least 24 points in six subjects, and marks its more competitive courses at 31 to 39 points. International students apply directly.",
+      "wikipedia": "https://en.wikipedia.org/wiki/Curtin_University",
+      "jurisdiction": "au-wa"
     }
   ],
   "sources": [
@@ -466,6 +526,51 @@
       "title": "Australian National University — University calendar 2028 (Semester 1 begins 21 February 2028)",
       "url": "https://www.anu.edu.au/directories/university-calendar?year=2028",
       "retrieved": "2026-09-23"
+    },
+    {
+      "title": "UAC - IB Diploma score to Combined Rank conversion (offers from August 2026)",
+      "url": "https://www.uac.edu.au/future-applicants/admission-criteria/ib-applicants",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Home Affairs - Student visa subclass 500",
+      "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Home Affairs - Temporary Graduate visa subclass 485",
+      "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Adelaide University - opening announcement, January 2026",
+      "url": "https://adelaide.edu.au/about/news/2026/a-bold-new-future-for-australian-higher-education-begins-today/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Adelaide University - international students",
+      "url": "https://adelaide.edu.au/study/international-students/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Tasmania - International Baccalaureate",
+      "url": "https://www.utas.edu.au/study/apply/admission-requirements/international-baccalaureate",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Griffith University - International Baccalaureate Diploma",
+      "url": "https://www.griffith.edu.au/apply/undergraduate-study/international-baccalaureate-diploma",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Griffith University - international",
+      "url": "https://www.griffith.edu.au/international",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Curtin University - apply with an IB Diploma",
+      "url": "https://www.curtin.edu.au/study/applying/ib-diploma/",
+      "retrieved": "2026-09-24"
     }
   ],
   "artDirection": {

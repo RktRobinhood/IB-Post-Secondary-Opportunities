@@ -56,7 +56,7 @@
     "verificationState": "needs-review",
     "claim": "The University of Tokyo opens a new English-taught undergraduate faculty, the UTokyo College of Design, in September 2027. It takes 100 students on a five-year integrated bachelor's and master's programme through two routes, and Route B is for applicants using international qualifications, the International Baccalaureate Diploma named first among them. Applications run from 15 October 2026 at 09:00 to 5 November 2026 at 17:00 JST.",
     "excerpt": "100 Students (Route A: 50 students, Route B: 50 students) […] Route A is for people who wish to use the Japanese \"Common Test for University Admissions\" and Route B is for people who wish to use other standardized tests and qualifications designated by the University of Tokyo (e.g. International Baccalaureate, International A-Levels, or other tests that are standard in your country). There are no nationality restrictions for either route. […] International Baccalaureate Diploma (IB), Abitur, Baccalauréat, GCE A-level, International A-level, European Baccalaureate […] Application Period: October 15, 2026, 9:00 AM – November 5, 2026, 5:00 PM (JST) […] First screening results: December 22, 2026 (Route B) […] Final decisions: February 20, 2027 […] All courses are taught in English",
-    "interpretation": "This is the far more useful half of the University of Tokyo story and it replaces the flat statement that Todai has closed. PEAK ended and a larger, differently shaped English-taught route opened in its place: a whole new faculty, the university's first in about seventy years, on a September intake deliberately chosen to match Europe and North America, with half its places reserved for the international route. For a Danish IB student the consequential detail is the date — applications close on 5 November 2026, six weeks after this was written, with the Route B result on 22 December 2026 and the final decision on 20 February 2027. It is the earliest deadline of any Japanese route recorded here, and it is decided entirely on predicted grades. Note also that this is a five-year integrated programme ending at master's level, not a three- or four-year bachelor's; a student comparing it with a Dutch bachelor is not comparing like with like.",
+    "interpretation": "This is the far more useful half of the University of Tokyo story and it replaces the flat statement that Todai has closed. PEAK ended and a larger, differently shaped English-taught route opened in its place: a whole new faculty, the university's first in about seventy years, on a September intake deliberately chosen to match Europe and North America, with half its places reserved for the international route. For an IB student in Denmark the consequential detail is the date — applications close on 5 November 2026, six weeks after this was written, with the Route B result on 22 December 2026 and the final decision on 20 February 2027. It is the earliest deadline of any Japanese route recorded here, and it is decided entirely on predicted grades. Note also that this is a five-year integrated programme ending at master's level, not a three- or four-year bachelor's; a student comparing it with a Dutch bachelor is not comparing like with like.",
     "supports": [
       {
         "entity": "jp-direct-2027",
@@ -355,7 +355,7 @@
     "verificationState": "needs-review",
     "claim": "MEXT recruits embassy-recommended undergraduate scholars between April and May of the year before arrival, with first screening by the embassy or consulate between May and August; each country's exact schedule is set by its Japanese diplomatic mission.",
     "excerpt": "Recruitment for those arriving in Japan next April is made between April and May of the previous year. First screening is conducted between May and August by the Japanese Embassies or Consulates General. […] As the application process and specific schedule differ according to the country of your nationality, please inquire the Japanese Embassy or Consulate General in your country for details.",
-    "interpretation": "This is the sentence that fixes a dating error this repository was carrying: a record written in September 2026 told students to contact the Embassy of Japan in Denmark 'in early 2026', which was already in the past when it was written. The rule is relative, not absolute — April and May of the year before arrival — so for an April 2028 arrival the window is April and May 2027, which is exactly when a Danish IB candidate is sitting their examinations. That collision is worth saying out loud: the MEXT application and the IB exam session fall in the same eight weeks, and the paperwork includes a health certificate and a recommendation letter that cannot be produced in a hurry. MEXT also says plainly that the exact dates are the embassy's to set, so the national page can never be the last word.",
+    "interpretation": "This is the sentence that fixes a dating error this repository was carrying: a record written in September 2026 told students to contact the Embassy of Japan in Denmark 'in early 2026', which was already in the past when it was written. The rule is relative, not absolute — April and May of the year before arrival — so for an April 2028 arrival the window is April and May 2027, which is exactly when an IB candidate in Denmark is sitting their examinations. That collision is worth saying out loud: the MEXT application and the IB exam session fall in the same eight weeks, and the paperwork includes a health certificate and a recommendation letter that cannot be produced in a hurry. MEXT also says plainly that the exact dates are the embassy's to set, so the national page can never be the last word.",
     "supports": [
       {
         "entity": "jp-mext-embassy-2028",
@@ -529,12 +529,12 @@
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
     "retrievedAt": "2026-09-23",
-    "verificationState": "needs-review",
+    "verificationState": "superseded",
     "role": "reference",
     "verifiedBy": "Attempted twice on 2026-09-23 and refused both times with HTTP 403 from an Akamai edge node. Nothing was read. Held at needs-review, backing no published figure, until someone reaches the embassy by telephone or email.",
     "claim": "The Embassy of Japan in Denmark's own scholarship pages could not be read in this pass. They are the body that sets the Danish application dates for every MEXT scholarship, and none of those dates is established here.",
     "excerpt": "Access Denied — You don't have permission to access \"http://www.dk.emb-japan.go.jp/itpr_en/studyresearch.html\" on this server.",
-    "interpretation": "Recorded because the gap is consequential and because a blank field would look like an absence of a requirement rather than a failure to check. MEXT says explicitly that the application process and the specific schedule differ by country and are the embassy's to set, so the embassy is the rule-owner for the only dates a Danish student actually needs, and we could not reach it. The page exists — the block is an edge-network refusal, not a missing document — so this is a call or an email rather than another fetch. The embassy is at Havneholmen 25, Copenhagen. Nothing on this page has been read and nothing is claimed from it.",
+    "interpretation": "Recorded because the gap is consequential and because a blank field would look like an absence of a requirement rather than a failure to check. MEXT says explicitly that the application process and the specific schedule differ by country and are the embassy's to set, so the embassy is the rule-owner for the only dates a Danish citizen actually needs (other nationalities need the Japanese embassy in their own country), and we could not reach it. The page exists — the block is an edge-network refusal, not a missing document — so this is a call or an email rather than another fetch. The embassy is at Havneholmen 25, Copenhagen. Nothing on this page has been read and nothing is claimed from it.",
     "supports": [
       {
         "entity": "jp-mext-embassy-2028",
@@ -545,7 +545,7 @@
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23",
       "notes": [
-        "verificationState is 'unavailable' on purpose. This record makes a gap visible; it supports no published figure."
+        "Superseded 2026-09-24: the embassy's Study in Japan page opens in an ordinary browser and is recorded as ev-jp-embassy-denmark-mext-types."
       ]
     },
     "sourceCheck": {
@@ -561,7 +561,7 @@
     "publisher": "Embassy of Japan in Denmark",
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "verificationState": "needs-review",
     "claim": "The Embassy of Japan in Denmark offers Danish nationals two MEXT scholarship types, Japanese Studies and Research Student, and both are for students already at university. The undergraduate scholarship is not among them.",
     "excerpt": "There are two types of Japanese Government (MEXT) Scholarship Program for Danish nationals: (1) Japanese Studies (for students who currently major in Japanese studies at their universities) (2) Research Student (for students who wish to further pursue their study at graduate schools in Japan)",
@@ -574,11 +574,194 @@
       {
         "entity": "jp",
         "field": "deadlines"
+      },
+      {
+        "entity": "jp-mext-embassy-2028",
+        "field": "rounds"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-browser",
+      "note": "Re-read in a browser on 2026-09-24 (plain fetch refused with HTTP 403). The page is dated 2020/12/3 and still lists only these two types."
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-jp-utokyo-cod-ib-2027",
+    "sourceUrl": "https://design.adm.u-tokyo.ac.jp/admissions/admissions-overview-2027/",
+    "publisher": "University of Tokyo — UTokyo College of Design",
+    "excerpt": "A total of 38 points out of 42 for the six subjects and at least 2 points for combined TOK and EE. […] Expectations are not cut off scores/grades. […] The deadline to submit final scores/grades is August 16, 2027.",
+    "claim": "The UTokyo College of Design's Route B expects an IB level of 38/42 in the six subjects plus 2 core points, not as a cut-off; applicants whose exams fall after the deadline submit certified predicted scores, receive a conditional offer, and must submit final results by 16 August 2027. Designated English tests: TOEFL iBT over 80, IELTS over 6.0, Duolingo over 110, Cambridge over 169.",
+    "supports": [
+      {
+        "entity": "jp",
+        "field": "ibRecognition"
+      },
+      {
+        "entity": "jp-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "jp",
+        "field": "language"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-jp-kyoto-iup-apply-2027",
+    "sourceUrl": "https://www.iup.kyoto-u.ac.jp/apply/",
+    "publisher": "Kyoto University International Undergraduate Program",
+    "excerpt": "from November 2 until December 3, 2026 (5 p.m. Japan Standard Time)",
+    "claim": "Applications to Kyoto's iUP for October 2027 enrolment run from 2 November to 3 December 2026, closing at 17:00 JST.",
+    "supports": [
+      {
+        "entity": "jp-direct-2027",
+        "field": "rounds"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-jp-kyushu-iup-2027",
+    "sourceUrl": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/",
+    "publisher": "Kyushu University",
+    "excerpt": "December 7, 2026 - December 11, 2026",
+    "claim": "Kyushu University's English-taught undergraduate programmes (engineering, and Bioresource and Bioenvironment) take online applications for October 2027 entry from 7 to 11 December 2026.",
+    "supports": [
+      {
+        "entity": "jp-direct-2027",
+        "field": "rounds"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-jp-tohoku-gateway-2027",
+    "sourceUrl": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/",
+    "publisher": "Tohoku University",
+    "excerpt": "December 15-January 14 […] International Baccalaureate*, International A-Level*, GCE A-Level* […] *Predicted scores are accepted",
+    "claim": "Tohoku's Gateway College, a new English-taught undergraduate programme, admits about 90 students for October 2027 entry with applications from 15 December 2026 to 14 January 2027 and results on 24 March 2027; it accepts the IB with predicted scores and wants IELTS 6.0, TOEFL iBT 80, Duolingo 110 or Cambridge 169. Tohoku's separate English page states that FGL undergraduate admissions ended in 2026.",
+    "supports": [
+      {
+        "entity": "jp-direct-2027",
+        "field": "rounds"
+      },
+      {
+        "entity": "jp",
+        "field": "institutions"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "id": "ev-jp-sophia-english-programmes",
+    "sourceUrl": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/",
+    "publisher": "Sophia University",
+    "role": "reference",
+    "excerpt": "Following the final intake for first-year and third-year transfer applicants for Academic Year 2026 (Autumn Entry), the Green Science and Green Engineering Programs are no longer accepting new applications.",
+    "claim": "Sophia's English-taught undergraduate degrees are the Faculty of Liberal Arts, the Sophia Program for Sustainable Futures and a Bachelor of Engineering in Digital Green Technology; Green Science and Green Engineering have closed to new applicants.",
+    "supports": [
+      {
+        "entity": "jp",
+        "field": "institutions"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "id": "ev-jp-isa-work-hours",
+    "sourceUrl": "https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri07_00045.html",
+    "publisher": "Immigration Services Agency of Japan",
+    "excerpt": "1週について２８時間以内",
+    "claim": "A student with College Student (留学) status can hold blanket permission to work part-time up to 28 hours a week.",
+    "supports": [
+      {
+        "entity": "jp",
+        "field": "workRights"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
     }
   }
 ]

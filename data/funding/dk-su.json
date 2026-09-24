@@ -1,0 +1,102 @@
+{
+  "id": "fund-dk-su",
+  "destination": "dk",
+  "name": "SU",
+  "longName": "Statens Uddannelsesstøtte",
+  "summary": "Denmark's state education grant: a monthly payment to students in Denmark and, under conditions, for a full degree abroad. Danish citizens can claim it; other EU/EEA citizens can if they gain equal status.",
+  "rate": {
+    "amount": 7426,
+    "currency": "DKK",
+    "per": "month",
+    "basis": "before tax, for a student in higher education living away from their parents",
+    "year": 2026,
+    "loan": 3799,
+    "evidence": [
+      "ev-su-satser-2026"
+    ]
+  },
+  "label": "if you can claim it (Danish citizens, or EU/EEA citizens with equal status — for example through a parent who works in Denmark, or five years living in Denmark)",
+  "otherwise": "If you cannot claim SU, look first at your own country's student finance: several EU/EEA systems fund a full degree in another country.",
+  "whoCanClaim": {
+    "citizens": "Danish citizens.",
+    "equalStatus": [
+      {
+        "id": "parent",
+        "title": "A parent who works in Denmark",
+        "text": "If you are the child of an EU/EEA citizen who works or is self-employed in Denmark, and you moved to Denmark before 21, you can apply for equal status. The right comes from your parent's work: it lasts while they keep that status, and stays with you while you remain in Denmark even if they leave.",
+        "coversAbroad": true
+      },
+      {
+        "id": "residence",
+        "title": "Five years living in Denmark",
+        "text": "An EU, EEA or Swiss citizen who has lived in Denmark continuously for at least five years, with the right of permanent residence, can apply for equal status. Absences of up to six months a year do not break it.",
+        "coversAbroad": true
+      },
+      {
+        "id": "work",
+        "title": "Your own job",
+        "text": "Working at least 10–12 hours a week for a continuous period of at least 10 weeks gives worker status, and you have to keep working throughout the period you receive SU.",
+        "coversAbroad": true
+      }
+    ],
+    "note": "Equal status under EU rules covers SU in Denmark and abroad. Equal status under Denmark's own rules — for example having come to Denmark with your parents — covers SU in Denmark only."
+  },
+  "abroad": {
+    "summary": "SU can be taken to a full degree abroad by Danish citizens and by EU/EEA citizens with equal status under EU rules, if the programme is SU-approved and you also meet the ties-to-Denmark requirement. Citizenship alone is not enough.",
+    "ties": "You meet the ties-to-Denmark requirement through one of seven ties — for example two years of continuous residence in Denmark in the last ten, having gone to school in Denmark for a substantial period, or a parent who has worked in Denmark for five years.",
+    "duration": "In another Nordic country SU is paid as if you studied in Denmark; elsewhere it is capped at four years (48 klip). Either way it uses SU klip, within an overall frame of 70 klip for higher education abroad. su.dk does not yet say how the 2027 reform changes that frame, so check there before counting on it.",
+    "unverified": "The rules for a full degree outside the EU/EEA use a separate ties form; su.dk's page for it could not be read on 2026-09-24.",
+    "label": "if you can claim it (Danish citizens, or EU/EEA citizens with equal status under EU rules) and meet the ties-to-Denmark requirement"
+  },
+  "sources": [
+    {
+      "title": "su.dk — Foreign citizen: equal status with Danish citizens",
+      "url": "https://www.su.dk/foreign-citizen/gb-foreign-citizen",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — EU rules",
+      "url": "https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — You are the child of an EU/EEA citizen who is a worker in Denmark",
+      "url": "https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules/you-are-the-child-of-an-eu/eea-citizen-who-is-a-worker-in-denmark-under-eu-law",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — You have resided in Denmark for at least 5 years",
+      "url": "https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules/you-have-resided-in-denmark-for-at-least-5-years",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — You work in Denmark",
+      "url": "https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules/you-work-in-denmark",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — Danish rules",
+      "url": "https://www.su.dk/foreign-citizen/gb-foreign-citizen/danish-rules",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — Krav om tilknytning til Danmark (uddannelse i EU/EØS-land)",
+      "url": "https://www.su.dk/su-i-udlandet/su-til-en-hel-uddannelse-i-udlandet-/betingelser-for-at-faa-su-og-tillaeg-til-en-hel-uddannelse-i-udlandet/krav-om-tilknytning-til-danmark/krav-om-tilknytning-til-danmark-ved-ansoegning-om-su-til-uddannelse-i-eueoes-land-uden-for-danmark",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "su.dk — SU til en hel uddannelse i udlandet: Hvad kan du få",
+      "url": "https://www.su.dk/su-i-udlandet/su-til-en-hel-uddannelse-i-udlandet-/hvad-kan-du-faa",
+      "retrieved": "2026-09-24"
+    }
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "notes": [
+      "Written once so that every page naming SU carries the same condition. The Destination funding lines in data/countries and data/destinations still restate it; phase 2b of docs/research/audience/PLAN.md replaces them with a reference to fund-dk-su.",
+      "The equal-status routes cite su.dk directly because data/evidence was being edited when this record was written; phase 2b adds Evidence records for them.",
+      "Critic round 1: `abroad.label` added, because a line about studying in another country needs the ties-to-Denmark requirement and \"under EU rules\", and a line about Denmark does not. The Nordic klip question was settled on su.dk (verification.md §8)."
+    ]
+  }
+}

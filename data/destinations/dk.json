@@ -15,9 +15,9 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "One deadline, one portal, no tuition — and a conversion table that decides everything",
-  "summary": "Denmark is the default option for most IB students at a Danish gymnasium, and the one where the rules are knowable in advance. An IB Diploma of 24 points or more opens every programme in the country, provided you also hold the specific subjects each one names. The two things that actually decide your application are the official conversion tables and the language a programme is taught in — most Danish bachelor's degrees are taught in Danish, and the English-taught set is smaller than people expect.",
+  "summary": "Staying in Denmark is a real option for an IB student already living here, and the one where the rules are knowable in advance. An IB Diploma of 24 points or more opens every programme in the country, provided you also hold the specific subjects each one names. The two things that actually decide your application are the official conversion tables and the language a programme is taught in — most Danish bachelor's degrees are taught in Danish, and the English-taught set is smaller than people expect.",
   "whyConsider": [
-    "No tuition at all for EU, EEA and Swiss citizens, and SU on top if you are a Danish citizen.",
+    "No tuition at all for EU, EEA and Swiss citizens, and SU on top if you hold Danish citizenship or, as another EU/EEA citizen, gain equal status (in practice through part-time work).",
     "One application, one portal, one deadline, up to eight ranked choices.",
     "The conversion from IB points to the Danish grade average is published, so you can work out where you stand before you apply.",
     "You can apply before you have results — your IB coordinator sends them directly through the IB's results service.",
@@ -25,9 +25,9 @@
   ],
   "watchOuts": [
     "The deadline is 12:00 noon on 15 March, not midnight, and it applies to every IB holder including those who took the IB in Denmark.",
-    "Most bachelor's degrees are taught in Danish and require Danish at A level. The English-taught set is concentrated in a handful of institutions.",
+    "Most bachelor's degrees are taught in Danish and require Danish at A level or a pass in Studieprøven. The English-taught set is concentrated in a handful of institutions.",
     "Universities must cut academic bachelor intake by roughly ten per cent across 2025–2029, so older cut-off figures understate how competitive some programmes now are.",
-    "The SU reform taking effect on 1 January 2027 cuts the grant frame for higher education from 70 to 58 portions and limits SU to the prescribed length of your programme.",
+    "If you can claim SU (Danish citizens, and EU/EEA citizens with equal status): the SU reform taking effect on 1 January 2027 cuts the grant frame for higher education from 70 to 58 portions and limits SU to the prescribed length of your programme.",
     "Applicants without MitID must print the signature page, sign it by hand and send it to every institution by 15 March, 12:00. It is never uploaded, and the application is incomplete without it."
   ],
   "ibRecognition": {
@@ -167,7 +167,7 @@
     "englishProof": "Any IB English satisfies the English requirement. English A1, A2 or B at HL, and English A1 or A2, A Literature or A Language and Literature at SL, all count as Danish English A; English B SL counts as English B. No IELTS or TOEFL is needed.",
     "localLanguageRequired": false,
     "notes": [
-      "For Danish-taught programmes you need Danish at A level. Danish A1 or Danish A Literature at either level satisfies it; Danish A1 SL sits above the Studieprøven test and is normally accepted.",
+      "For Danish-taught programmes you need Danish at A level or a pass in Studieprøven, the Danish test for applicants without it. Danish A1 or Danish A Literature at either level satisfies it; Danish A1 SL sits above the Studieprøven test and is normally accepted.",
       "If you took Danish B HL or Danish ab initio, whether it substitutes for Danish A is decided by each institution. Ask in writing."
     ]
   },
@@ -204,10 +204,12 @@
     "housing": "Danish universities have no tradition of campus accommodation. Most students live in kollegier, often some distance from campus, or rent privately. Start months before you arrive and contact your institution the moment you are accepted — August and September are the worst possible time to arrive without a room.",
     "healthcare": "Once you have a CPR number you receive a health card automatically and healthcare is free. Choose insurance group 1, as 98% of residents do: an assigned GP, free consultations, referrals to specialists. Dental care and physiotherapy are not covered.",
     "workRights": "EU, EEA, Nordic and Swiss citizens can work without restriction. Others get a limited permit: 90 hours a month from September to May and full-time in June, July and August.",
-    "residency": "EU and EEA citizens apply to SIRI for an EU registration certificate within three months of arriving, bringing a passport and letter of admission. Then a CPR number from your municipality, then a health card, then a bank account and NemKonto — each step depends on the one before it.",
+    "residency": "EU and EEA citizens apply to SIRI for an EU registration certificate within three months of arriving, bringing a passport and letter of admission. Then a CPR number from your municipality, then a health card, then a bank account and NemKonto — each step depends on the one before it. If you already live in Denmark and hold a CPR number, you have done this already.",
     "funding": [
-      "SU, the state education grant: DKK 7,426 per month before tax in 2026 for a student living away from home, with a loan of up to DKK 3,799 on top.",
-      "Non-Danish EU citizens must first obtain equal-treatment status, in practice by working 10–12 hours a week for at least ten continuous weeks and continuing while receiving SU.",
+      {
+        "fund": "fund-dk-su",
+        "note": "It is DKK 7,426 a month before tax in 2026 if you live away from your parents, with a loan of up to DKK 3,799 on top."
+      },
       "Students on a non-EU study residence permit may not claim SU or housing benefit, and doing so can cost them the permit."
     ],
     "evidence": [

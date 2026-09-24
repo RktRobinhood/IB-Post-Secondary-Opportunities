@@ -8,14 +8,13 @@
   "channel": "direct",
   "portalUrl": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
   "milestones": [
-    { "id": "ms-cn-jv-bnbu-p1", "type": "submit", "label": "BNBU application period I", "date": "2026-09-01", "endDate": "2026-12-31", "consequence": "priority", "provisional": true, "note": "BNBU prints its periods without a year.", "evidence": ["ev-cn-bnbu-periods"] },
-    { "id": "ms-cn-jv-bnbu-p2", "type": "submit", "label": "BNBU application period II", "date": "2027-02-10", "endDate": "2027-05-15", "consequence": "hard", "provisional": true, "evidence": ["ev-cn-bnbu-periods"] },
+    { "id": "ms-cn-jv-bnbu", "type": "submit", "label": "BNBU applications close", "dateState": "not-yet-announced", "consequence": "hard", "note": "For 2026 entry BNBU gave one deadline, 15 May. For 2025 entry it ran two periods, 1 September to 31 December and 10 February to 15 May. It has not published its dates for 2027 entry.", "evidence": ["ev-cn-bnbu-deadline-2026", "ev-cn-bnbu-periods"] },
     { "id": "ms-cn-jv-xjtlu", "type": "submit", "label": "XJTLU applications close (most programmes)", "date": "2027-05-31", "consequence": "hard", "evidence": ["ev-cn-xjtlu-deadline"] },
-    { "id": "ms-cn-jv-others", "type": "submit", "label": "UNNC, CUHK-Shenzhen and Wenzhou-Kean", "dateState": "varies-by-institution", "consequence": "hard", "note": "Each sets its own dates. Not read in this pass." }
+    { "id": "ms-cn-jv-others", "type": "submit", "label": "UNNC, CUHK-Shenzhen and Wenzhou-Kean", "dateState": "varies-by-institution", "consequence": "indicative", "note": "Each sets its own dates. CUHK-Shenzhen's international application system is open from September to April, with no closing day printed; check UNNC's and Wenzhou-Kean's on their own pages.", "evidence": ["ev-cn-cuhksz-intl"] }
   ],
   "supplementarySteps": [
     "These universities teach in English and award a foreign partner's degree, or a joint one. Apply on each university's own site."
   ],
-  "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-bnbu-periods", "ev-cn-moe-sino-foreign"],
-  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-12-01" }
+  "evidence": ["ev-cn-xjtlu-deadline", "ev-cn-bnbu-deadline-2026", "ev-cn-bnbu-periods", "ev-cn-moe-sino-foreign", "ev-cn-cuhksz-intl"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24", "reviewBy": "2026-12-01" }
 }

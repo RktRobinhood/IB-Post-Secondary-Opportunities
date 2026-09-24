@@ -57,7 +57,7 @@
     "verificationState": "needs-review",
     "claim": "Nationals of an EU member state or of an EEA state are not international students under the international-student statute, so they cannot use the special contest for international students.",
     "excerpt": "Os nacionais de um Estado membro da União Europeia ou os nacionais de um Estado Parte no Acordo sobre o Espaço Económico Europeu",
-    "interpretation": "The finding that shapes all of Portugal for a Danish student: the English-language 'international' routes at Porto, Nova SBE and elsewhere are closed to an EU citizen. Public universities are reached through the Concurso Nacional de Acesso, at the Portuguese fee.",
+    "interpretation": "The finding that shapes all of Portugal for an EU/EEA citizen: the English-language 'international' routes at Porto, Nova SBE and elsewhere are closed to EU/EEA citizens. Public universities are reached through the Concurso Nacional de Acesso, at the Portuguese fee.",
     "supports": [
       { "entity": "pt", "field": "watchOuts" }
     ],
@@ -75,7 +75,7 @@
     "publisher": "Direção-Geral do Ensino Superior (DGES)",
     "publisherType": "national-agency",
     "sourceClass": "official-rule-owner",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "The maximum annual propina for a licenciatura or integrated master's at a public institution in 2025-2026 is €697, unchanged from the previous year.",
@@ -138,12 +138,12 @@
     "publisher": "Católica Lisbon School of Business & Economics (Universidade Católica Portuguesa)",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2026-autumn",
     "verificationState": "needs-review",
     "claim": "Católica Lisbon's international bachelors are open to students of any nationality or education system, applied to directly, with predicted grades and a conditional offer. For the 2026 intake the Mathematics Admissions Test was on 3 June, the English certificate was due 3 July and final academic documents 17 July 2026.",
     "excerpt": "All students, from any nationality or educational system, who fulfill the mandatory requirements, according to one of the following conditions",
-    "interpretation": "Católica is a private university outside the national contest, so unlike the public universities it is open to a Danish IB student directly, in English, on predicted grades. The dates are the 2026 intake's; 2027 not yet published.",
+    "interpretation": "Católica is a private university outside the national contest, so unlike the public universities it is open to an IB student from Denmark directly, in English, on predicted grades. The dates are the 2026 intake's; 2027 not yet published.",
     "supports": [
       { "entity": "pt-catolica-direct-2027", "field": "milestones" }
     ],
@@ -153,6 +153,62 @@
       "at": "2026-09-23",
       "method": "read-source",
       "note": "The page lays out a seven-step checklist rather than numbered rounds, and gives no application closing date of its own."
+    }
+  },
+  {
+    "id": "ev-pt-clsbe-fees-2026",
+    "sourceUrl": "https://www.clsbe.lisboa.ucp.pt/international-bachelors-degrees-business-administration/fees-and-scholarships",
+    "publisher": "Católica Lisbon School of Business & Economics",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "Católica Lisbon international undergraduate programmes 2026-2027: €780 a month for Portuguese and EU students, €858 for non-EU students, ten instalments a year; application fee €180 (early bird €100 in rounds 1–3); conditional offer fee €450; enrolment fee €470.",
+    "excerpt": "Monthly tuition fee for Portuguese and European Union students: €780* Monthly tuition fee for international students (outside the European Union): €858*",
+    "interpretation": "About €7,800 a year for an EU student. The page footnotes several figures as possibly updated for 2026-2027; 2027-28 fees were not published.",
+    "supports": [
+      {
+        "entity": "pt",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2027-01-15"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-pt-up-iss-2026",
+    "sourceUrl": "https://www.up.pt/portal/en/study/international-students/special-call-for-applications/",
+    "publisher": "Universidade do Porto",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "For students under the International Student Status, U.Porto's first-cycle tuition varies between €3,500 and €16,500 a year (2026/2027 call); the status covers applicants without Portuguese or other EU nationality.",
+    "excerpt": "For students covered by the International Student Status , it can vary between 3.500 euros and 16.500 euros .",
+    "supports": [
+      {
+        "entity": "pt",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-source"
     }
   }
 ]

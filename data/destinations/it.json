@@ -32,8 +32,9 @@
     "minimumPoints": "Full IB Diploma. No national minimum score; each university and programme sets its own.",
     "gradeConversion": "No national IB-to-Italian conversion. Where places are limited, applicants are usually ranked on an entrance test (TOLC, IMAT or the university's own), not IB points.",
     "notes": [
-      "Each institution evaluates foreign qualifications itself."
-    ]
+      "Each institution evaluates foreign qualifications itself. Many waive the Dichiarazione di Valore for an IB Diploma; some still require it apostilled."
+    ],
+    "evidence": ["ev-it-unisr-ib-documents"]
   },
   "language": {
     "englishTaughtBachelors": "A meaningful minority, concentrated in economics and management, engineering, design, international relations and English-taught Medicine.",
@@ -75,7 +76,7 @@
         "what": "Conservatori, Accademie di Belle Arti and similar, awarding a Diploma accademico di primo livello. Admission by audition or portfolio.",
         "ibAccessible": "unknown",
         "englishTaught": "rare",
-        "note": "Not researched here."
+        "note": "Not covered here."
       },
       {
         "localName": "ITS Academy",
@@ -84,7 +85,7 @@
         "what": "Two-year higher technical courses designed with employers, in fields such as mechatronics, ICT and tourism. The route Italians rarely mention to foreigners.",
         "ibAccessible": "unknown",
         "englishTaught": "rare",
-        "note": "Applied to directly at each ITS. Not researched here."
+        "note": "Applied to directly at each ITS. Not covered here."
       },
       {
         "localName": "SSML (Scuola Superiore per Mediatori Linguistici)",
@@ -93,7 +94,7 @@
         "what": "Accredited schools teaching translation and interpreting at bachelor level.",
         "ibAccessible": "unknown",
         "englishTaught": "unknown",
-        "note": "Not researched here."
+        "note": "Not covered here."
       }
     ],
     "evidence": ["ev-it-mur-circolare-2026-2028"]
@@ -106,10 +107,10 @@
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-12-01",
     "notes": [
-      "One system for an EU applicant: every listed institution is applied to directly, so institutionGrouping is none and one direct route covers all twelve.",
+      "One system for an EU applicant: every listed institution is applied to directly, so institutionGrouping is none and one direct route covers all thirteen. Audited 2026-09-24: see docs/research/audit/it.md.",
       "Not established: the 2027 IMAT date (set by an annual ministerial decree; mur.gov.it refuses automated fetch), Politecnico di Milano's 2027/28 call, and whether AFAM, ITS Academy and SSML routes accept an IB Diploma on the same terms."
     ]
   }

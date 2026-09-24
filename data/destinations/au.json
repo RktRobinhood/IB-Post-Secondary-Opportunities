@@ -15,16 +15,16 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "One national IB conversion, and admission decided by a number you can look up",
-  "summary": "Australia is unusual in how legible it is. The International Baccalaureate is not merely accepted here; it is converted, on a published national schedule agreed by all the state admissions centres, into an ATAR-like Combined Rank, and universities state the rank each degree needs. That makes it one of the few destinations where a Danish student can work out in an afternoon whether they are in range. Everything else about it is harder. The academic year runs from late February, so finishing the IB in May 2027 leads either to a July 2027 mid-year start, which many degrees do not offer, or to February 2028. Applying is institution-by-institution almost everywhere. And the student visa carries a real financial test that has to be satisfied on top of full international tuition.",
+  "summary": "Australia's entry rules are easy to read. The International Baccalaureate is not merely accepted here; it is converted, on a published national schedule agreed by all the state admissions centres, into an ATAR-like Combined Rank, and universities state the rank each degree needs. That means you can work out in an afternoon whether you are in range. Everything else about it is harder. The academic year runs from late February, so finishing the IB in May 2027 leads either to a July 2027 mid-year start, which many degrees do not offer, or to February 2028. Applying is institution-by-institution almost everywhere. And the student visa carries a real financial test that has to be satisfied on top of full international tuition.",
   "whyConsider": [
     "The entry rule is arithmetic. UAC publishes the IB-to-Combined-Rank schedule, the conversion is national, and a degree's required rank is on its own page.",
     "Three-year bachelor's degrees, so you finish in the same time as in Denmark, with a fourth honours year only if you choose it.",
-    "In New South Wales and the ACT an IB Diploma puts you inside a shared admissions system - one application, one fee, several universities. It is the only one in Australia open to a candidate sitting the exams in Europe.",
+    "In New South Wales and the ACT an IB Diploma puts you inside a shared admissions system - one application, one fee, several universities. It is the only one confirmed open to a candidate sitting the exams in Europe; Queensland's is unresolved.",
     "A conditional offer through UAC arrives about 48 hours after you apply, on predicted grades, and is explicitly usable for pre-visa assessment.",
     "A degree gives access to the Temporary Graduate visa (subclass 485), which usually allows a stay of two to three years afterwards."
   ],
   "watchOuts": [
-    "Two conversion tables sit on one UAC page and the wrong one looks more authoritative. The quarter-point IB Admissions Score schedule is only for candidates who sat the IB in Australia; a Danish candidate is converted from the whole diploma score.",
+    "Two conversion tables sit on one UAC page and the wrong one looks more authoritative. The quarter-point IB Admissions Score schedule is only for candidates who sat the IB in Australia; a candidate who sat the IB in Denmark is converted from the whole diploma score.",
     "The conversion schedule is re-determined every February and the values move. A table copied last year is the wrong table.",
     "There is no national application portal, and the state admissions centres are not interchangeable. UAC will take an offshore IB candidate. VTAC, SATAC and TISC will not. Queensland is unresolved here.",
     "Hemisphere timing. A May 2027 session leads to July 2027 only if that degree admits mid-year - engineering, health and most professional degrees do not - and otherwise to February 2028.",
@@ -75,7 +75,7 @@
   },
   "language": {
     "englishTaughtBachelors": "The whole system. Every bachelor's degree in Australia is taught in English.",
-    "englishProof": "Two separate requirements that are easy to conflate. The university sets its own, and commonly accepts an IB Diploma with English A as evidence; the Department of Home Affairs sets its own for the subclass 500 visa, and can ask for test evidence at any point while the application is being processed, even where the document checklist did not ask for it up front. Exact thresholds were not verified per institution here.",
+    "englishProof": "Two separate requirements that are easy to conflate. The university sets its own, and commonly accepts an IB Diploma with English A as evidence; the Department of Home Affairs sets its own for the subclass 500 visa, and can ask for test evidence at any point while the application is being processed, even where the document checklist did not ask for it up front. Check exact thresholds with each university.",
     "localLanguageRequired": false,
     "notes": [
       "Meeting the university's English requirement does not satisfy the visa's. Check the subclass 500 English criteria separately."
@@ -85,7 +85,7 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "international-rate",
-      "summary": "There is no EU or EEA fee category in Australia and no reciprocal arrangement with Denmark. Commonwealth Supported Places, the subsidised domestic rate, are for Australian and New Zealand citizens and permanent residents. A Danish student pays the full international fee.",
+      "summary": "There is no EU or EEA fee category in Australia and no reciprocal arrangement with Denmark. Commonwealth Supported Places, the subsidised domestic rate, are for Australian and New Zealand citizens and permanent residents. An EU/EEA student pays the full international fee.",
       "priceYear": "2026",
       "evidence": [
         "ev-unsw-international-fees-2026"
@@ -109,10 +109,10 @@
     "workRights": "Up to 48 hours a fortnight while the course of study or training is in session, and without limit during scheduled course breaks. After graduating, the Temporary Graduate visa (subclass 485) is open to international students with a recent Australian qualification and usually allows two to three years, with an age limit of 35.",
     "residency": "A Student visa, subclass 500, from AUD 2,500. It cannot be applied for until the university issues a Confirmation of Enrolment, and the CoE must still be valid when Home Affairs decides the visa - so the timing is set by the offer and by the processing queue rather than by any published date. The course must be registered on CRICOS. Applications lodged outside Australia are ordered under a Ministerial Direction, currently Direction 115 for applications lodged on or after 14 November 2025, so processing is not first-come-first-served. The visa allows a stay of up to six years in line with enrolment.",
     "funding": [
-      "University entrance scholarships, usually a percentage discount on tuition awarded on the admission rank or by separate application. Amounts vary and were not verified per institution.",
+      "University entrance scholarships, usually a percentage discount on tuition awarded on the admission rank or by separate application. Amounts vary by institution.",
       "Destination Australia and similar government-funded schemes support study at regional campuses.",
       "Part-time work at Australian minimum wages, which are high by European standards - but the visa's financial test explicitly cannot be satisfied by expected earnings in Australia.",
-      "Danish SU may in some circumstances support a full degree abroad. Check su.dk and ask your studievejleder well before you apply.",
+      { "fund": "fund-dk-su", "note": "A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting." },
       "There is no Australian government loan scheme for international undergraduates."
     ],
     "evidence": [
@@ -120,7 +120,7 @@
     ]
   },
   "sectorLandscape": {
-    "summary": "Australia regulates higher education by provider category rather than by name, and the categories are not a ranking. TEQSA registers every provider as an Australian University, a University College, an Institute of Higher Education or an Overseas University; all four award accredited degrees and the real difference is research intensity. Running alongside, and almost never mentioned to international undergraduates, is the vocational sector: TAFE institutes and private registered training organisations, whose Diplomas and Advanced Diplomas carry credit into a bachelor degree at partner universities. A separate and decisive test cuts across all of it - a course must be registered on CRICOS before it can carry a student visa at all.",
+    "summary": "Australia regulates higher education by provider category rather than by name, and the categories are not a ranking. TEQSA registers every provider as an Australian University, a University College, an Institute of Higher Education or an Overseas University; all four award accredited degrees and the real difference is research intensity. Running alongside, and rarely mentioned to international undergraduates, is the vocational sector: TAFE institutes and private registered training organisations, whose Diplomas and Advanced Diplomas carry credit into a bachelor degree at partner universities. A separate and decisive test cuts across all of it - a course must be registered on CRICOS before it can carry a student visa at all.",
     "routes": [
       {
         "localName": "Australian University",
@@ -137,7 +137,7 @@
         "what": "A provider category created in 2021 for institutions that meet the university standards in teaching and in research in some fields, but not across the full breadth a university needs. Degrees are accredited on the same framework. Small, and generally specialised.",
         "ibAccessible": "unknown",
         "englishTaught": "common",
-        "note": "Recorded because the category exists and a student will meet the phrase. No University College was researched individually here, and whether any of them takes an offshore IB candidate is not established."
+        "note": "Listed because the category exists and a student will meet the phrase. No University College is covered individually here, and whether any of them takes an offshore IB candidate is not known."
       },
       {
         "localName": "Institute of Higher Education",
@@ -155,7 +155,7 @@
         "what": "The public vocational system, one per state, delivering nationally accredited training from Certificate I to Advanced Diploma and in places bachelor degrees too. Practical, cheaper than a university, and built around doing the work. A Diploma or Advanced Diploma can carry credit into a related bachelor degree at a partner university, sometimes a full year of it, and several TAFEs package the diploma and the degree into one offer and one student visa.",
         "ibAccessible": "yes",
         "englishTaught": "common",
-        "note": "The Australian answer to the question of what nobody tells foreigners about. TAFE barely appears in English-language advice for international undergraduates except as a consolation prize, which misreads it: for a student who wants to be employable in a trade or a technical field rather than to continue to a master's, it is often the better route. How much credit a given diploma earns is set by the receiving university and is not national."
+        "note": "TAFE rarely appears in English-language advice for international undergraduates except as a consolation prize, which misreads it: for a student who wants to be employable in a trade or a technical field rather than to continue to a master's, it can be the better route. How much credit a given diploma earns is set by the receiving university and is not national."
       },
       {
         "localName": "dual-sector university",
@@ -173,7 +173,7 @@
         "what": "One-year programmes run by or alongside a university - Trinity College at Melbourne, UNSW College, Monash College and others - designed for international students whose school qualification does not meet direct entry, and leading into first year. ELICOS, intensive English for overseas students, sits beside them.",
         "ibAccessible": "yes",
         "englishTaught": "common",
-        "note": "Rarely needed by an IB Diploma holder, because the Diploma converts directly to a rank. Recorded because it is what an agent will offer a student whose predicted score is short, and because it costs a year."
+        "note": "Rarely needed by an IB Diploma holder, because the Diploma converts directly to a rank. Listed because it is what an agent will offer a student whose predicted score is short, and because it costs a year."
       }
     ],
     "evidence": [
@@ -188,7 +188,7 @@
       "id": "au-nsw-act",
       "name": "New South Wales and the ACT",
       "kind": "authority",
-      "summary": "The one part of Australia where a Danish IB candidate is inside a shared admissions system. UAC takes international applicants holding an International Baccalaureate Diploma, with no condition about where it was sat, and one application and one charge cover every participating institution preferenced. Applying directly to the university is also available here; UAC is an alternative rather than an obligation.",
+      "summary": "The one part of Australia where an IB candidate at a school in Denmark is confirmed to be inside a shared admissions system. UAC takes international applicants holding an International Baccalaureate Diploma, with no condition about where it was sat, and one application and one charge cover every participating institution preferenced. Applying directly to the university is also available here; UAC is an alternative rather than an obligation.",
       "applicationRoute": "au-uac-2027",
       "variations": [
         {
@@ -231,7 +231,7 @@
       "id": "au-qld",
       "name": "Queensland",
       "kind": "state",
-      "summary": "The University of Queensland and QUT. Direct application to each university's international admissions is the route recorded here; whether Queensland's admissions centre would also take an offshore IB candidate is genuinely unresolved rather than settled.",
+      "summary": "The University of Queensland, QUT and Griffith. Apply directly to each university's international admissions; whether Queensland's admissions centre would also take an offshore IB candidate is unresolved.",
       "applicationRoute": "au-direct-2027",
       "variations": [
         {
@@ -245,7 +245,7 @@
       "id": "au-sa-nt",
       "name": "South Australia and the Northern Territory",
       "kind": "authority",
-      "summary": "The University of Adelaide, and the Northern Territory's institutions, sit behind an admissions centre that accepts the IB only where it was studied in Australia. Apply directly.",
+      "summary": "Adelaide University, which replaced the University of Adelaide and UniSA in January 2026, and the Northern Territory's institutions, sit behind an admissions centre that accepts the IB only where it was studied in Australia. Apply directly.",
       "applicationRoute": "au-direct-2027",
       "variations": [
         {
@@ -256,13 +256,16 @@
             "ev-satac-international-eligibility"
           ]
         }
+      ],
+      "evidence": [
+        "ev-adelaide-university-2026"
       ]
     },
     {
       "id": "au-wa",
       "name": "Western Australia",
       "kind": "state",
-      "summary": "UWA and the other four Western Australian universities. The admissions centre here draws its line on citizenship rather than on where the exams were sat, which excludes a Danish applicant however the IB was taken.",
+      "summary": "UWA, Curtin and the other Western Australian universities. The admissions centre here draws its line on citizenship rather than on where the exams were sat, which excludes an EU/EEA applicant however the IB was taken.",
       "applicationRoute": "au-direct-2027",
       "variations": [
         {
@@ -274,6 +277,13 @@
           ]
         }
       ]
+    },
+    {
+      "id": "au-tas",
+      "name": "Tasmania",
+      "kind": "state",
+      "summary": "The University of Tasmania, applied to directly. No shared admissions centre open to an offshore IB candidate has been identified here; check with the university before assuming one.",
+      "applicationRoute": "au-direct-2027"
     }
   ],
   "applicationSystems": [
@@ -287,7 +297,7 @@
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-02-28",
     "notes": [
       "The conversion schedule is re-determined by ACTAC every February. February 2027 is the date to re-read this record, and the conversionTable is the field to re-read first.",
@@ -297,7 +307,8 @@
       "Not established: whether tuition can rise between years of the same degree.",
       "Owed: the TEQSA Provider Category Standards read in the regulator's own wording. teqsa.gov.au timed out on retrieval twice and the category names are currently recorded from a summary.",
       "Programme-level records not created. Stages 1 to 5 of the research brief are answered; stage 6 is not.",
-      "The Department of Home Affairs site returns HTTP 403 to automated retrieval and injects the visa charge by script, so the price is absent from a scraped copy. Read in a browser for this pass; any future automated freshness check against that page will need to know this."
+      "The Department of Home Affairs site returns HTTP 403 to automated retrieval and injects the visa charge by script, so the price is absent from a scraped copy. Read in a browser for this pass; any future automated freshness check against that page will need to know this.",
+      "2026-09-24 audit: the University of Adelaide entry now describes Adelaide University, which opened in January 2026 from the University of Adelaide and UniSA. The University of Tasmania, Griffith and Curtin added from IB transcript counts in docs/research/IB_DISCOVERY.md; Tasmania is a new jurisdiction on the direct route. Whether Tasmania has its own admissions centre was not checked on an official page; the University of Tasmania's site was behind a bot check."
     ]
   }
 }

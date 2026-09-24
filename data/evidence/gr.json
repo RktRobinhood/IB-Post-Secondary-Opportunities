@@ -36,7 +36,7 @@
     "verificationState": "needs-review",
     "claim": "Graduates of secondary schools in EU member states, with at least one parent not of Greek descent and the last two school years completed abroad, are a sub-category of the ministry's foreign-nationals route into Greek public universities. Enrolment requires Greek at B2, certified by the University of Athens, the University of Thessaloniki or the Centre for the Greek Language; a successful applicant without it may complete enrolment in the following year's enrolment period once they have it, or loses the place. 2026-2027 enrolment ran 11 to 25 September 2026.",
     "excerpt": "Β1. Οι Αλλοδαποί – Αλλογενείς υποψήφιοι, απόφοιτοι λυκείων ή αντίστοιχων σχολείων κρατών – μελών της Ευρωπαϊκής Ένωσης […] Προϋπόθεση για την εγγραφή των επιτυχόντων, εκτός των ανωτέρω, είναι η γνώση της ελληνικής γλώσσας. Αυτό αποδεικνύεται με Βεβαίωση επιπέδου Β2 […] ορίζεται προθεσμία εγγραφής […] από Παρασκευή 11 Σεπτεμβρίου έως και Παρασκευή 25 Σεπτεμβρίου 2026.",
-    "interpretation": "This answers how a Danish IB graduate gets into a Greek-taught public programme: category B1, not the Panhellenic exams. The catch is Greek at B2, needed to enrol, not to apply. Addressed to universities, ΑΣΠΑΙΤΕ, ΑΣΤΕ and the higher ecclesiastical academies, which also shows which public institutions the route covers.",
+    "interpretation": "This answers how an IB graduate from a school in an EU member state gets into a Greek-taught public programme: category B1, not the Panhellenic exams. The catch is Greek at B2, needed to enrol, not to apply. Addressed to universities, ΑΣΠΑΙΤΕ, ΑΣΤΕ and the higher ecclesiastical academies, which also shows which public institutions the route covers.",
     "supports": [
       { "entity": "gr-minedu-foreign-2027", "field": "readerAccess" },
       { "entity": "gr-minedu-foreign-2027", "field": "submissionItems" },
@@ -115,5 +115,167 @@
       "method": "read-source"
     },
     "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-gr-sig-english-bachelors",
+    "sourceUrl": "https://apply.studyingreece.edu.gr/en/programmes?prog_type=Bachelor&page=1&language=English",
+    "publisher": "Study in Greece — @SiG application platform",
+    "publisherType": "other",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "claim": "The @SiG platform listed 20 English-taught bachelor's programmes at ten Greek public universities on 24 September 2026, with annual fees from €4,500 to €17,000.",
+    "excerpt": "Clean Energy Science and Engineering | Aristotle University of Thessaloniki | Thessaloniki | Bachelor's | In Person | English | … | 8,000€ per year",
+    "interpretation": "Read in a browser with the Program Type = Bachelor's and Language = English filters (two pages). Programmes: AUTh — Sustainable Agriculture and Food Science €7,000, Clean Energy €8,000, Environmental Sciences €6,000, Materials Science €8,000, LL.B. €7,000, Sport and Exercise Sciences €6,000, Medicine €12,000; NKUA — BA Ancient Greece €6,000, MD €17,000, MPharm €9,000; AUEB — International Business and Technology €6,000; Aegean — Eastern Mediterranean Studies (Rhodes) €4,500; Patras, Thessaly — Medicine €12,000; Crete — Medicine €15,000; West Attica — AI and Data Science €6,000, Applied Philosophy in Business €6,000; Macedonia — Accounting and Finance €5,900; Western Macedonia — Economics and Sustainable Development €6,000, Creative Writing (remote) €5,000. A promotion platform: fees are corroborated by the universities' own pages only for NKUA and AUEB.",
+    "supports": [
+      {
+        "entity": "gr",
+        "field": "language"
+      },
+      {
+        "entity": "gr",
+        "field": "feeContext"
+      },
+      {
+        "entity": "gr-public-english-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2027-02-01"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-browser"
+    }
+  },
+  {
+    "id": "ev-gr-auth-cese-admissions-2027",
+    "sourceUrl": "https://cese.auth.gr/admissions",
+    "publisher": "Aristotle University of Thessaloniki — Bachelor in Clean Energy",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "AUTh's English-taught BSc in Clean Energy has 40 places for September 2027 entry; applications are rolling, evaluated in order of receipt, with registration completed by 30 September 2027; selection is by file and online interview, and a place is confirmed with a €1,000 tuition advance.",
+    "excerpt": "Applications are submitted year-round and evaluated in order of receipt — registration of successful candidates is completed by 30 September 2027 .",
+    "supports": [
+      {
+        "entity": "gr-public-english-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24",
+      "reviewBy": "2027-03-01"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-gr-uoa-md-fees-2026",
+    "sourceUrl": "https://medicen.uoa.gr/tuition-fees/",
+    "publisher": "National and Kapodistrian University of Athens — MD in English",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "Tuition for the Athens MD in English in 2026-2027 is €17,000 a year for EU and non-EU citizens.",
+    "excerpt": "Tuition fees for the academic year 2026-2027 for EU and non-EU citizens are €17.000 (In accordance with the Government Gazzete of the Hellenic Republic).",
+    "supports": [
+      {
+        "entity": "gr",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Southern Europe audit (es, it, pt, gr, mt)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-gr-uoa-md-dates-2026",
+    "sourceUrl": "https://medicen.uoa.gr/important-dates/",
+    "publisher": "National and Kapodistrian University of Athens — MD in English",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "For 2026-2027 the Athens MD in English took applications on its platform from 18 December 2025 to 30 April 2026. No 2027-2028 dates were published on 24 September 2026.",
+    "excerpt": "The application platform for the academic year 2026–2027 will remain open from December 18th, 2025 until April 30th, 2026.",
+    "interpretation": "Last cycle's window, recorded as the precedent for 2027 entry. It is not a 2027 date and is not used as one.",
+    "supports": [
+      {
+        "entity": "gr",
+        "field": "deadlines"
+      },
+      {
+        "entity": "gr",
+        "field": "watchOuts"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the world-audit round-3 fixes",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Page dated 18 December 2025 (WordPress dateModified); read with curl."
+    }
+  },
+  {
+    "id": "ev-gr-uoa-md-application-2026",
+    "sourceUrl": "https://medicen.uoa.gr/application-process/",
+    "sourcePage": "https://medicen.uoa.gr/admission-requirements/",
+    "publisher": "National and Kapodistrian University of Athens — MD in English",
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "verificationState": "needs-review",
+    "claim": "Final-year school students may apply to the Athens MD in English on predicted grades. They must supply at least one qualifying item, which may be predicted IB grades or a UCAT score, so UCAT or MCAT is an alternative to the IB, not an addition. Shortlisted applicants have an online interview.",
+    "excerpt": "Applicants who are in the final high school grade […] At least one of the following: Predicted grades of International Baccalaureate (IB) […] UCAT (score report) […] If selected, you will be invited to participate in an online interview.",
+    "interpretation": "The requirements page lists the IB (36 points, three HL, two from Physics, Chemistry and Biology) and 'Admission Tests' (UCAT, MCAT) as separate items under 'at least one of the following'. Its clause A still asks for a diploma from 'July 2025 or earlier', which this page's final-year section contradicts; the site tells the student to confirm by email.",
+    "supports": [
+      {
+        "entity": "gr",
+        "field": "deadlines"
+      },
+      {
+        "entity": "gr",
+        "field": "watchOuts"
+      },
+      {
+        "entity": "gr",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the world-audit round-3 fixes",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Application page dated 8 January 2026, requirements page dated 28 May 2026 (WordPress dateModified); both read with curl."
+    }
   }
 ]

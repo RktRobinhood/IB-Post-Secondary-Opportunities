@@ -305,19 +305,39 @@ check('no closed entry anywhere on the site renders as actionable, or sorts amon
   if (offenders.length) throw new Error(offenders.join('\n          '));
 });
 
-check('the two established closed routes are closed in a field, not in a sentence', () => {
-  /* Pinned because they are why the field exists: Korea's GKS Embassy Track
-     (Denmark is not among the invited countries) and Japan's embassy MEXT
-     undergraduate route (not offered to Danish nationals). If either is ever
-     reopened, it is reopened in its record and this line with it. */
-  for (const id of ['kr-gks-embassy-2027', 'jp-mext-embassy-2028']) {
-    const route = site.graph.applicationRoutes.get(id);
-    assert.ok(route, `${id} is gone`);
-    assert.equal(route.readerAccess?.state, 'closed', `${id} is not declared closed`);
-    const events = allEvents(site).filter((e) => e.routeId === id);
-    assert.ok(events.length >= 1, `${id} no longer reaches the calendar at all — it should be shown, not hidden`);
-    assert.ok(events.every(isClosed), `${id} still produces an actionable entry`);
+check('a route closed to every reader is closed in a field, not in a sentence', () => {
+  /* Korea's 2027 GKS round, on both tracks: its graduation-certificate
+     deadline of 31 December 2026 sits in the guidelines' general eligibility
+     section, so no May 2027 IB candidate can use either the Embassy Track or
+     the University Track, whatever their passport. The University Track was
+     shown as "open to every nationality" until the audience critique caught
+     it. Pinned because it is why the field exists. If either is ever reopened,
+     it is reopened in its record and this line with it. */
+  for (const id of ['kr-gks-embassy-2027', 'kr-gks-university-2027']) {
+  const route = site.graph.applicationRoutes.get(id);
+  assert.ok(route, `${id} is gone`);
+  assert.equal(route.readerAccess?.state, 'closed', `${id} is not declared closed`);
+  assert.match(route.readerAccess.reason, /31 December 2026/, `${id} should say why it is closed to everyone: the graduation-certificate date`);
+  const events = allEvents(site).filter((e) => e.routeId === id);
+  assert.ok(events.length >= 1, `${id} no longer reaches the calendar at all — it should be shown, not hidden`);
+  assert.ok(events.every(isClosed), `${id} still produces an actionable entry`);
   }
+});
+
+check('a route closed only to some nationalities is conditional, not closed', () => {
+  /* Japan's embassy MEXT undergraduate route is screened at the embassy in
+     the applicant's country of nationality (2027 guidelines, 5(1)). The
+     embassy in Copenhagen offers Danish nationals no undergraduate call, which
+     is true for about a fifth of this site's readers. Marking it closed told
+     the other four fifths "Not open to you" (docs/research/audience). */
+  const id = 'jp-mext-embassy-2028';
+  const route = site.graph.applicationRoutes.get(id);
+  assert.ok(route, `${id} is gone`);
+  assert.equal(route.readerAccess?.state, 'conditional', `${id} should be conditional on nationality`);
+  assert.match(route.readerAccess.reason, /nationality/i, `${id} should name the condition`);
+  const events = allEvents(site).filter((e) => e.routeId === id);
+  assert.ok(events.length >= 1, `${id} no longer reaches the calendar`);
+  assert.ok(events.every((e) => !isClosed(e)), `${id} still renders as closed to everyone`);
 });
 
 /* --- Progress ------------------------------------------------------------- */

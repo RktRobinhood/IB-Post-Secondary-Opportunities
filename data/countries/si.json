@@ -69,7 +69,7 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027/2028 entry — still not published on 2026-09-24",
-        "audience": "Slovenian citizens, EU citizens including Danes, and Slovenes abroad",
+        "audience": "Slovenian citizens, EU citizens, and Slovenes abroad",
         "notes": "Precedent, read in Slovene from the University of Ljubljana VPIS leaflet on 23 September 2026: \"Prijava v prvem roku: od 18. februarja do 18. marca 2026\". You apply electronically through the eVS portal at portal.evs.gov.si using an electronic identity or an SI-PASS account, and you may name up to three study programmes in order of preference — the order decides which one you get if you clear the points threshold for more than one. The window closes in March, four months before IB results, so you apply on predicted grades and rank your three choices before you know what you scored. Any cap on entry (omejitev vpisa) is decided by 25 March and the number of applications per programme is published the same day, so you learn how competitive your choice was only after you are committed to it.",
         "source": "https://www.uni-lj.si/assets/Visokosolska-prijavno-informacijska-sluzba/2026/2027-slo/2026_zlozenka_A5-EU_slo.pdf",
         "sources": [
@@ -217,14 +217,17 @@
   },
   "funding": [
     "Ad futura international mobility scholarships, administered nationally.",
-    "A Public Call for Scholarships for Foreign Citizens exists but is aimed at Western Balkan postgraduate students, so it is unlikely to help a Danish IB applicant.",
+    "A Public Call for Scholarships for Foreign Citizens exists but is aimed at Western Balkan postgraduate students, so it is unlikely to help an IB applicant from an EU/EEA country.",
     "There is no general merit scholarship aimed at EU bachelor applicants - the funding story in Slovenia is that tuition is free, not that scholarships are plentiful.",
-    "Danish SU for a full degree abroad requires programme approval by Uddannelses- og Forskningsstyrelsen; check with your studievejleder."
+    {
+      "fund": "fund-dk-su",
+      "note": "It can follow you to a full degree here if the programme is SU-approved; outside the Nordics it is capped at four years (48 klip)."
+    }
   ],
   "workRights": "Slovenia has an unusual system called studentsko delo - student work through official Student Services, using a referral document ('napotnica'). Minimum referenced pay is EUR 7.21 an hour, with a 15.5% pension and disability deduction for all students, leaving about EUR 6.20. Foreign students additionally have 22.5% withheld as income tax prepayment, reclaimable if your home country has a double taxation treaty with Slovenia. Weekly or monthly hour limits, and any EU/non-EU eligibility difference, were not stated on the page read on 2026-09-22.",
   "residency": "As an EU/EEA citizen you must get a residence registration certificate within your first three months, applied for at the local administrative unit. You need a signed application, a biometric photo, a valid passport or ID, proof of address, proof of admission, proof of financial means of at least EUR 494.09 a month, and health insurance (EHIC). Fees are EUR 9.10 registration, EUR 4.50 application and EUR 12.32 for card printing, and renewal is typically by 30 September each year. Non-EU students must obtain a temporary residence permit before entering Slovenia, through a Slovenian diplomatic mission, and should get a police clearance certificate before travelling.",
   "housing": "This is the practical catch. Study in Slovenia states plainly that 'If you are coming as a private international student, unfortunately you do not have the option of staying in university student dormitories, except in Maribor' - the dorms are mainly reserved for exchange and scholarship students. In Ljubljana, dorm places where available are first-come-first-served at EUR 80-160 a month for a double room. Maribor opens applications after acceptance and emails information in July for the first semester; cost EUR 540-850 a semester. Primorska (around EUR 190 a month shared) and Nova Gorica (EUR 120-170 a month) send accommodation information about a month before the semester starts. Budget for the private market.",
-  "healthcare": "As a Danish EU citizen you are covered for necessary care with an EHIC. Students without EU/EEA or bilateral-agreement cover must buy compulsory Slovenian health insurance at EUR 126.33 a month (8.2% of average gross earnings), and the national portal recommends supplementary private insurance on top because the compulsory cover is only partial.",
+  "healthcare": "As an EU/EEA citizen you are covered for necessary care with an EHIC. Students without EU/EEA or bilateral-agreement cover must buy compulsory Slovenian health insurance at EUR 126.33 a month (8.2% of average gross earnings), and the national portal recommends supplementary private insurance on top because the compulsory cover is only partial.",
   "institutions": [
     {
       "name": "University of Ljubljana",

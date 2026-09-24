@@ -1,0 +1,65 @@
+{
+  "description": "Reasoned exceptions to scripts/test-audience.mjs. Each entry excuses one audience-guard match in one file. `match` is an exact substring of the string, not a line number, so it survives edits. An entry that no longer matches anything fails the guard, so the list cannot rot.",
+  "entries": [
+    {
+      "file": "data/funding/dk-su.json",
+      "match": "you have to keep working throughout the period you receive SU",
+      "rule": "grant",
+      "reason": "This is the grant's own record, and the sentence is one of the equal-status routes: it states who can claim, it does not assume it."
+    },
+    {
+      "file": "data/funding/dk-su.json",
+      "match": "In another Nordic country SU is paid as if you studied in Denmark",
+      "rule": "grant",
+      "reason": "The grant's own record, in the 'abroad' block that is only ever rendered after the record's condition of who can claim it."
+    },
+    {
+      "file": "data/freshness-policy.json",
+      "match": "Danish SU changes on 1 January 2027 for this cohort",
+      "rule": "grant",
+      "reason": "A freshness rule about when grant data goes stale, not an offer of the grant to the reader."
+    },
+    {
+      "file": "data/topics/medicine-abroad.json",
+      "match": "Danish SU and udlandsstipendium rules for six-year medical degrees abroad were not verified",
+      "rule": "grant",
+      "reason": "A not-checked note recording a research gap; it offers the grant to nobody."
+    },
+    {
+      "file": "data/dk/sdu.json",
+      "match": "Danish applicants mostly do not move that far south",
+      "rule": "reader-noun",
+      "reason": "Describes where Danish applicants choose to live, explaining why Sønderborg's student body is international; it does not treat the reader as Danish."
+    },
+    {
+      "file": "data/institutions/dk-sdu.json",
+      "match": "Danish applicants mostly do not move that far south",
+      "rule": "reader-noun",
+      "reason": "Same sentence as data/dk/sdu.json, in the canonical Institution record."
+    },
+    {
+      "file": "src/pages/denmark.mjs",
+      "match": "SU is limited to the prescribed duration of your",
+      "rule": "grant",
+      "reason": "The SU reform note on the Denmark money page, which sits directly under the rendered who-can-claim list from data/funding/dk-su.json."
+    },
+    {
+      "file": "src/pages/denmark.mjs",
+      "match": "including SU, can pay you",
+      "rule": "grant",
+      "reason": "The NemKonto admin step, which names SU as one of the public bodies that pays into it; not an offer of SU."
+    },
+    {
+      "file": "src/lib/publication-floor.mjs",
+      "match": "Telling a Danish student about",
+      "rule": "reader-noun",
+      "reason": "A developer-facing explanation of why category names do not translate; never rendered to students."
+    },
+    {
+      "file": "data/countries/is.json",
+      "match": "study assistance from another state, which includes Danish SU",
+      "rule": "grant",
+      "reason": "Reports Iceland's own rule that its student loan cannot be combined with another state's grant; it names Danish SU as an example, it does not offer it."
+    }
+  ]
+}

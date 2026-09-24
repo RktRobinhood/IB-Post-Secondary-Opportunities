@@ -3,7 +3,7 @@
   "destination": "sg",
   "jurisdiction": "sg-autonomous",
   "intake": "2027-autumn",
-  "applicantGroup": "non-eu",
+  "applicantGroup": "any",
   "label": "Applying to a Singapore Autonomous University for August 2027",
   "channel": "direct",
   "applicationSystem": "sg-joint-acceptance",
@@ -15,7 +15,7 @@
       "label": "NTU applications open",
       "date": "2026-10-15",
       "consequence": "indicative",
-      "note": "The first of the autonomous universities to open, two months before NUS.",
+      "note": "Opens two months before NUS.",
       "evidence": [
         "ev-sg-ntu-ib-dates"
       ]
@@ -23,7 +23,7 @@
     {
       "id": "ms-sg-au-nus-window",
       "type": "submit",
-      "label": "NUS IB Diploma applications close",
+      "label": "NUS IB Diploma application window",
       "date": "2026-12-16",
       "endDate": "2027-02-17",
       "consequence": "hard",
@@ -60,7 +60,7 @@
       "date": "2027-06-30",
       "consequence": "hard",
       "provisional": true,
-      "note": "NTU says this is mandatory and must be done before July 2027; 30 June is the last day that satisfies \"before July\" and is recorded as provisional for that reason. Without it NTU cannot release an application outcome at all. It is arranged through the IB organisation, not through NTU, and it is the step most likely to be left until it is too late.",
+      "note": "NTU says this is mandatory and must be done before July 2027; 30 June is the last day that satisfies \"before July\". Without it NTU cannot release an application outcome at all. It is arranged through the IB organisation, not through NTU, and it is the step most likely to be left until it is too late.",
       "evidence": [
         "ev-sg-ntu-ib-dates"
       ]
@@ -84,7 +84,7 @@
       "date": "2027-07-09",
       "consequence": "hard",
       "provisional": true,
-      "note": "Within three days of the results release, by NTU's rule. The date here is 6 July plus three and is provisional for that reason. Plan the first fortnight of July 2027 around it.",
+      "note": "Within three days of the results release, by NTU's rule. The date here is 6 July plus three days. Plan the first fortnight of July 2027 around it.",
       "evidence": [
         "ev-sg-ntu-ib-dates"
       ]
@@ -96,7 +96,7 @@
       "date": "2027-07-21",
       "consequence": "indicative",
       "provisional": true,
-      "note": "NUS says IB applicants sitting the May 2027 examination will hear by the third week of July 2027. The exact day is an interpretation of \"third week\" and is provisional.",
+      "note": "NUS says IB applicants sitting the May 2027 examination will hear by the third week of July 2027. The exact day is an estimate of \"third week\".",
       "evidence": [
         "ev-sg-nus-important-dates"
       ]
@@ -116,7 +116,7 @@
       "type": "signature",
       "label": "Sign the Tuition Grant Agreement with two sureties",
       "consequence": "hard",
-      "note": "Not yet announced for the 2027 intake; NTU's 2026 window ran 19 September to 18 October 2026. This happens after term starts, in Singapore, and needs a Singpass, which needs a Student's Pass first. A student who does not complete it pays the full unsubsidised fee.",
+      "note": "Not yet announced for the 2027 intake; NTU's 2026 window runs 19 September to 18 October 2026. This happens after term starts, in Singapore, and needs a Singpass, which needs a Student's Pass first. A student who does not complete it pays the full unsubsidised fee.",
       "evidence": [
         "ev-sg-ntu-tuition-grant",
         "ev-sg-moe-tg-bond"
@@ -131,7 +131,7 @@
       "responsibleParty": "student",
       "destinationOfItem": "The university's own online admission application form, at the moment you apply.",
       "dueMilestone": "ms-sg-au-ntu-close",
-      "note": "This tick-box is the decision. Electing the grant halves the fee and commits you, on signature months later, to three years of full-time work for a Singapore entity after graduation. Declining it means paying the unsubsidised fee with no obligation. Decide it with your family before you fill in the form, not after the offer arrives.",
+      "note": "This tick-box is the decision. Electing the grant cuts tuition by roughly a third to almost half and commits you, on signature months later, to three years of full-time work for a Singapore entity after graduation. Declining it means paying the unsubsidised fee with no obligation. Decide it with your family before you fill in the form, not after the offer arrives.",
       "evidence": [
         "ev-sg-ntu-tuition-grant"
       ]
@@ -159,9 +159,10 @@
       "responsibleParty": "student",
       "destinationOfItem": "The International Baccalaureate Organization, not the university.",
       "dueMilestone": "ms-sg-au-ibo-access",
-      "note": "NTU makes this mandatory before July 2027 and will not release an outcome without it.",
+      "note": "NTU makes this mandatory before July 2027 and will not release an outcome without it. NUS also makes it mandatory for every IB applicant: tell your IB coordinator to release your transcript to the National University of Singapore, institute code 000690.",
       "evidence": [
-        "ev-sg-ntu-ib-dates"
+        "ev-sg-ntu-ib-dates",
+        "ev-sg-nus-ib-requirements"
       ]
     }
   ],
@@ -178,15 +179,16 @@
     "ev-sg-ntu-tuition-grant",
     "ev-sg-joint-acceptance",
     "ev-sg-sutd-window",
-    "ev-sg-sit-cycle"
+    "ev-sg-sit-cycle",
+    "ev-sg-nus-ib-requirements"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-12-01",
     "notes": [
       "The applicant group is non-eu rather than any because Singapore's categories are Singapore Citizen, Singapore Permanent Resident and International Student, and almost everything on this route that differs — the fee, the Tuition Grant election, the sureties, the bond, the Student's Pass — differs because the student is in the third category. A route written for \"any\" would describe a Singaporean's experience and mislead ours.",
-      "Dates are established for NUS and NTU only. SUTD and SIT publish their 2026 cycle and not their 2027 one. SMU's and SUSS's pages could not be read — see ev-sg-smu-unreadable — so nothing about their 2027 dates is claimed here in either direction.",
+      "Dates are established for NUS and NTU only. SUTD, SIT and SMU publish their 2026 cycle and not their 2027 one (SMU read in a browser on 2026-09-24). SUSS says applications for its July 2027 intake open in November 2026, with no dates yet.",
       "The three provisional dates on this route are all derived rather than published: NTU's actual-results deadline is 6 July plus three days, the IBO transcript authorisation is the last day that satisfies \"before July 2027\", and the NUS outcome date is a reading of \"the third week of July\". Each says so in its own note."
     ]
   }

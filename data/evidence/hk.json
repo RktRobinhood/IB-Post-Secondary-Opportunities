@@ -29,13 +29,13 @@
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
-    "claim": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
-    "excerpt": "25 Nov (noon) 2026 - Submit your application for first-round evaluation […] 25 Aug 2027 - Applications close at noon (HKT)",
+    "claim": "HKU's first-round deadline for 2027 entry is noon on 25 November 2026, and first-round applicants must input predicted and/or actual grades and submit supporting documents by 1 December 2026. Applications close at noon HKT on 25 August 2027. Predicted and actual results must be typed into the application system.",
+    "excerpt": "25 Nov (noon) 2026 - Submit your application for first-round evaluation […] 1 Dec 2026 - Input predicted and/or actual grades and submit supporting documents […] 25 Aug 2027 - Applications close at noon (HKT)",
     "supports": [
       { "entity": "hk-direct-2027", "field": "milestones" }
     ],
-    "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "attestation": { "by": "the country audit pass", "at": "2026-09-24", "method": "read-source", "note": "Re-read 2026-09-24; the 1 December 2026 grades-and-documents row was not previously recorded." },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-hk-hkust-dates",
@@ -82,7 +82,7 @@
     "verificationState": "needs-review",
     "claim": "PolyU's Early Round closes on 17 November 2026 and its Main Round on 11 February 2027. Later applications are considered on a rolling basis until 14 May 2027 if places remain.",
     "excerpt": "KeyDates_International_2027-28_PolyU",
-    "interpretation": "The dates are published only inside a PNG (the excerpt is the image's name). The three dates were read from the image by an earlier Hong Kong pass and are held in the country profile. This pass confirmed that the page still serves only the image; it did not re-read the dates.",
+    "interpretation": "The dates are published only inside a PNG (the excerpt is the image's name). The three dates were read from the image by an earlier Hong Kong pass and are held in the country profile. The image (KeyDates_International_2027-28_PolyU_1300x650_0.png) was downloaded and read again on 2026-09-24 and shows the same three dates: 17 Nov 2026, 11 Feb 2027 and rolling until 14 May 2027.",
     "supports": [
       { "entity": "hk-direct-2027", "field": "milestones" }
     ],
@@ -102,7 +102,7 @@
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-23",
     "appliesToIntake": "2027-autumn",
-    "verificationState": "needs-review",
+    "verificationState": "superseded",
     "claim": "CityU's non-local application period for 2027 entry could not be read. The page serves an Imperva/Incapsula bot-block page to automated fetches.",
     "interpretation": "The page is live, only blocked to automated fetches, so it is not 'unavailable'. No date is claimed in either direction.",
     "supports": [
@@ -114,7 +114,7 @@
       "method": "read-browser",
       "note": "curl and WebFetch both received the Incapsula block page on 2026-09-23. Needs a person with a normal browser."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24", "notes": ["Superseded 2026-09-24 by ev-hk-cityu-dates: the International Admission page was read in an ordinary browser and carries the 2027 key dates."] }
   },
   {
     "id": "ev-hk-hku-fees",
@@ -132,5 +132,268 @@
     ],
     "attestation": { "by": "the Greece, China and Hong Kong floor pass", "at": "2026-09-23", "method": "read-source" },
     "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-cityu-dates",
+    "sourceUrl": "https://www.cityu.edu.hk/admo/admissions/international-admissions",
+    "publisher": "City University of Hong Kong",
+    "excerpt": "24 Sep 2026 Application Opens […] 15 Nov 2026 Early Round Application Deadline […] 15 Jan 2027 Main Round Application Deadline […] Feb - May 2027 Main Round Results Announcement […] 30 Aug 2027 Start of Semester A, 2027/28 (Provisional)",
+    "claim": "CityU opens non-local applications for 2027 entry on 24 September 2026; its Early Round closes on 15 November 2026 (results December 2026) and its Main Round on 15 January 2027 (results February to May 2027). IB Diploma holders may be admitted to first-year studies or with Advanced Standing I.",
+    "supports": [
+      {
+        "entity": "hk-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "hk",
+        "field": "application.deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-browser",
+      "note": "The page serves an Imperva block to plain fetches; read in an ordinary browser on 2026-09-24."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-cityu-fees",
+    "sourceUrl": "https://www.cityu.edu.hk/admo/fees-and-scholarships",
+    "publisher": "City University of Hong Kong",
+    "excerpt": "Application Fee (Non-local Students) HK$600 (up to 2 programme choices) […] Tuition Fee (Non-local Students) To be announced in due course […] For reference, tuition fee for non-local students admitted in 2026 HK$190,000 per academic year",
+    "claim": "CityU charges non-local applicants HK$600 for up to two programme choices. Its 2027/28 non-local tuition is not yet announced; the 2026/27 figure was HK$190,000 a year (HK$392,000 for the BVM), fixed for the degree once approved. Living costs HK$50,000–60,000 a year; student residence HK$20,800.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "costs"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-browser",
+      "note": "Non-local tab of the fees page, read in a browser on 2026-09-24."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-hkust-fees",
+    "sourceUrl": "https://join.hkust.edu.hk/fees-and-scholarships",
+    "publisher": "The Hong Kong University of Science and Technology",
+    "excerpt": "HKD 260,000(~USD33,000) per academic year in 2027/28 academic year",
+    "claim": "HKUST's 2027/28 non-local tuition is HKD 260,000 a year; accommodation about HKD 21,000–51,000 a residential year and living expenses about HKD 60,000. Its application-based scholarships share the 25 November 2026 priority deadline.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "costs"
+      },
+      {
+        "entity": "hk",
+        "field": "feeContext"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-cuhk-fees",
+    "sourceUrl": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/",
+    "publisher": "The Chinese University of Hong Kong",
+    "excerpt": "HK$230,000 per annum",
+    "claim": "CUHK's 2027-2028 non-local tuition is HK$230,000 a year, with later adjustments capped at 3%; on-campus housing about HK$17,000 and living expenses about HK$45,000 a year.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "costs"
+      },
+      {
+        "entity": "hk",
+        "field": "feeContext"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-cuhk-requirements",
+    "sourceUrl": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/",
+    "publisher": "The Chinese University of Hong Kong",
+    "excerpt": "International Baccalaureate Diploma (IB) with 30 points out of 45",
+    "claim": "CUHK's general requirement for IB applicants is a Diploma with 30 of 45 points, and an IB English grade of 4 meets its English language requirement; subject preferences vary by programme.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "ibRecognition"
+      },
+      {
+        "entity": "hk",
+        "field": "language"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-polyu-fees",
+    "sourceUrl": "https://www.polyu.edu.hk/study/ug/admissions/international-other-qualifications/international-other-qualifications-tuition-fees",
+    "publisher": "The Hong Kong Polytechnic University",
+    "excerpt": "HK$240,000 (approximately US$30,770) per academic year payable in two equal instalments",
+    "claim": "PolyU's 2027/28 tuition for non-local students on government-funded programmes is HK$240,000 a year.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "costs"
+      },
+      {
+        "entity": "hk",
+        "field": "feeContext"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "id": "ev-hk-hku-app-fee",
+    "sourceUrl": "https://admissions.hku.hk/node/172",
+    "publisher": "The University of Hong Kong",
+    "excerpt": "The application fee is HK$780 (2027 Admissions Intake).",
+    "claim": "HKU charges a non-refundable application fee of HK$780 for the 2027 intake.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "costs"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "id": "ev-hk-work-exemption",
+    "sourceUrl": "https://www.studyinhongkong.edu.hk/en/employment.php",
+    "publisher": "Study in Hong Kong",
+    "excerpt": "With effect from 1 November 2024, non-local students (excluding exchange students) of full-time locally-accredited local programmes at undergraduate level or above whose study period is not less than one academic year are temporarily exempted from the above employment restrictions",
+    "claim": "Non-local undergraduates are normally limited to on-campus work of up to 20 hours a week in term and unlimited work from 1 June to 31 August, but since 1 November 2024 they have been temporarily exempted from those restrictions, with no end date stated.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "workRights"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "id": "ev-hk-work-exemption-gov",
+    "sourceUrl": "https://www.info.gov.hk/gia/general/202410/18/P2024101800482.htm",
+    "publisher": "HKSAR Government",
+    "excerpt": "Temporarily exempting full-time non-local undergraduate students from restrictions on taking up part-time jobs",
+    "claim": "From 1 November 2024 the HKSAR Government temporarily exempted full-time non-local undergraduates from the part-time work restrictions, issuing a No Objection Letter through the institutions, and said it would review the arrangement.",
+    "supports": [
+      {
+        "entity": "hk",
+        "field": "workRights"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
   }
 ]

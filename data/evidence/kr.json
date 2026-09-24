@@ -10,7 +10,7 @@
     "verificationState": "needs-review",
     "claim": "Underwood International College admits international freshmen twice a year. Its 1st Round leads to the Spring 2027 (March) intake and closed on 22 September 2026; its 2nd Round leads to the Fall 2027 (September) intake, opens in March 2027 and announces admission in June 2027.",
     "excerpt": "International students can matriculate either in March or in September. […] Admission Round: 1st Round | 2nd Round (TBD). Entry Term: Spring 2027 | Fall 2027. Online Application: 10AM on Aug. 26, 2026 - 5PM on Sept. 22, 2026 | March, 2027. Document Submission Deadline: 5PM on Oct. 2, 2026 | March, 2027. Interview (Online): Dec. 11-12, 2026 | June, 2027. Admission Notification: Dec. 18, 2026 | June, 2027.",
-    "interpretation": "This is the single table that settles which intake a Danish IB student is actually planning for. The 1st Round is Korea's main March intake and it closed a day before this was read — an IB candidate sitting exams in May 2027 could never have used it, because they would have had to matriculate in March 2027 with no diploma. The 2nd Round is the one that fits: apply in March 2027 on predicted grades, hear in June 2027, start in September 2027, three weeks before the diploma-holding cohort would otherwise be idle for a year. Note that the 2nd Round is published only as a month, not a date, and is explicitly marked TBD. That is a real date not yet set, not a date we failed to find.",
+    "interpretation": "This is the single table that settles which intake an IB student in Denmark is actually planning for. The 1st Round is Korea's main March intake and it closed a day before this was read — an IB candidate sitting exams in May 2027 could never have used it, because they would have had to matriculate in March 2027 with no diploma. The 2nd Round is the one that fits: apply in March 2027 on predicted grades, hear in June 2027, start in September 2027, three weeks before the diploma-holding cohort would otherwise be idle for a year. Note that the 2nd Round is published only as a month, not a date, and is explicitly marked TBD. That is a real date not yet set, not a date we failed to find.",
     "supports": [
       {
         "entity": "kr-direct-2027",
@@ -87,27 +87,31 @@
     "publisher": "Underwood International College, Yonsei University",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
-    "claim": "From the 2027 academic year UIC requires every applicant to submit a document proving English proficiency; a completed education in a country where English is the sole official language is accepted in place of a test, and Denmark is not such a country.",
-    "excerpt": "Beginning in 2027, applicants must submit documents proving English proficiency or equivalents … graduation from a country where English is the sole official language (the United States, Canada excluding Quebec, the United Kingdom, Australia, and New Zealand). […] Document Review (200 points), Interview (100 points), Total (300 points).",
+    "claim": "From the 2027 intake UIC requires every applicant to prove English proficiency. Accepted: TOEFL, IELTS, CEFR certificates, IB DP English A (Language and Literature, or Literature) or AP English, with no minimum scores; or a diploma from a country where English is the sole official language; or a Medium of Instruction certificate for a high-school curriculum taught entirely in English. The application fee is KRW 150,000 (USD 150 through the Common App).",
+    "excerpt": "TOEFL PBT/CBT/iBT; IELTS; CEFR English Certification; IB DP English A: Language and Literature or English A: Literature; AP English Language and Composition; AP English Literature and Composition (No minimum scores) […] For applicants who completed the entire high school curriculum in English(except for native language/history courses), a Medium of Instruction certificate.",
     "interpretation": "The exemption is written in terms of the country, not the language of instruction, and Denmark is not on the list. An IB Diploma taught entirely in English at a Danish gymnasium therefore does not obviously exempt the applicant, and this changed for 2027 — an applicant working from a 2026 guide would not know it had. Whether UIC accepts IB English A or B in place of a test is not stated on the page we read and should be asked of the admissions office in writing before a TOEFL or IELTS booking is skipped.",
     "supports": [
       {
         "entity": "kr",
         "field": "language"
+      },
+      {
+        "entity": "kr",
+        "field": "costs"
       }
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     },
     "attestation": {
-      "by": "the research pass that wrote this record",
-      "at": "2026-09-23",
+      "by": "the country audit pass",
+      "at": "2026-09-24",
       "method": "read-source",
-      "note": "Read from the admission requirements section of the UIC site, 2026-09-23."
+      "note": "Re-read 2026-09-24. The earlier claim said only country-of-schooling exempted an applicant; the page also accepts IB English A and a Medium of Instruction certificate."
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
@@ -134,11 +138,11 @@
     "publisher": "KAIST Admissions",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
-    "claim": "KAIST runs two rounds of international undergraduate admission, both for Fall 2027 entry: Early Admissions closed 22 October 2026 at 18:00 KST, and Regular Admissions runs 10 November 2026 to 14 January 2027 at 18:00 KST, with the decision announced on 25 March 2027.",
-    "excerpt": "Early Admissions (Fall 2027) — Application Period: September 22 ~ October 22, 2026, 6:00 PM (KST); Recommendation Letter Deadline: October 29, 2026, 6:00 PM (KST); Interview: December 22, 2026; Decision Announcement: January 7, 2027, 10:00 AM (KST). Regular Admissions (Fall 2027) — Application Period: November 10, 2026 ~ January 14, 2027, 6:00 PM (KST); Recommendation Letter Deadline: January 21, 2027, 6:00 PM (KST); Interview: March 3, 2027; Decision Announcement: March 25, 2027, 10:00 AM (KST). Spring Track Entry — Academic year begins: End of February 2027. Fall Track Entry — Academic year begins: End of August 2027.",
+    "claim": "KAIST runs two rounds of international undergraduate admission. Early Admissions (22 September to 22 October 2026, 18:00 KST) leads to an academic year beginning at the end of February 2027; Regular Admissions (10 November 2026 to 14 January 2027, 18:00 KST, decision 25 March 2027) leads to an academic year beginning at the end of August 2027.",
+    "excerpt": "Early Admissions: September 22 ~ October 22, 2026, 6:00 PM (KST) […] Academic Year Begins: End of February, 2027 […] Regular Admissions: November 10, 2026 ~ January 14, 2027, 6:00 PM (KST) […] Results: March 25, 2027 […] Academic Year Begins: End of August, 2027",
     "interpretation": "KAIST does not look like the rest of Korea, and the difference matters. Both its rounds are for a Fall entry and both close more than half a year ahead of it, which is a North American shape rather than a Korean one. For a May 2027 IB candidate the Regular round closing 14 January 2027 is the live one, and it is decided on 25 March 2027 — a full offer, months before results exist, so everything rests on predicted grades and the recommendation letter, which has its own later deadline and is the part students most often miss. The recommendation deadline falls a week after the application deadline: sending the application in on time does not finish the job. — One thing on this page reads as a contradiction and is not, and it has now caught two readers, so it is written down here. The excerpt carries both \"Early Admissions (Fall 2027)\" / \"Regular Admissions (Fall 2027)\" and, further down, \"Spring Track Entry — Academic year begins: End of February 2027. Fall Track Entry — Academic year begins: End of August 2027.\" Those are two different things. The rounds are when you apply, and this cycle both of them feed Fall 2027. The tracks are when a KAIST academic year starts, which is a standing fact about the university rather than a statement about these rounds. Early Admissions is NOT the Spring Track: the page labels it Fall 2027 in as many words. Reading it the other way moves a student five months in the wrong direction.",
     "supports": [
       {
@@ -148,13 +152,13 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     },
     "attestation": {
-      "by": "the research pass that wrote this record",
-      "at": "2026-09-23",
+      "by": "the country audit pass",
+      "at": "2026-09-24",
       "method": "read-source",
-      "note": "Read from the KAIST international undergraduate admission calendar, 2026-09-23."
+      "note": "Re-read 2026-09-24. The earlier claim called both rounds Fall 2027 entry and said Early Admissions had closed; it closes on 22 October 2026 and leads to a February 2027 start."
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
@@ -520,7 +524,7 @@
     "verificationState": "needs-review",
     "claim": "The 2027 GKS Embassy Track is open to citizens of 74 named countries, and Denmark is not one of them. The University Track's UIC Program carries no such restriction and is open to all countries worldwide.",
     "excerpt": "Embassy Track: 156 scholars from 74 countries […] All applicants must hold citizenship of NIIED designated countries that are invited to take part in the GKS program ※ However, UIC Program is open to all countries around the world. […] 54 Singapore · 55 South Africa · 56 South Sudan · 57 Sri Lanka · 58 Sweden · 59 Syria […] UIC (University Industry Cooperation) Program: 100 scholars from 13 institutions ※ UIC Program is open to all countries around the world",
-    "interpretation": "This is the correction that matters most about Korean funding, and it contradicts what this repository previously said. A Danish passport does not open the Global Korea Scholarship's embassy route at all: Denmark is absent from the quota table and there is no Korean embassy listed for it in the guidelines' own contact appendix, while Sweden and Poland are both present. Only the University Track is available to a Danish citizen, and that track is not a general scholarship — the UIC Program is science and engineering at thirteen named universities, none of them Yonsei, KAIST or Seoul National, and each applicant may choose one university and one department only. The honest summary is that GKS is a smaller opportunity for a Dane than for most nationalities, and that telling a student to 'apply through the Korean embassy in Copenhagen' sends them to a door that is not there.",
+    "interpretation": "This is the correction that matters most about Korean funding, and it contradicts what this repository previously said. On a Danish passport, the Global Korea Scholarship's embassy route is not open at all: Denmark is absent from the quota table and there is no Korean embassy listed for it in the guidelines' own contact appendix, while Sweden and Poland are both present. Only the University Track is available to a Danish citizen, and that track is not a general scholarship — the UIC Program is science and engineering at thirteen named universities, none of them Yonsei, KAIST or Seoul National, and each applicant may choose one university and one department only. The honest summary is that, on a Danish passport, GKS is a smaller opportunity than for most nationalities, and that telling a student to 'apply through the Korean embassy in Copenhagen' sends a Danish citizen to a door that is not there. A student of another nationality should check whether their own country is on the quota table (Sweden and Poland are) and, if it is, apply through the Korean embassy there.",
     "supports": [
       {
         "entity": "kr-gks-embassy-2027",
@@ -632,6 +636,32 @@
           "details": []
         }
       ]
+    }
+  },
+  {
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "id": "ev-kr-postech-intl-ug",
+    "sourceUrl": "https://postech.ac.kr/eng/news-center/university_news.do?mode=view&articleNo=23959&title=POSTECH+to+Admit+International+Undergraduate+Students+Beginning+Fall+2026",
+    "publisher": "POSTECH",
+    "excerpt": "POSTECH will begin admitting international undergraduate freshmen starting in the Fall 2026 semester […] International students will benefit from a 100% English-taught curriculum",
+    "claim": "POSTECH admits international undergraduate freshmen from Fall 2026, outside the regular quota, to a fully English-taught curriculum with the same tuition waiver as domestic students.",
+    "supports": [
+      {
+        "entity": "kr",
+        "field": "institutions"
+      }
+    ],
+    "attestation": {
+      "by": "the country audit pass",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
     }
   }
 ]

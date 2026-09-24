@@ -4,9 +4,10 @@
   "intake": "2028-spring",
   "applicantGroup": "any",
   "readerAccess": {
-    "state": "closed",
-    "reason": "The Embassy of Japan in Denmark offers Danish nationals only the Japanese Studies and Research Student scholarships, and both are for students already at university.",
+    "state": "conditional",
+    "reason": "Depends on your nationality: you apply through the Japanese embassy in your country of citizenship, and each decides what it offers.",
     "evidence": [
+      "ev-jp-mext-ug-2027-guidelines",
       "ev-jp-embassy-denmark-mext-types"
     ]
   },
@@ -21,10 +22,10 @@
       "id": "rd-mext-2028-embassy",
       "label": "Embassy recruitment window",
       "consequence": "hard",
-      "note": "MEXT's rule is relative, not a published day: \"Recruitment for those arriving in Japan next April is made between April and May of the previous year.\" For an April 2028 arrival that is April and May 2027. The exact dates are set by the Embassy of Japan in Denmark, whose pages we could not read, so no day is shown here.",
+      "note": "MEXT's rule is relative, not a published day: \"Recruitment for those arriving in Japan next April is made between April and May of the previous year.\" For an April 2028 arrival that is April and May 2027. The Embassy of Japan in Denmark, which sets the local dates, does not offer the undergraduate type to Danish nationals, so no day is shown. Other nationalities get their dates from the Japanese embassy in their own country.",
       "evidence": [
         "ev-jp-mext-recruitment-window",
-        "ev-jp-embassy-denmark-unreadable"
+        "ev-jp-embassy-denmark-mext-types"
       ]
     },
     {
@@ -41,13 +42,13 @@
     {
       "id": "ms-mext-ask-embassy",
       "type": "personal",
-      "label": "Ask the Embassy of Japan in Copenhagen for the Danish dates",
+      "label": "Ask the Japanese embassy in your country of citizenship for its dates",
       "date": "2027-02-01",
       "consequence": "personal",
-      "note": "Not a published deadline and not anyone's rule. It is set here because MEXT says the schedule is the embassy's to set, because the embassy's own web pages were unreachable when this was written, and because the window itself falls in April and May 2027 — on top of the IB examination session. Ask in February, not in April.",
+      "note": "Not a published deadline and not anyone's rule. The Embassy of Japan in Denmark lists only the Japanese Studies and Research Student types for Danish nationals. If you hold another nationality, ask the Japanese embassy in your country of citizenship whether it offers the undergraduate type; either way, ask in February, because the window itself would fall in April and May 2027, on top of the IB examinations.",
       "evidence": [
         "ev-jp-mext-recruitment-window",
-        "ev-jp-embassy-denmark-unreadable"
+        "ev-jp-embassy-denmark-mext-types"
       ]
     },
     {
@@ -66,7 +67,7 @@
       "type": "enrolment",
       "label": "Arrival in Japan",
       "consequence": "hard",
-      "note": "The 2027 round required arrival between 1 and 7 April 2027, a seven-day window, with the scholarship withdrawn from anyone who could not make it. The 2028 equivalent has not been published and is not inferred here.",
+      "note": "The 2027 round required arrival between 1 and 7 April 2027, a seven-day window, with the scholarship withdrawn from anyone who could not make it. The 2028 equivalent has not been published.",
       "evidence": [
         "ev-jp-mext-ug-2027-guidelines"
       ]
@@ -116,7 +117,7 @@
     "Read what this scholarship actually funds before spending a spring on it. The undergraduate MEXT award is a year of preparatory education in Japanese followed by a degree taught in Japanese; English-medium study is possible only through direct placement, which MEXT decides. It is not a route into the English-taught programmes the rest of this destination is about.",
     "It is, on the other hand, very large: in the 2027 round, five years of support, 117,000 yen a month, entrance examination, matriculation and tuition fees waived, and an economy air ticket both ways.",
     "You do not choose the university. MEXT decides it in consultation with the university and the preparatory institution, and the guidelines say no objection by the grantee will be allowed.",
-    "A separate university-recommendation route into MEXT exists, under which a Japanese university nominates its own admitted students. It is not researched here. Ask each admissions office whether it holds MEXT quota places."
+    "A separate university-recommendation route into MEXT exists, under which a Japanese university nominates its own admitted students. Ask each admissions office whether it holds MEXT quota places."
   ],
   "evidence": [
     "ev-jp-mext-ug-2027-guidelines",
@@ -126,12 +127,12 @@
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-02-01",
     "notes": [
       "Deliberately undated except for two planning dates we set ourselves and label as such. The 2028 guidelines are expected around April 2027 and nothing from the 2027 round is carried forward as a date.",
       "This record exists because the previous one told a reader in September 2026 to contact the embassy 'in early 2026'. The window is relative to the arrival year, which is the thing that was lost.",
-      "Not established, and the largest remaining gap for Japan: the Danish application dates, held by an embassy whose site refused every request on 2026-09-23."
+      "The Embassy of Japan in Denmark's Study in Japan page refuses plain fetches but was read in a browser on 2026-09-24: it lists two MEXT types for Danish nationals, neither of them the undergraduate scholarship. That settles the route for Danish citizens only; other nationalities apply through the Japanese embassy in their own country, which sets its own list."
     ]
   }
 }

@@ -7,6 +7,7 @@ import {
 import { picture } from '../lib/data.mjs';
 import { contextFor } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
+import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
 
 /** The first publishable photograph among these image keys, shaped for a hero. */
 function photo(site, keys) {
@@ -17,9 +18,37 @@ function photo(site, keys) {
   return null;
 }
 
+/* --- The state grant, from its one record ---------------------------------
+
+   SU used to be described here, in the glossary and in every Destination as
+   "Danish students can claim SU", which is true for about a fifth of the
+   readers. Who can claim it is now written once, in data/funding/dk-su.json,
+   and these pages render it. */
+
+function stateGrant(site) {
+  return (site.fundingSchemes || []).find((f) => f.destination === 'dk') || null;
+}
+
+const money = (n) => Number(n).toLocaleString('en-GB');
+
+/** "a parent who works in Denmark, five years living in Denmark or your own job" */
+function routeList(grant) {
+  const titles = (grant?.whoCanClaim?.equalStatus || []).map((r) => r.title.charAt(0).toLowerCase() + r.title.slice(1));
+  return titles.length > 1 ? `${titles.slice(0, -1).join(', ')} or ${titles.at(-1)}` : titles[0] || '';
+}
+
+/** One paragraph: what it pays, and who can claim it. */
+function grantSummary(grant) {
+  if (!grant) return '';
+  const r = grant.rate;
+  const citizens = grant.whoCanClaim.citizens.replace(/\.$/, '');
+  return `${grant.name} is ${r.currency} ${money(r.amount)} a ${r.per} ${r.basis.startsWith('before tax') ? 'before tax' : ''} in ${r.year} if you live away from your parents. ${citizens} can claim it, and so can EU/EEA citizens with equal status — through ${routeList(grant)}.`.replace(/ {2,}/g, ' ');
+}
+
 /* --- Denmark hub ---------------------------------------------------------- */
 
 export function denmarkHub(site) {
+  const grant = stateGrant(site);
   const pic =
     picture(site, 'ucph', { prefer: 'commons' }) ||
     picture(site, 'dk-au', { prefer: 'commons' }) ||
@@ -115,8 +144,9 @@ export function denmarkHub(site) {
       title: 'What it costs',
       short: 'Nothing for EU, EEA and Swiss citizens. Everyone else pays roughly €6,000–16,000 a year.',
       body: html`<p>Non-EU students also pay an application fee of roughly €100–200 to each university, and DKK 3,060 (2026 rate) for the residence permit.</p>
-        <p>Danish students can claim SU — DKK 7,426 a month before tax in 2026 if you live away from home.
-        Non-Danish EU citizens have to earn equal-treatment status first, usually by working 10–12 hours a week.</p>
+        <p>If you hold a residence permit under Denmark's Special Act for displaced persons from Ukraine (Act no. 324 of
+        16 March 2022), you pay neither tuition nor the application fee.</p>
+        ${grant ? html`<p>${grantSummary(grant)} ${grant.otherwise}</p>` : ''}
         <p><a class="arrow-link" href="${url('/denmark/money/')}">Money, SU and the cost of living</a></p>`,
       more: 'SU and living costs',
     }),
@@ -352,10 +382,66 @@ ${hero({
 
 /* --- Conversion reference + calculator ------------------------------------- */
 
+/**
+ * "Danish level → IB": one row per subject and level a student will meet,
+ * each translated by the eligibility engine from the Recognition Scheme — the
+ * same words the programme cards use, so the table and the cards cannot say
+ * different things.
+ *
+ * Which rows: every subject a programme on this site asks for on the scheme's
+ * scale, at every level it is asked for and every level the handbook's table
+ * lists for it. That is "the common subjects" by definition rather than by
+ * opinion, and it includes the ones with no IB equivalent, which are the ones a
+ * student most needs warning about.
+ */
+function levelRows(site, c) {
+  const scheme = (site.recognitionSchemes || []).find((x) => x.authority?.name && x.authority.name === c.authority?.name);
+  if (!scheme) return [];
+  const index = buildSubjectIndex({ subjects: site.ibSubjects || [], schemes: [scheme] });
+  const scale = scheme.subjectScale.id;
+  const rank = new Map(scheme.subjectScale.levels.map((l) => [l.code, l.rank]));
+
+  const asked = new Map();
+  const walk = (r, id) => {
+    if (r.kind === 'subject-combination') return (r.alternatives || []).flat().forEach((x) => walk(x, id));
+    if (r.levelScale !== scale || !r.subject || !r.level) return;
+    const key = `${r.subject}|${r.level}`;
+    if (!asked.has(key)) asked.set(key, new Set());
+    asked.get(key).add(id);
+  };
+  for (const p of site.programmes || []) for (const r of p.requirements || []) walk(r, p.id);
+
+  const subjects = new Set([...asked.keys()].map((k) => k.split('|')[0]));
+  const keys = new Set(asked.keys());
+  const localName = new Map();
+  for (const m of c.subjectLevels.map) {
+    if (!subjects.has(m.danish)) continue;
+    keys.add(`${m.danish}|${m.level}`);
+    localName.set(`${m.danish}|${m.level}`, m.danishSubject);
+  }
+
+  return [...keys]
+    .map((k) => k.split('|'))
+    .sort((a, b) => a[0].localeCompare(b[0]) || (rank.get(b[1]) ?? 0) - (rank.get(a[1]) ?? 0))
+    .map(([subject, level]) => {
+      const t = ibTermsFor({ subject, level, levelScale: scale }, index);
+      const n = asked.get(`${subject}|${level}`)?.size || 0;
+      const own = localName.get(`${subject}|${level}`);
+      return [
+        html`<strong>${subject} ${level}</strong>${own ? html`<br><small lang="da">${own} ${level}</small>` : ''}`,
+        t.phrase
+          ? html`<span class="req-ib">${t.phrase}</span>`
+          : html`<span class="req-none">No IB equivalent.</span> <small>${firstSentence(t.none, 40)}</small>`,
+        n ? plural(n, 'programme') : '—',
+      ];
+    });
+}
+
 export function denmarkConversion(site) {
   const c = site.conversion;
   if (!c) return page({ title: 'Conversion', path: '/denmark/ib-conversion/', body: emptyState('Conversion data is missing.') });
 
+  const levels = levelRows(site, c);
   const avgRows = c.gradeAverage.table.map((r) => [String(r.ib), { num: r.dk.toFixed(1) }]);
   const singleRows = c.singleGrade.table.map((r) => [String(r.ib), r.descriptor, { num: String(r.dk) }]);
 
@@ -378,6 +464,22 @@ ${hero({
           c.importantForTwentySeven.map((x) => `- ${x}`).join('\n'),
           { kind: 'warn', title: 'If you finish in May 2027' }
         )}
+
+        <h2 id="levels">What a Danish requirement means in IB terms</h2>
+        <p><strong>Danish A, B and C are levels of study, not grades.</strong> A is the highest level a subject can be
+        taken at and C the lowest, and a higher level always covers a lower one. So when a programme asks for
+        <em>English B</em>, it means English at B level — not the IB course English B, although English B SL is one
+        way to meet it.</p>
+        ${levels.length
+          ? dataTable({
+              caption: 'Every subject a programme on this site asks for, read through the Agency\x27s handbook. SL or HL means either level meets it.',
+              head: ['Danish requirement', 'In IB terms', 'Asked for by'],
+              rows: levels,
+            })
+          : ''}
+        <p>A minimum grade is converted with the <a href="#single">single-grade table</a> below: the lowest IB grade
+        that converts to the Danish minimum or above. The handbook's full subject table is <a href="#subjects">further
+        down</a>.</p>
 
         <h2 id="calculator">Work out your Danish average</h2>
         <p>Enter your predicted total, including the three bonus points for Theory of Knowledge and the
@@ -411,7 +513,7 @@ ${hero({
         })}
         <p>${c.singleGrade.rule}</p>
 
-        <h2 id="subjects">Subjects and levels</h2>
+        <h2 id="subjects">The handbook's subject table, in full</h2>
         <p>${c.subjectLevels.note}</p>
         ${dataTable({
           caption: 'IB subject and level to Danish subject level',
@@ -473,6 +575,7 @@ ${hero({
         <nav aria-label="On this page">
           <p class="eyebrow eyebrow--plain">On this page</p>
           <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
+            <li><a href="#levels">Danish levels in IB terms</a></li>
             <li><a href="#calculator">Calculator</a></li>
             <li><a href="#average">Grade average table</a></li>
             <li><a href="#single">Single grades</a></li>
@@ -508,13 +611,14 @@ ${hero({
 /* --- Money ---------------------------------------------------------------- */
 
 export function denmarkMoney(site) {
+  const grant = stateGrant(site);
   const body = html`
 ${hero({
   variant: 'compact',
   image: photo(site, ['cbs','ruc']),
   eyebrow: 'Denmark',
   title: 'Money, SU and what it actually costs',
-  lede: 'Tuition is free for EU citizens. Everything else is not.',
+  lede: 'Tuition is free for EU, EEA and Swiss citizens. Everything else is not.',
 })}
 
 <section class="section">
@@ -524,7 +628,9 @@ ${hero({
       <div class="prose">
         <h2 id="tuition">Tuition</h2>
         <p>Danish higher education is free for citizens of the EU, the EEA and Switzerland, and for anyone
-        holding permanent residence or a temporary permit that can lead to it. Everyone else pays. Study in
+        holding permanent residence or a temporary permit that can lead to it. If you hold a residence permit under the
+        Special Act for displaced persons from Ukraine (Act no. 324 of 16 March 2022), you are exempt too, from both
+        tuition and the application fee. Everyone else pays. Study in
         Denmark quotes a range of roughly <strong>€6,000–16,000 per year</strong> — about DKK 45,000–120,000 —
         but no year is attached to that figure, so treat it as indicative and ask the institution.</p>
         <p>optagelse.dk charges nothing, but most universities charge non-EU/EEA applicants an
@@ -533,14 +639,21 @@ ${hero({
         (2026 rate) for the residence permit itself.</p>
 
         <h2 id="su">SU — the Danish state grant</h2>
-        <p>SU is the reason Danish students can live independently at nineteen. For 2026 the rate for a student
-        in higher education living away from home is <strong>DKK 7,426 a month before tax</strong>, with a loan of
-        up to DKK 3,799 a month on top.</p>
-        <p>If you are a Danish citizen you simply apply through minSU with MitID. If you are an EU citizen who is
-        not Danish, you are not automatically entitled: you have to obtain <em>equal status</em>. The realistic
-        route is worker status — as a rule <strong>10–12 hours a week</strong>, sustained for at least ten
-        continuous weeks and continuing while you receive SU. The Agency warns explicitly that working exactly
-        40 hours a month is usually not enough, because most months run longer than four weeks.</p>
+        <p>SU is the reason students in Denmark can live independently at nineteen — if they can claim it. For
+        2026 the rate for a student in higher education living away from their parents is <strong>DKK 7,426 a month
+        before tax</strong>, with a loan of up to DKK 3,799 a month on top.</p>
+        <p>If you are a Danish citizen you simply apply through minSU with MitID. If you are an EU, EEA or Swiss
+        citizen without Danish citizenship, you are not automatically entitled: you apply for <em>equal status</em>.
+        There are three routes, and if you moved to Denmark with your family the first two are usually the ones
+        that fit:</p>
+        ${grant
+          ? html`<ul>${grant.whoCanClaim.equalStatus.map((r) => html`<li><strong>${r.title}.</strong> ${r.text}</li>`)}</ul>
+            <p>${grant.whoCanClaim.note || ''} The Agency warns that working exactly 40 hours a month is usually
+            not enough for the job route, because most months run longer than four weeks.</p>
+            <h3 id="su-abroad">Taking SU to a degree abroad</h3>
+            <p>${grant.abroad.summary} ${grant.abroad.ties} ${grant.abroad.duration}</p>
+            <p>${grant.otherwise}</p>`
+          : ''}
         ${note(
           `An SU reform takes effect on **1 January 2027** and applies to anyone starting a new higher education
           programme on or after 1 July 2025 — which includes this cohort. The total grant frame for higher
@@ -586,13 +699,13 @@ ${hero({
         get a limited work permit: <strong>90 hours a month</strong> from September to May, and full-time
         through June, July and August. Study in Denmark's own pages still quote the old 20-hours-a-week rule —
         the immigration service's 90 hours a month is the current one.</p>
-        <p>Danish students typically work 10–20 hours a week. For a non-Danish EU citizen, that is also the route
-        to SU.</p>
+        <p>Students in Denmark typically work 10–20 hours a week. If you are an EU/EEA citizen without Danish
+        citizenship and no other route to equal status, that job can also be your route to SU.</p>
 
         <h2 id="admin">The order you have to do things in</h2>
         <ol class="steps">
-          <li><h4>Residence document</h4><p>EU and EEA citizens get an EU registration certificate from SIRI within three months of arriving. Book the appointment in advance and bring your passport and letter of admission. Non-EU students need a residence permit before arrival — allow two to three months.</p></li>
-          <li><h4>CPR number</h4><p>Your Danish personal number, issued by your municipality once you have an address and the right to stay. Notify them within five days of meeting the conditions.</p></li>
+          <li><h4>Residence document</h4><p>If you already live in Denmark you will usually have a registration certificate; ask SIRI whether yours needs updating once you are here as a student rather than as a family member. If you are arriving, EU and EEA citizens get an EU registration certificate from SIRI within three months. Book the appointment in advance and bring your passport and letter of admission. Non-EU students need a residence permit before arrival — allow two to three months.</p></li>
+          <li><h4>CPR number</h4><p>Your Danish personal number. If you already live in Denmark you have one, and it stays yours when you move for university — register the new address within five days. Otherwise your municipality issues it once you have an address and the right to stay.</p></li>
           <li><h4>Health card</h4><p>Arrives automatically with your CPR registration. Choose insurance group 1 — 98% of residents do — which gives you an assigned GP with free consultations and referrals.</p></li>
           <li><h4>Bank account and NemKonto</h4><p>Needs the CPR number. Register the account as your NemKonto so public bodies, including SU, can pay you.</p></li>
         </ol>
@@ -600,11 +713,12 @@ ${hero({
         finished.</p>
 
         ${sources([
+          { title: 'Aarhus University — tuition fees and exemptions, including the Special Act for displaced persons from Ukraine', url: 'https://bachelor.au.dk/en/international-applicants/moreinfo/tuition-fees-and-application-fee', retrieved: '2026-09-24' },
           { title: 'Study in Denmark — tuition fees and scholarships', url: 'https://studyindenmark.dk/study-options/tuition-fees-and-scholarships', retrieved: '2026-09-22' },
           { title: 'Study in Denmark — budget', url: 'https://studyindenmark.dk/live-in-denmark/bank-budget', retrieved: '2026-09-22' },
           { title: 'Study in Denmark — housing', url: 'https://studyindenmark.dk/live-in-denmark/housing', retrieved: '2026-09-22' },
           { title: 'SU rates 2026 — udeboende, higher education', url: 'https://www.su.dk/satser/videregaaende-uddannelser-satser-for-su-til-udeboende', retrieved: '2026-09-22' },
-          { title: 'SU — EU rules and equal status', url: 'https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules', retrieved: '2026-09-22' },
+          ...(grant?.sources || [{ title: 'SU — EU rules and equal status', url: 'https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules', retrieved: '2026-09-22' }]),
           { title: 'SU reform in English', url: 'https://www.su.dk/su-reform/su-reform-in-english', retrieved: '2026-09-22' },
           { title: 'SIRI — higher education residence permit', url: 'https://www.nyidanmark.dk/en-GB/Applying/Study/Higher%20education', retrieved: '2026-09-22' },
         ])}
@@ -615,7 +729,7 @@ ${hero({
           { label: 'Tuition, EU/EEA', value: 'None' },
           { label: 'Tuition, non-EU', value: '≈ €6,000–16,000 per year' },
           { label: 'Residence permit fee', value: 'DKK 3,060 (non-EU)' },
-          { label: 'SU, 2026', value: 'DKK 7,426 / month before tax' },
+          { label: 'SU, 2026', value: 'DKK 7,426 / month before tax, if you can claim it' },
           { label: 'Living cost', value: 'DKK 8,450–13,700 / month' },
         ])}
         ${note(

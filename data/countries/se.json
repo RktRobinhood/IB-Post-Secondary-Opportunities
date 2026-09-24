@@ -15,7 +15,7 @@
     "No tuition fee at all if you are an EU/EEA or Swiss citizen.",
     "One application at universityadmissions.se covers every Swedish university.",
     "Your IB points convert to a Swedish merit value on a published, public table - you can work out your own score before you apply.",
-    "As a Danish speaker you already meet the Swedish-language entry requirement with Danish Language A at grade 4 or higher, which opens Swedish-taught programmes too.",
+    "If you take Swedish, Danish or Norwegian Language A and reach grade 4 or higher, you already meet the Swedish-language entry requirement, which opens Swedish-taught programmes too.",
     "Admission is score-based and transparent: no essays, no references, no interview for most programmes."
   ],
   "watchOuts": [
@@ -70,7 +70,7 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "One day, three things. As a Danish citizen you pay no application fee and no tuition, but you do not get the exemption automatically — you have to document your EU/EEA citizenship by this date, and University Admissions handles that on the same deadline it uses to collect the fee from everyone else. All supporting materials are due the same day.",
+        "notes": "One day, three things. As an EU/EEA citizen you pay no application fee and no tuition, but you do not get the exemption automatically — you have to document your EU/EEA citizenship by this date, and University Admissions handles that on the same deadline it uses to collect the fee from everyone else. All supporting materials are due the same day.",
         "source": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
       },
       {
@@ -180,7 +180,7 @@
     "englishProof": "You need Swedish English 6 / English Level 2. An IB English A (HL or SL), English B HL, or English B SL taught in English exceeds this and meets the higher English 7. English B SL taught in another language meets English 6. Without an IB English course, IELTS Academic 6.5 with no section below 5.5, or TOEFL iBT total 90 with 20 in writing (for results up to 20 January 2026) / total 4.5 on the new 1-6 scale with no section below 4 (for results from 21 January 2026), are accepted.",
     "localLanguageRequired": false,
     "notes": [
-      "Swedish-taught programmes need Swedish 3 level. Danish Language A or Literature A at HL or SL with grade 4 satisfies it, which is a real advantage for a Danish IB student.",
+      "Swedish-taught programmes need Swedish 3 level. Swedish, Danish or Norwegian Language A or Literature A at HL or SL with grade 4 satisfies it, which is a real advantage if you take one of them.",
       "The national aptitude test (hogskoleprovet), which fills part of every programme's intake, is only available in Swedish.",
       "Everyday life in Swedish cities runs comfortably in English, but municipal paperwork does not always."
     ]
@@ -209,7 +209,10 @@
     ]
   },
   "funding": [
-    "Danish SU: because Sweden is a Nordic country, SU and SU loans for a full degree are paid as if you studied in Denmark, not capped at the four years that apply outside the Nordics. Under the SU reform that takes effect on 1 January 2027, anyone starting after 1 July 2025 gets SU for the programme's prescribed length only. You must be a Danish citizen, or an EU/EEA citizen with sufficient ties to Denmark.",
+    {
+      "fund": "fund-dk-su",
+      "note": "Because Sweden is a Nordic country, it is paid as if you studied in Denmark — for anyone starting after 1 July 2025, for the programme's prescribed length only."
+    },
     "CSN (the Swedish student finance agency) is the route for those with a settled connection to Sweden; eligibility for an EU citizen who moves purely to study is restricted and must be checked directly with CSN.",
     "Swedish Institute scholarships and individual university scholarships exist mainly for fee-paying non-EU/EEA students. Bachelor-level availability is limited - check each university.",
     "Because there is no tuition fee for EU/EEA citizens, the real cost question in Sweden is rent, not fees."
@@ -217,7 +220,7 @@
   "workRights": "EU/EEA citizens can work without restriction alongside study. Non-EU students on a study residence permit granted on or after 11 June 2026 may work a maximum of 15 hours per week. Source: https://www.migrationsverket.se/en/you-want-to-apply/study/higher-education.html",
   "residency": "As an EU/EEA citizen you do not need a residence permit for Sweden - you have a right of residence as a student. In practice you register with Skatteverket to get a personnummer, which you need for almost everything from a bank account to a doctor's appointment, and that normally requires an intended stay of at least 12 months. Non-EU citizens must apply to Migrationsverket for a residence permit for higher education studies, showing admission, health insurance for courses under a year, and at least 10,656 SEK per month (2026 figure) for the permit period; the fee is 1,500 SEK.",
   "housing": "Not allocated by the universities. Each city has its own student housing foundation with a credit-day queue - SSSB in Stockholm, AF Bostader and LU Accommodation in Lund, SGS in Gothenburg, Uppsalahem in Uppsala. You earn one credit day per day in the queue, so joining early is the whole game; SSSB waits are commonly quoted in the hundreds of days. Most large universities give no housing guarantee. Register in the queue as soon as a city is on your shortlist, well before you apply.",
-  "healthcare": "As a Danish EU citizen, carry your EU health insurance card for necessary care. Once you register with Skatteverket and get a personnummer you use the normal Swedish system with the usual patient fees. Non-EU students must hold comprehensive health insurance for studies under one year; for longer permits they are normally covered once registered.",
+  "healthcare": "As an EU/EEA citizen, carry your European Health Insurance Card for necessary care. Once you register with Skatteverket and get a personnummer you use the normal Swedish system with the usual patient fees. Non-EU students must hold comprehensive health insurance for studies under one year; for longer permits they are normally covered once registered.",
   "institutions": [
     {
       "name": "Lund University",
@@ -314,7 +317,7 @@
         "Maritime studies",
         "Computer science"
       ],
-      "note": "Sweden's other big engineering school, closely tied to Gothenburg's automotive and maritime industries. Its bachelor's degrees are in Swedish and need Swedish 3 - which Danish A at grade 4 or higher meets.",
+      "note": "Sweden's other big engineering school, closely tied to Gothenburg's automotive and maritime industries. Its bachelor's degrees are in Swedish and need Swedish 3 - which Swedish, Danish or Norwegian A at grade 4 or higher meets.",
       "wikipedia": "https://en.wikipedia.org/wiki/Chalmers_University_of_Technology",
       "place": "se-gothenburg"
     },

@@ -115,7 +115,7 @@ ${hero({
           ? topic({
               id: 'closed',
               title: 'Not open to you',
-              short: 'Routes you may have heard of that a Danish IB student cannot take.',
+              short: 'Routes you may have heard of that are closed to you — each one says why.',
               body: deadlineList(closed, { showDestination: true }),
               more: 'Which ones',
             })

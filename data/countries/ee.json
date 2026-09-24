@@ -10,7 +10,7 @@
   "dataAsOf": "2026-09-24",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "A narrow menu — but two free engineering degrees on it",
-  "summary": "Estonia has a reputation for teaching in English, and at master's level that is true. At bachelor's level it is not. The official national listing names 27 English-taught bachelor's degrees in the entire country, one of them with no current intake, so your menu is short and you should treat it as a list to read end to end rather than a system to search. The one genuinely striking offer is at TalTech, where Cyber Security Engineering and Integrated Engineering are free for EU and EEA citizens — as a Danish student you would pay nothing for either.",
+  "summary": "Estonia has a reputation for teaching in English, and at master's level that is true. At bachelor's level it is not. The official national listing names 27 English-taught bachelor's degrees in the entire country, one of them with no current intake, so your menu is short and you should treat it as a list to read end to end rather than a system to search. The one genuinely striking offer is at TalTech, where Cyber Security Engineering and Integrated Engineering are free for EU and EEA citizens — as an EU/EEA citizen you would pay nothing for either.",
   "whyConsider": [
     "TalTech's Cyber Security Engineering and Integrated Engineering are free for EU/EEA citizens. Non-EU students pay 7,000 and 6,000 euros a year for the same degrees.",
     "Where you do pay, it is cheap by European standards: Tartu's Business Administration is 4,200 euros a year, Tallinn University's Liberal Arts in Humanities 4,200, and the Academy of Music and Theatre charges EU students 1,750.",
@@ -22,7 +22,7 @@
     "Only 27 English-taught bachelor's degrees are on the national list, at ten institutions. Estonia's English-taught provision is overwhelmingly postgraduate — plan on reading the whole list rather than filtering a big catalogue.",
     "The Estonian Academy of Arts has no English-taught bachelor's degree at all. Every one of its bachelor's programmes is taught in Estonian and needs B2 Estonian to apply. Its ten English programmes are master's and doctoral only.",
     "Most English-taught bachelor's degrees charge tuition to EU citizens too. The TalTech engineering exception is the exception, not the rule.",
-    "Enrolling at a university does not give you Estonian health insurance. International students are not covered by the health insurance fund unless they are employed or hold permanent residence — bring your Danish EHIC and consider supplementary cover.",
+    "Enrolling at a university does not give you Estonian health insurance. International students are not covered by the health insurance fund unless they are employed or hold permanent residence — bring your EHIC and consider supplementary cover.",
     "The University of Tartu's and TalTech's own deadlines, application fees, entrance tests and any minimum IB points are not confirmed here. Email them directly before you plan around either.",
     "The official living-cost figures are from a 2019 survey and are almost certainly understated today."
   ],
@@ -92,7 +92,7 @@
     "englishProof": "Tallinn University states it most clearly: students who have completed International Baccalaureate studies can submit their graduation documents as proof of English proficiency, so no IELTS is needed. It also exempts anyone who completed previous education fully in English in an EU or EEA country, which covers a Danish IB school. If a test is required, it asks for IELTS Academic 6.0 with at least 5.5 in each component, Cambridge B2 First, C1 Advanced or C2 Proficiency at 169 overall, or PTE Academic 59. Estonian Business School asks for English at at least B2.",
     "localLanguageRequired": false,
     "notes": [
-      "Estonian-language programmes at public universities are generally free through state-funded places, but they are not a realistic route for a Danish school leaver.",
+      "Estonian-language programmes at public universities are generally free through state-funded places, but they are not a realistic route unless you have university-level Estonian.",
       "The Estonian Academy of Arts requires B2 Estonian for every bachelor's programme it runs.",
       "Tallinn University's TOEFL minimum is not given here; check it on its admissions page if you need the TOEFL route.",
       "Test results must generally be no more than two years old at the start of studies; Cambridge certificates are valid for ten."
@@ -109,7 +109,7 @@
       "year": "2026/27",
       "source": "https://www.studyinestonia.ee/study/programmes/bachelors-programmes"
     },
-    "applicationFee": "100 euros at Tallinn University, non-refundable, covering up to two programmes. A Danish student pays it — the waivers are for people educated in Estonia, Estonian citizens, long-term residence holders and, for the 2026/27 intake, Ukrainian citizens. Other institutions' fees are not confirmed here; check each one.",
+    "applicationFee": "100 euros at Tallinn University, non-refundable, covering up to two programmes. A student applying from Denmark pays it unless one of the waivers applies — the waivers are for people educated in Estonia, Estonian citizens, long-term residence holders and, for the 2026/27 intake, Ukrainian citizens. Other institutions' fees are not confirmed here; check each one.",
     "livingCostMonthly": {
       "value": "Study in Estonia says around 300 to 500 euros a month, with dormitories at 150 to 350 and private flats at 350 to 750. Food comes to roughly 300 a month for comfortable living, and a university cafeteria lunch costs 5 to 8 euros.",
       "year": "2019 survey data, published on a current page",
@@ -123,19 +123,22 @@
     ]
   },
   "funding": [
-    "Danish SU for a full degree abroad, at DKK 7,426 a month before tax for students living away from home in 2026. Estonia is not a Nordic country for SU purposes, so support is capped at four years (48 SU-klip), with no extra SU if you are delayed.",
+    {
+      "fund": "fund-dk-su",
+      "note": "In 2026 it is DKK 7,426 a month before tax if you live away from your parents. It can follow you to a full degree here if the programme is SU-approved; outside the Nordics it is capped at four years (48 klip). There is no extra SU if you are delayed."
+    },
     "The biggest saving available to you is not a scholarship at all — it is the zero tuition on TalTech's Cyber Security Engineering and Integrated Engineering for EU/EEA citizens. Do check with TalTech whether that free status carries conditions on academic progress.",
     "The Estonian National Scholarship pays 350 euros a month, but at bachelor's level it can only be applied for in fields related to Estonian language and culture, and eligibility is limited to a list of countries. Whether Denmark is on it is not confirmed here.",
     "Compatriots Scholarships are for young expatriate Estonians on Estonian-language curricula, so they do not apply.",
     "University tuition waivers are the realistic route where you do pay. Tallinn University publishes a table: 50 to 100 percent for Baltic Film, Media and Arts from the second semester, 100 percent for two Governance, Law and Society awards, and 50 percent awards in several humanities programmes, all merit-based. Euro amounts and most deadlines are not published.",
     "The University of Tartu is described as offering tuition reductions of 25, 50 or 100 percent granted a semester at a time, and from 2026/27 no longer offers waivers to newly admitted students from outside the EU/EEA — which structurally improves an EU applicant's odds. This is not confirmed on Tartu's own pages here, so check it with Tartu.",
-    "Estonian performance stipends, the need-based study allowance and the Estonian student loan are not confirmed here — whether a Danish citizen in an English-taught programme qualifies for any of them is unknown. Do not count on them.",
+    "Estonian performance stipends, the need-based study allowance and the Estonian student loan are not confirmed here — whether a non-Estonian EU/EEA citizen in an English-taught programme qualifies for any of them is unknown. Do not count on them.",
     "Ignore anything you read about Dora Plus. Sources conflict about whether it still exists, and it was in any case a master's and doctoral mobility instrument, not a bachelor's tuition scholarship."
   ],
   "workRights": "You need no separate work permit and there is no limit on your hours. The one condition is academic: you must pass a full course load, roughly 30 ECTS a semester, and finish within the nominal duration. The minimum wage was 820 euros gross a month in 2024 and the average full-time salary 1,832 euros gross in 2023 — both figures are dated.",
   "residency": "As an EU citizen you register your place of residence with the local government of wherever you live, within three months of entering Estonia. You then apply for an Estonian ID card within one month of obtaining the temporary right of residence. The ID card fee, its validity period and the personal identification code process are not confirmed here; check them with the Police and Border Guard Board. Registering is worth doing promptly for a practical reason: in Tallinn it makes public transport free.",
   "housing": "Tallinn University's dormitory at Karu 17 is on the main city-centre campus, double rooms only, at 215 to 230 euros a month for a 14 square metre room and 245 to 260 for a 17 square metre one. Rent includes communal costs, wireless internet, bed linen and laundry, and the deposit runs from 470 to 550 euros. Offers go out in June after acceptance. In Tartu, Tartu Student Village runs eight residences through campus.ee, but its prices are not published. Nationally, Study in Estonia puts the average dormitory cost including utilities at around 350 euros a month. Private rentals go through kv.ee and city24.ee.",
-  "healthcare": "This is the one thing students get wrong. Enrolling at an Estonian university does not give you Estonian health insurance — international students are not covered by the Health Insurance Fund unless they are employed or hold permanent or long-term residence. Bring your Danish EHIC, the blue card, and understand that it covers public treatment at Estonian rates with the same patient co-payments Estonians pay, and nothing private. Supplementary cover is sensible. Emergency services on 112 are free and available around the clock, and specialists including psychiatrists, dentists and ophthalmologists can be seen without a referral. Taking a part-time job is one way into the state system.",
+  "healthcare": "This is the one thing students get wrong. Enrolling at an Estonian university does not give you Estonian health insurance — international students are not covered by the Health Insurance Fund unless they are employed or hold permanent or long-term residence. Bring your EHIC, the blue card, and understand that it covers public treatment at Estonian rates with the same patient co-payments Estonians pay, and nothing private. Supplementary cover is sensible. Emergency services on 112 are free and available around the clock, and specialists including psychiatrists, dentists and ophthalmologists can be seen without a referral. Taking a part-time job is one way into the state system.",
   "institutions": [
     {
       "name": "University of Tartu",
@@ -173,7 +176,7 @@
         "IT and e-governance",
         "Business administration"
       ],
-      "note": "The only technical university in Estonia, with around 11,000 students, and the single best-value option in the country for a Danish student: two English-taught engineering degrees that cost EU citizens nothing while non-EU students pay 6,000 to 7,000 euros. Its deadlines, entrance tests and the exact conditions attached to the free places are not confirmed here. Its admissions page on 23 September 2026: international applicants prepare their application in DreamApply; Estonian citizens and long-term residents apply through SAIS.",
+      "note": "The only technical university in Estonia, with around 11,000 students, and the single best-value option in the country for an EU/EEA student: two English-taught engineering degrees that cost EU citizens nothing while non-EU students pay 6,000 to 7,000 euros. Its deadlines, entrance tests and the exact conditions attached to the free places are not confirmed here. Its admissions page on 23 September 2026: international applicants prepare their application in DreamApply; Estonian citizens and long-term residents apply through SAIS.",
       "wikipedia": "https://en.wikipedia.org/wiki/Tallinn_University_of_Technology",
       "place": "ee-tallinn"
     },

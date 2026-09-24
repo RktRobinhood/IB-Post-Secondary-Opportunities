@@ -19,10 +19,10 @@
     "If you already have strong German, French or Italian, the whole public system opens up to you at very low tuition."
   ],
   "watchOuts": [
-    "ETH doubled down on international students: from autumn semester 2025 the tuition for foreign students is CHF 2,190 per semester against CHF 730 for Swiss residents. Coming straight from Denmark, you pay the higher rate.",
+    "ETH doubled down on international students: from autumn semester 2025 the tuition for foreign students is CHF 2,190 (about €2,330) per semester against CHF 730 (about €780) for Swiss residents. Coming straight from Denmark, you pay the higher rate.",
     "ETH requires Maths, a natural science and a Language A all at Higher Level. An IB student with HL Maths, HL Physics and three SLs including Visual Arts or Psychology falls outside the rule and faces an entrance examination in German.",
     "The ETH entrance examination route runs on a very long lead time: for autumn 2027 entry you had to apply by 31 March 2026 and the exam runs 18-28 January 2027, in German. That March deadline has already passed, so if you need the exam you are looking at autumn 2028.",
-    "Language, not grades, is what stops most Danish IB students: ETH teaches bachelor's in German, the University of Zurich requires German at C1, and EPFL requires French at B2.",
+    "Language, not grades, is what stops most IB students applying from Denmark: ETH teaches bachelor's in German, the University of Zurich requires German at C1, and EPFL requires French at B2.",
     "Living costs are the highest in Europe: ETH estimates CHF 22,100 a year for rent, food, transport, insurance and personal costs in Zurich, before tuition.",
     "EPFL has capped its first-year bachelor intake at 3,000 students from 2025, with Swiss maturity holders guaranteed admission and everyone else ranked."
   ],
@@ -34,7 +34,7 @@
     "notes": [
       "The ETH rule is exclusive, not illustrative. Subjects that do not appear on its Standard Level list - for example Visual Arts, Theatre, Psychology, Global Politics or Environmental Systems and Societies - do not count towards the three required SL subjects, and the consequence is the ETH entrance examination, which is held in German.",
       "The ETH entrance examination comes in two forms: reduced (CHF 550) and comprehensive (CHF 800), covering mathematics, physics, chemistry, biology, history, geography and languages. ETH decides which one applies only after you have submitted a complete application.",
-      "EPFL applies lower thresholds to Swiss applicants (36 points and grade 5/7 in maths and physics) than to everyone else, so the 38-point bar is the one that applies to a Danish student.",
+      "EPFL applies lower thresholds to Swiss applicants (36 points and grade 5/7 in maths and physics) than to everyone else, so the 38-point bar is the one that applies to an IB applicant from Denmark.",
       "The swissuniversities requirements are published as valid for 2026/27 and updated annually; on 24 September 2026 the 2027/28 version was not yet out, so re-check before applying.",
       "No official conversion of IB points into Swiss grades (1-6) is published. Swiss admission is generally pass/fail against the threshold rather than ranked by a converted grade."
     ]
@@ -136,8 +136,8 @@
         "consequence": "hard",
         "provisional": true,
         "year": "2027 entry - published with no year, so the years here are inferred",
-        "audience": "holders of a foreign certificate who do not need a visa, which includes Danish and other EU citizens",
-        "notes": "UZH publishes \"1 January until 30 April\" as the ordinary autumn-semester window, \"1 May until 31 July\" as an extended window available for Swiss qualifications only, and \"1 January until 28 February\" for applicants who need a visa. A Danish citizen needs a residence permit rather than a visa, so 30 April is the deadline that applies - and the extended July window, which would have let you apply after results, is the one you cannot use. UZH also requires German at C1.",
+        "audience": "holders of a foreign certificate who do not need a visa, which includes EU/EEA citizens",
+        "notes": "UZH publishes \"1 January until 30 April\" as the ordinary autumn-semester window, \"1 May until 31 July\" as an extended window available for Swiss qualifications only, and \"1 January until 28 February\" for applicants who need a visa. An EU/EEA citizen needs a residence permit rather than a visa, so 30 April is the deadline that applies - and the extended July window, which would have let you apply after results, is the one you cannot use. UZH also requires German at C1.",
         "source": "https://www.uzh.ch/en/studies/application/deadlines.html"
       },
       {
@@ -155,7 +155,7 @@
     ],
     "steps": [
       "In Y1, before your subject choices are locked, check your six subjects against the swissuniversities rule and, if you are aiming at ETH or EPFL, against their stricter rules.",
-      "Decide on the teaching language early. German at C1 or French at B2 is a year or more of work, and it is the requirement most Danish IB students underestimate.",
+      "Decide on the teaching language early. German at C1 or French at B2 is a year or more of work, and it is the requirement most IB students underestimate — unless German or French is already one of your languages.",
       "By autumn 2026, take the application deadline from each university's own page - Swiss deadlines fall much earlier than German or Austrian ones. ETH closes 31 March, EPFL and Zurich 30 April, all before your results exist.",
       "If ETH is the target and your combination does not meet the exam-free rule, apply in time for the entrance examination cycle, which starts more than a year ahead.",
       "Submit the application with predicted grades and school documents, and send the final Diploma as soon as it arrives in early July 2027.",
@@ -177,7 +177,7 @@
   },
   "costs": {
     "tuitionEuEea": {
-      "value": "There is no EU/non-EU split in Switzerland - the split is between students with Swiss residence or citizenship and everyone else. A Danish student moving from Denmark counts as a foreign student. At ETH Zurich that means CHF 2,190 per semester rather than CHF 730.",
+      "value": "There is no EU/non-EU split in Switzerland - the split is between students with Swiss residence or citizenship and everyone else. A student moving from Denmark counts as a foreign student, whatever their EU/EEA passport. At ETH Zurich that means CHF 2,190 per semester (about €2,330 at the ECB rate of 24 September 2026) rather than CHF 730.",
       "year": "From autumn semester 2025",
       "source": "https://ethz.ch/students/en/studies/financial/tuition-fees.html"
     },
@@ -200,7 +200,10 @@
     ]
   },
   "funding": [
-    "Danish SU can in many cases be taken abroad for a full degree - check with SU Styrelsen, because Swiss living costs make this the decisive factor.",
+    {
+      "fund": "fund-dk-su",
+      "note": "Check with su.dk whether and how a Swiss degree qualifies, because Swiss living costs make this the decisive factor."
+    },
     "The Swiss Government Excellence Scholarships are aimed at postgraduate and research level, not at bachelor's entry - do not build a plan around them.",
     "Individual universities run their own hardship and merit funds; ETH's Financial Aid Office is the contact point there.",
     "Private English-taught institutions such as Franklin and EHL run their own scholarship schemes, which can change the real price significantly - ask for the net figure.",

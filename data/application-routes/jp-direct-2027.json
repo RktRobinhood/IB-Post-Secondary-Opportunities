@@ -15,9 +15,10 @@
       "closes": "2026-11-05",
       "decisionBy": "2027-02-20",
       "consequence": "hard",
-      "note": "Route B is the international-qualifications route and names the IB Diploma first. 50 of the 100 places. First screening result 22 December 2026, final decision 20 February 2027. Closes 17:00 JST.",
+      "note": "Route B is the international-qualifications route and lists the IB, with an expected level of 38/42 plus 2 core points that the university says is not a cut-off. 50 of the 100 places. First screening result 22 December 2026, final decision 20 February 2027. Closes 17:00 JST.",
       "evidence": [
-        "ev-jp-utokyo-cod-2027"
+        "ev-jp-utokyo-cod-2027",
+        "ev-jp-utokyo-cod-ib-2027"
       ]
     },
     {
@@ -59,7 +60,7 @@
       "id": "rd-waseda-2027",
       "label": "Waseda English-based undergraduate programmes, September 2027 entry",
       "consequence": "hard",
-      "note": "Not announced. As of 23 September 2026 Waseda's page carries only the window for September 2026 entry, 8 January to 10 February 2026. One application covers all six English-based schools. No date is carried forward here.",
+      "note": "Not announced. As of 23 September 2026 Waseda's page carries only the window for September 2026 entry, 8 January to 10 February 2026. One application covers all six English-based schools. Check Waseda's page for the 2027 dates.",
       "evidence": [
         "ev-jp-waseda-2027-unannounced"
       ]
@@ -68,9 +69,34 @@
       "id": "rd-kyoto-iup-2027",
       "label": "Kyoto University iUP, October 2027 enrolment",
       "consequence": "hard",
-      "note": "Application guidelines for October 2027 enrolment were published on 1 July 2026, but the closing date is inside the guidelines document rather than on the site, and was not read in this pass.",
+      "note": "Closes 17:00 JST. Kyoto's Apply page gives the period as 2 November to 3 December 2026. Screening stages and result dates are in Kyoto's guidelines PDF.",
       "evidence": [
-        "ev-jp-kyoto-iup-2027"
+        "ev-jp-kyoto-iup-apply-2027"
+      ],
+      "opens": "2026-11-02",
+      "closes": "2026-12-03"
+    },
+    {
+      "id": "rd-kyushu-iup-2027",
+      "label": "Kyushu University international undergraduate programmes, October 2027 entry",
+      "opens": "2026-12-07",
+      "closes": "2026-12-11",
+      "consequence": "hard",
+      "note": "A five-day window: the online system is open only from 7 to 11 December, so do not plan to start the form on the 11th. Documents also go by post. For the English-taught engineering programmes and Bioresource and Bioenvironment. No closing time is stated.",
+      "evidence": [
+        "ev-jp-kyushu-iup-2027"
+      ]
+    },
+    {
+      "id": "rd-tohoku-gateway-2027",
+      "label": "Tohoku University Gateway College, October 2027 entry",
+      "opens": "2026-12-15",
+      "closes": "2027-01-14",
+      "decisionBy": "2027-03-24",
+      "consequence": "hard",
+      "note": "First-stage result 5 February, second stage 21–22 February 2027, successful applicants announced 24 March. Predicted IB scores are accepted. About 90 places for October entry.",
+      "evidence": [
+        "ev-jp-tohoku-gateway-2027"
       ]
     }
   ],
@@ -111,6 +137,17 @@
       "provisional": true
     },
     {
+      "id": "ms-cod-final-results",
+      "type": "document",
+      "label": "UTokyo College of Design: final IB results due",
+      "date": "2027-08-16",
+      "consequence": "hard",
+      "note": "An offer made on predicted grades is conditional, and final scores must reach the university by 16 August 2027.",
+      "evidence": [
+        "ev-jp-utokyo-cod-ib-2027"
+      ]
+    },
+    {
       "id": "ms-coe",
       "type": "visa",
       "label": "Certificate of Eligibility, then the Student visa",
@@ -135,10 +172,12 @@
       "label": "English proficiency test result",
       "itemType": "result",
       "responsibleParty": "student",
-      "note": "UTokyo's College of Design requires one of its designated tests from every applicant; Keio requires TOEFL iBT or IELTS Academic alongside the IB or SAT. Whether an IB English A or B result substitutes is not established for either.",
+      "note": "The UTokyo College of Design and Tohoku's Gateway College want TOEFL iBT 80, IELTS 6.0, Duolingo 110 or Cambridge 169 or more; Keio requires TOEFL iBT or IELTS Academic. Whether an IB English A or B result substitutes is not confirmed for any of them, so ask.",
       "evidence": [
         "ev-jp-utokyo-cod-2027",
-        "ev-jp-keio-pearl-2027"
+        "ev-jp-keio-pearl-2027",
+        "ev-jp-utokyo-cod-ib-2027",
+        "ev-jp-tohoku-gateway-2027"
       ]
     },
     {
@@ -157,7 +196,10 @@
       "label": "Application fee, charged separately by each university",
       "itemType": "payment",
       "responsibleParty": "student",
-      "note": "Figures not collected in this pass. Each application is a separate payment, which is a real constraint on how many are worth making."
+      "note": "Each application is a separate payment. Keio PEARL charges JPY 35,000 for September 2027 entry; check the others on each university's page.",
+      "evidence": [
+        "ev-jp-keio-pearl-2027"
+      ]
     }
   ],
   "supplementarySteps": [
@@ -171,16 +213,20 @@
     "ev-jp-keio-pearl-2027",
     "ev-jp-waseda-2027-unannounced",
     "ev-jp-kyoto-iup-2027",
-    "ev-jp-education-system"
+    "ev-jp-education-system",
+    "ev-jp-kyoto-iup-apply-2027",
+    "ev-jp-kyushu-iup-2027",
+    "ev-jp-tohoku-gateway-2027",
+    "ev-jp-utokyo-cod-ib-2027"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
-      "Four institutions were read for their own dates — the University of Tokyo, Keio, Waseda and Kyoto — out of the fifteen on the Japanese profile. The other eleven are listed and unread.",
+      "Six institutions were read for their own dates — the University of Tokyo, Keio, Waseda, Kyoto, Kyushu and Tohoku. The others on the Japanese profile are listed and their rounds unread.",
       "Re-check in November 2026, when Waseda is expected to publish its September 2027 window.",
-      "Not established: the Kyoto iUP closing date, which is inside a guidelines document rather than on the site; the application fees; and what any of these universities does with a conditional place when results arrive on 6 July."
+      "Not established: most application fees, and what each university does with a conditional place when results arrive on 6 July (the UTokyo College of Design wants final results by 16 August 2027)."
     ]
   }
 }

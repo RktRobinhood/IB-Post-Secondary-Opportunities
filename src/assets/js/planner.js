@@ -8,7 +8,7 @@
  * request, no identifying field.
  */
 import {
-  assessAll, buildSubjectIndex, convertAverage, convertProfile, OUTCOME,
+  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, OUTCOME,
 } from './eligibility.js';
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
@@ -19,6 +19,12 @@ const OPPORTUNITIES = json('planner-opportunities');
 const EVIDENCE = json('planner-evidence');
 const POLICY = json('planner-evidence-policy');
 const CONVERSION = json('planner-conversion');
+const GROUPS = json('planner-groups');
+
+/* The local scale's adjective comes from the Recognition Scheme on the page,
+   never from this file: with none, or more than one, the words say "local". */
+const ADJ = CONVERSION.adjective || null;
+const withArticle = (w) => `${/^[AEIOU]/i.test(w) ? 'an' : 'a'} ${w}`;
 
 const subjectIndex = buildSubjectIndex(SUBJECTS);
 const STORAGE_KEY = 'ibp-profile-v2';
@@ -92,6 +98,7 @@ function readProfile() {
     subjects,
     totalPoints: Number.isFinite(total) && total >= 18 && total <= 45 ? total : null,
     applicantGroup: document.getElementById('p-group')?.value || null,
+    applicantGroups: applicantGroupsOf(document.getElementById('p-group')?.value || null, GROUPS),
     award,
     holdsDiploma,
     languages: [],
@@ -164,7 +171,7 @@ const MATCH_CLASS = {
 function renderConverted(profile) {
   const chosen = profile.subjects.length;
   if (!chosen) {
-    els.converted.innerHTML = 'Your Danish levels will appear here.';
+    els.converted.innerHTML = `Your ${ADJ ? `${ADJ} levels` : 'converted subject levels'} will appear here.`;
     return;
   }
   const { held, unmappedSubjects } = convertProfile(profile, subjectIndex);
@@ -179,11 +186,11 @@ function renderConverted(profile) {
     <span style="flex-basis:100%"><strong>${chosen} of 6 subjects entered</strong></span>
     ${chips.join(' ')}
     ${avg !== null
-      ? `<span style="flex-basis:100%;margin-top:.5rem">${profile.totalPoints} points converts to a Danish average of <strong>${avg.toFixed(1)}</strong>.</span>`
+      ? `<span style="flex-basis:100%;margin-top:.5rem">${profile.totalPoints} points converts to ${withArticle(ADJ ? `${ADJ} average` : 'local average')} of <strong>${avg.toFixed(1)}</strong>.</span>`
       : ''}
     ${unmappedSubjects.length
       ? `<span style="flex-basis:100%;margin-top:.5rem;color:var(--warn)">
-           ${unmappedSubjects.map((u) => `${esc(u.name)} ${esc(u.level)} has no published Danish equivalent.`).join(' ')}
+           ${unmappedSubjects.map((u) => `${esc(u.name)} ${esc(u.level)} has no published ${ADJ || 'local'} equivalent.`).join(' ')}
          </span>`
       : ''}`;
 }

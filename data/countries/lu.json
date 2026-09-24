@@ -61,7 +61,7 @@
         "consequence": "indicative",
         "provisional": false,
         "year": "2027-2028 entry - the 2027-2028 closing dates were not published on 2026-09-23",
-        "audience": "EU citizens, including Danes",
+        "audience": "EU citizens",
         "notes": "There is no single University of Luxembourg deadline: each programme publishes its own, on its own admissions page, and they differ by more than a week. Precedent, from the Bachelor in Computer Science admissions page on 23 September 2026: \"EU: 1 Feb 2026 – 15 Jul 2026\". That is nine days after IB results are released, so an EU student could apply on actual results rather than predicted ones. Do not generalise it, though: a date of 8 July 2026 circulates for the Bachelor en Medecine, but it is not on the university's own page, so do not rely on it. Take the date from your own programme’s admissions page, and take it early.",
         "source": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/",
         "sources": [
@@ -143,15 +143,18 @@
     ]
   },
   "funding": [
-    "Danish SU taken abroad is the realistic backbone of your funding - apply to Uddannelses- og Forskningsstyrelsen before you leave.",
+    {
+      "fund": "fund-dk-su",
+      "note": "It can follow you to a full degree here if the programme is SU-approved; outside the Nordics it is capped at four years (48 klip). Apply to Uddannelses- og Forskningsstyrelsen before you leave."
+    },
     "Luxembourg state financial aid for higher education (AideFi, the successor to CEDIES aid) exists in the form of grants and loans, and is administered through guichet.public.lu. It is aimed at residents and at the children of people working in Luxembourg; the exact eligibility conditions for a newly arrived EU student are not confirmed here, so check them at guichet.public.lu before assuming you qualify.",
     "Erasmus+ funding is available for the compulsory mobility semester, which reduces its cost.",
     "Student jobs exist in Luxembourg City and pay comparatively well, but often expect French and sometimes Luxembourgish."
   ],
   "workRights": "As an EU citizen you may work in Luxembourg without a permit. A student enrolled in Luxembourg can work on a student fixed-term contract for up to 15 hours a week on average over a month (60 hours) during term, and up to the normal 40 hours a week in the holidays, at no less than the age-adjusted minimum wage (guichet.public.lu).",
-  "residency": "As an EU citizen you enter with your Danish passport or ID card and need no visa. You must make a declaration of arrival at the commune where you live, and after three months register as an EU citizen residing in Luxembourg, showing proof of enrolment, sufficient resources and health cover. Non-EU students need a temporary authorisation to stay before travelling, followed by a residence permit after arrival.",
+  "residency": "As an EU citizen you enter with your EU passport or national ID card and need no visa. You must make a declaration of arrival at the commune where you live, and after three months register as an EU citizen residing in Luxembourg, showing proof of enrolment, sufficient resources and health cover. Non-EU students need a temporary authorisation to stay before travelling, followed by a residence permit after arrival.",
   "housing": "The hardest practical problem of studying in Luxembourg. The country has one of the most expensive rental markets in the EU and the student population competes with a large professional and cross-border workforce. The University of Luxembourg runs its own student housing service and this should be your first and main approach - apply as soon as you are admitted, not after. If you miss university housing, consider living just across the border in France, Germany or Belgium and commuting: public transport inside Luxembourg is free, and many students in the Greater Region do exactly this. No official rent figures are quoted here.",
-  "healthcare": "Bring your European Health Insurance Card from Denmark. If you register as a resident and study in Luxembourg for a full degree, you will normally be affiliated to the Luxembourg health insurance system (CNS) - the university's student department explains the process during enrolment. Non-EU students must show proof of health cover to obtain their residence permit.",
+  "healthcare": "Bring your European Health Insurance Card from the country where you are insured. If you register as a resident and study in Luxembourg for a full degree, you will normally be affiliated to the Luxembourg health insurance system (CNS) - the university's student department explains the process during enrolment. Non-EU students must show proof of health cover to obtain their residence permit.",
   "institutions": [
     {
       "name": "University of Luxembourg",

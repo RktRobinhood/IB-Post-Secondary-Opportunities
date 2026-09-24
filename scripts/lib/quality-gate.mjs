@@ -93,6 +93,12 @@ export const CHECKS = [
     title: 'Every Destination has exactly one identity',
   },
   {
+    id: 'image-records',
+    script: 'scripts/test-image-records.mjs',
+    stage: 'data',
+    title: 'Every image record names the photograph it actually holds',
+  },
+  {
     id: 'labels',
     script: 'scripts/test-deadline-labels.mjs',
     stage: 'data',
@@ -171,6 +177,12 @@ export const CHECKS = [
     title: 'A non-Danish Institution does not render as a Danish one',
   },
   {
+    id: 'audience',
+    script: 'scripts/test-audience.mjs',
+    stage: 'data',
+    title: 'The reader is an EU/EEA student at a school in Denmark, not a citizen of it',
+  },
+  {
     id: 'evidence-policy',
     script: 'scripts/test-evidence-policy.mjs',
     stage: 'data',
@@ -215,6 +227,12 @@ export const CHECKS = [
     script: 'scripts/test-page-budget.mjs',
     stage: 'built',
     title: 'A Destination page leads with its institutions and stays inside its word budget',
+  },
+  {
+    id: 'ib-terms',
+    script: 'scripts/test-requirement-translation.mjs',
+    stage: 'built',
+    title: 'No programme card or page shows a local-level requirement without its IB translation',
   },
   {
     id: 'freshness',

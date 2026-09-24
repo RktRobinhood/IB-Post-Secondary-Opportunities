@@ -143,8 +143,7 @@ ${hero({
           <div class="field">
             <label for="p-group">Your fee status</label>
             <select id="p-group">
-              <option value="eu-eea-ch">EU, EEA or Swiss citizen</option>
-              <option value="non-eu">Outside the EU/EEA</option>
+              ${(site.applicantGroups || []).map((g) => html`<option value="${g.id}">${g.label}</option>`)}
               <option value="">Prefer not to say</option>
             </select>
           </div>
@@ -202,11 +201,15 @@ ${hero({
 <script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes }))}</script>
 <script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
 <script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
+<script type="application/json" id="planner-groups">${raw(JSON.stringify(site.applicantGroups || []))}</script>
 <script type="application/json" id="planner-evidence-policy">${raw(JSON.stringify(evidencePolicy))}</script>
 <script type="application/json" id="planner-conversion">${raw(
     JSON.stringify({
       average: soleScheme?.gradeConversion?.average?.table || [],
       single: soleScheme?.gradeConversion?.single?.table || [],
+      /* What to call the local scale in browser-written sentences. Null when
+         the page spans more than one Scheme; the script then says "local". */
+      adjective: schemeAdjective,
     })
   )}</script>`;
 

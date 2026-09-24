@@ -15,16 +15,18 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "An English-speaking EU island that treats the IB as its own",
-  "summary": "Malta is an EU country where university teaching is in English, and the University of Malta handles the IB as a local qualification with a published entry rule: the Diploma with 28 points. You apply directly to each institution. Start in October, which leaves room after IB results in July.",
+  "summary": "Malta is an EU country where university teaching is in English, and the University of Malta handles the IB as a local qualification with a published entry rule: the Diploma with 28 points. EU students pay no tuition there. You apply directly to each institution; the year starts in October, which leaves room after IB results in July.",
   "whyConsider": [
     "Teaching in English, inside the EU.",
+    "No tuition for EU/EEA students at the University of Malta or MCAST.",
     "A clear published IB rule at the University of Malta: 28 points, with passes in a language, a science and a humanistic subject.",
     "The academic year starts on 4 October 2027, three months after IB results."
   ],
   "watchOuts": [
-    "The University of Malta had not published its 2027 deadlines on 23 September 2026. Look again in November.",
+    "The University of Malta had not published its 2027 deadlines on 24 September 2026. Applications normally open in November.",
     "Choose \"Local Qualifications\" for the IB on the University of Malta application. It is easy to get wrong.",
-    "The general requirement also mentions Mathematics, English and Maltese at SEC level. Ask how that applies to you before you apply."
+    "The general requirement includes SEC Maltese. If you were educated abroad you may offer another language instead, with Admissions Board approval.",
+    "Medicine is different: you must pass a Medical Maltese exam, and in 2026 IB applicants had to apply by 16 March."
   ],
   "ibRecognition": {
     "accepted": true,
@@ -37,8 +39,30 @@
   "language": {
     "englishTaughtBachelors": "The University of Malta teaches in English.",
     "localLanguageRequired": false,
-    "englishProof": "Set by the University of Malta; whether an IB taken in English exempts you is on its exemptions page, not established here."
+    "englishProof": "IB English A (HL or SL) or English B HL at 4 or more exempts you from the University of Malta's English test. Otherwise present a test such as IELTS 6.0 by 30 September."
   },
+  "feeContext": [
+    {
+      "applicantGroup": "eu-eea-ch",
+      "feeStatus": "no-fee",
+      "summary": "No tuition at the University of Malta on the bachelor's pages read ('No fees apply'), nor at MCAST. The UM application fee is EUR 35 with the IB.",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-mt-um-course-fees-2026",
+        "ev-mt-mcast-language-fees",
+        "ev-mt-um-application-fee"
+      ]
+    },
+    {
+      "applicantGroup": "non-eu",
+      "feeStatus": "international-rate",
+      "summary": "Set per course at the University of Malta: EUR 8,500 to EUR 26,000 a year on the four 2026-27 courses read (the M.D. is EUR 26,000).",
+      "priceYear": "2026/27",
+      "evidence": [
+        "ev-mt-um-course-fees-2026"
+      ]
+    }
+  ],
   "sectorLandscape": {
     "summary": "Three public institutions accredit their own degrees: the University of Malta, MCAST and the Institute of Tourism Studies. Alongside them are private institutions licensed by the Malta Further and Higher Education Authority (MFHEA).",
     "routes": [
@@ -56,8 +80,8 @@
         "kind": "applied",
         "what": "The public college of arts, science and technology, which accredits its own programmes up to master’s level (MQF 7) and offers undergraduate degrees.",
         "ibAccessible": "unknown",
-        "englishTaught": "unknown",
-        "note": "Applies through its own portal. IB entry rules not researched here."
+        "englishTaught": "common",
+        "note": "Teaches in English and is free for EU students. Applies through its own portal. IB entry rules are not covered here."
       },
       {
         "localName": "ITS",
@@ -65,22 +89,24 @@
         "kind": "specialist",
         "what": "The public institute for tourism, hospitality and culinary arts, accrediting its own programmes.",
         "ibAccessible": "unknown",
-        "englishTaught": "unknown",
-        "note": "Not researched in detail here."
+        "englishTaught": "common",
+        "note": "Three bachelor's degrees, taught in English, on its Luqa campus. IB entry rules are not covered here."
       },
       {
         "localName": "private higher education institution",
         "englishName": "MFHEA-licensed private institution",
         "kind": "professional",
-        "what": "Licensed private providers such as the American University of Malta, Middlesex University Malta and St Martin’s Institute. Each sets its own admissions and fees.",
+        "what": "Licensed private providers such as the American University of Malta, St Martin's Institute and Global College Malta. Each sets its own admissions and fees.",
         "ibAccessible": "unknown",
         "englishTaught": "unknown",
-        "note": "The regulator's list of licensed institutions (mfhea.mt) refuses automated fetch, so it was not read."
+        "note": "The regulator, MFHEA (mfhea.mt), publishes the list of licensed institutions."
       }
     ],
     "evidence": [
       "ev-mt-enic-naric-sector",
-      "ev-mt-mcast-international"
+      "ev-mt-mcast-international",
+      "ev-mt-mcast-language-fees",
+      "ev-mt-its-english"
     ]
   },
   "applicationSystems": [],
@@ -89,15 +115,20 @@
     "ev-mt-um-local-qualification",
     "ev-mt-um-dates-2027",
     "ev-mt-enic-naric-sector",
-    "ev-mt-um-english"
+    "ev-mt-um-english",
+    "ev-mt-um-english-exemptions",
+    "ev-mt-um-maltese-requirement",
+    "ev-mt-um-md-deadline-2026",
+    "ev-mt-um-course-fees-2026",
+    "ev-mt-um-application-fee"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-30",
     "notes": [
-      "Not established: tuition. The University of Malta shows fees per course in its course search, not on a general page, so no feeContext is recorded.",
-      "Not established: the 2027 deadlines, and how the Maltese-language requirement applies to an IB applicant from abroad."
+      "Tuition checked on four University of Malta 2026-7 course pages (EU: no fees; non-EU EUR 8,500-26,000), not the whole catalogue. The 2027-8 course pages were not yet published on 24 September 2026.",
+      "Not established: the 2027 deadlines, and whether the Admissions Board approves another language in place of Maltese as a matter of course."
     ]
   }
 }

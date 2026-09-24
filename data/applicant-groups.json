@@ -1,0 +1,22 @@
+{
+  "title": "Applicant groups a student can say they belong to, and which groups contain which",
+  "description": "The fee-status choices the subject checker offers, in order, and the containment the eligibility engine needs to read them. A Nordic citizen is also an EU/EEA citizen, so a rule written for 'eu-eea-ch' applies to them — declared here rather than written into the engine, which names no group and no country. Group ids are the applicantGroup values in schemas/common.schema.json.",
+  "dataAsOf": "2026-09-24",
+  "groups": [
+    {
+      "id": "eu-eea-ch",
+      "label": "EU, EEA or Swiss citizen",
+      "within": []
+    },
+    {
+      "id": "nordic",
+      "label": "Nordic citizen (Danish, Finnish, Icelandic, Norwegian or Swedish)",
+      "within": ["eu-eea-ch"]
+    },
+    {
+      "id": "non-eu",
+      "label": "Outside the EU/EEA",
+      "within": []
+    }
+  ]
+}

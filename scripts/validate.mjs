@@ -33,6 +33,7 @@ const SINGULAR = {
   'application-routes': 'application-route',
   'context-notes': 'context-note',
   recognition: 'recognition-scheme',
+  funding: 'funding-scheme',
 };
 
 /** Which folder holds which entity, and which schema validates it. */
@@ -46,6 +47,8 @@ const COLLECTIONS = [
   { dir: 'application-routes', schema: 'application-route.schema.json', kind: 'Application Route' },
   { dir: 'context-notes', schema: 'context-note.schema.json', kind: 'Context Note' },
   { dir: 'recognition', schema: 'recognition-scheme.schema.json', kind: 'Recognition Scheme' },
+  /* A grant whose eligibility turns on who the student is (docs/research/audience). */
+  { dir: 'funding', schema: 'funding-scheme.schema.json', kind: 'Funding Scheme' },
 ];
 
 async function readJson(file) {
@@ -131,6 +134,15 @@ async function main() {
     if (value?.code) ids.destination.add(value.code);
   }
 
+  /* Funding lines may reference a scheme in data/funding/ instead of restating it. */
+  const fundIds = new Set(records.filter((r) => r.dir === 'funding').map((r) => r.value?.id));
+  for (const f of await listJson(path.join(DATA, 'countries'))) {
+    const { value } = await readJson(path.join(DATA, 'countries', f));
+    (value?.funding || []).forEach((x, i) => {
+      if (x && typeof x === 'object' && !fundIds.has(x.fund)) refErrors.push(`data/countries/${f} → funding[${i}].fund: no Funding Scheme with id "${x.fund}"`);
+    });
+  }
+
   /* Cross-references */
   const check = (rel, field, id, pool, label) => {
     if (id && !pool.has(id)) refErrors.push(`${rel} → ${field}: no ${label} with id "${id}"`);
@@ -143,6 +155,8 @@ async function main() {
       (v.places || []).forEach((p, i) => check(r.rel, `places[${i}]`, p, ids.place, 'Place'));
     }
     if (r.dir === 'places') check(r.rel, 'destination', v.destination, ids.destination, 'Destination');
+    if (r.dir === 'funding') check(r.rel, 'destination', v.destination, ids.destination, 'Destination');
+    if (r.dir === 'destinations') (v.livingContext?.funding || []).forEach((x, i) => x?.fund && check(r.rel, `livingContext.funding[${i}].fund`, x.fund, fundIds, 'Funding Scheme'));
     if (r.dir === 'programmes') check(r.rel, 'institution', v.institution, ids.institution, 'Institution');
     if (r.dir === 'opportunities') {
       check(r.rel, 'programme', v.programme, ids.programme, 'Programme');
