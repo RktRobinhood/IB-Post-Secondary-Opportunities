@@ -133,5 +133,28 @@
       "note": "The URL the country profile would suggest (…/tuition-fees-and-scholarships) returns 404; this is the live one."
     },
     "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+  },
+  {
+    "id": "ev-fi-tampere-joint-application-2027",
+    "sourceUrl": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
+    "publisher": "Tampere University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "The joint application for English-taught bachelor's programmes starting autumn 2027 opens 7 January 2027 at 08:00 and closes 21 January 2027 at 15:00 Finnish time (UTC+2). Attachments are due 28 January 2027 at 15:00; results come by 15 April 2027 (SAT group) and 31 May 2027 (certificate group); places are accepted by 13 July 2027.",
+    "excerpt": "7 Jan 2027 at 8.00 UTC+2 to 21 Jan 2027 at 15.00 UTC+2",
+    "interpretation": "The closing time of the national round, which Jyväskylä and Study in Finland give without an hour. Metropolia, Jamk and Xamk publish the same 15:00 closing.",
+    "supports": [
+      { "entity": "fi-studyinfo-2027", "field": "milestones" }
+    ],
+    "attestation": {
+      "by": "the Nordic country audit (fi, is, no, se, ee)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   }
 ]

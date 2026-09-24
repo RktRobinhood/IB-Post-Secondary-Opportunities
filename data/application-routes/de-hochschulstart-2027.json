@@ -7,7 +7,7 @@
   "channel": "application-system",
   "applicationSystem": "de-hochschulstart",
   "portalUrl": "https://www.hochschulstart.de/",
-  "choiceLimit": 6,
+  "choiceLimit": 12,
   "choicesRanked": true,
   "milestones": [
     {
@@ -29,8 +29,10 @@
       "date": "2027-03-01",
       "consequence": "personal",
       "provisional": true,
-      "note": "Foreign qualifications are normally checked by uni-assist before a university will consider the application, and the check takes weeks. Starting it late is a common and avoidable way to miss an institutional deadline.",
-      "evidence": []
+      "note": "Foreign qualifications are normally checked by uni-assist before a university will consider the application. uni-assist says a result usually takes 4 to 6 weeks and asks you to apply at least 8 weeks before the deadline. Starting late is a common and avoidable way to miss an institutional deadline.",
+      "evidence": [
+        "ev-uniassist-processing"
+      ]
     },
     {
       "id": "ms-medicine-gap",
@@ -73,15 +75,18 @@
     }
   ],
   "evidence": [
-    "ev-hochschulstart-termine"
+    "ev-hochschulstart-termine",
+    "ev-hochschulstart-bewerbung",
+    "ev-uniassist-processing"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-02-01",
     "notes": [
       "Every date here is carried from the published 2026 cycle and marked provisional. hochschulstart publishes the 2027 dates in spring 2027.",
-      "Non-medicine deadlines are set per university and are not on this route; 15 July is a common institutional pattern but is not a national rule."
+      "Non-medicine deadlines are set per university and are not on this route; 15 July is a common institutional pattern but is not a national rule.",
+      "2026-09-24: choiceLimit corrected from 6 to 12 - hochschulstart allows up to 12 study offers in the DoSV; a medicine application with any number of locations counts as one. Termine page rechecked: still only Wintersemester 2026/27 and the Sommersemester 2026 archive."
     ]
   }
 }

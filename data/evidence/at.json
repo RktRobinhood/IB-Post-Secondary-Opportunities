@@ -5,7 +5,7 @@
     "publisher": "Bundesministerium für Frauen, Wissenschaft und Forschung (BMFWF)",
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "A properly acquired IB Diploma satisfies the general university entrance qualification (allgemeine Universitätsreife) in Austria.",
@@ -20,7 +20,7 @@
       "method": "read-source",
       "note": "Page in German. It does not mention besondere Universitätsreife or Ergänzungsprüfung, so the degree-level rules are not established from it."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-at-univie-studienbeitrag",
@@ -28,7 +28,7 @@
     "publisher": "Universität Wien",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "At the University of Vienna, EU/EEA/Swiss students pay no tuition within the standard duration plus two tolerance semesters, then 363.36 EUR per semester; third-country nationals pay 726.72 EUR per semester from the first semester. Everyone pays the ÖH student union fee of 26.20 EUR per semester.",
@@ -43,7 +43,7 @@
       "method": "read-source",
       "note": "German page. The English mirror (studieren.univie.ac.at/en/tuition-fee/...) returned 404 on 2026-09-23. Study in Austria's own tuition page still shows an older ÖH figure of 25.20 EUR."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-at-studyinaustria-application",
@@ -51,7 +51,7 @@
     "publisher": "OeAD — Study in Austria",
     "publisherType": "national-agency",
     "sourceClass": "promotion-agency",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "There is no central application in Austria: applicants apply to each institution. Higher education is divided into public universities, universities of applied sciences (Fachhochschulen), private universities and university colleges of teacher education (Pädagogische Hochschulen). Public universities' general closing date for the winter semester is 5 September.",
@@ -66,7 +66,7 @@
       "at": "2026-09-23",
       "method": "read-source"
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-at-univie-application-periods",
@@ -74,7 +74,7 @@
     "publisher": "Universität Wien",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "University of Vienna, winter semester 2026/27: application period 22 June to 5 September 2026 for EU/EEA/Swiss citizens, 22 June to 3 August 2026 for third-country nationals; admission period 13 July to 31 October 2026.",
@@ -89,6 +89,60 @@
       "method": "read-source",
       "note": "Page shows winter semester 2026/27 only; 2027/28 not yet published on 2026-09-23."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
+  },
+  {
+    "id": "ev-at-aau-english-bachelors",
+    "sourceUrl": "https://www.aau.at/en/international/international-profile/degree-programmes-in-english/",
+    "publisher": "Universität Klagenfurt",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The University of Klagenfurt lists six bachelor's programmes taught entirely in English, including Robotics and Artificial Intelligence and International Business and Economics.",
+    "excerpt": "Robotics & Artificial Intelligence",
+    "supports": [
+      {
+        "entity": "at",
+        "field": "language"
+      }
+    ],
+    "attestation": {
+      "by": "the Austria audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-at-wu-bbe-selection",
+    "sourceUrl": "https://www.wu.ac.at/en/programs/bachelors-programs/business-and-economics/overview/selection-procedure-bbe-1",
+    "publisher": "Wirtschaftsuniversität Wien",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "WU's English-taught Business and Economics bachelor admits by selection: for 2026/27, registration ran 2 March to 19 May 2026 with an exam on 30 June 2026 and 240 places; 2027/28 details are due in mid-November 2026.",
+    "excerpt": "In the winter semester 2026/27 we will accept 240 students",
+    "supports": [
+      {
+        "entity": "at",
+        "field": "language"
+      }
+    ],
+    "attestation": {
+      "by": "the Austria audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
   }
 ]

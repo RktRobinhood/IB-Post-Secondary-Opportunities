@@ -143,7 +143,7 @@
     "verificationState": "needs-review",
     "claim": "Iceland has seven higher education institutions, four public (University of Iceland, University of Akureyri, Agricultural University of Iceland, Hólar University) and three private (Reykjavík University, Bifröst University, Iceland University of the Arts). There is no strict university versus applied split; the system combines comprehensive universities and specialised institutions.",
     "excerpt": "There are currently seven higher education institutions in Iceland … both comprehensive universities (e.g. University of Iceland) and specialized institutions (e.g. arts, agriculture, marine sciences).",
-    "interpretation": "Eurydice is an EU information network, not the Icelandic rule-owner, so it is classed as reference material and used only for the descriptive sector picture. The country profile links Hólar through the University of Iceland site, which suggests an alliance between the two; that was not researched here.",
+    "interpretation": "Eurydice is an EU information network, not the Icelandic rule-owner, so it is classed as reference material and used only for the descriptive sector picture. Its count of seven predates Hólar University joining the University of Iceland's university complex as Háskóli Íslands á Hólum (ev-is-holar-in-hi); the site now counts six.",
     "supports": [
       {
         "entity": "is",
@@ -295,6 +295,34 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-is-holar-in-hi",
+    "sourceUrl": "https://hi.is/haskolinn/haskolasamstaeda/haskoli-islands-holum",
+    "publisher": "University of Iceland (Háskóli Íslands)",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "verificationState": "needs-review",
+    "claim": "Hólar University is now part of the University of Iceland's university complex (háskólasamstæða), under the name Háskóli Íslands á Hólum; holar.is redirects to this page on hi.is.",
+    "excerpt": "Háskóli Íslands á Hólum ← Háskólasamstæða",
+    "interpretation": "The effective date and legal form were not read on an official legal page (althingi.is refused automated access). The institution no longer has a separate identity a student applies to, so it is no longer listed separately.",
+    "supports": [
+      {
+        "entity": "is",
+        "field": "sectorLandscape"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic country audit (fi, is, no, se, ee)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "https://holar.is/ redirected to this page on 24 September 2026."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
     }
   }
 ]

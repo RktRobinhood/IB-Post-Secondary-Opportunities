@@ -93,6 +93,12 @@ export const CHECKS = [
     title: 'Every Destination has exactly one identity',
   },
   {
+    id: 'labels',
+    script: 'scripts/test-deadline-labels.mjs',
+    stage: 'data',
+    title: "A calendar card's deadline label agrees with its own note",
+  },
+  {
     id: 'conversion',
     script: 'scripts/test-conversion-sync.mjs',
     stage: 'data',

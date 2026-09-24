@@ -5,7 +5,7 @@
     "publisher": "University of Ljubljana (Univerza v Ljubljani)",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "appliesToApplicantGroup": "any",
     "verificationState": "needs-review",
@@ -23,7 +23,7 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23",
+      "dataAsOf": "2026-09-24",
       "notes": [
         "Read as a Slovene-language PDF leaflet. The ministry's own joint-call PDF returns HTTP 404, so this leaflet is the best available source for the Slovenian cycle.",
         "If recognition does turn out to be required, the leaflet warns a decision can take up to two months from a complete application, and the first-round selection on 24 July only covers candidates whose decision has already been issued.",
@@ -34,7 +34,7 @@
       "by": "the deadline research pass, Alpine and small states group",
       "at": "2026-09-23",
       "method": "read-source",
-      "note": "Read in Slovene on 2026-09-23, alongside the national portal page it disagrees with."
+      "note": "Read in Slovene on 2026-09-23, alongside the national portal page it disagrees with. Re-read by the Slovenia audit pass (2026-09-24): unchanged; the 2027/28 call is not yet published."
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
@@ -103,7 +103,7 @@
     "publisher": "Government of the Republic of Slovenia (gov.si)",
     "publisherType": "ministry",
     "sourceClass": "official-rule-owner",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "appliesToApplicantGroup": "any",
     "verificationState": "needs-review",
@@ -122,7 +122,7 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23",
+      "dataAsOf": "2026-09-24",
       "notes": [
         "Read in Slovene."
       ]
@@ -131,7 +131,7 @@
       "by": "the Hungary, Slovenia and Poland floor pass",
       "at": "2026-09-23",
       "method": "read-source",
-      "note": "Read in Slovene. The page names the four universities and \"koncesioniranih samostojnih visokošolskih zavodov\" as the joint-call participants."
+      "note": "Read in Slovene. The page names the four universities and \"koncesioniranih samostojnih visokošolskih zavodov\" as the joint-call participants. Re-read by the Slovenia audit pass (2026-09-24): unchanged; the 2027/28 call is not yet published."
     }
   },
   {
@@ -169,7 +169,7 @@
     "publisher": "University of Ljubljana",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "appliesToApplicantGroup": "eu-eea-ch",
     "verificationState": "needs-review",
@@ -184,12 +184,13 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     },
     "attestation": {
       "by": "the Hungary, Slovenia and Poland floor pass",
       "at": "2026-09-23",
-      "method": "read-source"
+      "method": "read-source",
+      "note": "Re-read by the Slovenia audit pass (2026-09-24): unchanged; the 2027/28 call is not yet published."
     }
   },
   {
@@ -219,6 +220,33 @@
       "by": "the Hungary, Slovenia and Poland floor pass",
       "at": "2026-09-23",
       "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-si-english-programmes-list",
+    "sourceUrl": "https://studyinslovenia.si/study/programmes-in-english/",
+    "publisher": "Study in Slovenia",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "Physics and Astrophysics",
+    "claim": "The national list of English-taught bachelor's names 10 programmes at Primorska, 5 at Maribor, 1 at Nova Gorica and 1 at Ljubljana, plus about fifteen at colleges and private institutions; it lists none at the Ljubljana academies of fine arts or music, DOBA, FIS or ISSBS.",
+    "supports": [
+      {
+        "entity": "si",
+        "field": "language"
+      }
+    ],
+    "attestation": {
+      "by": "the Slovenia audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
     }
   }
 ]

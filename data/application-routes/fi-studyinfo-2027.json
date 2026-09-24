@@ -15,10 +15,12 @@
       "label": "Joint application for English-taught bachelor's programmes",
       "date": "2027-01-07",
       "endDate": "2027-01-21",
+      "timeOfDay": "15:00",
+      "timeZone": "UTC+2 (Finnish time)",
       "consequence": "hard",
       "audience": "any",
-      "note": "The national window, on Studyinfo.fi. Six months before IB results, so you apply on predicted grades.",
-      "evidence": ["ev-fi-jyu-joint-application-2027", "ev-fi-studyinfinland-joint-application"]
+      "note": "The national window, on Studyinfo.fi, closing at 15:00 Finnish time on 21 January. Six months before IB results, so you apply on predicted grades.",
+      "evidence": ["ev-fi-tampere-joint-application-2027", "ev-fi-jyu-joint-application-2027", "ev-fi-studyinfinland-joint-application"]
     },
     {
       "id": "ms-attachments",
@@ -35,6 +37,8 @@
       "label": "University of Helsinki, Admission group 2 — the IB route",
       "date": "2027-03-09",
       "endDate": "2027-03-23",
+      "timeOfDay": "15:00",
+      "timeZone": "UTC+2",
       "consequence": "hard",
       "note": "Helsinki runs its own dates. IB Diploma holders are in group 2 and apply in March, not January.",
       "evidence": ["ev-fi-helsinki-admission-groups-2027"]
@@ -70,6 +74,6 @@
   "supplementarySteps": [
     "LUT University admits to its English-taught bachelor's programmes on a rolling, non-competitive basis outside the January window — see LUT's own page."
   ],
-  "evidence": ["ev-fi-jyu-joint-application-2027", "ev-fi-helsinki-admission-groups-2027"],
-  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23", "reviewBy": "2026-10-31" }
+  "evidence": ["ev-fi-tampere-joint-application-2027", "ev-fi-jyu-joint-application-2027", "ev-fi-helsinki-admission-groups-2027"],
+  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24", "reviewBy": "2026-10-31" }
 }

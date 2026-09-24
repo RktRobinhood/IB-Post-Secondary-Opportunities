@@ -14,8 +14,8 @@
     "schengen": false
   },
   "targetIntake": "2027-autumn",
-  "tagline": "The only English-speaking country left in the EU",
-  "summary": "Ireland is English-speaking, inside the EU, and converts an IB Diploma into a single number more precisely than anywhere else: a published table turns the overall score into CAO points, and courses fill strictly by points in descending order. For an eligible EU student there is no tuition, though there is a substantial annual student contribution that the phrase \"free fees\" tends to obscure. The catch is the calendar — applications close on 1 February, earlier than most of Europe.",
+  "tagline": "English-speaking, inside the EU, and your IB score becomes a number",
+  "summary": "Ireland is English-speaking, inside the EU, and converts an IB Diploma into a single number on a published table: the overall score becomes CAO points, and courses fill strictly by points in descending order. For an eligible EU student there is no tuition, though there is a substantial annual student contribution that the phrase \"free fees\" tends to obscure. The catch is the calendar — applications close on 1 February, earlier than most of Europe.",
   "whyConsider": [
     "English-taught throughout, inside the EU, with EU fee treatment for eligible students.",
     "The conversion from IB to CAO points is published, so the standard for a course is a number you can look up rather than a judgement you have to guess at.",
@@ -25,7 +25,7 @@
     "Applications close on 1 February at 17:00 — earlier than the Netherlands, Denmark or the UK’s main date. The discounted fee needs an application by 20 January.",
     "\"Free fees\" means no tuition and a student contribution you still pay every year. Budget for it.",
     "Free Fees eligibility depends on residence history, not just citizenship. Check your own case rather than assuming an EU passport settles it.",
-    "Change of Mind closes 1 July and IB results arrive on 6 July, so the list cannot be adjusted after results. Which offer round an IB applicant falls into is not yet established here.",
+    "Change of Mind closes 1 July and IB results arrive on 6 July, so the list cannot be adjusted after results. An IB applicant straight from school is considered in Round One, in late August, with Irish school leavers.",
     "Dublin rents are among the highest in Europe and student accommodation is genuinely scarce."
   ],
   "ibRecognition": {
@@ -33,7 +33,7 @@
     "minimumPoints": "A full Diploma of at least 24 points. For an honours (Level 8) bachelor the usual matriculation route additionally wants three Higher Level subjects at grade 5 with three Standard Level at grade 4, though some courses accept a lighter combination. Beyond that threshold, entry is decided by converted points.",
     "subjectLevelRule": "An agreed table maps IB subject grades onto Irish Leaving Certificate grades for meeting subject requirements — Higher Level IB 7 to H1 and so on down, Standard Level to the O grades. Individual courses name the subjects they need.",
     "evidence": [
-      "ev-cao-timetable"
+      "ev-cao-eu-ib-2026"
     ]
   },
   "language": {
@@ -48,17 +48,18 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "eu-eea-rate",
-      "summary": "No tuition under the Free Fees Initiative for eligible students on a first undergraduate degree, plus an annual student contribution and a small institutional levy. Eligibility depends on residence history as well as citizenship.",
+      "summary": "No tuition under the Free Fees Initiative for eligible students on a first undergraduate degree, plus an annual student contribution (at most 2,500 EUR in 2026/27) and a small institutional levy. Eligibility depends on residence history as well as citizenship.",
       "evidence": [
-        "ev-hea-free-fees"
+        "ev-hea-free-fees",
+        "ev-citinfo-student-contribution"
       ]
     },
     {
       "applicantGroup": "non-eu",
       "feeStatus": "international-rate",
-      "summary": "Full international tuition, set by each institution. Not established here.",
+      "summary": "Full international tuition, set by each institution. Trinity College Dublin charges 22,580 EUR (arts, humanities, business) to 29,570 EUR (science) for year 1 in 2026/27.",
       "evidence": [
-        "ev-hea-free-fees"
+        "ev-tcd-fees-2026"
       ]
     }
   ],
@@ -110,16 +111,20 @@
   ],
   "evidence": [
     "ev-cao-timetable",
-    "ev-hea-free-fees"
+    "ev-cao-handbook-2027",
+    "ev-cao-eu-ib-2026",
+    "ev-hea-free-fees",
+    "ev-citinfo-student-contribution",
+    "ev-tcd-fees-2026"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
-      "Dates are the published 2026-entry timetable and are marked provisional; CAO publishes the next cycle in autumn.",
-      "UNRESOLVED: which offer round an IB applicant falls into. Round A on 6 July covers non-standard categories; Round 1 on 26 August follows Leaving Certificate results. Not inferred.",
-      "Not established: the student contribution figure for 2027/28, and non-EU tuition.",
+      "Application dates are from the CAO Handbook 2027 (read 2026-09-24). Round One offer dates are \"TBC\" there and are not recorded as fixed.",
+      "Resolved 2026-09-24: an IB applicant applying on school-leaving results competes in Round One (CAO Handbook 2027, Table 1.5). Round A is for deferred, mature and visa-dependent applicants.",
+      "Not established: the student contribution for 2027/28, and the 2027-entry version of the CAO IB conversion table (the 2026-entry booklet is the latest published).",
       "Programme-level records not yet created."
     ]
   }

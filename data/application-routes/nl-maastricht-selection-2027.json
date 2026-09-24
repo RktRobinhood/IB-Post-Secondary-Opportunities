@@ -88,7 +88,7 @@
       "timeZone": "CET",
       "consequence": "hard",
       "audience": "eu-eea-ch",
-      "note": "The ordinary national date, because this programme is not capped.",
+      "note": "Maastricht’s own deadline for the whole application, Studielink and MyApplication tasks included. The programme is not capped, and the date matches the national 1 May.",
       "evidence": [
         "ev-um-nl-dsai"
       ]
@@ -110,12 +110,12 @@
     {
       "id": "ms-maths-syllabus",
       "type": "document",
-      "label": "Mathematics sufficiency syllabus, EU/EEA and Swiss applicants",
+      "label": "Mathematics sufficiency check: syllabus deadline (only if Maastricht asks)",
       "date": "2027-06-01",
       "timeOfDay": "23:59",
       "timeZone": "CET",
-      "consequence": "personal",
-      "note": "Only if Maastricht judges your mathematics short of the requirement. A deficiency here is a process rather than a refusal, and it must be cleared before the first year starts.",
+      "consequence": "hard",
+      "note": "Maastricht’s deadline for EU/EEA and Swiss applicants to submit a syllabus for the mathematics sufficiency check - only if it tells you your mathematics falls short of the requirement. A shortfall is a process rather than a refusal, and it must be cleared before the first year starts.",
       "evidence": [
         "ev-um-nl-dsai"
       ]

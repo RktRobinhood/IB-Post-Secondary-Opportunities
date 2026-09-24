@@ -18,9 +18,9 @@
       "timeOfDay": "12:00",
       "timeZone": "Europe/Dublin",
       "consequence": "indicative",
-      "provisional": true,
+      "provisional": false,
       "evidence": [
-        "ev-cao-timetable"
+        "ev-cao-handbook-2027"
       ]
     },
     {
@@ -30,11 +30,11 @@
       "date": "2027-01-20",
       "timeOfDay": "17:00",
       "timeZone": "Europe/Dublin",
-      "consequence": "personal",
-      "provisional": true,
+      "consequence": "indicative",
+      "provisional": false,
       "note": "Applying after this costs more. Not a barrier, and a needless cost.",
       "evidence": [
-        "ev-cao-timetable"
+        "ev-cao-handbook-2027"
       ]
     },
     {
@@ -45,11 +45,11 @@
       "timeOfDay": "17:00",
       "timeZone": "Europe/Dublin",
       "consequence": "hard",
-      "provisional": true,
+      "provisional": false,
       "audience": "any",
-      "note": "Early by European standards. Late applications reopen in March at a higher fee and cannot be used for every course.",
+      "note": "The last day to apply at the normal fee, and the last day to apply at all for restricted courses such as medicine. A late window, 5 March to 1 May at €65, takes other courses only, and an institution may refuse a late application.",
       "evidence": [
-        "ev-cao-timetable"
+        "ev-cao-handbook-2027"
       ]
     },
     {
@@ -61,9 +61,9 @@
       "timeZone": "Europe/Dublin",
       "consequence": "indicative",
       "provisional": true,
-      "note": "Free, and it lets you rewrite the list entirely — which is why the 1 February deadline is less frightening than it looks.",
+      "note": "Free, and it lets you rewrite the list entirely — which is why the 1 February deadline is less frightening than it looks. CAO Handbook 2027 gives 5 May at 12:00 as the \"expected date\".",
       "evidence": [
-        "ev-cao-timetable"
+        "ev-cao-handbook-2027"
       ]
     },
     {
@@ -74,10 +74,10 @@
       "timeOfDay": "17:00",
       "timeZone": "Europe/Dublin",
       "consequence": "hard",
-      "provisional": true,
+      "provisional": false,
       "note": "The last chance to change what you are applying for, five days before IB results. The list you hold on this date is the list that is scored.",
       "evidence": [
-        "ev-cao-timetable"
+        "ev-cao-handbook-2027"
       ]
     },
     {
@@ -86,7 +86,7 @@
       "label": "IB results released",
       "date": "2027-07-06",
       "consequence": "indicative",
-      "note": "After Change of Mind has closed. Which CAO offer round an IB applicant falls into is not established — ask CAO directly.",
+      "note": "After Change of Mind has closed. An IB applicant straight from school competes in Round One, with Irish school leavers.",
       "evidence": [
         "ev-ib-results-day-2027-05"
       ],
@@ -97,26 +97,25 @@
       "id": "ms-round1",
       "type": "result",
       "label": "Round 1 offers",
-      "date": "2027-08-26",
-      "timeOfDay": "14:00",
-      "timeZone": "Europe/Dublin",
       "consequence": "indicative",
-      "provisional": true,
-      "note": "Follows Leaving Certificate results in late August. Later rounds fill courses that remain open.",
+      "note": "Late August. The CAO Handbook 2027 lists Round One as \"(TBC)\"; in 2026 it was 26 August at 14:00. It follows the Irish Leaving Certificate results. Later rounds fill courses that remain open.",
       "evidence": [
-        "ev-cao-timetable"
-      ]
+        "ev-cao-timetable",
+        "ev-cao-handbook-2027"
+      ],
+      "dateState": "not-yet-announced"
     }
   ],
   "evidence": [
-    "ev-cao-timetable"
+    "ev-cao-timetable",
+    "ev-cao-handbook-2027"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
-      "All dates carried from the published 2026-entry timetable and marked provisional."
+      "Dates from the CAO Handbook 2027 (read 2026-09-24). Change of Mind opening is an \"expected date\" there and Round One is TBC; both stay provisional."
     ]
   }
 }

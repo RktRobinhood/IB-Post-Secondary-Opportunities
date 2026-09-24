@@ -53,12 +53,17 @@ function countryTile(site, c) {
  * the freshness statement one tap beneath it. It still comes before the first
  * institution; it just no longer costs a screen to get past.
  */
-function researchDepthNote(c, { freshnessNote = '' } = {}) {
+function researchDepthNote(c, { freshnessNote = '', events = null } = {}) {
   const d = c.researchDepth;
+  // Counted from the same dates the calendar below shows — the profile's own
+  // entries and the application routes' milestones together — so the line and
+  // the calendar cannot disagree about how many there are.
+  const total = events ? events.length : d.deadlines;
+  const undated = events ? events.filter((e) => !e.date).length : d.undated;
   const meta = RESEARCH_DEPTH[d.tier];
   const counts = [
     `${plural(d.sources, 'source')} recorded for ${plural(d.institutions, 'institution')} listed`,
-    d.undated ? `${d.undated} of ${plural(d.deadlines, 'deadline')} carry no published date` : null,
+    undated ? `${undated} of ${plural(total, 'date')} carry no published day` : null,
   ].filter(Boolean);
   const kind = d.tier === 'outline' ? 'warn' : d.tier === 'researched' ? 'ok' : 'accent';
 
@@ -302,6 +307,23 @@ export function destination(site, c, { prev, next }) {
    * default view grows past its budget or the institutions stop coming first.
    */
   const one = (t) => firstSentence(t);
+  const portalName = String(c.application?.portal?.name || '');
+  // No central portal: said either as a name starting "None", or by the record
+  // declaring the system decentralised — in which case its "name" is a
+  // description ("Each university's own portal…") and reads as one.
+  const saysNone = /^none\b/i.test(portalName.trim());
+  const noPortal = saysNone || (c.application?.centralised === false && Boolean(portalName));
+  const portalRest = saysNone
+    ? portalName.replace(/^none(?:\s+nationally)?[\s.:,;–—-]*/i, '').trim()
+    : noPortal
+      ? portalName.trim()
+      : '';
+  const summaryLead = firstSentence(c.summary, 40);
+  // A lead cut mid-sentence ends in an ellipsis; then the whole summary goes
+  // beneath it, otherwise only what follows the first sentence.
+  const summaryRest = summaryLead.endsWith('…')
+    ? c.summary
+    : String(c.summary || '').replace(/\s+/g, ' ').trim().slice(summaryLead.length).trim();
   const lead = (label, t) => (t ? `**${label}:** ${one(t)}` : null);
   const lines = (...xs) => xs.filter(Boolean).join('\n\n') || null;
 
@@ -377,12 +399,23 @@ export function destination(site, c, { prev, next }) {
         title: 'How applying actually works',
         // The portal is the one thing a student does next, so it is the short
         // answer — in the record's own words, linked where the record links.
-        short: c.application.portal?.name
+        // A record with no central portal says so in the name ("None. You apply
+        // to each university…"); that reads as advice, not as a portal called
+        // "None".
+        short: noPortal
+          ? html`<p><strong>Where to apply:</strong> directly to each university — there is no central portal.</p>`
+          : c.application.portal?.name
           ? html`<p><strong>Where to apply:</strong> ${c.application.portal.url
               ? html`<a href="${c.application.portal.url}" rel="noopener nofollow">${one(c.application.portal.name)}</a>`
               : one(c.application.portal.name)}</p>`
           : one(c.application.steps[0]),
-        body: html`${c.application.portal?.name
+        body: html`${noPortal
+            ? note(
+                html`${portalRest || 'There is no central portal — you apply to each institution separately.'}
+                ${c.application.portal.url ? html` <a href="${c.application.portal.url}" rel="noopener nofollow">Where to find the programmes</a>.` : ''}`,
+                { kind: '', title: 'Where to apply' }
+              )
+            : c.application.portal?.name
             ? note(
                 html`Applications go through <a href="${c.application.portal.url}" rel="noopener nofollow">${c.application.portal.name}</a>.
                 ${c.application.centralised === false ? 'There is no single national portal — you apply to each institution separately.' : ''}`,
@@ -510,6 +543,7 @@ ${/* What is possible: the institutions, straight after the place itself. The
       { label: c.name },
     ])}
     ${researchDepthNote(c, {
+      events,
       freshnessNote: freshness({
         intake: c.targetIntake ? '2027-autumn' : null,
         checkedAt: c.dataAsOf,
@@ -553,7 +587,13 @@ ${/* What is required: every question, short answer first. */ ''}
     <div class="layout-aside">
       <div class="prose">
         <h2 id="overview">The short version</h2>
-        <p class="lede">${c.summary}</p>
+        ${/* The short version is one sentence. Summaries run to a hundred words,
+              and the rest of it is one tap down rather than cut. */ ''}
+        <p class="lede">${summaryLead}</p>
+        ${summaryRest
+          ? html`<details class="topic__more"><summary>More on ${c.name}</summary>
+              <div class="topic__body"><p>${summaryRest}</p></div></details>`
+          : ''}
         ${topics}
       </div>
 

@@ -46,9 +46,10 @@
       "timeZone": "Europe/Oslo",
       "consequence": "hard",
       "provisional": true,
-      "note": "Five days before IB results are published. An IB candidate finishing in May 2027 cannot meet this as published, and how the authority handles that is not established here. Ask before you apply, not afterwards.",
+      "note": "Five days before IB results are published. Samordna opptak's instruction for an IB student graduating this year: you will not be able to upload the diploma in time, so give the institutions electronic access through the IB's Request for Results Service, filled in with your coordinator.",
       "evidence": [
-        "ev-samordna-frister"
+        "ev-samordna-frister",
+        "ev-samordna-ib-request-for-results"
       ]
     },
     {
@@ -71,7 +72,7 @@
       "label": "IB results released",
       "date": "2027-07-06",
       "consequence": "indicative",
-      "note": "After the Norwegian documentation deadline, which is the central difficulty with applying to Norway straight from the Diploma.",
+      "note": "After the Norwegian documentation deadline. The institutions read your results through the IB's Request for Results Service, which you arrange with your coordinator in advance.",
       "evidence": [
         "ev-ib-results-day-2027-05"
       ],
@@ -80,14 +81,15 @@
     }
   ],
   "evidence": [
-    "ev-samordna-frister"
+    "ev-samordna-frister",
+    "ev-samordna-ib-request-for-results"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-02-01",
     "notes": [
-      "Every date is carried from the published 2026 calendar and marked provisional."
+      "Every date is carried from the published 2026 calendar and marked provisional; re-checked 24 September 2026, when the page still said it covered the 2026 intake."
     ]
   }
 }

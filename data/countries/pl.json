@@ -1,5 +1,5 @@
 {
-  "dataAsOf": "2026-09-23",
+  "dataAsOf": "2026-09-24",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "code": "pl",
   "name": "Poland",
@@ -16,7 +16,7 @@
     "Some English-taught bachelor's at the University of Warsaw cost EU citizens nothing at all, while non-EU students pay. The rule is programme by programme, so read the fee schedule.",
     "Full-time Polish-language study at a public university is free for you by statute - if you are willing to learn Polish, tuition disappears entirely.",
     "English-taught engineering is affordable: AGH runs from 2,500 euros a year for Space Engineering to 6,000 for Computer Science, and Wroclaw Tech from about 3,950 to 5,850 euros.",
-    "English-taught medicine at Gdansk is around 14,800 euros a year, among the cheapest six-year MD programmes in Central Europe.",
+    "English-taught medicine at Gdansk is around 14,800 euros a year for a six-year MD.",
     "The Jagiellonian School of Medicine in English has an explicit Denmark rule: a Danish English grade of 7 satisfies its English requirement."
   ],
   "watchOuts": [
@@ -106,7 +106,7 @@
         "consequence": "hard",
         "provisional": true,
         "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "The medical-certificate deadlines that used to be described in this note are now entries of their own, because they are separate things to do on separate days.",
+        "notes": "",
         "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
       },
       {
@@ -126,7 +126,7 @@
         "consequence": "hard",
         "provisional": true,
         "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "AGH's deadlines page prints \"from 1 June till 9 July, 10 am CEST\" with no year, under the heading \"the academic year 2026/2027\", so these are 2026 days. Registration and the fee share one cut-off, and it is 10:00 CEST rather than the end of the day; the model can carry a time on a start date but not on an end date, so the time is recorded in this sentence instead. Read the table carefully: its columns are headed first, second and third cycle, and those are bachelor, master and doctoral study rather than successive admission rounds, so there is no later bachelor round to fall back on.",
+        "notes": "AGH's deadlines page prints \"from 1 June till 9 July, 10 am CEST\" with no year, under the heading \"the academic year 2026/2027\", so these are 2026 days. Registration and the fee share one cut-off, and it is 10:00 CEST rather than the end of the day. Read the table carefully: its columns are headed first, second and third cycle, and those are bachelor, master and doctoral study rather than successive admission rounds, so there is no later bachelor round to fall back on.",
         "source": "https://www.international.agh.edu.pl/en/studies/recruitment/deadlines-bachelor-studies"
       },
       {
@@ -163,7 +163,7 @@
         "consequence": "hard",
         "provisional": true,
         "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "Taken from the university's Polish admission timetable (\"Ostatni dzień rejestracji w systemie IRK\"), which is the page that carries this date; the IB and EB information page cited here previously does not. The IB result-upload extension that used to be described in this note is now an entry of its own.",
+        "notes": "Taken from the university's Polish admission timetable (\"Ostatni dzień rejestracji w systemie IRK\"); the IB and EB information page does not carry this date.",
         "source": "https://rekrutacja.uw.edu.pl/harmonogram-rekrutacji/"
       },
       {
@@ -285,7 +285,7 @@
         "consequence": "hard",
         "provisional": true,
         "year": "2026 entry - 2027 dates not published as of September 2026",
-        "notes": "The second round runs only if the first did not fill the admission cap, and on many programmes it does not run at all. Its medical-certificate deadline is 5 October, not the August and September dates that apply to the first round - the note here previously said otherwise, and that is corrected; the date is now an entry of its own.",
+        "notes": "The second round runs only if the first did not fill the admission cap, and on many programmes it does not run at all. Its medical-certificate deadline is 5 October, not the August and September dates that apply to the first round, and it has its own entry.",
         "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/terminy"
       },
       {
@@ -394,7 +394,7 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "The only fully published autumn-2027 application deadline found in Poland, and it is stated identically on two PUMS pages. Orientation week and the start of classes, which used to be described in this note, are entries of their own.",
+        "notes": "One of the few autumn-2027 application deadlines in Poland published in full, and it is stated identically on two PUMS pages.",
         "source": "https://pums.edu.pl/admissions/application-calendar/"
       },
       {
@@ -419,16 +419,16 @@
       {
         "label": "University of Warsaw - 2027/28 admissions must conclude by this date",
         "date": "2027-09-30",
-        "consequence": "hard",
+        "consequence": "indicative",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "The closing half of the same sentence in Senate resolution 278: admissions last \"nie dłużej niż do dnia 30 września 2027 r.\" The same day is the deadline for asking a recruitment committee to correct your result after a successful matura appeal.",
+        "notes": "The closing half of the same sentence in Senate resolution 278: admissions last \"nie dłużej niż do dnia 30 września 2027 r.\" Like the 2 February opening bound, it is an outer limit on the whole university, not the closing date of any round. The same day is the deadline for asking a recruitment committee to correct your result after a successful matura appeal.",
         "source": "https://monitor.uw.edu.pl/Lists/Uchway/Uchwa%C5%82a.aspx?ID=7830"
       },
       {
         "label": "Jagiellonian University - 2027/28 admissions must be closed by this date",
         "date": "2027-10-01",
-        "consequence": "hard",
+        "consequence": "indicative",
         "provisional": false,
         "year": "2027 entry",
         "notes": "The closing bound in annex 1 to Senate resolution 62/V/2026. The Rector may allow a further round after 1 October 2027, but only on showing that it will not disturb teaching and that those admitted can still attend the full programme.",
@@ -460,7 +460,7 @@
         "dateState": "not-yet-announced",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "The rules exist and carry two real 2027 dates, now recorded as separate entries; the day-by-day timetable does not. Annex 1 to Senate resolution 62/V/2026 of 27 May 2026 says the detailed harmonogram, the fee rules and the list of required documents are all set by a Rector's ordinance. The 2026/27 equivalent was Zarządzenie nr 17 of 23 February 2026, and the university expects the updated IRK catalogue \"najprawdopodobniej początkiem 2027 roku\", so February 2027 is the realistic moment.",
+        "notes": "The rules exist and carry two real 2027 dates, shown as separate entries; the day-by-day timetable does not. Annex 1 to Senate resolution 62/V/2026 of 27 May 2026 says the detailed harmonogram, the fee rules and the list of required documents are all set by a Rector's ordinance. The 2026/27 equivalent was Zarządzenie nr 17 of 23 February 2026, and the university expects the updated IRK catalogue \"najprawdopodobniej początkiem 2027 roku\", so February 2027 is the realistic moment.",
         "source": "https://rekrutacja.uj.edu.pl/en_GB/studia-i-stopnia/2027-28"
       },
       {
@@ -469,7 +469,7 @@
         "dateState": "not-yet-announced",
         "consequence": "indicative",
         "year": "2027 entry",
-        "notes": "Nothing for 2027/28 is published. AGH's deadlines page still carries only the 2026/27 calendar, and its programme list and point thresholds still rest on Senate resolution 76/2025, adopted in November 2025 for 2026/27 entry. On that pattern the 2027/28 resolution and calendar are due around November 2026. The 2026 dates are recorded as entries of their own above rather than left as a sentence here.",
+        "notes": "Nothing for 2027/28 is published. AGH's deadlines page still carries only the 2026/27 calendar, and its programme list and point thresholds still rest on Senate resolution 76/2025, adopted in November 2025 for 2026/27 entry. On that pattern the 2027/28 resolution and calendar are due around November 2026. The 2026 dates are shown above as a guide.",
         "source": "https://www.international.agh.edu.pl/en/studies/recruitment/deadlines-bachelor-studies"
       },
       {
@@ -511,7 +511,7 @@
     "selectionNotes": "Selection is set per programme by each university's admission resolution, usually by converting your IB grades to Polish matura percentages and ranking candidates. Medicine is different: the Jagiellonian School of Medicine in English admits solely on the entrance examination result, Poznan requires a mandatory 60-question natural sciences test plus a 20-40 minute oral, and Gdansk sets a written biology and chemistry paper plus a roughly 20-minute Zoom interview. Wroclaw Tech requires every foreign candidate to sit an online mathematics-with-logic exam of about ten open tasks in 90 minutes. Several Jagiellonian English-taught programmes involve an interview while others have none."
   },
   "language": {
-    "englishTaughtBachelors": "Substantial and spread across many universities. Wroclaw Tech alone states 33 programmes fully taught in English across bachelor's and master's. The University of Warsaw prices at least 11 English-taught bachelor and long-cycle programmes, AGH lists 7 English-taught bachelor's, and the Jagiellonian lists 7 plus a joint bachelor plus medicine and dentistry in English. A reliable national total could not be verified.",
+    "englishTaughtBachelors": "Substantial and spread across many universities. Wroclaw Tech alone states 33 programmes fully taught in English across bachelor's and master's. The University of Warsaw prices at least 11 English-taught bachelor and long-cycle programmes, AGH lists 7 English-taught bachelor's, and the Jagiellonian lists 7 plus a joint bachelor plus medicine and dentistry in English. No reliable national total is published.",
     "englishProof": "An IB Diploma taught and examined in English is normally enough. The University of Warsaw's admission resolution states explicitly that an IB diploma proves English at B2 or above where English was the language of instruction and examination, so no IELTS is needed. The Jagiellonian lists the International Baccalaureate Diploma as an accepted document confirming B2 English. Where a test is required instead: University of Warsaw accepts IELTS 5.5, TOEFL iBT 72, PTE Academic 59 or Cambridge B2 First and above; the Jagiellonian School of Medicine wants IELTS 6.5 or TOEFL iBT 87; Poznan University of Medical Sciences sets the highest bar found at IELTS 6.5, TOEFL iBT 94, PTE Academic 60 or Cambridge Advanced.",
     "localLanguageRequired": false,
     "notes": [
@@ -552,15 +552,15 @@
     "The second strongest is to check the English-taught fee schedule programme by programme. Several University of Warsaw English-taught bachelor's cost EU citizens nothing.",
     "Be clear about what you cannot get. Article 324(3) restricts the Polish maintenance grant (stypendium socjalne) and the Polish student loan (kredyt studencki) to EU citizens who are workers, self-employed, retain a right of residence on that basis, or hold permanent residence. A Danish student who simply arrives to study cannot claim either.",
     "A rector can waive or reduce fees by administrative decision under article 324(1), and the minister or the NAWA director can do so for NAWA scholarship holders. It is worth asking.",
-    "NAWA runs three incoming-student programmes - the gen. Anders Programme, Poland My First Choice, and the Banach Scholarship Programme - but their eligibility rules could not be read. The gen. Anders programme is by name and design aimed at people of Polish descent and Banach at developing countries, so do not assume a Danish student qualifies for any of them without reading the call document.",
+    "NAWA runs three incoming-student programmes - the gen. Anders Programme, Poland My First Choice, and the Banach Scholarship Programme - but their eligibility rules are not confirmed here. The gen. Anders programme is by name and design aimed at people of Polish descent and Banach at developing countries, so do not assume a Danish student qualifies for any of them without reading the call document.",
     "Erasmus+, CEEPUS and the Visegrad Scholarship Programme are listed on the national portal as options once you are enrolled.",
-    "Whether the rector's merit scholarship (stypendium rektora) is open to EU citizens is not settled here. Article 324(3) restricts only the maintenance grant and the loan, which implies the merit scholarship is not restricted, but no source was found stating that outright.",
+    "Whether the rector's merit scholarship (stypendium rektora) is open to EU citizens is not settled here. Article 324(3) restricts only the maintenance grant and the loan, which implies the merit scholarship is not restricted, but no source states it outright.",
     "Danish SU and Danish tuition support are decided in Denmark at su.dk and ufm.dk. Apply early."
   ],
-  "workRights": "As an EU citizen you need no work permit. Article 16(1) of the 2006 act on entry and residence of EU citizens treats being a worker or self-employed person in Poland as an independent ground of residence, with no funds or insurance test attached. An explicit official page stating that EU students need no permit, and whether any hour limits apply to students, could not be verified. Working also matters for money reasons beyond the wage: taking up work is what unlocks the Polish maintenance grant and student loan, which are otherwise closed to you. Source: https://lexlege.pb.pl/ustawa-o-wjezdzie-na-terytorium-rzeczypospolitej-polskiej-pobycie-oraz-wyjezdzie-z-tego-terytorium-obywateli-panstw-czlonkowskich-unii-europejskiej-i-czlonkow-ich-rodzin/art-16/",
-  "residency": "For the first three months you need do nothing beyond holding a valid travel or identity document, under article 15 of the 2006 act on entry and residence of EU citizens. Beyond three months you have a right of residence as a student under article 16(3) provided you have sufficient funds not to become a burden on social assistance and you have health insurance - and the article expressly accepts entitlement under EU social security coordination, which is the EHIC route, so your Danish blue card satisfies it. Article 20(1) then obliges you to register your residence, which you do at the voivodeship office for where you live. The national portal says EU students should apply for registration within 90 days of arrival and are issued a cost-free certificate of registration. The detailed procedure, forms and processing time could not be verified. Sources: https://study.gov.pl/visa-application and https://lexlege.pb.pl/ustawa-o-wjezdzie-na-terytorium-rzeczypospolitej-polskiej-pobycie-oraz-wyjezdzie-z-tego-terytorium-obywateli-panstw-czlonkowskich-unii-europejskiej-i-czlonkow-ich-rodzin/art-20/",
-  "housing": "Jagiellonian University dormitory rates for 2026/27 are published and there is no higher rate for foreign students: a place in a multi-person room is 670 PLN a month (about 154 EUR) in the standard houses and 850 PLN in Bursa Raclawicka; a single room is 870 or 1,070 PLN; sole occupancy of a double is 1,200 or 1,225 PLN; a studio-type single at Bursa Raclawicka is 1,270 PLN (about 292 EUR). Places are allocated on a rolling basis as they become available, so a room is not guaranteed - apply the moment you are offered one. Poznan University of Medical Sciences charges 820-1,500 PLN a month depending on room and building, and estimates private renting at up to four times the dormitory cost. Public universities are expressly permitted to charge for dormitories and canteens under article 79(2)(6) of the Higher Education Act, separately from tuition. University of Warsaw dormitory rates could not be verified. Sources: https://akademiki.uj.edu.pl/ds/oplaty and https://pums.edu.pl/admissions/student-accommodation/",
-  "healthcare": "As an EU citizen you use your Danish European Health Insurance Card. The national portal states that a valid passport, student identity card and a valid EHIC entitle the holder to medical care free of charge in Poland. Polish residence law also expressly accepts entitlement under EU coordination rules as satisfying the health insurance condition for a student's right of residence. Two cautions: an EHIC is designed for medically necessary treatment during a temporary stay rather than as long-term cover for a resident student, and Polish universities commonly expect either voluntary National Health Fund (NFZ) insurance or private cover. Non-EU students sign a voluntary NFZ agreement costing about 15 EUR a month. The NFZ premium and enrolment route for an EU student could not be verified. Source: https://study.gov.pl/health-insurance",
+  "workRights": "As an EU citizen you need no work permit. Article 16(1) of the 2006 act on entry and residence of EU citizens treats being a worker or self-employed person in Poland as an independent ground of residence, with no funds or insurance test attached. An explicit official page stating that EU students need no permit, and whether any hour limits apply to students, is not confirmed here. Working also matters for money reasons beyond the wage: taking up work is what unlocks the Polish maintenance grant and student loan, which are otherwise closed to you. Source: https://lexlege.pb.pl/ustawa-o-wjezdzie-na-terytorium-rzeczypospolitej-polskiej-pobycie-oraz-wyjezdzie-z-tego-terytorium-obywateli-panstw-czlonkowskich-unii-europejskiej-i-czlonkow-ich-rodzin/art-16/",
+  "residency": "For the first three months you need do nothing beyond holding a valid travel or identity document, under article 15 of the 2006 act on entry and residence of EU citizens. Beyond three months you have a right of residence as a student under article 16(3) provided you have sufficient funds not to become a burden on social assistance and you have health insurance - and the article expressly accepts entitlement under EU social security coordination, which is the EHIC route, so your Danish blue card satisfies it. Article 20(1) then obliges you to register your residence, which you do at the voivodeship office for where you live. The national portal says EU students should apply for registration within 90 days of arrival and are issued a cost-free certificate of registration. The detailed procedure, forms and processing time are not confirmed here; ask the voivodeship office. Sources: https://study.gov.pl/visa-application and https://lexlege.pb.pl/ustawa-o-wjezdzie-na-terytorium-rzeczypospolitej-polskiej-pobycie-oraz-wyjezdzie-z-tego-terytorium-obywateli-panstw-czlonkowskich-unii-europejskiej-i-czlonkow-ich-rodzin/art-20/",
+  "housing": "Jagiellonian University dormitory rates for 2026/27 are published and there is no higher rate for foreign students: a place in a multi-person room is 670 PLN a month (about 154 EUR) in the standard houses and 850 PLN in Bursa Raclawicka; a single room is 870 or 1,070 PLN; sole occupancy of a double is 1,200 or 1,225 PLN; a studio-type single at Bursa Raclawicka is 1,270 PLN (about 292 EUR). Places are allocated on a rolling basis as they become available, so a room is not guaranteed - apply the moment you are offered one. Poznan University of Medical Sciences charges 820-1,500 PLN a month depending on room and building, and estimates private renting at up to four times the dormitory cost. Public universities are expressly permitted to charge for dormitories and canteens under article 79(2)(6) of the Higher Education Act, separately from tuition. University of Warsaw dormitory rates are not confirmed here. Sources: https://akademiki.uj.edu.pl/ds/oplaty and https://pums.edu.pl/admissions/student-accommodation/",
+  "healthcare": "As an EU citizen you use your Danish European Health Insurance Card. The national portal states that a valid passport, student identity card and a valid EHIC entitle the holder to medical care free of charge in Poland. Polish residence law also expressly accepts entitlement under EU coordination rules as satisfying the health insurance condition for a student's right of residence. Two cautions: an EHIC is designed for medically necessary treatment during a temporary stay rather than as long-term cover for a resident student, and Polish universities commonly expect either voluntary National Health Fund (NFZ) insurance or private cover. Non-EU students sign a voluntary NFZ agreement costing about 15 EUR a month. The NFZ premium and enrolment route for an EU student are not confirmed here; ask your university. Source: https://study.gov.pl/health-insurance",
   "institutions": [
     {
       "name": "University of Warsaw",
@@ -568,7 +568,7 @@
       "city": "Warsaw",
       "type": "Research university",
       "founded": 1816,
-      "website": "https://en.uw.edu.pl",
+      "website": "https://en.uw.edu.pl/",
       "admissionsUrl": "https://rekrutacja.uw.edu.pl/en/",
       "ibPageUrl": "https://rekrutacja.uw.edu.pl/wazne-informacje-dla-kandydatow-z-dyplomem-matury-ib-lub-eb/",
       "englishBachelors": "At least 11 English-taught bachelor and long-cycle programmes in the official 2026/27 fee schedule: American Studies, Archaeology, Business and Management, English Studies, European Politics and Economics, Finance International Investment and Accounting, International Relations, International Studies in Philosophy, Political Science, Psychology (long-cycle) and Social and Public Policy",
@@ -578,7 +578,7 @@
         "International Relations",
         "Psychology"
       ],
-      "note": "Poland's largest university and the only one found that gives EU citizens free tuition on several English-taught bachelor's while charging non-EU students - and it publishes the clearest official IB conversion table in the country.",
+      "note": "Poland's largest university, where several English-taught bachelor's are free for EU citizens while non-EU students pay - and it publishes the clearest official IB conversion table in the country.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Warsaw",
       "place": "pl-warsaw"
     },
@@ -588,7 +588,7 @@
       "city": "Krakow",
       "type": "Research university",
       "founded": 1364,
-      "website": "https://en.uj.edu.pl",
+      "website": "https://en.uj.edu.pl/",
       "admissionsUrl": "https://rekrutacja.uj.edu.pl/en_GB/admissions-in-english",
       "ibPageUrl": "https://rekrutacja.uj.edu.pl/studia-i-stopnia/obliczanie-wyniku",
       "englishBachelors": "7 English-taught first-cycle programmes - Earth Sciences in a Changing World, East European Studies, European Studies, Global and Development Studies, International Relations and Area Studies, Mathematics and Computer Science Advanced Track, Responsible Entrepreneurship and Management - plus the Una Europa Joint Bachelor in Sustainability and the School of Medicine in English",
@@ -608,17 +608,17 @@
       "city": "Warsaw",
       "type": "Technical university",
       "founded": null,
-      "website": "https://eng.pw.edu.pl",
+      "website": "https://eng.pw.edu.pl/",
       "admissionsUrl": "https://eng.pw.edu.pl/Admissions/Undergraduate-level",
       "ibPageUrl": null,
-      "englishBachelors": null,
+      "englishBachelors": "11 English-taught BSc programmes for 2026/27, among them Architecture, Civil Engineering, Aerospace Engineering, Mechatronics and two in computer science. Electrical Engineering, Mechatronics, Aerospace Engineering and Power Engineering are free for EU citizens",
       "notableFields": [
         "Engineering",
         "Computer science",
         "Architecture",
         "Mechatronics"
       ],
-      "note": "One of Poland's leading institutes of technology and among the largest universities in Central Europe, with 19 faculties - but its English-taught programme list, fees and deadlines could not be verified and must be requested directly.",
+      "note": "One of Poland's leading institutes of technology. Unusually, four of its English-taught engineering degrees charge EU citizens nothing; applications go through irk.pw.edu.pl.",
       "wikipedia": "https://en.wikipedia.org/wiki/Warsaw_University_of_Technology",
       "place": "pl-warsaw"
     },
@@ -638,7 +638,7 @@
         "Mechatronics",
         "Geology"
       ],
-      "note": "The widest set of clearly priced English-taught engineering bachelor's found in Poland, running from 2,500 euros a year for Space Engineering to 6,000 for Computer Science.",
+      "note": "Clearly priced English-taught engineering bachelor's, running from 2,500 euros a year for Space Engineering to 6,000 for Computer Science.",
       "wikipedia": "https://en.wikipedia.org/wiki/AGH_University_of_Krak%C3%B3w",
       "place": "pl-krakow"
     },
@@ -658,7 +658,7 @@
         "Economics",
         "Law"
       ],
-      "note": "A private non-profit business school named after the economist Leon Kozminski, which also hosts the Central and Eastern European campus of ESCP - its programme list, fees and deadlines could not be verified.",
+      "note": "A private non-profit business school named after the economist Leon Kozminski, which also hosts the Central and Eastern European campus of ESCP - its programme list, fees and deadlines are not confirmed here.",
       "wikipedia": "https://en.wikipedia.org/wiki/Ko%C5%BAmi%C5%84ski_University",
       "place": "pl-warsaw"
     },
@@ -671,7 +671,7 @@
       "website": "https://www.sgh.waw.pl/en",
       "admissionsUrl": "https://www.sgh.waw.pl/en/educational-offer/first-cycle-studies/admissions-to-undergraduate-studies-in-english-for-international-applicants",
       "ibPageUrl": null,
-      "englishBachelors": "English-taught first-cycle programmes exist and there is an entrance exam, but the programme names, count and fee amounts could not be verified",
+      "englishBachelors": "Four in English: Global Business, Finance and Governance; International Economics; Management; Quantitative Methods in Economics and Information Systems. Fees not confirmed here",
       "notableFields": [
         "Economics",
         "Finance",
@@ -689,7 +689,7 @@
       "type": "Technical university",
       "founded": 1945,
       "website": "https://pwr.edu.pl/en/",
-      "admissionsUrl": "https://rekrutacja.pwr.edu.pl/en/for-foreigners",
+      "admissionsUrl": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/",
       "ibPageUrl": null,
       "englishBachelors": "33 programmes fully taught in English across bachelor's and master's, out of 62 bachelor's and 57 master's programmes in total. Verified English-taught bachelor's with 2026/27 prices: Applied Computer Science, Management, Mechanical Engineering, Medical Informatics and Electronic and Computer Engineering",
       "notableFields": [
@@ -726,7 +726,7 @@
       "city": "Gdansk",
       "type": "Research university",
       "founded": null,
-      "website": "https://gumed.edu.pl/en/",
+      "website": "https://gumed.edu.pl/en",
       "admissionsUrl": "https://admission.mug.edu.pl/",
       "ibPageUrl": "https://rekrutacja.gumed.edu.pl/53907.html",
       "englishBachelors": "Four English-taught programmes plus a preparatory year: the six-year Doctor of Medicine, five-year Master of Pharmacy, three-year Bachelor of Nursing, a two-year International Master in Sustainable Drug Discovery, and a one-year Premedical Course",
@@ -735,7 +735,7 @@
         "Pharmacy",
         "Nursing"
       ],
-      "note": "The cheapest verified English-taught MD in Poland at about 14,770 euros a year for 2026/27, and it publishes the clearest IB Higher Level versus Standard Level points table of any Polish university.",
+      "note": "An English-taught MD at about 14,770 euros a year for 2026/27, and it publishes a clear table of IB Higher Level versus Standard Level points.",
       "wikipedia": "https://en.wikipedia.org/wiki/Medical_University_of_Gda%C5%84sk",
       "place": "pl-gdansk"
     },
@@ -748,7 +748,7 @@
       "website": "https://www.wum.edu.pl/en",
       "admissionsUrl": "https://www.wum.edu.pl/en/studies-in-english-wum",
       "ibPageUrl": null,
-      "englishBachelors": "An English Division exists, but its programme list, fees and deadlines could not be verified - the admissions host returned errors throughout",
+      "englishBachelors": "Two in English: six-year Medicine (MD) and five-year Dentistry (DDS). Fees and deadlines are on separate recruitment sites; check them there",
       "notableFields": [
         "Medicine",
         "Dentistry",
@@ -767,14 +767,14 @@
       "website": "https://amu.edu.pl/en",
       "admissionsUrl": "https://amu.edu.pl/en/admissions",
       "ibPageUrl": null,
-      "englishBachelors": null,
+      "englishBachelors": "Nine English-taught bachelor's, including International Relations, Chemistry, European Legal Studies, Liberal Arts and Sciences and Global Communication. Fees not confirmed here",
       "notableFields": [
         "Humanities",
         "Social sciences",
         "Natural sciences",
         "Modern languages"
       ],
-      "note": "Traditionally ranked among Poland's most reputable universities and the main general-academic option in Poznan, though its English-taught offer and fees could not be verified.",
+      "note": "Traditionally ranked among Poland's most reputable universities and the main general-academic option in Poznan.",
       "wikipedia": "https://en.wikipedia.org/wiki/Adam_Mickiewicz_University_in_Pozna%C5%84",
       "place": "pl-poznan"
     },
@@ -784,17 +784,17 @@
       "city": "Wroclaw",
       "type": "Research university",
       "founded": null,
-      "website": "https://uni.wroc.pl/en",
+      "website": "https://uwr.edu.pl/en/",
       "admissionsUrl": "https://international.uni.wroc.pl/en/admission-full-degree-studies",
       "ibPageUrl": null,
-      "englishBachelors": null,
+      "englishBachelors": "12 English-taught bachelor's, including Biotechnology, Business and Administration, Criminal Justice, International Relations, Political Science and an LLB in International and European Environmental Law. Fees not confirmed here",
       "notableFields": [
         "Law",
         "Humanities",
         "Natural sciences",
         "Social sciences"
       ],
-      "note": "The largest higher-education institution in Lower Silesia, with over 100,000 graduates since 1945 - fees and English-taught programme count unverified.",
+      "note": "The largest higher-education institution in Lower Silesia, with an unusually broad English-taught bachelor's list for a Polish university.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wroc%C5%82aw",
       "place": "pl-wroclaw"
     },
@@ -807,15 +807,34 @@
       "website": "https://put.poznan.pl/en",
       "admissionsUrl": "https://put.poznan.pl/en/admission-for-international",
       "ibPageUrl": null,
-      "englishBachelors": null,
+      "englishBachelors": "Ten English-taught BSc programmes, including Architecture, Artificial Intelligence, Automatic Control and Robotics, Biomedical Engineering, Mechanical Engineering and Quantum Technologies. Fees not confirmed here",
       "notableFields": [
         "Engineering",
         "Computing",
         "Architecture"
       ],
-      "note": "Described as one of the best technical universities in Poland and a non-capital alternative to Warsaw and Wroclaw, though its English-taught offer and fees could not be verified.",
+      "note": "Described as one of the best technical universities in Poland and a non-capital alternative to Warsaw and Wroclaw.",
       "wikipedia": "https://en.wikipedia.org/wiki/Pozna%C5%84_University_of_Technology",
       "place": "pl-poznan"
+    },
+    {
+      "name": "SWPS University",
+      "shortName": "SWPS",
+      "city": "Warsaw",
+      "type": "Research university",
+      "founded": 1996,
+      "website": "https://english.swps.pl/",
+      "admissionsUrl": "https://english.swps.pl/academics/warsaw/ba-programs",
+      "ibPageUrl": null,
+      "englishBachelors": "Six in Warsaw: Psychology, Computer Science, Design (School of Form), English Studies, English Studies with Additional Language, and Management and Leadership",
+      "notableFields": [
+        "Psychology",
+        "Design",
+        "Computer Science",
+        "Management"
+      ],
+      "note": "A private non-profit university. IB holders skip its entrance exams; Psychology costs EUR 7,400 a year in 2026/27.",
+      "wikipedia": "https://en.wikipedia.org/wiki/SWPS_University"
     }
   ],
   "sources": [
@@ -862,7 +881,7 @@
     {
       "title": "Study in Poland (NAWA) - Tuition fees",
       "url": "https://study.gov.pl/tuition-fees",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Study in Poland (NAWA) - How to apply",
@@ -907,7 +926,7 @@
     {
       "title": "University of Warsaw - Important information for candidates with an IB or EB diploma",
       "url": "https://rekrutacja.uw.edu.pl/wazne-informacje-dla-kandydatow-z-dyplomem-matury-ib-lub-eb/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "University of Warsaw - Recognition of foreign education",
@@ -962,7 +981,7 @@
     {
       "title": "Jagiellonian University School of Medicine in English - Application timeline and forms",
       "url": "https://medschool.uj.edu.pl/prospective-students/md-program-in-english/application-timeline-and-forms/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Jagiellonian University - Dormitory fees 2026/27",
@@ -977,7 +996,7 @@
     {
       "title": "Wroclaw Tech - Admission for foreigners, bachelor studies (fees, compulsory maths exam)",
       "url": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/fee-paying-basis-of-studies-and-scholarship-holders/admission/bachelor-studies/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Wroclaw Tech - Prospectus 2026/2027 (PDF)",
@@ -987,7 +1006,7 @@
     {
       "title": "Poznan University of Medical Sciences - Application calendar (Fall 2027)",
       "url": "https://pums.edu.pl/admissions/application-calendar/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Poznan University of Medical Sciences - Medicine admission requirements (IB HL science rule)",
@@ -1007,7 +1026,7 @@
     {
       "title": "Medical University of Gdansk - IB and EB conversion table",
       "url": "https://rekrutacja.gumed.edu.pl/53907.html",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Medical University of Gdansk - Fees and payment terms 2026/27",
@@ -1057,12 +1076,57 @@
     {
       "title": "AGH University of Krakow - Deadlines, bachelor studies (the page that carries the recruitment calendar)",
       "url": "https://www.international.agh.edu.pl/en/studies/recruitment/deadlines-bachelor-studies",
-      "retrieved": "2026-09-23"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "AGH University of Krakow - Academic year schedule",
       "url": "https://www.agh.edu.pl/en/students/academic-year-schedule",
       "retrieved": "2026-09-23"
+    },
+    {
+      "title": "Warsaw University of Technology - B.Sc. offer in English 2026/27",
+      "url": "https://www.students.pw.edu.pl/Studies-Offer/B.Sc.-offer",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "SGH - First-cycle study programmes in English",
+      "url": "https://www.sgh.waw.pl/en/first-cycle-study-programmes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Medical University of Warsaw - Studies in English",
+      "url": "https://www.wum.edu.pl/en/studies-in-english-wum",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Adam Mickiewicz University - Bachelor degree programs",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Wroclaw - Programmes in English",
+      "url": "https://international.uni.wroc.pl/en/admission-full-degree-studies/programmes-english",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Poznan University of Technology - First-cycle B.Sc. programmes",
+      "url": "https://put.poznan.pl/en/first-cycle-bsc-programmes",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "SWPS University - Bachelor's programmes in Warsaw",
+      "url": "https://english.swps.pl/academics/warsaw/ba-programs",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "SWPS University - Psychology BA (2026/27 fee, IB exam exemption)",
+      "url": "https://english.swps.pl/academics/warsaw/ba-programs/psychology",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "University of Wroclaw - English home page",
+      "url": "https://uwr.edu.pl/en/",
+      "retrieved": "2026-09-24"
     }
   ],
   "notCheckedNotes": [
@@ -1072,8 +1136,8 @@
     "The Jagiellonian's 2027/28 medical-certificate deadline is not dated. Annex 1 to Senate resolution 62/V/2026 keeps the requirement but says only \"w wyznaczonym terminie\", leaving the day to the Rector's ordinance. The 2026 pattern was 28 August for Collegium Medicum and 7 September for everything else.",
     "Jagiellonian School of Medicine in English tuition, and Jagiellonian English-taught non-medical bachelor fees, could not be read on any page.",
     "Medical University of Warsaw English Division tuition, deadlines, entrance exam format and programme list are unverified - the admissions host returned errors throughout.",
-    "SGH fee amounts, programme names and admissions schedule, and Kozminski's programme list, tuition and deadlines, are unverified.",
-    "Warsaw University of Technology, Adam Mickiewicz University, University of Wroclaw and Poznan University of Technology could not be verified for fees, English-taught programme counts or deadlines.",
+    "SGH fee amounts and admissions schedule, and Kozminski's programme list, tuition and deadlines, are unverified. SGH's four English-taught bachelor's were read on 2026-09-24.",
+    "Fees and 2027 deadlines at Warsaw University of Technology, Adam Mickiewicz University, University of Wroclaw and Poznan University of Technology are unverified; their English-taught bachelor's lists were read on 2026-09-24.",
     "Whether seven of the University of Warsaw's English-taught programmes print a single flat price or conceal an EU/non-EU split was not resolved - the extracted table showed one figure spanning both columns. Re-read the PDF before relying on those rows.",
     "The academic year of the Medical University of Gdansk IB conversion table is not printed on the page.",
     "Whether Gdansk or Poznan exempt IB holders from their entrance exams, and whether either sets a minimum IB grade, is not stated anywhere.",

@@ -7,12 +7,12 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-24",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "Public university costs €178 a year; the famous schools cost 100x that",
   "summary": "France splits sharply in two. Public universities are almost free — €178 a year for a licence in 2026/27, plus a €105 student-life contribution — and as an EU citizen you apply through Parcoursup, the national platform, in the winter before you start. The grandes écoles and private institutions are the other France: Sciences Po, École Polytechnique's bachelor, the business-school BBAs and the American University of Paris all run their own admissions, look at your whole profile, interview you, and charge between roughly €15,000 and €27,000 a year. Almost all the English-taught bachelor's degrees sit on that second side.",
   "whyConsider": [
-    "Public university tuition is €178 a year for a licence in 2026/27 — the lowest headline fee in Western Europe",
+    "Public university tuition is €178 a year for a licence in 2026/27",
     "Parcoursup is a genuine central system: one account, one timetable, up to 10 wishes that you do not have to rank",
     "Sciences Po runs a dedicated route for foreign secondary diplomas with clear, dated rounds, and its fees are income-based down to €0 for EEA families",
     "Serious English-taught bachelors exist at the grandes écoles: Sciences Po's English-track programmes, the École Polytechnique Bachelor of Science, ESCP's BSc in Management",
@@ -21,20 +21,20 @@
   "watchOuts": [
     "The English-taught options are overwhelmingly the expensive ones — the €178 public university largely teaches in French",
     "Parcoursup runs on French-school logic and closes wishes in March, long before your IB results, so everything rides on predicted grades and your dossier",
-    "Grandes écoles fees are steep and mostly not income-adjusted: ESCP's BSc is €20,800 a year for European students in the 2027 intake, and École Polytechnique's Bachelor €15,900",
-    "French universities can require proof of French (DELF/DALF or TCF) for French-taught degrees; requirements vary by institution and were not verified during research",
-    "The Parcoursup 2027 calendar did not exist yet on 23 September 2026 — the official calendar page still showed the 2026 cycle, and the ministry publishes the next one in November or December, so treat the winter dates below as the shape of the year rather than as confirmed"
+    "Grandes écoles fees are steep and mostly not income-adjusted: ESCP's BSc is €20,800 a year for European students in the 2027 intake, École Polytechnique's Bachelor €15,900, ESSEC's Global BBA €15,900 in year one and €18,900 after, and EDHEC's Global Business track €23,900",
+    "French universities can require proof of French (DELF/DALF or TCF) for French-taught degrees; requirements vary by institution, so check with the university",
+    "The Parcoursup 2027 calendar did not exist yet on 24 September 2026 - the official calendar page still showed the 2026 cycle, and the ministry publishes the next one in November or December, so treat the winter dates below as the shape of the year rather than as confirmed"
   ],
   "ibRecognition": {
     "accepted": true,
     "minimumPoints": null,
     "subjectLevelRule": "Not defined nationally. Selective programmes read HL subjects as the equivalent of French specialities — Sciences Po states there are no specific subject requirements, while the École Polytechnique Bachelor expects a strong mathematics and science background.",
-    "gradeConversion": "No national IB-to-French conversion was found. On Parcoursup and at the grandes écoles your IB record is assessed qualitatively as part of the dossier, alongside school reports and, at Sciences Po, written essays and an interview.",
+    "gradeConversion": "No national IB-to-French conversion is published. On Parcoursup and at the grandes écoles your IB record is assessed qualitatively as part of the dossier, alongside school reports and, at Sciences Po, written essays and an interview.",
     "notes": [
       "Sciences Po's international pathway is defined by the diploma you are sitting, not by your nationality: anyone taking a non-French secondary diploma, including the IB, uses it. Students sitting the French baccalauréat use Parcoursup instead.",
       "Sciences Po scores the application out of 100: 50 points for the file (exam results, school record, essays and project statement) and 50 points for a remote interview covering a self-introduction, an image analysis and your motivations.",
       "Sciences Po warns that AI-generated or plagiarised essays lead to disciplinary action, and that missing the interview means rejection.",
-      "EU citizens with a foreign diploma are not required to use the DAP 'dossier vert' procedure, which is aimed at non-EU applicants — this was not verified on an official page during research and should be confirmed.",
+      "EU, EEA and Swiss citizens apply for a first-year licence through Parcoursup, like French students; the DAP 'dossier vert' is for other nationalities (Ministry of Higher Education, 2026-2027 page).",
       "No national minimum IB score exists; each programme sets its own bar."
     ]
   },
@@ -51,8 +51,50 @@
         "consequence": "indicative",
         "provisional": false,
         "year": "2026 cycle — the 2027 opening date is not yet announced",
-        "notes": "Read on the official Parcoursup calendar page on 2026-09-23, in French, using a browser: that page returns HTTP 403 to automated retrieval but serves normally to a browser. It published the 2026 cycle as \"Du lundi 19 janvier au jeudi 12 mars 2026 : je m'inscris et je formule mes vœux\". As of 23 September 2026 the page still shows only the 2026 calendar, so the 2027 opening date is not announced; the ministry normally publishes the next calendar in November or December. Context, not a milestone: the 2026 programme catalogue opened for browsing on 17 December 2025 (\"Mercredi 17 décembre 2025 : je découvre la carte des formations Parcoursup 2026\"), which is a browsing date rather than something you must do.",
+        "notes": "The official Parcoursup calendar page (in French) published the 2026 cycle as \"Du lundi 19 janvier au jeudi 12 mars 2026 : je m'inscris et je formule mes vœux\". As of 24 September 2026 the page still shows only the 2026 calendar, so the 2027 opening date is not announced; the ministry normally publishes the next calendar in November or December. Context, not a milestone: the 2026 programme catalogue opened for browsing on 17 December 2025 (\"Mercredi 17 décembre 2025 : je découvre la carte des formations Parcoursup 2026\"), which is a browsing date rather than something you must do.",
         "source": "https://www.parcoursup.gouv.fr/calendrier"
+      },
+      {
+        "label": "École Polytechnique Bachelor — round 1 closes (2027 intake)",
+        "date": "2026-10-20",
+        "timeOfDay": "23:59",
+        "timeZone": "CEST",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"September 17, 2026 to October 20, 2026 at 11:59 PM (CEST)\", with interviews in early December and results in January 2027. Rounds 2 and 3 follow, so missing this is not fatal. You may apply once a year, either here or through Parcoursup, not both. Application fee €105.",
+        "source": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+      },
+      {
+        "label": "École Polytechnique Bachelor — round 2 closes (2027 intake)",
+        "date": "2027-01-06",
+        "timeOfDay": "23:59",
+        "timeZone": "CET",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"October 21, 2026 to January 6, 2027 at 11:59 PM (CET)\"; interviews in February-March, results in March 2027.",
+        "source": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+      },
+      {
+        "label": "École Polytechnique Bachelor — final round closes (2027 intake)",
+        "date": "2027-02-08",
+        "timeOfDay": "14:00",
+        "timeZone": "CET",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Published as \"January 7, 2027 to February 8, 2027 at 2 PM (CET)\" - 2 pm, not midnight. Interviews in March-April, results in April 2027.",
+        "source": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+      },
+      {
+        "label": "EDHEC International BBA — first of five admission sessions closes (2027 intake)",
+        "date": "2026-11-03",
+        "consequence": "priority",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "EDHEC's international admissions page gives the first session as \"from 1st October to 3rd November 2026\", with an online English assessment and an online interview. Four later sessions run to March; applying in round 1 or 2 is what makes you eligible for its Excellence scholarships. Application fee €100.",
+        "source": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions"
       },
       {
         "label": "Sciences Po — first round for foreign secondary diplomas (2027 intake)",
@@ -123,7 +165,7 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry — the 2027 calendar is not yet published",
-        "notes": "Checked on the official Parcoursup calendar page on 2026-09-23. The page is live and readable in French in a browser, but it returns HTTP 403 to automated retrieval, which is what the earlier research recorded as \"could not be read\" — the page is not dead. On that date it still showed only the 2026 calendar, whose wording was \"Jeudi 12 mars 2026 : dernier jour pour formuler mes vœux\". No 2027 date exists yet; the ministry normally publishes the following year's calendar in November or December, so expect the 2027 date around mid-March 2027 and re-check the same page from December 2026. Aggregator sites already print 13 March 2027, but they label it prévisionnel and it is not on any official page, so it is not recorded here.",
+        "notes": "On 24 September 2026 the official Parcoursup calendar page still showed only the 2026 calendar, whose wording was \"Jeudi 12 mars 2026 : dernier jour pour formuler mes vœux\". No 2027 date exists yet; the ministry normally publishes the following year's calendar in November or December, so expect the 2027 date around mid-March 2027 and re-check the same page from December 2026. Aggregator sites already print 13 March 2027, but they label it prévisionnel and it is not on any official page, so it is not recorded here.",
         "source": "https://www.parcoursup.gouv.fr/calendrier"
       },
       {
@@ -132,7 +174,7 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry — the 2027 calendar is not yet published",
-        "notes": "Checked on the official Parcoursup calendar page on 2026-09-23, in French, in a browser; the page refuses automated retrieval with HTTP 403 but is otherwise live. It still showed only the 2026 calendar, whose wording was \"Mercredi 1er avril 2026 : dernier jour pour compléter mon dossier et confirmer mes vœux\". A wish you do not confirm is lost, so this is the second hard gate and it falls about three weeks after the first. No 2027 date is published yet.",
+        "notes": "On 24 September 2026 the official Parcoursup calendar page still showed only the 2026 calendar, whose wording was \"Mercredi 1er avril 2026 : dernier jour pour compléter mon dossier et confirmer mes vœux\". A wish you do not confirm is lost, so this is the second hard gate and it falls about three weeks after the first. No 2027 date is published yet.",
         "source": "https://www.parcoursup.gouv.fr/calendrier"
       },
       {
@@ -141,13 +183,13 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027 entry — the 2027 calendar is not yet published",
-        "notes": "Once the admission phase opens you must answer each offer within a short published window or lose it, so this is a period you have to be reachable in, not a single date. The 2026 calendar, read in French in a browser on 2026-09-23, ran it as \"Mardi 2 juin 2026 : début de la phase d'admission\" through \"Samedi 11 juillet 2026 : fin de la phase principale\", with the complementary phase from 11 June 2026 to 10 September 2026 and response deadlines suspended during the baccalauréat written exams. The 2027 equivalents are not yet published.",
+        "notes": "Once the admission phase opens you must answer each offer within a short published window or lose it, so this is a period you have to be reachable in, not a single date. The 2026 calendar ran it as \"Mardi 2 juin 2026 : début de la phase d'admission\" through \"Samedi 11 juillet 2026 : fin de la phase principale\", with the complementary phase from 11 June 2026 to 10 September 2026 and response deadlines suspended during the baccalauréat written exams. The 2027 equivalents were not yet published on 24 September 2026.",
         "source": "https://www.parcoursup.gouv.fr/calendrier"
       },
       {
         "label": "CVEC payment before administrative enrolment",
         "dateState": "no-central-deadline",
-        "consequence": "hard",
+        "consequence": "indicative",
         "provisional": false,
         "year": "2027/28",
         "notes": "There is no fixed national date: the CVEC portal, read in French on 2026-09-23, says to pay \"au plus près de votre inscription effective\" and that payment must be made \"préalablement à son inscription\", because the attestation is what lets you enrol. In practice that means from early July once you have definitively accepted a place. Context, not a milestone: the same page gives 31 May 2027 as the close of the 2026-2027 refund campaign, which only concerns students who paid and were in fact exempt.",
@@ -166,12 +208,12 @@
     "selectionNotes": "Public university licences split into non-selective (you are ranked but capacity-constrained) and selective (IUT, BTS, CPGE, art and design), all inside Parcoursup. The grandes écoles sit outside Parcoursup for foreign-diploma holders and select on dossier plus interview, sometimes plus a written test."
   },
   "language": {
-    "englishTaughtBachelors": "Concentrated almost entirely in the grandes écoles and private institutions — Sciences Po's English-track programmes, the École Polytechnique Bachelor of Science, ESCP's BSc in Management, the BBAs at ESSEC, EDHEC and emlyon, and the American University of Paris. No official national count was found during research.",
-    "englishProof": "Set institution by institution. ESCP asks for IELTS 6.5 or equivalent for its BSc in Management. Sciences Po expects high English proficiency and sets language requirements per programme. Whether IB English A or B is accepted in place of a test was not verified for each institution.",
+    "englishTaughtBachelors": "Concentrated almost entirely in the grandes écoles and private institutions — Sciences Po's English-track programmes, the École Polytechnique Bachelor of Science, ESCP's BSc in Management, the BBAs at ESSEC, EDHEC and emlyon, and the American University of Paris. No official national count is published.",
+    "englishProof": "Set institution by institution. ESCP asks for IELTS 6.5 or equivalent for its BSc in Management. Sciences Po expects high English proficiency and sets language requirements per programme. Whether IB English A or B is accepted in place of a test is not confirmed here; check with each institution.",
     "localLanguageRequired": false,
     "notes": [
       "French is not required for the English-taught grande école programmes, but Sciences Po's bachelor is multilingual and some ESCP courses at the Paris campus are taught in French in years 2 and 3.",
-      "For a French-taught public university degree you will normally need to prove French, typically through DELF/DALF or TCF. The exact level varies by institution and was not verified during research.",
+      "For a French-taught public university degree you will normally need to prove French, typically through DELF/DALF or TCF. The exact level varies by institution; check with the university.",
       "Everyday life, part-time work and administration all run in French regardless of your degree."
     ]
   },
@@ -182,33 +224,33 @@
       "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2"
     },
     "tuitionNonEu": {
-      "value": "Public universities charge differentiated fees to non-EU/EEA students on first enrolment: €2,850 a year for a licence and €3,879 for a master's according to etudiant.gouv. A 2026 decree was reported to raise the licence figure to about €2,902 for 2026/27, but this was not confirmed on an official page. Grandes écoles: Sciences Po charges a flat €14,900 to students with fiscal residence outside the EEA; École Polytechnique's Bachelor is €19,200; ESCP's BSc is €26,800 for the 2027 intake.",
-      "year": "2024/25 for the etudiant.gouv figures; 2026/27 figure unverified",
-      "source": "https://www.etudiant.gouv.fr/en/tuition-fees-france-1489"
+      "value": "Public universities charge differentiated fees to non-EU/EEA students: €2,902 a year for a licence and €3,950 for a master's in 2026/27, set by decree no. 2026-385 of 19 May 2026; universities may exempt up to 30% of them. Grandes écoles: Sciences Po charges a flat €14,900 to students with fiscal residence outside the EEA; École Polytechnique's Bachelor is €19,200; ESCP's BSc is €26,800 for the 2027 intake.",
+      "year": "2026/27 (ESCP figure is the 2027 intake)",
+      "source": "https://www.univ-lyon1.fr/formation/inscription-et-scolarite/etudiantes-et-etudiants-internationaux-droits-dinscription-differencies-et-exonerations"
     },
-    "applicationFee": "Sciences Po charges €150, non-refundable and waived only for refugees. ESCP charges €80 for the BSc in Management. Parcoursup itself is free.",
+    "applicationFee": "Sciences Po charges €150, non-refundable and waived only for refugees. École Polytechnique's Bachelor charges €105, EDHEC's BBA €100 and ESCP's BSc €80. Parcoursup itself is free.",
     "livingCostMonthly": {
-      "value": null,
-      "year": null,
-      "source": null
+      "value": "About €600-800 a month for housing, food and transport, according to Campus France; Paris costs noticeably more.",
+      "year": "Campus France guidance, undated",
+      "source": "https://www.campusfrance.org/en/faq/what-is-the-cost-of-life-in-france"
     },
     "notes": [
       "The CVEC (Contribution de vie étudiante et de campus) is €105 for 2026/27, is paid online at cvec.etudiant.gouv.fr, and you cannot complete enrolment without the attestation. Scholarship holders and refugees are exempt but still need an exemption attestation.",
-      "Sciences Po's fee depends on the tax household's resources, not on nationality: an EEA family below roughly €42,000 combined income pays nothing, and the ceiling applies only at very high incomes. Figures beyond the €0–€14,900 range were not verified on an official page.",
+      "Sciences Po's fee depends on the tax household's resources, not on nationality: an EEA family below roughly €42,000 combined income pays nothing, and the ceiling applies only at very high incomes. Figures beyond the €0–€14,900 range are not confirmed here.",
       "Some non-EU students pay the EU rate anyway — residents of Quebec, holders of long-term residence cards and doctoral candidates among them.",
       "If you transfer your enrolment between two institutions, €23 is retained by the first one.",
-      "Living costs were not verified against an official source during this research and are deliberately left blank."
+      "The living-cost figure is Campus France's general guide, not an official survey; rents vary more than anything else, and Paris is the outlier."
     ]
   },
   "funding": [
     "Danish SU may be taken abroad for a full degree if the programme is approved — check su.dk before committing.",
     "CAF housing benefit (APL/ALS) is open to students in France including EU citizens, and meaningfully reduces rent; apply after you have a lease.",
     "Sciences Po's Émile Boutmy scholarship for undergraduate applicants, with a 13 January 2027 deadline for the 2027 intake.",
-    "CROUS bourses sur critères sociaux, which also exempt you from the CVEC and from tuition; eligibility for EU nationals depends on residence conditions not verified during research.",
+    "CROUS bourses sur critères sociaux, which also exempt you from the CVEC and from tuition; eligibility for EU nationals depends on residence conditions not confirmed here; check with CROUS.",
     "Grandes écoles and business schools run their own merit scholarships, usually assessed at application.",
     "Erasmus+ for an exchange period inside the degree."
   ],
-  "workRights": "EU/EEA citizens have full labour-market access in France with no permit and no hour cap. Non-EU students on a student residence permit may work up to 964 hours a year (about 60% of full time), but this figure was not verified on an official page during research.",
+  "workRights": "EU/EEA citizens have full labour-market access in France with no permit and no hour cap. Non-EU students on a student residence permit may work up to 964 hours a year (60% of the legal annual working time) without a separate work authorisation (service-public.gouv.fr).",
   "residency": "As a Danish citizen you need no visa and no residence permit. Travel on your passport or national ID card. There is no compulsory EU registration in France, but you will need a French bank account (for CAF and rent), a French phone number and a social-security number, so start those in your first weeks. Non-EU students apply for a VLS-TS student visa through the Études en France procedure before departure.",
   "housing": "CROUS student residences are cheap but scarce and allocated mainly on social criteria. Most students rent studios or shared flats privately, and French landlords normally demand a French guarantor — the state Visale scheme exists to replace one, and is worth arranging early. Paris is very expensive and very competitive; Lille, Strasbourg, Grenoble, Lyon and Nice are far easier. Start in May or June for a September start.",
   "healthcare": "Bring a European Health Insurance Card. Students staying for a full degree register with the French health system through etudiant-etranger.ameli.fr to obtain a social-security number and a carte Vitale, then usually add a mutuelle (top-up insurance) because the state reimburses only part of most costs.",
@@ -284,13 +326,13 @@
       "website": "https://www.essec.edu/en/",
       "admissionsUrl": "https://www.essec.edu/en/program/global-bba-international/",
       "ibPageUrl": null,
-      "englishBachelors": "Global BBA, available with an English track",
+      "englishBachelors": "Global BBA, four years, with an English track on the Cergy campus (and in Singapore and Rabat).",
       "notableFields": [
         "Business Administration",
         "Finance",
         "Marketing"
       ],
-      "note": "One of France's top three business schools; its four-year Global BBA is a common route for international school-leavers, but fees and deadlines could not be verified during research.",
+      "note": "One of France's top three business schools; its four-year Global BBA costs €15,900 in year one and €18,900 a year after that (2026/27 intake), plus a €5,500 deposit on admission. 2027 deadlines were not on the page.",
       "wikipedia": "https://en.wikipedia.org/wiki/ESSEC_Business_School",
       "place": "fr-cergy-pontoise-paris-region",
       "jurisdiction": "fr-ecoles"
@@ -304,13 +346,13 @@
       "website": "https://www.edhec.edu/en",
       "admissionsUrl": "https://www.edhec.edu/en/programmes",
       "ibPageUrl": null,
-      "englishBachelors": "BBA Global Business, taught in English",
+      "englishBachelors": "International BBA, with the Global Business track taught in English.",
       "notableFields": [
         "Business Administration",
         "Finance",
         "Marketing"
       ],
-      "note": "Strong in finance, with campuses in Lille and Nice; fees and deadlines could not be verified during research.",
+      "note": "Strong in finance, with campuses in Lille and Nice. The BBA's Global Business track costs €23,900 a year and the Business Management track €15,900; the first of five sessions for the 2027 intake closes on 3 November 2026.",
       "wikipedia": "https://en.wikipedia.org/wiki/EDHEC_Business_School",
       "place": "fr-lille-and-nice",
       "jurisdiction": "fr-ecoles"
@@ -324,13 +366,13 @@
       "website": "https://em-lyon.com/en",
       "admissionsUrl": "https://em-lyon.com/en/programmes",
       "ibPageUrl": null,
-      "englishBachelors": "Global BBA with English-taught tracks",
+      "englishBachelors": "Global BBA, four years, with French and English tracks.",
       "notableFields": [
         "Business Administration",
         "Entrepreneurship",
         "Marketing"
       ],
-      "note": "Lyon is a far cheaper city than Paris, and emlyon's BBA is heavily international; fees were not verified during research.",
+      "note": "Lyon is a far cheaper city than Paris, and emlyon's BBA lets you spend up to 75% of it abroad; first-year fees for the 2027 intake are €15,500 a year.",
       "wikipedia": "https://en.wikipedia.org/wiki/EM_Lyon_Business_School",
       "jurisdiction": "fr-ecoles"
     },
@@ -350,7 +392,7 @@
         "Business Administration",
         "Comparative Literature"
       ],
-      "note": "A small English-language liberal-arts college in central Paris that runs dedicated IB Diploma scholarships; tuition figures could not be read from the official page during research.",
+      "note": "A small English-language liberal-arts college in central Paris that runs dedicated IB Diploma scholarships; tuition figures are not confirmed here; check with the college.",
       "wikipedia": "https://en.wikipedia.org/wiki/American_University_of_Paris",
       "place": "fr-paris",
       "jurisdiction": "fr-ecoles"
@@ -406,7 +448,7 @@
       "website": "https://psl.eu/en",
       "admissionsUrl": "https://psl.eu/en/education/admissions",
       "ibPageUrl": null,
-      "englishBachelors": "A small multidisciplinary bachelor offer, partly in English",
+      "englishBachelors": "One undergraduate programme taught entirely in English, the International Bachelor of Science in AI; Sustainability Sciences moves from 40% English in year one to 100% in year three.",
       "notableFields": [
         "Sciences",
         "Economics",
@@ -434,7 +476,7 @@
         "Environmental Sciences",
         "Engineering"
       ],
-      "note": "A strong science university in the Alps, with lower rents than Paris and skiing an hour away. Checked 2026-09-23: the university's English site has gone. www.univ-grenoble-alpes.fr/english/ is dead and its old home page now redirects to a staff login, so the main site recorded here is the French one. UGA's English pages for prospective international students live on a separate host, international.univ-grenoble-alpes.fr, which is where the admissions link points.",
+      "note": "A strong science university in the Alps, with lower rents than Paris and skiing an hour away. UGA's main site is in French; its English pages for prospective international students are at international.univ-grenoble-alpes.fr, which is where the admissions link points.",
       "wikipedia": "https://en.wikipedia.org/wiki/Grenoble_Alpes_University",
       "place": "fr-grenoble",
       "jurisdiction": "fr-universites"
@@ -455,7 +497,7 @@
         "Law",
         "Medicine"
       ],
-      "note": "A major research university on the German border, in a bilingual city that is also home to the European Parliament. Checked 2026-09-23: Unistra has no English site. Both unistra.fr and the en.unistra.fr host serve the French pages, so the main site here is the French one; the English guidance for applicants from abroad is on a separate site, international-welcome.unistra.fr, which is where the admissions link points.",
+      "note": "A major research university on the German border, in a bilingual city that is also home to the European Parliament. Unistra's main site is in French; its English guidance for applicants from abroad is at international-welcome.unistra.fr, which is where the admissions link points.",
       "wikipedia": "https://en.wikipedia.org/wiki/University_of_Strasbourg",
       "place": "fr-strasbourg",
       "jurisdiction": "fr-universites"
@@ -465,7 +507,7 @@
     {
       "title": "Service-Public — cost of enrolment in higher education (droits d'inscription 2026-2027 and CVEC)",
       "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "CVEC — official payment portal (€105 for 2026-2027, who pays, who is exempt)",
@@ -483,34 +525,34 @@
       "retrieved": "2026-09-22"
     },
     {
-      "title": "Parcoursup — official calendar page (French; live, but refuses automated retrieval with HTTP 403 — read in a browser on 2026-09-23, and still showing the 2026 cycle only)",
+      "title": "Parcoursup — official calendar page (French; still showing the 2026 cycle only on 24 September 2026)",
       "url": "https://www.parcoursup.gouv.fr/calendrier",
-      "retrieved": "2026-09-23"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Sciences Po — undergraduate admissions for applicants from foreign secondary schools, 2027 intake dates",
       "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Sciences Po — tuition fees for academic year 2026-2027",
       "url": "https://www.sciencespo.fr/students/en/fees-funding/tuition-fees/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "École Polytechnique — Bachelor of Science programme and fees",
       "url": "https://programmes.polytechnique.edu/en/bachelor/bachelor-of-science",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "ESCP Business School — Bachelor in Management (BSc), 2027 intake fees",
       "url": "https://escp.eu/programmes/bachelor-in-management-bsc",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Ministère de l'Enseignement supérieur — DAP 'dossier vert' for first enrolment in a licence, 2026-2027",
       "url": "https://www.enseignementsup-recherche.gouv.fr/fr/dossier-vert-demande-d-admission-prealable-dap-pour-une-premiere-inscription-en-premiere-annee-de-46347",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "Service-Public.fr - Parcoursup (up to 10 unranked wishes)",
@@ -520,7 +562,47 @@
     {
       "title": "École polytechnique - Bachelor admissions criteria and procedure (2027 rounds)",
       "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
-      "retrieved": "2026-09-23"
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Université Claude Bernard Lyon 1 - differentiated fees for international students 2026/2027 (€2,902 licence, €3,950 master, decree 2026-385)",
+      "url": "https://www.univ-lyon1.fr/formation/inscription-et-scolarite/etudiantes-et-etudiants-internationaux-droits-dinscription-differencies-et-exonerations",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Service-Public - can a non-European student work in France? (964 hours a year)",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2713?lang=en",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Campus France - what is the cost of life in France?",
+      "url": "https://www.campusfrance.org/en/faq/what-is-the-cost-of-life-in-france",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ESSEC - Global BBA (tracks and 2026/27 fees)",
+      "url": "https://www.essec.edu/en/program/global-bba-international/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "EDHEC - International BBA admissions for international diplomas (2027 sessions)",
+      "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "EDHEC - International BBA tuition fees and scholarships",
+      "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/tuition-fees-and-scholarships",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "emlyon - Global BBA (tracks and 2027 fees)",
+      "url": "https://em-lyon.com/en/student/bachelor/global-bba",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "PSL - programmes and tracks taught in English",
+      "url": "https://psl.eu/en/programs-and-tracks-taught-english",
+      "retrieved": "2026-09-24"
     }
   ],
   "artDirection": {

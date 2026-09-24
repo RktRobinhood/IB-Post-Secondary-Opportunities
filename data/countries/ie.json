@@ -7,10 +7,10 @@
   "currency": "EUR",
   "eu": true,
   "eea": true,
-  "dataAsOf": "2026-09-22",
+  "dataAsOf": "2026-09-24",
   "targetIntake": "Autumn 2027 (May 2027 IB session)",
   "tagline": "English-speaking, EU, and your IB score becomes a number",
-  "summary": "Ireland is the only English-speaking country left in the EU, and it treats your IB Diploma more precisely than anywhere else: there is a published table that turns your overall IB score into CAO points, and courses are filled strictly by points. As an EU citizen who has lived in the EEA you normally pay no tuition at all under the Free Fees Initiative - only the student contribution, which fell to 2,500 EUR from 2026/27. The catch is that you apply through one central office, CAO, with a closing date of 1 February, and that Irish student accommodation is expensive and scarce.",
+  "summary": "Ireland is English-speaking and inside the EU, and it converts your overall IB score into CAO points on a published table, and courses are filled strictly by points. As an EU citizen who has lived in the EEA you normally pay no tuition at all under the Free Fees Initiative - only the student contribution, which fell to 2,500 EUR from 2026/27. The catch is that you apply through one central office, CAO, with a closing date of 1 February, and that Irish student accommodation is expensive and scarce.",
   "whyConsider": [
     "Everything is taught in English, so there is no language barrier and no language test to plan for.",
     "The IB-to-CAO conversion is published and public: you can work out before you apply roughly which courses your predicted score reaches.",
@@ -22,7 +22,7 @@
     "CAO closes at 17:00 on 1 February - months before you sit your exams, and you are applying on predicted performance with no idea of the year's points.",
     "Points requirements are not published in advance. They are set each August by supply and demand, so a course that needed 510 points last year can need 543 this year.",
     "Accommodation in Dublin is expensive and in short supply; purpose-built student housing can run well over 1,000 EUR a month and campus rooms are allocated by lottery in many universities.",
-    "The 2,500 EUR student contribution is the figure for 2026/27 after a permanent 500 EUR reduction in Budget 2026. It is set politically each year, so confirm the 2027/28 amount before you commit.",
+    "The 2,500 EUR student contribution is the maximum rate for 2026/27, after a permanent 500 EUR cut in Budget 2026. It is set politically each year, so confirm the 2027/28 amount before you commit.",
     "The CAO IB conversion table is republished every year for that year's entry. The table below is the one for 2026 entry; check the 2027 version when it appears (usually in late 2026)."
   ],
   "ibRecognition": {
@@ -54,23 +54,24 @@
         "consequence": "indicative",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "The one date on the CAO timetable that carries its own year: the last line of the Timetable of Events reads \"5th November 2026 - CAO application facility opens for 2027 applications\", so this is published rather than inferred. Nothing can be submitted before midday. Every other CAO date in this calendar is rolled forward from the 2025-26 timetable, because that is the only one published as of 23 September 2026.",
-        "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
+        "notes": "Published twice: the last line of the CAO Timetable of Events reads \"5th November 2026 - CAO application facility opens for 2027 applications\", and the CAO Handbook 2027 gives \"CAO online application facility opens on 5 November at 12:00 noon\". Nothing can be submitted before midday.",
+        "source": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
         "sources": [
-          "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
+          "https://www.cao.ie/?page=timetableevents&bb=importantdates"
         ]
       },
       {
-        "label": "Discounted application fee closes - 35 EUR becomes 50 EUR",
+        "label": "Discounted application fee ends - 35 EUR becomes 50 EUR",
         "date": "2027-01-20",
         "timeOfDay": "17:00",
         "timeZone": "Irish time",
-        "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as \"20th January 2026 (17:00) - Apply online by this date to avail of the discounted application fee of €35\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. The fee ladder is in Table 1.1 of the CAO Handbook 2026 and is the part most often got wrong: early online (discounted) 35 EUR by 20 January, normal online 50 EUR by 1 February, late online 65 EUR by 1 May, Change of Mind nil. Amending your course choices between 5 February and 1 March costs a further 10 EUR. Application fees are non-refundable and CAO states that no extension to any closing date is allowed.",
+        "consequence": "indicative",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "The discounted online fee ends at 17:00 (CAO Handbook 2027, Timetable of Events and Table 1.1). Missing it costs 15 EUR, not your place: you can still apply at the normal 50 EUR until 1 February. The fee ladder is in Table 1.1 of the CAO Handbook 2027 and is the part most often got wrong: early online (discounted) 35 EUR by 20 January, normal online 50 EUR by 1 February, late online 65 EUR by 1 May, Change of Mind nil. Amending your course choices between 5 February and 1 March costs a further 10 EUR. Application fees are non-refundable and CAO states that no extension to any closing date is allowed.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
@@ -95,11 +96,12 @@
         "timeOfDay": "17:00",
         "timeZone": "Irish time",
         "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as \"1st February (17:00) - Normal closing date for applications\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. The fee at this point is 50 EUR. Restricted-entry courses - those with a test, interview, portfolio or audition, including undergraduate medicine - must be on your course choices list by now, with one narrow escape: the handbook allows them to be \"added to your application using the facility to amend course choices (for a fee of 10) before 1 March at 5pm\". They cannot be introduced during the free Change of Mind window in May and June, except where a restricted course shares the exact same assessment procedures as one you already listed. The CAO Handbook also advises applying online before this date and time if you need to sit HPAT or GAMSAT.",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "CAO publishes this as \"1st February (17:00) - Normal closing date for applications\". Confirmed for 2027 entry by the CAO Handbook 2027 (Timetable of Events and Table 1.1), read on 24 September 2026; the Timetable of Events web page still shows the 2026 cycle. The fee at this point is 50 EUR. Restricted-entry courses - those with a test, interview, portfolio or audition, including undergraduate medicine - must be on your course choices list by now, with one narrow escape: the handbook allows them to be \"added to your application using the facility to amend course choices (for a fee of 10) before 1 March at 5pm\". They cannot be introduced during the free Change of Mind window in May and June, except where a restricted course shares the exact same assessment procedures as one you already listed. The CAO Handbook also advises applying online before this date and time if you need to sit HPAT or GAMSAT.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
@@ -109,11 +111,12 @@
         "timeOfDay": "12:00",
         "timeZone": "Irish time",
         "consequence": "indicative",
-        "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as \"5th February (12:00) - Online facility to amend course choices becomes available (€10 Fee)\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. Promoted out of a note so that it can be sorted and counted: this is the first day on which a restricted-entry course you left off your 1 February list can be added at all, and it is the only window in the year in which that is possible. Nothing can be changed between 1 February and this day.",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "Course choices can be amended online from 12:00 on this day for a €10 fee; source: CAO Handbook 2027, Timetable of Events and Table 1.1. Nothing can be changed between 1 February and this day.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
@@ -137,11 +140,12 @@
         "timeOfDay": "17:00",
         "timeZone": "Irish time",
         "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as \"1st March (17:00) - Closing date for amending course choices\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. After this time no restricted-entry course can be added to your application for the rest of the cycle: the free Change of Mind window that opens in May cannot introduce them, and a late application cannot include them either. If undergraduate medicine, or an art, design, architecture, music or drama course with a portfolio or audition, is not on your list by now, it is not available to you this year.",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "CAO publishes this as \"1st March (17:00) - Closing date for amending course choices\". Confirmed for 2027 entry by the CAO Handbook 2027 (Timetable of Events and Table 1.1), read on 24 September 2026; the Timetable of Events web page still shows the 2026 cycle. After this time no restricted-entry course can be added to your application for the rest of the cycle: the free Change of Mind window that opens in May cannot introduce them, and a late application cannot include them either. If undergraduate medicine, or an art, design, architecture, music or drama course with a portfolio or audition, is not on your list by now, it is not available to you this year.",
         "source": "https://www2.cao.ie/handbook/handbook2026/hb.pdf",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www.cao.ie/?page=timetableevents&bb=importantdates"
         ]
       },
@@ -152,11 +156,12 @@
         "timeOfDay": "17:00",
         "timeZone": "Irish time",
         "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as two lines, \"5th March (12:00) - Late application facility opens\" and \"1st May (17:00) - Closing date for late applications\"; the time shown here is the closing one, because that is the one that costs something. The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. The fee is 65 EUR. Restricted-entry courses cannot be applied for at all in this window, and the handbook warns that individual institutions may refuse late applications outright: \"mature applicants, and those presenting qualifications other than recently taken EU school-leaving examinations, should check the relevant HEI website before making a late application\". An IB Diploma completed the same summer is a recently taken EU school-leaving examination, but the institution decides, not CAO.",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "CAO publishes this as two lines, \"5th March (12:00) - Late application facility opens\" and \"1st May (17:00) - Closing date for late applications\"; the time shown here is the closing one, because that is the one that costs something. Confirmed for 2027 entry by the CAO Handbook 2027 (Timetable of Events and Table 1.1), read on 24 September 2026; the Timetable of Events web page still shows the 2026 cycle. The fee is 65 EUR. Restricted-entry courses cannot be applied for at all in this window, and the handbook warns that individual institutions may refuse late applications outright: \"mature applicants, and those presenting qualifications other than recently taken EU school-leaving examinations, should check the relevant HEI website before making a late application\". An IB Diploma completed the same summer is a recently taken EU school-leaving examination, but the institution decides, not CAO.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
@@ -167,10 +172,11 @@
         "timeZone": "Irish time",
         "consequence": "indicative",
         "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as \"5th May (12:00) - Online Change of Mind facility becomes available (Free)\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. You may use it as many times as you like to introduce, remove or reorder courses, but each Change of Mind \"cancels and supersedes all previous course choices in any category in which changes are made\", so the list you leave behind is the list that is read. Restricted-entry courses cannot be introduced here.",
+        "year": "2027 entry (CAO Handbook 2027, expected date)",
+        "notes": "CAO publishes this as \"5th May (12:00) - Online Change of Mind facility becomes available (Free)\". The CAO Handbook 2027, read on 24 September 2026, gives this day and time but marks it \"(expected date)\", so it stays provisional. You may use it as many times as you like to introduce, remove or reorder courses, but each Change of Mind \"cancels and supersedes all previous course choices in any category in which changes are made\", so the list you leave behind is the list that is read. Restricted-entry courses cannot be introduced here.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
@@ -180,25 +186,27 @@
         "timeOfDay": "17:00",
         "timeZone": "Irish time",
         "consequence": "hard",
-        "provisional": true,
-        "year": "2027 entry, inferred from the 2026 timetable",
-        "notes": "CAO publishes this as \"1st July (17:00) - Change of Mind closes\". The CAO Timetable of Events read on 23 September 2026 is still the 2025-26 one, which covers 2026 entry; the only 2027 date on it is the November opening. The day and time here are that timetable rolled forward by one year and are marked provisional until CAO publishes the 2027 timetable, which it does alongside the opening of the application facility in November 2026. This is the date the whole Irish system turns on, because offers follow your stated order of preference exactly and this is the last moment you can change it. It closes a few days before IB results are released in early July, so the order you submit is an order you choose without knowing your score. Decide it against your predicted grades and against last year’s points for each course, not against a result you do not have yet.",
+        "provisional": false,
+        "year": "2027 entry",
+        "notes": "CAO publishes this as \"1st July (17:00) - Change of Mind closes\". Confirmed for 2027 entry by the CAO Handbook 2027 (Timetable of Events and Table 1.1), read on 24 September 2026; the Timetable of Events web page still shows the 2026 cycle. This is the date the whole Irish system turns on, because offers follow your stated order of preference exactly and this is the last moment you can change it. It closes a few days before IB results are released in early July, so the order you submit is an order you choose without knowing your score. Decide it against your predicted grades and against last year’s points for each course, not against a result you do not have yet.",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
       {
-        "label": "Ask your IB coordinator to give the Central Applications Office access to your results",
+        "label": "IB free results requests close - make sure CAO is on your coordinator’s list",
         "date": "2027-07-05",
         "ibCalendar": "2027-05/transcript-request-cutoff",
-        "consequence": "hard",
+        "consequence": "indicative",
         "provisional": false,
         "year": "2027 entry",
         "audience": "IB Diploma candidates",
-        "notes": "CAO requires this and publishes no date for it, which is why it is here with a state rather than a day. The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"If you are a May 2026 IB candidate, please ask your IB coordinator to list ‘Central Applications Office’ among the list of institutions that will have permission to access your results. In this way, when results are released, CAO will be able to access your May 2026 results (only) online and add them to your application file.\" If it is not done, CAO never receives your results and you are not considered, whatever your score. The IB-side cut-off was missing from this record until the IB's own transcript page was read by hand on 23 September 2026; it is 5 July for a May session. Before it, your coordinator submits the request and the first six are free, and CAO counts as one of the six exactly as UCAS does in the IB's own example. From it, you request transcripts yourself through rrs.ibo.org at $19 each, with processing quoted at up to 14 working days and longer in the July–September peak — which is how a late request turns into a missed 1 August Round One cut-off rather than just a fee. The IB's wording covers 'before 5 July' and 'after 5 July' and never says what happens on the day itself, so treat 4 July 2027 as the last safe day. One reading this record does not make for you: CAO describes permission to access results and the IB describes a transcript request, and nobody has confirmed in writing that they are the same mechanism. Ask the coordinator before study leave begins, in writing, and ask them to confirm CAO is on the list.",
+        "notes": "The IB’s cut-off: before 5 July your coordinator sends your results to up to six institutions free of charge; after 5 July you request them yourself through rrs.ibo.org at $19 each, with processing quoted at up to 14 working days and longer in the July–September peak. The IB does not say what happens on 5 July itself, so have it done by 4 July 2027. CAO needs it: the CAO Handbook 2027 says \"If you are an IB candidate for May 2027: Ask your school's IB Coordinator to add \"Central Applications Office (CAO)\" to the list of institutions allowed to access your results\", and asks for your IB candidate number so the results can be matched. If it is not done, CAO never receives your results and you are not considered, whatever your score. CAO counts as one of the six, exactly as UCAS does in the IB’s own example, and a late request can turn into a missed 1 August Round One cut-off rather than just a fee. Ask the coordinator before study leave begins, in writing, and ask them to confirm CAO is on the list.",
         "source": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www.cao.ie/index.php?page=scoring&s=ib"
         ],
         "evidence": [
@@ -212,9 +220,10 @@
         "provisional": true,
         "year": "2027 entry, inferred from the 2026 booklet",
         "audience": "IB Diploma candidates",
-        "notes": "The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"Results should arrive with CAO no later than 1 August. We cannot guarantee that results received after that will be processed in time for inclusion in Round 1. Inclusion in later rounds is subject to availability of places.\" The general rule behind it is \"documents should be with CAO 12 days before the relevant offer round\". Published as \"1 August\" with no year, in a booklet dated November 2025 for 2026 entry; the year here is inferred from the intake this profile covers. If your coordinator has listed CAO as an institution permitted to see your results this happens by itself when results are released in early July; if not, you must upload or post them, with an English translation where the document is not in English, and with your CAO number on every page. Missing it does not end the application - it moves you out of Round One and into whatever places are left.",
+        "notes": "The CAO entry-requirements booklet for EU/EFTA/UK applicants says: \"Results should arrive with CAO no later than 1 August. We cannot guarantee that results received after that will be processed in time for inclusion in Round 1. Inclusion in later rounds is subject to availability of places.\" The general rule behind it is \"documents should be with CAO 12 days before the relevant offer round\". Published as \"1 August\" with no year, in a booklet dated November 2025 for 2026 entry; the year here is inferred from the intake this profile covers. If your coordinator has listed CAO as an institution permitted to see your results this happens by itself when results are released in early July; if not, you must upload or post them, with an English translation where the document is not in English, and with your CAO number on every page. Missing it does not end the application - it moves you out of Round One and into whatever places are left. The CAO Handbook 2027 states the general rule for this cycle: results \"must arrive in CAO a minimum of 12 days before the relevant offer round\".",
         "source": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf"
         ]
       },
@@ -225,9 +234,10 @@
         "consequence": "indicative",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "Not yet announced: CAO’s 2027 timetable did not exist on 23 September 2026, and the round dates move each year with the Irish Leaving Certificate results they wait for. For 2026 entry the published dates were Round A on 6 July at 10:00, Round 0 on 6 August at 10:00, Leaving Certificate results on 21 August, and Round One on 26 August at 14:00, with Rounds 2 to 5 through September. Round One is the one that matters to you: the CAO Handbook says \"Applicants applying on the basis of school leaving examination results/grades, regardless of the year completed, will compete for an offer in Round One\". Round A is for deferred, mature and Access applicants and those needing visa time, and Round Zero for graduate-entry medicine and QQI quota applicants - an IB candidate applying straight from school is in neither, so an empty inbox in July and early August means nothing has gone wrong. The booklet is blunt about why: \"EU applicants are considered in competition with Irish school leavers. Consequently, offers cannot issue until the 2026 Irish school leaving results are known.\"",
+        "notes": "Not yet announced: the CAO Handbook 2027 lists Round One as \"(TBC)\" and its timetable says \"Round One offers (date to be confirmed)\"; the round dates move each year with the Irish Leaving Certificate results they wait for. For 2026 entry the published dates were Round A on 6 July at 10:00, Round 0 on 6 August at 10:00, Leaving Certificate results on 21 August, and Round One on 26 August at 14:00, with Rounds 2 to 5 through September. Round One is the one that matters to you: the CAO Handbook says \"Applicants applying on the basis of school leaving examination results/grades, regardless of the year completed, will compete for an offer in Round One\". Round A is for deferred, mature and Access applicants and those needing visa time, and Round Zero for graduate-entry medicine and QQI quota applicants - an IB candidate applying straight from school is in neither, so an empty inbox in July and early August means nothing has gone wrong. The booklet is blunt about why: \"EU applicants are considered in competition with Irish school leavers. Consequently, offers cannot issue until the 2026 Irish school leaving results are known.\"",
         "source": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
         "sources": [
+          "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
           "https://www2.cao.ie/handbook/handbook2026/hb.pdf",
           "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf"
         ]
@@ -264,7 +274,7 @@
       "List up to ten Level 8 (honours bachelor’s) courses and up to ten Level 7/6 courses, strictly in the order you actually want them - Irish offers follow your preference order exactly.",
       "Include any restricted-entry course (medicine, some art and design, some performance courses) before the 1 February closing date, or add it for 10 EUR through the amend-course-choices facility before 1 March; after that it cannot be added at all.",
       "If you are applying for undergraduate medicine, register for HPAT with ACER, not with CAO, and work to ACER’s mid-January closing date rather than the later one on CAO’s timetable.",
-      "Ask your IB coordinator to list the Central Applications Office among the institutions permitted to see your results, so they reach CAO automatically in July 2027.",
+      "Ask your IB coordinator to list the Central Applications Office among the institutions permitted to see your results, and give CAO your IB candidate number, so your results reach CAO automatically in July 2027.",
       "Use the free Change of Mind window from 5 May to 1 July 2027 to settle your final order of preference - it closes before your IB results arrive.",
       "Results are released in early July; CAO converts your overall IB score to points on its own published scale and matches you against the cut-off for each course in your order of preference.",
       "If your results do not reach CAO by 1 August they may miss Round One, so check your CAO account rather than assuming.",
@@ -284,23 +294,23 @@
   "costs": {
     "tuitionEuEea": {
       "value": "0 EUR tuition under the Free Fees Initiative for eligible EU/EEA/Swiss/UK students on a first undergraduate degree, plus a student contribution charge of 2,500 EUR per year. Institutions also charge a small compulsory student levy, typically between 80 and 250 EUR.",
-      "year": "2026/27 (the 2,500 EUR figure follows the permanent 500 EUR reduction confirmed in Budget 2026; the HEA page still lists 2,500 EUR for 2025/26)",
+      "year": "2026/27 (2,500 EUR is the maximum student contribution after the permanent 500 EUR cut in Budget 2026; the 2027/28 figure had not been announced on 2026-09-24)",
       "source": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/"
     },
     "tuitionNonEu": {
-      "value": null,
-      "year": null,
-      "source": null
+      "value": "Set by each institution. Trinity College Dublin, 2026/27, year 1: 22,580 EUR for arts, humanities and business courses and 29,570 EUR for science courses, with some health-science courses higher.",
+      "year": "2026/27 (Trinity College Dublin)",
+      "source": "https://www.tcd.ie/courses/undergraduate/fees/"
     },
-    "applicationFee": "35 EUR if you apply online by 20 January (discounted rate for 2026 entry). Applying after that date costs more; the standard and late fees were not confirmed on an official page during this research.",
+    "applicationFee": "35 EUR online by 20 January 2027 (17:00), 50 EUR by the normal closing date of 1 February 2027 (17:00), 65 EUR for a late application by 1 May 2027 (17:00). Change of Mind is free; amending course choices between 5 February and 1 March costs 10 EUR. Fees are non-refundable (CAO Handbook 2027, Table 1.1).",
     "livingCostMonthly": {
-      "value": null,
-      "year": null,
-      "source": null
+      "value": "Trinity College Dublin estimates 19,937-29,050 EUR for an undergraduate academic year in Dublin, including accommodation (an annual figure; the page gives no monthly one). Galway, Cork and Limerick are cheaper.",
+      "year": "Estimate on the TCD page, last updated July 2026",
+      "source": "https://www.tcd.ie/study/international/welcome/cost-of-living/"
     },
     "notes": [
-      "Non-EU undergraduate tuition in Ireland is charged per course and varies widely by university and subject; no official national figure was verified during this research, so check the fees page of each institution.",
-      "No official national living-cost figure was verified during this research. Individual universities publish their own estimates - check the cost-of-living page of the university you are applying to, and expect Dublin to be considerably more expensive than Galway, Cork or Limerick.",
+      "Non-EU tuition varies by university and subject; Trinity College Dublin is recorded above as an example. Check the fees page of each institution.",
+      "Living costs are published per university, not nationally. Trinity College Dublin is recorded above; expect Dublin to be considerably more expensive than Galway, Cork or Limerick.",
       "Eligibility for free fees is assessed by the higher education institution you attend, not by CAO."
     ]
   },
@@ -311,9 +321,9 @@
     "University entrance scholarships exist at most Irish universities but are small in number and usually awarded on results after entry.",
     "As an EU citizen you can work in Ireland without a permit, and student jobs are widely available in Dublin, Cork and Galway."
   ],
-  "workRights": "As an EU/EEA citizen you have the right to work in Ireland with no permit and no hour limit. Non-EU students on a stamp 2 immigration permission may work 20 hours per week during term and 40 hours in official holiday periods, and must also register for an Irish Residence Permit each year and hold private health insurance. Verify the current non-EU rules with the Irish Immigration Service before relying on them.",
+  "workRights": "As an EU/EEA citizen you have the right to work in Ireland with no permit and no hour limit. Non-EU students on Stamp 2 may work up to 20 hours a week in term time and 40 hours a week in June to September and from 15 December to 15 January, and must register their immigration permission each year and hold private health insurance.",
   "residency": "Nothing to arrange in advance as an EU citizen: you can enter with your Danish passport or national ID card and stay to study with no visa or residence permit. Once you arrive, get a PPS number (Personal Public Service number) from the Department of Social Protection - you need it for a job, a bank account and most public services - and open an Irish bank account. Non-EU students need a visa or preclearance before travelling and must register with immigration and pay the residence permit fee.",
-  "housing": "Treat this as the main financial risk of studying in Ireland. Dublin in particular has a long-running shortage of rental housing, and purpose-built student accommodation is priced well above a normal shared room. Apply for university-owned accommodation the same day you accept your offer - most Irish universities allocate first-year rooms quickly and several run a lottery when demand exceeds supply. If you miss campus housing, the realistic options are a shared house through Daft.ie, a room in a private student residence, or 'digs' (a room in a family home, often Monday to Friday only), which is common in Dublin and much cheaper. Cork, Galway, Limerick and Maynooth are all easier and cheaper than Dublin. No official national rent figure was verified for this file.",
+  "housing": "Treat this as the main financial risk of studying in Ireland. Dublin in particular has a long-running shortage of rental housing, and purpose-built student accommodation is priced well above a normal shared room. Apply for university-owned accommodation the same day you accept your offer - most Irish universities allocate first-year rooms quickly and several run a lottery when demand exceeds supply. If you miss campus housing, the realistic options are a shared house through Daft.ie, a room in a private student residence, or 'digs' (a room in a family home, often Monday to Friday only), which is common in Dublin and much cheaper. Cork, Galway, Limerick and Maynooth are all easier and cheaper than Dublin. No official national rent figure is quoted here.",
   "healthcare": "Bring your European Health Insurance Card from Denmark; it covers medically necessary public treatment during your stay. EU students are not required to buy private health insurance. Note that Ireland charges for GP visits unless you qualify for a medical card or GP visit card, so budget for that, and most universities run a low-cost student health service on campus. Non-EU students must hold private health insurance as a condition of their immigration permission.",
   "institutions": [
     {
@@ -532,7 +542,7 @@
         "Marine and Freshwater Science",
         "Film and Animation"
       ],
-      "note": "Spread across the north-west coast, with the cheapest student living costs in the country and easier entry points.",
+      "note": "Spread across the north-west and west coast, with lower living costs than Dublin and easier entry points.",
       "wikipedia": "https://en.wikipedia.org/wiki/Atlantic_Technological_University",
       "place": "ie-galway-atu"
     },
@@ -601,12 +611,12 @@
     {
       "title": "CAO / participating institutions - Entry requirements criteria for EU/EFTA/UK applicants for 2026 entry (International Baccalaureate section, pp. 92-93)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "CAO - Timetable of Events",
       "url": "https://www.cao.ie/?page=timetableevents&bb=importantdates",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "CAO - Applicant scoring",
@@ -616,7 +626,7 @@
     {
       "title": "Higher Education Authority - Free Fees Initiative and student contribution",
       "url": "https://hea.ie/funding-governance-performance/funding/student-finance/course-fees/",
-      "retrieved": "2026-09-22"
+      "retrieved": "2026-09-24"
     },
     {
       "title": "CAO - Entry requirements criteria for EU/EFTA/UK applicants (landing page)",
@@ -627,6 +637,36 @@
       "title": "CAO - homepage and application portal",
       "url": "https://www.cao.ie/",
       "retrieved": "2026-09-22"
+    },
+    {
+      "title": "CAO - Handbook 2027 (Timetable of Events, Table 1.1 fees and dates, offer rounds, IB results)",
+      "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Citizens Information - Third-level student fees and charges (maximum student contribution)",
+      "url": "https://www.citizensinformation.ie/en/education/third-level-education/fees-and-supports-for-third-level-education/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Trinity College Dublin - Undergraduate fees 2026/27",
+      "url": "https://www.tcd.ie/courses/undergraduate/fees/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Trinity College Dublin - Cost of living",
+      "url": "https://www.tcd.ie/study/international/welcome/cost-of-living/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "Irish Immigration Service Delivery - Frequently asked questions for students (Stamp 2 work hours)",
+      "url": "https://www.irishimmigration.ie/coming-to-study-in-ireland/frequently-asked-questions-for-students/",
+      "retrieved": "2026-09-24"
+    },
+    {
+      "title": "ACER - HPAT-Ireland registration (2026 dates; 2027 not yet published)",
+      "url": "https://hpat-ireland.acer.org/registration",
+      "retrieved": "2026-09-24"
     }
   ],
   "artDirection": {

@@ -16,7 +16,7 @@
       "label": "First admissions round opens",
       "date": "2026-10-16",
       "consequence": "indicative",
-      "note": "The round aimed at international applicants, and the one carrying most English-taught programmes. The 2027 catalogue becomes visible here.",
+      "note": "The round aimed at applicants from abroad, carrying most English-taught programmes. The 2027 catalogue becomes visible here. University Admissions tells IB students who have not finished the Diploma not to apply in this round.",
       "evidence": [
         "ev-ua-se-autumn-dates"
       ]
@@ -28,15 +28,16 @@
       "date": "2027-01-15",
       "consequence": "hard",
       "audience": "any",
-      "note": "Also the last day to change how your choices are ranked, and the ranking decides which single offer you can receive.",
+      "note": "Also the last day to change how your choices are ranked. Not your round as a May 2027 IB candidate unless the programme admits on predicted grades (Stockholm School of Economics does).",
       "evidence": [
-        "ev-ua-se-autumn-dates"
+        "ev-ua-se-autumn-dates",
+        "ev-ua-se-ib-studies"
       ]
     },
     {
       "id": "ms-documents",
       "type": "document",
-      "label": "Supporting documentation deadline",
+      "label": "First round supporting documents and fee exemption",
       "date": "2027-02-01",
       "consequence": "hard",
       "note": "Also the deadline to document EU/EEA/Swiss citizenship for fee exemption. Five months before IB results are published, which is the problem to solve early rather than in January.",
@@ -57,12 +58,48 @@
     {
       "id": "ms-second",
       "type": "submit",
-      "label": "Second round closes",
+      "label": "Second round closes, and rankings lock",
       "date": "2027-04-15",
       "consequence": "hard",
-      "note": "Later, and thinner: the authority says many English-taught programmes are no longer available in this round. Useful as a fallback, not as a plan.",
+      "note": "The round University Admissions tells a May 2027 IB candidate to use. Many English-taught programmes are no longer open in it, so check your programme is before you plan on it.",
+      "evidence": [
+        "ev-ua-se-autumn-dates",
+        "ev-ua-se-ib-studies"
+      ]
+    },
+    {
+      "id": "ms-second-fee-exempt",
+      "type": "document",
+      "label": "Second round — document your EU/EEA citizenship (fee exemption)",
+      "date": "2027-04-23",
+      "consequence": "hard",
+      "audience": "eu-eea-ch",
+      "note": "Eight days after the application deadline. An application whose fee exemption is not documented is not processed.",
       "evidence": [
         "ev-ua-se-autumn-dates"
+      ]
+    },
+    {
+      "id": "ms-second-documents",
+      "type": "document",
+      "label": "Second round supporting documents",
+      "date": "2027-06-21",
+      "consequence": "hard",
+      "note": "Everything except the IB results themselves, which have until 5 July.",
+      "evidence": [
+        "ev-ua-se-autumn-dates"
+      ]
+    },
+    {
+      "id": "ms-second-ib-results",
+      "type": "document",
+      "label": "University Admissions needs your IB results (recipient code UHR)",
+      "date": "2027-07-05",
+      "consequence": "hard",
+      "note": "University Admissions gives IB/EB students completing their studies this spring until 5 July. Your coordinator releases your results through the IB Result Service. This falls before the site's IB results day of 6 July; ask University Admissions how a result released on the 6th is handled.",
+      "evidence": [
+        "ev-ua-se-autumn-dates",
+        "ev-ua-se-ib-studies"
       ]
     },
     {
@@ -71,20 +108,42 @@
       "label": "IB results released",
       "date": "2027-07-06",
       "consequence": "indicative",
-      "note": "After every Swedish deadline above, and after the first round result. How your programme handles this must be agreed in advance.",
+      "note": "After every first-round date. In the second round your results are expected by University Admissions on 5 July; results follow on 9 July.",
       "evidence": [
         "ev-ib-results-day-2027-05"
       ],
       "ibCalendar": "2027-05/results-day",
       "provisional": true
+    },
+    {
+      "id": "ms-second-results",
+      "type": "result",
+      "label": "Second round results published",
+      "date": "2027-07-09",
+      "consequence": "indicative",
+      "evidence": [
+        "ev-ua-se-autumn-dates"
+      ]
+    },
+    {
+      "id": "ms-second-reply",
+      "type": "reply",
+      "label": "Reply to your second-round offer",
+      "date": "2027-07-16",
+      "consequence": "hard",
+      "note": "A place you do not reply to is a place you lose.",
+      "evidence": [
+        "ev-ua-se-autumn-dates"
+      ]
     }
   ],
   "evidence": [
-    "ev-ua-se-autumn-dates"
+    "ev-ua-se-autumn-dates",
+    "ev-ua-se-ib-studies"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-10-16"
   }
 }

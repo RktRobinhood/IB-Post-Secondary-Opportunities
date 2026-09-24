@@ -15,9 +15,9 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "The system built for the IB, at the price of leaving the EU",
-  "summary": "The UK is the one destination whose admissions process assumes from the outset that applicants do not yet have their results. Universities make conditional offers expressed in IB points — \"36 overall including 6,6,5 at Higher Level\" — and confirm them in July when the results arrive. For an IB student that removes the single most awkward problem in European admissions. What it introduced instead is cost: since Brexit an EU citizen pays the international fee, and there is no EU rate to fall back on.",
+  "summary": "UK admissions are built around the fact that applicants do not yet have their results. Universities make conditional offers expressed in IB points — \"36 overall including 6,6,5 at Higher Level\" — and confirm them in July when the results arrive. For an IB student that removes the single most awkward problem in European admissions. What it introduced instead is cost: since Brexit an EU citizen pays the international fee, and there is no EU rate to fall back on.",
   "whyConsider": [
-    "Conditional offers in IB points solve the July problem outright. Nowhere else in Europe is the process designed around results that have not arrived yet.",
+    "Conditional offers in IB points solve the July problem outright: the whole process is designed around results that have not arrived yet.",
     "One application, five choices, one personal statement, one reference — for almost every undergraduate course in the country.",
     "Three-year bachelor degrees in England, Wales and Northern Ireland, so the total cost of a degree is less lopsided against the annual fee than it first looks."
   ],
@@ -44,9 +44,9 @@
     {
       "applicantGroup": "eu-eea-ch",
       "feeStatus": "international-rate",
-      "summary": "Since Brexit, EU, EEA and Swiss citizens pay the international fee, the same as any other overseas applicant. Amounts vary by university and by subject and are not established here; check the course page.",
+      "summary": "Since Brexit, EU, EEA and Swiss citizens pay the international fee, the same as any other overseas applicant. It is set per university and subject: at Glasgow, for example, GBP 28,275 a year for arts and social sciences and GBP 33,708 for science and engineering in 2027/28.",
       "evidence": [
-        "ev-ucas-dates-2027"
+        "ev-gla-intl-fees-2027"
       ]
     },
     {
@@ -54,7 +54,7 @@
       "feeStatus": "international-rate",
       "summary": "The international fee, as before.",
       "evidence": [
-        "ev-ucas-dates-2027"
+        "ev-gla-intl-fees-2027"
       ]
     }
   ],
@@ -104,15 +104,17 @@
     "gb-ucas"
   ],
   "evidence": [
-    "ev-ucas-dates-2027"
+    "ev-ucas-dates-2027",
+    "ev-gla-intl-fees-2027",
+    "ev-ucas-fee-2027"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-10-01",
     "notes": [
       "Re-check before 15 October 2026, which is the first deadline that can cost a student the year.",
-      "Not established: tuition figures, which vary by university and subject; and admissions-test registration deadlines, which are earlier than the test dates and are set by the test providers rather than by UCAS.",
+      "Not established: a sector-wide tuition figure, which varies by university and subject (Glasgow 2027/28 is recorded as an example); and admissions-test dates, which are set by the test providers rather than by UCAS (they are on the country profile).",
       "Programme-level records not yet created."
     ]
   },

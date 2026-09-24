@@ -10,7 +10,7 @@
   "membership": { "eu": false, "eea": false, "nordic": false, "schengen": true },
   "targetIntake": "2027-autumn",
   "tagline": "Cheap tuition, brutal living costs, and a very specific IB rule",
-  "summary": "Switzerland publishes one of Europe's clearest IB rules and one of its strictest: 32 of 42 points and a fixed six-subject shape, with ETH Zurich and EPFL asking for 38. Tuition is low by international standards, but living costs are high and almost every bachelor's degree is taught in German, French or Italian.",
+  "summary": "Switzerland publishes one of Europe's clearest IB rules and one of its strictest: 32 of 42 points and a fixed six-subject shape, with ETH Zurich and EPFL asking for 38. Tuition is low by international standards, but living costs are high and almost every public bachelor's degree is taught in German, French or Italian.",
   "whyConsider": [
     "ETH Zurich and EPFL are world-class, at a fraction of UK or US tuition.",
     "The IB rule is written down, so you can check eligibility while choosing subjects.",
@@ -29,7 +29,7 @@
     "evidence": ["ev-ch-swissuniversities-ib"]
   },
   "language": {
-    "englishTaughtBachelors": "Rare at public universities; mostly at small private institutions.",
+    "englishTaughtBachelors": "Rare at public universities - USI Lugano has three and St Gallen an English Assessment Year; otherwise at small private institutions.",
     "englishProof": "Usually not the barrier - the local teaching language is.",
     "localLanguageRequired": true
   },
@@ -73,9 +73,9 @@
       },
       {
         "localName": "private institution",
-        "englishName": "accredited private institution",
+        "englishName": "private institution",
         "kind": "specialist",
-        "what": "Small private institutions such as Franklin University Switzerland, Webster Geneva and EHL, where most English-taught bachelor's are found. Tuition is much higher than at public universities.",
+        "what": "Small private institutions such as Franklin University Switzerland, Webster Geneva and EU Business School, and EHL, where most English-taught bachelor's are found. Only some are accredited by the Swiss state - swissuniversities publishes the list. Tuition is much higher than at public universities.",
         "ibAccessible": "yes",
         "englishTaught": "common"
       }
@@ -83,14 +83,14 @@
     "evidence": ["ev-ch-swissuniversities-institutions"]
   },
   "institutionGrouping": "none",
-  "evidence": ["ev-ch-swissuniversities-ib", "ev-ch-swissuniversities-institutions", "ev-ch-eth-tuition"],
+  "evidence": ["ev-ch-swissuniversities-ib", "ev-ch-swissuniversities-institutions", "ev-ch-eth-tuition", "ev-ch-eth-cost-of-living", "ev-ch-usi-bachelor-languages"],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-01-31",
     "notes": [
-      "The swissuniversities IB rule is published as valid for 2026/27 and updated annually; re-read for 2027/28.",
-      "Not established: fees at universities other than ETH, and an official living-cost figure."
+      "The swissuniversities IB rule is still published as valid for 2026/27 (re-read 2026-09-24); re-read for 2027/28 when it appears.",
+      "Living cost now from ETH's own estimate (CHF 22,100 a year in Zurich). Still not established: tuition at public universities other than ETH."
     ]
   }
 }

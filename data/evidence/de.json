@@ -6,7 +6,7 @@
     "publisher": "Kultusministerkonferenz, Zentralstelle für ausländisches Bildungswesen (KMK ZAB)",
     "publisherType": "qualification-body",
     "sourceClass": "recognition-body",
-    "retrievedAt": "2026-09-22",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "The KMK agreement of 10.03.1986 in the version of 15.06.2023 sets which IB subject combinations give German university entrance, and it is a subject rule rather than a points rule.",
@@ -19,20 +19,21 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-22"
+      "dataAsOf": "2026-09-24"
     },
     "attestation": {
-      "by": "the research pass that wrote this record",
-      "at": "2026-09-22",
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
       "method": "read-source",
-      "note": "Read during the country research; the document and its index page were both confirmed live on 2026-09-22."
+      "note": "PDF read in full as text (pdftotext). Social sciences list includes Philosophy, which the country page had left out; Annex 1 (Stand 26.03.2026) lists Ikast-Brande Gymnasium 004672 from May 2022 and Grenaa Gymnasium 001488 from May 2025."
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
       "outcome": "partial",
       "reason": "the source is a PDF, which this tool cannot read — it needs a human read",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
-    }
+    },
+    "excerpt": "Die geforderten sechs Fächer müssen mindestens mit der IB-Note 4 benotet sein."
   },
   {
     "id": "ev-hochschulstart-termine",
@@ -40,7 +41,7 @@
     "publisher": "Stiftung für Hochschulzulassung (hochschulstart.de)",
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
-    "retrievedAt": "2026-09-22",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "verifiedBy": "automated",
@@ -54,7 +55,7 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-22"
+      "dataAsOf": "2026-09-24"
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
@@ -108,6 +109,164 @@
           ]
         }
       ]
+    },
+    "excerpt": "15.07.2026 - Ende der Bewerbungsphase (Ausschlussfrist) für Neu-Abiturient*innen",
+    "attestation": {
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Rechecked 2026-09-24: the page still carries only Wintersemester 2026/27 and the Sommersemester 2026 archive; no 2027/28 dates."
+    }
+  },
+  {
+    "id": "ev-hochschulstart-bewerbung",
+    "sourceUrl": "https://hochschulstart.de/bewerben-beobachten/bewerbung",
+    "publisher": "Stiftung für Hochschulzulassung (hochschulstart.de)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "Sie können sich auf bis zu 12 verschiedene „Studienangebote\" bewerben.",
+    "claim": "In the DoSV an applicant may apply for up to 12 study offers, ranked by priority; a medicine-group application may name any number of locations.",
+    "supports": [
+      {
+        "entity": "de-hochschulstart-2027",
+        "field": "choiceLimit"
+      },
+      {
+        "entity": "de-hochschulstart",
+        "field": "choiceRules"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-uniassist-processing",
+    "sourceUrl": "https://www.uni-assist.de/en/how-to-apply/plan-your-application/deadlines-processing-time/",
+    "publisher": "uni-assist e.V.",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "Apply as early as possible, at least 8 weeks before the deadline expires.",
+    "claim": "uni-assist usually returns an evaluation in 4 to 6 weeks and advises applying at least 8 weeks before the university's deadline; 15 July is only a common winter-semester deadline.",
+    "supports": [
+      {
+        "entity": "de-hochschulstart-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "de",
+        "field": "application.deadlines"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-uniassist-fees",
+    "sourceUrl": "https://www.uni-assist.de/en/how-to-apply/pay-all-fees/handling-fees/",
+    "publisher": "uni-assist e.V.",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "The costs are the same for all forms of application, whether standard or VPD procedure",
+    "claim": "uni-assist charges 75 EUR for the first chosen programme and 30 EUR for each further one per semester.",
+    "supports": [
+      {
+        "entity": "de",
+        "field": "costs.applicationFee"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-tum-non-eu-tuition",
+    "sourceUrl": "https://www.tum.de/en/studies/fees/tuition",
+    "publisher": "Technical University of Munich",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "For bachelor's degree programs, tuition fees are usually 2,000 or 3,000 euros per semester.",
+    "claim": "TUM charges students from non-EU countries who enrol from winter semester 2024/25 onwards tuition, usually 2,000 or 3,000 EUR per semester for a bachelor's; EU/EEA citizens and holders of a German school-leaving qualification are exempt.",
+    "supports": [
+      {
+        "entity": "de",
+        "field": "feeContext"
+      },
+      {
+        "entity": "de",
+        "field": "costs.tuitionNonEu"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-bw-non-eu-tuition",
+    "sourceUrl": "https://mwk.baden-wuerttemberg.de/de/hochschulen-studium/studieren-in-bw/studienfinanzierung/gebuehren-fuer-internationale-studierende-und-zweitstudium",
+    "publisher": "Ministerium für Wissenschaft, Forschung und Kunst Baden-Württemberg",
+    "publisherType": "ministry",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "einen Eigenbeitrag von 1.500 Euro pro Semester zu leisten",
+    "claim": "International students who come from outside the EU to study in Baden-Württemberg pay 1,500 EUR per semester.",
+    "supports": [
+      {
+        "entity": "de",
+        "field": "feeContext"
+      },
+      {
+        "entity": "de",
+        "field": "costs.tuitionNonEu"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "the Germany audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
     }
   }
 ]

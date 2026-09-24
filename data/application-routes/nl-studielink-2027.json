@@ -13,12 +13,13 @@
     {
       "id": "ms-digid",
       "type": "document",
-      "label": "Obtain a DigiD, if you need one",
+      "label": "Create your Studielink account",
       "date": "2026-12-01",
       "consequence": "personal",
       "provisional": true,
-      "note": "Not an official deadline. The government says a DigiD takes about five days, and Studielink needs one. How a non-resident obtains it is not yet established here, so allow far longer than five days and ask your institution early.",
+      "note": "Not an official deadline. With a Dutch address you log in with DigiD, which the government says takes about five days. Without one you upload a scan or photo of your passport or EU identity card and Studielink verifies it automatically. Either way, do it well before 15 January.",
       "evidence": [
+        "ev-studielink-no-digid",
         "ev-rijksoverheid-aanmelden"
       ]
     },
@@ -31,9 +32,10 @@
       "timeZone": "CET",
       "consequence": "hard",
       "audience": "any",
-      "note": "Two numerus fixus programmes at most, and only one where it is medicine, dentistry, dental hygiene, physiotherapy or midwifery. Missing this does not cost you the year, but it does cost you every selective programme in it.",
+      "note": "Two numerus fixus programmes at most; medicine, dentistry, dental hygiene and physiotherapy allow one application per programme, so not medicine at two universities. Missing this does not cost you the year, but it does cost you every selective programme in it.",
       "evidence": [
-        "ev-rijksoverheid-aanmelden"
+        "ev-rijksoverheid-aanmelden",
+        "ev-vu-numerus-fixus-rules"
       ]
     },
     {
@@ -43,7 +45,7 @@
       "date": "2027-04-15",
       "consequence": "indicative",
       "provisional": true,
-      "note": "Selection runs between 15 January and 15 April and every applicant receives a ranking number through Studielink. Carried from the promotion agency rather than the government page, so treat the exact date as indicative.",
+      "note": "Selection runs between 15 January and 15 April and every applicant receives a ranking number through Studielink. Indicative: Nuffic’s date, not the government’s.",
       "evidence": [
         "ev-studyinnl-apply"
       ]
@@ -53,9 +55,9 @@
       "type": "submit",
       "label": "Applications close for everything else",
       "date": "2027-05-01",
-      "consequence": "hard",
+      "consequence": "equal-consideration",
       "audience": "any",
-      "note": "Applying by 1 May carries an entitlement to admission for a non-selective programme you are qualified for. Apply after it and the institution may refuse you. Some institutions set earlier dates of their own.",
+      "note": "Apply by 1 May and you are entitled to admission to a non-selective programme you qualify for. The government says a first application after 1 May may be refused - the programme can still take you, but does not have to. Some institutions set earlier dates of their own, and theirs is the one that binds.",
       "evidence": [
         "ev-rijksoverheid-aanmelden"
       ]
@@ -67,7 +69,7 @@
       "date": "2027-07-06",
       "consequence": "indicative",
       "provisional": true,
-      "note": "Both Dutch deadlines fall well before this. How each institution handles a conditional place pending results is set per institution and is not yet established here.",
+      "note": "Both Dutch deadlines fall well before this. How a conditional place pending results is handled is set by each institution; ask yours.",
       "evidence": [
         "ev-ib-results-day-2027-05"
       ],
@@ -79,7 +81,7 @@
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
       "The 15 January and 1 May deadlines are on the government page. The selection window and ranking date come from the promotion agency and need an authoritative confirmation."

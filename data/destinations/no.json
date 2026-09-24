@@ -15,14 +15,14 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "Free, close to home, and almost entirely in Norwegian",
-  "summary": "Norway charges EEA students no tuition and sits an hour from Copenhagen, which makes it look like an obvious option for a Danish IB student. The obstacle is not cost or distance or recognition. It is that Norwegian higher education is taught in Norwegian: several of the largest universities offer no English-taught bachelor programme at all, and the English-taught set nationally is small enough to list. Norway is an excellent destination for a student who will learn the language, and a very thin one for a student who will not.",
+  "summary": "Norway charges EEA students no tuition and sits an hour from Copenhagen. The obstacle is language: Norwegian higher education is taught in Norwegian, several of the largest universities offer no English-taught bachelor programme at all, and the English-taught set nationally is small enough to list. For a Danish IB student that obstacle is lower than it looks: the national admissions service counts Danish A at grade 3 or better as documented Norwegian.",
   "whyConsider": [
     "No tuition at public institutions for EEA citizens. Only a semester fee, which is small.",
-    "A Danish speaker reaches functional Norwegian faster than almost any other second language, which converts a narrow destination into a wide one.",
+    "Danish A at grade 3 or better meets the Norwegian language requirement for general admission, so the whole Norwegian-taught system is formally open to a Danish IB student.",
     "Nordic mobility arrangements are well established, and for a Danish student SU treats Nordic study more generously than the rest."
   ],
   "watchOuts": [
-    "The documentation window closes on 1 July and IB results are published on 6 July. Settle in writing, early, how the programme you want will receive results that arrive after its deadline. This is the first question to ask about Norway, not the last.",
+    "The documentation window closes on 1 July and IB results are published on 6 July. Samordna opptak's answer: fill in the IB's Request for Results Service with your coordinator, naming the institutions handling your application, and they read your results electronically.",
     "English-taught bachelor programmes are scarce. Check the specific programme rather than the university, because a university with English-taught master’s degrees may have none at bachelor level.",
     "Ranking is binding in an unusual way: an offer on a higher choice makes every lower choice disappear, and you cannot wait-list for one that has gone. The order has to be right by 1 July.",
     "Oslo and Bergen are expensive places to live, and that, rather than tuition, is what a Norwegian year costs."
@@ -40,7 +40,7 @@
     "englishProof": "Set per programme where an English-taught option exists.",
     "localLanguageRequired": true,
     "notes": [
-      "Norwegian-taught programmes require documented Norwegian. For a Danish speaker this is a realistic year of work rather than a wall, and it changes the destination completely."
+      "Norwegian-taught programmes require documented Norwegian. For an IB applicant, Danish A (higher or standard level) at grade 3 or better documents it; without Danish A you need an approved Norwegian test."
     ]
   },
   "feeContext": [
@@ -107,16 +107,18 @@
     "no-samordna"
   ],
   "evidence": [
-    "ev-samordna-frister"
+    "ev-samordna-frister",
+    "ev-samordna-ib-requirements",
+    "ev-samordna-ib-request-for-results"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-02-01",
     "notes": [
-      "Dates are the published 2026 ones; Samordna opptak had not published the 2027 calendar when this was written.",
-      "UNRESOLVED: how an applicant whose results arrive on 6 July meets a 1 July documentation deadline. Not guessed at. This is the question that decides whether Norway is viable straight from the Diploma.",
-      "Not established: which specific bachelor programmes are taught in English, and the tuition charged by private institutions.",
+      "Dates are the published 2026 ones; Samordna opptak had not published the 2027 calendar when this was re-checked on 24 September 2026.",
+      "Resolved 24 September 2026: Samordna opptak's IB page says a Diploma candidate completes the IB's Request for Results Service with their coordinator, and the institutions read the grades electronically once they are issued.",
+      "The English-taught bachelor programmes are listed institution by institution on the country profile (data/countries/no.json). Tuition charged by private institutions other than BI is not established.",
       "Programme-level records not yet created."
     ]
   }

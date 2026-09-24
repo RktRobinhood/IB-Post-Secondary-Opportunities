@@ -5,12 +5,12 @@
     "publisher": "University Admissions (Universitets- och högskolerådet)",
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
-    "retrievedAt": "2026-09-22",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
-    "claim": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with results on 9 July.",
-    "excerpt": "First admissions round … 16 October 2026 Application round opens. 15 January 2027 Application deadline + last day to rank your courses. 1 February Supporting documentation deadline. 8 April Admissions results published for Bachelor's. […] Second admissions round … 15 March 2027 Application round opens. 15 April Application deadline. 21 June Supporting documentation deadline. 9 July Admissions results published. 16 July Last day to reply to your offer.",
-    "interpretation": "The two rounds are not equivalent and the difference decides the year for an IB applicant. The first round is the one carrying the English-taught programmes; the authority says of the second that \"many courses and programmes taught in English are no longer available for application\". So the real deadline for an international applicant is 15 January, with documents by 1 February — five months before IB results are published on 6 July.",
+    "claim": "For autumn 2027 the first admissions round opens 16 October 2026 and closes 15 January 2027, with supporting documentation due 1 February and bachelor results published 8 April. The second round runs 15 March to 15 April 2027, with the fee-exemption deadline on 23 April, supporting documents on 21 June (IB/EB students completing this spring: 5 July), results on 9 July and replies by 16 July.",
+    "excerpt": "Second admissions round … 15 March 2027 Application round opens. 15 April Application deadline … 23 April Deadline to document fee exempt status. 21 June** Supporting documentation deadline. 9 July Admissions results published. 16 July Last day to reply to your offer. … ** If you're completing your upper secondary studies this spring semester in an IB/EB programme … you have until 5 July to submit documentation of your completed upper secondary studies.",
+    "interpretation": "The first round carries the most English-taught programmes, but the authority's IB page tells applicants without a completed Diploma not to use it. For a May 2027 IB candidate the working deadlines are therefore the second round's: 15 April, 23 April, and IB results by 5 July.",
     "supports": [
       {
         "entity": "se-uhr-2027",
@@ -19,11 +19,11 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-22"
+      "dataAsOf": "2026-09-24"
     },
     "attestation": {
-      "by": "the research pass that wrote this record",
-      "at": "2026-09-22",
+      "by": "the Nordic country audit (fi, is, no, se, ee)",
+      "at": "2026-09-24",
       "method": "read-source"
     },
     "sourceCheck": {
@@ -132,6 +132,65 @@
           "details": []
         }
       ]
+    }
+  },
+  {
+    "id": "ev-ua-se-ib-studies",
+    "sourceUrl": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/",
+    "publisher": "University Admissions (Universitets- och högskolerådet)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Applicants who have not yet completed their IB Diploma should not apply to the first admissions round; EU/EEA citizens in their final IB year are advised to apply in the second round, with results released to University Admissions through the IB Result Service (recipient code UHR).",
+    "excerpt": "If you haven't yet completed your IB Diploma programme, do not apply to the first admissions round.",
+    "supports": [
+      {
+        "entity": "se-uhr-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "se",
+        "field": "watchOuts"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic country audit (fi, is, no, se, ee)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-ua-se-fee-exemption",
+    "sourceUrl": "https://www.universityadmissions.se/en/fees-scholarships-residence-permit/who-is-required-to-pay-fees/",
+    "publisher": "University Admissions (Universitets- och högskolerådet)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Citizens of the EU, EEA and Switzerland are not required to pay application or tuition fees; others generally are. The application fee is 900 SEK per semester applied for.",
+    "excerpt": "In general, individuals who are citizens of countries that are not part of the European Union (EU), European Economic Area (EEA, includes Iceland, Liechtenstein and Norway) or Switzerland are required to pay application and tuition fees.",
+    "supports": [
+      {
+        "entity": "se",
+        "field": "feeContext"
+      }
+    ],
+    "attestation": {
+      "by": "the Nordic country audit (fi, is, no, se, ee)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "The 900 SEK figure is on the linked page \"Pay your application fee\"."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
     }
   }
 ]

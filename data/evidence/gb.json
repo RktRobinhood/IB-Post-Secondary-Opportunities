@@ -5,7 +5,7 @@
     "publisher": "UCAS",
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
-    "retrievedAt": "2026-09-22",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "For 2027 entry: applications open 12 May 2026, can be submitted from 1 September 2026, with equal consideration on 15 October 2026 for Oxford, Cambridge, medicine, dentistry and veterinary medicine, and 13 January 2027 for most other courses. Clearing opens 2 July 2027 and the final date is 23 September 2027.",
@@ -19,13 +19,13 @@
     ],
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-22"
+      "dataAsOf": "2026-09-24"
     },
     "attestation": {
-      "by": "the research pass that wrote this record",
-      "at": "2026-09-22",
-      "method": "read-browser",
-      "note": "Read from the 2027-entry panel of the source page in a browser, 2026-09-22. The panel is JavaScript-rendered and a plain fetch returns the 2026 dates instead."
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Re-read 2026-09-24: every 2027-entry date on the route matches the page (12 May, 1 Sep, 15 Oct 18:00, 13 Jan 18:00, 25 Feb, 30 Jun 18:00, 2 Jul, 23 Sep 18:00). IB results day is not on this page; it comes from ev-ib-results-day-2027-05."
     },
     "sourceCheck": {
       "checkedAt": "2026-09-23",
@@ -101,6 +101,60 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-ucas-fee-2027",
+    "sourceUrl": "https://www.ucas.com/faqs/what-is-the-application-fee-for-the-2027-cycle",
+    "publisher": "UCAS",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "claim": "The UCAS undergraduate application fee for the 2027 cycle is GBP 34.50 for up to five choices.",
+    "excerpt": "For the 2027 cycle, the undergraduate and conservatoires application fee is £34.50.",
+    "supports": [
+      {
+        "entity": "gb",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-gla-intl-fees-2027",
+    "sourceUrl": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
+    "publisher": "University of Glasgow",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "claim": "Glasgow charges EU students the international fee; 2027/28 international fees are GBP 28,275 (arts and social sciences) and GBP 33,708 (science, engineering, nursing, medical, veterinary and life sciences), with MBChB and BDS still TBC.",
+    "excerpt": "EU students that meet our criteria for EU Fee Status will have an International tuition fee applied",
+    "supports": [
+      {
+        "entity": "gb",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-source"
     }
   }
 ]

@@ -33,6 +33,17 @@
       ]
     },
     {
+      "id": "ms-fr-edhec-s1",
+      "type": "submit",
+      "label": "EDHEC International BBA - first of five sessions closes",
+      "date": "2026-11-03",
+      "consequence": "priority",
+      "note": "Four later sessions run to March; rounds 1 and 2 carry eligibility for Excellence scholarships.",
+      "evidence": [
+        "ev-fr-edhec-sessions-2027"
+      ]
+    },
+    {
       "id": "ms-fr-x-r2",
       "type": "submit",
       "label": "École polytechnique Bachelor - round 2 closes",
@@ -84,8 +95,8 @@
       "type": "submit",
       "label": "ESCP, ESSEC, EDHEC, emlyon and AUP - each on its own calendar",
       "dateState": "varies-by-institution",
-      "consequence": "hard",
-      "note": "Not collected here. Check each school's admissions page.",
+      "consequence": "indicative",
+      "note": "Each school runs its own rounds and dates. Check each school’s admissions page.",
       "evidence": [
         "ev-fr-campusfrance-sector"
       ]
@@ -106,15 +117,16 @@
   ],
   "evidence": [
     "ev-fr-sciencespo-rounds-2027",
-    "ev-fr-polytechnique-rounds-2027"
+    "ev-fr-polytechnique-rounds-2027",
+    "ev-fr-edhec-sessions-2027"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-12-15",
     "notes": [
       "Sciences Po and École polytechnique both hold interviews as part of selection. A student with a foreign diploma applies on the school's own platform rather than through Parcoursup (Sciences Po states this; École polytechnique allows either, but only one).",
-      "Dates for ESCP, ESSEC, EDHEC, emlyon and the American University of Paris were not collected on this pass."
+      "EDHEC's first session (closes 3 November 2026) added 2026-09-24. Dates for ESCP (rolling), ESSEC, emlyon and the American University of Paris were not published on their programme pages on 2026-09-24."
     ]
   }
 }

@@ -10,7 +10,7 @@
   "membership": { "eu": true, "eea": true, "nordic": false, "schengen": true },
   "targetIntake": "2027-autumn",
   "tagline": "Your IB Diploma is enough on paper - but almost everything is in German",
-  "summary": "The ministry names the IB Diploma as a full university entrance qualification, so there is no points table and no subject rule. For EU students public universities charge no tuition for the normal length of the degree. The catch is language: public-university bachelor's degrees are taught in German, so English-only applicants are mostly looking at Fachhochschulen and private universities.",
+  "summary": "The ministry names the IB Diploma as a full university entrance qualification, so there is no points table and no subject rule. For EU students public universities charge no tuition for the normal length of the degree. The catch is language: almost all public-university bachelor's degrees are taught in German, so English-only applicants are mostly looking at Klagenfurt, JKU Linz, WU Vienna's BBE, Fachhochschulen and private universities.",
   "whyConsider": [
     "The IB Diploma is named in law as a university entrance qualification - no equivalence procedure.",
     "EU/EEA students pay only the 26.20 EUR student union fee per semester during the normal length of the degree.",
@@ -28,7 +28,7 @@
     "evidence": ["ev-at-bmfwf-ib-universitaetsreife"]
   },
   "language": {
-    "englishTaughtBachelors": "Limited at public universities; mostly at Fachhochschulen and private universities.",
+    "englishTaughtBachelors": "Limited at public universities - Klagenfurt has six, JKU Linz and WU Vienna one each; otherwise at Fachhochschulen and private universities.",
     "englishProof": "Set by each institution.",
     "localLanguageRequired": true
   },
@@ -89,14 +89,14 @@
     "evidence": ["ev-at-studyinaustria-application"]
   },
   "institutionGrouping": "none",
-  "evidence": ["ev-at-bmfwf-ib-universitaetsreife", "ev-at-univie-studienbeitrag", "ev-at-studyinaustria-application"],
+  "evidence": ["ev-at-bmfwf-ib-universitaetsreife", "ev-at-univie-studienbeitrag", "ev-at-studyinaustria-application", "ev-at-aau-english-bachelors", "ev-at-wu-bbe-selection"],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-01-31",
     "notes": [
-      "MedAT 2027 dates were not published on 2026-09-23; the medical universities publish them from January.",
-      "Not established: which Fachhochschule and private-university programmes are English-taught for 2027, or their fees."
+      "MedAT 2027 dates were still not published on 2026-09-24; the medical universities publish them from January.",
+      "English-taught bachelor's established 2026-09-24 for the listed institutions (IMC Krems, MCI, MODUL, Webster, Klagenfurt, JKU, WU); MODUL and Webster fees still not established."
     ]
   }
 }

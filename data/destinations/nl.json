@@ -14,19 +14,19 @@
     "schengen": true
   },
   "targetIntake": "2027-autumn",
-  "tagline": "The most English-taught system in Europe, and the one changing fastest",
-  "summary": "For twenty years the Netherlands has been the default answer for a Danish IB student who wanted an English-taught degree in Europe: hundreds of bachelor programmes taught entirely in English, three years rather than four, a low statutory fee, and an application process that runs through one portal. All of that is still true and the first part of it is contracting, because a law now going through requires bachelor programmes to be taught mainly in Dutch unless the institution can justify otherwise. Universities have already begun converting and capping English tracks.",
+  "tagline": "Hundreds of English-taught degrees, and a system that is changing",
+  "summary": "The Netherlands is a common choice for a Danish IB student who wants an English-taught degree in Europe: hundreds of bachelor programmes taught entirely in English, three-year research-university degrees, a low statutory fee, and an application process that runs through one portal. All of that is still true and the first part of it is contracting, because a law now going through requires bachelor programmes to be taught mainly in Dutch unless the institution can justify otherwise. Universities have already begun converting and capping English tracks.",
   "whyConsider": [
-    "By far the widest English-taught bachelor provision in continental Europe, at both research universities and universities of applied sciences.",
+    "Hundreds of English-taught bachelor’s degrees, at both research universities and universities of applied sciences.",
     "A full IB Diploma is compared by Nuffic to a VWO diploma, which is the qualification that opens a research university bachelor.",
     "One portal, two deadlines, and a genuinely national process rather than institution-by-institution applications.",
     "The statutory tuition fee is low by international standards and the same at every publicly funded institution."
   ],
   "watchOuts": [
     "The internationalisation law is the thing to watch. Check in autumn 2026 that the specific programme you want will still be taught in English in September 2027 — not that the university still offers English-taught programmes, but that yours does.",
-    "Numerus fixus is not a formality. You may apply to at most two selective programmes in a year, and to only one if it is medicine, dentistry, dental hygiene, physiotherapy or midwifery. That is a real constraint on strategy and it is decided in January.",
+    "Numerus fixus is not a formality. You may apply to at most two selective programmes in a year, and medicine, dentistry, dental hygiene and physiotherapy allow only one application per programme, so you cannot apply for medicine at two universities. That is a real constraint on strategy and it is decided in January.",
     "\"15 January or 1 May\" is not the whole story, and believing it will cost you a place. Of the sixteen programmes now recorded here, the Dutch numerus fixus ones close on 15 January; University College Maastricht closes on 1 April for an EU applicant and 1 February for everyone else; Breda's selective programmes close in Studielink on 1 May but want a portfolio from the previous November; Erasmus wants its own form by 31 January, a fortnight after Studielink; and Twente closed a day early, on 30 April. Read the programme page, not the country page, for the date that binds you.",
-    "Studielink requires a DigiD, which is the Dutch digital identity and takes about five days to obtain. How a non-resident applicant obtains one, and whether their institution instead uses its own route, is not yet established here and should be checked early.",
+    "Studielink does not require a DigiD if you live outside the Netherlands: you create an account by uploading a scan or photo of your passport or EU identity card, which is verified automatically. Do it well before 15 January.",
     "Housing in the university cities is severe. Several institutions warn applicants not to arrive without a confirmed room.",
     "There is no national IB-to-Dutch grade conversion. If you are coming from the Danish system, do not go looking for one.",
     "Several Dutch selections score the grades of your penultimate school year — your DP1 results — and say outright that predicted grades are not used. Rotterdam School of Management and Maastricht both do this. If you are reading this in DP1, those are the grades that will decide it."
@@ -114,15 +114,17 @@
   ],
   "evidence": [
     "ev-nuffic-ib-level",
-    "ev-rijksoverheid-aanmelden"
+    "ev-rijksoverheid-aanmelden",
+    "ev-studielink-no-digid",
+    "ev-vu-numerus-fixus-rules"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-11-01",
     "notes": [
-      "Re-check in autumn 2026: the statutory fee for 2027–28, and whether the internationalisation law has been passed and what it does to English-taught provision.",
-      "Not yet established: how a non-resident applicant obtains a DigiD, or whether institutions route them differently. This is a practical blocker rather than an academic one.",
+      "Re-check in autumn 2026: the statutory fee for 2027–28 (not published by DUO on 2026-09-24), and whether the internationalisation law has passed. On 2026-09-24 bill 36555 was still at committee stage in the Tweede Kamer.",
+      "Resolved 2026-09-24: an applicant without a DigiD creates a Studielink account by uploading an ID scan (ev-studielink-no-digid).",
       "THE NETHERLANDS NEEDS NO RECOGNITION SCHEME, and data/recognition/nl.json is deliberately absent. This was the question ADR 0002 left open and it is now answered from sixteen Opportunities at five institutions rather than predicted. Nearly every Dutch entry requirement found in this pass is published in the IB's own vocabulary — named IB subjects at named IB levels, often with named IB grades. TU Delft: \"Mathematics: AA HL + Physics HL\". Maastricht: \"International Business — Mathematics Analysis and Approaches SL/HL or Mathematics Applications and Interpretation SL/HL\". Erasmus School of Economics: \"English A HL (4) or English A SL (5) or English B HL (5)\". There is nothing to translate and no local subject scale for these requirements to sit on. Nuffic, the recognition body, compares the IB Diploma to a VWO diploma at the level of the whole qualification and publishes no subject or grade conversion at all; ev-nuffic-ib-grades records that absence and why it is a finding rather than a gap.",
       "The one real counter-example is recorded rather than smoothed away. University of Twente's Technical Computer Science asks for \"mathematics comparable to a pre-university level, such as VWO Wiskunde B\" and names no IB course or level. That is a requirement on a local scale — and it still does not make a case for a Recognition Scheme, because a scheme needs a published equivalence and nobody publishes one: not Twente, not Nuffic. A scheme here could only be invented, and the invention would sit between the university's sentence and the student's transcript, which is the thing ADR 0002 exists to prevent. So the requirement is recorded as kind 'other' with Twente's wording kept whole, and the engine tells the student it cannot check it and sends them to the official page. That Opportunity is the one of the sixteen that assesses as Needs review, and it should be.",
       "The VWO comparison is used here only at qualification level — to establish that a full IB Diploma is required for a research university and that DP Course Results are not enough. It is never used to translate a subject or a grade, because no table exists that would allow it.",

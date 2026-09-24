@@ -1,6 +1,6 @@
 [
   {
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "id": "ev-fr-mesr-eu-parcoursup",
@@ -23,18 +23,18 @@
       }
     ],
     "attestation": {
-      "by": "the France, Belgium and Luxembourg floor pass",
-      "at": "2026-09-23",
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
       "method": "read-browser",
-      "note": "The host returns HTTP 403 to automated retrieval; read in a browser. The page is headed 2026-2027 and has not yet been updated for 2027-2028."
+      "note": "Re-read 2026-09-24; unchanged."
     },
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     }
   },
   {
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "id": "ev-fr-parcoursup-calendar-2026",
@@ -52,14 +52,14 @@
       }
     ],
     "attestation": {
-      "by": "the France, Belgium and Luxembourg floor pass",
-      "at": "2026-09-23",
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
       "method": "read-browser",
-      "note": "The host returns HTTP 403 to automated retrieval and a Cloudflare challenge on some pages; the calendar page itself loaded in a browser. No challenge was bypassed."
+      "note": "Re-read 2026-09-24; unchanged. Page still shows only the 2026 calendar."
     },
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     }
   },
   {
@@ -92,7 +92,7 @@
     }
   },
   {
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "id": "ev-fr-sciencespo-rounds-2027",
@@ -109,17 +109,18 @@
       }
     ],
     "attestation": {
-      "by": "the France, Belgium and Luxembourg floor pass",
-      "at": "2026-09-23",
-      "method": "read-source"
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Re-read 2026-09-24; unchanged."
     },
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     }
   },
   {
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "id": "ev-fr-polytechnique-rounds-2027",
@@ -137,13 +138,14 @@
       }
     ],
     "attestation": {
-      "by": "the France, Belgium and Luxembourg floor pass",
-      "at": "2026-09-23",
-      "method": "read-source"
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "Re-read 2026-09-24; unchanged."
     },
     "meta": {
       "schemaVersion": "1.0",
-      "dataAsOf": "2026-09-23"
+      "dataAsOf": "2026-09-24"
     }
   },
   {
@@ -171,6 +173,91 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-23"
+    }
+  },
+  {
+    "id": "ev-fr-edhec-sessions-2027",
+    "sourceUrl": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
+    "publisher": "EDHEC Business School",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "Application deadline: from 1st October to 3rd November 2026",
+    "claim": "EDHEC's International BBA admits international-diploma applicants in five sessions, the first running 1 October to 3 November 2026, with an online English assessment and interview.",
+    "supports": [
+      {
+        "entity": "fr-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "fr",
+        "field": "application.deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-fr-differentiated-fees-2026",
+    "sourceUrl": "https://www.univ-lyon1.fr/formation/inscription-et-scolarite/etudiantes-et-etudiants-internationaux-droits-dinscription-differencies-et-exonerations",
+    "publisher": "Université Claude Bernard Lyon 1",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "Licence : 2 902 €",
+    "claim": "Differentiated tuition for non-EU students at French public universities in 2026/27 is €2,902 a year for a licence and €3,950 for a master's, under decree no. 2026-385 of 19 May 2026.",
+    "supports": [
+      {
+        "entity": "fr",
+        "field": "costs.tuitionNonEu"
+      }
+    ],
+    "attestation": {
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-fr-service-public-student-work",
+    "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2713?lang=en",
+    "publisher": "Service-Public.fr (Direction de l'information légale et administrative)",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "excerpt": "The student can work a maximum of 964 hours per year (60% the annual legal working time).",
+    "claim": "A non-European student with a student residence permit may work up to 964 hours a year.",
+    "supports": [
+      {
+        "entity": "fr",
+        "field": "workRights"
+      }
+    ],
+    "attestation": {
+      "by": "the France audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
     }
   }
 ]

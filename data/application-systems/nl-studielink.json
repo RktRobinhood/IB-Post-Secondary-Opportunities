@@ -18,17 +18,19 @@
     "limit": 2,
     "ranked": false,
     "offersReceived": "many",
-    "note": "The limit of two applies to numerus fixus programmes specifically, and only one may be used where the programme is medicine, dentistry, dental hygiene, physiotherapy or midwifery. Non-selective programmes are not rationed in the same way, and choices are not ranked against each other as they are in Denmark — each application is decided on its own."
+    "note": "The limit of two applies to numerus fixus programmes specifically; medicine, dentistry, dental hygiene and physiotherapy allow only one application per programme, so not medicine at two universities. Non-selective programmes are not rationed in the same way, and choices are not ranked against each other as they are in Denmark — each application is decided on its own."
   },
-  "identityRequirement": "A DigiD, the Dutch digital identity, which the government says takes about five days to obtain. This is the step most likely to catch out an applicant living outside the Netherlands.",
+  "identityRequirement": "A Studielink account. With a Dutch address you log in with DigiD; without one you upload a scan or photo of your passport or EU identity card and Studielink verifies it automatically.",
   "decisionModel": "Two different things happen depending on the programme. A non-selective programme admits anyone holding a qualifying diploma, which is an entitlement rather than a competition. A numerus fixus programme runs a selection between 15 January and 15 April on criteria the institution sets itself, and issues each applicant a ranking number on 15 April.",
   "replyModel": "An offered place must be accepted through Studielink within two weeks, or it passes automatically to the next-ranked applicant. That is a short window, and it falls months before IB results.",
   "evidence": [
     "ev-rijksoverheid-aanmelden",
-    "ev-studyinnl-apply"
+    "ev-studyinnl-apply",
+    "ev-studielink-no-digid",
+    "ev-vu-numerus-fixus-rules"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22"
+    "dataAsOf": "2026-09-24"
   }
 }

@@ -30,11 +30,21 @@
       "evidence": ["ev-ch-eth-how-to-apply"]
     },
     {
+      "id": "ms-submit-epfl",
+      "type": "submit",
+      "label": "EPFL and the University of Zurich close for bachelor applications",
+      "date": "2027-04-30",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "Both publish 30 April with no year; read here for autumn 2027. EPFL opens in mid-November and the CHF 150 fee is due by the same day. The University of Zurich opens on 1 January and its later July window is for Swiss certificates only.",
+      "evidence": ["ev-ch-epfl-how-to-apply", "ev-ch-uzh-deadlines"]
+    },
+    {
       "id": "ms-submit-others",
       "type": "submit",
       "label": "Every other university's own closing date",
       "dateState": "varies-by-institution",
-      "consequence": "hard",
+      "consequence": "indicative",
       "note": "No national portal and no national date. Each university sets its own; most fall in spring, before IB results.",
       "evidence": ["ev-ch-swissuniversities-institutions"]
     },
@@ -49,10 +59,10 @@
       "evidence": ["ev-ib-results-day-2027-05"]
     }
   ],
-  "evidence": ["ev-ch-eth-how-to-apply"],
+  "evidence": ["ev-ch-eth-how-to-apply", "ev-ch-epfl-how-to-apply", "ev-ch-uzh-deadlines"],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-23",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2027-01-31",
     "notes": [
       "Covers every listed institution: all Swiss universities and private institutions take applications directly.",

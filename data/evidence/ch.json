@@ -5,7 +5,7 @@
     "publisher": "swissuniversities",
     "publisherType": "national-agency",
     "sourceClass": "recognition-body",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "Swiss universities recognise the IB Diploma with at least 32 of 42 points (bonus points not counted), six subjects one from each of six categories, at least three at Higher Level of which one must be mathematics or a natural science. ETH Zurich and EPFL set stricter conditions.",
@@ -20,7 +20,7 @@
       "method": "read-source",
       "note": "Page states the requirements are valid for academic year 2026/27."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-ch-swissuniversities-institutions",
@@ -50,7 +50,7 @@
     "publisher": "ETH Zurich",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "ETH Zurich takes bachelor applications with a non-Swiss certificate directly, from 1 December to 31 March, 23:59 CET, for the autumn semester. A non-refundable application fee is charged.",
@@ -65,7 +65,7 @@
       "method": "read-source",
       "note": "The page gives day and month only, no year. Fee amount not stated on this page."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
   },
   {
     "id": "ev-ch-eth-tuition",
@@ -73,7 +73,7 @@
     "publisher": "ETH Zurich",
     "publisherType": "institution",
     "sourceClass": "institutional-guidance",
-    "retrievedAt": "2026-09-23",
+    "retrievedAt": "2026-09-24",
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "From autumn semester 2025 ETH Zurich charges CHF 730 per semester to Swiss citizens and residents and CHF 2,190 per semester (threefold) to foreign students who do not meet the criteria for the reduced fee.",
@@ -87,6 +87,123 @@
       "at": "2026-09-23",
       "method": "read-source"
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
+  },
+  {
+    "id": "ev-ch-epfl-how-to-apply",
+    "sourceUrl": "https://www.epfl.ch/education/admission/admission-2/bachelor-admission-criteria-and-application/how-to-apply/",
+    "publisher": "EPFL",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "EPFL takes bachelor applications from mid-November to 30 April for the following September; the fee is CHF 150 for a foreign certificate; documents are due by 10 July and the diploma by 30 September at the latest.",
+    "excerpt": "Applications can be submitted from mid-November to the 30th of April to start your studies at EPFL the following September.",
+    "supports": [
+      {
+        "entity": "ch-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ch",
+        "field": "application.deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "the Switzerland audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-ch-uzh-deadlines",
+    "sourceUrl": "https://www.uzh.ch/en/studies/application/deadlines.html",
+    "publisher": "Universität Zürich",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "University of Zurich autumn-semester applications run 1 January to 30 April for applicants who do not need a visa and 1 January to 28 February for those who do; the 1 May to 31 July extension is for Swiss certificates only.",
+    "excerpt": "1 January until 30 April",
+    "supports": [
+      {
+        "entity": "ch-direct-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "ch",
+        "field": "application.deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "the Switzerland audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-ch-eth-cost-of-living",
+    "sourceUrl": "https://ethz.ch/content/dam/ethz/main/education/finanzielles/files-en/cost-of-living.pdf",
+    "publisher": "ETH Zurich, Financial Aid Office",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "ETH Zurich estimates individual living costs in Zurich at about CHF 22,100 a year, and total study and living costs at CHF 28,100 a year for a foreign (Group 2) student.",
+    "excerpt": "Study and Living Costs International students (approximate)",
+    "supports": [
+      {
+        "entity": "ch",
+        "field": "costs.livingCostMonthly"
+      }
+    ],
+    "attestation": {
+      "by": "the Switzerland audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source",
+      "note": "PDF read as text; rent line is the canton of Zurich average for 2024."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-ch-usi-bachelor-languages",
+    "sourceUrl": "https://www.usi.ch/en/education/bachelor/bachelor-degrees-at-a-glance",
+    "publisher": "Università della Svizzera italiana",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "USI teaches its Informatics and Data Science bachelor's in English and runs an English-language track of Economics alongside the Italian one; its other bachelor's are in Italian.",
+    "excerpt": "an English-language track (in parallel with the Italian-language track)",
+    "supports": [
+      {
+        "entity": "ch",
+        "field": "language"
+      }
+    ],
+    "attestation": {
+      "by": "the Switzerland audit pass (2026-09-24)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
   }
 ]

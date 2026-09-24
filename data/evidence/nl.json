@@ -3374,5 +3374,67 @@
       "reason": "host refuses automated fetching (HTTP 403) and is not yet in link-policy.json — open it by hand, and record the host there if it refuses everything",
       "method": "automated re-fetch and wording match (scripts/verify-evidence.mjs)"
     }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-studielink-no-digid",
+    "sourceUrl": "https://info.studielink.nl/en/how-to-use-studielink/verification-personal-details-studielink",
+    "publisher": "Studielink",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "claim": "An applicant without DigiD creates a Studielink account by uploading a scan or photo of a passport or European identity card, which is verified automatically by an online tool.",
+    "excerpt": "you upload a scan or photo of your ID in Studielink. The tool will read this digital copy of your ID and verify its legitimacy and completeness.",
+    "supports": [
+      {
+        "entity": "nl-studielink",
+        "field": "identityRequirement"
+      },
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-vu-numerus-fixus-rules",
+    "sourceUrl": "https://vu.nl/en/education/more-about/selection-procedure-numerus-fixus",
+    "publisher": "Vrije Universiteit Amsterdam",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "claim": "At most two numerus fixus bachelor programmes per academic year; for Dentistry and Medicine parallel applications may be made at one institution only; deadline 15 January; ranking number on 15 April; two weeks to accept.",
+    "excerpt": "An exception is made for Dentistry and Medicine: parallel applications may only be made at one institution.",
+    "supports": [
+      {
+        "entity": "nl-studielink",
+        "field": "choiceRules"
+      },
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-source"
+    }
   }
 ]

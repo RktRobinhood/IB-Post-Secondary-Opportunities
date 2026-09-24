@@ -6,11 +6,11 @@
     "publisherType": "application-portal",
     "sourceClass": "admissions-authority",
     "retrievedAt": "2026-09-22",
-    "appliesToIntake": "2027-autumn",
+    "appliesToIntake": "2026-autumn",
     "verificationState": "needs-review",
     "claim": "Applications open in early November and close on 1 February at 17:00, with a discounted fee before 20 January. Change of Mind opens 5 May and closes 1 July at 17:00. Round A offers are issued on 6 July and Round 1 on 26 August, after Leaving Certificate results on 21 August.",
     "excerpt": "5th November 2025 (12:00) CAO online application facility opens. 20th January 2026 (17:00) Apply online by this date to avail of the discounted application fee of €35. 1st February (17:00) Normal closing date for applications. […] 1st May (17:00) Closing date for late applications. 5th May (12:00) Online Change of Mind facility becomes available (Free). […] 1st July (17:00) Change of Mind closes. 6th July (10:00) Round A offers for certain Non-Standard categories of applicants. […] 21st August Current year Leaving Certificate results issued. 26th August (14:00) Round 1 offers.",
-    "interpretation": "Two things an IB applicant needs from this. The 1 February closing date is early by European standards and it is a real one. And Change of Mind — the free window in which an Irish applicant may reorder or replace their entire list — closes on 1 July, five days before IB results. Which offer round an IB applicant falls into is NOT established here: Round A on 6 July covers \"certain Non-Standard categories\" and Round 1 on 26 August follows Irish results. That is the question to put to CAO directly rather than to infer.",
+    "interpretation": "Two things an IB applicant needs from this. The 1 February closing date is early by European standards and it is a real one. And Change of Mind — the free window in which an Irish applicant may reorder or replace their entire list — closes on 1 July, five days before IB results. This page is the 2026-entry timetable. The 2027 dates and the offer-round rules (IB applicants from school compete in Round One) are in ev-cao-handbook-2027.",
     "supports": [
       {
         "entity": "ie-cao-2027",
@@ -135,6 +135,115 @@
           "details": []
         }
       ]
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-cao-handbook-2027",
+    "sourceUrl": "https://www2.cao.ie/handbook/handbook2027/hb.pdf",
+    "publisher": "Central Applications Office (CAO)",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "claim": "For 2027 entry CAO opens 5 November 2026 at 12:00; discounted fee (35 EUR) to 20 January 2027 17:00; normal closing date (50 EUR) 1 February 2027 17:00; amend course choices (10 EUR) 5 February 12:00 to 1 March 17:00; late applications (65 EUR) 5 March 12:00 to 1 May 17:00; Change of Mind from 5 May 12:00 (expected) to 1 July 17:00; Round One date TBC. School-leaving applicants, whatever the year, compete in Round One.",
+    "excerpt": "Normal online 50 1 February 2027 at 5pm … Applicants applying on the basis of school leaving examination results/grades, regardless of the year completed, will compete for an offer in Round One.",
+    "supports": [
+      {
+        "entity": "ie-cao-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-pdf"
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "id": "ev-cao-eu-ib-2026",
+    "sourceUrl": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
+    "publisher": "Central Applications Office (CAO) and participating institutions",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "claim": "IB minimum: 24 points and the Diploma (Level 8, 2 H5) or 24 with 3 HL at 5 and 3 SL at 4 (Level 8, 3 H5); subject grades map HL 7=H1 … 3=H7 and SL 7=O1 … 4=O6; overall IB score converts to CAO points (45=600, 36=497, 30=412, 24=350) from a single sitting, plus 25 bonus points for HL Mathematics at 4 or better. This is the 2026-entry booklet; no 2027 edition was published on 2026-09-24.",
+    "excerpt": "Points will be awarded as follows based on the overall IB score based on a single sitting",
+    "supports": [
+      {
+        "entity": "ie",
+        "field": "ibRecognition"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-pdf"
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-citinfo-student-contribution",
+    "sourceUrl": "https://www.citizensinformation.ie/en/education/third-level-education/fees-and-supports-for-third-level-education/fees/",
+    "publisher": "Citizens Information Board",
+    "publisherType": "national-agency",
+    "sourceClass": "official-rule-owner",
+    "claim": "The maximum student contribution is now 2,500 EUR (2026/27, after the Budget 2026 cut).",
+    "excerpt": "The maximum rate of the student contribution is now €2,500.",
+    "supports": [
+      {
+        "entity": "ie",
+        "field": "feeContext"
+      }
+    ],
+    "interpretation": "Citizens Information is the state information service, not the rule owner; it is recorded because the HEA page read on the same day still gives the figure against 2025/26.",
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-browser"
+    }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-24",
+    "appliesToIntake": "2026-autumn",
+    "id": "ev-tcd-fees-2026",
+    "sourceUrl": "https://www.tcd.ie/courses/undergraduate/fees/",
+    "publisher": "Trinity College Dublin",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "claim": "Trinity College Dublin 2026/27 year-1 non-EU fees: 22,580 EUR for arts, humanities and business courses; 29,570 EUR for science courses. EU students not covered by free fees pay tuition plus the 2,500 EUR student contribution.",
+    "excerpt": "2026/27 Trinity Business School Business, Economic and Social Studies (B.E.S.S.) … €3,181.00 €2,500.00 €5,681.00 €22,580.00",
+    "supports": [
+      {
+        "entity": "ie",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    },
+    "attestation": {
+      "by": "audit pass (gb, ie, nl, be, lu)",
+      "at": "2026-09-24",
+      "method": "read-source"
     }
   }
 ]

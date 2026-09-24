@@ -15,15 +15,15 @@
   },
   "targetIntake": "2027-autumn",
   "tagline": "Free, mechanical and mostly in Swedish",
-  "summary": "Sweden runs one national portal, one national ranking, and no tuition for EU, EEA and Swiss citizens. Admission is unusually mechanical: meet the requirements and your place is decided by a number, with no motivation letter and no interview for the overwhelming majority of programmes. The catch is supply. English-taught bachelor programmes are a small share of the total, and they concentrate in the admissions round that closes in January — six months before the IB publishes results.",
+  "summary": "Sweden runs one national portal, one national ranking, and no tuition for EU, EEA and Swiss citizens. Admission is unusually mechanical: meet the requirements and your place is decided by a number, with no motivation letter and no interview for the overwhelming majority of programmes. The catch is supply and timing. English-taught bachelor programmes are a small share of the total, and as a May 2027 IB candidate you apply in the second round, closing 15 April 2027, because the national authority tells applicants without a finished Diploma not to use the January one.",
   "whyConsider": [
     "No tuition for EU, EEA and Swiss citizens, at any institution.",
     "Selection is transparent and impersonal: no essay, no interview, no reference. What you did is what counts.",
     "For a Danish student the practical distance is small and Nordic mobility is well established."
   ],
   "watchOuts": [
-    "The first admissions round closes on 15 January 2027 with documents due 1 February, and that is the round carrying the English-taught programmes. The second round is later but the authority says many English-taught programmes are no longer available in it.",
-    "Both of those fall long before IB results on 6 July. Establish early, in writing, how the programme you want will handle results that arrive after its documentation deadline.",
+    "The first round (closing 15 January 2027) carries the most English-taught programmes, but University Admissions tells IB students who have not finished the Diploma not to apply in it. Your round is the second: 15 March to 15 April 2027, where many English-taught programmes are no longer open. Stockholm School of Economics is the one exception, admitting on predicted grades in January.",
+    "In the second round your IB results must reach University Admissions by 5 July 2027 through the IB Result Service (recipient code UHR), results come on 9 July and you must reply by 16 July.",
     "Most Swedish bachelor programmes are taught in Swedish. The English-taught set is real and it is a minority.",
     "The authority describes its own subject equivalences as estimates. Treat any IB-to-Swedish subject mapping as a guide, and confirm with the programme."
   ],
@@ -46,7 +46,7 @@
       "feeStatus": "no-fee",
       "summary": "No tuition fee, and no application fee.",
       "evidence": [
-        "ev-ua-se-bachelor-requirements"
+        "ev-ua-se-fee-exemption"
       ]
     },
     {
@@ -106,15 +106,17 @@
   ],
   "evidence": [
     "ev-ua-se-bachelor-requirements",
-    "ev-ua-se-autumn-dates"
+    "ev-ua-se-autumn-dates",
+    "ev-ua-se-ib-studies",
+    "ev-ua-se-fee-exemption"
   ],
   "meta": {
     "schemaVersion": "1.0",
-    "dataAsOf": "2026-09-22",
+    "dataAsOf": "2026-09-24",
     "reviewBy": "2026-10-16",
     "notes": [
       "Re-check when the first admissions round opens on 16 October 2026, which is when the 2027 course catalogue becomes visible.",
-      "Not captured: the merit-value (meritvärde) conversion used to rank IB applicants. Sweden selects on a number, so that table is the single most valuable missing artefact for this destination.",
+      "The merit-value (meritvärde) conversion used to rank IB applicants is on the country profile (data/countries/se.json), read from antagning.se on 24 September 2026.",
       "Programme-level records not yet created."
     ]
   }
