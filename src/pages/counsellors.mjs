@@ -84,7 +84,7 @@ ${hero({
 
         ${note(
           `**If you take one thing from this page:** the subject checker gives a real answer for programmes in
-          ${deepCountries.join(' and ')} and cannot give one anywhere else yet, because nowhere else has
+          ${site.opportunityScope?.label || deepCountries.join(' and ')} and cannot give one anywhere else yet, because nowhere else has
           requirements recorded at programme level. It says so when you ask it. It does not guess.`,
           { kind: 'warn', title: 'The limit worth knowing' }
         )}
