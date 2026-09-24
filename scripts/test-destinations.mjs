@@ -31,6 +31,7 @@ import { load } from '../src/lib/data.mjs';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { programme } from '../src/pages/programme.mjs';
 import { universitiesIndex, university } from '../src/pages/institutions.mjs';
+import { url } from '../src/lib/layout.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -71,13 +72,20 @@ const between = (html, re) => (html.match(re) || [])[1] || '';
 const titleOf = (html) => between(html, /<title>([\s\S]*?)<\/title>/);
 const descriptionOf = (html) => between(html, /<meta name="description" content="([\s\S]*?)">/);
 const headingOf = (html) => between(html, /<h1[^>]*>([\s\S]*?)<\/h1>/).replace(/<[^>]+>/g, '').trim();
+/*
+ * The deploy builds under the GitHub Pages project path (SITE_BASE), so every
+ * rendered href carries it. The assertions name site paths, so the prefix comes
+ * off before comparing; without this the guards pass locally and fail in CI.
+ */
+const base = url('/').slice(0, -1);
+const sitePath = (href) => (base && href.startsWith(base) ? href.slice(base.length) : href);
 /** The breadcrumb trail only — the masthead links to every section on every page. */
 const crumbHrefs = (html) => {
   const trail = between(html, /<nav aria-label="Breadcrumb">([\s\S]*?)<\/nav>/);
-  return [...trail.matchAll(/href="([^"]*)"/g)].map((m) => m[1]);
+  return [...trail.matchAll(/href="([^"]*)"/g)].map((m) => sitePath(m[1]));
 };
 /** Which top-level navigation item the page claims to be inside. */
-const sectionOf = (html) => between(html, /<a href="([^"]*)" aria-current="page"/);
+const sectionOf = (html) => sitePath(between(html, /<a href="([^"]*)" aria-current="page"/));
 
 const renderUniversity = (inst) => university(site, inst, { prev: null, next: null });
 const renderProgramme = (inst, p) => programme(site, p, inst);
