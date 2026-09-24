@@ -8,14 +8,14 @@ import { evidenceBlock } from '../lib/primitives.mjs';
 import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
 import { readerAccessOf } from '../lib/calendar.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
-import { awardBlock, destinationOf, cutoffSentence, prettyDate } from './programme-facts.mjs';
+import { awardBlock, destinationOf, cutoffSentence, prettyDate, institutionPicture } from './programme-facts.mjs';
 
 /* One page per Programme: what it is, at a glance, then what it takes. */
 
 /* --- A single programme ---------------------------------------------------- */
 
 export function programme(site, p, inst) {
-  const pic = picture(site, p.id) || picture(site, inst.id);
+  const pic = picture(site, p.id) || institutionPicture(site, inst);
   const req = p.entryRequirements;
   const opp = site.graph?.opportunities?.get(p.opportunityId || p.id);
   const ev = site.graph ? evidenceStatus(site.graph, opp?.evidence) : null;

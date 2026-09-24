@@ -44,6 +44,12 @@ files do not hold: `data/destinations/dk.json`,
 
 ## The migration script
 
+> **It has run, and must not be re-run on the live data.** Since September 2026
+> the canonical Danish records carry work the research files do not (source
+> quotations, reader access, campus splits), and a re-run discards it. The
+> script refuses without `--force`. Edit the canonical records instead — see
+> [UPDATING.md](UPDATING.md).
+
 `scripts/migrate-denmark.mjs` is **deterministic and idempotent**. Ids are
 derived from institution and programme names, so re-running it after new
 research lands regenerates the same ids and nothing a student saved breaks. It

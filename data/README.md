@@ -49,16 +49,14 @@ number is worse than nothing, because nobody will check it.
 
 ## Adding or correcting a Danish programme
 
-Danish research lives in `dk/<institution>.json`, one file per institution with
-its programmes nested. That is the input format, not the published format. Edit
-it and re-run the migration:
+The published Danish records are the canonical ones: `programmes/dk-*.json` and
+`opportunities/dk-*-2027-autumn.json`. Edit those directly, keep the research
+notes in `dk/<institution>.json` in step, then `npm run validate && npm run build`.
+Step-by-step recipes: [../docs/UPDATING.md](../docs/UPDATING.md).
 
-```bash
-npm run migrate:dk && npm run validate && npm run build
-```
-
-The migration is deterministic: the same input always produces the same ids, so
-re-running it after new research lands does not break anything a student saved.
+**Do not re-run `npm run migrate:dk`.** The migration was one-way; the canonical
+records have been improved since, and re-running it would discard that work. It
+refuses without `--force`.
 
 ## Adding a new institution to a country that already exists
 

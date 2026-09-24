@@ -4,7 +4,7 @@ import {
   hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, requirementLine, glance,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { destinationOf } from './programme-facts.mjs';
+import { destinationOf, institutionPicture } from './programme-facts.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -17,7 +17,7 @@ import { destinationOf } from './programme-facts.mjs';
  * at. Free, too: the programme pages already carry them.
  */
 function universitySlides(site, inst, max = 4) {
-  const own = picture(site, inst.id);
+  const own = institutionPicture(site, inst);
   const out = [];
 
   // Further photographs of the institution itself, where they were collected:
@@ -52,7 +52,7 @@ function universitySlides(site, inst, max = 4) {
 }
 
 export function university(site, inst, { prev, next }) {
-  const pic = picture(site, inst.id);
+  const pic = institutionPicture(site, inst);
   const dest = destinationOf(inst);
   const byField = new Map();
   for (const p of inst.programmes) {
@@ -283,7 +283,7 @@ ${hero({
               .slice()
               .sort((a, b) => b.programmes.length - a.programmes.length || a.name.localeCompare(b.name))
               .map((i) => {
-                const p = picture(site, i.id);
+                const p = institutionPicture(site, i);
                 return card({
                   href: i.href,
                   title: i.shortName ? `${i.shortName} — ${i.name}` : i.name,

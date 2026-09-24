@@ -4,7 +4,7 @@ import { hero, note, crumbs, requirementLine } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
-import { AWARD_LABEL } from './programme-facts.mjs';
+import { AWARD_LABEL, institutionPicture } from './programme-facts.mjs';
 
 /* The programme finder: every Opportunity, filterable, with the map. */
 
@@ -50,7 +50,7 @@ export function programmesIndex(site) {
     cutoff: p.cutoff?.value || null,
     // A picture of the place: the programme's own, or its institution's.
     image: (() => {
-      const pic = picture(site, p.id, { prefer: 'commons' }) || picture(site, p.institutionId, { prefer: 'commons' });
+      const pic = picture(site, p.id, { prefer: 'commons' }) || institutionPicture(site, site.institutionCatalogue.all.find((i) => i.id === p.institutionId), { prefer: 'commons' });
       return pic ? (pic.external ? pic.src : url(pic.src)) : null;
     })(),
     summary: truncate(p.summary || '', 170),

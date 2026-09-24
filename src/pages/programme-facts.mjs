@@ -1,4 +1,5 @@
 import { plural } from '../lib/html.mjs';
+import { picture } from '../lib/data.mjs';
 import { note } from '../lib/components.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 
@@ -132,4 +133,21 @@ export function institutionCount(list) {
   const universities = list.length - colleges;
   const u = plural(universities, 'university', 'universities');
   return colleges ? `${u} and ${plural(colleges, 'college')}` : u;
+}
+
+/**
+ * An institution's photograph, found by its canonical id or — when the
+ * photographs were collected under the country profile's key instead — by the
+ * profile entry with the same name in the same country. The canonical Dutch
+ * records (nl-tudelft) and the country profile's (nl-tu-delft) were keyed
+ * differently, and every Dutch university page showed no picture at all.
+ */
+export function institutionPicture(site, inst, options = {}) {
+  if (!inst) return null;
+  const code = inst.destination?.code || inst.destination || String(inst.id).slice(0, 2);
+  const profile = (site.countries || []).find((c) => c.code === code);
+  const same = (profile?.institutions || []).filter(
+    (i) => i.key && i.name && inst.name && i.name.toLowerCase() === inst.name.toLowerCase()
+  );
+  return picture(site, inst.id, { ...options, also: same.map((i) => i.key) });
 }
