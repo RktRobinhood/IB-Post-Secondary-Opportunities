@@ -241,7 +241,7 @@ export function destinationFacet(d, code = d?.id || null) {
     adjective: d?.adjective || null,
     href: hub || `/destinations/${code}/`,
     /* Which top-level navigation item is current. The same rule the generated
-       destination pages apply in core.mjs, so an institution page and its own
+       destination pages apply in destinations.mjs, so an institution page and its own
        Destination's page never highlight two different things. */
     section: hub || ((d?.scope || 'europe') === 'worldwide' ? '/world/' : '/europe/'),
   };

@@ -10,9 +10,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { load, validate } from './lib/data.mjs';
 import { setBase, setGuides, setRevision, setScope, url, SITE } from './lib/layout.mjs';
-import * as core from './pages/core.mjs';
+import { home } from './pages/home.mjs';
+import { europeIndex, worldIndex, destination } from './pages/destinations.mjs';
+import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
-import * as prog from './pages/programmes.mjs';
+import { universitiesIndex, university } from './pages/institutions.mjs';
+import { programme } from './pages/programme.mjs';
+import { programmesIndex } from './pages/explorer.mjs';
+import { planner } from './pages/planner.mjs';
+import { timeline } from './pages/timeline.mjs';
 import * as meta from './pages/meta.mjs';
 import { counsellors } from './pages/counsellors.mjs';
 import { prepare } from './pages/prepare.mjs';
@@ -222,10 +228,10 @@ async function main() {
   console.log('');
 
   /* Core */
-  await write('/', core.home(site));
-  await write('/europe/', core.europeIndex(site));
-  await write('/world/', core.worldIndex(site));
-  await write('/compare/', core.compare(site));
+  await write('/', home(site));
+  await write('/europe/', europeIndex(site));
+  await write('/world/', worldIndex(site));
+  await write('/compare/', compare(site));
 
   /* Destinations, with prev/next within their own scope */
   for (const scope of ['europe', 'worldwide']) {
@@ -235,7 +241,7 @@ async function main() {
     for (const [i, c] of list.entries()) {
       const prev = list[i - 1] ? { href: list[i - 1].href, label: list[i - 1].name } : null;
       const next = list[i + 1] ? { href: list[i + 1].href, label: list[i + 1].name } : null;
-      await write(c.href, core.destination(site, c, { prev, next }));
+      await write(c.href, destination(site, c, { prev, next }));
     }
   }
 
@@ -246,19 +252,19 @@ async function main() {
   await write('/denmark/money/', dk.denmarkMoney(site));
 
   /* Institutions and programmes, in every Destination that has them */
-  await write('/universities/', prog.universitiesIndex(site));
+  await write('/universities/', universitiesIndex(site));
   const insts = site.institutionCatalogue.all.slice().sort((a, b) => a.name.localeCompare(b.name));
   for (const [i, inst] of insts.entries()) {
     const prev = insts[i - 1] ? { href: insts[i - 1].href, label: insts[i - 1].shortName || insts[i - 1].name } : null;
     const next = insts[i + 1] ? { href: insts[i + 1].href, label: insts[i + 1].shortName || insts[i + 1].name } : null;
-    await write(inst.href, prog.university(site, inst, { prev, next }));
+    await write(inst.href, university(site, inst, { prev, next }));
     for (const p of inst.programmes) {
-      await write(p.href, prog.programme(site, p, inst));
+      await write(p.href, programme(site, p, inst));
     }
   }
-  await write('/programmes/', prog.programmesIndex(site));
-  await write('/planner/', prog.planner(site));
-  await write('/timeline/', prog.timeline(site));
+  await write('/programmes/', programmesIndex(site));
+  await write('/planner/', planner(site));
+  await write('/timeline/', timeline(site));
   await write('/prepare/', prepare(site));
 
   /* Guides */

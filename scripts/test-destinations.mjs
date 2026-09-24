@@ -29,7 +29,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { load } from '../src/lib/data.mjs';
 import { loadCanonical } from '../src/lib/canonical.mjs';
-import { programme, universitiesIndex, university } from '../src/pages/programmes.mjs';
+import { programme } from '../src/pages/programme.mjs';
+import { universitiesIndex, university } from '../src/pages/institutions.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -316,22 +317,33 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
    * 'Denmark' }` three more, on the institution index, the institution page and
    * the Programme page.
    */
-  const rel = 'src/pages/programmes.mjs';
-  const text = await fs.readFile(path.join(ROOT, rel), 'utf8');
-  const code = text.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
-  const suspects = [
-    ...code.matchAll(/section:\s*['"][^'"]+['"]/g),
-    ...code.matchAll(/\{\s*href:\s*['"]\/(?:denmark|destinations)\/[^'"]*['"]/g),
-  ]
-    .map((m) => m[0])
-    // The Programme explorer, the subject checker and the calendar are their
-    // own top-level navigation items and are nobody's Destination.
-    .filter((s) => !/^section:\s*['"]\/(programmes|planner|timeline|prepare)\/['"]$/.test(s));
-  assert.deepEqual(
-    suspects,
-    [],
-    `${rel} is writing a Destination into a page rather than reading it off the record:\n          ${suspects.join('\n          ')}`
-  );
+  // One module per page family since the split; every one of these renders
+  // whatever Destination it is handed.
+  const modules = [
+    'src/pages/institutions.mjs',
+    'src/pages/programme.mjs',
+    'src/pages/programme-facts.mjs',
+    'src/pages/explorer.mjs',
+    'src/pages/planner.mjs',
+    'src/pages/timeline.mjs',
+  ];
+  for (const rel of modules) {
+    const text = await fs.readFile(path.join(ROOT, rel), 'utf8');
+    const code = text.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+    const suspects = [
+      ...code.matchAll(/section:\s*['"][^'"]+['"]/g),
+      ...code.matchAll(/\{\s*href:\s*['"]\/(?:denmark|destinations)\/[^'"]*['"]/g),
+    ]
+      .map((m) => m[0])
+      // The Programme explorer, the subject checker and the calendar are their
+      // own top-level navigation items and are nobody's Destination.
+      .filter((s) => !/^section:\s*['"]\/(programmes|planner|timeline|prepare)\/['"]$/.test(s));
+    assert.deepEqual(
+      suspects,
+      [],
+      `${rel} is writing a Destination into a page rather than reading it off the record:\n          ${suspects.join('\n          ')}`
+    );
+  }
 });
 
 console.log(failures ? `\n${failures} failing\n` : '\nAll destination guards pass\n');
