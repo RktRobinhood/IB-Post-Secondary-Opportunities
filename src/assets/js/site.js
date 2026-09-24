@@ -193,3 +193,30 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
   document.addEventListener('visibilitychange', () => (document.hidden ? clearInterval(timer) : start()));
   new MutationObserver(start).observe(root, { attributes: true, attributeFilter: ['data-motion'] });
 }
+
+/* --- Opening options in new tabs ------------------------------------------ */
+
+/* A student collects options: they open a university from a search, a map or
+   a result list, then another, and come back to the tool. Following such a
+   link in the same tab threw the tool away each time. So a link to another
+   site, or to one university's or one programme's page, opens in a new tab.
+   Links for getting around (masthead, drawer, footer, breadcrumbs, pager)
+   keep to the tab, and a click with a modifier key is left to the browser. */
+const DETAIL = /\/(universities|programmes)\/[^/]+\/?(#.*)?$/;
+const WAYFINDING = '.masthead, .drawer, .site-foot, nav[aria-label="Breadcrumb"], .pager';
+
+function opensNewTab(a) {
+  if (!a.href || a.target || a.hasAttribute('download') || a.closest(WAYFINDING)) return false;
+  const to = new URL(a.href, location.href);
+  if (!/^https?:$/.test(to.protocol)) return false;
+  if (to.origin !== location.origin) return true;
+  return DETAIL.test(to.pathname) && to.pathname !== location.pathname;
+}
+
+document.addEventListener('click', (e) => {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.target.closest?.('a[href]');
+  if (!a || !opensNewTab(a)) return;
+  a.target = '_blank';
+  if (!/\bnoopener\b/.test(a.rel)) a.rel = `${a.rel} noopener`.trim();
+}, true);
