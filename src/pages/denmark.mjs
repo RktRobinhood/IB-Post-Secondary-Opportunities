@@ -162,12 +162,12 @@ ${institutions.length
   ? html`<section class="section">
       <div class="wrap">
         ${sectionHead({
-          eyebrow: plural(institutions.length, 'institution'),
+          eyebrow: plural(teaching, 'institution'),
           title: 'Where you can study in English',
           id: 'institutions',
         })}
         <div class="grid grid--3">
-          ${institutions.map((i) => {
+          ${institutions.filter((i) => i.programmes.length).map((i) => {
             const p = picture(site, i.id);
             return card({
               href: i.href,
@@ -179,6 +179,14 @@ ${institutions.length
             });
           })}
         </div>
+        ${/* A university with nothing in English is worth knowing about, but
+              not as a card in a grid of places to go. */
+          institutions
+            .filter((i) => !i.programmes.length)
+            .map(
+              (i) => html`<p class="small-print">No bachelor's degrees in English at
+                <a href="${url(i.href)}">${i.name}</a> — every one is taught in Danish.</p>`
+            )}
       </div>
     </section>`
   : ''}
