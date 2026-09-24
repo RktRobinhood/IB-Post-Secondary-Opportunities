@@ -20,6 +20,22 @@
       "description": "How to refer to this scheme in a sentence shown to a student, e.g. \"the Danish Agency's IB handbook\". The engine has no words of its own for any country, so every explanation that names a translation names it from here."
     },
     "summary": { "type": "string" },
+    "display": {
+      "type": "object",
+      "description": "How a page shows a requirement written in this scheme's vocabulary, beside its IB translation. The IB terms lead; the requirement as published follows, small, so a student can match it with the institution's own page.",
+      "properties": {
+        "requirementLabel": {
+          "type": "string",
+          "description": "What the requirement as published is called on a page, e.g. \"Danish requirement\"."
+        },
+        "explainedAt": {
+          "type": "string",
+          "pattern": "^/",
+          "description": "The site path that explains how this scheme's levels read in IB terms."
+        }
+      },
+      "additionalProperties": false
+    },
     "where": {
       "type": "string",
       "description": "Free note recording why the record is filed where it is. Prose, not data."
@@ -72,7 +88,20 @@
       "properties": {
         "id": { "$ref": "common.schema.json#/$defs/id" },
         "name": { "type": "string" },
-        "note": { "type": "string" }
+        "note": { "type": "string" },
+        "grades": {
+          "type": "array",
+          "description": "Every grade on the scale and how it is written, so a page prints a minimum the way the institution does (\"02\", not \"2\"). Optional: without it a grade is printed as its number.",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "properties": {
+              "value": { "type": "number" },
+              "label": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        }
       },
       "additionalProperties": false
     },

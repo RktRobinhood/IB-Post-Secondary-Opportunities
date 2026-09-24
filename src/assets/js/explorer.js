@@ -58,9 +58,10 @@ function needsMathsA(p) {
   const e = p.entry;
   if (!e) return /mathematics\s+a\b/i.test(p.requirements || '');
   if ((e.all || []).some((r) => r.subject === 'Mathematics' && r.level === 'A')) return true;
-  // Only counts if EVERY alternative demands it — otherwise there is a way round.
-  const groups = e.oneOf || [];
-  return groups.length > 0 && groups.every((g) => g.some((r) => r.subject === 'Mathematics' && r.level === 'A'));
+  // Only counts if EVERY alternative in some "one of" demands it — otherwise
+  // there is a way round.
+  const sets = e.oneOfSets || (e.oneOf ? [e.oneOf] : []);
+  return sets.some((groups) => groups.length > 0 && groups.every((g) => g.some((r) => r.subject === 'Mathematics' && r.level === 'A')));
 }
 
 function matches(p) {
@@ -127,7 +128,7 @@ function row(p) {
       ${p.summary ? `<p class="prog__req">${esc(p.summary)}</p>` : ''}
     </div>
     <div class="prog__side">
-      ${p.requirements ? `<p class="prog__req"><strong>Requires:</strong> ${esc(p.requirements)}</p>` : ''}
+      ${p.reqHtml ? `<div class="prog__req">${p.reqHtml}</div>` : p.requirements ? `<p class="prog__req"><strong>Requires:</strong> ${esc(p.requirements)}</p>` : ''}
       ${p.restricted
         ? '<p><span class="tag tag--warn">Restricted admission</span></p>'
         : p.open ? '<p><span class="tag tag--ok">Open admission</span></p>' : ''}

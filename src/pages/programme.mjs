@@ -1,7 +1,7 @@
 import { html, raw, md, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
-  hero, note, facts, sources, crumbs, stamp, emptyState, freshness, topic, glance,
+  hero, note, facts, sources, crumbs, stamp, emptyState, freshness, topic, glance, requirementDetail,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { evidenceBlock } from '../lib/primitives.mjs';
@@ -57,17 +57,19 @@ export function programme(site, p, inst) {
     .filter((m) => ['submit', 'signature', 'document', 'result', 'reply'].includes(m.type))
     .filter((m) => readerAccessOf(m.readerAccess)?.state !== 'closed');
 
-  const need = html`${req?.all?.length
+  /* A requirement published on a local scale leads with its IB translation
+     (requirementDetail); one already in IB terms keeps its chips. */
+  const oneOfSets = req?.oneOfSets || (req?.oneOf?.length ? [req.oneOf] : []);
+  const translated = [...(req?.all || []), ...oneOfSets.flat(2)].some((r) => r.translation);
+  const need = translated ? html`${requirementDetail(req)}` : html`${req?.all?.length
       ? html`<ul class="need" aria-label="Required subjects">${req.all.map(
           (r) => html`<li class="need__item"><strong>${r.subject} ${r.level}</strong>${r.minGrade ? html`<span>minimum ${r.minGrade}</span>` : ''}</li>`
         )}</ul>`
       : ''}
-    ${req?.oneOf?.length
-      ? html`<p class="need__or">And one of these combinations:</p>
-          <ul class="need need--or">${req.oneOf.map(
+    ${oneOfSets.map((set) => html`<p class="need__or">And one of these combinations:</p>
+          <ul class="need need--or">${set.map(
             (group) => html`<li class="need__item">${group.map((r, n) => html`${n ? ' + ' : ''}<strong>${r.subject} ${r.level}</strong>${r.minGrade ? ` (min ${r.minGrade})` : ''}`)}</li>`
-          )}</ul>`
-      : ''}
+          )}</ul>`)}
     ${!req && !p.requirementsText ? emptyState('No entry requirements have been recorded for this programme yet.') : ''}`;
 
   const body = html`

@@ -4,6 +4,10 @@
   "name": "Eksamenshåndbogen — International Baccalaureate",
   "label": "the Danish Agency's IB handbook",
   "summary": "Every Danish institution converts IB results using this handbook. Individual university pages are often out of date; this is the source they are all supposed to follow.",
+  "display": {
+    "requirementLabel": "Danish requirement",
+    "explainedAt": "/denmark/ib-conversion/#levels"
+  },
   "where": "Recognition Schemes live in data/recognition/<destination>.json, one file per Destination, named for the Destination rather than for the publication. A Destination has at most one of these and the engine reaches it from a requirement that names its scale, so the filename is the lookup and nothing has to index it. It is deliberately NOT a field on the Destination record: a Destination record is country context a student reads, this is a translation table the engine executes, and the two change on completely different clocks — the handbook is reissued every March, the country profile is not.",
   "authority": {
     "name": "Uddannelses- og Forskningsstyrelsen (Danish Agency for Higher Education and Science)",
@@ -35,7 +39,37 @@
   "gradeScale": {
     "id": "dk-7-point",
     "name": "Danish 7-point grading scale",
-    "note": "Runs -3, 00, 02, 4, 7, 10, 12. 02 is the pass mark."
+    "note": "Runs -3, 00, 02, 4, 7, 10, 12. 02 is the pass mark.",
+    "grades": [
+      {
+        "value": -3,
+        "label": "-3"
+      },
+      {
+        "value": 0,
+        "label": "00"
+      },
+      {
+        "value": 2,
+        "label": "02"
+      },
+      {
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "value": 7,
+        "label": "7"
+      },
+      {
+        "value": 10,
+        "label": "10"
+      },
+      {
+        "value": 12,
+        "label": "12"
+      }
+    ]
   },
   "gradeConversion": {
     "single": {

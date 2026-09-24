@@ -123,10 +123,28 @@ export function buildSubjectIndex(input = []) {
       name: subject.name,
       group: subject.group,
       levels: subject.levels || ['HL', 'SL'],
+      /* How the subject is written when several courses of one family are
+         named together — "Maths HL (AA or AI)". Optional: without them the
+         subject's own name is used. */
+      family: subject.family || null,
+      course: subject.course || null,
+      /* The subjects a student thinks of as one — every English, both Maths
+         courses. When a rule accepts all of them a page says "Any IB English". */
+      area: subject.area || null,
     };
     index.set(subject.id, entry);
     index.set(normalise(subject.name), entry);
   }
+
+  /* Every catalogue subject in each area, so "does this rule accept all of
+     them?" is a question about the catalogue rather than about a list here. */
+  const areas = new Map();
+  for (const subject of subjects) {
+    if (!subject.area) continue;
+    if (!areas.has(subject.area)) areas.set(subject.area, new Set());
+    areas.get(subject.area).add(subject.id);
+  }
+  index.areas = areas;
 
   const schemes = new Map();
   for (const record of schemeRecords) {
@@ -173,6 +191,14 @@ function prepareScheme(record) {
     equivalence,
     withoutEquivalence,
     noEquivalenceNote: record.noEquivalenceNote || 'No equivalent is published.',
+    /* The words and the link a page uses when it shows a requirement in this
+       scheme's own vocabulary beside its IB translation. Data, because the
+       engine has no name for any jurisdiction. */
+    requirementLabel: record.display?.requirementLabel || 'As published',
+    explainedAt: record.display?.explainedAt || null,
+    /* How the grade scale writes its grades, where the scheme says ("02"
+       rather than 2). A grade the scale does not list is printed as a number. */
+    gradeLabels: new Map((record.gradeScale?.grades || []).map((g) => [Number(g.value), g.label])),
     single: record.gradeConversion?.single?.table || [],
     average: record.gradeConversion?.average?.table || [],
   };
@@ -279,6 +305,24 @@ export function convertProfile(profile, subjectIndex, scale = null) {
   return { held, unknownSubjects, unmappedSubjects, scheme, scale: wanted };
 }
 
+/**
+ * Every applicant group a profile belongs to: its own and every group that
+ * contains it, following `within` in data/applicant-groups.json. The engine
+ * names no group; the table says that a Nordic citizen is an EU/EEA citizen.
+ */
+export function applicantGroupsOf(id, groups = []) {
+  if (!id) return [];
+  const byId = new Map(groups.map((g) => [g.id, g]));
+  const out = [];
+  const visit = (g) => {
+    if (!g || out.includes(g)) return;
+    out.push(g);
+    for (const parent of byId.get(g)?.within || []) visit(parent);
+  };
+  visit(id);
+  return out;
+}
+
 /** An IB subject grade on a Recognition Scheme's single-grade table. */
 export function convertGrade(ibGrade, table = []) {
   const row = table.find((r) => r.ib === Number(ibGrade));
@@ -289,6 +333,194 @@ export function convertGrade(ibGrade, table = []) {
 export function convertAverage(points, table = []) {
   const row = table.find((r) => r.ib === Number(points));
   return row ? row.local : null;
+}
+
+/* --- A local requirement, read back into IB terms ---------------------------- */
+
+/** The IB's levels, lowest first. Read off the one scale the engine holds. */
+const IB_LEVELS = Object.keys(IB_LEVEL_RANK).sort((a, b) => IB_LEVEL_RANK[a] - IB_LEVEL_RANK[b]);
+
+/** "a, b or c". */
+function orList(parts) {
+  if (parts.length <= 1) return parts[0] || '';
+  return `${parts.slice(0, -1).join(', ')} or ${parts.at(-1)}`;
+}
+
+/**
+ * What a requirement published on a local scale asks of an IB student, in the
+ * IB's own words.
+ *
+ * This is the scheme's subject table read backwards. `convertProfile` asks
+ * "what does my Physics HL count as locally?"; this asks "which IB subjects,
+ * at which level, count as the local level this rule names?" — and it answers
+ * from the same rows, so a page that says "Maths HL (AA or AI)" and the engine
+ * that grades the student against "Mathematics A" cannot disagree.
+ *
+ * A higher level covers a lower one, exactly as the engine compares: an IB
+ * subject qualifies when the scheme maps it to the named subject at a level
+ * whose rank is at least the one required. English B SL maps to B and English
+ * B HL to A, so both meet a B requirement; only the second meets an A.
+ *
+ * A subject the scheme maps nothing onto comes back with `none` set to the
+ * scheme's own reason, never with an empty list that reads as "nothing asked".
+ *
+ * Returns null for a rule that is not written on a local scale: a rule already
+ * in IB terms has nothing to translate.
+ */
+export function ibTermsFor(rule, subjectIndex) {
+  if (!rule?.levelScale || !rule.subject || !rule.level) return null;
+  const scheme = subjectIndex?.schemes?.get(rule.levelScale) || null;
+  const out = {
+    subject: rule.subject,
+    level: rule.level,
+    local: `${rule.subject} ${rule.level}`,
+    localMinGrade: rule.minGrade ?? null,
+    localMinGradeLabel: rule.minGrade != null ? gradeLabel(scheme, rule.minGrade) : null,
+    scale: rule.levelScale,
+    requirementLabel: scheme?.requirementLabel || 'As published',
+    explainedAt: scheme?.explainedAt || null,
+    schemeLabel: scheme?.label || null,
+    options: [],
+    phrase: null,
+    none: null,
+    minIbGrade: null,
+    gradeNote: null,
+  };
+  if (!scheme) {
+    out.none = 'No Recognition Scheme recorded here covers the scale this is published on, so it cannot be put in IB terms. Check the official page.';
+    return out;
+  }
+  const wantRank = scheme.rank.get(rule.level);
+  if (wantRank == null) {
+    out.none = `${scheme.scaleName} defines no level called ${rule.level}, so this cannot be put in IB terms.`;
+    return out;
+  }
+
+  for (const [ibId, row] of scheme.equivalence) {
+    const reaches = (lvl) =>
+      (row.maps?.[lvl] || []).filter((t) => t.subject === rule.subject).map((t) => scheme.rank.get(t.level) ?? -1);
+    const levels = IB_LEVELS.filter((lvl) => reaches(lvl).some((r) => r >= wantRank));
+    if (!levels.length) continue;
+    const found = lookupSubject(subjectIndex, ibId);
+    out.options.push({
+      id: ibId,
+      name: found?.name || ibId,
+      family: found?.family || null,
+      course: found?.course || null,
+      area: found?.area || null,
+      levels,
+      // The lowest local level it reaches. The option that meets the rule
+      // most narrowly is listed first, because it answers "what is the least
+      // I need?" — English B before English A for an English B requirement.
+      floor: Math.min(...levels.flatMap((lvl) => reaches(lvl).filter((r) => r >= wantRank))),
+      note: row.note || null,
+    });
+  }
+  out.options.sort((a, b) => a.floor - b.floor);
+
+  if (out.options.length) out.phrase = ibTermsPhrase(out.options, subjectIndex);
+  else out.none = scheme.withoutEquivalence.get(normalise(rule.subject)) || scheme.noEquivalenceNote;
+
+  if (rule.minGrade != null && out.options.length) {
+    if (rule.gradeScale && scheme.gradeScale && rule.gradeScale !== scheme.gradeScale) {
+      out.gradeNote = `The minimum grade is on a scale ${scheme.label} does not convert, so it cannot be put in IB terms.`;
+    } else {
+      const reaching = scheme.single.filter((r) => Number(r.local) >= Number(rule.minGrade)).map((r) => Number(r.ib));
+      out.minIbGrade = reaching.length ? Math.min(...reaching) : null;
+      out.gradeNote = out.minIbGrade != null
+        ? `an IB ${out.minIbGrade} converts to ${gradeLabel(scheme, convertGrade(out.minIbGrade, scheme.single))}, the lowest that reaches ${out.localMinGradeLabel}`
+        : `${scheme.label} publishes no IB grade that converts to ${out.localMinGradeLabel} or above.`;
+    }
+  }
+  return out;
+}
+
+/** A grade as its scale writes it, or as a number where the scale does not say. */
+function gradeLabel(scheme, value) {
+  if (value == null) return null;
+  return scheme?.gradeLabels?.get(Number(value)) ?? String(value);
+}
+
+/** "History (SL or HL)", "Biology HL", "English A (Literature or Lang & Lit), SL or HL". */
+function withLevels(name, levels) {
+  if (levels.length === 1) return `${name} ${levels[0]}`;
+  const both = levels.join(' or ');
+  return name.endsWith(')') ? `${name}, ${both}` : `${name} (${both})`;
+}
+
+/**
+ * The options from `ibTermsFor` as one line a student can scan.
+ *
+ * Collapsed first: when a rule accepts every catalogue subject in an area at
+ * the same levels, the area is named rather than its courses — "Any IB
+ * English", "Any IB Maths", or "Maths HL (AA or AI)" where only HL counts.
+ * Whether that is true is read off the catalogue's `area`, never decided here.
+ * What is left is grouped by level, courses of one family folded together:
+ * "History (SL or HL)", "Economics or Business Management (SL or HL)".
+ */
+export function ibTermsPhrase(options = [], subjectIndex = null) {
+  const clauses = [];
+  let rest = options;
+
+  const areas = subjectIndex?.areas || new Map();
+  for (const [area, members] of areas) {
+    if (members.size < 2) continue;
+    const inArea = rest.filter((o) => o.area === area);
+    if (inArea.length !== members.size) continue;
+    const levels = inArea[0].levels.join(' or ');
+    if (!inArea.every((o) => o.levels.join(' or ') === levels)) continue;
+
+    if (inArea[0].levels.length === IB_LEVELS.length) {
+      clauses.push(`Any IB ${area}`);
+    } else {
+      const families = new Set(inArea.map((o) => o.family));
+      const courses = inArea.map((o) => o.course);
+      clauses.push(
+        families.size === 1 && courses.every(Boolean)
+          ? `${area} ${levels} (${orList(courses)})`
+          : `${area} ${levels}`
+      );
+    }
+    rest = rest.filter((o) => o.area !== area);
+  }
+
+  const byLevels = new Map();
+  for (const o of rest) {
+    const key = o.levels.join('|');
+    if (!byLevels.has(key)) byLevels.set(key, []);
+    byLevels.get(key).push(o);
+  }
+
+  for (const group of byLevels.values()) {
+    const levels = group[0].levels;
+    const named = [];
+    const families = new Map();
+    for (const o of group) {
+      if (o.family && o.course) {
+        if (!families.has(o.family)) {
+          families.set(o.family, []);
+          named.push({ family: o.family });
+        }
+        families.get(o.family).push(o.course);
+      } else {
+        named.push({ name: o.name });
+      }
+    }
+    for (const n of named) {
+      if (!n.family) continue;
+      const courses = families.get(n.family);
+      n.name = courses.length === 1 ? `${n.family} ${courses[0]}` : `${n.family} (${orList(courses)})`;
+      n.courses = courses;
+    }
+
+    if (named.length === 1 && named[0].courses?.length > 1 && levels.length === 1) {
+      clauses.push(`${named[0].family} ${levels[0]} (${orList(named[0].courses)})`);
+    } else {
+      clauses.push(withLevels(orList(named.map((n) => n.name)), levels));
+    }
+  }
+  if (clauses.length <= 1) return clauses[0] || '';
+  return `${clauses.slice(0, -1).join('; ')}; or ${clauses.at(-1)}`;
 }
 
 /* --- Evaluating one rule ---------------------------------------------------- */
@@ -380,19 +612,32 @@ function localEquivalencyRule(rule, ctx) {
     return unsure(`${named} names a level that ${scheme.scaleName} does not define, so it cannot be checked.`);
   }
 
+  /* Every sentence leads with what the rule means in IB terms and ends with
+     the rule as published, so a student reads their own units first and can
+     still match the original on the institution's page. */
+  const terms = ibTermsFor(rule, ctx.subjectIndex);
+  const asked = `${terms.requirementLabel}: ${terms.local}${rule.minGrade != null ? `, minimum ${terms.localMinGradeLabel}` : ''}`;
+  const wanted = terms.phrase ? `${terms.phrase}${terms.minIbGrade != null ? `, at least a ${terms.minIbGrade}` : ''}` : null;
+
   const have = conv.held.get(rule.subject);
   if (!have) {
     const reason = scheme.withoutEquivalence.get(normalise(rule.subject));
-    if (reason) return unsure(`${rule.subject} at ${rule.level} level — ${reason}`);
-    return unmet(`You do not have ${rule.subject} at any level.`, true);
+    if (reason) return unsure(`No IB subject is equivalent to ${terms.local}. ${reason} (${asked}.)`);
+    if (!wanted) return unmet(`No IB subject is equivalent to ${terms.local}: ${terms.none} (${asked}.)`, true);
+    return unmet(`This needs ${wanted}, and your profile has none of them. (${asked}.)`, true);
   }
   if (have.rank < wantRank) {
-    return unmet(`${rule.subject}: your ${have.ibSubject} counts as ${have.level} level, and this needs ${rule.level}.`, true);
+    return unmet(
+      `This needs ${wanted || terms.local}. Your ${have.ibSubject} counts only as ${rule.subject} at ${have.level} level. (${asked}.)`,
+      true
+    );
   }
 
   if (rule.minGrade != null) {
     if (have.grade == null) {
-      return unsure(`${rule.subject} ${rule.level} needs a minimum grade of ${rule.minGrade}. Add your grade for ${have.ibSubject} to check.`);
+      return unsure(
+        `This needs ${wanted || terms.local}. Add your grade for ${have.ibSubject} to check. (${asked}.)`
+      );
     }
     const converted = convertGrade(have.grade, scheme.single);
     if (converted == null) {
@@ -400,17 +645,17 @@ function localEquivalencyRule(rule, ctx) {
     }
     if (converted < Number(rule.minGrade)) {
       return unmet(
-        `${rule.subject}: your ${have.ibSubject} grade of ${have.grade} converts to ${converted}, below the required ${rule.minGrade}.`,
+        `This needs ${wanted || terms.local}. Your ${have.ibSubject} at ${have.grade} converts to ${gradeLabel(scheme, converted)}, below the ${terms.localMinGradeLabel} asked for. (${asked}.)`,
         true
       );
     }
     return met(
-      `${have.ibSubject} counts as ${rule.subject} ${have.level}; grade ${have.grade} converts to ${converted}, at or above the required ${rule.minGrade}.`
+      `Your ${have.ibSubject} at ${have.grade} meets ${wanted || terms.local}: it counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}. (${asked}.)`
     );
   }
 
   return met(
-    `${have.ibSubject} counts as ${rule.subject} ${have.level}${have.level !== rule.level ? `, which covers the required ${rule.level}` : ''}.`
+    `Your ${have.ibSubject} meets ${wanted || terms.local}: it counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}. (${asked}.)`
   );
 }
 
@@ -613,7 +858,13 @@ function evaluateRule(rule, ctx) {
         return unsure(`${rule.label || 'An applicant-status requirement'} — your fee status is not recorded.`);
       }
       const group = rule.applicability?.applicantGroup;
-      if (!group || group === 'any' || group === profile.applicantGroup) {
+      /* A Nordic citizen is also an EU/EEA citizen. Which group contains which
+         is data (data/applicant-groups.json), expanded by the caller into
+         `applicantGroups`; without it the profile belongs to its one group. */
+      const mine = Array.isArray(profile.applicantGroups) && profile.applicantGroups.length
+        ? profile.applicantGroups
+        : [profile.applicantGroup];
+      if (!group || group === 'any' || mine.includes(group)) {
         return met(`${rule.label || 'Applicant status'} applies to you.`);
       }
       return unmet(`${rule.label || 'This rule'} applies to ${group} applicants, and your profile says ${profile.applicantGroup}.`);

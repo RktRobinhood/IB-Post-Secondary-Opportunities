@@ -1,6 +1,6 @@
-import { html, raw, plural, truncate } from '../lib/html.mjs';
+import { html, raw, plural, truncate, toString } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, note, crumbs, requirementLine } from '../lib/components.mjs';
+import { hero, note, crumbs, requirementSummary } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
@@ -32,6 +32,7 @@ export function programmesIndex(site) {
       lon: place.coordinates.lon,
       precision: place.coordinatePrecision,
       character: place.character || null,
+      country: place.destination || '',
     };
   }
 
@@ -55,7 +56,11 @@ export function programmesIndex(site) {
       return pic ? (pic.external ? pic.src : url(pic.src)) : null;
     })(),
     summary: truncate(p.summary || '', 170),
-    requirements: requirementLine(p.entryRequirements) || truncate(p.requirementsText || '', 150),
+    // Built once, here, by the same component as the institution cards, so the
+    // list shows IB terms first and the published form beneath it (explorer.js
+    // inserts it as-is; everything in it was escaped at build time).
+    reqHtml: p.entryRequirements ? toString(requirementSummary(p.entryRequirements, { lead: 'Requires:' })) : '',
+    requirements: p.entryRequirements ? '' : truncate(p.requirementsText || '', 150),
     entry: p.entryRequirements || null,
     award: entryAward({ requirements: p.requirements }),
     search: [p.name, p.institutionName, p.field, p.campus, p.degree, p.summary].filter(Boolean).join(' ').toLowerCase(),
@@ -103,10 +108,17 @@ ${hero({
           ...p,
           href: '#prog-results',
           count: site.programmes.filter((x) => x.placeId === p.id).length,
+          // The globe's card shows a picture of the place when this page
+          // already has one: the first programme photographed there.
+          image: site.programmes
+            .filter((x) => x.placeId === p.id)
+            .map((x) => picture(site, x.id, { prefer: 'commons' }) || institutionPicture(site, site.institutionCatalogue.all.find((i) => i.id === x.institutionId), { prefer: 'commons' }))
+            .find((pic) => pic && !pic.external)?.src || '',
         })),
         id: 'explorer-map',
+        unit: 'programme',
         activeLayer: 'Places with matching programmes',
-        caption: 'Choose a place to filter to it. The list below is the same set either way.',
+        caption: 'Choose a place on the map or in the list, then show its programmes. The list below is the same set either way.',
       })}
     </div>
 

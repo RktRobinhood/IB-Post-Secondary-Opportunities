@@ -2,11 +2,14 @@
   "title": "IB Diploma Programme subjects",
   "dataAsOf": "2026-09-22",
   "schemaVersion": "2.0",
-  "note": "The IB Diploma Programme subject catalogue, and nothing else. One entry per real IB subject with the levels it is offered at. This file used to carry a second, unnamed table saying what each subject counts as in Denmark; that table is now data/recognition/dk.json, because it was never a property of the IB subject — it was one country reading the IB subject. A requirement written in IB terms needs only this file.",
+  "note": "The IB Diploma Programme subject catalogue, and nothing else. One entry per real IB subject with the levels it is offered at. This file used to carry a second, unnamed table saying what each subject counts as in Denmark; that table is now data/recognition/dk.json, because it was never a property of the IB subject — it was one country reading the IB subject. A requirement written in IB terms needs only this file. `family` and `course`, where present, are how a subject is written when several courses of one family are named together (\"Maths HL (AA or AI)\"); they are IB vocabulary, not any country's. `area`, where present, names the IB subjects a student thinks of as one subject (all the Englishes, both Maths courses): when a requirement accepts every subject in an area, a page can say \"Any IB English\".",
   "subjects": [
     {
       "id": "english-a-literature",
       "name": "English A: Literature",
+      "area": "English",
+      "family": "English A",
+      "course": "Literature",
       "group": "Studies in language and literature",
       "levels": [
         "HL",
@@ -16,6 +19,9 @@
     {
       "id": "english-a-lang-lit",
       "name": "English A: Language and Literature",
+      "area": "English",
+      "family": "English A",
+      "course": "Lang & Lit",
       "group": "Studies in language and literature",
       "levels": [
         "HL",
@@ -25,6 +31,7 @@
     {
       "id": "english-b",
       "name": "English B",
+      "area": "English",
       "group": "Language acquisition",
       "levels": [
         "HL",
@@ -34,6 +41,9 @@
     {
       "id": "danish-a-literature",
       "name": "Danish A: Literature",
+      "area": "Danish",
+      "family": "Danish A",
+      "course": "Literature",
       "group": "Studies in language and literature",
       "levels": [
         "HL",
@@ -43,6 +53,9 @@
     {
       "id": "danish-a-lang-lit",
       "name": "Danish A: Language and Literature",
+      "area": "Danish",
+      "family": "Danish A",
+      "course": "Lang & Lit",
       "group": "Studies in language and literature",
       "levels": [
         "HL",
@@ -52,6 +65,7 @@
     {
       "id": "danish-b",
       "name": "Danish B",
+      "area": "Danish",
       "group": "Language acquisition",
       "levels": [
         "HL",
@@ -61,6 +75,8 @@
     {
       "id": "language-a-other",
       "name": "Another language A (Literature or Language and Literature)",
+      "family": "Another language",
+      "course": "A",
       "group": "Studies in language and literature",
       "levels": [
         "HL",
@@ -70,6 +86,8 @@
     {
       "id": "language-b-other",
       "name": "Another language B (French, German, Spanish, Italian…)",
+      "family": "Another language",
+      "course": "B",
       "group": "Language acquisition",
       "levels": [
         "HL",
@@ -87,6 +105,9 @@
     {
       "id": "mathematics-aa",
       "name": "Mathematics: Analysis and Approaches",
+      "area": "Maths",
+      "family": "Maths",
+      "course": "AA",
       "group": "Mathematics",
       "levels": [
         "HL",
@@ -96,6 +117,9 @@
     {
       "id": "mathematics-ai",
       "name": "Mathematics: Applications and Interpretation",
+      "area": "Maths",
+      "family": "Maths",
+      "course": "AI",
       "group": "Mathematics",
       "levels": [
         "HL",

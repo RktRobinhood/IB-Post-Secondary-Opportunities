@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "funding-scheme.schema.json",
+  "title": "Funding scheme",
+  "description": "A student-finance scheme whose eligibility turns on who the student is, not on where they study — a state grant that some readers can claim and others cannot. It is written once, here, because the same rule was being restated in every Destination that mentioned it, in drifting words, and always as if the reader could claim it. Any page that mentions the scheme renders `label` beside it, so the condition travels with the name.",
+  "type": "object",
+  "required": ["id", "destination", "name", "summary", "label", "otherwise", "whoCanClaim", "abroad", "sources", "meta"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^fund-[a-z0-9]+(-[a-z0-9]+)*$" },
+    "destination": { "type": "string", "description": "The Destination whose state pays it." },
+    "name": { "type": "string", "minLength": 1, "description": "What students call it, e.g. 'SU'." },
+    "longName": { "type": "string" },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 400 },
+    "rate": {
+      "type": "object",
+      "required": ["amount", "currency", "per", "basis", "year"],
+      "properties": {
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "per": { "enum": ["month", "year"] },
+        "basis": { "type": "string" },
+        "year": { "type": "integer" },
+        "loan": { "type": "number", "description": "Maximum state loan on top, same currency and period." },
+        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+      },
+      "additionalProperties": false
+    },
+    "label": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 240,
+      "description": "Who can claim it, as a clause that can follow the scheme's name anywhere: 'if you can claim it — Danish citizens, and EU/EEA citizens with equal status'."
+    },
+    "otherwise": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 240,
+      "description": "One sentence for the reader who cannot claim it. Never empty: most readers of a scheme's name are not its citizens."
+    },
+    "whoCanClaim": {
+      "type": "object",
+      "required": ["citizens", "equalStatus"],
+      "properties": {
+        "citizens": { "type": "string" },
+        "equalStatus": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Routes by which a non-citizen is treated as a citizen, most relevant to this site's readers first.",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "text"],
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "text": { "type": "string", "maxLength": 500 },
+              "coversAbroad": { "type": "boolean", "description": "Whether this route also opens the scheme for a full degree abroad." }
+            },
+            "additionalProperties": false
+          }
+        },
+        "note": { "type": "string", "maxLength": 500 }
+      },
+      "additionalProperties": false
+    },
+    "abroad": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": { "type": "string", "maxLength": 600 },
+        "label": { "type": "string", "minLength": 20, "maxLength": 240, "description": "Who can take it abroad, used in place of the scheme's `label` on a Destination other than the scheme's own. Studying abroad usually adds conditions studying at home does not." },
+        "ties": { "type": "string", "maxLength": 600 },
+        "duration": { "type": "string", "maxLength": 400 },
+        "unverified": { "type": "string", "maxLength": 400 }
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "url", "retrieved"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+  },
+  "additionalProperties": false
+}

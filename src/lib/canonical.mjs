@@ -18,6 +18,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { statusFor } from './evidence-policy.mjs';
+import { buildSubjectIndex, ibTermsFor } from './eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -109,12 +110,20 @@ export async function loadCanonical({ dataDir = DATA, strict = true } = {}) {
      rendered with the subject's published name rather than its id. It is the
      one lookup the projection needs and it belongs to no Destination. */
   let ibSubjectNames = new Map();
+  let ibCatalogue = [];
   try {
     const cat = JSON.parse(await fs.readFile(path.join(dataDir, 'ib-subjects.json'), 'utf8'));
-    ibSubjectNames = new Map((cat.subjects || []).map((x) => [x.id, x.name]));
+    ibCatalogue = cat.subjects || [];
+    ibSubjectNames = new Map(ibCatalogue.map((x) => [x.id, x.name]));
   } catch {
     /* A missing catalogue degrades to showing the id, which is ugly and true. */
   }
+  /* The Recognition Schemes, so a requirement published on a local scale can be
+     projected with its IB translation beside it. The translation is the
+     engine's (ibTermsFor), read off the same rows it grades on; this only
+     carries it to the pages. A Destination with no scheme contributes nothing. */
+  const schemeFiles = await readDir(path.join(dataDir, 'recognition'), []);
+  const subjectIndex = buildSubjectIndex({ subjects: ibCatalogue, schemes: schemeFiles.map((f) => f.record) });
 
   /* Evidence is indexed across files, not within them. One id used in two
      Destinations' files is the duplicate most likely to happen, and the one a
@@ -141,7 +150,7 @@ export async function loadCanonical({ dataDir = DATA, strict = true } = {}) {
 
   if (strict && diagnostics.some((d) => d.level === 'error')) throw new CanonicalIntegrityError(diagnostics);
 
-  return { graph, diagnostics, ...project(graph, ibSubjectNames) };
+  return { graph, diagnostics, ...project(graph, ibSubjectNames, subjectIndex) };
 }
 
 /**
@@ -249,7 +258,7 @@ export function destinationFacet(d, code = d?.id || null) {
 
 /* --- Projection into the shape the current templates expect ---------------- */
 
-function project(graph, ibSubjectNames = new Map()) {
+function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
   const facets = new Map();
   const destinationOf = (code) => {
     if (!code) return null;
@@ -284,7 +293,7 @@ function project(graph, ibSubjectNames = new Map()) {
         source: prog.links?.admissions || prog.links?.official || null,
         summary: prog.summary || null,
         requirementsText: opp.officialRequirementsText?.[0]?.text || null,
-        entryRequirements: denormalise(opp.requirements, ibSubjectNames),
+        entryRequirements: denormalise(opp.requirements, ibSubjectNames, subjectIndex),
         requirements: opp.requirements || [],
         /* Things you must also do, and things that decide who gets in among
            those who qualify. They were one list, and on the Dutch pages that
@@ -416,7 +425,7 @@ function project(graph, ibSubjectNames = new Map()) {
  * assesses correctly and the page cannot draw is worse than one we never
  * recorded — the student is told there is nothing to meet.
  */
-function subjectOf(r, ibSubjectNames) {
+function subjectOf(r, ibSubjectNames, subjectIndex = null) {
   if (r.kind === 'ib-subject' && r.ibSubject) {
     return {
       subject: ibSubjectNames.get(r.ibSubject) || r.ibSubject,
@@ -425,30 +434,49 @@ function subjectOf(r, ibSubjectNames) {
     };
   }
   if (r.subject && r.level) {
-    return { subject: r.subject, level: r.level, ...(r.minGrade ? { minGrade: r.minGrade } : {}) };
+    /* A local level is never handed to a page on its own: "English B" on a
+       local scale is a level, not the IB course, and a student reading it
+       bare cannot tell. The IB translation travels with it (null only for a
+       rule that names no scale, which the validator refuses). */
+    return {
+      subject: r.subject,
+      level: r.level,
+      ...(r.minGrade ? { minGrade: r.minGrade } : {}),
+      ...(r.levelScale ? { levelScale: r.levelScale } : {}),
+      translation: ibTermsFor(r, subjectIndex),
+    };
   }
   return null;
 }
 
-function denormalise(requirements, ibSubjectNames = new Map()) {
+function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = null) {
   if (!requirements?.length) return null;
   const all = [];
-  let oneOf = null;
+  /* Every "one of" a record carries. This held one, and a second overwrote the
+     first: VIA's Mechanical Engineering asks for Physics B or Geoscience A AND
+     for Chemistry C or Biotechnology A, and its pages showed only the second.
+     `oneOf` stays the first set for the readers that know only one;
+     `oneOfSets` is all of them. */
+  const oneOfSets = [];
 
   for (const r of requirements) {
     if (r.kind === 'subject-combination' && r.alternatives?.length) {
-      oneOf = r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames)).filter(Boolean));
+      if (r.mandatory === false) continue;
+      oneOfSets.push(r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames, subjectIndex)).filter(Boolean)));
       continue;
     }
     /* A Selection Factor is `mandatory: false` — used in ranking, not in
        eligibility. Listing one here would tell a student they do not qualify
        when they merely are not top of a queue. */
     if (r.mandatory === false) continue;
-    const projected = subjectOf(r, ibSubjectNames);
+    const projected = subjectOf(r, ibSubjectNames, subjectIndex);
     if (projected) all.push(projected);
   }
-  if (!all.length && !oneOf) return null;
-  return { ...(all.length ? { all } : {}), ...(oneOf ? { oneOf } : {}) };
+  if (!all.length && !oneOfSets.length) return null;
+  return {
+    ...(all.length ? { all } : {}),
+    ...(oneOfSets.length ? { oneOf: oneOfSets[0], oneOfSets } : {}),
+  };
 }
 
 const FIELD_LABELS = {

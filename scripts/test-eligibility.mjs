@@ -16,7 +16,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
-  assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, OUTCOME,
+  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, OUTCOME,
 } from '../src/lib/eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -229,9 +229,10 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   );
   eq('Maths SL against a Maths A requirement is possible with action', r.outcome, OUTCOME.POSSIBLE);
   eq('exactly one gap is reported', r.gaps.length, 1);
-  check('the gap explains the level shortfall', /needs A/.test(r.gaps[0].message), r.gaps[0].message);
+  check('the gap leads with the IB level it needs', /^This needs Maths HL \(AA or AI\)/.test(r.gaps[0].message), r.gaps[0].message);
+  check('and names the requirement as published', /Mathematics A\.\)$/.test(r.gaps[0].message), r.gaps[0].message);
   check('and it shows the translation rather than asserting it',
-    /counts as/.test(r.gaps[0].message), r.gaps[0].message);
+    /counts only as Mathematics at B level/.test(r.gaps[0].message), r.gaps[0].message);
 }
 
 /* --- two missing subjects is a clear no ------------------------------------- */
@@ -273,7 +274,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     { ...options, evidenceStatus: verified }
   );
   check('a grade 4 English (local 4) falls below a minimum of 6',
-    belowGrade.gaps.some((g) => /below the required 6/.test(g.message)),
+    belowGrade.gaps.some((g) => /below the 6 asked for/.test(g.message) && /at least a 5/.test(g.message)),
     JSON.stringify(belowGrade.gaps.map((g) => g.message))
   );
 
@@ -1060,6 +1061,33 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     }
     check('the guard catches a country code planted in the engine', caught === 2, `caught ${caught}`);
   }
+}
+
+/* --- applicant groups: containment is data, not code ------------------------
+ *
+ * A Nordic citizen is also an EU/EEA citizen. Before data/applicant-groups.json
+ * the engine compared groups with ===, so the moment the subject checker offered
+ * "Nordic citizen" a Norwegian would have been marked as failing every rule
+ * written for EU/EEA citizens. The table is read from disk so the real
+ * declaration is what is tested; the rule fixtures use the schema's group ids. */
+
+{
+  const table = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'applicant-groups.json'), 'utf8')).groups;
+  const withGroup = (g) => profile([], { applicantGroup: g, applicantGroups: applicantGroupsOf(g, table) });
+  const statusRule = (group) => ({
+    ...engineering,
+    requirements: [{ id: 'c1', kind: 'citizenship', mandatory: true, label: 'Fee group', applicability: { applicantGroup: group }, evidence: ['ev-test'] }],
+  });
+  const outcomeOf = (g, ruleGroup) => {
+    const r = assess(withGroup(g), statusRule(ruleGroup), { ...options, evidenceStatus: verified });
+    return [...r.matched, ...r.gaps, ...r.unknowns].find((x) => x.id === 'c1') && (r.matched.some((x) => x.id === 'c1') ? 'met' : r.gaps.some((x) => x.id === 'c1') ? 'unmet' : 'unknown');
+  };
+  check('every group in the table is a schema applicantGroup', table.every((g) => ['eu-eea-ch', 'nordic', 'domestic', 'non-eu'].includes(g.id)));
+  eq('a Nordic citizen meets a rule for EU/EEA citizens', outcomeOf('nordic', 'eu-eea-ch'), 'met');
+  eq('a Nordic citizen meets a rule for Nordic citizens', outcomeOf('nordic', 'nordic'), 'met');
+  eq('an EU/EEA citizen does not meet a rule for Nordic citizens', outcomeOf('eu-eea-ch', 'nordic'), 'unmet');
+  eq('containment does not run backwards: non-EU is not EU/EEA', outcomeOf('non-eu', 'eu-eea-ch'), 'unmet');
+  eq('a profile with no expansion still matches its own group', assess(profile([], { applicantGroup: 'nordic' }), statusRule('nordic'), { ...options, evidenceStatus: verified }).matched.some((x) => x.id === 'c1'), true);
 }
 
 /* --- report ------------------------------------------------------------------ */

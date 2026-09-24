@@ -1,7 +1,7 @@
 import { html, md, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
-  hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, requirementLine, glance,
+  hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, requirementSummary, glance,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { destinationOf, institutionPicture } from './programme-facts.mjs';
@@ -70,11 +70,11 @@ export function university(site, inst, { prev, next }) {
       // Most programmes have no photograph of their own, and a grid of
       // monograms reads as unfinished; the pictures of the place are in the
       // hero above. So these are text cards, and all the same shape.
-      const req = requirementLine(p.entryRequirements);
+      // IB terms first, the published form beneath (requirementSummary).
       return card({
         href: p.href,
         title: p.name,
-        text: req ? `Needs ${req}` : null,
+        req: requirementSummary(p.entryRequirements),
         meta: [p.field, p.years ? `${p.years} years` : null, p.campus && p.campus !== inst.city ? p.campus : null].filter(Boolean),
         tags: p.restrictedAdmission
           ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? `Last cut-off ${p.cutoff.value}` : 'Restricted admission', mod: 'sand' }]

@@ -2125,3 +2125,33 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .feedback-bar .wrap { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); align-items: center; padding-block: var(--s2); }
 .feedback-bar span { color: var(--ink-soft); }
 .feedback-bar a { font-weight: 600; color: var(--accent); }
+
+/* Requirements, IB terms first (requirementSummary / requirementDetail).
+   The IB line is the one a student reads; the published form sits under it,
+   small, for matching against the institution's own page. The link is lifted
+   above a card's stretched title link so both stay reachable. */
+.req { display: flex; flex-direction: column; gap: var(--s1); }
+.req__ib { margin: 0; font-size: .9375rem; color: var(--ink); line-height: 1.45; }
+.req__ib strong { color: var(--ink-soft); font-weight: 600; margin-right: .15em; }
+.req__local { margin: 0; font-size: .8125rem; color: var(--ink-mute); line-height: 1.4; }
+.req__how { position: relative; z-index: 1; white-space: nowrap; font-weight: 600; }
+.req-none { color: var(--warn); }
+.prog__req .req__ib { font-size: .875rem; }
+
+.need--ib { flex-direction: column; flex-wrap: nowrap; }
+.need__card {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1) var(--s2);
+  padding: .75rem 1rem; margin: 0;
+  background: var(--brand-tint); border-radius: var(--radius-lg);
+}
+.need--or .need__card { background: var(--paper-2); }
+.need__card .req-ib, .need__card .req-none { font-size: 1.0625rem; }
+.need__card .req-ib { color: var(--brand); }
+.need--or .need__card .req-ib { color: var(--ink); }
+.need__card--none { background: var(--warn-tint); }
+.need__grade, .need__why { flex-basis: 100%; font-size: .875rem; color: var(--ink-soft); }
+.need__plus { color: var(--ink-mute); }
+.need__card .req-local { flex-basis: 100%; font-size: .8125rem; color: var(--ink-mute); }
+.need__how { margin: var(--s2) 0 0; font-size: .9375rem; }
+/* "+ 3 options with no IB route": counted on a card, explained on the page. */
+.req__ib .req__more { color: var(--ink-mute); font-size: .875rem; }

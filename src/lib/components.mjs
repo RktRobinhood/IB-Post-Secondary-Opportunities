@@ -165,7 +165,7 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * a grid of photographs. So the caller says which kind of card it is, once, and
  * `emptyPanel()` decides what goes in it.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside }) {
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   return html`<article class="card card--link">
     ${image
@@ -191,6 +191,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
         external ? raw(' rel="noopener"') : ''
       }>${title}</a></h3>
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
+      ${/* A programme's requirements, IB terms first (requirementSummary). */ req || ''}
       ${tags?.length
         ? html`<ul class="tags">${tags.map((t) =>
             // A tag may be a plain string, or {label, mod} where the modifier
@@ -463,16 +464,162 @@ export function dataTable({ caption, head, rows, className = 'data' }) {
 
 /* --- Domain-specific ----------------------------------------------------- */
 
-/** A compact line describing a programme's Danish entry requirements. */
+/**
+ * A programme's subject requirements, as published: "English B · Mathematics B
+ * — one of: History B / …". On a local scale this is the institution's own
+ * vocabulary, so it is only ever shown beneath its IB translation — see
+ * `requirementSummary`, and scripts/test-requirement-translation.mjs, which
+ * fails a page that shows it bare.
+ */
 export function requirementLine(entry) {
   if (!entry) return '';
-  const fmt = (r) => `${r.subject} ${r.level}${r.minGrade ? ` (min ${r.minGrade})` : ''}`;
+  const fmt = (r) => `${r.subject} ${r.level}${r.minGrade ? ` (min ${minGradeOf(r)})` : ''}`;
   const parts = [];
   if (entry.all?.length) parts.push(entry.all.map(fmt).join(' · '));
-  if (entry.oneOf?.length) {
-    parts.push('one of: ' + entry.oneOf.map((group) => group.map(fmt).join(' + ')).join(' / '));
+  for (const set of oneOfSets(entry)) {
+    parts.push('one of: ' + set.map((group) => group.map(fmt).join(' + ')).join(' / '));
   }
   return parts.join(' — ');
+}
+
+/** A minimum grade as its scale writes it ("02"), where the scheme says how. */
+function minGradeOf(r) {
+  return r.translation?.localMinGradeLabel ?? r.minGrade;
+}
+
+/** Every "one of" an entry carries; older projections held only `oneOf`. */
+function oneOfSets(entry) {
+  return entry?.oneOfSets || (entry?.oneOf?.length ? [entry.oneOf] : []);
+}
+
+/* --- Requirements, in IB terms first -------------------------------------- */
+
+/*
+ * A requirement published on a local scale ("Mathematics A", "English B") is a
+ * level of study in someone else's school system, and "English B" there is not
+ * the IB course. So wherever one is shown, the IB translation leads — computed
+ * by the eligibility engine from the Recognition Scheme (`ibTermsFor`, carried
+ * on each projected item as `translation`) — and the published form follows,
+ * small, so a student can still match it with the institution's own page.
+ *
+ * The markup is part of the contract: every block carries `data-req`; IB text
+ * sits in `.req-ib`, an honest "no IB equivalent" in `.req-none`, and the
+ * published form in `.req-local`. scripts/test-requirement-translation.mjs
+ * reads the built pages by those classes.
+ */
+
+const localForm = (r) => `${r.subject} ${r.level}`;
+
+/** One item, compactly, in IB terms. */
+function ibItem(r) {
+  const t = r.translation;
+  if (!t) return html`<span class="req-ib">${r.subject} ${r.level}${r.minGrade ? ` (min ${r.minGrade})` : ''}</span>`;
+  if (!t.phrase) return html`<span class="req-none">${t.local} — no IB equivalent</span>`;
+  return html`<span class="req-ib">${t.phrase}${t.minIbGrade != null ? `, at least a ${t.minIbGrade}` : ''}</span>`;
+}
+
+const translatable = (group) => group.every((r) => !r.translation || r.translation.phrase);
+
+/** The translations an entry carries, and the one scheme they came through. */
+function translationsOf(entry) {
+  const items = [...(entry?.all || []), ...oneOfSets(entry).flat(2)];
+  const ts = items.map((r) => r.translation).filter(Boolean);
+  return { items, ts, first: ts[0] || null };
+}
+
+/** "Danish requirement: Mathematics A (min 4)" — the published form, small. */
+function localBlock(entry, first, className) {
+  const href = first.explainedAt;
+  return html`<p class="${className}"><span class="req-local">${first.requirementLabel}: ${requirementLine(entry)}</span>${
+    href ? html` <a class="req__how" href="${url(href)}">What this means in IB terms</a>` : ''
+  }</p>`;
+}
+
+/**
+ * A card-sized summary: one line in IB terms, the published form beneath it.
+ * Returns '' for an entry with nothing to show.
+ */
+export function requirementSummary(entry, { lead = 'Needs' } = {}) {
+  if (!entry) return '';
+  const { first } = translationsOf(entry);
+
+  const all = (entry.all || []).map(ibItem);
+  const oneOf = oneOfSets(entry).map((groups, k) => {
+    const open = groups.filter(translatable);
+    const closed = groups.filter((g) => !translatable(g));
+    /* On a card only the options with an IB route are listed; the others are
+       counted, quietly, and named with their reasons on the programme page. */
+    const more = closed.length
+      ? html` <span class="req-none req__more">+ ${closed.length} ${closed.length === 1 ? 'option' : 'options'} with no IB route</span>`
+      : '';
+    if (!open.length) {
+      return html`${all.length || k ? ' — ' : ''}<span class="req-none req__more">${closed.length === 1 ? 'an option' : `one of ${closed.length} options`} with no IB route</span>`;
+    }
+    return html`${all.length || k ? ' — ' : ''}${open.length > 1 || closed.length ? 'one of: ' : ''}${open.map(
+      (g, i) => html`${i ? ' / ' : ''}${g.map((r, n) => html`${n ? ' + ' : ''}${ibItem(r)}`)}`
+    )}${more}`;
+  });
+
+  return html`<div class="req" data-req>
+    <p class="req__ib"><strong>${lead}</strong> ${all.map((x, i) => html`${i ? ' · ' : ''}${x}`)}${oneOf}</p>
+    ${first ? localBlock(entry, first, 'req__local') : ''}
+  </div>`;
+}
+
+/** One item on a programme page: the IB terms, the grade, and the published form. */
+function detailItem(r, { alternatives = false } = {}) {
+  const t = r.translation;
+  if (!t) {
+    return html`<strong class="req-ib">${r.subject} ${r.level}</strong>${
+      r.minGrade ? html`<span class="need__grade">at least ${r.minGrade}</span>` : ''
+    }`;
+  }
+  if (!t.phrase) {
+    return html`<strong class="req-none">${t.local}: no IB equivalent</strong>
+      <span class="need__why req-why">${t.none}${alternatives ? ' Meet this requirement through one of the other options instead.' : ''}</span>`;
+  }
+  return html`<strong class="req-ib">${t.phrase}</strong>
+    <span class="need__grade">${t.minIbGrade != null
+      ? `At least a ${t.minIbGrade} (${t.gradeNote}).`
+      : t.localMinGrade != null
+      ? t.gradeNote
+      : 'No minimum grade is recorded for this subject.'}</span>`;
+}
+
+/**
+ * The programme page's "What you need", for an entry that carries local-scale
+ * requirements: each subject as a card that leads with the IB terms.
+ */
+export function requirementDetail(entry) {
+  if (!entry) return '';
+  const { first } = translationsOf(entry);
+  const sets = oneOfSets(entry);
+  const asPublished = (items) =>
+    first ? html`<small class="req-local">${first.requirementLabel}: ${items.map((r) =>
+      `${localForm(r)}${r.minGrade ? `, minimum ${minGradeOf(r)}` : ''}`).join(' + ')}</small>` : '';
+
+  return html`<div class="req-detail" data-req>
+    ${(entry.all || []).length
+      ? html`<ul class="need need--ib" aria-label="Required subjects">${entry.all.map(
+          (r) => html`<li class="need__card${r.translation && !r.translation.phrase ? ' need__card--none' : ''}">
+            ${detailItem(r)}${asPublished([r])}
+          </li>`
+        )}</ul>`
+      : ''}
+    ${sets.map((groups, k) => {
+      const someOpen = groups.some(translatable);
+      return html`<p class="need__or">${(entry.all || []).length || k ? 'And one of these:' : 'One of these:'}</p>
+          <ul class="need need--ib need--or">${groups.map(
+            (g) => html`<li class="need__card${translatable(g) ? '' : ' need__card--none'}">
+              ${g.map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r, { alternatives: someOpen && !translatable(g) })}`)}
+              ${asPublished(g)}
+            </li>`
+          )}</ul>`;
+    })}
+    ${first?.explainedAt
+      ? html`<p class="need__how"><a class="arrow-link" href="${url(first.explainedAt)}">How these requirements read in IB terms</a></p>`
+      : ''}
+  </div>`;
 }
 
 /**
