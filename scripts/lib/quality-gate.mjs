@@ -93,6 +93,12 @@ export const CHECKS = [
     title: 'Every Destination has exactly one identity',
   },
   {
+    id: 'conversion',
+    script: 'scripts/test-conversion-sync.mjs',
+    stage: 'data',
+    title: 'The conversion handbook and the Recognition Scheme agree row for row',
+  },
+  {
     id: 'eligibility',
     script: 'scripts/test-eligibility.mjs',
     stage: 'data',
