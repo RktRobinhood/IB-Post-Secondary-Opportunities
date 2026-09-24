@@ -145,6 +145,13 @@ ${hero({
   title,
   lede,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
+  // Other countries on the page, one after another, each named.
+  slides: list
+    .filter((c) => c.code !== heroKey)
+    .map((c) => ({ c, p: picture(site, c.code, { prefer: 'commons' }) }))
+    .filter(({ p }) => p?.src && !p.external)
+    .slice(0, 5)
+    .map(({ c, p }) => ({ src: url(p.src), caption: c.name, credit: p.credit || null })),
 })}
 
 ${/* The countries first, as photographs; the map after them, for anyone who
