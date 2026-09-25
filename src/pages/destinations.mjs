@@ -869,13 +869,14 @@ function institutionGroup(site, g, groupCount) {
 
 function institutionCard(site, i) {
   const pic = picture(site, i.key);
-  const meta = [i.city, i.type].filter(Boolean);
+  // The last word on the card says where it goes: this site's page on the school.
+  const meta = [i.city, i.type, 'See the school →'].filter(Boolean);
   return card({
     href: i.href,
     title: i.name,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
-    text: firstSentence(i.note, 24),
+    text: i.school?.summary || firstSentence(i.note, 24),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     placeholder: i.shortName || i.name,
     meta,

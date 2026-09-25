@@ -2521,7 +2521,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 
 /* A programme card on a school page: a band of its field's colour on top,
    the field above the name, and the degree type straight under it. */
-.card--prog { border-top: 5px solid var(--band, var(--brand)); }
+.card--prog { border-top: 6px solid var(--band, var(--brand)); }
 .card--band-0 { --band: var(--brand); }
 .card--band-1 { --band: var(--accent); }
 .card--band-2 { --band: var(--sand); }
@@ -2529,6 +2529,20 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .card--band-4 { --band: var(--ok); }
 .card--band-5 { --band: var(--brand-2); }
 .card__kicker { margin: 0 0 var(--s1); font: 650 .75rem/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
+.card--prog .card__kicker {
+  justify-self: start; align-self: flex-start;
+  padding: .25rem .6rem; border-radius: 999px; color: var(--ink);
+  background: color-mix(in srgb, var(--band) 22%, var(--paper));
+}
+.card--prog .card__foot { color: var(--ink-mute); font-size: .8125rem; }
+.prog-group + .prog-group { margin-top: var(--s6); }
+.prog-group__head { font-size: 1.25rem; margin: 0 0 var(--s4); }
+.prog-group__head span { color: var(--ink-mute); font-weight: 400; }
+@media (max-width: 40rem) {
+  /* A long list on a phone: tighter cards, the IB line one tap away on the page. */
+  .prog-group .card__body { padding: var(--s4); gap: var(--s2); }
+  .prog-group .card__text { display: none; }
+}
 .card__sub { margin: var(--s1) 0 0; font: 500 1rem/1.4 var(--sans); color: var(--ink); }
 
 /* On a phone the side column stacks first: the dates are what a student
@@ -2543,3 +2557,17 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 
 /* The ruled paper behind a close is busy at phone width; plain paper there. */
 @media (max-width: 40rem) { .close { background: var(--paper-2); } }
+
+/* The # a script adds to each heading: there when you reach for it. */
+.heading-anchor { margin-left: .35em; color: var(--ink-mute); text-decoration: none; opacity: 0; transition: opacity .15s; }
+h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-visible { opacity: 1; }
+@media (hover: none) { .heading-anchor { display: none; } }
+
+.dates-panel__list a { color: var(--ink); text-decoration-color: var(--rule-strong); }
+.handoff__known .eyebrow { margin: 0 0 var(--s2); }
+.close .btn { white-space: normal; max-width: 100%; text-align: center; justify-content: center; }
+.close:has(+ .section--pager) { padding-bottom: var(--s7); }
+.section--pager .pager { margin-top: 0; padding-top: 0; border-top: 0; }
+.hero .crumbs, .hero .crumbs a { color: rgba(255,255,255,.82); }
+.hero--panel .crumbs, .hero--panel .crumbs a, .hero--plain .crumbs, .hero--plain .crumbs a { color: var(--ink-soft); }
+.hero .crumbs { margin-bottom: var(--s4); }

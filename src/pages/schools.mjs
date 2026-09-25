@@ -65,44 +65,70 @@ function handoffOf(inst) {
   return null;
 }
 
-function programmeCards(inst, school) {
-  return [...school.programmes]
-    .sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name))
-    .map((p) =>
-      card({
-        href: p.url,
-        external: true,
-        mod: `card--prog card--band-${BAND[p.field] ?? 0}`,
-        kicker: FIELD[p.field],
-        title: p.name,
-        // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
-        sub: [p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
-        text: p.ib || null,
-        tags: [
-          p.closes ? { label: `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
-          p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
-        ].filter(Boolean),
-      })
-    );
+/** The EU/EEA fee when every programme shares it, said once instead of per card. */
+function sharedTuition(programmes) {
+  const fees = new Set(programmes.map((p) => p.tuitionEuEea || null));
+  return fees.size === 1 ? [...fees][0] : null;
+}
+
+function programmeCard(inst, p, { tuitionOnCard }) {
+  return card({
+    href: p.url,
+    external: true,
+    mod: `card--prog card--band-${BAND[p.field] ?? 0}`,
+    kicker: FIELD[p.field],
+    title: p.name,
+    // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
+    sub: [p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
+    text: p.ib || null,
+    tags: [
+      p.closes ? { label: `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
+      tuitionOnCard && p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
+    ].filter(Boolean),
+    // Where the card goes: the programme's own page, on the school's site.
+    meta: [`On ${hostOf(p.url)} ↗`],
+  });
 }
 
 function knownFor(inst) {
   const f = inst.notableFields || [];
-  return f.length ? html`<div class="handoff__known">${tags(f, 'tag--brand')}</div>` : '';
+  return f.length
+    ? html`<div class="handoff__known"><p class="eyebrow eyebrow--plain">Known for</p>${tags(f, 'tag--brand')}</div>`
+    : '';
 }
 
-function programmeSection(inst) {
+/* Up to six programmes sit in one grid. Beyond that they are grouped under
+   their field ("Engineering · 6"), so a long list can be scanned. */
+const GROUP_FROM = 7;
+
+function programmeSection(inst, c) {
   const school = inst.school;
   const where = inst.shortName && inst.shortName.length > 4 ? inst.shortName : inst.name;
 
   if (school?.scope === 'listed') {
-    const n = school.programmes.length;
-    return html`${sectionHead({
-        title: 'What you could study here',
-        lede: `${plural(n, "bachelor's degree")} taught in English.`,
-        id: 'programmes',
-      })}
-      <div class="grid ${n <= 2 ? 'grid--2' : 'grid--3'}">${programmeCards(inst, school)}</div>`;
+    const progs = [...school.programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
+    const fee = sharedTuition(progs);
+    const one = (p) => programmeCard(inst, p, { tuitionOnCard: !fee });
+    const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;
+
+    let cards;
+    if (progs.length < GROUP_FROM) {
+      cards = html`<div class="grid ${progs.length <= 2 ? 'grid--2' : 'grid--3'}">${progs.map(one)}</div>`;
+    } else {
+      const groups = new Map();
+      for (const p of progs) {
+        const f = FIELD[p.field];
+        if (!groups.has(f)) groups.set(f, []);
+        groups.get(f).push(p);
+      }
+      cards = [...groups].map(
+        ([field, list]) => html`<div class="prog-group">
+          <h3 class="prog-group__head">${field} <span>· ${list.length}</span></h3>
+          <div class="grid grid--3">${list.map(one)}</div>
+        </div>`
+      );
+    }
+    return html`${sectionHead({ title: 'What you could study here', lede, id: 'programmes' })}${cards}`;
   }
 
   if (school?.scope === 'catalogue') {
@@ -114,9 +140,12 @@ function programmeSection(inst) {
   }
 
   if (school?.scope === 'none') {
-    return html`${sectionHead({ title: 'Nothing taught in English', id: 'programmes' })}
+    return html`${sectionHead({
+        title: school.language ? `Taught in ${school.language}` : 'Taught in the local language',
+        id: 'programmes',
+      })}
       <div class="handoff">
-        <p class="handoff__line">No bachelor's degree here is taught in English for 2027.</p>
+        <p class="handoff__line">No English-taught bachelor's here for 2027.</p>
         ${knownFor(inst)}
       </div>`;
   }
@@ -213,6 +242,8 @@ export function schoolPage(site, inst, c, { prev, next }) {
 
   const body = html`
 ${hero({
+  // The trail sits above the name, where it takes one line on a phone.
+  crumbs: crumbs([{ href: `${c.href}#institutions`, label: c.name }, { label: inst.shortName || inst.name }]),
   eyebrow: [inst.city, c.name, inst.type].filter(Boolean).join(' · '),
   title: inst.name,
   lede,
@@ -241,8 +272,7 @@ ${hero({
 
 <section class="section">
   <div class="wrap">
-    ${crumbs([{ href: `${c.href}#institutions`, label: c.name }, { label: inst.name }])}
-    ${programmeSection(inst)}
+    ${programmeSection(inst, c)}
   </div>
 </section>
 
@@ -269,12 +299,22 @@ ${hero({
   </div>
 </section>
 
-${close({
-  eyebrow: 'Next step',
-  title: go ? `Go on to ${inst.name}` : `More in ${c.name}`,
-  copy: go ? `${go.label}, on ${hostOf(go.url)}.` : null,
-  invitation: go ? { href: go.url, label: `${go.label} ↗` } : { href: `${c.href}#institutions`, label: `Every institution in ${c.name}` },
-})}
+${
+  /* Where nothing is in English the next step is another school, and the
+     school's own page is the quieter link beside it. */
+  school?.scope === 'none' || !go
+    ? close({
+        eyebrow: 'Next step',
+        title: `Other schools in ${c.name}`,
+        invitation: { href: `${c.href}#institutions`, label: `Every institution in ${c.name}` },
+        also: go ? [{ href: go.url, label: `${go.label} ↗` }] : [],
+      })
+    : close({
+        eyebrow: 'Next step',
+        title: `Go on to ${inst.name}`,
+        invitation: { href: go.url, label: `${go.label} ↗` },
+      })
+}
 
 <section class="section section--pager">
   <div class="wrap">${pager({ prev, next })}</div>

@@ -56,6 +56,11 @@
       "type": "array",
       "items": { "$ref": "#/$defs/programme" }
     },
+    "language": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "For scope none: the language its bachelor's degrees are taught in, e.g. 'Swedish'. The page is titled 'Taught in <language>'."
+    },
     "notes": {
       "type": "array",
       "maxItems": 3,
