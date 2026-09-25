@@ -354,6 +354,11 @@ ${hero({
       <a href="https://visibleearth.nasa.gov/images/57747" rel="noopener">Blue Marble cloud layer</a> — both public domain.
       Country borders are from <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, also public domain.
       NASA does not endorse this site.</p>
+      <p>Close up, the map is drawn with <a href="https://maplibre.org/" rel="noopener">MapLibre GL JS</a> (BSD licence).
+      Its satellite imagery is <a href="https://cloudless.eox.at/" rel="noopener">EOxCloudless 2024</a> by EOX IT Services
+      GmbH (contains modified Copernicus Sentinel data 2024), used under EOX's terms for non-commercial use; its streets
+      and places are <a href="https://openfreemap.org/" rel="noopener">OpenFreeMap</a> © OpenMapTiles, data ©
+      <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</p>
 
       <h2 id="reuse">Reusing this</h2>
       <p>The text and data on this site are published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>

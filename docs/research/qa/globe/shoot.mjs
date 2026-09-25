@@ -22,7 +22,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 
-const ROUND = process.argv[2] || 'round-0';
+const ROUND = process.argv[2] || 'round-1-fixes';
 const OUT = path.join(import.meta.dirname, ROUND);
 const BASE = process.env.PREVIEW || 'http://localhost:4321';
 const CHROME = process.env.CHROME || 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe';
@@ -127,180 +127,189 @@ async function shot(name) {
 
 const report = {};
 const debugOf = `(await import('/assets/js/map.js')).enhanceWorld(document.querySelector('.world')).globe.debug`;
+const mouse = (type, x, y, extra = {}) => send('Input.dispatchMouseEvent', { type, x, y, button: 'left', clickCount: 1, ...extra });
+const wheel = (x, y, deltaY, modifiers = 0) => send('Input.dispatchMouseEvent', { type: 'mouseWheel', x, y, deltaX: 0, deltaY, modifiers });
+const click = async (x, y) => { await mouse('mouseMoved', x, y, { button: 'none' }); await mouse('mousePressed', x, y); await mouse('mouseReleased', x, y); };
+const tap = async (x, y) => {
+  await send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+  await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+};
+const rectOf = (sel) => evaluate(`(() => { const e = document.querySelector('${sel}'); if (!e) return null; const r = e.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; })()`);
+const g = (body) => evaluate(`(async () => { const g = ${debugOf}; ${body} })()`);
+const waitFor = (cond, ms = 12000) => g(`for (let i = 0; i < ${ms / 100}; i++) { if (${cond}) return true; await new Promise(r => setTimeout(r, 100)); } return false;`);
 
 try {
-  // 1. /programmes/ at rest, desktop, light
-  await open('/programmes/');
-  report.programmes = await globeReady();
-  await evaluate(`(async () => { const g = ${debugOf}; g.pause(); return true; })()`);
-  await shot('01-programmes-rest');
+  /* 1. Rest views, desktop */
+  for (const [route, name] of [['/programmes/', '01-programmes-rest'], ['/europe/', '02-europe-rest'], ['/world/', '03-world-rest'], ['/destinations/nl/', '04-destination-nl-rest']]) {
+    await open(route);
+    report[route] = { globe: await globeReady() };
+    report[route].rest = await g(`g.pause(); const r = g.rest; return { lat: +r.lat.toFixed(1), lon: +r.lon.toFixed(1), alt: +r.alt.toFixed(2) };`);
+    /* Which places are on screen and facing at rest, and which are not. */
+    report[route].pinsVisible = await evaluate(`[...document.querySelectorAll('.world__pin:not([hidden]) .world__pin-label, .world__cluster:not([hidden])')].length`);
+    if (route === '/world/') {
+      report[route].visibleAtRest = await evaluate(`[...document.querySelectorAll('.world__pin:not([hidden])')].map(p => p.dataset.place)
+        .concat([...document.querySelectorAll('.world__cluster:not([hidden])')].flatMap(c => (c._members || []).map(m => m.id)))`);
+      report[route].canada = await g(`const p = g.places.find(p => p.id === 'ca'); return p && { lat: p.lat, lon: p.lon, inCountry: g.pickAt ? null : null };`);
+    }
+    await shot(name);
+  }
 
-  // 2. Mid-dive through the clouds: from the whole view into the Netherlands
-  await evaluate(`(async () => {
-    const g = ${debugOf};
-    g.resume();
-    Object.assign(g.view, { lat: 30, lon: -10, alt: 1.7 });
-    g.goToCountry(g.country('nl'));
-    g.pause();
-    return true;
-  })()`);
-  for (const [k, frac] of [['02-dive-start', 0.3], ['03-dive-clouds', 0.72], ['04-dive-clouds-late', 0.84]]) {
-    await evaluate(`(async () => { const g = ${debugOf}; g.stepTo(${frac}); return true; })()`);
-    await sleep(120);
+  /* 2. The cloud dive on /programmes/: from rest to Delft (a city) — the
+        journey climbs through the deck, dives, then hands to the close map. */
+  await open('/programmes/');
+  await globeReady();
+  await g(`const p = g.places.find(p => p.name === 'Delft'); g.goToPlace(p); g.pause(); return true;`);
+  for (const [k, frac] of [['05-programmes-dive-climb', 0.35], ['06-programmes-dive-clouds', 0.72], ['07-programmes-dive-late', 0.86]]) {
+    await g(`g.stepTo(${frac}); return true;`);
+    await sleep(100);
     await shot(k);
   }
-  await evaluate(`(async () => { const g = ${debugOf}; g.stepTo(1); g.resume(); return true; })()`);
-  await sleep(700);
-  await shot('05-country-card');
+  await g(`g.stepTo(1); g.resume(); return true;`);
+  report.programmesDive = { handedOff: await waitFor('g.close.active', 25000) };
+  await waitFor('g.close.zoom > 11.3', 8000);
+  await sleep(1500);
+  report.programmesDive.zoom = await g(`return +(g.close.zoom || 0).toFixed(2);`);
+  report.programmesDive.seam = await g(`return g.seam();`);
+  await shot('08-programmes-delft-city');
 
-  // 3. Close zoom with labels: Copenhagen
-  await evaluate(`(async () => {
-    const g = ${debugOf};
-    g.resume();
-    document.documentElement.setAttribute('data-motion', 'reduced');
-    g.flyTo({ lat: 55.72, lon: 12.35, alt: 0.07 });
-    await new Promise(r => setTimeout(r, 900));
-    document.documentElement.removeAttribute('data-motion');
-    return true;
+  /* 3. Stale card: zoom far out with the − button and the card must close */
+  await g(`document.documentElement.setAttribute('data-motion','reduced'); g.handBack(); g.flyTo({ ...g.view, alt: 0.4 }); return true;`);
+  await sleep(400);
+  const before = await evaluate(`!document.querySelector('.world__card').hidden`);
+  await g(`g.flyTo({ ...g.view, alt: 2.4 }); return true;`);
+  await sleep(500);
+  report.staleCard = { openBefore: before, closedAfterZoomOut: await evaluate(`document.querySelector('.world__card').hidden`) };
+  await evaluate(`document.documentElement.removeAttribute('data-motion')`);
+
+  /* 4. The Denmark group: clicking it dives to split it, and never calls
+        twelve cities "one spot". */
+  await open('/programmes/');
+  await globeReady();
+  const cl = await evaluate(`(() => { const c = [...document.querySelectorAll('.world__cluster:not([hidden])')].sort((a, b) => (b._members?.length || 0) - (a._members?.length || 0))[0]; if (!c) return null; const r = c.getBoundingClientRect(); return { x: r.left, y: r.top, n: c._members.length }; })()`);
+  if (cl) {
+    await click(cl.x, cl.y);
+    await sleep(3200);
+    report.groupClick = { members: cl.n, card: await evaluate(`document.querySelector('.world__card:not([hidden]) .world__card-meta')?.textContent || ''`) };
+    await shot('09-programmes-group-split');
+  }
+
+  /* 5. /europe/: Denmark is a Destination with its own section */
+  await open('/europe/');
+  await globeReady();
+  await g(`document.documentElement.setAttribute('data-motion','reduced'); g.goToCountry(g.country('dk')); return true;`);
+  await sleep(900);
+  report.denmarkCard = await evaluate(`[...document.querySelectorAll('.world__card:not([hidden]) .world__card-go, .world__card:not([hidden]) .world__card-cue')].map(a => a.textContent + (a.href ? ' -> ' + new URL(a.href).pathname : ''))`);
+  await evaluate(`document.documentElement.removeAttribute('data-motion')`);
+  await shot('10-europe-denmark-card');
+
+  /* 6. Close map: street level on a campus, from the Netherlands page */
+  await open('/destinations/nl/');
+  await globeReady();
+  await g(`const p = g.places.find(p => /Delft/.test(p.name)); g.goToPlace(p); return true;`);
+  report.campusDive = { handedOff: await waitFor('g.close.active', 15000) };
+  await waitFor('g.close.zoom > 14.7', 8000);
+  await sleep(2000);
+  report.campusDive.zoom = await g(`return +(g.close.zoom || 0).toFixed(2);`);
+  await shot('11-nl-tu-delft-street');
+  // Zoom back out with the button until the globe has it again.
+  report.campusDive.handBack = await g(`
+    const btn = document.querySelector('.world__btn[aria-label="Zoom out"]');
+    for (let i = 0; i < 16 && g.close.active; i++) { btn.click(); await new Promise(r => setTimeout(r, 600)); }
+    return { active: g.close.active, alt: +g.view.alt.toFixed(3) };`);
+  await sleep(600);
+  await shot('12-nl-back-on-globe');
+
+  /* 7. List click: the card is not under the masthead */
+  await open('/programmes/');
+  await globeReady();
+  await evaluate(`scrollTo(0, document.querySelector('.world__list').getBoundingClientRect().top + scrollY - 200)`);
+  const entry = await evaluate(`(() => { const a = [...document.querySelectorAll('.world__list a')].find(a => /Maastricht/.test(a.textContent)); const r = a.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; })()`);
+  await click(entry.x, entry.y);
+  await sleep(1500);
+  report.listClick = await evaluate(`(() => { const s = document.querySelector('.world__stage').getBoundingClientRect(); const c = document.querySelector('.world__card:not([hidden]) h3'); const m = document.querySelector('.masthead, header'); return { stageTop: Math.round(s.top), cardTitleTop: c ? Math.round(c.getBoundingClientRect().top) : null, mastheadBottom: m ? Math.round(m.getBoundingClientRect().bottom) : null }; })()`);
+  await sleep(2500);
+  await shot('13-list-click-maastricht');
+
+  /* 8. Dark theme */
+  await open('/europe/', { dark: true });
+  await evaluate(`document.documentElement.setAttribute('data-theme','dark')`);
+  await globeReady();
+  await g(`g.pause(); return true;`);
+  await shot('14-europe-dark');
+
+  /* 9. Phone: rest, a pin card whose title and action are visible, the pin
+        above the card, and a hold that lets go by itself. */
+  for (const [route, name] of [['/programmes/', '15-phone-programmes'], ['/world/', '16-phone-world']]) {
+    await open(route, { width: 390, height: 844, mobile: true });
+    await globeReady();
+    await sleep(600);
+    await shot(name);
+  }
+  await open('/europe/', { width: 390, height: 844, mobile: true });
+  await globeReady();
+  const pin = await evaluate(`(() => { const p = [...document.querySelectorAll('.world__pin:not([hidden])')].find(p => /Portugal|Spain|Italy/.test(p.textContent)) || document.querySelector('.world__pin:not([hidden])'); const r = p.getBoundingClientRect(); return { x: r.left, y: r.top, id: p.dataset.place }; })()`);
+  await tap(pin.x, pin.y);
+  await sleep(3000);
+  report.phoneCard = await evaluate(`(() => {
+    const s = document.querySelector('.world__stage').getBoundingClientRect();
+    const card = document.querySelector('.world__card:not([hidden])');
+    if (!card) return { open: false };
+    const c = card.getBoundingClientRect();
+    const t = card.querySelector('h3').getBoundingClientRect();
+    const go = card.querySelector('.world__card-go');
+    const pin = document.querySelector('.world__pin[data-place="${pin.id}"]').getBoundingClientRect();
+    return {
+      open: true,
+      titleVisible: t.top >= c.top && t.bottom <= c.bottom,
+      actionVisible: !!go && go.getBoundingClientRect().bottom <= c.bottom + 1,
+      innerScroll: card.scrollHeight > card.clientHeight + 1,
+      pinAboveCard: pin.top + pin.height / 2 < c.top,
+      engaged: document.querySelector('.world__stage').dataset.engaged === 'true',
+    };
   })()`);
-  await shot('06-close-zoom-labels');
+  await shot('17-phone-card');
+  await sleep(4500);
+  report.phoneCard.releasedAfter4s = await evaluate(`document.querySelector('.world__stage').dataset.engaged !== 'true' && document.querySelector('.world__stage').style.touchAction === 'pan-y'`);
 
-  // 4. A pin card
-  report.pinCard = await evaluate(`(async () => {
-    const g = ${debugOf};
-    g.resume();
-    document.documentElement.setAttribute('data-motion', 'reduced');
-    const p = g.places.find(p => p.image) || g.places[0];
-    g.goToPlace(p);
-    await new Promise(r => setTimeout(r, 900));
-    document.documentElement.removeAttribute('data-motion');
-    const card = document.querySelector('.world__card');
-    return { name: p.name, visibility: document.visibilityState, cardOpacity: getComputedStyle(card).opacity, anims: card.getAnimations().map(a => [a.animationName, a.playState, Math.round(a.currentTime)]) };
-  })()`);
-  await shot('07-pin-card');
-
-  // 5. Reduced motion: a flight is instant
-  report.reducedMotion = await evaluate(`(async () => {
-    const g = ${debugOf};
-    g.resume();
+  /* 10. Reduced motion: a flight is instant */
+  await open('/europe/');
+  await globeReady();
+  report.reducedMotion = await g(`
     document.documentElement.setAttribute('data-motion', 'reduced');
     g.flyTo({ lat: 10, lon: 100, alt: 1.2 });
     const v = { ...g.view };
     document.documentElement.removeAttribute('data-motion');
-    return Math.abs(v.lat - 10) < 1e-6 && Math.abs(v.lon - 100) < 1e-6 && Math.abs(v.alt - 1.2) < 1e-6;
-  })()`);
+    return Math.abs(v.lat - 10) < 1e-6 && Math.abs(v.lon - 100) < 1e-6 && Math.abs(v.alt - 1.2) < 1e-6;`);
 
-  // 6. Dark theme
-  await open('/programmes/', { dark: true });
-  await evaluate(`document.documentElement.setAttribute('data-theme','dark')`);
-  report.dark = await globeReady();
-  await evaluate(`(async () => { const g = ${debugOf}; g.pause(); return true; })()`);
-  await shot('08-programmes-dark');
-
-  // 7. Phone
-  await open('/programmes/', { width: 390, height: 844, mobile: true });
-  report.phoneFirstScreen = await evaluate(`(() => { const r = document.querySelector('.world__stage').getBoundingClientRect(); return { top: Math.round(r.top), bottom: Math.round(r.bottom), vh: innerHeight }; })()`);
-  await sleep(2500);
-  await shot('09-phone-first-screen');
-  report.phone = await globeReady();
-  await shot('10-phone-globe');
-
-  // 8. /europe/ and /world/ and a destination page
-  for (const [route, name] of [['/europe/', '11-europe'], ['/world/', '12-world'], ['/destinations/nl/', '13-destination-nl']]) {
-    await open(route);
-    report[route] = await globeReady();
-    await evaluate(`(async () => { const g = ${debugOf}; g.pause(); return true; })()`).catch(() => null);
-    await shot(name);
-  }
-
-  // 9. Fallback: the flat map
-  await open('/programmes/', { query: '?map=flat' });
-  report.flat = await globeReady();
-  await shot('14-flat-fallback');
-
-  // 10. Interaction, with real input events rather than the debug hooks
-  await open('/europe/');
-  await globeReady();
-  const rect = await evaluate(`(() => { const r = document.querySelector('.world__stage').getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; })()`);
+  /* 11. Interaction with real input (as round 0) */
+  const rect = await rectOf('.world__stage');
   const cx = rect.x + rect.w / 2, cy = rect.y + rect.h / 2;
-  const state = () => evaluate(`(async () => { const g = ${debugOf}; return { alt: g.view.alt, lon: g.view.lon, lat: g.view.lat, scrollY, card: document.querySelector('.world__card:not([hidden]) h3')?.textContent || '' }; })()`);
-  const mouse = (type, x, y, extra = {}) => send('Input.dispatchMouseEvent', { type, x, y, button: 'left', clickCount: 1, ...extra });
-  const wheel = (x, y, deltaY, modifiers = 0) => send('Input.dispatchMouseEvent', { type: 'mouseWheel', x, y, deltaX: 0, deltaY, modifiers });
+  const state = () => g(`return { alt: g.view.alt, lon: g.view.lon, scrollY };`);
   const inter = {};
-
-  // A wheel passing over an untouched globe scrolls the page and leaves the camera alone.
-  let before = await state();
+  let b0 = await state();
   await wheel(cx, cy, 200);
   await sleep(400);
-  let after = await state();
-  inter.wheelUntouchedScrollsPage = after.scrollY > before.scrollY && Math.abs(after.alt - before.alt) < 1e-6;
-  await evaluate(`(() => { const s = document.querySelector('.world__stage'); scrollTo(0, s.getBoundingClientRect().top + scrollY - 90); return true; })()`);
+  let a0 = await state();
+  inter.wheelUntouchedScrollsPage = a0.scrollY > b0.scrollY && Math.abs(a0.alt - b0.alt) < 1e-6;
+  await evaluate(`(() => { const s = document.querySelector('.world__stage'); scrollTo(0, s.getBoundingClientRect().top + scrollY - 90); })()`);
   await sleep(300);
-  const r2 = await evaluate(`(() => { const r = document.querySelector('.world__stage').getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; })()`);
+  const r2 = await rectOf('.world__stage');
   const mx = r2.x + r2.w / 2, my = r2.y + r2.h * 0.55;
-
-  // Ctrl + wheel zooms without taking hold.
-  before = await state();
-  await wheel(mx, my, -240, 2 /* ctrl */);
-  await sleep(300);
-  after = await state();
-  inter.ctrlWheelZooms = after.alt < before.alt;
-
-  // A drag spins it (and takes hold).
-  before = await state();
+  b0 = await state();
   await mouse('mouseMoved', mx, my, { button: 'none' });
   await mouse('mousePressed', mx, my);
   for (let i = 1; i <= 8; i++) { await mouse('mouseMoved', mx - i * 25, my); await sleep(16); }
   await mouse('mouseReleased', mx - 200, my);
   await sleep(900);
-  after = await state();
-  inter.dragSpins = Math.abs(after.lon - before.lon) > 1;
-
-  // Now held: a plain wheel zooms, and the page does not scroll.
-  before = await state();
-  await mouse('mouseMoved', mx, my, { button: 'none' });
-  await wheel(mx, my, -200);
-  await sleep(300);
-  after = await state();
-  inter.wheelWhenHeldZooms = after.alt < before.alt && after.scrollY === before.scrollY;
-
-  // A click on a country flies there and opens its card.
-  await evaluate(`(async () => { const g = ${debugOf}; g.flyTo({ lat: 52.2, lon: 5.3, alt: 0.9 }); await new Promise(r => setTimeout(r, 2600)); return true; })()`);
-  // Bare land: a point where the canvas, not a pin or a group, is under the pointer.
-  const spot = await evaluate(`(async () => {
-    const g = ${debugOf};
-    for (let fy = 0.4; fy < 0.9; fy += 0.05) for (let fx = 0.3; fx < 0.8; fx += 0.05) {
-      const x = ${r2.x} + ${r2.w} * fx, y = ${r2.y} + ${r2.h} * fy;
-      const e = document.elementFromPoint(x, y);
-      const hit = g.pickAt(x, y);
-      if (e && e.classList.contains('world__globe') && hit && hit.country) return { x, y, country: hit.country };
-    }
-    return null;
-  })()`);
-  inter.countryUnderClick = spot?.country || null;
-  await mouse('mouseMoved', spot.x, spot.y, { button: 'none' });
-  await mouse('mousePressed', spot.x, spot.y);
-  await mouse('mouseReleased', spot.x, spot.y);
-  await sleep(3500);
-  after = await state();
-  inter.countryClickCard = after.card;
-  await shot('15-country-click');
-
-  // Activating a list entry flies to it and opens its card.
-  const entry = await evaluate(`(() => { const a = [...document.querySelectorAll('.world__list a')].find(a => /Portugal/.test(a.textContent)); const r = a.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; })()`);
-  await mouse('mouseMoved', entry.x, entry.y, { button: 'none' });
-  await mouse('mousePressed', entry.x, entry.y);
-  await mouse('mouseReleased', entry.x, entry.y);
-  await sleep(3500);
-  after = await state();
-  inter.listClickCard = after.card;
-  inter.listClickCamera = { lat: Math.round(after.lat), lon: Math.round(after.lon) };
-  inter.url = await evaluate('location.pathname');
-  await evaluate(`(() => { const s = document.querySelector('.world__stage'); scrollTo(0, s.getBoundingClientRect().top + scrollY - 90); return true; })()`);
-  await shot('16-list-click-card');
+  a0 = await state();
+  inter.dragSpins = Math.abs(a0.lon - b0.lon) > 1;
   report.interaction = inter;
 
-  report.drawMs = await evaluate(`(async () => { const g = ${debugOf}; return +g.drawMs.toFixed(3); })()`);
+  /* 12. The flat fallback */
+  await open('/programmes/', { query: '?map=flat' });
+  report.flat = await globeReady();
+  await shot('18-flat-fallback');
+
   report.console = logs;
 } finally {
   await fs.writeFile(path.join(OUT, 'report.json'), JSON.stringify(report, null, 2));

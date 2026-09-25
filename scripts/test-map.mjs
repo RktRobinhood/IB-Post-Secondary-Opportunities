@@ -271,6 +271,131 @@ check('pins stay decorative, so the list stays the one control surface', () => {
   assert.match(globeJs, /for \(const \[id, a\] of links\)[\s\S]{0,300}'focus'/, 'focusing a list entry no longer lights its pin');
 });
 
+{
+  const closeJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'globe-close.js'), 'utf8').catch(() => '');
+  const vendorDir = path.join(ROOT, 'src', 'assets', 'vendor', 'maplibre-gl');
+  const vendorReadme = await fs.readFile(path.join(vendorDir, 'README.md'), 'utf8').catch(() => '');
+  const hasLib = await fs.stat(path.join(vendorDir, 'maplibre-gl.js')).then(() => true, () => false);
+  const hasLicence = await fs.stat(path.join(vendorDir, 'LICENSE.txt')).then(() => true, () => false);
+  check('the close map is vendored with its licence, version and checksum', () => {
+    assert.ok(hasLib, 'src/assets/vendor/maplibre-gl/maplibre-gl.js is missing');
+    assert.ok(hasLicence, 'the MapLibre licence is not vendored beside it');
+    assert.match(vendorReadme, /\d+\.\d+\.\d+/, 'the vendored version is not recorded');
+    assert.match(vendorReadme, /[0-9a-f]{64}/, 'no SHA-256 recorded for the vendored file');
+    assert.match(vendorReadme, /EOX|EOxCloudless/, 'the satellite tiles\' terms are not recorded');
+    assert.match(vendorReadme, /OpenStreetMap/, 'the street map\'s data licence is not recorded');
+  });
+  check('the close map is never on first paint', () => {
+    assert.ok(!/^\s*import\s+[^(;]*globe-close/m.test(globeJs), 'globe.js imports the close map statically');
+    assert.match(globeJs, /import\('\.\/globe-close\.js'\)/, 'the close map is no longer imported on demand');
+    assert.ok(!/maplibre/i.test(entryJs), 'map.js (every map page) mentions MapLibre');
+    assert.ok(!/maplibre/i.test(primitives), 'the build-time map writes MapLibre into the page');
+    assert.match(globeJs, /function ensureClose\(\)/, 'ensureClose() is gone');
+  });
+  check('the close map keeps the motion and touch rules', () => {
+    assert.match(globeJs, /function closeFlyTo[\s\S]{0,600}animate: !reducedMotion\(\)/, 'close-map flights ignore reduced motion');
+    assert.match(globeJs, /duration: reducedMotion\(\) \? 0/, 'close-map flights keep a duration under reduced motion');
+    assert.match(closeJs, /cooperativeGestures: !!coarse/, 'on a touch screen one finger no longer scrolls the page over the close map');
+    assert.match(closeJs, /keyboard: false/, 'the close map takes keys the stage already handles');
+    const codes = closeJs.match(/['"](dk|nl|gb|de|fr|us|ca|au|Denmark|Netherlands)['"]/g);
+    assert.ok(!codes, `country literals in globe-close.js: ${codes}`);
+  });
+}
+
+/* --- The shaders compile, as far as reading them can tell ----------------- */
+
+/*
+ * A globe whose shader does not compile falls back to the flat map, silently
+ * and correctly — and shipped that way once: the Europe detail blend declared
+ * `vec2 d` in a main() that already had `float d`, every browser refused the
+ * program, and the live site showed the flat map with one console line. No
+ * browser runs in this stage, so this reads each GLSL string back out of
+ * globe.js and checks what a compiler would check first: no name declared
+ * twice in one scope, balanced braces and parentheses, a main() in every
+ * shader, and no variable used before any declaration of it.
+ */
+{
+  const shaders = [...globeJs.matchAll(/const (\w+_(?:VS|FS)) = `([\s\S]*?)`;/g)].map(([, name, src]) => ({
+    name,
+    // Interpolations are the precision header and numeric constants.
+    src: src.replace(/\$\{[^}]*\}/g, (m) => (/MED|HIGH/.test(m) ? '' : '1.0')),
+  }));
+  const TYPE = '(?:float|int|bool|vec[234]|ivec[234]|bvec[234]|mat[234]|sampler2D|samplerCube)';
+  const problems = [];
+  for (const { name, src } of shaders) {
+    const code = src.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/\/\/[^\n]*/g, ' ');
+    if (!/void\s+main\s*\(\s*\)\s*\{/.test(code)) problems.push(`${name}: no main()`);
+    let depth = 0, paren = 0;
+    for (const ch of code) {
+      if (ch === '{') depth++;
+      if (ch === '}') depth--;
+      if (ch === '(') paren++;
+      if (ch === ')') paren--;
+      if (depth < 0 || paren < 0) break;
+    }
+    if (depth !== 0) problems.push(`${name}: unbalanced braces`);
+    if (paren !== 0) problems.push(`${name}: unbalanced parentheses`);
+
+    /* Walk the code keeping a stack of scopes. A declaration is a type followed
+       by one or more names (`vec3 a = …, b;`), or a function parameter, which
+       belongs to the function body's scope. */
+    const scopes = [new Set()];
+    let pendingParams = null;
+    const declRe = new RegExp(`\\b(?:(?:uniform|varying|attribute|const|in|out|inout|highp|mediump|lowp)\\s+)*${TYPE}\\s+(\\w+)\\s*(\\[[^\\]]*\\])?\\s*([=;,)\\(])`, 'g');
+    let i = 0;
+    const declare = (id, where) => {
+      const top = scopes[scopes.length - 1];
+      if (top.has(id)) problems.push(`${name}: '${id}' declared twice in one scope (${where})`);
+      top.add(id);
+    };
+    while (i < code.length) {
+      const ch = code[i];
+      if (ch === '{') {
+        scopes.push(new Set());
+        if (pendingParams) { for (const p of pendingParams) declare(p, 'parameter'); pendingParams = null; }
+        i++;
+        continue;
+      }
+      if (ch === '}') { scopes.pop(); i++; continue; }
+      declRe.lastIndex = i;
+      const m = declRe.exec(code);
+      if (m && m.index === i) {
+        const [, id, , next] = m;
+        if (next === '(') {
+          // A function: its parameters are declared in the body that follows.
+          const close = code.indexOf(')', declRe.lastIndex);
+          const params = code.slice(declRe.lastIndex, close);
+          pendingParams = [...params.matchAll(new RegExp(`${TYPE}\\s+(\\w+)`, 'g'))].map((p) => p[1]);
+          scopes[scopes.length - 1].add(id);
+          i = close + 1;
+          continue;
+        }
+        declare(id, `before "${code.slice(i, i + 40).replace(/\s+/g, ' ')}"`);
+        // `float a = 1.0, b = 2.0;` — further names after top-level commas.
+        if (next === ',' || next === '=') {
+          let j = declRe.lastIndex, d = 0;
+          while (j < code.length && !(code[j] === ';' && d === 0)) {
+            if ('([{'.includes(code[j])) d++;
+            if (')]}'.includes(code[j])) d--;
+            if (code[j] === ',' && d === 0) {
+              const more = /^\s*(\w+)/.exec(code.slice(j + 1));
+              if (more) declare(more[1], 'comma list');
+            }
+            j++;
+          }
+        }
+        i = m.index + m[0].length - (next === ';' || next === ',' || next === '=' ? 1 : 0);
+        continue;
+      }
+      i++;
+    }
+  }
+  check(`every shader in globe.js reads as one that compiles (${shaders.length} shaders)`, () => {
+    assert.ok(shaders.length >= 6, `found only ${shaders.length} shader strings in globe.js — has their naming changed?`);
+    assert.deepEqual(problems, []);
+  });
+}
+
 check('the globe does not branch on a country', () => {
   /* Behaviour comes from the records. A country code or name written into the
      engine is a rule for one Destination hiding in code. */

@@ -116,6 +116,11 @@ export async function createCloseMap(stage, { assets, before, coarse, camera }) 
     renderWorldCopies: false,
   });
   map.touchZoomRotate.disableRotation();
+  /* The street style names a few point-of-interest icons its sprite sheet
+     does not carry. Give each an empty image rather than a console warning. */
+  map.on('styleimagemissing', (e) => {
+    if (!map.hasImage(e.id)) map.addImage(e.id, { width: 1, height: 1, data: new Uint8Array(4) });
+  });
   map.setPadding(camera.padding);
   await new Promise((resolve, reject) => {
     map.once('load', resolve);

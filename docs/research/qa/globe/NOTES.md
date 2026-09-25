@@ -207,3 +207,62 @@ Progress (newest last):
 - Tests: texture budget guard rewritten (first load ≤2048, <500 kB; lazy
   ≤4096, <600 kB each, must be lazy); fallback guard checks the software
   refusal and the frame-rate handover. All map guards pass.
+- R1 constraint change (coordinator): libraries allowed. Close zoom now hands
+  off to **MapLibre GL JS 5.24.0**, vendored in src/assets/vendor/maplibre-gl
+  (1.06 MB / 277 kB gzip, BSD-3, SHA-256 in its README), loaded by
+  `globe-close.js` only on intent: taking hold of the globe, hovering a list
+  entry that can dive, or the camera below alt 0.3. Tiles: EOxCloudless 2024
+  Sentinel-2 satellite (non-commercial use with attribution — this site is a
+  free school guide) fading into the OpenFreeMap "liberty" street map (OSM,
+  no key). Handoff below alt 0.12, handback above 0.16 (hysteresis). Globe
+  FOV changed 34°→36.87° to equal MapLibre's; lens shift → MapLibre top
+  padding; zoom from metres-per-pixel at the centre, calibrated on the map
+  itself (MapLibre's globe scales like Mercator at the latitude). **Measured
+  seam: 1.4 px** worst over facing places after fixing one bug — MapLibre's
+  CSS `.maplibregl-map{position:relative}` collapsed the map to 300 px (seam
+  was 146 px). Place dives: campus/institution → zoom 15, city → 11.5, region
+  → stays on the globe. A dive that arrives before the map has loaded waits
+  ("Loading the close-up map…") and carries on. Probe: TU Delft from the NL
+  page — globe flight 1.4 s, map ready ~3 s (tiles cold), street level at
+  ~5.6 s; zoom-out buttons hand back at zoom 5.38.
+- `DIST_DIR` env override added to src/build.mjs so an agent can build to
+  its own folder (others kept wiping dist/ mid-copy).
+- `institution` coordinate precision no longer gets the "placed at the city"
+  cue (schema: it locates the institution; finer than city).
+- LIVE BUG (2026-09-25): the committed mid-edit globe.js declared `vec2 d`
+  beside `float d` in EARTH_FS → every browser refused the shader → flat
+  map. Current source uses du/de/dw. New guard in test-map ("every shader in
+  globe.js reads as one that compiles"): extracts all 8 GLSL strings and
+  checks duplicate declarations per scope (params included), balanced braces
+  and parens, a main() in each. Verified it FAILS on the live bug
+  ("EARTH_FS: 'd' declared twice in one scope") and passes now.
+- Debug `pause()` now sets its own `paused` flag; it used to reuse `dead`,
+  which made a close map arriving during a paused QA frame destroy itself.
+- Gate (PowerShell, SITE_BASE=/IB-Post-Secondary-Opportunities): all 30
+  checks pass (freshness advisory only). test-map: 31 guards pass.
+- Production-base build served at /IB-Post-Secondary-Opportunities/ in
+  headless Chrome (real GPU): globe "on" on /programmes/, /europe/, /world/,
+  /destinations/nl/; close map hands off and dives to zoom 14.7; console empty.
+
+### Round-1-fixes shots (docs/research/qa/globe/round-1-fixes/, report.json)
+
+01 programmes rest · 02 europe rest · 03 world rest · 04 NL page rest (NL
+outlined, alt 0.2) · 05–07 /programmes/ → Delft: climb, cloud rush, late
+dive · 08 Delft at street level in the close map · 09 the Denmark "12" group
+clicked → dives into the close map, split · 10 /europe/ Denmark card →
+"Open the Denmark page" (/denmark/) · 11 TU Delft street level from the NL
+page · 12 zoomed back out → globe again · 13 list click (Maastricht): stage
+top 88 px, card title below the masthead · 14 europe dark · 15/16 phone rest ·
+17 phone card (title + action visible, pin above the card; hold released
+after 4 s) · 18 flat fallback. Report: seam 1.4 px, reduced motion instant,
+wheel-over-untouched scrolls the page, drag spins, console empty.
+
+### Left after this stop (round-1 list)
+
+- Run the software-GL check for real (`--use-angle=swiftshader`) and confirm
+  the flat map takes over (code + guard done, not yet exercised).
+- /world/ rest: 7 of 10 destinations at rest (au jp ae hk sg cn kr); NZ fell
+  out with the last grid change (alt 1.9 lat −5); US/Canada come round on
+  the 6°/s spin. Worth one more framing pass.
+- Phone card still scrolls internally a little (title + action visible).
+- Fresh critic round on round-1-fixes/.

@@ -35,9 +35,10 @@ const reducedMotion = () =>
 
 const D2R = Math.PI / 180;
 const R2D = 180 / Math.PI;
-/* Vertical field of view. Narrow enough that the globe looks like a globe
-   rather than a fish-eye, wide enough that a tilted camera shows a horizon. */
-const FOV = 34 * D2R;
+/* Vertical field of view: MapLibre's own default, so that when the camera is
+   handed to the close map (globe-close.js) the perspective does not jump.
+   Narrow enough to look like a globe, wide enough for a tilted horizon. */
+const FOV = 36.87 * D2R;
 const TAN = Math.tan(FOV / 2);
 const MIN_ALT = 0.06;       // Earth radii above the surface: ~380 km. Closer, even the detail texture is magnified past reading
 const MAX_ALT = 4.2;
@@ -47,6 +48,18 @@ const HOME_REST_MIN_ALT = 0.2; // a single-country page rests on its country, no
 const TRAVEL_CLIMB = 1.05;  // a journey of more than a hop climbs at least this high, above the cloud deck, so the dive goes through it
 const HOP = 500 / 6371;     // …and "more than a hop" is 500 km of great circle
 const PHONE_HOLD_MS = 4000; // a finger lets go of the globe this long after its last gesture
+/* The close map (MapLibre) takes over below HANDOFF_ALT and hands back above
+   HANDBACK_ALT — the gap between them stops a camera hovering at the boundary
+   from flickering between the two. It is fetched once the camera is below
+   CLOSE_PRELOAD_ALT, so it is usually ready by the time it is needed. */
+const HANDOFF_ALT = 0.12;
+const HANDBACK_ALT = 0.16;
+const CLOSE_PRELOAD_ALT = 0.3;
+const EARTH_M = 6371000;
+/* How far in a place's dive goes once the close map has it, by how precisely
+   the record places it: a campus to street level, a city to the city. A place
+   known only to its country stays on the globe. */
+const CLOSE_ZOOM = { campus: 15, institution: 15, city: 11.5 };
 const FINE_ALT = 0.9;       // below this the finer border layer is fetched
 const CLOUD_R = 1.012;
 const BORDER_R = 1.0016;
@@ -55,7 +68,7 @@ const PIN_GAP = 30;
 /* The smallest thing a thumb can reliably hit. WCAG 2.5.8 asks for 24;
    Apple and Google both ask for 44. */
 const TOUCH_TARGET = 44;
-const LABEL_ALT = 1.7;      // below this, pins with room carry their names
+const LABEL_ALT = 2.5;      // below this, pins with room carry their names (a whole-world rest included)
 const DPR_CAP = 2;
 
 /** Camera pitch and lens shift grow as the camera comes down, so a close
@@ -121,10 +134,10 @@ void main() {
   /* The detail texture, where there is one, blended in with a soft edge.
      Sampled everywhere and weighted to nothing outside its rectangle, so no
      texture fetch sits in a branch. */
-  vec2 d = (vUv - uDetailRect.xy) / (uDetailRect.zw - uDetailRect.xy);
-  vec2 e = min(d, 1.0 - d);
-  float w = uDetailOn * smoothstep(0.0, 0.025, min(e.x, e.y));
-  c = mix(c, sharp(uDetail, clamp(d, 0.0, 1.0), uDetailTexel), w);
+  vec2 du = (vUv - uDetailRect.xy) / (uDetailRect.zw - uDetailRect.xy);
+  vec2 de = min(du, 1.0 - du);
+  float dw = uDetailOn * smoothstep(0.0, 0.025, min(de.x, de.y));
+  c = mix(c, sharp(uDetail, clamp(du, 0.0, 1.0), uDetailTexel), dw);
   float d = max(dot(n, uSun), 0.0);
   float light = 0.30 + 0.85 * d;
   /* Water is where blue leads: a glint there, none on land. */
@@ -594,6 +607,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const z = dot(d, c.fwd);
     const facing = -dot(p, norm(d));
     if (z <= 1e-4) return { x: 0, y: 0, facing: -1 };
+    /* Under the close map, a pin goes exactly where the map draws its place. */
+    if (closeActive && c === cam && facing > 0) {
+      const [lat, lon] = toLatLon(p);
+      const q = close.project(lon, lat);
+      return { x: q.x, y: q.y, facing };
+    }
     const nx = dot(d, c.right) / (z * TAN * (w / h));
     const ny = dot(d, c.up) / (z * TAN) + c.shift;
     return { x: (nx + 1) * 0.5 * w, y: (1 - ny) * 0.5 * h, facing };
@@ -706,7 +725,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       return 1 + Math.log(1 + (p?.count || 0));
     });
     let best = null;
-    for (const alt of [1.8, 2.1, 2.4]) {
+    for (const alt of [1.7, 1.9, 2.1, 2.3]) {
       for (let lat = -10; lat <= 30; lat += 5) {
         for (let lon = -180; lon < 180; lon += 10) {
           const c = solveCamera({ lat, lon, alt }, {});
@@ -715,7 +734,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
             const s = project(q, c);
             if (s.facing > 0.2 && s.x > W * 0.06 && s.x < W * 0.94 && s.y > H * 0.08 && s.y < H * 0.94) score += weight[i];
           });
-          score -= alt * 0.01; // closer wins a tie: bigger globe
+          score -= alt * 0.5; // a bigger, more cropped globe wins unless backing off shows another place
           if (!best || score > best.score) best = { lat, lon, alt, score };
         }
       }
@@ -739,6 +758,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function touch() {
     idle = false;
+    pendingThen = null;
     hideHint();
   }
 
@@ -1227,6 +1247,125 @@ export async function mountGlobe(figure, { onFail } = {}) {
     lastDraw = now;
   }
 
+  /* --- The close map ------------------------------------------------------- */
+
+  let close = null;          // globe-close.js's handle, once made
+  let closeState = 'none';   // none | loading | ready | handing | failed
+  let closeActive = false;   // the close map has the camera
+  let closeFlying = false;   // the close map is on a flight this file started
+  let pendingThen = null;    // what to do once the close map has the camera, if it was not ready in time
+  /* MapLibre's pixels per metre at zoom 0, measured on the map itself (its
+     globe scales with latitude a little differently from Mercator) and
+     re-measured whenever it settles. The estimate is Mercator's. */
+  let K = 512 / (2 * Math.PI * EARTH_M);
+  const zoomForAlt = (alt) => Math.log2(H / (2 * TAN * alt * EARTH_M) / K);
+  const altForZoom = (z) => H / (2 * TAN * EARTH_M * K * 2 ** z);
+  const coarse = matchMedia('(pointer: coarse)').matches;
+  function closeCamera(at = view) {
+    return {
+      center: [wrapLon(at.lon), at.lat],
+      zoom: zoomForAlt(at.alt),
+      pitch: pitchFor(at.alt) * R2D,
+      padding: { top: Math.max(0, -shiftFor(at.alt) * H), bottom: 0, left: 0, right: 0 },
+    };
+  }
+  function calibrate() {
+    if (close) K = close.pxPerMetre() / 2 ** close.map.getZoom();
+  }
+
+  function ensureClose() {
+    if (closeState !== 'none') return;
+    closeState = 'loading';
+    import('./globe-close.js')
+      .then(({ createCloseMap }) => createCloseMap(stage, { assets, before: pinLayer, coarse, camera: closeCamera() }))
+      .then((c) => {
+        if (dead) { c.destroy(); return; }
+        close = c;
+        calibrate();
+        const map = c.map;
+        map.on('move', () => {
+          if (!closeActive) return;
+          const ce = map.getCenter();
+          view.lat = ce.lat;
+          view.lon = ce.lng;
+          view.alt = altForZoom(map.getZoom());
+          camDirty = true;
+          kick();
+        });
+        map.on('moveend', () => {
+          if (!closeActive) return;
+          calibrate();
+          closeFlying = false;
+          if (view.alt > HANDBACK_ALT) handBack();
+        });
+        map.on('dragstart', () => { moved = true; touch(); });
+        map.on('zoom', () => { if (closeActive && !closeFlying && view.alt > HANDBACK_ALT) handBack(); });
+        closeState = 'ready';
+        kick();
+      })
+      .catch((err) => {
+        closeState = 'failed';
+        console.warn('[world] the close map could not start; the globe stays on its own.', err?.message || err);
+      });
+  }
+
+  /** Cross-fade from the globe to the close map at exactly this camera. */
+  async function handOff({ then = null } = {}) {
+    /* A dive that arrives before the close map has loaded keeps its next step
+       until the map is ready; the automatic handoff in the loop picks it up. */
+    if (then) pendingThen = then;
+    if (closeState !== 'ready' || closeActive) {
+      if (then && closeState === 'loading') showHint('Loading the close-up map…');
+      return false;
+    }
+    closeState = 'handing';
+    const map = close.map;
+    map.jumpTo(closeCamera());
+    calibrate();
+    map.jumpTo(closeCamera());
+    await close.settled(reducedMotion() ? 800 : 1500);
+    closeState = 'ready';
+    if (dead || view.alt > HANDBACK_ALT) return false;
+    map.jumpTo(closeCamera());
+    calibrate();
+    closeActive = true;
+    figure.dataset.close = 'on';
+    if (engaged) map.scrollZoom.enable(); else map.scrollZoom.disable();
+    camDirty = true;
+    kick();
+    hideHint();
+    const next = pendingThen;
+    pendingThen = null;
+    next?.();
+    return true;
+  }
+
+  /** Give the camera back to the globe, where the close map left it. */
+  function handBack() {
+    if (!closeActive) return;
+    closeActive = false;
+    closeFlying = false;
+    close.map.stop();
+    delete figure.dataset.close;
+    idleBase = null;
+    camDirty = true;
+    kick();
+  }
+
+  /** A flight inside the close map, with the phone card's room kept clear. */
+  function closeFlyTo(opts) {
+    const bottom = !card.hidden && card.getBoundingClientRect().width > W * 0.7 ? card.offsetHeight + 12 : 0;
+    closeFlying = true;
+    close.map.flyTo({
+      ...opts,
+      padding: { top: Math.max(0, -shiftFor(0.1) * H), bottom, left: 0, right: 0 },
+      pitch: pitchFor(0.1) * R2D,
+      animate: !reducedMotion(),
+      duration: reducedMotion() ? 0 : 1600,
+      essential: true,
+    });
+  }
+
   /* --- The loop ------------------------------------------------------------ */
 
   let raf = 0;
@@ -1234,6 +1373,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   let lastNow = 0;
   let first = true;
   let dead = false;
+  let paused = false; // the QA harness's freeze-frame; never set by the page
 
   /* The frame-rate watch. If the first 30 consecutive frames run at a median
      over 25 ms the pixel ratio drops to 1; if the next 30 are still over 40 ms
@@ -1253,7 +1393,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function frame(now) {
     raf = 0;
-    if (dead || !onScreen || document.hidden) return;
+    if (dead || paused || !onScreen || document.hidden) return;
     if (lastNow && !watchFrame.done) watchFrame(now - lastNow);
     const dt = lastNow ? Math.min(64, now - lastNow) : 16;
     lastNow = now;
@@ -1262,9 +1402,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     else if (spin) stepSpin(dt);
     else if (idle && !reducedMotion()) stepIdle(now);
 
-    const drifting = cloudTex && !reducedMotion() && cloudAlpha() > 0.01;
+    if (closeState === 'none' && view.alt < CLOSE_PRELOAD_ALT) ensureClose();
+    if (!closeActive && closeState === 'ready' && view.alt <= HANDOFF_ALT && !flight && !pointers.size) handOff();
+
+    const drifting = !closeActive && cloudTex && !reducedMotion() && cloudAlpha() > 0.01;
     if (camDirty || (drifting && now - lastDraw > 48)) {
-      draw(now);
+      /* Under the close map the globe is covered; only the pins move. */
+      if (!closeActive) draw(now);
       if (camDirty) layoutPins();
       camDirty = false;
       if (first) {
@@ -1281,7 +1425,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     else lastNow = 0;
   }
   function kick() {
-    if (!raf && !dead && onScreen && !document.hidden) raf = requestAnimationFrame(frame);
+    if (!raf && !dead && !paused && onScreen && !document.hidden) raf = requestAnimationFrame(frame);
   }
 
   /* --- Lighting, both ways ------------------------------------------------- */
@@ -1291,6 +1435,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (lit === key) return;
     lit = key;
     litSet = new Set(key ? key.split(' ') : []);
+    if ([...litSet].some((id) => CLOSE_ZOOM[byId.get(id)?.precision])) ensureClose();
     for (const [pid, a] of links) a.toggleAttribute('data-on', litSet.has(pid));
     void fromMap;
     camDirty = true;
@@ -1476,17 +1621,35 @@ export async function mountGlobe(figure, { onFail } = {}) {
     return t;
   }
 
-  /** A close-enough camera for one place: in, but no closer than it needs. */
+  /**
+   * Fly to one place. A place known to its city or campus dives through the
+   * clouds on the globe and carries on down in the close map, to the city or
+   * to street level; a place known only to its country stops on the globe.
+   */
   function goToPlace(p, { focus = false, from = null } = {}) {
     light(p.id);
-    const alt = Math.min(view.alt, Math.max(MIN_ALT * 3, 0.32));
     selectedCountry = null;
     paintMask(home);
     placeCard(p, { focus, from });
+    const zoom = CLOSE_ZOOM[p.precision];
+    if (zoom && closeState !== 'failed') {
+      ensureClose();
+      if (closeActive) {
+        closeFlyTo({ center: [p.lon, p.lat], zoom: Math.max(close.map.getZoom(), zoom) });
+        say(`Flying to ${p.name}.`);
+        return;
+      }
+      const onArrive = () => handOff({ then: () => closeFlyTo({ center: [p.lon, p.lat], zoom }) });
+      flyTo({ lat: p.lat, lon: p.lon, alt: Math.min(view.alt, HANDOFF_ALT * 0.9) }, { announce: p.name, travel: true, onArrive });
+      return;
+    }
+    handBack();
+    const alt = Math.min(view.alt, Math.max(MIN_ALT * 3, 0.32));
     flyTo(frameAbove({ lat: p.lat, lon: p.lon, alt }, p.xyz), { announce: p.name, travel: true });
   }
 
   function goToCountry(country, { focus = false } = {}) {
+    handBack();
     selectedCountry = country;
     paintMask(country);
     const fit = fitCamera(country.frame, { maxAlt: 2.4, minAlt: 0.2 });
@@ -1512,7 +1675,28 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const centre = norm(members.reduce((s, m) => [s[0] + m.xyz[0], s[1] + m.xyz[1], s[2] + m.xyz[2]], [0, 0, 0]));
     const [lat, lon] = toLatLon(centre);
     const altToSplit = (ang) => (ang / (PIN_GAP * 1.25)) * H / (2 * TAN);
-    if (altToSplit(maxAng) < MIN_ALT) {
+    /* With the close map available the floor is street level, not the globe's. */
+    const floor = closeState === 'failed' ? MIN_ALT : altForZoom(17);
+    const bounds = () => {
+      const lats = members.map((m) => m.lat), lons = members.map((m) => m.lon);
+      return [[Math.min(...lons), Math.min(...lats)], [Math.max(...lons), Math.max(...lats)]];
+    };
+    const fitClose = () => {
+      closeFlying = true;
+      close.map.fitBounds(bounds(), {
+        padding: { top: Math.max(60, -shiftFor(0.1) * H + 40), bottom: 60, left: 60, right: 60 },
+        maxZoom: 17,
+        animate: !reducedMotion(),
+        duration: reducedMotion() ? 0 : 1200,
+      });
+    };
+    if (altToSplit(maxAng) >= floor && closeState !== 'failed' && (closeActive || altToSplit(minAng) < MIN_ALT)) {
+      ensureClose();
+      if (closeActive) { fitClose(); return; }
+      flyTo({ lat, lon, alt: Math.min(view.alt, HANDOFF_ALT * 0.9) }, { announce: `${members.length} places`, onArrive: () => handOff({ then: fitClose }) });
+      return;
+    }
+    if (altToSplit(maxAng) < floor) {
       const alt = Math.max(MIN_ALT, Math.min(view.alt, 0.25));
       crowdCard(members, { xyz: centre });
       flyTo(frameAbove({ lat, lon, alt }, centre), { announce: `${members.length} places` });
@@ -1538,6 +1722,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function engage() {
     if (!engaged) { engaged = true; setTouchAction(); stage.dataset.engaged = 'true'; }
+    close?.map.scrollZoom.enable();
+    /* Taking hold of the globe is the first sign someone may dive: fetch the
+       close map now, so it is there when they arrive. */
+    if (places.some((p) => CLOSE_ZOOM[p.precision])) ensureClose();
   }
   /* A finger that has taken hold of the globe cannot scroll the page over it,
      and on a phone the globe is half the screen. So a touch hold lets go
@@ -1552,6 +1740,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   }
   function disengage() {
     if (engaged) { engaged = false; setTouchAction(); delete stage.dataset.engaged; }
+    close?.map.scrollZoom.disable();
   }
 
   stage.addEventListener('pointerdown', (e) => {
@@ -1562,8 +1751,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
        drag, so a thumb swiping up the page still scrolls it (touch-action is
        pan-y until then). */
     if (e.pointerType === 'mouse') engage();
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     downOn = e.target.closest('.world__pin, .world__cluster');
+    if (closeActive) { moved = false; return; } // the close map drags itself
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     flight = null;
     rush = 0;
     spin = null;
@@ -1579,6 +1769,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   });
 
   stage.addEventListener('pointermove', (e) => {
+    if (closeActive) return;
     if (!pointers.has(e.pointerId)) {
       // Hovering: which country is under the pointer.
       if (e.pointerType === 'mouse' && !e.target.closest('.world__pin, .world__cluster, .world__controls, .world__card')) {
@@ -1679,6 +1870,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     downOn = null;
     if (pinEl) { const p = byId.get(pinEl.dataset.place); if (p) goToPlace(p); return; }
     if (clusterEl?._members) { openGroup(clusterEl._members); return; }
+    /* On the close map a bare click only closes the card: at street level a
+       click on the ground is exploring, not choosing a country. */
+    if (closeActive) { if (e.target.closest('.world__close')) closeCard(); return; }
     const at = { x: e.clientX, y: e.clientY };
     const now = performance.now();
     if (lastTap && now - lastTap.t < 330 && Math.hypot(at.x - lastTap.x, at.y - lastTap.y) < 30) {
@@ -1704,6 +1898,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
      page scrolls the page, and a short hint says how to take hold. */
   stage.addEventListener('wheel', (e) => {
     if (!engaged && !e.ctrlKey && !e.metaKey) { showHint(); return; }
+    if (closeActive) return; // the close map zooms itself (its scroll zoom is on while held)
     e.preventDefault();
     touch();
     flight = null; rush = 0; spin = null;
@@ -1738,6 +1933,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.target !== stage && e.key !== 'Escape') return;
     const step = Math.max(2, radPerPx() * R2D * Math.min(W, H) * 0.22);
+    if (closeActive && e.key !== 'Escape' && e.key !== '0') {
+      const pan = Math.min(W, H) * 0.22;
+      const m = close.map;
+      const by = { ArrowLeft: [-pan, 0], ArrowRight: [pan, 0], ArrowUp: [0, -pan], ArrowDown: [0, pan] }[e.key];
+      const animate = !reducedMotion();
+      if (by) { e.preventDefault(); m.panBy(by, { animate }); return; }
+      if (e.key === '+' || e.key === '=') { e.preventDefault(); m.zoomIn({ animate }); return; }
+      if (e.key === '-' || e.key === '_') { e.preventDefault(); m.zoomOut({ animate }); return; }
+      return;
+    }
     const keys = {
       ArrowLeft: () => flyTo({ ...view, lon: view.lon - step / Math.max(0.3, Math.cos(view.lat * D2R)) }),
       ArrowRight: () => flyTo({ ...view, lon: view.lon + step / Math.max(0.3, Math.cos(view.lat * D2R)) }),
@@ -1756,9 +1961,17 @@ export async function mountGlobe(figure, { onFail } = {}) {
     act();
   });
 
-  function zoomBy(f) { flyTo({ ...view, alt: view.alt * f }); }
+  function zoomBy(f) {
+    if (closeActive) {
+      if (f < 1) close.map.zoomIn({ animate: !reducedMotion() });
+      else close.map.zoomOut({ animate: !reducedMotion() });
+      return;
+    }
+    flyTo({ ...view, alt: view.alt * f });
+  }
   function goHome() {
     closeCard();
+    handBack();
     flyTo({ ...rest }, { announce: 'the whole view', travel: true });
   }
 
@@ -1829,6 +2042,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     document.removeEventListener('pointerdown', onOutside);
     canvas.remove(); pinLayer.remove(); controls.remove(); card.remove(); hint.remove(); credit.remove(); status.remove();
     legendHint?.remove();
+    close?.destroy();
+    delete figure.dataset.close;
     delete figure.dataset.globe;
   }
 
@@ -1870,7 +2085,25 @@ export async function mountGlobe(figure, { onFail } = {}) {
     debug: {
       view, get rest() { return rest; }, places, groups: () => groups, flyTo, goToPlace, goToCountry, openGroup,
       country: (id) => geography.byId.get(id),
-      pickAt: (clientX, clientY) => { const h = pick(clientX, clientY); return h ? { lat: h.lat, lon: h.lon, country: geography.countryAt(h.lat, h.lon)?.id || null } : null; }, get drawMs() { return drawMs; }, pause: () => { dead = true; }, resume: () => { dead = false; kick(); },
+      get close() { return { state: closeState, active: closeActive, zoom: close?.map.getZoom() ?? null, K }; },
+      handOff, handBack, ensureClose,
+      closeMap: () => close?.map, camPitch: () => cam.pitch * R2D,
+      mineAt: (lat, lon) => { solveCamera(view); const was = closeActive; closeActive = false; const r = project(toXYZ(lat, lon)); closeActive = was; return r; },
+      /** How far, in pixels, the globe's own projection puts each facing
+          place from where the close map draws it — the handoff's seam. */
+      seam: () => {
+        if (!close) return null;
+        solveCamera(view);
+        let worst = 0;
+        for (const p of places) {
+          const mine = (() => { const was = closeActive; closeActive = false; const r = project(p.xyz); closeActive = was; return r; })();
+          if (mine.facing <= 0.1 || mine.x < 0 || mine.x > W || mine.y < 0 || mine.y > H) continue;
+          const q = close.project(p.lon, p.lat);
+          worst = Math.max(worst, Math.hypot(q.x - mine.x, q.y - mine.y));
+        }
+        return +worst.toFixed(1);
+      },
+      pickAt: (clientX, clientY) => { const h = pick(clientX, clientY); return h ? { lat: h.lat, lon: h.lon, country: geography.countryAt(h.lat, h.lon)?.id || null } : null; }, get drawMs() { return drawMs; }, pause: () => { paused = true; }, resume: () => { paused = false; kick(); },
       /** Put a paused flight at an exact fraction of the way, and draw it. */
       stepTo: (frac) => {
         if (!flight) return false;

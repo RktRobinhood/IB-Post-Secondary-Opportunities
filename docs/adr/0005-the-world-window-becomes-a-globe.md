@@ -36,13 +36,67 @@ WebGL 1 — a textured Earth (NASA Blue Marble), a drifting cloud layer (NASA),
 an atmosphere, stars, faint country borders, pins in the site's own palette
 that group and split with the zoom, and a camera that flies: pull out, travel,
 dive in, through the clouds on the way down and back out through them on the
-way up. No library.
+way up. **Close to the ground it hands the camera to MapLibre GL JS** (below,
+"Round 1: the close map"), which draws satellite imagery and a street map down
+to campus level.
 
-The owner asked for no libraries, and 0004 had already found the one thing a
+The owner first asked for no libraries (he later allowed them — see below), and 0004 had already found the one thing a
 library would have fixed — clipping filled polygons to the limb on a 2D canvas
 — to be the thing that did not matter. On WebGL the sphere is a mesh and the
 depth buffer does the clipping, so that limitation is gone rather than
 papered over.
+
+## Round 1: the close map (25 September 2026)
+
+The first critic round scored the globe 6/10, and the lowest marks were for the
+payoff the owner asked for by name, "zooming into universities": at the closest
+zoom a 2048-wide Blue Marble is a green smear, 20 km to a texel. A bigger
+texture helps down to region level (the globe now also lazy-loads a 4096 day
+map and a Europe detail crop, ~57 pixels a degree) but no global texture
+reaches a campus.
+
+The owner then allowed libraries ("if there are existing resources you can
+leverage, use them"). The decision:
+
+- **The hand-written globe keeps everything from space down to about 750 km**:
+  the far view, the spin, the flights and the dive through the clouds, which
+  is what the owner said looks good.
+- **Below that, MapLibre GL JS 5.24.0 takes the camera**, in its own globe
+  projection, at exactly the same centre, scale and pitch, and cross-fades in;
+  zooming back out past a slightly higher altitude hands the camera back. The
+  globe's field of view was changed to MapLibre's (36.87°) so the perspective
+  does not jump, the globe's lens shift becomes MapLibre's top padding, and the
+  zoom is computed from metres-per-pixel at the centre, calibrated on the map
+  itself. Measured seam between the two engines at the handoff: **about 1.4
+  px** worst case over the places in view.
+- A place known to its campus or institution dives to street level (zoom 15),
+  a city to the city (11.5); a place known only to its country stays on the
+  globe. Pins, labels and cards are the globe's own throughout, positioned by
+  MapLibre's projection while it has the camera.
+- **Tiles, no keys:** EOxCloudless 2024 Sentinel-2 satellite imagery (EOX's
+  terms allow non-commercial use with attribution; this is a free school
+  guide — if that ever changes, the layer must be licensed or removed),
+  fading into the OpenFreeMap street map (OpenStreetMap data, ODbL) as the
+  camera comes down to street level. Both credited in the map and on /credits/.
+- **Vendored, not installed or hot-linked**: `src/assets/vendor/maplibre-gl/`
+  (1.06 MB, 277 kB gzip, BSD-3, checksum in its README). The build stays
+  dependency-free, a school network that blocks a CDN still gets the map, and
+  nothing of it loads on first paint: `globe-close.js` injects it on the first
+  sign of a dive (taking hold of the globe, hovering a list entry that can
+  dive, or the camera coming below ~1,900 km).
+- On a touch screen the close map uses MapLibre's cooperative gestures (one
+  finger scrolls the page, two move the map), and the globe itself lets go of
+  a finger four seconds after its last gesture.
+
+Round 1 also fixed three false statements the globe made (Denmark "not
+covered" — `destinations.json` now comes from every Destination record with
+its real page; twelve Danish cities called "one spot"; Canada's light in
+Minnesota — a country's light is now the medoid of its own places, guarded by a
+test that every light is inside its own country), closed cards whose subject
+has left the view, framed whole-world pages on the most places, made journeys
+climb through the cloud deck so the dive happens on /programmes/ too, and
+hands a machine that would draw the globe in software, or too slowly, the flat
+map instead.
 
 ## How this build answers each of 0004's costs
 
@@ -69,8 +123,8 @@ the camera.
 **Bytes and first paint.** The flat SVG is still built into every page and is
 still the first paint, the no-JavaScript map and the no-WebGL map. `map.js`
 checks for WebGL, waits until the figure is within a screen of the viewport,
-then imports `globe.js` and fetches its textures (243 kB) and the 110m borders
-(80 kB raw); the SVG cross-fades out only after the globe's first frame. A finer
+then imports `globe.js` and fetches its first-frame textures (437 kB since
+round 1) and the 110m borders (80 kB raw); the SVG cross-fades out only after the globe's first frame. A finer
 Natural Earth 50m border layer (134 kB gzip) is fetched only the first time the
 camera comes close enough for the 110m outlines to look like polygons. If
 anything fails — no WebGL, a refused context, a lost context, a failed fetch —
@@ -103,15 +157,16 @@ from its record, or from a picking raster when the record is silent.
 
 ## What this costs, stated plainly
 
-- A second, larger asset set on every page with a map (about 330 kB before
-  the optional finer borders), fetched after first paint. 0004's bytes argument
-  is paid, not refuted.
+- A second, larger asset set on every page with a map (about 540 kB for the
+  first globe frame; the 4096 map, the Europe detail, the finer borders and
+  the close map — about 1.3 MB more — only for a reader who goes close),
+  all after first paint. 0004's bytes argument is paid, not refuted.
+- Two third-party tile services at close zoom. If either is down, the globe
+  stays on its own and clamps at its closest altitude.
 - On a narrow set such as one Destination's institutions, the resting camera
   is further out than the flat map's frame was, so pins group sooner; clicking a
   group dives until it splits.
-- The day texture is 2048 x 1024 by the owner's budget, so the closest zoom
-  is soft; pins and labels carry the detail there, and a sharpening pass and
-  the finer borders help.
+- A vendored library to upgrade by hand (steps in its README).
 - A new engine to maintain. `scripts/test-map.mjs` now guards the fallback
   and reduced-motion guarantees by reading the source back, and
   `docs/research/qa/globe/shoot.mjs` produces the same screenshots every run.

@@ -1,0 +1,97 @@
+{
+  "/programmes/": {
+    "globe": "on",
+    "rest": {
+      "lat": 51.7,
+      "lon": 9.3,
+      "alt": 0.42
+    },
+    "pinsVisible": 6
+  },
+  "/europe/": {
+    "globe": "on",
+    "rest": {
+      "lat": 45.9,
+      "lon": 8,
+      "alt": 1.04
+    },
+    "pinsVisible": 18
+  },
+  "/world/": {
+    "globe": "on",
+    "rest": {
+      "lat": -5,
+      "lon": 100,
+      "alt": 1.9
+    },
+    "pinsVisible": 6,
+    "visibleAtRest": [
+      "au",
+      "jp",
+      "ae",
+      "hk",
+      "sg",
+      "cn",
+      "kr"
+    ],
+    "canada": {
+      "lat": 43.4689,
+      "lon": -80.54,
+      "inCountry": null
+    }
+  },
+  "/destinations/nl/": {
+    "globe": "on",
+    "rest": {
+      "lat": 51,
+      "lon": 5.6,
+      "alt": 0.2
+    },
+    "pinsVisible": 5
+  },
+  "programmesDive": {
+    "handedOff": true,
+    "zoom": 15,
+    "seam": 1.4
+  },
+  "staleCard": {
+    "openBefore": false,
+    "closedAfterZoomOut": true
+  },
+  "groupClick": {
+    "members": 12,
+    "card": ""
+  },
+  "denmarkCard": [
+    "Open the Denmark page -> /denmark/"
+  ],
+  "campusDive": {
+    "handedOff": true,
+    "zoom": 15,
+    "handBack": {
+      "active": false,
+      "alt": 0.162
+    }
+  },
+  "listClick": {
+    "stageTop": 88,
+    "cardTitleTop": 284,
+    "mastheadBottom": 65
+  },
+  "phoneCard": {
+    "open": true,
+    "titleVisible": true,
+    "actionVisible": true,
+    "innerScroll": true,
+    "pinAboveCard": true,
+    "engaged": true,
+    "releasedAfter4s": true
+  },
+  "reducedMotion": true,
+  "interaction": {
+    "wheelUntouchedScrollsPage": true,
+    "dragSpins": true
+  },
+  "flat": "off",
+  "console": []
+}

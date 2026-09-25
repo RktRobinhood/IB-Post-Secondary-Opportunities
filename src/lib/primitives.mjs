@@ -164,8 +164,12 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
   // carries it and so does the list entry, because the reader who cannot hover
   // needs it as much as the one who can — and a second copy of the wording in
   // the script is a second wording waiting to drift.
+  // `institution` locates the institution itself (schemas/common.schema.json),
+  // finer than a city: it carries no cue, like a campus. It used to fall
+  // through to "placed at the city", which the globe's street-level dive onto
+  // TU Delft's Aula showed to be false.
   const cueFor = (p) =>
-    !p.precision || p.precision === 'campus'
+    !p.precision || p.precision === 'campus' || p.precision === 'institution'
       ? ''
       : p.precision === 'region'
         ? 'Placed at the country, not at a campus'
@@ -183,6 +187,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       href: d.href ? url(d.href) : '',
       state: d.state || '',
       cue: cueFor(d),
+      precision: d.precision || '',
       country: d.country || '',
       image: d.image ? url(d.image) : '',
       external: !!d.external,
