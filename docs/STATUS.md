@@ -35,9 +35,12 @@ This page says where the work stands, so the next session (human or agent) start
 | Text walls: Deadlines, the Denmark pages, Trust, Credits, Glossary, About, Counsellors, Compare | `text-walls` guard | Only `/programmes/` and `/planner/` are left on the grandfather list |
 | Programme families in data (6 families, 73 → 67 cards) | validator | Rendering is in progress |
 
-## Next priority
+## In progress: #43, a page for every institution (branch `feat-43-school-pages`)
 
-**#43: a curated summary page for every institution** (Finland and every country beyond DK/NL currently link cards straight to university homepages). It should use one template for all countries: what the school is known for, the eligible programmes as cards, IB requirements, the Deadlines & sessions panel (#47), then a targeted link on to the university's site.
+- **Done on the branch:** all 450 profile institutions have a page at `/universities/<key>/` (`src/pages/schools.mjs`). Country-page cards and map lights link to these pages, not to homepages. The data is `data/schools/<key>.json` (`schemas/school.schema.json`). The guards are `check-schools` and `school-pages`.
+- **Research:** `docs/research/schools/BRIEF.md` and `manifest.json`. Researchers write one file per school as they go and skip files that already exist, so a stopped run resumes by being re-run. Their progress notes are in `docs/research/schools/progress.md`.
+- **Order of work:** pilots for Finland and the UK, then an admissions-counsellor critic on the data and an art-director critic on the page (`docs/research/qa/schools/`), then the other 32 countries in batches.
+- **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
 ## In progress: stopped by the usage limit on 25 September
 
@@ -66,5 +69,6 @@ Five agents were stopped mid-edit. Their work is **not on `main`**. It is preser
 ## Environment notes
 
 - Git Bash rewrites `SITE_BASE=/IB-…` into a Windows path. Use `MSYS_NO_PATHCONV=1` or PowerShell, and check the gate's exit code.
-- The clean-copy worktree for pre-push gating is `D:/ibp-ci`. **Drive C: is almost full**, so keep scratch builds on D: (the repo's gitignored `.cache/`).
+- The clean-copy worktree for pre-push gating is `D:/ibp-ci`. **Never write to C:.** It is almost full. Throwaway files (browser profiles, scratch builds) go in `D:/ibp-tmp`, and notes worth keeping go in the repo or its git-ignored `.cache/`. The working folder's `.claude/settings.json` points TEMP there. The owner runs `clean-c-drive.ps1` in the working folder to clear what earlier sessions left.
+- Research agents use the shared browser pane. For screenshots, use the headless shooter, not the pane.
 - Agents never run git. The coordinating session commits.
