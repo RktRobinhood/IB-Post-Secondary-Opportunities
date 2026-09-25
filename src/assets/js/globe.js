@@ -1203,6 +1203,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * screen, so the groups hold still while the globe spins and only split
    * or merge as the camera comes down or backs off.
    */
+  /* What a group holds, in the page's unit. A place known only to its
+     country (a whole country's light, precision "region") counts only when
+     nothing more precise is in the group: on the home page those lights
+     carry institution counts beside the cities' degree counts, and adding
+     them made Denmark's group read 320 against 57 degrees (home round 3). */
+  function groupCount(members) {
+    const precise = members.filter((m) => m.precision !== 'region');
+    return (precise.length ? precise : members).reduce((n, m) => n + (m.count || 0), 0);
+  }
+
   function cluster() {
     /* Facing places are compared where they land on the screen, which is what
        a reader sees — a tilted camera squeezes north and south together. The
@@ -1223,7 +1233,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         if (members.some((m) => near(m, left[i]))) members.push(...left.splice(i, 1));
       }
       const xyz = norm(members.reduce((s, m) => [s[0] + m.xyz[0], s[1] + m.xyz[1], s[2] + m.xyz[2]], [0, 0, 0]));
-      out.push({ members, xyz, count: members.reduce((n, m) => n + (m.count || 0), 0) });
+      out.push({ members, xyz, count: groupCount(members) });
     }
     /* Two groups whose circles (and glow) overlap on screen are one group
        (round 4: a "4" drawn over a "36"). Repeated until nothing overlaps. */
@@ -1238,7 +1248,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
           if (Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) >= drawnR(a) + drawnR(b)) continue;
           const members = [...a.members, ...b.members];
           out.splice(j, 1);
-          out[i] = { members, xyz: norm(members.reduce((s2, m) => [s2[0] + m.xyz[0], s2[1] + m.xyz[1], s2[2] + m.xyz[2]], [0, 0, 0])), count: a.count + b.count };
+          out[i] = { members, xyz: norm(members.reduce((s2, m) => [s2[0] + m.xyz[0], s2[1] + m.xyz[1], s2[2] + m.xyz[2]], [0, 0, 0])), count: groupCount(members) };
           merged = true;
           break outer;
         }
