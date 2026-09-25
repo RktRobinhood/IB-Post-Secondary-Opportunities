@@ -268,9 +268,12 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       <span class="world__legend-dot world__legend-dot--lg"></span>
       Larger means more opportunities here — not a better place.
     </span>
-    ${[...new Set(dots.map(cueFor).filter(Boolean))].map(
-      (cue) => html`<span class="world__legend">Hollow markers: ${cue.toLowerCase()}.</span>`
-    )}
+    ${/* One line for every hollow marker, however many kinds of place it
+          stands for (round 4: two "Hollow markers" lines that disagreed). */
+      (() => {
+        const kinds = [...new Set(dots.filter((d) => cueFor(d)).map((d) => (d.precision === 'region' ? 'country' : 'city')))].sort();
+        return kinds.length ? html`<span class="world__legend">Hollow markers: placed at the ${kinds.join(' or the ')}, not at a campus.</span>` : '';
+      })()}
     ${hidden > 0
       ? html`<span class="world__legend">${plural(hidden, 'place')} outside this frame — in the list below, not on the map.</span>`
       : ''}

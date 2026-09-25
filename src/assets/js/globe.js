@@ -42,7 +42,8 @@ const FOV = 36.87 * D2R;
 const TAN = Math.tan(FOV / 2);
 const MIN_ALT = 0.06;       // Earth radii above the surface: ~380 km. Closer, even the detail texture is magnified past reading
 const MAX_ALT = 6.5;         // the desk view is the furthest out a page goes; a tall, narrow stage needs this much
-const REST_MAX_ALT = 1.4;   // a region shown by show({ bounds }) is framed from no further out than 1.6x this
+const REST_MAX_ALT = 1.4;   // a single-country page rests no further out; a region shown by show({ bounds }), 1.6x this
+const HOME_REST_MIN_ALT = 0.2; // …and no closer: its country, not a group of its places
 const TRAVEL_CLIMB = 1.05;  // a journey of more than a hop climbs at least this high, above the cloud deck, so the dive goes through it
 const HOP = 500 / 6371;     // …and "more than a hop" is 500 km of great circle
 const PHONE_HOLD_MS = 4000; // a finger lets go of the globe this long after its last gesture
@@ -74,7 +75,7 @@ const DPR_CAP = 2;
    to face you and then leans in; the stand fades and the axis straightens as
    the camera comes close, so the dive and the close map are unchanged. */
 const TILT = 23.44 * D2R;
-const DESK_LAT_MAX = 24;    // the eye sits this far above the equator at most: looking down a little at a desk
+const DESK_LAT_MAX = 40;    // the eye sits this far above the equator at most: looking down a little at a desk
 /* The assembly in globe radii: the ring's outer edge above, the foot of the
    stand below. The resting camera fits both in the stage. */
 const DESK_TOP = 1.13, DESK_BOTTOM = 1.62, DESK_SIDE = 1.16;
@@ -150,12 +151,16 @@ void main() {
   c = mix(c, sharp(uDetail, clamp(du, 0.0, 1.0), uDetailTexel), dw);
   float d = max(dot(n, uSun), 0.0);
   /* Water is where blue leads: a glint there, none on land. */
-  float water = wet(c);
-  /* The cartoon's ink line round every coast: where the water test changes
-     between this texel and its neighbours three texels away. */
-  float wx = wet(texture2D(uDay, vUv + vec2(uTexel.x * 3.0, 0.0)).rgb);
-  float wy = wet(texture2D(uDay, vUv + vec2(0.0, uTexel.y * 3.0)).rgb);
-  float coast = clamp((abs(water - wx) + abs(water - wy)) * 1.4, 0.0, 1.0);
+  /* On the desk, land and water come from the country raster, not from the
+     photograph's colour: a dark or shallow sea read as land by colour
+     (round 4: a black Caspian, black bands along coasts). The ink line is
+     where that raster's coverage changes, one of its texels away. */
+  vec4 pol = texture2D(uPol, vUv);
+  float onDesk = clamp(uPolOn * 2.0, 0.0, 1.0);
+  float water = mix(wet(c), 1.0 - pol.a, onDesk);
+  float px = texture2D(uPol, vUv + vec2(1.0 / 1024.0, 0.0)).a;
+  float py = texture2D(uPol, vUv + vec2(0.0, 1.0 / 512.0)).a;
+  float coast = clamp((abs(pol.a - px) + abs(pol.a - py)) * 1.6, 0.0, 1.0);
   /* A little cartoony (the owner, round 4) — still recognisably Earth: a
      friendlier ocean, warmer and more saturated land, gently posterised, and
      flatter light. uToon eases off towards the handoff so the close map's
@@ -167,9 +172,10 @@ void main() {
   vec3 ocean = mix(vec3(0.13, 0.40, 0.70), vec3(0.28, 0.62, 0.86), smoothstep(0.02, 0.22, c.b));
   /* On the desk the land wears a classroom globe's pastel political colours,
      each country its own, with a little of the relief left in. */
-  vec4 pol = texture2D(uPol, vUv);
-  land = mix(land, pol.rgb * (0.8 + 0.4 * lum), uPolOn * pol.a);
-  ocean = mix(ocean, vec3(0.45, 0.72, 0.89), uPolOn * 0.8);
+  land = mix(land, pol.rgb * (0.8 + 0.4 * lum), uPolOn * 0.85 * pol.a);
+  /* A flat classroom ocean: the photograph's blue ramp amplified its JPEG
+     blocks into squares (round 4). */
+  ocean = mix(ocean, vec3(0.45, 0.72, 0.89), uPolOn);
   vec3 toon = mix(land, ocean, water);
   c = mix(c, toon, uToon);
   float light = mix(0.30 + 0.85 * d, 0.64 + 0.40 * d, uToon);
@@ -289,11 +295,11 @@ function program(gl, vs, fs) {
   return { p, u, a: (name) => gl.getAttribLocation(p, name) };
 }
 
-function texture(gl, source, { repeat = false, mip = true, luminance = false } = {}) {
+function texture(gl, source, { repeat = false, mip = true, luminance = false, alpha = false } = {}) {
   const t = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, t);
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-  const fmt = luminance ? gl.LUMINANCE : gl.RGB;
+  const fmt = luminance ? gl.LUMINANCE : alpha ? gl.RGBA : gl.RGB;
   gl.texImage2D(gl.TEXTURE_2D, 0, fmt, fmt, gl.UNSIGNED_BYTE, source);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, repeat ? gl.REPEAT : gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
@@ -584,7 +590,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   maskCanvas.width = 1024; maskCanvas.height = 512;
   const maskCtx = maskCanvas.getContext('2d');
   let maskTex = texture(gl, maskCanvas, { mip: false, luminance: true });
-  let polTex = texture(gl, geography.political);
+  let polTex = texture(gl, geography.political, { alpha: true }); // alpha is the land: the seas are where no country is
 
   /* --- Furniture ---------------------------------------------------------- */
 
@@ -725,6 +731,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const cam = { eye: [0, 0, 3], right: [1, 0, 0], up: [0, 1, 0], fwd: [0, 0, -1], shift: 0, pitch: 0, roll: 0, vp: new Float32Array(16) };
   let camDirty = true;
   let rest = null;
+  let deskPose = null;      // the desk view: the furthest out any page goes, and where Back-to-the-desk returns
 
   /* How much of a desk globe the camera is looking at: 1 at the resting
      altitude, 0 once it has leaned in far enough that the stand is gone. */
@@ -734,7 +741,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /** The resting altitude at which the globe, its ring and its stand fill the
       stage with a margin: the globe's radius on screen, back to a distance. */
   function deskAltFor() {
-    const r = Math.min((H * 0.92) / (DESK_TOP + DESK_BOTTOM), (W * 0.9) / (2 * DESK_SIDE));
+    /* A narrow stage keeps a column clear either side for the zoom buttons,
+       so they never sit on the ring (round 4, phone). */
+    const room = W < 700 ? W - 2 * 58 : W * 0.9;
+    const r = Math.min((H * 0.92) / (DESK_TOP + DESK_BOTTOM), room / (2 * DESK_SIDE));
     const k = (r * 2 * TAN) / H;
     return Math.min(MAX_ALT, Math.max(2.2, 1 / Math.sin(Math.atan(k)) - 1));
   }
@@ -833,8 +843,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
       desk's as the stand comes into view, arriving as it does. */
   function liftLat(lat, a0, a1) {
     const d0 = desk(a0), d1 = desk(a1);
-    if (!rest || d1 <= d0 || d0 >= 1) return lat;
-    return lat + (rest.lat - lat) * ((d1 - d0) / (1 - d0));
+    if (!deskPose || d1 <= d0 || d0 >= 1) return lat;
+    return lat + (deskPose.lat - lat) * ((d1 - d0) / (1 - d0));
   }
 
   /** Radians of Earth under one CSS pixel at the middle of the view. */
@@ -906,13 +916,29 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     /* A phone's square stage is a third of a desktop's width, so it may rest
        closer before its places become one group. */
-    /* Every page rests on the desk, turned so the weight of what it holds —
-       its places, weighted by how much each holds — faces the reader, and
-       seen from a little above the equator towards it. */
-    const count = pts.map((q) => places.find((pl) => pl.xyz === q)?.count || 1);
+    /* The desk, turned so the weight of what the page holds — its places,
+       weighted by how much each holds — faces the reader, and seen from above
+       towards it: for Europe, from about 40° north (round 4). */
+    /* Weighted by the square of what each holds, so where most of the page is
+       decides, not a scatter of single places far away (round 4: Asia). */
+    /* A place known only to its country (a whole country's light) weighs a
+       tenth of a city or a campus: it is a door, not a place with degrees. */
+    const count = pts.map((q) => {
+      const pl = places.find((x) => x.xyz === q);
+      return (pl?.count || 1) ** 2 * (pl?.precision === 'region' ? 0.1 : 1);
+    });
     const heart = pts.length ? norm(pts.reduce((acc, q, i) => [acc[0] + q[0] * count[i], acc[1] + q[1] * count[i], acc[2] + q[2] * count[i]], [0, 0, 0])) : toXYZ(45, 10);
     const [hLat, hLon] = toLatLon(heart);
-    return { lat: Math.max(0, Math.min(DESK_LAT_MAX, hLat * 0.45)), lon: hLon, alt: deskAlt };
+    deskPose = { lat: Math.max(0, Math.min(DESK_LAT_MAX, hLat * 0.75)), lon: hLon, alt: deskAlt };
+    /* A single-country page rests on its country (round 4: the Netherlands
+       as one bubble on the edge of a whole-world desk); the desk is one
+       zoom-out away. Never below the hand-back altitude. */
+    if (home) {
+      const narrow = Math.min(1, Math.max(0.6, W / 1100));
+      const fit = fitCamera(pts, { maxAlt: REST_MAX_ALT, minAlt: Math.max(HANDBACK_ALT * 1.15, HOME_REST_MIN_ALT * narrow), pad: [0.16, 0.24, 0.14] });
+      if (fit.fits) return { lat: fit.lat, lon: fit.lon, alt: fit.alt };
+    }
+    return { ...deskPose, alt: deskAlt };
   }
 
 
@@ -1060,7 +1086,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function stepIdle(now) {
     if (!idleBase) idleBase = { ...view, t0: now };
     const t = (now - idleBase.t0) / 1000;
-    if (idleBase.alt > 1.3) {
+    if (desk(idleBase.alt) > 0.5) {
+      /* On the desk the globe rocks ±18° either side of the page's places and
+         comes back to them, rather than turning them round the back (round 4). */
+      view.lon = wrapLon(idleBase.lon + Math.sin(t * 0.22) * 18);
+    } else if (idleBase.alt > 1.3) {
       view.lon = wrapLon(idleBase.lon + t * 6);
     } else {
       /* A sway of about 4% of the panel's width, whatever the zoom: enough to
@@ -1138,7 +1168,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         if (!g.ranges.length) return;
         geography = g;
         gl.deleteTexture(polTex);
-        polTex = texture(gl, g.political);
+        polTex = texture(gl, g.political, { alpha: true });
         gl.bindBuffer(gl.ARRAY_BUFFER, lineBuf);
         gl.bufferData(gl.ARRAY_BUFFER, g.lines, gl.STATIC_DRAW);
         if (selectedCountry) selectedCountry = g.byId.get(selectedCountry.id) || null;
@@ -1202,6 +1232,25 @@ export async function mountGlobe(figure, { onFail } = {}) {
       }
       const xyz = norm(members.reduce((s, m) => [s[0] + m.xyz[0], s[1] + m.xyz[1], s[2] + m.xyz[2]], [0, 0, 0]));
       out.push({ members, xyz, count: members.reduce((n, m) => n + (m.count || 0), 0) });
+    }
+    /* Two groups whose circles (and glow) overlap on screen are one group
+       (round 4: a "4" drawn over a "36"). Repeated until nothing overlaps. */
+    const drawnR = (g) => (g.members.length === 1 ? radius(g.members[0], maxCount()) + 4 : 11 + Math.min(9, Math.sqrt(g.members.length) * 3) + 7);
+    for (let merged = true; merged;) {
+      merged = false;
+      for (const g of out) g._s = project(g.xyz);
+      outer: for (let i = 0; i < out.length; i++) {
+        for (let j = i + 1; j < out.length; j++) {
+          const a = out[i], b = out[j];
+          if (a._s.facing <= 0.05 || b._s.facing <= 0.05) continue;
+          if (Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) >= drawnR(a) + drawnR(b)) continue;
+          const members = [...a.members, ...b.members];
+          out.splice(j, 1);
+          out[i] = { members, xyz: norm(members.reduce((s2, m) => [s2[0] + m.xyz[0], s2[1] + m.xyz[1], s2[2] + m.xyz[2]], [0, 0, 0])), count: a.count + b.count };
+          merged = true;
+          break outer;
+        }
+      }
     }
     groups = out;
     clusterAt = view.alt;
@@ -1296,7 +1345,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
     stage.dataset.zoomed = String(view.alt < rest.alt * 0.95);
     zoomIn.disabled = view.alt <= MIN_ALT * 1.01;
-    zoomOut.disabled = view.alt >= Math.min(MAX_ALT, rest.alt) * 0.99;
+    zoomOut.disabled = view.alt >= Math.min(MAX_ALT, deskAlt) * 0.99;
   }
 
   /* --- The route and the vehicle ------------------------------------------ */
@@ -1480,8 +1529,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform1f(pr.u.uDetailOn, detailOn);
     gl.uniform1f(pr.u.uPunch, closeState === 'failed' ? 0 : 0.5 * smooth(0.24, HANDOFF_ALT, view.alt));
     gl.uniform1f(pr.u.uToon, 0.3 + 0.7 * smooth(0.13, 0.5, view.alt));
-    gl.uniform1f(pr.u.uPolOn, 0.85 * dk);
-    gl.uniform1f(pr.u.uInk, 0.42 * smooth(0.3, 1.2, view.alt));
+    gl.uniform1f(pr.u.uPolOn, dk);
+    gl.uniform1f(pr.u.uInk, 0.5 * dk);
     gl.activeTexture(gl.TEXTURE3);
     gl.bindTexture(gl.TEXTURE_2D, polTex);
     gl.uniform1i(pr.u.uPol, 3);
@@ -2351,7 +2400,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (pinch && pointers.size >= 2) {
       const [a, b] = [...pointers.values()];
       const gap = Math.hypot(a.x - b.x, a.y - b.y) || 1;
-      const a1 = Math.min(rest.alt, clampAlt(pinch.alt * (pinch.gap / gap)));
+      const a1 = Math.min(deskAlt, clampAlt(pinch.alt * (pinch.gap / gap)));
       view.lat = liftLat(view.lat, view.alt, a1);
       view.alt = a1;
       const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
@@ -2489,7 +2538,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     touch();
     flight = null; rush = 0; spin = null;
     const factor = Math.exp(Math.max(-0.6, Math.min(0.6, e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0018))));
-    const alt = Math.min(rest.alt, clampAlt(view.alt * factor));
+    const alt = Math.min(deskAlt, clampAlt(view.alt * factor));
     view.lat = liftLat(view.lat, view.alt, alt);
     const hit = pick(e.clientX, e.clientY);
     if (hit && alt < view.alt) {
@@ -2554,7 +2603,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       else close.map.zoomOut({ animate: !reducedMotion() });
       return;
     }
-    const alt = Math.min(rest.alt, clampAlt(view.alt * f));
+    const alt = Math.min(deskAlt, clampAlt(view.alt * f));
     flyTo({ ...view, lat: liftLat(view.lat, view.alt, alt), alt });
   }
   function goHome() {

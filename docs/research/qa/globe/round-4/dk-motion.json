@@ -1,0 +1,248 @@
+{
+ "rest": {
+  "lat": 24,
+  "lon": 40.76,
+  "alt": 3.594,
+  "pitch": 0,
+  "close": false,
+  "desk": "1",
+  "deskDisp": ""
+ },
+ "drag": {
+  "before": {
+   "lat": 24,
+   "lon": 40.86,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "justAfter": {
+   "lat": 24,
+   "lon": 101.02,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "after": {
+   "lat": 24,
+   "lon": 124.01,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  }
+ },
+ "vdrag": {
+  "before": {
+   "lat": 24,
+   "lon": 124.3,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "justAfter": {
+   "lat": 24,
+   "lon": 124.3,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "after": {
+   "lat": 24,
+   "lon": 124.3,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  }
+ },
+ "dragRec": {
+  "frames": 90,
+  "frameStats": {
+   "n": 153,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 16.9,
+   "max": 17,
+   "over50": 0,
+   "long": []
+  }
+ },
+ "group": {
+  "target": {
+   "n": 36,
+   "x": 889,
+   "y": 185.39999389648438
+  },
+  "hasFlight": true,
+  "f0.2": {
+   "lat": 24,
+   "lon": 26.86,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "f0.45": {
+   "lat": 25.24,
+   "lon": 12.83,
+   "alt": 3.131,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "f0.7": {
+   "lat": 45.52,
+   "lon": 12.83,
+   "alt": 0.326,
+   "pitch": 40,
+   "close": false,
+   "desk": "1",
+   "deskDisp": "none"
+  },
+  "f1": {
+   "lat": 55.41,
+   "lon": 12.83,
+   "alt": 0.108,
+   "pitch": 40,
+   "close": false,
+   "desk": "1",
+   "deskDisp": "none"
+  },
+  "end": {
+   "lat": 55.41,
+   "lon": 12.83,
+   "alt": 0.073,
+   "pitch": 40,
+   "close": true,
+   "desk": "1",
+   "deskDisp": "none"
+  },
+  "card": null,
+  "afterBack": {
+   "lat": 24,
+   "lon": 34.45,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": "1",
+   "deskDisp": ""
+  },
+  "urlAfterBack": "http://localhost:4350/"
+ },
+ "groupRec": {
+  "frames": 219,
+  "frameStats": {
+   "n": 253,
+   "p50": 16.7,
+   "p95": 32.8,
+   "p99": 50.1,
+   "max": 66.8,
+   "over50": 3,
+   "long": [
+    {
+     "at": 248,
+     "ms": 64
+    },
+    {
+     "at": 3041,
+     "ms": 68
+    }
+   ]
+  },
+  "minAlt": 0.0747
+ },
+ "resetRec": {
+  "frames": 218,
+  "frameStats": {
+   "n": 275,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 50.1,
+   "max": 100.3,
+   "over50": 3,
+   "long": [
+    {
+     "at": 0,
+     "ms": 61
+    },
+    {
+     "at": 62,
+     "ms": 94
+    },
+    {
+     "at": 169,
+     "ms": 64
+    }
+   ]
+  },
+  "minAlt": 0.0735
+ },
+ "afterReset": {
+  "lat": 24,
+  "lon": 24.94,
+  "alt": 3.594,
+  "pitch": 0,
+  "close": false,
+  "desk": "1",
+  "deskDisp": ""
+ },
+ "pin": {
+  "id": "ae",
+  "x": 976.5,
+  "y": 348.6000061035156
+ },
+ "pinRec": {
+  "frames": 183,
+  "frameStats": {
+   "n": 334,
+   "p50": 16.7,
+   "p95": 17,
+   "p99": 66.8,
+   "max": 83.5,
+   "over50": 6,
+   "long": [
+    {
+     "at": 184,
+     "ms": 59
+    },
+    {
+     "at": 291,
+     "ms": 77
+    },
+    {
+     "at": 2089,
+     "ms": 72
+    },
+    {
+     "at": 2161,
+     "ms": 67
+    }
+   ]
+  },
+  "minAlt": 0.32,
+  "firstCloseMs": null
+ },
+ "pinEnd": {
+  "lat": 25.1,
+  "lon": 55.16,
+  "alt": 0.32,
+  "pitch": 40,
+  "close": false,
+  "desk": "0.109411",
+  "deskDisp": "none"
+ },
+ "logs": []
+}
