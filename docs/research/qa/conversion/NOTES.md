@@ -214,3 +214,111 @@ Decisions, round 1:
 
 Round 1 result: gate 31/31 (ib-terms 741 checks, eligibility 118 scenarios;
 README count updated 104 → 118). Screenshots in `round-1/`.
+
+## Round 2 — critic fixes (critique-round-2.md, scored 6/10)
+
+Verified on the universities' own pages, 25 Sep 2026:
+
+- **CBS test route** (application-and-admission, read in a browser, sections
+  expanded): "You can only take a language test to fulfil the language
+  requirement English level A if you have already passed English level B with
+  a minimum grade of 6.0." IELTS Academic "an overall score of at least 7.0 and
+  a minimum score of 6.0 for each of the four different sections"; TOEFL iBT
+  on/after 21 Jan 2026 "at least 5 and … 4,5 in each"; results "no later than
+  5 July at 12.00"; test date ≤ 2 years old on 5 July. Cambridge C1 185 / C2
+  200 meet both English B 6.0 and English A. The page still shows no IB subject
+  table (the Social Studies list stays flagged "not re-read").
+- **RUC Social Sciences** (programme page + ruc.dk/en/minimum-grade-requirements):
+  "One of the following: 6.0 … from your entry qualification; 4.0 … in the
+  subjects English and Mathematics"; "If you do not meet the grade
+  requirements, you will receive a rejection letter, regardless of whether
+  there are fewer applicants than the number of study places." Quota 1 needs
+  the 6.0; quota 2 accepts either. Global Humanities and Natural Sciences have
+  no such rule.
+- **AU**: 6.0 "to be assessed in quota 1" on Cognitive Science, CS, Data
+  Science, ITPD, EBA Aarhus; CS/DS/ITPD also "a minimum GPA of 6.0 in
+  Mathematics A"; quota 2 "except the GPA requirement". EBA Herning: the page
+  (Danish text) says "Karakterkrav på mindst 6,0 i kvote 1" — the record's
+  "no floor stated" was wrong, so Herning gets the floor too.
+- **SDU**: every English-taught bachelor says "To be considered for a study
+  place in quota 1, your GPA must be equivalent to X or higher"; X = 7.0,
+  except the three BEng (Electronics, Mechanical, Mechatronics) = 5.0, and EBA
+  Sønderborg = 7.0 from 2027 (6.0 until 2026). Quota 2 is uniTEST, no floor.
+- **DTU (critic's open question)**: DTU's quotas page: quota 1 is for those who
+  "hold a Danish upper secondary exam, an IB diploma, or an upper secondary exam
+  from a Nordic or EU/EEA country" — ranked on GPA; "15 March for Quota 2 (and
+  all applicants with an international exam)" is a deadline, not a quota. So
+  DTU's "40 IB points" cut-off comparison is the right one for an IB student.
+
+Decisions:
+
+25. **`minimum-average`** requirement kind (schema): `minAverage`,
+    `gradeScale`, optional `averageOf` (subjects on a local scale) and optional
+    `quota`. Unscoped it is graded like any rule (RUC: a `subject-combination`
+    of "6.0 overall" / "4.0 across English and Mathematics"). Scoped to a quota
+    it is evaluated into `assessment.floors` and raised as a caveat, never a
+    gap — below AU's 6.0 you are still eligible in quota 2. Data: AU ×6 (+ Maths
+    A 6.0 on 3), SDU ×15, RUC Social Sciences.
+26. **Floors in IB terms** (`floorTerms`): overall → lowest IB total that
+    converts to it ("at least 28 IB points"; SDU 7.0 → 31; BEng 5.0 → 25),
+    one subject → lowest IB grade in that subject's IB terms ("a 5 in Maths HL
+    (AA or AI)"), several → "English and Mathematics averaging 4.0 once
+    converted (a 4 in each is enough)". Shown on the card under the IB line,
+    as its own card on the programme page ("To be ranked in quota 1"), in the
+    glance where the cut-off is not a number (SDU "All qualified applicants
+    accepted"), and in the planner as a "!" line: "Quota 1: Needs at least 28
+    IB points: your 26 points convert to 5.2 … Below it you can still be
+    admitted in the other quota". "No minimum grade is recorded" is replaced
+    where a floor exists.
+27. **CBS English**: the English A language requirement is now a one-of —
+    English A, or "An English test (IELTS Academic 7.0 or TOEFL iBT 5) on top
+    of English B at 6.0" (full scores in the item's note) — on all six CBS
+    programmes. Engine: a combination whose closest alternative is only a
+    `test` returns an actionable gap naming it, so English B SL 5 is
+    "Possible with action … The other published way in: An English test …";
+    English B SL 4 does not meet (English B 6.0 fails first). 4 scenarios.
+28. **Markdown**: `md()` renders site-relative links; the ib-terms guard
+    scans every built page's visible text for "](/" or "](http".
+29. **Below the Diploma minimum**: `diplomaMinimumPoints: 24` in
+    data/ib-subjects.json (IB vocabulary). A cut-off or floor at or below it
+    reads "any IB Diploma" (AAU Chemical Eng 3.3: "Last cut-off: any IB
+    Diploma (Danish 3.3)").
+30. **Requirements published in IB terms** get no "Danish requirement" line
+    and are phrased like the rest (SL counts HL too); a one-of of IB subjects
+    collapses — Zealand's "Mathematics: AI SL / AA SL" is "Any IB Maths".
+31. **Clarity**: glance leads with "42 IB points", "Danish 11.1" second; the
+    planner's Danish-level chips sit in a collapsed "What your subjects count as
+    on the Danish scale"; the conversion page's Global Politics case now agrees
+    with the levels table; § 17 stk. 2's EU/EEA scope and § 18 (non-EU/EEA
+    exam → quota 2) stated under the average table; the levels table shows
+    only levels programmes ask for; Danish A at SL carries a caution (scheme
+    row `caution`: "formally Danish B … confirm with the university"), shown
+    on the programme page and the conversion table (ITU GBI). A "one of" left
+    with a single option is listed with the requirements; one already settled
+    by a subject required outright is a small note ("already met by what is
+    listed above") — BAAA, VIA DTB.
+32. **Not done here (another agent's files)**: the finder filter label "No
+    Mathematics A" → "No Maths HL needed" lives in src/pages/explorer.mjs /
+    src/assets/js/explorer.js, which the redesign agent owns. The filter's
+    logic (`needsMathsA`) reads `entry.oneOfSets`, which is unchanged.
+33. **Text-wall budget**: the CBS card line ran to 91–104 words (limit 90), so
+    the test item carries a `shortLabel` for cards ("an English test (IELTS
+    7.0) with English B at 5+"; the page shows the full label), and a family
+    whose every catalogue course is accepted is written as the family alone
+    ("English A (SL or HL)", not "English A (Literature or Lang & Lit), SL or
+    HL") — `index.families`. The repeated floor sentences were cut under 12
+    words.
+
+Round 2 result: every conversion check passes — ib-terms (738 checks, now also
+scanning every built page for unrendered Markdown links), eligibility (131
+scenarios; README updated 118 → 131), validate, conversion, text-walls,
+release. The last gate run failed only `controls`
+(src/assets/css/site.css:2294 `.drawer … a.chip` and :2354 `.region-nav .chip`
+restate 44px) — another agent's drawer/region-nav work, not this change.
+Earlier runs in the same hour also failed `map` (globe close-map reduced
+motion), `destinations` ("/countries/" crumbs) and `build` (destinations.mjs
+export mid-edit) while other agents were working; each cleared without any
+change here. Screenshots in `round-2/`.
+
+Still long: CBS cards are ~9 lines — five requirement lines, each with a real
+choice in it. Left for a design decision rather than hidden.

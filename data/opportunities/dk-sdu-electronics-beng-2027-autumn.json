@@ -145,6 +145,27 @@
       "evidence": [
         "ev-sdu-dk-1s39jo"
       ]
+    },
+    {
+      "id": "req-quota1-average",
+      "kind": "minimum-average",
+      "mandatory": true,
+      "label": "Quota 1: an average of at least 5.0",
+      "minAverage": 5,
+      "gradeScale": "dk-7-point",
+      "quota": "Quota 1",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-sdu-dk-1s39jo"
+      ],
+      "officialWording": {
+        "text": "To be considered for a study place in quota 1, your GPA must be equivalent to 5.0 or higher in the Danish grading scale.",
+        "language": "en",
+        "official": true
+      }
     }
   ],
   "officialRequirementsText": [

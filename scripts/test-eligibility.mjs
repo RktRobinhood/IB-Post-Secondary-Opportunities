@@ -16,7 +16,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
-  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, ibPointsFor, ibTermsFor, OUTCOME,
+  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, floorTerms, ibPointsFor, ibTermsFor, OUTCOME,
 } from '../src/lib/eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -1013,6 +1013,89 @@ eq('a 10.7 cut-off is 40 IB points', ibPointsFor('10.7', localScheme.gradeScale.
 eq('a 6.9 cut-off is 30 IB points', ibPointsFor(6.9, localScheme.gradeScale.id, subjectIndex), 30);
 eq('a figure on an unknown scale is not converted', ibPointsFor(10.7, 'no-such-scale', subjectIndex), null);
 eq('a figure above the table is not converted', ibPointsFor(13, localScheme.gradeScale.id, subjectIndex), null);
+
+/* --- an English test as the other way in ------------------------------------- *
+ *
+ * CBS: "You can only take a language test to fulfil the language requirement
+ * English level A if you have already passed English level B with a minimum
+ * grade of 6.0." English B SL at 5 converts to 7, so the test is open to that
+ * student and the result must name it; at 4 (converts to 4) it is not.
+ */
+{
+  const cbs = {
+    id: 'opp-test-english-test', destination: 'dk', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' },
+    evidence: ['ev-test'], admission: { restricted: true },
+    requirements: [
+      {
+        id: 'r1', kind: 'subject-combination', mandatory: true, operator: 'one-of', label: 'English A, or English B at 6.0 plus a test', evidence: ['ev-test'],
+        alternatives: [
+          [req('r1a', 'English', 'A')],
+          [{ id: 'r1b', kind: 'test', mandatory: true, label: 'An English test (IELTS Academic 7.0, at least 6.0 in each part)', evidence: ['ev-test'] }],
+        ],
+      },
+      req('r2', 'English', 'B', { minGrade: 6, gradeScale: localScheme.gradeScale.id, minGradeWaivedAtLevel: 'A' }),
+    ],
+  };
+  const b5 = assess(profile([{ subject: 'english-b', level: 'SL', grade: 5 }]), cbs, { ...options, evidenceStatus: verified });
+  eq('English B SL at 5 is possible with action at a test-route programme', b5.outcome, OUTCOME.POSSIBLE);
+  check('and the action named is the test', b5.gaps.some((g) => /IELTS Academic 7\.0/.test(g.message)), JSON.stringify(b5.gaps.map((g) => g.message)));
+  const b4 = assess(profile([{ subject: 'english-b', level: 'SL', grade: 4 }]), cbs, { ...options, evidenceStatus: verified });
+  eq('English B SL at 4 does not currently meet it: the test needs English B at 6.0 first', b4.outcome, OUTCOME.DOES_NOT_MEET);
+  const a = assess(profile([{ subject: 'english-a-literature', level: 'SL', grade: 4 }]), cbs, { ...options, evidenceStatus: verified });
+  eq('any English A meets it with no test', a.outcome, OUTCOME.MEETS);
+}
+
+/* --- a minimum average, and a floor that only gates quota 1 ------------------ *
+ *
+ * RUC Social Sciences: "6.0 … from your entry qualification" or "4.0 … in the
+ * subjects English and Mathematics", as an eligibility rule. AU: 6.0 overall
+ * "to be assessed in quota 1" — below it the student is still eligible.
+ */
+{
+  const scale = localScheme.gradeScale.id;
+  const ruc = {
+    id: 'opp-test-minimum', destination: 'dk', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' },
+    evidence: ['ev-test'], admission: { restricted: true },
+    requirements: [
+      req('r1', 'English', 'B'),
+      req('r2', 'Mathematics', 'B'),
+      {
+        id: 'r3', kind: 'subject-combination', mandatory: true, operator: 'one-of', label: 'Minimum grades', evidence: ['ev-test'],
+        alternatives: [
+          [{ id: 'r3a', kind: 'minimum-average', mandatory: true, minAverage: 6, gradeScale: scale, evidence: ['ev-test'] }],
+          [{ id: 'r3b', kind: 'minimum-average', mandatory: true, minAverage: 4, gradeScale: scale, evidence: ['ev-test'],
+             averageOf: [{ subject: 'English', levelScale: LOCAL_SCALE }, { subject: 'Mathematics', levelScale: LOCAL_SCALE }] }],
+        ],
+      },
+    ],
+  };
+  const weak = profile([{ subject: 'english-b', level: 'SL', grade: 3 }, { subject: 'mathematics-ai', level: 'SL', grade: 3 }], { totalPoints: 25 });
+  check('25 points with a 3 in English and Maths does not meet RUC\'s minimum',
+    assess(weak, ruc, { ...options, evidenceStatus: verified }).outcome !== OUTCOME.MEETS);
+  const pair = profile([{ subject: 'english-b', level: 'SL', grade: 3 }, { subject: 'mathematics-ai', level: 'SL', grade: 5 }], { totalPoints: 25 });
+  eq('a 3 and a 5 (02 and 7, average 4.5) meets it through English and Maths', assess(pair, ruc, { ...options, evidenceStatus: verified }).outcome, OUTCOME.MEETS);
+  const total = profile([{ subject: 'english-b', level: 'SL', grade: 3 }, { subject: 'mathematics-ai', level: 'SL', grade: 3 }], { totalPoints: 28 });
+  eq('28 points meets it overall', assess(total, ruc, { ...options, evidenceStatus: verified }).outcome, OUTCOME.MEETS);
+
+  const au = {
+    ...ruc, id: 'opp-test-quota-floor',
+    requirements: [
+      req('r1', 'English', 'B'),
+      { id: 'q1', kind: 'minimum-average', mandatory: true, minAverage: 6, gradeScale: scale, quota: 'Quota 1', evidence: ['ev-test'] },
+      { id: 'q2', kind: 'minimum-average', mandatory: true, minAverage: 6, gradeScale: scale, quota: 'Quota 1', evidence: ['ev-test'],
+        averageOf: [{ subject: 'Mathematics', levelScale: LOCAL_SCALE, level: 'A' }] },
+    ],
+  };
+  const low = assess(profile([{ subject: 'english-b', level: 'SL', grade: 5 }, { subject: 'mathematics-aa', level: 'HL', grade: 3 }], { totalPoints: 26 }), au, { ...options, evidenceStatus: verified });
+  eq('below a quota 1 floor is still eligible', low.outcome, OUTCOME.MEETS);
+  check('but both floors are reported as not met', low.floors.length === 2 && low.floors.every((f) => f.status === 'unmet'), JSON.stringify(low.floors));
+  check('and the student is told it means quota 2', low.caveats.some((c) => /Quota 1: Needs at least 28 IB points/.test(c)), JSON.stringify(low.caveats));
+  eq('6.0 overall reads as 28 IB points', floorTerms(au.requirements[1], subjectIndex).ibText, 'at least 28 IB points');
+  eq('6.0 in Mathematics A reads as a 5 in Maths HL', floorTerms(au.requirements[2], subjectIndex).ibText, 'a 5 in Maths HL (AA or AI)');
+  const withMin = buildSubjectIndex({ subjects: catalogue.subjects, schemes, diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
+  eq('a floor below the Diploma minimum reads as any IB Diploma',
+    floorTerms({ kind: 'minimum-average', minAverage: 3.3, gradeScale: scale }, withMin).ibText, 'any IB Diploma');
+}
 
 /* --- and the engine may not learn any destination's vocabulary -------------- *
  *

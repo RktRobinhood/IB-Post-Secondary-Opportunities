@@ -62,21 +62,63 @@
       ]
     },
     {
-      "id": "req-all-1",
-      "kind": "local-equivalency",
+      "id": "req-english-language",
+      "kind": "subject-combination",
       "mandatory": true,
-      "label": "English at A level",
-      "subject": "English",
-      "levelScale": "dk-abc",
-      "level": "A",
-      "operator": "at-least",
+      "operator": "one-of",
+      "label": "Language requirement: English A, or English B at 6.0 plus an English test",
+      "officialWording": {
+        "text": "You can only take a language test to fulfil the language requirement English level A if you have already passed English level B with a minimum grade of 6.0. … The IELTS Academic test must be passed with both an overall score of at least 7.0 and a minimum score of 6.0 for each of the four different sections. … The TOEFL iBT/ iBT Home Edition taken on or after 21 January 2026 must be passed with both a minimum overall score of at least 5 and a minimum score of 4,5 in each of the four different sections.",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "req-all-1",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at A level",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-1untt19"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "test",
+            "mandatory": true,
+            "label": "An English test (IELTS Academic 7.0 or TOEFL iBT 5) on top of English B at 6.0",
+            "shortLabel": "an English test (IELTS 7.0) with English B at 5+",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-cbs-dk-jtk0jr"
+            ],
+            "note": "IELTS Academic: overall at least 7.0 and at least 6.0 in each of the four sections. TOEFL iBT taken on or after 21 January 2026: overall at least 5 and at least 4.5 in each section. Results by 5 July, 12:00; the test date may be at most two years old on 5 July."
+          }
+        ]
+      ],
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-cbs-dk-1untt19"
-      ]
+        "ev-cbs-dk-1untt19",
+        "ev-cbs-dk-jtk0jr"
+      ],
+      "note": "CBS application-and-admission page, read in a browser 25 Sep 2026. Cambridge C1 Advanced (185) or C2 Proficiency (200) meets both English B at 6.0 and the English A requirement. Test results must reach CBS by 5 July, 12:00; a test date may be at most two years old on 5 July."
     },
     {
       "id": "req-all-2",

@@ -18,7 +18,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { statusFor } from './evidence-policy.mjs';
-import { buildSubjectIndex, ibPointsFor, ibTermsFor } from './eligibility.mjs';
+import { buildSubjectIndex, floorTerms, ibPointsFor, ibTermsFor, ibTermsPhrase } from './eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -111,9 +111,11 @@ export async function loadCanonical({ dataDir = DATA, strict = true } = {}) {
      one lookup the projection needs and it belongs to no Destination. */
   let ibSubjectNames = new Map();
   let ibCatalogue = [];
+  let diplomaMinimumPoints = null;
   try {
     const cat = JSON.parse(await fs.readFile(path.join(dataDir, 'ib-subjects.json'), 'utf8'));
     ibCatalogue = cat.subjects || [];
+    diplomaMinimumPoints = cat.diplomaMinimumPoints ?? null;
     ibSubjectNames = new Map(ibCatalogue.map((x) => [x.id, x.name]));
   } catch {
     /* A missing catalogue degrades to showing the id, which is ugly and true. */
@@ -129,6 +131,7 @@ export async function loadCanonical({ dataDir = DATA, strict = true } = {}) {
     // An institution's own additions to a scheme (ibEquivalences) are read by
     // the same translation, for that institution's Opportunities only.
     institutions: institutions.map((f) => f.record),
+    diplomaMinimumPoints,
   });
 
   /* Evidence is indexed across files, not within them. One id used in two
@@ -337,6 +340,13 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
                 opp.admission.historicalCutoffs[0].scale,
                 subjectIndex
               ),
+              /* A cut-off the Diploma's own minimum already reaches: "21 IB
+                 points" would suggest a total no Diploma is awarded at. */
+              anyDiploma: (() => {
+                const pts = ibPointsFor(opp.admission.historicalCutoffs[0].value, opp.admission.historicalCutoffs[0].scale, subjectIndex);
+                const floor = subjectIndex?.diplomaMinimumPoints;
+                return pts != null && floor != null && pts <= floor;
+              })(),
               intake: opp.admission.historicalCutoffs[0].intake
                 ? `${opp.admission.historicalCutoffs[0].intake.split('-')[0]} intake`
                 : null,
@@ -438,13 +448,37 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
  * assesses correctly and the page cannot draw is worse than one we never
  * recorded — the student is told there is nothing to meet.
  */
+/** A requirement published in IB terms, as an option the phrase-maker reads. */
+function ibOption(r, subjectIndex) {
+  const found = subjectIndex?.get(r.ibSubject);
+  return {
+    id: r.ibSubject,
+    name: found?.name || r.ibSubject,
+    family: found?.family || null,
+    course: found?.course || null,
+    area: found?.area || null,
+    // SL is the lowest level that counts: HL meets it too, as the engine grades.
+    levels: r.ibLevel === 'HL' ? ['HL'] : ['SL', 'HL'],
+  };
+}
+
 function subjectOf(r, ibSubjectNames, subjectIndex = null, institution = null) {
   if (r.kind === 'ib-subject' && r.ibSubject) {
     return {
       subject: ibSubjectNames.get(r.ibSubject) || r.ibSubject,
       level: r.ibLevel === 'any' ? 'HL or SL' : r.ibLevel || '',
       ...(r.minGrade ? { minGrade: r.minGrade } : {}),
+      /* Published in IB terms: nothing to translate and no "as published" line
+         of its own, but still written the way every other requirement is —
+         "Any IB Maths", "Physics HL". */
+      ibNative: true,
+      option: ibOption(r, subjectIndex),
+      ibPhrase: subjectIndex ? ibTermsPhrase([ibOption(r, subjectIndex)], subjectIndex) : null,
     };
+  }
+  if (r.kind === 'minimum-average') {
+    const terms = floorTerms(r, subjectIndex);
+    return terms?.ibText ? { floor: true, quota: terms.quota, ibText: terms.ibText, localText: terms.localText } : null;
   }
   if (r.subject && r.level) {
     /* A local level is never handed to a page on its own: "English B" on a
@@ -469,7 +503,7 @@ function subjectOf(r, ibSubjectNames, subjectIndex = null, institution = null) {
  * of the choice and is shown as written.
  */
 function otherOf(r) {
-  return r?.label ? { other: true, kind: r.kind, label: r.label } : null;
+  return r?.label ? { other: true, kind: r.kind, label: r.label, ...(r.shortLabel ? { shortLabel: r.shortLabel } : {}) } : null;
 }
 
 function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = null, institution = null) {
@@ -481,11 +515,28 @@ function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = nu
      `oneOf` stays the first set for the readers that know only one;
      `oneOfSets` is all of them. */
   const oneOfSets = [];
+  const quotaFloors = [];
 
   for (const r of requirements) {
     if (r.kind === 'subject-combination' && r.alternatives?.length) {
       if (r.mandatory === false) continue;
-      oneOfSets.push(r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames, subjectIndex, institution) || otherOf(x)).filter(Boolean)));
+      let set = r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames, subjectIndex, institution) || otherOf(x)).filter(Boolean));
+      /* A "one of" published in IB terms, one subject per option, is one
+         requirement: Zealand's "Mathematics: AI SL / Mathematics: AA SL" is
+         "Any IB Maths". */
+      if (set.length > 1 && set.every((g) => g.length === 1 && g[0].ibNative && !g[0].minGrade) && subjectIndex) {
+        const phrase = ibTermsPhrase(set.map((g) => g[0].option), subjectIndex);
+        all.push({ ...set[0][0], subject: phrase, level: '', ibPhrase: phrase });
+        continue;
+      }
+      oneOfSets.push(set);
+      continue;
+    }
+    /* A minimum average scoped to one quota is not an entry requirement: it
+       decides whether you are ranked in that quota. It travels separately. */
+    if (r.kind === 'minimum-average' && r.quota) {
+      const f = subjectOf(r, ibSubjectNames, subjectIndex, institution);
+      if (f) quotaFloors.push(f);
       continue;
     }
     /* A Selection Factor is `mandatory: false` — used in ranking, not in
@@ -495,8 +546,9 @@ function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = nu
     const projected = subjectOf(r, ibSubjectNames, subjectIndex, institution);
     if (projected) all.push(projected);
   }
-  if (!all.length && !oneOfSets.length) return null;
+  if (!all.length && !oneOfSets.length && !quotaFloors.length) return null;
   return {
+    ...(quotaFloors.length ? { quotaFloors } : {}),
     ...(all.length ? { all } : {}),
     ...(oneOfSets.length ? { oneOf: oneOfSets[0], oneOfSets } : {}),
   };

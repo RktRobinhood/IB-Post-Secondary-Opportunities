@@ -480,7 +480,10 @@ function levelRows(site, c) {
     localName.set(`${m.danish}|${m.level}`, m.danishSubject);
   }
 
+  // Only the levels a programme here actually asks for: the handbook's full
+  // table is further down the page, and 30 stacked cards on a phone is a wall.
   return [...keys]
+    .filter((k) => asked.has(k))
     .map((k) => k.split('|'))
     .sort((a, b) => a[0].localeCompare(b[0]) || (rank.get(b[1]) ?? 0) - (rank.get(a[1]) ?? 0))
     .map(([subject, level]) => {
@@ -495,7 +498,7 @@ function levelRows(site, c) {
       return [
         html`<strong>${subject} ${level}</strong>${own ? html`<br><small lang="da">${own} ${level}</small>` : ''}`,
         t.phrase
-          ? html`<span class="req-ib">${t.phrase}</span>`
+          ? html`<span class="req-ib">${t.phrase}</span>${(t.cautions || []).map((x) => html`<br><small>${x}</small>`)}`
           : html`<span class="req-none">No ${local.length ? 'national ' : ''}IB equivalent.</span> <small>${firstSentence(t.none, 40)}</small>${local.map(
               ({ i, t: x }) => html`<br><small><strong>${i.shortName || i.name}:</strong> ${x.institution.phrase}</small>`
             )}`,
@@ -617,7 +620,9 @@ ${hero({
             (<a href="https://www.retsinformation.dk/eli/lta/2026/288" rel="noopener nofollow">Adgangsbekendtgørelsen, BEK nr 288 of 17 February 2026</a>,
             § 17) ranks quota 1 on the exam average — for an IB Diploma, the converted average in this table — and
             contains no multiplier for applying soon after school. So a programme's cut-off and your converted average
-            compare directly, and the IB points shown beside a cut-off on this site are read straight off this table.</p>
+            compare directly, and the IB points shown beside a cut-off on this site are read straight off this table.
+        The same § 17 converts an exam <em>from an EU or EEA country</em>; § 18 puts applicants whose exam is from
+        outside the EU/EEA in quota 2 only. An IB Diploma taken at a school in Denmark is converted like this.</p>
             ${dataTable({
               caption: c.gradeAverage.appliesTo,
               head: ['IB total', { label: 'Danish average', num: true }],

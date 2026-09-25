@@ -147,6 +147,13 @@ export function buildSubjectIndex(input = []) {
   }
   index.areas = areas;
 
+  /* How many catalogue courses each family has, so a rule that accepts every
+     one of them is written as the family alone: "English A", not "English A
+     (Literature or Lang & Lit)". */
+  const families = new Map();
+  for (const subject of subjects) if (subject.family) families.set(subject.family, (families.get(subject.family) || 0) + 1);
+  index.families = families;
+
   const schemes = new Map();
   for (const record of schemeRecords) {
     const scheme = prepareScheme(record);
@@ -164,6 +171,10 @@ export function buildSubjectIndex(input = []) {
     institutionRoutes.set(inst.id, { name: inst.name || inst.shortName || inst.id, rows });
   }
   index.institutionRoutes = institutionRoutes;
+
+  /* The lowest total an IB Diploma is awarded at — IB vocabulary, from the
+     catalogue — so a cut-off or floor below it can be said as "any Diploma". */
+  index.diplomaMinimumPoints = Array.isArray(input) ? null : input?.diplomaMinimumPoints ?? null;
 
   /* Asking "what do my subjects count as locally?" without naming a scale is
    * only answerable while exactly one scale is loaded. With two it is a
@@ -359,6 +370,105 @@ export function ibPointsFor(value, gradeScale, subjectIndex) {
   return null;
 }
 
+/** The scheme whose grade scale a figure is on. */
+function schemeForGrade(gradeScale, subjectIndex) {
+  for (const scheme of subjectIndex?.schemes?.values() || []) if (scheme.gradeScale === gradeScale) return scheme;
+  return null;
+}
+
+/**
+ * A minimum average — overall, or across named subjects — in IB terms.
+ *
+ * Overall: the lowest IB total whose converted average reaches it ("at least
+ * 28 IB points"), or "any IB Diploma" where even the Diploma's minimum does.
+ * One subject: the lowest IB grade that converts to it, in that subject's IB
+ * terms ("a 5 in Maths HL (AA or AI)"). Several: the converted grades must
+ * average it, and the grade that is enough in each is named.
+ */
+export function floorTerms(rule, subjectIndex) {
+  if (rule?.kind !== 'minimum-average' || rule.minAverage == null) return null;
+  const scheme = schemeForGrade(rule.gradeScale, subjectIndex);
+  const min = Number(rule.minAverage);
+  // An average is written to one decimal ("7.0"), as the institutions write it.
+  const label = min.toFixed(1);
+  const subjects = rule.averageOf || [];
+  const out = { quota: rule.quota || null, min, label, ibText: null, localText: null, ibPoints: null, minIbGrade: null };
+
+  if (!subjects.length) {
+    out.localText = `an average of ${label}`;
+    const pts = ibPointsFor(min, rule.gradeScale, subjectIndex);
+    out.ibPoints = pts;
+    const floor = subjectIndex?.diplomaMinimumPoints;
+    out.ibText = pts == null
+      ? null
+      : floor != null && pts <= floor
+      ? 'any IB Diploma'
+      : `at least ${pts} IB points`;
+    return out;
+  }
+
+  const reaching = (scheme?.single || []).filter((r) => Number(r.local) >= min).map((r) => Number(r.ib));
+  out.minIbGrade = reaching.length ? Math.min(...reaching) : null;
+  const names = subjects.map((x) => (x.level ? `${x.subject} ${x.level}` : x.subject));
+  out.localText = `${label} in ${orList(names).replace(/ or ([^ ]+)$/, ' and $1')}`;
+  if (subjects.length === 1) {
+    const terms = subjects[0].level
+      ? ibTermsFor({ subject: subjects[0].subject, level: subjects[0].level, levelScale: subjects[0].levelScale }, subjectIndex)
+      : null;
+    const what = terms?.phrase || subjects[0].subject;
+    out.ibText = out.minIbGrade != null ? `a ${out.minIbGrade} in ${what}` : null;
+  } else {
+    const list = subjects.map((x) => x.subject);
+    const joined = `${list.slice(0, -1).join(', ')} and ${list.at(-1)}`;
+    out.ibText = out.minIbGrade != null
+      ? `${joined} averaging ${label} once converted (a ${out.minIbGrade} in each is enough)`
+      : null;
+  }
+  return out;
+}
+
+/** Evaluate a minimum average against a profile, leading with the IB terms. */
+function minimumAverageRule(rule, ctx) {
+  const terms = floorTerms(rule, ctx.subjectIndex);
+  const scheme = schemeForGrade(rule.gradeScale, ctx.subjectIndex);
+  if (!terms?.ibText || !scheme) {
+    return unsure(`${rule.label || 'A minimum average'} is on a grade scale no Recognition Scheme recorded here converts, so it cannot be checked.`);
+  }
+  const asked = `As published: ${terms.localText}`;
+  const subjects = rule.averageOf || [];
+
+  if (!subjects.length) {
+    const pts = ctx.profile.totalPoints;
+    if (pts == null) return unsure(`Needs ${terms.ibText}. Add your predicted total to check. (${asked}.)`, true);
+    const avg = convertAverage(pts, scheme.average);
+    if (avg == null) return unsure(`${scheme.label} publishes no conversion for ${pts} points, so this cannot be checked.`);
+    if (avg < terms.min) {
+      return unmet(`Needs ${terms.ibText}: your ${pts} points convert to ${avg.toFixed(1)}, below ${terms.label}. (${asked}.)`, true);
+    }
+    return met(`Needs ${terms.ibText}: your ${pts} points convert to ${avg.toFixed(1)}. (${asked}.)`);
+  }
+
+  const grades = [];
+  for (const x of subjects) {
+    const have = ctx.converted(x.levelScale).held.get(x.subject);
+    const rank = x.level ? scheme && ctx.converted(x.levelScale).scheme?.rank.get(x.level) : null;
+    if (!have || (rank != null && have.rank < rank)) {
+      return unmet(`Needs ${terms.ibText}, and your profile has no IB subject that counts as ${x.subject}${x.level ? ` ${x.level}` : ''}. (${asked}.)`, true);
+    }
+    if (have.grade == null) return unsure(`Needs ${terms.ibText}. Add your grade for ${have.ibSubject} to check. (${asked}.)`, true);
+    const c = convertGrade(have.grade, scheme.single);
+    if (c == null) return unsure(`${scheme.label} publishes no conversion for an IB grade of ${have.grade}.`);
+    grades.push({ name: have.ibSubject, grade: have.grade, local: c });
+  }
+  const avg = grades.reduce((a, g) => a + g.local, 0) / grades.length;
+  // One grade is written as its scale writes it ("02"); an average to one decimal.
+  const shown = grades.length === 1 ? gradeLabel(scheme, avg) : avg.toFixed(1);
+  const said = grades.map((g) => `${g.name} at ${g.grade}`).join(' and ');
+  return avg >= terms.min
+    ? met(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}. (${asked}.)`)
+    : unmet(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}, below ${terms.label}. (${asked}.)`, true);
+}
+
 /** An IB total on a Recognition Scheme's grade-average table. */
 export function convertAverage(points, table = []) {
   const row = table.find((r) => r.ib === Number(points));
@@ -451,12 +561,15 @@ export function ibTermsFor(rule, subjectIndex, institutionId = null) {
       // I need?" — English B before English A for an English B requirement.
       floor: Math.min(...levels.flatMap((lvl) => reaches(lvl).filter((r) => r >= wantRank))),
       note: row.note || null,
+      // A mapping the handbook qualifies at some levels ("normally accepted").
+      caution: row.caution && levels.some((l) => row.caution.levels.includes(l)) ? row.caution.text : null,
     });
   }
   out.options.sort((a, b) => a.floor - b.floor);
 
   out.levelRank = wantRank;
   if (out.options.length) out.schemePhrase = ibTermsPhrase(out.options, subjectIndex);
+  out.cautions = [...new Set(out.options.map((o) => o.caution).filter(Boolean))];
 
   const inst = institutionId ? subjectIndex?.institutionRoutes?.get(institutionId) : null;
   const row = (inst?.rows || []).find(
@@ -629,11 +742,13 @@ export function ibTermsPhrase(options = [], subjectIndex = null) {
     for (const n of named) {
       if (!n.family) continue;
       const courses = families.get(n.family);
-      n.name = courses.length === 1 ? `${n.family} ${courses[0]}` : `${n.family} (${orList(courses)})`;
+      const whole = courses.length > 1 && subjectIndex?.families?.get(n.family) === courses.length;
+      n.name = courses.length === 1 ? `${n.family} ${courses[0]}` : whole ? n.family : `${n.family} (${orList(courses)})`;
+      n.whole = whole;
       n.courses = courses;
     }
 
-    if (named.length === 1 && named[0].courses?.length > 1 && levels.length === 1) {
+    if (named.length === 1 && named[0].courses?.length > 1 && !named[0].whole && levels.length === 1) {
       clauses.push(`${named[0].family} ${levels[0]} (${orList(named[0].courses)})`);
     } else {
       clauses.push(withLevels(orList(named.map((n) => n.name)), levels));
@@ -932,6 +1047,9 @@ function evaluateRule(rule, ctx) {
     case 'local-equivalency':
       return localEquivalencyRule(rule, ctx);
 
+    case 'minimum-average':
+      return minimumAverageRule(rule, ctx);
+
     case 'subject-combination': {
       const groups = rule.alternatives || [];
       if (!groups.length) return unsure('A combination requirement is recorded without alternatives.');
@@ -949,6 +1067,16 @@ function evaluateRule(rule, ctx) {
         return met(`One of the ${groups.length} accepted options is met. ${best.results.map((r) => r.message).join(' ')}`);
       }
       if (best.unmet.length === 0) {
+        /* Nothing the profile holds meets it, and what is left is a test the
+           student can go and take (CBS: English B at 6.0 plus IELTS 7.0).
+           That is a gap with an action, not a question we cannot answer. */
+        const onlyTests = best.group.every((r) => r.kind === 'test');
+        if (onlyTests && groups.length > 1) {
+          return unmet(
+            `Your subjects do not meet this on their own. The other published way in: ${best.group.map((r) => r.label).join(' and ')}.`,
+            true
+          );
+        }
         return unsure(best.unknown.map((r) => r.message).join(' '));
       }
       return unmet(
@@ -1072,7 +1200,15 @@ export function assess(profile, opportunity, options) {
     },
   };
 
-  const mandatory = (opportunity.requirements || []).filter((r) => r.mandatory !== false);
+  /* A floor scoped to one quota ("to be assessed in quota 1") does not decide
+     eligibility: below it a student can still be admitted in quota 2. It is
+     evaluated, reported in `floors`, and raised as a caveat — never a gap. */
+  const scoped = (r) => r.kind === 'minimum-average' && r.quota;
+  const mandatory = (opportunity.requirements || []).filter((r) => r.mandatory !== false && !scoped(r));
+  const floors = (opportunity.requirements || []).filter(scoped).map((r) => {
+    const res = evaluateRule(r, ctx);
+    return { id: r.id, quota: r.quota, status: res.status, message: res.message, terms: floorTerms(r, subjectIndex) };
+  });
   const selectionFactors = (opportunity.requirements || []).filter((r) => r.mandatory === false);
 
   const matched = [];
@@ -1143,6 +1279,14 @@ export function assess(profile, opportunity, options) {
     dataIssues.push('No entry requirements are recorded for this Opportunity yet.');
   }
 
+  for (const f of floors) {
+    if (f.status === 'unmet') {
+      caveats.push(`${f.quota}: ${f.message} Below it you can still be considered in the other quota, where the institution decides on more than your average.`);
+    } else if (f.status === 'unknown') {
+      caveats.push(`${f.quota}: ${f.message}`);
+    }
+  }
+
   const evidence = evidenceStatus(opportunity.evidence);
   if (evidence) {
     if (evidence.level === 'conflicting') {
@@ -1197,6 +1341,8 @@ export function assess(profile, opportunity, options) {
     unmappedSubjects,
 
     /* Competitive selection is reported, never folded into the outcome. */
+    floors,
+
     selection: {
       restricted: !!opportunity.admission?.restricted,
       factors: selectionFactors.map((r) => ({ label: r.label || r.kind, kind: r.kind })),

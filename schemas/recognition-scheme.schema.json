@@ -223,6 +223,29 @@
           },
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
+          },
+          "caution": {
+            "type": "object",
+            "description": "A mapping the handbook qualifies: at these IB levels it holds only as the institutions' usual practice, not as the table's own answer. Shown beside the translation.",
+            "required": [
+              "levels",
+              "text"
+            ],
+            "properties": {
+              "levels": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "SL",
+                    "HL"
+                  ]
+                }
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           }
         },
         "additionalProperties": false

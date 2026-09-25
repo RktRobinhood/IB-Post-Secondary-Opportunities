@@ -267,7 +267,8 @@
             "prior-education",
             "application-round",
             "quota",
-            "other"
+            "other",
+            "minimum-average"
           ]
         },
         "mandatory": {
@@ -398,6 +399,42 @@
         },
         "evidence": {
           "$ref": "common.schema.json#/$defs/evidenceRefs"
+        },
+        "minAverage": {
+          "type": "number",
+          "description": "For kind 'minimum-average': the lowest average on the grade scale named by `gradeScale`. Without `averageOf` it is the qualifying exam's overall average (for an IB Diploma, the total converted by the Recognition Scheme's average table); with it, the average of those subjects' converted grades."
+        },
+        "averageOf": {
+          "type": "array",
+          "minItems": 1,
+          "description": "For kind 'minimum-average': the subjects whose grades are averaged, on a local subject scale — AU's \"6.0 in Mathematics A\", RUC's \"4.0 in the subjects English and Mathematics\".",
+          "items": {
+            "type": "object",
+            "required": [
+              "subject",
+              "levelScale"
+            ],
+            "properties": {
+              "subject": {
+                "type": "string"
+              },
+              "levelScale": {
+                "type": "string"
+              },
+              "level": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "quota": {
+          "type": "string",
+          "description": "For kind 'minimum-average': the admission quota the floor applies to, e.g. \"Quota 1\". A scoped floor does not decide eligibility — a student below it can still be admitted another way — so the engine reports it beside the outcome rather than as a gap."
+        },
+        "shortLabel": {
+          "type": "string",
+          "description": "A shorter label for a card, where the full label is too long to scan — \"an English test (IELTS 7.0)\". The programme page shows `label`."
         }
       },
       "additionalProperties": false

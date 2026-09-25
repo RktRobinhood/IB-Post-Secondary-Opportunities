@@ -207,7 +207,7 @@ ${hero({
   </div>
 </section>
 
-<script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes, institutions }))}</script>
+<script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes, institutions, diplomaMinimumPoints: site.ibDiplomaMinimumPoints ?? null }))}</script>
 <script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
 <script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
 <script type="application/json" id="planner-groups">${raw(JSON.stringify(site.applicantGroups || []))}</script>

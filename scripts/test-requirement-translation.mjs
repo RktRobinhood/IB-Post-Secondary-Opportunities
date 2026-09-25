@@ -160,14 +160,16 @@ function expected(entry) {
   const card = new Set();
   for (const x of model.all) if (x.kind === 'ib') card.add(x.text);
   for (const set of model.sets.filter((x) => !x.implied)) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(x.text);
+  for (const f of model.floors) card.add(f.ib);
 
   const detail = new Set();
   const detailText = (r) =>
-    r.other ? null : r.translation ? r.translation.phrase : `${r.subject} ${r.level}`;
+    r.other ? null : r.floor ? r.ibText : r.translation ? r.translation.phrase : r.ibPhrase || `${r.subject} ${r.level}`;
   for (const x of model.all) if (x.kind === 'ib') detail.add(detailText(x.r));
-  for (const set of model.sets) {
+  for (const set of model.sets.filter((x) => !x.implied)) {
     for (const o of set.open) for (const r of o.groups[0]) if (detailText(r)) detail.add(detailText(r));
   }
+  for (const f of model.floors) detail.add(f.ib);
   detail.delete(null);
   const allowed = new Set([...card, ...detail]);
   return { card: { allowed, required: card }, detail: { allowed, required: detail } };
@@ -218,7 +220,11 @@ for (const p of programmes) {
   if (!rules.length) continue;
   translatedProgrammes++;
   const expect = expected(p.entryRequirements);
-  const bareLine = requirementLine(p.entryRequirements);
+  // The whole published line, as the old card printed it. A one-subject line
+  // ("English B") is a phrase the institution's own quoted wording may use too;
+  // inside the blocks the residue check above covers it.
+  const published = requirementLine(p.entryRequirements);
+  const bareLine = /·|one of:/.test(published) ? published : null;
 
   // Programme page.
   const page = await read('programmes', p.id, 'index.html');
@@ -265,6 +271,34 @@ for (const p of programmes) {
   }
 }
 check('there are programmes with local-scale requirements to check', translatedProgrammes > 0);
+
+/* --- no Markdown left unrendered ---------------------------------------------- *
+ *
+ * Round 2 of the critic found "([how totals convert](/denmark/…))" printed as
+ * literal text on 24 programme pages: md() only knew absolute links. Any
+ * "](/" or "](http" in a page's visible text is a link that never became one.
+ */
+{
+  const pages = [];
+  const walk = async (dir) => {
+    for (const e of await fs.readdir(dir, { withFileTypes: true })) {
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) await walk(full);
+      else if (e.name.endsWith('.html')) pages.push(full);
+    }
+  };
+  await walk(DIST);
+  const leaks = [];
+  for (const f of pages) {
+    const visible = (await fs.readFile(f, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
+    const m = visible.match(/\]\((\/|https?:)[^)\s]*\)/);
+    if (m) leaks.push(`${path.relative(DIST, f)}: …${m[0].slice(0, 60)}`);
+  }
+  check('no built page prints a Markdown link as text', leaks.length === 0, leaks.slice(0, 8).join('\n        '));
+  check('and the scan looked at the built site', pages.length > 50);
+  const planted = 'See the table ([how totals convert](/denmark/ib-conversion/#average)).';
+  check('the scan can see one', /\]\((\/|https?:)[^)\s]*\)/.test(planted));
+}
 
 /* --- the planner's sentences ------------------------------------------------- */
 

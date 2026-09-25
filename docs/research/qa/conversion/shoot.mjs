@@ -187,6 +187,39 @@ try {
   await open('/programmes/dk-au-computer-science-2027-autumn/');
   await shotOf('.glance', '12-programme-cutoff-in-ib-points', { maxHeight: 400 });
 
+  // 5c. Round 2: CBS test route, RUC minimum, SDU quota 1 floor, Zealand in IB terms
+  for (const [id, name] of [
+    ["dk-cbs-international-business-2027-autumn", "13-programme-cbs-english-test"],
+    ["dk-ruc-international-bachelor-in-social-sciences-2027-autumn", "14-programme-ruc-minimum-average"],
+    ["dk-sdu-software-engineering-sonderborg-2027-autumn", "15-programme-sdu-quota1-floor"],
+    ["dk-zealand-cybersecurity-2027-autumn", "16-programme-zealand-ib-native"],
+  ]) {
+    await open(`/programmes/${id}/`);
+    await shotOf(".req-detail", name);
+  }
+  await open("/programmes/dk-sdu-software-engineering-sonderborg-2027-autumn/");
+  await shotOf(".glance", "15b-sdu-glance", { maxHeight: 400 });
+  await open("/universities/dk-cbs/");
+  await shotOf("#programmes + .grid", "17-cbs-card-grid", { maxHeight: 1600 });
+
+  // 5d. The planner at 26 points: below AU's quota 1 floor
+  await open("/planner/");
+  await evaluate(`(async () => {
+    const set = (sel, v) => { const el = document.querySelector(sel); el.value = v; el.dispatchEvent(new Event("change", { bubbles: true })); };
+    const six = [["english-b","SL","5"],["mathematics-aa","HL","3"],["history","HL","5"],["biology","SL","4"],["chemistry","SL","4"],["global-politics","HL","5"]];
+    six.forEach(([s,l,g], i) => { set(".p-subject[data-slot='" + (i+1) + "']", s); set(".p-level[data-slot='" + (i+1) + "']", l); set(".p-grade[data-slot='" + (i+1) + "']", g); });
+    set("#p-award", "diploma");
+    const t = document.getElementById("p-total"); t.value = "26"; t.dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise(r => setTimeout(r, 300));
+    const li = [...document.querySelectorAll("#p-results > li")].find(x => /Data Science/.test(x.textContent) && /AU/.test(x.textContent));
+    if (li) { li.querySelector("details").open = true; li.id = "shot-floor"; }
+    const conv = document.getElementById("p-converted"); conv.querySelector("details")?.setAttribute("open", "");
+    return !!li;
+  })()`);
+  await sleep(300);
+  await shotOf("#shot-floor", "18-planner-quota1-floor");
+  await shotOf("#p-converted", "19-planner-subjects-summary", { maxHeight: 700 });
+
   // 6. The conversion page's new table
   await open('/denmark/ib-conversion/');
   await evaluate(WRAP_LEVELS);

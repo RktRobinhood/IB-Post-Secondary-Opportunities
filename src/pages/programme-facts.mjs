@@ -109,7 +109,9 @@ export function cutoffSentence(cutoff, scaleName, conversionHref = null) {
   return numeric
     ? `The most recently published ${quota}cut-off was **${cutoff.value}**${scaleName ? ` on the ${scaleName}` : ''}${when}.${
         /* In IB points: the lowest total whose converted average reaches it (ibPointsFor). */
-        cutoff.ibPoints
+        cutoff.anyDiploma
+          ? ` In IB terms any IB Diploma clears it: even the lowest total a Diploma is awarded at converts higher${conversionHref ? ` ([how totals convert](${conversionHref}))` : ''}.`
+          : cutoff.ibPoints
           ? ` In IB terms that is a total of **${cutoff.ibPoints} points** or more${conversionHref ? ` ([how totals convert](${conversionHref}))` : ''}.`
           : ''
       } Cut-offs move every year, so treat any published figure as a floor rather than a target.`

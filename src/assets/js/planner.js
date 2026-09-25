@@ -184,7 +184,12 @@ function renderConverted(profile) {
 
   els.converted.innerHTML = `
     <span style="flex-basis:100%"><strong>${chosen} of 6 subjects entered</strong></span>
-    ${chips.join(' ')}
+    ${chips.length
+      ? `<details style="flex-basis:100%"><summary>What your subjects count as${ADJ ? ` on the ${ADJ} scale` : ''}</summary>
+           <p style="margin:.5rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem">${chips.join(' ')}</p>
+           <p style="margin:.35rem 0 0;font-size:.8125rem;color:var(--ink-mute)">One IB subject can count as several of these at once. Each result below says, in IB terms, which of your subjects meets what.</p>
+         </details>`
+      : ''}
     ${avg !== null
       ? `<span style="flex-basis:100%;margin-top:.5rem">${profile.totalPoints} points converts to ${withArticle(ADJ ? `${ADJ} average` : 'local average')} of <strong>${avg.toFixed(1)}</strong>.</span>`
       : ''}
@@ -199,6 +204,7 @@ function renderConverted(profile) {
    converted average reaches it. Nothing where no loaded scheme defines the scale. */
 function cutoffPoints(c) {
   const pts = ibPointsFor(c?.value, c?.scale, subjectIndex);
+  if (pts != null && subjectIndex.diplomaMinimumPoints != null && pts <= subjectIndex.diplomaMinimumPoints) return ', which any IB Diploma clears';
   return pts ? `, ${pts} IB points` : '';
 }
 
@@ -224,6 +230,13 @@ function renderCard({ opportunity, assessment }) {
     ...assessment.matched.map((e) => rule(e, '<span aria-hidden="true">✓</span>')),
     ...assessment.gaps.map((e) => rule(e, '<span aria-hidden="true">✗</span>')),
     ...assessment.unknowns.map((e) => rule(e, '<span aria-hidden="true">?</span>')),
+    /* A floor that decides which quota ranks you, not whether you qualify. */
+    ...(assessment.floors || []).map((f) =>
+      rule(
+        { message: `${f.quota}: ${f.message}${f.status === 'unmet' ? ' Below it you can still be admitted in the other quota, where more than your average counts.' : ''}` },
+        f.status === 'met' ? '<span aria-hidden="true">✓</span>' : f.status === 'unmet' ? '<span aria-hidden="true">!</span>' : '<span aria-hidden="true">?</span>'
+      )
+    ),
   ].join('');
 
   return `

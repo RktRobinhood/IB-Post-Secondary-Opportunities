@@ -193,6 +193,88 @@
       "evidence": [
         "ev-ruc-dk-kp2j8"
       ]
+    },
+    {
+      "id": "req-minimum-grades",
+      "kind": "subject-combination",
+      "mandatory": true,
+      "operator": "one-of",
+      "label": "Minimum grade requirement: an average of 6.0, or 4.0 in English and Mathematics",
+      "officialWording": {
+        "text": "One of the following: 6.0 on the Danish 7-point grading scale from your entry qualification; 4.0 on the Danish 7-point grading scale in the subjects English and Mathematics. If you do not meet the grade requirements, you will receive a rejection letter, regardless of whether there are fewer applicants than the number of study places.",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "req-minimum-overall",
+            "kind": "minimum-average",
+            "mandatory": true,
+            "label": "An average of at least 6.0",
+            "minAverage": 6,
+            "gradeScale": "dk-7-point",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-ruc-dk-kp2j8"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-minimum-en-ma",
+            "kind": "minimum-average",
+            "mandatory": true,
+            "label": "An average of at least 4.0 in English and Mathematics",
+            "minAverage": 4,
+            "gradeScale": "dk-7-point",
+            "averageOf": [
+              {
+                "subject": "English",
+                "levelScale": "dk-abc"
+              },
+              {
+                "subject": "Mathematics",
+                "levelScale": "dk-abc"
+              }
+            ],
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-ruc-dk-kp2j8"
+            ]
+          }
+        ]
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ],
+      "note": "RUC, https://ruc.dk/en/minimum-grade-requirements (read 25 Sep 2026): quota 1 needs the 6.0 overall; quota 2 accepts either route."
+    },
+    {
+      "id": "req-quota1-average",
+      "kind": "minimum-average",
+      "mandatory": true,
+      "label": "Quota 1: an average of at least 6.0",
+      "minAverage": 6,
+      "gradeScale": "dk-7-point",
+      "quota": "Quota 1",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-ruc-dk-kp2j8"
+      ]
     }
   ],
   "officialRequirementsText": [

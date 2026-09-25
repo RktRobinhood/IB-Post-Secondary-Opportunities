@@ -95,6 +95,50 @@
         "ev-bachelor-au-dk-1qk59k"
       ],
       "note": "The 6.0 in Mathematics A that AU publishes is a quota 1 floor. In quota 2 only the subject is required."
+    },
+    {
+      "id": "req-quota1-average",
+      "kind": "minimum-average",
+      "mandatory": true,
+      "label": "Quota 1: an average of at least 6.0",
+      "minAverage": 6,
+      "gradeScale": "dk-7-point",
+      "quota": "Quota 1",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-1qk59k"
+      ],
+      "officialWording": {
+        "text": "You must have a minimum GPA of 6.0 on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
+        "language": "en",
+        "official": true
+      }
+    },
+    {
+      "id": "req-quota1-maths",
+      "kind": "minimum-average",
+      "mandatory": true,
+      "label": "Quota 1: at least 6.0 in Mathematics A",
+      "minAverage": 6,
+      "gradeScale": "dk-7-point",
+      "quota": "Quota 1",
+      "averageOf": [
+        {
+          "subject": "Mathematics",
+          "levelScale": "dk-abc",
+          "level": "A"
+        }
+      ],
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-1qk59k"
+      ]
     }
   ],
   "officialRequirementsText": [

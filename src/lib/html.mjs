@@ -72,6 +72,9 @@ export function md(text) {
   const inline = (s) =>
     escape(s)
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener">$1</a>')
+      // A link within the site, already base-prefixed by the caller. Without
+      // this, "[how totals convert](/denmark/…)" printed as literal text.
+      .replace(/\[([^\]]+)\]\((\/[^)\s]*)\)/g, '<a href="$2">$1</a>')
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>')
       .replace(/`([^`]+)`/g, '<code>$1</code>');

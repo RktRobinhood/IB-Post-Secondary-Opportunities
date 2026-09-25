@@ -492,11 +492,14 @@ export function dataTable({ caption, head, rows, className = 'data' }) {
  */
 export function requirementLine(entry) {
   if (!entry) return '';
-  const fmt = (r) => (r.other ? r.label : `${r.subject} ${r.level}${r.minGrade ? ` (min ${minGradeOf(r)})` : ''}`);
+  const fmt = (r) =>
+    r.ibNative ? null : r.other ? r.label : r.floor ? r.localText : `${r.subject} ${r.level}${r.minGrade ? ` (min ${minGradeOf(r)})` : ''}`;
   const parts = [];
-  if (entry.all?.length) parts.push(entry.all.map(fmt).join(' · '));
+  const all = (entry.all || []).map(fmt).filter(Boolean);
+  if (all.length) parts.push(all.join(' · '));
   for (const set of oneOfSets(entry)) {
-    parts.push('one of: ' + set.map((group) => group.map(fmt).join(' + ')).join(' / '));
+    const groups = set.map((group) => group.map(fmt).filter(Boolean)).filter((g) => g.length);
+    if (groups.length) parts.push('one of: ' + groups.map((g) => g.join(' + ')).join(' / '));
   }
   return parts.join(' — ');
 }
@@ -530,8 +533,9 @@ function oneOfSets(entry) {
  * say.
  */
 
-const localForm = (r) => (r.other ? r.label : `${r.subject} ${r.level}`);
-const published = (r) => (r.other ? r.label : `${localForm(r)}${r.minGrade ? `, minimum ${minGradeOf(r)}` : ''}`);
+const localForm = (r) => (r.other ? r.label : r.floor ? r.localText : `${r.subject} ${r.level}`);
+const published = (r) =>
+  r.other || r.floor ? localForm(r) : `${localForm(r)}${r.minGrade ? `, minimum ${minGradeOf(r)}` : ''}`;
 
 /** A group can be met with IB subjects (or with a non-subject option). */
 const translatable = (group) => group.every((r) => r.other || !r.translation || r.translation.phrase);
@@ -577,6 +581,26 @@ function narrowedPhrase(r, siblings) {
   return [t.schemePhrase, routes.length ? routesPhrase(routes) : null].filter(Boolean).join('; or ') || null;
 }
 
+/** A requirement published in IB terms, written as the translated ones are. */
+function nativeText(r) {
+  const phrase = r.ibPhrase || `${r.subject} ${r.level}`;
+  return r.minGrade ? `${phrase}, at least a ${r.minGrade}` : phrase;
+}
+
+/** The quota floors, as one IB line: "at least 28 IB points and a 5 in Maths HL (AA or AI)". */
+function floorLine(floors) {
+  const byQuota = new Map();
+  for (const f of floors || []) {
+    if (!byQuota.has(f.quota)) byQuota.set(f.quota, []);
+    byQuota.get(f.quota).push(f);
+  }
+  return [...byQuota].map(([quota, fs]) => ({
+    quota,
+    ib: `${quota}: ${fs.map((f) => f.ibText).join(' and ')}`,
+    local: `${quota}: ${fs.map((f) => f.localText).join(' and ')}`,
+  }));
+}
+
 /**
  * What a requirement block says, before it is markup: shared by the card, the
  * programme page and the guard, so the three cannot drift apart.
@@ -586,9 +610,10 @@ export function requirementModel(entry) {
   const first = items.map((r) => r.translation).find(Boolean) || null;
 
   const line = (r, siblings = []) => {
-    if (r.other) return { kind: 'other', text: r.label };
+    if (r.other) return { kind: 'other', text: r.shortLabel || r.label };
+    if (r.floor) return { kind: 'ib', text: r.ibText };
     const t = r.translation;
-    if (!t) return { kind: 'ib', text: `${r.subject} ${r.level}${r.minGrade ? ` (min ${r.minGrade})` : ''}` };
+    if (!t) return { kind: 'ib', text: nativeText(r) };
     const phrase = narrowedPhrase(r, siblings);
     if (!t.phrase) return { kind: 'none', text: `${t.local} — no IB route` };
     if (!phrase) return null; // every route is already named by a sibling
@@ -646,13 +671,14 @@ export function requirementModel(entry) {
     return { open, closed, implied };
   });
 
-  return { first, all, sets };
+  return { first, all, sets, floors: floorLine(entry?.quotaFloors) };
 }
 
 /** "Danish requirement: Mathematics A (min 4)" — the published form, small. */
 function localBlock(entry, first, className) {
   const href = first.explainedAt;
-  const text = requirementLine(entry);
+  const floors = floorLine(entry?.quotaFloors).map((f) => f.local).join(' · ');
+  const text = [requirementLine(entry), floors].filter(Boolean).join(' · ');
   if (!text) return '';
   return html`<p class="${className}"><span class="req-local">${first.requirementLabel}: ${text}</span>${
     href ? html` <a class="req__how" href="${url(href)}">What this means in IB terms</a>` : ''
@@ -702,6 +728,7 @@ export function requirementSummary(entry, { lead = 'Needs' } = {}) {
 
   return html`<div class="req" data-req>
     <p class="req__ib"><strong>${lead}</strong> ${all.map((x, i) => html`${i ? ' · ' : ''}${x}`)}${oneOf}</p>
+    ${model.floors.map((f) => html`<p class="req__floor"><span class="req-ib">${f.ib}</span></p>`)}
     ${first ? localBlock(entry, first, 'req__local') : ''}
   </div>`;
 }
@@ -709,10 +736,11 @@ export function requirementSummary(entry, { lead = 'Needs' } = {}) {
 /** One item on a programme page: the IB terms, the grade, and whose rule it is. */
 function detailItem(r, { alternatives = false, phrase = null } = {}) {
   if (r.other) return html`<strong class="req-other">${r.label}</strong>`;
+  if (r.floor) return html`<strong class="req-ib">${r.ibText}</strong>`;
   const t = r.translation;
   if (!t) {
-    return html`<strong class="req-ib">${r.subject} ${r.level}</strong>${
-      r.minGrade ? html`<span class="need__grade">at least ${r.minGrade}</span>` : ''
+    return html`<strong class="req-ib">${r.ibPhrase || `${r.subject} ${r.level}`}</strong>${
+      r.minGrade ? html`<span class="need__grade req-grade">At least a ${r.minGrade}.</span>` : ''
     }`;
   }
   if (!t.phrase) {
@@ -728,7 +756,7 @@ function detailItem(r, { alternatives = false, phrase = null } = {}) {
     : `At least a ${t.minIbGrade} (${t.gradeNote}).`;
   return html`<strong class="req-ib">${phrase || t.phrase}</strong>${
     grade ? html`<span class="need__grade req-grade">${grade}</span>` : ''
-  }${t.institution
+  }${(t.cautions || []).map((c) => html`<span class="need__why req-why">${c}</span>`)}${t.institution
     ? html`<span class="need__why req-why">${t.schemePhrase ? 'The last part is' : 'This is'} ${t.institution.name}'s own rule${
         t.schemePhrase ? '' : '; the national table publishes no IB equivalent'
       }.</span>`
@@ -743,34 +771,53 @@ export function requirementDetail(entry) {
   if (!entry) return '';
   const model = requirementModel(entry);
   const { first } = model;
-  const asPublished = (items, sep = ' and ') =>
-    first ? html`<small class="req-local">${first.requirementLabel}: ${items.map(published).join(sep)}</small>` : '';
+  /* The published form, for the items that have one: a requirement published
+     in IB terms has no "Danish requirement" line of its own. */
+  const asPublished = (items, sep = ' and ') => {
+    // A non-subject option is shown as written already; it has no other form.
+    const shown = items.filter((r) => !r.ibNative && !(r.other && r.kind !== 'published'));
+    return first && shown.length
+      ? html`<small class="req-local">${first.requirementLabel}: ${shown.map(published).join(sep)}</small>`
+      : '';
+  };
 
   const everything = [...(entry.all || []), ...oneOfSets(entry).flat(2)];
   const graded = everything.some((r) => r.minGrade != null);
 
+  /* A "one of" left with a single option is just another requirement, and one
+     already settled by a subject required outright is not asked twice. */
+  const sets = oneOfSets(entry).map((groups, k) => ({ groups, ...model.sets[k] }));
+  const single = sets.filter((x) => !x.implied && x.open.length === 1 && !x.closed.length);
+  const choices = sets.filter((x) => !x.implied && !single.includes(x));
+  const implied = sets.filter((x) => x.implied);
+  const card = (o) => html`<li class="need__card">
+    ${o.groups[0].map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r)}`)}
+    ${asPublished(o.groups.map((g) => ({ other: true, kind: 'published', label: g.filter((r) => !r.ibNative && !r.other).map(published).join(' + ') })).filter((x) => x.label), ' or ')}
+  </li>`;
+
   return html`<div class="req-detail" data-req>
-    <p class="need__note">${graded
+    <p class="need__note">${model.floors.length
+      ? 'Subjects carry no minimum grade unless one is shown. The averages at the end decide your quota.'
+      : graded
       ? 'Where no grade is shown, no minimum grade is recorded for that subject.'
       : 'No minimum grade is recorded for any of these subjects.'}</p>
-    ${model.all.length
+    ${model.all.length || single.length
       ? html`<ul class="need need--ib" aria-label="Required subjects">${model.all.map(
           ({ r, merged, kind }) => html`<li class="need__card${kind === 'none' ? ' need__card--none' : ''}">
             ${detailItem(r)}${asPublished([r, ...merged])}
           </li>`
-        )}</ul>`
+        )}${single.map((x) => card(x.open[0]))}</ul>`
       : ''}
-    ${oneOfSets(entry).map((groups, k) => {
-      const { open, closed } = model.sets[k];
+    ${implied.map(
+      (x) => html`<p class="need__note"><span class="req-local">${first?.requirementLabel || 'As published'}: also one of ${x.groups
+        .map((g) => g.map(published).join(' + '))
+        .join(' / ')}</span> — already met by what is listed above.</p>`
+    )}
+    ${choices.map(({ groups, open, closed }, k) => {
       const someOpen = open.length > 0;
-      return html`<p class="need__or">${model.all.length || k ? 'And one of these:' : 'One of these:'}</p>
+      return html`<p class="need__or">${model.all.length || single.length || k ? 'And one of these:' : 'One of these:'}</p>
           <ul class="need need--ib need--or">${[
-            ...open.map(
-              (o) => html`<li class="need__card">
-                ${o.groups[0].map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r)}`)}
-                ${asPublished(o.groups.map((g) => ({ other: true, label: g.map(published).join(' + ') })), ' or ')}
-              </li>`
-            ),
+            ...open.map(card),
             ...closed.map(
               (g) => html`<li class="need__card need__card--none">
                 ${g.map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r, { alternatives: someOpen })}`)}
@@ -779,6 +826,14 @@ export function requirementDetail(entry) {
             ),
           ]}</ul>`;
     })}
+    ${model.floors.map(
+      (f) => html`<p class="need__or">To be ranked in ${f.quota.toLowerCase()}:</p>
+        <ul class="need need--ib"><li class="need__card need__card--floor">
+          <strong class="req-ib">${f.ib}</strong>
+          <span class="need__why req-why">Below this, you can still be admitted in the other quota.</span>
+          ${first ? html`<small class="req-local">${first.requirementLabel}: ${f.local}</small>` : ''}
+        </li></ul>`
+    )}
     ${first?.explainedAt
       ? html`<p class="need__how"><a class="arrow-link" href="${url(first.explainedAt)}">How these requirements read in IB terms</a></p>`
       : ''}

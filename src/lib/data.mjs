@@ -358,6 +358,8 @@ export async function load() {
     programmes,
     graph: canonical.graph,
     ibSubjects: ibSubjects.subjects || [],
+    // The lowest total an IB Diploma is awarded at (IB vocabulary, from the catalogue).
+    ibDiplomaMinimumPoints: ibSubjects.diplomaMinimumPoints ?? null,
     recognitionSchemes,
     fundingSchemes,
     funding: fundingById,

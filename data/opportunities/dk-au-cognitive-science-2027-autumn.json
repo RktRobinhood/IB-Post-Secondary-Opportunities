@@ -186,6 +186,27 @@
       "evidence": [
         "ev-bachelor-au-dk-gzxj8x"
       ]
+    },
+    {
+      "id": "req-quota1-average",
+      "kind": "minimum-average",
+      "mandatory": true,
+      "label": "Quota 1: an average of at least 6.0",
+      "minAverage": 6,
+      "gradeScale": "dk-7-point",
+      "quota": "Quota 1",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "evidence": [
+        "ev-bachelor-au-dk-gzxj8x"
+      ],
+      "officialWording": {
+        "text": "You must have a minimum GPA of 6.0 on the Danish 7-point grading scale in your qualifying examination to be assessed in quota 1.",
+        "language": "en",
+        "official": true
+      }
     }
   ],
   "officialRequirementsText": [

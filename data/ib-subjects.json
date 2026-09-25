@@ -3,6 +3,7 @@
   "dataAsOf": "2026-09-22",
   "schemaVersion": "2.0",
   "note": "The IB Diploma Programme subject catalogue, and nothing else. One entry per real IB subject with the levels it is offered at. This file used to carry a second, unnamed table saying what each subject counts as in Denmark; that table is now data/recognition/dk.json, because it was never a property of the IB subject — it was one country reading the IB subject. A requirement written in IB terms needs only this file. `family` and `course`, where present, are how a subject is written when several courses of one family are named together (\"Maths HL (AA or AI)\"); they are IB vocabulary, not any country's. `area`, where present, names the IB subjects a student thinks of as one subject (all the Englishes, both Maths courses): when a requirement accepts every subject in an area, a page can say \"Any IB English\".",
+  "diplomaMinimumPoints": 24,
   "subjects": [
     {
       "id": "english-a-literature",

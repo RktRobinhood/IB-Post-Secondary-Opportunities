@@ -78,7 +78,11 @@ export function university(site, inst, { prev, next }) {
         req: requirementSummary(p.entryRequirements),
         meta: [p.field, p.years ? `${p.years} years` : null, p.campus && p.campus !== inst.city ? p.campus : null].filter(Boolean),
         tags: p.restrictedAdmission
-          ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? `Last cut-off ${p.cutoff.value}${p.cutoff.ibPoints ? ` · ${p.cutoff.ibPoints} IB points` : ''}` : 'Restricted admission', mod: 'sand' }]
+          ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? (p.cutoff.anyDiploma
+              ? `Last cut-off: any IB Diploma (Danish ${p.cutoff.value})`
+              : p.cutoff.ibPoints
+              ? `Last cut-off ${p.cutoff.ibPoints} IB points (Danish ${p.cutoff.value})`
+              : `Last cut-off ${p.cutoff.value}`) : 'Restricted admission', mod: 'sand' }]
           : null,
       });
     });
