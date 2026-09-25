@@ -211,12 +211,14 @@ const read = async (...parts) => {
   try { return await fs.readFile(path.join(DIST, ...parts), 'utf8'); } catch { return null; }
 };
 
-const finder = await read('programmes', 'index.html');
-const finderData = (() => {
-  const m = finder?.match(/<script type="application\/json" id="programme-data">([\s\S]*?)<\/script>/);
-  return m ? new Map(JSON.parse(m[1]).map((p) => [p.id, p])) : new Map();
+/* The finder is the home page's discovery surface (docs/research/ia/plan.md,
+   Batch D). Its cards are drawn at build time, one per programme or family. */
+const finder = await read('index.html');
+const finderIds = (() => {
+  const m = finder?.match(/<script type="application\/json" id="discover-data">([\s\S]*?)<\/script>/);
+  return m ? new Set(JSON.parse(m[1]).cards.flatMap((c) => c.members.map((x) => x.id))) : new Set();
 })();
-check('the programme finder is built and carries its data', finderData.size > 0);
+check('the discovery surface is built and carries its data', finderIds.size > 0);
 
 const instPages = new Map();
 let translatedProgrammes = 0;
@@ -263,18 +265,19 @@ for (const p of programmes) {
     }
   }
 
-  // The programme finder, which the browser renders from this data as-is.
-  const row = finderData.get(p.id);
-  check(`${p.id}: is in the programme finder`, !!row);
-  if (row) {
-    const fb = blocks(row.reqHtml || '');
-    check(`${p.id}: finder row carries a data-req block`, fb.length === 1);
-    for (const b of fb) {
+  // Its card on the discovery surface (the home page).
+  check(`${p.id}: is on the discovery surface`, finderIds.has(p.id));
+  const homeRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?/programmes/${esc(p.id)}/(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
+  const homeCard = finder?.match(homeRe)?.[0];
+  check(`${p.id}: has a card on the discovery surface`, !!homeCard);
+  if (homeCard) {
+    const hb = blocks(homeCard);
+    check(`${p.id}: its discovery card shows requirements in a data-req block`, hb.length === 1);
+    for (const b of hb) {
       const f = faults(b, expect.card);
-      check(`${p.id}: programme finder`, !f.length, f.join('\n        '));
+      check(`${p.id}: discovery card`, !f.length, f.join('\n        '));
     }
-    check(`${p.id}: finder row has no bare requirements string`, !row.requirements || !BARE.test(row.requirements), row.requirements);
-    BARE.lastIndex = 0;
+    check(`${p.id}: its discovery card never prints the bare published line`, !bareLine || !text(stripBlocks(homeCard)).includes(bareLine), bareLine);
   }
 }
 check('there are programmes with local-scale requirements to check', translatedProgrammes > 0);

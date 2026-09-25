@@ -1,0 +1,85 @@
+{
+ "route": "/programmes/",
+ "name": "s10e-phone-programmes-aarhus",
+ "phone": true,
+ "restTotalKB": 735,
+ "restGlobe": {
+  "/assets/img/globe/earth-clouds.webp": "302 kB",
+  "/assets/img/globe/earth-day.webp": "135 kB",
+  "/assets/js/globe.js": "33 kB",
+  "/assets/geo/countries.json": "30 kB",
+  "/assets/js/map-flat.js": "10 kB",
+  "/assets/js/map.js": "2 kB",
+  "/assets/geo/destinations.json": "1 kB",
+  "/assets/img/globe/detail.json": "0 kB"
+ },
+ "dive": {
+  "totalKB": 2434,
+  "by": {
+   "tiles.maps.eox.at (tiles)": "707 kB",
+   "/assets/img/globe/earth-detail-europe.webp": "444 kB",
+   "/assets/img/globe/earth-day-4096.webp": "357 kB",
+   "/assets/img/places/au-2.webp": "286 kB",
+   "/assets/vendor/maplibre-gl/maplibre-gl.js": "273 kB",
+   "/assets/geo/borders-50m.json": "136 kB",
+   "tiles.openfreemap.org/sprites/ofm_f384/ofm@2x.png": "117 kB",
+   "tiles.openfreemap.org/fonts/Noto%20Sans%20Italic/*.pbf": "47 kB",
+   "tiles.openfreemap.org/fonts/Noto%20Sans%20Regular/*.pbf": "42 kB",
+   "/assets/vendor/maplibre-gl/maplibre-gl.css": "10 kB",
+   "tiles.openfreemap.org/styles/liberty": "6 kB",
+   "/assets/js/globe-close.js": "4 kB",
+   "tiles.openfreemap.org/sprites/ofm_f384/ofm@2x.json": "4 kB",
+   "tiles.openfreemap.org/planet": "2 kB",
+   "image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E": "0 kB"
+  }
+ },
+ "frameStats": {
+  "n": 463,
+  "p50": 16.7,
+  "p95": 16.8,
+  "p99": 166.9,
+  "max": 367.1,
+  "over50": 10,
+  "long": [
+   {
+    "at": 215,
+    "ms": 224
+   },
+   {
+    "at": 443,
+    "ms": 161
+   },
+   {
+    "at": 609,
+    "ms": 55
+   },
+   {
+    "at": 738,
+    "ms": 199
+   },
+   {
+    "at": 3637,
+    "ms": 300
+   },
+   {
+    "at": 3963,
+    "ms": 64
+   },
+   {
+    "at": 4043,
+    "ms": 349
+   }
+  ]
+ },
+ "firstCloseMs": 2077,
+ "maxZ": 11.5,
+ "hints": [],
+ "loadingWaitMs": 0,
+ "end": {
+  "alt": 0.0012669614520567187,
+  "close": true,
+  "zoom": 11.5,
+  "card": "Aarhus"
+ },
+ "logs": []
+}

@@ -72,7 +72,7 @@ export function families(programmes) {
 /* --- What a student has to meet ---------------------------------------- */
 
 /** Keys that are wording, sourcing or bookkeeping rather than a condition. */
-const NOT_A_CONDITION = new Set(['id', 'evidence', 'note', 'notes', 'officialWording', 'label', 'labelLocal', 'applicability', 'alternativeRoute', 'description', 'meta', 'explanation']);
+const NOT_A_CONDITION = new Set(['id', 'evidence', 'note', 'notes', 'officialWording', 'label', 'labelLocal', 'applicability', 'alternativeRoute', 'alternativeRouteSummary', 'description', 'meta', 'explanation']);
 
 function canonical(node) {
   if (Array.isArray(node)) {

@@ -97,12 +97,14 @@
      scripts/test-programme-images.mjs, which also checks they match VEIL.
      --veil-warn is the warning colour on a veiled card: #96601A is 3.4:1 over
      a black pixel under an 84% veil, and this is 4.9:1. */
-  --veil-top:  .4;
+  --veil-top:  .08;
   --veil-text: .84;
   --veil-foot: .94;
   --veil-dim:  1;
   --veil-warn: #744A10;
-  --card-headroom: 4.5rem;
+  /* The clear band at the top of a programme card: the photograph shows
+     there, anchored at its own 16:10 (programme-cards round 1, fix 1). */
+  --card-headroom: 9rem;
 
   color-scheme: light;
 }
@@ -139,7 +141,7 @@
     --lift-2: 0 2px 10px rgba(0, 0, 0, .45);
     --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
 
-    --veil-top:  .45;
+    --veil-top:  .12;
     --veil-text: .86;
     --veil-foot: .93;
     --veil-dim:  .85;
@@ -178,7 +180,7 @@
   --lift-2: 0 2px 10px rgba(0, 0, 0, .45);
   --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
 
-  --veil-top:  .45;
+  --veil-top:  .12;
   --veil-text: .86;
   --veil-foot: .93;
   --veil-dim:  .85;
@@ -948,13 +950,16 @@ a.tag:hover { border-color: var(--rule-strong); color: var(--ink); }
    the place. It should not wear the same confident tint as the researched
    ones, and it should not be alarming either: it is an honest disclosure. */
 .tag--thin {
-  background: transparent; color: var(--ink-mute);
+  background: transparent; color: var(--ink-soft); /* --ink-mute was 4.4:1 on the paper */
   border: 1px dashed var(--rule-strong);
 }
-.tag--sand   { background: var(--sand-tint); color: #8A6A20; }
+.tag--sand   { background: var(--sand-tint); color: #7A5C18; } /* 5.4:1; #8A6A20 was 4.3:1 */
 .tag--ok     { background: var(--ok-tint); color: var(--ok); }
 .tag--warn   { background: var(--warn-tint); color: var(--warn); }
 :root[data-theme="dark"] .tag--sand { color: var(--sand); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag--sand { color: var(--sand); }
+}
 
 /* --- 10. Stats ----------------------------------------------------------- */
 
@@ -2214,14 +2219,69 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   transition: transform .4s ease;
   pointer-events: none;
 }
+/* On a card the photograph sits at the top at its own 16:10, so its subject
+   shows in the clear band rather than being cropped to a strip (round 1,
+   fix 1). A reviewed `focus` moves the crop (an inline object-position). */
+.card--backdrop .card__backdrop {
+  inset: 0 0 auto 0; height: auto; aspect-ratio: 16 / 10;
+  object-position: 50% 50%;
+}
 .card--backdrop::before,
 .prog--backdrop::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   pointer-events: none;
   background: linear-gradient(to bottom,
     color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent) 0,
+    color-mix(in srgb, var(--paper) calc((var(--veil-top) + .1) * 100%), transparent) calc(var(--card-headroom) * .55),
     color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) var(--card-headroom),
-    color-mix(in srgb, var(--paper) calc(var(--veil-foot) * 100%), transparent) 100%);
+    var(--paper) calc(var(--card-headroom) + 6rem));
+}
+/* Inside a veiled card the cut-off chip takes the veiled warning colour. */
+.card--backdrop .tag--sand,
+.prog--backdrop .tag--sand { color: var(--veil-warn); }
+
+/* The credential line under a programme card's title: "BSc · 3 yrs · Odense".
+   Read before anything else on the card, so it is ink, not grey. */
+.card__cred {
+  margin: calc(var(--s2) * -1) 0 0;
+  font: 600 .875rem/1.35 var(--sans);
+  letter-spacing: .01em;
+  color: var(--ink);
+}
+/* A programme family's paths: one short row each, each its own link. */
+.card__paths {
+  display: grid; gap: var(--s2);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--rule);
+}
+.card__paths-head {
+  margin: 0;
+  font: 600 .75rem/1.3 var(--sans);
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--ink-soft);
+}
+.card__path-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+.card__path { display: grid; gap: .1rem; font-size: .9375rem; }
+.card__path a {
+  position: relative; z-index: 1;
+  font-weight: 600; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: .2em;
+}
+.card__path a:hover { text-decoration-color: currentColor; }
+.card__path-detail { font-size: .8125rem; color: var(--ink-soft); }
+.card__paths-note { margin: 0; font-size: .8125rem; color: var(--ink-soft); }
+
+/* The Paths table on a family member's page. */
+.paths { margin: 0 0 var(--s7); }
+.paths h2 { margin-top: 0; }
+.paths__lede { color: var(--ink-soft); }
+.paths__table th[scope="row"] { font-weight: 400; }
+.paths__table small { display: block; font-size: .8125rem; color: var(--ink-mute); }
+.paths__here { background: var(--paper-2); }
+.paths__you {
+  display: inline-block; margin-left: .35em;
+  font: 600 .6875rem/1.4 var(--sans); text-transform: uppercase; letter-spacing: .06em;
+  color: var(--brand-2);
 }
 .card--backdrop:hover .card__backdrop { transform: scale(1.03); }
 .card--backdrop .card__body { padding-top: var(--card-headroom); }
@@ -2402,15 +2462,71 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   body.has-sheet { overflow: hidden; }
 }
 
-/* The map is a way to filter, not the page's opening: folded on a phone,
-   open on a wide screen (an inline script opens it before first paint). */
-.finder__map { margin-bottom: var(--s5); }
-.finder__map > summary {
-  cursor: pointer; padding-block: var(--s2);
-  font: 600 .9375rem/1.4 var(--sans); color: var(--accent);
+/* --- Discover: the home page is the finder (plan.md, Batch D) -------------
+   A night-sky band holds the one line, the three distances, the filters and
+   the globe; the cards follow on paper. The band's colours are fixed, like
+   the globe's own frame (primitives.css): a night sky is not a theme. On a
+   wide screen the words take a column beside the globe, so the first card is
+   within one screen; on a phone they stack above it. */
+.discover__hero {
+  background: radial-gradient(120% 100% at 50% 110%, #0b1426, #03050b 70%);
+  color: #f3efe6;
 }
-.finder__map-n { margin-left: .4em; font-weight: 500; color: var(--ink-mute); }
-.finder__map[open] > summary { margin-bottom: var(--s3); }
+.discover__intro { display: grid; gap: var(--s5); padding-block: var(--s6) var(--s5); }
+.discover__eyebrow { color: #e7c27a; margin-bottom: var(--s2); }
+.discover__title {
+  margin: 0 0 var(--s4); max-width: 17ch;
+  color: #fff; font-size: clamp(2rem, 5.2vw, 3.25rem); line-height: 1.05;
+}
+.discover__presets { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.preset {
+  display: grid; gap: .1rem; text-align: left; cursor: pointer;
+  padding: .6rem .9rem; font: inherit;
+  color: #fff; background: rgb(255 255 255 / .06);
+  border: 1px solid rgb(255 255 255 / .28); border-radius: var(--radius-lg);
+  transition: background .15s ease, border-color .15s ease;
+}
+.preset:hover { border-color: #fff; background: rgb(255 255 255 / .12); }
+.preset:focus-visible { outline: 3px solid #e7c27a; outline-offset: 2px; }
+.preset__eyebrow { font: 650 .6875rem/1.3 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #e7c27a; }
+.preset__title { font: 600 1.0625rem/1.2 var(--display); }
+.preset__count { font-size: .8125rem; color: rgb(255 255 255 / .75); }
+.preset[aria-pressed="true"] { background: #f3efe6; border-color: #f3efe6; color: #10201d; }
+.preset[aria-pressed="true"] .preset__eyebrow { color: #7a5a14; }
+.preset[aria-pressed="true"] .preset__count { color: #3a4a47; }
+.discover__filters { margin: 0; color: var(--ink); }
+
+.discover__globe .world { gap: 0; }
+.discover__globe .world__stage {
+  aspect-ratio: auto; height: 56vh; min-height: 20rem; max-height: none;
+  border: 0; border-radius: 0;
+}
+/* The list is the map's source of truth for a screen reader and a keyboard;
+   here the Where filter and the cards say the same, so it is kept for them
+   and not drawn. */
+.discover__globe .world__list {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.discover__globe .world__list a:focus-visible { position: fixed; left: 1rem; bottom: 1rem; clip-path: none; width: auto; height: auto; z-index: 10; }
+.discover__globe .world__caption { padding: var(--s2) var(--gutter); color: rgb(255 255 255 / .62); }
+
+@media (min-width: 64rem) {
+  .discover__hero { display: grid; grid-template-columns: minmax(24rem, 32rem) minmax(0, 1fr); align-items: start; }
+  .discover__intro { width: auto; margin: 0; padding: var(--s6) var(--s5) var(--s6) max(var(--gutter), calc((100vw - var(--page-wide)) / 2)); }
+  .discover__filters .filters__row { grid-template-columns: minmax(0, 1fr); }
+  .discover__globe { position: sticky; top: 4rem; }
+  .discover__globe .world__stage { height: calc(100vh - 11rem); min-height: 30rem; max-height: 48rem; }
+}
+
+.discover__results { padding-block: var(--s5) var(--s7); }
+.discover__cards { list-style: none; margin: var(--s4) 0 0; padding: 0; }
+.discover__card[hidden] { display: none; }
+.discover__card > .card { height: 100%; }
+.discover__empty, .discover__noscript { margin: var(--s5) 0; color: var(--ink-soft); }
+.discover__places-line { margin: var(--s5) 0 var(--s4); color: var(--ink-soft); }
+.discover__places li[hidden] { display: none; }
+.chip[data-empty] { opacity: .5; }
 
 /* A result row: the facts that decide, one line each. */
 .prog__tags { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s2); margin: var(--s2) 0 0; }
@@ -2459,13 +2575,17 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .cr { margin-top: var(--s7); }
 .cr__sum { font-size: 1.0625rem; }
 .cr__short { max-width: 44rem; font-size: 1.0625rem; color: var(--ink); }
-.cr__count { color: var(--ink-mute); font-size: .875rem; }
+.cr__national { max-width: 44rem; font-size: .9375rem; color: var(--ink-soft); }
+.cr__routes { margin-block: var(--s4); max-width: 48rem; }
+.cr__routes > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.cr__route-list { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; gap: var(--s3); }
+.cr__route-list li { padding: var(--s3) var(--s4); background: var(--paper-2); border-radius: var(--radius-lg); }
+.cr__applies { display: block; margin-top: var(--s1); font-size: .8125rem; color: var(--ink-mute); }
 .cr__table { margin: 0; }
+.cr__table caption { text-align: left; font-size: .875rem; color: var(--ink-mute); }
 .cr__table .cr__inst th { padding-top: var(--s5); background: none; font: 700 1rem/1.3 var(--display); color: var(--ink); text-align: left; }
 .cr__table td:last-child { white-space: nowrap; width: 1%; }
-.cr__route { margin-block: var(--s3); max-width: 44rem; }
-.cr__route > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
-.cr__applies { font-size: .875rem; color: var(--ink-mute); }
+.cr__degree { display: block; font-size: .8125rem; color: var(--ink-mute); }
 
 /* Requirements, round 3: on a phone a card carries the IB line only; the
    published form stays on the programme page and behind "What this means in

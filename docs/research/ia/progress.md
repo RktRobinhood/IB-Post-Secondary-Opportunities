@@ -246,3 +246,32 @@ Home: 5.8 phone screens (was 5.7), default view 261 words.
 Screenshots: `after/countries--{phone,desktop}-{fold,full}.*`, `after/home--*` and `after/destinations__nl--*` (with `.before`), `after/{europe,world}--*.before.*`, `after/menu--phone-open.png`. The full phone captures show dark tiles below the fold: those photographs are lazy-loaded and never scrolled into view in the capture.
 
 **Gate:** 32 checks, all pass.
+
+## Calendar twins merged (25 September 2026)
+
+**Files:** `src/lib/calendar.mjs` (new section "One fact, one card": `identityWords`, `nameMatch`, `eventKind`, `sameOccasion`, `mergeTwins`, `foldTwins`; `eventsForDestination(country, graph, { fold })`), `scripts/test-calendar.mjs` (six new checks).
+
+- **Before → after:** the Deadlines page had 758 cards, and now has **661** (97 fewer). Country pages have 787 records → 653 cards. By country: CA 51→39, SE 22→14, FR 28→21, US 34→28, SG 37→31, GB 32→27, CN 21→16, IE 22→17, FI 17→13, LV 20→16, NL 27→23, AE 39→35, LT 21→17, HK 17→13, NO 17→14, and 11 more with 1–2 each.
+- **Rule:** a profile entry folds into a route event when both have the same day, the same end, the same kind (window, open, test, reply, result or deadline, read from the shape and the label) and no conflicting route, and they name the same institution or system. Pairs are matched one to one, best match first: shared identifying words, an initialism written out (NTU / Nanyang Technological University), or one label being the other plus extra words. A lone same-consequence pair on a day also folds, if the profile names nothing beyond the route or names the route itself. A profile window that restates a route's "opens" and "closes" folds into those two dates. A window with only a matching "opens" absorbs the opening.
+- **The merged card:** the route's fields win. It keeps the label that names more and the stricter consequence. Notes are joined without repetition, and sources and evidence are the union of both records. Exact-label twins used to be dropped along with their sources; they now merge the same way.
+- **Nothing lost:** every date, end date, source link (521 → 562 links on cards, since window sources now reach both days) and note is still on the page. A guard checks this against the unfolded records.
+- **Guard:** "no two cards on the site are the same event" uses a different similarity test from the fold: same occasion, and the labels name the same things. It finds 98 pairs in the unfolded records and 0 after folding.
+- **Deliberately left as two cards:** LNAT test dates beside UCAS closes, SFU against UBC acceptance, and VSE against Masaryk on the same day. Also Nord University's documentation deadline beside Samordna's (a member institution, not the system). And the general Austrian closing date against Vienna's window.
+- Gate: all 33 checks pass.
+
+## Batch 1: Find a degree (25 September 2026), stopped at critic round 2 by the owner's new direction
+
+**Status:** superseded by "Home becomes the discovery surface" (plan.md). The parts below carry over; `/programmes/` itself will redirect to the home page.
+
+**Kept, and reused by the new plan**
+- `data/opportunities/*.json`: `requirements[].alternativeRouteSummary { short, reachesAtEighteen }` on all 50 records with an `alternativeRoute`. Each `short` restates the record's own long text; `reachesAtEighteen` follows that text's own claim (the Dutch texts say retaking is "the only route that reaches this at eighteen"; the Danish one has no age gate). Schema: `schemas/opportunity.schema.json`. `src/lib/families.mjs` ignores the field as wording.
+- `data/destinations/{dk,nl}.json`: `ibRecognition.courseResults { short, nationalRoute? }` (schema: `schemas/destination.schema.json`). The Dutch staatsexamen is said once, there, not in 11 route texts.
+- `src/pages/course-results.mjs` → `/guides/course-results/`, in the footer's Guides. Per country: one sentence, the national route, each distinct route `short` once (closed disclosure, degrees linked to `#fine-print`), then a degree → award table. `awardLabel()` is the one place the award words live ("Accepts Course Results", "Diploma, or another route", "Asks for the full Diploma", "Award not established").
+- `scripts/test-text-walls.mjs`: a route in without the Diploma may appear only on its own programme page and the guide (8 distinct routes, probes verified against all 50 programme pages). `programmes/` removed from `scripts/lib/text-walls-known.json`.
+- `readableName()` (`destinations.mjs`): a one-word short name with 2+ capitals ("UT", "EUR", "BUas") shows the full name.
+- `src/assets/js/site.js`: the shared "i" popover (`[data-info]`), 44px under a thumb with a drawn 20px circle.
+- `src/assets/js/explorer.js`: the history model (every choice a step; the leaving entry stamped with scroll; manual scroll restoration; a phone filter sheet that is one Back step and keeps its choices); live chip counts; `?inst=`/`?campus=` read into one `where`; "No Maths HL needed" computed at build time from the IB options (`requiresMathsHL()` in `explorer.mjs`), which also dropped 388 KB of payload.
+
+**Measured on `/programmes/` before the stop** (375×812 / 1280×900): first card 26.2 → 0.8 phone screens; desktop first card 853px; page 94 → ~35 phone screens; average phone card ~730 → 322px; the 4,770-word note gone. Behaviour script: 35/35 (scratch `findertest.mjs`). Gate: 33/33. Critic round 1: 6/10 (fixes applied: award labels from records, degree type on cards, IB-first line for cards without structured requirements, "Limited places", live counts, cut-off wording, map folded so the first card is within one screen). Round 2 was running when the direction changed.
+
+**Not done, on purpose:** the "What this means in IB terms" link text and the requirement-line layout are in `components.mjs` `requirementSummary()`, reserved for the variants agent.

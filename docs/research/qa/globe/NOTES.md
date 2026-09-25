@@ -352,3 +352,61 @@ Progress (newest last):
   hash when a filter changes; Back still works, the hash just goes.
 - Cold first dive is network-bound: if nothing primed the close map (no
   hover, no press) the camera sinks slowly for up to ~1 s at the bottom.
+
+## Round 3 — critic 7/10 (docs/research/qa/globe/round-3/critique.md); this is round 4 of 5
+
+Fixes in order: (1) no cream, (2) no hitches, (3) sharp rest, (4) no street
+pop, (5) groups frame all + Back, (6) /countries/ rest + edge labels, (7)
+phone card collapsed until arrival; then 8–9. Scratch now in
+.cache/globe-work (C: nearly full). Screenshots → round-3-fixes/.
+
+Progress (newest last):
+- R3.1 no cream: the globe keeps drawing under the close map (same camera);
+  the street style's background is transparent below z13 (opaque from 14.5).
+- R3.2 hitches: anisotropy limit read once per context (was a forced GPU
+  sync after every generateMipmap); lazy textures via fetch → blob →
+  createImageBitmap; uploads (4096 day, detail, 50m borders build) queue
+  until nothing moves (`whenStill`); the warm-up now also stops at
+  handoff−1.2 (horizon + sky compile hidden).
+- R3.3 sharp rest: a page resting below FINE_ALT fetches the Europe detail
+  and the 50m borders at idle after the first frame (round 2's gate undone
+  for exactly that case; 4096 map and close map stay behind intent).
+- R3.4 no street pop: the handoff waits (≤2.5 s, the globe sinking
+  meanwhile) for the warm-up to finish every level instead of cancelling
+  it; street layers fade in over z12–13.5 (constant opacities wrapped in a
+  zoom interpolate); satellite cross-fade done by 14.5; muted satellite
+  palette at the handoff warming by z10 (fix 8); suburb/village labels from
+  z13 (part of fix 9).
+- R3.5 groups: framed with the globe's own fitCamera (same projection,
+  pitch and lens shift as the close map) — not MapLibre's pitch-0
+  cameraForBounds; a group dive pushes a `#view=…` history entry, and Back
+  returns (goToView: close-map flight if still close, else climb out + fly).
+- R3.6 /countries/: worldRest weights places by facing² and penalises a
+  centre far from the count-weighted centroid → rests at 30°N 10°E over
+  Europe/Africa/Middle East (26 places facing), not over Pakistan. Labels
+  that would run off the right edge flip to the left of the pin.
+- R3.7 phone card: measured at full height (framing uses that), folded to
+  title + action while the camera travels, unfolded on arrival (a layout
+  pass on the close map's moveend). Card photo space is paper-toned.
+- Harness: opens an enclosing <details> (the explorer now puts the map in
+  one on phones — the globe correctly waits until it is opened); removes its
+  Chrome profile at the end. My earlier runs had left 32 profiles (1.8 GB)
+  in C:\…\Temp and filled the disk — removed; PROFILE_ROOT now on D:.
+- Round-3-fixes final run (private snapshot, cache off, real GPU):
+  NL→TU Delft standstill 28 ms (was 250–422), worst long task 87 ms (was
+  370–726), frame gap ≤ 91 ms; /programmes/→Delft standstill 41 ms, worst
+  task 68 ms; Reset from street ≤ 1.28× alt per frame, no freeze, no cream
+  (06a–c); group "12": 12/12 members on stage, zoom in close map, Back →
+  rest on the same page; phone card 24% of stage in flight, 48% on arrival;
+  /countries/ rest over Europe, phone labels none clipped; wheel over pin
+  0 px; history Back ×2 correct; console clean. Rest bytes: /programmes/
+  and NL page 881 kB textures + 448 kB geo (detail + 50m back, as asked);
+  /countries/ 437 + 82 kB.
+- Home hero API (coordinator heads-up; docs/research/ia/globe-hero.md not
+  written yet): `controller.show({place}|{country}|{bounds,label}|{camera})`
+  (queued by map.js until the globe is up; false on the flat map / unknown
+  id), `setCounts()` as before, and a `world:choose` event {kind, id, name,
+  restored?} on every choice, clearing (close, Escape, sea, Reset) and
+  Back/Forward. Probed on /countries/: dk → card + #country=dk, Europe
+  bounds → 48°N 10.5°E alt 1.04 no card, place nl → card, 'zz' → false,
+  events in order, Back restores.

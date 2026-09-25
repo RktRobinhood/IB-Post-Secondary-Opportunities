@@ -29,6 +29,8 @@ import {
   isActionable,
   isClosed,
   READER_ACCESS,
+  identityWords,
+  sameOccasion,
   sortKey,
   standing,
 } from '../src/lib/calendar.mjs';
@@ -233,6 +235,118 @@ check('a round and its own closing milestone are not two things to do', () => {
   const events = eventsForDestination({ code: 'xx', name: 'X' }, graph);
   assert.equal(events.length, 1, 'the same day was listed twice');
   assert.equal(events[0].label, 'Applications close', 'the round won, but the milestone is the one that says what closes');
+});
+
+/* --- One event, one card ---------------------------------------------------- */
+
+/* The same deadline from the country profile and from the route, worded
+   differently, reached the calendar as two cards ~90 times across 25
+   Destinations (docs/research/variants/systemic.md §5). The fold lives in
+   `foldTwins`; the test of "the same event" here is deliberately a different
+   one — same day, same end, same kind, no two different routes, and labels
+   that name the same things — so a change to the fold's scoring cannot quietly
+   redefine what it is checked against. */
+const flatLabel = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+function sameEvent(a, b) {
+  if (!sameOccasion(a, b)) return false;
+  const fa = flatLabel(a.label);
+  const fb = flatLabel(b.label);
+  if (fa.startsWith(fb) || fb.startsWith(fa)) return 'one label is the other with words added';
+  const wa = identityWords(a.label);
+  const wb = identityWords(b.label);
+  const within = (x, y) => [...x].every((w) => y.has(w));
+  if (within(wa, wb) && within(wb, wa)) return 'both labels name the same things';
+  if (a.origin !== b.origin && ((wa.size && within(wa, wb)) || (wb.size && within(wb, wa)))) return 'the profile and the route name the same thing';
+  return false;
+}
+function twinsIn(events) {
+  const dated = events.filter((e) => e.date && isActionable(e));
+  const out = [];
+  for (let i = 0; i < dated.length; i++)
+    for (let j = i + 1; j < dated.length; j++) {
+      const why = dated[i].destination === dated[j].destination && sameEvent(dated[i], dated[j]);
+      if (why) out.push(`${dated[i].destination} ${dated[i].date}: "${dated[i].label}" and "${dated[j].label}" (${why})`);
+    }
+  return out;
+}
+
+const twinGraph = (milestones) => ({
+  applicationRoutes: new Map([['r', { id: 'r', destination: 'xx', intake: '2027-autumn', label: 'Applying to Xland', milestones }]]),
+});
+
+check('a deadline worded differently in the profile and the route is one card, with both sources and the stricter consequence', () => {
+  const graph = twinGraph([{ id: 'm', type: 'submit', label: 'Alpha University first round closes', date: '2026-11-25', consequence: 'priority', note: 'Results in March.' }]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [
+    { label: 'Alpha University — first round', date: '2026-11-25', timeOfDay: '12:00', consequence: 'hard', source: 'https://alpha.example/dates', notes: 'Results in March. Fee 50 EUR.' },
+  ] } };
+  const events = eventsForDestination(country, graph);
+  assert.equal(events.length, 1, `the same deadline printed ${events.length} cards`);
+  const [e] = events;
+  assert.deepEqual(e.sources, ['https://alpha.example/dates'], 'the profile source was lost in the merge');
+  assert.equal(e.consequence, 'hard', 'the merge kept the weaker consequence');
+  assert.equal(e.timeOfDay, '12:00', 'the time of day recorded only in the profile was lost');
+  assert.equal(e.note, 'Results in March. Fee 50 EUR.', 'the notes were repeated or lost rather than joined once');
+});
+
+check('two institutions on one day each keep their own card, and each finds its own twin', () => {
+  const graph = twinGraph([
+    { id: 'a', type: 'submit', label: 'ABC first round closes', date: '2026-11-25', consequence: 'priority' },
+    { id: 'b', type: 'submit', label: 'ABCD priority round closes', date: '2026-11-25', consequence: 'priority' },
+  ]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [
+    { label: 'ABCD — priority round', date: '2026-11-25', consequence: 'priority', source: 'https://abcd.example' },
+    { label: 'ABC — first round', date: '2026-11-25', consequence: 'priority', source: 'https://abc.example' },
+    { label: 'Omega College — applications close', date: '2026-11-25', consequence: 'priority' },
+  ] } };
+  const events = eventsForDestination(country, graph);
+  assert.equal(events.length, 3, `expected ABC, ABCD and Omega; got ${events.map((e) => e.label).join(' / ')}`);
+  assert.deepEqual(events.find((e) => e.id === 'a').sources, ['https://abc.example'], 'ABC took the wrong twin');
+  assert.deepEqual(events.find((e) => e.id === 'b').sources, ['https://abcd.example'], 'ABCD took the wrong twin');
+});
+
+check('an exam and the application it belongs to are two things on one day', () => {
+  const graph = twinGraph([{ id: 'm', type: 'submit', label: 'Alpha University applications close', date: '2026-10-15', consequence: 'hard' }]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [{ label: 'Alpha University admissions test', date: '2026-10-15', consequence: 'hard' }] } };
+  assert.equal(eventsForDestination(country, graph).length, 2);
+});
+
+check('a window restating an opening and a closing adds no card, and loses neither day', () => {
+  const graph = twinGraph([
+    { id: 'o', type: 'open', label: 'Beta University applications open', date: '2026-10-15', consequence: 'indicative' },
+    { id: 'c', type: 'submit', label: 'Beta University applications close', date: '2027-03-19', consequence: 'hard' },
+  ]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [
+    { label: 'Beta University — application window', date: '2026-10-15', endDate: '2027-03-19', consequence: 'hard', source: 'https://beta.example' },
+  ] } };
+  const events = eventsForDestination(country, graph);
+  assert.deepEqual(events.map((e) => e.id), ['o', 'c']);
+  assert.ok(events.every((e) => e.sources.includes('https://beta.example')), 'the window’s source did not reach both days');
+});
+
+const rawEvents = [...site.countries].flatMap((c) => eventsForDestination(c, site.graph, { fold: false }));
+const foldedEvents = [...site.countries].flatMap((c) => eventsForDestination(c, site.graph));
+
+check(`no two cards on the site are the same event (${rawEvents.length} records → ${foldedEvents.length} cards on country pages)`, () => {
+  assert.ok(twinsIn(rawEvents).length > 0, 'the detector finds no twins in the unfolded records, so it would pass on anything');
+  const found = [...twinsIn(allEvents(site)), ...twinsIn(foldedEvents)];
+  if (found.length) throw new Error([...new Set(found)].join('\n          '));
+});
+
+check('folding twins loses no date, no source and no note', () => {
+  const problems = [];
+  for (const c of site.countries) {
+    const raw = eventsForDestination(c, site.graph, { fold: false });
+    const folded = eventsForDestination(c, site.graph);
+    const days = new Set(folded.flatMap((e) => [e.date, e.endDate]).filter(Boolean));
+    const sources = new Set(folded.flatMap((e) => e.sources));
+    const notes = folded.map((e) => flatLabel(e.note));
+    for (const e of raw) {
+      for (const d of [e.date, e.endDate].filter(Boolean)) if (!days.has(d)) problems.push(`${c.code} lost ${d} ("${e.label}")`);
+      for (const s of e.sources) if (!sources.has(s)) problems.push(`${c.code} lost the source ${s}`);
+      if (e.note && !notes.some((n) => n.includes(flatLabel(e.note)))) problems.push(`${c.code} lost the note on "${e.label}"`);
+    }
+  }
+  if (problems.length) throw new Error(problems.join('\n          '));
 });
 
 /* --- A route the reader cannot take is not a date to act on (#35) ---------- */

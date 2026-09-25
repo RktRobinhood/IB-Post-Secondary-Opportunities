@@ -1,0 +1,229 @@
+{
+ "prog": {
+  "start": {
+   "alt": 0.42,
+   "lat": 51.66,
+   "lon": 10.39,
+   "close": false,
+   "zoom": null,
+   "card": null,
+   "hash": "",
+   "path": "/programmes/",
+   "hlen": 2
+  },
+  "delft": {
+   "alt": 0.0002,
+   "lat": 52,
+   "lon": 4.37,
+   "close": true,
+   "zoom": 15,
+   "card": "Delft",
+   "hash": "#place=nl-delft",
+   "path": "/programmes/",
+   "hlen": 3
+  },
+  "aarhus": {
+   "alt": 0.0021,
+   "lat": 56.16,
+   "lon": 10.2,
+   "close": true,
+   "zoom": 11.5,
+   "card": "Aarhus",
+   "hash": "#place=dk-aarhus",
+   "path": "/programmes/",
+   "hlen": 4
+  },
+  "back1": {
+   "alt": 0.0002,
+   "lat": 52,
+   "lon": 4.37,
+   "close": true,
+   "zoom": 15,
+   "card": "Delft",
+   "hash": "#place=nl-delft",
+   "path": "/programmes/",
+   "hlen": 4
+  },
+  "back2": {
+   "alt": 0.42,
+   "lat": 51.66,
+   "lon": 10.56,
+   "close": false,
+   "zoom": 5.32,
+   "card": null,
+   "hash": "",
+   "path": "/programmes/",
+   "hlen": 4
+  }
+ },
+ "europe": {
+  "country": {
+   "alt": 0.0639,
+   "lat": 43.49,
+   "lon": -5.04,
+   "close": true,
+   "zoom": 6.95,
+   "card": null,
+   "hash": "#europe",
+   "path": "/countries/",
+   "hlen": 3
+  },
+  "back": {
+   "alt": 0.42,
+   "lat": 51.66,
+   "lon": 10.56,
+   "close": false,
+   "zoom": 5.32,
+   "card": null,
+   "hash": "",
+   "path": "/programmes/",
+   "hlen": 3
+  },
+  "group": {
+   "n": "13",
+   "pushed": 0,
+   "after": {
+    "alt": 0.0641,
+    "lat": 56.86,
+    "lon": 10.51,
+    "close": true,
+    "zoom": 6.54,
+    "card": null,
+    "hash": "",
+    "path": "/programmes/",
+    "hlen": 3
+   }
+  }
+ },
+ "nlStreet": {
+  "alt": 0.0002,
+  "lat": 52,
+  "lon": 4.37,
+  "close": true,
+  "zoom": 15,
+  "card": "TU Delft",
+  "hash": "#place=nl-tu-delft",
+  "path": "/destinations/nl/",
+  "hlen": 4
+ },
+ "labelsStreet": [
+  "TU Delft"
+ ],
+ "backFromStreet": {
+  "frames": 109,
+  "fs": {
+   "n": 293,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 33.5,
+   "max": 66.7,
+   "over50": 2,
+   "long": [
+    {
+     "at": 423,
+     "ms": 70
+    }
+   ]
+  },
+  "samplesHead": "0:0.0002C15 71:0.0002C15 172:0.0002C15 279:0.0002C14.81 373:0.0003C14.28 473:0.0006C13.39 573:0.0014C12.24 741:0.0062C10.09 841:0.0149C8.81 940:0.035C7.58 1044:0.0727C6.53 1144:0.1218C5.78 1260:0.1653C5.34 1376:0.168 1491:0.1688 1592:0.1708 1692:0.175 1792:0.1823 1892:0.1905 1991:0.1959",
+  "end": {
+   "alt": 0.2,
+   "lat": 50.98,
+   "lon": 6.15,
+   "close": false,
+   "zoom": 5.32,
+   "card": null,
+   "hash": "",
+   "path": "/destinations/nl/",
+   "hlen": 4
+  }
+ },
+ "group": {
+  "n": "12",
+  "ids": [
+   "dk-sonderborg",
+   "dk-odense",
+   "dk-naestved",
+   "dk-kalundborg",
+   "dk-copenhagen",
+   "dk-roskilde",
+   "dk-vejle",
+   "dk-viborg",
+   "dk-esbjerg",
+   "dk-horsens",
+   "dk-frederiksberg",
+   "dk-aarhus"
+  ],
+  "fs": {
+   "n": 393,
+   "p50": 16.7,
+   "p95": 16.9,
+   "p99": 50,
+   "max": 200.2,
+   "over50": 3,
+   "long": [
+    {
+     "at": 65,
+     "ms": 215
+    },
+    {
+     "at": 783,
+     "ms": 172
+    }
+   ]
+  },
+  "end": {
+   "alt": 0.0641,
+   "lat": 56.86,
+   "lon": 10.51,
+   "close": true,
+   "zoom": 6.54,
+   "card": null,
+   "hash": "",
+   "path": "/programmes/",
+   "hlen": 4
+  },
+  "onStage": {
+   "visiblePins": [
+    "dk-aarhus",
+    "dk-viborg",
+    "dk-herning",
+    "dk-aalborg"
+   ],
+   "groups": [],
+   "membersShown": 2
+  },
+  "projected": [
+   "dk-sonderborg:440,935 OFF",
+   "dk-odense:571,750 OFF",
+   "dk-naestved:830,809 OFF",
+   "dk-kalundborg:690,662 OFF",
+   "dk-copenhagen:942,660 OFF",
+   "dk-roskilde:861,672 OFF",
+   "dk-vejle:424,653 OFF",
+   "dk-viborg:431,465",
+   "dk-esbjerg:223,721 OFF",
+   "dk-horsens:482,610 OFF",
+   "dk-frederiksberg:935,659 OFF",
+   "dk-aarhus:543,532"
+  ]
+ },
+ "nlLabels": [
+  "UvA",
+  "TU Delft",
+  "Maastricht University",
+  "University of Groningen",
+  "Utrecht University",
+  "Leiden",
+  "Erasmus University Rotterdam",
+  "VU Amsterdam",
+  "TU/e",
+  "University of Twente",
+  "Radboud",
+  "Tilburg",
+  "AUAS / HvA",
+  "BUas",
+  "Hanze"
+ ],
+ "logs": []
+}

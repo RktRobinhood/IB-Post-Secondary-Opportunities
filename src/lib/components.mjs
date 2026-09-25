@@ -173,7 +173,7 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * programme is, and it is credited on /credits/. It is positioned absolutely,
  * so it cannot change the card's height, and it loads lazily.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop }) {
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, line, paths }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   return html`<article class="card card--link${backdrop ? ' card--backdrop' : ''}">
     ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : ''}
@@ -199,8 +199,13 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
       <h3 class="card__title"><a href="${external ? href : url(href)}"${
         external ? raw(' rel="noopener"') : ''
       }>${title}</a></h3>
+      ${/* What kind of degree, how long, where: "BSc · 3 yrs · Odense"
+            (src/lib/paths.mjs credentialLine), so two cards that share a name
+            are never identical at a glance. */
+        line ? html`<p class="card__cred">${line}</p>` : ''}
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
       ${/* A programme's requirements, IB terms first (requirementSummary). */ req || ''}
+      ${/* A programme family's paths, one short row each (src/lib/paths.mjs). */ paths || ''}
       ${tags?.length
         ? html`<ul class="tags">${tags.map((t) =>
             // A tag may be a plain string, or {label, mod} where the modifier
@@ -235,7 +240,10 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
  * pages.
  */
 export function backdropImg(b, sizes, className) {
-  return html`<img class="${className}" src="${url(b.src)}" srcset="${srcsetOf(b, url)}" sizes="${sizes}" alt="" loading="lazy" decoding="async" width="${b.width}" height="${b.height}" data-backdrop="${b.key}">`;
+  return html`<img class="${className}" src="${url(b.src)}" srcset="${srcsetOf(b, url)}" sizes="${sizes}" alt="" loading="lazy" decoding="async" width="${b.width}" height="${b.height}" data-backdrop="${b.key}"${
+    /* A reviewed crop position for this photograph (data/programme-images.json `focus`). */
+    b.focus && /^\d+(\.\d+)?% \d+(\.\d+)?%$/.test(b.focus) ? raw(` style="object-position: ${b.focus}"`) : ''
+  }>`;
 }
 
 /* --- Ways in ------------------------------------------------------------- */

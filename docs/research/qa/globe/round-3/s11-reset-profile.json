@@ -1,0 +1,78 @@
+{
+ "runs": [
+  {
+   "long": [
+    {
+     "at": 674,
+     "ms": 956
+    }
+   ],
+   "max": 950.9,
+   "top": [
+    "514 ms  getProgramParameter :-1",
+    "413 ms  getShaderParameter :-1",
+    "67 ms  t.S maplibre-gl.js:41",
+    "56 ms  (anon) maplibre-gl.js:45",
+    "39 ms  receive maplibre-gl.js:41",
+    "38 ms  ve maplibre-gl.js:45",
+    "35 ms  Fa maplibre-gl.js:45",
+    "34 ms  possiblyEvaluate maplibre-gl.js:41",
+    "33 ms  draw maplibre-gl.js:45",
+    "33 ms  _calcMatrices maplibre-gl.js:45",
+    "29 ms  evaluate maplibre-gl.js:41",
+    "28 ms  _render maplibre-gl.js:45",
+    "26 ms  render maplibre-gl.js:45",
+    "23 ms  (garbage collector) :-1",
+    "22 ms  getTileBoundingVolume maplibre-gl.js:45",
+    "19 ms  f :1",
+    "19 ms  getCurrentTime maplibre-gl.js:45",
+    "17 ms  _o maplibre-gl.js:45"
+   ],
+   "byFile": {
+    "(native)": 3199,
+    "maplibre-gl.js": 1036,
+    "globe.js": 22
+   },
+   "end": {
+    "alt": 0.2,
+    "close": false,
+    "zoom": 5.32
+   }
+  },
+  {
+   "long": [],
+   "max": 83.3,
+   "top": [
+    "79 ms  (anon) maplibre-gl.js:45",
+    "79 ms  t.S maplibre-gl.js:41",
+    "44 ms  Fa maplibre-gl.js:45",
+    "39 ms  ve maplibre-gl.js:45",
+    "36 ms  (garbage collector) :-1",
+    "35 ms  _render maplibre-gl.js:45",
+    "34 ms  intersectsFrustum maplibre-gl.js:45",
+    "33 ms  (anon) maplibre-gl.js:41",
+    "32 ms  _calcMatrices maplibre-gl.js:45",
+    "30 ms  draw maplibre-gl.js:45",
+    "26 ms  evaluate maplibre-gl.js:41",
+    "24 ms  uniformMatrix4fv :-1",
+    "22 ms  getTileBoundingVolume maplibre-gl.js:45",
+    "22 ms  render maplibre-gl.js:45",
+    "22 ms  calculatePosMatrix maplibre-gl.js:45",
+    "22 ms  Blob :-1",
+    "22 ms  possiblyEvaluate maplibre-gl.js:41",
+    "21 ms  receive maplibre-gl.js:41"
+   ],
+   "byFile": {
+    "(native)": 3027,
+    "maplibre-gl.js": 1070,
+    "globe.js": 24,
+    "globe-close.js": 1
+   },
+   "end": {
+    "alt": 0.2,
+    "close": false,
+    "zoom": 5.32
+   }
+  }
+ ]
+}

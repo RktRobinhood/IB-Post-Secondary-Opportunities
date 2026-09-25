@@ -409,6 +409,282 @@ function isIso(v) {
   return typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.trim()) && !Number.isNaN(Date.parse(v));
 }
 
+/* --- One fact, one card ---------------------------------------------------- */
+
+/**
+ * The same deadline, recorded twice.
+ *
+ * A Destination's country profile listed its deadlines first; its Application
+ * Routes were migrated from them later, and the profile entries stayed. The
+ * label test in `eventsForDestination` caught a twin only when the two were
+ * worded identically, and they rarely are: "HKUST — priority round" and "HKUST
+ * priority round closes" are one date, and ~90 of them reached the calendar
+ * twice across 25 Destinations (docs/research/variants/systemic.md §5).
+ *
+ * Two entries are one event when they fall on the same day (and, for a window,
+ * end on the same day), are the same kind of thing, belong to the same route
+ * where both say, and name the same institution or system. Everything here is
+ * read off the records: the words set aside as naming nothing are the
+ * vocabulary of calendars in general, never the name of a place.
+ */
+
+/* Words that say what kind of date it is, or nothing at all. What is left
+   after removing them names the institution, programme or system. */
+const GENERIC = new Set(`
+  a an and or the of for to in on at by with from as is it its be are your you yours this that these those all any each
+  every everything else anything other most more main only also not no if one two three first second third final last
+  next new early late
+  application applications apply applicant applicants applying admission admissions deadline deadlines date dates day
+  close closes closed closing open opens opened opening window period round rounds session sessions stage phase
+  submit submitted submission due deliver send sent upload uploaded register registration registered enrol enrolment
+  intake entry start starts year years semester term academic autumn spring summer winter fall
+  university universities college school institution programme programmes program programs course courses bachelor bachelors
+  degree degrees undergraduate study studies student students international foreign eu eea non nordic selective taught
+  must can may will need needs needed required requirement requirements recommended general ordinary normal regular
+  result results document documents supporting official
+  january february march april may june july august september october november december
+`.trim().split(/\s+/));
+
+const words = (text) =>
+  String(text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean)
+    .map((w) => (w.length > 4 && w.endsWith('s') && !w.endsWith('ss') ? w.slice(0, -1) : w));
+
+/** The words of a label that identify something, rather than describe a date. */
+export function identityWords(label) {
+  return new Set(words(label).filter((w) => w.length > 1 && !/^\d+$/.test(w) && !GENERIC.has(w) && !GENERIC.has(`${w}s`)));
+}
+
+/**
+ * Does an initialism in one label spell a name written out in the other?
+ * "NTU" and "Nanyang Technological University", "UBC" and "University of
+ * British Columbia". Each letter must be the first letter of the next
+ * capitalised word; short lower-case words ("of", "the", "and") are skipped.
+ * Anything looser matched "IT" against "IB results" and "SEA" against "Sign
+ * the application".
+ */
+function spellsOut(a, b) {
+  const plain = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  /* Three letters at least: two matched "EU" to "Erasmus University". */
+  const initialisms = plain(a).match(/\b[A-Z]{3,6}\b/g) || [];
+  const named = plain(b).split(/[^A-Za-z]+/).filter((w) => w && !(w.length <= 3 && w === w.toLowerCase()));
+  /* One letter may come from inside the word before it, for the syllable an
+     initialism takes from a compound: XJTLU is Xi'an JiaoTong-Liverpool. */
+  const spells = (acr, i) => {
+    let w = i;
+    let inside = 0;
+    for (let k = 0; k < acr.length; k++) {
+      if (named[w]?.[0] === acr[k]) { w++; continue; }
+      const prev = named[w - 1];
+      if (k && !inside && prev && prev.slice(1).toUpperCase().includes(acr[k])) { inside++; continue; }
+      return false;
+    }
+    return named.slice(i, w).join('') !== acr;
+  };
+  return initialisms.some((acr) => named.some((_, i) => spells(acr, i)));
+}
+
+const flat = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+
+/**
+ * How strongly two labels name the same thing: shared identifying words, one
+ * for an initialism written out, and a decisive score when one label is the
+ * other with words added ("Normal closing date - the one that matters").
+ */
+export function nameMatch(a, b) {
+  const fa = flat(a);
+  const fb = flat(b);
+  if (fa && fb && (fa.startsWith(fb) || fb.startsWith(fa))) return 99;
+  const wa = identityWords(a);
+  let n = 0;
+  for (const w of identityWords(b)) if (wa.has(w)) n++;
+  if (spellsOut(a, b) || spellsOut(b, a)) n++;
+  return n;
+}
+
+/**
+ * What kind of date an entry is. Two entries on one day can only be one event
+ * if they are the same kind: an exam and the application it belongs to share
+ * a day and an institution and are still two things to do.
+ */
+export function eventKind(e) {
+  if (e.endDate && e.endDate !== e.date) return 'window';
+  const l = String(e.label || '').toLowerCase();
+  if (/\b(test|exam|examination|interview)s?\b/.test(l)) return 'test';
+  if (/\bopen(s|ed|ing)?\b/.test(l) && !/\bclos/.test(l)) return 'open';
+  if (/\b(reply|accept|acceptance|deposit|intent to register)\b/.test(l)) return 'reply';
+  /* "IB results released" is news; "IB results due" is a deadline. */
+  if (/\b(results?|ranking|offers)\b/.test(l) && !/\b(due|deadline|must|needs?|reach|send|submit|upload|deliver|to)\b/.test(l)) return 'result';
+  return 'deadline';
+}
+
+const STRICTNESS = ['indicative', 'personal', 'rolling', 'priority', 'equal-consideration', 'hard'];
+const stricter = (a, b) => (STRICTNESS.indexOf(a) >= STRICTNESS.indexOf(b) ? a : b);
+
+/** Same day, same end, same kind, and not on two different routes. */
+export function sameOccasion(a, b) {
+  return Boolean(
+    a.date && a.date === b.date &&
+    (a.endDate || null) === (b.endDate || null) &&
+    (!a.routeId || !b.routeId || a.routeId === b.routeId) &&
+    !isClosed(a) && !isClosed(b) &&
+    eventKind(a) === eventKind(b)
+  );
+}
+
+/** Notes that say the same thing once. A note contained in another is dropped. */
+function unionNotes(...notes) {
+  const kept = [];
+  for (const n of notes.filter(Boolean)) {
+    const f = flat(n);
+    if (kept.some((k) => flat(k).includes(f))) continue;
+    for (let i = kept.length - 1; i >= 0; i--) if (f.includes(flat(kept[i]))) kept.splice(i, 1);
+    kept.push(n);
+  }
+  return kept.length ? kept.join('\n\n') : null;
+}
+
+const union = (...lists) => [...new Set(lists.flat().filter(Boolean))];
+
+/**
+ * One card from two records of one event. The route is the migrated record, so
+ * its fields win where both have one and the profile fills what it lacks.
+ * Three exceptions: the label that names more is kept; the stricter
+ * consequence is kept, because a student who reads a hard deadline as a
+ * priority date can miss it; and notes, sources and evidence are the union of
+ * both, so no link a researcher recorded is lost in the merge.
+ */
+export function mergeTwins(route, profile) {
+  const rw = identityWords(route.label).size;
+  const pw = identityWords(profile.label).size;
+  return {
+    ...route,
+    label: pw > rw ? profile.label : route.label,
+    timeOfDay: route.timeOfDay || profile.timeOfDay,
+    timeZone: route.timeOfDay ? route.timeZone : profile.timeZone || route.timeZone,
+    consequence: stricter(route.consequence, profile.consequence),
+    audience: route.audience && route.audience !== 'any' ? route.audience : profile.audience,
+    intake: route.intake || profile.intake,
+    note: unionNotes(route.note, profile.note),
+    ibCalendar: route.ibCalendar || profile.ibCalendar,
+    sources: union(route.sources, profile.sources),
+    evidence: union(route.evidence, profile.evidence),
+    checkedAt: [route.checkedAt, profile.checkedAt].filter(Boolean).sort().at(-1) || null,
+    access: route.access || profile.access,
+    mergedFrom: union(route.mergedFrom, [profile.id]),
+  };
+}
+
+/**
+ * Fold each profile entry into the route event it restates.
+ *
+ * 1. Pairs are made one to one, best match first, so two institutions'
+ *    deadlines on one day ("HKU first round" and "HKUST priority round") each
+ *    find their own twin rather than both finding the first.
+ * 2. A day left with one unmatched route event of a kind takes the one profile
+ *    entry that either names nothing beyond the route ("First admission round
+ *    application deadline") or names the route itself where the route event
+ *    names nothing ("Samordna opptak main deadline" and "Ordinary application
+ *    deadline"). Two entries that each name something the other does not are
+ *    two things, whatever the day.
+ * 3. A profile entry that names the route and matches an event already folded
+ *    joins it: one system's deadline, recorded by the system and by a member.
+ * 4. A profile window whose first day is a route's "opens" and whose last day
+ *    is its "closes", for the same institution, is those two dates written
+ *    once more. Its notes and sources go to the closing date, the one that
+ *    costs something to miss, and its sources to the opening too.
+ */
+export function foldTwins(routeEvents, profileEvents) {
+  const merged = new Map(routeEvents.map((r) => [r, r]));
+  const leftover = new Set(profileEvents);
+  const taken = new Set();
+  const fold = (r, p) => {
+    merged.set(r, mergeTwins(merged.get(r), p));
+    leftover.delete(p);
+    taken.add(r);
+  };
+  const context = (r) => identityWords(`${r.routeLabel || ''} ${String(r.routeId || '').replace(/-/g, ' ')}`);
+  const namesRoute = (p, r) => p.routeId === r.routeId || [...identityWords(p.label)].some((w) => context(r).has(w));
+
+  // 1
+  const pairs = [];
+  for (const p of profileEvents)
+    for (const r of routeEvents) {
+      if (!sameOccasion(p, r)) continue;
+      const n = nameMatch(p.label, r.label);
+      if (n) pairs.push({ p, r, n: n + (namesRoute(p, r) ? 0.5 : 0) });
+    }
+  pairs.sort((a, b) => b.n - a.n);
+  for (const { p, r } of pairs) if (leftover.has(p) && !taken.has(r)) fold(r, p);
+
+  // 2
+  for (const r of routeEvents) {
+    if (taken.has(r)) continue;
+    const ctx = context(r);
+    const own = (label) => [...identityWords(label)].filter((w) => !ctx.has(w));
+    const fits = [...leftover].filter((p) => {
+      if (!sameOccasion(p, r)) return false;
+      if (p.consequence !== r.consequence) return false;
+      /* Where the day has several route events of this kind, the one with the
+         same consequence is the only candidate; none or two, and it is left. */
+      const rivals = routeEvents.filter((o) => !taken.has(o) && sameOccasion(p, o) && o.consequence === p.consequence);
+      if (rivals.length !== 1) return false;
+      return !own(p.label).length || (!own(r.label).length && namesRoute(p, r));
+    });
+    if (fits.length === 1) fold(r, fits[0]);
+  }
+
+  // 3
+  for (const p of [...leftover]) {
+    const home = routeEvents.find((r) => taken.has(r) && sameOccasion(p, r) && [...identityWords(p.label)].some((w) => context(r).has(w)) && Math.max(nameMatch(p.label, r.label), nameMatch(p.label, merged.get(r).label)) > 0);
+    if (home) fold(home, p);
+  }
+
+  // 4
+  const used = new Set();
+  const within = (inner, outer) => {
+    const ow = identityWords(outer);
+    return [...identityWords(inner)].every((w) => ow.has(w)) || (spellsOut(inner, outer) && [...identityWords(inner)].every((w) => ow.has(w) || /^[a-z]{2,6}$/.test(w) && spellsOut(inner, outer)));
+  };
+  const onDay = (p, day, kind) =>
+    routeEvents.filter((r) => !used.has(r) && r.date === day && !r.endDate && !isClosed(r) && eventKind(r) === kind &&
+      (!p.routeId || p.routeId === r.routeId) && nameMatch(p.label, r.label) && within(r.label, p.label));
+  const windows = [...leftover].filter((p) => eventKind(p) === 'window' && !isClosed(p));
+  for (const p of windows) {
+    const opens = onDay(p, p.date, 'open');
+    const closes = onDay(p, p.endDate, 'deadline');
+    if (opens.length !== 1 || closes.length !== 1) continue;
+    const [o] = opens;
+    const [c] = closes;
+    merged.set(c, mergeTwins(merged.get(c), { ...p, label: '', endDate: null }));
+    merged.set(o, { ...merged.get(o), sources: union(merged.get(o).sources, p.sources), mergedFrom: union(merged.get(o).mergedFrom, [p.id]) });
+    used.add(o).add(c);
+    leftover.delete(p);
+  }
+  /* A window with a matching "opens" and no matching close: the window says
+     more (it has the end), so the opening folds into it and the window's words
+     are kept. An opening already kept for a window closed above can still fold
+     here: its day is then carried by this window, so no date is lost. */
+  const intoWindow = new Set();
+  for (const p of windows) {
+    if (!leftover.has(p)) continue;
+    const opens = onDay({ ...p }, p.date, 'open').concat([...used].filter((o) => !intoWindow.has(o) && o.date === p.date && eventKind(o) === 'open' && (!p.routeId || p.routeId === o.routeId) && nameMatch(p.label, o.label) && within(o.label, p.label)));
+    const unique = [...new Set(opens)].filter((o) => !intoWindow.has(o));
+    if (unique.length !== 1) continue;
+    const [o] = unique;
+    merged.set(o, { ...mergeTwins({ ...merged.get(o), endDate: p.endDate }, p), label: p.label });
+    used.add(o);
+    intoWindow.add(o);
+    leftover.delete(p);
+  }
+
+  return [...merged.values(), ...leftover];
+}
+
 /* --- The one entry point pages use ---------------------------------------- */
 
 /**
@@ -417,7 +693,7 @@ function isIso(v) {
  * label, because the route is the migrated record and the profile is what it
  * was migrated from.
  */
-export function eventsForDestination(country, graph) {
+export function eventsForDestination(country, graph, { fold = true } = {}) {
   const routes = [...(graph?.applicationRoutes?.values() || [])].filter((r) => r.destination === country.code);
 
   const closedRoutes = new Set(
@@ -445,7 +721,6 @@ export function eventsForDestination(country, graph) {
      collapses to one line, so the profile entry it was migrated from is
      recognised as the same fact and not listed again beside it. */
   const claimed = new Set([
-    ...fromRoutes.map((e) => normaliseLabel(e.label)),
     ...routes
       .filter((r) => closedRoutes.has(r.id))
       .flatMap((r) => [...(r.rounds || []), ...(r.milestones || [])].map((x) => normaliseLabel(x.label))),
@@ -456,7 +731,27 @@ export function eventsForDestination(country, graph) {
        once by the route's own line. */
     .filter((e) => !claimed.has(normaliseLabel(e.label)) && !closedRoutes.has(e.routeId));
 
-  return [...fromRoutes, ...fromProfile].sort((a, b) => orderKey(a).localeCompare(orderKey(b)));
+  if (!fold) return [...fromRoutes, ...fromProfile].sort((a, b) => orderKey(a).localeCompare(orderKey(b)));
+
+  /* Worded the same: the route event is the fact, and the profile entry's
+     notes and sources join it rather than being dropped with it. */
+  const byLabel = new Map(fromRoutes.map((e) => [normaliseLabel(e.label), e]));
+  const merged = new Map(fromRoutes.map((e) => [e, e]));
+  const rest = [];
+  for (const e of fromProfile) {
+    const twin = byLabel.get(normaliseLabel(e.label));
+    const cur = twin && merged.get(twin);
+    if (!twin || (cur.date && e.date && (cur.date !== e.date || (cur.endDate || null) !== (e.endDate || null)))) {
+      /* Same words, different day: two dates, both kept. */
+      rest.push(e);
+      continue;
+    }
+    const dated = cur.date ? cur : { ...cur, date: e.date, endDate: e.endDate, dateState: e.dateState, provisional: e.provisional };
+    merged.set(twin, mergeTwins(dated, { ...e, label: twin.label }));
+  }
+
+  /* Worded differently, still one date: see foldTwins. */
+  return foldTwins([...merged.values()], rest).sort((a, b) => orderKey(a).localeCompare(orderKey(b)));
 }
 
 /**

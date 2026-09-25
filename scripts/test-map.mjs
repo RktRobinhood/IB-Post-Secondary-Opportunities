@@ -316,6 +316,26 @@ check('pins stay decorative, so the list stays the one control surface', () => {
     assert.ok(!/Math\.max\(close\.map\.getZoom\(\), zoom\)/.test(globeJs), 'a city arrived at from a campus is dived to street level again');
     assert.match(globeJs, /function goHome\(\)[\s\S]{0,120}climbOut\(/, 'Reset from street level jumps to orbit again instead of climbing out');
   });
+  check('no cream: the close map has no opaque ground below street level, and the globe draws under it', () => {
+    /* Round 3: every upward move inside the close map showed the style's cream
+       background where tiles had not loaded. */
+    assert.match(closeJs, /'background-opacity': \['interpolate', \['linear'\], \['zoom'\], 13, 0,/, 'the close style paints an opaque background below street level again');
+    assert.ok(!/if \(!closeActive\) draw\(now\)/.test(globeJs), 'the globe stops drawing under the close map again, so missing tiles show as voids');
+  });
+  check('no hitches: textures decode off-thread, upload only when still, anisotropy read once', () => {
+    assert.match(globeJs, /gl\.__aniso === undefined/, 'the anisotropy limit is read after every mipmap again (a forced GPU sync)');
+    assert.match(globeJs, /createImageBitmap/, 'lazy textures decode on the main thread again');
+    assert.match(globeJs, /function upgradeDay\(\)[\s\S]{0,400}whenStill\(/, 'the 4096 upload is no longer held until nothing moves');
+    assert.match(globeJs, /uploads\.length && still/, 'queued uploads no longer wait for stillness');
+    assert.match(globeJs, /if \(warming\) await Promise\.race/, 'the handoff cuts the warm-up short again (the street-level pop)');
+  });
+  check('a page resting below FINE_ALT rests on the detail texture and the finer borders', () => {
+    assert.match(globeJs, /if \(rest\.alt < FINE_ALT\)[\s\S]{0,200}maybeFine\(0\); maybeDetail\(rest\);/, 'the resting picture is the magnified 2048 map again (round 3, R1)');
+  });
+  check('a group click frames every member, and Back undoes it', () => {
+    assert.ok(!/cameraForBounds/.test(globeJs), 'groups are framed with MapLibre\'s pitch-0 bounds fit again (ten of twelve off the stage)');
+    assert.match(globeJs, /function openGroup[\s\S]{0,4000}remember\(\{ kind: 'view'/, 'a group dive pushes no history entry, so Back leaves the page');
+  });
   check('the close map keeps the motion and touch rules', () => {
     assert.match(globeJs, /function closeFlyTo[\s\S]{0,900}if \(reducedMotion\(\)\) \{\s*m\.jumpTo/, 'close-map flights no longer jump under reduced motion');
     assert.match(globeJs, /function climbOut[\s\S]{0,1200}if \(reducedMotion\(\)\) \{ m\.jumpTo/, 'climbing out of the close map no longer jumps under reduced motion');

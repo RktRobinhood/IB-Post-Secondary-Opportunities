@@ -36,6 +36,7 @@ import { load } from '../src/lib/data.mjs';
 import { review, publishable } from '../src/lib/imagery.mjs';
 import { VEIL, FALLBACK_SCOPE, contrast, hex, worstBackground } from '../src/lib/programme-imagery.mjs';
 import { conforms, probeWebp } from './lib/image-standard.mjs';
+import { cardKey } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -107,9 +108,13 @@ check('every institution page draws a background on every programme card', () =>
     const backed = (grid.match(/<article class="card card--link card--backdrop">\s*<img class="card__backdrop"/g) || []).length;
     cards += articles;
     if (!articles || articles !== backed) bad.push(`${inst.href}: ${backed} of ${articles} cards`);
+    // A family of paths is one card, but every path is still one tap away.
+    for (const p of inst.programmes) if (!grid.includes(`/programmes/${p.id}/`)) bad.push(`${inst.href}: no link to ${p.id}`);
   }
   assert.deepEqual(bad, []);
-  assert.ok(cards >= site.programmes.length, `only ${cards} programme cards found for ${site.programmes.length} programmes`);
+  // One card per programme, or per family of paths (src/lib/families.mjs).
+  const expected = new Set(site.programmes.map((p) => cardKey(site.graph.programmes.get(p.programmeId || p.id) || { id: p.id }))).size;
+  assert.ok(cards >= expected, `only ${cards} programme cards found for ${expected} cards' worth of programmes`);
 });
 
 const jsonIn = (page, id) => {
@@ -120,11 +125,18 @@ const jsonIn = (page, id) => {
   return JSON.parse(m[1]);
 };
 
-check('every finder row carries a background', () => {
-  const rows = jsonIn('programmes/index.html', 'programme-data');
-  const bad = rows.filter((r) => !r.backdrop?.src || !r.backdrop.srcset || !r.backdrop.sizes).map((r) => r.id);
-  assert.deepEqual(bad, []);
-  assert.equal(rows.length, site.programmes.length);
+/* The finder is the home page's discovery surface (docs/research/ia/plan.md,
+   Batch D): its cards are drawn at build time through card(), one per
+   programme or per family, with every programme a member of one. */
+check('every card on the discovery surface carries a background', () => {
+  const page = built('index.html');
+  if (!page) throw new Error('index.html is not built');
+  const cards = [...page.matchAll(/<li class="discover__card"[^>]*>([sS]*?)</li>s*(?=<li class="discover__card"|</ul>)/g)].map((m) => m[1]);
+  assert.ok(cards.length > 0, 'no discovery cards on the home page');
+  const bare = cards.filter((c) => !/class="card__backdrop"/.test(c)).map((c) => (c.match(//programmes/([a-z0-9-]+)//) || [])[1]);
+  assert.deepEqual(bare, []);
+  const members = jsonIn('index.html', 'discover-data').cards.reduce((n, c) => n + c.members.length, 0);
+  assert.equal(members, site.programmes.length);
 });
 
 check('every planner result carries a background', () => {
@@ -133,8 +145,8 @@ check('every planner result carries a background', () => {
   assert.deepEqual(bad, []);
 });
 
-check('the finder and the planner draw the background the same way the cards do', () => {
-  for (const rel of ['src/assets/js/explorer.js', 'src/assets/js/planner.js']) {
+check('the planner draws the background the same way the cards do', () => {
+  for (const rel of ['src/assets/js/planner.js']) {
     const src = read(rel);
     assert.match(src, /class="prog__backdrop"[^`]*alt=""[^`]*loading="lazy"[^`]*srcset=|class="prog__backdrop"[^`]*srcset="[^`]*alt=""[^`]*loading="lazy"/, `${rel} does not write a lazy, decorative, srcset backdrop`);
     assert.match(src, /prog--backdrop/, `${rel} does not mark the row as veiled, so its text would sit on the bare photograph`);
@@ -268,14 +280,64 @@ check(`every text colour on a veiled card reaches ${AA}:1 over the worst pixel, 
   assert.deepEqual(bad, []);
 });
 
+/* Every chip (.tag, .tag--*) against its own background, in every theme, and
+   the cut-off chip as a veiled card paints it. The round-1 critic measured the
+   cut-off chip at 3.05:1 in OS dark mode: the dark colour was set only for the
+   explicit dark theme, and this guard checked text but not chips. A chip's
+   background is an opaque tint, so the pair is the whole story; a transparent
+   chip sits on the paper. */
+check(`every tag chip reaches ${AA}:1 on its own background, in every theme and on a veiled card`, () => {
+  const rule = (sel) => {
+    const m = new RegExp(`^${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`, 'm').exec(css);
+    return m ? m[1] : null;
+  };
+  const prop = (body, name) => (body ? (new RegExp(`(?:^|;|\\s)${name}:\\s*([^;]+);`).exec(body) || [])[1]?.trim() : null);
+  const base = rule('.tag');
+  const mods = [...css.matchAll(/^\.tag--([a-z]+)\s*\{/gm)].map((m) => m[1]);
+  const override = (theme, mod) => {
+    const sel = theme === 'dark'
+      ? `:root[data-theme="dark"] .tag--${mod}`
+      : theme === 'dark (system)' ? `:root:not([data-theme="light"]) .tag--${mod}` : null;
+    if (!sel) return null;
+    const m = new RegExp(`${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`).exec(css);
+    return m ? m[1] : null;
+  };
+  const bad = [];
+  const rows = [];
+  for (const [name, body] of Object.entries(themes)) {
+    const get = (t) => { try { return token(body, t); } catch { return token(themes.light, t); } };
+    const resolve = (v) => {
+      if (!v || v === 'transparent') return hex(get('paper'));
+      const m = /^var\(--([a-z0-9-]+)\)$/.exec(v);
+      return hex(m ? get(m[1]) : v);
+    };
+    const pairs = [['.tag', prop(base, 'color'), prop(base, 'background')]];
+    for (const mod of mods) {
+      const own = rule(`.tag--${mod}`);
+      const over = override(name, mod);
+      pairs.push([`.tag--${mod}`, prop(over, 'color') || prop(own, 'color') || prop(base, 'color'), prop(own, 'background') || prop(base, 'background')]);
+    }
+    const veiled = rule('.card--backdrop .tag--sand,\n.prog--backdrop .tag--sand') || (/\.card--backdrop \.tag--sand[^{]*\{([^}]*)\}/.exec(css) || [])[1];
+    if (veiled) pairs.push(['.tag--sand on a veiled card', prop(veiled, 'color'), prop(rule('.tag--sand'), 'background')]);
+    for (const [label, fg, bg] of pairs) {
+      const ratio = contrast(resolve(fg), resolve(bg));
+      rows.push(`${name.padEnd(14)} ${label.padEnd(30)} ${ratio.toFixed(2)}:1`);
+      if (ratio < AA) bad.push(`${name}: ${label} (${fg} on ${bg}) is ${ratio.toFixed(2)}:1`);
+    }
+  }
+  console.log(rows.map((r) => `          ${r}`).join('\n'));
+  assert.deepEqual(bad, []);
+});
+
 /* --- 4. No special cases ------------------------------------------------ */
 
 const SOURCES = [
   'src/lib/programme-imagery.mjs',
   'src/lib/components.mjs',
   'src/pages/explorer.mjs',
+  'src/pages/discover.mjs',
   'src/pages/planner.mjs',
-  'src/assets/js/explorer.js',
+  'src/assets/js/discover.js',
   'src/assets/js/planner.js',
   'scripts/import-programme-images.mjs',
 ];

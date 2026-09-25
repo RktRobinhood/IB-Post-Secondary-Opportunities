@@ -19,8 +19,19 @@
  * which is what `worldWindow()` guarantees at build time.
  *
  * Either way the caller gets the same controller back, straight away:
- * `setCounts()` and `reset()` are remembered and replayed if the engine is not
- * there yet, and `world:select` is dispatched on the figure by both.
+ *
+ *   - `setCounts(Map<placeId, n>, { selected })` re-weights the lights from a
+ *     filtered set (zero dims a light);
+ *   - `show(spec)` goes somewhere by data — `{ place }`, `{ country }`,
+ *     `{ bounds: { north, south, west, east }, label }` or `{ camera }`; on the
+ *     flat map it does nothing and returns false;
+ *   - `reset()` returns to the page's resting view.
+ *
+ * `setCounts()` and the latest `show()` are remembered and replayed if the
+ * engine is not there yet. Two events come from the figure: `world:select`
+ * (the card's action — cancel it to handle the choice yourself, as the
+ * explorer filters) from both engines, and `world:choose` (a place, country or
+ * group chosen or cleared on the globe; see globe.js) from the globe.
  */
 import { enhanceFlat } from './map-flat.js';
 
@@ -50,6 +61,7 @@ export function enhanceWorld(figure) {
 
   let engine = null;
   let last = null;
+  let pendingShow = null;
   const controller = {
     figure,
     setCounts(counts, opts = {}) {
@@ -57,6 +69,11 @@ export function enhanceWorld(figure) {
       engine?.setCounts(counts, opts);
     },
     reset() { engine?.reset(); },
+    show(spec, opts) {
+      if (engine?.show) return engine.show(spec, opts);
+      if (!engine) pendingShow = [spec, opts];
+      return false;
+    },
     /** 'globe', 'flat', or 'waiting' while the globe loads. */
     get mode() { return engine ? (engine.debug ? 'globe' : 'flat') : 'waiting'; },
     /** The globe's own controller, for QA scripts; null on the flat map. */
@@ -82,6 +99,7 @@ export function enhanceWorld(figure) {
       const { mountGlobe } = await import('./globe.js');
       engine = await mountGlobe(figure, { onFail: (why) => flat(why || 'the WebGL context was lost') });
       if (last) engine.setCounts(...last);
+      if (pendingShow) { engine.show(...pendingShow); pendingShow = null; }
     } catch (err) {
       console.warn('[world] the globe could not start; using the flat map.', err?.message || err);
       /* Say why: "software renderer: …" or "WebGL refused …" is what a person

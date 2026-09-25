@@ -45,8 +45,8 @@ export const FALLBACK_SCOPE = 'field:interdisciplinary';
  *         255 × dim, which is the worst case for pale text in dark mode.
  */
 export const VEIL = {
-  light: { top: 0.4, text: 0.84, foot: 0.94, dim: 1 },
-  dark: { top: 0.45, text: 0.86, foot: 0.93, dim: 0.85 },
+  light: { top: 0.08, text: 0.84, foot: 0.94, dim: 1 },
+  dark: { top: 0.12, text: 0.86, foot: 0.93, dim: 0.85 },
 };
 
 /** The records grouped by scope. Only publishable ones, ordered by key so the order is stable. */
@@ -156,6 +156,10 @@ export function backdropResolver(records, programmes) {
     src: r.src,
     width: r.width,
     height: r.height,
+    /* Where the crop should sit (a CSS object-position), chosen by the
+       reviewer for this file; the card box is 16:10, so only a record whose
+       subject is off-centre needs one. */
+    ...(r.focus ? { focus: r.focus } : {}),
     srcset: [...(r.variants || []), { src: r.src, width: r.width }]
       .filter((v) => v.src && v.width)
       .sort((a, b) => a.width - b.width)
@@ -178,7 +182,7 @@ export function srcsetOf(backdrop, url = (s) => s) {
  * 400 px wide on a desktop, half the viewport on a tablet, and the full width
  * on a phone. A finder row is the full width.
  */
-export const CARD_SIZES = '(min-width: 66rem) 400px, (min-width: 44rem) 50vw, 100vw';
+export const CARD_SIZES = '(min-width: 66rem) 400px, (min-width: 44rem) 50vw, calc(100vw - 2rem)';
 export const ROW_SIZES = '100vw';
 
 /* --- Contrast, for the guard and anyone checking a colour ---------------- */

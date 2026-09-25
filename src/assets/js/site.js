@@ -302,3 +302,32 @@ document.addEventListener('click', (e) => {
   a.target = '_blank';
   if (!/\bnoopener\b/.test(a.rel)) a.rel = `${a.rel} noopener`.trim();
 }, true);
+
+/* --- "i": one short note beside a word ------------------------------------ */
+
+/* A button marked `data-info` shows the note it controls and hides it again.
+   One is open at a time; Escape or a click anywhere else closes it. The note
+   is in the page from the start, so it is read without this script too once
+   the `hidden` goes (print, reader mode). */
+function setInfo(b, open) {
+  const panel = document.getElementById(b.getAttribute('aria-controls'));
+  if (!panel) return;
+  b.setAttribute('aria-expanded', String(open));
+  panel.hidden = !open;
+}
+
+document.addEventListener('click', (e) => {
+  const b = e.target.closest?.('[data-info]');
+  for (const o of document.querySelectorAll('[data-info][aria-expanded="true"]')) {
+    if (o !== b && !o.parentElement?.contains(e.target)) setInfo(o, false);
+  }
+  if (b) setInfo(b, b.getAttribute('aria-expanded') !== 'true');
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  const open = document.querySelector('[data-info][aria-expanded="true"]');
+  if (!open) return;
+  setInfo(open, false);
+  open.focus();
+});

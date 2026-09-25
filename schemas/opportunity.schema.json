@@ -337,6 +337,26 @@
           "type": "string",
           "description": "For a rule an applicant cannot satisfy as they stand, the published route that still reaches this Opportunity — supplementary subjects, a retake, a different entry qualification. Only ever the source's own route, never our suggestion, and covered by the same `evidence` as the rule itself. Its reason for existing is that 'you do not meet this' and 'this is closed to you' are different sentences, and a rule that can only say the first of them tells a student to stop when the source did not."
         },
+        "alternativeRouteSummary": {
+          "type": "object",
+          "description": "`alternativeRoute` in one sentence, for lists that show many programmes at once (/guides/course-results/, the finder's card label). Says nothing the long text does not. Programmes whose routes read the same share the same `short`, and a list shows it once.",
+          "required": [
+            "short",
+            "reachesAtEighteen"
+          ],
+          "properties": {
+            "short": {
+              "type": "string",
+              "minLength": 20,
+              "maxLength": 220
+            },
+            "reachesAtEighteen": {
+              "type": "boolean",
+              "description": "True when the long text describes a way in without the full Diploma that is open without waiting for an age limit (a supplement, a test anyone may sit). False when every such route waits for an age (typically 21) or none is published, which the long text then says."
+            }
+          },
+          "additionalProperties": false
+        },
         "operator": {
           "enum": [
             "all-of",

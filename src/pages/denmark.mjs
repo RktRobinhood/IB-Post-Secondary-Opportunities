@@ -174,7 +174,7 @@ ${hero({
     .slice(0, 4)
     .map(({ i, p }) => ({ src: p.external ? p.src : url(p.src), caption: `${i.name} · ${i.city}`, credit: p.credit || null })),
   actions: html`
-    <a class="btn btn--primary" href="${url('/programmes/')}">See every degree</a>
+    <a class="btn btn--primary" href="${url('/#discover')}">See every degree</a>
     <a class="btn btn--ghost" href="${url('/planner/')}">Check my subjects</a>`,
 })}
 

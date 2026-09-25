@@ -239,7 +239,7 @@ async function main() {
   } else ok('Pages load nothing from third parties except the font stylesheet');
 
   /* --- Accessibility and journeys that must not need JavaScript ------------ */
-  const mustWorkWithoutJs = ['/programmes/index.html', '/compare/index.html', '/planner/index.html'];
+  const mustWorkWithoutJs = ['/index.html', '/compare/index.html', '/planner/index.html'];
   for (const rel of mustWorkWithoutJs) {
     const file = path.join(DIST, rel.replace(/\//g, path.sep));
     try {

@@ -434,12 +434,24 @@ export function credits(site) {
   /* The faded photographs behind programme cards, one row per photograph:
      several programmes can share one, and it is the photographer being
      credited, not the card. */
+  /* Which cards each photograph is actually behind, named with their
+     institution: "Electronics (SDU)", not "Electronics, Electronics". A
+     family of paths is one card and one name. */
+  const usedBy = new Map();
+  for (const p of site.programmes || []) {
+    if (!p.backdrop?.src) continue;
+    const rec = site.graph?.programmes?.get(p.programmeId || p.id);
+    const label = `${rec?.family?.name || p.name} (${p.institutionName})`;
+    if (!usedBy.has(p.backdrop.src)) usedBy.set(p.backdrop.src, new Set());
+    usedBy.get(p.backdrop.src).add(label);
+  }
   const disciplines = [];
   for (const r of Object.values(site.programmeImages || {})) {
     if (!r.file || !r.src) continue;
     const row = disciplines.find((d) => d.file === r.file);
-    if (row) row.subjects.push(r.subject);
-    else disciplines.push({ ...r, subjects: [r.subject] });
+    const used = [...(usedBy.get(r.src) || [])];
+    if (row) row.subjects.push(...used.filter((u) => !row.subjects.includes(u)));
+    else disciplines.push({ ...r, subjects: used.length ? used : [`${r.subject} (not on a card at present)`] });
   }
   disciplines.sort((a, b) => a.subjects[0].localeCompare(b.subjects[0]));
   const official = Object.entries(site.officialImages || {}).sort((a, b) =>
@@ -525,14 +537,16 @@ ${hero({
 
       <section class="topic" aria-labelledby="disciplines" data-filter-group>
         <h2 id="disciplines">Behind the programme cards</h2>
-        <div class="topic__short"><p>The faded photograph of each programme's discipline, also from Wikimedia Commons.</p></div>
+        <div class="topic__short"><p>The photograph of each programme's discipline, also from Wikimedia Commons, cropped and tinted for the card.</p></div>
         ${disciplines.length
           ? html`<details class="topic__more">
               <summary>All ${disciplines.length}, with photographer and licence</summary>
               <div class="topic__body">
                 <p>Each programme card has a faded photograph of its discipline behind it. The photograph is the
                 programme's own where one fits, and otherwise one of its field. These also come from Wikimedia Commons and
-                are hosted here under their licences.</p>
+                are hosted here under their licences. Each is cropped to the card and tinted towards the page colour
+                behind a pale veil, so what you see on a card is changed from the original; the original is one click
+                away in the File column.</p>
                 ${dataTable({
                   caption: `${plural(disciplines.length, 'photograph')} behind programme cards`,
                   head: ['Used for', 'Photographer', 'Licence', 'File'],
