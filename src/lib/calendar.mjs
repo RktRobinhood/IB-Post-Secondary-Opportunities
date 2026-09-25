@@ -329,6 +329,9 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     intake: route.intake || null,
     note: clean(milestone.note),
     ibCalendar: clean(milestone.ibCalendar),
+    /* The general date this one replaces where it is shown ("<route>/<milestone>");
+       read by a school's own list (school-dates.mjs), never by the calendar. */
+    supersedes: clean(milestone.supersedes),
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: milestone.evidence || [],
@@ -442,6 +445,7 @@ const GENERIC = new Set(`
   degree degrees undergraduate study studies student students international foreign eu eea non nordic selective taught
   must can may will need needs needed required requirement requirements recommended general ordinary normal regular
   result results document documents supporting official
+  issued published released announced
   january february march april may june july august september october november december
 `.trim().split(/\s+/));
 
@@ -799,6 +803,35 @@ export function allEvents(site) {
 
 function normaliseLabel(label) {
   return String(label || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+/* --- Which entry year a date is for ---------------------------------------- */
+
+/**
+ * The year of entry an event belongs to, read off its `intake`: "2027-autumn"
+ * on a route, or the researcher's words on a profile entry ("2027 entry",
+ * "2026/27 entry, spring start", "2026 UCAT cycle, used for 2027 entry").
+ * The year that counts is the one written against entry, intake, session or
+ * admission; a sentence that names no such year returns null.
+ */
+export function entryYear(event) {
+  const t = String(event?.intake || '');
+  const route = t.match(/^(\d{4})-[a-z]/i);
+  if (route) return Number(route[1]);
+  const m = t.match(/\b(\d{4})(?:\s*\/\s*\d{2,4})?\s+(?:entry|intake|session|admission)\b/i);
+  return m ? Number(m[1]) : null;
+}
+
+/**
+ * Is this a date for an earlier year's entry than the one the site is built
+ * for? Portugal's 2026 national-competition phases and a Polish university's
+ * 2026 enrolment window were recorded as the pattern for 2027 because the 2027
+ * dates were not out. They are last year's dates: nothing a student applying
+ * for this cycle can act on, so they never sit among the dates ahead.
+ */
+export function isForEarlierEntry(event, cycleYear) {
+  const y = entryYear(event);
+  return Boolean(cycleYear && y && y < cycleYear);
 }
 
 /* --- Reading the calendar ------------------------------------------------- */

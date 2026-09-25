@@ -1612,7 +1612,7 @@
     "appliesToIntake": "2027-autumn",
     "verificationState": "needs-review",
     "claim": "Data Science and Artificial Intelligence is not a numerus fixus programme. An EU/EEA or Swiss applicant must complete the whole application by 1 May 2027; a non-EU/EEA applicant by 1 April 2027. A mathematics deficiency can be cleared rather than ending the application.",
-    "excerpt": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. [...] 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency.",
+    "excerpt": "1 April 2027, 23:59 CET — Deadline for applicants with a non-EU/EEA nationality to: apply via Studielink; complete all admission tasks [...] 1 May 2027, 23:59 CET — Deadline for completing the entire application process if you have an EU/EEA or Swiss nationality. 1 May 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have a non-EU/EEA nationality. 1 June 2027, 23:59 CET — If applicable: deadline for submitting a syllabus for the mathematics sufficiency check procedure if you have an EU/EEA or Swiss nationality. [...] UM will always check whether you meet the general and mathematics requirements for admission, and you will be informed if you do not meet the mathematics requirements. If you do meet the general requirements for admission but not meet the mathematics requirement, there are several ways to eliminate your deficiency.",
     "interpretation": "Recorded because it is the counter-example. The page carries no numerus fixus statement, no capacity and no selection procedure, and its deadline is the ordinary national one. Alongside International Business and UCM at the same university it shows that 'Dutch admission' is three different things depending on the programme, not one.",
     "supports": [
       {
@@ -3435,6 +3435,66 @@
       "by": "audit pass (gb, ie, nl, be, lu)",
       "at": "2026-09-24",
       "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-tudelft-nl-application-procedure",
+    "sourceUrl": "https://www.tudelft.nl/en/education/admission-and-application/bsc-international-diploma/application-procedure",
+    "publisher": "TU Delft — BSc application procedure, international diploma",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-25",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "An applicant with an international (non-Dutch) diploma must register in Studielink by 15 January for a numerus clausus programme and by 1 April for every other TU Delft bachelor's programme.",
+    "excerpt": "Registration in Studielink: 15 January — Numerus clausus programmes; 1 april — All other programmes. [...] Application deadlines vary by BSc programme. Please make sure to check the deadline that applies to your chosen programme.",
+    "interpretation": "Day and month, no year and no time. Read as the 2027 cycle, the one open when it was read, and marked provisional.",
+    "supports": [
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-25",
+      "reviewBy": "2026-12-01"
+    },
+    "attestation": {
+      "by": "the deadlines round-1 fix pass (issue #47)",
+      "at": "2026-09-25",
+      "method": "read-source",
+      "note": "Fetched 2026-09-25 for issue #47: the site showed the national 1 May on TU Delft pages, which is a month late for an IB applicant."
+    }
+  },
+  {
+    "id": "ev-utwente-nl-tcs-deadline",
+    "sourceUrl": "https://www.utwente.nl/en/education/bachelor/programmes/technical-computer-science/enrolment/application-deadline-tcs/",
+    "publisher": "University of Twente — BSc Technical Computer Science, application deadline",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-25",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Technical Computer Science at Twente closes registration in Studielink and Osiris before 30 April at 23:59 CET, a day before the national 1 May.",
+    "excerpt": "Make sure to complete your registration before 30 April at 23:59 CET. [...] Deadline for completion of registration Studielink and Osiris: 30 April 2026 23:59 CET",
+    "interpretation": "The page still carries the 2026 intake's year. The 2027 date is taken to be the same day and marked provisional. It is this programme's page: Advanced Technology's own deadline page words its dates differently (by nationality, \"before 1 May\" and later), so the date is not applied to the whole university.",
+    "supports": [
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-25",
+      "reviewBy": "2026-11-01"
+    },
+    "attestation": {
+      "by": "the deadlines round-1 fix pass (issue #47)",
+      "at": "2026-09-25",
+      "method": "read-source",
+      "note": "Fetched 2026-09-25 for issue #47. Also read https://www.utwente.nl/en/education/bachelor/programmes/advanced-technology/enrolment/application-deadline/ the same day, which gives \"before 1 May\" (non-EEA), \"before 1 July\" (EEA) and \"before 1 August\" (Dutch) for a completed Osiris application."
     }
   }
 ]

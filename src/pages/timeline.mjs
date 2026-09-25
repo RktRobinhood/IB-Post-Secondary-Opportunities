@@ -2,7 +2,7 @@ import { html, raw, plural } from '../lib/html.mjs';
 import { page, SITE } from '../lib/layout.mjs';
 import { hero, note, stats, topic } from '../lib/components.mjs';
 import { deadlineList } from '../lib/primitives.mjs';
-import { allEvents, isActionable, isClosed, standing } from '../lib/calendar.mjs';
+import { allEvents, isActionable, isClosed, isForEarlierEntry, standing } from '../lib/calendar.mjs';
 
 /* The application calendar. */
 
@@ -22,7 +22,14 @@ import { allEvents, isActionable, isClosed, standing } from '../lib/calendar.mjs
  *   3. **the next ten** upcoming dates in scope;
  *   4. every upcoming date, grouped by month, one tap away;
  *   5. dates already past, one tap away and never before an upcoming one;
- *   6. the undated and the closed, as before.
+ *   6. the undated and the closed, as before;
+ *   7. last year's dates, kept as the pattern for this year's where this
+ *      year's are not out, counted and one tap away, never among the dates
+ *      ahead (a Portuguese 2026-entry result is not a date to act on).
+ *
+ * In the browser the page is filter-first: until a country is chosen it shows
+ * the chips and one line asking for a choice, never one list of every
+ * country's dates (`calendar.js`).
  *
  * Nothing is dropped: every event on the site is still on this page, and the
  * no-JavaScript view is complete, one tap from the default.
@@ -45,11 +52,15 @@ const monthName = (key) => `${MONTHS[Number(key.slice(5, 7)) - 1]} ${key.slice(0
 /** How many dates the page opens on. */
 export const NEXT_UP = 10;
 
+/** The entry year the site is built for ("Autumn 2027" → 2027). */
+const CYCLE_YEAR = Number(String(SITE.cycle.intake).match(/\d{4}/)?.[0]) || null;
+
 export function timeline(site, { today = new Date().toISOString().slice(0, 10) } = {}) {
   const events = allEvents(site);
   /* A route the reader cannot take is listed on its own, after both groups a
      student acts on, never sorted among them (#35). */
-  const dated = events.filter((e) => e.date && isActionable(e));
+  const dated = events.filter((e) => e.date && isActionable(e) && !isForEarlierEntry(e, CYCLE_YEAR));
+  const earlier = events.filter((e) => e.date && isActionable(e) && isForEarlierEntry(e, CYCLE_YEAR));
   const undated = events.filter((e) => !e.date && isActionable(e));
   const closed = events.filter(isClosed);
 
@@ -113,7 +124,7 @@ ${hero({
           </div>
           <p class="scope__state" id="cal-scope-state" role="status"></p>
           <div class="scope__actions">
-            <button type="button" class="btn btn--ghost btn--sm" id="cal-show-all" hidden>Every country</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="cal-show-all" hidden>Clear</button>
             <button type="button" class="btn btn--ghost btn--sm" id="cal-show-mine" hidden>Back to mine</button>
             <button type="button" class="btn btn--ghost btn--sm" id="cal-share" hidden>Copy a link to this view</button>
           </div>
@@ -136,6 +147,7 @@ ${hero({
             </div>`
           : ''}
 
+        <div id="cal-next-wrap">
         <h2 id="next" class="cal-next__title">Next up <span class="cal-next__count" id="cal-next-count">${Math.min(NEXT_UP, upcoming.length)} of ${upcoming.length}</span></h2>
         ${/* The server's "next ten" is every country as of the build. With
               JavaScript, calendar.js rebuilds this list from the full one below,
@@ -144,6 +156,7 @@ ${hero({
           showDestination: true,
           emptyText: 'Nothing left on the calendar this cycle.',
         })}</div>
+        </div>
 
         <details class="cal-group" id="cal-all">
           <summary>Every upcoming date <span class="cal-group__n" id="cal-all-n">(${upcoming.length})</span></summary>
@@ -157,6 +170,13 @@ ${hero({
           ? html`<details class="cal-group" id="cal-past">
               <summary>Earlier this cycle <span class="cal-group__n" id="cal-past-n">(${past.length})</span></summary>
               ${deadlineList(past, { showDestination: true })}
+            </details>`
+          : ''}
+
+        ${earlier.length
+          ? html`<details class="cal-group" id="cal-earlier">
+              <summary>Last year's dates, kept as a pattern <span class="cal-group__n" id="cal-earlier-n">(${earlier.length})</span></summary>
+              ${deadlineList(earlier, { showDestination: true })}
             </details>`
           : ''}
 

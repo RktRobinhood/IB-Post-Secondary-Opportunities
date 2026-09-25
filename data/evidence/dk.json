@@ -7808,5 +7808,35 @@
         }
       ]
     }
+  },
+  {
+    "id": "ev-sdu-dk-frister-2027",
+    "sourceUrl": "https://www.sdu.dk/en/uddannelse/ansoegning-optagelse/bachelor-diplomingenioer/frister",
+    "publisher": "SDU — Deadlines for bachelor applicants",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-25",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "SDU's uniTEST registration closes on 20 March at 12:00 CET, and an applicant offered a place must confirm it via sdu.dk/admission by 3 August.",
+    "excerpt": "Registration deadline for admission test (uniTEST): 20 March at 12 noon (CET) [...] You will receive the decision on your application for admission on 28 July [...] you must confirm your admission via sdu.dk/admission by 3 August to secure your place",
+    "interpretation": "The page gives day and month, not year. Read as the 2027 cycle, the one open when it was read, and marked provisional until SDU publishes dates carrying the year.",
+    "supports": [
+      {
+        "entity": "dk-optagelse-international-2027",
+        "field": "milestones"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-25",
+      "reviewBy": "2026-12-01"
+    },
+    "attestation": {
+      "by": "the deadlines round-1 fix pass (issue #47)",
+      "at": "2026-09-25",
+      "method": "read-source",
+      "note": "Fetched 2026-09-25. The page also repeats 15 March 12:00, 5 July 12:00 and 28 July, matching the national dates."
+    }
   }
 ]

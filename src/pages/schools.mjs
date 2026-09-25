@@ -3,6 +3,7 @@ import { page } from '../lib/layout.mjs';
 import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { hostOf, isHomepage } from '../lib/schools.mjs';
+import { datesPanel } from '../lib/school-dates.mjs';
 
 /**
  * A school page: one institution from a country profile (issue #43).
@@ -44,7 +45,6 @@ const FAMILY = {
   interdisciplinary: 'general', other: 'general',
 };
 
-const TODAY = new Date().toISOString().slice(0, 10);
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const shortDate = (iso) => {
   const [y, m, d] = iso.split('-').map(Number);
@@ -179,29 +179,6 @@ function programmeSection(inst, c) {
     </div>`;
 }
 
-/**
- * Deadlines & sessions. Dates already gone fold into one line at the foot,
- * so the first line is always the next thing to do.
- */
-function datesPanel(inst, c) {
-  const all = [...(inst.school?.dates || [])].sort((a, b) => a.date.localeCompare(b.date));
-  const ahead = all.filter((d) => d.date >= TODAY);
-  const gone = all.filter((d) => d.date < TODAY);
-  const item = (d) => html`<li data-date="${d.date}"><strong>${shortDate(d.date)}</strong>
-    <a href="${d.url}" rel="noopener nofollow">${d.label}</a></li>`;
-  return html`<div class="dates-panel" id="dates">
-    <p class="eyebrow eyebrow--plain">Deadlines &amp; sessions</p>
-    ${ahead.length
-      ? html`<ul class="dates-panel__list">${ahead.map(item)}</ul>`
-      : html`<p class="dates-panel__none">No dates of its own recorded yet.</p>`}
-    ${gone.length
-      ? html`<details class="dates-panel__gone"><summary>${plural(gone.length, 'date')} already passed</summary>
-          <ul class="dates-panel__list">${gone.map(item)}</ul></details>`
-      : ''}
-    <p class="dates-panel__more"><a href="${`${c.href}#deadlines`}">${c.name}: every national date</a></p>
-  </div>`;
-}
-
 export function schoolPage(site, inst, c, { prev, next }) {
   const school = inst.school;
   const pic = picture(site, inst.key);
@@ -209,6 +186,10 @@ export function schoolPage(site, inst, c, { prev, next }) {
   const statement = inst.ibRecognitionStatement;
   const apply = school?.apply || null;
   const lede = school?.summary || firstSentence(inst.note, 22);
+  /* The same panel as a canonical institution's page (src/lib/school-dates.mjs):
+     its own dates and its country's route, first on a phone and beside the
+     degrees on a wide screen. */
+  const dates = datesPanel(site, { ...inst, id: inst.key, destination: c.code }, { countryName: c.articleName || c.name });
 
   const inEnglish =
     school?.scope === 'listed'
@@ -292,7 +273,9 @@ ${hero({
 
 <section class="section">
   <div class="wrap">
-    ${programmeSection(inst, c)}
+    <div class="layout-aside layout-aside--dates">${dates}<div class="layout-aside__main">
+      ${programmeSection(inst, c)}
+    </div></div>
   </div>
 </section>
 
@@ -308,7 +291,6 @@ ${hero({
       </div>
       <aside class="layout-aside__side stack">
         ${school ? stamp(school.retrieved) : ''}
-        ${datesPanel(inst, c)}
         ${links.length
           ? html`<div><p class="eyebrow eyebrow--plain">Links</p><ul class="plain-list">
               ${links.map((l) => html`<li><a href="${l.href}" rel="noopener nofollow">${l.label}</a></li>`)}
@@ -350,5 +332,6 @@ ${
     path: inst.href,
     section: '/countries/',
     body,
+    scripts: ['dates-panel.js'],
   });
 }

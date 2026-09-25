@@ -38,6 +38,22 @@ if (scope) {
   const allN = document.getElementById('cal-all-n');
   const pastN = document.getElementById('cal-past-n');
   const monthLinks = [...document.querySelectorAll('.cal-months a[data-month]')];
+  const earlierBox = document.getElementById('cal-earlier');
+  const earlierN = document.getElementById('cal-earlier-n');
+  const chipStrip = scope.querySelector('.cal-chips');
+
+  /* Filter-first: with no country chosen the page is the chips and one line
+     asking for a choice. Every list below them is one country's dates or
+     several chosen ones, never every country's at once. */
+  const scoped = [
+    document.getElementById('cal-next-wrap'),
+    document.querySelector('.cal-months'),
+    all,
+    pastBox,
+    earlierBox,
+    document.getElementById('undated')?.closest('.topic'),
+    document.getElementById('closed')?.closest('.topic'),
+  ].filter(Boolean);
 
   /* Every real entry on the page. The "Next up" list is made of copies and is
      never counted, or it would count its ten dates twice. */
@@ -113,6 +129,18 @@ if (scope) {
     recount(shown);
     describe(shown.length, codes);
     syncBoxes(codes);
+    for (const el of scoped) el.hidden = !codes;
+    if (earlierBox && codes) earlierBox.hidden = earlierBox.dataset.empty === 'true';
+    showChosen();
+  }
+
+  /* On a phone the chips scroll sideways; the first chosen one is brought
+     into the strip's view, without moving the page. */
+  function showChosen() {
+    const chip = scope.querySelector('input[name="scope"]:checked')?.closest('label');
+    if (!chip || !chipStrip || chipStrip.scrollWidth <= chipStrip.clientWidth) return;
+    const off = chip.getBoundingClientRect().left - chipStrip.getBoundingClientRect().left;
+    chipStrip.scrollLeft += off - 16;
   }
 
   /* `site.js` marks what has passed and what is next on load, by start date.
@@ -149,6 +177,12 @@ if (scope) {
   function recount(shown) {
     if (allN) allN.textContent = `(${shown.length})`;
     if (pastN && pastList) pastN.textContent = `(${[...pastList.children].filter((li) => !li.hidden).length})`;
+    const earlierList = earlierBox?.querySelector('.timeline');
+    if (earlierN && earlierList) {
+      const n = [...earlierList.children].filter((li) => !li.hidden).length;
+      earlierN.textContent = `(${n})`;
+      earlierBox.dataset.empty = n ? 'false' : 'true';
+    }
     const byMonth = new Map();
     for (const li of shown) {
       const k = (li.dataset.date < today ? today : li.dataset.date).slice(0, 7);
@@ -166,7 +200,7 @@ if (scope) {
 
   function describe(shown, codes) {
     if (!codes) {
-      stateLine.textContent = 'Every country. Pick yours to see only their dates.';
+      stateLine.textContent = 'Pick a country to see its dates.';
     } else if (shown === 0) {
       stateLine.textContent = `Nothing ahead for ${listSentence([...codes].map((c) => names.get(c) || c))} yet.`;
     } else {

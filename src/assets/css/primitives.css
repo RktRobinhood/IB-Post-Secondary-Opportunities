@@ -1506,15 +1506,26 @@
 .dates-panel__item { padding-bottom: var(--s3); border-bottom: 1px solid var(--rule); }
 .dates-panel__list > .dates-panel__item:last-child { border-bottom: 0; padding-bottom: 0; }
 .dates-panel__item > p { margin: 0; }
+/* The older school panel in site.css rules a line above every item; this
+   panel rules one below, so one of the two goes. */
+.dates-panel .dates-panel__list > li { border-top: 0; padding-top: 0; display: block; }
 .dates-panel__when { font-weight: 650; color: var(--ink); }
 .dates-panel__what { color: var(--ink); line-height: 1.4; }
 .dates-panel__meta { margin-top: 2px !important; font-size: .8125rem; color: var(--ink-mute); }
-.dates-panel__note {
-  font-size: .875rem; color: var(--ink-soft); line-height: 1.45; margin-top: 2px !important;
-  /* One line a student needs, not the record's paragraph: two lines at most. */
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
-}
+/* The whole note: it is already behind its own "Note" disclosure, so opening
+   it shows all of it rather than a clipped two lines. */
+.dates-panel__note { font-size: .875rem; color: var(--ink-soft); line-height: 1.45; margin: var(--s1) 0 0; }
+/* A date carried over or inferred says so on its date line, as /timeline/ does. */
+.dates-panel__prov { font-weight: 400; color: var(--warn); }
 .dates-panel__src { font-size: .8125rem; margin-top: 2px !important; }
+/* Links a thumb has to hit: 24px tall at least (WCAG 2.5.8). The older school
+   panel's rule in site.css strips the underline from every link in the list;
+   these are links and look like links. */
+.dates-panel .dates-panel__src a,
+.dates-panel .dates-panel__more a {
+  display: inline-flex; align-items: center; min-height: 24px; min-width: 24px;
+  color: var(--accent-2); text-decoration: underline; text-underline-offset: 2px;
+}
 /* A date's note is one tap away: the same country-wide line on every school. */
 .dates-panel__why { margin-top: 2px; font-size: .8125rem; }
 .dates-panel__why > summary { cursor: pointer; color: var(--ink-mute); width: max-content; min-height: 24px; }

@@ -19,7 +19,7 @@
     "If you are a Nordic citizen, you skip Migri entirely and just register your details with the population agency (dvv.fi)."
   ],
   "watchOuts": [
-    "The joint application window for autumn 2027 is 7-21 January 2027 — you apply more than half a year before you start, on predicted grades. Aalto's own page still says 7-22 January; it is the only source that does and it is wrong, so work to the 21st.",
+    "The joint application window for autumn 2027 is 7-21 January 2027 — you apply more than half a year before you start, on predicted grades. Aalto is not in it: it runs its own application on Studyinfo, 7-22 January.",
     "Helsinki is the exception: the IB route there is Admission Group 2, running 9-23 March 2027 and closing at 15.00 Finnish time, not January. Helsinki's January round, Group 1, is defined as being for applicants who do not hold an IB Diploma, so it is not an alternative for you.",
     "Several famous names have almost nothing in English at bachelor level: Helsinki has two programmes, Turku two, Vaasa one, and Åbo Akademi teaches every single bachelor's degree in Swedish.",
     "Finnish medicine is taught in Finnish and uses a national entrance exam. No English-taught Finnish medicine bachelor's is confirmed here, and the health sciences points table may not cover medicine at all.",
@@ -63,10 +63,13 @@
         "consequence": "hard",
         "provisional": false,
         "year": "2027",
-        "notes": "One form, maximum six programme choices. Opens 7 January 2027 at 08:00 and closes 21 January 2027 at 15:00 Finnish time (UTC+2), as Tampere (\"7 Jan 2027 at 8.00 UTC+2 to 21 Jan 2027 at 15.00 UTC+2\"), Metropolia, Jamk and Xamk all publish; Study in Finland, Jyväskylä, Turku, Oulu and Arcada give the same days. Aalto's own page still reads \"7–22 January 2027\", re-checked on 24 September 2026. It is the only source that does, and Aalto does not set the national window: work to 15:00 on the 21st.",
+        "notes": "One form, maximum six programme choices. Opens 7 January 2027 at 08:00 and closes 21 January 2027 at 15:00 Finnish time (UTC+2). Studyinfo's own record of the joint application (\"Joint Application to Higher Education, Spring 2027\", run by the Finnish National Agency for Education) gives exactly that, and Tampere, Metropolia, Jamk, Xamk, Study in Finland, Jyväskylä, Turku, Oulu and Arcada agree. Aalto is not part of it: its English-taught bachelor's programmes have their own application on Studyinfo, open 7 January 08:00 to 22 January 2027 15:00. Both dates are right; they are two different applications.",
         "source": "https://www.tuni.fi/en/tau/bachelors-programmes/applying",
         "timeOfDay": "15:00",
-        "timeZone": "Finnish time (UTC+2)"
+        "timeZone": "Finnish time (UTC+2)",
+        "sources": [
+          "https://opintopolku.fi/konfo/en/haku/1.2.246.562.29.00000000000000092075"
+        ]
       },
       {
         "label": "Attachments and English-proficiency documents",

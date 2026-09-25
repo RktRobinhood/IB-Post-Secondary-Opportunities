@@ -3,10 +3,12 @@
  *
  * The page is built with every date that was still ahead on the day it was
  * built. A page can then sit in a tab, or in a cache, for weeks, so here any
- * date whose day (or whose window's last day) has passed is removed, the first
- * few that remain move up into the short list, and the disclosure's count is
- * recounted. With this script blocked a student sees the build's list, which
- * errs on the side of one date too many.
+ * date whose day (or whose window's last day) has passed is removed and the
+ * short list is laid out again in the build's order: the next binding
+ * deadline first (a hard deadline, or an equal-consideration date), then the
+ * next dates by day, the rest behind the disclosure with its count redone.
+ * With this script blocked a student sees the build's list, which errs on the
+ * side of one date too many.
  */
 const today = (() => {
   const d = new Date();
@@ -25,15 +27,25 @@ for (const panel of document.querySelectorAll('[data-dates-panel]')) {
 
   for (const li of panel.querySelectorAll('li[data-date]')) if (isPast(li)) li.remove();
 
-  if (head && rest) {
-    while (head.children.length > first) rest.prepend(head.lastElementChild);
-    while (head.children.length < first && rest.firstElementChild) head.append(rest.firstElementChild);
-    const n = rest.children.length;
-    const all = rest.closest('details');
-    if (!n) all?.remove();
-    else {
-      const count = all?.querySelector('[data-dates-rest-n]');
-      if (count) count.textContent = `(${n} more)`;
+  if (head) {
+    /* Date order (stable, so same-day dates keep the build's order), then the
+       next binding deadline lifted to the top. */
+    const items = [...head.children, ...(rest ? [...rest.children] : [])].sort((a, b) =>
+      a.dataset.date.localeCompare(b.dataset.date)
+    );
+    const lead = items.find((li) => li.dataset.binding === 'true');
+    const ordered = lead ? [lead, ...items.filter((li) => li !== lead)] : items;
+    /* With no disclosure to hold the rest (three dates or fewer), all stay. */
+    head.replaceChildren(...ordered.slice(0, rest ? first : ordered.length));
+    if (rest) {
+      rest.replaceChildren(...ordered.slice(first));
+      const n = rest.children.length;
+      const all = rest.closest('details');
+      if (!n) all?.remove();
+      else {
+        const count = all?.querySelector('[data-dates-rest-n]');
+        if (count) count.textContent = `(${n} more)`;
+      }
     }
   }
   if (sessions && !sessions.children.length) {

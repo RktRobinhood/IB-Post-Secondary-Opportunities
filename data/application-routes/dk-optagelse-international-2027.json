@@ -75,6 +75,20 @@
       ]
     },
     {
+      "id": "ms-sdu-unitest",
+      "type": "test",
+      "label": "SDU uniTEST registration closes",
+      "date": "2027-03-20",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "SDU's admission test, used for quota 2 on nearly all its programmes. You register after you have applied. SDU publishes the day and month without a year. The 2027 test itself is on 17-18 April (Odense) or 20-25 April (online).",
+      "evidence": [
+        "ev-sdu-dk-frister-2027"
+      ]
+    },
+    {
       "id": "ms-documents",
       "type": "document",
       "label": "Last day to reorder priorities; documentation at some institutions",
@@ -119,9 +133,22 @@
       "date": "2027-08-02",
       "consequence": "hard",
       "provisional": true,
-      "note": "Set by each institution, a few days after offers. In 2026: Copenhagen 2 August, Southern Denmark 3 August, Aalborg 5 August. Dated here at the earliest known.",
+      "note": "Set by each institution, a few days after offers: check the date in your offer. In 2026: Copenhagen 2 August, Southern Denmark 3 August, Aalborg 5 August. Dated here at the earliest known; a school that publishes its own date shows that instead.",
       "evidence": [
         "ev-ufsn-adgang-frister"
+      ]
+    },
+    {
+      "id": "ms-sdu-reply",
+      "type": "reply",
+      "label": "SDU: accept your place",
+      "date": "2027-08-03",
+      "consequence": "hard",
+      "provisional": true,
+      "supersedes": "dk-optagelse-international-2027/ms-reply",
+      "note": "SDU: \"you must confirm your admission via sdu.dk/admission by 3 August to secure your place\". Published without a year.",
+      "evidence": [
+        "ev-sdu-dk-frister-2027"
       ]
     }
   ],
