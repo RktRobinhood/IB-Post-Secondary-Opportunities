@@ -13,6 +13,7 @@ import { destinationFacet, loadCanonical } from './canonical.mjs';
 import { reconcileDestinations } from './catalogue.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
+import { backdropResolver } from './programme-imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -128,14 +129,17 @@ export function fundingLine(item, schemes = {}, adjectiveOf = () => null, where 
   const name = adjective ? `${adjective} ${f.name}` : f.name;
   /* On another Destination's page the scheme is being taken abroad, which
      usually carries conditions of its own. */
-  const label = where && where !== f.destination && f.abroad?.label ? f.abroad.label : f.label;
-  return [`${name}, ${label}.`, item.note, f.otherwise].filter(Boolean).join(' ');
+  const abroad = where && where !== f.destination && f.abroad?.label;
+  const label = abroad ? f.abroad.label : f.label;
+  const lead = (abroad ? f.abroad.lead : f.lead) || null;
+  const first = lead ? `${name} ${lead} ${label}.` : `${name}, ${label}.`;
+  return [first, item.note, f.otherwise].filter(Boolean).join(' ');
 }
 
 /* --- Load ----------------------------------------------------------------- */
 
 export async function load() {
-  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements, fundingSchemes, applicantGroups] =
+  const [countries, legacyDk, topics, conversion, images, officialImages, glossary, faq, canonical, ibSubjects, preparation, config, recognitionSchemes, ibStatements, fundingSchemes, applicantGroups, programmeImages] =
     await Promise.all([
       readDir(path.join(DATA, 'countries')),
       readDir(path.join(DATA, 'dk')),
@@ -160,6 +164,9 @@ export async function load() {
       readDir(path.join(DATA, 'funding')),
       // The fee-status groups a student can choose, and which contains which.
       readJson(path.join(DATA, 'applicant-groups.json'), { groups: [] }),
+      // The faded discipline photographs behind programme cards
+      // (src/lib/programme-imagery.mjs). Credited on /credits/ like the rest.
+      readJson(path.join(DATA, 'programme-images.json'), {}),
     ]);
   const statementFor = (key) => ibStatementFacet(ibStatements.statements?.[key]);
   const fundingById = Object.fromEntries(fundingSchemes.map((f) => [f.id, f]));
@@ -194,6 +201,9 @@ export async function load() {
     c.whyConsider = asArray(c.whyConsider);
     c.watchOuts = asArray(c.watchOuts);
     c.funding = resolveFunding(c.funding, c.code);
+    /* What differs for a reader who holds this country's citizenship — kept on
+       the Destination record, the one place it is written. */
+    c.ownCitizens = c.ownCitizens || canonical.graph.destinations.get(c.code)?.ownCitizens || null;
     c.sources = asArray(c.sources);
     c.deadlines = asArray(c.application?.deadlines);
 
@@ -228,6 +238,18 @@ export async function load() {
 
   const programmes = institutions.flatMap((i) => i.programmes);
 
+  /* Each programme card's background: the programme's own picture, else its
+     field's, else the interdisciplinary one. Resolved once for the whole
+     catalogue, because a field with two pictures shares them out across it.
+     Keyed by the Programme id, which the research and the records use, not by
+     the Opportunity id, which carries the intake. */
+  const fieldKeyOf = (programmeId) => canonical.graph.programmes?.get(programmeId)?.field?.primary || null;
+  const backdropFor = backdropResolver(
+    programmeImages,
+    [...(canonical.graph.programmes?.keys() || [])].map((id) => ({ id, field: fieldKeyOf(id) }))
+  );
+  for (const p of programmes) p.backdrop = backdropFor(p.programmeId || p.id);
+
   /* A migrated Destination and an unmigrated country profile describe the same
      thing in different shapes. This projects the canonical form into the
      profile shape so comparison, indexes and anything else that iterates
@@ -246,6 +268,7 @@ export async function load() {
     eea: d.membership?.eea ?? null,
     membership: d.membership || {},
     tagline: d.tagline || null,
+    ownCitizens: d.ownCitizens || null,
     summary: d.summary || null,
     whyConsider: asArray(d.whyConsider),
     watchOuts: asArray(d.watchOuts),
@@ -348,6 +371,8 @@ export async function load() {
     conversion,
     images,
     officialImages,
+    programmeImages,
+    backdropFor,
     glossary,
     faq,
   };

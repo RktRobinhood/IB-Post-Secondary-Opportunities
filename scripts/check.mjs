@@ -163,7 +163,8 @@ async function main() {
      built output rather than the source tree, because what ships is what
      matters — and checked by parsing WebP headers directly, so this needs no
      dependency and runs in CI exactly as it runs locally. */
-  const photos = files.filter((f) => f.includes(`${path.sep}assets${path.sep}img${path.sep}places${path.sep}`));
+  // Programme card backgrounds (data/programme-images.json) are held to the same standard.
+  const photos = files.filter((f) => ['places', 'programmes'].some((d) => f.includes(`${path.sep}assets${path.sep}img${path.sep}${d}${path.sep}`)));
   let photoBytes = 0;
   for (const file of photos) {
     const rel = '/' + path.relative(DIST, file).split(path.sep).join('/');

@@ -39,8 +39,8 @@ export const EXT = '.webp';
  * than the source itself, and never taller than the source can fill at 16:10.
  * That last term is what stops a 1400x642 image being stretched to 1400x875.
  */
-export function targetSize(width, height) {
-  const w = Math.min(MAX_WIDTH, width, Math.round(height * ASPECT));
+export function targetSize(width, height, maxWidth = MAX_WIDTH) {
+  const w = Math.min(maxWidth, MAX_WIDTH, width, Math.round(height * ASPECT));
   return { width: w, height: Math.round(w / ASPECT) };
 }
 
@@ -113,15 +113,20 @@ export function probeWebp(buf) {
  * smallest candidate it produced, flagged `overBudget`, rather than throwing —
  * see the note at the bottom of this function for why that matters.
  */
-export async function normalise(input) {
+export async function normalise(input, { maxWidth } = {}) {
   const { default: sharp } = await import('sharp');
 
   const meta = await sharp(input).metadata();
   if (!meta.width || !meta.height) throw new Error('could not read image dimensions');
-  const full = targetSize(meta.width, meta.height);
+  const full = targetSize(meta.width, meta.height, maxWidth);
 
-  /* Candidate widths, never above what this source can actually give. */
-  const widths = [...new Set(WIDTH_STEPS.filter((w) => w <= full.width))];
+  /* Candidate widths, never above what this source can actually give. A
+     smaller use (a card background, `maxWidth`) starts from its own width
+     and then walks the same ladder below it. Without `maxWidth` this is
+     unchanged. */
+  const widths = maxWidth
+    ? [...new Set([full.width, ...WIDTH_STEPS.filter((w) => w < full.width)])]
+    : [...new Set(WIDTH_STEPS.filter((w) => w <= full.width))];
   if (!widths.length) widths.push(full.width);
 
   let best;
@@ -157,4 +162,20 @@ export async function normalise(input) {
     source: meta.format,
     overBudget: true,
   };
+}
+
+/**
+ * A smaller copy of an already-normalised WebP, for a `srcset`. It is the same
+ * 16:10 picture at a narrower width, never enlarged. It is written next to its
+ * parent and described on the parent's record as `variants`. It is not a
+ * picture of its own and carries no credit or review: those belong to the
+ * parent.
+ */
+export async function variant(stored, width) {
+  const { default: sharp } = await import('sharp');
+  const meta = await sharp(stored).metadata();
+  const w = Math.min(width, meta.width);
+  const height = Math.round(w / ASPECT);
+  const data = await sharp(stored).resize(w, height, { fit: 'cover', position: 'centre' }).webp({ quality: 72, effort: 5 }).toBuffer();
+  return { data, width: w, height, bytes: data.length };
 }

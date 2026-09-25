@@ -133,6 +133,34 @@ WebP is universally supported, needs one `src`, one file, and one manifest
 entry, and captures the large majority of the available saving. Revisit when
 bandwidth is the binding constraint. It is not; storage was.
 
+### Programme card backgrounds
+
+The faded discipline photographs behind programme cards live in their own manifest,
+`data/programme-images.json`. The record shape and review fields are the same as
+`data/images.json`, and they go through the same fetcher:
+
+```bash
+npm run images -- --manifest=programmes
+```
+
+Every record there is pinned to a Commons file a reviewer chose, and it carries a
+`scope` (`programme:<id>` or `field:<value>`) that `src/lib/programme-imagery.mjs`
+resolves each card by.
+
+Two things differ, and both follow from the use:
+
+- **They are stored at 960 px, not 1600.** A card is at most about 400 CSS px wide,
+  so 960 is its 2× width. The ratio, the format, the byte ceiling and "never enlarge"
+  are unchanged.
+- **Each has a 480 px copy beside it** (`x-480.webp`, listed on the record as
+  `variants`) for the card's `srcset`. A copy has no credit or review of its own,
+  because it is the same photograph.
+
+`scripts/import-programme-images.mjs` turns the research in
+`docs/research/programme-images/` into these records and signs the reviews.
+`scripts/test-programme-images.mjs` checks the credit, the review, the files, and the
+text contrast over the veil.
+
 ## What the shape rules do not cover
 
 **Official institution images are hotlinked, not hosted.**

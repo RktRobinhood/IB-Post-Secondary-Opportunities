@@ -20,6 +20,16 @@
  *   node scripts/fetch-images.mjs --refresh      # re-pick everything
  *   node scripts/fetch-images.mjs --only=dtu,se
  *   node scripts/fetch-images.mjs --gallery=3 --only=dk-cbs  # more of the same place
+ *   node scripts/fetch-images.mjs --manifest=programmes      # programme and field card backgrounds
+ *
+ * Two manifests, one pipeline. `places` (the default) is data/images.json: the
+ * institution and Destination photographs, chosen by the scorer or pinned by a
+ * person. `programmes` is data/programme-images.json: the faded backgrounds
+ * behind programme cards. Every record there is pinned to a Commons file a
+ * reviewer chose, so the scorer is never consulted. They are stored smaller,
+ * because a card is at most ~400 CSS px wide, with a narrower copy for
+ * `srcset`. Credit, the 16:10 WebP normalisation and carrying a review
+ * forward are the same code for both.
  *
  * Picks live in data/images.json. To overrule a bad choice, set that entry's
  * "file" to any Commons filename, add "pin": true, and re-run with
@@ -57,15 +67,38 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { EXT, normalise } from './lib/image-standard.mjs';
+import { EXT, normalise, variant } from './lib/image-standard.mjs';
 import { carryReview, isDecided, SCORER_VERSION } from '../src/lib/imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const IMG_DIR = path.join(ROOT, 'src', 'assets', 'img', 'places');
-const PICKS = path.join(ROOT, 'data', 'images.json');
 const UA = { 'User-Agent': 'ib-pathways/1.0 (school guidance site) contact-via-github' };
 
 const args = process.argv.slice(2);
+
+/* Which manifest this run works on. See the header. */
+const MANIFESTS = {
+  places: { picks: 'images.json', dir: 'places', targets: () => targets() },
+  programmes: {
+    picks: 'programme-images.json',
+    dir: 'programmes',
+    // A card is at most ~400 CSS px wide, so 960 px covers it at 2x. A 1600 px
+    // master would be downloaded by nobody.
+    maxWidth: 960,
+    variants: [480],
+    // Every record is its own target and is always pinned. `scope` is what the
+    // site resolves by, so the rebuilt record keeps it.
+    targets: (picks) =>
+      Object.entries(picks).map(([key, r]) => ({ key, kind: r.kind, label: r.subject || key, keep: { scope: r.scope } })),
+    // Several programmes can share one photograph; they share one file on disk.
+    shareFiles: true,
+  },
+};
+const MANIFEST_NAME = (args.find((a) => a.startsWith('--manifest=')) || '--manifest=places').split('=')[1];
+const MANIFEST = MANIFESTS[MANIFEST_NAME];
+if (!MANIFEST) throw new Error(`unknown --manifest=${MANIFEST_NAME}; expected one of ${Object.keys(MANIFESTS).join(', ')}`);
+const IMG_DIR = path.join(ROOT, 'src', 'assets', 'img', MANIFEST.dir);
+const PICKS = path.join(ROOT, 'data', MANIFEST.picks);
+const SRC_BASE = `/assets/img/${MANIFEST.dir}/`;
 const REFRESH = args.includes('--refresh');
 const ONLY = (args.find((a) => a.startsWith('--only=')) || '').replace('--only=', '').split(',').filter(Boolean);
 
@@ -469,15 +502,29 @@ function creditFrom(title, info) {
  */
 async function download(info, outPath) {
   const src = info.thumburl || info.url;
-  const res = await fetch(src, { headers: UA });
+  let res;
+  for (let n = 1; n <= 5; n++) {
+    res = await fetch(src, { headers: UA });
+    if (res.ok || (res.status !== 429 && res.status < 500)) break;
+    await sleep(3000 * n);
+  }
   if (!res.ok) throw new Error(`download HTTP ${res.status}`);
   const type = res.headers.get('content-type') || '';
   if (!/^image\/(jpeg|png|webp)/.test(type)) throw new Error(`unexpected content-type ${type}`);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length < 8000) throw new Error('file suspiciously small');
-  const stored = await normalise(buf);
+  const stored = await normalise(buf, { maxWidth: MANIFEST.maxWidth });
   await fs.writeFile(outPath, stored.data);
-  return stored;
+  // Narrower copies for srcset, beside the parent: x.webp, x-480.webp.
+  const variants = [];
+  for (const w of MANIFEST.variants || []) {
+    if (w >= stored.width) continue;
+    const v = await variant(stored.data, w);
+    const name = `${outPath.slice(0, -EXT.length)}-${v.width}${EXT}`;
+    await fs.writeFile(name, v.data);
+    variants.push({ src: SRC_BASE + path.basename(name), width: v.width, height: v.height, bytes: v.bytes });
+  }
+  return { ...stored, variants };
 }
 
 /* --- what needs a picture ------------------------------------------------- */
@@ -627,7 +674,7 @@ async function main() {
     return;
   }
 
-  const list = await targets();
+  const list = await MANIFEST.targets(picks);
   const wanted = ONLY.length ? list.filter((t) => ONLY.includes(t.key)) : list;
   console.log(`${wanted.length} targets (${list.length} known)\n`);
 
@@ -653,6 +700,34 @@ async function main() {
     if (REFRESH && (pinned || decided) && !ONLY.includes(t.key) && (await exists(dest))) { kept++; continue; }
 
     process.stdout.write(`  ${t.key.padEnd(30)}`);
+
+    // A photograph another record in this manifest already holds on disk:
+    // reuse its file rather than store the same picture twice. Its credit is
+    // the same credit, because it is the same Commons file.
+    const twin = MANIFEST.shareFiles && pinned
+      ? Object.entries(picks).find(([k, r]) => k !== t.key && r.file === pinned && r.page && r.src)
+      : null;
+    if (twin && (await exists(path.join(ROOT, 'src', ...twin[1].src.split('/').filter(Boolean))))) {
+      const r = twin[1];
+      const heldReview = carryReview(picks[t.key], r.file);
+      picks[t.key] = {
+        file: r.file, page: r.page, author: r.author, licence: r.licence, licenceUrl: r.licenceUrl, description: r.description,
+        kind: t.kind,
+        subject: t.label,
+        ...(t.keep || {}),
+        src: r.src, width: r.width, height: r.height, bytes: r.bytes,
+        ...(r.variants?.length ? { variants: r.variants } : {}),
+        score: null,
+        scorer: SCORER_VERSION,
+        fetched: r.fetched,
+        pin: true,
+        ...(heldReview ? { review: heldReview } : {}),
+      };
+      console.log(` shares ${twin[0]}`);
+      got++;
+      await fs.writeFile(PICKS, `${JSON.stringify(picks, null, 2)}\n`);
+      continue;
+    }
     try {
       const { best, considered } = pinned ? await pinnedImage(pinned) : await pickImage(t);
       if (!best) {
@@ -676,12 +751,14 @@ async function main() {
         ...credit,
         kind: t.kind,
         subject: t.label,
-        src: `/assets/img/places/${file}`,
+        ...(t.keep || {}),
+        src: `${SRC_BASE}${file}`,
         // What we actually stored, not what Commons served. The manifest has
         // to describe the file on disk or the templates emit wrong dimensions.
         width: stored.width,
         height: stored.height,
         bytes: stored.bytes,
+        ...(stored.variants?.length ? { variants: stored.variants } : {}),
         score: best.score,
         // Which rules fired, so a low score arrives with its argument attached
         // rather than as a bare number nobody can act on.
