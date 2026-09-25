@@ -30,6 +30,20 @@
     "official": "https://www.sdu.dk/en/uddannelse/bachelor/electronics",
     "admissions": "https://www.sdu.dk/en/uddannelse/bachelor/electronics/adgangskrav"
   },
+  "family": {
+    "id": "dk-sdu-electronics-family",
+    "name": "Electronics",
+    "axis": "credential",
+    "admission": "differs",
+    "path": "BSc in Engineering",
+    "differs": "3 years, research-based and leading straight into the MSc; no internship. Quota 1 needs a 7.0 average.",
+    "order": 1,
+    "primary": true,
+    "evidence": [
+      "ev-sdu-beng-vs-bsc",
+      "ev-sdu-dk-acn0uq"
+    ]
+  },
   "evidence": [
     "ev-sdu-dk-acn0uq"
   ],

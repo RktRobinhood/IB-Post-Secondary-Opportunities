@@ -30,6 +30,20 @@
     "official": "https://www.sdu.dk/en/uddannelse/bachelor/mechatronics",
     "admissions": "https://www.sdu.dk/en/uddannelse/bachelor/mechatronics/adgangskrav"
   },
+  "family": {
+    "id": "dk-sdu-mechatronics-family",
+    "name": "Mechatronics",
+    "axis": "credential",
+    "admission": "differs",
+    "path": "BSc in Engineering",
+    "differs": "3 years, research-based and leading straight into the MSc; no internship. Quota 1 needs a 7.0 average.",
+    "order": 1,
+    "primary": true,
+    "evidence": [
+      "ev-sdu-beng-vs-bsc",
+      "ev-sdu-dk-s911wd"
+    ]
+  },
   "evidence": [
     "ev-sdu-dk-s911wd"
   ],

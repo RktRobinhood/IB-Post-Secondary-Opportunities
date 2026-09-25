@@ -88,7 +88,9 @@ const MANIFESTS = {
     // Every record is its own target and is always pinned. `scope` is what the
     // site resolves by, so the rebuilt record keeps it.
     targets: (picks) =>
-      Object.entries(picks).map(([key, r]) => ({ key, kind: r.kind, label: r.subject || key, keep: { scope: r.scope } })),
+      // `focus` (an object-position chosen by the reviewer for the card crop)
+      // is an editorial judgement about this file, so it survives a re-fetch too.
+      Object.entries(picks).map(([key, r]) => ({ key, kind: r.kind, label: r.subject || key, keep: { scope: r.scope, ...(r.focus ? { focus: r.focus } : {}) } })),
     // Several programmes can share one photograph; they share one file on disk.
     shareFiles: true,
   },

@@ -15,6 +15,7 @@ import { SchemaSet } from '../src/lib/validate-schema.mjs';
 import { assessSourcing, claimKindForField, isAuthoritative, CLAIM_KIND } from '../src/lib/source-classes.mjs';
 import { checkContextNote } from '../src/lib/context-voice.mjs';
 import { loadCanonical } from '../src/lib/canonical.mjs';
+import { checkFamilies } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SCHEMA_DIR = path.join(ROOT, 'schemas');
@@ -246,6 +247,16 @@ async function main() {
       for (const problem of checkContextNote(note)) sourcingErrors.push(problem);
     }
   }
+
+  /* --- Programme families -------------------------------------------------
+   * One programme offered as several paths shares one card. The rules, and
+   * the check that a family's "admission" matches its members' requirements,
+   * live in src/lib/families.mjs so the renderer and this file agree. */
+  const familyErrors = checkFamilies(
+    records.filter((r) => r.dir === 'programmes').map((r) => r.value),
+    records.filter((r) => r.dir === 'opportunities').map((r) => r.value)
+  );
+  for (const e of familyErrors) refErrors.push(`programme families → ${e}`);
 
   /* Report */
   /* Graph integrity is asked of the loader rather than recomputed here.

@@ -1,0 +1,474 @@
+{
+  "generatedAt": "2026-09-25",
+  "method": "Every pair of programmes at one institution whose names reduce to the same stem (nameStem in src/lib/families.mjs), plus a read of every institution list; each pair diffed on every field a student sees (credential, years, ECTS, campus, start month, language, requirements, quota-1 floor, cut-offs, fees, summary), and the difference checked on the institution pages.",
+  "catalogue": {
+    "programmes": 73,
+    "families": 6,
+    "keepSeparate": 0,
+    "cardsAfterMerge": 67
+  },
+  "groups": [
+    {
+      "family": "dk-au-economics-and-business-administration-family",
+      "institution": "dk-au",
+      "name": "Economics and Business Administration",
+      "classification": "merge",
+      "axis": "campus",
+      "admission": "same",
+      "verifiedDifference": "AU says it outright on the Herning page: \"The programme is the same as the one offered in Aarhus. You will earn the same Bachelor's degree\". Differences: campus, a company-project profile and smaller setting in Herning, and the 2026 quota-1 cut-off (9.2 vs 6.9). Subject requirements identical. Record conflict found: the Herning opportunity carries a 6.0 quota-1 floor while its own selection note says none is stated, and the Herning page (read 2026-09-25) states none. See systemic.md.",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        "https://bachelor.au.dk/en/economics-and-business-administration-auhe",
+        "https://bachelor.au.dk/en/economics-and-business-administration"
+      ],
+      "paths": [
+        {
+          "programme": "dk-au-economics-and-business-administration",
+          "opportunity": "dk-au-economics-and-business-administration-2027-autumn",
+          "primary": true,
+          "path": "Aarhus",
+          "differs": "The main campus in Denmark's second city, with the larger intake and the higher cut-off.",
+          "credential": "BSc",
+          "localTitle": "Bachelor (BSc)",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-aarhus",
+          "startMonth": "August",
+          "language": "English",
+          "quota1Floor": 6,
+          "cutoffs": [
+            "2026-autumn Quota 1: 9.2"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": []
+        },
+        {
+          "programme": "dk-au-economics-and-business-administration-herning",
+          "opportunity": "dk-au-economics-and-business-administration-herning-2027-autumn",
+          "primary": false,
+          "path": "Herning",
+          "differs": "A small campus in West Jutland that works with real companies from day one; the same degree, a much lower cut-off.",
+          "credential": "BSc",
+          "localTitle": "Bachelor (BSc)",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-herning",
+          "startMonth": "August",
+          "language": "English",
+          "quota1Floor": 6,
+          "cutoffs": [
+            "2026-autumn Quota 1: 6.9"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "family": "dk-sdu-electronics-family",
+      "institution": "dk-sdu",
+      "name": "Electronics",
+      "classification": "merge",
+      "axis": "credential",
+      "admission": "differs",
+      "verifiedDifference": "Two SDU degrees in one subject on one campus. The BSc in Engineering (180 ECTS, 3 years) is the research-based first part of the five-year MSc route and has no internship. The Bachelor of Engineering (diplomingeniør, 210 ECTS, 3½ years) is vocational, includes \"half a year's internship in Denmark or abroad\" (sixth semester, per the programme page), and still qualifies for an MSc. Admission differs: quota-1 GPA floor 7.0 (BSc) vs 5.0 (BEng), read on both adgangskrav pages 2026-09-25; subject requirements identical (English B, Mathematics A, Physics B or Geoscience A). DP Course Results count as they stand for the BEng; the BSc needs two supplementary subjects.",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        "https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/uddannelse/civilellerdiplomingenior",
+        "https://www.sdu.dk/en/uddannelse/ingenioer/electronics",
+        "https://www.sdu.dk/en/uddannelse/bachelor/electronics",
+        "https://www.sdu.dk/en/uddannelse/ingenioer/electronics/adgangskrav",
+        "https://www.sdu.dk/en/uddannelse/bachelor/electronics/adgangskrav",
+        "https://www.sdu.dk/en/uddannelse/bachelor/bachelor-admission/admission-requirements/educational-background/international-baccalaureate"
+      ],
+      "paths": [
+        {
+          "programme": "dk-sdu-electronics",
+          "opportunity": "dk-sdu-electronics-sonderborg-2027-autumn",
+          "primary": true,
+          "path": "BSc in Engineering",
+          "differs": "3 years, research-based and leading straight into the MSc; no internship. Quota 1 needs a 7.0 average.",
+          "credential": "BSc",
+          "localTitle": "Bachelor i teknisk videnskab",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 7,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "30 expected places; 24 admitted in 2026."
+          ]
+        },
+        {
+          "programme": "dk-sdu-electronics-beng",
+          "opportunity": "dk-sdu-electronics-beng-2027-autumn",
+          "primary": false,
+          "path": "Bachelor of Engineering (BEng)",
+          "differs": "3½ years with a six-month internship, aimed at industry; a master's stays open. Quota 1 needs 5.0; DP Course Results count as they stand.",
+          "credential": "BEng",
+          "localTitle": "Diplomingeniør",
+          "years": 3.5,
+          "ects": 210,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 5,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "40 expected places; 32 admitted in 2026 (national admissions list).",
+            "Which IB award opens this one IS established, and it is the opposite answer from SDU's university bachelor programmes. SDU's own IB page splits its rule by programme type and accepts DP Course Results (or an IB Certificate) for a Bachelor of Engineering with all six subjects at grade 3 and three at HL, with no supplementary hf-enkeltfag — where the same page requires two supplementary subjects for a bachelor's programme. Read 2026-09-23 at https://www.sdu.dk/en/uddannelse/bachelor/bachelor-admission/admission-requirements/educational-background/international-baccalaureate . The national rule behind it was confirmed the same day from SDU's Danish list of qualifying examinations, https://www.sdu.dk/da/uddannelse/ansoegning-optagelse/bachelor-diplomingenioer/adgangskrav/adgangsgivende-eksamener , which names hf uden overbygning as qualifying only for diplomingeniør programmes, and from DTU's equivalent page, which states the same restriction. This replaces the earlier note on this record, which left the question unrecorded because the Agency's guidance names programme types rather than this hybrid. Both SDU pages return their content to a plain fetch; the Danish page has no /international-baccalaureate child (404), so the English page is the only SDU page that states the IB rule."
+          ]
+        }
+      ]
+    },
+    {
+      "family": "dk-sdu-mechanical-engineering-family",
+      "institution": "dk-sdu",
+      "name": "Mechanical Engineering",
+      "classification": "merge",
+      "axis": "credential",
+      "admission": "differs",
+      "verifiedDifference": "Same BSc/BEng split as Electronics (SDU's comparison page covers every pair). Admission differs: quota-1 floor 7.0 vs 5.0; DP Course Results count as they stand on the BEng only; the BEng also accepts a fourth science pairing (Geoscience A + Biotechnology A).",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        "https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/uddannelse/civilellerdiplomingenior",
+        "https://www.sdu.dk/en/uddannelse/ingenioer/mechanical-engineering/adgangskrav",
+        "https://www.sdu.dk/en/uddannelse/bachelor/mechanical-engineering/adgangskrav"
+      ],
+      "paths": [
+        {
+          "programme": "dk-sdu-mechanical-engineering",
+          "opportunity": "dk-sdu-mechanical-engineering-sonderborg-2027-autumn",
+          "primary": true,
+          "path": "BSc in Engineering",
+          "differs": "3 years, research-based and leading straight into the MSc; no internship. Quota 1 needs a 7.0 average.",
+          "credential": "BSc",
+          "localTitle": "Bachelor i teknisk videnskab",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 7,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "65 expected places; 50 admitted in 2026 (national admissions list)."
+          ]
+        },
+        {
+          "programme": "dk-sdu-mechanical-engineering-beng",
+          "opportunity": "dk-sdu-mechanical-engineering-beng-2027-autumn",
+          "primary": false,
+          "path": "Bachelor of Engineering (BEng)",
+          "differs": "3½ years with a six-month internship, aimed at industry. Quota 1 needs 5.0; DP Course Results count as they stand; one more science pairing accepted.",
+          "credential": "BEng",
+          "localTitle": "Diplomingeniør",
+          "years": 3.5,
+          "ects": 210,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 5,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "65 expected places; 85 admitted in 2026 (national admissions list).",
+            "Which IB award opens this one IS established, and it is the opposite answer from SDU's university bachelor programmes. SDU's own IB page splits its rule by programme type and accepts DP Course Results (or an IB Certificate) for a Bachelor of Engineering with all six subjects at grade 3 and three at HL, with no supplementary hf-enkeltfag — where the same page requires two supplementary subjects for a bachelor's programme. Read 2026-09-23 at https://www.sdu.dk/en/uddannelse/bachelor/bachelor-admission/admission-requirements/educational-background/international-baccalaureate . The national rule behind it was confirmed the same day from SDU's Danish list of qualifying examinations, https://www.sdu.dk/da/uddannelse/ansoegning-optagelse/bachelor-diplomingenioer/adgangskrav/adgangsgivende-eksamener , which names hf uden overbygning as qualifying only for diplomingeniør programmes, and from DTU's equivalent page, which states the same restriction. This replaces the earlier note on this record, which left the question unrecorded because the Agency's guidance names programme types rather than this hybrid. Both SDU pages return their content to a plain fetch; the Danish page has no /international-baccalaureate child (404), so the English page is the only SDU page that states the IB rule."
+          ]
+        }
+      ]
+    },
+    {
+      "family": "dk-sdu-mechatronics-family",
+      "institution": "dk-sdu",
+      "name": "Mechatronics",
+      "classification": "merge",
+      "axis": "credential",
+      "admission": "differs",
+      "verifiedDifference": "Same BSc/BEng split as Electronics. Admission differs: quota-1 floor 7.0 vs 5.0; DP Course Results count as they stand on the BEng only; subject requirements identical.",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        "https://www.sdu.dk/en/om-sdu/fakulteterne/teknik/uddannelse/civilellerdiplomingenior",
+        "https://www.sdu.dk/en/uddannelse/ingenioer/mekatronik/adgangskrav",
+        "https://www.sdu.dk/en/uddannelse/bachelor/mechatronics/adgangskrav"
+      ],
+      "paths": [
+        {
+          "programme": "dk-sdu-mechatronics",
+          "opportunity": "dk-sdu-mechatronics-sonderborg-2027-autumn",
+          "primary": true,
+          "path": "BSc in Engineering",
+          "differs": "3 years, research-based and leading straight into the MSc; no internship. Quota 1 needs a 7.0 average.",
+          "credential": "BSc",
+          "localTitle": "Bachelor i teknisk videnskab",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 7,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "100 expected places; 47 admitted in 2026 (national admissions list)."
+          ]
+        },
+        {
+          "programme": "dk-sdu-mechatronics-beng",
+          "opportunity": "dk-sdu-mechatronics-beng-2027-autumn",
+          "primary": false,
+          "path": "Bachelor of Engineering (BEng)",
+          "differs": "3½ years with a six-month internship, aimed at industry; a master's stays open. Quota 1 needs 5.0; DP Course Results count as they stand.",
+          "credential": "BEng",
+          "localTitle": "Diplomingeniør",
+          "years": 3.5,
+          "ects": 210,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 5,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "40 expected places; 98 admitted in 2026 (national admissions list).",
+            "Which IB award opens this one IS established, and it is the opposite answer from SDU's university bachelor programmes. SDU's own IB page splits its rule by programme type and accepts DP Course Results (or an IB Certificate) for a Bachelor of Engineering with all six subjects at grade 3 and three at HL, with no supplementary hf-enkeltfag — where the same page requires two supplementary subjects for a bachelor's programme. Read 2026-09-23 at https://www.sdu.dk/en/uddannelse/bachelor/bachelor-admission/admission-requirements/educational-background/international-baccalaureate . The national rule behind it was confirmed the same day from SDU's Danish list of qualifying examinations, https://www.sdu.dk/da/uddannelse/ansoegning-optagelse/bachelor-diplomingenioer/adgangskrav/adgangsgivende-eksamener , which names hf uden overbygning as qualifying only for diplomingeniør programmes, and from DTU's equivalent page, which states the same restriction. This replaces the earlier note on this record, which left the question unrecorded because the Agency's guidance names programme types rather than this hybrid. Both SDU pages return their content to a plain fetch; the Danish page has no /international-baccalaureate child (404), so the English page is the only SDU page that states the IB rule."
+          ]
+        }
+      ]
+    },
+    {
+      "family": "dk-sdu-software-engineering-family",
+      "institution": "dk-sdu",
+      "name": "Software Engineering",
+      "classification": "merge",
+      "axis": "campus",
+      "admission": "same",
+      "verifiedDifference": "One BSc in Engineering on two campuses, as two optagelse.dk entries. Requirements identical (same subjects, same 7.0 quota-1 floor), same credential and length. Differences: campus; emphasis (Sønderborg: embedded, distributed systems, security, international study environment; Vejle: user-facing software, AI and data); intake (120 vs 30 places).",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        "https://www.sdu.dk/en/uddannelse/bachelor/softwareengineering-sb",
+        "https://www.sdu.dk/en/uddannelse/bachelor/software-engineering-vejle"
+      ],
+      "paths": [
+        {
+          "programme": "dk-sdu-software-engineering-sonderborg",
+          "opportunity": "dk-sdu-software-engineering-sonderborg-2027-autumn",
+          "primary": true,
+          "path": "Sønderborg",
+          "differs": "More embedded devices, distributed systems and security, in an international study environment; the larger intake.",
+          "credential": "BSc",
+          "localTitle": "Bachelor i teknisk videnskab",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-sonderborg",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 7,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "120 expected places; 44 admitted in 2026."
+          ]
+        },
+        {
+          "programme": "dk-sdu-software-engineering",
+          "opportunity": "dk-sdu-software-engineering-vejle-2027-autumn",
+          "primary": false,
+          "path": "Vejle",
+          "differs": "More user-facing software, and AI and data inside ordinary systems; a small intake.",
+          "credential": "BSc",
+          "localTitle": "Bachelor i teknisk videnskab",
+          "years": 3,
+          "ects": 180,
+          "place": "dk-vejle",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": 7,
+          "cutoffs": [
+            "2026-autumn Quota 1: All qualified applicants accepted"
+          ],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": [
+            "30 expected places; 47 admitted in 2026 (national admissions list)."
+          ]
+        }
+      ]
+    },
+    {
+      "family": "dk-via-software-technology-engineering-family",
+      "institution": "dk-via",
+      "name": "Software Technology Engineering",
+      "classification": "merge",
+      "axis": "specialisation",
+      "admission": "same",
+      "verifiedDifference": "VIA titles the Viborg programme \"Software Technology Engineering - specialised in XR\": a specialisation of the same Bachelor of Engineering. Same requirements (Mathematics A, Physics B or Geoscience A, English B), same 3½ years and 20-week internship. Differences: campus (Horsens vs Viborg), start month (September vs August), and XR from the start vs a later choice of interactive media, business information systems or machine learning.",
+      "verifiedAt": "2026-09-25",
+      "sources": [
+        "https://en.via.dk/programmes/bachelor/software-xr",
+        "https://en.via.dk/programmes/bachelor/software-technology-engineering"
+      ],
+      "paths": [
+        {
+          "programme": "dk-via-software-technology-engineering-beng",
+          "opportunity": "dk-via-software-technology-engineering-beng-2027-autumn",
+          "primary": true,
+          "path": "Horsens",
+          "differs": "General software engineering; specialise later in interactive media, business systems or machine learning. Starts in September.",
+          "credential": "BEng",
+          "years": 3.5,
+          "ects": null,
+          "place": "dk-horsens",
+          "startMonth": "September",
+          "language": "English",
+          "quota1Floor": null,
+          "cutoffs": [],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": []
+        },
+        {
+          "programme": "dk-via-software-technology-engineering-xr-beng",
+          "opportunity": "dk-via-software-technology-engineering-xr-beng-2027-autumn",
+          "primary": false,
+          "path": "XR specialisation, Viborg",
+          "differs": "Specialised in augmented, virtual and mixed reality, taught in Viborg beside The Animation Workshop. Starts in August.",
+          "credential": "BEng",
+          "years": 3.5,
+          "ects": null,
+          "place": "dk-viborg",
+          "startMonth": "August",
+          "language": "English",
+          "quota1Floor": null,
+          "cutoffs": [],
+          "fees": [
+            "eu-eea-ch: no-fee",
+            "non-eu: international-rate"
+          ],
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "notVariants": [
+    {
+      "institution": "dk-au",
+      "programmes": [
+        "dk-au-computer-science",
+        "dk-au-data-science",
+        "dk-au-it-product-development"
+      ],
+      "reason": "Different subjects, curricula and requirements."
+    },
+    {
+      "institution": "dk-cbs",
+      "programmes": [
+        "dk-cbs-business-administration-and-digital-management",
+        "dk-cbs-business-administration-and-service-management",
+        "dk-cbs-business-administration-and-sociology"
+      ],
+      "reason": "Share the \"Business Administration and ...\" stem but are separate degrees, each with its own second discipline, curriculum and optagelse.dk entry."
+    },
+    {
+      "institution": "dk-cbs",
+      "programmes": [
+        "dk-cbs-international-business",
+        "dk-cbs-international-business-and-politics"
+      ],
+      "reason": "Different degrees (IBP joins business and political science) with different requirements."
+    },
+    {
+      "institution": "dk-sdu",
+      "programmes": [
+        "dk-sdu-computer-science",
+        "dk-sdu-artificial-intelligence",
+        "dk-sdu-software-engineering"
+      ],
+      "reason": "All computing in Vejle, but three different BSc subjects."
+    },
+    {
+      "institution": "dk-via",
+      "programmes": [
+        "dk-via-character-animation",
+        "dk-via-computer-graphic-arts",
+        "dk-via-graphic-storytelling"
+      ],
+      "reason": "The Viborg animation cluster: three different professional bachelors with their own portfolio admission."
+    },
+    {
+      "institution": "dk-ruc",
+      "programmes": [
+        "dk-ruc-bachelor-in-global-humanities",
+        "dk-ruc-international-bachelor-in-natural-sciences",
+        "dk-ruc-international-bachelor-in-social-sciences"
+      ],
+      "reason": "Three faculties, three sets of requirements."
+    },
+    {
+      "institution": "(two institutions)",
+      "programmes": [
+        "dk-baaa-multimedia-design-ap",
+        "dk-sea-multimedia-design-ap"
+      ],
+      "reason": "The same national AP title at two academies: separate cards by definition, but they showed one photograph."
+    },
+    {
+      "institution": "(two institutions)",
+      "programmes": [
+        "dk-via-architectural-technology-and-construction-management",
+        "dk-zealand-architectural-technology-and-construction-management"
+      ],
+      "reason": "The same national PBA title at two institutions: separate cards, but they showed one photograph."
+    }
+  ]
+}

@@ -247,6 +247,12 @@ export const CHECKS = [
     title: 'Every programme card has a credited, reviewed background, and no text on it fails contrast',
   },
   {
+    id: 'unique-images',
+    script: 'scripts/test-unique-images.mjs',
+    stage: 'built',
+    title: 'No decorative photograph appears twice: one per card, none reused site-wide (by bytes)',
+  },
+  {
     id: 'freshness',
     script: 'scripts/freshness.mjs',
     stage: 'built',

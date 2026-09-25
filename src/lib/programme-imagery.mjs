@@ -9,13 +9,14 @@
  * `imagery.mjs`): a rejected record is skipped, and the card falls back to the
  * next level.
  *
- * Each record carries a `scope`, and the resolution order is:
+ * Each record carries a `scope`, and no photograph appears on two cards
+ * (`backdropResolver` below has the order):
  *
- *   1. `programme:<programme id>`, the programme's own picture;
- *   2. `field:<field.primary>`, a picture of its field. Where a field has more
- *      than one, programmes that fall back to it take them in turn (see below);
- *   3. `field:interdisciplinary`, for `other`, an unknown field or a field with
- *      no picture.
+ *   1. `programme:<programme id>`, a picture chosen for that programme;
+ *   2. `field:<field.primary>`, a pool of pictures of its field, each dealt to
+ *      one card only;
+ *   3. `field:interdisciplinary`, for `other`, an unknown field, a field with
+ *      no pool or a spent one.
  *
  * `field.secondary` is not consulted. The research explains why:
  * docs/research/programme-images/README.md.
@@ -62,14 +63,33 @@ function byScope(records) {
 /**
  * Build a resolver for a catalogue.
  *
- * `programmes` is every programme the site shows, as `{ id, field }`, where
- * `field` is the `field.primary` vocabulary value. The whole catalogue is
- * needed, not just one card, because of how a field with several pictures
- * shares them out. The programmes that fall back to that field are sorted by
- * id, and the programme at position i takes picture i mod n. The choice is
- * deterministic and comes from the data. Programmes of one institution sit
- * together in id order, so neighbouring cards on an institution page take
- * different pictures.
+ * **One photograph per card, site-wide.** The owner's rule (25 September
+ * 2026): "We can't have repeated pictures." A card is a programme, or a family
+ * of paths that share one card (`card`, from src/lib/families.mjs `cardKey`).
+ * Every member of a family resolves to the family's one picture; no two cards
+ * resolve to the same Commons file.
+ *
+ * `programmes` is every programme the site shows, as
+ * `{ id, field, card, primary }`: `field` is the `field.primary` vocabulary
+ * value, `card` the card it belongs to (its own id when it has no family), and
+ * `primary` whether it leads its family. The whole catalogue is needed because
+ * uniqueness is a property of the whole catalogue.
+ *
+ * Assignment, deterministic and from the data alone:
+ *
+ *   1. A card whose members have a `programme:<id>` picture takes the first
+ *      one, primary member first. That picture is chosen for that programme.
+ *   2. Every other card draws from its field's pool, `field:<field>` — every
+ *      publishable record with that scope, in key order. Cards are served in
+ *      card-key order and each takes the first picture in the pool that no
+ *      card has taken yet. Pictures are compared by Commons file, so two
+ *      records naming one file count as one picture.
+ *   3. A card whose field has no pool, or whose pool is spent, draws from the
+ *      interdisciplinary pool the same way.
+ *   4. Only when every pool it may use is spent does a card repeat a picture:
+ *      it takes pool picture i mod n, as before. That is a data gap — too few
+ *      pictures for the field — and `scripts/test-unique-images.mjs` fails on
+ *      it and names the field that needs another photograph.
  *
  * Returns `(programmeId) => backdrop | null`. A backdrop is
  * `{ key, scope, src, width, height, srcset: [{ src, width }] }`, and its
@@ -77,17 +97,58 @@ function byScope(records) {
  */
 export function backdropResolver(records, programmes) {
   const scopes = byScope(records);
-  const own = (id) => scopes.get(`programme:${id}`)?.[0] || null;
   const fieldScope = (field) => (field && scopes.has(`field:${field}`) ? `field:${field}` : FALLBACK_SCOPE);
 
-  /* Who falls back to each field, in id order. */
-  const turns = new Map();
-  for (const p of [...programmes].sort((a, b) => String(a.id).localeCompare(String(b.id)))) {
-    if (own(p.id)) continue;
-    const scope = fieldScope(p.field);
-    if (!turns.has(scope)) turns.set(scope, []);
-    turns.get(scope).push(p.id);
+  /* Cards, each with its members primary-first then by id. */
+  const cards = new Map();
+  for (const p of programmes) {
+    const k = p.card || p.id;
+    if (!cards.has(k)) cards.set(k, []);
+    cards.get(k).push(p);
   }
+  for (const members of cards.values()) {
+    members.sort((a, b) => Number(!!b.primary) - Number(!!a.primary) || String(a.id).localeCompare(String(b.id)));
+  }
+
+  const taken = new Set();
+  const chosen = new Map();
+  const cardKeys = [...cards.keys()].sort((a, b) => String(a).localeCompare(String(b)));
+
+  /* 1. Programme-specific pictures first, so a pool never takes one a card was chosen for. */
+  for (const k of cardKeys) {
+    for (const m of cards.get(k)) {
+      const r = scopes.get(`programme:${m.id}`)?.[0];
+      if (r) { chosen.set(k, r); taken.add(r.file || r.key); break; }
+    }
+  }
+
+  /* 2–4. Pools, in card order. Every card is served from its own field's
+     pool before any card borrows from the fallback pool, so a field that has
+     run short cannot take the picture meant for a card of the fallback field. */
+  const fromPool = (scope) => (scopes.get(scope) || []).find((r) => !taken.has(r.file || r.key)) || null;
+  const take = (k, r) => { chosen.set(k, r); taken.add(r.file || r.key); };
+  const poolOf = (k) => fieldScope(cards.get(k)[0].field);
+  for (const k of cardKeys) {
+    if (chosen.has(k)) continue;
+    const r = fromPool(poolOf(k));
+    if (r) take(k, r);
+  }
+  for (const k of cardKeys) {
+    if (chosen.has(k)) continue;
+    const r = fromPool(FALLBACK_SCOPE);
+    if (r) take(k, r);
+  }
+  const turns = new Map();
+  for (const k of cardKeys) {
+    if (chosen.has(k)) continue;
+    const scope = poolOf(k);
+    const list = scopes.get(scope) || scopes.get(FALLBACK_SCOPE) || [];
+    const n = turns.get(scope) || 0;
+    turns.set(scope, n + 1);
+    if (list.length) chosen.set(k, list[n % list.length]);
+  }
+
+  const cardOf = new Map(programmes.map((p) => [p.id, p.card || p.id]));
 
   const shape = (r) => ({
     key: r.key,
@@ -101,15 +162,9 @@ export function backdropResolver(records, programmes) {
       .map((v) => ({ src: v.src, width: v.width })),
   });
 
-  const fieldOf = new Map(programmes.map((p) => [p.id, p.field]));
   return (id) => {
-    const mine = own(id);
-    if (mine) return shape(mine);
-    const scope = fieldScope(fieldOf.get(id));
-    const list = scopes.get(scope);
-    if (!list?.length) return null;
-    const i = Math.max(0, (turns.get(scope) || []).indexOf(id));
-    return shape(list[i % list.length]);
+    const r = chosen.get(cardOf.get(id) || id);
+    return r ? shape(r) : null;
   };
 }
 

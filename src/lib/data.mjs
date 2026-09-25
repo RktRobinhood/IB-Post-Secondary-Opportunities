@@ -14,6 +14,7 @@ import { reconcileDestinations } from './catalogue.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
 import { backdropResolver } from './programme-imagery.mjs';
+import { cardKey } from './families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -243,10 +244,16 @@ export async function load() {
      catalogue, because a field with two pictures shares them out across it.
      Keyed by the Programme id, which the research and the records use, not by
      the Opportunity id, which carries the intake. */
-  const fieldKeyOf = (programmeId) => canonical.graph.programmes?.get(programmeId)?.field?.primary || null;
+  /* One photograph per card: members of a programme family share their card's
+     picture (src/lib/families.mjs, src/lib/programme-imagery.mjs). */
   const backdropFor = backdropResolver(
     programmeImages,
-    [...(canonical.graph.programmes?.keys() || [])].map((id) => ({ id, field: fieldKeyOf(id) }))
+    [...(canonical.graph.programmes?.values() || [])].map((p) => ({
+      id: p.id,
+      field: p.field?.primary || null,
+      card: cardKey(p),
+      primary: !!p.family?.primary,
+    }))
   );
   for (const p of programmes) p.backdrop = backdropFor(p.programmeId || p.id);
 

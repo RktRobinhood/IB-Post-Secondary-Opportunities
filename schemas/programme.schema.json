@@ -220,6 +220,73 @@
       },
       "additionalProperties": false
     },
+    "family": {
+      "type": "object",
+      "description": "One programme a student sees, offered as more than one path: the same subject at one institution as two credentials, on two campuses, or as a named specialisation. Members share one card; each keeps its own record and page. Checked by src/lib/families.mjs (docs/research/variants/design.md).",
+      "required": ["id", "name", "axis", "admission", "path", "differs", "order", "primary"],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id",
+          "description": "Shared by every member. Not a programme id."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "description": "The card's title, the same on every member."
+        },
+        "axis": {
+          "enum": ["credential", "campus", "specialisation"],
+          "description": "What the paths differ on. Checked: a campus family must span campuses, a credential family must award different credentials."
+        },
+        "admission": {
+          "enum": ["same", "differs"],
+          "description": "Whether the members' requirements differ. Checked against the Opportunities' requirements, so a family can never hide an admission difference behind one card."
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "This path's short label: “Bachelor of Engineering”, “Herning”, “XR specialisation”."
+        },
+        "differs": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 160,
+          "description": "One line: what is different about this path, and nothing that is the same on every path."
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Position in the path list."
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "Exactly one member is true: the card links to it and shows its picture."
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/evidenceRefs"
+        }
+      },
+      "additionalProperties": false
+    },
+    "separateFrom": {
+      "type": "array",
+      "description": "Programmes at the same institution whose names look like this one but which are deliberately separate cards, with the reason a student must act on.",
+      "items": {
+        "type": "object",
+        "required": ["programme", "reason"],
+        "properties": {
+          "programme": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "evidence": {
       "$ref": "common.schema.json#/$defs/evidenceRefs"
     },
