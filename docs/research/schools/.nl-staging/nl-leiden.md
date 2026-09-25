@@ -1,0 +1,42 @@
+# nl-leiden: Leiden University (retrieved 2026-09-25)
+
+- Scope: listed, 17 English-taught bachelor's programmes. City set on every programme: 12 in Leiden and 5 in The Hague (International Studies, LUC, IRO, Security Studies, Urban Studies).
+- Hand-off: `/en/education/study-programmes?type=bachelor&language=english`, checked in a browser. It shows 23 results over 2 pages, all bachelor's.
+  - The 23 are the 17 listed here, plus 5 LUC majors listed as separate entries (CHS, EES, GED, IJ, WP), plus "Political Science (BSc)", which is the umbrella page for IRO.
+  - The LUC majors are folded into one LUC programme, because you apply to LAS: Global Challenges and choose a major after year 1. The LUC page says "A choice of six majors" but lists only five.
+- Reading method: the Leiden site answers curl with a bot-check page. Its pages were read through the Browser pane with same-origin fetches, and through WebFetch. The PDFs were fetched with WebFetch and converted with pdftotext.
+- National cross-check: Studiekeuze123 programmes excluded because Leiden's own English page says they are taught in Dutch:
+  - Nederlandse Taal en Cultuur, Japanstudies, Koreastudies, Chinastudies, Latijns-Amerikastudies, Oude Nabije Oosten-studies, Religiewetenschappen, Biologie, Bio-Farmaceutische Wetenschappen, Kunstgeschiedenis, Film- en Literatuurwetenschap, Filosofie, Geneeskunde and Biomedische Wetenschappen. Each page says, for example, "The Bachelor Japanstudies is taught in Dutch." The pages for Biomedical Sciences and Medicine give "Language Dutch".
+  - Excluded: Molecular Science and Technology (the joint degree with Delft). Leiden's page says "The bachelor programme Molecular Sciences & Technology is taught in Dutch". The national source lists it as English-taught, but Leiden says Dutch.
+  - Excluded: Sterrenkunde/Astronomy. The page says "The bachelor programme Astronomy is partly taught in Dutch."
+  - Excluded: Cybersecurity & Cybercrime. The page gives "Language Dutch (with some English-taught courses)".
+  - Excluded: Politicologie. Its English track is IRO, which is listed; the NIP track "is specifically aimed at Dutch-speaking students".
+  - Kunstgeschiedenis and Filosofie list English variants (Arts, Media and Society; Philosophy: Global and Comparative Perspectives). Both are listed here as programmes in their own right.
+- Study in NL cross-check:
+  - Folded into their parent programmes as tracks or majors: the LUC majors, World Archaeology and Heritage and Society (Archaeology), and Language and Cognition (Linguistics).
+  - "Political Science" (314) and "Political Science: IRO" are the same English track and are listed once, as IRO.
+  - Study in NL lacks Science for Sustainable Societies, which is listed here: Leiden's page gives "Language English".
+- Study in NL deadlines disagree with Leiden:
+  - Study in NL gives 2027-06-15 (EU) for African Studies, Arts Media and Society, Dutch Studies, International Studies, Linguistics, Philosophy GCP, SSEAS and Urban Studies.
+  - Every one of those programmes' own deadline pages says "Students that have direct admission 1 May … Non-EU/EER students who need a visa or residence permit … 1 April". No year is printed.
+- Deadlines left out: because Leiden prints no year for 1 May (EU) or 1 April (visa), neither is in `dates`. The general deadlines page says "The application deadline is 1 May. If you require a visa and/or residence permit to study in the Netherlands, the deadline is 1 April."
+- Dates that do print a year:
+  - Opening date, from the LUC deadlines page: "it is be possible to submit an application for September 2027 from 1 October 2026 onwards".
+  - Numerus fixus 15 Jan 2027, from the IRO page: "open on 1 October 2026 and close on 15 January 2027 (23:59 CET)". IRO's grade average is due 31 January 2027 and its online assessment runs 18-19 February 2027.
+- Psychology's closing date of 2027-01-15 comes from Studiekeuze123 ("15 januari 2027", 600 places). Leiden's own Psychology pages still show only 2026-27: "Your application in Studielink must be completed by 15 January 2026". Its selection criteria are marked "2026-2027 criteria; 2027 not yet published".
+- LUC deadline typo: the page says "Regular Application Deadline: 15 March, 2026" but also "Applications submitted in the online application portal (uSis) on 16 March 2027 or later will not be considered". Study in NL gives 2027-03-15, so closes = 2027-03-15. The early-bird date is "1 December, 2026".
+- LUC IB threshold: "An average of 35 points including bonus is required to partake in the selection process". This is from the 2026-2027 LUC list; the 2027 list is not yet published.
+- Tuition departs from the brief's default:
+  - Leiden publishes a 2027-28 figure: "The statutory tuition fee of the academic year 2027-2028 for first-year bachelor students is: €2,771". That figure is used instead of the €2,694 for 2026/27.
+  - LUC says "The EU/EEA fee for 2027-2028 is estimated at €2.771". It gives a total of "estimated: €5.841" with the €3,070 institutional fee.
+- IB subject requirements, from Leiden's "Specific diploma requirements … 2027-2028" PDF:
+  - Data Science and AI requires "Analysis & Approaches HL".
+  - Science for Sustainable Societies requires "Analysis & Approaches SL/HL or Applications & Interpretation HL + 1 HL and 1 SL subject" from Biology, Chemistry, Physics, Economics, Geography or ESS.
+  - The strictest case is Maths AA HL (Data Science and AI).
+- IB and English: the general list (2027/2028) says "Exempted from English test: English taught IB or English A HL".
+- Contradicts data/countries/nl.json:
+  - The entry has `ibPageUrl: null` and `englishBachelors: null`. Leiden does publish IB rules, in the PDF "General admission: diploma requirements 2027/2028", section "International Baccalaureate (IB)".
+  - The note calls Leiden "The oldest Dutch university". No cited page was checked for that, so it is not used here.
+- Unverified:
+  - Whether the binding study advice (45 of 60 credits) applies university-wide. The note cites only the Security Studies page: "you need to earn at least 45 out of the 60 study credits at the end of the first year".
+  - The sixth LUC major. The page says six but lists five; Study in NL's sixth is "Global Health, Innovation and Society".
