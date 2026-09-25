@@ -84,7 +84,9 @@ export function enhanceWorld(figure) {
       if (last) engine.setCounts(...last);
     } catch (err) {
       console.warn('[world] the globe could not start; using the flat map.', err?.message || err);
-      flat('the globe could not start');
+      /* Say why: "software renderer: …" or "WebGL refused …" is what a person
+         debugging a school laptop needs to read off data-globe-off. */
+      flat(err?.message ? String(err.message).slice(0, 120) : 'the globe could not start');
     }
   });
   return controller;

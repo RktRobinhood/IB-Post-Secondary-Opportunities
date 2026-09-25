@@ -62,10 +62,20 @@ async function style() {
     type: 'raster',
     source: 'satellite',
     paint: {
-      'raster-opacity': ['interpolate', ['linear'], ['zoom'], 9, 1, 12.5, 0.8, 15, 0.35, 17, 0.2],
+      'raster-opacity': ['interpolate', ['linear'], ['zoom'], 12, 1, 14, 0.75, 16, 0.35, 17, 0.25],
       'raster-fade-duration': 120,
     },
   });
+  /* Satellite first, street map only near the ground. Below zoom 9.5 the
+     reader is looking at a region from above, and a road atlas over the
+     imagery made the handoff look like a different app (round 2) — and cost
+     most of the bytes, since vector tiles for zooms 5–9 load whether or not
+     the satellite covers them. So every vector layer starts at 9.5, and the
+     3D buildings only at street level, where they are worth their frame time. */
+  for (const l of st.layers) {
+    if (l.source === 'satellite' || l.type === 'background') continue;
+    l.minzoom = Math.max(l.minzoom || 0, l.type === 'fill-extrusion' ? 15 : 9.5);
+  }
   st.projection = { type: 'globe' };
   /* Beyond the horizon: the same night as the globe's own frame. */
   st.sky = {
@@ -114,6 +124,10 @@ export async function createCloseMap(stage, { assets, before, coarse, camera }) 
     maxZoom: 17.5,
     fadeDuration: 150,
     renderWorldCopies: false,
+    /* Less work per frame on a phone, and a bounded tile cache on any
+       machine: a school Chromebook is not a GIS workstation. */
+    pixelRatio: coarse ? Math.min(window.devicePixelRatio || 1, 1.5) : window.devicePixelRatio || 1,
+    maxTileCacheSize: 120,
   });
   map.touchZoomRotate.disableRotation();
   /* The street style names a few point-of-interest icons its sprite sheet
@@ -126,6 +140,9 @@ export async function createCloseMap(stage, { assets, before, coarse, camera }) 
     map.once('load', resolve);
     map.once('error', (e) => reject(e?.error || new Error('map error')));
   });
+  /* The compact attribution opens itself on load; on a phone it covered a
+     fifth of the stage. Start it closed — the ⓘ opens it. */
+  container.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
 
   /* Scale at the centre, measured rather than assumed: pixels per metre
      east-west through the centre, which neither pitch nor padding changes. */

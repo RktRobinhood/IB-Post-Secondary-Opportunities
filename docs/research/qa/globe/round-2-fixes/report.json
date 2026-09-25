@@ -1,0 +1,150 @@
+{
+  "01-programmes-rest": {
+    "state": "on",
+    "bytesAtRestKB": {
+      "page+other": 1020,
+      "geo": 82,
+      "globe textures": 437
+    },
+    "close": {
+      "state": "none",
+      "active": false,
+      "zoom": null,
+      "K": 0.000012790351728621946
+    }
+  },
+  "02-nl-rest": {
+    "state": "on",
+    "bytesAtRestKB": {
+      "page+other": 5521,
+      "geo": 82,
+      "globe textures": 437
+    },
+    "close": {
+      "state": "none",
+      "active": false,
+      "zoom": null,
+      "K": 0.000012790351728621946
+    }
+  },
+  "03-world-rest": {
+    "state": "on",
+    "bytesAtRestKB": {
+      "page+other": 9419,
+      "globe textures": 437,
+      "geo": 82
+    },
+    "close": {
+      "state": "none",
+      "active": false,
+      "zoom": null,
+      "K": 0.000012790351728621946
+    }
+  },
+  "04-phone-nl-rest": {
+    "state": "on",
+    "bytesAtRestKB": {
+      "page+other": 5521,
+      "geo": 82,
+      "globe textures": 437
+    },
+    "close": {
+      "state": "none",
+      "active": false,
+      "zoom": null,
+      "K": 0.000012790351728621946
+    }
+  },
+  "diveNlDelft": {
+    "frames": 163,
+    "longestFreezeMs": 374,
+    "longestFrameGapMs": 306,
+    "longTasks": [
+      302,
+      212,
+      98,
+      90
+    ],
+    "arrivedMs": 3446,
+    "handOffMs": 2078,
+    "bytesKB": {
+      "page+other": 5529,
+      "globe textures": 1238,
+      "geo": 448,
+      "maplibre": 1101,
+      "street tiles+glyphs": 194,
+      "satellite": 1181
+    }
+  },
+  "wheelOverPinInClose": {
+    "pageMovedPx": 0,
+    "zoomChange": -0.54
+  },
+  "resetFromStreet": {
+    "worstAltRatioInOneFrame": 2.45,
+    "endAlt": 0.2,
+    "endClose": false
+  },
+  "diveProgrammesDelft": {
+    "frames": 166,
+    "longestFreezeMs": 232,
+    "longestFrameGapMs": 232,
+    "longTasks": [
+      203,
+      166,
+      74,
+      58
+    ],
+    "arrivedMs": 3212,
+    "handOffMs": 1844
+  },
+  "delftToAarhus": {
+    "frames": 237,
+    "longestFreezeMs": 4830,
+    "longestFrameGapMs": 4830,
+    "longTasks": [
+      76,
+      76
+    ],
+    "arrivedMs": 3996,
+    "handOffMs": 0,
+    "precision": "city",
+    "zoom": 11.5,
+    "card": "Aarhus"
+  },
+  "history": {
+    "afterOneBack": {
+      "hash": "#place=nl-delft",
+      "card": "Delft"
+    },
+    "afterTwoBacks": {
+      "hash": "",
+      "card": null,
+      "path": "/programmes/"
+    },
+    "stayedOnPage": true,
+    "closeActive": false,
+    "alt": 0.42
+  },
+  "groupClick": {
+    "members": 12,
+    "sameGroupStillShown": false,
+    "altBefore": 0.42,
+    "altAfter": 0.064,
+    "close": true
+  },
+  "phoneGroupTap": {
+    "members": 13,
+    "altBefore": 0.252,
+    "altAfter": 0.067,
+    "close": true
+  },
+  "phoneAttribution": {
+    "expanded": false,
+    "coversPct": 0,
+    "buttonRepeat": "no-repeat"
+  },
+  "reducedMotion": true,
+  "flat": "off",
+  "console": []
+}

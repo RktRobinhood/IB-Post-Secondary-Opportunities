@@ -266,3 +266,89 @@ wheel-over-untouched scrolls the page, drag spins, console empty.
   the 6°/s spin. Worth one more framing pass.
 - Phone card still scrolls internally a little (title + action visible).
 - Fresh critic round on round-1-fixes/.
+
+## Round 2 — critic 7/10 (docs/research/qa/globe/round-2/critique.md)
+
+Scope for this round: globe*.js, map*.js, vendor, the globe CSS block,
+test-map.mjs only (other agents are in layout/explorer/planner/countries).
+Screenshots → round-2-fixes/.
+
+Progress (newest last):
+- R2.1 warm the close map during the globe leg: `warmClose(lat, lon, zoom)`
+  walks the hidden map down [handoff, 8.5, 11, 13, target] over the
+  destination (each awaiting `settled(1800)`), cancelled by a newer warm or
+  the handoff; `ensureClose()` now returns a promise and creates the map in
+  requestIdleCallback (≤500 ms), never inside a gesture's frames. handOff
+  waits `settled(350)` (was 1500). `closeFlyTo()` is two-step: easeTo across
+  at the current zoom, settle ≤800 ms, then flyTo down.
+- R2.2 bug A: wheel under the close map always preventDefault()s; a wheel
+  that did not start on the map canvas (pins, labels, card) is re-dispatched
+  to the MapLibre canvas. Guard: close-map branch cancels before returning.
+- R2.3 bug B: cards are judged only when neither the globe nor the close map
+  is flying (`!flight && !closeFlying`); every flight re-arms the arrival
+  altitude. Bug C: a place's close zoom is its own (CLOSE_ZOOM[precision]).
+- R2.4 `climbOut(then)`: zoom out inside MapLibre to 1.05× the hand-back
+  altitude (1.1 s ease), hand back, then carry on. Used by Reset (then the
+  globe's travel flight with the cloud climb), goToCountry, and a place that
+  is > 500 km away or off-stage (then the full globe journey + dive).
+- R2.5 groups decide the engine first: frame the whole group on the globe;
+  above HANDOFF_ALT the globe does it alone; below, warm + dive + handoff +
+  fitClose, whose zoom is max(cameraForBounds, current + 0.6, handoff + 0.3)
+  so it can never bounce back out.
+- R2.6 nothing at rest: `touched` flag set by the first gesture gates the
+  close-map preload, 50m borders, the Europe detail and the 4096 day map;
+  rest altitude ≥ 1.15 × HANDBACK_ALT so no page rests in the close map.
+- R2.7 satellite-first: every vector layer minzoom 9.5 (3D buildings 15);
+  satellite opacity holds 1.0 to z12. Globe's last stretch above the handoff
+  leans towards the Sentinel palette (uPunch: contrast/saturation lift).
+- R2.8 phone: attribution starts collapsed; the ⓘ icon no longer tiles.
+- R2.9 pixelRatio ≤1.5 on touch screens, maxTileCacheSize 120, map created
+  at idle. map.js records the real fallback reason in data-globe-off.
+- Guards: 33 in test-map (new: close-map wheel cancels, nothing loads at
+  rest, cards not judged mid-flight, no Math.max zoom for places, Reset
+  climbs out, climbOut/closeFlyTo jump under reduced motion).
+- R2 fixes to the fixes: climbOut/closeFlyTo `m.stop()` first (MapLibre's
+  moveend for an interrupted animation was being read as the end of the
+  climb → Reset handed back at street level). closeFlyTo skips a flight to
+  where it already is. A dive that arrives before the close map is ready
+  keeps sinking slowly (no dead stop). Single-country pages fetch the 50m
+  borders at idle (their outline is the resting subject).
+- Owner instructions folded in: map-flat.js follow(): only off-site links
+  open a new tab. History: choosing a place or country pushes
+  #place=…/#country=… (the entry being left is stamped with its camera and
+  choice); Back restores the previous choice or the camera with no card,
+  never leaves the page; drags/zooms push nothing; a #place/#country link
+  opens on that choice. Reduced motion: instant.
+- Round-2-fixes measurements (headless Chrome, RX 580, cache disabled,
+  private snapshot): rest bytes /programmes/ globe textures 437 kB + geo
+  82 kB, close map not loaded (was 1.46 MB of globe assets); NL page rest
+  close map not loaded (was +4.4 MB). Cold NL→TU Delft: longest standstill
+  374 ms (was 1.2–5.3 s), street at 3.4 s, worst long task 302 ms (was
+  1,505); street tiles for the whole dive 194 kB (was MBs), satellite ~1.2 MB.
+  /programmes/→Delft: standstill 232 ms, street 3.2 s. Wheel over the pin
+  under the close map (after taking hold): page moved 0 px (was 120+).
+  Reset from street: ≤2.45× altitude per frame (was 293×). Delft→Aarhus
+  (trace probe): climb-out 1 s, globe climb to 1.04 through clouds, handoff
+  2.6 s, city zoom 11.5 at 4.1 s, card kept, steady 60 fps, no long tasks.
+  Group click desktop 0.42→0.064 split in the close map; phone 0.25→0.067
+  (was bouncing out to 0.36). History: Back → Delft card → no card at rest,
+  same page. Phone attribution collapsed, ⓘ not repeated. Console clean.
+  (The harness's "delftToAarhus" frame-gap number is a sampler artifact —
+  it contradicts its own arrival time; the probe trace is the measurement.)
+- Gate (PowerShell, production base): every check passes except `controls`,
+  which flags `min-height: 2.75rem` in site.css (.drawer .drawer__places
+  a.chip, .region-nav .chip) — another agent's in-progress layout/countries
+  work, not the globe. map/build/check/page-budget/release pass. Production
+  build at /IB-Post-Secondary-Opportunities/ in Chrome: globe on for
+  programmes/europe/world/nl, close map dives to 14.6, console empty.
+
+### Left after round 2 (for round 3)
+
+- Round-2 fix 10 small ones not done: liberty style null-number warnings;
+  /world/ rest still shows Canada/US only on the turn; pin labels use the
+  records' abbreviations (UT, UM, EUR) — that is `name: i.shortName || i.name`
+  in src/pages/destinations.mjs (a page-level change for whoever owns it).
+- The explorer's own replaceState (explorer.js syncUrl) drops a #place=…
+  hash when a filter changes; Back still works, the hash just goes.
+- Cold first dive is network-bound: if nothing primed the close map (no
+  hover, no press) the camera sinks slowly for up to ~1 s at the bottom.

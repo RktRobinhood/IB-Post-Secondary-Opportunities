@@ -467,6 +467,9 @@
 .world[data-close="on"] .world__close { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .45s var(--ease-enter, ease); }
 .world[data-close="on"] .world__credit { display: none; }
 .world__close .maplibregl-ctrl-attrib { font: var(--type-floor)/1.4 var(--sans); }
+/* The site's tap-target policy makes MapLibre's ⓘ button 44px square, and its
+   24px icon then tiled four times (round 2). One icon, centred. */
+.world__close .maplibregl-ctrl-attrib-button { background-repeat: no-repeat; background-position: center; }
 @media (prefers-reduced-motion: reduce) { .world__close { transition: none; } }
 :root[data-motion="reduced"] .world__close { transition: none; }
 .world[data-globe="on"] .world__stage { cursor: grab; }
@@ -1306,3 +1309,112 @@
 .cost-table td { vertical-align: top; padding: var(--s3) var(--s3) var(--s3) 0; border-bottom: 1px solid var(--rule); }
 .cost-table td:first-child small { display: block; color: var(--ink-mute); font-size: .8125rem; line-height: 1.4; margin-top: 2px; }
 .cost-table td:last-child { font-variant-numeric: tabular-nums; width: 42%; }
+
+/* =========================================================================
+   Counsellors (docs/research/ia/plan.md, Batch 7): the conversation order as
+   a four-step strip, and the four things students get wrong as cards.
+   ========================================================================= */
+
+.prose .conv-strip {
+  counter-reset: conv; list-style: none; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: var(--s2);
+  margin: var(--s4) 0 var(--s3);
+}
+.conv-strip > li {
+  counter-increment: conv;
+  display: grid; gap: var(--s1); align-content: start;
+  margin: 0; padding: var(--s3);
+  background: var(--paper-2); border-radius: var(--radius);
+  font-size: .875rem; line-height: 1.45; color: var(--ink-soft);
+}
+.conv-strip > li > strong { font-size: 1rem; color: var(--ink); }
+.conv-strip > li > strong::before { content: counter(conv) " · "; color: var(--accent); }
+
+.prose .pitfalls {
+  list-style: none; padding: 0; margin: var(--s4) 0 var(--s6);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--s3);
+}
+.pitfalls > li {
+  margin: 0; padding: var(--s4);
+  border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--paper);
+}
+.pitfalls > li > p { margin: var(--s2) 0 0; font-size: .9375rem; color: var(--ink-soft); }
+.pitfalls details { margin-top: var(--s2); }
+.pitfalls summary { cursor: pointer; font: 600 .8125rem/1.5 var(--sans); color: var(--accent); }
+.pitfalls details > p { margin: var(--s2) 0 0; font-size: .9375rem; }
+
+/* Trust: the report button and its no-account alternative, above the numbers. */
+.trust-actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin: 0 0 var(--s5); }
+
+/* =========================================================================
+   Reference lists: glossary and credits (docs/research/ia/plan.md, Batch 7).
+   A filter box, A–Z jumps, and one line per term with the rest on tap.
+   ========================================================================= */
+
+.lookup-filter { margin: 0 0 var(--s4); max-width: 28rem; }
+.lookup-filter input { width: 100%; }
+.prose .az { margin: 0 0 var(--s5); }
+.az .chip { min-width: 2.25rem; justify-content: center; }
+
+.gloss {
+  display: block;
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: .9375rem; line-height: 1.5;
+}
+.gloss > summary { cursor: pointer; list-style: none; }
+.gloss > summary::-webkit-details-marker { display: none; }
+.gloss > summary::after { content: " +"; color: var(--accent); font-weight: 600; }
+.gloss[open] > summary::after { content: " −"; }
+.gloss dfn { font-style: normal; font-weight: 650; color: var(--ink); }
+.gloss__where {
+  font: 600 .75rem/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink-mute); margin: 0 var(--s1);
+}
+.gloss__def { color: var(--ink-soft); }
+.gloss__more { margin-top: var(--s2); color: var(--ink-soft); }
+
+/* =========================================================================
+   Compare: the whole set as compact rows (docs/research/ia/plan.md, Batch 8).
+   One line per Destination — name, first clause of EU/EEA tuition, coverage
+   as dots — with the full cells behind the row. Three columns on a wide
+   screen, two lines on a phone; never a stacked card per cell.
+   ========================================================================= */
+
+.set { margin-top: var(--s4); }
+.set__sort { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin: 0 0 var(--s3); font-size: .875rem; color: var(--ink-mute); }
+.set__head,
+.set__row > summary {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1.2fr) minmax(0, 2fr) 6.5rem;
+  gap: var(--s3); align-items: baseline;
+}
+.set__head {
+  margin: 0; padding: 0 var(--s3) var(--s2);
+  border-bottom: 1px solid var(--rule-strong);
+  font: 600 .75rem/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-mute);
+}
+.set__row { border-bottom: 1px solid var(--rule); }
+.set__row > summary {
+  cursor: pointer; list-style: none;
+  padding: var(--s3);
+  font-size: .9375rem;
+}
+.set__row > summary::-webkit-details-marker { display: none; }
+.set__row > summary:hover { background: var(--paper-2); }
+.set__row[open] > summary { background: var(--paper-2); }
+.set__name { font-weight: 650; color: var(--ink); }
+.set__fee { color: var(--ink-soft); }
+.set__cov { font: 400 .8125rem/1 var(--mono); letter-spacing: .08em; color: var(--brand-2); white-space: nowrap; }
+.set__more { margin: 0; padding: 0 var(--s3) var(--s2); display: grid; gap: var(--s2); }
+.set__more > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: var(--s3); font-size: .875rem; }
+.set__more dt { font-weight: 600; color: var(--ink-mute); }
+.set__more dd { margin: 0; }
+.set__links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); margin: 0; padding: 0 var(--s3) var(--s4); }
+
+@media (max-width: 40rem) {
+  .set__head { display: none; }
+  .set__row > summary { grid-template-columns: minmax(0, 1fr) auto; row-gap: 2px; }
+  .set__fee { grid-column: 1 / -1; grid-row: 2; font-size: .875rem; }
+  .set__more > div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}

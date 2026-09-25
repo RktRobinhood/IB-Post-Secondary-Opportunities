@@ -739,12 +739,11 @@ export function enhanceFlat(figure) {
 /* --- Small helpers --------------------------------------------------------- */
 
 /* Following a marker by script, under the same rule site.js applies to every
-   real link: another site, or one university's or programme's page, opens in a
-   new tab so the student keeps the tool; anything else stays in this tab. */
-const DETAIL = /\/(universities|programmes)\/[^/]+\/?(#.*)?$/;
+   real link: a link that leaves the site opens in a new tab; every page of
+   this site stays in this tab, so Back works (the owner's rule since round 2). */
 function follow(href) {
   const to = new URL(href, location.href);
-  if (to.origin !== location.origin || (DETAIL.test(to.pathname) && to.pathname !== location.pathname)) {
+  if (to.origin !== location.origin) {
     window.open(to.href, '_blank', 'noopener');
   } else {
     location.href = to.href;

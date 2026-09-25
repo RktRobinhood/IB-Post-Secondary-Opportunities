@@ -191,7 +191,7 @@ check('the globe zooms on the wheel only once it has been taken hold of', () => 
      that eats the page's scroll. Both hold if the wheel zooms only after a
      click or drag on the globe, or with Ctrl/Cmd held (which is also what a
      trackpad pinch sends) — and nothing cancels the scroll before that test. */
-  const handler = globeJs.match(/addEventListener\(\s*'wheel',\s*\(e\)\s*=>\s*\{([\s\S]{0,400})/);
+  const handler = globeJs.match(/addEventListener\(\s*'wheel',\s*\(e\)\s*=>\s*\{([\s\S]{0,2500}?)\n  \}, \{ passive: false \}\);/);
   assert.ok(handler, 'no wheel handler found on the globe');
   const body = handler[1];
   const guard = body.search(/if\s*\(\s*!engaged\s*&&\s*!e\.ctrlKey\s*&&\s*!e\.metaKey\s*\)/);
@@ -200,6 +200,16 @@ check('the globe zooms on the wheel only once it has been taken hold of', () => 
   assert.ok(prevent > guard, 'the wheel handler cancels the page scroll before checking that the globe is engaged');
   assert.match(globeJs, /'pointerleave'[\s\S]{0,200}disengage\(\)/,
     'leaving the globe no longer lets go of it, so a wheel passing over later would zoom');
+  /* Round 2, bug A: under the close map the handler returned without
+     cancelling, so a wheel over a pin or the card scrolled the page away in
+     the middle of a zoom. Inside the close-map branch, the cancel comes
+     before any return, and the wheel is handed on to the map. */
+  const closeBranch = body.match(/if \(closeActive\) \{([\s\S]*?)\n    \}/);
+  assert.ok(closeBranch, 'the wheel handler no longer has a close-map branch');
+  const p = closeBranch[1].indexOf('e.preventDefault()');
+  const r = closeBranch[1].indexOf('return');
+  assert.ok(p >= 0 && (r < 0 || p < r), 'under the close map the wheel handler returns without cancelling the page scroll');
+  assert.match(closeBranch[1], /dispatchEvent\(new WheelEvent/, 'a wheel over a pin is no longer handed to the close map');
 });
 
 check('on the globe, a thumb can still scroll the page until it takes hold', () => {
@@ -226,7 +236,7 @@ check('the globe is loaded progressively, never in the first request', () => {
 
 check('without WebGL, or when the globe fails, the flat map takes over', () => {
   assert.match(entryJs, /WebGLRenderingContext/, 'map.js no longer checks for WebGL before trying the globe');
-  assert.match(entryJs, /catch\s*\(err\)\s*\{[\s\S]{0,200}flat\(/, 'a globe that throws no longer falls back to the flat map');
+  assert.match(entryJs, /catch\s*\(err\)\s*\{[\s\S]{0,500}flat\(/, 'a globe that throws no longer falls back to the flat map');
   assert.match(entryJs, /onFail:\s*\(\w*\)\s*=>\s*flat\(/, 'a lost WebGL context no longer falls back to the flat map');
   assert.match(globeJs, /failIfMajorPerformanceCaveat/, 'the globe no longer refuses a software-rendered context');
   assert.match(globeJs, /swiftshader\|llvmpipe/i, 'the globe no longer refuses a renderer that names itself as software');
@@ -292,9 +302,23 @@ check('pins stay decorative, so the list stays the one control surface', () => {
     assert.ok(!/maplibre/i.test(primitives), 'the build-time map writes MapLibre into the page');
     assert.match(globeJs, /function ensureClose\(\)/, 'ensureClose() is gone');
   });
+  check('nothing close or big loads before a gesture, and the globe owns every resting view', () => {
+    /* Round 2: the Netherlands page cost 9 MB at rest, because its resting
+       camera sat below the close map's preload altitude, and every visit
+       fetched the big textures in idle time. */
+    assert.match(globeJs, /closeState === 'none' && touched && view\.alt < CLOSE_PRELOAD_ALT/, 'the close map preloads without any gesture');
+    assert.match(globeJs, /if \(touched\) \{ maybeFine\(\); maybeDetail\(\); \}/, 'the finer borders or the detail texture load before any gesture');
+    assert.ok(!/if \(first\) \{[\s\S]{0,400}upgradeDay\(\)/.test(globeJs), 'the 4096 map loads on every visit again, not on the first gesture');
+    assert.match(globeJs, /Math\.max\(HANDBACK_ALT \* 1\.15,/, 'a resting camera can sit below the hand-back altitude, so a page can rest in the close map');
+  });
+  check('cards are judged only once the camera has arrived, and a place keeps its own depth', () => {
+    assert.match(globeJs, /if \(cardSubject && !flight && !closeFlying\) cardStillAbout\(\)/, 'a card can be closed by its own flight');
+    assert.ok(!/Math\.max\(close\.map\.getZoom\(\), zoom\)/.test(globeJs), 'a city arrived at from a campus is dived to street level again');
+    assert.match(globeJs, /function goHome\(\)[\s\S]{0,120}climbOut\(/, 'Reset from street level jumps to orbit again instead of climbing out');
+  });
   check('the close map keeps the motion and touch rules', () => {
-    assert.match(globeJs, /function closeFlyTo[\s\S]{0,600}animate: !reducedMotion\(\)/, 'close-map flights ignore reduced motion');
-    assert.match(globeJs, /duration: reducedMotion\(\) \? 0/, 'close-map flights keep a duration under reduced motion');
+    assert.match(globeJs, /function closeFlyTo[\s\S]{0,900}if \(reducedMotion\(\)\) \{\s*m\.jumpTo/, 'close-map flights no longer jump under reduced motion');
+    assert.match(globeJs, /function climbOut[\s\S]{0,1200}if \(reducedMotion\(\)\) \{ m\.jumpTo/, 'climbing out of the close map no longer jumps under reduced motion');
     assert.match(closeJs, /cooperativeGestures: !!coarse/, 'on a touch screen one finger no longer scrolls the page over the close map');
     assert.match(closeJs, /keyboard: false/, 'the close map takes keys the stage already handles');
     const codes = closeJs.match(/['"](dk|nl|gb|de|fr|us|ca|au|Denmark|Netherlands)['"]/g);
