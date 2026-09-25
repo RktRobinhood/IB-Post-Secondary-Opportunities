@@ -100,6 +100,16 @@ These are examples, not rules by country. Decide from what the institution publi
 - **Check completeness against national data** where it exists: Studyinfo.fi,
   Universityadmissions.se, Samordna opptak, the national course finder, and so on. That is how a
   list is known to be complete.
+- **Fee status is a country rule** (EU/EEA against international, with its exceptions). It belongs
+  on the country record, not in each school's notes. Keep a school note only for what is particular
+  to that school.
+- **Never collapse a per-course table into "prefers".** If some courses require a subject, name the
+  strictest case.
+- **Check the hand-off in a browser.** It must list bachelor's degrees only, not every level. Put the
+  result count in your report.
+- **Quote the page's own words** for every "contradicts data/countries/" claim in your report.
+- **Use only examples open to the 2027 intake.** No discontinued courses.
+- **Keep 2027-cycle dates that have already passed.** The page folds them away.
 - **Bot checks:** if a site blocks automated reading and you read it another way, put the exact
   sentence each date came from in your report, so a reviewer can check it from the repository.
 
