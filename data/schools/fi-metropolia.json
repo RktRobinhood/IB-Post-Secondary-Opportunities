@@ -4,14 +4,14 @@
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Finland's largest university of applied sciences, across Helsinki, Espoo and Vantaa; 21 practical English bachelor's, from nursing and robotics to game design.",
+  "summary": "Applied-sciences university in Helsinki, Espoo and Vantaa; 21 practical English bachelor's, from nursing and robotics to game design.",
   "handoff": {
     "label": "Spring Joint Application, English degrees",
     "url": "https://www.metropolia.fi/en/study-at-metropolia/applying/joint-application"
   },
   "ib": {
-    "text": "IB applicants are chosen either on their IB grades (the UAS certificate-based table) or by the International UAS Exam, as each programme decides; everyone must prove English.",
-    "url": "https://www.uasinfo.fi/certificate-based-selection/"
+    "text": "On Studyinfo the 18 programmes outside culture list the International UAS Exam; the culture degrees use a pre-assignment and own exam. Full 2027 criteria are not yet published. Everyone must prove English.",
+    "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/information-technology"
   },
   "apply": {
     "via": "Studyinfo.fi (national joint application)",
@@ -52,6 +52,13 @@
       "kind": "test",
       "who": "any",
       "url": "https://www.uasinfo.fi/international-uas-exam/"
+    },
+    {
+      "label": "International UAS Exam results, at the latest",
+      "date": "2027-04-14",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.uasinfo.fi/international-uas-exam/"
     }
   ],
   "programmes": [
@@ -73,29 +80,29 @@
     },
     {
       "name": "3D Game Art",
-      "credential": "BA (Culture)",
+      "credential": "Bachelor of Culture and Arts",
       "years": 4,
       "field": "arts-music",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/3d-game-art",
-      "ib": "Pre-assignment and the programme's own entrance exam; IB grades are not how you are chosen.",
+      "ib": "Pre-assignment by 21 January 2027, then the programme's own entrance exam; IB grades do not decide. Offered in English for the first time in 2027.",
       "tuitionEuEea": "Free"
     },
     {
       "name": "Game Design",
-      "credential": "BA (Culture)",
+      "credential": "Bachelor of Culture and Arts",
       "years": 4,
       "field": "arts-music",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/game-design",
-      "ib": "Pre-assignment and the programme's own entrance exam; IB grades are not how you are chosen. New in 2027.",
+      "ib": "Pre-assignment by 21 January 2027, then the programme's own entrance exam; IB grades do not decide. New in 2027.",
       "tuitionEuEea": "Free"
     },
     {
       "name": "Sustainable Fashion Business Management",
-      "credential": "BA (Culture)",
+      "credential": "Bachelor of Culture and Arts",
       "years": 4,
       "field": "design-architecture",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/sustainable-fashion-business-management",
-      "ib": "Pre-assignment and the programme's own entrance exam; IB grades are not how you are chosen. New in 2027.",
+      "ib": "Pre-assignment by 21 January 2027, then the programme's own entrance exam; IB grades do not decide. New in 2027.",
       "tuitionEuEea": "Free"
     },
     {
@@ -110,6 +117,7 @@
       "name": "Electronics",
       "credential": "BEng",
       "years": 4,
+      "city": "Vantaa",
       "field": "engineering",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/electronics",
       "tuitionEuEea": "Free"
@@ -118,14 +126,17 @@
       "name": "Information Technology",
       "credential": "BEng",
       "years": 4,
+      "city": "Espoo",
       "field": "computing",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/information-technology",
+      "ib": "International UAS Exam. Karamalmi campus, Espoo; Metropolia says the campus may change with its reorganisation from 2026.",
       "tuitionEuEea": "Free"
     },
     {
       "name": "Mechanical Engineering",
       "credential": "BEng",
       "years": 4,
+      "city": "Vantaa",
       "field": "engineering",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/mechanical-engineering",
       "tuitionEuEea": "Free"
@@ -134,6 +145,7 @@
       "name": "Robotics Engineering",
       "credential": "BEng",
       "years": 4,
+      "city": "Vantaa",
       "field": "engineering",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/robotics-engineering",
       "tuitionEuEea": "Free"
@@ -142,13 +154,14 @@
       "name": "Smart Automation",
       "credential": "BEng",
       "years": 4,
+      "city": "Vantaa",
       "field": "engineering",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/smart-automation",
       "tuitionEuEea": "Free"
     },
     {
       "name": "Construction Site Management",
-      "credential": "BConstrMgmt",
+      "credential": "Bachelor of Construction Management",
       "years": 3.5,
       "field": "engineering",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/construction-site-management",
@@ -156,15 +169,16 @@
     },
     {
       "name": "Laboratory Science",
-      "credential": "BLabServices",
+      "credential": "Bachelor of Laboratory Services",
       "years": 3.5,
+      "city": "Vantaa",
       "field": "natural-sciences",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/laboratory-science",
       "tuitionEuEea": "Free"
     },
     {
       "name": "Applied Gerontology",
-      "credential": "BSocHealthCare",
+      "credential": "Bachelor of Social Services and Health Care",
       "years": 3.5,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/applied-gerontology",
@@ -172,7 +186,7 @@
     },
     {
       "name": "Biomedical Laboratory Science",
-      "credential": "BHealthCare",
+      "credential": "Bachelor of Health Care",
       "years": 3.5,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/biomedical-laboratory-science",
@@ -180,7 +194,7 @@
     },
     {
       "name": "Nursing",
-      "credential": "BHealthCare",
+      "credential": "Bachelor of Health Care",
       "years": 3.5,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/nursing",
@@ -188,7 +202,7 @@
     },
     {
       "name": "Occupational Therapy",
-      "credential": "BHealthCare",
+      "credential": "Bachelor of Health Care",
       "years": 3.5,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/occupational-therapy",
@@ -196,7 +210,7 @@
     },
     {
       "name": "Paramedic Nursing",
-      "credential": "BHealthCare",
+      "credential": "Bachelor of Health Care",
       "years": 4,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/paramedics",
@@ -204,7 +218,7 @@
     },
     {
       "name": "Physiotherapy",
-      "credential": "BHealthCare",
+      "credential": "Bachelor of Health Care",
       "years": 3.5,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/physiotherapy",
@@ -212,7 +226,7 @@
     },
     {
       "name": "Public Health Nursing",
-      "credential": "BHealthCare",
+      "credential": "Bachelor of Health Care",
       "years": 4,
       "field": "health",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/public-health-nursing",
@@ -220,7 +234,7 @@
     },
     {
       "name": "Social Services",
-      "credential": "BSocServices",
+      "credential": "Bachelor of Social Services",
       "years": 3.5,
       "field": "social-sciences",
       "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/social-services",
@@ -229,7 +243,7 @@
   ],
   "notes": [
     "Several health programmes are taught in English and Finnish together, and Finnish is built into the degree so you can work in Finland afterwards.",
-    "Programme-by-programme selection rules for 2027 (exam or IB grades, and how many places each) appear on Studyinfo.fi; they were not yet public on 25 September 2026.",
+    "Metropolia has not yet published its 2027 admission criteria or any deadline for IB predicted or final grades; Studyinfo.fi will show them.",
     "Metropolia's separate rolling application (1 December to 31 March) is for SAT/ACT and pathway students, not a route on IB grades."
   ],
   "sources": [
@@ -249,8 +263,28 @@
       "retrieved": "2026-09-25"
     },
     {
-      "title": "UAS info — Certificate-based selection",
-      "url": "https://www.uasinfo.fi/certificate-based-selection/",
+      "title": "Metropolia — Information Technology (International UAS Exam; Karamalmi campus)",
+      "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/information-technology",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Metropolia — 3D Game Art (pre-assignment and own entrance exam; first time in English)",
+      "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/3d-game-art",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Metropolia — Game Design (new in 2027; own entrance exam)",
+      "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/game-design",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Metropolia — Sustainable Fashion Business Management (new in 2027; pre-assignment and own entrance exam)",
+      "url": "https://www.metropolia.fi/en/study-at-metropolia/bachelors-degrees/sustainable-fashion-business-management",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Studyinfo — Metropolia Electronics, Joint Application Spring 2027 (Myyrmäki campus, Vantaa; UAS Exam identification required)",
+      "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000001555",
       "retrieved": "2026-09-25"
     },
     {

@@ -37,8 +37,8 @@ These are examples, not rules by country. Decide from what the institution publi
 ### Fields
 
 - `summary`: one line, **up to 150 characters**: it is the text on the school's card. Say what the
-  place is and why an IB student might look. Make it concrete ("Finland's oldest university; two
-  English bachelor's in Helsinki, one in the centre and one at Kumpula"), not a slogan. Don't write
+  place is and why an IB student might look. Make it concrete ("Finland's first university; two
+  English bachelor's, taught on its Helsinki campuses"), not a slogan. Don't write
   "every", "all", "only", "largest", "oldest" or a rank unless a page you cite says exactly that.
 - `courses` (catalogue scope): how many undergraduate courses its own listing counts, when it gives
   a number.

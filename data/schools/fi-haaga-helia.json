@@ -4,13 +4,13 @@
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Business-focused university of applied sciences in Helsinki, Porvoo and Vierumäki; six English bachelor's in business, IT, aviation, hospitality and sport.",
+  "summary": "Applied-sciences university in Helsinki, Porvoo and Vierumäki; six English bachelor's in business, IT, aviation, hospitality and sport.",
   "handoff": {
     "label": "Bachelor's degree programmes",
     "url": "https://www.haaga-helia.fi/en/bachelors-degree-programmes"
   },
   "ib": {
-    "text": "In the January joint application every bachelor's place is filled by certificate-based selection, so your IB grades decide; there is no International UAS Exam or SAT route there. You must also prove English.",
+    "text": "In the January joint application most places go on certificates, so your IB grades decide. Sports Coaching and blended International Business use entrance exams instead. You must also prove English.",
     "url": "https://www.haaga-helia.fi/en/apply/joint-application"
   },
   "apply": {
@@ -21,19 +21,22 @@
     { "label": "Rolling admission for August 2027 opens", "date": "2026-10-30", "kind": "opens", "who": "any", "url": "https://www.haaga-helia.fi/en/apply/rolling-admission-bachelors-studies" },
     { "label": "Joint application opens, 08:00 Finnish time", "date": "2027-01-07", "kind": "opens", "who": "any", "url": "https://www.haaga-helia.fi/en/apply/joint-application" },
     { "label": "Joint application closes, 15:00 Finnish time", "date": "2027-01-21", "kind": "closes", "who": "any", "url": "https://www.haaga-helia.fi/en/apply/joint-application" },
+    { "label": "Joint application: certificates and proof of English due, 15:00", "date": "2027-01-28", "kind": "documents", "who": "any", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009871" },
+    { "label": "IB predicted grades due, 15:00 (so far stated only for Sports Coaching)", "date": "2027-04-01", "kind": "documents", "who": "any", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009839" },
     { "label": "Rolling admission closes, 15:00 Finnish time, unless places fill first", "date": "2027-05-12", "kind": "closes", "who": "any", "url": "https://www.haaga-helia.fi/en/apply/rolling-admission-bachelors-studies" },
-    { "label": "Rolling admission: documents due, 15:00", "date": "2027-05-19", "kind": "documents", "who": "any", "url": "https://www.haaga-helia.fi/en/apply/rolling-admission-bachelors-studies" }
+    { "label": "Rolling admission: documents due, 15:00", "date": "2027-05-19", "kind": "documents", "who": "any", "url": "https://www.haaga-helia.fi/en/apply/rolling-admission-bachelors-studies" },
+    { "label": "IB Transcript of Grades due, 15:00 (so far stated only for Sports Coaching)", "date": "2027-07-13", "kind": "documents", "who": "any", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009839" }
   ],
   "programmes": [
     { "name": "Degree Programme in Aviation Business", "credential": "BBA", "years": 3.5, "city": "Porvoo", "field": "business", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-aviation-business", "tuitionEuEea": "Free" },
     { "name": "Degree Programme in Business Information Technology", "credential": "BBA", "years": 3.5, "field": "computing", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-business-information-technology", "tuitionEuEea": "Free" },
     { "name": "Degree Programme in Digital Business Innovations", "credential": "BBA", "years": 3.5, "city": "Porvoo", "field": "business", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-digital-business-innovations", "tuitionEuEea": "Free" },
-    { "name": "Degree Programme in International Business", "credential": "BBA", "years": 3.5, "field": "business", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-international-business", "tuitionEuEea": "Free" },
-    { "name": "Degree Programme in Hospitality and Tourism Experience Management", "credential": "BHospMgmt", "years": 3.5, "field": "hospitality-tourism", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-hospitality-and-tourism-experience-management", "tuitionEuEea": "Free" },
-    { "name": "Degree Programme in Sports Coaching and Management", "credential": "BSportStudies", "years": 3.5, "city": "Vierumäki", "field": "sport", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-sports-coaching-and-management", "ib": "Joint application only, with an online entrance exam on 22–25 March 2027.", "tuitionEuEea": "Free" }
+    { "name": "Degree Programme in International Business", "credential": "BBA", "years": 3.5, "field": "business", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-international-business", "ib": "Full-time: IB grades. The blended-learning variant uses an entrance exam at Pasila (8–11 or 15–18 March 2027) instead.", "tuitionEuEea": "Free" },
+    { "name": "Degree Programme in Hospitality and Tourism Experience Management", "credential": "Bachelor of Hospitality Management", "years": 3.5, "field": "hospitality-tourism", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-hospitality-and-tourism-experience-management", "tuitionEuEea": "Free" },
+    { "name": "Degree Programme in Sports Coaching and Management", "credential": "Bachelor of Sport Studies", "years": 3.5, "city": "Vierumäki", "field": "sport", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-sports-coaching-and-management", "ib": "Joint application only, with an online entrance exam on 22–25 March 2027.", "tuitionEuEea": "Free" }
   ],
   "notes": [
-    "Five of the six degrees also take rolling applications from 30 October 2026 to 12 May 2027, with an online group interview; Haaga-Helia says IB holders need an SAT score for that route.",
+    "Five of the six degrees also take rolling applications, 30 Oct 2026 to 12 May 2027: the IB route needs 28 points, CAS, and an English IB or English at 4; predicted grades count.",
     "In rolling admission you may apply to only one programme, and places go to complete, interviewed applicants in the order they applied.",
     "Porvoo is about an hour from central Helsinki by public transport, and Vierumäki is a sports campus near Heinola."
   ],
@@ -41,6 +44,8 @@
     { "title": "Haaga-Helia — Apply to Haaga-Helia", "url": "https://www.haaga-helia.fi/en/apply/applicants", "retrieved": "2026-09-25" },
     { "title": "Haaga-Helia — Joint application", "url": "https://www.haaga-helia.fi/en/apply/joint-application", "retrieved": "2026-09-25" },
     { "title": "Haaga-Helia — Rolling Admission for Bachelor's studies", "url": "https://www.haaga-helia.fi/en/apply/rolling-admission-bachelors-studies", "retrieved": "2026-09-25" },
+    { "title": "Haaga-Helia — Rolling admission, certificate-based student selection (IB: 28 points, English, CAS)", "url": "https://www.haaga-helia.fi/en/apply/rolling-admission-certificate-based-student-selection", "retrieved": "2026-09-25" },
+    { "title": "Studyinfo — Haaga-Helia Sports Coaching and Management, Joint Application Spring 2027 (IB predicted grades 1 Apr, Transcript of Grades 13 Jul)", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009839", "retrieved": "2026-09-25" },
     { "title": "Haaga-Helia — Bachelor's degree programmes", "url": "https://www.haaga-helia.fi/en/bachelors-degree-programmes", "retrieved": "2026-09-25" },
     { "title": "Haaga-Helia — Digital Business Innovations", "url": "https://www.haaga-helia.fi/en/bachelor/degree-programme-digital-business-innovations", "retrieved": "2026-09-25" },
     { "title": "Studyinfo — Haaga-Helia International Business, Joint Application Spring 2027 and rolling admission", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000009871", "retrieved": "2026-09-25" }
