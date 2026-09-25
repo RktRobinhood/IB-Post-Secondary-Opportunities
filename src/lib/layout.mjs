@@ -41,26 +41,75 @@ export function url(path = '/') {
 }
 
 /**
- * `scope` marks a nav item whose tool only covers one Destination. Four of
- * these labels read as site-wide and three of them were not: a student aiming
- * at Utrecht could click "Find a degree", "Check my subjects" or "Preparing"
- * and be given Danish answers, discovering the scope only on reading the lede.
- * Denmark is where this site starts, deliberately — but the starting point has
- * to be visible at the point of entry, not after the click.
+ * Four items, one per question a student brings: where, what, when, and what
+ * matters (docs/research/ia/nav-audit.md). It used to be seven — Denmark,
+ * Europe and Worldwide were three items on one axis and two of them one
+ * template; "Check my subjects" filtered the same list as "Find a degree";
+ * "Preparing" was called three other things elsewhere. Each label here is the
+ * page's own name: its H1 eyebrow, its footer link and its home-page link say
+ * the same word (docs/adr/0006-four-task-navigation.md).
+ *
+ * `line` is what the phone menu says under the label: a drawer can afford one
+ * line, a desktop bar cannot.
+ *
+ * `scope` marks an item built on Opportunity records, so what it covers is
+ * whatever has been researched to that depth. The tooltip and accessible name
+ * say so; `setScope()` is called once by the build, from the records.
  */
 const NAV = [
-  { href: '/denmark/', label: 'Denmark' },
-  { href: '/europe/', label: 'Europe' },
-  { href: '/world/', label: 'Worldwide' },
-  /* These two are built on Opportunity records, so what they cover is whatever
-     has been researched to that depth. The chip used to read "DK" and the
-     tooltip "Denmark only"; both were hard-coded and both went stale the day a
-     second destination landed. `setScope()` is called once by the build. */
-  { href: '/programmes/', label: 'Find a degree', scope: 'opportunities' },
-  { href: '/planner/', label: 'Check my subjects', scope: 'opportunities' },
-  { href: '/prepare/', label: 'Preparing' },
-  { href: '/timeline/', label: 'Deadlines' },
+  {
+    href: '/countries/',
+    label: 'Countries',
+    line: 'Where the English-taught degrees are, from right here to the other side of the world.',
+  },
+  {
+    href: '/programmes/',
+    label: 'Find a degree',
+    scope: 'opportunities',
+    line: 'Every mapped degree, by subject and place.',
+  },
+  { href: '/timeline/', label: 'Deadlines', line: 'The next dates that apply to you, in order.' },
+  {
+    href: '/prepare/',
+    label: 'What counts',
+    line: 'Subjects, grades, CAS, the EE and tests: what decides, what is weighed, what changes nothing.',
+  },
 ];
+
+/* For the adults. Set apart from the student items — right-aligned on a
+   desktop, below a rule in the drawer — the way Common App and UCAS keep their
+   counsellor links out of the student journey. */
+const QUIET = [{ href: '/counsellors/', label: 'For counsellors' }];
+
+/* A URL that stopped being a page is still a section a page can claim while its
+   module catches up: the subject checker is part of Find a degree. */
+const RETIRED = { '/planner/': '/programmes/' };
+
+/**
+ * Which menu item a page is inside.
+ *
+ * A page says its `section`. If that names a menu item, that item. If it names
+ * a retired one, where it went. Otherwise the section is a place — a
+ * Destination's own hub or the region index it used to sit under — and every
+ * place is under Countries. That last rule names no country: a Destination
+ * that earns a hub of its own tomorrow is under Countries without a line here.
+ */
+export function currentNav(section) {
+  if (!section) return '';
+  const all = [...NAV, ...QUIET];
+  if (all.some((n) => n.href === section)) return section;
+  if (RETIRED[section]) return RETIRED[section];
+  return '/countries/';
+}
+
+/* The three ways into Countries, at the distance a student reads them: where
+   they are, what is near, and the rest. Handed in by the build from the
+   records (`distanceDoors()` in src/pages/destinations.mjs), so the menu, the
+   home page and the Countries page name them identically. */
+let PLACES = [];
+export function setPlaces(list) {
+  PLACES = list || [];
+}
 
 /** The nav link's accessible name, which spells out what the chip abbreviates. */
 /* What the Opportunity-backed tools actually cover, handed in by the build so
@@ -87,31 +136,32 @@ const navLabel = (n) => {
   return long ? `${n.label} — ${long}` : n.label;
 };
 
+/* The footer uses the menu's own words for the menu's own pages, so no page
+   is reached by three different names. The places come from `setPlaces()`. */
 const FOOTER = [
   {
-    title: 'Destinations',
+    title: 'Countries',
     links: [
-      { href: '/denmark/', label: 'Denmark' },
-      { href: '/europe/', label: 'Europe A–Z' },
-      { href: '/world/', label: 'Beyond Europe' },
+      { href: '/countries/', label: 'Countries' },
+      { places: true },
       { href: '/compare/', label: 'Compare countries' },
     ],
   },
   {
     title: 'Tools',
     links: [
-      { href: '/programmes/', label: 'Programme finder' },
-      { href: '/planner/', label: 'Subject checker' },
+      { href: '/programmes/', label: 'Find a degree' },
+      { href: '/planner/', label: 'Check my subjects' },
       { href: '/denmark/ib-conversion/', label: 'Grade converter' },
-      { href: '/timeline/', label: 'Application calendar' },
+      { href: '/timeline/', label: 'Deadlines' },
     ],
   },
   {
     title: 'Guides',
     links: [
+      { href: '/prepare/', label: 'What counts' },
       { href: '/denmark/apply/', label: 'Applying in Denmark' },
       { href: '/denmark/money/', label: 'Money and SU' },
-      { href: '/prepare/', label: 'CAS, the EE and what counts' },
     ],
     // Topic guides are appended at build time from whatever is in data/topics,
     // so the footer never links to a guide that was not generated.
@@ -173,6 +223,7 @@ export function page(o) {
   // Outlook, Facebook, LinkedIn — show neither SVG nor relative previews.
   // Regenerate with `npm run share-card`.
   const og = o.ogImage || '/assets/img/share-card.jpg';
+  const here = currentNav(o.section);
   const origin = process.env.SITE_ORIGIN || 'https://rktrobinhood.github.io';
 
   return toString(html`<!doctype html>
@@ -223,32 +274,53 @@ ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}
     <nav class="nav" aria-label="Main">
       ${NAV.map(
         (n) =>
-          html`<a href="${url(n.href)}"${o.section === n.href ? raw(' aria-current="page"') : ''}${
+          html`<a href="${url(n.href)}"${here === n.href ? raw(' aria-current="page"') : ''}${
             scopeLong(n) ? raw(` aria-label="${navLabel(n)}" title="${navLabel(n)}"`) : ''
           }>${n.label}</a>`
+      )}
+      ${QUIET.map(
+        (n) =>
+          html`<a class="nav__quiet" href="${url(n.href)}"${here === n.href ? raw(' aria-current="page"') : ''}>${n.label}</a>`
       )}
     </nav>
     <div class="masthead__tools">
       <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark">
         <span class="t-sun">${icon('sun')}</span><span class="t-moon" hidden>${icon('moon')}</span>
       </button>
-      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
-        ${icon('menu')}
+      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer">
+        ${icon('menu')}<span class="nav-toggle__text">Menu</span>
       </button>
     </div>
   </div>
 </header>
 
-<div class="drawer" id="drawer" data-open="false">
-  ${NAV.map(
-    (n) =>
-      html`<a href="${url(n.href)}"${
-        scopeLong(n) ? raw(` aria-label="${navLabel(n)}"`) : ''
-      }>${n.label}</a>`
-  )}
-  <a href="${url('/about/')}">About this site</a>
-  <a href="${url('/counsellors/')}">For counsellors</a>
-</div>
+${/* The phone menu: the four items, each with its one line, and the three
+     ways into Countries as chips under it, so the place a student goes most
+     is still one tap away. Then the adults' links below a rule. */ ''}
+<nav class="drawer" id="drawer" data-open="false" aria-label="Menu">
+  <ul class="drawer__list" role="list">
+    ${NAV.map(
+      (n) => html`<li class="drawer__row">
+        <a class="drawer__item" href="${url(n.href)}"${here === n.href ? raw(' aria-current="page"') : ''}${
+          scopeLong(n) ? raw(` aria-label="${navLabel(n)}"`) : ''
+        }>
+          <span class="drawer__label">${n.label}</span>
+          <span class="drawer__line">${n.line}</span>
+        </a>
+        ${n.href === '/countries/' && PLACES.length
+          ? html`<ul class="drawer__places" role="list">${PLACES.map(
+              (p) => html`<li><a class="chip" href="${url(p.href)}">${p.label}</a></li>`
+            )}</ul>`
+          : ''}
+      </li>`
+    )}
+  </ul>
+  <ul class="drawer__quiet" role="list">
+    ${QUIET.map((n) => html`<li><a href="${url(n.href)}"${here === n.href ? raw(' aria-current="page"') : ''}>${n.label}</a></li>`)}
+    <li><a href="${url('/about/')}">About this site</a></li>
+    <li><a href="${url('/trust/#wrong')}">Something wrong?</a></li>
+  </ul>
+</nav>
 
 ${FEEDBACK
   ? html`<aside class="feedback-bar" aria-label="Feedback">
@@ -270,7 +342,7 @@ ${o.body}
         <p style="max-width:26ch">${SITE.tagline}. Built for the ${SITE.cycle.session} session.</p>
       </div>
       ${FOOTER.map((col) => {
-        const links = col.dynamic === 'guides' ? [...col.links, ...GUIDES] : col.links;
+        const links = (col.dynamic === 'guides' ? [...col.links, ...GUIDES] : col.links).flatMap((l) => (l.places ? PLACES : [l]));
         return html`<div>
         <h3>${col.title}</h3>
         <ul>${links.map((l) => html`<li><a href="${url(l.href)}">${l.label}</a></li>`)}</ul>
@@ -292,6 +364,51 @@ ${o.body}
 ${(o.scripts || []).map((s) => html`<script src="${url(`/assets/js/${s}`)}" type="module"></script>`)}
 </body>
 </html>`);
+}
+
+/**
+ * A page that moved. GitHub Pages cannot answer with a 301, so the old URL
+ * gets this stub: a meta refresh for anything without JavaScript, a canonical
+ * link and noindex for search engines, and a script that replaces the location
+ * rather than adding to history — Back from the new page goes to wherever the
+ * student was before, not to this stub — keeping the query and the anchor, so
+ * a saved link with state in it still lands with that state.
+ *
+ * `scripts/check.mjs` recognises these by the refresh and fails any page that
+ * links to one: internal links go straight to the new address.
+ *
+ * @param {string} to       the new root-relative address, optionally with a #hash
+ * @param {string} title    what the page is now called
+ */
+export function redirectPage(to, title) {
+  const [pathPart, hash = ''] = to.split('#');
+  const target = url(pathPart);
+  const origin = process.env.SITE_ORIGIN || 'https://rktrobinhood.github.io';
+  return `<!doctype html>
+<html lang="${SITE.locale}" data-base="${BASE || '/'}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${title} · ${SITE.name}</title>
+<meta name="description" content="This page moved to ${title}. You are being taken there now.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="${origin}${target}${hash ? '#' + hash : ''}">
+<meta http-equiv="refresh" content="0; url=${target}${hash ? '#' + hash : ''}">
+<script>
+  (function () {
+    var hash = location.hash || ${JSON.stringify(hash ? '#' + hash : '')};
+    location.replace(${JSON.stringify(target)} + location.search + hash);
+  })();
+</script>
+</head>
+<body>
+<main id="main">
+<h1>This page moved</h1>
+<p><a href="${target}${hash ? '#' + hash : ''}">${title}</a></p>
+</main>
+</body>
+</html>
+`;
 }
 
 export { canonicalPath };

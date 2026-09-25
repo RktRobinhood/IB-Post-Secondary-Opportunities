@@ -7,6 +7,11 @@
  * Nothing here computes a total. Each dimension is shown on its own row with
  * its own coverage, because a country that wins on money can lose on language
  * and no arithmetic should hide that.
+ *
+ * Every choice — adding a destination, removing one, sorting the whole set —
+ * is a history entry, so Back undoes the last choice instead of leaving the
+ * page. The address carries the view (`?with=de,nl&sort=coverage`), so a
+ * shared link and a restored entry show the same thing.
  */
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
@@ -19,12 +24,16 @@ const STORAGE_KEY = 'ibp-compare';
 
 const byCode = new Map(DESTINATIONS.map((d) => [d.code, d]));
 let chosen = [];
+let sortBy = 'name';
+const SORTS = ['name', 'coverage', 'region'];
 
 const els = {
   add: document.getElementById('cmp-add'),
   chosen: document.getElementById('cmp-chosen'),
   tray: document.getElementById('cmp-tray'),
   form: document.getElementById('cmp-picker'),
+  set: document.querySelector('#cmp-set .set__rows'),
+  sort: document.getElementById('cmp-sort'),
 };
 
 const esc = (s) =>
@@ -54,6 +63,7 @@ function render() {
       chosen = chosen.filter((c) => c !== b.dataset.remove);
       save();
       render();
+      commit();
     });
   }
 
@@ -65,7 +75,7 @@ function render() {
       <p><strong>Choose at least two destinations.</strong></p>
       <p>Their differences will line up dimension by dimension, with the gaps in what we know shown rather than smoothed over.</p>
     </div>`;
-    syncUrl();
+    paintSet();
     return;
   }
 
@@ -121,20 +131,58 @@ function render() {
       you can apply at all, while the others decide whether you should. Nothing here is added up.</p>
   </div>`;
 
-  syncUrl();
+  paintSet();
+}
+
+/* The whole set: sort order, and which rows can still be added. */
+function paintSet() {
+  if (!els.set) return;
+  const rows = [...els.set.children];
+  const key = {
+    name: (r) => r.dataset.name,
+    coverage: (r) => String(9 - Number(r.dataset.coverage)) + r.dataset.name,
+    region: (r) => r.dataset.region + r.dataset.name,
+  }[sortBy];
+  rows.sort((a, b) => key(a).localeCompare(key(b))).forEach((r) => els.set.append(r));
+  for (const b of els.sort?.querySelectorAll('[data-sort]') || []) b.setAttribute('aria-pressed', String(b.dataset.sort === sortBy));
+  for (const b of els.set.querySelectorAll('[data-add]')) {
+    b.hidden = false;
+    const inIt = chosen.includes(b.dataset.add);
+    b.disabled = inIt || chosen.length >= MAX;
+    b.textContent = inIt ? 'In the comparison' : chosen.length >= MAX ? `Comparison full (${MAX})` : 'Add to the comparison';
+  }
 }
 
 function save() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(chosen)); } catch {}
 }
 
-function syncUrl() {
-  const qs = chosen.length ? `?with=${chosen.join(',')}` : location.pathname;
-  history.replaceState(null, '', qs);
+function address() {
+  const q = new URLSearchParams();
+  if (chosen.length) q.set('with', chosen.join(','));
+  if (sortBy !== 'name') q.set('sort', sortBy);
+  const qs = q.toString().replace(/%2C/g, ',');
+  return `${location.pathname}${qs ? `?${qs}` : ''}`;
 }
 
+/** A deliberate choice: a new history entry, so Back undoes it. */
+function commit() {
+  history.pushState({ compare: true, chosen: [...chosen], sortBy }, '', address());
+}
+
+window.addEventListener('popstate', (ev) => {
+  const st = ev.state;
+  if (!st?.compare) return;
+  chosen = st.chosen.filter((c) => byCode.has(c)).slice(0, MAX);
+  sortBy = SORTS.includes(st.sortBy) ? st.sortBy : 'name';
+  save();
+  render();
+});
+
 function restore() {
-  const fromUrl = new URLSearchParams(location.search).get('with');
+  const params = new URLSearchParams(location.search);
+  if (SORTS.includes(params.get('sort'))) sortBy = params.get('sort');
+  const fromUrl = params.get('with');
   if (fromUrl) {
     chosen = fromUrl.split(',').filter((c) => byCode.has(c)).slice(0, MAX);
     return;
@@ -152,9 +200,35 @@ els.add?.addEventListener('change', () => {
   chosen.push(code);
   save();
   render();
+  commit();
 });
+
+/* "Add to the comparison" inside a row of the whole set. */
+els.set?.addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-add]');
+  if (!b || chosen.includes(b.dataset.add) || chosen.length >= MAX) return;
+  chosen.push(b.dataset.add);
+  save();
+  render();
+  commit();
+  els.tray.scrollIntoView({ block: 'start' });
+});
+
+if (els.sort) {
+  els.sort.hidden = false;
+  els.sort.addEventListener('click', (ev) => {
+    const b = ev.target.closest('[data-sort]');
+    if (!b || b.dataset.sort === sortBy) return;
+    sortBy = b.dataset.sort;
+    paintSet();
+    commit();
+  });
+}
 
 els.form?.addEventListener('submit', (e) => e.preventDefault());
 
 restore();
 render();
+/* The entry the student arrived on, holding the view restored from the link or
+   from their last visit, so Back from their first choice returns to it. */
+history.replaceState({ compare: true, chosen: [...chosen], sortBy }, '', address() + location.hash);

@@ -189,14 +189,54 @@ if (scope) {
 
   /* --- Controls ----------------------------------------------------------- */
 
+  /* --- History ----------------------------------------------------------- */
+
+  /* Every deliberate choice on this page — a country chip, "Every country",
+     "Back to mine", a month in the strip — is a history entry, so Back undoes
+     it rather than leaving the page. The state rides on the entry itself; the
+     URL only carries what a shared link should (`?all=1`, or the
+     `?destinations=` a link arrived with), because the student's own choice
+     is kept in the Exploration List, not in the address bar. */
+  function snapshot(extra = {}) {
+    return { calendar: true, codes: current?.codes || [], source: current?.source || null, showingAll, allOpen: Boolean(all?.open), ...extra };
+  }
+  function addressFor(state, hash = '') {
+    const q = state.showingAll
+      ? '?all=1'
+      : state.source === 'url' && state.codes.length
+        ? `?destinations=${state.codes.join(',')}`
+        : '';
+    return `${location.pathname}${q}${hash}`;
+  }
+  function commit(extra = {}, hash = '') {
+    const state = snapshot(extra);
+    history.pushState(state, '', addressFor(state, hash));
+  }
+
+  window.addEventListener('popstate', (ev) => {
+    const st = ev.state;
+    if (!st?.calendar) return;
+    showingAll = st.showingAll;
+    /* The chips write the Exploration List, so undoing a chip undoes it there
+       too. A state with no source is one where the list was empty. A scope that
+       came from the compare tray, the profile or a link is left alone. */
+    if (st.source === 'list' || st.source === null) setExploration(st.codes);
+    current = st.codes.length ? { codes: st.codes, source: st.source } : interest();
+    paint();
+    /* A month jump opened the full list; going back past it closes it again. */
+    if (all) all.open = Boolean(st.month || st.allOpen);
+  });
+
   showAll.addEventListener('click', () => {
     showingAll = true;
     paint();
+    commit();
   });
 
   showMine.addEventListener('click', () => {
     showingAll = false;
     paint();
+    commit();
   });
 
   for (const b of boxes) {
@@ -210,6 +250,7 @@ if (scope) {
       setExploration(chosen);
       current = chosen.length ? { codes: chosen, source: 'list' } : interest();
       paint();
+      commit();
     });
   }
 
@@ -221,7 +262,7 @@ if (scope) {
       if (!all || !target || target.hidden) return;
       ev.preventDefault();
       all.open = true;
-      history.replaceState(null, '', `#m-${a.dataset.month}`);
+      commit({ month: a.dataset.month }, `#m-${a.dataset.month}`);
       target.scrollIntoView({ block: 'start' });
     });
   }
@@ -249,6 +290,9 @@ if (scope) {
   if (fromUrl.length && !explicit().length) setExploration(fromUrl);
 
   paint();
+  /* The entry the student arrived on, so Back from their first choice returns
+     to exactly this view. Its address is left as it came. */
+  history.replaceState(snapshot(), '', location.href);
 
   /* Arriving on a month link: open the list it points into. */
   const landed = /^#m-\d{4}-\d{2}$/.test(location.hash) && document.getElementById(location.hash.slice(1));

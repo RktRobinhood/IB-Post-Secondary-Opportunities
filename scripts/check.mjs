@@ -71,7 +71,19 @@ async function main() {
   }
   const unbase = (href) => (base && href.startsWith(base + '/') ? href.slice(base.length) : href);
 
-  console.log(`\nChecking ${pages.length} pages${base ? ` (base "${base}")` : ''}…\n`);
+  /* Pages that moved (layout.mjs redirectPage): a meta refresh to the new
+     address. They are valid pages, so an old bookmark still lands, but no page
+     of ours may link to one — an internal link goes straight to where the
+     page is now, and a stub in the path costs the student a Back press. */
+  const moved = new Set();
+  for (const file of pages) {
+    if (/<meta http-equiv="refresh"/.test(await fs.readFile(file, 'utf8'))) {
+      const rel = '/' + path.relative(DIST, file).split(path.sep).join('/');
+      moved.add(rel.endsWith('/index.html') ? rel.slice(0, -'index.html'.length) : rel);
+    }
+  }
+
+  console.log(`\nChecking ${pages.length} pages${base ? ` (base "${base}")` : ''}${moved.size ? `, ${moved.size} of them redirects` : ''}…\n`);
 
   const externalLinks = new Set();
 
@@ -117,6 +129,9 @@ async function main() {
       if (href.startsWith('/')) {
         const clean = unbase(href.split('#')[0].split('?')[0]);
         if (!routes.has(clean) && !assets.has(clean)) fail(rel, `broken internal link: ${href}`);
+        else if (moved.has(clean) && !moved.has(rel.replace(/index\.html$/, ''))) {
+          fail(rel, `links to a page that moved: ${href} — link to where it went`);
+        }
       }
     }
 

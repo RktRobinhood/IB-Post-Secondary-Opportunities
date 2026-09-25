@@ -135,3 +135,114 @@ Against the plan's softer targets: apply is 447 default words against "≤250", 
 Screenshots: `after/denmark__{apply,money,ib-conversion}--{phone,desktop}-{fold,full}{.before,}.*`.
 
 **Gate:** 32 checks, all pass.
+
+## Batch 7: the essays — trust, counsellors, about, credits, glossary (25 September 2026)
+
+**Files:** `src/pages/trust.mjs`, `src/pages/counsellors.mjs`, `src/pages/meta.mjs` (`about`, `glossary`, `credits` and `topicPage` only; the FAQ and the programme-image credit rows are unchanged), new `src/assets/js/filter.js`, CSS appended to the end of `src/assets/css/primitives.css` (three commented blocks), `scripts/lib/text-walls-known.json` (five pages removed).
+
+| Page | Was | Now |
+|---|---|---|
+| `/trust/` | Ten open sections, 33 long paragraphs, a 472-word run; no disclosures | A **Report a mistake** button (and "No GitHub account?") first; a glance band with the two numbers (evidence independently reviewed, destinations researched in depth); then nine `topic()`s, each one line with every table, note and paragraph beneath. The motion section is one line linking to `/about/#motion` |
+| `/counsellors/` | Seven essay sections, a 481-word run | The coverage table still leads. Conversation order is a **four-step strip** (the full numbered reasoning behind "Why this order"). The four things students get wrong are **four cards**, one line each, the example or explanation on tap. The rest are short answers |
+| `/about/` | Eleven consecutive paragraphs from the top | Short answers: why it exists, who it is for, how it is built, how accurate it is; the disclaimer note (unchanged); report and credits as one line each. **The motion table and its two paragraphs moved here from `/trust/`**, as a topic. The aside links Trust and Credits |
+| `/credits/` | 264 phone screens of open tables | A **filter box** (photographer, licence, place) across every credit; institutional photographs, Commons photographs **grouped by Destination** (read from the image key or its Institution's record, no country named in code) and programme-card photographs each behind a disclosure with its count; globe/map credits and reuse terms as short answers. Every credit row is still on the page (the programme-images guard still finds each one) |
+| `/glossary/` | 25 consecutive definitions | A **filter box**, **A–Z jumps**, and one line per term (term · where · first sentence); the rest of the definition on tap. Filtering opens the matches |
+| `/guides/*` (topic guide template) | Sources printed open after the last topic, so "A checklist before you commit" measured 178 words | Sources are a closed last topic, as on Destination pages. The checklist topic is now 28 words |
+
+Cut: on `/trust/` nothing but the motion section's move; on `/counsellors/` nothing; on `/compare/` see Batch 8. Every sentence that was on these pages is still on the site.
+
+**Numbers** (before → after; rendered at 375×812 and 1440×900, default-view words static)
+
+| Page | Phone screens | Desktop screens | Default words | Words incl. closed | Longest run | Before first action |
+|---|---|---|---|---|---|---|
+| `/trust/` | 24.6 → **6.6** | 11.4 → **3.6** | 2,341 → **472** | 2,341 → 2,191 (motion moved out) | 612 → 38 | 211 → 0 |
+| `/counsellors/` | 10.5 → **7.9** | 5.3 → **4.0** | 1,033 → **595** | 1,033 → 1,120 | 432 → 101 | 38 → 38 |
+| `/about/` | 6.3 → **5.4** | 3.3 → **3.0** | 497 → **315** | 497 → 1,029 (motion moved in) | 442 → 104 | 472 → 34 |
+| `/credits/` | 286.9 → **6.7** | 82.7 → **4.8** | 8,102 → **255** | 8,102 → 8,586 | 274 → 23 | 118 → 6 |
+| `/glossary/` | 10.9 → **6.0** | 7.0 → **3.9** | 742 → **322** | 742 → 754 | 644 → 0 | 720 → 3 |
+| `/guides/medicine-abroad/` | 6.5 → **5.5** | 4.0 → **3.5** | 450 → **303** | 2,456 → 2,462 | 52 → 28 | 22 → 22 |
+
+All five batch-7 pages pass every rule and are off the grandfather list. Left on it: `/programmes/` and `/planner/` (Batches 1 and 3, owned elsewhere).
+
+## Batch 8: Compare on a phone (25 September 2026)
+
+**Files:** `src/pages/compare.mjs`, `src/assets/js/compare.js`, CSS appended to `primitives.css`.
+
+| Was | Now |
+|---|---|
+| "Why there is no ranking" note (51 words) | Cut as repetition: the hero lede says there is no overall score, and the tray's own note says eligibility decides whether you can apply and the rest whether you should |
+| "Or scan the whole set": a 36 × 6 table of truncated sentences, one stacked card per row on a phone (~22 screens) | **One compact row per Destination**: name, the first clause of its EU/EEA tuition, coverage as dots (●●●●○○○). Three columns on desktop, two lines on a phone. Behind each row: region, English-taught bachelors, tuition and living cost **in full** (the table used to truncate them at 28–44 characters), coverage in words, a link to the page and an **Add to the comparison** button |
+| — | **Sort**: A–Z, most recorded, by region |
+
+No structured "short tuition" field was added: the first clause of `costs.tuitionEuEea` reads cleanly for all 36, and inventing a number per country would be research, not layout.
+
+| | Before | After |
+|---|---|---|
+| Phone screens | 27.3 | **6.8** |
+| Desktop screens | 6.0 | **4.0** |
+| Default-view words | 897 | **397** |
+| Words incl. closed | 897 | 4,428 (the full cells, no longer truncated) |
+
+## Back is back-able (owner instruction, applied to Deadlines and Compare)
+
+Every deliberate choice is now a history entry with a `popstate` handler that restores it; `replaceState` is used only for the entry the student arrived on.
+
+- **Deadlines** (`calendar.js`): a country chip, "Every country", "Back to mine" and a month in the strip each `pushState` a snapshot (codes, source, show-all, whether the full list is open). Back restores the chips, the Exploration List (only when the chips wrote it), the Next-up list and the counts; going back past a month jump closes the full list again. The address carries only what a shared link should (`?all=1`, or the `?destinations=` a link arrived with).
+- **Compare** (`compare.js`): adding (from the picker or a row), removing a chip and sorting each `pushState` `?with=…&sort=…`; Back restores the tray, chips and sort.
+- Checked in a browser: Deadlines dk → dk+nl → January → Every country, then Back ×4 and Forward, each step restoring the previous view; Compare de → nl → sort → row-add fr, Back ×3 and Forward, likewise.
+- The disclosures added in Batches 4, 5, 7 and 8 are native `<details>` and touch no history. The glossary and credits filter is continuous input and never writes history. No internal link gained `target`.
+
+Screenshots: `after/{trust,counsellors,about,credits,glossary,compare,guides__medicine-abroad}--{phone,desktop}-{fold,full}{.before,}.*`.
+
+**Gate:** `text-walls`, `audience`, `check`, `programme-images` and the rest pass. Two checks fail on work outside these batches: `validate` (six "programme families" errors in `data/opportunities`, the conversion agent's area) and `controls` (`site.css:2294` `.drawer .drawer__places a.chip` and `site.css:2354` `.region-nav .chip` state `2.75rem` instead of `var(--tap)`, the menu agent's area).
+
+## Batch 2: four-item menu and the Countries page (25 September 2026)
+
+**Owner's steer, applied:** "I like the 4 doors, but the distinction of close, nearby and explore was cool, so lose it in the menu, maybe not in the vibe." The menu has no places in it; the Countries page and the home page open on three doors named by distance, and the distance is drawn and moves rather than being explained.
+
+**Files:** `src/lib/layout.mjs` (menu, phone menu, footer, `currentNav()`, `setPlaces()`, `redirectPage()`), `src/pages/destinations.mjs` (`countriesIndex`, `distanceDoors`, `distanceDoorsHtml`, `placeTiles`, `readableName`; `europeIndex`/`worldIndex` removed; destination pages' breadcrumb and section), `src/pages/home.mjs` (the same doors; "Or find a degree"; toolkit "Deadlines"), `src/build.mjs` (`/countries/`, stubs for `/europe/` and `/world/`, stubs out of the sitemap, `setPlaces`), `src/assets/js/site.js` (menu history and focus, door reveal), `src/assets/css/site.css` (appended block "Countries and the menu"), `scripts/check.mjs` (redirect stubs recognised; a link to one fails), `scripts/test-destinations.mjs` (section compared through `currentNav()`; `destinations.mjs` and `home.mjs` added to the no-hard-coded-hub guard), `data/site-config.json` (`homeDoors` keys `denmark/europe/world` → `here/nearby/far`), `docs/adr/0006-four-task-navigation.md` (new), `docs/EXPERIENCE_PRINCIPLES.md`, `docs/PAGE_TEMPLATES.md`, `docs/UPDATING.md`.
+
+**Not touched:** `src/lib/canonical.mjs` (another agent was mid-edit; the menu reads the old section values through `currentNav()` instead), `src/pages/denmark.mjs`, `programme*.mjs`, the globe files, `components.mjs` (the distance doors have their own renderer rather than changing `doors()`).
+
+### The menu
+
+| Was | Now |
+|---|---|
+| Denmark · Europe · Worldwide · Find a degree · Check my subjects · Preparing · Deadlines | **Countries · Find a degree · Deadlines · What counts**, then **For counsellors** set apart (right, quieter, after a rule) |
+| Phone: seven bare links, then About and For counsellors; icon-only button | Button reads **Menu** / **Close**. Four rows, each label + one line; **Denmark · Europe · Worldwide** chips under Countries; For counsellors · About · Something wrong? below a rule. `aria-current` in the menu too |
+| Which item is current: exact match of `section` | `currentNav()`: a menu item, a retired item (`/planner/` → Find a degree), or else a place → Countries. Names no country |
+| Footer: "Destinations / Europe A–Z / Beyond Europe / Programme finder / Subject checker / Application calendar / CAS, the EE and what counts" | The menu's own words: Countries (Countries, Denmark, Europe, Worldwide, Compare countries), Tools (Find a degree, Check my subjects, Grade converter, Deadlines), Guides (What counts, …) |
+
+**Back means back (owner's rule):** opening the phone menu is a history step, so Back closes it and stays on the page. A link followed from inside the menu *replaces* that step: Back from the next page returns here with the menu closed, and one more Back leaves (no dead entry). A same-page chip (Europe from the menu on Countries) closes the menu and jumps. Focus moves into the menu, Tab cycles inside it, Escape and Back return focus to the button. Region chips are anchors, so each jump is a Back step. All verified in headless Chrome at 375×812 (script: scratch `navtest.mjs`; 18 of 18 behaviours; the three "fails" in its first run were the test clicking during smooth scroll and were re-verified directly).
+
+### `/countries/`
+
+1. Hero (plain): "36 countries / Countries / Where the English-taught degrees are, and what each country asks of your IB."
+2. **Three doors, by distance**: *Right here · Denmark · 57 degrees in English · 7 universities and 7 colleges* → `/denmark/`; *Nearby · Europe · 25 countries · 296 universities and 15 colleges* → `#europe`; *Explore · Worldwide · 10 countries · 136 universities and 8 colleges* → `#worldwide`. On each photograph the same sand dot is you: at Right here rings open around it; at Nearby a short hop lands inside the frame; at Explore the line leaves the frame. Drawn once when the door comes into view (`geographic` token, staggered), with the photograph settling closer (here) or pulling back (far). Without JavaScript or under reduced motion the lines are simply drawn. "Right here" is `audience.schoolCountry`, never "home" (the audience guard passes).
+3. Region chips (sideways-scrolling on a phone), then **Europe** and **Worldwide** as two halves with regions under each. Every Destination is a tile, including the school country's hub (it was missing from the Europe index, though in Europe and on compare), first in its region. Tile counts now use the same honest wording as the doors ("14 universities and 2 colleges").
+4. The globe (`worldWindow()` as before, all 36), then "Two or three in mind?" → compare / Deadlines.
+
+The home page's doors are the same component and data; the photographs are `homeDoors.here/nearby/far`.
+
+**Redirects:** `/europe/` → `/countries/#europe`, `/world/` → `/countries/#worldwide`, both keeping any query and anchor (`/world/?from=old#region-oceania` → `/countries/?from=old#region-oceania`, verified), replacing history so Back skips the stub, `noindex`, out of the sitemap. `check.mjs` now fails any page linking to a stub.
+
+**`/planner/` is not redirected yet.** Redirecting it before the "My subjects" panel exists would remove the subject checker from the site. It stays live, out of the menu, highlighted as Find a degree, and linked from home, programme pages and the footer; its redirect ships with Batch 3. The phone menu's line for Find a degree gains "Add your IB subjects to see what you qualify for" in the same batch.
+
+**Map labels (globe agent's report):** Destination maps took `shortName`, so pins read "UT", "UM", "EUR". They now take `readableName()`: the short name when it is a word ("Leiden", "TU Delft", "KU Leuven"), the full name when it is an acronym.
+
+### Numbers
+
+| | Before (`/europe/` + `/world/`) | After (`/countries/`) |
+|---|---|---|
+| Pages to see every country | 2 (Denmark on neither) | 1 (all 36) |
+| Phone screens | 13.5 + 7.8 | 19.6 |
+| Desktop screens | 5.9 + 4.8 | 8.9 |
+| Default-view words | 828 + 398 | 1,238 (mostly the 36 tiles) |
+| Longest prose run / before first action | 29 / 0 | 15 / 0 |
+| Words above the phone fold | 46 | 39 |
+
+Home: 5.8 phone screens (was 5.7), default view 261 words.
+
+Screenshots: `after/countries--{phone,desktop}-{fold,full}.*`, `after/home--*` and `after/destinations__nl--*` (with `.before`), `after/{europe,world}--*.before.*`, `after/menu--phone-open.png`. The full phone captures show dark tiles below the fold: those photographs are lazy-loaded and never scrolled into view in the capture.
+
+**Gate:** 32 checks, all pass.

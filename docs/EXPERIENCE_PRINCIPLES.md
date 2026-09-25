@@ -59,9 +59,9 @@ The same order holds everywhere: a picture or a list of ways in first, one sente
 
 | Page | Opens with | Then |
 |---|---|---|
-| Home | Photo hero, then three equal doors — Denmark, Europe, Worldwide | A reel of named universities; "What do you want to study?"; the tools, one line each |
+| Home | Photo hero, then three equal doors by distance — Right here (Denmark), Nearby (Europe), Explore (Worldwide) | A reel of named universities; "What do you want to study?"; the tools, one line each |
 | Denmark | Photo hero, four facts, the universities | "How it works" as short answers |
-| Europe / Worldwide | Photo tiles per country, by region | The map; compare |
+| Countries | The same three doors, then photo tiles per country, by region (Europe, then Worldwide) | The map; compare |
 | University | Photo hero, a glance band, the degrees | What it tells IB students, notes, sources — short answers |
 | Programme | Photo hero with one sentence, a glance band, required subjects as chips | The fine print, what it is, deadlines — short answers |
 | Preparing | A board: decides / weighed / changes nothing | Each action, reasoning behind "Why" |

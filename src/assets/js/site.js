@@ -32,17 +32,101 @@ paintToggle();
 const navToggle = document.getElementById('nav-toggle');
 const drawer = document.getElementById('drawer');
 
+/* Opening the menu is a step a student can take back: it adds one history
+   entry, so the phone's Back button closes the menu instead of leaving the
+   page. Following a link from inside the menu replaces that entry, so Back
+   from the next page lands on this one, not on "this one with the menu open".
+   Focus goes into the menu when it opens, stays there while it is open, and
+   returns to the button when it closes. */
+const toggleText = navToggle?.querySelector('.nav-toggle__text');
+const isOpen = () => drawer?.dataset.open === 'true';
+
+function setDrawer(open) {
+  if (!drawer || !navToggle) return;
+  drawer.dataset.open = String(open);
+  navToggle.setAttribute('aria-expanded', String(open));
+  if (toggleText) toggleText.textContent = open ? 'Close' : 'Menu';
+  document.body.style.overflow = open ? 'hidden' : '';
+  if (open) drawer.querySelector('a')?.focus();
+  else navToggle.focus();
+}
+
+function closeDrawer() {
+  if (!isOpen()) return;
+  if (history.state?.drawer) history.back(); // popstate closes it
+  else setDrawer(false);
+}
+
 navToggle?.addEventListener('click', () => {
-  const open = drawer.dataset.open === 'true';
-  drawer.dataset.open = String(!open);
-  navToggle.setAttribute('aria-expanded', String(!open));
-  navToggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
-  document.body.style.overflow = open ? '' : 'hidden';
+  if (isOpen()) return closeDrawer();
+  history.pushState({ ...(history.state || {}), drawer: true }, '');
+  setDrawer(true);
+});
+
+addEventListener('popstate', () => {
+  if (isOpen() && !history.state?.drawer) setDrawer(false);
+});
+
+// Arriving back on a page whose menu entry is still in history: it is closed.
+if (history.state?.drawer) history.replaceState({ ...history.state, drawer: false }, '');
+
+drawer?.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]');
+  if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  if (a.target === '_blank' || a.origin !== location.origin) return;
+  if (!history.state?.drawer) return;
+  e.preventDefault();
+  const sameDoc = a.pathname === location.pathname && a.search === location.search;
+  if (sameDoc) {
+    // A jump within this page (Countries → #europe): leave the menu, then go.
+    setDrawer(false);
+    history.replaceState({ ...history.state, drawer: false }, '', a.hash || location.hash);
+    document.getElementById(decodeURIComponent(a.hash.slice(1)))?.scrollIntoView();
+  } else {
+    location.replace(a.href);
+  }
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && drawer?.dataset.open === 'true') navToggle.click();
+  if (!isOpen()) return;
+  if (e.key === 'Escape') return closeDrawer();
+  if (e.key === 'Tab') {
+    const items = [navToggle, ...drawer.querySelectorAll('a[href]')];
+    const i = items.indexOf(document.activeElement);
+    const next = e.shiftKey ? (i <= 0 ? items.length - 1 : i - 1) : (i + 1) % items.length;
+    e.preventDefault();
+    items[next].focus();
+  }
 });
+
+/* --- Distance doors ------------------------------------------------------- */
+
+/* The line on each door draws itself once, when the door comes into view:
+   geographic movement, so it takes the `geographic` token's length. Without
+   JavaScript, without IntersectionObserver or under reduced motion the lines
+   are simply drawn. */
+const traced = document.querySelectorAll('.doors[data-trace]');
+if (
+  traced.length &&
+  'IntersectionObserver' in window &&
+  root.getAttribute('data-motion') !== 'reduced' &&
+  !matchMedia('(prefers-reduced-motion: reduce)').matches
+) {
+  const seen = new IntersectionObserver(
+    (entries) => {
+      for (const en of entries) {
+        if (!en.isIntersecting) continue;
+        en.target.classList.add('is-seen');
+        seen.unobserve(en.target);
+      }
+    },
+    { threshold: 0.4 }
+  );
+  for (const doors of traced) {
+    doors.dataset.trace = 'armed';
+    for (const door of doors.querySelectorAll('.door')) seen.observe(door);
+  }
+}
 
 /* --- Motion preference ---------------------------------------------------- */
 

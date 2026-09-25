@@ -22,7 +22,7 @@ The shell must remain usable when the map, animation, images, or JavaScript enha
 
 **Purpose:** create wonder, explain the promise, and give students an immediate way in.
 
-**Composition:** full-bleed photographs of real universities; one strong sentence; three photographic doors at equal weight — Denmark, Europe, Worldwide (`doors()`); a reel of named universities spread across all three (`reel()`); one question, "What do you want to study?"; and the tools last, one line each (`toolkit()`). A living sample of opportunities rather than generic statistics. Which photograph opens each door is recorded in `data/site-config.json` under `homeDoors`.
+**Composition:** full-bleed photographs of real universities; one strong sentence; three photographic doors at equal weight, named by distance — Right here, Nearby, Explore (`distanceDoors()` in `src/pages/destinations.mjs`, shared with the Countries page and the menu); a reel of named universities spread across all three (`reel()`); one question, "What do you want to study?"; and the tools last, one line each (`toolkit()`). A living sample of opportunities rather than generic statistics. Which photograph opens each door is recorded in `data/site-config.json` under `homeDoors`.
 
 **Avoid:** a dashboard of every feature, long institutional copy, or forcing profile entry before exploration.
 

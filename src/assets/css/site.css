@@ -2261,3 +2261,106 @@ details.depth .freshness { margin: var(--s4) 0 0; }
    line that says where minimum grades apply (instead of one per subject). */
 .req-other { font-style: italic; }
 .need__note { margin: var(--s3) 0 0; font-size: .875rem; color: var(--ink-mute); }
+
+/* --- Countries and the menu (docs/research/ia, Batch 2) --------------------
+   Four menu items, the counsellors' link set apart, a phone menu with one line
+   per item, the three distance doors, and the Countries page's region chips. */
+
+/* Desktop: the adults' link sits to the right of the four, quieter. */
+.nav a.nav__quiet { margin-left: var(--s4); color: var(--ink-mute); font-weight: 400; font-size: .875rem; }
+.nav a.nav__quiet::before {
+  content: ""; position: absolute; left: calc(var(--s4) * -.5 - 1px); top: 25%; bottom: 25%;
+  border-left: 1px solid var(--rule);
+}
+
+/* The menu button says "Menu": an icon alone is a guess on a phone. */
+.icon-btn.nav-toggle { width: auto; padding-inline: var(--s2) var(--s3); gap: var(--s2); grid-auto-flow: column; }
+.nav-toggle__text { font: 600 .875rem/1 var(--sans); color: var(--ink); }
+
+/* The phone menu: four rows, each a label and one line. */
+.drawer { padding-top: var(--s4); }
+.drawer__list, .drawer__places, .drawer__quiet { list-style: none; margin: 0; padding: 0; }
+.drawer__row { border-bottom: 1px solid var(--rule); padding-block: var(--s3); }
+.drawer a.drawer__item {
+  display: grid; gap: var(--s1); padding: var(--s2) 0; border: 0;
+  font: inherit; color: var(--ink);
+}
+.drawer__label { font: 600 1.375rem/1.2 var(--display); }
+.drawer__line { font: 400 .9375rem/1.4 var(--sans); color: var(--ink-soft); }
+.drawer a.drawer__item[aria-current="page"] .drawer__label { color: var(--accent); }
+.drawer__places { display: flex; flex-wrap: wrap; gap: var(--s2); margin: var(--s2) 0 var(--s2); }
+.drawer .drawer__places a.chip {
+  display: inline-flex; padding: .5rem .9rem; border: 1px solid var(--rule-strong);
+  font: 600 .9375rem/1.2 var(--sans); align-items: center;
+}
+.drawer__quiet { margin-top: var(--s5); display: grid; gap: var(--s1); }
+.drawer .drawer__quiet a {
+  border: 0; padding: var(--s3) 0; display: flex; align-items: center;
+  font: 500 1rem/1.3 var(--sans); color: var(--ink-soft);
+}
+
+/* The distance doors. The same dot on each door is you; the rings, the short
+   hop and the line that leaves the frame are right here, nearby and far. */
+.door__trace {
+  position: absolute; left: 0; top: 0; width: 100%; height: 50%;
+  overflow: visible; pointer-events: none; z-index: -1;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .55));
+}
+.door::after { z-index: -1; }
+.door__img { z-index: -3; }
+.door__text { position: relative; }
+.door__trace .trace-you { fill: var(--sand); stroke: #fff; stroke-width: 2; }
+.door__trace .trace-ring { fill: none; stroke: rgba(255, 255, 255, .85); stroke-width: 1.5; }
+.door__trace .trace-ring--2 { stroke: rgba(255, 255, 255, .45); }
+.door__trace .trace-line {
+  fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 0;
+}
+.door__trace .trace-end { fill: #fff; }
+
+/* Armed by site.js: the line is undrawn until the door is seen, then draws
+   once. The rings open, the landing dot appears after the line. */
+.doors[data-trace="armed"] .door .trace-line {
+  transition: stroke-dashoffset var(--motion-geographic);
+  transition-delay: calc(var(--i, 0) * 120ms);
+}
+.doors[data-trace="armed"] .door:not(.is-seen) .trace-line { stroke-dashoffset: 1; }
+.doors[data-trace="armed"] .door .trace-ring,
+.doors[data-trace="armed"] .door .trace-end {
+  transform-box: fill-box; transform-origin: center;
+  transition: transform var(--motion-geographic), opacity var(--motion-geographic);
+}
+.doors[data-trace="armed"] .door .trace-end { transition-delay: calc(var(--motion-geographic-ms) * .8); }
+.doors[data-trace="armed"] .door:not(.is-seen) .trace-ring { transform: scale(.3); opacity: 0; }
+.doors[data-trace="armed"] .door:not(.is-seen) .trace-end { opacity: 0; }
+
+/* The photograph moves with the distance, once: right here settles closer,
+   far pulls back. `scale` leaves `transform` to the hover. */
+.doors[data-trace="armed"] .door .door__img { transition: transform .8s cubic-bezier(.2, .7, .2, 1), scale var(--motion-geographic); }
+.doors[data-trace="armed"] .door--here:not(.is-seen) .door__img { scale: 1; }
+.doors[data-trace="armed"] .door--here.is-seen .door__img { scale: 1.06; }
+.doors[data-trace="armed"] .door--far:not(.is-seen) .door__img { scale: 1.08; }
+.doors[data-trace="armed"] .door--far.is-seen .door__img { scale: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .doors[data-trace] .door .trace-line { stroke-dashoffset: 0 !important; transition: none !important; }
+  .doors[data-trace] .door :is(.trace-ring, .trace-end, .door__img) { transition: none !important; opacity: 1 !important; transform: none; scale: none !important; }
+}
+:root[data-motion="reduced"] .doors[data-trace] .door .trace-line { stroke-dashoffset: 0; transition: none; }
+
+/* The Countries page: region chips, then Europe and Worldwide as two halves. */
+.region-nav { margin-bottom: var(--s6); }
+.region-nav__list { list-style: none; margin: 0; padding: 0; }
+.region-nav .chip { align-items: center; padding-inline: .9rem; font-size: .875rem; }
+@media (max-width: 40rem) {
+  .region-nav__list { flex-wrap: nowrap; overflow-x: auto; padding-bottom: var(--s2); scrollbar-width: thin; }
+  .region-nav__list li { flex: none; }
+}
+.half + .half { margin-top: var(--s8); }
+.half__name {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem); margin: 0 0 var(--s5);
+  padding-bottom: var(--s3); border-bottom: 1px solid var(--rule);
+}
+.half, .region { scroll-margin-top: 5.5rem; }
+@media (max-width: 40rem) { .doors--distance .door { min-height: 17rem; } }
+.half .region__name { font-size: clamp(1.2rem, 1rem + .8vw, 1.6rem); }

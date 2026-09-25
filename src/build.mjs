@@ -9,9 +9,9 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { load, validate } from './lib/data.mjs';
-import { setBase, setGuides, setRevision, setScope, setFeedback, url, SITE } from './lib/layout.mjs';
+import { setBase, setGuides, setRevision, setScope, setFeedback, setPlaces, redirectPage, url, SITE } from './lib/layout.mjs';
 import { home } from './pages/home.mjs';
-import { europeIndex, worldIndex, destination } from './pages/destinations.mjs';
+import { countriesIndex, distanceDoors, destination } from './pages/destinations.mjs';
 import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
@@ -58,7 +58,7 @@ async function write(routePath, contents) {
       : path.join(DIST, routePath, 'index.html');
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, contents);
-  written.push({ route: routePath, bytes: Buffer.byteLength(contents) });
+  written.push({ route: routePath, bytes: Buffer.byteLength(contents), moved: /http-equiv="refresh"/.test(contents) });
 }
 
 async function copyDir(from, to) {
@@ -202,6 +202,8 @@ async function main() {
      scope the records do not support. */
   setScope(site.opportunityScope);
   setFeedback(site.config?.feedback);
+  /* The three ways into Countries, named once, for the menu and the footer. */
+  setPlaces(distanceDoors(site).map((d) => ({ href: d.href, label: d.label })));
 
   /* Every build states the condition of its evidence. A number that drifts the
      wrong way is the earliest warning that the dataset is decaying. */
@@ -233,8 +235,13 @@ async function main() {
 
   /* Core */
   await write('/', home(site));
-  await write('/europe/', europeIndex(site));
-  await write('/world/', worldIndex(site));
+  await write('/countries/', countriesIndex(site));
+  /* Europe and Worldwide were two pages from one template; they are the two
+     halves of /countries/ now. The old addresses keep working (redirectPage:
+     the query and anchor survive, Back skips the stub) and stay out of the
+     sitemap. */
+  await write('/europe/', redirectPage('/countries/#europe', 'Countries'));
+  await write('/world/', redirectPage('/countries/#worldwide', 'Countries'));
   await write('/compare/', compare(site));
 
   /* Destinations, with prev/next within their own scope */
@@ -325,7 +332,7 @@ async function main() {
   await fs.writeFile(path.join(DIST, '.nojekyll'), '');
 
   const origin = process.env.SITE_ORIGIN || 'https://rktrobinhood.github.io';
-  await write('/sitemap.xml', sitemap(written.map((w) => w.route), origin));
+  await write('/sitemap.xml', sitemap(written.filter((w) => !w.moved).map((w) => w.route), origin));
   await write(
     '/robots.txt',
     `User-agent: *\nAllow: /\nSitemap: ${origin}${BASE}/sitemap.xml\n`

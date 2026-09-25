@@ -1,9 +1,9 @@
 import { html, plural } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
-import { hero, doors, reel, toolkit } from '../lib/components.mjs';
+import { hero, reel, toolkit } from '../lib/components.mjs';
+import { distanceDoors, distanceDoorsHtml } from './destinations.mjs';
 import { picture, REGION_ORDER } from '../lib/data.mjs';
 import { filterQuestion } from '../lib/primitives.mjs';
-import { institutionCount } from './programme-facts.mjs';
 
 /* The home page: photographs, three doors, a reel of places, then the tools. */
 
@@ -12,8 +12,9 @@ import { institutionCount } from './programme-facts.mjs';
 /**
  * The home page sells the trip before it hands over the paperwork.
  *
- * Order, top to bottom: photographs of real universities; three doors —
- * Denmark, Europe, Worldwide — at equal weight; a reel of named places a
+ * Order, top to bottom: photographs of real universities; three doors — right
+ * here, nearby, and everywhere else — at equal weight, each with its distance
+ * drawn on it; a reel of named places a
  * student could picture themselves in; one question about what they want to
  * study; and only then the tools. Every block is a picture or a list of ways
  * in, and no block carries more than one sentence of copy. The detail is on
@@ -24,10 +25,9 @@ import { institutionCount } from './programme-facts.mjs';
  * else is open to them, which is the thing this page exists to show.
  */
 export function home(site) {
-  const dk = site.dkInstitutions.filter((i) => i.programmes?.length);
-  const dkProgrammes = dk.reduce((n, i) => n + i.programmes.length, 0);
-  const europeInstitutions = site.europe.reduce((n, c) => n + c.institutions.length, 0);
-  const worldInstitutions = site.world.reduce((n, c) => n + c.institutions.length, 0);
+  // The same three doors as the Countries page and the menu: right here,
+  // nearby, and everywhere else (distanceDoors(), from the records).
+  const doorList = distanceDoors(site);
 
   // Which photographs open the hero and each door is an editorial decision,
   // recorded in data/site-config.json rather than here, and chosen so that no
@@ -37,11 +37,6 @@ export function home(site) {
     return p && !p.external ? p : null;
   };
   const choices = site.config?.homeDoors || {};
-  const doorImages = {
-    denmark: photo(choices.denmark?.image),
-    europe: photo(choices.europe?.image),
-    world: photo(choices.world?.image),
-  };
   // Each named, when the key is a country's: the caption says where you are looking.
   const placeName = (key) => site.countries.find((c) => c.code === key)?.name || null;
   const heroImages = (choices.hero || [])
@@ -49,7 +44,7 @@ export function home(site) {
     .filter((p) => p.src);
   const places = showcase(
     site,
-    new Set([...Object.values(doorImages), ...heroImages].map((p) => p?.src).filter(Boolean))
+    new Set([...doorList.map((d) => d.image), ...heroImages].map((p) => p?.src).filter(Boolean))
   );
 
   const fieldCounts = new Map();
@@ -69,37 +64,12 @@ ${hero({
   image: first ? { src: first.src, alt: first.alt, credit: first.credit } : null,
   slides: rest.map((p) => ({ src: url(p.src), ...(p.caption ? { caption: p.caption } : {}), credit: p.credit || null })),
   invitation: { href: '#where', label: 'Where could I go?' },
-  escape: { href: '/programmes/', label: 'Or search every degree' },
+  escape: { href: '/programmes/', label: 'Or find a degree' },
 })}
 
 <section class="section section--doors" id="where">
   <div class="wrap wrap--wide">
-    ${doors([
-      {
-        href: '/denmark/',
-        eyebrow: 'Denmark',
-        title: 'Where you already are',
-        count: `${plural(dkProgrammes, 'degree')} in English · ${institutionCount(dk)}`,
-        line: 'Each mapped subject by subject.',
-        image: doorImages.denmark,
-      },
-      {
-        href: '/europe/',
-        eyebrow: 'Europe',
-        title: 'A short flight away',
-        count: `${plural(site.europe.length, 'country', 'countries')} · ${plural(europeInstitutions, 'university', 'universities')}`,
-        line: 'From Dublin to Athens.',
-        image: doorImages.europe,
-      },
-      {
-        href: '/world/',
-        eyebrow: 'Worldwide',
-        title: 'As far as you like',
-        count: `${plural(site.world.length, 'country', 'countries')} · ${plural(worldInstitutions, 'university', 'universities')}`,
-        line: 'From Toronto to Singapore.',
-        image: doorImages.world,
-      },
-    ])}
+    ${distanceDoorsHtml(doorList)}
   </div>
 </section>
 
@@ -135,7 +105,7 @@ ${hero({
     <h2 class="toolkit-head">When you are ready</h2>
     ${toolkit([
       { href: '/planner/', title: 'Check my subjects', line: 'Your six subjects against every mapped degree.' },
-      { href: '/timeline/', title: 'Every deadline', line: 'Some close before you have predicted grades.' },
+      { href: '/timeline/', title: 'Deadlines', line: 'Some close before you have predicted grades.' },
       { href: '/prepare/', title: 'What counts', line: 'CAS, the EE, tests: required, weighed, or neither.' },
       { href: '/compare/', title: 'Compare countries', line: 'Fees, language and dates side by side.' },
     ])}

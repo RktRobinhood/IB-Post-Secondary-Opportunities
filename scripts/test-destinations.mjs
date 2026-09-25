@@ -31,7 +31,7 @@ import { load } from '../src/lib/data.mjs';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { programme } from '../src/pages/programme.mjs';
 import { universitiesIndex, university } from '../src/pages/institutions.mjs';
-import { url } from '../src/lib/layout.mjs';
+import { url, currentNav } from '../src/lib/layout.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -225,7 +225,7 @@ check('no Institution page anywhere borrows another Destination\'s framing', () 
       [inst.destination.href],
       `${inst.id} is in ${inst.destination.code} and its breadcrumb goes through ${hubs.join(', ') || 'nowhere'}`
     );
-    assert.equal(sectionOf(html), inst.destination.section, `${inst.id} is in the wrong navigation section`);
+    assert.equal(sectionOf(html), currentNav(inst.destination.section), `${inst.id} is in the wrong navigation section`);
   }
 });
 
@@ -257,7 +257,8 @@ check('a Danish Institution page still sits under Denmark', () => {
   assert.ok(inst, 'expected dk-au in the catalogue');
   const html = renderUniversity(inst);
   assert.ok(crumbHrefs(html).includes('/denmark/'), 'a Danish institution lost its Denmark breadcrumb');
-  assert.equal(sectionOf(html), '/denmark/');
+  // Every place is under Countries in the menu; the breadcrumb is what keeps it Danish.
+  assert.equal(sectionOf(html), '/countries/');
   assert.ok(/Denmark/.test(html), 'the page does not mention Denmark at all');
 });
 
@@ -334,6 +335,9 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
     'src/pages/explorer.mjs',
     'src/pages/planner.mjs',
     'src/pages/timeline.mjs',
+    // The Countries page and the home page hold every Destination, so they may name none.
+    'src/pages/destinations.mjs',
+    'src/pages/home.mjs',
   ];
   for (const rel of modules) {
     const text = await fs.readFile(path.join(ROOT, rel), 'utf8');
@@ -345,7 +349,7 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
       .map((m) => m[0])
       // The Programme explorer, the subject checker and the calendar are their
       // own top-level navigation items and are nobody's Destination.
-      .filter((s) => !/^section:\s*['"]\/(programmes|planner|timeline|prepare)\/['"]$/.test(s));
+      .filter((s) => !/^section:\s*['"]\/(programmes|planner|timeline|prepare|countries)\/['"]$/.test(s));
     assert.deepEqual(
       suspects,
       [],

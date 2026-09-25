@@ -5,9 +5,17 @@ import {
   dataTable, emptyState, card, stamp, tags, topic as topic_,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
+import { motionTable } from '../lib/motion.mjs';
 
 /* --- About ----------------------------------------------------------------- */
 
+/**
+ * Three short answers — who it is for, how it is built, how accurate it is —
+ * each with the long form a tap beneath, then the disclaimer and the links.
+ * It used to open on eleven consecutive paragraphs (docs/research/ia/
+ * text-walls.md §3.9). How animation behaves lives here now, moved from
+ * /trust/: it is a question about the site, not about whether to believe it.
+ */
 export function about(site) {
   const body = html`
 ${hero({
@@ -21,36 +29,57 @@ ${hero({
   <div class="wrap">
     <div class="layout-aside">
       <div class="prose">
-        <p class="dropcap">This site exists because the information an IB student needs is scattered across
-        dozens of national agencies, university admissions offices and PDF handbooks, much of it in languages
-        they do not read, and a surprising amount of it out of date even on official pages. The aim here is
-        narrow: gather it in one place, say clearly where each fact came from, and date everything.</p>
+        ${topic_({
+          id: 'why',
+          title: 'Why it exists',
+          short: 'What an IB student needs to know is scattered across agencies, universities and PDF handbooks, often out of date. This gathers it, says where each fact came from, and dates everything.',
+          body: html`<p>This site exists because the information an IB student needs is scattered across
+            dozens of national agencies, university admissions offices and PDF handbooks, much of it in languages
+            they do not read, and a surprising amount of it out of date even on official pages. The aim here is
+            narrow: gather it in one place, say clearly where each fact came from, and date everything.</p>`,
+          more: 'In full',
+        })}
 
-        <h2 id="who">Who it is for</h2>
-        <p>Students taking the IB Diploma who are deciding where to apply — primarily at Ikast-Brande Gymnasium,
-        but it is public because the same questions come up everywhere. It assumes you are seventeen or
-        eighteen, that you are an EU citizen, and that nobody has explained any of this to you before.</p>
+        ${topic_({
+          id: 'who',
+          title: 'Who it is for',
+          short: 'IB Diploma students deciding where to apply: first at Ikast-Brande Gymnasium, and anyone else with the same questions.',
+          body: html`<p>Students taking the IB Diploma who are deciding where to apply — primarily at Ikast-Brande Gymnasium,
+            but it is public because the same questions come up everywhere. It assumes you are seventeen or
+            eighteen, that you are an EU citizen, and that nobody has explained any of this to you before.</p>`,
+          more: 'What it assumes about you',
+        })}
 
-        <h2 id="how">How it is built</h2>
-        <p>Every page is generated from JSON data files in a public repository. Each country, institution and
-        programme is one record, carrying the date it was last checked and links to the sources behind it. The
-        site is static — no database, no tracking, no accounts — and rebuilds automatically whenever the data
-        changes.</p>
-        <p>That structure is deliberate. It means a teacher can correct a figure without touching any HTML, and
-        it means you can see exactly what this site claims and where each claim came from.</p>
+        ${topic_({
+          id: 'how',
+          title: 'How it is built',
+          short: 'Every page is generated from public data records, each dated and sourced. No database, no tracking, no accounts.',
+          body: html`<p>Every page is generated from JSON data files in a public repository. Each country, institution and
+            programme is one record, carrying the date it was last checked and links to the sources behind it. The
+            site is static — no database, no tracking, no accounts — and rebuilds automatically whenever the data
+            changes.</p>
+            <p>That structure is deliberate. It means a teacher can correct a figure without touching any HTML, and
+            it means you can see exactly what this site claims and where each claim came from.</p>`,
+          more: 'Why it is built that way',
+        })}
 
-        <h2 id="accuracy">On accuracy</h2>
-        <p>Three honest caveats.</p>
-        <ul class="crosses">
-          <li><strong>Admission rules change every year.</strong> Several rules on this site are already
-          scheduled to change before autumn 2027 — the Danish SU reform, the UK's Graduate Route, the Dutch
-          internationalisation law, Iceland's new non-EEA tuition. Where that is true, the page says so.</li>
-          <li><strong>Official sources contradict each other.</strong> Not occasionally — routinely. Where two
-          official pages disagree, this site says which one it is following and why, rather than quietly
-          picking one.</li>
-          <li><strong>Gaps are marked as gaps.</strong> Where a figure could not be verified, the field is
-          empty and a note says so. Nothing here is a plausible guess dressed up as a fact.</li>
-        </ul>
+        ${topic_({
+          id: 'accuracy',
+          title: 'How accurate it is',
+          short: 'Rules change every year, official sources contradict each other, and gaps are marked as gaps rather than guessed.',
+          body: html`<ul class="crosses">
+              <li><strong>Admission rules change every year.</strong> Several rules on this site are already
+              scheduled to change before autumn 2027 — the Danish SU reform, the UK's Graduate Route, the Dutch
+              internationalisation law, Iceland's new non-EEA tuition. Where that is true, the page says so.</li>
+              <li><strong>Official sources contradict each other.</strong> Not occasionally — routinely. Where two
+              official pages disagree, this site says which one it is following and why, rather than quietly
+              picking one.</li>
+              <li><strong>Gaps are marked as gaps.</strong> Where a figure could not be verified, the field is
+              empty and a note says so. Nothing here is a plausible guess dressed up as a fact.</li>
+            </ul>`,
+          more: 'Three honest caveats',
+        })}
+
         ${note(
           `Nothing on this site is an offer, a promise, or advice specific to you. Before you apply, open the
           university's own page and check that what it says still matches what you read here. If it does not,
@@ -58,15 +87,56 @@ ${hero({
           { kind: 'warn', title: 'The necessary disclaimer' }
         )}
 
-        <h2 id="fix">Found something wrong?</h2>
-        <p>Open an issue on the repository, or tell your study counsellor and they can. Corrections are the
-        most useful contribution anyone can make — a single wrong deadline can cost somebody a year.</p>
+        ${topic_({
+          id: 'fix',
+          title: 'Found something wrong?',
+          short: html`<p>Open an issue, or tell your study counsellor and they can: a single wrong deadline can cost somebody a
+            year. <a href="${url('/trust/#wrong')}">How to report it</a></p>`,
+        })}
 
-        <h2 id="credits">Words and pictures</h2>
-        <p>Photographs are either an institution's own Open Graph image, linked from its own server — the
-        picture it publishes of itself for exactly this purpose — or a freely licensed photograph from
-        Wikimedia Commons, hosted here and credited in full on the <a href="${url('/credits/')}">credits
-        page</a>.</p>
+        ${topic_({
+          id: 'credits',
+          title: 'Words and pictures',
+          short: html`<p>Photographs are an institution's own share image, linked from its server, or a freely licensed one
+            from Wikimedia Commons. <a href="${url('/credits/')}">Every source and photographer</a></p>`,
+          body: html`<p>Photographs are either an institution's own Open Graph image, linked from its own server — the
+            picture it publishes of itself for exactly this purpose — or a freely licensed photograph from
+            Wikimedia Commons, hosted here and credited in full on the <a href="${url('/credits/')}">credits
+            page</a>.</p>`,
+          more: 'In full',
+        })}
+
+        ${topic_({
+          id: 'motion',
+          title: 'What moves, and what happens if you would rather it did not',
+          short: 'Three kinds of animation, each with a stated purpose and a designed reduced-motion version. Your system setting is followed; Reduce motion in the footer overrides it.',
+          body: html`<p>Animation on this site has to explain something. There are three kinds, each with a stated purpose
+            and a stated behaviour when motion is turned down — and nothing animates for any other reason, which is
+            a rule we hold ourselves to by keeping the list short enough to print.</p>
+            ${dataTable({
+              caption: 'Every animation on this site',
+              head: ['When', 'What it is for', 'How long', 'With reduced motion'],
+              rows: motionTable().map((m) => [
+                html`<strong>${m.token.replace(/-/g, ' ')}</strong>`,
+                m.purpose,
+                m.timing,
+                m.reduced,
+              ]),
+            })}
+            <p>The reduced-motion column is not the same animation played faster. Each is a different, designed
+            behaviour, because an effect that is uncomfortable at full speed is usually still uncomfortable at
+            double. We follow your operating system's setting automatically, and the <strong>Reduce motion</strong>
+            control in the footer overrides it either way if your machine's setting is not what you want here.</p>
+            ${note(
+              `There used to be a fourth, for moving a camera across geography. It was removed rather than kept:
+              the only thing on this site that moves a camera is the map, the map already uses the
+              overview-to-detail timing, and a token defined for a movement nothing performs is a claim about the
+              system that is not true. It comes back when something flies a camera, together with the code that
+              spends it.`,
+              { title: 'Why there are three and not four' }
+            )}`,
+          more: 'Every animation, listed',
+        })}
       </div>
       <aside class="layout-aside__side stack">
         ${facts([
@@ -76,6 +146,12 @@ ${hero({
           { label: 'Programmes mapped', value: String(site.programmes.length) },
           { label: 'Licence', value: 'Content CC BY 4.0 · Code MIT' },
         ])}
+        <nav aria-label="More about this site">
+          <ul class="side-links">
+            <li><a href="${url('/trust/')}">Trust and corrections</a></li>
+            <li><a href="${url('/credits/')}">Sources and photo credits</a></li>
+          </ul>
+        </nav>
       </aside>
     </div>
   </div>
@@ -121,6 +197,14 @@ function fundingTerm(f, site) {
   return { term: f.name, where, def: `${f.longName ? `${f.longName}. ` : ''}${f.summary}${rate} ${f.otherwise}` };
 }
 
+/**
+ * A lookup page, so it is built for looking things up: a filter box, A–Z
+ * jumps, and each term on one line — the term, where it is used and the first
+ * sentence of its meaning — with the rest of the definition a tap beneath.
+ * It used to be 25 consecutive definitions, 681 words of prose from the top
+ * (docs/research/ia/text-walls.md, "Also measured"). Every definition is still
+ * here in full.
+ */
 export function glossary(site = {}) {
   const terms = [...TERMS, ...(site.fundingSchemes || []).map((f) => fundingTerm(f, site))]
     .sort((a, b) => a.term.localeCompare(b.term));
@@ -130,6 +214,13 @@ export function glossary(site = {}) {
     if (!grouped.has(letter)) grouped.set(letter, []);
     grouped.get(letter).push(t);
   }
+  const letters = [...grouped.keys()].sort();
+  /* The first sentence is the line; the rest is the tap. A definition that is
+     one sentence long has nothing to open. */
+  const split = (def) => {
+    const [first, ...rest] = def.split(/(?<=[.!?])\s+(?=[A-Z])/);
+    return { first, rest: rest.join(' ') };
+  };
 
   const body = html`
 ${hero({
@@ -140,24 +231,38 @@ ${hero({
 })}
 <section class="section">
   <div class="wrap">
-    <div class="prose">
-      ${[...grouped.keys()].sort().map(
+    <div class="prose" id="glossary">
+      <div class="field lookup-filter">
+        <label for="glossary-filter">Find a term</label>
+        <input type="search" id="glossary-filter" data-filter="#glossary" data-filter-items=".gloss" autocomplete="off"
+          placeholder="${plural(terms.length, 'term')}: try “quota” or “Denmark”">
+      </div>
+      <nav class="chips az" aria-label="Jump to a letter">
+        ${letters.map((l) => html`<a class="chip" href="#letter-${l}">${l}</a>`)}
+      </nav>
+      ${letters.map(
         (letter) => html`
-        <h2 id="letter-${letter}">${letter}</h2>
-        <dl class="facts">
-          ${grouped.get(letter).map(
-            (t) => html`<div>
-              <dt>${t.term}<br><small style="text-transform:none;letter-spacing:0;font-weight:400">${t.where}</small></dt>
-              <dd>${t.def}</dd>
-            </div>`
-          )}
-        </dl>`
+        <div data-filter-group>
+          <h2 id="letter-${letter}">${letter}</h2>
+          ${grouped.get(letter).map((t) => {
+            const { first, rest } = split(t.def);
+            return rest
+              ? html`<details class="gloss" id="term-${slugify(t.term)}">
+                  <summary><dfn>${t.term}</dfn> <span class="gloss__where">${t.where}</span> <span class="gloss__def">${first}</span></summary>
+                  <div class="gloss__more">${rest}</div>
+                </details>`
+              : html`<div class="gloss" id="term-${slugify(t.term)}">
+                  <dfn>${t.term}</dfn> <span class="gloss__where">${t.where}</span> <span class="gloss__def">${first}</span>
+                </div>`;
+          })}
+        </div>`
       )}
+      <p class="state state--empty" data-filter-empty hidden>No term matches that. Try part of a word.</p>
     </div>
   </div>
 </section>`;
 
-  return page({ title: 'Glossary', description: 'Admissions jargon explained, from adgangskvotient to UNEDasiss.', path: '/glossary/', body });
+  return page({ title: 'Glossary', description: 'Admissions jargon explained, from adgangskvotient to UNEDasiss.', path: '/glossary/', body, scripts: ['filter.js'] });
 }
 
 /* --- FAQ ------------------------------------------------------------------- */
@@ -291,10 +396,41 @@ ${hero({
 
 /* --- Credits --------------------------------------------------------------- */
 
+/**
+ * Every source and every photograph's credit, grouped and closed.
+ *
+ * Full attribution is a licence obligation, and every credit is still on this
+ * page — but it was 264 phone screens of open tables (docs/research/ia/
+ * text-walls.md §3.10). Now each group is a disclosure with its count, the
+ * Commons photographs are grouped by the Destination they show, and a filter
+ * box finds a photographer, a licence or a place across all of them. Each
+ * photograph is also credited beside itself, which is where the licence is
+ * actually met.
+ */
 export function credits(site) {
   const commons = Object.entries(site.images || {}).sort((a, b) =>
     (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
   );
+  /* Which Destination a Commons photograph belongs to, read from its key: a
+     Destination code ("de", "de-heidelberg"), or an Institution whose record
+     names its Destination. Nothing here names a country. */
+  const destinations = site.destinations || [];
+  const institutions = [...(site.graph?.institutions?.values() || [])];
+  const nameOf = (code) => destinations.find((d) => d.code === code)?.name || null;
+  const destinationOf = (key) => {
+    const prefix = key.split('-')[0];
+    if (nameOf(prefix)) return nameOf(prefix);
+    const inst = institutions.find((i) => i.id === key || i.id.endsWith(`-${key}`));
+    return (inst && nameOf(inst.destination)) || 'Elsewhere';
+  };
+  const byDestination = new Map();
+  for (const entry of commons) {
+    const d = destinationOf(entry[0]);
+    if (!byDestination.has(d)) byDestination.set(d, []);
+    byDestination.get(d).push(entry);
+  }
+  const commonsGroups = [...byDestination].sort((a, b) => a[0].localeCompare(b[0]));
+
   /* The faded photographs behind programme cards, one row per photograph:
      several programmes can share one, and it is the photographer being
      credited, not the card. */
@@ -310,6 +446,18 @@ export function credits(site) {
     (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
   );
 
+  const commonsTable = (rows, caption) =>
+    dataTable({
+      caption,
+      head: ['Subject', 'Photographer', 'Licence', 'File'],
+      rows: rows.map(([key, v]) => [
+        v.subject || key,
+        v.author || 'Unknown',
+        v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
+        v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
+      ]),
+    });
+
   const body = html`
 ${hero({
   variant: 'plain',
@@ -320,83 +468,115 @@ ${hero({
 
 <section class="section">
   <div class="wrap">
-    <div class="prose">
-      <h2 id="text">Text and data</h2>
-      <p>Facts on this site come from national admissions agencies, ministries and the universities' own
-      admissions pages. Each country and institution page lists its own sources at the foot, with the date it
-      was checked. The Danish conversion tables come from the Agency's <em>Eksamenshåndbogen</em>.</p>
-      <p>Where an official source could not be reached or contradicted another, the page says so rather than
-      quietly picking one.</p>
+    <div class="prose" id="credits-list">
+      <div class="field lookup-filter">
+        <label for="credits-filter">Find a photograph, photographer or licence</label>
+        <input type="search" id="credits-filter" data-filter="#credits-list" data-filter-items="tbody tr" autocomplete="off"
+          placeholder="${plural(commons.length + official.length + disciplines.length, 'credit')}">
+      </div>
 
-      <h2 id="official">Institutional photographs</h2>
-      <p>Where a university publishes an Open Graph image — the picture it attaches to its own pages so they
-      look right when shared — that image is linked directly from the institution's own server. Nothing is
-      copied into this repository, and each one links back to the page it was published on.</p>
-      ${official.length
-        ? dataTable({
-            caption: `${plural(official.length, 'institutional image')}, linked from the institution's own server`,
-            head: ['Subject', 'Published on'],
-            rows: official.map(([key, v]) => [
-              v.subject || key,
-              v.sourcePage ? html`<a href="${v.sourcePage}" rel="noopener nofollow">${truncate(v.sourcePage.replace(/^https?:\/\//, ''), 60)}</a>` : '—',
-            ]),
-          })
-        : html`<p><em>None recorded yet.</em></p>`}
+      ${topic_({
+        id: 'text',
+        title: 'Text and data',
+        short: 'National admissions agencies, ministries and the universities’ own pages. Each page lists its sources at the foot, with the date it was checked.',
+        body: html`<p>Facts on this site come from national admissions agencies, ministries and the universities' own
+          admissions pages. Each country and institution page lists its own sources at the foot, with the date it
+          was checked. The Danish conversion tables come from the Agency's <em>Eksamenshåndbogen</em>.</p>
+          <p>Where an official source could not be reached or contradicted another, the page says so rather than
+          quietly picking one.</p>`,
+        more: 'In full',
+      })}
 
-      <h2 id="commons">Freely licensed photographs</h2>
-      <p>The rest are photographs from Wikimedia Commons, hosted here under their licences. Thank you to the
-      photographers.</p>
-      ${commons.length
-        ? dataTable({
-            caption: `${plural(commons.length, 'photograph')} from Wikimedia Commons`,
-            head: ['Subject', 'Photographer', 'Licence', 'File'],
-            rows: commons.map(([key, v]) => [
-              v.subject || key,
-              v.author || 'Unknown',
-              v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
-              v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
-            ]),
-          })
-        : html`<p><em>None recorded yet.</em></p>`}
+      <section class="topic" aria-labelledby="official" data-filter-group>
+        <h2 id="official">Institutional photographs</h2>
+        <div class="topic__short"><p>Each university's own share image, linked from its own server and nothing copied.</p></div>
+        ${official.length
+          ? html`<details class="topic__more">
+              <summary>All ${official.length}, with the page each was published on</summary>
+              <div class="topic__body">
+                <p>Where a university publishes an Open Graph image — the picture it attaches to its own pages so they
+                look right when shared — that image is linked directly from the institution's own server. Nothing is
+                copied into this repository, and each one links back to the page it was published on.</p>
+                ${dataTable({
+                  caption: `${plural(official.length, 'institutional image')}, linked from the institution's own server`,
+                  head: ['Subject', 'Published on'],
+                  rows: official.map(([key, v]) => [
+                    v.subject || key,
+                    v.sourcePage ? html`<a href="${v.sourcePage}" rel="noopener nofollow">${truncate(v.sourcePage.replace(/^https?:\/\//, ''), 60)}</a>` : '—',
+                  ]),
+                })}
+              </div>
+            </details>`
+          : html`<p><em>None recorded yet.</em></p>`}
+      </section>
 
-      <h2 id="disciplines">Behind the programme cards</h2>
-      <p>Each programme card has a faded photograph of its discipline behind it. The photograph is the
-      programme's own where one fits, and otherwise one of its field. These also come from Wikimedia Commons and
-      are hosted here under their licences.</p>
-      ${disciplines.length
-        ? dataTable({
-            caption: `${plural(disciplines.length, 'photograph')} behind programme cards`,
-            head: ['Used for', 'Photographer', 'Licence', 'File'],
-            rows: disciplines.map((v) => [
-              v.subjects.join(', '),
-              v.author || 'Unknown',
-              v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
-              v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
-            ]),
-          })
-        : html`<p><em>None recorded yet.</em></p>`}
+      <section class="topic" aria-labelledby="commons">
+        <h2 id="commons">Freely licensed photographs</h2>
+        <div class="topic__short"><p>${plural(commons.length, 'photograph')} from Wikimedia Commons, hosted here under their licences, by the place they show. Thank you to the photographers.</p></div>
+        ${commons.length
+          ? commonsGroups.map(
+              ([name, rows]) => html`<details class="topic__more" data-filter-group>
+                <summary>${name} <span class="cal-group__n">(${rows.length})</span></summary>
+                <div class="topic__body">${commonsTable(rows, `${plural(rows.length, 'photograph')} from Wikimedia Commons`)}</div>
+              </details>`
+            )
+          : html`<p><em>None recorded yet.</em></p>`}
+      </section>
 
-      <h2 id="globe">The globe</h2>
-      <p>The Earth on the maps is NASA's <a href="https://visibleearth.nasa.gov/images/74092" rel="noopener">Blue Marble: Next Generation</a>
-      (July 2004, NASA Earth Observatory / Reto Stöckli, NASA Goddard Space Flight Center), and its clouds are NASA's
-      <a href="https://visibleearth.nasa.gov/images/57747" rel="noopener">Blue Marble cloud layer</a> — both public domain.
-      Country borders are from <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, also public domain.
-      NASA does not endorse this site.</p>
-      <p>Close up, the map is drawn with <a href="https://maplibre.org/" rel="noopener">MapLibre GL JS</a> (BSD licence).
-      Its satellite imagery is <a href="https://cloudless.eox.at/" rel="noopener">EOxCloudless 2024</a> by EOX IT Services
-      GmbH (contains modified Copernicus Sentinel data 2024), used under EOX's terms for non-commercial use; its streets
-      and places are <a href="https://openfreemap.org/" rel="noopener">OpenFreeMap</a> © OpenMapTiles, data ©
-      <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</p>
+      <section class="topic" aria-labelledby="disciplines" data-filter-group>
+        <h2 id="disciplines">Behind the programme cards</h2>
+        <div class="topic__short"><p>The faded photograph of each programme's discipline, also from Wikimedia Commons.</p></div>
+        ${disciplines.length
+          ? html`<details class="topic__more">
+              <summary>All ${disciplines.length}, with photographer and licence</summary>
+              <div class="topic__body">
+                <p>Each programme card has a faded photograph of its discipline behind it. The photograph is the
+                programme's own where one fits, and otherwise one of its field. These also come from Wikimedia Commons and
+                are hosted here under their licences.</p>
+                ${dataTable({
+                  caption: `${plural(disciplines.length, 'photograph')} behind programme cards`,
+                  head: ['Used for', 'Photographer', 'Licence', 'File'],
+                  rows: disciplines.map((v) => [
+                    v.subjects.join(', '),
+                    v.author || 'Unknown',
+                    v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
+                    v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
+                  ]),
+                })}
+              </div>
+            </details>`
+          : html`<p><em>None recorded yet.</em></p>`}
+      </section>
 
-      <h2 id="reuse">Reusing this</h2>
-      <p>The text and data on this site are published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>
-      and the code under the MIT licence. Photographs are not ours to relicense — each carries its own terms
-      above.</p>
+      ${topic_({
+        id: 'globe',
+        title: 'The globe and the map',
+        short: 'NASA’s Blue Marble and Natural Earth borders (public domain); close up, MapLibre with EOxCloudless imagery and OpenStreetMap data.',
+        body: html`<p>The Earth on the maps is NASA's <a href="https://visibleearth.nasa.gov/images/74092" rel="noopener">Blue Marble: Next Generation</a>
+          (July 2004, NASA Earth Observatory / Reto Stöckli, NASA Goddard Space Flight Center), and its clouds are NASA's
+          <a href="https://visibleearth.nasa.gov/images/57747" rel="noopener">Blue Marble cloud layer</a> — both public domain.
+          Country borders are from <a href="https://www.naturalearthdata.com/" rel="noopener">Natural Earth</a>, also public domain.
+          NASA does not endorse this site.</p>
+          <p>Close up, the map is drawn with <a href="https://maplibre.org/" rel="noopener">MapLibre GL JS</a> (BSD licence).
+          Its satellite imagery is <a href="https://cloudless.eox.at/" rel="noopener">EOxCloudless 2024</a> by EOX IT Services
+          GmbH (contains modified Copernicus Sentinel data 2024), used under EOX's terms for non-commercial use; its streets
+          and places are <a href="https://openfreemap.org/" rel="noopener">OpenFreeMap</a> © OpenMapTiles, data ©
+          <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a>.</p>`,
+        more: 'Every credit, with links',
+      })}
+
+      ${topic_({
+        id: 'reuse',
+        title: 'Reusing this',
+        short: html`<p>Text and data: <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>. Code: MIT.
+          Photographs are not ours to relicense; each carries its own terms above.</p>`,
+      })}
+      <p class="state state--empty" data-filter-empty hidden>No credit matches that.</p>
     </div>
   </div>
 </section>`;
 
-  return page({ title: 'Sources and photo credits', description: 'Sources, photographers and licences for everything on IB Pathways.', path: '/credits/', body });
+  return page({ title: 'Sources and photo credits', description: 'Sources, photographers and licences for everything on IB Pathways.', path: '/credits/', body, scripts: ['filter.js'] });
 }
 
 /* --- Topic guides ---------------------------------------------------------- */
@@ -446,7 +626,18 @@ ${hero({
             more: 'Read more',
           })
         )}
-        ${sources(topic.sources)}
+        ${/* The source list is the last topic and closed, as on a Destination
+              page. Open, it ran on under the last question and read as part of
+              its answer. */ ''}
+        ${(topic.sources || []).length
+          ? topic_({
+              id: 'sources',
+              title: 'Sources',
+              short: `${plural(topic.sources.length, 'source')}${topic.dataAsOf ? `, checked ${topic.dataAsOf}` : ''}.`,
+              body: sources(topic.sources, { title: null }),
+              more: 'Show them',
+            })
+          : ''}
       </div>
       <aside class="layout-aside__side stack">
         ${stamp(topic.dataAsOf)}

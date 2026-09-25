@@ -1,4 +1,4 @@
-import { html, raw, md, plural, truncate, listSentence, firstSentence } from '../lib/html.mjs';
+import { html, raw, md, plural, truncate, listSentence, firstSentence, slugify } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
   hero, card, note, facts, sources, crumbs, sectionHead, stamp, pager, freshness, sectorLandscape, contextNotes, close, topic,
@@ -6,11 +6,12 @@ import {
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
 import { worldWindow, evidenceBlock, artDirection, patternLayer, deadlineList } from '../lib/primitives.mjs';
 import { representativePoint } from '../lib/geo.mjs';
-import { contextFor } from '../lib/canonical.mjs';
+import { contextFor, destinationFacet } from '../lib/canonical.mjs';
+import { institutionCount } from './programme-facts.mjs';
 import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
 
-/* Destinations: the Europe and Worldwide indexes, and one page per country. */
+/* Destinations: the Countries page (every Destination, by region) and one page per country. */
 
 /* --- Country cards and indexes -------------------------------------------- */
 
@@ -21,23 +22,31 @@ import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdic
  * them cut each one off mid-sentence.
  */
 function countryTile(site, c) {
-  const pic = picture(site, c.code, { prefer: 'commons' });
+  const pic =
+    picture(site, c.code, { prefer: 'commons' }) ||
+    c.institutions.map((i) => picture(site, i.key || i.id, { prefer: 'commons' })).find((p) => p && !p.external) ||
+    null;
 
   // Coverage here is uneven and looks uniform, which is the worst combination,
   // so every tile still says which of the three depths it is — in the count
   // line, where it costs four words rather than a pill.
-  const d = c.researchDepth;
-  const hasProgrammes = [...(site.graph?.opportunities?.values() || [])].some((o) => o.destination === c.code);
-  const depth = d.tier === 'researched' && hasProgrammes ? 'Programmes recorded' : RESEARCH_DEPTH[d.tier].label;
+  const depth = depthLabel(site, c);
 
   return html`<li><a class="tile tile--place${pic ? '' : ' tile--bare'}" href="${url(c.href)}">
     ${pic ? html`<img class="tile__img" src="${url(pic.src)}" alt="${pic.alt || ''}" loading="lazy" decoding="async" width="800" height="600">` : ''}
     <span class="tile__text">
       <span class="tile__name">${c.name}</span>
       ${c.tagline ? html`<span class="tile__line">${c.tagline}</span>` : ''}
-      <span class="tile__where">${plural(c.institutions.length, 'university', 'universities')} · ${depth}</span>
+      <span class="tile__where">${institutionCount(c.institutions)}${depth ? ` · ${depth}` : ''}</span>
     </span>
   </a></li>`;
+}
+
+/** How far a Destination has been researched, in the words every tile and light uses. */
+function depthLabel(site, c) {
+  const hasProgrammes = [...(site.graph?.opportunities?.values() || [])].some((o) => o.destination === c.code);
+  if (hasProgrammes && (!c.researchDepth || c.researchDepth.tier === 'researched')) return 'Programmes recorded';
+  return c.researchDepth ? RESEARCH_DEPTH[c.researchDepth.tier].label : '';
 }
 
 /**
@@ -111,10 +120,189 @@ export function centroid(c) {
   return representativePoint(c.places?.map((p) => p.coordinates).filter(Boolean) || []);
 }
 
-function countryIndex(site, { scope, title, lede, eyebrow, path: pagePath, heroKey }) {
-  const list = scope === 'europe' ? site.europe : site.world;
+/* --- Countries: every Destination, from right here to the other side ------ */
 
-  const mapPlaces = list
+/**
+ * Every Destination as a tile-shaped record: the country profiles, plus any
+ * Destination that has a hand-written hub of its own instead of a profile
+ * (canonical.mjs DESTINATION_HUBS). A hub Destination used to be missing from
+ * the Europe index altogether, though it is in Europe and on the compare page.
+ * Which one is a hub is read off the records; nothing here names it.
+ */
+export function placeTiles(site) {
+  const profiled = new Set(site.countries.map((c) => c.code));
+  const hubs = (site.destinations || [])
+    .filter((d) => d.code && !profiled.has(d.code))
+    .map((d) => {
+      const facet = destinationFacet(site.graph?.destinations?.get(d.code) || d, d.code);
+      const institutions = site.institutionCatalogue.in(d.code);
+      return {
+        code: d.code,
+        name: d.name,
+        flag: d.flag || '',
+        tagline: d.tagline || '',
+        scope: d.scope === 'worldwide' ? 'worldwide' : 'europe',
+        region: d.region || 'Other',
+        href: facet.href,
+        institutions,
+        researchDepth: null,
+        places: institutions
+          .map((i) => site.graph?.places?.get(i.place))
+          .filter((p) => p?.coordinates),
+      };
+    });
+  return [...site.countries, ...hubs];
+}
+
+/**
+ * The three ways into Countries, at the distance a student reads them.
+ *
+ * "Right here" is the school's country (`audience.schoolCountry` in
+ * data/site-config.json) — where the reader is, which for four in five of them
+ * is not home, so it is never called that. "Nearby" is the rest of Europe;
+ * "Explore" is everywhere else. The same three name the menu's chips, the home
+ * page's doors and the Countries page's doors, so a place is never called two
+ * things. Photographs are chosen in `homeDoors` (here / nearby / far).
+ */
+export function distanceDoors(site) {
+  const hereCode = site.config?.audience?.schoolCountry || null;
+  const tiles = placeTiles(site);
+  const hereTile = tiles.find((c) => c.code === hereCode) || null;
+  const choices = site.config?.homeDoors || {};
+  const photo = (key) => {
+    const p = key ? picture(site, key, { prefer: 'commons' }) : null;
+    return p && !p.external ? p : null;
+  };
+  const institutionsIn = (list) => institutionCount(list.flatMap((c) => c.institutions));
+  const near = tiles.filter((c) => c.scope === 'europe' && c.code !== hereCode);
+  const far = tiles.filter((c) => c.scope === 'worldwide' && c.code !== hereCode);
+
+  const doorsList = [];
+  if (hereTile) {
+    const teaching = hereTile.institutions.filter((i) => i.programmes?.length);
+    const degrees = teaching.reduce((n, i) => n + i.programmes.length, 0);
+    doorsList.push({
+      key: 'here',
+      href: hereTile.href,
+      label: hereTile.name,
+      eyebrow: 'Right here',
+      title: hereTile.name,
+      count: degrees
+        ? `${plural(degrees, 'degree')} in English · ${institutionCount(teaching)}`
+        : institutionCount(hereTile.institutions),
+      image: photo(choices.here?.image),
+    });
+  }
+  doorsList.push(
+    {
+      key: 'nearby',
+      href: '/countries/#europe',
+      label: 'Europe',
+      eyebrow: 'Nearby',
+      title: 'Europe',
+      count: `${plural(near.length, 'country', 'countries')} · ${institutionsIn(near)}`,
+      image: photo(choices.nearby?.image),
+    },
+    {
+      key: 'far',
+      href: '/countries/#worldwide',
+      label: 'Worldwide',
+      eyebrow: 'Explore',
+      title: 'Worldwide',
+      count: `${plural(far.length, 'country', 'countries')} · ${institutionsIn(far)}`,
+      image: photo(choices.far?.image),
+    }
+  );
+  return doorsList;
+}
+
+/**
+ * The distance, drawn rather than said. Every door starts from the same dot —
+ * you, at the school — so the three read as one scale: at "Right here" the dot
+ * is the place and rings open around it; at "Nearby" a short hop lands inside
+ * the frame; at "Explore" the line leaves the frame altogether. The line draws
+ * itself once when the door comes into view (site.js; it spends the
+ * `geographic` motion token, because it is geographic movement), and is simply
+ * there under reduced motion or without JavaScript. Decorative: the eyebrow and
+ * the title carry the meaning.
+ */
+function distanceTrace(key) {
+  const you = '<circle class="trace-you" cx="46" cy="100" r="5"/>';
+  const shapes = {
+    here: `<circle class="trace-ring" cx="46" cy="100" r="16"/><circle class="trace-ring trace-ring--2" cx="46" cy="100" r="30"/>${you}`,
+    nearby: `<path class="trace-line" pathLength="1" d="M46 100 Q 110 20 170 68"/><circle class="trace-end" cx="170" cy="68" r="4"/>${you}`,
+    far: `<path class="trace-line" pathLength="1" d="M46 100 Q 260 -60 900 -40"/>${you}`,
+  };
+  return raw(
+    `<svg class="door__trace" viewBox="0 0 300 150" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false">${shapes[key] || ''}</svg>`
+  );
+}
+
+/** The three doors, each a photograph with its distance drawn on it. */
+export function distanceDoorsHtml(items) {
+  return html`<div class="doors doors--distance" data-trace>${items.map(
+    (d, i) => html`<a class="door door--${d.key}" href="${url(d.href)}" style="--i:${i}">
+      ${d.image
+        ? html`<img class="door__img" src="${url(d.image.src)}" alt="" loading="lazy" decoding="async" width="900" height="1100">`
+        : ''}
+      ${distanceTrace(d.key)}
+      <span class="door__text">
+        <span class="door__eyebrow">${d.eyebrow}</span>
+        <span class="door__title">${d.title}</span>
+        ${d.count ? html`<span class="door__count">${d.count}</span>` : ''}
+      </span>
+      ${d.image?.credit?.text ? html`<span class="door__credit">${d.image.credit.text}</span>` : ''}
+    </a>`
+  )}</div>`;
+}
+
+/**
+ * The name a map label can carry. A short name that is a word ("Leiden",
+ * "Groningen") reads on a pin; one that is an acronym ("UT", "UM", "EUR") is a
+ * code only its own students know, so the pin takes the full name instead.
+ */
+export function readableName(i) {
+  const s = i.shortName;
+  return !s || /^[\p{Lu}&.\-\s]{1,6}$/u.test(s) ? i.name : s;
+}
+
+const regionSlug = (region) => `region-${slugify(region)}`;
+const regionOrder = (r) => (REGION_ORDER.indexOf(r) + 99) % 99;
+
+/**
+ * /countries/: the doors, then every Destination grouped by region, then the
+ * globe, then compare. Europe and Worldwide used to be two pages built from
+ * one function; they are the two halves of this one, at #europe and
+ * #worldwide, and their old addresses redirect here.
+ */
+export function countriesIndex(site) {
+  const tiles = placeTiles(site);
+  const hereCode = site.config?.audience?.schoolCountry || null;
+  const halves = [
+    { id: 'europe', title: 'Europe', list: tiles.filter((c) => c.scope === 'europe') },
+    { id: 'worldwide', title: 'Worldwide', list: tiles.filter((c) => c.scope === 'worldwide') },
+  ].filter((h) => h.list.length);
+
+  const grouped = halves.map((h) => {
+    const byRegion = new Map();
+    for (const c of h.list) {
+      if (!byRegion.has(c.region)) byRegion.set(c.region, []);
+      byRegion.get(c.region).push(c);
+    }
+    const regions = [...byRegion.keys()].sort((a, b) => regionOrder(a) - regionOrder(b) || a.localeCompare(b));
+    return {
+      ...h,
+      regions: regions.map((region) => ({
+        region,
+        // The reader's own region starts with where they are; the rest alphabetically.
+        list: byRegion
+          .get(region)
+          .sort((a, b) => (b.code === hereCode) - (a.code === hereCode) || a.name.localeCompare(b.name)),
+      })),
+    };
+  });
+
+  const mapPlaces = tiles
     .map((c) => ({ c, pos: centroid(c) }))
     .filter((x) => x.pos)
     .map(({ c, pos }) => ({
@@ -125,67 +313,64 @@ function countryIndex(site, { scope, title, lede, eyebrow, path: pagePath, heroK
       href: c.href,
       count: c.institutions.length,
       country: c.code,
-      // The picture its own tile already shows, for the globe's card.
-      image: (() => { const p = picture(site, c.code, { prefer: 'commons' }); return p && !p.external ? p.src : ''; })(),
+      image: (() => {
+        const p = picture(site, c.code, { prefer: 'commons' });
+        return p && !p.external ? p.src : '';
+      })(),
       precision: 'region',
-      // How much is known about this destination, in the same words the page
-      // itself uses — a light that says nothing about its own evidence is the
-      // kind of confidence this site is not allowed to imply.
-      state: RESEARCH_DEPTH[c.researchDepth.tier]?.label,
+      // How much is known about this destination, in the page's own words: a
+      // light that says nothing about its own evidence implies a confidence
+      // this site is not allowed to imply.
+      state: depthLabel(site, c),
     }));
-  const byRegion = new Map();
-  for (const c of list) {
-    if (!byRegion.has(c.region)) byRegion.set(c.region, []);
-    byRegion.get(c.region).push(c);
-  }
-  const regions = [...byRegion.keys()].sort(
-    (a, b) => (REGION_ORDER.indexOf(a) + 99) % 99 - (REGION_ORDER.indexOf(b) + 99) % 99
-  );
-
-  const pic = picture(site, heroKey, { prefer: 'commons' });
 
   const body = html`
 ${hero({
-  variant: 'compact',
-  eyebrow,
-  title,
-  lede,
-  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
-  // Other countries on the page, one after another, each named.
-  slides: list
-    .filter((c) => c.code !== heroKey)
-    .map((c) => ({ c, p: picture(site, c.code, { prefer: 'commons' }) }))
-    .filter(({ p }) => p?.src && !p.external)
-    .slice(0, 5)
-    .map(({ c, p }) => ({ src: url(p.src), caption: c.name, credit: p.credit || null })),
+  variant: 'plain',
+  eyebrow: `${tiles.length} countries`,
+  title: 'Countries',
+  lede: 'Where the English-taught degrees are, and what each country asks of your IB.',
 })}
 
-${/* The countries first, as photographs; the map after them, for anyone who
-     thinks in distances. */ ''}
+<section class="section section--doors section--tight">
+  <div class="wrap wrap--wide">
+    ${distanceDoorsHtml(distanceDoors(site))}
+  </div>
+</section>
+
 <section class="section section--tight">
   <div class="wrap wrap--wide">
-    ${regions.map(
-      (region) => html`
-      <div class="region">
-        <h2 class="region__name">${regionHeadline(region)}</h2>
-        <ul class="tiles" role="list">
-          ${byRegion.get(region).sort((a, b) => a.name.localeCompare(b.name)).map((c) => countryTile(site, c))}
-        </ul>
+    <nav class="region-nav" aria-label="Regions">
+      <ul class="chips region-nav__list" role="list">
+        ${grouped.flatMap((h) =>
+          h.regions.map((g) => html`<li><a class="chip" href="#${regionSlug(g.region)}">${regionHeadline(g.region)}</a></li>`)
+        )}
+      </ul>
+    </nav>
+    ${grouped.map(
+      (h) => html`<div class="half" id="${h.id}">
+        <h2 class="half__name">${h.title}</h2>
+        ${h.regions.map(
+          (g) => html`<div class="region" id="${regionSlug(g.region)}">
+            <h3 class="region__name">${regionHeadline(g.region)}</h3>
+            <ul class="tiles" role="list">${g.list.map((c) => countryTile(site, c))}</ul>
+          </div>`
+        )}
       </div>`
     )}
   </div>
 </section>
 
 ${mapPlaces.length
-  ? html`<section class="section section--tinted">
+  ? html`<section class="section section--tinted" id="map">
       <div class="wrap wrap--wide">
         <h2 class="region__name">On the map</h2>
         ${worldWindow({
           places: mapPlaces,
-          id: `index-${scope}`,
+          id: 'index-countries',
           unit: 'institution',
           activeLayer: 'Destinations covered',
-          caption: 'Each light is a destination. Follow one, or read down the list.',
+          caption: 'Each light is a country. Follow one, or read the list above.',
         })}
       </div>
     </section>`
@@ -194,11 +379,18 @@ ${mapPlaces.length
 ${close({
   title: 'Two or three in mind?',
   copy: 'Put their fees, language and deadlines side by side.',
-  invitation: { href: '/compare/', label: 'Compare destinations' },
-  also: [{ href: '/timeline/', label: 'Every deadline, in order' }],
+  invitation: { href: '/compare/', label: 'Compare countries' },
+  also: [{ href: '/timeline/', label: 'Deadlines' }],
 })}`;
 
-  return page({ title, description: lede, path: pagePath, section: pagePath, body, scripts: ['map.js'] });
+  return page({
+    title: 'Countries',
+    description: `${tiles.length} countries where an IB student can study in English, from right here to the other side of the world.`,
+    path: '/countries/',
+    section: '/countries/',
+    body,
+    scripts: ['map.js'],
+  });
 }
 
 function regionHeadline(region) {
@@ -216,30 +408,6 @@ function regionHeadline(region) {
     }[region] || region
   );
 }
-
-export function europeIndex(site) {
-  return countryIndex(site, {
-    scope: 'europe',
-    eyebrow: `${site.europe.length} countries`,
-    title: 'Europe, country by country',
-    lede: 'Where the English-taught degrees are, and what each country asks of your IB.',
-    path: '/europe/',
-    heroKey: 'it',
-  });
-}
-
-export function worldIndex(site) {
-  return countryIndex(site, {
-    scope: 'worldwide',
-    eyebrow: `${site.world.length} countries`,
-    title: 'Beyond Europe',
-    lede: 'Systems that know the IB well — most with international fees to match.',
-    path: '/world/',
-    heroKey: 'us',
-  });
-}
-
-/* --- A single destination -------------------------------------------------- */
 
 export function destination(site, c, { prev, next }) {
   // A country profile and a canonical Destination record are two different
@@ -284,7 +452,7 @@ export function destination(site, c, { prev, next }) {
     .filter((i) => i.coords)
     .map((i) => ({
       id: i.key,
-      name: i.shortName || i.name,
+      name: readableName(i),
       lat: i.coords.lat,
       lon: i.coords.lon,
       // The institution's own site, which is where its card on this page goes
@@ -561,7 +729,7 @@ ${/* What is possible: the institutions, straight after the place itself. The
 <section class="section section--tight dest-open">
   <div class="wrap">
     ${crumbs([
-      { href: c.scope === 'europe' ? '/europe/' : '/world/', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
+      { href: c.scope === 'europe' ? '/countries/#europe' : '/countries/#worldwide', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
       { label: c.name },
     ])}
     ${researchDepthNote(c, {
@@ -648,7 +816,7 @@ ${raw('</div>')}`;
     title: c.name,
     description: c.tagline || truncate(c.summary, 155),
     path: c.href,
-    section: c.scope === 'europe' ? '/europe/' : '/world/',
+    section: '/countries/',
     body,
     scripts: ['map.js'],
   });

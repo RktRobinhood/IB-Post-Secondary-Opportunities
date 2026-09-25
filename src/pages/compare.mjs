@@ -1,10 +1,28 @@
 import { html, raw, truncate } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, note, sectionHead, dataTable } from '../lib/components.mjs';
+import { hero, sectionHead } from '../lib/components.mjs';
 import { money } from '../lib/data.mjs';
 import { DIMENSIONS, assessDestination, coverageSummary } from '../lib/dimensions.mjs';
 
-/* The comparison table across every Destination. */
+/* The comparison table across every Destination.
+
+   On a phone the "whole set" used to be a 36-row, six-column table whose cells
+   were truncated sentences; stacked one card per row it came to about 22 phone
+   screens (docs/research/ia/text-walls.md §3.7). It is now one compact row per
+   Destination — name, the first clause of its EU/EEA tuition, and coverage as
+   dots — with the full cells behind the row, sortable in the browser. The
+   compare-two tray above stays the main tool. */
+
+/** The first clause of a sentence-shaped value: what a compact row can carry. */
+function firstClause(value, max = 48) {
+  const clause = String(value).split(/[;(]|\.(?:\s|$)|\s[-—–]\s/)[0].trim();
+  return truncate(clause || String(value), max);
+}
+
+/** Coverage as dots, so seven rows can be compared at a glance. */
+function dots(full, total) {
+  return '●'.repeat(full) + '○'.repeat(Math.max(0, total - full));
+}
 
 /* --- Comparison table ------------------------------------------------------ */
 
@@ -42,13 +60,6 @@ ${hero({
 
 <section class="section">
   <div class="wrap wrap--wide">
-    ${note(
-      `Meeting the entry requirements does not make a degree affordable, reachable or right for you. These are
-      seven different questions and they are shown as seven different rows — a country that wins on money can
-      lose on language, and no arithmetic should hide that from you.`,
-      { kind: 'accent', title: 'Why there is no ranking' }
-    )}
-
     <form class="filters" id="cmp-picker">
       <div class="field">
         <label for="cmp-add">Add a destination to compare</label>
@@ -72,24 +83,40 @@ ${hero({
       lede: 'Coverage says how much of the picture we have, not how good a country is. A country we know less about is not a worse country.',
     })}
 
-    ${dataTable({
-      caption: 'Every destination, with how completely each is recorded',
-      head: ['Destination', 'Region', 'English-taught bachelors', 'Tuition (EU/EEA)', 'Living cost', 'Coverage'],
-      rows: assessed.map((a) => {
+    <div class="set" id="cmp-set">
+      <p class="set__sort" id="cmp-sort" hidden>
+        <span>Sort</span>
+        <button type="button" class="chip" data-sort="name" aria-pressed="true">A–Z</button>
+        <button type="button" class="chip" data-sort="coverage" aria-pressed="false">Most recorded</button>
+        <button type="button" class="chip" data-sort="region" aria-pressed="false">By region</button>
+      </p>
+      <p class="set__head" aria-hidden="true"><span>Destination</span><span>Tuition, EU/EEA</span><span>Recorded</span></p>
+      <div class="set__rows">
+      ${assessed.map((a) => {
         const c = sorted.find((x) => x.code === a.code);
         const eu = money(c.costs?.tuitionEuEea);
         const living = money(c.costs?.livingCostMonthly);
         const learning = a.dimensions.find((d) => d.key === 'learning');
-        return [
-          html`<a href="${url(a.href)}">${a.flag} ${a.name}</a>`,
-          a.scope === 'europe' ? a.region : `${a.region} (worldwide)`,
-          learning?.value ? truncate(learning.value, 44) : html`<span class="tray__missing">Not recorded</span>`,
-          eu ? truncate(eu.value, 40) : html`<span class="tray__missing">Not recorded</span>`,
-          living ? truncate(living.value, 28) : html`<span class="tray__missing">Not recorded</span>`,
-          html`<span class="coverage coverage--${a.coverage.full >= 5 ? 'good' : a.coverage.full >= 3 ? 'part' : 'thin'}">${a.coverage.full}/${a.coverage.total}</span>`,
-        ];
-      }),
-    })}
+        const region = a.scope === 'europe' ? a.region : `${a.region} (worldwide)`;
+        return html`<details class="set__row" data-code="${a.code}" data-name="${a.name}" data-region="${region}" data-coverage="${a.coverage.full}">
+          <summary>
+            <span class="set__name">${a.flag} ${a.name}</span>
+            <span class="set__fee">${eu ? firstClause(eu.value) : html`<span class="tray__missing">Not recorded</span>`}</span>
+            <span class="set__cov" aria-label="${a.coverage.full} of ${a.coverage.total} dimensions fully recorded">${dots(a.coverage.full, a.coverage.total)}</span>
+          </summary>
+          <dl class="set__more">
+            <div><dt>Region</dt><dd>${region}</dd></div>
+            <div><dt>English-taught bachelors</dt><dd>${learning?.value || html`<span class="tray__missing">Not recorded</span>`}</dd></div>
+            <div><dt>Tuition (EU/EEA)</dt><dd>${eu ? eu.value : html`<span class="tray__missing">Not recorded</span>`}</dd></div>
+            <div><dt>Living cost</dt><dd>${living ? living.value : html`<span class="tray__missing">Not recorded</span>`}</dd></div>
+            <div><dt>Recorded</dt><dd>${a.coverage.full} of ${a.coverage.total} dimensions in full</dd></div>
+          </dl>
+          <p class="set__links"><a class="arrow-link" href="${url(a.href)}">The ${a.name} page</a>
+            <button type="button" class="btn btn--ghost btn--sm" data-add="${a.code}" hidden>Add to the comparison</button></p>
+        </details>`;
+      })}
+      </div>
+    </div>
   </div>
 </section>
 

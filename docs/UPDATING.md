@@ -828,16 +828,18 @@ testing this document. It is the documented route in `docs/IMAGE_STANDARD.md`.
 
 ```json
 "homeDoors": {
-  "denmark": { "image": "dk-au" },
-  "europe": { "image": "gb" },
-  "world": { "image": "jp" },
+  "here": { "image": "ucph" },
+  "nearby": { "image": "gb" },
+  "far": { "image": "jp" },
   "hero": ["nl", "pt", "mt"]
 }
 ```
 
 Each value is a key from `data/images.json`. `hero` is the slideshow at the top,
-in order. Don't use the same key twice on the page. Changing `denmark` to `dtu`
-and rebuilding put DTU's photo on the Denmark door. **A mistyped key or an
+in order. `here`, `nearby` and `far` are the three doors on the home page and
+the Countries page (the school country, the rest of Europe, everywhere else).
+Don't use the same key twice on the page. Changing `here` to `dtu` and
+rebuilding puts DTU's photo on the first door. **A mistyped key or an
 unapproved photo is silently skipped.** No check complains, so look at the
 home page.
 
