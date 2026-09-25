@@ -169,6 +169,27 @@
             "type": "string"
           }
         },
+        "courseResults": {
+          "type": "object",
+          "description": "What DP Course Results (the IB award for separate subjects, without the Diploma) open in this Destination, as one sentence for /guides/course-results/. The long form stays in minimumPoints and the evidence; each Opportunity says its own answer.",
+          "required": [
+            "short"
+          ],
+          "properties": {
+            "short": {
+              "type": "string",
+              "minLength": 20,
+              "maxLength": 260
+            },
+            "nationalRoute": {
+              "type": "string",
+              "minLength": 20,
+              "maxLength": 260,
+              "description": "A way in without the Diploma that the country offers to everyone rather than one institution (a state examination, a national supplement), said once here instead of in every Opportunity's alternativeRoute."
+            }
+          },
+          "additionalProperties": false
+        },
         "evidence": {
           "$ref": "common.schema.json#/$defs/evidenceRefs"
         }

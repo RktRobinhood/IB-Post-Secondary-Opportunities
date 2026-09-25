@@ -52,6 +52,27 @@ Every built page is held to them, and none is named in code:
 
 ## Batches
 
+### Batch D: the home page becomes the discovery surface (replaces Batch 1; 25 September 2026)
+Owner: "Find a degree … needs to feel like adventure, discovery and opportunity … It's meant to be a 3D visualising tool that is more fun than the 2D cards of the front page. Maybe move it to the front as a filter-type system over the cards, then cut all the text that serves no purpose."
+
+**The page, top to bottom (`/`, section `#discover`)**
+1. **Globe hero**: `worldWindow()`, full-bleed and tall, with every place that has a degree plus a pin for each Destination without one (so Worldwide is not empty). One line of intro over it, no more.
+2. **Three distance presets** on the globe: *Right here · Denmark*, *Nearby · Europe*, *Explore · Worldwide* (`distanceDoors()`; "Right here" is `audience.schoolCountry`, never "home"). Each one frames the globe (`show({ country })`, `show({ bounds })` from the scope's Destinations, `reset()`) and sets a scope filter on the cards.
+3. **Filter chips**: Subject (select), Where (grouped select), *Accepts Course Results* (with an "i" linking to `/guides/course-results/`), *No Maths HL needed*, *Open admission*, and *Check my subjects* (links to `/planner/` until Batch 3 puts the panel here). Live counts, and every choice is a Back step (the history model from Batch 1's `explorer.js`). On a phone the chips go behind "Filters (n)" in a sheet.
+4. **One count line, then the cards**: server-rendered at build time through `card()` (components.mjs, not edited) with `cardGroups()`/`familyCard()` (paths.mjs), so the backdrops, the IB requirement lines, the credential line and the "N paths" rows are the variants agent's. Filtering hides cards; with no JavaScript every card is there. Choosing a place on the globe narrows the cards; the filters re-weight the pins (`setCounts`).
+5. **When a scope has no mapped degrees** (Worldwide today), the Destinations in that scope show as photo tiles instead (`placeTiles()`), under one line saying so.
+6. **Then the tools, one row**: Deadlines · What counts · Compare, and the small print.
+
+**Moves:** `/programmes/` → `redirectPage('/#discover')` (query and hash kept); programme pages stay at `/programmes/<id>/`. Menu "Find a degree" → `/#discover`. Breadcrumbs "Programmes" → "Find a degree" at `/#discover`. The old hero copy, reel, doors and study question are absorbed (the reel's job is done by the card photographs). `release-check.mjs`, `test-programme-images.mjs`, `test-unique-images.mjs` and `test-requirement-translation.mjs` read the finder from `/` instead of `/programmes/`.
+
+**Globe:** the globe files are the globe agent's. Anything the hero needs from them is specified in `docs/research/ia/globe-hero.md`.
+
+**Carried over from Batch 1** (progress.md): `/guides/course-results/`, `alternativeRouteSummary`, the route-placement guard, `awardLabel()`, the "i" popover, `requiresMathsHL()`, readable institution names. Critic round 2 (8/10) must-fixes also apply: the cut-off reads "Lowest admitted in 2026: 40 IB points", never "a floor"; and "Diploma, or another route" must lead somewhere a student can read the route.
+
+**Done when:** the first card is within 1.5 phone screens and 1 desktop screen; no prose between the globe and the first card beyond one line; every choice is a Back step with scroll restored; the gate passes; screenshots desktop and phone, light and dark, in `after/`; critic ≥ 8.
+
+**Then Batch 3** (My subjects) goes inside this surface, and `/planner/` redirects to `/#my-subjects` with its state.
+
 ### Batch 0: the guard, in ratchet mode (no visible change)
 - **New:** `scripts/test-text-walls.mjs`.
 - **Edit:** `scripts/lib/page-measure.mjs` (exports and `markDisclosures`), `scripts/lib/quality-gate.mjs` (register), `docs/EXPERIENCE_PRINCIPLES.md` (budget table), `docs/PAGE_TEMPLATES.md` (acceptance checklist: "no prose run over 150 words; nothing but one line between filters and results").

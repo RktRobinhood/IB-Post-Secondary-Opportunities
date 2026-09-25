@@ -63,7 +63,7 @@ const NAV = [
     line: 'Where the English-taught degrees are, from right here to the other side of the world.',
   },
   {
-    href: '/programmes/',
+    href: '/#discover',
     label: 'Find a degree',
     scope: 'opportunities',
     line: 'Every mapped degree, by subject and place.',
@@ -83,7 +83,7 @@ const QUIET = [{ href: '/counsellors/', label: 'For counsellors' }];
 
 /* A URL that stopped being a page is still a section a page can claim while its
    module catches up: the subject checker is part of Find a degree. */
-const RETIRED = { '/planner/': '/programmes/' };
+const RETIRED = { '/programmes/': '/#discover', '/planner/': '/#discover' };
 
 /**
  * Which menu item a page is inside.
@@ -150,7 +150,7 @@ const FOOTER = [
   {
     title: 'Tools',
     links: [
-      { href: '/programmes/', label: 'Find a degree' },
+      { href: '/#discover', label: 'Find a degree' },
       { href: '/planner/', label: 'Check my subjects' },
       { href: '/denmark/ib-conversion/', label: 'Grade converter' },
       { href: '/timeline/', label: 'Deadlines' },
@@ -160,6 +160,7 @@ const FOOTER = [
     title: 'Guides',
     links: [
       { href: '/prepare/', label: 'What counts' },
+      { href: '/guides/course-results/', label: 'DP Course Results' },
       { href: '/denmark/apply/', label: 'Applying in Denmark' },
       { href: '/denmark/money/', label: 'Money and SU' },
     ],

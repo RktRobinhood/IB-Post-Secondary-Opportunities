@@ -1,10 +1,12 @@
-import { html, md, plural, truncate, firstSentence } from '../lib/html.mjs';
+import { html, md, plural, raw, toString, truncate, firstSentence } from '../lib/html.mjs';
+import { datesPanel } from '../lib/school-dates.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
   hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, requirementSummary, glance,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { destinationOf, institutionPicture } from './programme-facts.mjs';
+import { cardGroups, familyCard, pathsBlock, credentialLine, facetsOf, cutoffLabel, isMultiCampus } from '../lib/paths.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -54,6 +56,7 @@ function universitySlides(site, inst, max = 4) {
 export function university(site, inst, { prev, next }) {
   const pic = institutionPicture(site, inst);
   const dest = destinationOf(inst);
+  const dates = datesPanel(site, inst);
   const byField = new Map();
   for (const p of inst.programmes) {
     const f = p.field || 'Other';
@@ -64,28 +67,42 @@ export function university(site, inst, { prev, next }) {
   /* The degrees first, as pictures a student can click; what the institution
      says about the IB, how it runs its admissions and the notes after them,
      each as a short answer with the rest one tap beneath. */
-  const programmeCards = [...inst.programmes]
-    .sort((a, b) => (a.field || '').localeCompare(b.field || '') || a.name.localeCompare(b.name))
-    .map((p) => {
-      // Text cards, all the same shape: the pictures of the place are in the
-      // hero above. Behind the words is a faded photograph of the discipline:
-      // the programme's own, else its field's (src/lib/programme-imagery.mjs).
-      // IB terms first, the published form beneath (requirementSummary).
+  const showCampus = isMultiCampus(inst);
+  const sorted = [...inst.programmes]
+    .sort((a, b) => (a.field || '').localeCompare(b.field || '') || a.name.localeCompare(b.name));
+  // One card per programme, or one per family of paths (src/lib/paths.mjs):
+  // a BSc and a BEng of one subject are one card with two short rows, not two
+  // cards that read the same.
+  const programmeCards = cardGroups(site, sorted).map((g) => {
+    // Text cards, all the same shape: the pictures of the place are in the
+    // hero above. Behind the words is a faded photograph of the discipline
+    // (src/lib/programme-imagery.mjs). Under the title, what kind of degree
+    // it is, how long and where; then the requirements, IB terms first.
+    const fam = familyCard(site, g, { campus: showCampus });
+    if (fam) {
       return card({
-        href: p.href,
-        title: p.name,
-        backdrop: p.backdrop,
-        req: requirementSummary(p.entryRequirements),
-        meta: [p.field, p.years ? `${p.years} years` : null, p.campus && p.campus !== inst.city ? p.campus : null].filter(Boolean),
-        tags: p.restrictedAdmission
-          ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? (p.cutoff.anyDiploma
-              ? `Last cut-off: any IB Diploma (Danish ${p.cutoff.value})`
-              : p.cutoff.ibPoints
-              ? `Last cut-off ${p.cutoff.ibPoints} IB points (Danish ${p.cutoff.value})`
-              : `Last cut-off ${p.cutoff.value}`) : 'Restricted admission', mod: 'sand' }]
-          : null,
+        href: fam.href,
+        title: fam.title,
+        line: fam.line,
+        backdrop: fam.backdrop,
+        req: fam.req,
+        paths: pathsBlock(fam.paths),
+        meta: [g.lead.field].filter(Boolean),
+        tags: fam.tag ? [{ label: fam.tag, mod: 'sand' }] : null,
       });
+    }
+    const p = g.lead;
+    const cutoff = cutoffLabel(p);
+    return card({
+      href: p.href,
+      title: p.name,
+      line: credentialLine(facetsOf(site, p, { campus: showCampus })),
+      backdrop: p.backdrop,
+      req: requirementSummary(p.entryRequirements),
+      meta: [p.field].filter(Boolean),
+      tags: cutoff ? [{ label: cutoff, mod: 'sand' }] : null,
     });
+  });
 
   const statement = inst.ibRecognitionStatement;
   const topics = [
@@ -168,6 +185,8 @@ ${hero({
       { label: inst.shortName || inst.name },
     ])}
 
+    ${/* This school's dates, beside its degrees (src/lib/school-dates.mjs):
+          first on a phone, the side column on a wide screen. */ dates ? raw(`<div class="layout-aside layout-aside--dates">${toString(dates)}<div class="layout-aside__main">`) : ''}
     ${inst.programmes.length
       ? html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
           <div class="grid grid--3">${programmeCards}</div>`
@@ -189,6 +208,7 @@ ${hero({
           }`,
           { kind: 'warn', title: 'Nothing in English' }
         )}
+    ${dates ? raw('</div></div>') : ''}
   </div>
 </section>
 
@@ -215,12 +235,6 @@ ${hero({
           },
         ])}
         ${(inst.knownFor || []).length ? html`<div><p class="eyebrow eyebrow--plain">Known for</p>${tags(inst.knownFor, 'tag--brand')}</div>` : ''}
-        ${(inst.deadlines || []).length
-          ? html`<div><p class="eyebrow eyebrow--plain">Deadlines</p>
-              <ul style="list-style:none;padding:0;margin:0;font-size:.875rem;line-height:1.8">
-                ${inst.deadlines.map((d) => html`<li><strong>${d.date}</strong>${d.time ? ` ${d.time}` : ''} — ${d.label}</li>`)}
-              </ul></div>`
-          : ''}
       </aside>
     </div>
   </div>
@@ -240,6 +254,7 @@ ${hero({
     path: inst.href,
     section: dest?.section,
     body,
+    scripts: dates ? ['dates-panel.js'] : undefined,
   });
 }
 

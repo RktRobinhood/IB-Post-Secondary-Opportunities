@@ -184,7 +184,7 @@ ${hero({
           <p class="state state--empty">The subject checker needs JavaScript, because it runs entirely in your
           browser — that is also why nothing you type is sent anywhere. Without it, every programme and its
           exact entry requirements are still listed under
-          <a href="${url('/programmes/')}">Find a degree</a>, and the conversion tables are on the
+          <a href="${url('/#discover')}">Find a degree</a>, and the conversion tables are on the
           <a href="${url('/denmark/ib-conversion/')}">conversion page</a>.</p>
         </noscript>
 

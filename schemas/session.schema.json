@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "session.schema.json",
+  "title": "Upcoming sessions at one Institution",
+  "description": "Open days, information sessions, webinars and campus tours an Institution runs for prospective students. One file per Institution: data/sessions/<institution id>.json. Rendered in the 'Deadlines & sessions' panel on the Institution's page and on its Programme pages; a session in the past is not shown, and a file with no sessions renders nothing.",
+  "type": "object",
+  "required": ["institution", "sessions"],
+  "additionalProperties": false,
+  "properties": {
+    "institution": {
+      "$ref": "common.schema.json#/$defs/id",
+      "description": "The Institution these sessions belong to. Must match the file name."
+    },
+    "sessions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/session" }
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "Anything a researcher should know about this Institution's sessions in general, e.g. 'runs a webinar every month; dates are published six weeks ahead'. Not rendered."
+    }
+  },
+  "$defs": {
+    "occurrence": {
+      "type": "object",
+      "required": ["date"],
+      "additionalProperties": false,
+      "properties": {
+        "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "endDate": { "$ref": "common.schema.json#/$defs/isoDate", "description": "For a session that runs over several days." },
+        "timeOfDay": { "type": "string", "maxLength": 40, "description": "As published, e.g. '16:00–17:00'. Never converted." },
+        "timeZone": { "type": "string", "maxLength": 20, "description": "As published, e.g. 'CET'." }
+      }
+    },
+    "session": {
+      "type": "object",
+      "required": ["id", "title", "kind", "dates", "format", "url", "source", "checkedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "title": { "type": "string", "minLength": 3, "maxLength": 140, "description": "The session's own name, e.g. 'Bachelor's Open Day'." },
+        "kind": {
+          "enum": ["open-day", "info-session", "webinar", "campus-tour", "trial-lecture", "fair", "q-and-a", "other"],
+          "description": "What sort of session it is. 'fair' is a fair the Institution attends, not one it runs."
+        },
+        "dates": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/occurrence" },
+          "description": "Every date it runs. A webinar repeated monthly is one session with several dates."
+        },
+        "format": { "enum": ["online", "in-person", "hybrid"] },
+        "place": { "type": "string", "maxLength": 120, "description": "Where, for an in-person or hybrid session: campus and city. Required unless the session is online." },
+        "url": { "$ref": "common.schema.json#/$defs/url", "description": "Where a student signs up or reads more." },
+        "registration": { "enum": ["required", "recommended", "not-needed"], "description": "Whether a student must sign up beforehand." },
+        "language": { "type": "string", "maxLength": 40, "description": "The language it is held in, if not English." },
+        "audience": {
+          "$ref": "common.schema.json#/$defs/applicantGroup",
+          "description": "Who it is for. 'any' when it is open to every prospective student."
+        },
+        "audienceNote": { "type": "string", "maxLength": 160, "description": "A narrower audience in words, e.g. 'international applicants only'." },
+        "programmes": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/id" },
+          "description": "Programme ids, when the session is about particular programmes. Empty or absent: about the Institution as a whole."
+        },
+        "note": { "type": "string", "maxLength": 240, "description": "One line a student needs, e.g. 'recordings are posted afterwards'." },
+        "source": { "$ref": "common.schema.json#/$defs/url", "description": "The page the date was read from." },
+        "checkedAt": { "$ref": "common.schema.json#/$defs/isoDate", "description": "When the source was last read." }
+      }
+    }
+  }
+}

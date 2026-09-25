@@ -9,6 +9,8 @@ import { evidenceStatus, resolveEvidence } from '../lib/canonical.mjs';
 import { readerAccessOf } from '../lib/calendar.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { awardBlock, destinationOf, cutoffSentence, prettyDate, institutionPicture } from './programme-facts.mjs';
+import { datesPanel } from '../lib/school-dates.mjs';
+import { credentialLine, facetsOf, pathsTable } from '../lib/paths.mjs';
 
 /* One page per Programme: what it is, at a glance, then what it takes. */
 
@@ -35,9 +37,7 @@ export function programme(site, p, inst) {
      than asserted. The sidebar said "15 March 2027, 12:00 CET" and "apply at
      optagelse.dk" on every Programme page on the site, which on Delft's page
      was two confident falsehoods about the only two things a student would act
-     on. A Route may publish more than one closing date — the Netherlands has
-     one for numerus fixus and a later one for everything else — so all of them
-     are listed rather than one of them being picked. */
+     on. The glance band shows the first; every date is in the panel below. */
   /* A route closed to the reader has no date for them to act on (#35). */
   const routeClosed = readerAccessOf(route?.readerAccess)?.state === 'closed';
   const closes = routeClosed
@@ -58,9 +58,12 @@ export function programme(site, p, inst) {
     ? `${req.quotaFloors[0].quota.toLowerCase()} needs ${req.quotaFloors.map((f) => f.ibText).join(' and ')}`
     : null;
   const numericCutoff = p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim());
-  const deadlineRows = (route?.milestones || [])
-    .filter((m) => ['submit', 'signature', 'document', 'result', 'reply'].includes(m.type))
-    .filter((m) => readerAccessOf(m.readerAccess)?.state !== 'closed');
+  /* Every date for this programme, from every route it is applied through,
+     with open days and webinars: one panel, first in the column on a phone
+     and at the top of the side column on a wide screen (school-dates.mjs).
+     It replaced a "Deadlines for this intake" topic that read the first route
+     only, and an "Apply by" line in the aside that repeated its first date. */
+  const dates = datesPanel(site, inst, { programme: p });
 
   /* A requirement published on a local scale leads with its IB translation
      (requirementDetail); one already in IB terms keeps its chips. */
@@ -80,7 +83,9 @@ export function programme(site, p, inst) {
   const body = html`
 ${hero({
   variant: 'compact',
-  eyebrow: `${inst.shortName || inst.name}${p.campus ? ` · ${p.campus}` : ''}`,
+  // The institution, then what kind of degree, how long and where:
+  // "SDU · BEng · 3½ yrs · Sønderborg" (src/lib/paths.mjs).
+  eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
   title: p.name,
   lede: firstSentence(p.summary, 20),
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
@@ -122,13 +127,16 @@ ${hero({
   <div class="wrap">
     ${crumbs([
       ...(dest ? [{ href: dest.href, label: dest.name }] : []),
-      { href: '/programmes/', label: 'Programmes' },
+      { href: '/#discover', label: 'Find a degree' },
       { href: inst.href, label: inst.shortName || inst.name },
       { label: p.name },
     ])}
 
-    <div class="layout-aside">
+    <div class="layout-aside${dates ? ' layout-aside--dates' : ''}">
+      ${dates}
       <div class="prose">
+        ${/* One programme offered as several paths: what differs, in one table,
+              on every member page (src/lib/paths.mjs). */ pathsTable(site, p, inst)}
         <h2 id="requirements">What you need</h2>
         ${need}
         ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
@@ -199,29 +207,6 @@ ${hero({
             })
           : ''}
 
-        ${deadlineRows.length && !routeClosed
-          ? topic({
-              id: 'deadlines',
-              title: 'Deadlines for this intake',
-              short: closes.length
-                ? `Applications close **${prettyDate(closes[0].date)}**${closes[0].timeOfDay ? ` at ${closes[0].timeOfDay} ${closes[0].timeZone || ''}` : ''}.`
-                : `${plural(deadlineRows.length, 'date')} recorded.`,
-              body: html`<ul class="timeline">
-                ${deadlineRows.map(
-                  (m) => html`<li data-date="${m.date || ''}"${m.provisional ? raw(' data-provisional="true"') : ''}>
-                    <div class="timeline__when">${m.date || 'Date not published'}${m.timeOfDay ? html`<br>${m.timeOfDay} ${m.timeZone || ''}` : ''}</div>
-                    <div class="timeline__what">
-                      <h4>${m.label}</h4>
-                      ${m.note ? md(m.note) : ''}
-                      ${m.consequence === 'hard' ? html`<p><small>Missing this closes the door for this intake.</small></p>` : ''}
-                    </div>
-                  </li>`
-                )}
-              </ul>`,
-              more: `All ${plural(deadlineRows.length, 'date')}`,
-            })
-          : ''}
-
         ${evidenceBlock({
           claim: `Entry requirements and admission rules for ${p.name}.`,
           records: site.graph ? resolveEvidence(site.graph, opp?.evidence) : [],
@@ -244,18 +229,6 @@ ${hero({
         ${facts([
           { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
           { label: 'Country', value: dest ? html`<a href="${url(dest.href)}">${dest.name}</a>` : null },
-          {
-            label: closes.length > 1 ? 'Applications close' : 'Apply by',
-            value: closes.length
-              ? html`<ul style="list-style:none;padding:0;margin:0">
-                  ${closes.map(
-                    (m) => html`<li><strong>${prettyDate(m.date)}</strong>${m.timeOfDay ? ` ${m.timeOfDay} ${m.timeZone || ''}` : ''}${
-                      closes.length > 1 ? html` — ${m.label}` : ''
-                    }</li>`
-                  )}
-                </ul>`
-              : null,
-          },
           {
             label: 'Apply at',
             value: route?.portalUrl
@@ -282,5 +255,6 @@ ${hero({
     path: p.href,
     section: dest?.section,
     body,
+    scripts: dates ? ['dates-panel.js'] : undefined,
   });
 }

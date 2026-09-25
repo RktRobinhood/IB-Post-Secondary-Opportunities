@@ -35,6 +35,7 @@ const SINGULAR = {
   'context-notes': 'context-note',
   recognition: 'recognition-scheme',
   funding: 'funding-scheme',
+  sessions: 'session-list',
 };
 
 /** Which folder holds which entity, and which schema validates it. */
@@ -50,6 +51,9 @@ const COLLECTIONS = [
   { dir: 'recognition', schema: 'recognition-scheme.schema.json', kind: 'Recognition Scheme' },
   /* A grant whose eligibility turns on who the student is (docs/research/audience). */
   { dir: 'funding', schema: 'funding-scheme.schema.json', kind: 'Funding Scheme' },
+  /* Open days, info sessions and webinars, one file per Institution. Filled by
+     research; an empty list is valid and renders nothing. */
+  { dir: 'sessions', schema: 'session.schema.json', kind: 'Session list' },
 ];
 
 async function readJson(file) {
@@ -159,6 +163,21 @@ async function main() {
     if (r.dir === 'funding') check(r.rel, 'destination', v.destination, ids.destination, 'Destination');
     if (r.dir === 'destinations') (v.livingContext?.funding || []).forEach((x, i) => x?.fund && check(r.rel, `livingContext.funding[${i}].fund`, x.fund, fundIds, 'Funding Scheme'));
     if (r.dir === 'programmes') check(r.rel, 'institution', v.institution, ids.institution, 'Institution');
+    if (r.dir === 'sessions') {
+      check(r.rel, 'institution', v.institution, ids.institution, 'Institution');
+      if (v.institution && path.basename(r.rel, '.json') !== v.institution) refErrors.push(`${r.rel} → institution: "${v.institution}" does not match the file name`);
+      const seen = new Set();
+      (v.sessions || []).forEach((x, i) => {
+        const at = `sessions[${i}]`;
+        if (seen.has(x.id)) refErrors.push(`${r.rel} → ${at}.id: "${x.id}" is used twice`);
+        seen.add(x.id);
+        if (x.format !== 'online' && !x.place) refErrors.push(`${r.rel} → ${at}.place: an ${x.format} session must say where`);
+        (x.dates || []).forEach((d, j) => {
+          if (d.endDate && d.endDate < d.date) refErrors.push(`${r.rel} → ${at}.dates[${j}]: ends before it starts`);
+        });
+        (x.programmes || []).forEach((id, j) => check(r.rel, `${at}.programmes[${j}]`, id, ids.programme, 'Programme'));
+      });
+    }
     if (r.dir === 'opportunities') {
       check(r.rel, 'programme', v.programme, ids.programme, 'Programme');
       check(r.rel, 'institution', v.institution, ids.institution, 'Institution');

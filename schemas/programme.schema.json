@@ -254,6 +254,12 @@
           "maxLength": 160,
           "description": "One line: what is different about this path, and nothing that is the same on every path."
         },
+        "tag": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 24,
+          "description": "Optional one- or two-word marker shown after this path's facts on the card, e.g. “internship”. Only for something a student would otherwise have to open the page to learn."
+        },
         "order": {
           "type": "integer",
           "minimum": 1,

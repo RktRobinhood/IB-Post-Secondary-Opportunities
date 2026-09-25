@@ -164,9 +164,9 @@ function baseline({ pages, repeated }) {
 
 /* --- Main ------------------------------------------------------------------------- */
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await main();
 
-function main() {
+async function main() {
   console.log('\nText walls: no page opens on a wall of prose\n');
 
   const self = selfTest();
@@ -237,6 +237,41 @@ function main() {
   }
   for (const s of Object.keys(knownSentences))
     if (!repeated.has(s)) fail(`"${s.slice(0, 80)}…" is no longer on more than ${BUDGET.repeat.pages} pages: take it off scripts/lib/text-walls-known.json.`);
+
+  /* A route in without the Diploma is said where it applies. The finder once
+     opened on every such route in the catalogue, 4,770 words of them, in a
+     note above the list. A route belongs on its own programme's page and on
+     /guides/course-results/, which shows each one once; anywhere else it is a
+     wall. Read from the records, so no route and no page is named here. */
+  const { loadCanonical } = await import('../src/lib/canonical.mjs');
+  const { programmes } = await loadCanonical();
+  const visible = (html) =>
+    html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ')
+      .replace(/&quot;|&#34;/g, '"').replace(/&#39;|&#x27;|&apos;/g, "'").replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ')
+      .replace(/\s+/g, ' ');
+  const norm = (t) => String(t).replace(/\s+/g, ' ').trim();
+  const routes = new Map();
+  for (const p of programmes.values()) {
+    for (const r of p.requirements || []) {
+      if (!r.alternativeRoute) continue;
+      const probe = norm(r.alternativeRoute).slice(0, 90);
+      if (!routes.has(probe)) routes.set(probe, new Set());
+      routes.get(probe).add(`programmes/${p.id}/`);
+    }
+  }
+  const GUIDE = 'guides/course-results/';
+  let routeFaults = 0;
+  for (const page of builtPages()) {
+    const text = visible(page.html);
+    for (const [probe, homes] of routes) {
+      if (page.key === GUIDE || homes.has(page.key)) continue;
+      if (text.includes(probe)) {
+        routeFaults++;
+        fail(`/${page.key.replace(/^\//, '')} shows a route in without the Diploma that belongs to ${[...homes].slice(0, 2).join(', ')}: "${probe.slice(0, 60)}…". Link to /${GUIDE} or the programme instead.`);
+      }
+    }
+  }
+  if (!routeFaults) console.log(`  ok    ${routes.size} routes in without the Diploma, each shown only on its own programme page and /${GUIDE}`);
 
   const listed = Object.keys(knownPages).length;
   if (failures) {

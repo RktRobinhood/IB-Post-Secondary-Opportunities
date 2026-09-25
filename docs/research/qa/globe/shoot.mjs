@@ -22,14 +22,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 
-const ROUND = process.argv[2] || 'round-2-fixes';
+const ROUND = process.argv[2] || 'round-3-fixes';
 const OUT = path.join(import.meta.dirname, ROUND);
 const BASE = process.env.PREVIEW || 'http://localhost:4321';
 const CHROME = process.env.CHROME || 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe';
 const PORT = 9333;
 
 await fs.mkdir(OUT, { recursive: true });
-const profile = await fs.mkdtemp(path.join(os.tmpdir(), 'globe-shoot-'));
+// PROFILE_ROOT: where Chrome's throwaway profile goes (the system temp may be full).
+const profile = await fs.mkdtemp(path.join(process.env.PROFILE_ROOT || os.tmpdir(), 'globe-shoot-'));
 const chrome = spawn(CHROME, [
   '--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${profile}`,
   '--hide-scrollbars', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-first-run',
@@ -103,6 +104,9 @@ async function globeReady(sel = '.world') {
   return evaluate(`(async () => {
     const f = document.querySelector('${sel}');
     const s = f.querySelector('.world__stage');
+    /* A map inside a closed <details> (the explorer's, on a phone) is opened first, as a student would. */
+    for (let e = f; e; e = e.parentElement) if (e.tagName === 'DETAILS') e.open = true;
+    await new Promise(r => setTimeout(r, 50));
     scrollTo(0, Math.max(0, s.getBoundingClientRect().top + scrollY - Math.max(8, (innerHeight - s.offsetHeight) / 2)));
     for (let i = 0; i < 120 && f.dataset.globe !== 'on' && f.dataset.globe !== 'off'; i++) await new Promise(r => setTimeout(r, 100));
     await new Promise(r => setTimeout(r, 700));
@@ -176,12 +180,15 @@ const expose = () => g(`window.__g = g; return true;`);
 
 try {
   /* 1. Rest: what each page loads with no gesture at all (cold cache) */
-  for (const [route, name, opts] of [['/programmes/', '01-programmes-rest'], ['/destinations/nl/', '02-nl-rest'], ['/world/', '03-world-rest'], ['/destinations/nl/', '04-phone-nl-rest', { width: 390, height: 844, mobile: true }]]) {
+  for (const [route, name, opts] of [['/programmes/', '01-programmes-rest'], ['/destinations/nl/', '02-nl-rest'], ['/countries/', '03-countries-rest'], ['/destinations/nl/', '04-phone-nl-rest', { width: 390, height: 844, mobile: true }]]) {
     bytes.clear();
     await open(route, opts);
     const state = await globeReady();
     await sleep(3000);
-    report[name] = { state, bytesAtRestKB: tally(), close: await g(`return g.close;`) };
+    report[name] = { state, bytesAtRestKB: tally(), close: await g(`return g.close;`),
+      /* Which places are on the stage and facing, by id — and where the rest camera is. */
+      onStage: await g(`return g.places.filter(p => { const s = g.mineAt(p.lat, p.lon); return s.facing > 0.2 && s.x > 0 && s.x < innerWidth && s.y > 0; }).map(p => p.id);`),
+      rest: await g(`const r = g.rest; return { lat: +r.lat.toFixed(1), lon: +r.lon.toFixed(1), alt: +r.alt.toFixed(2) };`) };
     await shot(name);
   }
 
@@ -217,7 +224,11 @@ try {
   await sleep(800);
   await startSampler();
   await evaluate(`document.querySelector('.world__btn[aria-label="Back to the whole view"]').click()`);
-  await sleep(4500);
+  /* Frames during the climb out: the cream voids of round 3 would be here. */
+  await sleep(450); await shot('06a-reset-0.45s');
+  await sleep(700); await shot('06b-reset-1.15s');
+  await sleep(1000); await shot('06c-reset-2.15s');
+  await sleep(2350);
   report.resetFromStreet = await evaluate(`(() => {
     const s = window.__samples; let worstJump = 0;
     for (let i = 1; i < s.length; i++) worstJump = Math.max(worstJump, s[i][1] / Math.max(1e-6, s[i - 1][1]));
@@ -261,31 +272,50 @@ try {
   /* 7. Group click (bug D): no group with the same members remains, and it did not end further out */
   await open('/programmes/');
   await globeReady();
+  await g(`document.documentElement.setAttribute('data-motion','reduced'); g.flyTo({ ...g.view }); document.documentElement.removeAttribute('data-motion'); return true;`);
+  await sleep(300);
   const cl = await evaluate(`(() => { const c = [...document.querySelectorAll('.world__cluster:not([hidden])')].sort((a, b) => (b._members?.length || 0) - (a._members?.length || 0))[0]; const r = c.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, ids: c._members.map(m => m.id).sort().join(' ') }; })()`);
   const altBefore = await g(`return g.view.alt;`);
   await click(cl.x, cl.y);
   await sleep(6000);
   report.groupClick = await g(`
     const same = [...document.querySelectorAll('.world__cluster:not([hidden])')].some(c => c._members && c._members.map(m => m.id).sort().join(' ') === ${JSON.stringify(cl.ids)});
-    return { members: ${JSON.stringify(cl.ids)}.split(' ').length, sameGroupStillShown: same, altBefore: ${altBefore}, altAfter: +g.view.alt.toFixed(3), close: g.close.active };`);
+    /* Every member on the stage (as a pin or inside a visible group). */
+    const ids = ${JSON.stringify(cl.ids)}.split(' ');
+    const W = document.querySelector('.world__stage').getBoundingClientRect();
+    const onStage = (el) => { if (!el || el.hidden) return false; const r = el.getBoundingClientRect(); const x = r.left + r.width / 2, y = r.top + r.height / 2; return x >= W.left && x <= W.right && y >= W.top && y <= W.bottom; };
+    const shown = ids.filter((id) => onStage(document.querySelector('.world__pin[data-place="' + id + '"]')) ||
+      [...document.querySelectorAll('.world__cluster:not([hidden])')].some(c => c._members?.some(m => m.id === id) && onStage(c)));
+    return { members: ids.length, membersOnStage: shown.length, sameGroupStillShown: same, altBefore: ${altBefore}, altAfter: +g.view.alt.toFixed(3), close: g.close.active, hash: location.hash.slice(0, 20) };`);
+  const pathG = await evaluate('location.pathname');
+  await evaluate('history.back()');
+  await sleep(4500);
+  report.groupClick.back = { samePage: (await evaluate('location.pathname')) === pathG, alt: await g(`return +g.view.alt.toFixed(2);`), close: await g(`return g.close.active;`) };
   await shot('10-programmes-group-click');
 
   /* 8. Phone: tap the biggest group on /programmes/ — it must not end further out */
   await open('/programmes/', { width: 390, height: 844, mobile: true });
   await globeReady();
-  const pc = await evaluate(`(() => { const c = [...document.querySelectorAll('.world__cluster:not([hidden])')].sort((a, b) => (b._members?.length || 0) - (a._members?.length || 0))[0]; const r = c.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, n: c._members.length }; })()`);
+  await g(`document.documentElement.setAttribute('data-motion','reduced'); g.flyTo({ ...g.view }); document.documentElement.removeAttribute('data-motion'); return true;`);
+  await sleep(300);
+  const pc = await evaluate(`(() => { const c = [...document.querySelectorAll('.world__cluster:not([hidden])')].sort((a, b) => (b._members?.length || 0) - (a._members?.length || 0))[0]; if (!c) return null; const r = c.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, n: c._members.length }; })()`);
   const pAlt = await g(`return g.view.alt;`);
-  await tap(pc.x, pc.y);
-  await sleep(6500);
-  report.phoneGroupTap = { members: pc.n, altBefore: +pAlt.toFixed(3), altAfter: await g(`return +g.view.alt.toFixed(3);`), close: await g(`return g.close.active;`) };
+  if (pc) { await tap(pc.x, pc.y); await sleep(6500); }
+  report.phoneGroupTap = { members: pc?.n ?? 'no group at rest', altBefore: +pAlt.toFixed(3), altAfter: await g(`return +g.view.alt.toFixed(3);`), close: await g(`return g.close.active;`) };
   await shot('11-phone-programmes-group');
 
-  /* 9. Phone close map: attribution collapsed, one ⓘ */
+  /* 9. Phone close map: the card is folded while the camera travels and open
+        on arrival; attribution collapsed, one ⓘ */
   await open('/destinations/nl/', { width: 390, height: 844, mobile: true });
   await globeReady();
   await g(`const p = g.places.find(p => /Delft/.test(p.name)); g.goToPlace(p); return true;`);
+  await sleep(900);
+  const cardShare = () => evaluate(`(() => { const c = document.querySelector('.world__card:not([hidden])'); const s = document.querySelector('.world__stage').getBoundingClientRect(); if (!c) return null; const r = c.getBoundingClientRect(); return { folded: !!c.dataset.collapsed, pctOfStage: Math.round(100 * r.height / s.height) }; })()`);
+  report.phoneCardDuringFlight = await cardShare();
+  await shot('12a-phone-card-in-flight');
   await waitFor('g.close.active && g.close.zoom > 14.9', 15000);
   await sleep(1200);
+  report.phoneCardArrived = await cardShare();
   report.phoneAttribution = await evaluate(`(() => {
     const a = document.querySelector('.maplibregl-ctrl-attrib'); const s = document.querySelector('.world__stage').getBoundingClientRect();
     const b = document.querySelector('.maplibregl-ctrl-attrib-button'); const cs = b && getComputedStyle(b);
@@ -293,6 +323,13 @@ try {
     return { expanded: a.classList.contains('maplibregl-compact-show'), coversPct: Math.round(100 * r.width * r.height / (s.width * s.height)), buttonRepeat: cs?.backgroundRepeat };
   })()`);
   await shot('12-phone-nl-street');
+
+  /* 9b. /countries/ on a phone: labels at the right edge flip inside */
+  await open('/countries/', { width: 390, height: 844, mobile: true });
+  await globeReady();
+  await sleep(800);
+  report.phoneCountriesLabels = await evaluate(`(() => { const s = document.querySelector('.world__stage').getBoundingClientRect(); const ls = [...document.querySelectorAll('.world__pin[data-label]:not([hidden]) .world__pin-label')]; return { labels: ls.length, clipped: ls.filter(l => { const r = l.getBoundingClientRect(); return r.right > s.right + 1 || r.left < s.left - 1; }).map(l => l.textContent) }; })()`);
+  await shot('13-phone-countries-rest');
 
   /* 10. Reduced motion and the flat fallback */
   await open('/europe/');
@@ -311,4 +348,7 @@ try {
   console.log(JSON.stringify(report, null, 2));
   ws.close();
   chrome.kill();
+  /* The throwaway profile is removed: 32 of them once filled a disk. */
+  await sleep(800);
+  await fs.rm(profile, { recursive: true, force: true }).catch(() => {});
 }

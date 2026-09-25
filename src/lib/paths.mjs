@@ -1,0 +1,276 @@
+/**
+ * What a programme is at a glance, and what differs between the paths of one.
+ *
+ * The owner, 25 September 2026: "Show the type of degree on those, or maybe all
+ * cards, so they are not identical and a point of confusion. I like clarity and
+ * legibility at a glance." Two things answer that:
+ *
+ *   1. A credential line on every programme card and page header — degree,
+ *      length, and the campus where the institution has more than one:
+ *      "BEng · 3½ yrs · Sønderborg". Built from the record's credential, never
+ *      from a name.
+ *   2. One card per programme family (src/lib/families.mjs): the facts the
+ *      paths share once, and a short row per path for what differs — its
+ *      credential or campus, and any admission difference in IB terms, taken
+ *      from requirementModel() so it reads exactly as the requirement block
+ *      does. Every member page carries the same Paths table.
+ *
+ * Nothing here names a programme, an institution or a country; the guard in
+ * scripts/test-unique-images.mjs reads this file back for literals.
+ */
+import { html } from './html.mjs';
+import { url } from './layout.mjs';
+import { requirementModel, requirementSummary } from './components.mjs';
+import { entryAward, ENTRY_AWARD } from './eligibility.mjs';
+import { COMPARABLE_LEVEL } from './credentials.mjs';
+import { cardKey, families } from './families.mjs';
+
+/* --- The credential line ------------------------------------------------ */
+
+/**
+ * The degree in the fewest plain-English words. An English bachelor-style
+ * abbreviation (BSc, BA, BEng, BBA) is what a student already reads; anything
+ * else — a PBA, an AP — is spelled out from the record's English title, because
+ * an unfamiliar abbreviation is the confusion this line exists to remove.
+ */
+export function degreeShort(credential) {
+  const abbr = credential?.abbreviation;
+  if (abbr && /^B[A-Z]/.test(abbr)) return abbr;
+  if (credential?.localTitleEn) return credential.localTitleEn;
+  if (abbr) return abbr;
+  if (credential?.localTitle) return credential.localTitle;
+  return COMPARABLE_LEVEL[credential?.comparableLevel]?.label || null;
+}
+
+const FRACTION = { 0.25: '¼', 0.5: '½', 0.75: '¾' };
+
+/** "3 yrs", "3½ yrs", "1 yr". Null when the length is not recorded. */
+export function yearsShort(years) {
+  const y = Number(years);
+  if (!Number.isFinite(y) || y <= 0) return null;
+  const whole = Math.floor(y);
+  const frac = FRACTION[Math.round((y - whole) * 100) / 100];
+  const n = frac ? `${whole || ''}${frac}` : String(Math.round(y * 100) / 100);
+  return `${n} ${y === 1 ? 'yr' : 'yrs'}`;
+}
+
+/** The raw record behind a programme view model. */
+function recordOf(site, p) {
+  return site.graph?.programmes?.get(p.programmeId || p.id) || null;
+}
+
+/** An institution teaches on more than one campus when its programmes say so. */
+export function isMultiCampus(inst) {
+  return new Set((inst?.programmes || []).map((p) => p.campus).filter(Boolean)).size > 1;
+}
+
+/** The three facts a student compares first, each already short. */
+export function facetsOf(site, p, { campus = true } = {}) {
+  const rec = recordOf(site, p);
+  return {
+    degree: degreeShort(rec?.credential) || null,
+    years: yearsShort(p.years ?? rec?.credential?.years),
+    campus: campus ? p.campus || null : null,
+  };
+}
+
+/** "BSc · 3 yrs · Odense": the at-a-glance line, empty facts left out. */
+export function credentialLine(facets) {
+  return [facets.degree, facets.years, facets.campus].filter(Boolean).join(' · ');
+}
+
+/* --- Admission facts, for comparing paths ------------------------------- */
+
+/** The last cut-off as a card tag, IB points first. Null when unrestricted. */
+export function cutoffLabel(p) {
+  if (!p.restrictedAdmission) return null;
+  const v = p.cutoff?.value;
+  if (!(v && /^\d+([.,]\d+)?$/.test(String(v).trim()))) return 'Restricted admission';
+  /* The same words the card has always used (institutions.mjs before this). */
+  if (p.cutoff.anyDiploma) return `Last cut-off: any IB Diploma (Danish ${v})`;
+  if (p.cutoff.ibPoints) return `Last cut-off ${p.cutoff.ibPoints} IB points (Danish ${v})`;
+  return `Last cut-off ${v}`;
+}
+
+const AWARD_TEXT = {
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'DP Course Results accepted',
+  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'Full IB Diploma required',
+  [ENTRY_AWARD.NOT_ESTABLISHED]: null,
+};
+
+/** What a path asks, as short strings in IB terms, for comparison. */
+function admissionOf(site, p) {
+  const opp = site.graph?.opportunities?.get(p.opportunityId || p.id);
+  const model = requirementModel(p.entryRequirements);
+  const withoutFloors = p.entryRequirements ? { ...p.entryRequirements, quotaFloors: [] } : null;
+  return {
+    floor: model.floors.map((f) => f.ib).join('; ') || null,
+    floorLocal: model.floors.map((f) => f.local).join('; ') || null,
+    award: opp ? AWARD_TEXT[entryAward(opp)] : null,
+    cutoff: cutoffLabel(p),
+    subjects: String(requirementSummary(withoutFloors)),
+  };
+}
+
+/* --- Cards: one per programme, or one per family ------------------------ */
+
+/**
+ * The cards for a list of programme view models, in the order given: each
+ * family collapses to its primary member's position, with its members in path
+ * order.
+ */
+export function cardGroups(site, programmes) {
+  const recs = programmes.map((p) => recordOf(site, p)).filter(Boolean);
+  const fams = families(recs);
+  const groups = new Map();
+  for (const p of programmes) {
+    const rec = recordOf(site, p);
+    const key = rec ? cardKey(rec) : p.id;
+    if (!groups.has(key)) groups.set(key, { key, family: fams.get(key) || null, members: [] });
+    groups.get(key).members.push(p);
+  }
+  for (const g of groups.values()) {
+    if (!g.family) continue;
+    const order = (p) => recordOf(site, p)?.family?.order ?? 99;
+    g.members.sort((a, b) => order(a) - order(b));
+    g.lead = g.members.find((p) => recordOf(site, p)?.family?.primary) || g.members[0];
+  }
+  for (const g of groups.values()) if (!g.lead) g.lead = g.members[0];
+  return [...groups.values()];
+}
+
+const AXIS_HEAD = { credential: 'paths', campus: 'campuses', specialisation: 'paths' };
+
+/**
+ * Everything a family card shows, as data: the shared line, the requirement
+ * summary (floors moved to the rows when they differ), one row per path, and
+ * the tags the paths share. A single-member group returns null.
+ */
+export function familyCard(site, group, { campus = true } = {}) {
+  if (!group.family || group.members.length < 2) return null;
+  const members = group.members;
+  const recs = members.map((p) => recordOf(site, p));
+  const facets = members.map((p) => facetsOf(site, p, { campus }));
+  const adm = members.map((p) => admissionOf(site, p));
+  const same = (k, list) => new Set(list.map((x) => x[k] ?? '')).size === 1;
+
+  const shared = {};
+  const differing = [];
+  for (const k of ['degree', 'years', 'campus']) {
+    if (same(k, facets)) shared[k] = facets[0][k];
+    else differing.push(k);
+  }
+  const axis = group.family.axis;
+  const floorsDiffer = !same('floor', adm);
+  const awardDiffer = !same('award', adm);
+  const cutoffDiffer = !same('cutoff', adm);
+  const subjectsDiffer = !same('subjects', adm);
+
+  const rows = members.map((p, i) => {
+    const f = recs[i]?.family || {};
+    const label = axis === 'specialisation' || !differing.length
+      ? f.path
+      : differing.map((k) => facets[i][k]).filter(Boolean).join(' ');
+    return {
+      href: p.href,
+      label: f.tag ? `${label} (${f.tag})` : label,
+      detail: [
+        floorsDiffer ? adm[i].floor : null,
+        awardDiffer ? adm[i].award : null,
+        cutoffDiffer ? adm[i].cutoff : null,
+      ].filter(Boolean),
+    };
+  });
+
+  const lead = group.lead;
+  const leadEntry = lead.entryRequirements;
+  return {
+    title: group.family.name,
+    href: lead.href,
+    line: credentialLine(shared),
+    req: requirementSummary(floorsDiffer && leadEntry ? { ...leadEntry, quotaFloors: [] } : leadEntry),
+    paths: {
+      head: `${members.length} ${AXIS_HEAD[axis] || 'paths'}`,
+      rows,
+      note: subjectsDiffer ? 'The subject options differ slightly between them.' : null,
+    },
+    tag: cutoffDiffer ? null : adm[0].cutoff,
+    backdrop: lead.backdrop,
+  };
+}
+
+/** The markup of a card's path rows (the card component places it). */
+export function pathsBlock(paths) {
+  if (!paths?.rows?.length) return '';
+  return html`<div class="card__paths">
+    <p class="card__paths-head">${paths.head}</p>
+    <ul class="card__path-list">${paths.rows.map(
+      (r) => html`<li class="card__path"><a href="${url(r.href)}">${r.label}</a>${
+        r.detail.length ? html`<span class="card__path-detail">${r.detail.join(' · ')}</span>` : ''
+      }</li>`
+    )}</ul>
+    ${paths.note ? html`<p class="card__paths-note">${paths.note}</p>` : ''}
+  </div>`;
+}
+
+/* --- The Paths table on a member's page --------------------------------- */
+
+/**
+ * On every member page of a family: the same table, the current path marked,
+ * and only the columns in which the paths actually differ — so the table is
+ * the difference, not a second copy of the page.
+ */
+export function pathsTable(site, p, inst) {
+  const rec = recordOf(site, p);
+  if (!rec?.family) return '';
+  const group = cardGroups(site, inst.programmes).find((g) => g.family?.id === rec.family.id);
+  if (!group || group.members.length < 2) return '';
+  const members = group.members;
+  const recs = members.map((m) => recordOf(site, m));
+  const facets = members.map((m) => facetsOf(site, m));
+  const adm = members.map((m) => admissionOf(site, m));
+  const ects = (m) => recordOf(site, m)?.credential?.ects || m.ects;
+  /* The floor's own name ("Quota 1") heads its column, from the record. */
+  const quota = requirementModel(p.entryRequirements).floors[0]?.quota;
+  const floorHead = quota ? `${quota} needs` : 'Minimum to apply';
+  const stripLead = (t) => (t && quota ? t.split(`${quota}: `).join('') : t) || null;
+
+  const cols = [
+    { head: 'Degree', cell: (i) => facets[i].degree },
+    { head: 'Length', cell: (i) => [facets[i].years, ects(members[i]) ? `${ects(members[i])} ECTS` : null].filter(Boolean).join(' · ') || null },
+    { head: 'Campus', cell: (i) => facets[i].campus },
+    { head: 'Starts', cell: (i) => members[i].startMonth || null },
+    { head: floorHead, cell: (i) => stripLead(adm[i].floor), small: (i) => stripLead(adm[i].floorLocal) },
+    { head: 'DP Course Results', cell: (i) => (adm[i].award === AWARD_TEXT[ENTRY_AWARD.COURSE_RESULTS_ACCEPTED] ? 'Accepted' : adm[i].award === AWARD_TEXT[ENTRY_AWARD.DIPLOMA_REQUIRED] ? 'Full Diploma needed' : 'Not recorded') },
+    { head: 'Last cut-off', cell: (i) => adm[i].cutoff?.replace(/^Last cut-off:?s*/, '') || null },
+  ]
+    // Only what differs, and not a column that repeats the path's own name
+    // (a campus family's paths are already called after their campuses).
+    .filter((c) => new Set(members.map((_, i) => c.cell(i) ?? '')).size > 1)
+    .filter((c) => !members.every((_, i) => c.cell(i) && String(recs[i]?.family?.path || '').includes(c.cell(i))));
+  const cutoffsDiffer = cols.some((c) => c.head === 'Last cut-off');
+
+  const differsAdmission = rec.family.admission === 'differs';
+  return html`<section class="paths" aria-labelledby="paths-title">
+    <h2 id="paths-title">${members.length} ways to study ${rec.family.name}</h2>
+    <p class="paths__lede">${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}. ${
+      differsAdmission
+        ? 'What it takes to get in differs between them, so check each one.'
+        : `The entry requirements are the same on each${cutoffsDiffer ? ', but last year’s cut-offs were not' : ''}.`
+    }</p>
+    <div class="table-scroll"><table class="data paths__table">
+      <thead><tr><th scope="col">Path</th>${cols.map((c) => html`<th scope="col">${c.head}</th>`)}<th scope="col">What is different</th></tr></thead>
+      <tbody>${members.map((m, i) => {
+        const here = m === p || (m.id === p.id);
+        const f = recs[i]?.family || {};
+        return html`<tr${here ? html` aria-current="page" class="paths__here"` : ''}>
+          <th scope="row">${here
+            ? html`<strong>${f.path}</strong> <span class="paths__you">You are here</span>`
+            : html`<a href="${url(m.href)}">${f.path}</a>`}</th>
+          ${cols.map((c) => html`<td>${c.cell(i) || '—'}${c.small?.(i) ? html`<small class="req-local">${c.small(i)}</small>` : ''}</td>`)}
+          <td>${f.differs}</td>
+        </tr>`;
+      })}</tbody>
+    </table></div>
+  </section>`;
+}

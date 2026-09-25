@@ -62,30 +62,65 @@ async function style() {
     type: 'raster',
     source: 'satellite',
     paint: {
-      'raster-opacity': ['interpolate', ['linear'], ['zoom'], 12, 1, 14, 0.75, 16, 0.35, 17, 0.25],
+      /* Full until the street map has faded in (13.5), and handed over by
+         14.5: the Sentinel source stops at z14, and overzoomed beyond that it
+         is milky rather than sharper (round 3). */
+      'raster-opacity': ['interpolate', ['linear'], ['zoom'], 12.5, 1, 13.5, 0.8, 14.5, 0.3, 17, 0.2],
+      /* The globe arrives a little stylised (round 4: brighter, more
+         saturated, flatter); the photograph starts the same way and settles
+         to itself by city zoom, so the dive does not jump from cartoon to
+         photo in one frame. */
+      'raster-saturation': ['interpolate', ['linear'], ['zoom'], 5, 0.22, 11, 0],
+      'raster-contrast': ['interpolate', ['linear'], ['zoom'], 5, 0.08, 11, 0],
+      'raster-brightness-min': ['interpolate', ['linear'], ['zoom'], 5, 0.06, 11, 0],
       'raster-fade-duration': 120,
     },
   });
+  /* No cream. The style's opaque background painted every not-yet-loaded
+     tile cream when the camera went up (Reset, wheel-out, climb-out). Below
+     street level it is transparent, so the globe — still drawing underneath
+     at the same camera — shows through instead; at street level, where the
+     warm-up has loaded the tiles, it is the street map's ground again. */
+  const bg = st.layers.find((l) => l.type === 'background');
+  if (bg) bg.paint = { ...(bg.paint || {}), 'background-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0, 14.5, 1] };
+  /* Suburb and village names from 13, not 8–9: at city zoom they buried the
+     place the student chose under italic clutter (round 3). */
+  for (const l of st.layers) {
+    if (l['source-layer'] === 'place' && /^label_(other|village)$/.test(l.id)) l.minzoom = Math.max(l.minzoom || 0, 13);
+  }
   /* Satellite first, street map only near the ground. Below zoom 9.5 the
      reader is looking at a region from above, and a road atlas over the
      imagery made the handoff look like a different app (round 2) — and cost
      most of the bytes, since vector tiles for zooms 5–9 load whether or not
      the satellite covers them. So every vector layer starts at 9.5, and the
      3D buildings only at street level, where they are worth their frame time. */
+  const OPACITY = { fill: ['fill-opacity'], line: ['line-opacity'], symbol: ['text-opacity', 'icon-opacity'], 'fill-extrusion': ['fill-extrusion-opacity'] };
   for (const l of st.layers) {
     if (l.source === 'satellite' || l.type === 'background') continue;
     l.minzoom = Math.max(l.minzoom || 0, l.type === 'fill-extrusion' ? 15 : 9.5);
+    /* …and it fades in over 12–13.5 instead of snapping on: the street map
+       arriving all at once at the end of a dive was round 3's pop. Only
+       constant opacities are wrapped (a zoom expression must stay top-level);
+       the few zoom-driven ones are left as the style wrote them. */
+    for (const prop of OPACITY[l.type] || []) {
+      const v = l.paint?.[prop];
+      if (v !== undefined && typeof v !== 'number') continue;
+      const from = l.type === 'fill-extrusion' ? 15 : 12;
+      l.paint = { ...(l.paint || {}), [prop]: ['interpolate', ['linear'], ['zoom'], from, 0, from + 1.5, v ?? 1] };
+    }
   }
   st.projection = { type: 'globe' };
-  /* Beyond the horizon: the same night as the globe's own frame. */
+  /* Beyond the horizon: nothing. The globe floats on the page (round 4), and
+     it is still drawing underneath at the same camera, so its own halo is the
+     horizon here too. */
   st.sky = {
-    'sky-color': '#050a16',
-    'horizon-color': '#27509c',
-    'fog-color': '#0b1426',
-    'sky-horizon-blend': 0.6,
-    'horizon-fog-blend': 0.5,
-    'fog-ground-blend': 0.85,
-    'atmosphere-blend': ['interpolate', ['linear'], ['zoom'], 0, 1, 8, 0.8, 12, 0],
+    'sky-color': 'rgba(0,0,0,0)',
+    'horizon-color': 'rgba(0,0,0,0)',
+    'fog-color': 'rgba(0,0,0,0)',
+    'sky-horizon-blend': 0,
+    'horizon-fog-blend': 0,
+    'fog-ground-blend': 1,
+    'atmosphere-blend': 0,
   };
   return st;
 }

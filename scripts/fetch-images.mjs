@@ -84,7 +84,7 @@ const MANIFESTS = {
     // A card is at most ~400 CSS px wide, so 960 px covers it at 2x. A 1600 px
     // master would be downloaded by nobody.
     maxWidth: 960,
-    variants: [480],
+    variants: [480, 720],
     // Every record is its own target and is always pinned. `scope` is what the
     // site resolves by, so the rebuilt record keeps it.
     targets: (picks) =>
