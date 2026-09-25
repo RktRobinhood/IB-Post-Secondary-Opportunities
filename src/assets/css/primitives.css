@@ -1291,6 +1291,8 @@
     padding-inline: var(--s4);
   }
   .cal-chip { flex: none; scroll-snap-align: start; }
+  /* Nothing chosen yet: the chips are the whole page, so all of them show. */
+  .cal-scope[data-chosen="false"] .cal-chips { flex-wrap: wrap; overflow-x: visible; }
 }
 .cal-chip { position: relative; align-items: center; white-space: nowrap; }
 /* The box is the state, the chip is the target: the checkbox stays in the
@@ -1517,18 +1519,27 @@
 .dates-panel__note { font-size: .875rem; color: var(--ink-soft); line-height: 1.45; margin: var(--s1) 0 0; }
 /* A date carried over or inferred says so on its date line, as /timeline/ does. */
 .dates-panel__prov { font-weight: 400; color: var(--warn); }
-.dates-panel__src { font-size: .8125rem; margin-top: 2px !important; }
+.dates-panel__src { font-size: .8125rem; }
+/* One row under each date: what missing it costs, the note behind a
+   disclosure, and the source. Three short lines a date on a phone (about
+   90px), not five. An opened note takes a line of its own under the row. */
+.dates-panel__foot {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--s3); row-gap: 0;
+  margin-top: 2px; font-size: .8125rem;
+}
+.dates-panel__foot > .timeline__badge { margin: 0; }
 /* Links a thumb has to hit: 24px tall at least (WCAG 2.5.8). The older school
    panel's rule in site.css strips the underline from every link in the list;
    these are links and look like links. */
-.dates-panel .dates-panel__src a,
+.dates-panel .dates-panel__foot > .dates-panel__src,
 .dates-panel .dates-panel__more a {
   display: inline-flex; align-items: center; min-height: 24px; min-width: 24px;
   color: var(--accent-2); text-decoration: underline; text-underline-offset: 2px;
 }
 /* A date's note is one tap away: the same country-wide line on every school. */
-.dates-panel__why { margin-top: 2px; font-size: .8125rem; }
-.dates-panel__why > summary { cursor: pointer; color: var(--ink-mute); width: max-content; min-height: 24px; }
+.dates-panel__why { font-size: .8125rem; }
+.dates-panel__why > summary { cursor: pointer; color: var(--ink-mute); width: max-content; min-height: 24px; line-height: 24px; }
+.dates-panel__why[open] { order: 1; flex-basis: 100%; }
 .dates-panel__why[open] > summary { color: var(--ink-soft); }
 .dates-panel__all { margin-top: var(--s3); border-top: 1px solid var(--rule); padding-top: var(--s3); }
 .dates-panel__all > summary { cursor: pointer; font-weight: 600; color: var(--accent-2); }

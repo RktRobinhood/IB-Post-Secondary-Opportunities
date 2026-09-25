@@ -48,6 +48,9 @@
     "deadlines": [
       {
         "label": "ETH Zurich - application when an entrance examination will be needed (autumn 2027 entry)",
+        "institutions": [
+          "ch-eth"
+        ],
         "date": "2026-03-31",
         "consequence": "hard",
         "year": "2027 entry",
@@ -57,6 +60,9 @@
       },
       {
         "label": "ETH Zurich - registration for the entrance examination (autumn 2027 entry)",
+        "institutions": [
+          "ch-eth"
+        ],
         "date": "2026-09-15",
         "endDate": "2026-10-15",
         "consequence": "hard",
@@ -67,6 +73,9 @@
       },
       {
         "label": "ETH Zurich - entrance examination sitting (autumn 2027 entry)",
+        "institutions": [
+          "ch-eth"
+        ],
         "date": "2027-01-18",
         "endDate": "2027-01-28",
         "consequence": "hard",
@@ -76,6 +85,9 @@
       },
       {
         "label": "ETH Zurich - ordinary bachelor application period for the autumn semester",
+        "institutions": [
+          "ch-eth"
+        ],
         "date": "2026-12-01",
         "endDate": "2027-03-31",
         "timeOfDay": "23:59",
@@ -91,6 +103,9 @@
       },
       {
         "label": "EPFL - application period for the bachelor, and the deadline for the application fee",
+        "institutions": [
+          "ch-epfl"
+        ],
         "date": "2027-04-30",
         "consequence": "hard",
         "provisional": true,
@@ -100,6 +115,9 @@
       },
       {
         "label": "EPFL - deadline for uploading supporting documents",
+        "institutions": [
+          "ch-epfl"
+        ],
         "date": "2027-07-10",
         "consequence": "hard",
         "provisional": true,
@@ -109,6 +127,9 @@
       },
       {
         "label": "EPFL - final deadline for the diploma itself, after which admission is cancelled",
+        "institutions": [
+          "ch-epfl"
+        ],
         "date": "2027-09-30",
         "consequence": "hard",
         "provisional": true,
@@ -118,6 +139,9 @@
       },
       {
         "label": "EPFL - admission decisions for holders of an IB or EU/EFTA/UK certificate",
+        "institutions": [
+          "ch-epfl"
+        ],
         "date": null,
         "dateState": "not-published",
         "consequence": "indicative",
@@ -131,6 +155,9 @@
       },
       {
         "label": "University of Zurich - application period for the autumn semester",
+        "institutions": [
+          "ch-uzh"
+        ],
         "date": "2027-01-01",
         "endDate": "2027-04-30",
         "consequence": "hard",
@@ -142,6 +169,16 @@
       },
       {
         "label": "Other Swiss universities (Bern, Basel, Geneva, Lausanne, Fribourg, Lucerne, Neuchatel, St Gallen, USI)",
+        "institutions": [
+          "ch-unibe",
+          "ch-unibas",
+          "ch-unige",
+          "ch-unil",
+          "ch-unifr",
+          "ch-unilu",
+          "ch-hsg",
+          "ch-usi"
+        ],
         "date": null,
         "dateState": "varies-by-institution",
         "consequence": "indicative",

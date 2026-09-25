@@ -10,6 +10,7 @@
   "rounds": [
     {
       "id": "rd-kaist-regular-2027",
+      "institutions": ["kr-kaist"],
       "label": "KAIST Regular Admissions, Fall 2027 entry",
       "opens": "2026-11-10",
       "closes": "2027-01-14",
@@ -22,6 +23,7 @@
     },
     {
       "id": "rd-uic-round2-2027",
+      "institutions": ["kr-yonsei-uic"],
       "label": "Yonsei UIC 2nd Round, Fall 2027 entry",
       "consequence": "hard",
       "note": "UIC publishes this round only as \"March, 2027\" for application and documents, with the interview and admission notification in June 2027. No day has been set, so none is shown here. Application fee KRW 150,000 (USD 150 through the Common App). Check the UIC admission page from January 2027.",
@@ -33,6 +35,7 @@
   "milestones": [
     {
       "id": "ms-kaist-recommendation",
+      "institutions": ["kr-kaist"],
       "type": "document",
       "label": "KAIST recommendation letter due (Regular Admissions)",
       "date": "2027-01-21",
@@ -46,6 +49,7 @@
     },
     {
       "id": "ms-kaist-interview",
+      "institutions": ["kr-kaist"],
       "type": "test",
       "label": "KAIST interview (Regular Admissions)",
       "date": "2027-03-03",
@@ -57,6 +61,7 @@
     },
     {
       "id": "ms-uic-round2-open",
+      "institutions": ["kr-yonsei-uic"],
       "type": "open",
       "label": "Yonsei UIC 2nd Round opens for Fall 2027",
       "consequence": "indicative",
@@ -67,6 +72,7 @@
     },
     {
       "id": "ms-uic-round2-result",
+      "institutions": ["kr-yonsei-uic"],
       "type": "result",
       "label": "Yonsei UIC 2nd Round interview and result",
       "consequence": "indicative",
@@ -77,6 +83,7 @@
     },
     {
       "id": "ms-ku-fall-2027",
+      "institutions": ["kr-ku"],
       "type": "submit",
       "label": "Korea University Fall 2027 application",
       "consequence": "hard",

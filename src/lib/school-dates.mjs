@@ -17,10 +17,19 @@
  *     to every school; with several, only the dates that name it are its own.
  *   - **Not another school's dates.** A national route carries every member
  *     institution's dates ("UBC applications close" and "SFU applications
- *     close" on one route). A date whose label names one other Institution of
- *     the same Destination, and not this one, is that Institution's. A date
- *     that names several ("Oxford, Cambridge, medicine … close") is a rule
- *     shared across them, and stays.
+ *     close" on one route). A date that is one school's says so in its record,
+ *     `institutions: [ids]`, and reaches only those schools' pages. That link
+ *     is the rule; reading names out of a label is the fallback for a date
+ *     with none. In the fallback, a date whose label names one other
+ *     Institution of the same Destination, and not this one, is that
+ *     Institution's; a date that names several ("Oxford, Cambridge, medicine
+ *     … close") is a rule shared across them, and stays. The fallback never
+ *     reads a heading that names a place ("British Columbia — …": the
+ *     Destination's name or one of its jurisdictions') as naming a school,
+ *     never counts a word three or more of a country's schools share
+ *     ("Applied", "Sciences"), and never reads an initialism as spelling out
+ *     one school's name when another school carries those letters as a word
+ *     of its own ("LUT" is LUT University).
  *   - **Its own dates.** A profile deadline with no route belongs here when it
  *     names this Institution, and so does every date in the school's own
  *     record (data/schools/).
@@ -37,12 +46,12 @@
 import { html, raw } from './html.mjs';
 import { url, SITE } from './layout.mjs';
 import {
-  allEvents, consequenceOf, eventKind, formatWhen, identityWords, isActionable, isForEarlierEntry, mergeTwins, nameMatch, sortKey,
+  allEvents, consequenceOf, eventKind, formatWhen, identityWords, initialismOf, isActionable, isForEarlierEntry, mergeTwins, nameMatch, sortKey,
 } from './calendar.mjs';
 
 /** How many dates show before the disclosure, on a wide screen and on a phone. */
 export const PANEL_FIRST = 3;
-export const PANEL_FIRST_NARROW = 2;
+export const PANEL_FIRST_NARROW = 3;
 
 /** The entry year the site is built for ("Autumn 2027" → 2027). */
 const CYCLE_YEAR = Number(String(SITE.cycle?.intake || '').match(/\d{4}/)?.[0]) || null;
@@ -82,8 +91,8 @@ function namesOf(record) {
  * How completely a label names a record: the share of the record's identifying
  * words the label contains, or 1 for an initialism spelled out ("RSU").
  */
-function coverage(label, record, ignore) {
-  return strengthOf(label, record, ignore).c;
+function coverage(label, record, ignore, weak) {
+  return strengthOf(label, record, ignore, weak).c;
 }
 
 /**
@@ -92,7 +101,7 @@ function coverage(label, record, ignore) {
  * initialism takes one of its own). Of two names a label covers completely,
  * the one it spells out further wins.
  */
-function strengthOf(label, record, ignore = new Set()) {
+function strengthOf(label, record, ignore = new Set(), weak = new Set()) {
   let best = { c: 0, s: 0, words: new Set() };
   const better = (c, s, words) => {
     if (c > best.c || (c === best.c && s > best.s)) best = { c, s, words };
@@ -106,12 +115,18 @@ function strengthOf(label, record, ignore = new Set()) {
     const words = new Set([...identityWords(n)].filter((w) => !ignore.has(w)));
     if (!words.size) continue;
     const shared = new Set([...words].filter((w) => have.has(w)));
-    better(shared.size / words.size, shared.size, shared);
+    /* Words many schools share ("Hong Kong", "Dubai", "Applied Sciences")
+       count toward a name the label also names by a word of its own, never
+       on their own. */
+    if ([...shared].some((w) => !weak.has(w))) better(shared.size / words.size, shared.size, shared);
     /* An initialism in the label for a name written out in the record: the
        match counts one more than the words the two share (ignored words
        included, or a shared "Maastricht" reads as an initialism). */
     const sharedAll = [...identityWords(n)].filter((w) => have.has(w)).length;
-    if (n.split(/\s+/).length > 1 && nameMatch(label, n) > sharedAll) better(1, shared.size + 1, new Set([...shared, `#${n}`]));
+    const acr = n.split(/\s+/).length > 1 && initialismOf(label, n);
+    /* Marked "#<letters>": a school whose name carries those letters as a
+       word takes them first (namedIn), so this counts a little less. */
+    if (acr && nameMatch(label, n) > sharedAll) better(1, shared.size + 0.5, new Set([...shared, `#${acr.toLowerCase()}`]));
   }
   return best;
 }
@@ -122,15 +137,19 @@ function strengthOf(label, record, ignore = new Set()) {
  * out further is not named: "TU Delft …" names TU Delft and not TU/e, whose
  * "TU" it shares; "Oxford, Cambridge, medicine …" names both universities.
  */
-function namedIn(label, records, threshold = 1, ignore) {
-  const scored = records.map((r) => ({ r, ...strengthOf(label, r, ignore) })).filter((x) => x.c >= threshold);
+function namedIn(label, records, threshold = 1, ignore, weak) {
+  const scored = records.map((r) => ({ r, ...strengthOf(label, r, ignore, weak) })).filter((x) => x.c >= threshold);
   if (!scored.length) return [];
   const top = Math.max(...scored.map((x) => x.c));
   const taken = new Set();
   const out = [];
+  /* An initialism is taken by a school that carries those letters as a word
+     of its name ("LUT" in "LUT University"), never by another initialism:
+     "UAS" names every University of Applied Sciences alike. */
+  const isTaken = (w) => taken.has(w.startsWith('#') ? w.slice(1) : w);
   for (const x of scored.filter((x) => x.c === top).sort((a, b) => b.s - a.s)) {
-    if (x.words.size && [...x.words].every((w) => taken.has(w))) continue;
-    for (const w of x.words) taken.add(w);
+    if (x.words.size && [...x.words].every(isTaken)) continue;
+    for (const w of x.words) if (!w.startsWith('#')) taken.add(w);
     out.push(x.r);
   }
   return out;
@@ -138,6 +157,44 @@ function namedIn(label, records, threshold = 1, ignore) {
 
 /** A page's Institution carries its Destination as an object; a record, as an id. */
 const destinationCode = (inst) => inst.destination?.code || inst.destination;
+
+/**
+ * A label with a heading that names a place taken off: "British Columbia —
+ * Simon Fraser University applications close" is about Simon Fraser, and the
+ * words before the dash say where, not who. The places are the Destination's
+ * own names and its jurisdictions' names, read off the records. A heading
+ * that is not a place ("UBC - accept the offer") stays.
+ */
+function withoutPlaceHeading(label, places) {
+  const text = String(label || '');
+  const m = text.match(/^\s*([^—–:]+?)\s+[—–-]\s+(.+)$/) || text.match(/^\s*([^—–:]+?):\s+(.+)$/);
+  if (!m) return text;
+  return places.has(m[1].trim().toLowerCase()) ? m[2] : text;
+}
+
+/** Every name a Destination and its jurisdictions go by, lower case. */
+function placeNames(site, dest) {
+  const d = site.graph?.destinations?.get(dest);
+  const c = (site.countries || []).find((x) => x.code === dest);
+  return new Set(
+    [d?.name, c?.name, c?.articleName, ...(d?.jurisdictions || []).map((j) => j.name)]
+      .filter(Boolean)
+      .map((n) => String(n).trim().toLowerCase())
+  );
+}
+
+/**
+ * The words many of a Destination's schools share ("applied", "sciences" in
+ * Finland): a word in the names of three or more schools identifies none of
+ * them, so it never names one on its own.
+ */
+function sharedWords(records) {
+  const count = new Map();
+  for (const r of records) {
+    for (const w of new Set(namesOf(r).flatMap((n) => [...identityWords(n)]))) count.set(w, (count.get(w) || 0) + 1);
+  }
+  return new Set([...count].filter(([, n]) => n >= 3).map(([w]) => w));
+}
 
 /** "<route>/<milestone>", the key `supersedes` names. */
 const refOf = (e) => (e.routeId ? `${e.routeId}/${e.id}` : null);
@@ -214,15 +271,45 @@ export function datesFor(site, inst, { programme = null } = {}) {
       .map((i) => ({ id: i.key, name: i.name, shortName: i.shortName, localName: i.localName })),
   ];
   const self = siblings.find((i) => i.id === inst.id) || inst;
+  /* Every id this school's page answers to: its own, and the key of a
+     profile school whose page is this canonical record's. */
+  const selfIds = new Set([
+    inst.id,
+    inst.key,
+    inst.canonicalId,
+    ...(country?.institutions || []).filter((i) => i.canonicalId && i.canonicalId === inst.id).map((i) => i.key),
+  ].filter(Boolean));
   const programmes = inst.programmes || [];
   /* The school's own name says nothing about which of its programmes a date is for. */
   const ownWords = new Set(namesOf(self).flatMap((n) => [...identityWords(n)]));
   const programmesNamed = (e) => namedIn(e.label, programmes, 0.5, ownWords);
 
-  const namesSelfIn = (e, named = namedIn(e.label, siblings)) => named.includes(self) || coverage(e.label, inst) >= 1;
+  /* A date tied to schools by id is theirs and only theirs. One that is not
+     falls back to its label: who it names, with a place heading taken off
+     and the words most schools share ignored. */
+  const places = placeNames(site, dest);
+  const common = sharedWords(siblings);
+  const who = (e) => withoutPlaceHeading(e.label, places);
+  const tied = (e) => (e.institutions || []).length > 0;
+  const tiedToSelf = (e) => e.institutions.some((id) => selfIds.has(id));
+  /* Whether a label names this school is asked alongside every other school
+     of the country, so an initialism another school holds outright ("CUHK",
+     "HKU") never names this one too. A page whose school is not among them
+     is asked on its own. */
+  const listed = siblings.includes(self);
+  const namesSelfIn = (e, named = namedIn(who(e), siblings, 1, undefined, common)) =>
+    tied(e) ? tiedToSelf(e) : listed ? named.includes(self) : coverage(who(e), inst, undefined, common) >= 1;
   const national = siteEvents(site).filter((e) => {
     if (e.destination !== dest || !isActionable(e) || isForEarlierEntry(e, CYCLE_YEAR)) return false;
-    const named = namedIn(e.label, siblings);
+    if (tied(e)) {
+      if (!tiedToSelf(e)) return false;
+      if (programme) {
+        const progs = programmesNamed(e);
+        if (progs.length && !progs.some((p) => p.id === programme.id)) return false;
+      }
+      return true;
+    }
+    const named = namedIn(who(e), siblings, 1, undefined, common);
     const namesSelf = namesSelfIn(e, named);
     /* Its routes' dates, and any date that names it. */
     if (!namesSelf && !(e.routeId && routes.has(e.routeId))) return false;
@@ -267,7 +354,8 @@ function restated(national, own, namesSelf) {
   const onDay = new Map(own.map((d) => [d.date, d]));
   const out = [];
   for (const e of national) {
-    const window = e.routeId && e.endDate && e.endDate !== e.date;
+    /* A route's window, or a window that names this school. */
+    const window = e.endDate && e.endDate !== e.date && (e.routeId || namesSelf(e));
     if (window && (opens.has(e.date) || closes.has(e.endDate))) {
       const close = closes.get(e.endDate);
       if (close) close.note = close.note || e.note;
@@ -321,15 +409,32 @@ export function sessionsFor(site, inst, { programme = null } = {}) {
 }
 
 /**
- * The order a school's dates are read in: the next binding deadline first,
- * because that is the date a student came for, then everything else by date.
- * Opening days and steps to set yourself come earlier in the year and used to
- * push the deadline behind the fold (dates-panel.js keeps this order as dates
- * pass).
+ * The order a school's dates are read in: every binding deadline first, by
+ * date, because those are the dates a student came for, then everything else
+ * by date. Opening days and steps to set yourself come earlier in the year
+ * and used to take the visible slots while a second deadline waited behind
+ * the fold (SDU's uniTEST behind "Optagelse.dk opens"). dates-panel.js keeps
+ * this order as dates pass.
  */
 export function leadOrder(events) {
-  const lead = events.find(isBinding);
-  return lead ? [lead, ...events.filter((e) => e !== lead)] : events;
+  return [...events.filter(isBinding), ...events.filter((e) => !isBinding(e))];
+}
+
+/**
+ * The short list and the rest: the first `n` in lead order show, and the rest
+ * wait behind the disclosure in date order, where a student looking for one
+ * date looks for it.
+ */
+export function splitPanel(events, n) {
+  const head = leadOrder(events).slice(0, n);
+  return { head, rest: events.filter((e) => !head.includes(e)) };
+}
+
+/** A Destination as a sentence names it: "the Netherlands", "Denmark". */
+function countryLabel(site, code) {
+  const c = (site.countries || []).find((x) => x.code === code);
+  const d = site.graph?.destinations?.get(code) || (site.destinations || []).find((x) => x.code === code);
+  return c?.articleName || c?.name || d?.articleName || d?.name || null;
 }
 
 /* --- Rendering ----------------------------------------------------------------- */
@@ -345,23 +450,30 @@ function sourceOf(site, e) {
 
 const endOf = (e) => e.endDate || e.date;
 
+/**
+ * One date: the day, what it is, and one compact row under it with what
+ * missing it costs, the note behind a disclosure and the source. On a phone
+ * that is three short lines, about 90 px, where it was five.
+ */
 function dateItem(site, e) {
   const c = consequenceOf(e);
   const src = sourceOf(site, e);
   /* The whole note, behind its disclosure: opening a detail shows all of it. */
   const paras = String(e.note || '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  const badge = e.consequence && e.consequence !== 'indicative'
+    ? html`<span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>`
+    : '';
   return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(isBinding(e) ? ' data-binding="true"' : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html` <span class="dates-panel__prov">· provisional</span>` : ''}</p>
     <p class="dates-panel__what">${e.label}</p>
-    ${e.consequence && e.consequence !== 'indicative'
-      ? html`<p class="dates-panel__meta"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span></p>`
+    ${badge || paras.length || src
+      ? html`<div class="dates-panel__foot">${badge}${
+          /* The note is the same on every school in a country, so it waits
+             behind a disclosure rather than repeating as prose on every page. */
+          paras.length
+            ? html`<details class="dates-panel__why"><summary>Note</summary>${paras.map((p) => html`<p class="dates-panel__note">${p}</p>`)}</details>`
+            : ''}${src ? html`<a class="dates-panel__src" href="${src}" rel="noopener nofollow" aria-label="Source for ${e.label}">Source</a>` : ''}</div>`
       : ''}
-    ${/* The note is the same on every school in a country, so it waits
-          behind a disclosure rather than repeating as prose on every page. */
-      paras.length
-        ? html`<details class="dates-panel__why"><summary>Note</summary>${paras.map((p) => html`<p class="dates-panel__note">${p}</p>`)}</details>`
-        : ''}
-    ${src ? html`<p class="dates-panel__src"><a href="${src}" rel="noopener nofollow" aria-label="Source for ${e.label}">Source</a></p>` : ''}
   </li>`;
 }
 
@@ -383,40 +495,44 @@ function sessionItem(s) {
     <p class="dates-panel__when">${formatWhen(s)}</p>
     <p class="dates-panel__what"><a href="${s.url}" rel="noopener nofollow">${s.title}</a></p>
     <p class="dates-panel__meta">${SESSION_KIND[s.kind] || SESSION_KIND.other} · ${where}${s.registration === 'required' ? ' · sign-up needed' : ''}</p>
-    ${s.audienceNote || s.note ? html`<details class="dates-panel__why"><summary>Note</summary><p class="dates-panel__note">${s.audienceNote || s.note}</p></details>` : ''}
-    <p class="dates-panel__src"><a href="${s.source}" rel="noopener nofollow" aria-label="Source for ${s.title}">Source</a></p>
+    <div class="dates-panel__foot">${s.audienceNote || s.note ? html`<details class="dates-panel__why"><summary>Note</summary><p class="dates-panel__note">${s.audienceNote || s.note}</p></details>` : ''}<a class="dates-panel__src" href="${s.source}" rel="noopener nofollow" aria-label="Source for ${s.title}">Source</a></div>
   </li>`;
 }
 
 /**
- * The "Deadlines & sessions" panel. Past dates are left out at build time and
- * again in the browser (`dates-panel.js`), because a page can sit in a tab for
- * a week; the next binding deadline leads, the next few dates follow, and the
- * rest are one tap away.
+ * The school's dates panel: "Deadlines", or "Deadlines & sessions" where it
+ * has sessions to list. Past dates are left out at build time and again in
+ * the browser (`dates-panel.js`), because a page can sit in a tab for a week;
+ * every binding deadline leads, then the next few dates, and the rest are one
+ * tap away.
  *
  * `countryName`, when given, keeps the panel on a page whose school has no
  * dates of its own yet: one line into that country's dates, never a sentence
- * saying there are none.
+ * saying there are none. The link reads "Every date in <country>" on every
+ * page, the country named from its record when the caller does not say.
  */
 export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null } = {}) {
-  const events = leadOrder(datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today));
+  const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today);
   const sessions = sessionsFor(site, inst, { programme }).filter((s) => endOf(s) >= today);
   const calendarLink = `/timeline/?destinations=${destinationCode(inst)}`;
+  const where = countryName || countryLabel(site, destinationCode(inst)) || 'this country';
+  const everyDate = html`<p class="dates-panel__more"><a href="${url(calendarLink)}">Every date in ${where}</a></p>`;
   if (!events.length && !sessions.length) {
     return countryName
       ? html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title">
-          <h2 class="dates-panel__title" id="${id}-title">Deadlines &amp; sessions</h2>
-          <p class="dates-panel__more"><a href="${url(calendarLink)}">Dates in ${countryName}</a></p>
+          <h2 class="dates-panel__title" id="${id}-title">Deadlines</h2>
+          ${everyDate}
         </section>`
       : '';
   }
 
-  const first = events.slice(0, PANEL_FIRST);
-  const rest = events.slice(PANEL_FIRST);
+  const { head: first, rest } = splitPanel(events, PANEL_FIRST);
   const whose = programme ? 'this programme' : 'this school';
+  /* No sessions recorded: the panel is named for what it holds. */
+  const title = sessions.length ? 'Deadlines & sessions' : 'Deadlines';
 
   return html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title" data-dates-panel data-first="${PANEL_FIRST}" data-first-narrow="${PANEL_FIRST_NARROW}">
-    <h2 class="dates-panel__title" id="${id}-title">Deadlines &amp; sessions</h2>
+    <h2 class="dates-panel__title" id="${id}-title">${title}</h2>
     ${events.length
       ? html`<ol class="dates-panel__list" data-dates-head>${first.map((e) => dateItem(site, e))}</ol>
           ${rest.length
@@ -430,6 +546,6 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
       ? html`<h3 class="dates-panel__sub">Upcoming sessions</h3>
           <ol class="dates-panel__list" data-sessions>${sessions.map(sessionItem)}</ol>`
       : ''}
-    <p class="dates-panel__more"><a href="${url(calendarLink)}">Every date in ${countryName || 'this country'}</a></p>
+    ${everyDate}
   </section>`;
 }

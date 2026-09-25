@@ -9,11 +9,11 @@
   "applicationSystem": "us-common-app",
   "portalUrl": "https://www.commonapp.org/",
   "milestones": [
-    { "id": "ms-cn-ca-nyush-ed1", "type": "submit", "label": "NYU Shanghai Early Decision I (binding)", "date": "2026-11-01", "timeOfDay": "23:59", "timeZone": "EST", "consequence": "hard", "provisional": true, "note": "NYU prints 1 November with no year.", "evidence": ["ev-cn-nyush-apply"] },
+    { "id": "ms-cn-ca-nyush-ed1", "institutions": ["cn-nyu-shanghai"], "type": "submit", "label": "NYU Shanghai Early Decision I (binding)", "date": "2026-11-01", "timeOfDay": "23:59", "timeZone": "EST", "consequence": "hard", "provisional": true, "note": "NYU prints 1 November with no year.", "evidence": ["ev-cn-nyush-apply"] },
     { "id": "ms-cn-ca-dku-ed", "type": "submit", "label": "Duke Kunshan Early Decision (binding)", "date": "2026-11-02", "timeOfDay": "23:59", "timeZone": "ET", "consequence": "hard", "evidence": ["ev-cn-dku-dates"] },
-    { "id": "ms-cn-ca-nyush-ed2", "type": "submit", "label": "NYU Shanghai Early Decision II (binding)", "date": "2027-01-01", "timeOfDay": "23:59", "timeZone": "EST", "consequence": "hard", "provisional": true, "evidence": ["ev-cn-nyush-apply"] },
+    { "id": "ms-cn-ca-nyush-ed2", "institutions": ["cn-nyu-shanghai"], "type": "submit", "label": "NYU Shanghai Early Decision II (binding)", "date": "2027-01-01", "timeOfDay": "23:59", "timeZone": "EST", "consequence": "hard", "provisional": true, "evidence": ["ev-cn-nyush-apply"] },
     { "id": "ms-cn-ca-dku-rd", "type": "submit", "label": "Duke Kunshan Regular Decision", "date": "2027-01-04", "timeOfDay": "23:59", "timeZone": "ET", "consequence": "hard", "evidence": ["ev-cn-dku-dates"] },
-    { "id": "ms-cn-ca-nyush-rd", "type": "submit", "label": "NYU Shanghai Regular Decision", "date": "2027-01-05", "timeOfDay": "23:59", "timeZone": "EST", "consequence": "hard", "provisional": true, "note": "NYU prints 5 January with no year.", "evidence": ["ev-cn-nyush-apply"] },
+    { "id": "ms-cn-ca-nyush-rd", "institutions": ["cn-nyu-shanghai"], "type": "submit", "label": "NYU Shanghai Regular Decision", "date": "2027-01-05", "timeOfDay": "23:59", "timeZone": "EST", "consequence": "hard", "provisional": true, "note": "NYU prints 5 January with no year.", "evidence": ["ev-cn-nyush-apply"] },
     { "id": "ms-cn-ca-ib-results", "type": "result", "label": "IB results released", "date": "2027-07-06", "consequence": "indicative", "provisional": true, "ibCalendar": "2027-05/results-day", "evidence": ["ev-ib-results-day-2027-05"] }
   ],
   "supplementarySteps": [

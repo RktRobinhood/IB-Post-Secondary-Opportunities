@@ -64,6 +64,16 @@ const firstClause = (text, words = 12) =>
     80
   );
 
+/**
+ * A profile's answer for a fact tile, whole or not at all: its first clause
+ * when that is six words or fewer ("All courses in English"), never a clause
+ * cut short ("All courses in"). A longer answer is left to the page's text.
+ */
+const shortClause = (text) => {
+  const clause = firstClause(text, 99);
+  return clause && clause.split(/\s+/).length <= 6 ? clause : null;
+};
+
 /** The one page a student goes on to: the record's hand-off, else admissions. */
 function handoffOf(inst) {
   if (inst.school?.handoff) return inst.school.handoff;
@@ -198,7 +208,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
       ? school.courses ? `${school.courses} courses` : 'Nearly everything'
       : school?.scope === 'none'
       ? 'Nothing'
-      : firstClause(inst.englishBachelors, 3) || null;
+      : shortClause(inst.englishBachelors);
 
   const ibLink = (u, label) => html`<p><a href="${u}" rel="noopener nofollow">${label}<span aria-hidden="true"> ↗</span></a></p>`;
   const notes = school?.notes?.length ? school.notes : [];

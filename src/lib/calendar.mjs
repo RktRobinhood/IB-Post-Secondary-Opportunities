@@ -287,6 +287,9 @@ export function fromCountryDeadline(country, entry, index) {
        no consumer produces a workaround repeated by everyone who meets it —
        `sources` and `audience` both did exactly that. */
     ibCalendar: clean(entry.ibCalendar),
+    /* The institutions this date belongs to, by page id, when it is one
+       school's date on a route many schools share (see fromRouteMilestone). */
+    institutions: idList(entry.institutions),
     /* Both spellings, because both are allowed and only one was read.
        `test-calendar.mjs` whitelists `sources` as a legal field on a deadline
        entry, and this took `source` alone — so a researcher who recorded a
@@ -332,6 +335,11 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     /* The general date this one replaces where it is shown ("<route>/<milestone>");
        read by a school's own list (school-dates.mjs), never by the calendar. */
     supersedes: clean(milestone.supersedes),
+    /* The institutions this date is for, by id, when it is one school's date
+       on a route several share ("UBC applications close" on the British
+       Columbia route). A school's page shows it only if its id is here; the
+       calendar shows it as it always did. Read by school-dates.mjs. */
+    institutions: idList(milestone.institutions),
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: milestone.evidence || [],
@@ -364,6 +372,7 @@ export function fromRouteRound(route, round, destinationName) {
     provisional: false,
     intake: route.intake || null,
     note: clean(round.note),
+    institutions: idList(round.institutions),
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: round.evidence || [],
@@ -406,6 +415,11 @@ export function fromClosedRoute(route, destinationName) {
     access: readerAccessOf(route.readerAccess),
     origin: 'route',
   };
+}
+
+/** A list of record ids, or an empty list. */
+function idList(v) {
+  return Array.isArray(v) ? [...new Set(v.map(clean).filter(Boolean))] : [];
 }
 
 function isIso(v) {
@@ -472,6 +486,11 @@ export function identityWords(label) {
  * the application".
  */
 function spellsOut(a, b) {
+  return Boolean(initialismOf(a, b));
+}
+
+/** The initialism in `a` that spells out a name written in `b`, or null. */
+export function initialismOf(a, b) {
   const plain = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   /* Three letters at least: two matched "EU" to "Erasmus University". */
   const initialisms = plain(a).match(/\b[A-Z]{3,6}\b/g) || [];
@@ -489,7 +508,7 @@ function spellsOut(a, b) {
     }
     return named.slice(i, w).join('') !== acr;
   };
-  return initialisms.some((acr) => named.some((_, i) => spells(acr, i)));
+  return initialisms.find((acr) => named.some((_, i) => spells(acr, i))) || null;
 }
 
 const flat = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
@@ -497,12 +516,13 @@ const flat = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0
 /**
  * How strongly two labels name the same thing: shared identifying words, one
  * for an initialism written out, and a decisive score when one label is the
- * other with words added ("Normal closing date - the one that matters").
+ * other with whole words added ("Normal closing date - the one that matters").
+ * Whole words: "HKUST applications close" does not begin with "HKU".
  */
 export function nameMatch(a, b) {
   const fa = flat(a);
   const fb = flat(b);
-  if (fa && fb && (fa.startsWith(fb) || fb.startsWith(fa))) return 99;
+  if (fa && fb && (`${fa} `.startsWith(`${fb} `) || `${fb} `.startsWith(`${fa} `))) return 99;
   const wa = identityWords(a);
   let n = 0;
   for (const w of identityWords(b)) if (wa.has(w)) n++;
@@ -575,6 +595,7 @@ export function mergeTwins(route, profile) {
     intake: route.intake || profile.intake,
     note: unionNotes(route.note, profile.note),
     ibCalendar: route.ibCalendar || profile.ibCalendar,
+    institutions: union(route.institutions, profile.institutions),
     sources: union(route.sources, profile.sources),
     evidence: union(route.evidence, profile.evidence),
     checkedAt: [route.checkedAt, profile.checkedAt].filter(Boolean).sort().at(-1) || null,

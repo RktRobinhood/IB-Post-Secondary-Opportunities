@@ -37,6 +37,7 @@ import {
 import { deadlineList } from '../src/lib/primitives.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
+import { datesFor, leadOrder, isBinding } from '../src/lib/school-dates.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -134,6 +135,8 @@ const ALLOWED = new Set([
   /* Whether the reader can act on this at all (#35). Checked below, and by
      the guard that a closed entry never renders as a date to act on. */
   'readerAccess',
+  /* The schools this date is theirs, by page id (#47): checked below. */
+  'institutions',
 ]);
 
 const problems = [];
@@ -482,6 +485,87 @@ for (const today of ['2026-09-25', '2027-02-01']) {
     assert.deepEqual(missing.map((e) => e.id), [], 'dated events missing from the page');
   });
 }
+
+/* --- A school's dates are its own (#47) ----------------------------------- */
+
+/* Every page a school has, by the id it answers to, and its Destination. */
+const schoolPages = [
+  ...site.countries.flatMap((c) =>
+    c.institutions.filter((i) => !i.canonicalId).map((i) => ({ id: i.key, dest: c.code, inst: { ...i, id: i.key, destination: c.code } }))
+  ),
+  ...site.institutionCatalogue.all.map((i) => ({ id: i.id, dest: i.destination?.code || i.destination, inst: i })),
+];
+const pageIds = new Map(schoolPages.map((p) => [p.id, p.dest]));
+for (const c of site.countries) for (const i of c.institutions) if (i.canonicalId) pageIds.set(i.key, c.code);
+
+check('every date tied to schools names schools that have a page, in its own country', () => {
+  const bad = [];
+  const look = (where, dest, ids) => {
+    if (ids === undefined) return;
+    if (!Array.isArray(ids) || !ids.length) return bad.push(`${where}: institutions must be a non-empty list`);
+    for (const id of ids) if (pageIds.get(id) !== dest) bad.push(`${where}: "${id}" is not a school page in ${dest}`);
+  };
+  for (const r of site.graph.applicationRoutes.values()) {
+    for (const x of [...(r.rounds || []), ...(r.milestones || [])]) look(`${r.id}/${x.id}`, r.destination, x.institutions);
+  }
+  for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => look(`${c.code}.deadlines[${i}]`, c.code, d.institutions));
+  if (bad.length) throw new Error(`${bad.length} bad ties\n          ${bad.slice(0, 20).join('\n          ')}`);
+});
+
+check('every date a school says it replaces is a real route date', () => {
+  const refs = new Set([...site.graph.applicationRoutes.values()].flatMap((r) => [...(r.milestones || []), ...(r.rounds || [])].map((m) => `${r.id}/${m.id}`)));
+  const bad = [];
+  for (const r of site.graph.applicationRoutes.values()) for (const m of r.milestones || []) if (m.supersedes && !refs.has(m.supersedes)) bad.push(`${r.id}/${m.id} → ${m.supersedes}`);
+  for (const c of site.countries) for (const i of c.institutions) for (const d of i.school?.dates || []) if (d.supersedes && !refs.has(d.supersedes)) bad.push(`${i.key} "${d.label}" → ${d.supersedes}`);
+  if (bad.length) throw new Error(`${bad.length} dangling supersedes\n          ${bad.join('\n          ')}`);
+});
+
+/* The wrong-school scan. On every school page, a date that is not tied to
+   schools by id and whose label names one other school of the same country,
+   by its full name or its short name as whole words, and not this one, is
+   that other school's date on the wrong page (#47: SFU's dates on UBC's page
+   because "British Columbia —" completed UBC's name). A label naming several
+   other schools is a shared rule ("Oxford, Cambridge, medicine …") and is
+   left to the tie: a date that is only those schools' carries `institutions`. */
+const fold = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, "'");
+const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const namesOfPage = (r) =>
+  [r.name, r.shortName, r.localName].filter(Boolean)
+    .flatMap((n) => { const m = n.match(/^(.*?)\s*\(([^)]+)\)\s*$/); return m ? [m[1], m[2]] : [n]; })
+    .filter((n) => n.length >= 3);
+const mentions = (label, n) => {
+  const N = fold(n);
+  return new RegExp(`(^|[^A-Za-z0-9])${escRe(N)}($|[^A-Za-z0-9])`, /\s/.test(N.trim()) ? 'i' : '').test(fold(label));
+};
+const byDest = new Map();
+for (const p of schoolPages) byDest.set(p.dest, [...(byDest.get(p.dest) || []), p]);
+const schoolToday = new Date().toISOString().slice(0, 10);
+const wrongSchool = [];
+let panelsChecked = 0;
+const bindingLate = [];
+for (const p of schoolPages) {
+  const own = namesOfPage(p.inst);
+  const others = byDest.get(p.dest).filter((q) => q !== p);
+  const shown = datesFor(site, p.inst).filter((e) => e.date && (e.endDate || e.date) >= schoolToday);
+  panelsChecked++;
+  for (const e of shown) {
+    if ((e.institutions || []).length) continue;
+    if (own.some((n) => mentions(e.label, n))) continue;
+    let named = others.filter((q) => namesOfPage(q.inst).some((n) => mentions(e.label, n)));
+    named = named.filter((q) => !named.some((o) => o !== q && namesOfPage(o.inst).some((on) => namesOfPage(q.inst).some((qn) => on !== qn && fold(on).includes(fold(qn)) && mentions(e.label, on)))));
+    if (named.length === 1) wrongSchool.push(`${p.id}: "${e.label}" is ${named[0].id}'s`);
+  }
+  /* Binding before soft: in the panel's order no soft date comes before a binding one. */
+  const order = leadOrder(shown);
+  const firstSoft = order.findIndex((e) => !isBinding(e));
+  if (firstSoft >= 0 && order.slice(firstSoft).some(isBinding)) bindingLate.push(p.id);
+}
+check(`no school page shows another school's date (${panelsChecked} pages)`, () => {
+  if (wrongSchool.length) throw new Error(`${wrongSchool.length} dates on the wrong page\n          ${wrongSchool.slice(0, 25).join('\n          ')}`);
+});
+check('every binding date comes before any soft one on a school page', () => {
+  if (bindingLate.length) throw new Error(`soft before binding on ${bindingLate.join(', ')}`);
+});
 
 /* --- Progress ------------------------------------------------------------- */
 

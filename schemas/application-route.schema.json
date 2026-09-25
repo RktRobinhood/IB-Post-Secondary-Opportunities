@@ -89,6 +89,9 @@
           "decisionBy": {
             "$ref": "common.schema.json#/$defs/isoDate"
           },
+          "institutions": {
+            "$ref": "common.schema.json#/$defs/institutionRefs"
+          },
           "consequence": {
             "$ref": "common.schema.json#/$defs/consequence"
           },
@@ -183,6 +186,9 @@
           },
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
+          },
+          "institutions": {
+            "$ref": "common.schema.json#/$defs/institutionRefs"
           },
           "supersedes": {
             "type": "string",

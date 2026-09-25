@@ -18,11 +18,20 @@
  * With this script blocked, a student sees every country's next ten dates, and
  * every date one tap away — more than they need, rather than nothing at all.
  */
-import { interest, set as setExploration, explicit, SOURCE_WORDING } from './exploration.js';
+import { interest, set as setExploration, explicit } from './exploration.js';
 
 const NEXT_UP = 10;
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthName = (k) => `${MONTHS[Number(k.slice(5, 7)) - 1]} ${k.slice(0, 4)}`;
+
+/* Where the chosen countries came from, as the end of one short sentence:
+   "Dates for Denmark, from the link you followed." */
+const FROM = {
+  url: 'from the link you followed',
+  list: 'from the countries you are exploring',
+  compare: 'from the countries you are comparing',
+  profile: 'from your profile',
+};
 
 const scope = document.getElementById('cal-scope');
 if (scope) {
@@ -134,11 +143,20 @@ if (scope) {
     showChosen();
   }
 
-  /* On a phone the chips scroll sideways; the first chosen one is brought
-     into the strip's view, without moving the page. */
+  /* On a phone, with a country chosen, the chips are one row that scrolls
+     sideways, and it starts at the first chosen chip, without moving the page.
+     With none chosen the chips are all there is to do, so every one of them
+     shows, wrapped (primitives.css, [data-chosen]); no country waits
+     off-screen behind the first few in the alphabet. */
   function showChosen() {
     const chip = scope.querySelector('input[name="scope"]:checked')?.closest('label');
-    if (!chip || !chipStrip || chipStrip.scrollWidth <= chipStrip.clientWidth) return;
+    scope.dataset.chosen = chip ? 'true' : 'false';
+    if (!chipStrip) return;
+    if (!chip) {
+      chipStrip.scrollLeft = 0;
+      return;
+    }
+    if (chipStrip.scrollWidth <= chipStrip.clientWidth) return;
     const off = chip.getBoundingClientRect().left - chipStrip.getBoundingClientRect().left;
     chipStrip.scrollLeft += off - 16;
   }
@@ -204,7 +222,8 @@ if (scope) {
     } else if (shown === 0) {
       stateLine.textContent = `Nothing ahead for ${listSentence([...codes].map((c) => names.get(c) || c))} yet.`;
     } else {
-      stateLine.textContent = `${listSentence([...codes].map((c) => names.get(c) || c))} — ${SOURCE_WORDING[current.source] || 'your selection'}.`;
+      const from = FROM[current?.source];
+      stateLine.textContent = `Dates for ${listSentence([...codes].map((c) => names.get(c) || c))}${from ? `, ${from}` : ''}.`;
     }
 
     showAll.hidden = !codes;
