@@ -58,7 +58,8 @@
         "provisional": true,
         "year": "recurring annual date; 2027-specific dates not yet published",
         "notes": "Published as \"1 February\" with no year; the year here is inferred from the intake this profile covers. Certified academic transcripts and previous degree diplomas must reach the university by the same day. The application period opens \"around mid December\", published without a precise day, so there is no opening date here to count down to. Both the deadline page and the FAQ agree that 1 February is the date for an international applicant — and those are the same two pages that contradict each other about 5 June, which is why this is the deadline to use: it is the one for every non-Nordic applicant, and the safe one for Nordic citizens (Danish, Finnish, Icelandic, Norwegian or Swedish).",
-        "source": "https://english.hi.is/study/apply/application-deadline"
+        "source": "https://english.hi.is/study/apply/application-deadline",
+        "yearUnpublished": true
       },
       {
         "label": "Reykjavik University, applications open, EU/EEA residents, autumn",
@@ -67,7 +68,11 @@
         "provisional": true,
         "year": "recurring annual cycle",
         "notes": "Published as \"February 5th\" with no year; the year here is inferred from the intake this profile covers. Nothing can be submitted to Reykjavik University before this day.",
-        "source": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines"
+        "source": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines",
+        "institutionsWithoutPage": [
+          "Reykjavik University"
+        ],
+        "yearUnpublished": true
       },
       {
         "label": "Reykjavik University, EU/EEA residents, autumn",
@@ -76,7 +81,11 @@
         "provisional": true,
         "year": "recurring annual cycle",
         "notes": "Published as \"April 30th\" with no year; the year here is inferred from the intake this profile covers. The window opens on 5 February, which is its own entry. Non-EU/EEA residents run a separate and much earlier cycle — open 5 October, close 31 January, autumn semester only — which does not apply to you as an EU/EEA citizen living in Denmark.",
-        "source": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines"
+        "source": "https://www.ru.is/en/namid/um-namid/application-dates-and-deadlines",
+        "institutionsWithoutPage": [
+          "Reykjavik University"
+        ],
+        "yearUnpublished": true
       },
       {
         "label": "University of Iceland, the 5 June undergraduate deadline — the university's own two pages disagree about whether it is yours",
@@ -102,7 +111,11 @@
         "provisional": true,
         "year": "recurring annual cycle",
         "notes": "Published as \"open at the beginning of March until June 5th\" with no year; the year here is inferred from the intake this profile covers. The March opening is published without a day, so there is no opening date to record. Akureyri says \"EU/EEA residents\" where the University of Iceland says \"Nordic citizens\", and unlike Iceland it says the same thing in one place only — there is no second Akureyri page to contradict it. Non-EEA applicants have earlier deadlines, 1 March for Polar Law and 1 April for everything else, and pay a 50-euro application fee; neither applies to an EU/EEA citizen.",
-        "source": "https://www.unak.is/english/study/application/applications"
+        "source": "https://www.unak.is/english/study/application/applications",
+        "institutionsWithoutPage": [
+          "University of Akureyri"
+        ],
+        "yearUnpublished": true
       },
       {
         "label": "Registration fee payment, University of Iceland and Akureyri",
@@ -114,7 +127,11 @@
         "provisional": true,
         "year": "recurring annual date",
         "notes": "Published as \"The fee needs to be paid by the due date of 4 July\", with no year; the year here is inferred from the intake this profile covers. The fee is ISK 100,000 for a full academic year. The rule on the fees page is the one that matters: if the registration fee is not paid by the due date, the student is considered to have withdrawn from the programme. The University's Help Centre article on the registration fee (https://thjonusta.hi.is/hc/en-gb/articles/21426087664667-Registration-fee) describes a late-payment surcharge and a later, more expensive payment date, but neither figure could be confirmed, so none is given here. Do not plan around paying late.",
-        "source": "https://english.hi.is/study/apply/university-fees"
+        "source": "https://english.hi.is/study/apply/university-fees",
+        "institutionsWithoutPage": [
+          "University of Akureyri"
+        ],
+        "yearUnpublished": true
       }
     ],
     "steps": [

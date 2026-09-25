@@ -290,6 +290,15 @@ export function fromCountryDeadline(country, entry, index) {
     /* The institutions this date belongs to, by page id, when it is one
        school's date on a route many schools share (see fromRouteMilestone). */
     institutions: idList(entry.institutions),
+    /* A date for Institutions that have no page, by name ("Reykjavik
+       University"): it reaches no school page (school-dates.mjs). */
+    institutionsWithoutPage: nameList(entry.institutionsWithoutPage),
+    /* Only for numerus fixus programmes: on a Programme page it shows only
+       where the programme's admission is numerus fixus. */
+    numerusFixusOnly: Boolean(entry.numerusFixusOnly),
+    /* The cited source gives the day and month and no year. Such a date is
+       provisional; scripts/test-calendar.mjs holds the two together. */
+    yearUnpublished: Boolean(entry.yearUnpublished),
     /* Both spellings, because both are allowed and only one was read.
        `test-calendar.mjs` whitelists `sources` as a legal field on a deadline
        entry, and this took `source` alone — so a researcher who recorded a
@@ -340,6 +349,15 @@ export function fromRouteMilestone(route, milestone, destinationName) {
        Columbia route). A school's page shows it only if its id is here; the
        calendar shows it as it always did. Read by school-dates.mjs. */
     institutions: idList(milestone.institutions),
+    /* A date for Institutions that have no page, by name ("Reykjavik
+       University"): it reaches no school page (school-dates.mjs). */
+    institutionsWithoutPage: nameList(milestone.institutionsWithoutPage),
+    /* Only for numerus fixus programmes: on a Programme page it shows only
+       where the programme's admission is numerus fixus. */
+    numerusFixusOnly: Boolean(milestone.numerusFixusOnly),
+    /* The cited source gives the day and month and no year. Such a date is
+       provisional; scripts/test-calendar.mjs holds the two together. */
+    yearUnpublished: Boolean(milestone.yearUnpublished),
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: milestone.evidence || [],
@@ -369,10 +387,19 @@ export function fromRouteRound(route, round, destinationName) {
     type: 'submit',
     consequence: CONSEQUENCE[round.consequence] ? round.consequence : 'indicative',
     audience: route.applicantGroup || 'any',
-    provisional: false,
+    provisional: Boolean(round.provisional),
     intake: route.intake || null,
     note: clean(round.note),
     institutions: idList(round.institutions),
+    /* A date for Institutions that have no page, by name ("Reykjavik
+       University"): it reaches no school page (school-dates.mjs). */
+    institutionsWithoutPage: nameList(round.institutionsWithoutPage),
+    /* Only for numerus fixus programmes: on a Programme page it shows only
+       where the programme's admission is numerus fixus. */
+    numerusFixusOnly: Boolean(round.numerusFixusOnly),
+    /* The cited source gives the day and month and no year. Such a date is
+       provisional; scripts/test-calendar.mjs holds the two together. */
+    yearUnpublished: Boolean(round.yearUnpublished),
     sources: [],
     checkedAt: clean(route.meta?.dataAsOf),
     evidence: round.evidence || [],
@@ -421,6 +448,9 @@ export function fromClosedRoute(route, destinationName) {
 function idList(v) {
   return Array.isArray(v) ? [...new Set(v.map(clean).filter(Boolean))] : [];
 }
+
+/** Names, trimmed and once each. */
+const nameList = idList;
 
 function isIso(v) {
   return typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.trim()) && !Number.isNaN(Date.parse(v));
@@ -489,8 +519,15 @@ function spellsOut(a, b) {
   return Boolean(initialismOf(a, b));
 }
 
-/** The initialism in `a` that spells out a name written in `b`, or null. */
-export function initialismOf(a, b) {
+/**
+ * The initialism in `a` that spells out a name written in `b`, or null.
+ * `toEnd`, for `b` a name rather than a label: the letters must run to the
+ * name's last word, so they spell the whole name or its closing words ("UAS"
+ * for "… University of Applied Sciences"), never a phrase that stops inside
+ * it ("UAT" is not "University of the Arts London"). Under `toEnd` the last
+ * letter must start a word of its own.
+ */
+export function initialismOf(a, b, { toEnd = false } = {}) {
   const plain = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   /* Three letters at least: two matched "EU" to "Erasmus University". */
   const initialisms = plain(a).match(/\b[A-Z]{3,6}\b/g) || [];
@@ -503,9 +540,11 @@ export function initialismOf(a, b) {
     for (let k = 0; k < acr.length; k++) {
       if (named[w]?.[0] === acr[k]) { w++; continue; }
       const prev = named[w - 1];
-      if (k && !inside && prev && prev.slice(1).toUpperCase().includes(acr[k])) { inside++; continue; }
+      const last = k === acr.length - 1;
+      if (k && !inside && !(toEnd && last) && prev && prev.slice(1).toUpperCase().includes(acr[k])) { inside++; continue; }
       return false;
     }
+    if (toEnd && w !== named.length) return false;
     return named.slice(i, w).join('') !== acr;
   };
   return initialisms.find((acr) => named.some((_, i) => spells(acr, i))) || null;
@@ -596,6 +635,12 @@ export function mergeTwins(route, profile) {
     note: unionNotes(route.note, profile.note),
     ibCalendar: route.ibCalendar || profile.ibCalendar,
     institutions: union(route.institutions, profile.institutions),
+    institutionsWithoutPage: union(route.institutionsWithoutPage, profile.institutionsWithoutPage),
+    numerusFixusOnly: Boolean(route.numerusFixusOnly || profile.numerusFixusOnly),
+    /* Either record's doubt about the year stands: a provisional date is
+       never shown as a confirmed one because its twin did not say so. */
+    provisional: Boolean(route.provisional || profile.provisional),
+    yearUnpublished: Boolean(route.yearUnpublished || profile.yearUnpublished),
     sources: union(route.sources, profile.sources),
     evidence: union(route.evidence, profile.evidence),
     checkedAt: [route.checkedAt, profile.checkedAt].filter(Boolean).sort().at(-1) || null,

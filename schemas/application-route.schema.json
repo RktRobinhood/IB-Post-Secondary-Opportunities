@@ -114,6 +114,19 @@
               "withdrawn"
             ],
             "description": "Why there is no date, when there is none. A researched finding — \"there is no central deadline\", \"each institution sets its own\" — is not a missing value, and a milestone that cannot say which it is renders as \"Date not published\", which is a lie about work that was done. Mirrors the states a country profile deadline may declare; src/lib/publication-floor.mjs holds the list and src/lib/calendar.mjs reads it."
+          },
+          "institutionsWithoutPage": {
+            "$ref": "common.schema.json#/$defs/institutionNames"
+          },
+          "yearUnpublished": {
+            "$ref": "common.schema.json#/$defs/yearUnpublished"
+          },
+          "numerusFixusOnly": {
+            "$ref": "common.schema.json#/$defs/numerusFixusOnly"
+          },
+          "provisional": {
+            "type": "boolean",
+            "description": "True when the round's closing date is not confirmed for this cycle (inherited, or its source gives no year). A provisional date must never be shown as a confirmed one."
           }
         },
         "additionalProperties": false
@@ -210,6 +223,15 @@
               "withdrawn"
             ],
             "description": "Why there is no date, when there is none. A researched finding — \"there is no central deadline\", \"each institution sets its own\" — is not a missing value, and a milestone that cannot say which it is renders as \"Date not published\", which is a lie about work that was done. Mirrors the states a country profile deadline may declare; src/lib/publication-floor.mjs holds the list and src/lib/calendar.mjs reads it."
+          },
+          "institutionsWithoutPage": {
+            "$ref": "common.schema.json#/$defs/institutionNames"
+          },
+          "yearUnpublished": {
+            "$ref": "common.schema.json#/$defs/yearUnpublished"
+          },
+          "numerusFixusOnly": {
+            "$ref": "common.schema.json#/$defs/numerusFixusOnly"
           }
         },
         "additionalProperties": false

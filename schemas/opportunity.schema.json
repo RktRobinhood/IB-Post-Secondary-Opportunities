@@ -129,6 +129,10 @@
             },
             "additionalProperties": false
           }
+        },
+        "numerusFixus": {
+          "type": "boolean",
+          "description": "True where places are capped by a numerus fixus and the programme applies its closing date (the Netherlands' 15 January); false where the institution lists the programme as not numerus fixus. Omit when unknown. Dates marked `numerusFixusOnly` are left off a programme recorded false."
         }
       },
       "additionalProperties": false

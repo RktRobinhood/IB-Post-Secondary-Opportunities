@@ -21,15 +21,20 @@
  *     `institutions: [ids]`, and reaches only those schools' pages. That link
  *     is the rule; reading names out of a label is the fallback for a date
  *     with none. In the fallback, a date whose label names one other
- *     Institution of the same Destination, and not this one, is that
- *     Institution's; a date that names several ("Oxford, Cambridge, medicine
- *     … close") is a rule shared across them, and stays. The fallback never
+ *     Institution of the same Destination, or several, and not this one, is
+ *     theirs. The Institutions a label can name are the Destination's school
+ *     pages and the Institutions its records name that have no page
+ *     (`institutionsWithoutPage` on a date, and the publishers of its
+ *     evidence): a date for Reykjavik University, which has no page, reaches
+ *     no school page at all and stays on the Deadlines page. The fallback never
  *     reads a heading that names a place ("British Columbia — …": the
  *     Destination's name or one of its jurisdictions') as naming a school,
  *     never counts a word three or more of a country's schools share
- *     ("Applied", "Sciences"), and never reads an initialism as spelling out
+ *     ("Applied", "Sciences"), never reads an initialism as spelling out
  *     one school's name when another school carries those letters as a word
- *     of its own ("LUT" is LUT University).
+ *     of its own ("LUT" is LUT University), and reads an initialism only as
+ *     a whole name or its closing words ("UAT" is not "University of the Arts
+ *     London").
  *   - **Its own dates.** A profile deadline with no route belongs here when it
  *     names this Institution, and so does every date in the school's own
  *     record (data/schools/).
@@ -41,7 +46,10 @@
  *     the pattern for this one is not a date to act on (`isForEarlierEntry`).
  *   - **On a Programme page, not another programme's dates.** A date that names
  *     one of the school's programmes ("International Business numerus fixus
- *     closes") is shown on that programme's page and not on its siblings'.
+ *     closes") is shown on that programme's page and not on its siblings'. A
+ *     date only for numerus fixus programmes (`numerusFixusOnly`) is not shown
+ *     where the programme is recorded as not numerus fixus
+ *     (`admission.numerusFixus: false`).
  */
 import { html, raw } from './html.mjs';
 import { url, SITE } from './layout.mjs';
@@ -123,7 +131,7 @@ function strengthOf(label, record, ignore = new Set(), weak = new Set()) {
        match counts one more than the words the two share (ignored words
        included, or a shared "Maastricht" reads as an initialism). */
     const sharedAll = [...identityWords(n)].filter((w) => have.has(w)).length;
-    const acr = n.split(/\s+/).length > 1 && initialismOf(label, n);
+    const acr = n.split(/\s+/).length > 1 && initialismOf(label, n, { toEnd: true });
     /* Marked "#<letters>": a school whose name carries those letters as a
        word takes them first (namedIn), so this counts a little less. */
     if (acr && nameMatch(label, n) > sharedAll) better(1, shared.size + 0.5, new Set([...shared, `#${acr.toLowerCase()}`]));
@@ -194,6 +202,78 @@ function sharedWords(records) {
     for (const w of new Set(namesOf(r).flatMap((n) => [...identityWords(n)]))) count.set(w, (count.get(w) || 0) + 1);
   }
   return new Set([...count].filter(([, n]) => n >= 3).map(([w]) => w));
+}
+
+/**
+ * Whether every identifying word of a name is one of a page's names' words or
+ * an initialism of them: "NYU Abu Dhabi" is New York University Abu Dhabi's
+ * own. Lenient on purpose, because a publisher wrongly taken for another
+ * institution would take the page's own dates off it.
+ */
+function spelledBy(name, page) {
+  const words = identityWords(name);
+  return Boolean(words.size) && namesOf(page).some((n) => nameMatch(name, n) >= words.size);
+}
+
+/** Every web host a record gives for itself (its website, admissions page, links), without "www.". */
+function hostsOf(record) {
+  const urls = [];
+  const walk = (v) => {
+    if (typeof v === 'string') { if (/^https?:\/\//.test(v)) urls.push(v); }
+    else if (Array.isArray(v)) v.forEach(walk);
+    else if (v && typeof v === 'object') Object.values(v).forEach(walk);
+  };
+  walk([record.website, record.admissionsUrl, record.links]);
+  return urls.map(hostOf).filter(Boolean);
+}
+function hostOf(u) {
+  try { return new URL(u).hostname.replace(/^www\./, '').toLowerCase(); } catch { return null; }
+}
+/* One host is the other's, or under it: studieren.univie.ac.at is univie.ac.at. */
+const sameSite = (a, b) => a === b || a.endsWith(`.${b}`) || b.endsWith(`.${a}`);
+
+/** A publisher's name without the unit or page after it: "ETH Zurich, Financial Aid Office" → "ETH Zurich". */
+const baseName = (n) => String(n || '').split(/\s+[—–-]\s+|,\s|\s\(/)[0].trim();
+
+/**
+ * The Institutions a Destination's records name that have no page on the
+ * site: the names a date gives in `institutionsWithoutPage`, and the
+ * institutions that publish its evidence. A publisher that is one of the
+ * school pages, or a unit of one ("PEAK — Programs in English at Komaba,
+ * University of Tokyo"), or writes on its web site, is that page's, not
+ * another institution.
+ */
+const pagelessCache = new WeakMap();
+export function institutionsWithoutPages(site, dest, pages) {
+  if (!pagelessCache.has(site)) pagelessCache.set(site, new Map());
+  const cache = pagelessCache.get(site);
+  if (cache.has(dest)) return cache.get(dest);
+  const names = new Set();
+  for (const e of siteEvents(site)) if (e.destination === dest) for (const n of e.institutionsWithoutPage || []) names.add(n);
+  const destOf = (entity) => String(entity || '').split('-')[0];
+  for (const ev of site.graph?.evidence?.values() || []) {
+    if (ev.publisherType !== 'institution' || !ev.publisher) continue;
+    if (!(ev.supports || []).some((s) => destOf(s.entity) === dest)) continue;
+    const full = ev.publisher;
+    /* The publisher is a page when it names or spells one, when its source is
+       on a page's own web site ("Universität Wien" at univie.ac.at is the
+       University of Vienna), or when the evidence is about a page or one of
+       its programmes ("Erasmus School of Economics" for an EUR programme). */
+    const host = hostOf(ev.sourceUrl);
+    const about = (ev.supports || []).map((x) => x.entity);
+    const ownerOf = (id) => site.graph?.opportunities?.get(id)?.institution || id;
+    if (pages.some((p) =>
+      coverage(full, p) >= 1 || coverage(baseName(full), p) >= 1 || spelledBy(baseName(full), p) ||
+      (host && hostsOf(p).some((h) => sameSite(h, host))) ||
+      about.some((id) => ownerOf(id) === p.id)
+    )) continue;
+    names.add(baseName(full));
+  }
+  const out = [...names]
+    .filter((n) => identityWords(n).size && !pages.some((p) => coverage(n, p) >= 1))
+    .map((name) => ({ id: `without-page:${name}`, name, withoutPage: true }));
+  cache.set(dest, out);
+  return out;
 }
 
 /** "<route>/<milestone>", the key `supersedes` names. */
@@ -268,7 +348,7 @@ export function datesFor(site, inst, { programme = null } = {}) {
     ...[...(graph.institutions?.values() || [])].filter((i) => i.destination === dest),
     ...(country?.institutions || [])
       .filter((i) => !i.canonicalId)
-      .map((i) => ({ id: i.key, name: i.name, shortName: i.shortName, localName: i.localName })),
+      .map((i) => ({ id: i.key, name: i.name, shortName: i.shortName, localName: i.localName, website: i.website, admissionsUrl: i.admissionsUrl })),
   ];
   const self = siblings.find((i) => i.id === inst.id) || inst;
   /* Every id this school's page answers to: its own, and the key of a
@@ -289,18 +369,28 @@ export function datesFor(site, inst, { programme = null } = {}) {
      and the words most schools share ignored. */
   const places = placeNames(site, dest);
   const common = sharedWords(siblings);
+  /* Every Institution a label can name: the school pages, and the ones the
+     records name that have no page. */
+  const candidates = [...siblings, ...institutionsWithoutPages(site, dest, siblings)];
   const who = (e) => withoutPlaceHeading(e.label, places);
   const tied = (e) => (e.institutions || []).length > 0;
+  /* A date for Institutions with no page, and none with one, is on no school page. */
+  const forPageless = (e) => !tied(e) && (e.institutionsWithoutPage || []).length > 0;
   const tiedToSelf = (e) => e.institutions.some((id) => selfIds.has(id));
   /* Whether a label names this school is asked alongside every other school
      of the country, so an initialism another school holds outright ("CUHK",
      "HKU") never names this one too. A page whose school is not among them
      is asked on its own. */
   const listed = siblings.includes(self);
-  const namesSelfIn = (e, named = namedIn(who(e), siblings, 1, undefined, common)) =>
+  const namesSelfIn = (e, named = namedIn(who(e), candidates, 1, undefined, common)) =>
     tied(e) ? tiedToSelf(e) : listed ? named.includes(self) : coverage(who(e), inst, undefined, common) >= 1;
+  /* A date only for numerus fixus programmes is not for a page whose every
+     programme is recorded as not numerus fixus (a programme's own page, or a
+     school whose programmes are all open). */
+  const noFixus = scoped.length > 0 && scoped.every((o) => o.admission?.numerusFixus === false);
   const national = siteEvents(site).filter((e) => {
     if (e.destination !== dest || !isActionable(e) || isForEarlierEntry(e, CYCLE_YEAR)) return false;
+    if (e.numerusFixusOnly && noFixus) return false;
     if (tied(e)) {
       if (!tiedToSelf(e)) return false;
       if (programme) {
@@ -309,12 +399,15 @@ export function datesFor(site, inst, { programme = null } = {}) {
       }
       return true;
     }
-    const named = namedIn(who(e), siblings, 1, undefined, common);
+    if (forPageless(e)) return false;
+    const named = namedIn(who(e), candidates, 1, undefined, common);
     const namesSelf = namesSelfIn(e, named);
     /* Its routes' dates, and any date that names it. */
     if (!namesSelf && !(e.routeId && routes.has(e.routeId))) return false;
-    /* One other school named, and not this one: that school's date. */
-    if (named.length === 1 && !namesSelf) return false;
+    /* Another Institution named, with a page or without, and not this one:
+       theirs, never a guess at this school's. A rule several schools share
+       says whose it is with `institutions`. */
+    if (named.length && !namesSelf) return false;
     if (programme) {
       const progs = programmesNamed(e);
       if (progs.length && !progs.some((p) => p.id === programme.id)) return false;

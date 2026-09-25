@@ -16,7 +16,13 @@
       "consequence": "indicative",
       "provisional": true,
       "note": "Published with no year; read onto the 2027 intake.",
-      "evidence": ["ev-cz-muni-how-to-apply"]
+      "evidence": [
+        "ev-cz-muni-how-to-apply"
+      ],
+      "institutions": [
+        "cz-muni"
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-submit-muni-sci",
@@ -25,7 +31,12 @@
       "date": "2027-02-28",
       "consequence": "hard",
       "provisional": true,
-      "evidence": ["ev-cz-muni-how-to-apply"]
+      "evidence": [
+        "ev-cz-muni-how-to-apply"
+      ],
+      "institutions": [
+        "cz-muni"
+      ]
     },
     {
       "id": "ms-submit-muni-fi",
@@ -34,7 +45,12 @@
       "date": "2027-04-30",
       "consequence": "hard",
       "provisional": true,
-      "evidence": ["ev-cz-muni-how-to-apply"]
+      "evidence": [
+        "ev-cz-muni-how-to-apply"
+      ],
+      "institutions": [
+        "cz-muni"
+      ]
     },
     {
       "id": "ms-submit-others",
@@ -43,7 +59,9 @@
       "dateState": "varies-by-institution",
       "consequence": "indicative",
       "note": "Each university, and usually each faculty, sets its own deadline, fee and exam. Most close between February and April; some medical and technical faculties close after IB results.",
-      "evidence": ["ev-cz-studyin-how-to-apply"]
+      "evidence": [
+        "ev-cz-studyin-how-to-apply"
+      ]
     },
     {
       "id": "ms-ib",
@@ -53,10 +71,15 @@
       "consequence": "indicative",
       "provisional": true,
       "ibCalendar": "2027-05/results-day",
-      "evidence": ["ev-ib-results-day-2027-05"]
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ]
     }
   ],
-  "evidence": ["ev-cz-studyin-how-to-apply", "ev-cz-muni-how-to-apply"],
+  "evidence": [
+    "ev-cz-studyin-how-to-apply",
+    "ev-cz-muni-how-to-apply"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-23",

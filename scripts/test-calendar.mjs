@@ -30,6 +30,8 @@ import {
   isClosed,
   READER_ACCESS,
   identityWords,
+  initialismOf,
+  nameMatch,
   sameOccasion,
   sortKey,
   standing,
@@ -137,6 +139,11 @@ const ALLOWED = new Set([
   'readerAccess',
   /* The schools this date is theirs, by page id (#47): checked below. */
   'institutions',
+  /* Institutions with no page, by name; only numerus fixus programmes; the
+     source gives no year (#47 round 3): checked below. */
+  'institutionsWithoutPage',
+  'numerusFixusOnly',
+  'yearUnpublished',
 ]);
 
 const problems = [];
@@ -539,29 +546,156 @@ const mentions = (label, n) => {
 };
 const byDest = new Map();
 for (const p of schoolPages) byDest.set(p.dest, [...(byDest.get(p.dest) || []), p]);
+
+/* Institutions with no page, which the round-2 scan could not see (#47 round
+   3: Reykjavik University's and Akureyri's dates on both Iceland pages). They
+   are collected from the records, not listed here: the names a date gives in
+   `institutionsWithoutPage`, and every institution that publishes evidence
+   for the Destination, cut to the name before a unit ("ETH Zurich, Financial
+   Aid Office"). A publisher that names one of the school pages is that page. */
+const pagelessByDest = new Map();
+{
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return null; } };
+  const urlsOf = (r) => [r.website, r.admissionsUrl, ...Object.values(r.links || {})].filter((u) => typeof u === 'string');
+  const add = (dest, n, ev = null) => {
+    const name = String(n || '').split(/\s+[—–-]\s+|,\s|\s\(/)[0].trim();
+    if (name.length < 4 || !/\s/.test(name)) return;
+    const pages = byDest.get(dest) || [];
+    /* A publisher that names a page, or is spelled by one ("NYU Abu Dhabi"),
+       writes on a page's own site, or is about a page or its programme, is
+       that page. */
+    const size = identityWords(name).size;
+    const h = ev && host(ev.sourceUrl);
+    const about = (ev?.supports || []).map((x) => site.graph.opportunities.get(x.entity)?.institution || x.entity);
+    if (pages.some((q) =>
+      namesOfPage(q.inst).some((qn) => mentions(n, qn) || mentions(qn, name) || nameMatch(name, qn) >= size) ||
+      (h && urlsOf(q.inst).map(host).some((qh) => qh && (qh === h || h.endsWith(`.${qh}`) || qh.endsWith(`.${h}`)))) ||
+      about.includes(q.id)
+    )) return;
+    if (!pagelessByDest.has(dest)) pagelessByDest.set(dest, new Set());
+    pagelessByDest.get(dest).add(name);
+  };
+  for (const e of allEvents(site)) for (const n of e.institutionsWithoutPage || []) add(e.destination, n);
+  for (const ev of site.graph.evidence.values()) {
+    if (ev.publisherType !== 'institution') continue;
+    for (const s of ev.supports || []) {
+      const dest = String(s.entity || '').split('-')[0];
+      if (byDest.has(dest)) add(dest, ev.publisher, ev);
+    }
+  }
+}
+const pagelessNamed = (dest, label) => [...(pagelessByDest.get(dest) || [])].filter((n) => mentions(label, n));
+
 const schoolToday = new Date().toISOString().slice(0, 10);
 const wrongSchool = [];
+const guessed = [];
+const pagelessShown = [];
+const fixusShown = [];
 let panelsChecked = 0;
 const bindingLate = [];
-for (const p of schoolPages) {
+/* One school page's dates, read for three faults. Kept as a function so the
+   faults round 3 found can be fed to it below and must be caught. */
+function scanPage(p, shown) {
+  const out = { wrong: [], guessed: [], pageless: [] };
   const own = namesOfPage(p.inst);
   const others = byDest.get(p.dest).filter((q) => q !== p);
-  const shown = datesFor(site, p.inst).filter((e) => e.date && (e.endDate || e.date) >= schoolToday);
-  panelsChecked++;
   for (const e of shown) {
     if ((e.institutions || []).length) continue;
+    if ((e.institutionsWithoutPage || []).length) out.pageless.push(`${p.id}: "${e.label}" is ${e.institutionsWithoutPage.join(', ')}'s, which has no page`);
     if (own.some((n) => mentions(e.label, n))) continue;
+    /* A date on no route reaches a school page by naming it, in full or by
+       its short name, or by a tie. Anything else was a guess at the name
+       (UAT-UK's test dates on UAL's page: "UAT" read as University of the
+       Arts). */
+    if (!e.routeId && e.origin !== 'school') out.guessed.push(`${p.id}: "${e.label}" names no school on this page and has no tie`);
     let named = others.filter((q) => namesOfPage(q.inst).some((n) => mentions(e.label, n)));
     named = named.filter((q) => !named.some((o) => o !== q && namesOfPage(o.inst).some((on) => namesOfPage(q.inst).some((qn) => on !== qn && fold(on).includes(fold(qn)) && mentions(e.label, on)))));
-    if (named.length === 1) wrongSchool.push(`${p.id}: "${e.label}" is ${named[0].id}'s`);
+    const pageless = pagelessNamed(p.dest, e.label);
+    /* Any other institution named, with a page or without, and not this one. */
+    if (named.length || pageless.length) out.wrong.push(`${p.id}: "${e.label}" is ${[...named.map((q) => q.id), ...pageless].join(', ')}'s`);
+  }
+  return out;
+}
+for (const p of schoolPages) {
+  const shown = datesFor(site, p.inst).filter((e) => e.date && (e.endDate || e.date) >= schoolToday);
+  panelsChecked++;
+  const found = scanPage(p, shown);
+  wrongSchool.push(...found.wrong);
+  guessed.push(...found.guessed);
+  pagelessShown.push(...found.pageless);
+  /* A Programme page recorded as not numerus fixus shows no numerus fixus date. */
+  for (const prog of p.inst.programmes || []) {
+    const opp = site.graph.opportunities.get(prog.opportunityId || prog.id);
+    if (opp?.admission?.numerusFixus !== false) continue;
+    for (const e of datesFor(site, p.inst, { programme: prog }).filter((e) => e.date && (e.endDate || e.date) >= schoolToday)) {
+      if (e.numerusFixusOnly) fixusShown.push(`${prog.id || prog.name}: "${e.label}"`);
+    }
   }
   /* Binding before soft: in the panel's order no soft date comes before a binding one. */
   const order = leadOrder(shown);
   const firstSoft = order.findIndex((e) => !isBinding(e));
   if (firstSoft >= 0 && order.slice(firstSoft).some(isBinding)) bindingLate.push(p.id);
 }
-check(`no school page shows another school's date (${panelsChecked} pages)`, () => {
+check(`no school page shows another institution's date, with a page or without (${panelsChecked} pages, ${[...pagelessByDest.values()].reduce((n, s) => n + s.size, 0)} institutions without a page known)`, () => {
+  assert.ok(pagelessByDest.get('is')?.has('Reykjavik University'), 'the institutions without a page were not collected: Reykjavik University is missing');
   if (wrongSchool.length) throw new Error(`${wrongSchool.length} dates on the wrong page\n          ${wrongSchool.slice(0, 25).join('\n          ')}`);
+});
+check('the scan catches the round-3 faults: Reykjavik and Akureyri on Iceland pages, UAT-UK on UAL', () => {
+  const page = (id) => schoolPages.find((p) => p.id === id);
+  const reykjavik = { label: 'Reykjavik University, EU/EEA residents, autumn', date: '2027-04-30', routeId: 'is-direct-2027', origin: 'route' };
+  const akureyri = { label: 'University of Akureyri: EU/EEA applicants', date: '2027-06-05', routeId: 'is-direct-2027', origin: 'route' };
+  const uat = { label: 'UAT-UK admissions tests (ESAT, TMUA, TARA) - October sitting', date: '2026-10-12', routeId: null, origin: 'profile' };
+  for (const id of ['is-hi', 'is-lhi']) {
+    const found = scanPage(page(id), [reykjavik, akureyri]);
+    assert.equal(found.wrong.length, 2, `${id}: the scan missed the dates of institutions without a page`);
+  }
+  assert.equal(scanPage(page('gb-ual'), [uat]).guessed.length, 1, 'gb-ual: the scan missed UAT-UK read as University of the Arts');
+});
+check('a date for an institution without a page reaches no school page', () => {
+  if (pagelessShown.length) throw new Error(pagelessShown.join('\n          '));
+});
+check('a date on no route reaches a school page by its name or a tie, never a guessed initialism', () => {
+  if (guessed.length) throw new Error(`${guessed.length} guessed\n          ${guessed.slice(0, 25).join('\n          ')}`);
+});
+check('a programme recorded as not numerus fixus shows no numerus fixus date', () => {
+  if (fixusShown.length) throw new Error(fixusShown.join('\n          '));
+});
+check('an initialism names a whole name or its closing words, never a phrase inside it', () => {
+  assert.equal(initialismOf('UAT-UK admissions tests', 'University of the Arts London', { toEnd: true }), null, 'UAT read as University of the Arts London');
+  assert.equal(initialismOf('UAT-UK admissions tests', 'Iceland University of the Arts', { toEnd: true }), null, 'UAT read as University of the Arts (T from inside "Arts")');
+  assert.equal(initialismOf('UBC applications close', 'University of British Columbia', { toEnd: true }), 'UBC');
+  assert.equal(initialismOf('International UAS Exam', 'Laurea University of Applied Sciences', { toEnd: true }), 'UAS');
+  assert.equal(initialismOf('XJTLU closes', "Xi'an Jiaotong-Liverpool University", { toEnd: true }), 'XJTLU');
+});
+
+/* Every dated label that names an institution with no page says so in its
+   record, so the rule does not rest on the name matcher alone. */
+check('every dated label that names an institution without a page carries institutionsWithoutPage or a tie', () => {
+  const bad = allEvents(site)
+    .filter((e) => e.date && isActionable(e) && !(e.institutions || []).length && !(e.institutionsWithoutPage || []).length)
+    .filter((e) => pagelessNamed(e.destination, e.label).length)
+    .map((e) => `${e.destination} "${e.label}" names ${pagelessNamed(e.destination, e.label).join(', ')}`);
+  if (bad.length) throw new Error(bad.join('\n          '));
+});
+
+/* A date whose source gives no year is provisional (#47 round 3: the Dutch
+   1 May, rijksoverheid's and Study in NL's "1 mei", shown as confirmed). The
+   record says so with `yearUnpublished` once its source has been read; a note
+   that says the year is missing must carry the flag. */
+check('a date whose source gives no year is provisional, and says so in a field', () => {
+  const noYear = /\b(no|without a|without any|with no calendar|carries no|gives no|give no) year\b|published with no year|year here is inferred|years here are inferred/i;
+  const bad = [];
+  const look = (where, x) => {
+    if (!x || !(x.date || x.closes || x.opens)) return;
+    if (x.yearUnpublished && !x.provisional) bad.push(`${where}: yearUnpublished but not provisional`);
+    const text = [x.note, x.notes, x.year].filter(Boolean).join(' ');
+    /* `yearUnpublished: false` says the source was read and does give the
+       year, where the note's "no year" is about something else. */
+    if (noYear.test(text) && x.yearUnpublished === undefined) bad.push(`${where}: its note says the source gives no year, but yearUnpublished is not set`);
+  };
+  for (const r of site.graph.applicationRoutes.values()) for (const x of [...(r.rounds || []), ...(r.milestones || [])]) look(`${r.id}/${x.id} "${String(x.label).slice(0, 50)}"`, x);
+  for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => look(`${c.code}.deadlines[${i}] "${String(d.label).slice(0, 50)}"`, d));
+  if (bad.length) throw new Error(`${bad.length}\n          ${bad.join('\n          ')}`);
 });
 check('every binding date comes before any soft one on a school page', () => {
   if (bindingLate.length) throw new Error(`soft before binding on ${bindingLate.join(', ')}`);

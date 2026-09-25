@@ -3496,5 +3496,42 @@
       "method": "read-source",
       "note": "Fetched 2026-09-25 for issue #47. Also read https://www.utwente.nl/en/education/bachelor/programmes/advanced-technology/enrolment/application-deadline/ the same day, which gives \"before 1 May\" (non-EEA), \"before 1 July\" (EEA) and \"before 1 August\" (Dutch) for a completed Osiris application."
     }
+  },
+  {
+    "id": "ev-studielink-2027-2028-dates",
+    "sourceUrl": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028",
+    "publisher": "Studielink",
+    "publisherType": "application-portal",
+    "sourceClass": "admissions-authority",
+    "retrievedAt": "2026-09-26",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Studielink opens for applications for the 2027-2028 academic year on Thursday 1 October 2026, and the closing date for a numerus fixus programme is 15 January 2027. It gives 1 May as the deadline for most other programmes, without a year.",
+    "excerpt": "Vanaf donderdag 1 oktober 2026 is het mogelijk om via Studielink een verzoek tot inschrijving te doen voor studiejaar 2027-2028. [...] De sluitingsdatum voor het registreren van een opleiding met numerus fixus is 15 januari 2027. [...] De meeste andere opleidingen hebben een aanmelddeadline op 1 mei.",
+    "interpretation": "Confirms 1 October 2026 and 15 January 2027 with their years. The 1 May date is given with no year here, as on the government and Study in NL pages, so it stays provisional.",
+    "supports": [
+      {
+        "entity": "nl-studielink-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "nl-maastricht-selection-2027",
+        "field": "milestones"
+      },
+      {
+        "entity": "nl",
+        "field": "application.deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "issue #47 round-3 fixes",
+      "at": "2026-09-26",
+      "method": "read-source",
+      "note": "Studielink news item published 07-09-2026."
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-26"
+    }
   }
 ]
