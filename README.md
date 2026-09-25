@@ -110,7 +110,7 @@ file, which is how the two had come to run different checks from each other.
 | `npm run qa -- --only floor,map` | One or more checks by id, for when you know what you broke. |
 | `npm run qa:list` | The manifest: every check, and the network-dependent ones excluded on purpose. |
 | `npm run validate` | Records against schemas, and every cross-reference. Fails with the file and the field. |
-| `npm run test:eligibility` | 131 scenarios against the eligibility engine. |
+| `npm run test:eligibility` | 143 scenarios against the eligibility engine. |
 | `npm run test:probes` | Guards on the source-matching logic, including the negative cases. |
 | `npm run check` | The built site: structure, internal links, images, accessibility basics. |
 | `npm run check:links` | The above, plus every outbound link. |
@@ -188,7 +188,7 @@ bearing and should not be smoothed over to make the build summary look better.
 These are opinions, encoded, and they are the reason to trust the output.
 
 **Silence means "we do not know", never "not required".** A missing rule produces
-*Needs review*, not a pass. Several of the 131 eligibility scenarios exist purely
+*Needs review*, not a pass. Several of the 143 eligibility scenarios exist purely
 to assert that the engine refuses to be generous.
 
 **Four outcomes, and they mean what they say.** *Meets published requirements* ·

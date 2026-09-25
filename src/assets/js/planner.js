@@ -67,6 +67,7 @@ const options = {
 
 const show = {
   [OUTCOME.MEETS]: true,
+  [OUTCOME.OTHER_ROUTE]: true,
   [OUTCOME.POSSIBLE]: true,
   [OUTCOME.NEEDS_REVIEW]: true,
   [OUTCOME.DOES_NOT_MEET]: false,
@@ -145,6 +146,8 @@ const els = {
 
 const BADGE = {
   [OUTCOME.MEETS]: ['tag--ok', 'Meets published requirements'],
+  // Eligible, but only through another route (the label is the route's: "Quota 2 only").
+  [OUTCOME.OTHER_ROUTE]: ['tag--sand', null],
   [OUTCOME.POSSIBLE]: ['tag--sand', 'Possible with action'],
   [OUTCOME.NEEDS_REVIEW]: ['tag--warn', 'Needs review'],
   [OUTCOME.DOES_NOT_MEET]: ['', 'Does not currently meet'],
@@ -163,6 +166,7 @@ const AWARD_NOTE = {
 
 const MATCH_CLASS = {
   [OUTCOME.MEETS]: 'yes',
+  [OUTCOME.OTHER_ROUTE]: 'near',
   [OUTCOME.POSSIBLE]: 'near',
   [OUTCOME.NEEDS_REVIEW]: 'near',
   [OUTCOME.DOES_NOT_MEET]: 'no',
@@ -208,6 +212,25 @@ function cutoffPoints(c) {
   return pts ? `, ${pts} IB points` : '';
 }
 
+/* The cut-off beside the student's own total — "You: 34 · last cut-off: 40
+   IB points" — and, where the figure is not a number but a floor exists, the
+   floor in its place: "All qualified applicants accepted" is only true above it. */
+function cutoffLine(assessment) {
+  const c = assessment.selection.historicalCutoffs[0];
+  const intake = c.intake ? ` (${esc(c.intake.split('-')[0])} intake, not a prediction)` : '';
+  const pts = ibPointsFor(c?.value, c?.scale, subjectIndex);
+  const floor = (assessment.floors || []).find((f) => f.terms?.ibPoints != null);
+  if (pts == null && floor && !/^\d/.test(String(c.value))) {
+    return ` — ${esc(c.value)} in quota 1, from ${floor.terms.ibPoints} IB points${intake}`;
+  }
+  const you = lastProfile?.totalPoints;
+  return ` — most recent cut-off ${esc(c.value)}${cutoffPoints(c)}${intake}${
+    you != null && pts != null ? `. <strong>You: ${you} · last cut-off: ${pts}</strong>` : ''
+  }`;
+}
+
+let lastProfile = null;
+
 function rule(entry, mark) {
   return `<li>${mark} ${esc(entry.message)}</li>`;
 }
@@ -223,7 +246,8 @@ function backdrop(b) {
 
 function renderCard({ opportunity, assessment }) {
   const d = opportunity.display;
-  const [badgeClass, badgeLabel] = BADGE[assessment.outcome];
+  const [badgeClass, fixedLabel] = BADGE[assessment.outcome];
+  const badgeLabel = fixedLabel || assessment.outcomeLabel;
   const ev = assessment.provenance.evidence;
 
   const explanation = [
@@ -233,7 +257,7 @@ function renderCard({ opportunity, assessment }) {
     /* A floor that decides which quota ranks you, not whether you qualify. */
     ...(assessment.floors || []).map((f) =>
       rule(
-        { message: `${f.quota}: ${f.message}${f.status === 'unmet' ? ' Below it you can still be admitted in the other quota, where more than your average counts.' : ''}` },
+        { message: `${f.quota}: ${f.message}` },
         f.status === 'met' ? '<span aria-hidden="true">✓</span>' : f.status === 'unmet' ? '<span aria-hidden="true">!</span>' : '<span aria-hidden="true">?</span>'
       )
     ),
@@ -260,11 +284,14 @@ function renderCard({ opportunity, assessment }) {
       </details>
     </div>
     <div class="prog__side">
-      <p><span class="tag ${badgeClass}">${badgeLabel}</span></p>
+      <p><span class="tag ${badgeClass}">${esc(badgeLabel)}</span></p>
+      ${assessment.route
+        ? `<p><small><strong>Your way in:</strong> ${esc(assessment.route.text)}</small></p>`
+        : ''}
       <p><small>
         ${assessment.selection.restricted
           ? `Restricted admission${assessment.selection.historicalCutoffs.length
-              ? ` — most recent cut-off ${esc(assessment.selection.historicalCutoffs[0].value)}${cutoffPoints(assessment.selection.historicalCutoffs[0])} (${esc(assessment.selection.historicalCutoffs[0].intake.split('-')[0])} intake, not a prediction)`
+              ? cutoffLine(assessment)
               : ''}.`
           : 'Open admission: meeting the requirements is enough.'}
       </small></p>
@@ -288,6 +315,7 @@ function render() {
     return;
   }
 
+  lastProfile = profile;
   const results = assessAll(profile, OPPORTUNITIES, options);
   const tally = {};
   for (const r of results) tally[r.assessment.outcome] = (tally[r.assessment.outcome] || 0) + 1;
@@ -296,6 +324,9 @@ function render() {
 
   els.count.innerHTML =
     `<b>${tally[OUTCOME.MEETS] || 0}</b> meet the published requirements · ` +
+    (tally[OUTCOME.OTHER_ROUTE]
+      ? `<b>${tally[OUTCOME.OTHER_ROUTE]}</b> ${esc(otherRouteLabel(results))} · `
+      : '') +
     `<b>${tally[OUTCOME.POSSIBLE] || 0}</b> possible with action · ` +
     `<b>${tally[OUTCOME.NEEDS_REVIEW] || 0}</b> need review · ` +
     `<b>${tally[OUTCOME.DOES_NOT_MEET] || 0}</b> not currently met` +
@@ -307,6 +338,12 @@ function render() {
   els.results.innerHTML = visible.length
     ? visible.map(renderCard).join('')
     : '<li class="empty">Nothing to show with those filters on.</li>';
+}
+
+/* "quota 2 only", from the results that carry it — the route's own name. */
+function otherRouteLabel(results) {
+  const labels = [...new Set(results.filter((r) => r.assessment.outcome === OUTCOME.OTHER_ROUTE).map((r) => r.assessment.outcomeLabel))];
+  return labels.length === 1 ? labels[0].toLowerCase() : 'only through another admission route';
 }
 
 /* --- Wiring ------------------------------------------------------------------ */

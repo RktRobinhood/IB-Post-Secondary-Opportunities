@@ -132,7 +132,7 @@ function faults(block, expect = null) {
     // Chemistry twice and is right to.
     const options = line
       .split(/\s[/·—]\s/)
-      .map((x) => x.replace(/^(Needs|Requires:?|one of:)\s*/i, '').replace(/\s*\(\d+ other options? needs? .*\)$/, '').trim())
+      .map((x) => x.replace(/^(Needs|Requires:?|one of:)\s*/i, '').replace(/\s*\(and \d+ .*\)$/, '').trim())
       .filter(Boolean);
     const twice = options.filter((x, i) => options.indexOf(x) !== i);
     if (twice.length) out.push(`"${twice[0]}" is listed twice in one line`);
@@ -157,21 +157,28 @@ function faults(block, expect = null) {
 /** What the card and the programme page should each show, from the model. */
 function expected(entry) {
   const model = requirementModel(entry);
+  const open = model.sets.filter((x) => !x.implied);
   const card = new Set();
   for (const x of model.all) if (x.kind === 'ib') card.add(x.text);
-  for (const set of model.sets.filter((x) => !x.implied)) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(x.text);
+  for (const set of open) {
+    if (set.union) card.add(set.union.text);
+    else for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(x.text);
+  }
   for (const f of model.floors) card.add(f.ib);
 
   const detail = new Set();
   const detailText = (r) =>
     r.other ? null : r.floor ? r.ibText : r.translation ? r.translation.phrase : r.ibPhrase || `${r.subject} ${r.level}`;
-  for (const x of model.all) if (x.kind === 'ib') detail.add(detailText(x.r));
-  for (const set of model.sets.filter((x) => !x.implied)) {
-    for (const o of set.open) for (const r of o.groups[0]) if (detailText(r)) detail.add(detailText(r));
+  for (const x of model.all) if (x.kind === 'ib') detail.add(x.detail || detailText(x.r));
+  for (const set of open) {
+    for (const o of set.open) o.groups[0].forEach((r, i) => { const t = o.parts[i]?.detail || detailText(r); if (t) detail.add(t); });
   }
   for (const f of model.floors) detail.add(f.ib);
   detail.delete(null);
+  // A card may show an option on its own where the union is not formed, and
+  // the page shows each option: either is an honest rendering of the model.
   const allowed = new Set([...card, ...detail]);
+  for (const set of open) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') allowed.add(x.text);
   return { card: { allowed, required: card }, detail: { allowed, required: detail } };
 }
 
@@ -328,7 +335,7 @@ check('there are programmes with local-scale requirements to check', translatedP
       if (!r) continue;
       seen++;
       const t = ibTermsFor(r, subjectIndex, opp.institution);
-      const leads = t.phrase ? e.message.includes(t.phrase) : /^No IB subject is equivalent/.test(e.message);
+      const leads = /exempt/.test(e.message) || (t.phrase ? e.message.includes(t.phrase) : /^No IB subject is equivalent/.test(e.message));
       check(`${opp.id}: planner sentence for ${t.local} leads with IB terms`, leads, e.message);
     }
   }

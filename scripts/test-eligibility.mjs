@@ -961,7 +961,8 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
   const hl4 = assess(profile([{ subject: 'english-b', level: 'HL', grade: 4 }]), itu, { ...options, evidenceStatus: verified });
   eq('English B HL at 4 meets English B min 6 where A level waives the minimum', hl4.outcome, OUTCOME.MEETS);
   const sl4 = assess(profile([{ subject: 'english-b', level: 'SL', grade: 4 }]), itu, { ...options, evidenceStatus: verified });
-  eq('English B SL at 4 still falls short of the same rule', sl4.outcome, OUTCOME.POSSIBLE);
+  eq('English B SL at 4 still falls short of the same rule, and nothing published closes it', sl4.outcome, OUTCOME.DOES_NOT_MEET);
+  check('and it says so rather than promising an action', sl4.gaps.some((g) => /Nothing recorded here replaces this grade/.test(g.message)), JSON.stringify(sl4.gaps.map((g) => g.message)));
   const t = ibTermsFor(itu.requirements[0], subjectIndex);
   check('the waiver is said in IB terms: graded only in English B SL',
     t.waiver?.gradedPhrase === 'English B SL', JSON.stringify(t.waiver));
@@ -1087,14 +1088,83 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     ],
   };
   const low = assess(profile([{ subject: 'english-b', level: 'SL', grade: 5 }, { subject: 'mathematics-aa', level: 'HL', grade: 3 }], { totalPoints: 26 }), au, { ...options, evidenceStatus: verified });
-  eq('below a quota 1 floor is still eligible', low.outcome, OUTCOME.MEETS);
+  eq('below a quota 1 floor is eligible, but not a plain yes', low.outcome, OUTCOME.OTHER_ROUTE);
   check('but both floors are reported as not met', low.floors.length === 2 && low.floors.every((f) => f.status === 'unmet'), JSON.stringify(low.floors));
-  check('and the student is told it means quota 2', low.caveats.some((c) => /Quota 1: Needs at least 28 IB points/.test(c)), JSON.stringify(low.caveats));
+  check('and the floor is named in IB terms', low.caveats.some((c) => /Quota 1: Needs at least 28 IB points/.test(c)), JSON.stringify(low.caveats));
   eq('6.0 overall reads as 28 IB points', floorTerms(au.requirements[1], subjectIndex).ibText, 'at least 28 IB points');
   eq('6.0 in Mathematics A reads as a 5 in Maths HL', floorTerms(au.requirements[2], subjectIndex).ibText, 'a 5 in Maths HL (AA or AI)');
   const withMin = buildSubjectIndex({ subjects: catalogue.subjects, schemes, diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
   eq('a floor below the Diploma minimum reads as any IB Diploma',
     floorTerms({ kind: 'minimum-average', minAverage: 3.3, gradeScale: scale }, withMin).ibText, 'any IB Diploma');
+}
+
+/* --- the real records: no green below a floor, and every action named ------- *
+ *
+ * Round 3 of the critic ran five profiles through the planner. A 27-point
+ * student saw a green "Meets" on SDU Software Engineering, whose quota 1 needs
+ * 7.0 (31 IB points) — the only way in is SDU's entrance test. And "Possible
+ * with action" named no action. These read the records as the site does.
+ */
+{
+  const readDir = async (d) => {
+    const out = [];
+    for (const f of (await fs.readdir(path.join(ROOT, 'data', d))).filter((x) => x.endsWith('.json'))) {
+      out.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', d, f), 'utf8')));
+    }
+    return out;
+  };
+  const institutions = await readDir('institutions');
+  const opps = new Map((await readDir('opportunities')).map((o) => [o.id, o]));
+  const index = buildSubjectIndex({ subjects: catalogue.subjects, schemes, institutions, diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
+  const opts = { subjectIndex: index, dataVersion: 'test', evidenceStatus: verified };
+  const run = (id, subjects, extra) => assess(profile(subjects, extra), opps.get(`${id}-2027-autumn`), opts);
+
+  const p4 = [
+    { subject: 'mathematics-aa', level: 'HL', grade: 4 },
+    { subject: 'english-b', level: 'HL', grade: 4 },
+    { subject: 'physics', level: 'HL', grade: 4 },
+  ];
+  const se = run('dk-sdu-software-engineering-sonderborg', p4, { totalPoints: 27 });
+  check('27 points at SDU Software Engineering is not a plain yes', se.outcome !== OUTCOME.MEETS, se.outcome);
+  eq('it is "another route only"', se.outcome, OUTCOME.OTHER_ROUTE);
+  check('and the route named is SDU\x27s entrance test', /entrance test/.test(se.route?.text || '') && /Quota 2 only/.test(se.outcomeLabel), JSON.stringify([se.outcomeLabel, se.route]));
+  eq('at 31 points the same student meets it', run('dk-sdu-software-engineering-sonderborg', p4, { totalPoints: 31 }).outcome, OUTCOME.MEETS);
+
+  const p1 = [
+    { subject: 'english-b', level: 'SL', grade: 5 },
+    { subject: 'mathematics-ai', level: 'SL', grade: 5 },
+    { subject: 'history', level: 'HL', grade: 6 },
+    { subject: 'economics', level: 'HL', grade: 6 },
+  ];
+  const cbs = run('dk-cbs-international-business', p1, { totalPoints: 34 });
+  eq('English B SL 5 at CBS is possible with action', cbs.outcome, OUTCOME.POSSIBLE);
+  const g = cbs.gaps[0]?.message || '';
+  check('the action says what is missing (English A, in IB terms)', /English A/.test(g), g);
+  check('and names the test, the scores and the date', /IELTS Academic 7.0/.test(g) && /6.0 in each/.test(g) && /5 July/.test(g), g);
+
+  const cs = run('dk-au-computer-science', p1, { totalPoints: 34 });
+  eq('Maths AI SL at AU Computer Science is possible with action', cs.outcome, OUTCOME.POSSIBLE);
+  check('and the action is AU\x27s supplementary route', /supplementary course/.test(cs.gaps[0]?.message || ''), cs.gaps[0]?.message);
+
+  const p5 = [
+    { subject: 'english-b', level: 'SL', grade: 4 },
+    { subject: 'mathematics-aa', level: 'HL', grade: 7 },
+  ];
+  const itu = run('dk-itu-data-science', p5, { totalPoints: 38 });
+  check('English B SL 4 at ITU Data Science names ITU\x27s English test, or is not met',
+    (itu.outcome === OUTCOME.POSSIBLE && /IELTS Academic 7.0/.test(itu.gaps[0]?.message || '')) || itu.outcome === OUTCOME.DOES_NOT_MEET,
+    JSON.stringify([itu.outcome, itu.gaps.map((x) => x.message)]));
+
+  const actionless = [];
+  for (const o of opps.values()) {
+    for (const prof of [p1, p4, p5]) {
+      const r = assess(profile(prof, { totalPoints: 30 }), o, opts);
+      if (r.outcome !== OUTCOME.POSSIBLE) continue;
+      const gap = r.gaps[0]?.message || '';
+      if (!/To close it:|The other published way in:|Add your|assessed by the institution|another route|alternative/i.test(gap) && !r.gaps[0]?.actionable) actionless.push(`${o.id}: ${gap}`);
+    }
+  }
+  check('no "possible with action" across the catalogue is without an actionable gap', actionless.length === 0, actionless.slice(0, 3).join(' | '));
 }
 
 /* --- and the engine may not learn any destination's vocabulary -------------- *

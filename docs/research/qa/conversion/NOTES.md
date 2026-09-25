@@ -260,7 +260,7 @@ Decisions:
     gap — below AU's 6.0 you are still eligible in quota 2. Data: AU ×6 (+ Maths
     A 6.0 on 3), SDU ×15, RUC Social Sciences.
 26. **Floors in IB terms** (`floorTerms`): overall → lowest IB total that
-    converts to it ("at least 28 IB points"; SDU 7.0 → 31; BEng 5.0 → 25),
+    converts to it ("at least 28 IB points"; SDU 7.0 → 31; BEng 5.0 → 26, because 25 converts to 4.7 — corrected in round 3; the site always printed 26),
     one subject → lowest IB grade in that subject's IB terms ("a 5 in Maths HL
     (AA or AI)"), several → "English and Mathematics averaging 4.0 once
     converted (a 4 in each is enough)". Shown on the card under the IB line,
@@ -322,3 +322,78 @@ change here. Screenshots in `round-2/`.
 
 Still long: CBS cards are ~9 lines — five requirement lines, each with a real
 choice in it. Left for a design decision rather than hidden.
+
+## Round 3 — critic fixes (critique-round-3.md, scored 7/10)
+
+Verified 25 Sep 2026 on the institutions' own pages (and ug.dk):
+- **AU quota 2**: "All international applicants are automatically assessed in
+  quota 2" — "1. Applicants' grade point average of particularly relevant quota 2
+  subjects" and "2. Applicants' relevant qualifications" (work, internships,
+  folk high school, 4–12 months), documented by 15 March.
+- **AU supplementary**: "You can take as many supplementary courses as you need
+  to if they are completed before 5 July"; "It is only possible to take 2
+  supplementary courses if they are completed after 5 July … assessed as
+  conditional admission", documentation by 5 September; AP and British A level
+  accepted. The critic's "summer course" is not AU's wording.
+- **SDU quota 2**: "an entrance examination"; "offered to the applicants with the
+  highest test scores"; uniTEST registration closes 20 March 12:00; EU/EEA
+  supplementary courses may finish by 31 August (conditional).
+- **ITU**: "The specific admission requirement in English may be met by
+  submitting one of the approved English tests" (IELTS 7.0, TOEFL iBT 5,
+  CAE 185). ITU does not say whether a test covers a grade below 6 in English B
+  you already hold — the site says so. Supplementary: VUC, UvA online Maths B
+  (= Danish A), International A level ≥ C; conditional admission for fee-exempt
+  applicants, enrolment by 5 July 12:00, pass by 1 September.
+- **National (ug.dk, "Sommersupplering og betinget optagelse", 2026)**: one
+  subject after 5 July, place conditional on passing before study start; "CBS
+  accepterer ikke sommersupplering"; KU neither.
+- **SEA**: "Applicants holding … an International Baccalaureate exam … are
+  exempt from the requirement" (English); Maths C vs Business Economics C
+  contradiction recorded in the rule's note.
+
+Decisions:
+
+34. **"Quota 2 only" is its own outcome** (`OUTCOME.OTHER_ROUTE`): every
+    published requirement met, but a quota floor missed. The label comes from
+    the institution's route ("Quota 2 only"), the card says "Your way in: SDU's
+    entrance test (uniTEST…) Apply by 15 March…", and the planner counts it
+    separately ("19 quota 2 only"). Routes are data: `admissionRoutes` on the
+    Institution (AU, SDU, RUC; schema). Scenario: 27 points at SDU Software
+    Engineering is `other-route-only` naming the entrance test; 31 is a yes.
+35. **Every "Possible with action" names the action, or is not "possible"**:
+    a missing or too-low level gives "To close it: …" from the institution's
+    `levelRaise` (AU, SDU, ITU, CBS) or the scheme's national `levelRaise`
+    (ug.dk text); none recorded → not actionable. A grade below a minimum is
+    not actionable ("Nothing recorded here replaces this grade") unless the
+    record publishes an alternative. A test route names what is missing (in IB
+    terms) and then the test, scores and date. ITU's English is now "English B
+    with an average of 6, or an approved English test". A catalogue-wide
+    scenario asserts no actionless "possible".
+36. **CBS card**: English folds into one line ("English B HL or English A — or
+    English B SL 5+ with IELTS 7.0"); single-subject options read as one list of
+    IB subjects (`unionPhrase`, computed in the projection where the catalogue
+    is known: "one of Geography HL, Anthropology HL, History, Economics,
+    Business Management or Global Politics"); the Danish line is hidden on
+    phone cards (CSS), kept on desktop and on the page. Result: 5 lines on
+    desktop (6 on BA & Sociology, which adds a Maths minimum) — not the 4
+    targeted; phone cards are the IB line only. Short names from data
+    (`short` in ib-subjects: "Anthropology").
+37. **Flat lists put levelled names first** ("Global Politics HL or History",
+    "English B HL or English A") so a trailing "HL" never seems to cover the
+    whole list.
+38. **Programme pages fold dead options** into one muted card ("Also accepted:
+    3 Danish-only options, with no IB route"), each reason once and named by
+    its subject.
+39. **Small**: AU Herning's floor quotes its Danish page ("Karakterkrav på
+    mindst 6,0 i kvote 1"); SEA's English rule `satisfiedBy: ["ib-diploma"]`
+    ("Any IB English: IB Diploma holders exempt"); glance "Last intake: All
+    qualified applicants accepted · 2026 intake · quota 1 needs at least 31 IB
+    points"; planner "You: 34 · last cut-off: 42"; decision 26 corrected (5.0 →
+    26); stray "; § 18" rewritten; the Social Studies "?" line is now one
+    sentence (scheme row `action`).
+40. **Left to the redesign agent**: the finder label "No Mathematics A" (their
+    files, as before).
+
+Round 3 result: gate 33/33, exit 0 (eligibility 143 scenarios, README updated
+131 → 143; ib-terms 736 checks). Screenshots in `round-3b/` (the critic's
+evidence is in `round-3/`), scratch builds under `.cache/`.

@@ -220,6 +220,33 @@ try {
   await shotOf("#shot-floor", "18-planner-quota1-floor");
   await shotOf("#p-converted", "19-planner-subjects-summary", { maxHeight: 700 });
 
+  // 5e. Round 3: the critic's profiles P4 (27 points) and P1 (English B SL 5, Maths AI SL)
+  for (const [name, six, total, match] of [
+    ["20-planner-p4-sdu-quota2-only", [["mathematics-aa","HL","4"],["english-b","HL","4"],["physics","HL","4"],["chemistry","SL","4"],["history","SL","4"],["biology","SL","4"]], "27", "Software Engineering"],
+    ["21-planner-p1-cbs-action", [["english-b","SL","5"],["mathematics-ai","SL","5"],["history","HL","6"],["economics","HL","6"],["biology","SL","5"],["language-a-other","HL","6"]], "34", "International Business"],
+    ["22-planner-p1-au-cs-action", [["english-b","SL","5"],["mathematics-ai","SL","5"],["history","HL","6"],["economics","HL","6"],["biology","SL","5"],["language-a-other","HL","6"]], "34", "Computer Science"],
+  ]) {
+    await open("/planner/");
+    await evaluate(`(async () => {
+      const set = (sel, v) => { const el = document.querySelector(sel); el.value = v; el.dispatchEvent(new Event("change", { bubbles: true })); };
+      const six = ${JSON.stringify(six)};
+      six.forEach(([s,l,g], i) => { set(".p-subject[data-slot='" + (i+1) + "']", s); set(".p-level[data-slot='" + (i+1) + "']", l); set(".p-grade[data-slot='" + (i+1) + "']", g); });
+      set("#p-award", "diploma");
+      const t = document.getElementById("p-total"); t.value = "${total}"; t.dispatchEvent(new Event("input", { bubbles: true }));
+      await new Promise(r => setTimeout(r, 300));
+      const li = [...document.querySelectorAll("#p-results > li")].find(x => x.querySelector(".prog__name")?.textContent.includes("${match}") && /${name.includes("sdu") ? "SDU" : name.includes("cbs") ? "CBS" : "AU"}/.test(x.textContent));
+      if (li) { li.querySelector("details").open = true; li.id = "shot-" + "${name}"; }
+      return !!li;
+    })()`);
+    await sleep(300);
+    await shotOf("#p-count", name + "-count", { maxHeight: 200 });
+    await shotOf("#shot-" + name, name);
+  }
+  await open("/programmes/dk-sdu-mechanical-engineering-beng-2027-autumn/", { width: 390, height: 844, mobile: true });
+  await shotOf(".req-detail", "23-sdu-mech-beng-folded-phone", { maxHeight: 2400 });
+  await open("/universities/dk-cbs/", { width: 390, height: 844, mobile: true });
+  await shotOf("#programmes + .grid", "24-cbs-card-grid-phone", { maxHeight: 1800 });
+
   // 6. The conversion page's new table
   await open('/denmark/ib-conversion/');
   await evaluate(WRAP_LEVELS);

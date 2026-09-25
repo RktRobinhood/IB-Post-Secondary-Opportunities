@@ -75,23 +75,64 @@
       ]
     },
     {
-      "id": "req-all-2",
-      "kind": "local-equivalency",
+      "id": "req-english",
+      "kind": "subject-combination",
       "mandatory": true,
-      "label": "English at B level, minimum grade 6",
-      "subject": "English",
-      "levelScale": "dk-abc",
-      "level": "B",
-      "minGrade": 6,
-      "gradeScale": "dk-7-point",
-      "minGradeWaivedAtLevel": "A",
-      "operator": "at-least",
+      "operator": "one-of",
+      "label": "English B with an average of at least 6, or an approved English test",
+      "officialWording": {
+        "text": "The specific admission requirement in English may be met by submitting one of the approved English tests with the required test result.",
+        "language": "en",
+        "official": true
+      },
+      "alternatives": [
+        [
+          {
+            "id": "req-all-2",
+            "kind": "local-equivalency",
+            "mandatory": true,
+            "label": "English at B level, minimum grade 6",
+            "subject": "English",
+            "levelScale": "dk-abc",
+            "level": "B",
+            "minGrade": 6,
+            "gradeScale": "dk-7-point",
+            "minGradeWaivedAtLevel": "A",
+            "operator": "at-least",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-itu-dk-2ox9v8"
+            ]
+          }
+        ],
+        [
+          {
+            "id": "req-english-test",
+            "kind": "test",
+            "mandatory": true,
+            "label": "An approved English test: IELTS Academic 7.0, TOEFL iBT 5 (new scale) or Cambridge C1 Advanced 185",
+            "shortLabel": "IELTS 7.0",
+            "note": "The test may be at most two years old on 5 July. ITU does not say whether a test also covers an English grade below 6 that you already hold: confirm with ITU.",
+            "applicability": {
+              "intake": "2027-autumn",
+              "applicantGroup": "any"
+            },
+            "evidence": [
+              "ev-en-itu-dk-zf4fun"
+            ]
+          }
+        ]
+      ],
       "applicability": {
         "intake": "2027-autumn",
         "applicantGroup": "any"
       },
       "evidence": [
-        "ev-en-itu-dk-2ox9v8"
+        "ev-en-itu-dk-2ox9v8",
+        "ev-en-itu-dk-zf4fun"
       ]
     }
   ],

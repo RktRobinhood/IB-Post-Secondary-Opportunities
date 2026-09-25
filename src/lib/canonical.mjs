@@ -18,7 +18,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { statusFor } from './evidence-policy.mjs';
-import { buildSubjectIndex, floorTerms, ibPointsFor, ibTermsFor, ibTermsPhrase } from './eligibility.mjs';
+import { buildSubjectIndex, floorTerms, ibPointsFor, ibTermsFor, ibTermsPhrase, unionPhrase } from './eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -529,6 +529,13 @@ function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = nu
         all.push({ ...set[0][0], subject: phrase, level: '', ibPhrase: phrase });
         continue;
       }
+      /* For a card: the options that are each one translated subject, as one
+         list of IB subjects (unionPhrase). Carried beside the set. */
+      const routed = set.filter((g) => g.length === 1 && g[0].translation?.phrase);
+      if (routed.length > 1 && set.every((g) => g.length === 1 && g[0].translation)) {
+        const u = unionPhrase(routed.map((g) => g[0].translation), subjectIndex);
+        if (u) set.union = u;
+      }
       oneOfSets.push(set);
       continue;
     }
@@ -536,7 +543,8 @@ function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = nu
        decides whether you are ranked in that quota. It travels separately. */
     if (r.kind === 'minimum-average' && r.quota) {
       const f = subjectOf(r, ibSubjectNames, subjectIndex, institution);
-      if (f) quotaFloors.push(f);
+      const routes = subjectIndex?.institutionRoutes?.get(institution)?.quotas || [];
+      if (f) quotaFloors.push({ ...f, otherRoute: routes.find((q) => q.quota !== r.quota) || null });
       continue;
     }
     /* A Selection Factor is `mandatory: false` — used in ranking, not in

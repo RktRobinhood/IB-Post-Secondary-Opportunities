@@ -55,7 +55,7 @@ export function programme(site, p, inst) {
   /* A quota floor, where the cut-off is not a number ("All qualified
      applicants accepted" still means nothing below the floor in quota 1). */
   const quotaFloorText = (req?.quotaFloors || []).length
-    ? `${req.quotaFloors[0].quota}: ${req.quotaFloors.map((f) => f.ibText).join(' and ')}`
+    ? `${req.quotaFloors[0].quota.toLowerCase()} needs ${req.quotaFloors.map((f) => f.ibText).join(' and ')}`
     : null;
   const numericCutoff = p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim());
   const deadlineRows = (route?.milestones || [])
@@ -102,17 +102,17 @@ ${hero({
       { label: 'Starts', value: p.startMonth },
       { label: 'Apply by', value: closes.length ? prettyDate(closes[0].date) : null },
       {
-        label: p.restrictedAdmission ? 'Last cut-off' : 'Admission',
+        label: p.restrictedAdmission ? (numericCutoff || !p.cutoff?.value ? 'Last cut-off' : 'Last intake') : 'Admission',
         /* IB points lead: for this reader "11.1" is the confusing number and
            "42 IB points" the one they can act on. The Danish figure follows. */
         value: p.restrictedAdmission === true
           ? numericCutoff
             ? p.cutoff.anyDiploma ? 'Any IB Diploma' : p.cutoff.ibPoints ? `${p.cutoff.ibPoints} IB points` : String(p.cutoff.value)
-            : 'Restricted'
+            : p.cutoff?.value ? String(p.cutoff.value) : 'Restricted'
           : p.restrictedAdmission === false ? 'Open to all who qualify' : 'Not recorded',
         note: p.restrictedAdmission && numericCutoff
           ? [p.cutoff.ibPoints || p.cutoff.anyDiploma ? `Danish ${p.cutoff.value}` : null, p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ')
-          : quotaFloorText || null,
+          : [p.cutoff?.intake, quotaFloorText].filter(Boolean).join(' · ') || null,
       },
     ])}
   </div>

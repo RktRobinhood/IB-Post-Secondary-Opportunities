@@ -60,8 +60,8 @@ export function planner(site) {
   /* Institutions that publish their own additions to a scheme, carrying only
      those additions: the engine reads them for their own Opportunities. */
   const institutions = [...(site.graph?.institutions?.values() || [])]
-    .filter((i) => (i.ibEquivalences || []).length)
-    .map((i) => ({ id: i.id, name: i.name, ibEquivalences: i.ibEquivalences }));
+    .filter((i) => (i.ibEquivalences || []).length || (i.admissionRoutes || []).length || i.levelRaise)
+    .map((i) => ({ id: i.id, name: i.name, ibEquivalences: i.ibEquivalences, admissionRoutes: i.admissionRoutes, levelRaise: i.levelRaise }));
   const schemes = (site.recognitionSchemes || []).filter((s) => destinations.has(s.destination));
   const soleScheme = schemes.length === 1 ? schemes[0] : null;
   /* What to call the levels the panel fills in. "Your Danish levels" is right
@@ -174,6 +174,7 @@ ${hero({
         </p>
         <div class="chips" style="margin-bottom:var(--s5)">
           <button type="button" class="chip" data-show="meets" aria-pressed="true">Meets requirements</button>
+          <button type="button" class="chip" data-show="other-route-only" aria-pressed="true">Another route only</button>
           <button type="button" class="chip" data-show="possible-with-action" aria-pressed="true">Possible with action</button>
           <button type="button" class="chip" data-show="needs-review" aria-pressed="true">Needs review</button>
           <button type="button" class="chip" data-show="does-not-currently-meet" aria-pressed="false">Does not currently meet</button>

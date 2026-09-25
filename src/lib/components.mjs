@@ -1,6 +1,6 @@
 import { html, raw, md, truncate, plural, escape, toString } from './html.mjs';
 import { url } from './layout.mjs';
-import { ibTermsLine, routesPhrase } from './eligibility.mjs';
+import { ibTermsLine, ibTermsPhrase, routesPhrase } from './eligibility.mjs';
 import { emptyPanel } from './imagery.mjs';
 import { CARD_SIZES, srcsetOf } from './programme-imagery.mjs';
 
@@ -594,11 +594,17 @@ function floorLine(floors) {
     if (!byQuota.has(f.quota)) byQuota.set(f.quota, []);
     byQuota.get(f.quota).push(f);
   }
-  return [...byQuota].map(([quota, fs]) => ({
-    quota,
-    ib: `${quota}: ${fs.map((f) => f.ibText).join(' and ')}`,
-    local: `${quota}: ${fs.map((f) => f.localText).join(' and ')}`,
-  }));
+  return [...byQuota].map(([quota, fs]) => {
+    const other = fs.find((f) => f.otherRoute)?.otherRoute || null;
+    return {
+      quota,
+      ib: `${quota}: ${fs.map((f) => f.ibText).join(' and ')}`,
+      local: `${quota}: ${fs.map((f) => f.localText).join(' and ')}`,
+      // What is left below it, from the institution's record: "SDU's entrance test".
+      below: other ? `below that, ${other.quota.toLowerCase()}: ${other.short || other.text}` : null,
+      belowFull: other ? `Below this, your way in is ${other.quota.toLowerCase()}: ${other.text}` : null,
+    };
+  });
 }
 
 /**
@@ -614,13 +620,20 @@ export function requirementModel(entry) {
     if (r.floor) return { kind: 'ib', text: r.ibText };
     const t = r.translation;
     if (!t) return { kind: 'ib', text: nativeText(r) };
+    if (t.diplomaExempt) {
+      const text = `${t.phrase || t.local}: IB Diploma holders exempt`;
+      return { kind: 'ib', text, phrase: text, detail: text };
+    }
     const phrase = narrowedPhrase(r, siblings);
     if (!t.phrase) return { kind: 'none', text: `${t.local} — no IB route` };
     if (!phrase) return null; // every route is already named by a sibling
-    return { kind: 'ib', text: ibTermsLine(t, phrase), phrase };
+    return { kind: 'ib', text: ibTermsLine(t, phrase), phrase, detail: phrase };
   };
 
-  const all = mergeSameSubject(entry?.all || []).map(({ r, merged }) => ({ ...line(r), r, merged }));
+  const all = mergeSameSubject(entry?.all || []).map(({ r, merged }) => {
+    const x = line(r);
+    return { ...x, detail: x.detail || (r.translation ? r.translation.phrase : x.text), r, merged };
+  });
   const allTexts = new Set(all.filter((x) => x.kind === 'ib').map((x) => x.text));
 
   const sets = oneOfSets(entry).map((groups) => {
@@ -668,10 +681,47 @@ export function requirementModel(entry) {
     /* A choice already settled by a subject required outright — BAAA asks for
        English C, and then for English B or a test — is left off the card. */
     const implied = open.some((o) => o.parts.every((x) => x.kind === 'ib' && allTexts.has(x.text)));
-    return { open, closed, implied };
+
+    /* On a card, options that are each one subject read as one list of IB
+       subjects — "History, Economics, Business Management or Global Politics
+       (SL or HL), Geography HL or Anthropology HL" — rather than five choices
+       that overlap (unionPhrase, computed where the catalogue is known). The
+       programme page keeps them apart. */
+    let union = null;
+    const translatedGroups = groups.filter(translatable);
+    if (groups.union && open.length > 1 && translatedGroups.every((g) => g.length === 1 && g[0].translation?.phrase)) {
+      union = { text: groups.union };
+    }
+    return { open, closed, implied, union };
   });
 
-  return { first, all, sets, floors: floorLine(entry?.quotaFloors) };
+  /* One requirement, one line. A "one of" between a subject and an English
+     test is how that subject is met: CBS's English A-or-test, with the English
+     B minimum the test depends on folded in — "English A or English B HL, any
+     grade — or English B SL 5+ with an English test (IELTS 7.0)". */
+  for (const set of sets) {
+    if (set.implied || set.closed.length) continue;
+    const subjectOptions = set.open.filter((o) => o.groups[0].every((r) => r.translation?.phrase));
+    const tests = set.open.filter((o) => o.groups[0].every((r) => r.other && r.kind === 'test'));
+    if (subjectOptions.length !== 1 || !tests.length || subjectOptions.length + tests.length !== set.open.length) continue;
+    const subj = subjectOptions[0].groups[0][0];
+    const low = all.find((x) => x.r.translation && x.r.subject === subj.subject && x.r.translation.waiver &&
+      x.r.translation.waiver.rank <= subj.translation.levelRank && x.r.translation.minIbGrade != null);
+    const testText = tests.map((o) => o.parts.map((x) => x.text).join(' + ')).join(' or ');
+    const text = low
+      ? `${subj.translation.phrase} — or ${low.r.translation.waiver.gradedPhrase} ${low.r.translation.minIbGrade}+ with ${testText}`
+      : `${subjectOptions[0].parts.map((x) => x.text).join(' + ')} — or ${testText}`;
+    const at = low ? all.indexOf(low) : 0;
+    if (low) all.splice(at, 1);
+    all.splice(at, 0, {
+      kind: 'ib', text, detail: text, fold: true,
+      r: subj, merged: [...(low ? [low.r] : []), ...subjectOptions[0].groups.slice(1).flat()],
+      tests: tests.flatMap((o) => o.groups.flat()),
+    });
+    set.folded = true;
+  }
+
+  return { first, all, sets: sets.map((x) => (x.folded ? { ...x, implied: true, silent: true } : x)), floors: floorLine(entry?.quotaFloors) };
 }
 
 /** "Danish requirement: Mathematics A (min 4)" — the published form, small. */
@@ -698,9 +748,9 @@ const partHtml = (x) =>
  * means "together with".
  */
 function closedNote(closed, first, other = true) {
-  const noun = first?.localOnlyNoun || 'subject with no IB route';
+  const noun = first?.localOnlyNoun || 'option with no IB route';
   const n = closed.length;
-  return `${n}${other ? ' other' : ''} option${n === 1 ? ' needs' : 's need'} a ${noun}`;
+  return other ? `and ${n} ${noun}${n === 1 ? '' : 's'}` : `${n} ${noun}${n === 1 ? '' : 's'}`;
 }
 
 /**
@@ -721,6 +771,10 @@ export function requirementSummary(entry, { lead = 'Needs' } = {}) {
       return html`${sep}<span class="req-none req__more">one of ${closedNote(closed, first, false)} (no IB route)</span>`;
     }
     const more = closed.length ? html` <span class="req-none req__more">(${closedNote(closed, first)})</span>` : '';
+    const union = model.sets.filter((x) => !x.implied)[k]?.union;
+    // The list already names every IB route; the Danish-only ones are on the
+    // programme page. Four lines, not six.
+    if (union) return html`${sep}one of <span class="req-ib">${union.text}</span>`;
     return html`${sep}${open.length > 1 || closed.length ? 'one of: ' : ''}${open.map(
       (o, i) => html`${i ? ' / ' : ''}${o.parts.map((x, n) => html`${n ? ' + ' : ''}${partHtml(x)}`)}`
     )}${more}`;
@@ -728,7 +782,7 @@ export function requirementSummary(entry, { lead = 'Needs' } = {}) {
 
   return html`<div class="req" data-req>
     <p class="req__ib"><strong>${lead}</strong> ${all.map((x, i) => html`${i ? ' · ' : ''}${x}`)}${oneOf}</p>
-    ${model.floors.map((f) => html`<p class="req__floor"><span class="req-ib">${f.ib}</span></p>`)}
+    ${model.floors.map((f) => html`<p class="req__floor"><span class="req-ib">${f.ib}</span>${f.below ? html`<span class="req-why">; ${f.below}</span>` : ''}</p>`)}
     ${first ? localBlock(entry, first, 'req__local') : ''}
   </div>`;
 }
@@ -791,7 +845,7 @@ export function requirementDetail(entry) {
   const choices = sets.filter((x) => !x.implied && !single.includes(x));
   const implied = sets.filter((x) => x.implied);
   const card = (o) => html`<li class="need__card">
-    ${o.groups[0].map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r)}`)}
+    ${o.groups[0].map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r, { phrase: o.parts[n]?.detail })}`)}
     ${asPublished(o.groups.map((g) => ({ other: true, kind: 'published', label: g.filter((r) => !r.ibNative && !r.other).map(published).join(' + ') })).filter((x) => x.label), ' or ')}
   </li>`;
 
@@ -803,12 +857,18 @@ export function requirementDetail(entry) {
       : 'No minimum grade is recorded for any of these subjects.'}</p>
     ${model.all.length || single.length
       ? html`<ul class="need need--ib" aria-label="Required subjects">${model.all.map(
-          ({ r, merged, kind }) => html`<li class="need__card${kind === 'none' ? ' need__card--none' : ''}">
-            ${detailItem(r)}${asPublished([r, ...merged])}
-          </li>`
+          (x) => x.fold
+            ? html`<li class="need__card">
+                <strong class="req-ib">${x.detail}</strong>
+                ${x.tests.map((t) => html`<span class="need__why req-why">${[t.label, t.note].filter(Boolean).join('. ')}</span>`)}
+                ${asPublished([x.r, ...x.merged, ...x.tests.map((t) => ({ other: true, kind: 'published', label: t.label }))], ' · ')}
+              </li>`
+            : html`<li class="need__card${x.kind === 'none' ? ' need__card--none' : ''}">
+                ${detailItem(x.r, { phrase: x.detail })}${asPublished([x.r, ...x.merged])}
+              </li>`
         )}${single.map((x) => card(x.open[0]))}</ul>`
       : ''}
-    ${implied.map(
+    ${implied.filter((x) => !x.silent).map(
       (x) => html`<p class="need__note"><span class="req-local">${first?.requirementLabel || 'As published'}: also one of ${x.groups
         .map((g) => g.map(published).join(' + '))
         .join(' / ')}</span> — already met by what is listed above.</p>`
@@ -818,19 +878,26 @@ export function requirementDetail(entry) {
       return html`<p class="need__or">${model.all.length || single.length || k ? 'And one of these:' : 'One of these:'}</p>
           <ul class="need need--ib need--or">${[
             ...open.map(card),
-            ...closed.map(
-              (g) => html`<li class="need__card need__card--none">
-                ${g.map((r, n) => html`${n ? html`<span class="need__plus">+</span>` : ''}${detailItem(r, { alternatives: someOpen })}`)}
-                ${asPublished(g, ' + ')}
-              </li>`
-            ),
+            /* Every option with no IB route, folded into one muted card: named,
+               with each reason said once. */
+            ...(closed.length
+              ? [html`<li class="need__card need__card--none">
+                  <strong class="req-none">${someOpen
+                    ? `Also accepted: ${closedNote(closed, first, false)}, with no IB route`
+                    : `None of these has an IB route`}</strong>
+                  ${[...new Map(closed.flat().filter((r) => r.translation && !r.translation.phrase).map((r) => [r.translation.local, `${r.translation.local}: ${r.translation.none}`])).values()].map(
+                    (why) => html`<span class="need__why req-why">${why}</span>`
+                  )}${someOpen ? html`<span class="need__why req-why">The options above are the way in.</span>` : ''}
+                  ${asPublished(closed.map((g) => ({ other: true, kind: 'published', label: g.map(published).join(' + ') })), ' / ')}
+                </li>`]
+              : []),
           ]}</ul>`;
     })}
     ${model.floors.map(
       (f) => html`<p class="need__or">To be ranked in ${f.quota.toLowerCase()}:</p>
         <ul class="need need--ib"><li class="need__card need__card--floor">
           <strong class="req-ib">${f.ib}</strong>
-          <span class="need__why req-why">Below this, you can still be admitted in the other quota.</span>
+          <span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span>
           ${first ? html`<small class="req-local">${first.requirementLabel}: ${f.local}</small>` : ''}
         </li></ul>`
     )}

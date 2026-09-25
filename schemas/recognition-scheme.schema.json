@@ -270,6 +270,10 @@
           },
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
+          },
+          "action": {
+            "type": "string",
+            "description": "The one thing to do, in a sentence, where `reason` explains at length."
           }
         },
         "additionalProperties": false
@@ -303,6 +307,22 @@
     },
     "meta": {
       "$ref": "common.schema.json#/$defs/recordMeta"
+    },
+    "levelRaise": {
+      "type": "object",
+      "description": "The authority's published way to add a missing subject level — shown as the action beside a level gap unless the institution publishes its own.",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,

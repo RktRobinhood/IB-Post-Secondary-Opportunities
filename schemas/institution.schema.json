@@ -294,6 +294,51 @@
     "sector": {
       "type": "string",
       "description": "Which of the Destination’s sectorLandscape routes this institution belongs to, by localName."
+    },
+    "admissionRoutes": {
+      "type": "array",
+      "description": "The institution's admission routes other than ranking on the converted average, as it publishes them — what a student below a quota 1 floor can still do. Read by the eligibility engine for 'which way in is left'.",
+      "items": {
+        "type": "object",
+        "required": [
+          "quota",
+          "text",
+          "evidence"
+        ],
+        "properties": {
+          "quota": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          },
+          "short": {
+            "type": "string",
+            "description": "The route in a few words, for a card line: \"SDU's entrance test\"."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "levelRaise": {
+      "type": "object",
+      "description": "How this institution lets a student add a subject level they lack (supplementary courses, conditional admission), where it publishes its own terms. Overrides the Recognition Scheme's national text.",
+      "required": [
+        "text",
+        "evidence"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/evidenceRefs"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

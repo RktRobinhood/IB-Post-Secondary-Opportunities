@@ -7,7 +7,7 @@
   "display": {
     "requirementLabel": "Danish requirement",
     "explainedAt": "/denmark/ib-conversion/#levels",
-    "localOnlyNoun": "Danish-school subject",
+    "localOnlyNoun": "Danish-only option",
     "averageExplainedAt": "/denmark/ib-conversion/#average"
   },
   "where": "Recognition Schemes live in data/recognition/<destination>.json, one file per Destination, named for the Destination rather than for the publication. A Destination has at most one of these and the engine reaches it from a requirement that names its scale, so the filename is the lookup and nothing has to index it. It is deliberately NOT a field on the Destination record: a Destination record is country context a student reads, this is a translation table the engine executes, and the two change on completely different clocks — the handbook is reissued every March, the country profile is not.",
@@ -237,6 +237,10 @@
     }
   },
   "noEquivalenceNote": "The handbook publishes no equivalent for this subject.",
+  "levelRaise": {
+    "text": "take the level as a Danish supplementary course (gymnasial supplering) passed by 5 July; where the programme accepts it, one subject can instead be taken as summer supplementation after 5 July, with your place conditional on passing it before the programme starts.",
+    "source": "ug.dk, \"Sommersupplering og betinget optagelse\" (updated 30 January 2026, read 25 Sep 2026): \"Får du tilbudt en studieplads, er optagelsen betinget af, at du består faget inden studiestart.\" \"Du kan som udgangspunkt kun tage ét fag på ét niveau via sommersupplering.\""
+  },
   "subjectEquivalence": [
     {
       "ibSubject": "english-a-literature",
@@ -804,7 +808,8 @@
   "subjectsWithoutEquivalence": [
     {
       "subject": "Social Studies",
-      "reason": "Denmark publishes no fixed equivalence for Social Studies, so it is decided university by university. Aarhus accepts Global Politics HL, or Global Politics SL together with Economics; CBS lists Business Management, Economics, Global Politics or History at SL or HL, Geography HL or Anthropology HL; Copenhagen has accepted Global Politics HL. Elsewhere, ask the admissions office in writing before 15 March."
+      "reason": "Denmark publishes no fixed equivalence for Social Studies, so it is decided university by university. Aarhus accepts Global Politics HL, or Global Politics SL together with Economics; CBS lists Business Management, Economics, Global Politics or History at SL or HL, Geography HL or Anthropology HL; Copenhagen has accepted Global Politics HL. Elsewhere, ask the admissions office in writing before 15 March.",
+      "action": "Ask the admissions office in writing before 15 March whether your Global Politics or another social science subject counts."
     },
     {
       "subject": "Geoscience",

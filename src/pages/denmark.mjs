@@ -621,7 +621,7 @@ ${hero({
             § 17) ranks quota 1 on the exam average — for an IB Diploma, the converted average in this table — and
             contains no multiplier for applying soon after school. So a programme's cut-off and your converted average
             compare directly, and the IB points shown beside a cut-off on this site are read straight off this table.
-        The same § 17 converts an exam <em>from an EU or EEA country</em>; § 18 puts applicants whose exam is from
+        The same § 17 converts an exam only if it is from an EU or EEA country. § 18 puts applicants whose exam is from
         outside the EU/EEA in quota 2 only. An IB Diploma taken at a school in Denmark is converted like this.</p>
             ${dataTable({
               caption: c.gradeAverage.appliesTo,
