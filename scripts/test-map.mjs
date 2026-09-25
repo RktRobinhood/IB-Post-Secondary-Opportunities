@@ -309,7 +309,16 @@ check('pins stay decorative, so the list stays the one control surface', () => {
     assert.match(globeJs, /closeState === 'none' && touched && view\.alt < CLOSE_PRELOAD_ALT/, 'the close map preloads without any gesture');
     assert.match(globeJs, /if \(touched\) \{ maybeFine\(\); maybeDetail\(\); \}/, 'the finer borders or the detail texture load before any gesture');
     assert.ok(!/if \(first\) \{[\s\S]{0,400}upgradeDay\(\)/.test(globeJs), 'the 4096 map loads on every visit again, not on the first gesture');
-    assert.match(globeJs, /Math\.max\(HANDBACK_ALT \* 1\.15,/, 'a resting camera can sit below the hand-back altitude, so a page can rest in the close map');
+    /* Since the desk globe (25 September) every page rests on the desk, far
+       above the close map: its altitude is fitted to the stage, never below 2.2. */
+    assert.match(globeJs, /Math\.max\(2\.2, 1 \/ Math\.sin\(Math\.atan\(k\)\) - 1\)/, 'the desk altitude can come down towards the close map');
+    assert.match(globeJs, /alt: deskAlt \};/, 'a page can rest somewhere other than the desk');
+  });
+  check('the desk globe turns on its axis only, and lets go of its tilt and stand as you lean in', () => {
+    assert.match(globeJs, /const roll = TILT \* dk;/, 'the axis tilt no longer follows the desk');
+    assert.match(globeJs, /const dLat = dy \* k \* \(1 \+ Math\.sin\(cam\.pitch\) \* 0\.9\) \* \(1 - desk\(view\.alt\)\);/, 'a drag on the desk can tip the globe north or south');
+    assert.match(globeJs, /Math\.min\(3\.2, deskIn\(\) \* 0\.95,/, 'a journey can climb into the desk, so the stand blinks in mid-flight');
+    assert.match(globeJs, /const k = closeActive \? 0 : desk\(view\.alt\);/, 'the stand shows over the close map');
   });
   check('cards are judged only once the camera has arrived, and a place keeps its own depth', () => {
     assert.match(globeJs, /if \(cardSubject && !flight && !closeFlying\) cardStillAbout\(\)/, 'a card can be closed by its own flight');

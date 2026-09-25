@@ -131,9 +131,9 @@ const jsonIn = (page, id) => {
 check('every card on the discovery surface carries a background', () => {
   const page = built('index.html');
   if (!page) throw new Error('index.html is not built');
-  const cards = [...page.matchAll(/<li class="discover__card"[^>]*>([sS]*?)</li>s*(?=<li class="discover__card"|</ul>)/g)].map((m) => m[1]);
+  const cards = [...page.matchAll(/<li class="discover__card"[^>]*>([\s\S]*?)<\/li>\s*(?=<li class="discover__card"|<\/ul>)/g)].map((m) => m[1]);
   assert.ok(cards.length > 0, 'no discovery cards on the home page');
-  const bare = cards.filter((c) => !/class="card__backdrop"/.test(c)).map((c) => (c.match(//programmes/([a-z0-9-]+)//) || [])[1]);
+  const bare = cards.filter((c) => !/class="card__backdrop"/.test(c)).map((c) => (c.match(/\/programmes\/([a-z0-9-]+)\//) || [])[1]);
   assert.deepEqual(bare, []);
   const members = jsonIn('index.html', 'discover-data').cards.reduce((n, c) => n + c.members.length, 0);
   assert.equal(members, site.programmes.length);
