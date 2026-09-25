@@ -216,5 +216,5 @@ document.addEventListener('click', (e) => {
   const a = e.target.closest?.('a[href]');
   if (!a || !leavesSite(a)) return;
   a.target = '_blank';
-  if (!/noopener/.test(a.rel)) a.rel = `${a.rel} noopener`.trim();
+  if (!/\bnoopener\b/.test(a.rel)) a.rel = `${a.rel} noopener`.trim();
 }, true);
