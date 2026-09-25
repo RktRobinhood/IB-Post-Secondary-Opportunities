@@ -88,6 +88,21 @@ At 375×812 that puts "Where to study" at about one screen (801px, under a 568px
 
 The whole-view ceiling is the loose one on purpose: most of it is the institution list, which is the part of the page that is meant to be there, and it grows with the number of institutions. The number to defend is the reading after them. When a page breaches the budget, the fix is a shorter short answer or a new disclosure — not a higher number.
 
+### Every page's budget
+
+Every built page, not only Destinations, is held to these by `scripts/test-text-walls.mjs` (the `text-walls` check, built stage). The reasoning for each number is in `docs/research/ia/plan.md`.
+
+| | Budget |
+|---|---|
+| Prose run: consecutive paragraphs of 15+ words with only headings between them, before a picture, control, card, table or disclosure | **≤4 paragraphs and ≤150 words** |
+| Words after the hero before the first picture, control, card, table or disclosure | **120** |
+| An open note (`aside.note`) | **60** |
+| One paragraph | **90** |
+| The whole default view | **1,500** |
+| A visible sentence of 12+ words | **on at most 10 pages** — more is boilerplate, and belongs in a component or on one linked page |
+
+Pages that broke a rule when the guard landed are listed with their measured numbers in `scripts/lib/text-walls-known.json`. A listed page may not get worse, and a listed page that passes must be removed, so the list only shrinks.
+
 ## The two ways through
 
 Every important task needs both:

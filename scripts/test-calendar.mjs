@@ -340,6 +340,35 @@ check('a route closed only to some nationalities is conditional, not closed', ()
   assert.ok(events.every((e) => !isClosed(e)), `${id} still renders as closed to everyone`);
 });
 
+/* --- The Deadlines page opens on what is ahead ------------------------------ */
+
+/* /timeline/ used to open on 1 September 2025 and list 60 past dates before the
+   first one a student could still act on (docs/research/ia/text-walls.md §3.1).
+   Rendered for a fixed "today", every date visible without opening anything must
+   be ahead of it (or a window still open), and every dated event must still be
+   on the page, one tap away. */
+const { timeline, NEXT_UP } = await import('../src/pages/timeline.mjs');
+const { defaultView } = await import('./lib/page-measure.mjs');
+
+for (const today of ['2026-09-25', '2027-02-01']) {
+  check(`the Deadlines page, as of ${today}, shows no past date before the first upcoming one`, () => {
+    const out = timeline(site, { today });
+    const pageHtml = typeof out === 'string' ? out : toString(out);
+    const view = defaultView(pageHtml);
+    const shown = [...view.matchAll(/<li\b[^>]*\sdata-date="([^"]+)"(?:[^>]*\sdata-end="([^"]+)")?/g)].map((m) => ({ date: m[1], end: m[2] || m[1] }));
+    assert.ok(shown.length > 0 && shown.length <= NEXT_UP, `the default view shows ${shown.length} dates; it should open on at most ${NEXT_UP}`);
+    const pastFirst = shown.filter((d) => d.end < today);
+    assert.deepEqual(pastFirst, [], `past dates in the default view: ${pastFirst.map((d) => d.date).join(', ')}`);
+    const sorted = shown.map((d) => d.date).slice().sort();
+    assert.deepEqual(shown.map((d) => d.date), sorted, 'the dates shown first are not in date order');
+    // Nothing dropped: every dated, actionable event is still on the page (the
+    // "next up" dates appear twice there, once in the full list).
+    const all = new Set([...pageHtml.matchAll(/<li\b[^>]*\sdata-date="([^"]+)"/g)].map((m) => m[1]));
+    const missing = allEvents(site).filter((e) => e.date && isActionable(e) && !all.has(e.date));
+    assert.deepEqual(missing.map((e) => e.id), [], 'dated events missing from the page');
+  });
+}
+
 /* --- Progress ------------------------------------------------------------- */
 
 if (REPORT) {

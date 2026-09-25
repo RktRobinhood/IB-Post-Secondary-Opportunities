@@ -1,4 +1,4 @@
-import { html, raw, md, plural, truncate, firstSentence } from '../lib/html.mjs';
+import { html, raw, md, plural, truncate, firstSentence, listSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import {
   hero, card, note, stats, facts, sources, crumbs, sectionHead,
@@ -259,6 +259,29 @@ ${institutions.length
 
 /* --- How to apply ---------------------------------------------------------- */
 
+/**
+ * One dated step: when, what to do in one line, and the rest a tap beneath.
+ *
+ * This page was the right shape, a dated sequence, written as prose: thirteen
+ * consecutive paragraphs and 734 words from the top (docs/research/ia/
+ * text-walls.md §3.6). Now the eight steps fit on about two phone screens, and
+ * everything that was in them — the institution codes, the signature page,
+ * each institution's documentation and acceptance dates — is still in them,
+ * behind the step it belongs to.
+ */
+function applyStep({ when, what, line, more, moreLabel = 'The detail' }) {
+  return html`<li>
+    <h3><span class="apply-step__when">${when}</span> ${what}</h3>
+    <p>${line}</p>
+    ${more
+      ? html`<details class="topic__more">
+          <summary>${moreLabel}</summary>
+          <div class="topic__body">${more}</div>
+        </details>`
+      : ''}
+  </li>`;
+}
+
 export function denmarkApply(site) {
   const body = html`
 ${hero({
@@ -274,84 +297,107 @@ ${hero({
     ${crumbs([{ href: '/denmark/', label: 'Denmark' }, { label: 'How to apply' }])}
     <div class="layout-aside">
       <div class="prose">
-        <ol class="steps">
-          <li>
-            <h3>Autumn 2026 — work out what you qualify for</h3>
-            <p>Check your six subjects and levels against the programmes you are drawn to. If you are one
-            subject short, autumn is when you still have time to do something about it. Some universities
-            will give you a written pre-assessment between September and December — ask.</p>
-            <p><a class="arrow-link" href="${url('/planner/')}">Check my subjects</a></p>
-          </li>
-          <li>
-            <h3>January–February 2027 — log in and gather documents</h3>
-            <p>You apply on <a href="https://www.optagelse.dk" rel="noopener nofollow">optagelse.dk</a>. Log in
-            with MitID if you have one; without a Danish CPR number you log in with your email address instead.
-            You will need your most recent transcript, documentation of anything you want counted in quota 2, and
-            a passport copy if you are not an EU citizen.</p>
-          </li>
-          <li>
-            <h3>Before 15 March — ask your IB coordinator for the results service</h3>
-            <p>Your results are not out until 6 July, well after the documentation deadline. The fix is the
-            IB's own results service: your coordinator registers you and your results go directly to up to six
-            institutions. Get a receipt. Institution codes: Copenhagen 002600, Aarhus 000150, Aalborg 000148,
-            Southern Denmark 000157.</p>
-          </li>
-          <li>
-            <h3>15 March 2027, 12:00 noon CET — submit</h3>
-            <p>You may apply to up to eight programmes, listed in order of priority. You will receive at most
-            one offer — the highest-priority programme that admits you. Order matters; think about it properly
-            rather than ranking by prestige.</p>
-            <p><strong>Sign every application by the same deadline.</strong> With MitID you sign inside
-            optagelse.dk. Without MitID you must print the <strong>signature page</strong>, sign it by hand and
-            email or post it to every institution you apply to — it is never uploaded, and your application is
-            not complete without it.</p>
-          </li>
-          <li>
-            <h3>Spring to 5 July — top up your documentation</h3>
-            <p>You can reorder your priorities until 12:00 on 5 July. Documentation deadlines are set by each
-            institution: Aarhus and Aalborg accept documents until 5 July, but Copenhagen wants them with the
-            application on 15 March and some academies set 1 April. Check each one you list.</p>
-          </li>
-          <li>
-            <h3>6 July — results day</h3>
-            <p>Your IB results are released. If you registered for the results service, they travel to the
-            Danish institutions without you doing anything.</p>
-          </li>
-          <li>
-            <h3>28 July — offers</h3>
-            <p>Offers go out and the quota 1 cut-off averages for every programme are published. If you were
-            not admitted anywhere, this is also when vacant places appear.</p>
-          </li>
-          <li>
-            <h3>Early August — accept</h3>
-            <p>You have a few days to accept, and the deadline is the institution's: in 2026 it was 2 August at
-            Copenhagen, 3 August at Southern Denmark and 5 August at Aalborg. Then housing, CPR registration and a
-            bank account — in that order, because each one depends on the last.</p>
-          </li>
+        <ol class="steps apply-steps">
+          ${applyStep({
+            when: 'Autumn 2026',
+            what: 'Work out what you qualify for',
+            line: html`Check your six subjects and levels against the programmes you want: autumn is when a missing subject can still be fixed. <a class="arrow-link" href="${url('/planner/')}">Check my subjects</a>`,
+            more: html`<p>Some universities will give you a written pre-assessment between September and December — ask.</p>`,
+            moreLabel: 'Ask for a pre-assessment',
+          })}
+          ${applyStep({
+            when: 'January–February 2027',
+            what: 'Log in and gather documents',
+            line: html`Log in to <a href="https://www.optagelse.dk" rel="noopener nofollow">optagelse.dk</a> with MitID, or with your email address if you have no Danish CPR number.`,
+            more: html`<p>You will need your most recent transcript, documentation of anything you want counted in quota 2, and
+              a passport copy if you are not an EU citizen.</p>`,
+            moreLabel: 'Which documents',
+          })}
+          ${applyStep({
+            when: 'Before 15 March',
+            what: 'Ask your IB coordinator for the results service',
+            line: 'Your results come out on 6 July, after the deadline, so your coordinator sends them straight to up to six institutions.',
+            more: html`<p>Your coordinator registers you for the IB's own results service. Get a receipt. Institution codes: Copenhagen 002600, Aarhus 000150, Aalborg 000148,
+              Southern Denmark 000157.</p>`,
+            moreLabel: 'Institution codes',
+          })}
+          ${applyStep({
+            when: '15 March 2027, 12:00 noon CET',
+            what: 'Submit up to eight programmes, and sign them',
+            line: 'List them in order of priority and sign every application by the same deadline. You get at most one offer: your highest-ranked programme that admits you.',
+            more: html`<p>Order matters; think about it properly rather than ranking by prestige.</p>
+              <p>With MitID you sign inside
+              optagelse.dk. Without MitID you must print the <strong>signature page</strong>, sign it by hand and
+              email or post it to every institution you apply to — it is never uploaded, and your application is
+              not complete without it.</p>`,
+            moreLabel: 'Signing, with or without MitID',
+          })}
+          ${applyStep({
+            when: 'Spring to 5 July',
+            what: 'Top up your documentation',
+            line: 'You can reorder your priorities until 12:00 on 5 July. Documentation deadlines are set by each institution.',
+            more: html`<p>Aarhus and Aalborg accept documents until 5 July, but Copenhagen wants them with the
+              application on 15 March and some academies set 1 April. Check each one you list.</p>`,
+            moreLabel: 'Each institution’s deadline',
+          })}
+          ${applyStep({
+            when: '6 July',
+            what: 'Results day',
+            line: 'If you registered for the results service, your results travel to the Danish institutions without you doing anything.',
+          })}
+          ${applyStep({
+            when: '28 July',
+            what: 'Offers',
+            line: 'Offers go out and every programme’s quota 1 cut-off is published. If you were not admitted anywhere, vacant places appear now.',
+          })}
+          ${applyStep({
+            when: 'Early August',
+            what: 'Accept within a few days',
+            line: 'The deadline is the institution’s: in 2026, 2 August at Copenhagen, 3 August at Southern Denmark and 5 August at Aalborg.',
+            more: html`<p>Then housing, CPR registration and a
+              bank account — in that order, because each one depends on the last.</p>
+              <p><a class="arrow-link" href="${url('/denmark/money/#admin')}">The order you have to do things in</a></p>`,
+            moreLabel: 'Then housing, CPR and a bank',
+          })}
         </ol>
+        <p class="small-print"><a href="${url('/timeline/?destinations=dk')}">These dates beside any other country’s, on Deadlines</a></p>
 
-        ${note(
-          `**If you will pay tuition** — you are not an EU, EEA or Swiss citizen and hold no permit that exempts
-          you, such as permanent residence or a Special Act permit for displaced persons from Ukraine (see Money) —
-          the rules are harsher and differ between institutions. Aarhus says that "if you are a paying applicant,
-          then you cannot apply if you earn your IB exam in the year of application", because paying applicants must
-          document everything by 15 March. Aalborg sets 1 May. Check your specific institution early, because this
-          can rule out the whole year. If you do not pay tuition, these harsher rules do not apply to you.`,
-          { kind: 'warn', title: 'Applicants who pay tuition' }
-        )}
+        ${topic({
+          id: 'paying',
+          title: 'If you will pay tuition',
+          short: 'The rules are harsher and differ by institution. At Aarhus you cannot apply in the year you take the IB, so check early: this can rule out the whole year.',
+          body: html`<p><strong>If you will pay tuition</strong> — you are not an EU, EEA or Swiss citizen and hold no permit that exempts
+            you, such as permanent residence or a Special Act permit for displaced persons from Ukraine (see
+            <a href="${url('/denmark/money/#tuition')}">Money</a>) — the rules are harsher and differ between institutions. Aarhus says that "if you are a paying applicant,
+            then you cannot apply if you earn your IB exam in the year of application", because paying applicants must
+            document everything by 15 March. Aalborg sets 1 May. Check your specific institution early, because this
+            can rule out the whole year. If you do not pay tuition, these harsher rules do not apply to you.</p>`,
+          more: 'Who this applies to',
+        })}
 
-        <h2 id="short">If you are a subject short</h2>
-        <p>Denmark lets you top up through <strong>GSK</strong> (gymnasial supplering) — individual subjects taken
-        at a VUC or GSK centre to reach a level you are missing. Two things to know: GSK subjects are taught in
-        Danish, and GSK cannot be used to raise your overall qualification level, only to meet a specific subject
-        requirement.</p>
-        <p>The separate rules about <em>supplering</em> — two successive level raises, at least one to A level —
-        apply only if you hold DP Course Results rather than a full Diploma.</p>
+        ${topic({
+          id: 'short',
+          title: 'If you are a subject short',
+          short: 'Top up the missing level through **GSK**. It is taught in Danish, and only meets a specific subject requirement.',
+          body: html`<p>Denmark lets you top up through <strong>GSK</strong> (gymnasial supplering) — individual subjects taken
+            at a VUC or GSK centre to reach a level you are missing. Two things to know: GSK subjects are taught in
+            Danish, and GSK cannot be used to raise your overall qualification level, only to meet a specific subject
+            requirement.</p>
+            <p>The separate rules about <em>supplering</em> — two successive level raises, at least one to A level —
+            apply only if you hold DP Course Results rather than a full Diploma
+            (<a href="${url('/denmark/ib-conversion/#access')}">what qualifies you</a>).</p>`,
+          more: 'How GSK works',
+        })}
 
-        <h2 id="deferring">Taking a sabbatår</h2>
-        <p>Taking a year out after the IB is ordinary in Denmark and carries no penalty in quota 1 — your average
-        is your average. The old bonus for applying within two years of finishing no longer exists. A year of
-        relevant work can genuinely help in quota 2, where many institutions count documented work — Aalborg up to twelve months.</p>
+        ${topic({
+          id: 'deferring',
+          title: 'Taking a sabbatår',
+          short: 'A year out carries no penalty in quota 1, and relevant work can help in quota 2.',
+          body: html`<p>Taking a year out after the IB is ordinary in Denmark and carries no penalty in quota 1 — your average
+            is your average. The old bonus for applying within two years of finishing no longer exists. A year of
+            relevant work can genuinely help in quota 2, where many institutions count documented work — Aalborg up to twelve months.</p>`,
+          more: 'Why it costs nothing',
+        })}
       </div>
 
       <aside class="layout-aside__side stack">
@@ -384,6 +430,25 @@ ${hero({
 
 /* --- Conversion reference + calculator ------------------------------------- */
 
+/** The Recognition Scheme this handbook is the published form of. */
+function schemeFor(site, c) {
+  return (site.recognitionSchemes || []).find((x) => x.authority?.name && x.authority.name === c.authority?.name) || null;
+}
+
+/** "Subject|level" → the programmes on this site that ask for it, on the scheme's scale. */
+function askedBy(site, scale) {
+  const asked = new Map();
+  const walk = (r, id) => {
+    if (r.kind === 'subject-combination') return (r.alternatives || []).flat().forEach((x) => walk(x, id));
+    if (r.levelScale !== scale || !r.subject || !r.level) return;
+    const key = `${r.subject}|${r.level}`;
+    if (!asked.has(key)) asked.set(key, new Set());
+    asked.get(key).add(id);
+  };
+  for (const p of site.programmes || []) for (const r of p.requirements || []) walk(r, p.id);
+  return asked;
+}
+
 /**
  * "Danish level → IB": one row per subject and level a student will meet,
  * each translated by the eligibility engine from the Recognition Scheme — the
@@ -397,22 +462,14 @@ ${hero({
  * student most needs warning about.
  */
 function levelRows(site, c) {
-  const scheme = (site.recognitionSchemes || []).find((x) => x.authority?.name && x.authority.name === c.authority?.name);
+  const scheme = schemeFor(site, c);
   if (!scheme) return [];
   const institutions = [...(site.graph?.institutions?.values() || [])].filter((i) => (i.ibEquivalences || []).length);
   const index = buildSubjectIndex({ subjects: site.ibSubjects || [], schemes: [scheme], institutions });
   const scale = scheme.subjectScale.id;
   const rank = new Map(scheme.subjectScale.levels.map((l) => [l.code, l.rank]));
 
-  const asked = new Map();
-  const walk = (r, id) => {
-    if (r.kind === 'subject-combination') return (r.alternatives || []).flat().forEach((x) => walk(x, id));
-    if (r.levelScale !== scale || !r.subject || !r.level) return;
-    const key = `${r.subject}|${r.level}`;
-    if (!asked.has(key)) asked.set(key, new Set());
-    asked.get(key).add(id);
-  };
-  for (const p of site.programmes || []) for (const r of p.requirements || []) walk(r, p.id);
+  const asked = askedBy(site, scale);
 
   const subjects = new Set([...asked.keys()].map((k) => k.split('|')[0]));
   const keys = new Set(asked.keys());
@@ -447,14 +504,46 @@ function levelRows(site, c) {
     });
 }
 
+/**
+ * The subject lookup under the calculator: pick the IB course you take, see the
+ * Danish level it counts as and how many programmes here ask for that level.
+ * The handbook's table read the other way round, so it cannot disagree with it;
+ * the awkward cases are offered too, with their verdict instead of a level.
+ */
+function subjectLookup(site, c) {
+  const scheme = schemeFor(site, c);
+  const asked = scheme ? askedBy(site, scheme.subjectScale.id) : new Map();
+  const byCourse = new Map();
+  for (const m of c.subjectLevels.map) {
+    for (const course of m.ib) {
+      if (!byCourse.has(course)) byCourse.set(course, []);
+      byCourse.get(course).push({
+        level: `${m.danish} ${m.level}`,
+        local: `${m.danishSubject} ${m.level}`,
+        asked: asked.get(`${m.danish}|${m.level}`)?.size || 0,
+        note: m.note || null,
+      });
+    }
+  }
+  const rows = [...byCourse].map(([course, levels]) => ({ course, levels }));
+  for (const s of c.subjectLevels.specialCases) rows.push({ course: s.subject, verdict: s.verdict });
+  return rows.sort((a, b) => a.course.localeCompare(b.course));
+}
+
 export function denmarkConversion(site) {
   const c = site.conversion;
   if (!c) return page({ title: 'Conversion', path: '/denmark/ib-conversion/', body: emptyState('Conversion data is missing.') });
 
   const levels = levelRows(site, c);
+  const lookup = subjectLookup(site, c);
   const avgRows = c.gradeAverage.table.map((r) => [String(r.ib), { num: r.dk.toFixed(1) }]);
   const singleRows = c.singleGrade.table.map((r) => [String(r.ib), r.descriptor, { num: String(r.dk) }]);
+  const special = c.subjectLevels.specialCases;
 
+  /* The calculator first. A student comes here to type a total and see an
+     average, or to look up one subject; the page used to put 623 words and a
+     thirty-row table in front of the input, which sat twelve phone screens
+     down. Every table is still here, one tap beneath its own one-line answer. */
   const body = html`
 ${hero({
   variant: 'compact',
@@ -470,115 +559,164 @@ ${hero({
 
     <div class="layout-aside">
       <div class="prose">
-        ${note(
-          c.importantForTwentySeven.map((x) => `- ${x}`).join('\n'),
-          { kind: 'warn', title: 'If you finish in May 2027' }
-        )}
-
-        <h2 id="levels">What a Danish requirement means in IB terms</h2>
-        <p><strong>Danish A, B and C are levels of study, not grades.</strong> A is the highest level a subject can be
-        taken at and C the lowest, and a higher level always covers a lower one. So when a programme asks for
-        <em>English B</em>, it means English at B level — not the IB course English B, although English B SL is one
-        way to meet it. <em>Any IB English</em> means any English A or English B course — not English ab initio.</p>
-        <p>Every subject a programme on this site asks for, read through the Agency's handbook. SL or HL means
-        either level meets it. Where a university publishes its own additions, they are named under the national
-        answer.</p>
-        ${levels.length
-          ? dataTable({
-              head: ['Danish requirement', 'In IB terms', 'Asked for by'],
-              rows: levels,
-            })
-          : ''}
-        <p>A minimum grade is converted with the <a href="#single">single-grade table</a> below: the lowest IB grade
-        that converts to the Danish minimum or above. The handbook's full subject table is <a href="#subjects">further
-        down</a>.</p>
-
-        <h2 id="calculator">Work out your Danish average</h2>
+        <h2 id="calculator">Your IB total as a Danish average</h2>
         <p>Enter your predicted total, including the three bonus points for Theory of Knowledge and the
         Extended Essay.</p>
 
-        <div class="filters" style="margin-bottom:var(--s5)">
+        <div class="filters conv-tool">
           <div class="field">
             <label for="ib-points">IB total points (18–45)</label>
             <input type="number" id="ib-points" min="18" max="45" step="1" value="34" inputmode="numeric">
           </div>
           <div id="conv-out" class="converted" role="status" aria-live="polite"></div>
         </div>
+        <p class="small-print conv-tool__stamp">${c.gradeAverage.sourceLabel}. ${c.gradeAverage.nextTable || ''}</p>
 
-        <h2 id="average">Total points to Danish grade average</h2>
-        <p>This is the number you compete on in quota 1. It is re-issued every year — the table below is
-        labelled <em>${c.gradeAverage.sourceLabel}</em>, and the version for the summer 2027 intake is published
-        by 1 March 2027.</p>
-        <p>There is no bonus on top of it. The admission order in force for universities
-        (<a href="https://www.retsinformation.dk/eli/lta/2026/288" rel="noopener nofollow">Adgangsbekendtgørelsen, BEK nr 288 of 17 February 2026</a>,
-        § 17) ranks quota 1 on the exam average — for an IB Diploma, the converted average in this table — and
-        contains no multiplier for applying soon after school. So a programme's cut-off and your converted average
-        compare directly, and the IB points shown beside a cut-off on this site are read straight off this table.</p>
-        ${dataTable({
-          caption: c.gradeAverage.appliesTo,
-          head: ['IB total', { label: 'Danish average', num: true }],
-          rows: avgRows,
+        <div class="filters conv-tool">
+          <div class="field">
+            <label for="subject-lookup">Look up one IB subject</label>
+            <select id="subject-lookup">
+              <option value="">Choose a subject and level</option>
+              ${lookup.map((r, i) => html`<option value="${i}">${r.course}</option>`)}
+            </select>
+          </div>
+          <div id="lookup-out" class="converted" role="status" aria-live="polite" hidden></div>
+        </div>
+
+        ${topic({
+          id: 'levels',
+          title: 'What a Danish requirement means in IB terms',
+          short: '**Danish A, B and C are levels of study, not grades.** A is the highest, and a higher level always covers a lower one.',
+          body: html`<p><strong>Danish A, B and C are levels of study, not grades.</strong> A is the highest level a subject can be
+            taken at and C the lowest, and a higher level always covers a lower one. So when a programme asks for
+            <em>English B</em>, it means English at B level — not the IB course English B, although English B SL is one
+            way to meet it. <em>Any IB English</em> means any English A or English B course — not English ab initio.</p>
+            <p>Every subject a programme on this site asks for, read through the Agency's handbook. SL or HL means
+            either level meets it. Where a university publishes its own additions, they are named under the national
+            answer.</p>
+            ${levels.length
+              ? dataTable({
+                  head: ['Danish requirement', 'In IB terms', 'Asked for by'],
+                  rows: levels,
+                })
+              : ''}
+            <p>A minimum grade is converted with the <a href="#single">single-grade table</a>: the lowest IB grade
+            that converts to the Danish minimum or above. The handbook's full subject table is under
+            <a href="#subjects">subjects and levels</a>.</p>`,
+          more: `Every requirement a programme here asks for (${levels.length})`,
         })}
 
-        <h2 id="single">Single subject grades</h2>
-        <p>Used only where a programme sets a minimum grade in a named subject — Aalborg's Mathematics A at 4.0,
-        or Copenhagen Business School's English B at 6.0. It is never used to build your average.</p>
-        ${dataTable({
-          caption: c.singleGrade.usedFor,
-          head: ['IB grade', 'Descriptor', { label: 'Danish grade', num: true }],
-          rows: singleRows,
-        })}
-        <p>${c.singleGrade.rule}</p>
-
-        <h2 id="subjects">The handbook's subject table, in full</h2>
-        <p>${c.subjectLevels.note}</p>
-        ${dataTable({
-          caption: 'IB subject and level to Danish subject level',
-          head: ['Danish subject', 'Level', 'IB equivalent'],
-          rows: c.subjectLevels.map.map((m) => [
-            m.danishSubject || m.danish,
-            m.level,
-            m.ib.length
-              ? html`${m.ib.map((x, n) => html`${n ? html`<br>` : ''}${x}`)}${m.note ? html`<br><small>${m.note}</small>` : ''}${m.warning ? html`<br><small><strong>${m.warning}</strong></small>` : ''}`
-              : html`<em>No IB equivalent listed.</em>${m.warning ? html`<br><small>${m.warning}</small>` : ''}`,
-          ]),
+        ${topic({
+          id: 'average',
+          title: 'Total points to Danish grade average',
+          short: 'The number you compete on in quota 1. There is no bonus on top of it, and it is re-issued every year.',
+          body: html`<p>This is the number you compete on in quota 1. It is re-issued every year — the table below is
+            labelled <em>${c.gradeAverage.sourceLabel}</em>, and the version for the summer 2027 intake is published
+            by 1 March 2027.</p>
+            <p>There is no bonus on top of it. The admission order in force for universities
+            (<a href="https://www.retsinformation.dk/eli/lta/2026/288" rel="noopener nofollow">Adgangsbekendtgørelsen, BEK nr 288 of 17 February 2026</a>,
+            § 17) ranks quota 1 on the exam average — for an IB Diploma, the converted average in this table — and
+            contains no multiplier for applying soon after school. So a programme's cut-off and your converted average
+            compare directly, and the IB points shown beside a cut-off on this site are read straight off this table.</p>
+            ${dataTable({
+              caption: c.gradeAverage.appliesTo,
+              head: ['IB total', { label: 'Danish average', num: true }],
+              rows: avgRows,
+            })}
+            ${note(c.importantForTwentySeven.map((x) => `- ${x}`).join('\n'), { kind: 'warn', title: 'If you finish in May 2027' })}`,
+          more: `The table, ${c.gradeAverage.table[0].ib} to ${c.gradeAverage.table.at(-1).ib} points`,
         })}
 
-        <h3 id="languages">Other languages</h3>
-        ${dataTable({
-          caption: c.subjectLevels.languages.westernEuropean.applies,
-          head: ['Danish level', 'IB equivalent'],
-          rows: c.subjectLevels.languages.westernEuropean.rows.map((r) => [r.danish, r.ib]),
+        ${topic({
+          id: 'single',
+          title: 'Single subject grades',
+          short: 'Used only where a programme sets a minimum grade in a named subject. Never used to build your average.',
+          body: html`<p>Used only where a programme sets a minimum grade in a named subject — Aalborg's Mathematics A at 4.0,
+            or Copenhagen Business School's English B at 6.0. It is never used to build your average.</p>
+            ${dataTable({
+              caption: c.singleGrade.usedFor,
+              head: ['IB grade', 'Descriptor', { label: 'Danish grade', num: true }],
+              rows: singleRows,
+            })}
+            <p>${c.singleGrade.rule}</p>`,
+          more: 'IB grade 1–7 to the Danish scale',
         })}
-        ${dataTable({
-          caption: c.subjectLevels.languages.other.applies,
-          head: ['Danish level', 'IB equivalent'],
-          rows: c.subjectLevels.languages.other.rows.map((r) => [r.danish, r.ib]),
+
+        ${topic({
+          id: 'subjects',
+          title: 'Subjects and levels: the handbook in full',
+          short: `${plural(c.subjectLevels.map.length, 'Danish subject level')} and the IB courses that meet each, plus the rule for other languages.`,
+          body: html`<p>${c.subjectLevels.note}</p>
+            ${dataTable({
+              caption: 'IB subject and level to Danish subject level',
+              head: ['Danish subject', 'Level', 'IB equivalent'],
+              rows: c.subjectLevels.map.map((m) => [
+                m.danishSubject || m.danish,
+                m.level,
+                m.ib.length
+                  ? html`${m.ib.map((x, n) => html`${n ? html`<br>` : ''}${x}`)}${m.note ? html`<br><small>${m.note}</small>` : ''}${m.warning ? html`<br><small><strong>${m.warning}</strong></small>` : ''}`
+                  : html`<em>No IB equivalent listed.</em>${m.warning ? html`<br><small>${m.warning}</small>` : ''}`,
+              ]),
+            })}
+            <h3 id="languages">Other languages</h3>
+            ${dataTable({
+              caption: c.subjectLevels.languages.westernEuropean.applies,
+              head: ['Danish level', 'IB equivalent'],
+              rows: c.subjectLevels.languages.westernEuropean.rows.map((r) => [r.danish, r.ib]),
+            })}
+            ${dataTable({
+              caption: c.subjectLevels.languages.other.applies,
+              head: ['Danish level', 'IB equivalent'],
+              rows: c.subjectLevels.languages.other.rows.map((r) => [r.danish, r.ib]),
+            })}`,
+          more: 'The full table',
         })}
 
-        <h2 id="special">The awkward cases</h2>
-        ${accordion(
-          c.subjectLevels.specialCases.map((s) => ({
-            q: `${s.subject} — ${s.verdict}`,
-            a: html`${md(s.detail)}${s.advice ? note(s.advice, { kind: 'warn', title: 'What to do' }) : ''}`,
-          }))
-        )}
-
-        <h2 id="access">What qualifies you</h2>
-        ${dataTable({
-          caption: c.access.summary,
-          head: ['What you hold', 'Gives access to', 'Detail'],
-          rows: c.access.rules.map((r) => [r.situation, r.givesAccessTo, [r.detail, r.note].filter(Boolean).join(' ')]),
+        ${topic({
+          id: 'special',
+          title: 'The awkward cases',
+          short: `${listSentence(special.map((s) => s.subject.replace(/\s*\(.*\)$/, '')))}: no straightforward equivalent, and what to do about it.`,
+          body: accordion(
+            special.map((s) => ({
+              q: `${s.subject} — ${s.verdict}`,
+              a: html`${md(s.detail)}${s.advice ? note(s.advice, { kind: 'warn', title: 'What to do' }) : ''}`,
+            }))
+          ),
+          more: `All ${special.length}`,
         })}
-        ${note(c.access.retakeRule, { kind: 'warn', title: 'Retakes' })}
-        ${note(c.access.resultsTiming, { title: 'Results timing' })}
 
-        <h2 id="danish-language">Danish language</h2>
-        <p>${c.danishLanguage.summary}</p>
-        <ul>${c.danishLanguage.routes.map((r) => html`<li>${r}</li>`)}</ul>
-        <p>${c.danishLanguage.note}</p>
+        ${topic({
+          id: 'access',
+          title: 'What qualifies you',
+          short: html`<ul>${(c.access.short || [c.access.summary]).map((x) => html`<li>${md(x)}</li>`)}</ul>`,
+          body: html`${dataTable({
+              caption: c.access.summary,
+              head: ['What you hold', 'Gives access to', 'Detail'],
+              rows: c.access.rules.map((r) => [r.situation, r.givesAccessTo, [r.detail, r.note].filter(Boolean).join(' ')]),
+            })}
+            ${note(c.access.retakeRule, { kind: 'warn', title: 'Retakes' })}
+            ${note(c.access.resultsTiming, { title: 'Results timing' })}`,
+          more: 'Every case, and the retake rule',
+        })}
 
-        ${sources(c.sources)}
+        ${topic({
+          id: 'danish-language',
+          title: 'Danish language',
+          short: c.danishLanguage.summary,
+          body: html`<ul>${c.danishLanguage.routes.map((r) => html`<li>${r}</li>`)}</ul>
+            <p>${c.danishLanguage.note}</p>`,
+          more: 'The four ways to meet it',
+        })}
+
+        ${c.sources?.length
+          ? topic({
+              id: 'sources',
+              title: 'Sources',
+              short: `${plural(c.sources.length, 'official source')}, as of ${c.dataAsOf}.`,
+              body: sources(c.sources, { title: null }),
+              more: 'Show them',
+            })
+          : ''}
       </div>
 
       <aside class="layout-aside__side stack">
@@ -592,8 +730,8 @@ ${hero({
         <nav aria-label="On this page">
           <p class="eyebrow eyebrow--plain">On this page</p>
           <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
+            <li><a href="#calculator">Calculator and subject lookup</a></li>
             <li><a href="#levels">Danish levels in IB terms</a></li>
-            <li><a href="#calculator">Calculator</a></li>
             <li><a href="#average">Grade average table</a></li>
             <li><a href="#single">Single grades</a></li>
             <li><a href="#subjects">Subjects and levels</a></li>
@@ -611,7 +749,8 @@ ${hero({
     JSON.stringify({
       average: c.gradeAverage.table,
       single: c.singleGrade.table,
-    })
+      lookup,
+    }).replace(/</g, '\\u003c')
   )}</script>`;
 
   return page({
@@ -627,8 +766,19 @@ ${hero({
 
 /* --- Money ---------------------------------------------------------------- */
 
+/**
+ * What it costs, who can claim the grant, and everything else one tap down.
+ *
+ * This page was 1,432 words with no disclosures and a 760-word run of prose
+ * from the top (docs/research/ia/text-walls.md §3.3). A student wants three
+ * numbers and one answer: tuition, living costs, the grant — and whether they
+ * can claim it. So it opens on a table of costs and the grant's routes, read
+ * from data/funding/, and each other section is a heading and a short answer
+ * with the researched text, unchanged, beneath it.
+ */
 export function denmarkMoney(site) {
   const grant = stateGrant(site);
+  const r = grant?.rate;
   const body = html`
 ${hero({
   variant: 'compact',
@@ -643,112 +793,175 @@ ${hero({
     ${crumbs([{ href: '/denmark/', label: 'Denmark' }, { label: 'Money' }])}
     <div class="layout-aside">
       <div class="prose">
-        <h2 id="tuition">Tuition</h2>
-        <p>Danish higher education is free for citizens of the EU, the EEA and Switzerland, and for anyone
-        holding permanent residence or a temporary permit that can lead to it. If you hold a residence permit under the
-        Special Act for displaced persons from Ukraine (Act no. 324 of 16 March 2022), you are exempt too, from both
-        tuition and the application fee. Everyone else pays. Study in
-        Denmark quotes a range of roughly <strong>€6,000–16,000 per year</strong> — about DKK 45,000–120,000 —
-        but no year is attached to that figure, so treat it as indicative and ask the institution.</p>
-        <p>optagelse.dk charges nothing, but most universities charge non-EU/EEA applicants an
-        <strong>application fee of roughly €100–200 per institution</strong>, payable by 15 March — Aalborg €150,
-        Roskilde €200. An unpaid fee stops the application. Non-EU students then pay <strong>DKK 3,060</strong>
-        (2026 rate) for the residence permit itself.</p>
-
-        <h2 id="su">SU — the Danish state grant</h2>
-        <p>SU is the reason students in Denmark can live independently at nineteen — if they can claim it. For
-        2026 the rate for a student in higher education living away from their parents is <strong>DKK 7,426 a month
-        before tax</strong>, with a loan of up to DKK 3,799 a month on top.</p>
-        <p>If you are a Danish citizen you simply apply through minSU with MitID. If you are an EU, EEA or Swiss
-        citizen without Danish citizenship, you are not automatically entitled: you apply for <em>equal status</em>.
-        There are three routes, and if you moved to Denmark with your family the first two are usually the ones
-        that fit:</p>
-        ${grant
-          ? html`<ul>${grant.whoCanClaim.equalStatus.map((r) => html`<li><strong>${r.title}.</strong> ${r.text}</li>`)}</ul>
-            <p>${grant.whoCanClaim.note || ''} The Agency warns that working exactly 40 hours a month is usually
-            not enough for the job route, because most months run longer than four weeks.</p>
-            <h3 id="su-abroad">Taking SU to a degree abroad</h3>
-            <p>${grant.abroad.summary} ${grant.abroad.ties} ${grant.abroad.duration}</p>
-            <p>${grant.otherwise}</p>`
-          : ''}
-        ${note(
-          `An SU reform takes effect on **1 January 2027** and applies to anyone starting a new higher education
-          programme on or after 1 July 2025 — which includes this cohort. The total grant frame for higher
-          education drops from 70 to 58 portions, and SU is limited to the prescribed duration of your programme,
-          with a completion loan of up to 24 months if you run out. Plan on finishing on time.`,
-          { kind: 'warn', title: 'The 2027 SU reform affects you' }
-        )}
-        <p>Non-EU students on a study residence permit are <strong>not</strong> allowed to claim SU or housing
-        benefit, and doing so can cost them the permit.</p>
-
-        <h2 id="living">Cost of living</h2>
-        <p>Study in Denmark's own rough budget, per month:</p>
+        <h2 id="costs">What it costs</h2>
+        ${/* Two columns that stay two columns on a phone: a cost table that
+              stacks into one card per row was two and a half screens long. */ ''}
         ${dataTable({
-          caption: 'Monthly budget, in DKK. No year is stated on the source, and 3,000 for rent is optimistic in Copenhagen.',
-          head: ['Item', { label: 'DKK per month', num: true }],
+          className: 'cost-table',
+          caption: 'Indicative: Study in Denmark attaches no year to the tuition range or the budget, so ask the institution.',
+          head: ['What, and who pays it', 'Amount'],
           rows: [
-            ['Rent, utilities usually included', { num: '3,000–6,500' }],
-            ['Food', { num: '2,000–3,500' }],
-            ['Other personal spending', { num: '2,000' }],
-            ['Books and supplies', { num: '400–650' }],
-            ['Insurance', { num: '~300' }],
-            ['Mobile phone', { num: '~250' }],
-            ['Transport', { num: '~300' }],
-            ['Streaming and licences', { num: '~200' }],
-            [html`<strong>Total</strong>`, { num: '8,450–13,700' }],
+            [html`<strong>Tuition</strong><small>EU, EEA and Swiss citizens; permanent residence or a permit that can lead to it; a Special Act permit (Ukraine)</small>`, 'None'],
+            [html`<strong>Tuition</strong><small>Everyone else</small>`, '≈ €6,000–16,000 a year'],
+            [html`<strong>Application fee</strong><small>Non-EU/EEA applicants, at most universities (not Special Act permit holders)</small>`, '≈ €100–200 per institution, by 15 March'],
+            [html`<strong>Residence permit</strong><small>Non-EU students</small>`, 'DKK 3,060 (2026)'],
+            [html`<strong>Living costs</strong><small>Everyone; more in Copenhagen</small>`, 'DKK 8,450–13,700 a month'],
+            ...(r
+              ? [[
+                  html`<strong>${grant.name}, the state grant</strong><small>${grant.whoCanClaim.citizens.replace(/.$/, '')}, and EU/EEA citizens with <a href="#su">equal status</a></small>`,
+                  `Up to ${r.currency} ${money(r.amount)} a ${r.per} (${r.year}), ${r.basis}${r.loan ? `; plus a loan of up to ${r.currency} ${money(r.loan)}` : ''}`,
+                ]]
+              : []),
           ],
         })}
-        <p>For comparison, the immigration service requires non-EU students to show DKK 7,426 a month — the same
-        figure as the SU rate, up to a maximum of DKK 89,112 for a programme longer than a year.</p>
 
-        <h2 id="housing">Housing</h2>
-        <p>Danish universities have no tradition of campus accommodation. Most students live in
-        <em>kollegier</em> — halls of residence, often some distance from campus — or rent privately. Start
-        months before you arrive, and contact your institution about housing the moment you are accepted.
-        August and September are the worst possible time to turn up without a room.</p>
-        <p>Where to look: <a href="https://www.ungdomsboliger.dk" rel="noopener nofollow">ungdomsboliger.dk</a>
-        and <a href="https://www.studenterguiden.dk" rel="noopener nofollow">studenterguiden.dk</a> nationally;
-        <a href="https://www.kollegierneskontor.dk" rel="noopener nofollow">Kollegiernes Kontor</a> in Copenhagen;
-        Student Housing Aarhus; Studiebolig Aalborg; Boligoen and Kollegieboligselskabet in Odense.</p>
+        ${grant
+          ? html`<h2 id="su">${grant.name}: who can claim it</h2>
+            <p>If you hold Danish citizenship, apply through minSU with MitID. Other EU, EEA and Swiss citizens are
+            not automatically entitled: you apply for <em>equal status</em>, through one of three routes. If you moved
+            to Denmark with your family, the first two usually fit.</p>
+            <div class="su-routes">
+              ${grant.whoCanClaim.equalStatus.map(
+                (x) => html`<details class="topic__more">
+                  <summary>${x.title}</summary>
+                  <div class="topic__body"><p>${x.text}</p>${x.id === 'work'
+                    ? html`<p>The Agency warns that working exactly 40 hours a month is usually not enough for the job
+                      route, because most months run longer than four weeks.</p>`
+                    : ''}</div>
+                </details>`
+              )}
+            </div>
+            <p>Non-EU students on a study residence permit are <strong>not</strong> allowed to claim SU or housing
+            benefit, and doing so can cost them the permit.</p>
+            ${grant.whoCanClaim.note ? html`<p class="small-print">${grant.whoCanClaim.note}</p>` : ''}`
+          : ''}
 
-        <h2 id="work">Working while you study</h2>
-        <p>EU, EEA, Nordic and Swiss citizens can work without restriction. Students from outside that group
-        get a limited work permit: <strong>90 hours a month</strong> from September to May, and full-time
-        through June, July and August. Study in Denmark's own pages still quote the old 20-hours-a-week rule —
-        the immigration service's 90 hours a month is the current one.</p>
-        <p>Students in Denmark typically work 10–20 hours a week. If you are an EU/EEA citizen without Danish
-        citizenship and no other route to equal status, that job can also be your route to SU.</p>
+        ${topic({
+          id: 'reform',
+          title: 'The 2027 SU reform affects this cohort',
+          short: 'From **1 January 2027** the grant is limited to the prescribed duration of the programme, and the total frame drops from 70 to 58 portions.',
+          body: html`<p>An SU reform takes effect on <strong>1 January 2027</strong> and applies to anyone starting a new higher education
+            programme on or after 1 July 2025 — which includes this cohort. The total grant frame for higher
+            education drops from 70 to 58 portions, and SU is limited to the prescribed duration of your programme,
+            with a completion loan of up to 24 months if you run out. Plan on finishing on time.</p>`,
+          more: 'What changes',
+        })}
 
-        <h2 id="admin">The order you have to do things in</h2>
-        <ol class="steps">
-          <li><h4>Residence document</h4><p>If you are a Nordic citizen you need none: you register directly for a CPR number at Citizen Service. If you already live in Denmark as another EU/EEA citizen, you will usually have a registration certificate; ask SIRI whether yours needs updating once you are here as a student rather than as a family member. If you are arriving, EU and EEA citizens get an EU registration certificate from SIRI within three months. Book the appointment in advance and bring your passport and letter of admission. Non-EU students need a residence permit before arrival — allow two to three months.</p></li>
-          <li><h4>CPR number</h4><p>Your Danish personal number. If you already live in Denmark you have one, and it stays yours when you move for university — register the new address within five days. Otherwise your municipality issues it once you have an address and the right to stay.</p></li>
-          <li><h4>Health card</h4><p>Arrives automatically with your CPR registration. Choose insurance group 1 — 98% of residents do — which gives you an assigned GP with free consultations and referrals.</p></li>
-          <li><h4>Bank account and NemKonto</h4><p>Needs the CPR number. Register the account as your NemKonto so public bodies, including SU, can pay you.</p></li>
-        </ol>
-        <p>Bring enough money for the first few weeks: rent plus a deposit will land before any of this is
-        finished.</p>
+        ${grant
+          ? topic({
+              id: 'su-abroad',
+              title: 'Taking SU to a degree abroad',
+              short: grant.abroad.summary,
+              body: html`<p>${grant.abroad.ties} ${grant.abroad.duration}</p>
+                <p>${grant.otherwise}</p>`,
+              more: 'The ties requirement, and for how long',
+            })
+          : ''}
 
-        ${sources([
-          { title: 'Aarhus University — tuition fees and exemptions, including the Special Act for displaced persons from Ukraine', url: 'https://bachelor.au.dk/en/international-applicants/moreinfo/tuition-fees-and-application-fee', retrieved: '2026-09-24' },
-          { title: 'Study in Denmark — tuition fees and scholarships', url: 'https://studyindenmark.dk/study-options/tuition-fees-and-scholarships', retrieved: '2026-09-22' },
-          { title: 'Study in Denmark — budget', url: 'https://studyindenmark.dk/live-in-denmark/bank-budget', retrieved: '2026-09-22' },
-          { title: 'Study in Denmark — housing', url: 'https://studyindenmark.dk/live-in-denmark/housing', retrieved: '2026-09-22' },
-          { title: 'SU rates 2026 — udeboende, higher education', url: 'https://www.su.dk/satser/videregaaende-uddannelser-satser-for-su-til-udeboende', retrieved: '2026-09-22' },
-          ...(grant?.sources || [{ title: 'SU — EU rules and equal status', url: 'https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules', retrieved: '2026-09-22' }]),
-          { title: 'SU reform in English', url: 'https://www.su.dk/su-reform/su-reform-in-english', retrieved: '2026-09-22' },
-          { title: 'SIRI — higher education residence permit', url: 'https://www.nyidanmark.dk/en-GB/Applying/Study/Higher%20education', retrieved: '2026-09-22' },
-        ])}
+        ${topic({
+          id: 'tuition',
+          title: 'Tuition and fees',
+          short: 'Free for EU, EEA and Swiss citizens and some permit holders. Everyone else pays roughly €6,000–16,000 a year, and an application fee.',
+          body: html`<p>Danish higher education is free for citizens of the EU, the EEA and Switzerland, and for anyone
+            holding permanent residence or a temporary permit that can lead to it. If you hold a residence permit under the
+            Special Act for displaced persons from Ukraine (Act no. 324 of 16 March 2022), you are exempt too, from both
+            tuition and the application fee. Everyone else pays. Study in
+            Denmark quotes a range of roughly <strong>€6,000–16,000 per year</strong> — about DKK 45,000–120,000 —
+            but no year is attached to that figure, so treat it as indicative and ask the institution.</p>
+            <p>optagelse.dk charges nothing, but most universities charge non-EU/EEA applicants an
+            <strong>application fee of roughly €100–200 per institution</strong>, payable by 15 March — Aalborg €150,
+            Roskilde €200. An unpaid fee stops the application. Non-EU students then pay <strong>DKK 3,060</strong>
+            (2026 rate) for the residence permit itself.</p>`,
+          more: 'Who is exempt, and the fees',
+        })}
+
+        ${topic({
+          id: 'living',
+          title: 'Cost of living',
+          short: 'Study in Denmark budgets DKK 8,450–13,700 a month. Its rent figure is optimistic in Copenhagen.',
+          body: html`<p>Study in Denmark's own rough budget, per month:</p>
+            ${dataTable({
+              caption: 'Monthly budget, in DKK. No year is stated on the source, and 3,000 for rent is optimistic in Copenhagen.',
+              head: ['Item', { label: 'DKK per month', num: true }],
+              rows: [
+                ['Rent, utilities usually included', { num: '3,000–6,500' }],
+                ['Food', { num: '2,000–3,500' }],
+                ['Other personal spending', { num: '2,000' }],
+                ['Books and supplies', { num: '400–650' }],
+                ['Insurance', { num: '~300' }],
+                ['Mobile phone', { num: '~250' }],
+                ['Transport', { num: '~300' }],
+                ['Streaming and licences', { num: '~200' }],
+                [html`<strong>Total</strong>`, { num: '8,450–13,700' }],
+              ],
+            })}
+            <p>For comparison, the immigration service requires non-EU students to show DKK 7,426 a month — the same
+            figure as the SU rate, up to a maximum of DKK 89,112 for a programme longer than a year.</p>`,
+          more: 'The budget, line by line',
+        })}
+
+        ${topic({
+          id: 'housing',
+          title: 'Housing',
+          short: 'No campus tradition: most students live in *kollegier* or rent privately. Start months before you arrive.',
+          body: html`<p>Danish universities have no tradition of campus accommodation. Most students live in
+            <em>kollegier</em> — halls of residence, often some distance from campus — or rent privately. Start
+            months before you arrive, and contact your institution about housing the moment you are accepted.
+            August and September are the worst possible time to turn up without a room.</p>
+            <p>Where to look: <a href="https://www.ungdomsboliger.dk" rel="noopener nofollow">ungdomsboliger.dk</a>
+            and <a href="https://www.studenterguiden.dk" rel="noopener nofollow">studenterguiden.dk</a> nationally;
+            <a href="https://www.kollegierneskontor.dk" rel="noopener nofollow">Kollegiernes Kontor</a> in Copenhagen;
+            Student Housing Aarhus; Studiebolig Aalborg; Boligoen and Kollegieboligselskabet in Odense.</p>`,
+          more: 'Where to look',
+        })}
+
+        ${topic({
+          id: 'work',
+          title: 'Working while you study',
+          short: 'EU, EEA, Nordic and Swiss citizens can work without restriction. Other students: 90 hours a month, September to May.',
+          body: html`<p>EU, EEA, Nordic and Swiss citizens can work without restriction. Students from outside that group
+            get a limited work permit: <strong>90 hours a month</strong> from September to May, and full-time
+            through June, July and August. Study in Denmark's own pages still quote the old 20-hours-a-week rule —
+            the immigration service's 90 hours a month is the current one.</p>
+            <p>Students in Denmark typically work 10–20 hours a week. If you are an EU/EEA citizen without Danish
+            citizenship and no other route to equal status, that job can also be your route to SU.</p>`,
+          more: 'The hours, and SU through a job',
+        })}
+
+        ${topic({
+          id: 'admin',
+          title: 'The order you have to do things in',
+          short: 'Residence document, then CPR number, health card, and a bank account as your NemKonto: each needs the one before.',
+          body: html`<ol class="steps">
+              <li><h4>Residence document</h4><p>If you are a Nordic citizen you need none: you register directly for a CPR number at Citizen Service. If you already live in Denmark as another EU/EEA citizen, you will usually have a registration certificate; ask SIRI whether yours needs updating once you are here as a student rather than as a family member. If you are arriving, EU and EEA citizens get an EU registration certificate from SIRI within three months. Book the appointment in advance and bring your passport and letter of admission. Non-EU students need a residence permit before arrival — allow two to three months.</p></li>
+              <li><h4>CPR number</h4><p>Your Danish personal number. If you already live in Denmark you have one, and it stays yours when you move for university — register the new address within five days. Otherwise your municipality issues it once you have an address and the right to stay.</p></li>
+              <li><h4>Health card</h4><p>Arrives automatically with your CPR registration. Choose insurance group 1 — 98% of residents do — which gives you an assigned GP with free consultations and referrals.</p></li>
+              <li><h4>Bank account and NemKonto</h4><p>Needs the CPR number. Register the account as your NemKonto so public bodies, including SU, can pay you.</p></li>
+            </ol>
+            <p>Bring enough money for the first few weeks: rent plus a deposit will land before any of this is
+            finished.</p>`,
+          more: 'Each step',
+        })}
+
+        ${topic({
+          id: 'sources',
+          title: 'Sources',
+          short: 'The official pages each figure on this page was read from.',
+          body: sources([
+            { title: 'Aarhus University — tuition fees and exemptions, including the Special Act for displaced persons from Ukraine', url: 'https://bachelor.au.dk/en/international-applicants/moreinfo/tuition-fees-and-application-fee', retrieved: '2026-09-24' },
+            { title: 'Study in Denmark — tuition fees and scholarships', url: 'https://studyindenmark.dk/study-options/tuition-fees-and-scholarships', retrieved: '2026-09-22' },
+            { title: 'Study in Denmark — budget', url: 'https://studyindenmark.dk/live-in-denmark/bank-budget', retrieved: '2026-09-22' },
+            { title: 'Study in Denmark — housing', url: 'https://studyindenmark.dk/live-in-denmark/housing', retrieved: '2026-09-22' },
+            { title: 'SU rates 2026 — udeboende, higher education', url: 'https://www.su.dk/satser/videregaaende-uddannelser-satser-for-su-til-udeboende', retrieved: '2026-09-22' },
+            ...(grant?.sources || [{ title: 'SU — EU rules and equal status', url: 'https://www.su.dk/foreign-citizen/gb-foreign-citizen/eu-rules', retrieved: '2026-09-22' }]),
+            { title: 'SU reform in English', url: 'https://www.su.dk/su-reform/su-reform-in-english', retrieved: '2026-09-22' },
+            { title: 'SIRI — higher education residence permit', url: 'https://www.nyidanmark.dk/en-GB/Applying/Study/Higher%20education', retrieved: '2026-09-22' },
+          ], { title: null }),
+          more: 'Show them',
+        })}
       </div>
 
       <aside class="layout-aside__side stack">
-        ${facts([
-          { label: 'Tuition, EU/EEA', value: 'None' },
-          { label: 'Tuition, non-EU', value: '≈ €6,000–16,000 per year' },
-          { label: 'Residence permit fee', value: 'DKK 3,060 (non-EU)' },
-          { label: 'SU, 2026', value: 'DKK 7,426 / month before tax, if you can claim it' },
-          { label: 'Living cost', value: 'DKK 8,450–13,700 / month' },
-        ])}
         ${note(
           `Rent of DKK 3,000 a month appears in the official budget. In Copenhagen today that is optimistic.
           Aarhus, Odense, Aalborg, Esbjerg and Sønderborg are all materially cheaper, and several strong

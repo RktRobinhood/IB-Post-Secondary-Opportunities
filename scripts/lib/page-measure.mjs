@@ -15,7 +15,7 @@
  */
 
 /** Remove every `<tag …>…</tag>` (nesting-aware), passing each to `keep` for a replacement. */
-function replaceElements(src, tag, keep = () => ' ') {
+export function replaceElements(src, tag, keep = () => ' ') {
   const open = new RegExp(`<${tag}(?=[\\s>/])[^>]*>`, 'gi');
   const any = new RegExp(`<${tag}(?=[\\s>/])[^>]*>|</${tag}\\s*>`, 'gi');
   let out = '';
@@ -53,8 +53,14 @@ export const countWords = (h) => {
   return t ? t.split(' ').filter((w) => /[\p{L}\p{N}]/u.test(w)).length : 0;
 };
 
-/** The `<main>` of a page, with everything a reader does not see by default taken out. */
-export function defaultView(pageHtml) {
+/**
+ * The `<main>` of a page, with everything a reader does not see by default taken out.
+ *
+ * `markDisclosures` keeps each closed disclosure's summary as a `<summary>`
+ * element rather than flattening it to a paragraph, so a measure that treats
+ * "a tap-to-open line" as the end of a run of prose can still see it.
+ */
+export function defaultView(pageHtml, { markDisclosures = false } = {}) {
   const main = pageHtml.match(/<main\b[^>]*>([\s\S]*)<\/main>/i)?.[1] ?? pageHtml;
   let h = main;
   for (const tag of ['script', 'style', 'svg', 'noscript', 'nav', 'template']) h = replaceElements(h, tag);
@@ -63,7 +69,7 @@ export function defaultView(pageHtml) {
   h = replaceElements(h, 'details', (openTag, inner, whole) => {
     if (/\sopen(?=[\s>=])/i.test(openTag)) return whole;
     const summary = inner.match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/i)?.[1] ?? '';
-    return ` <p>${summary}</p> `;
+    return markDisclosures ? ` <summary data-disclosure>${summary}</summary> ` : ` <p>${summary}</p> `;
   });
   return h;
 }
@@ -82,4 +88,84 @@ export function measure(pageHtml, markers = []) {
     at[id] = m ? countWords(view.slice(0, m.index)) : null;
   }
   return { words: countWords(view), wordsBefore: at, view };
+}
+
+/* --- Prose runs: what the text-wall guard reads -------------------------------
+
+   Used by scripts/test-text-walls.mjs. A "run" is consecutive paragraphs of 15
+   or more words with nothing but headings between them. Anything that is not
+   reading ends it: a picture, a control, a table, a disclosure, a card list.
+   Headings do not, because heading, paragraph, heading, paragraph is still a
+   wall. Pass a view made with `defaultView(html, { markDisclosures: true })`,
+   so a closed disclosure counts as the break it is. */
+
+/** Anything that is not reading. Written once, so the run and "before the first action" agree. */
+export const BREAK =
+  /<(img|picture|figure|table|details|summary|input|select|textarea|button|canvas|video|iframe)\b|<(ul|ol|div|article|section)\b[^>]*class="[^"]*\b(tiles|cards|card|reel|doors|chips|board|timeline|prog-list|need|glance|stats|toolkit|tags)\b|<a\b[^>]*class="[^"]*\b(card|tile|door|btn|chip)\b/i;
+
+/** Containers whose items are cards, not paragraphs. */
+const CARD_LIST = /\sclass="[^"]*\b(tiles|cards|card|reel|doors|chips|board|timeline|prog-list|need|glance|stats|toolkit|tags)\b/i;
+
+/**
+ * Replace every `tag` element whose opening tag matches `test` with
+ * `replacement`, and look inside the ones that do not (nesting-aware).
+ */
+function replaceMatching(src, tag, test, replacement) {
+  return replaceElements(src, tag, (openTag, inner, whole) => {
+    if (test.test(openTag)) return replacement;
+    const close = whole.match(new RegExp(`</${tag}\\s*>$`, 'i'))?.[0] ?? '';
+    return openTag + replaceMatching(inner, tag, test, replacement) + close;
+  });
+}
+
+/** The view with each card list replaced by one break marker, so a card's text is never read as prose. */
+export function stripCardLists(view) {
+  let h = view;
+  for (const tag of ['ul', 'ol', 'div', 'article']) h = replaceMatching(h, tag, CARD_LIST, ' <figure data-cards></figure> ');
+  return h;
+}
+
+// Named back-references, so the pattern survives being concatenated with BREAK.
+const BLOCK = /<(?<bt>p|li|dd|blockquote)\b[^>]*>[\s\S]*?<\/\k<bt>>|<(?<ht>h[1-6])\b[^>]*>[\s\S]*?<\/\k<ht>>/gi;
+
+const plain = (h) => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+/** The longest run of prose in a view, by words: `{ paras, words, first }`. */
+export function proseRuns(view) {
+  const src = stripCardLists(view);
+  let cur = { paras: 0, words: 0, first: '' };
+  let worst = { paras: 0, words: 0, first: '' };
+  const flush = () => {
+    if (cur.words > worst.words || (cur.words === worst.words && cur.paras > worst.paras)) worst = cur;
+    cur = { paras: 0, words: 0, first: '' };
+  };
+  const re = new RegExp(`${BREAK.source}|${BLOCK.source}`, 'gi');
+  let m;
+  while ((m = re.exec(src))) {
+    const s = m[0];
+    const isBlock = /^<(p|li|dd|blockquote|h[1-6])\b/i.test(s);
+    // A picture, control or card, or a block that contains one, ends the run.
+    if (!isBlock || BREAK.test(s.replace(/^<[^>]+>/, ''))) {
+      flush();
+      continue;
+    }
+    const n = countWords(s);
+    if (/^<h/i.test(s)) {
+      if (cur.paras) cur.words += n; // a heading extends a run; it does not start one
+      continue;
+    }
+    if (n >= 15) {
+      cur.paras++;
+      cur.words += n;
+      cur.first ||= plain(s).slice(0, 80);
+    } else if (/^<li/i.test(s)) flush(); // a list of short items is a list, not prose
+  }
+  flush();
+  return worst;
+}
+
+/** Default-view words before the first match of `breakRe` (the whole view if there is none). */
+export function wordsBeforeFirst(view, breakRe = BREAK) {
+  const at = view.search(breakRe);
+  return countWords(at >= 0 ? view.slice(0, at) : view);
 }

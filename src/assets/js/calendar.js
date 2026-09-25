@@ -1,15 +1,28 @@
-/* The application calendar, scoped to what the student is actually looking at.
+/* The Deadlines page, scoped to what the student is actually looking at.
  *
- * The page ships every event and this hides what is out of scope. That is the
- * opposite of what a server would do and it is the point: the signals that
- * decide the scope live in `localStorage` and are never sent anywhere, so a
- * server could not do this without being told what a student is interested in.
+ * The page ships every event and this lays it out for the reader: which
+ * countries, and which day it is. That is the opposite of what a server would
+ * do and it is the point: the signals that decide the scope live in
+ * `localStorage` and are never sent anywhere, so a server could not do this
+ * without being told what a student is interested in.
  *
- * It also means the failure mode is the right way round. With this script
- * blocked, a student sees the complete calendar — more than they need, rather
- * than nothing at all.
+ * What it does, every time the scope changes:
+ *
+ *   - hides every date outside the chosen countries, wherever it sits;
+ *   - moves any date that has passed since the build into "Earlier this cycle",
+ *     because a page can sit in a browser tab for a week;
+ *   - rebuilds "Next up" as copies of the first ten upcoming dates in scope,
+ *     taken from the full list, so the two can never disagree;
+ *   - recounts the chips, the month strip and the two disclosures.
+ *
+ * With this script blocked, a student sees every country's next ten dates, and
+ * every date one tap away — more than they need, rather than nothing at all.
  */
 import { interest, set as setExploration, explicit, SOURCE_WORDING } from './exploration.js';
+
+const NEXT_UP = 10;
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const monthName = (k) => `${MONTHS[Number(k.slice(5, 7)) - 1]} ${k.slice(0, 4)}`;
 
 const scope = document.getElementById('cal-scope');
 if (scope) {
@@ -18,18 +31,39 @@ if (scope) {
   const showMine = document.getElementById('cal-show-mine');
   const share = document.getElementById('cal-share');
   const boxes = [...scope.querySelectorAll('input[name="scope"]')];
-  const items = [...document.querySelectorAll('.timeline > li[data-destination]')];
-  const lists = [...document.querySelectorAll('.timeline')];
+  const next = document.getElementById('cal-next');
+  const nextCount = document.getElementById('cal-next-count');
+  const all = document.getElementById('cal-all');
+  const pastBox = document.getElementById('cal-past');
+  const allN = document.getElementById('cal-all-n');
+  const pastN = document.getElementById('cal-past-n');
+  const monthLinks = [...document.querySelectorAll('.cal-months a[data-month]')];
+
+  /* Every real entry on the page. The "Next up" list is made of copies and is
+     never counted, or it would count its ten dates twice. */
+  const items = [...document.querySelectorAll('.timeline > li[data-destination]')].filter((li) => !next?.contains(li));
+  const lists = [...document.querySelectorAll('.timeline')].filter((ul) => !next?.contains(ul));
+
+  const today = new Date().toISOString().slice(0, 10);
+  const endOf = (li) => li.dataset.end || li.dataset.date;
+  const isPast = (li) => Boolean(li.dataset.date) && endOf(li) < today;
+
+  /* A date that was ahead when the page was built and is behind now belongs
+     with the other past dates, in date order. */
+  const pastList = pastBox?.querySelector('.timeline');
+  if (all && pastList) {
+    const stale = [...all.querySelectorAll('.timeline > li[data-date]')].filter(isPast);
+    for (const li of stale) {
+      const after = [...pastList.children].find((x) => x.dataset.date > li.dataset.date);
+      pastList.insertBefore(li, after || null);
+    }
+  }
+  const upcoming = all ? [...all.querySelectorAll('.timeline > li[data-date]')] : [];
 
   /* Two names per Destination, because a checkbox and a sentence want
-     different ones. A list of tickboxes reads "Netherlands"; a sentence has to
-     read "scoped to Denmark and **the** Netherlands", and a page cannot work
-     out which names take a definite article — the record says, in
-     `articleName`. This line used to scrape the checkbox's own label for both
-     uses, which is why the calendar said "scoped to Denmark and Netherlands". */
-  const names = new Map(
-    boxes.map((b) => [b.value, b.dataset.sentenceName || b.closest('label').textContent.trim().replace(/^\S+\s/, '')])
-  );
+     different ones: a chip reads "Netherlands"; a sentence reads "the
+     Netherlands". The record says which, in `articleName`. */
+  const names = new Map(boxes.map((b) => [b.value, b.dataset.sentenceName || b.value]));
 
   /* --- Where the scope comes from ---------------------------------------- */
 
@@ -47,6 +81,11 @@ if (scope) {
 
   scope.hidden = false;
 
+  /* The chip counts are upcoming dates as of now, not as of the build. */
+  const perCountry = new Map();
+  for (const li of upcoming) perCountry.set(li.dataset.destination, (perCountry.get(li.dataset.destination) || 0) + 1);
+  for (const el of scope.querySelectorAll('[data-count-for]')) el.textContent = perCountry.get(el.dataset.countFor) || 0;
+
   /* --- Painting ----------------------------------------------------------- */
 
   function visibleCodes() {
@@ -56,13 +95,8 @@ if (scope) {
 
   function paint() {
     const codes = visibleCodes();
-    let shown = 0;
 
-    for (const li of items) {
-      const out = codes ? !codes.has(li.dataset.destination) : false;
-      li.hidden = out;
-      if (!out) shown++;
-    }
+    for (const li of items) li.hidden = codes ? !codes.has(li.dataset.destination) : false;
 
     /* A list whose every item is hidden should not leave a heading floating
        above a rule with nothing under it. */
@@ -74,20 +108,22 @@ if (scope) {
     }
 
     markNext();
-    describe(shown, codes);
+    const shown = upcoming.filter((li) => !li.hidden);
+    rebuildNext(shown);
+    recount(shown);
+    describe(shown.length, codes);
     syncBoxes(codes);
   }
 
-  /* `site.js` marks what has passed and what is next across the whole list on
-     load. Once entries are hidden, "next" has to mean the next one the student
-     can actually see, so it is recomputed here over the visible set. */
+  /* `site.js` marks what has passed and what is next on load, by start date.
+     Here "past" means the window is over, and "next" is the next one the
+     student can see. */
   function markNext() {
-    const today = new Date().toISOString().slice(0, 10);
     let marked = false;
     for (const li of items) {
       delete li.dataset.state;
       if (li.hidden || !li.dataset.date) continue;
-      if (li.dataset.date < today) li.dataset.state = 'past';
+      if (isPast(li)) li.dataset.state = 'past';
       else if (!marked) {
         li.dataset.state = 'now';
         marked = true;
@@ -95,18 +131,46 @@ if (scope) {
     }
   }
 
+  function rebuildNext(shown) {
+    if (!next) return;
+    const ul = document.createElement('ul');
+    ul.className = 'timeline';
+    for (const li of shown.slice(0, NEXT_UP)) ul.append(li.cloneNode(true));
+    next.replaceChildren(ul);
+    if (!shown.length) {
+      const p = document.createElement('p');
+      p.className = 'state state--empty';
+      p.textContent = 'Nothing ahead for these countries yet. That is a gap in our research rather than a quiet year.';
+      next.replaceChildren(p);
+    }
+    if (nextCount) nextCount.textContent = `${Math.min(NEXT_UP, shown.length)} of ${shown.length}`;
+  }
+
+  function recount(shown) {
+    if (allN) allN.textContent = `(${shown.length})`;
+    if (pastN && pastList) pastN.textContent = `(${[...pastList.children].filter((li) => !li.hidden).length})`;
+    const byMonth = new Map();
+    for (const li of shown) {
+      const k = (li.dataset.date < today ? today : li.dataset.date).slice(0, 7);
+      byMonth.set(k, (byMonth.get(k) || 0) + 1);
+    }
+    const busiest = Math.max(1, ...byMonth.values());
+    for (const a of monthLinks) {
+      const n = byMonth.get(a.dataset.month) || 0;
+      a.querySelector('[data-month-count]').textContent = n;
+      a.querySelector('.cal-months__bar > span')?.style.setProperty('--h', (n / busiest).toFixed(3));
+      a.setAttribute('aria-label', `${monthName(a.dataset.month)}: ${n} date${n === 1 ? '' : 's'}`);
+      a.closest('li').dataset.empty = n ? 'false' : 'true';
+    }
+  }
+
   function describe(shown, codes) {
     if (!codes) {
-      stateLine.textContent = current
-        ? `Showing every deadline on the site — ${items.length} in all.`
-        : `Showing every deadline on the site — ${items.length} in all. Once you start comparing destinations, this narrows to yours.`;
+      stateLine.textContent = 'Every country. Pick yours to see only their dates.';
     } else if (shown === 0) {
-      stateLine.textContent =
-        `Nothing on the calendar for ${listSentence([...codes].map((c) => names.get(c) || c))} yet. ` +
-        `That is a gap in our research rather than a quiet year.`;
+      stateLine.textContent = `Nothing ahead for ${listSentence([...codes].map((c) => names.get(c) || c))} yet.`;
     } else {
-      const where = listSentence([...codes].map((c) => names.get(c) || c));
-      stateLine.textContent = `${shown} of ${items.length} dates, scoped to ${where} — ${SOURCE_WORDING[current.source] || 'your selection'}.`;
+      stateLine.textContent = `${listSentence([...codes].map((c) => names.get(c) || c))} — ${SOURCE_WORDING[current.source] || 'your selection'}.`;
     }
 
     showAll.hidden = !codes;
@@ -139,13 +203,26 @@ if (scope) {
     b.addEventListener('change', () => {
       const chosen = boxes.filter((x) => x.checked).map((x) => x.value);
       showingAll = chosen.length === 0;
-      /* Ticking a box here is the student saying what they are exploring, so it
-         is recorded as that rather than kept as a setting private to this page.
-         The compare tray and anything else built on the Exploration List pick
-         it up, which is the whole reason that list exists. */
+      /* Ticking a country here is the student saying what they are exploring,
+         so it is recorded as that rather than kept as a setting private to this
+         page. The compare tray and anything else built on the Exploration List
+         pick it up, which is the whole reason that list exists. */
       setExploration(chosen);
       current = chosen.length ? { codes: chosen, source: 'list' } : interest();
       paint();
+    });
+  }
+
+  /* A month in the strip opens the full list at that month. The disclosure
+     opens first, so the browser has something to scroll to. */
+  for (const a of monthLinks) {
+    a.addEventListener('click', (ev) => {
+      const target = document.getElementById(`m-${a.dataset.month}`);
+      if (!all || !target || target.hidden) return;
+      ev.preventDefault();
+      all.open = true;
+      history.replaceState(null, '', `#m-${a.dataset.month}`);
+      target.scrollIntoView({ block: 'start' });
     });
   }
 
@@ -153,6 +230,7 @@ if (scope) {
     const codes = visibleCodes();
     const u = new URL(location.href);
     u.search = codes ? `?destinations=${[...codes].join(',')}` : '?all=1';
+    u.hash = '';
     try {
       await navigator.clipboard.writeText(u.toString());
       share.textContent = 'Link copied';
@@ -171,4 +249,11 @@ if (scope) {
   if (fromUrl.length && !explicit().length) setExploration(fromUrl);
 
   paint();
+
+  /* Arriving on a month link: open the list it points into. */
+  const landed = /^#m-\d{4}-\d{2}$/.test(location.hash) && document.getElementById(location.hash.slice(1));
+  if (landed && all) {
+    all.open = true;
+    landed.scrollIntoView({ block: 'start' });
+  }
 }

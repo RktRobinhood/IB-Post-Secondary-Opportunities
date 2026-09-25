@@ -223,6 +223,12 @@ export const CHECKS = [
     title: 'Every built page: structure, metadata, internal links',
   },
   {
+    id: 'text-walls',
+    script: 'scripts/test-text-walls.mjs',
+    stage: 'built',
+    title: 'No page opens on a wall of prose; details sit behind a disclosure',
+  },
+  {
     id: 'page-budget',
     script: 'scripts/test-page-budget.mjs',
     stage: 'built',
@@ -233,6 +239,12 @@ export const CHECKS = [
     script: 'scripts/test-requirement-translation.mjs',
     stage: 'built',
     title: 'No programme card or page shows a local-level requirement without its IB translation',
+  },
+  {
+    id: 'programme-images',
+    script: 'scripts/test-programme-images.mjs',
+    stage: 'built',
+    title: 'Every programme card has a credited, reviewed background, and no text on it fails contrast',
   },
   {
     id: 'freshness',

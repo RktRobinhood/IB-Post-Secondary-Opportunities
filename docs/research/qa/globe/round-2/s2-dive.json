@@ -1,0 +1,418 @@
+{
+ "usCold": {
+  "frames": 81,
+  "fs": {
+   "n": 307,
+   "p50": 16.7,
+   "p95": 33.5,
+   "p99": 534,
+   "max": 800.9,
+   "over50": 14,
+   "long": [
+    {
+     "at": 751,
+     "ms": 622
+    },
+    {
+     "at": 1373,
+     "ms": 83
+    },
+    {
+     "at": 1457,
+     "ms": 331
+    },
+    {
+     "at": 1904,
+     "ms": 55
+    },
+    {
+     "at": 3522,
+     "ms": 802
+    },
+    {
+     "at": 4418,
+     "ms": 524
+    },
+    {
+     "at": 5930,
+     "ms": 136
+    },
+    {
+     "at": 6743,
+     "ms": 450
+    },
+    {
+     "at": 7216,
+     "ms": 88
+    },
+    {
+     "at": 8427,
+     "ms": 124
+    }
+   ]
+  },
+  "firstCloseMs": 6073,
+  "minAlt": 0.0002,
+  "maxZ": 15,
+  "hints": [
+   "Loading the close-up map…"
+  ],
+  "loadingWaitMs": 1590,
+  "bytes": {
+   "totalKB": 10484,
+   "n": 168,
+   "by": {
+    "tiles.openfreemap.org (tiles)": "8368 kB",
+    "tiles.maps.eox.at (tiles)": "1556 kB",
+    "/assets/vendor/maplibre-gl/maplibre-gl.js": "273 kB",
+    "tiles.openfreemap.org/fonts/Noto%20Sans%20Italic/*.pbf": "124 kB",
+    "tiles.openfreemap.org/sprites/ofm_f384/ofm.png": "49 kB",
+    "tiles.openfreemap.org/fonts/Noto%20Sans%20Bold/*.pbf": "44 kB",
+    "tiles.openfreemap.org/fonts/Noto%20Sans%20Regular/*.pbf": "44 kB",
+    "/assets/vendor/maplibre-gl/maplibre-gl.css": "10 kB",
+    "tiles.openfreemap.org/styles/liberty": "6 kB",
+    "tiles.openfreemap.org/sprites/ofm_f384/ofm.json": "4 kB",
+    "/assets/js/globe-close.js": "3 kB",
+    "tiles.openfreemap.org/planet": "2 kB",
+    "image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E": "0 kB"
+   }
+  },
+  "stageTopAfter": 103.875,
+  "card": {
+   "title": "Michigan",
+   "go": [
+    {
+     "text": "Visit their website",
+     "target": "",
+     "href": "https://umich.edu/"
+    }
+   ]
+  }
+ },
+ "nlDelft": {
+  "frames": 208,
+  "fs": {
+   "n": 460,
+   "p50": 16.7,
+   "p95": 16.9,
+   "p99": 33.5,
+   "max": 166.9,
+   "over50": 3,
+   "long": [
+    {
+     "at": 3049,
+     "ms": 88
+    },
+    {
+     "at": 4786,
+     "ms": 74
+    }
+   ]
+  },
+  "firstCloseMs": 2597,
+  "minAlt": 0.0002,
+  "maxZ": 15,
+  "hints": [],
+  "loadingWaitMs": 0,
+  "bytes": {
+   "totalKB": 719,
+   "n": 51,
+   "by": {
+    "tiles.maps.eox.at (tiles)": "521 kB",
+    "tiles.openfreemap.org (tiles)": "116 kB",
+    "fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2": "83 kB"
+   }
+  },
+  "seam": 1.4,
+  "afterPan": {
+   "close": true,
+   "zoom": 15,
+   "card": true
+  }
+ },
+ "resetFromStreet": {
+  "frames": 129,
+  "fs": {
+   "n": 272,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 16.9,
+   "max": 16.9,
+   "over50": 0,
+   "long": []
+  },
+  "firstCloseMs": 0,
+  "minAlt": 0.0002,
+  "maxZ": 15,
+  "hints": [],
+  "loadingWaitMs": 0,
+  "bytes": {
+   "totalKB": 0,
+   "n": 0,
+   "by": {}
+  },
+  "firstSamples": [
+   {
+    "t": 0,
+    "alt": 0.0002,
+    "lat": 52,
+    "lon": 4.378,
+    "close": true,
+    "cs": "ready",
+    "z": 15,
+    "hint": ""
+   },
+   {
+    "t": 73,
+    "alt": 0.0002,
+    "lat": 52,
+    "lon": 4.378,
+    "close": true,
+    "cs": "ready",
+    "z": 15,
+    "hint": ""
+   },
+   {
+    "t": 175,
+    "alt": 0.0002,
+    "lat": 52,
+    "lon": 4.378,
+    "close": true,
+    "cs": "ready",
+    "z": 15,
+    "hint": ""
+   },
+   {
+    "t": 274,
+    "alt": 0.06,
+    "lat": 52,
+    "lon": 4.378,
+    "close": false,
+    "cs": "ready",
+    "z": 15,
+    "hint": ""
+   },
+   {
+    "t": 374,
+    "alt": 0.06,
+    "lat": 52,
+    "lon": 4.378,
+    "close": false,
+    "cs": "ready",
+    "z": 15,
+    "hint": ""
+   },
+   {
+    "t": 474,
+    "alt": 0.06,
+    "lat": 52,
+    "lon": 4.378,
+    "close": false,
+    "cs": "ready",
+    "z": 15,
+    "hint": ""
+   }
+  ]
+ },
+ "wheelOut": {
+  "frames": 155,
+  "fs": {
+   "n": 661,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 33.5,
+   "max": 884.3,
+   "over50": 4,
+   "long": [
+    {
+     "at": 1609,
+     "ms": 149
+    },
+    {
+     "at": 1785,
+     "ms": 854
+    }
+   ]
+  },
+  "firstCloseMs": 0,
+  "minAlt": 0.0002,
+  "maxZ": 15,
+  "hints": [],
+  "loadingWaitMs": 0,
+  "bytes": {
+   "totalKB": 1360,
+   "n": 100,
+   "by": {
+    "tiles.maps.eox.at (tiles)": "1360 kB"
+   }
+  },
+  "handback": [],
+  "end": {
+   "alt": 0.020859905429731047,
+   "close": true
+  }
+ },
+ "wheelIn": {
+  "frames": 260,
+  "fs": {
+   "n": 979,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 66.6,
+   "max": 483.8,
+   "over50": 10,
+   "long": []
+  },
+  "firstCloseMs": 0,
+  "minAlt": 0.0209,
+  "maxZ": 8.33,
+  "hints": [],
+  "loadingWaitMs": 0,
+  "bytes": {
+   "totalKB": 0,
+   "n": 0,
+   "by": {}
+  },
+  "transitions": [],
+  "end": {
+   "alt": 0.020859905429731047,
+   "close": true,
+   "zoom": 8.329185683168582
+  }
+ },
+ "progDelft": {
+  "frames": 83,
+  "fs": {
+   "n": 134,
+   "p50": 16.7,
+   "p95": 183.6,
+   "p99": 1067.7,
+   "max": 1501.7,
+   "over50": 18,
+   "long": [
+    {
+     "at": 101,
+     "ms": 51
+    },
+    {
+     "at": 153,
+     "ms": 129
+    },
+    {
+     "at": 455,
+     "ms": 59
+    },
+    {
+     "at": 1356,
+     "ms": 181
+    },
+    {
+     "at": 2436,
+     "ms": 534
+    },
+    {
+     "at": 3226,
+     "ms": 65
+    },
+    {
+     "at": 3709,
+     "ms": 177
+    },
+    {
+     "at": 4111,
+     "ms": 138
+    },
+    {
+     "at": 4362,
+     "ms": 69
+    },
+    {
+     "at": 6024,
+     "ms": 1505
+    },
+    {
+     "at": 7648,
+     "ms": 62
+    }
+   ]
+  },
+  "firstCloseMs": 4586,
+  "minAlt": 0.0002,
+  "maxZ": 15,
+  "hints": [
+   "Loading the close-up map…"
+  ],
+  "loadingWaitMs": 1588,
+  "bytes": {
+   "totalKB": 4848,
+   "n": 239,
+   "by": {
+    "tiles.openfreemap.org (tiles)": "4073 kB",
+    "tiles.maps.eox.at (tiles)": "649 kB",
+    "tiles.openfreemap.org/fonts/Noto%20Sans%20Regular/*.pbf": "73 kB",
+    "tiles.openfreemap.org/fonts/Noto%20Sans%20Bold/*.pbf": "53 kB",
+    "/assets/js/globe-close.js": "0 kB",
+    "/assets/vendor/maplibre-gl/maplibre-gl.css": "0 kB",
+    "/assets/vendor/maplibre-gl/maplibre-gl.js": "0 kB",
+    "tiles.openfreemap.org/styles/liberty": "0 kB",
+    "image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E": "0 kB",
+    "tiles.openfreemap.org/planet": "0 kB",
+    "tiles.openfreemap.org/sprites/ofm_f384/ofm.json": "0 kB",
+    "tiles.openfreemap.org/sprites/ofm_f384/ofm.png": "0 kB",
+    "tiles.openfreemap.org/fonts/Noto%20Sans%20Italic/*.pbf": "0 kB"
+   }
+  },
+  "stageTop": 104.125
+ },
+ "delftToAarhus": {
+  "frames": 97,
+  "fs": {
+   "n": 345,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 166.8,
+   "max": 283.7,
+   "over50": 9,
+   "long": [
+    {
+     "at": 28,
+     "ms": 176
+    },
+    {
+     "at": 1213,
+     "ms": 57
+    },
+    {
+     "at": 2733,
+     "ms": 122
+    }
+   ]
+  },
+  "firstCloseMs": 0,
+  "minAlt": 0.0002,
+  "maxZ": 15,
+  "hints": [],
+  "loadingWaitMs": 0,
+  "bytes": {
+   "totalKB": 465,
+   "n": 29,
+   "by": {
+    "/assets/img/places/au-2.webp": "286 kB",
+    "tiles.maps.eox.at (tiles)": "180 kB"
+   }
+  }
+ },
+ "logs": [
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/f1594821-8ef3-431d-bc6c-90a43f5ec428",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/f1594821-8ef3-431d-bc6c-90a43f5ec428",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/f1594821-8ef3-431d-bc6c-90a43f5ec428",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/f1594821-8ef3-431d-bc6c-90a43f5ec428",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/6b0c3259-cddb-4435-9c23-835fae73fd10",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/6b0c3259-cddb-4435-9c23-835fae73fd10",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/6b0c3259-cddb-4435-9c23-835fae73fd10",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/d061ce76-9c0f-48a8-890a-1828a39cd481",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/d061ce76-9c0f-48a8-890a-1828a39cd481",
+  "log warning: Expected value to be of type number, but found null instead. blob:https://rktrobinhood.github.io/d061ce76-9c0f-48a8-890a-1828a39cd481"
+ ],
+ "readUsageWarnings": 115
+}

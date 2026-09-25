@@ -935,6 +935,7 @@ function deadlineItem(e, { showDestination }) {
 
   return html`<li
     ${e.date ? raw(`data-date="${e.date}"`) : ''}
+    ${/* A window that opened last week is still open: "past" is read off its end. */ e.endDate ? raw(`data-end="${e.endDate}"`) : ''}
     ${e.destination ? raw(`data-destination="${e.destination}"`) : ''}
     ${e.provisional ? raw('data-provisional="true"') : ''}
     ${e.consequence ? raw(`data-consequence="${e.consequence}"`) : ''}

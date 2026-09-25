@@ -1,0 +1,166 @@
+{
+ "/programmes/": {
+  "rest": {
+   "lat": 52.258613984665715,
+   "lon": 9.206721867833494,
+   "alt": 0.252,
+   "fits": true
+  },
+  "stage": {
+   "x": 16,
+   "y": 243.484375,
+   "w": 358,
+   "h": 358
+  },
+  "pins": 4,
+  "clusters": [
+   "13",
+   "4"
+  ]
+ },
+ "/world/": {
+  "rest": {
+   "lat": -5,
+   "lon": 100,
+   "alt": 1.9
+  },
+  "stage": {
+   "x": 16,
+   "y": 243.46875,
+   "w": 358,
+   "h": 358
+  },
+  "pins": 5,
+  "clusters": [
+   "3"
+  ]
+ },
+ "/destinations/nl/": {
+  "rest": {
+   "lat": 51.320306006836965,
+   "lon": 5.592203213374091,
+   "alt": 0.12,
+   "fits": true
+  },
+  "stage": {
+   "x": 16,
+   "y": 242.703125,
+   "w": 358,
+   "h": 358
+  },
+  "pins": 2,
+  "clusters": [
+   "9",
+   "2",
+   "2"
+  ]
+ },
+ "swipeUntouched": {
+  "scrolled": 235,
+  "altChanged": false
+ },
+ "phoneDive": {
+  "fs": {
+   "n": 490,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 16.9,
+   "max": 17,
+   "over50": 0,
+   "long": []
+  },
+  "firstCloseMs": 0,
+  "maxZ": 5.1,
+  "hints": [],
+  "kb": 83,
+  "end": {
+   "alt": 0.12,
+   "close": true,
+   "zoom": 5.1,
+   "sy": 7444,
+   "card": null,
+   "engaged": null,
+   "hint": null
+  },
+  "layout": {
+   "stageTop": 62,
+   "stageBottom": 420,
+   "vh": 844,
+   "pinY": 313,
+   "pinAboveCard": null
+  }
+ },
+ "closeOneFinger": {
+  "scrolled": 262,
+  "zoomBefore": 5.1,
+  "zoomAfter": 5.1,
+  "coopNotice": "maplibregl-cooperative-gesture-screen"
+ },
+ "closePinch": {
+  "zoomBefore": 5.1,
+  "zoomAfter": 4.66,
+  "sy": [
+   7426,
+   7426
+  ]
+ },
+ "afterReset": {
+  "alt": 0.12,
+  "close": true,
+  "zoom": 5.1,
+  "sy": 7426,
+  "card": null,
+  "engaged": null,
+  "hint": null
+ },
+ "phoneGroup": {
+  "cl": {
+   "x": 213.1999969482422,
+   "y": 394.68438720703125,
+   "n": "13"
+  },
+  "fs": {
+   "n": 422,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 17,
+   "max": 50.3,
+   "over50": 2,
+   "long": [
+    {
+     "at": 1721,
+     "ms": 52
+    },
+    {
+     "at": 3089,
+     "ms": 59
+    },
+    {
+     "at": 3784,
+     "ms": 54
+    }
+   ]
+  },
+  "end": {
+   "alt": 0.3601,
+   "close": false,
+   "zoom": 3.37,
+   "sy": 243,
+   "card": null,
+   "engaged": null,
+   "hint": null
+  },
+  "clusters": [
+   "13",
+   "4"
+  ],
+  "pins": [
+   "Enschede",
+   "Aalborg",
+   "Nexø, Bornholm",
+   "Kongens Lyngby"
+  ],
+  "releasedAfter4s": true
+ },
+ "logs": []
+}
