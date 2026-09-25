@@ -54,11 +54,18 @@ const els = {
   results: $('discover-results'),
   empty: $('discover-empty'),
   places: $('discover-places'),
+  more: $('discover-more'),
   map: $('prog-map'),
   sheet: $('f-sheet'),
   sheetOpen: $('f-sheet-open'),
   presets: [...document.querySelectorAll('.preset[data-scope]')],
 };
+/* The researched countries with no mapped degree ship as a template (they are
+   shown only when a distance has no degree), stamped here once. */
+{
+  const tpl = $('discover-places-tiles');
+  if (tpl && els.places) els.places.append(tpl.content.cloneNode(true));
+}
 const cardEls = new Map([...document.querySelectorAll('[data-card]')].map((el) => [Number(el.dataset.card), el]));
 
 const esc = (s) =>
@@ -229,6 +236,13 @@ function render() {
     if (hit) cardsShown++;
   }
   const any = Object.values(state).some(Boolean);
+  /* Any filter opens the folded cards, so no result waits behind "Show all";
+     clearing them folds the cards again only if this opened them. */
+  if (els.more) {
+    if (any && !els.more.open) { els.more.open = true; els.more.dataset.auto = ''; }
+    else if (!any && 'auto' in els.more.dataset) { els.more.open = false; delete els.more.dataset.auto; }
+    els.more.toggleAttribute('data-filtering', any);
+  }
   els.count.innerHTML = !any
     ? `<b>${TOTAL}</b> degrees`
     : shown

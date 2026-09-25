@@ -361,6 +361,10 @@
 .world__callout-count { font-variant-numeric: tabular-nums; }
 .world__callout-cue { display: block; color: var(--ink-mute); }
 
+/* A folded list (worldWindow foldList): one line until opened. */
+.world__fold { margin-top: var(--s3); }
+.world__fold > summary { cursor: pointer; min-height: 24px; font-size: .875rem; color: var(--ink-soft); }
+.world__fold[open] > summary { margin-bottom: var(--s2); }
 .world__list {
   list-style: none;
   margin: 0;
@@ -1512,6 +1516,10 @@
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
 }
 .dates-panel__src { font-size: .8125rem; margin-top: 2px !important; }
+/* A date's note is one tap away: the same country-wide line on every school. */
+.dates-panel__why { margin-top: 2px; font-size: .8125rem; }
+.dates-panel__why > summary { cursor: pointer; color: var(--ink-mute); width: max-content; min-height: 24px; }
+.dates-panel__why[open] > summary { color: var(--ink-soft); }
 .dates-panel__all { margin-top: var(--s3); border-top: 1px solid var(--rule); padding-top: var(--s3); }
 .dates-panel__all > summary { cursor: pointer; font-weight: 600; color: var(--accent-2); }
 .dates-panel__all > .dates-panel__list { margin-top: var(--s3); }

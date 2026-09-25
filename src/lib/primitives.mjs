@@ -127,7 +127,7 @@ const BASEMAP = JSON.parse(
  * With `slice` the panel keeps whatever height the stylesheet gives it and
  * gives up the sides instead. For a Europe frame what it gives up is Atlantic.
  */
-export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '' }) {
+export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '' }) {
   const W = 1000;
   const H = 420;
   const view = frameFor(bounds || boundsFor(places), W / H);
@@ -243,6 +243,10 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
        a screen reader, and no JavaScript at all. Everything the marker callout
        shows on hover is written into the entry itself, because a cue a mouse
        can read and a keyboard cannot is not a cue. -->
+  ${/* A page whose own filters already name every place (the home page's
+        "Where") folds the list behind one line: it is still the keyboard's
+        and the screen reader's way in, one tap away. */
+    foldList ? raw(`<details class="world__fold"><summary>${foldList} (${dots.length})</summary>`) : ''}
   <ul class="world__list" aria-label="${activeLayer}">
     ${dots.map(
       (d) => html`<li>
@@ -256,6 +260,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       </li>`
     )}
   </ul>
+  ${foldList ? raw('</details>') : ''}
 
   <figcaption class="world__caption">
     <span class="world__legend">

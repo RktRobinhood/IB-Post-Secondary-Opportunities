@@ -222,6 +222,14 @@ check('the discovery surface is built and carries its data', finderIds.size > 0)
 
 const instPages = new Map();
 let translatedProgrammes = 0;
+/* A programme family's card (src/lib/paths.mjs) shows each path's own grade
+   floor — "Quota 1: at least 31 IB points" — in that path's row, since the
+   paths differ there; the shared block holds what they share. A phrase a
+   path row shows counts as shown. */
+const onPaths = (exp, html) => {
+  const rows = [...html.matchAll(/<span class="card__path-detail">([\s\S]*?)<\/span>/g)].map((m) => text(m[1])).join(' | ');
+  return rows ? { ...exp, required: [...exp.required].filter((r) => !rows.includes(r)) } : exp;
+};
 const stripBlocks = (s) => s.replace(/<div[^>]*\bdata-req\b[^>]*>[\s\S]*?<\/div>/g, ' ');
 
 for (const p of programmes) {
@@ -258,7 +266,7 @@ for (const p of programmes) {
       const cb = blocks(cardHtml);
       check(`${p.id}: its card shows requirements in a data-req block`, cb.length === 1);
       for (const b of cb) {
-        const f = faults(b, expect.card);
+        const f = faults(b, onPaths(expect.card, cardHtml));
         check(`${p.id}: institution card`, !f.length, f.join('\n        '));
       }
       check(`${p.id}: its card never prints the bare published line`, !bareLine || !text(stripBlocks(cardHtml)).includes(bareLine), bareLine);
@@ -274,7 +282,7 @@ for (const p of programmes) {
     const hb = blocks(homeCard);
     check(`${p.id}: its discovery card shows requirements in a data-req block`, hb.length === 1);
     for (const b of hb) {
-      const f = faults(b, expect.card);
+      const f = faults(b, onPaths(expect.card, homeCard));
       check(`${p.id}: discovery card`, !f.length, f.join('\n        '));
     }
     check(`${p.id}: its discovery card never prints the bare published line`, !bareLine || !text(stripBlocks(homeCard)).includes(bareLine), bareLine);

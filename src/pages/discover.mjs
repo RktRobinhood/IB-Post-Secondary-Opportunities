@@ -27,6 +27,8 @@ import { requiresMathsHL } from './explorer.mjs';
  * config, the scopes from the Destination records, the places from the graph.
  */
 
+/* Cards open on the page before the rest fold behind "Show all" (#44: no text walls). */
+const FIRST_CARDS = 12;
 const TAG_MOD = { 'tag--ok': 'ok', 'tag--sand': 'sand', 'tag--warn': 'warn' };
 
 /** A programme with no structured subject requirements: IB terms first, the published sentence beneath. */
@@ -277,6 +279,7 @@ export function discoverSection(site) {
         unit: 'degree',
         activeLayer: 'Where the degrees are',
         caption: 'Choose a place to see its degrees.',
+        foldList: 'Every place on the globe',
       })}
     </div>
   </div>
@@ -288,13 +291,22 @@ export function discoverSection(site) {
     </div>
     <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is listed below.</p></noscript>
     <ul class="grid grid--3 discover__cards" id="discover-results" role="list">
-      ${cards}
+      ${cards.slice(0, FIRST_CARDS)}
     </ul>
+    ${/* The first dozen cards, then the rest one tap away — and opened by
+          discover.js the moment any filter is on, so a result is never
+          folded away. */
+      cards.length > FIRST_CARDS
+      ? html`<details class="discover__more" id="discover-more">
+          <summary>Show all ${plural(total, 'degree')}</summary>
+          <ul class="grid grid--3 discover__cards" role="list">${cards.slice(FIRST_CARDS)}</ul>
+        </details>`
+      : ''}
     <p class="discover__empty" id="discover-empty" hidden>No degree matches all of those. <button type="button" class="linkish" data-clear-all>Clear the filters</button>.</p>
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
           <p class="discover__places-line">No degrees are mapped subject by subject here yet. These countries are researched:</p>
-          <ul class="tiles" role="list">${noDegreeTiles.map((c) => raw(toString(countryTile(site, c)).replace('<li>', `<li data-scope="${scopeOf(c.code)}">`)))}</ul>
+          <template id="discover-places-tiles"><ul class="tiles" role="list">${noDegreeTiles.map((c) => raw(toString(countryTile(site, c)).replace('<li>', `<li data-scope="${scopeOf(c.code)}">`)))}</ul></template>
         </div>`
       : ''}
   </div>

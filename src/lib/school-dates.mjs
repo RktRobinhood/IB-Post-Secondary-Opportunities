@@ -187,8 +187,10 @@ function dateItem(site, e) {
     ${e.consequence && e.consequence !== 'indicative'
       ? html`<p class="dates-panel__meta"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span></p>`
       : ''}
-    ${line ? html`<p class="dates-panel__note">${line}</p>` : ''}
-    ${src ? html`<p class="dates-panel__src"><a href="${src}" rel="noopener nofollow">Source<span class="visually-hidden"> for ${e.label}</span></a></p>` : ''}
+    ${/* The note is the same on every school in a country, so it waits
+          behind a disclosure rather than repeating as prose on every page. */
+      line ? html`<details class="dates-panel__why"><summary>Note</summary><p class="dates-panel__note">${line}</p></details>` : ''}
+    ${src ? html`<p class="dates-panel__src"><a href="${src}" rel="noopener nofollow" aria-label="Source for ${e.label}">Source</a></p>` : ''}
   </li>`;
 }
 
@@ -210,8 +212,8 @@ function sessionItem(s) {
     <p class="dates-panel__when">${formatWhen(s)}</p>
     <p class="dates-panel__what"><a href="${s.url}" rel="noopener nofollow">${s.title}</a></p>
     <p class="dates-panel__meta">${SESSION_KIND[s.kind] || SESSION_KIND.other} · ${where}${s.registration === 'required' ? ' · sign-up needed' : ''}</p>
-    ${s.audienceNote || s.note ? html`<p class="dates-panel__note">${s.audienceNote || s.note}</p>` : ''}
-    <p class="dates-panel__src"><a href="${s.source}" rel="noopener nofollow">Source<span class="visually-hidden"> for ${s.title}</span></a></p>
+    ${s.audienceNote || s.note ? html`<details class="dates-panel__why"><summary>Note</summary><p class="dates-panel__note">${s.audienceNote || s.note}</p></details>` : ''}
+    <p class="dates-panel__src"><a href="${s.source}" rel="noopener nofollow" aria-label="Source for ${s.title}">Source</a></p>
   </li>`;
 }
 
