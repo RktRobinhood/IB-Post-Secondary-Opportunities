@@ -31,7 +31,7 @@ This page says where the work stands, so the next session (human or agent) start
 | Photos (three review rounds, ~350 re-judged) | **8/10, accepted** | `docs/research/qa/photos/round-4/critique.md`. The official-site place checks are an open issue |
 | Audience rewrite (EU/EEA readers, `ownCitizens` on every EU/EEA/EFTA destination, shared SU record) | 7/10 in round 2; round-2 fixes are live, no round-3 critic has run | `docs/research/audience/` |
 | Danish levels in IB terms, cut-offs and floors in IB points, "Quota 2 only", named actions | 7/10 (round 4) | Remaining fixes: issue #42 |
-| Globe (WebGL, cloud dive, MapLibre street level, Back-able selections) | 7/10 (round 3) | Round-3 fixes and the art direction are in progress (below) |
+| Globe as a **desk globe** (ring and stand, 23.4° axis, turn-then-lean-in, pastel political colours) over the WebGL globe, cloud dive and MapLibre street level | **8/10, accepted (round 5 of 5)** | `docs/research/qa/globe/round-5/critique.md`; the polish it listed is an open issue |
 | Programme card photos: 67 cards, 67 photographs | 6/10 (round 1, before uniqueness) | The crop fix and credential line are in progress |
 | Four-item menu (ADR 0006), `/countries/` with distance doors, redirects | not critiqued | `docs/research/ia/progress.md` |
 | Text walls: Deadlines, the Denmark pages, Trust, Credits, Glossary, About, Counsellors, Compare | `text-walls` guard | Only `/programmes/` and `/planner/` are left on the grandfather list |
@@ -45,10 +45,10 @@ This page says where the work stands, so the next session (human or agent) start
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
-## In progress: branch `globe-desk` (25 September, evening)
+## Merged to `main` on 25 September (evening): branch `globe-desk`
 
 `globe-desk` (worktree `.claude/worktrees/globe-desk`) is the stopped agents' WIP merged with `main` (#43 school pages included), then brought to a **green gate (32 of 32 checks)**:
-the desk globe (`globe.js`: `desk()`, `drawDesk()`, `TILT`, lean-in/sit-back flights; guards in `test-map.mjs`), the home page within its word budget (12 cards then "Show all", opened by any filter; the place list folded; 6,096 → 1,209 words), the dates panel's notes behind "Note", and three guards taught about programme families and `/#discover`. The globe's **round-4 critic** is in progress (`docs/research/qa/globe/round-4/`). Merge to `main` and push once it scores 8, or after round 5 whatever the score.
+the desk globe (`globe.js`: `desk()`, `drawDesk()`, `TILT`, lean-in/sit-back flights; guards in `test-map.mjs`), the home page within its word budget (12 cards then "Show all", opened by any filter; the place list folded; 6,096 → 1,209 words), the dates panel's notes behind "Note", and three guards taught about programme families and `/#discover`. The globe scored 7/10 in round 4 and **8/10 in round 5 (accepted)**; `globe-desk` fast-forwarded `main`. Items 1, 3 and 4 below are live but have not had their own critic rounds yet: that is the next work.
 
 What the stopped agents left, for reference (items 1–4 below now build and pass on `globe-desk`, but none has had its own critic round):
 
