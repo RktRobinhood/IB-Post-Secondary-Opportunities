@@ -45,6 +45,19 @@ This page says where the work stands, so the next session (human or agent) start
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
+## Where it stands (26 September, ~00:40): stopped at the usage ceiling
+
+`main` = ed9868d, every push gated 35/35 on a clean worktree (`D:/ibp-tmp/ci2`; preview of it on :4380 via the `preview-ci2` launch config). Work continues on branch `globe-desk` (worktree `.claude/worktrees/globe-desk`), which is level with `main`.
+
+| Piece | Critic rounds | State |
+|---|---|---|
+| Globe (desk globe) | 7 → **8, accepted** | leftovers: issue #53 |
+| Deadlines #47 | 4 → 6 → 6 → 6 | wrong dates and wrong-school dates fixed (99 → 0, guarded); left: UCAS 13 Jan/Extra/Clearing on Oxbridge pages, desktop panel below the fold, 166 link-only pages, weak year citations — issue #47 comment |
+| Home #44 | 6 → 7 → 7 | photos on the first screen, doors land on places; left: globe rim ghosts, phone controls on the sphere, thin results — issue #44 comment. The 320-vs-57 bubble count was fixed (c9377d1) after round 3, not re-critiqued |
+| Programme cards #46 | 6 → 7 → 7 → 7 | four tag kinds, distinctive Needs line, 9 photos replaced; left: one point figure per card, plain requirement words, a few lookalike photos — issue #46 comment |
+
+Next session: the #47 Oxbridge exception first (a wrong date for real applicants), then critic rounds 5 on #44/#46/#47.
+
 ## 26 September (early): critics on the three WIP pieces, fixes live
 
 On `main` (d262c9f), gated on a clean worktree (`D:/ibp-tmp/ci2`, 35/35):
