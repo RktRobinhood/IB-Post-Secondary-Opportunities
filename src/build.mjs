@@ -16,6 +16,7 @@ import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
 import { programme } from './pages/programme.mjs';
+import { schoolPage } from './pages/schools.mjs';
 import { programmesIndex } from './pages/explorer.mjs';
 import { planner } from './pages/planner.mjs';
 import { timeline } from './pages/timeline.mjs';
@@ -271,6 +272,15 @@ async function main() {
     await write(inst.href, university(site, inst, { prev, next }));
     for (const p of inst.programmes) {
       await write(p.href, programme(site, p, inst));
+    }
+  }
+  /* Every other institution in a country profile: a school page each (#43),
+     paged within its country. Ones with a canonical twin are written above. */
+  for (const c of site.countries) {
+    const schools = c.institutions.filter((i) => !i.canonicalId);
+    for (const [i, inst] of schools.entries()) {
+      const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].shortName || schools[j].name };
+      await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
     }
   }
   await write('/programmes/', programmesIndex(site));

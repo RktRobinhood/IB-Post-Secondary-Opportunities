@@ -2483,3 +2483,23 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   .prog .prog__name { font-size: 1.125rem; margin-bottom: var(--s1); }
   .prog .prog__meta { margin-bottom: var(--s2); }
 }
+
+/* --- School pages (#43) --------------------------------------------------- */
+
+/* Where a school's programmes are not a list (a catalogue, or not researched
+   yet): one line, what it is known for, and the one way in. */
+.handoff { display: grid; gap: var(--s3); justify-items: start; max-width: var(--measure); }
+.handoff__line { font: 600 1.125rem/1.4 var(--display); color: var(--ink); margin: 0; }
+.handoff__todo { color: var(--ink-mute); font-size: .875rem; margin: 0; }
+.handoff .tags { margin: 0; }
+
+/* Deadlines & sessions, beside a school's details. */
+.dates-panel__list { list-style: none; padding: 0; margin: 0; font-size: .875rem; line-height: 1.5; }
+.dates-panel__list li { display: grid; gap: 0 var(--s2); padding: var(--s2) 0; border-top: 1px solid var(--rule); }
+.dates-panel__list li:first-child { border-top: 0; }
+.dates-panel__list strong { color: var(--ink); }
+.dates-panel__none, .dates-panel__more { font-size: .875rem; color: var(--ink-soft); margin: var(--s2) 0 0; }
+
+.plain-list { list-style: none; padding: 0; margin: 0; }
+.dates-panel__list li.is-past { opacity: .55; }
+.dates-panel__list li.is-past strong { text-decoration: line-through; }

@@ -455,10 +455,10 @@ export function destination(site, c, { prev, next }) {
       name: readableName(i),
       lat: i.coords.lat,
       lon: i.coords.lon,
-      // The institution's own site, which is where its card on this page goes
-      // too. It leaves the site, so it opens in a new tab (site.js).
-      href: i.website || null,
-      external: !!i.website,
+      // The institution's own page on this site, which is where its card on
+      // this page goes too (#43).
+      href: i.href || null,
+      external: false,
       country: c.code,
       image: (() => { const p = picture(site, i.key); return p && !p.external ? p.src : ''; })(),
       precision: i.coordinatePrecision,
@@ -871,8 +871,7 @@ function institutionCard(site, i) {
   const pic = picture(site, i.key);
   const meta = [i.city, i.type].filter(Boolean);
   return card({
-    href: i.website || '#',
-    external: true,
+    href: i.href,
     title: i.name,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).

@@ -75,6 +75,12 @@ export const CHECKS = [
     title: 'No stray control characters in the records',
   },
   {
+    id: 'schools',
+    script: 'scripts/check-schools.mjs',
+    stage: 'data',
+    title: 'School records match their schema, their institution, and hand off to no homepage',
+  },
+  {
     id: 'validate',
     script: 'scripts/validate.mjs',
     stage: 'data',
@@ -221,6 +227,12 @@ export const CHECKS = [
     script: 'scripts/check.mjs',
     stage: 'built',
     title: 'Every built page: structure, metadata, internal links',
+  },
+  {
+    id: 'school-pages',
+    script: 'scripts/test-school-pages.mjs',
+    stage: 'built',
+    title: 'Every institution has its own page; nothing hands a student to a homepage',
   },
   {
     id: 'text-walls',
