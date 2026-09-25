@@ -40,6 +40,17 @@ This page says where the work stands, so the next session (human or agent) start
 - **Done on the branch:** all 450 profile institutions have a page at `/universities/<key>/` (`src/pages/schools.mjs`). Country-page cards and map lights link to these pages, not to homepages. The data is `data/schools/<key>.json` (`schemas/school.schema.json`). The guards are `check-schools` and `school-pages`.
 - **Research:** `docs/research/schools/BRIEF.md` and `manifest.json`. Researchers write one file per school as they go and skip files that already exist, so a stopped run resumes by being re-run. Their progress notes are in `docs/research/schools/progress.md`.
 - **Order of work:** pilots for Finland and the UK, then an admissions-counsellor critic on the data and an art-director critic on the page (`docs/research/qa/schools/`), then the other 32 countries in batches.
+- **On `main` and live (25 Sep):** school pages for all 450 institutions, plus 12 Finnish schools' programme lists (merge `be17b64`).
+- **On the branch, not yet on `main`:**
+  - Finland round-1 fixes: a round-2 critic is running, and round 1 scored 7/10.
+  - UK records with round-1 fixes: a round-2 critic is running, and round 1 scored 7/10. The UK fee-status rule now lives once, on the country record.
+  - Design rounds 1–3, scored 6, 7 and 7 (`docs/research/qa/schools/round-*-design.md`). Round 4 has not run yet.
+  - Research in progress: Sweden, Norway, Germany and the Netherlands.
+- **When the owner nears his usage limit (25 Sep):** let running agents finish, and start no new ones except one critic at a time for finished work. For each country:
+  1. When its critic scores 8 or more, merge it to `main` through `D:/ibp-ci`.
+  2. Hold back only records a critic has flagged.
+  3. The remaining 28 countries are researched later, a few at a time, with the brief as it now stands.
+- **To resume research:** re-run a country's researcher with the same prompt, which is in this session's history. Any school whose `data/schools/<key>.json` already exists is skipped.
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
