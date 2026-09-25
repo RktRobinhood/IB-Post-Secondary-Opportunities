@@ -175,8 +175,25 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  */
 export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, line, paths, kicker, sub, mod }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
+  const tagList = tags?.length
+    ? html`<ul class="tags">${tags.map((t) =>
+        // A tag may be a plain string, or {label, mod} where the modifier
+        // separates a claim about our coverage from a description of the
+        // place. Two identical pills, one saying "we researched this" and
+        // one saying "few courses in English", read as the same kind of
+        // thing and are not.
+        typeof t === 'string'
+          ? html`<li class="tag">${t}</li>`
+          : html`<li class="tag tag--${t.mod || 'brand'}">${t.label}</li>`
+      )}</ul>`
+    : '';
+  /* A programme card (a backdrop) carries at most one tag, and it sits on
+     the photograph's corner, a pill on its own ground, rather than taking a
+     line of the card's text (#46: one line per block). */
+  const photoTag = !!(backdrop && tags?.length === 1);
   return html`<article class="card card--link${backdrop ? ' card--backdrop' : ''}${mod ? ` ${mod}` : ''}">
     ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : ''}
+    ${photoTag ? html`<div class="card__tag">${tagList}</div>` : ''}
     ${image
       ? html`<div class="card__media">
           <img src="${url(image.src)}" alt="${image.alt || ''}" loading="lazy" decoding="async" width="800" height="500">
@@ -205,23 +222,12 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
       ${/* What kind of degree, how long, where: "BSc · 3 yrs · Odense"
             (src/lib/paths.mjs credentialLine), so two cards that share a name
             are never identical at a glance. */
-        line ? html`<p class="card__cred">${line}</p>` : ''}
+        line ? credLine(line) : ''}
       ${sub ? html`<p class="card__sub">${sub}</p>` : ''}
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
       ${/* A programme's requirements, IB terms first (requirementSummary). */ req || ''}
       ${/* A programme family's paths, one short row each (src/lib/paths.mjs). */ paths || ''}
-      ${tags?.length
-        ? html`<ul class="tags">${tags.map((t) =>
-            // A tag may be a plain string, or {label, mod} where the modifier
-            // separates a claim about our coverage from a description of the
-            // place. Two identical pills, one saying "we researched this" and
-            // one saying "few courses in English", read as the same kind of
-            // thing and are not.
-            typeof t === 'string'
-              ? html`<li class="tag">${t}</li>`
-              : html`<li class="tag tag--${t.mod || 'brand'}">${t.label}</li>`
-          )}</ul>`
-        : ''}
+      ${tags?.length && !photoTag ? tagList : ''}
       ${meta?.length ? html`<div class="card__foot">${meta.map((m) => html`<span>${m}</span>`)}</div>` : ''}
       ${/* One short line with its own link, beside the card's main one — for
             a fact about the place that lives on someone else's page, such as
@@ -235,6 +241,19 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
           : ''}
     </div>
   </article>`;
+}
+
+/**
+ * "BSc · 3 yrs · Odense", each fact unbroken. The separator belongs to the
+ * fact after it and sits in a fixed-width box that site.css pulls into the
+ * line's left margin, so a fact that wraps to a new line starts clean: no
+ * "3 / yrs", no "·" left hanging at either end of a line (round 2, bug 6).
+ */
+function credLine(line) {
+  const facts = String(line).split(' · ').filter(Boolean);
+  return html`<p class="card__cred"><span class="card__facts">${facts.map(
+    (f, i) => html`<span class="card__fact">${i ? html`<span class="card__sep"> · </span>` : ''}${f}</span>`
+  )}</span></p>`;
 }
 
 /**
@@ -736,17 +755,6 @@ export function requirementModel(entry) {
   return { first, all, sets: sets.map((x) => (x.folded ? { ...x, implied: true, silent: true } : x)), floors: floorLine(entry?.quotaFloors) };
 }
 
-/** "Danish requirement: Mathematics A (min 4)" — the published form, small. */
-function localBlock(entry, first, className) {
-  const href = first.explainedAt;
-  const floors = floorLine(entry?.quotaFloors).map((f) => f.local).join(' · ');
-  const text = [requirementLine(entry), floors].filter(Boolean).join(' · ');
-  if (!text) return '';
-  return html`<p class="${className}"><span class="req-local">${first.requirementLabel}: ${text}</span>${
-    href ? html` <a class="req__how" href="${url(href)}">What this means in IB terms</a>` : ''
-  }</p>`;
-}
-
 const partHtml = (x) =>
   x.kind === 'other'
     ? html`<span class="req-other">${x.text}</span>`
@@ -765,37 +773,72 @@ function closedNote(closed, first, other = true) {
   return other ? `and ${n} ${noun}${n === 1 ? '' : 's'}` : `${n} ${noun}${n === 1 ? '' : 's'}`;
 }
 
+/** How many characters of requirements a card's one Needs line holds (about two lines). */
+export const CARD_NEEDS_BUDGET = 72;
+
 /**
- * A card-sized summary: one line in IB terms, the published form beneath it.
- * Returns '' for an entry with nothing to show.
+ * The units a card's Needs line is made of, in the order a student reads
+ * them: each requirement asked for outright, each "one of" (its options one
+ * unit each, or its union as one), then each quota floor. `len` is the
+ * characters it adds to the line; `group` marks an option inside a "one of".
  */
-export function requirementSummary(entry, { lead = 'Needs' } = {}) {
+function needsUnits(model, first) {
+  const units = [];
+  for (const x of model.all) units.push({ len: x.text.length, html: partHtml(x) });
+  model.sets.filter((set) => !set.implied).forEach(({ open, closed, union }, k) => {
+    if (!open.length) {
+      units.push({ len: 30, html: html`<span class="req-none">one of ${closedNote(closed, first, false)} (no IB route)</span>` });
+      return;
+    }
+    // The union already names every IB route: one unit.
+    if (union) { units.push({ len: union.text.length + 7, html: html`one of <span class="req-ib">${union.text}</span>` }); return; }
+    const opt = (o) => ({
+      len: o.parts.reduce((n, x) => n + x.text.length + 3, 0),
+      html: html`${o.parts.map((x, n) => html`${n ? ' + ' : ''}${partHtml(x)}`)}`,
+    });
+    // A "one of" with a single option left is just another requirement.
+    if (open.length === 1) { units.push(opt(open[0])); return; }
+    open.forEach((o, i) => units.push({ ...opt(o), group: k, head: i === 0 }));
+  });
+  for (const f of model.floors) units.push({ len: f.ib.length, html: html`<span class="req-ib">${f.ib}</span>` });
+  return units;
+}
+
+/**
+ * A card-sized summary: one Needs line in IB terms, as much of it as fits in
+ * about two lines, and "+n more" for the rest (#46, both critics: one line per
+ * block). The published form, the options with no IB route and the quota's
+ * "below that" all stay on the programme page, one tap down — the whole card
+ * links there. Returns '' for an entry with nothing to show.
+ */
+export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET } = {}) {
   if (!entry) return '';
   const model = requirementModel(entry);
-  const { first } = model;
+  const units = needsUnits(model, model.first);
+  if (!units.length) return '';
 
-  const all = model.all.map(partHtml);
-  const oneOf = model.sets.filter((set) => !set.implied).map(({ open, closed }, k) => {
-    // A "one of" with a single option left is just another requirement.
-    const single = open.length === 1 && !closed.length;
-    const sep = all.length || k ? (single ? ' · ' : ' — ') : '';
-    if (!open.length) {
-      return html`${sep}<span class="req-none req__more">one of ${closedNote(closed, first, false)} (no IB route)</span>`;
-    }
-    const more = closed.length ? html` <span class="req-none req__more">(${closedNote(closed, first)})</span>` : '';
-    const union = model.sets.filter((x) => !x.implied)[k]?.union;
-    // The list already names every IB route; the Danish-only ones are on the
-    // programme page. Four lines, not six.
-    if (union) return html`${sep}one of <span class="req-ib">${union.text}</span>`;
-    return html`${sep}${open.length > 1 || closed.length ? 'one of: ' : ''}${open.map(
-      (o, i) => html`${i ? ' / ' : ''}${o.parts.map((x, n) => html`${n ? ' + ' : ''}${partHtml(x)}`)}`
-    )}${more}`;
+  // Take units in order while they fit; the first always shows. A unit that
+  // does not fit ends the line, so what shows is always the start of the list.
+  let used = 0;
+  let shown = 0;
+  for (const u of units) {
+    const cost = u.len + (shown ? 3 : 0) + (u.head ? 8 : 0);
+    if (shown && used + cost > budget) break;
+    used += cost;
+    shown++;
+  }
+  const hidden = units.length - shown;
+  const parts = units.slice(0, shown).map((u, i) => {
+    const prev = units[i - 1];
+    const inGroup = u.group !== undefined && prev?.group === u.group;
+    const sep = !i ? '' : inGroup ? ' / ' : ' · ';
+    return html`${sep}${u.head ? 'one of: ' : ''}${u.html}`;
   });
 
   return html`<div class="req" data-req>
-    <p class="req__ib"><strong>${lead}</strong> ${all.map((x, i) => html`${i ? ' · ' : ''}${x}`)}${oneOf}</p>
-    ${model.floors.map((f) => html`<p class="req__floor"><span class="req-ib">${f.ib}</span>${f.below ? html`<span class="req-why">; ${f.below}</span>` : ''}</p>`)}
-    ${first ? localBlock(entry, first, 'req__local') : ''}
+    <p class="req__ib"><strong>${lead}</strong> ${parts}${
+      hidden ? html` <span class="req__count">+${hidden} more</span>` : ''
+    }</p>
   </div>`;
 }
 

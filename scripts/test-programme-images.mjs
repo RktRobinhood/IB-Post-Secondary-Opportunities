@@ -26,6 +26,10 @@
  *   4. **No special cases.** The resolver and the markup name no programme,
  *      field value or country. Every difference between two cards is a
  *      difference in their records.
+ *   5. **One line per block.** Every programme card names its degree on its
+ *      credential line ("BSc or BEng · 3–3½ yrs"), carries one Needs line
+ *      and at most one tag, and leaves the published (local) requirement to
+ *      the programme page. The home page's first twelve titles differ.
  *
  * It reads dist/, so it runs in the built stage.
  */
@@ -39,7 +43,7 @@ import { conforms, probeWebp } from './lib/image-standard.mjs';
 import { cardKey } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const AA = 4.5;
 
 let failures = 0;
@@ -331,11 +335,86 @@ check(`every tag chip reaches ${AA}:1 on its own background, in every theme and 
 
 /* --- 4. No special cases ------------------------------------------------ */
 
+/* --- 5. One line per block (#46 round 2, #44 round 1) --------------------
+   A programme card is a photograph, a title, a credential line that always
+   names the degree, one Needs line, one tag and the institution. The
+   programme page keeps the detail. Read from the built pages, so a card any
+   page draws is held to it. */
+
+/** A degree named in a credential line: an abbreviation (BSc, BEng, LLB) or a word. */
+const DEGREE_WORD = /\b(?:B[A-Z][A-Za-z]{0,4}|LLB|M[A-Z][A-Za-z]{0,4}|PhD|bachelor|master|degree|diploma|certificate|associate)\b/i;
+
+const cardText = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
+
+/** What is wrong with one programme card's markup. */
+function cardFaults(card) {
+  const out = [];
+  const cred = card.match(/<p class="card__cred">([\s\S]*?)<\/p>/);
+  if (!cred) out.push('no credential line');
+  else {
+    const line = cardText(cred[1]);
+    if (!DEGREE_WORD.test(line)) out.push(`the credential line "${line}" names no degree`);
+    if (/^·|·$|· ·|\d \/ yrs/.test(line)) out.push(`the credential line "${line}" is broken`);
+  }
+  if (/class="[^"]*\breq(?:__local|-local)\b/.test(card)) out.push('it carries the published (local) requirement; that belongs on the programme page');
+  if (/As published:/.test(card)) out.push('it quotes "As published:"; that belongs on the programme page');
+  if (/class="req__floor"/.test(card)) out.push('it carries a separate quota line');
+  const needs = (card.match(/<p class="req__ib"/g) || []).length;
+  if (needs > 1) out.push(`${needs} Needs lines`);
+  const tags = (card.match(/<li class="tag\b/g) || []).length;
+  if (tags > 1) out.push(`${tags} tags`);
+  return out;
+}
+
+/** Programme cards in a built page: articles with a backdrop. */
+const programmeCards = (page) => [...page.matchAll(/<article class="card card--link card--backdrop">[\s\S]*?<\/article>/g)].map((m) => m[0]);
+
+check('the card guard can see what it is for', () => {
+  const old = '<article class="card card--link card--backdrop"><h3 class="card__title">Electronics</h3><p class="card__cred">Sønderborg</p>' +
+    '<div class="req" data-req><p class="req__ib">Needs X</p><p class="req__local"><span class="req-local">Danish requirement: English B</span></p></div>' +
+    '<ul class="tags"><li class="tag tag--sand">A</li><li class="tag tag--ok">B</li></ul></article>';
+  const f = cardFaults(old);
+  assert.ok(f.some((x) => /names no degree/.test(x)), 'misses a credential line with no degree');
+  assert.ok(f.some((x) => /published/.test(x)), 'misses the published requirement on a card');
+  assert.ok(f.some((x) => /2 tags/.test(x)), 'misses two tags');
+  const good = '<article class="card card--link card--backdrop"><p class="card__cred"><span class="card__facts"><span class="card__fact">BSc or BEng</span><span class="card__fact"><span class="card__sep"> · </span>3–3½ yrs</span></span></p>' +
+    '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> X <span class="req__count">+2 more</span></p></div></article>';
+  assert.deepEqual(cardFaults(good), []);
+});
+
+check('every programme card: a degree on its credential line, one Needs line, one tag, no published form', () => {
+  const pages = ['index.html', ...site.institutionCatalogue.all.filter((i) => i.programmes.length).map((i) => path.join(i.href, 'index.html'))];
+  const bad = [];
+  let seen = 0;
+  for (const rel of pages) {
+    const page = built(rel);
+    if (!page) continue;
+    for (const c of programmeCards(page)) {
+      seen++;
+      const f = cardFaults(c);
+      if (f.length) bad.push(`${rel} ${(c.match(/\/programmes\/([a-z0-9-]+)\//) || [])[1]}: ${f.join('; ')}`);
+    }
+  }
+  assert.ok(seen > 50, `only ${seen} programme cards found`);
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} cards`);
+});
+
+check('the first screen of the discovery surface has twelve different titles, and "Show all" counts cards truthfully', () => {
+  const page = built('index.html');
+  const cards = [...page.matchAll(/<li class="discover__card"[^>]*>\s*(<article[\s\S]*?<\/article>)/g)].map((m) => m[1]);
+  const first = cards.slice(0, 12).map((c) => cardText((c.match(/<h3 class="card__title">([\s\S]*?)<\/h3>/) || [])[1] || ''));
+  const twice = first.filter((t, i) => first.indexOf(t) !== i);
+  assert.deepEqual(twice, [], `repeated in the first twelve: ${twice.join(', ')}`);
+  const summary = cardText((page.match(/<details class="discover__more"[\s\S]*?<summary>([\s\S]*?)<\/summary>/) || [])[1] || '');
+  if (summary) assert.ok(summary.includes(`${cards.length} card`), `"${summary}" does not say the ${cards.length} cards it opens`);
+});
+
 const SOURCES = [
   'src/lib/programme-imagery.mjs',
   'src/lib/components.mjs',
   'src/pages/explorer.mjs',
   'src/pages/discover.mjs',
+  'src/lib/paths.mjs',
   'src/pages/planner.mjs',
   'src/assets/js/discover.js',
   'src/assets/js/planner.js',

@@ -2736,7 +2736,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
       if (!spec) return false;
       if (spec.place) { const p = byId.get(spec.place); if (!p) return false; goToPlace(p, { push }); return true; }
       if (spec.country) { const c = geography.byId.get(spec.country); if (!c) return false; goToCountry(c, { push }); return true; }
-      let cam = spec.camera && Number.isFinite(spec.camera.lat) ? { ...spec.camera } : null;
+      /* A camera further out than the desk stops at the desk. */
+      let cam = spec.camera && Number.isFinite(spec.camera.lat) ? { ...spec.camera, alt: Math.min(deskAlt, spec.camera.alt) } : null;
       if (spec.bounds) {
         const { north, south, west, east } = spec.bounds;
         if (![north, south, west, east].every(Number.isFinite)) return false;

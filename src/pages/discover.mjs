@@ -1,10 +1,10 @@
-import { html, raw, plural, toString } from '../lib/html.mjs';
+import { html, raw, plural, toString, slugify } from '../lib/html.mjs';
 import { url, SITE } from '../lib/layout.mjs';
 import { card, requirementSummary } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
-import { cardGroups, familyCard, pathsBlock, credentialLine, facetsOf, cutoffLabel } from '../lib/paths.mjs';
+import { cardGroups, familyCard, pathsBlock, credentialLine, facetsOf, cutoffLabel, cardTag } from '../lib/paths.mjs';
 import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel } from './destinations.mjs';
 import { awardLabel } from './course-results.mjs';
@@ -31,18 +31,48 @@ import { requiresMathsHL } from './explorer.mjs';
 const FIRST_CARDS = 12;
 const TAG_MOD = { 'tag--ok': 'ok', 'tag--sand': 'sand', 'tag--warn': 'warn' };
 
-/** A programme with no structured subject requirements: IB terms first, the published sentence beneath. */
+/** A programme with no structured subject requirements: the IB award it asks for, in IB terms, one line. */
 function awardOnlyReq(p) {
   const ib = {
     [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'the full IB Diploma',
     [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'the IB Diploma or Course Results',
   }[entryAward(p)];
-  const published = String(p.requirementsText || '').split(/(?<=\.)\s/)[0].slice(0, 150);
-  if (!ib && !published) return '';
-  return html`<div class="req">
-    ${ib ? html`<p class="req__ib"><strong>Requires</strong> ${ib}</p>` : ''}
-    ${published ? html`<p class="req__local">As published: ${published}</p>` : ''}
-  </div>`;
+  if (!ib) return '';
+  return html`<div class="req"><p class="req__ib"><strong>Requires</strong> ${ib}</p></div>`;
+}
+
+/**
+ * The cards in an order that shows the range first (home round 1: the first
+ * twelve were an A–B slice ending in three business cards from one school).
+ * Greedy: each next card is the one least like the cards just placed — a title
+ * already shown, the same institution in the last few, the same subject area
+ * in the last two, the same country as the last — ties broken alphabetically.
+ * Nothing is picked by name; the same rule orders any set of cards.
+ */
+export function variedOrder(items) {
+  const left = items.map((x, i) => ({ ...x, i }));
+  const out = [];
+  const titles = new Set();
+  while (left.length) {
+    const score = (x) => {
+      let s = 0;
+      if (titles.has(x.title)) s += 1000;
+      out.slice(-4).forEach((y, k, recent) => { if (y.inst === x.inst) s += 200 + 20 * (k - recent.length); });
+      out.slice(-2).forEach((y, k, recent) => { if (y.field === x.field) s += 100 * (k + 3 - recent.length); });
+      if (out.length && out[out.length - 1].dest === x.dest) s += 10;
+      return s;
+    };
+    let best = 0;
+    let bestScore = Infinity;
+    left.forEach((x, k) => {
+      const sc = score(x);
+      if (sc < bestScore || (sc === bestScore && x.i < left[best].i)) { best = k; bestScore = sc; }
+    });
+    const [pick] = left.splice(best, 1);
+    titles.add(pick.title);
+    out.push(pick);
+  }
+  return out.map((x) => x.i);
 }
 
 export function discoverSection(site) {
@@ -75,7 +105,14 @@ export function discoverSection(site) {
 
   /* --- The cards ------------------------------------------------------------ */
   const sorted = [...site.programmes].sort((a, b) => a.name.localeCompare(b.name));
-  const groups = cardGroups(site, sorted);
+  const alpha = cardGroups(site, sorted);
+  const order = variedOrder(alpha.map((g) => ({
+    title: g.family?.name || g.lead.name,
+    inst: g.lead.institutionId,
+    field: g.lead.field || 'Other',
+    dest: destCode(g.lead),
+  })));
+  const groups = order.map((i) => alpha[i]);
   const cardData = [];
   const cards = groups.map((g, n) => {
     const lead = g.lead;
@@ -94,20 +131,26 @@ export function discoverSection(site) {
           req: fam.req,
           paths: pathsBlock(fam.paths),
           meta: [where],
-          tags: [awardTag, fam.tag ? { label: fam.tag, mod: 'sand' } : null].filter(Boolean),
+          // One tag, and only one every path shares.
+          tags: [cardTag({ cutoff: fam.shared.cutoff, open: fam.shared.open, award: fam.shared.awardSame ? awardTag : null })].filter(Boolean),
         })
-      : card({
-          href: lead.href,
-          title: lead.name,
-          line: credentialLine(facetsOf(site, lead, { campus: true })),
-          backdrop: lead.backdrop,
-          req: lead.entryRequirements ? requirementSummary(lead.entryRequirements) : awardOnlyReq(lead),
-          meta: [where],
-          tags: [
-            awardTag,
-            cutoffLabel(lead) ? { label: cutoffLabel(lead), mod: 'sand' } : lead.restrictedAdmission === false ? { label: 'Open admission', mod: 'ok' } : null,
-          ].filter(Boolean),
-        });
+      : (() => {
+          const req = lead.entryRequirements ? requirementSummary(lead.entryRequirements) : awardOnlyReq(lead);
+          return card({
+            href: lead.href,
+            title: lead.name,
+            line: credentialLine(facetsOf(site, lead, { campus: true })),
+            backdrop: lead.backdrop,
+            req,
+            meta: [where],
+            // One tag. A card whose Needs line is the award already says it.
+            tags: [cardTag({
+              cutoff: cutoffLabel(lead),
+              open: lead.restrictedAdmission === false,
+              award: lead.entryRequirements || !req ? awardTag : null,
+            })].filter(Boolean),
+          });
+        })();
     return html`<li class="discover__card" data-card="${n}">${body}</li>`;
   });
 
@@ -199,7 +242,13 @@ export function discoverSection(site) {
   const presetView = {
     here: hereCode ? { country: hereCode } : null,
     nearby: (() => { const b = boundsOf(tiles.filter((c) => c.scope === 'europe' && c.code !== hereCode)); return b ? { bounds: b, label: 'Europe' } : null; })(),
-    far: { reset: true },
+    /* Worldwide turns the desk globe to the faraway door with the most
+       researched institutions, rather than resetting to Europe (home round 1). */
+    far: (() => {
+      const far = tiles.filter((c) => scopeOf(c.code) === 'far').map((c) => ({ c, pos: centroid(c) })).filter((x) => x.pos)
+        .sort((a, b) => b.c.institutions.length - a.c.institutions.length);
+      return far.length ? { camera: { lat: Math.max(-20, Math.min(40, far[0].pos.lat)), lon: far[0].pos.lon, alt: 99 }, label: 'the world' } : { reset: true };
+    })(),
   };
   const scopeDegrees = (key) => count((p) => scopeOf(destCode(p)) === key);
 
@@ -298,11 +347,14 @@ export function discoverSection(site) {
           folded away. */
       cards.length > FIRST_CARDS
       ? html`<details class="discover__more" id="discover-more">
-          <summary>Show all ${plural(total, 'degree')}</summary>
+          <summary>Show all ${plural(cards.length, 'card')}${cards.length !== total ? ` (${plural(total, 'degree')})` : ''}</summary>
           <ul class="grid grid--3 discover__cards" role="list">${cards.slice(FIRST_CARDS)}</ul>
         </details>`
       : ''}
-    <p class="discover__empty" id="discover-empty" hidden>No degree matches all of those. <button type="button" class="linkish" data-clear-all>Clear the filters</button>.</p>
+    <div class="discover__empty" id="discover-empty" hidden>
+      <p class="discover__empty-line">No degree here matches all of those yet.</p>
+      <ul class="discover__empty-ways" id="discover-empty-ways"></ul>
+    </div>
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
           <p class="discover__places-line">No degrees are mapped subject by subject here yet. These countries are researched:</p>
@@ -317,6 +369,8 @@ export function discoverSection(site) {
   // The lights of Destinations with no mapped degree: how far each is, and how
   // many institutions it has, so a scope can light them and a filter dim them.
   lights: Object.fromEntries(countryLights.map((l) => [l.id, { s: scopeOf(l.id), n: l.count }])),
+  // The site's guides, so a search with no degree can hand over to one.
+  guides: (site.topicList || []).map((t) => ({ t: t.navLabel || t.title, h: url(`/guides/${slugify(t.slug || t.title || 'guide')}/`) })).filter((g) => g.t),
 }).replace(/</g, '\\u003c'))}</script>
 <script type="application/json" id="place-data">${raw(JSON.stringify(placeIndex).replace(/</g, '\\u003c'))}</script>`;
 }

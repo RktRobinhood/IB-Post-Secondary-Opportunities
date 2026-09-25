@@ -40,7 +40,7 @@ import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mj
 import { requirementLine, requirementModel } from '../src/lib/components.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 
 let passed = 0;
 const failures = [];
@@ -110,7 +110,7 @@ const within = (tag, cls) => new RegExp(`<${tag}[^>]*class="[^"]*\\b${cls}\\b[^"
  * block should show: `allowed` (every IB text that may appear) and `required`
  * (every one that must). Without it only the structural checks run.
  */
-function faults(block, expect = null) {
+function faults(block, expect = null, { card = false } = {}) {
   const out = [];
   const ib = [...block.matchAll(classed('req-ib'))].map((m) => text(m[2]));
   const local = [...block.matchAll(classed('req-local'))].map((m) => text(m[2]));
@@ -145,7 +145,16 @@ function faults(block, expect = null) {
     if (twice.length) out.push(`"${twice[0]}" is listed twice in one list`);
   }
 
-  if (expect) {
+  if (expect && card) {
+    /* A card is one Needs line (#46 round 2): the published form stays on the
+       programme page, and whatever does not fit is counted, "+n more", never
+       silently dropped. */
+    if (local.length) out.push('a card shows the published form; it belongs on the programme page');
+    for (const p of ib) if (!expect.allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the model produces for this programme`);
+    const more = Number((block.match(/class="req__count">\+(\d+) more</) || [])[1] || 0);
+    const missing = [...expect.required].filter((p) => !ib.includes(p));
+    if (missing.length && !more) out.push(`"${missing[0]}" is neither shown nor counted in a "+n more"`);
+  } else if (expect) {
     if (!local.length) out.push('the requirement as published is not shown beside its translation');
     if (firstLocal !== -1 && (firstIb === -1 || firstLocal < firstIb)) out.push('the published form comes before the IB terms');
     for (const p of ib) if (!expect.allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the model produces for this programme`);
@@ -203,6 +212,12 @@ function expected(entry) {
     '<div class="req" data-req><p><span class="req-local">As published: Mathematics A</span></p><p class="req__ib"><span class="req-ib">Maths HL (AA or AI)</span></p></div>';
   const expect = { allowed: new Set(['Maths HL (AA or AI)']), required: new Set(['Maths HL (AA or AI)']) };
   check('and refuses the published form leading', faults(blocks(flipped)[0], expect).some((f) => /comes before/.test(f)));
+
+  const cardExpect = { allowed: new Set(['Any IB English', 'Maths HL (AA or AI)']), required: new Set(['Any IB English', 'Maths HL (AA or AI)']) };
+  const cut = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> <span class="req-ib">Any IB English</span></p></div>';
+  check('a card that drops a requirement without counting it is caught', faults(blocks(cut)[0], cardExpect, { card: true }).some((f) => /neither shown nor counted/.test(f)));
+  const counted = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> <span class="req-ib">Any IB English</span> <span class="req__count">+1 more</span></p></div>';
+  check('and one that counts it passes', faults(blocks(counted)[0], cardExpect, { card: true }).length === 0, faults(blocks(counted)[0], cardExpect, { card: true }).join('; '));
 }
 
 /* --- the built pages --------------------------------------------------------- */
@@ -227,7 +242,8 @@ let translatedProgrammes = 0;
    paths differ there; the shared block holds what they share. A phrase a
    path row shows counts as shown. */
 const onPaths = (exp, html) => {
-  const rows = [...html.matchAll(/<span class="card__path-detail">([\s\S]*?)<\/span>/g)].map((m) => text(m[1])).join(' | ');
+  // A row shows a short form and carries the full one in its title.
+  const rows = [...html.matchAll(/<span class="card__path-detail"(?: title="([^"]*)")?>([\s\S]*?)<\/span>/g)].map((m) => `${decode(m[1] || '')} ${text(m[2])}`).join(' | ');
   return rows ? { ...exp, required: [...exp.required].filter((r) => !rows.includes(r)) } : exp;
 };
 const stripBlocks = (s) => s.replace(/<div[^>]*\bdata-req\b[^>]*>[\s\S]*?<\/div>/g, ' ');
@@ -266,7 +282,7 @@ for (const p of programmes) {
       const cb = blocks(cardHtml);
       check(`${p.id}: its card shows requirements in a data-req block`, cb.length === 1);
       for (const b of cb) {
-        const f = faults(b, onPaths(expect.card, cardHtml));
+        const f = faults(b, onPaths(expect.card, cardHtml), { card: true });
         check(`${p.id}: institution card`, !f.length, f.join('\n        '));
       }
       check(`${p.id}: its card never prints the bare published line`, !bareLine || !text(stripBlocks(cardHtml)).includes(bareLine), bareLine);
@@ -282,7 +298,7 @@ for (const p of programmes) {
     const hb = blocks(homeCard);
     check(`${p.id}: its discovery card shows requirements in a data-req block`, hb.length === 1);
     for (const b of hb) {
-      const f = faults(b, onPaths(expect.card, homeCard));
+      const f = faults(b, onPaths(expect.card, homeCard), { card: true });
       check(`${p.id}: discovery card`, !f.length, f.join('\n        '));
     }
     check(`${p.id}: its discovery card never prints the bare published line`, !bareLine || !text(stripBlocks(homeCard)).includes(bareLine), bareLine);

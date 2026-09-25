@@ -32,7 +32,7 @@ import { cardKey, families } from '../src/lib/families.mjs';
 import { entries, publishable } from '../src/lib/imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const ALLOW = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'unique-images-allow.json'), 'utf8'));
 
 let failures = 0;

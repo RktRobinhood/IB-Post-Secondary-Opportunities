@@ -55,6 +55,7 @@ const els = {
   empty: $('discover-empty'),
   places: $('discover-places'),
   more: $('discover-more'),
+  ways: $('discover-empty-ways'),
   map: $('prog-map'),
   sheet: $('f-sheet'),
   sheetOpen: $('f-sheet-open'),
@@ -120,6 +121,8 @@ function chipCounts() {
     const n = hitsFor({ ...state, [k]: value });
     out.textContent = n;
     el.toggleAttribute('data-empty', n === 0 && !state[k]);
+    // A chip that would leave nothing cannot be pressed into "No degrees".
+    el.disabled = n === 0 && !state[k];
   }
 }
 
@@ -150,6 +153,8 @@ function frame(scope) {
   if (!scope || view.reset) { g.reset(); return; }
   if (view.country) g.show({ country: view.country }, { push: false });
   else if (view.bounds) g.show({ bounds: view.bounds, label: view.label }, { push: false });
+  // Worldwide: a camera turned to the faraway door with the most institutions.
+  else if (view.camera) g.show({ camera: view.camera, label: view.label }, { push: false });
 }
 
 /* What the globe chose, as a filter. The globe has already made the history
@@ -204,6 +209,62 @@ function chosenLabel(key, value) {
   return option ? option.textContent.trim().replace(/\s*\(\d+\)$/, '') : value;
 }
 
+/* No degree matches: a way out for each filter that is on, one at a time,
+   and any guide whose title shares a word with the search ("medicine" has a
+   guide even where no degree is mapped yet). */
+const GUIDES = DATA.guides || [];
+function renderWays() {
+  if (!els.ways) return;
+  const ways = Object.entries(state)
+    .filter(([k, v]) => v && k !== 'scope')
+    .map(([k, v]) => {
+      const label = k === 'place' ? PLACES[v]?.name || v : v === true ? LABELS[k] : k === 'q' ? `“${v}”` : chosenLabel(k, v);
+      return `<li><button type="button" class="chip" data-clear="${k}">Without ${esc(label)}</button></li>`;
+    });
+  const terms = (state.q || '').toLowerCase().split(/\s+/).filter((t) => t.length > 3);
+  const guides = terms.length ? GUIDES.filter((g) => terms.some((t) => g.t.toLowerCase().includes(t))).slice(0, 3) : [];
+  els.ways.innerHTML = [
+    ...guides.map((g) => `<li class="discover__guide"><a class="arrow-link" href="${esc(g.h)}">${esc(g.t)}</a></li>`),
+    ...ways,
+    ways.length > 1 ? '<li><button type="button" class="chip" data-clear-all>Clear all</button></li>' : '',
+  ].join('');
+}
+els.ways?.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-clear]');
+  if (!b) return;
+  const k = b.dataset.clear;
+  state[k] = EMPTY[k];
+  syncControls();
+  choose();
+});
+
+/* On a phone the results are a long way below the hero: when the count
+   changes out of sight, a pill says it and takes you there (home round 1). */
+let pillEl = null;
+let lastPill = '';
+let countSeen = true;
+if (els.count && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([e]) => { countSeen = e.isIntersecting; if (countSeen && pillEl) pillEl.hidden = true; }).observe(els.count);
+}
+function pill(text) {
+  if (text === lastPill) return;
+  const first = !lastPill;
+  lastPill = text;
+  if (first || countSeen || !matchMedia('(max-width: 51.99rem)').matches) { if (pillEl) pillEl.hidden = true; return; }
+  if (!pillEl) {
+    pillEl = document.createElement('button');
+    pillEl.type = 'button';
+    pillEl.className = 'discover__pill';
+    pillEl.addEventListener('click', () => {
+      pillEl.hidden = true;
+      els.count.scrollIntoView({ block: 'start', behavior: reducedMotion() ? 'auto' : 'smooth' });
+    });
+    document.body.append(pillEl);
+  }
+  pillEl.textContent = `${text} ↓`;
+  pillEl.hidden = false;
+}
+
 function renderActive() {
   if (!els.active) return;
   els.active.innerHTML = Object.entries(state)
@@ -243,14 +304,18 @@ function render() {
     else if (!any && 'auto' in els.more.dataset) { els.more.open = false; delete els.more.dataset.auto; }
     els.more.toggleAttribute('data-filtering', any);
   }
+  // A distance with no mapped degree shows its countries instead.
+  const placesInstead = !!state.scope && !narrowed() && shown === 0;
+  const doors = placesInstead ? [...(els.places?.querySelectorAll('[data-scope]') || [])].filter((li) => li.dataset.scope === state.scope).length : 0;
   els.count.innerHTML = !any
     ? `<b>${TOTAL}</b> degrees`
     : shown
     ? `<b>${shown}</b> of ${TOTAL} degrees`
+    : placesInstead && doors
+    ? `<b>${plural(doors, 'country', 'countries')}</b> researched`
     : '<b>No degrees</b>';
-
-  // A distance with no mapped degree shows its countries instead.
-  const placesInstead = !!state.scope && !narrowed() && shown === 0;
+  if (!shown && !placesInstead) renderWays();
+  pill(els.count.textContent);
   if (els.places) {
     els.places.hidden = !placesInstead;
     for (const li of els.places.querySelectorAll('[data-scope]')) li.hidden = li.dataset.scope !== state.scope;

@@ -104,7 +104,7 @@
   --veil-warn: #744A10;
   /* The clear band at the top of a programme card: the photograph shows
      there, anchored at its own 16:10 (programme-cards round 1, fix 1). */
-  --card-headroom: 9rem;
+  --card-headroom: 8.5rem; /* about 60% of the 16:10 photograph at card width */
 
   color-scheme: light;
 }
@@ -2244,9 +2244,9 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   pointer-events: none;
   background: linear-gradient(to bottom,
     color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent) 0,
-    color-mix(in srgb, var(--paper) calc((var(--veil-top) + .1) * 100%), transparent) calc(var(--card-headroom) * .55),
+    color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent) calc(var(--card-headroom) * .72),
     color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) var(--card-headroom),
-    var(--paper) calc(var(--card-headroom) + 6rem));
+    color-mix(in srgb, var(--paper) calc(var(--veil-foot) * 100%), transparent) calc(var(--card-headroom) + 3rem));
 }
 /* Inside a veiled card the cut-off chip takes the veiled warning colour. */
 .card--backdrop .tag--sand,
@@ -2290,6 +2290,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .paths__table th[scope="row"] { font-weight: 400; }
 .paths__table small { display: block; font-size: .8125rem; color: var(--ink-mute); }
 .paths__here { background: var(--paper-2); }
+table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .paths__you {
   display: inline-block; margin-left: .35em;
   font: 600 var(--type-floor)/1.4 var(--sans); text-transform: uppercase; letter-spacing: .06em;
@@ -2297,6 +2298,65 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 }
 .card--backdrop:hover .card__backdrop { transform: scale(1.03); }
 .card--backdrop .card__body { padding-top: var(--card-headroom); }
+
+/* --- Programme cards, round 2 fixes (#46, #44): one line per block ---------
+   A programme card is: photograph, title, credential line, one Needs line
+   ("+n more"), then the institution and one tag on the foot line. The
+   programme page keeps the detail. */
+.card--backdrop .card__body { gap: var(--s2); padding-bottom: var(--s4); }
+.card--backdrop .card__foot { padding-top: var(--s2); }
+.card--backdrop .card__title { font-size: 1.1875rem; line-height: 1.25; }
+.card--backdrop .card__cred { margin-top: 0; }
+/* The photograph fades out over its own lower third, so it ends in paper
+   rather than in a step, whatever the card's width (round 2, bug 3). */
+.card--backdrop .card__backdrop {
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+}
+/* The credential line: each fact unbroken; a separator that starts a wrapped
+   line sits in the clipped margin, so no "·" hangs at either end. */
+.card__cred { overflow: hidden; }
+.card__facts { display: flex; flex-wrap: wrap; margin-left: -1.1em; }
+.card__fact { white-space: nowrap; }
+.card__fact:first-child { padding-left: 1.1em; }
+.card__sep { display: inline-block; width: 1.1em; text-align: center; }
+/* The Needs line and its "+n more". */
+.card .req { gap: 0; }
+.card .req__ib { font-size: .875rem; line-height: 1.45; }
+.req__count { white-space: nowrap; font-weight: 600; color: var(--accent); }
+/* The one tag, on the photograph's top corner: a pill on its own ground. */
+.card__tag { position: absolute; top: var(--s3); left: var(--s3); right: var(--s3); z-index: 1; pointer-events: none; }
+.card__tag .tag { box-shadow: 0 1px 4px rgb(0 0 0 / .22); }
+/* A family's paths: one line each — the path, then what differs about it. */
+.card--backdrop .card__paths { padding-top: var(--s2); gap: var(--s1); }
+.card--backdrop .card__path-list { gap: var(--s1); }
+.card--backdrop .card__path { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .5em; font-size: .875rem; }
+.card--backdrop .card__path a { flex: none; }
+
+/* The Paths table on a phone: a block per path — its name, what is
+   different, then one line per fact with the column's name before it. No
+   sideways scroll, no column a word wide (round 2, bug 2). */
+@media (max-width: 52rem) {
+  .paths .paths__scroll { overflow: visible; background: none; }
+  .paths table.data.paths__table tr {
+    display: flex; flex-direction: column; gap: var(--s1);
+    padding: var(--s3) var(--s4); margin-bottom: var(--s3);
+    border: 1px solid var(--rule); border-radius: var(--radius-lg);
+  }
+  .paths table.data.paths__table tr:last-child { margin-bottom: 0; }
+  .paths table.data.paths__table th[scope="row"] {
+    order: -2; padding: 0; border: 0;
+    font: 600 1rem/1.4 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink);
+  }
+  .paths table.data.paths__table td { padding: 0; border: 0; }
+  .paths table.data.paths__table td::before {
+    display: inline; content: attr(data-label) ": ";
+    font-size: .8125rem; font-weight: 600; color: var(--ink-soft);
+  }
+  .paths table.data.paths__table .paths__diff { order: -1; color: var(--ink-soft); }
+  .paths table.data.paths__table .paths__diff::before { content: none; }
+  .paths .paths__table small { display: inline; margin-left: .35em; }
+}
 
 /* A row in the finder or the planner. It is wide and short, so the photograph
    shows as a faded strip. There is text across the whole row, so the veil is
@@ -2455,7 +2515,10 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 
 @media (max-width: 51.99rem) {
   .finder__filters { padding: var(--s4); gap: var(--s3); margin-bottom: var(--s4); }
-  .finder__filters[data-enhanced] .finder__open { display: inline-flex; }
+  .finder__filters[data-enhanced] .finder__open {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); font-weight: 650;
+  }
   .finder__filters[data-enhanced] .finder__sheet { display: none; }
   .finder__filters[data-sheet] .finder__sheet {
     display: flex; flex-direction: column; gap: var(--s5);
@@ -2486,6 +2549,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 }
 .discover__intro { display: grid; gap: var(--s5); padding-block: var(--s6) var(--s5); }
 .discover__eyebrow { color: #e7c27a; margin-bottom: var(--s2); }
+@media (max-width: 40rem) { .discover__eyebrow::after { display: none; } } /* wrapped, its rule floated alone */
 .discover__title {
   margin: 0 0 var(--s4); max-width: 17ch;
   color: #fff; font-size: clamp(2rem, 5.2vw, 3.25rem); line-height: 1.05;
@@ -2547,7 +2611,24 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   font-weight: 600; color: var(--accent-2);
 }
 .discover__more[data-filtering] { margin-top: 0; }
-.discover__more[data-filtering] > summary { display: none; }
+.discover__more[data-filtering] > summary,
+.discover__more[open] > summary { display: none; } /* opened, it has done its job: no stale "Show all" mid-list */
+/* No match: the ways out, as chips (discover.js renderWays). */
+.discover__empty { margin: var(--s5) 0; }
+.discover__empty-line { margin: 0 0 var(--s3); color: var(--ink-soft); }
+.discover__empty-ways { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.discover__guide { flex-basis: 100%; margin-bottom: var(--s2); font-weight: 600; }
+.chip--link { text-decoration: none; }
+.chip[disabled] { cursor: not-allowed; }
+/* The phone's "N degrees ↓" pill, when the count changes out of sight. It
+   sits under the masthead, clear of the globe's place card at the foot. */
+.discover__pill {
+  position: fixed; left: 50%; top: calc(4rem + var(--s3)); transform: translateX(-50%); z-index: 120;
+  min-height: var(--tap); padding: 0 var(--s5); border: 0; border-radius: 999px;
+  background: #e7c27a; color: #1a1613; font: 650 .9375rem/1 var(--sans); /* the eyebrow gold: seen on the night hero and on paper, in both themes */
+  box-shadow: 0 6px 20px rgb(0 0 0 / .28); cursor: pointer;
+}
+.discover__pill[hidden] { display: none; }
 .discover__card > .card { height: 100%; }
 .discover__empty, .discover__noscript { margin: var(--s5) 0; color: var(--ink-soft); }
 .discover__places-line { margin: var(--s5) 0 var(--s4); color: var(--ink-soft); }
@@ -2613,12 +2694,8 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .cr__table td:last-child { white-space: nowrap; width: 1%; }
 .cr__degree { display: block; font-size: .8125rem; color: var(--ink-mute); }
 
-/* Requirements, round 3: on a phone a card carries the IB line only; the
-   published form stays on the programme page and behind "What this means in
-   IB terms". The floor's "below that" route reads as part of the floor. */
-@media (max-width: 39.99rem) {
-  .card .req__local .req-local { display: none; }
-}
+/* The floor's "below that" route reads as part of the floor. (A card carries
+   no published form at any width since #46 round 2.) */
 .req__floor .req-why { color: var(--ink-soft); }
 /* On a phone the card's own photograph is its backdrop; a thumbnail beside it
    would squeeze every line into half the width. */
