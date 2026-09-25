@@ -89,6 +89,21 @@
 
   --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
 
+  /* The veil over a programme card's background photograph
+     (src/lib/programme-imagery.mjs, VEIL). The alpha of --paper at the top of
+     the card, where the first line of text starts (--card-headroom down), and
+     at the foot, plus the brightness of the photograph. The worst-case text
+     contrast is computed from these numbers by
+     scripts/test-programme-images.mjs, which also checks they match VEIL.
+     --veil-warn is the warning colour on a veiled card: #96601A is 3.4:1 over
+     a black pixel under an 84% veil, and this is 4.9:1. */
+  --veil-top:  .4;
+  --veil-text: .84;
+  --veil-foot: .94;
+  --veil-dim:  1;
+  --veil-warn: #744A10;
+  --card-headroom: 4.5rem;
+
   color-scheme: light;
 }
 
@@ -123,6 +138,12 @@
     --lift-1: 0 1px 2px rgba(0, 0, 0, .4);
     --lift-2: 0 2px 10px rgba(0, 0, 0, .45);
     --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
+
+    --veil-top:  .45;
+    --veil-text: .86;
+    --veil-foot: .93;
+    --veil-dim:  .85;
+    --veil-warn: #D9A85C;
   }
 }
 
@@ -156,6 +177,12 @@
   --lift-1: 0 1px 2px rgba(0, 0, 0, .4);
   --lift-2: 0 2px 10px rgba(0, 0, 0, .45);
   --lift-3: 0 12px 40px rgba(0, 0, 0, .55);
+
+  --veil-top:  .45;
+  --veil-text: .86;
+  --veil-foot: .93;
+  --veil-dim:  .85;
+  --veil-warn: #D9A85C;
 }
 
 
@@ -2155,3 +2182,82 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .need__how { margin: var(--s2) 0 0; font-size: .9375rem; }
 /* "+ 3 options with no IB route": counted on a card, explained on the page. */
 .req__ib .req__more { color: var(--ink-mute); font-size: .875rem; }
+
+/* --- Programme cards: the discipline, faded behind the words -------------
+   The owner asked for "an image specific to that discipline or bachelor's"
+   behind each programme card. The picture fills the card behind a veil of
+   the paper colour. The veil is lightest in the top band (--card-headroom),
+   where there is no text, and at least --veil-text under every line of text.
+   So text contrast holds over a pure black pixel in light mode, and over a
+   dimmed white one in dark mode (scripts/test-programme-images.mjs).
+   Inside a veiled card three tokens are swapped for ones that pass on it:
+   --ink-mute (3:1 there) becomes --ink-soft, --accent becomes --accent-2,
+   and --warn becomes --veil-warn. The same rules cover the finder's and the
+   planner's rows (.prog--backdrop). */
+.card--backdrop,
+.prog--backdrop {
+  --ink-mute: var(--ink-soft);
+  --accent: var(--accent-2);
+  --warn: var(--veil-warn);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--paper);
+}
+.card__backdrop,
+.prog__backdrop {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 35%;
+  /* Pulls saturated greens and blues toward the paper palette. */
+  filter: saturate(.8) sepia(.06) brightness(var(--veil-dim));
+  transition: transform .4s ease;
+  pointer-events: none;
+}
+.card--backdrop::before,
+.prog--backdrop::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent) 0,
+    color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) var(--card-headroom),
+    color-mix(in srgb, var(--paper) calc(var(--veil-foot) * 100%), transparent) 100%);
+}
+.card--backdrop:hover .card__backdrop { transform: scale(1.03); }
+.card--backdrop .card__body { padding-top: var(--card-headroom); }
+
+/* A row in the finder or the planner. It is wide and short, so the photograph
+   shows as a faded strip. There is text across the whole row, so the veil is
+   at least --veil-text everywhere, lightest on the right. */
+.prog--backdrop {
+  padding: var(--s5);
+  margin-bottom: var(--s3);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+}
+.prog--backdrop::before {
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--paper) calc(var(--veil-foot) * 100%), transparent) 0,
+    color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) 60%);
+}
+.prog--backdrop .prog__backdrop { object-position: 50% 40%; }
+/* The place picked on the map tints its rows (primitives.css). The photograph
+   would hide that tint, so a picked row drops it. */
+.prog.prog--backdrop[data-place][data-focus="true"] { margin-inline: 0; padding-inline: var(--s5); }
+.prog--backdrop[data-focus="true"] .prog__backdrop,
+.prog--backdrop[data-focus="true"]::before { display: none; }
+.prog--backdrop[data-focus="true"] { background: var(--accent-tint); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__backdrop { transition: none; }
+  .card--backdrop:hover .card__backdrop { transform: none; }
+}
+@media print {
+  .card__backdrop, .prog__backdrop, .card--backdrop::before, .prog--backdrop::before { display: none; }
+  .card--backdrop .card__body { padding-top: var(--s5); }
+}
+
+/* Requirements, round 1: a non-subject option shown as written, and the one
+   line that says where minimum grades apply (instead of one per subject). */
+.req-other { font-style: italic; }
+.need__note { margin: var(--s3) 0 0; font-size: .875rem; color: var(--ink-mute); }

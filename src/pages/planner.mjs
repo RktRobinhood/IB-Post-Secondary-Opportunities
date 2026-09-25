@@ -2,6 +2,7 @@ import { html, raw } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { hero, note } from '../lib/components.mjs';
 import { forBrowser, serialisePolicy } from '../lib/evidence-policy.mjs';
+import { backdropData } from './explorer.mjs';
 
 /* The subject checker. */
 
@@ -26,6 +27,8 @@ export function planner(site) {
     return {
       id: o.id,
       destination: o.destination,
+      // Whose own additions to a Recognition Scheme apply (ibEquivalences).
+      institution: o.institution,
       intake: o.intake,
       meta: o.meta,
       evidence: o.evidence || [],
@@ -41,6 +44,7 @@ export function planner(site) {
         field: prog.field?.primary || 'other',
         degree: prog.credential?.title || '',
         official: prog.links?.official || null,
+        backdrop: backdropData(site.backdropFor?.(o.programme)),
       },
     };
   });
@@ -53,6 +57,11 @@ export function planner(site) {
      panel is asking about a jurisdiction nobody named and is left empty rather
      than guessing one. */
   const destinations = new Set(opportunities.map((o) => o.destination).filter(Boolean));
+  /* Institutions that publish their own additions to a scheme, carrying only
+     those additions: the engine reads them for their own Opportunities. */
+  const institutions = [...(site.graph?.institutions?.values() || [])]
+    .filter((i) => (i.ibEquivalences || []).length)
+    .map((i) => ({ id: i.id, name: i.name, ibEquivalences: i.ibEquivalences }));
   const schemes = (site.recognitionSchemes || []).filter((s) => destinations.has(s.destination));
   const soleScheme = schemes.length === 1 ? schemes[0] : null;
   /* What to call the levels the panel fills in. "Your Danish levels" is right
@@ -198,7 +207,7 @@ ${hero({
   </div>
 </section>
 
-<script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes }))}</script>
+<script type="application/json" id="planner-subjects">${raw(JSON.stringify({ subjects, schemes, institutions }))}</script>
 <script type="application/json" id="planner-opportunities">${raw(JSON.stringify(opportunities))}</script>
 <script type="application/json" id="planner-evidence">${raw(JSON.stringify(evidenceIndex))}</script>
 <script type="application/json" id="planner-groups">${raw(JSON.stringify(site.applicantGroups || []))}</script>

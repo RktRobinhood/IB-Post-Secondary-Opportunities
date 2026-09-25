@@ -221,6 +221,66 @@
       },
       "additionalProperties": false
     },
+    "ibEquivalences": {
+      "type": "array",
+      "description": "The institution's own published additions to its Destination's Recognition Scheme: IB subjects (or a combination) it accepts for a local-scale subject. Read by the eligibility engine and the requirement wording before the national table's \"no equivalent\", so Aarhus's \"Global Politics HL: Recognised as Social Science B\" is a rule, not a note.",
+      "items": {
+        "type": "object",
+        "required": [
+          "levelScale",
+          "subject",
+          "level",
+          "accepts",
+          "evidence"
+        ],
+        "properties": {
+          "levelScale": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "accepts": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Alternatives; each is a list of IB subjects that must all be held. `ibLevel` is the lowest IB level that counts: SL means SL or HL.",
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "ibSubject",
+                  "ibLevel"
+                ],
+                "properties": {
+                  "ibSubject": {
+                    "$ref": "common.schema.json#/$defs/id"
+                  },
+                  "ibLevel": {
+                    "enum": [
+                      "SL",
+                      "HL"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "note": {
+            "type": "string"
+          },
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "evidence": {
       "$ref": "common.schema.json#/$defs/evidenceRefs"
     },

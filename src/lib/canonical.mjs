@@ -18,7 +18,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { statusFor } from './evidence-policy.mjs';
-import { buildSubjectIndex, ibTermsFor } from './eligibility.mjs';
+import { buildSubjectIndex, ibPointsFor, ibTermsFor } from './eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -123,7 +123,13 @@ export async function loadCanonical({ dataDir = DATA, strict = true } = {}) {
      engine's (ibTermsFor), read off the same rows it grades on; this only
      carries it to the pages. A Destination with no scheme contributes nothing. */
   const schemeFiles = await readDir(path.join(dataDir, 'recognition'), []);
-  const subjectIndex = buildSubjectIndex({ subjects: ibCatalogue, schemes: schemeFiles.map((f) => f.record) });
+  const subjectIndex = buildSubjectIndex({
+    subjects: ibCatalogue,
+    schemes: schemeFiles.map((f) => f.record),
+    // An institution's own additions to a scheme (ibEquivalences) are read by
+    // the same translation, for that institution's Opportunities only.
+    institutions: institutions.map((f) => f.record),
+  });
 
   /* Evidence is indexed across files, not within them. One id used in two
      Destinations' files is the duplicate most likely to happen, and the one a
@@ -293,7 +299,7 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
         source: prog.links?.admissions || prog.links?.official || null,
         summary: prog.summary || null,
         requirementsText: opp.officialRequirementsText?.[0]?.text || null,
-        entryRequirements: denormalise(opp.requirements, ibSubjectNames, subjectIndex),
+        entryRequirements: denormalise(opp.requirements, ibSubjectNames, subjectIndex, opp.institution),
         requirements: opp.requirements || [],
         /* Things you must also do, and things that decide who gets in among
            those who qualify. They were one list, and on the Dutch pages that
@@ -324,6 +330,13 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
               value: opp.admission.historicalCutoffs[0].value,
               quota: opp.admission.historicalCutoffs[0].quota || null,
               scale: opp.admission.historicalCutoffs[0].scale || null,
+              /* The lowest IB total whose converted average reaches it, from the
+                 scheme that defines the scale. Null where no scheme does. */
+              ibPoints: ibPointsFor(
+                opp.admission.historicalCutoffs[0].value,
+                opp.admission.historicalCutoffs[0].scale,
+                subjectIndex
+              ),
               intake: opp.admission.historicalCutoffs[0].intake
                 ? `${opp.admission.historicalCutoffs[0].intake.split('-')[0]} intake`
                 : null,
@@ -425,7 +438,7 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
  * assesses correctly and the page cannot draw is worse than one we never
  * recorded — the student is told there is nothing to meet.
  */
-function subjectOf(r, ibSubjectNames, subjectIndex = null) {
+function subjectOf(r, ibSubjectNames, subjectIndex = null, institution = null) {
   if (r.kind === 'ib-subject' && r.ibSubject) {
     return {
       subject: ibSubjectNames.get(r.ibSubject) || r.ibSubject,
@@ -443,13 +456,23 @@ function subjectOf(r, ibSubjectNames, subjectIndex = null) {
       level: r.level,
       ...(r.minGrade ? { minGrade: r.minGrade } : {}),
       ...(r.levelScale ? { levelScale: r.levelScale } : {}),
-      translation: ibTermsFor(r, subjectIndex),
+      translation: ibTermsFor(r, subjectIndex, institution),
     };
   }
   return null;
 }
 
-function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = null) {
+/**
+ * An alternative in a "one of" that is not a subject at all — "an accepted
+ * English test instead (for example IELTS Academic 6.5)". Dropping it left a
+ * trailing "/" and an empty "as published" line on nine programmes; it is part
+ * of the choice and is shown as written.
+ */
+function otherOf(r) {
+  return r?.label ? { other: true, kind: r.kind, label: r.label } : null;
+}
+
+function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = null, institution = null) {
   if (!requirements?.length) return null;
   const all = [];
   /* Every "one of" a record carries. This held one, and a second overwrote the
@@ -462,14 +485,14 @@ function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = nu
   for (const r of requirements) {
     if (r.kind === 'subject-combination' && r.alternatives?.length) {
       if (r.mandatory === false) continue;
-      oneOfSets.push(r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames, subjectIndex)).filter(Boolean)));
+      oneOfSets.push(r.alternatives.map((group) => group.map((x) => subjectOf(x, ibSubjectNames, subjectIndex, institution) || otherOf(x)).filter(Boolean)));
       continue;
     }
     /* A Selection Factor is `mandatory: false` — used in ranking, not in
        eligibility. Listing one here would tell a student they do not qualify
        when they merely are not top of a queue. */
     if (r.mandatory === false) continue;
-    const projected = subjectOf(r, ibSubjectNames, subjectIndex);
+    const projected = subjectOf(r, ibSubjectNames, subjectIndex, institution);
     if (projected) all.push(projected);
   }
   if (!all.length && !oneOfSets.length) return null;
@@ -479,7 +502,7 @@ function denormalise(requirements, ibSubjectNames = new Map(), subjectIndex = nu
   };
 }
 
-const FIELD_LABELS = {
+export const FIELD_LABELS = {
   engineering: 'Engineering',
   computing: 'Computing and IT',
   'natural-sciences': 'Natural sciences',

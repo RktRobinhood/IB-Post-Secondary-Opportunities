@@ -5,6 +5,14 @@ import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { AWARD_LABEL, institutionPicture } from './programme-facts.mjs';
+import { ROW_SIZES, srcsetOf } from '../lib/programme-imagery.mjs';
+
+/* A programme's card background, in the shape explorer.js and planner.js
+   write into their rows. The paths are resolved here, at build time, so the
+   client never has to know the site's base path for an image. */
+export function backdropData(b) {
+  return b ? { key: b.key, src: url(b.src), srcset: srcsetOf(b, url), sizes: ROW_SIZES, width: b.width, height: b.height } : null;
+}
 
 /* The programme finder: every Opportunity, filterable, with the map. */
 
@@ -50,11 +58,14 @@ export function programmesIndex(site) {
     restricted: p.restrictedAdmission === true,
     open: p.restrictedAdmission === false,
     cutoff: p.cutoff?.value || null,
+    cutoffPoints: p.cutoff?.ibPoints || null,
     // A picture of the place: the programme's own, or its institution's.
     image: (() => {
       const pic = picture(site, p.id, { prefer: 'commons' }) || institutionPicture(site, site.institutionCatalogue.all.find((i) => i.id === p.institutionId), { prefer: 'commons' });
       return pic ? (pic.external ? pic.src : url(pic.src)) : null;
     })(),
+    // The discipline, faded behind the row (src/lib/programme-imagery.mjs).
+    backdrop: backdropData(p.backdrop),
     summary: truncate(p.summary || '', 170),
     // Built once, here, by the same component as the institution cards, so the
     // list shows IB terms first and the published form beneath it (explorer.js

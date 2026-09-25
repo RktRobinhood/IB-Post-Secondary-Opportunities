@@ -101,13 +101,18 @@ export function destinationOf(record) {
  * `quota` and `scale` come off the record and the Recognition Scheme. Neither
  * is this file's to assume — "quota 1" is the name of one country's machinery.
  */
-export function cutoffSentence(cutoff, scaleName) {
+export function cutoffSentence(cutoff, scaleName, conversionHref = null) {
   if (!cutoff?.value) return null;
   const quota = cutoff.quota ? `${cutoff.quota.toLowerCase()} ` : '';
   const when = cutoff.intake ? ` for the ${cutoff.intake}` : '';
   const numeric = /^\d+([.,]\d+)?$/.test(String(cutoff.value).trim());
   return numeric
-    ? `The most recently published ${quota}cut-off was **${cutoff.value}**${scaleName ? ` on the ${scaleName}` : ''}${when}. Cut-offs move every year, so treat any published figure as a floor rather than a target.`
+    ? `The most recently published ${quota}cut-off was **${cutoff.value}**${scaleName ? ` on the ${scaleName}` : ''}${when}.${
+        /* In IB points: the lowest total whose converted average reaches it (ibPointsFor). */
+        cutoff.ibPoints
+          ? ` In IB terms that is a total of **${cutoff.ibPoints} points** or more${conversionHref ? ` ([how totals convert](${conversionHref}))` : ''}.`
+          : ''
+      } Cut-offs move every year, so treat any published figure as a floor rather than a target.`
     : `The most recently published ${quota}outcome${when} was "${cutoff.value}" rather than a cut-off figure. That is last year's result, not a promise about this one — where a programme fills up, a figure appears.`;
 }
 

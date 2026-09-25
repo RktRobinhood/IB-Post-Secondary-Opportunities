@@ -8,7 +8,7 @@
  * request, no identifying field.
  */
 import {
-  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, OUTCOME,
+  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, ibPointsFor, OUTCOME,
 } from './eligibility.js';
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
@@ -195,8 +195,24 @@ function renderConverted(profile) {
       : ''}`;
 }
 
+/* A cut-off on a scheme's grade scale, in IB points: the lowest total whose
+   converted average reaches it. Nothing where no loaded scheme defines the scale. */
+function cutoffPoints(c) {
+  const pts = ibPointsFor(c?.value, c?.scale, subjectIndex);
+  return pts ? `, ${pts} IB points` : '';
+}
+
 function rule(entry, mark) {
   return `<li>${mark} ${esc(entry.message)}</li>`;
+}
+
+/* The faded photograph of the discipline behind a result. The same markup as
+   backdropImg() in src/lib/components.mjs and backdrop() in explorer.js, from
+   fields built by src/pages/planner.mjs. */
+function backdrop(b) {
+  return b
+    ? `<img class="prog__backdrop" src="${esc(b.src)}" srcset="${esc(b.srcset)}" sizes="${esc(b.sizes)}" alt="" loading="lazy" decoding="async" width="${esc(b.width)}" height="${esc(b.height)}" data-backdrop="${esc(b.key)}">`
+    : '';
 }
 
 function renderCard({ opportunity, assessment }) {
@@ -211,7 +227,8 @@ function renderCard({ opportunity, assessment }) {
   ].join('');
 
   return `
-  <li class="prog" data-match="${MATCH_CLASS[assessment.outcome]}">
+  <li class="prog${d.backdrop ? ' prog--backdrop' : ''}" data-match="${MATCH_CLASS[assessment.outcome]}">
+    ${backdrop(d.backdrop)}
     <div>
       <h3 class="prog__name"><a href="${BASE}${d.href}">${esc(d.name)}</a></h3>
       <p class="prog__meta">
@@ -234,7 +251,7 @@ function renderCard({ opportunity, assessment }) {
       <p><small>
         ${assessment.selection.restricted
           ? `Restricted admission${assessment.selection.historicalCutoffs.length
-              ? ` — most recent cut-off ${esc(assessment.selection.historicalCutoffs[0].value)} (${esc(assessment.selection.historicalCutoffs[0].intake.split('-')[0])} intake, not a prediction)`
+              ? ` — most recent cut-off ${esc(assessment.selection.historicalCutoffs[0].value)}${cutoffPoints(assessment.selection.historicalCutoffs[0])} (${esc(assessment.selection.historicalCutoffs[0].intake.split('-')[0])} intake, not a prediction)`
               : ''}.`
           : 'Open admission: meeting the requirements is enough.'}
       </small></p>

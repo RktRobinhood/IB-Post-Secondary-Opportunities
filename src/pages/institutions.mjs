@@ -67,17 +67,18 @@ export function university(site, inst, { prev, next }) {
   const programmeCards = [...inst.programmes]
     .sort((a, b) => (a.field || '').localeCompare(b.field || '') || a.name.localeCompare(b.name))
     .map((p) => {
-      // Most programmes have no photograph of their own, and a grid of
-      // monograms reads as unfinished; the pictures of the place are in the
-      // hero above. So these are text cards, and all the same shape.
+      // Text cards, all the same shape: the pictures of the place are in the
+      // hero above. Behind the words is a faded photograph of the discipline:
+      // the programme's own, else its field's (src/lib/programme-imagery.mjs).
       // IB terms first, the published form beneath (requirementSummary).
       return card({
         href: p.href,
         title: p.name,
+        backdrop: p.backdrop,
         req: requirementSummary(p.entryRequirements),
         meta: [p.field, p.years ? `${p.years} years` : null, p.campus && p.campus !== inst.city ? p.campus : null].filter(Boolean),
         tags: p.restrictedAdmission
-          ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? `Last cut-off ${p.cutoff.value}` : 'Restricted admission', mod: 'sand' }]
+          ? [{ label: p.cutoff?.value && /^\d+([.,]\d+)?$/.test(String(p.cutoff.value).trim()) ? `Last cut-off ${p.cutoff.value}${p.cutoff.ibPoints ? ` · ${p.cutoff.ibPoints} IB points` : ''}` : 'Restricted admission', mod: 'sand' }]
           : null,
       });
     });

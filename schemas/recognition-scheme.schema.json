@@ -4,9 +4,18 @@
   "title": "Recognition Scheme",
   "description": "One Destination's published rules for reading an IB Diploma in its own vocabulary: the authority that publishes them, the subject scale and grade scale they are written on, and the tables that translate an IB subject and an IB grade into them. A Destination that publishes its entry requirements in IB terms needs no record here at all — that is the default and it costs nothing. Records live in data/recognition/<destination>.json.",
   "type": "object",
-  "required": ["id", "destination", "name", "authority", "subjectScale", "meta"],
+  "required": [
+    "id",
+    "destination",
+    "name",
+    "authority",
+    "subjectScale",
+    "meta"
+  ],
   "properties": {
-    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
     "destination": {
       "$ref": "common.schema.json#/$defs/id",
       "description": "The Destination whose admissions authority publishes this scheme."
@@ -19,7 +28,9 @@
       "type": "string",
       "description": "How to refer to this scheme in a sentence shown to a student, e.g. \"the Danish Agency's IB handbook\". The engine has no words of its own for any country, so every explanation that names a translation names it from here."
     },
-    "summary": { "type": "string" },
+    "summary": {
+      "type": "string"
+    },
     "display": {
       "type": "object",
       "description": "How a page shows a requirement written in this scheme's vocabulary, beside its IB translation. The IB terms lead; the requirement as published follows, small, so a student can match it with the institution's own page.",
@@ -28,10 +39,19 @@
           "type": "string",
           "description": "What the requirement as published is called on a page, e.g. \"Danish requirement\"."
         },
+        "localOnlyNoun": {
+          "type": "string",
+          "description": "What a card calls an option that exists only in this scheme's school system and has no IB route, e.g. \"Danish-school subject\" (\"+ 2 Danish-school subjects\")."
+        },
         "explainedAt": {
           "type": "string",
           "pattern": "^/",
           "description": "The site path that explains how this scheme's levels read in IB terms."
+        },
+        "averageExplainedAt": {
+          "type": "string",
+          "pattern": "^/",
+          "description": "The site path that shows how an IB total converts to this scheme's grade average, linked from a cut-off shown in IB points."
         }
       },
       "additionalProperties": false
@@ -40,39 +60,69 @@
       "type": "string",
       "description": "Free note recording why the record is filed where it is. Prose, not data."
     },
-
     "authority": {
       "type": "object",
       "description": "Who publishes the rules. A translation with no publisher is our inference, not a rule.",
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "publication": { "type": "string" },
-        "url": { "$ref": "common.schema.json#/$defs/url" },
-        "note": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "publication": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "note": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
-
     "subjectScale": {
       "type": "object",
       "description": "The scale a requirement's `level` is measured on. Its id is what an Opportunity's requirement names in `levelScale`.",
-      "required": ["id", "name", "levels"],
+      "required": [
+        "id",
+        "name",
+        "levels"
+      ],
       "properties": {
-        "id": { "$ref": "common.schema.json#/$defs/id" },
-        "name": { "type": "string" },
-        "note": { "type": "string" },
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
         "levels": {
           "type": "array",
           "minItems": 1,
           "description": "Every level the scale defines, with a rank so a higher level can cover a lower requirement. Nothing outside this list is a valid `level` for a requirement on this scale.",
           "items": {
             "type": "object",
-            "required": ["code", "rank"],
+            "required": [
+              "code",
+              "rank"
+            ],
             "properties": {
-              "code": { "type": "string", "minLength": 1, "maxLength": 16 },
-              "rank": { "type": "integer", "minimum": 0 },
-              "label": { "type": "string" }
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16
+              },
+              "rank": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "label": {
+                "type": "string"
+              }
             },
             "additionalProperties": false
           }
@@ -80,24 +130,40 @@
       },
       "additionalProperties": false
     },
-
     "gradeScale": {
       "type": "object",
       "description": "The scale a requirement's `minGrade` is measured on. Its id is what a requirement names in `gradeScale`.",
-      "required": ["id", "name"],
+      "required": [
+        "id",
+        "name"
+      ],
       "properties": {
-        "id": { "$ref": "common.schema.json#/$defs/id" },
-        "name": { "type": "string" },
-        "note": { "type": "string" },
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "name": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
         "grades": {
           "type": "array",
           "description": "Every grade on the scale and how it is written, so a page prints a minimum the way the institution does (\"02\", not \"2\"). Optional: without it a grade is printed as its number.",
           "items": {
             "type": "object",
-            "required": ["value", "label"],
+            "required": [
+              "value",
+              "label"
+            ],
             "properties": {
-              "value": { "type": "number" },
-              "label": { "type": "string", "minLength": 1 }
+              "value": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              }
             },
             "additionalProperties": false
           }
@@ -105,35 +171,45 @@
       },
       "additionalProperties": false
     },
-
     "gradeConversion": {
       "type": "object",
       "description": "IB numbers into this scheme's numbers. `local` is deliberately not named after the country: the engine reads this field and must not learn any country's vocabulary.",
       "properties": {
-        "single": { "$ref": "#/$defs/conversionTable" },
-        "average": { "$ref": "#/$defs/conversionTable" }
+        "single": {
+          "$ref": "#/$defs/conversionTable"
+        },
+        "average": {
+          "$ref": "#/$defs/conversionTable"
+        }
       },
       "additionalProperties": false
     },
-
     "noEquivalenceNote": {
       "type": "string",
       "description": "What to say when this scheme simply lists no equivalent for an IB subject and has published no specific reason."
     },
-
     "subjectEquivalence": {
       "type": "array",
       "description": "What each IB subject counts as on this scheme's subject scale. Keyed by the IB subject's id in data/ib-subjects.json. An entry with an empty `maps` records that the authority publishes no equivalent — that is a fact about the source, not a gap in our research, and `unmapped` says so.",
       "items": {
         "type": "object",
-        "required": ["ibSubject", "maps"],
+        "required": [
+          "ibSubject",
+          "maps"
+        ],
         "properties": {
-          "ibSubject": { "$ref": "common.schema.json#/$defs/id" },
+          "ibSubject": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
           "maps": {
             "type": "object",
             "properties": {
-              "HL": { "$ref": "#/$defs/equivalents" },
-              "SL": { "$ref": "#/$defs/equivalents" }
+              "HL": {
+                "$ref": "#/$defs/equivalents"
+              },
+              "SL": {
+                "$ref": "#/$defs/equivalents"
+              }
             },
             "additionalProperties": false
           },
@@ -145,76 +221,124 @@
             "type": "string",
             "description": "Why no equivalent is published. Required in spirit wherever `maps` is empty — never guess one."
           },
-          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          }
         },
         "additionalProperties": false
       }
     },
-
     "subjectsWithoutEquivalence": {
       "type": "array",
       "description": "Subjects a programme can require on this scale that no IB subject translates into. Without these the engine would report 'you do not have it', which reads as a rejection when the truth is that nobody has published an answer.",
       "items": {
         "type": "object",
-        "required": ["subject", "reason"],
+        "required": [
+          "subject",
+          "reason"
+        ],
         "properties": {
-          "subject": { "type": "string" },
-          "reason": { "type": "string", "minLength": 20 },
-          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+          "subject": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20
+          },
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          }
         },
         "additionalProperties": false
       }
     },
-
     "subjectAliases": {
       "type": "array",
       "description": "Where the authority groups several of its own school subjects under one requirement heading.",
       "items": {
         "type": "object",
-        "required": ["subject", "covers"],
+        "required": [
+          "subject",
+          "covers"
+        ],
         "properties": {
-          "subject": { "type": "string" },
-          "covers": { "type": "array", "items": { "type": "string" } }
+          "subject": {
+            "type": "string"
+          },
+          "covers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         },
         "additionalProperties": false
       }
     },
-
-    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
-    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+    "evidence": {
+      "$ref": "common.schema.json#/$defs/evidenceRefs"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/recordMeta"
+    }
   },
   "additionalProperties": false,
-
   "$defs": {
     "equivalents": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["subject", "level"],
+        "required": [
+          "subject",
+          "level"
+        ],
         "properties": {
-          "subject": { "type": "string", "description": "A subject name on this scheme's own scale." },
-          "level": { "type": "string", "description": "A level code the subject scale defines." }
+          "subject": {
+            "type": "string",
+            "description": "A subject name on this scheme's own scale."
+          },
+          "level": {
+            "type": "string",
+            "description": "A level code the subject scale defines."
+          }
         },
         "additionalProperties": false
       }
     },
     "conversionTable": {
       "type": "object",
-      "required": ["table"],
+      "required": [
+        "table"
+      ],
       "properties": {
-        "label": { "type": "string" },
-        "usedFor": { "type": "string" },
-        "sourceLabel": { "type": "string" },
+        "label": {
+          "type": "string"
+        },
+        "usedFor": {
+          "type": "string"
+        },
+        "sourceLabel": {
+          "type": "string"
+        },
         "table": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["ib", "local"],
+            "required": [
+              "ib",
+              "local"
+            ],
             "properties": {
-              "ib": { "type": "number" },
-              "local": { "type": "number" },
-              "descriptor": { "type": "string" }
+              "ib": {
+                "type": "number"
+              },
+              "local": {
+                "type": "number"
+              },
+              "descriptor": {
+                "type": "string"
+              }
             },
             "additionalProperties": false
           }

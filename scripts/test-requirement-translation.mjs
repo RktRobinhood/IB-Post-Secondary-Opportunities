@@ -1,5 +1,6 @@
 /**
- * No programme card or programme page shows a local-level requirement bare.
+ * No programme card or programme page shows a local-level requirement bare,
+ * broken, or twice.
  *
  *   node scripts/test-requirement-translation.mjs     (after a build)
  *
@@ -8,21 +9,25 @@
  * name, and "Mathematics A" means nothing to an IB student at all. The fix is
  * that a requirement published on a local scale is shown with its IB
  * translation leading — computed by the eligibility engine from the
- * Recognition Scheme — and the published form beneath it, small.
+ * Recognition Scheme and the institution's own published additions — and the
+ * published form beneath it, small.
  *
  * This reads the built pages and holds them to that:
  *
  *   1. every programme with a local-scale requirement has a `data-req` block on
  *      its programme page, on its institution's page and in the programme
  *      finder's data;
- *   2. inside a block, once the IB text (`.req-ib`), the honest "no IB
- *      equivalent" (`.req-none`) and the published form (`.req-local`) are
- *      taken out, no local "Subject Level" is left over — and the IB text
- *      comes before the published form;
- *   3. every IB phrase in a block is one the engine produces for that
- *      programme, and every translatable requirement's phrase is there;
- *   4. nowhere else on those pages does the bare published line appear;
- *   5. the planner's sentences about a local-scale rule lead with IB terms.
+ *   2. inside a block, once the IB text (`.req-ib`), a non-subject option
+ *      (`.req-other`), the honest "no IB route" (`.req-none`, `.req-why`) and
+ *      the published form (`.req-local`) are taken out, no local "Subject
+ *      Level" is left over — and the IB text comes before the published form;
+ *   3. every IB phrase in a block is one `requirementModel` produces for that
+ *      programme, and every one it produces is there;
+ *   4. no block is broken: no empty "as published" line, no line ending on a
+ *      separator ("… /"), no phrase repeated within one list — round 1 of the
+ *      critic found all three on nine programmes while this guard passed;
+ *   5. nowhere else on those pages does the bare published line appear;
+ *   6. the planner's sentences about a local-scale rule lead with IB terms.
  *
  * Nothing here names a country: the local subject names and level codes are
  * read from data/recognition/, and a Destination with no scheme has nothing
@@ -32,7 +37,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mjs';
-import { requirementLine } from '../src/lib/components.mjs';
+import { requirementLine, requirementModel } from '../src/lib/components.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -53,9 +58,13 @@ for (const f of (await fs.readdir(recognitionDir)).filter((x) => x.endsWith('.js
   schemes.push(await readJson(path.join(recognitionDir, f)));
 }
 const catalogue = await readJson(path.join(ROOT, 'data', 'ib-subjects.json'));
-const subjectIndex = buildSubjectIndex({ subjects: catalogue.subjects, schemes });
 
-const { institutions, programmes } = await loadCanonical();
+const { graph, institutions, programmes } = await loadCanonical();
+const subjectIndex = buildSubjectIndex({
+  subjects: catalogue.subjects,
+  schemes,
+  institutions: [...graph.institutions.values()],
+});
 const scales = new Set(schemes.map((s) => s.subjectScale?.id).filter(Boolean));
 
 const localSubjects = new Set();
@@ -94,71 +103,97 @@ const text = (s) => decode(s.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim
 const blocks = (page) => [...page.matchAll(/<div[^>]*\bdata-req\b[^>]*>([\s\S]*?)<\/div>/g)].map((m) => m[1]);
 
 const classed = (cls) => new RegExp(`<(span|strong|small)[^>]*class="[^"]*\\b${cls}\\b[^"]*"[^>]*>([\\s\\S]*?)<\\/\\1>`, 'g');
+const within = (tag, cls) => new RegExp(`<${tag}[^>]*class="[^"]*\\b${cls}\\b[^"]*"[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'g');
 
 /**
- * What is wrong with one block, given the IB phrases the engine produces for
- * its programme. An empty list means it passes.
+ * What is wrong with one block. `expect` is what `requirementModel` says the
+ * block should show: `allowed` (every IB text that may appear) and `required`
+ * (every one that must). Without it only the structural checks run.
  */
-function faults(block, phrases) {
+function faults(block, expect = null) {
   const out = [];
   const ib = [...block.matchAll(classed('req-ib'))].map((m) => text(m[2]));
-  const local = [...block.matchAll(classed('req-local'))];
-  const firstIb = block.search(/class="[^"]*\breq-(ib|none)\b/);
+  const local = [...block.matchAll(classed('req-local'))].map((m) => text(m[2]));
+  const firstIb = block.search(/class="[^"]*\breq-(ib|none|other)\b/);
   const firstLocal = block.search(/class="[^"]*\breq-local\b/);
 
+  // Nothing local left over once every labelled part is taken out.
   const residue = text(
-    block
-      .replace(classed('req-ib'), ' ')
-      .replace(classed('req-none'), ' ')
-      .replace(classed('req-why'), ' ')
-      .replace(classed('req-local'), ' ')
+    ['req-ib', 'req-none', 'req-why', 'req-grade', 'req-other', 'req-local'].reduce((b, cls) => b.replace(classed(cls), ' '), block)
   );
   for (const m of residue.matchAll(BARE)) out.push(`"${m[0]}" is shown bare, outside any IB translation: …${residue.slice(Math.max(0, m.index - 30), m.index + 40)}…`);
 
-  if (phrases) {
+  // Broken lines.
+  for (const l of local) if (/:\s*$/.test(l)) out.push(`an empty published line: "${l}"`);
+  for (const m of block.matchAll(within('p', 'req__ib'))) {
+    const line = text(m[1]);
+    if (/(\/|—|\+|·|one of:)\s*$/.test(line)) out.push(`a line ending on a separator: "${line}"`);
+    // Options, not parts: "Physics + Chemistry / Biology + Chemistry" names
+    // Chemistry twice and is right to.
+    const options = line
+      .split(/\s[/·—]\s/)
+      .map((x) => x.replace(/^(Needs|Requires:?|one of:)\s*/i, '').replace(/\s*\(\d+ other options? needs? .*\)$/, '').trim())
+      .filter(Boolean);
+    const twice = options.filter((x, i) => options.indexOf(x) !== i);
+    if (twice.length) out.push(`"${twice[0]}" is listed twice in one line`);
+  }
+  for (const m of block.matchAll(/<ul[^>]*>([\s\S]*?)<\/ul>/g)) {
+    const cards = [...m[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((li) =>
+      [...li[1].matchAll(classed('req-ib'))].map((x) => text(x[2])).join(' + ')
+    ).filter(Boolean);
+    const twice = cards.filter((x, i) => cards.indexOf(x) !== i);
+    if (twice.length) out.push(`"${twice[0]}" is listed twice in one list`);
+  }
+
+  if (expect) {
     if (!local.length) out.push('the requirement as published is not shown beside its translation');
     if (firstLocal !== -1 && (firstIb === -1 || firstLocal < firstIb)) out.push('the published form comes before the IB terms');
-    // A requirement already in IB terms sits in the IB slot as published.
-    const allowed = new Set([...phrases.values()].flat().concat([...(phrases.native || [])]));
-    for (const p of ib) if (!allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the engine produces for this programme`);
-    for (const [local, variants] of phrases) {
-      if (!variants.some((v) => ib.includes(v))) out.push(`${local} has an IB translation ("${variants[0]}") that is not shown`);
-    }
+    for (const p of ib) if (!expect.allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the model produces for this programme`);
+    for (const p of expect.required) if (!ib.includes(p)) out.push(`"${p}" should be shown and is not`);
   }
   return out;
 }
 
-/** local form → the IB phrases a page may show for it. */
-function phrasesFor(rules, entry = null) {
-  const map = new Map();
-  const items = [...(entry?.all || []), ...(entry?.oneOfSets || []).flat(2)];
-  map.native = new Set(
-    items.filter((r) => !r.translation).map((r) => `${r.subject} ${r.level}${r.minGrade ? ` (min ${r.minGrade})` : ''}`)
-  );
-  for (const r of rules) {
-    const t = ibTermsFor(r, subjectIndex);
-    if (!t?.phrase) continue;
-    map.set(t.local, [t.phrase, t.minIbGrade != null ? `${t.phrase}, at least a ${t.minIbGrade}` : null].filter(Boolean));
+/** What the card and the programme page should each show, from the model. */
+function expected(entry) {
+  const model = requirementModel(entry);
+  const card = new Set();
+  for (const x of model.all) if (x.kind === 'ib') card.add(x.text);
+  for (const set of model.sets.filter((x) => !x.implied)) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(x.text);
+
+  const detail = new Set();
+  const detailText = (r) =>
+    r.other ? null : r.translation ? r.translation.phrase : `${r.subject} ${r.level}`;
+  for (const x of model.all) if (x.kind === 'ib') detail.add(detailText(x.r));
+  for (const set of model.sets) {
+    for (const o of set.open) for (const r of o.groups[0]) if (detailText(r)) detail.add(detailText(r));
   }
-  return map;
+  detail.delete(null);
+  const allowed = new Set([...card, ...detail]);
+  return { card: { allowed, required: card }, detail: { allowed, required: detail } };
 }
 
-/* --- the guard can see a bare requirement ----------------------------------- */
+/* --- the guard can see what it is for ----------------------------------------- */
 
 {
-  const before = '<div class="req" data-req><p>Needs English B · Mathematics A</p></div>';
-  const beforeFaults = faults(blocks(before)[0], null);
+  const before = '<div class="req" data-req><p class="req__ib">Needs English B · Mathematics A</p></div>';
+  const beforeFaults = faults(blocks(before)[0]);
   check('the guard catches the old card ("Needs English B · Mathematics A")', beforeFaults.length === 2, beforeFaults.join('; '));
 
-  const rules = [{ subject: 'Mathematics', level: 'A', levelScale: [...scales][0] }];
-  const phrases = phrasesFor(rules);
-  const phrase = [...phrases.values()][0]?.[0];
-  if (phrase) {
-    const after = `<div class="req" data-req><p>Needs <span class="req-ib">${phrase}</span></p><p><span class="req-local">As published: Mathematics A</span></p></div>`;
-    check('and passes the same requirement shown IB first', faults(blocks(after)[0], phrases).length === 0, faults(blocks(after)[0], phrases).join('; '));
-    const flipped = `<div class="req" data-req><p><span class="req-local">As published: Mathematics A</span></p><p><span class="req-ib">${phrase}</span></p></div>`;
-    check('and refuses it with the published form leading', faults(blocks(flipped)[0], phrases).length > 0);
-  }
+  const broken =
+    '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> one of: <span class="req-ib">Any IB English, at least a 3</span> / </p>' +
+    '<p class="req__local"><span class="req-local">Danish requirement: </span></p></div>';
+  const bf = faults(blocks(broken)[0]);
+  check('it catches a trailing "/" and an empty published line (round 1, BAAA)', bf.some((f) => /separator/.test(f)) && bf.some((f) => /empty published/.test(f)), bf.join('; '));
+
+  const twice =
+    '<div class="req" data-req><p class="req__ib">one of: <span class="req-ib">Any IB English, at least a 3</span> / <span class="req-ib">Any IB English, at least a 3</span></p></div>';
+  check('it catches one phrase listed twice (round 1, VIA Design, Technology and Business)', faults(blocks(twice)[0]).some((f) => /twice/.test(f)));
+
+  const flipped =
+    '<div class="req" data-req><p><span class="req-local">As published: Mathematics A</span></p><p class="req__ib"><span class="req-ib">Maths HL (AA or AI)</span></p></div>';
+  const expect = { allowed: new Set(['Maths HL (AA or AI)']), required: new Set(['Maths HL (AA or AI)']) };
+  check('and refuses the published form leading', faults(blocks(flipped)[0], expect).some((f) => /comes before/.test(f)));
 }
 
 /* --- the built pages --------------------------------------------------------- */
@@ -176,12 +211,13 @@ check('the programme finder is built and carries its data', finderData.size > 0)
 
 const instPages = new Map();
 let translatedProgrammes = 0;
+const stripBlocks = (s) => s.replace(/<div[^>]*\bdata-req\b[^>]*>[\s\S]*?<\/div>/g, ' ');
 
 for (const p of programmes) {
   const rules = localRules(p.requirements);
   if (!rules.length) continue;
   translatedProgrammes++;
-  const phrases = phrasesFor(rules, p.entryRequirements);
+  const expect = expected(p.entryRequirements);
   const bareLine = requirementLine(p.entryRequirements);
 
   // Programme page.
@@ -190,29 +226,27 @@ for (const p of programmes) {
   const pageBlocks = blocks(page);
   check(`${p.id}: programme page shows its requirements in a data-req block`, pageBlocks.length > 0);
   for (const b of pageBlocks) {
-    const f = faults(b, phrases);
+    const f = faults(b, expect.detail);
     check(`${p.id}: programme page`, !f.length, f.join('\n        '));
   }
-  const outside = text(page.replace(/<div[^>]*\bdata-req\b[^>]*>[\s\S]*?<\/div>/g, ' '));
-  check(`${p.id}: programme page never prints the bare published line`, !bareLine || !outside.includes(bareLine), bareLine);
+  check(`${p.id}: programme page never prints the bare published line`, !bareLine || !text(stripBlocks(page)).includes(bareLine), bareLine);
 
   // The programme's card on its institution's page.
   const inst = institutions.find((i) => i.id === p.institutionId);
   if (!instPages.has(p.institutionId)) instPages.set(p.institutionId, await read('universities', p.institutionId, 'index.html'));
   const ip = instPages.get(p.institutionId);
   if (inst && ip) {
-    const cardRe = new RegExp(`<article class="card[^"]*">(?:(?!<\\/article>)[\\s\\S])*?/programmes/${esc(p.id)}/(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
+    const cardRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?/programmes/${esc(p.id)}/(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
     const cardHtml = ip.match(cardRe)?.[0];
     check(`${p.id}: has a card on its institution's page`, !!cardHtml);
     if (cardHtml) {
       const cb = blocks(cardHtml);
       check(`${p.id}: its card shows requirements in a data-req block`, cb.length === 1);
       for (const b of cb) {
-        const f = faults(b, phrases);
+        const f = faults(b, expect.card);
         check(`${p.id}: institution card`, !f.length, f.join('\n        '));
       }
-      const cardOutside = text(cardHtml.replace(/<div[^>]*\bdata-req\b[^>]*>[\s\S]*?<\/div>/g, ' '));
-      check(`${p.id}: its card never prints the bare published line`, !bareLine || !cardOutside.includes(bareLine), bareLine);
+      check(`${p.id}: its card never prints the bare published line`, !bareLine || !text(stripBlocks(cardHtml)).includes(bareLine), bareLine);
     }
   }
 
@@ -223,7 +257,7 @@ for (const p of programmes) {
     const fb = blocks(row.reqHtml || '');
     check(`${p.id}: finder row carries a data-req block`, fb.length === 1);
     for (const b of fb) {
-      const f = faults(b, phrases);
+      const f = faults(b, expect.card);
       check(`${p.id}: programme finder`, !f.length, f.join('\n        '));
     }
     check(`${p.id}: finder row has no bare requirements string`, !row.requirements || !BARE.test(row.requirements), row.requirements);
@@ -235,7 +269,6 @@ check('there are programmes with local-scale requirements to check', translatedP
 /* --- the planner's sentences ------------------------------------------------- */
 
 {
-  const { graph } = await loadCanonical();
   const profile = {
     subjects: [
       { subject: 'english-b', level: 'SL', grade: 4 },
@@ -243,7 +276,7 @@ check('there are programmes with local-scale requirements to check', translatedP
       { subject: 'history', level: 'HL', grade: 6 },
       { subject: 'biology', level: 'HL', grade: 5 },
       { subject: 'chemistry', level: 'SL', grade: 4 },
-      { subject: 'psychology', level: 'SL', grade: 5 },
+      { subject: 'global-politics', level: 'HL', grade: 5 },
     ],
     totalPoints: 32,
     holdsDiploma: true,
@@ -260,7 +293,7 @@ check('there are programmes with local-scale requirements to check', translatedP
       const r = byId.get(e.id);
       if (!r) continue;
       seen++;
-      const t = ibTermsFor(r, subjectIndex);
+      const t = ibTermsFor(r, subjectIndex, opp.institution);
       const leads = t.phrase ? e.message.includes(t.phrase) : /^No IB subject is equivalent/.test(e.message);
       check(`${opp.id}: planner sentence for ${t.local} leads with IB terms`, leads, e.message);
     }

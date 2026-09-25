@@ -16,7 +16,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
-  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, OUTCOME,
+  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, ibPointsFor, ibTermsFor, OUTCOME,
 } from '../src/lib/eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -210,8 +210,9 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     { ...options, evidenceStatus: verified }
   );
   eq('Physics SL + Biology HL satisfies the second alternative', r.outcome, OUTCOME.MEETS);
-  check('the explanation names the combination',
-    r.matched.some((m) => /accepted subject combinations/i.test(m.message)));
+  check('the explanation names the combination that was met',
+    r.matched.some((m) => /accepted options is met/i.test(m.message) && /Biology HL/.test(m.message)),
+    JSON.stringify(r.matched.map((m) => m.message)));
 }
 
 /* --- one subject short is "possible with action", not a rejection ----------- */
@@ -941,6 +942,77 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     OUTCOME.NEEDS_REVIEW
   );
 }
+
+/* --- a minimum grade the institution waives at a higher level --------------- *
+ *
+ * ITU: "English corresponding to the Danish B-level with an average mark of at
+ * least 6 … (there is no grade requirement if you have passed English
+ * corresponding to the Danish A-level)". English B HL counts as English A, so a
+ * 4 there is enough; English B SL counts only as B, so a 4 there is not.
+ */
+{
+  const itu = {
+    id: 'opp-test-waiver', destination: 'dk', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' },
+    evidence: ['ev-test'], admission: { restricted: true },
+    requirements: [
+      req('r1', 'English', 'B', { minGrade: 6, gradeScale: localScheme.gradeScale.id, minGradeWaivedAtLevel: 'A' }),
+    ],
+  };
+  const hl4 = assess(profile([{ subject: 'english-b', level: 'HL', grade: 4 }]), itu, { ...options, evidenceStatus: verified });
+  eq('English B HL at 4 meets English B min 6 where A level waives the minimum', hl4.outcome, OUTCOME.MEETS);
+  const sl4 = assess(profile([{ subject: 'english-b', level: 'SL', grade: 4 }]), itu, { ...options, evidenceStatus: verified });
+  eq('English B SL at 4 still falls short of the same rule', sl4.outcome, OUTCOME.POSSIBLE);
+  const t = ibTermsFor(itu.requirements[0], subjectIndex);
+  check('the waiver is said in IB terms: graded only in English B SL',
+    t.waiver?.gradedPhrase === 'English B SL', JSON.stringify(t.waiver));
+}
+
+/* --- an institution's own route beats the national silence ------------------ *
+ *
+ * The Agency publishes no IB route to Social Studies B. Aarhus does: "Global
+ * Politics HL: Recognised as Social Science B"; GP SL "in combination with
+ * Economics SL/HL". The route is data on the institution, and applies only to
+ * that institution's Opportunities.
+ */
+{
+  const institutionsDir = path.join(ROOT, 'data', 'institutions');
+  const institutions = [];
+  for (const f of (await fs.readdir(institutionsDir)).filter((x) => x.endsWith('.json'))) {
+    institutions.push(JSON.parse(await fs.readFile(path.join(institutionsDir, f), 'utf8')));
+  }
+  const withRoutes = institutions.find((i) => (i.ibEquivalences || []).some((e) => e.subject === 'Social Studies' && e.accepts.length === 2));
+  check('an institution publishes its own Social Studies route', !!withRoutes);
+  const index = buildSubjectIndex({ subjects: catalogue.subjects, schemes, institutions });
+  const opts = { subjectIndex: index, dataVersion: 'test', evidenceStatus: verified };
+  const opp = (institution) => ({
+    id: 'opp-test-social', destination: 'dk', institution, intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' },
+    evidence: ['ev-test'], admission: { restricted: true }, requirements: [req('r1', 'Social Studies', 'B')],
+  });
+  const gpHL = profile([{ subject: 'global-politics', level: 'HL', grade: 5 }]);
+  const gpSL = profile([{ subject: 'global-politics', level: 'SL', grade: 5 }]);
+  const gpSLecon = profile([{ subject: 'global-politics', level: 'SL', grade: 5 }, { subject: 'economics', level: 'SL', grade: 5 }]);
+  if (withRoutes) {
+    eq('Global Politics HL meets Social Studies B at the institution that says so', assess(gpHL, opp(withRoutes.id), opts).outcome, OUTCOME.MEETS);
+    eq('Global Politics SL alone does not', assess(gpSL, opp(withRoutes.id), opts).outcome, OUTCOME.POSSIBLE);
+    eq('Global Politics SL with Economics does', assess(gpSLecon, opp(withRoutes.id), opts).outcome, OUTCOME.MEETS);
+    const t = ibTermsFor(req('r1', 'Social Studies', 'B'), index, withRoutes.id);
+    check('and the wording names the route, not "no IB equivalent"', !!t.phrase && !t.none && /Global Politics HL/.test(t.phrase), JSON.stringify(t));
+  }
+  eq('elsewhere Global Politics HL is still a question for the institution',
+    assess(gpHL, opp('dk-test-elsewhere'), opts).outcome, OUTCOME.NEEDS_REVIEW);
+}
+
+/* --- Contemporary History is met by History HL ------------------------------ */
+{
+  const t = ibTermsFor(req('r1', 'Contemporary History', 'B'), subjectIndex);
+  eq('Contemporary History B reads as History HL (the handbook\'s History A row)', t.phrase, 'History HL');
+}
+
+/* --- a cut-off in IB points --------------------------------------------------- */
+eq('a 10.7 cut-off is 40 IB points', ibPointsFor('10.7', localScheme.gradeScale.id, subjectIndex), 40);
+eq('a 6.9 cut-off is 30 IB points', ibPointsFor(6.9, localScheme.gradeScale.id, subjectIndex), 30);
+eq('a figure on an unknown scale is not converted', ibPointsFor(10.7, 'no-such-scale', subjectIndex), null);
+eq('a figure above the table is not converted', ibPointsFor(13, localScheme.gradeScale.id, subjectIndex), null);
 
 /* --- and the engine may not learn any destination's vocabulary -------------- *
  *

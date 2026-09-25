@@ -101,7 +101,9 @@ ${hero({
         value: p.restrictedAdmission === true
           ? numericCutoff ? String(p.cutoff.value) : 'Restricted'
           : p.restrictedAdmission === false ? 'Open to all who qualify' : 'Not recorded',
-        note: p.restrictedAdmission && numericCutoff ? [p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ') : null,
+        note: p.restrictedAdmission && numericCutoff
+          ? [p.cutoff.ibPoints ? `${p.cutoff.ibPoints} IB points` : null, p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ')
+          : null,
       },
     ])}
   </div>
@@ -162,7 +164,7 @@ ${hero({
               : p.restrictedAdmission
               ? note(
                   `This programme has restricted admission, so meeting the requirements does not guarantee a place.
-                  ${cutoffSentence(p.cutoff, cutoffScale) ||
+                  ${cutoffSentence(p.cutoff, cutoffScale, scheme?.display?.averageExplainedAt ? url(scheme.display.averageExplainedAt) : null) ||
                     'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
                   { kind: 'warn', title: 'Restricted admission' }
                 )

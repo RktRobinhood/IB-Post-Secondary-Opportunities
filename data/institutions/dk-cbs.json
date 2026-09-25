@@ -30,6 +30,55 @@
     "englishTaughtUndergraduate": "some",
     "note": "A, B and C are Danish subject levels, not grades. The minimum grade of 6.0 attached to English B (and to Mathematics B on the Sociology programme) is a grade on the Danish 7-point scale, and corresponds to an IB subject grade of 5 under CBS's own conversion."
   },
+  "ibEquivalences": [
+    {
+      "levelScale": "dk-abc",
+      "subject": "Social Studies",
+      "level": "B",
+      "accepts": [
+        [
+          {
+            "ibSubject": "business-management",
+            "ibLevel": "SL"
+          }
+        ],
+        [
+          {
+            "ibSubject": "economics",
+            "ibLevel": "SL"
+          }
+        ],
+        [
+          {
+            "ibSubject": "global-politics",
+            "ibLevel": "SL"
+          }
+        ],
+        [
+          {
+            "ibSubject": "history",
+            "ibLevel": "SL"
+          }
+        ],
+        [
+          {
+            "ibSubject": "geography",
+            "ibLevel": "HL"
+          }
+        ],
+        [
+          {
+            "ibSubject": "anthropology",
+            "ibLevel": "HL"
+          }
+        ]
+      ],
+      "note": "CBS's own IB table: Social Studies B \"is met by Business management, Economics, Global Politics or History at SL or HL, or by Geography HL or Social and cultural anthropology HL\". Recorded from CBS's application-and-admission page on 22 Sep 2026; not re-read on 25 Sep because the page is too long for the fetcher. Confirm on the page before relying on it.",
+      "evidence": [
+        "ev-cbs-dk-jtk0jr"
+      ]
+    }
+  ],
   "evidence": [
     "ev-cbs-dk-9001n6",
     "ev-cbs-dk-jtk0jr",

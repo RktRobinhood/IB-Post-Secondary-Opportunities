@@ -114,10 +114,19 @@ function paintMap(hits) {
 
 /* --- Rendering ---------------------------------------------------------------- */
 
+/* The faded photograph of the discipline behind a row. The same markup as
+   backdropImg() in src/lib/components.mjs, from fields built there. */
+function backdrop(b) {
+  return b
+    ? `<img class="prog__backdrop" src="${esc(b.src)}" srcset="${esc(b.srcset)}" sizes="${esc(b.sizes)}" alt="" loading="lazy" decoding="async" width="${esc(b.width)}" height="${esc(b.height)}" data-backdrop="${esc(b.key)}">`
+    : '';
+}
+
 function row(p) {
   const meta = [p.degree, p.campus, p.ects ? `${p.ects} ECTS` : null].filter(Boolean);
   return `
-  <li class="prog${p.image ? ' prog--pic' : ''}" data-place="${esc(p.placeId)}">
+  <li class="prog${p.image ? ' prog--pic' : ''}${p.backdrop ? ' prog--backdrop' : ''}" data-place="${esc(p.placeId)}">
+    ${backdrop(p.backdrop)}
     ${p.image ? `<img class="prog__thumb" src="${esc(p.image)}" alt="" loading="lazy" decoding="async" width="320" height="240">` : ''}
     <div>
       <h3 class="prog__name"><a href="${BASE}${p.href}">${esc(p.name)}</a></h3>
@@ -132,7 +141,7 @@ function row(p) {
       ${p.restricted
         ? '<p><span class="tag tag--warn">Restricted admission</span></p>'
         : p.open ? '<p><span class="tag tag--ok">Open admission</span></p>' : ''}
-      ${p.cutoff ? `<p><small>Most recent cut-off ${esc(p.cutoff)} — history, not a forecast.</small></p>` : ''}
+      ${p.cutoff ? `<p><small>Most recent cut-off ${esc(p.cutoff)}${p.cutoffPoints ? ` (${esc(p.cutoffPoints)} IB points)` : ''} — history, not a forecast.</small></p>` : ''}
     </div>
   </li>`;
 }

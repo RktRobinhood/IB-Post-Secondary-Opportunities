@@ -4,26 +4,57 @@
   "title": "Opportunity",
   "description": "A Programme offered for a particular intake, campus and teaching language. This is the smallest thing a student can actually assess or save, and the unit the whole product is built around.",
   "type": "object",
-  "required": ["id", "programme", "institution", "destination", "intake", "language", "meta"],
+  "required": [
+    "id",
+    "programme",
+    "institution",
+    "destination",
+    "intake",
+    "language",
+    "meta"
+  ],
   "properties": {
-    "id": { "$ref": "common.schema.json#/$defs/id" },
-    "programme": { "$ref": "common.schema.json#/$defs/id" },
-    "institution": { "$ref": "common.schema.json#/$defs/id" },
-    "destination": { "$ref": "common.schema.json#/$defs/id" },
-    "place": { "$ref": "common.schema.json#/$defs/id" },
-    "intake": { "$ref": "common.schema.json#/$defs/intake" },
-    "startMonth": { "type": "string" },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "programme": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "institution": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "destination": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "place": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "intake": {
+      "$ref": "common.schema.json#/$defs/intake"
+    },
+    "startMonth": {
+      "type": "string"
+    },
     "language": {
       "type": "object",
-      "required": ["instruction"],
+      "required": [
+        "instruction"
+      ],
       "properties": {
-        "instruction": { "type": "string", "description": "The language the Programme is actually taught in." },
-        "fullyInLanguage": { "type": "boolean", "description": "False where only part of the degree is in this language — a common and consequential trap." },
-        "note": { "type": "string" }
+        "instruction": {
+          "type": "string",
+          "description": "The language the Programme is actually taught in."
+        },
+        "fullyInLanguage": {
+          "type": "boolean",
+          "description": "False where only part of the degree is in this language — a common and consequential trap."
+        },
+        "note": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
-
     "admission": {
       "type": "object",
       "properties": {
@@ -31,18 +62,41 @@
           "type": "boolean",
           "description": "True where meeting the requirements does not guarantee a place."
         },
-        "capacityNote": { "type": "string" },
+        "capacityNote": {
+          "type": "string"
+        },
         "selection": {
           "type": "array",
           "description": "How eligible applicants are ranked. Kept computationally separate from eligibility — a cut-off is not a requirement.",
           "items": {
             "type": "object",
-            "required": ["type"],
+            "required": [
+              "type"
+            ],
             "properties": {
-              "type": { "enum": ["gpa", "subject-grades", "essay", "interview", "portfolio", "audition", "test", "work-experience", "lottery", "other"] },
-              "description": { "type": "string" },
-              "weight": { "type": "string" },
-              "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+              "type": {
+                "enum": [
+                  "gpa",
+                  "subject-grades",
+                  "essay",
+                  "interview",
+                  "portfolio",
+                  "audition",
+                  "test",
+                  "work-experience",
+                  "lottery",
+                  "other"
+                ]
+              },
+              "description": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "string"
+              },
+              "evidence": {
+                "$ref": "common.schema.json#/$defs/evidenceRefs"
+              }
             },
             "additionalProperties": false
           }
@@ -52,13 +106,26 @@
           "description": "Past cut-offs are context for how competitive something has been. They are never treated as a requirement and never used to predict an offer.",
           "items": {
             "type": "object",
-            "required": ["intake", "value"],
+            "required": [
+              "intake",
+              "value"
+            ],
             "properties": {
-              "intake": { "$ref": "common.schema.json#/$defs/intake" },
-              "quota": { "type": "string" },
-              "value": { "type": "string" },
-              "scale": { "type": "string" },
-              "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+              "intake": {
+                "$ref": "common.schema.json#/$defs/intake"
+              },
+              "quota": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "scale": {
+                "type": "string"
+              },
+              "evidence": {
+                "$ref": "common.schema.json#/$defs/evidenceRefs"
+              }
             },
             "additionalProperties": false
           }
@@ -66,92 +133,154 @@
       },
       "additionalProperties": false
     },
-
     "requirements": {
       "type": "array",
       "description": "Machine-readable rules paired with the source's own wording.",
-      "items": { "$ref": "#/$defs/requirement" }
+      "items": {
+        "$ref": "#/$defs/requirement"
+      }
     },
-
     "officialRequirementsText": {
       "type": "array",
       "description": "The requirement paragraph as published, kept verbatim so a counsellor can audit our normalisation.",
-      "items": { "$ref": "common.schema.json#/$defs/localisedText" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/localisedText"
+      }
     },
-
     "cost": {
       "type": "array",
       "description": "One entry per applicant group, because the same Opportunity costs different people very different amounts.",
       "items": {
         "type": "object",
-        "required": ["applicantGroup", "feeStatus"],
+        "required": [
+          "applicantGroup",
+          "feeStatus"
+        ],
         "properties": {
-          "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
-          "feeStatus": { "$ref": "common.schema.json#/$defs/feeStatus" },
-          "tuition": { "$ref": "common.schema.json#/$defs/money" },
+          "applicantGroup": {
+            "$ref": "common.schema.json#/$defs/applicantGroup"
+          },
+          "feeStatus": {
+            "$ref": "common.schema.json#/$defs/feeStatus"
+          },
+          "tuition": {
+            "$ref": "common.schema.json#/$defs/money"
+          },
           "mandatoryFees": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["label", "amount"],
+              "required": [
+                "label",
+                "amount"
+              ],
               "properties": {
-                "label": { "type": "string" },
-                "amount": { "$ref": "common.schema.json#/$defs/money" }
+                "label": {
+                  "type": "string"
+                },
+                "amount": {
+                  "$ref": "common.schema.json#/$defs/money"
+                }
               },
               "additionalProperties": false
             }
           },
-          "priceYear": { "type": "string", "description": "The academic year the figure was published for. Required honesty: never present an old figure as current." },
-          "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+          "priceYear": {
+            "type": "string",
+            "description": "The academic year the figure was published for. Required honesty: never present an old figure as current."
+          },
+          "evidence": {
+            "$ref": "common.schema.json#/$defs/evidenceRefs"
+          }
         },
         "additionalProperties": false
       }
     },
-
     "applicationRoutes": {
       "type": "array",
-      "items": { "$ref": "common.schema.json#/$defs/id" }
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
     },
-
     "outcomePathway": {
       "type": "object",
       "properties": {
-        "accreditation": { "type": "string" },
-        "professionalRecognition": { "type": "string" },
-        "furtherStudy": { "type": "string" },
-        "workRoutes": { "type": "string" },
-        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        "accreditation": {
+          "type": "string"
+        },
+        "professionalRecognition": {
+          "type": "string"
+        },
+        "furtherStudy": {
+          "type": "string"
+        },
+        "workRoutes": {
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/evidenceRefs"
+        }
       },
       "additionalProperties": false
     },
-
-    "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" },
-    "meta": { "$ref": "common.schema.json#/$defs/recordMeta" }
+    "evidence": {
+      "$ref": "common.schema.json#/$defs/evidenceRefs"
+    },
+    "meta": {
+      "$ref": "common.schema.json#/$defs/recordMeta"
+    }
   },
   "additionalProperties": false,
-
   "$defs": {
     "requirement": {
       "type": "object",
-      "required": ["id", "kind", "mandatory"],
+      "required": [
+        "id",
+        "kind",
+        "mandatory"
+      ],
       "properties": {
-        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
         "kind": {
           "enum": [
-            "ib-diploma", "ib-course-results", "ib-total-points", "ib-subject", "subject-combination",
-            "local-equivalency", "language-general", "language-programme",
-            "test", "portfolio", "audition", "interview", "essay", "reference", "work-sample",
-            "activity", "citizenship", "residency", "age", "prior-education",
-            "application-round", "quota", "other"
+            "ib-diploma",
+            "ib-course-results",
+            "ib-total-points",
+            "ib-subject",
+            "subject-combination",
+            "local-equivalency",
+            "language-general",
+            "language-programme",
+            "test",
+            "portfolio",
+            "audition",
+            "interview",
+            "essay",
+            "reference",
+            "work-sample",
+            "activity",
+            "citizenship",
+            "residency",
+            "age",
+            "prior-education",
+            "application-round",
+            "quota",
+            "other"
           ]
         },
         "mandatory": {
           "type": "boolean",
           "description": "False marks a Selection Factor — used in ranking, not in eligibility."
         },
-        "label": { "type": "string", "description": "Student-readable, e.g. 'Mathematics at A level'." },
-        "officialWording": { "$ref": "common.schema.json#/$defs/localisedText" },
-
+        "label": {
+          "type": "string",
+          "description": "Student-readable, e.g. 'Mathematics at A level'."
+        },
+        "officialWording": {
+          "$ref": "common.schema.json#/$defs/localisedText"
+        },
         "ibSubject": {
           "type": "string",
           "description": "For kind 'ib-subject'. An IB subject id or name from data/ib-subjects.json. This is the default way to write a requirement and it needs no Recognition Scheme: the source said HL and the student has HL, so there is nothing to translate."
@@ -160,7 +289,6 @@
           "$ref": "common.schema.json#/$defs/ibLevel",
           "description": "For kind 'ib-subject'. HL, SL, or 'any' where the source accepts either."
         },
-
         "subject": {
           "type": "string",
           "description": "For kind 'local-equivalency'. A subject name in the vocabulary of the scale named by `levelScale` — the source's own word, not ours."
@@ -179,12 +307,19 @@
           "type": "number",
           "description": "On the scale named by `gradeScale` for a local-equivalency rule, or the IB's own 1-7 scale for an ib-subject rule. On an ib-course-results rule it is the IB grade every subject in the award must reach, not one named subject."
         },
+        "minGradeWaivedAtLevel": {
+          "type": "string",
+          "description": "For a local-equivalency rule with a minGrade: the level on the same scale at which the minimum no longer applies — ITU and CBS publish \"no grade requirement if [the subject] at A-level is passed\". A student whose IB subject counts at this level or above meets the rule with any passing grade."
+        },
         "gradeScale": {
           "type": "string",
           "description": "The id of the grade scale `minGrade` is measured on, matching a Recognition Scheme's gradeScale.id. Omitted on an ib-subject rule, where the scale is the IB's."
         },
-        "minPoints": { "type": "integer", "minimum": 0, "maximum": 45 },
-
+        "minPoints": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 45
+        },
         "minSubjects": {
           "type": "integer",
           "minimum": 1,
@@ -197,14 +332,19 @@
           "maximum": 6,
           "description": "For kind 'ib-course-results'. How many of those subjects must be at HL."
         },
-
         "alternativeRoute": {
           "type": "string",
           "description": "For a rule an applicant cannot satisfy as they stand, the published route that still reaches this Opportunity — supplementary subjects, a retake, a different entry qualification. Only ever the source's own route, never our suggestion, and covered by the same `evidence` as the rule itself. Its reason for existing is that 'you do not meet this' and 'this is closed to you' are different sentences, and a rule that can only say the first of them tells a student to stop when the source did not."
         },
-
         "operator": {
-          "enum": ["all-of", "one-of", "at-least", "at-most", "equals", "exists"],
+          "enum": [
+            "all-of",
+            "one-of",
+            "at-least",
+            "at-most",
+            "equals",
+            "exists"
+          ],
           "description": "How to evaluate `alternatives` or the threshold."
         },
         "alternatives": {
@@ -212,35 +352,53 @@
           "description": "Each element is a set of requirements; satisfying any one set satisfies the rule.",
           "items": {
             "type": "array",
-            "items": { "$ref": "#/$defs/requirement" }
+            "items": {
+              "$ref": "#/$defs/requirement"
+            }
           }
         },
-
         "applicability": {
           "type": "object",
           "description": "Who and when the rule binds. Without this a rule is not safely usable.",
           "properties": {
-            "intake": { "$ref": "common.schema.json#/$defs/intake" },
-            "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
-            "feeStatus": { "$ref": "common.schema.json#/$defs/feeStatus" },
-            "qualificationVersion": { "type": "string" },
-            "exception": { "type": "string" }
+            "intake": {
+              "$ref": "common.schema.json#/$defs/intake"
+            },
+            "applicantGroup": {
+              "$ref": "common.schema.json#/$defs/applicantGroup"
+            },
+            "feeStatus": {
+              "$ref": "common.schema.json#/$defs/feeStatus"
+            },
+            "qualificationVersion": {
+              "type": "string"
+            },
+            "exception": {
+              "type": "string"
+            }
           },
           "additionalProperties": false
         },
-
         "satisfiedBy": {
           "type": "array",
           "description": "Named alternative ways to meet it — a language test in place of a subject, for instance.",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "preparationActions": {
           "type": "array",
-          "items": { "$ref": "common.schema.json#/$defs/id" },
+          "items": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
           "description": "What a student could still do about this gap."
         },
-        "note": { "type": "string" },
-        "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+        "note": {
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/evidenceRefs"
+        }
       },
       "additionalProperties": false
     }

@@ -161,7 +161,7 @@ try {
   await open('/planner/');
   await evaluate(`(async () => {
     const set = (sel, v) => { const el = document.querySelector(sel); el.value = v; el.dispatchEvent(new Event('change', { bubbles: true })); };
-    const six = [['english-b','SL','5'],['mathematics-aa','SL','5'],['history','HL','6'],['biology','HL','5'],['chemistry','SL','4'],['danish-a-literature','SL','6']];
+    const six = [['english-b','SL','5'],['mathematics-aa','SL','5'],['history','HL','6'],['biology','HL','5'],['chemistry','SL','4'],['global-politics','HL','6']];
     six.forEach(([s,l,g], i) => { set('.p-subject[data-slot="'+(i+1)+'"]', s); set('.p-level[data-slot="'+(i+1)+'"]', l); set('.p-grade[data-slot="'+(i+1)+'"]', g); });
     set('#p-award', 'diploma');
     const t = document.getElementById('p-total'); t.value = '34'; t.dispatchEvent(new Event('input', { bubbles: true }));
@@ -178,6 +178,14 @@ try {
   await sleep(300);
   await shotOf('#p-results', '07-planner-results', { maxHeight: 2000 });
   await shotOf('#shot-gap', '07b-planner-a-gap');
+
+  // 5b. ITU (grade waived at A level), BAAA (a non-subject option), a cut-off in IB points
+  await open('/programmes/dk-itu-global-business-informatics-2027-autumn/');
+  await shotOf('.req-detail', '10-programme-itu-gbi-waiver');
+  await open('/universities/dk-baaa/');
+  await shotOf('#programmes + .grid', '11-baaa-card-grid', { maxHeight: 1400 });
+  await open('/programmes/dk-au-computer-science-2027-autumn/');
+  await shotOf('.glance', '12-programme-cutoff-in-ib-points', { maxHeight: 400 });
 
   // 6. The conversion page's new table
   await open('/denmark/ib-conversion/');

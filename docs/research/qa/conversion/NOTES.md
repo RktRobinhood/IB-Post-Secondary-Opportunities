@@ -114,3 +114,103 @@ Result: a typical card is "Needs Any IB English · Maths HL (AA or AI)" (one
 line); the longest Aarhus cards (Economics, 2 IB options + 3 hidden) take 3–4
 lines at desktop width, Cognitive Science 2 lines plus the muted note.
 Gate: all 30 checks pass. Screenshots in `round-0b/`.
+
+## Round 1 — critic fixes (critique-round-1.md, scored 6/10)
+
+Verified before building (25 Sep 2026):
+
+- **Hurtig start 1.08 does not apply.** The university admission order in force,
+  Adgangsbekendtgørelsen BEK nr 288 af 17/02/2026
+  (https://www.retsinformation.dk/eli/lta/2026/288, read in a browser because
+  the page needs JavaScript), contains no "1,08", "hurtig" or "bonus". §17 stk. 2
+  defines the quota 1 quotient as "eksamensgennemsnittet ifølge beviset for den
+  adgangsgivende eksamen … eller eksamensgennemsnittet omregnet til
+  7-trins-skalaen". So a cut-off converts to IB points with the Agency's table
+  and nothing else. ufsn.dk's old "bonus-for-hurtig-studiestart" page is a 404;
+  ug.dk's current kvote 1 article describes no bonus. Not checked: the separate
+  order for academy/professional bachelor programmes (erhvervsakademi /
+  professionshøjskole) — the page wording says "universities' admission order".
+- **AU** (bachelor.au.dk/en/international-applicants/moreinfo/international-baccalaureate-ib,
+  revised 21.08.2026): GP HL "Recognised as Social Science B"; GP SL
+  "Recognised as Social Science B in combination with Economics SL/HL". Nothing
+  on History of Ideas / Contemporary History / Philosophy.
+- **ITU**: Data Science — English B avg ≥ 6 "(there is no grade requirement if
+  you have passed English corresponding to the Danish A-level)"; Maths A ≥ 6 has
+  no waiver. GBI — Maths B and English B avg ≥ 6, each with the same A-level
+  waiver.
+- **CBS** application-and-admission page: "If you have taken a subject at level A
+  and passed it, this fulfils any grade requirement at B-level for that
+  subject." So CBS's English B ≥ 6.0 and Maths B ≥ 6.0 are waived at A too, and
+  CBS's English A language requirement always implies it: in IB terms CBS
+  English is one line, "English A (any) or English B HL", no grade. The CBS
+  Social Studies table (BM, Economics, GP, History SL/HL; Geography HL;
+  Anthropology HL) could NOT be re-read — the page is ~618k characters and the
+  fetcher stops at ~140k. It is encoded from the record taken 22 Sep
+  (data/dk/cbs.json ibNotes, evidence ev-cbs-dk-jtk0jr) and flagged as such.
+
+Decisions, round 1:
+
+16. **Institution routes are data.** `ibEquivalences` on the canonical
+    Institution record (schema: institution.schema.json): `{levelScale, subject,
+    level, accepts: [[{ibSubject, ibLevel}]], note, evidence}`. AU: GP HL, or GP
+    SL with Economics → Social Studies B (ev-bachelor-au-dk-1qq5514). CBS: BM,
+    Economics, GP, History SL/HL; Geography HL; Anthropology HL → Social Studies
+    B (ev-cbs-dk-jtk0jr, flagged in the row's note as not re-read). The engine
+    indexes them (`buildSubjectIndex({ …, institutions })`), `ibTermsFor(rule,
+    index, institutionId)` adds them to the phrase and clears "no equivalent",
+    and `assess` reads `opportunity.institution` — so a GP HL student meets AU
+    Social Studies B, a GP SL student alone does not, and at an institution
+    with no route GP HL is still Needs review. The planner receives the same
+    records. The scheme's Social Studies / Global Politics sentences now name
+    AU, CBS and Copenhagen.
+17. **Minimum grade waived at a level** — `minGradeWaivedAtLevel` on the
+    requirement (opportunity.schema.json). ITU Data Science English B; ITU GBI
+    Maths B and English B; every CBS B-level minimum (CBS: "a subject at level
+    A … fulfils any grade requirement at B-level"). The engine meets a rule at
+    or above the waiver level with any grade; the wording names the graded
+    subset: "Any IB English: at least a 5 in English B SL, any grade
+    otherwise". Scenario added: English B HL at 4 meets it, English B SL at 4
+    does not.
+18. **Same subject twice → one line.** CBS English A (language) + English B
+    ≥ 6 fold into "English A (Literature or Lang & Lit), SL or HL; or English B
+    HL" with no grade, because the B minimum is waived at A — the critic's
+    suggested "at least a 5" would have been wrong by CBS's own rule. The
+    published line keeps both.
+19. **Non-subject options** ("An accepted English test instead …") are
+    projected (`otherOf` in canonical.mjs) and shown as written in `.req-other`.
+    On a card, an option that asks for everything a smaller option asks for is
+    dropped (VIA DTB: English B / English C + test = "Any IB English"), an
+    option whose IB routes a sibling already accepts is dropped (Contemporary
+    History B = History HL, beside History SL/HL), and a whole "one of" already
+    settled by a subject required outright is left off (BAAA's English B-or-test
+    after English C). Programme pages keep every option, with the published
+    forms merged ("History B or Contemporary History B").
+20. **Hidden options note** is "(1 other option needs a Danish-school
+    subject)" — not "+ 3 …", because "+" on that line means "together with"
+    (AAU Energy: "Physics + Chemistry + 2 …" read as one combination). The noun
+    is data: `display.localOnlyNoun`.
+21. **Cut-offs in IB points**: `ibPointsFor(value, gradeScale, index)` — the
+    lowest total whose converted average reaches the cut-off, read from the
+    scheme whose `gradeScale.id` matches the cut-off's `scale`. Shown on
+    institution cards ("Last cut-off 10.7 · 40 IB points"), the programme
+    glance, the programme fine print (linked to `display.averageExplainedAt`),
+    the finder and the planner. The conversion page's average section now says
+    there is no 1.08 bonus, citing BEK 288/2026 § 17.
+22. **Contemporary History**: History HL maps to Contemporary History A too
+    (handbook History A row: "historie / historie med samfundskundskab /
+    samtidshistorie"), so Contemporary History B reads "History HL".
+23. **Clarity**: "No minimum grade is recorded" said once above the list; the
+    planner names the combination that was met ("One of the 4 accepted options
+    is met. Needs History (SL or HL): your History HL …"); the conversion
+    table's caption is now a paragraph (it wrapped one word per line on a
+    phone); "Any IB English … not English ab initio" added; the levels table
+    names AU's and CBS's own Social Studies routes under "No national IB
+    equivalent".
+24. **Guard** (`test-requirement-translation.mjs`) now reads what to expect
+    from `requirementModel` (exported by components.mjs, used by the card and
+    the page) and fails on an empty published line, a line ending on a
+    separator, and one option listed twice in a line or list — with planted
+    samples of the BAAA and VIA faults to prove it sees them.
+
+Round 1 result: gate 31/31 (ib-terms 741 checks, eligibility 118 scenarios;
+README count updated 104 → 118). Screenshots in `round-1/`.

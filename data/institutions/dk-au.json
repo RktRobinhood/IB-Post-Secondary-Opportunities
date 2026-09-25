@@ -34,6 +34,35 @@
     "englishTaughtUndergraduate": "some",
     "note": "A, B and C are Danish subject levels, not grades. AU repeats this on each programme page: \"B-level is the Danish subject level, not the grade.\""
   },
+  "ibEquivalences": [
+    {
+      "levelScale": "dk-abc",
+      "subject": "Social Studies",
+      "level": "B",
+      "accepts": [
+        [
+          {
+            "ibSubject": "global-politics",
+            "ibLevel": "HL"
+          }
+        ],
+        [
+          {
+            "ibSubject": "global-politics",
+            "ibLevel": "SL"
+          },
+          {
+            "ibSubject": "economics",
+            "ibLevel": "SL"
+          }
+        ]
+      ],
+      "note": "AU's own addition to the Agency's table: \"Global Politics HL: Recognised as Social Science B\"; \"Global Politics SL: Recognised as Social Science B in combination with Economics SL/HL\". Page revised 21.08.2026, read 25 Sep 2026.",
+      "evidence": [
+        "ev-bachelor-au-dk-1qq5514"
+      ]
+    }
+  ],
   "evidence": [
     "ev-bachelor-au-dk-sq8b48",
     "ev-bachelor-au-dk-1qq5514",
