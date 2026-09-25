@@ -32,9 +32,17 @@ const FIELD = {
   'design-architecture': 'Design', 'arts-music': 'Arts', sport: 'Sport', 'hospitality-tourism': 'Hospitality',
   interdisciplinary: 'Interdisciplinary', other: 'Other',
 };
-/* Each field's colour band on its card: six hues from the palette, so cards in
-   one grid are told apart at a glance without a photograph each. */
-const BAND = Object.fromEntries(Object.keys(FIELD).map((f, i) => [f, i % 6]));
+/* Each field belongs to one family, and each family has one colour (site.css,
+   .card--fam-*), so a colour means the same kind of subject on every page. */
+const FAMILY = {
+  engineering: 'tech', computing: 'tech', mathematics: 'tech',
+  'natural-sciences': 'science', 'agriculture-environment': 'science', veterinary: 'science',
+  business: 'business', economics: 'business', 'hospitality-tourism': 'business',
+  'social-sciences': 'society', law: 'society', education: 'society', humanities: 'society', languages: 'society',
+  health: 'health', medicine: 'health', sport: 'health',
+  'design-architecture': 'creative', 'arts-music': 'creative',
+  interdisciplinary: 'general', other: 'general',
+};
 
 const TODAY = new Date().toISOString().slice(0, 10);
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -71,12 +79,13 @@ function sharedTuition(programmes) {
   return fees.size === 1 ? [...fees][0] : null;
 }
 
-function programmeCard(inst, p, { tuitionOnCard }) {
+function programmeCard(inst, p, { tuitionOnCard, headed }) {
   return card({
     href: p.url,
     external: true,
-    mod: `card--prog card--band-${BAND[p.field] ?? 0}`,
-    kicker: FIELD[p.field],
+    mod: `card--prog card--fam-${FAMILY[p.field] || 'general'}`,
+    // The field names the card's band, unless a heading above already does.
+    kicker: headed ? null : FIELD[p.field],
     title: p.name,
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     sub: [p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
@@ -97,9 +106,11 @@ function knownFor(inst) {
     : '';
 }
 
-/* Up to six programmes sit in one grid. Beyond that they are grouped under
-   their field ("Engineering · 6"), so a long list can be scanned. */
-const GROUP_FROM = 7;
+/* A short list is one grid. A long one is grouped under its fields
+   ("Engineering · 6"), heading only fields with enough programmes to be a
+   group; the rest share "Other fields". */
+const GROUP_FROM = 13;
+const GROUP_MIN = 3;
 
 function programmeSection(inst, c) {
   const school = inst.school;
@@ -108,25 +119,29 @@ function programmeSection(inst, c) {
   if (school?.scope === 'listed') {
     const progs = [...school.programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
     const fee = sharedTuition(progs);
-    const one = (p) => programmeCard(inst, p, { tuitionOnCard: !fee });
+    const one = (p, headed = false) => programmeCard(inst, p, { tuitionOnCard: !fee, headed });
     const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;
 
     let cards;
     if (progs.length < GROUP_FROM) {
-      cards = html`<div class="grid ${progs.length <= 2 ? 'grid--2' : 'grid--3'}">${progs.map(one)}</div>`;
+      cards = html`<div class="grid ${progs.length <= 2 ? 'grid--2' : 'grid--3'}">${progs.map((p) => one(p))}</div>`;
     } else {
-      const groups = new Map();
+      const byField = new Map();
       for (const p of progs) {
         const f = FIELD[p.field];
-        if (!groups.has(f)) groups.set(f, []);
-        groups.get(f).push(p);
+        if (!byField.has(f)) byField.set(f, []);
+        byField.get(f).push(p);
       }
-      cards = [...groups].map(
-        ([field, list]) => html`<div class="prog-group">
-          <h3 class="prog-group__head">${field} <span>· ${list.length}</span></h3>
-          <div class="grid grid--3">${list.map(one)}</div>
-        </div>`
-      );
+      const groups = [...byField].filter(([, list]) => list.length >= GROUP_MIN);
+      const rest = [...byField].filter(([, list]) => list.length < GROUP_MIN).flatMap(([, list]) => list);
+      const group = (head, list, headed) => html`<div class="prog-group">
+          <h3 class="prog-group__head">${head} <span>· ${list.length}</span></h3>
+          <div class="grid grid--3">${list.map((p) => one(p, headed))}</div>
+        </div>`;
+      cards = [
+        ...groups.map(([field, list]) => group(field, list, true)),
+        rest.length ? group(groups.length ? 'Other fields' : 'All fields', rest, false) : '',
+      ];
     }
     return html`${sectionHead({ title: 'What you could study here', lede, id: 'programmes' })}${cards}`;
   }
@@ -134,7 +149,9 @@ function programmeSection(inst, c) {
   if (school?.scope === 'catalogue') {
     return html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
       <div class="handoff">
-        <p class="handoff__line">Nearly every course at ${where} is taught in English.</p>
+        <p class="handoff__line">${school.courses
+          ? `${school.courses} undergraduate courses, all taught in English.`
+          : `Nearly every course at ${where} is taught in English.`}</p>
         ${knownFor(inst)}
       </div>`;
   }
@@ -145,7 +162,9 @@ function programmeSection(inst, c) {
         id: 'programmes',
       })}
       <div class="handoff">
-        <p class="handoff__line">No English-taught bachelor's here for 2027.</p>
+        ${/* The way in for a student who has the language, when the record
+              says what it takes: that is the useful line here. */ ''}
+        <p class="handoff__line">${school.ib?.text || "No English-taught bachelor's here for 2027."}</p>
         ${knownFor(inst)}
       </div>`;
   }
@@ -195,7 +214,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     school?.scope === 'listed'
       ? plural(school.programmes.length, 'degree')
       : school?.scope === 'catalogue'
-      ? 'Nearly everything'
+      ? school.courses ? `${school.courses} courses` : 'Nearly everything'
       : school?.scope === 'none'
       ? 'Nothing'
       : firstClause(inst.englishBachelors, 3) || null;
@@ -203,12 +222,12 @@ export function schoolPage(site, inst, c, { prev, next }) {
   const ibLink = (u, label) => html`<p><a href="${u}" rel="noopener nofollow">${label}<span aria-hidden="true"> ↗</span></a></p>`;
   const notes = school?.notes?.length ? school.notes : [];
   const topics = [
-    (school?.ib || statement) &&
+    ((school?.ib && school.scope !== 'none') || statement) &&
       topic({
         id: 'ib',
         title: 'What it asks of IB students',
-        short: school?.ib?.text || (statement?.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : null),
-        body: html`${school?.ib ? ibLink(school.ib.url, 'Where it says so') : ''}
+        short: (school?.scope !== 'none' && school?.ib?.text) || (statement?.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : null),
+        body: html`${school?.ib ? ibLink(school.ib.url, school.scope === 'none' ? 'Its language rules' : 'Where it says so') : ''}
           ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
           ${statement ? ibLink(statement.url, 'Its IB recognition statement') : ''}`,
         more: 'Sources',
@@ -262,7 +281,8 @@ ${hero({
       { label: 'City', value: inst.city },
       {
         label: 'Apply via',
-        value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via}</a>` : null,
+        // "Studyinfo.fi", not "Studyinfo.fi (national joint application)".
+        value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via.split(' (')[0]}</a>` : null,
       },
       { label: 'IB transcripts', value: statement?.transcripts5y ? `${statement.transcripts5y.toLocaleString('en-GB')} in 5 yrs` : null },
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
@@ -310,9 +330,10 @@ ${
         also: go ? [{ href: go.url, label: `${go.label} ↗` }] : [],
       })
     : close({
+        // The heading says what the page is, the button where it is.
         eyebrow: 'Next step',
-        title: `Go on to ${inst.name}`,
-        invitation: { href: go.url, label: `${go.label} ↗` },
+        title: go.label,
+        invitation: { href: go.url, label: `Open on ${hostOf(go.url)} ↗` },
       })
 }
 

@@ -56,6 +56,11 @@
       "type": "array",
       "items": { "$ref": "#/$defs/programme" }
     },
+    "courses": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "For scope catalogue: how many undergraduate courses it offers, as its own course listing counts them."
+    },
     "language": {
       "type": "string",
       "maxLength": 30,
