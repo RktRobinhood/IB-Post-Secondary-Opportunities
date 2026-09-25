@@ -15,7 +15,7 @@
       "enum": ["listed", "catalogue", "none"],
       "description": "listed: every English-taught bachelor's degree open to first-year applicants for the intake is in `programmes`. catalogue: nearly all courses are taught in English, too many to list; `programmes` is empty and `handoff` is the course search. none: no English-taught bachelor's degree for the intake; `programmes` is empty."
     },
-    "summary": { "type": "string", "minLength": 20, "maxLength": 170, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 150, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
     "handoff": {
       "type": "object",
       "required": ["label", "url"],
@@ -107,7 +107,7 @@
       "additionalProperties": false,
       "properties": {
         "name": { "type": "string", "description": "The programme's English name as the institution writes it." },
-        "credential": { "type": "string", "maxLength": 16, "description": "The degree abbreviation, e.g. BSc, BA, BBA, LLB, BEng, BMus. 'Bachelor' when the institution gives none." },
+        "credential": { "type": "string", "maxLength": 48, "description": "A standard abbreviation a student knows (BSc, BA, BBA, BEng, LLB, BMus), else the degree's full English title ('Bachelor of Health Care'). Never an invented abbreviation." },
         "years": { "type": "number", "minimum": 1, "maximum": 7 },
         "city": { "type": "string", "description": "Only when it differs from the institution's city." },
         "field": {

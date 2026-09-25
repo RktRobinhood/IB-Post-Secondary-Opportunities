@@ -36,26 +36,45 @@ These are examples, not rules by country. Decide from what the institution publi
 
 ### Fields
 
-- `summary`: one line, up to 170 characters. What the place is and why an IB student might look.
-  Concrete ("Finland's oldest university; two English bachelor's, both in Helsinki city centre"), not
-  a slogan.
+- `summary`: one line, **up to 150 characters**: it is the text on the school's card. Say what the
+  place is and why an IB student might look. Make it concrete ("Finland's oldest university; two
+  English bachelor's in Helsinki, one in the centre and one at Kumpula"), not a slogan. Don't write
+  "every", "all", "only", "largest", "oldest" or a rank unless a page you cite says exactly that.
+- `courses` (catalogue scope): how many undergraduate courses its own listing counts, when it gives
+  a number.
+- `language` (none scope): the language its bachelor's degrees are taught in. Put the way in for a
+  student who has that language (for example "Swedish A at grade 2 or Swedish B at grade 5") in
+  `ib`.
 - `handoff`: the one targeted page to send the student to. **Never the homepage.** Use the list of
   English-taught bachelor's degrees if one exists. Otherwise use the course search, or the
   international admissions page.
 - `ib`: what the institution asks of IB Diploma holders in general: points, subjects, and whether
-  the Diploma covers English. Quote its numbers, and link the page that says so.
+  the Diploma covers English. Quote its numbers, and link the page that says so. **Give thresholds
+  in IB terms** (grade 6 in Maths AA HL), not in local grades a student can't read. Where some
+  programmes select differently (an entrance exam, an audition), say so here or on the programme.
 - `apply`: the portal, when it isn't only the institution's own (Studyinfo.fi, UCAS,
   Universityadmissions.se, Uni-assist, Parcoursup, and so on).
 - `dates`: dates for the 2027 intake that apply to the whole institution: when applications open and
   close, test dates, when documents are due. Use ISO dates, and link the page each date comes from.
   **One wrong deadline fails the whole round of review.** If the 2027 date isn't published yet, leave
   it out; don't guess from 2026. When dates differ between EU/EEA and non-EU applicants, record the
-  EU/EEA one with `who: "eu-eea-ch"`, and the other too if it matters.
-- `programmes[]`: `name` as the institution writes it; `credential` (BSc, BA, BBA, LLB, and so on);
-  `years`; `field` (from the enum); `url` for the programme's own page; `city` only when it differs
-  from the institution's. `ib` only when the programme asks for more than the general rule, such as
-  HL Maths or an entrance exam. `tuitionEuEea` when known. `closes` only when the programme's
-  deadline differs from the institution's.
+  EU/EEA one with `who: "eu-eea-ch"`, and the other too if it matters. **Always record the IB
+  deadlines when the institution sets them**: when predicted grades are due, and when final grades
+  are due. A student comparing two pages must not conclude that one school has none.
+- `programmes[]`:
+  - `name`: as the institution writes it.
+  - `credential`: a standard abbreviation a student knows (BSc, BA, BBA, BEng, LLB, BMus), or else
+    the degree's full English title ("Bachelor of Health Care"). **Never an invented abbreviation**
+    such as "BHealthCare".
+  - `years` and `field`: `field` comes from the enum.
+  - `url`: the programme's own page.
+  - `city`: whenever it differs from the institution's city. Set it on every programme at a school
+    with campuses in several towns.
+  - `ib`: only when the programme asks more than the general rule, such as HL Maths or an entrance
+    exam. **If a programme requires the local language at any level (Finnish B1, say), `ib` must
+    say so.**
+  - `tuitionEuEea`: when known.
+  - `closes`: only when the programme's deadline differs from the institution's.
 - `notes`: at most three facts a student wouldn't guess, one sentence each.
 - `sources`: every page you relied on, each with its `retrieved` date.
 
@@ -72,6 +91,17 @@ These are examples, not rules by country. Decide from what the institution publi
 - The institution's `note` and `admissionsUrl` in `data/countries/` were researched earlier and are a
   starting point, not the truth. Where the institution's own page disagrees, trust the page, and say so
   in your report.
+- **When official pages disagree** (an FAQ against a route's own page, say), trust the page for that
+  specific route, cite both, and say they disagree. Never resolve a conflict towards telling a student
+  they can't.
+- **Unpublished rules are provisional.** Where this year's criteria aren't public yet and you are
+  relying on last year's, say "2026 criteria; 2027 not yet published". Never present them as this
+  year's rules.
+- **Check completeness against national data** where it exists: Studyinfo.fi,
+  Universityadmissions.se, Samordna opptak, the national course finder, and so on. That is how a
+  list is known to be complete.
+- **Bot checks:** if a site blocks automated reading and you read it another way, put the exact
+  sentence each date came from in your report, so a reviewer can check it from the repository.
 
 ## Report
 
