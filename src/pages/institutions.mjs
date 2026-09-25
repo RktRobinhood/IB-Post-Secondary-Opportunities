@@ -2,11 +2,11 @@ import { html, md, plural, raw, toString, truncate, firstSentence } from '../lib
 import { datesPanel } from '../lib/school-dates.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
-  hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, requirementSummary, glance,
+  hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, glance,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { destinationOf, institutionPicture } from './programme-facts.mjs';
-import { cardGroups, familyCard, pathsBlock, credentialLine, facetsOf, cutoffLabel, isMultiCampus } from '../lib/paths.mjs';
+import { cardGroups, programmeCard } from '../lib/paths.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -67,42 +67,14 @@ export function university(site, inst, { prev, next }) {
   /* The degrees first, as pictures a student can click; what the institution
      says about the IB, how it runs its admissions and the notes after them,
      each as a short answer with the rest one tap beneath. */
-  const showCampus = isMultiCampus(inst);
   const sorted = [...inst.programmes]
     .sort((a, b) => (a.field || '').localeCompare(b.field || '') || a.name.localeCompare(b.name));
   // One card per programme, or one per family of paths (src/lib/paths.mjs):
   // a BSc and a BEng of one subject are one card with two short rows, not two
-  // cards that read the same.
-  const programmeCards = cardGroups(site, sorted).map((g) => {
-    // Text cards, all the same shape: the pictures of the place are in the
-    // hero above. Behind the words is a faded photograph of the discipline
-    // (src/lib/programme-imagery.mjs). Under the title, what kind of degree
-    // it is, how long and where; then the requirements, IB terms first.
-    const fam = familyCard(site, g, { campus: showCampus });
-    if (fam) {
-      return card({
-        href: fam.href,
-        title: fam.title,
-        line: fam.line,
-        backdrop: fam.backdrop,
-        req: fam.req,
-        paths: pathsBlock(fam.paths),
-        meta: [g.lead.field].filter(Boolean),
-        tags: fam.tag ? [{ label: fam.tag, mod: 'sand' }] : null,
-      });
-    }
-    const p = g.lead;
-    const cutoff = cutoffLabel(p);
-    return card({
-      href: p.href,
-      title: p.name,
-      line: credentialLine(facetsOf(site, p, { campus: showCampus })),
-      backdrop: p.backdrop,
-      req: requirementSummary(p.entryRequirements),
-      meta: [p.field].filter(Boolean),
-      tags: cutoff ? [{ label: cutoff, mod: 'sand' }] : null,
-    });
-  });
+  // cards that read the same. It is the home page's card (programmeCard):
+  // a photograph of the discipline, what kind of degree it is, how long and
+  // where, what makes it different, and one tag; the field is its footer.
+  const programmeCards = cardGroups(site, sorted).map((g) => card(programmeCard(site, g, { meta: [g.lead.field].filter(Boolean) })));
 
   const statement = inst.ibRecognitionStatement;
   const topics = [

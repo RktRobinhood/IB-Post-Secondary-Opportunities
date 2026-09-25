@@ -2355,7 +2355,8 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   }
   .paths table.data.paths__table .paths__diff { order: -1; color: var(--ink-soft); }
   .paths table.data.paths__table .paths__diff::before { content: none; }
-  .paths .paths__table small { display: inline; margin-left: .35em; }
+  /* "an average of 7.0" moves as one piece: never "an average of / 7.0" (programme cards round 3, bug 9). */
+  .paths .paths__table small { display: inline; margin-left: .35em; white-space: nowrap; }
 }
 
 /* A row in the finder or the planner. It is wide and short, so the photograph
@@ -2538,21 +2539,27 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 
 /* --- Discover: the home page is the finder (plan.md, Batch D) -------------
-   A night-sky band holds the one line, the three distances, the filters and
-   the globe; the cards follow on paper. The band's colours are fixed, like
-   the globe's own frame (primitives.css): a night sky is not a theme. On a
-   wide screen the words take a column beside the globe, so the first card is
-   within one screen; on a phone they stack above it. */
+   A night-sky band holds the one line, the three distances, one search row
+   and the globe; the cards follow on paper. The band's colours are fixed,
+   like the globe's own frame (primitives.css): a night sky is not a theme.
+
+   Home round 2: the first screen had no photograph. So the filters fold into
+   one row at every width — search, and "Filters", which opens a sheet — and
+   on a wide screen the cards take the column under the words while the globe
+   stays beside them, sticky, the height of the window: the first row of
+   photographs is on the first screen, and the globe answers every choice
+   without a scroll. On a phone the band is compact enough that the first
+   photograph starts above the fold, under the globe. */
 .discover__hero {
   background: radial-gradient(120% 100% at 50% 110%, #0b1426, #03050b 70%);
   color: #f3efe6;
 }
-.discover__intro { display: grid; gap: var(--s5); padding-block: var(--s6) var(--s5); }
+.discover__intro { display: grid; gap: var(--s4); padding-block: var(--s5) var(--s4); }
 .discover__eyebrow { color: #e7c27a; margin-bottom: var(--s2); }
 @media (max-width: 40rem) { .discover__eyebrow::after { display: none; } } /* wrapped, its rule floated alone */
 .discover__title {
   margin: 0 0 var(--s4); max-width: 17ch;
-  color: #fff; font-size: clamp(2rem, 5.2vw, 3.25rem); line-height: 1.05;
+  color: #fff; font-size: clamp(1.75rem, 5.2vw, 3.25rem); line-height: 1.05;
 }
 .discover__presets { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .preset {
@@ -2570,10 +2577,48 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .preset[aria-pressed="true"] { background: #f3efe6; border-color: #f3efe6; color: #10201d; }
 .preset[aria-pressed="true"] .preset__eyebrow { color: #7a5a14; }
 .preset[aria-pressed="true"] .preset__count { color: #3a4a47; }
-.discover__filters { margin: 0; color: var(--ink); }
 
-.discover__globe .world { gap: 0; }
+/* One row: the search and "Filters". The questions and chips are in the sheet
+   at every width; without the script they stay in the page, in a panel. */
+.discover__filters { margin: 0; color: var(--ink); }
+.discover__filters[data-enhanced] { padding: 0; background: none; border: 0; border-radius: 0; gap: 0; }
+.discover__filters .finder__top { gap: var(--s2); align-items: stretch; }
+.discover__filters input[type="search"] { min-height: var(--tap); font-size: 1rem; }
+.discover__filters[data-enhanced] .finder__open {
+  display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
+  background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); font-weight: 650;
+}
+.discover__filters[data-enhanced] .finder__sheet { display: none; }
+.discover__filters[data-sheet] .finder__sheet {
+  display: flex; flex-direction: column; gap: var(--s5);
+  position: fixed; inset: 0; z-index: 150;
+  padding: var(--s4) var(--gutter) 0;
+  background: var(--paper);
+  overflow-y: auto; overscroll-behavior: contain;
+}
+.discover__filters[data-sheet] .finder__sheet-head { display: flex; justify-content: space-between; align-items: center; }
+.discover__filters[data-sheet] .finder__sheet-foot {
+  display: block; position: sticky; bottom: 0; margin-top: auto;
+  padding: var(--s4) 0 calc(var(--s4) + env(safe-area-inset-bottom, 0px));
+  background: var(--paper); border-top: 1px solid var(--rule);
+}
+.discover__filters .finder__sheet-foot .btn { width: 100%; justify-content: center; }
+.discover__filters[data-sheet] .filters__row { grid-template-columns: minmax(0, 1fr); }
+/* On a wide screen the sheet is a drawer from the right, over a dimmed page. */
+@media (min-width: 52rem) {
+  .discover__filters[data-sheet] .finder__sheet {
+    inset: 0 0 0 auto; width: min(28rem, 100vw); padding-inline: var(--s5);
+    box-shadow: 0 0 0 100vmax rgb(3 5 11 / .55), -12px 0 40px rgb(0 0 0 / .35);
+  }
+}
+body.has-sheet { overflow: hidden; }
+
+.discover__globe .world {
+  gap: 0; display: grid; align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto;
+}
 .discover__globe .world__stage {
+  grid-column: 1 / -1;
   aspect-ratio: auto; height: 56vh; min-height: 20rem; max-height: none;
   border: 0; border-radius: 0;
 }
@@ -2585,22 +2630,81 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
 .discover__globe .world__list a:focus-visible { position: fixed; left: 1rem; bottom: 1rem; clip-path: none; width: auto; height: auto; z-index: 10; }
-.discover__globe .world__caption { padding: var(--s2) var(--gutter); color: rgb(255 255 255 / .62); }
+/* Under the globe, one line: the legend, "How to use the globe", and the
+   folded list of places, side by side. */
+.discover__globe .world__fold { grid-column: 2; grid-row: 2; padding: 0 var(--gutter) 0 var(--s3); }
+.discover__globe .world__caption { grid-column: 1; grid-row: 2; padding: var(--s1) var(--s3) var(--s1) var(--gutter); color: rgb(255 255 255 / .7); }
+.discover__globe .world__fold > summary { color: rgb(255 255 255 / .74); font-size: .75rem; min-height: var(--tap); display: flex; align-items: center; }
+.discover__globe .world__fold > summary:hover { color: #fff; }
 
-@media (min-width: 64rem) {
-  .discover__hero { display: grid; grid-template-columns: minmax(24rem, 32rem) minmax(0, 1fr); align-items: start; }
-  .discover__intro { width: auto; margin: 0; padding: var(--s6) var(--s5) var(--s6) max(var(--gutter), calc((100vw - var(--page-wide)) / 2)); }
-  .discover__filters .filters__row { grid-template-columns: minmax(0, 1fr); }
-  .discover__globe { position: sticky; top: 4rem; }
-  .discover__globe .world__stage { height: calc(100vh - 11rem); min-height: 30rem; max-height: 48rem; }
+/* The legend: one line, its dot the colour of the globe's lights (the
+   globe's `--pin`), the rest one tap down. The globe's own hint joins the
+   caption; it shows only with the rest. */
+.world__caption { align-items: center; }
+.world__caption .world__legend-dot { background: #E3B863; box-shadow: 0 0 0 1px rgb(251 247 240 / .7), 0 0 6px 1px rgb(227 184 99 / .5); }
+.world__how > summary { cursor: pointer; text-decoration: underline; text-underline-offset: .2em; min-height: var(--tap); display: inline-flex; align-items: center; }
+.world__how[open] { flex-basis: 100%; display: grid; gap: var(--s1); }
+.world__how[open] > summary { min-height: 0; margin-bottom: var(--s1); }
+.world__caption > .world__legend--hint { display: none; }
+.world__caption:has(.world__how[open]) > .world__legend--hint { display: inline-flex; flex-basis: 100%; }
+
+/* Phones and tablets: the band stacks — the words, the globe, then the
+   cards — and is short enough that the first photograph is on the first
+   screen at 390×844. */
+@media (max-width: 63.99rem) {
+  .discover__intro { gap: var(--s3); padding-block: var(--s4) var(--s3); }
+  .discover__title { margin-bottom: var(--s3); max-width: 20ch; }
+  .discover__eyebrow { margin-bottom: var(--s1); }
+  .discover__presets { flex-wrap: nowrap; }
+  .discover__presets .preset { flex: 1 1 0; min-width: 0; padding: .5rem .65rem; }
+  .discover__presets .preset__title { font-size: 1rem; }
+  .discover__globe .world__stage { height: min(34vh, 21rem); min-height: 16rem; }
+  .discover__results { padding-top: 0; }
+  .discover__results .shell__bar { padding-block: var(--s2); }
+  .discover__cards { margin-top: var(--s2); }
+}
+@media (max-width: 43.99rem) {
+  .discover__globe .world__caption { padding-left: var(--s4, 16px); }
+  /* The folded list is the keyboard's way in; on a phone its line gives way
+     to the legend, and shows when it is focused. */
+  .discover__globe .world__fold:not([open]) > summary:not(:focus-visible) {
+    position: absolute; left: 0; width: 1px; height: 1px; min-height: 0; margin: -1px; padding: 0; border: 0;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
 }
 
-.discover__results { padding-block: var(--s5) var(--s7); }
-/* The hero is night in both themes, so the folded place list's line is light. */
-.discover__globe .world__fold > summary { color: rgb(255 255 255 / .74); }
-.discover__globe .world__fold > summary:hover { color: #fff; }
-@media (max-width: 43.99rem) { .discover__globe .world__fold, .discover__globe .world__caption { padding-inline: var(--s4, 16px); } }
-.discover__cards { list-style: none; margin: var(--s4) 0 0; padding: 0; }
+/* A wide screen: the words and the cards in one column, the globe beside
+   them, sticky, the height of the window. */
+@media (min-width: 64rem) {
+  .discover {
+    display: grid; align-items: start;
+    grid-template-columns: minmax(0, 1.15fr) minmax(24rem, 1fr);
+    grid-template-areas: "intro globe" "results globe";
+  }
+  .discover__hero { display: contents; }
+  .discover__intro {
+    grid-area: intro; align-self: stretch; width: auto; margin: 0;
+    padding: var(--s6) var(--s5) var(--s5) max(var(--gutter), calc((100vw - var(--page-wide)) / 2));
+    background: #03050b; color: #f3efe6;
+  }
+  .discover__title { max-width: 22ch; }
+  .discover__globe {
+    grid-area: globe; position: sticky; top: 4rem; height: calc(100vh - 4rem);
+    display: flex; flex-direction: column;
+    background: radial-gradient(120% 100% at 50% 110%, #0b1426, #03050b 70%);
+  }
+  .discover__globe .world { flex: 1; min-height: 0; grid-template-rows: minmax(0, 1fr) auto; }
+  .discover__globe .world__stage { height: auto; min-height: 0; align-self: stretch; }
+  .discover__results {
+    grid-area: results; width: auto; margin: 0;
+    padding: var(--s4) var(--s5) var(--s7) max(var(--gutter), calc((100vw - var(--page-wide)) / 2));
+  }
+  .discover__cards.grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr)); }
+}
+
+.discover__results { padding-block: var(--s4) var(--s7); }
+.discover__results .shell__bar { margin: 0; }
+.discover__cards { list-style: none; margin: var(--s3) 0 0; padding: 0; }
 .discover__card[hidden] { display: none; }
 /* The rest of the cards, one tap away; with a filter on, the fold opens and
    its line disappears, so the results read as one grid (discover.js). */
@@ -2614,24 +2718,29 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .discover__more[data-filtering] > summary,
 .discover__more[open] > summary { display: none; } /* opened, it has done its job: no stale "Show all" mid-list */
 /* No match: the ways out, as chips (discover.js renderWays). */
-.discover__empty { margin: var(--s5) 0; }
+.discover__empty { margin: var(--s4) 0; }
 .discover__empty-line { margin: 0 0 var(--s3); color: var(--ink-soft); }
 .discover__empty-ways { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 .discover__guide { flex-basis: 100%; margin-bottom: var(--s2); font-weight: 600; }
+.discover__empty-ways .chip { display: inline-flex; align-items: center; }
 .chip--link { text-decoration: none; }
 .chip[disabled] { cursor: not-allowed; }
-/* The phone's "N degrees ↓" pill, when the count changes out of sight. It
-   sits under the masthead, clear of the globe's place card at the foot. */
+/* "N degrees ↓", when the count changes out of sight. It sits under the
+   masthead once the words above the globe have scrolled away; while they are
+   on screen it sits at the foot instead, so it never covers the eyebrow
+   (home round 2, bug 1). One line, always. */
 .discover__pill {
   position: fixed; left: 50%; top: calc(4rem + var(--s3)); transform: translateX(-50%); z-index: 120;
-  min-height: var(--tap); padding: 0 var(--s5); border: 0; border-radius: 999px;
+  min-height: var(--tap); max-width: calc(100vw - 2 * var(--gutter)); padding: 0 var(--s5); border: 0; border-radius: 999px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   background: #e7c27a; color: #1a1613; font: 650 .9375rem/1 var(--sans); /* the eyebrow gold: seen on the night hero and on paper, in both themes */
   box-shadow: 0 6px 20px rgb(0 0 0 / .28); cursor: pointer;
 }
+.discover__pill--low { top: auto; bottom: calc(var(--s4) + env(safe-area-inset-bottom, 0px)); }
 .discover__pill[hidden] { display: none; }
 .discover__card > .card { height: 100%; }
-.discover__empty, .discover__noscript { margin: var(--s5) 0; color: var(--ink-soft); }
-.discover__places-line { margin: var(--s5) 0 var(--s4); color: var(--ink-soft); }
+.discover__empty, .discover__noscript { margin: var(--s4) 0; color: var(--ink-soft); }
+.discover__places-line { margin: var(--s6) 0 var(--s4); color: var(--ink-soft); font-weight: 600; }
 .discover__places li[hidden] { display: none; }
 .chip[data-empty] { opacity: .5; }
 

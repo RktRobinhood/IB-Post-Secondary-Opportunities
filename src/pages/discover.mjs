@@ -1,13 +1,12 @@
 import { html, raw, plural, toString, slugify } from '../lib/html.mjs';
 import { url, SITE } from '../lib/layout.mjs';
-import { card, requirementSummary } from '../lib/components.mjs';
+import { card } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
-import { cardGroups, familyCard, pathsBlock, credentialLine, facetsOf, cutoffLabel, cardTag } from '../lib/paths.mjs';
+import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel } from './destinations.mjs';
-import { awardLabel } from './course-results.mjs';
 import { requiresMathsHL } from './explorer.mjs';
 
 /**
@@ -29,16 +28,16 @@ import { requiresMathsHL } from './explorer.mjs';
 
 /* Cards open on the page before the rest fold behind "Show all" (#44: no text walls). */
 const FIRST_CARDS = 12;
-const TAG_MOD = { 'tag--ok': 'ok', 'tag--sand': 'sand', 'tag--warn': 'warn' };
 
-/** A programme with no structured subject requirements: the IB award it asks for, in IB terms, one line. */
-function awardOnlyReq(p) {
-  const ib = {
-    [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'the full IB Diploma',
-    [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'the IB Diploma or Course Results',
-  }[entryAward(p)];
-  if (!ib) return '';
-  return html`<div class="req"><p class="req__ib"><strong>Requires</strong> ${ib}</p></div>`;
+/* Words too common in English to say what a degree is about. */
+const STOP = new Set(('the and for you are but not its with from that this into your than then they them what when who how all any can has have '
+  + 'was were will one two per yet own also about after more most such each only over very much other some who which where their there these those '
+  + 'year years first second third degree programme course courses taught english study studies student students').split(' '));
+
+/** A description's distinct words, lower case, three letters or more, in one string. */
+export function wordsOf(text) {
+  const words = String(text || '').toLowerCase().normalize('NFC').match(/\p{L}{3,}/gu) || [];
+  return [...new Set(words)].filter((w) => !STOP.has(w)).join(' ');
 }
 
 /**
@@ -101,6 +100,9 @@ export function discoverSection(site) {
     o: p.restrictedAdmission === false ? 1 : 0,
     q: [p.name, p.institutionName, instById.get(p.institutionId)?.name, p.field, p.campus, p.degree, destOf(p)?.name]
       .filter(Boolean).join(' ').toLowerCase(),
+    // The words of its own description, for a search that names no degree:
+    // "psychology" is part of a social-sciences degree (discover.js nearest).
+    w: wordsOf(p.summary),
   });
 
   /* --- The cards ------------------------------------------------------------ */
@@ -118,40 +120,9 @@ export function discoverSection(site) {
     const lead = g.lead;
     const inst = instById.get(lead.institutionId);
     const where = inst ? readableName(inst) : lead.institutionName;
-    const award = awardLabel(lead);
-    const awardTag = { label: award.label, mod: TAG_MOD[award.cls] || 'plain' };
     cardData.push({ members: g.members.map(facts) });
-    const fam = familyCard(site, g, { campus: true });
-    const body = fam
-      ? card({
-          href: fam.href,
-          title: fam.title,
-          line: fam.line,
-          backdrop: fam.backdrop,
-          req: fam.req,
-          paths: pathsBlock(fam.paths),
-          meta: [where],
-          // One tag, and only one every path shares.
-          tags: [cardTag({ cutoff: fam.shared.cutoff, open: fam.shared.open, award: fam.shared.awardSame ? awardTag : null })].filter(Boolean),
-        })
-      : (() => {
-          const req = lead.entryRequirements ? requirementSummary(lead.entryRequirements) : awardOnlyReq(lead);
-          return card({
-            href: lead.href,
-            title: lead.name,
-            line: credentialLine(facetsOf(site, lead, { campus: true })),
-            backdrop: lead.backdrop,
-            req,
-            meta: [where],
-            // One tag. A card whose Needs line is the award already says it.
-            tags: [cardTag({
-              cutoff: cutoffLabel(lead),
-              open: lead.restrictedAdmission === false,
-              award: lead.entryRequirements || !req ? awardTag : null,
-            })].filter(Boolean),
-          });
-        })();
-    return html`<li class="discover__card" data-card="${n}">${body}</li>`;
+    // The same card an institution's page draws (paths.mjs programmeCard).
+    return html`<li class="discover__card" data-card="${n}">${card(programmeCard(site, g, { meta: [where] }))}</li>`;
   });
 
   /* --- The filters' options, from the records ------------------------------ */
@@ -242,12 +213,22 @@ export function discoverSection(site) {
   const presetView = {
     here: hereCode ? { country: hereCode } : null,
     nearby: (() => { const b = boundsOf(tiles.filter((c) => c.scope === 'europe' && c.code !== hereCode)); return b ? { bounds: b, label: 'Europe' } : null; })(),
-    /* Worldwide turns the desk globe to the faraway door with the most
-       researched institutions, rather than resetting to Europe (home round 1). */
+    /* Worldwide turns the desk globe to where the faraway lights weigh most:
+       the mean of the far Destinations on the sphere, each weighted by the
+       institutions its light stands for. Turning to the single biggest one
+       framed the Americas, where two of ten are lit (home round 2, bug 6). */
     far: (() => {
-      const far = tiles.filter((c) => scopeOf(c.code) === 'far').map((c) => ({ c, pos: centroid(c) })).filter((x) => x.pos)
-        .sort((a, b) => b.c.institutions.length - a.c.institutions.length);
-      return far.length ? { camera: { lat: Math.max(-20, Math.min(40, far[0].pos.lat)), lon: far[0].pos.lon, alt: 99 }, label: 'the world' } : { reset: true };
+      const far = tiles.filter((c) => scopeOf(c.code) === 'far').map((c) => ({ w: c.institutions.length || 1, pos: centroid(c) })).filter((x) => x.pos);
+      if (!far.length) return { reset: true };
+      const rad = Math.PI / 180;
+      const v = far.reduce((s, { w, pos }) => [
+        s[0] + w * Math.cos(pos.lat * rad) * Math.cos(pos.lon * rad),
+        s[1] + w * Math.cos(pos.lat * rad) * Math.sin(pos.lon * rad),
+        s[2] + w * Math.sin(pos.lat * rad),
+      ], [0, 0, 0]);
+      const lat = Math.atan2(v[2], Math.hypot(v[0], v[1])) / rad;
+      const lon = Math.atan2(v[1], v[0]) / rad;
+      return { camera: { lat: Math.round(Math.max(-20, Math.min(40, lat)) * 10) / 10, lon: Math.round(lon * 10) / 10, alt: 99 }, label: 'the world' };
     })(),
   };
   const scopeDegrees = (key) => count((p) => scopeOf(destCode(p)) === key);
@@ -277,8 +258,8 @@ export function discoverSection(site) {
         <script>document.currentScript.parentNode.dataset.enhanced = '';</script>
         <div class="finder__top">
           <div class="field filter-q" data-field="q">
-            <label for="f-q">Search</label>
-            <input type="search" id="f-q" data-filter="q" placeholder="Subject, city or university" autocomplete="off">
+            <label for="f-q" class="visually-hidden">Search a subject, city or university</label>
+            <input type="search" id="f-q" data-filter="q" placeholder="Subject, city, university" autocomplete="off">
           </div>
           <button type="button" class="btn finder__open" id="f-sheet-open" aria-controls="f-sheet" aria-expanded="false">
             Filters<span class="finder__n" data-n></span>
@@ -311,7 +292,7 @@ export function discoverSection(site) {
                 </span>`
               : ''}
             ${noMaths && noMaths < total ? html`<button type="button" class="chip" id="f-nomath" aria-pressed="false">No Maths HL needed <span class="chip__count">${noMaths}</span></button>` : ''}
-            ${open && open < total ? html`<button type="button" class="chip" id="f-open" aria-pressed="false">Open admission <span class="chip__count">${open}</span></button>` : ''}
+            ${open && open < total ? html`<button type="button" class="chip" id="f-open" aria-pressed="false">Open entry <span class="chip__count">${open}</span></button>` : ''}
             <button type="button" class="chip" id="f-reset">Clear all</button>
           </div>
           <div class="finder__sheet-foot">
@@ -328,7 +309,7 @@ export function discoverSection(site) {
         unit: 'degree',
         activeLayer: 'Where the degrees are',
         caption: 'Choose a place to see its degrees.',
-        foldList: 'Every place on the globe',
+        foldList: 'All places',
       })}
     </div>
   </div>
@@ -339,6 +320,12 @@ export function discoverSection(site) {
       <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
     </div>
     <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is listed below.</p></noscript>
+    ${/* Above the cards: when nothing matches, the degrees nearest a search
+          show beneath this line (discover.js nearest). */ ''}
+    <div class="discover__empty" id="discover-empty" hidden>
+      <p class="discover__empty-line" id="discover-empty-line">No degree here matches all of those yet.</p>
+      <ul class="discover__empty-ways" id="discover-empty-ways"></ul>
+    </div>
     <ul class="grid grid--3 discover__cards" id="discover-results" role="list">
       ${cards.slice(0, FIRST_CARDS)}
     </ul>
@@ -351,13 +338,9 @@ export function discoverSection(site) {
           <ul class="grid grid--3 discover__cards" role="list">${cards.slice(FIRST_CARDS)}</ul>
         </details>`
       : ''}
-    <div class="discover__empty" id="discover-empty" hidden>
-      <p class="discover__empty-line">No degree here matches all of those yet.</p>
-      <ul class="discover__empty-ways" id="discover-empty-ways"></ul>
-    </div>
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
-          <p class="discover__places-line">No degrees are mapped subject by subject here yet. These countries are researched:</p>
+          <p class="discover__places-line" id="discover-places-line">Also researched: countries whose degrees are not mapped one by one yet.</p>
           <template id="discover-places-tiles"><ul class="tiles" role="list">${noDegreeTiles.map((c) => raw(toString(countryTile(site, c)).replace('<li>', `<li data-scope="${scopeOf(c.code)}">`)))}</ul></template>
         </div>`
       : ''}

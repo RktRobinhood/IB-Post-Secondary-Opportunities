@@ -618,6 +618,18 @@ function nativeText(r) {
   return r.minGrade ? `${phrase}, at least a ${r.minGrade}` : phrase;
 }
 
+/** "at least 31 IB points" → "31+ IB points"; any other floor as written. */
+export const floorShort = (text) => String(text).replace(/^at least (\d+) IB points\b/, '$1+ IB points');
+
+/**
+ * A grade or a figure kept on the line of the words it belongs to: "at least
+ * a 4" never breaks as "at least a / 4", and "an average of 7.0" never leaves
+ * the 7.0 alone on a line (programme cards round 3, bugs 2 and 9). Non-breaking
+ * spaces, so the words stay plain text for every reader.
+ */
+export const keepTogether = (text) =>
+  String(text).replace(/\bat least a (\d)/g, 'at\u00a0least\u00a0a\u00a0$1').replace(/(\S) (\d[\d.,]*\b)/g, '$1\u00a0$2');
+
 /** The quota floors, as one IB line: "at least 28 IB points and a 5 in Maths HL (AA or AI)". */
 function floorLine(floors) {
   const byQuota = new Map();
@@ -630,6 +642,10 @@ function floorLine(floors) {
     return {
       quota,
       ib: `${quota}: ${fs.map((f) => f.ibText).join(' and ')}`,
+      /* On a card, without the quota's name, which is one country's jargon
+         (programme cards round 3): "31+ IB points". The programme page says
+         which quota it ranks you in, and what is left below it. */
+      card: fs.map((f) => floorShort(f.ibText)).join(' and '),
       local: `${quota}: ${fs.map((f) => f.localText).join(' and ')}`,
       // What is left below it, from the institution's record: "SDU's entrance test".
       below: other ? `below that, ${other.quota.toLowerCase()}: ${other.short || other.text}` : null,
@@ -648,7 +664,7 @@ export function requirementModel(entry) {
 
   const line = (r, siblings = []) => {
     if (r.other) return { kind: 'other', text: r.shortLabel || r.label };
-    if (r.floor) return { kind: 'ib', text: r.ibText };
+    if (r.floor) return { kind: 'ib', text: r.ibText, floor: true };
     const t = r.translation;
     if (!t) return { kind: 'ib', text: nativeText(r) };
     if (t.diplomaExempt) {
@@ -658,7 +674,10 @@ export function requirementModel(entry) {
     const phrase = narrowedPhrase(r, siblings);
     if (!t.phrase) return { kind: 'none', text: `${t.local} — no IB route` };
     if (!phrase) return null; // every route is already named by a sibling
-    return { kind: 'ib', text: ibTermsLine(t, phrase), phrase, detail: phrase };
+    /* A card's shorter form of a grade that applies at one level only:
+       "Any IB Maths, 5+ in Maths SL (AA or AI)". */
+    const short = t.minIbGrade != null && t.waiver?.gradedPhrase ? `${phrase}, ${t.minIbGrade}+ in ${t.waiver.gradedPhrase}` : null;
+    return { kind: 'ib', text: ibTermsLine(t, phrase), phrase, detail: phrase, ...(short ? { short } : {}) };
   };
 
   const all = mergeSameSubject(entry?.all || []).map(({ r, merged }) => {
@@ -755,12 +774,17 @@ export function requirementModel(entry) {
   return { first, all, sets: sets.map((x) => (x.folded ? { ...x, implied: true, silent: true } : x)), floors: floorLine(entry?.quotaFloors) };
 }
 
-const partHtml = (x) =>
-  x.kind === 'other'
-    ? html`<span class="req-other">${x.text}</span>`
+/** How a part reads on a card: a points floor as "28+ IB points". */
+const cardText = (x) => (x.floor ? floorShort(x.text) : x.text);
+
+const partHtml = (x, { card = false } = {}) => {
+  const text = card ? keepTogether(cardText(x)) : x.text;
+  return x.kind === 'other'
+    ? html`<span class="req-other">${text}</span>`
     : x.kind === 'none'
-    ? html`<span class="req-none">${x.text}</span>`
-    : html`<span class="req-ib">${x.text}</span>`;
+    ? html`<span class="req-none">${text}</span>`
+    : html`<span class="req-ib">${text}</span>`;
+};
 
 /**
  * "(2 other options need a Danish-school subject)" — counted on a card,
@@ -777,66 +801,182 @@ function closedNote(closed, first, other = true) {
 export const CARD_NEEDS_BUDGET = 72;
 
 /**
+ * A requirement a card leaves off when at least this share of the catalogue
+ * asks for it too: "Any IB English" was on 44 of 67 home cards, and a line
+ * that says what every card says tells a student nothing (programme cards
+ * round 3). It still counts in "+n more", and the programme page keeps it.
+ */
+export const NEAR_UNIVERSAL = 0.5;
+
+/** The IB subjects a projected requirement names, as the catalogue writes them. */
+const namedOptions = (r) => (r?.option ? [r.option] : r?.translation?.options || []);
+
+/**
+ * What a unit asks about, for comparing it across the catalogue: the IB
+ * subject areas it names ("English", "Maths", or a subject's own id where it
+ * has no area), and " HL" when it accepts Higher Level only. So every way of
+ * asking for English — "Any IB English", "English B HL or English A — or
+ * English B SL 5+ with IELTS 7.0", a "one of" of five English courses — is
+ * one requirement, and "Maths HL (AA or AI)" is a different one from "Any IB
+ * Maths". A unit that names no IB subject is compared by its own words.
+ */
+function unitKey(items, fallback) {
+  const opts = items.flatMap(namedOptions);
+  if (!opts.length) return fallback;
+  const areas = [...new Set(opts.map((o) => o.area || o.id))].sort().join(' + ');
+  return opts.every((o) => o.levels?.length === 1 && o.levels[0] === 'HL') ? `${areas} HL` : areas;
+}
+
+/** A phrase's list items, split on commas and "or" outside parentheses. */
+function listItems(phrase) {
+  const out = [];
+  let depth = 0;
+  let cur = '';
+  const s = String(phrase);
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (c === '(') depth++;
+    if (c === ')') depth--;
+    if (!depth && c === ',') { out.push(cur); cur = ''; continue; }
+    if (!depth && s.startsWith(' or ', i)) { out.push(cur); cur = ''; i += 3; continue; }
+    cur += c;
+  }
+  out.push(cur);
+  return out.map((x) => x.trim()).filter(Boolean);
+}
+
+/**
  * The units a card's Needs line is made of, in the order a student reads
- * them: each requirement asked for outright, each "one of" (its options one
- * unit each, or its union as one), then each quota floor. `len` is the
- * characters it adds to the line; `group` marks an option inside a "one of".
+ * them: each requirement asked for outright, each "one of" as one unit, then
+ * each quota floor. A unit carries `key` (unitKey), `len` (the characters it
+ * adds to the line) and its markup; a "one of" carries a `compact` form too —
+ * one option and a count of the others — for when all of it does not fit.
+ * A "one of" is never shown cut down to one option without that count.
  */
 function needsUnits(model, first) {
   const units = [];
-  for (const x of model.all) units.push({ len: x.text.length, html: partHtml(x) });
-  model.sets.filter((set) => !set.implied).forEach(({ open, closed, union }, k) => {
+  const opt = (o) => ({
+    len: o.parts.reduce((n, x) => n + cardText(x).length + 3, 0) - 3,
+    html: html`${o.parts.map((x, n) => html`${n ? ' + ' : ''}${partHtml(x, { card: true })}`)}`,
+  });
+  model.all.forEach((x) => {
+    units.push({
+      key: unitKey([x.r, ...(x.merged || [])], x.text),
+      len: x.text.length,
+      html: partHtml(x, { card: true }),
+      compact: x.short ? { len: x.short.length, html: partHtml({ ...x, text: x.short }, { card: true }) } : null,
+    });
+  });
+  model.sets.filter((set) => !set.implied).forEach(({ open, closed, union }) => {
     if (!open.length) {
-      units.push({ len: 30, html: html`<span class="req-none">one of ${closedNote(closed, first, false)} (no IB route)</span>` });
+      const text = `one of ${closedNote(closed, first, false)} (no IB route)`;
+      units.push({ key: text, len: text.length, html: html`<span class="req-none">${text}</span>` });
       return;
     }
-    // The union already names every IB route: one unit.
-    if (union) { units.push({ len: union.text.length + 7, html: html`one of <span class="req-ib">${union.text}</span>` }); return; }
-    const opt = (o) => ({
-      len: o.parts.reduce((n, x) => n + x.text.length + 3, 0),
-      html: html`${o.parts.map((x, n) => html`${n ? ' + ' : ''}${partHtml(x)}`)}`,
-    });
+    const key = unitKey(open.flatMap((o) => o.groups.flat()), open.map((o) => o.parts.map((x) => x.text).join(' + ')).join(' / '));
     // A "one of" with a single option left is just another requirement.
-    if (open.length === 1) { units.push(opt(open[0])); return; }
-    open.forEach((o, i) => units.push({ ...opt(o), group: k, head: i === 0 }));
+    if (open.length === 1) { units.push({ key, ...opt(open[0]) }); return; }
+    // The union already names every IB route: one list of subjects.
+    if (union) {
+      const items = listItems(union.text);
+      // Named first: a subject taken at either level, the widest way in.
+      const lead = items.find((x) => !/\bHL$/.test(x)) || items[0];
+      units.push({
+        key,
+        len: union.text.length + 7,
+        html: html`one of <span class="req-ib">${keepTogether(union.text)}</span>`,
+        compact: items.length > 2 ? {
+          len: lead.length + 22,
+          html: html`<span class="req-pick">${keepTogether(lead)}</span> <span class="req__others">or ${items.length - 1} other subjects</span>`,
+        } : null,
+      });
+      return;
+    }
+    const options = open.map(opt);
+    units.push({
+      key,
+      len: options.reduce((n, o) => n + o.len + 3, 0) + 5,
+      html: html`one of: ${options.map((o, i) => html`${i ? ' / ' : ''}${o.html}`)}`,
+      compact: {
+        len: options[0].len + 20,
+        html: html`${options[0].html} <span class="req__others">or ${plural(options.length - 1, 'other route')}</span>`,
+      },
+    });
   });
-  for (const f of model.floors) units.push({ len: f.ib.length, html: html`<span class="req-ib">${f.ib}</span>` });
+  /* A floor already named as an option ("28+ IB points or 1 other route")
+     is not said twice. */
+  const named = new Set(model.sets.flatMap((set) => set.open.flatMap((o) => o.parts.map(cardText))));
+  for (const f of model.floors) {
+    if (named.has(f.card)) continue;
+    units.push({ key: `floor: ${f.card}`, len: f.card.length, html: html`<span class="req-ib">${keepTogether(f.card)}</span>` });
+  }
   return units;
 }
 
 /**
- * A card-sized summary: one Needs line in IB terms, as much of it as fits in
- * about two lines, and "+n more" for the rest (#46, both critics: one line per
- * block). The published form, the options with no IB route and the quota's
- * "below that" all stay on the programme page, one tap down — the whole card
- * links there. Returns '' for an entry with nothing to show.
+ * The steps beyond subjects that a programme asks everyone to take — "a
+ * portfolio", "an interview" — as card units, from `steps` (words the caller
+ * chose for the record's requirement kinds).
  */
-export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET } = {}) {
+const stepUnits = (steps = []) =>
+  steps.map((word) => ({ key: `step: ${word}`, len: word.length, html: html`<span class="req-other">${word}</span>` }));
+
+/** The comparison keys of everything a card could say about one programme. */
+export function needsKeys(entry, steps = []) {
+  const model = entry ? requirementModel(entry) : null;
+  return new Set([...(model ? needsUnits(model, model.first) : []), ...stepUnits(steps)].map((u) => u.key));
+}
+
+/**
+ * How much of the catalogue asks for each thing a card could show (key →
+ * share of programmes), so a card can lead with what makes its programme
+ * different. `items` is one { entry, steps } per programme; worked out once
+ * per catalogue by the caller.
+ */
+export function needsRarity(items) {
+  const n = new Map();
+  for (const { entry, steps } of items) for (const key of needsKeys(entry, steps)) n.set(key, (n.get(key) || 0) + 1);
+  const total = items.length || 1;
+  return new Map([...n].map(([k, c]) => [k, c / total]));
+}
+
+/**
+ * A card-sized summary: one Needs line in IB terms, about two lines long,
+ * that says what makes this programme different (#46: one line per block;
+ * round 3: the line showed what every card shares).
+ *
+ * With the catalogue's `rarity` (needsRarity), a requirement at least
+ * NEAR_UNIVERSAL of it asks for is left off the line, and the rest are taken
+ * rarest first while they fit; they are shown in reading order. Whatever is
+ * left off is counted, "+n more". Without `rarity` every unit is a candidate,
+ * in reading order. The published form, the options with no IB route and the
+ * quota's "below that" all stay on the programme page, one tap down — the
+ * whole card links there. Returns '' for an entry with nothing to show.
+ */
+export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET, rarity = null, steps = [] } = {}) {
   if (!entry) return '';
   const model = requirementModel(entry);
-  const units = needsUnits(model, model.first);
+  const units = [...needsUnits(model, model.first), ...stepUnits(steps)].map((u, i) => ({ ...u, i, share: rarity?.get(u.key) ?? 0 }));
   if (!units.length) return '';
 
-  // Take units in order while they fit; the first always shows. A unit that
-  // does not fit ends the line, so what shows is always the start of the list.
+  // What is distinctive, rarest first; if nothing is, what there is, in order.
+  const distinct = units.filter((u) => u.share < NEAR_UNIVERSAL);
+  const candidates = distinct.length ? distinct.sort((a, b) => a.share - b.share || a.i - b.i) : units;
+
+  const picked = [];
   let used = 0;
-  let shown = 0;
-  for (const u of units) {
-    const cost = u.len + (shown ? 3 : 0) + (u.head ? 8 : 0);
-    if (shown && used + cost > budget) break;
-    used += cost;
-    shown++;
+  for (const u of candidates) {
+    const gap = picked.length ? 3 : 0;
+    if (used + gap + u.len <= budget) { picked.push({ u, html: u.html }); used += gap + u.len; continue; }
+    if (u.compact && used + gap + u.compact.len <= budget) { picked.push({ u, html: u.compact.html }); used += gap + u.compact.len; continue; }
+    // The line is never empty: the rarest shows, in its shortest form.
+    if (!picked.length) { picked.push({ u, html: (u.compact || u).html }); used += (u.compact || u).len; }
   }
-  const hidden = units.length - shown;
-  const parts = units.slice(0, shown).map((u, i) => {
-    const prev = units[i - 1];
-    const inGroup = u.group !== undefined && prev?.group === u.group;
-    const sep = !i ? '' : inGroup ? ' / ' : ' · ';
-    return html`${sep}${u.head ? 'one of: ' : ''}${u.html}`;
-  });
+  picked.sort((a, b) => a.u.i - b.u.i);
+  const hidden = units.length - picked.length;
 
   return html`<div class="req" data-req>
-    <p class="req__ib"><strong>${lead}</strong> ${parts}${
+    <p class="req__ib"><strong>${lead}</strong> ${picked.map((p, i) => html`${i ? ' · ' : ''}${p.html}`)}${
       hidden ? html` <span class="req__count">+${hidden} more</span>` : ''
     }</p>
   </div>`;

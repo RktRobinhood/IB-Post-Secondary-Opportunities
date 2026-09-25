@@ -107,13 +107,13 @@ ${hero({
       { label: 'Starts', value: p.startMonth },
       { label: 'Apply by', value: closes.length ? prettyDate(closes[0].date) : null },
       {
-        label: p.restrictedAdmission ? (numericCutoff || !p.cutoff?.value ? 'Last cut-off' : 'Last intake') : 'Admission',
+        label: p.restrictedAdmission ? (numericCutoff ? 'Last cut-off' : p.cutoff?.value ? 'Last intake' : 'Admission') : 'Admission',
         /* IB points lead: for this reader "11.1" is the confusing number and
            "42 IB points" the one they can act on. The Danish figure follows. */
         value: p.restrictedAdmission === true
           ? numericCutoff
             ? p.cutoff.anyDiploma ? 'Any IB Diploma' : p.cutoff.ibPoints ? `${p.cutoff.ibPoints} IB points` : String(p.cutoff.value)
-            : p.cutoff?.value ? String(p.cutoff.value) : 'Restricted'
+            : p.cutoff?.value ? String(p.cutoff.value) : 'Limited places'
           : p.restrictedAdmission === false ? 'Open to all who qualify' : 'Not recorded',
         note: p.restrictedAdmission && numericCutoff
           ? [p.cutoff.ibPoints || p.cutoff.anyDiploma ? `Danish ${p.cutoff.value}` : null, p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ')
@@ -180,15 +180,15 @@ ${hero({
                 )
               : p.restrictedAdmission
               ? note(
-                  `This programme has restricted admission, so meeting the requirements does not guarantee a place.
+                  `Places on this programme are limited, so meeting the requirements does not guarantee a place.
                   ${cutoffSentence(p.cutoff, cutoffScale, scheme?.display?.averageExplainedAt ? url(scheme.display.averageExplainedAt) : null) ||
                     'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
-                  { kind: 'warn', title: 'Restricted admission' }
+                  { kind: 'warn', title: 'Limited places' }
                 )
               : note(
-                  `As recorded here, this programme does not have restricted admission — everyone who meets the
+                  `As recorded here, places on this programme are not limited — everyone who meets the
                   entry requirements is admitted. Confirm on the university's own page before you rely on it.`,
-                  { kind: 'ok', title: 'Open admission' }
+                  { kind: 'ok', title: 'Open entry' }
                 )}`,
           more: 'Requirements in full, and how places are allocated',
         })}

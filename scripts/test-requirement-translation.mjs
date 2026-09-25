@@ -37,7 +37,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mjs';
-import { requirementLine, requirementModel } from '../src/lib/components.mjs';
+import { requirementLine, requirementModel, floorShort } from '../src/lib/components.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -152,8 +152,18 @@ function faults(block, expect = null, { card = false } = {}) {
     if (local.length) out.push('a card shows the published form; it belongs on the programme page');
     for (const p of ib) if (!expect.allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the model produces for this programme`);
     const more = Number((block.match(/class="req__count">\+(\d+) more</) || [])[1] || 0);
-    const missing = [...expect.required].filter((p) => !ib.includes(p));
-    if (missing.length && !more) out.push(`"${missing[0]}" is neither shown nor counted in a "+n more"`);
+    // A "one of" shown as one option says how many others it has ("or 2 other routes").
+    const others = /class="req__others">or \d+ other/.test(block);
+    const shown = new Set(ib.map((p) => expect.alias?.get(p) || p));
+    const missing = [...expect.required].filter((p) => !shown.has(p));
+    if (missing.length && !more && !others) out.push(`"${missing[0]}" is neither shown nor counted in a "+n more"`);
+    /* Round 3: "one of: Any IB English +1 more" showed a choice of one. A
+       "one of:" names at least two options, or none. */
+    for (const m of block.matchAll(within('p', 'req__ib'))) {
+      for (const seg of text(m[1]).split(' · ').filter((x) => /one of:/.test(x))) {
+        if (!/ \/ /.test(seg)) out.push(`"${seg}" is a "one of" with a single option`);
+      }
+    }
   } else if (expect) {
     if (!local.length) out.push('the requirement as published is not shown beside its translation');
     if (firstLocal !== -1 && (firstIb === -1 || firstLocal < firstIb)) out.push('the published form comes before the IB terms');
@@ -167,13 +177,17 @@ function faults(block, expect = null, { card = false } = {}) {
 function expected(entry) {
   const model = requirementModel(entry);
   const open = model.sets.filter((x) => !x.implied);
+  /* A card writes a points floor without its quota's name, "31+ IB points",
+     and may write a one-level grade short, "Any IB Maths, 5+ in Maths SL". */
+  const cardText = (x) => (x.floor ? floorShort(x.text) : x.text);
   const card = new Set();
-  for (const x of model.all) if (x.kind === 'ib') card.add(x.text);
+  const shortForms = new Set();
+  for (const x of model.all) if (x.kind === 'ib') { card.add(x.text); if (x.short) shortForms.add(x.short); }
   for (const set of open) {
     if (set.union) card.add(set.union.text);
-    else for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(x.text);
+    else for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(cardText(x));
   }
-  for (const f of model.floors) card.add(f.ib);
+  for (const f of model.floors) card.add(f.card);
 
   const detail = new Set();
   const detailText = (r) =>
@@ -186,9 +200,11 @@ function expected(entry) {
   detail.delete(null);
   // A card may show an option on its own where the union is not formed, and
   // the page shows each option: either is an honest rendering of the model.
-  const allowed = new Set([...card, ...detail]);
-  for (const set of open) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') allowed.add(x.text);
-  return { card: { allowed, required: card }, detail: { allowed, required: detail } };
+  const allowed = new Set([...card, ...detail, ...shortForms]);
+  for (const set of open) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') allowed.add(cardText(x));
+  // A card's short form stands for the full one: shown, it counts as shown.
+  const alias = new Map(model.all.filter((x) => x.short).map((x) => [x.short, x.text]));
+  return { card: { allowed, required: card, alias }, detail: { allowed, required: detail } };
 }
 
 /* --- the guard can see what it is for ----------------------------------------- */
@@ -218,6 +234,8 @@ function expected(entry) {
   check('a card that drops a requirement without counting it is caught', faults(blocks(cut)[0], cardExpect, { card: true }).some((f) => /neither shown nor counted/.test(f)));
   const counted = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> <span class="req-ib">Any IB English</span> <span class="req__count">+1 more</span></p></div>';
   check('and one that counts it passes', faults(blocks(counted)[0], cardExpect, { card: true }).length === 0, faults(blocks(counted)[0], cardExpect, { card: true }).join('; '));
+  const single = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> one of: <span class="req-ib">Any IB English</span> <span class="req__count">+1 more</span></p></div>';
+  check('a "one of" showing a single option is caught (round 3, Crafts in Glass and Ceramics)', faults(blocks(single)[0], cardExpect, { card: true }).some((f) => /single option/.test(f)));
 }
 
 /* --- the built pages --------------------------------------------------------- */

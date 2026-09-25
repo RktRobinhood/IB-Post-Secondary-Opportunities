@@ -262,22 +262,28 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
   </ul>
   ${foldList ? raw('</details>') : ''}
 
+  ${/* One line under the map (home round 2: four grey paragraphs between the
+        globe and the results). The rest — hollow markers, what is outside
+        the frame, how to use it — one tap down. The globe adds its own hint
+        to the caption; site.css shows it only while "How to use" is open. */ ''}
   <figcaption class="world__caption">
     <span class="world__legend">
       <span class="world__legend-dot world__legend-dot--sm"></span>
       <span class="world__legend-dot world__legend-dot--lg"></span>
-      Larger means more opportunities here — not a better place.
+      Bigger light, more ${unit ? `${unit}s` : 'opportunities'}
     </span>
-    ${/* One line for every hollow marker, however many kinds of place it
-          stands for (round 4: two "Hollow markers" lines that disagreed). */
-      (() => {
-        const kinds = [...new Set(dots.filter((d) => cueFor(d)).map((d) => (d.precision === 'region' ? 'country' : 'city')))].sort();
-        return kinds.length ? html`<span class="world__legend">Hollow markers: placed at the ${kinds.join(' or the ')}, not at a campus.</span>` : '';
-      })()}
-    ${hidden > 0
-      ? html`<span class="world__legend">${plural(hidden, 'place')} outside this frame — in the list below, not on the map.</span>`
-      : ''}
-    ${caption ? html`<span>${caption}</span>` : ''}
+    ${(() => {
+      /* One line for every hollow marker, however many kinds of place it
+         stands for (round 4: two "Hollow markers" lines that disagreed). */
+      const kinds = [...new Set(dots.filter((d) => cueFor(d)).map((d) => (d.precision === 'region' ? 'country' : 'city')))].sort();
+      const more = [
+        'Size says how much is here, not how good a place is.',
+        kinds.length ? `Hollow markers: placed at the ${kinds.join(' or the ')}, not at a campus.` : '',
+        hidden > 0 ? `${plural(hidden, 'place')} outside this frame — in the list, not on the map.` : '',
+        caption || '',
+      ].filter(Boolean);
+      return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
+    })()}
   </figcaption>
 </figure>`;
 }

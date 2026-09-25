@@ -1321,7 +1321,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node._members = g.members;
         if (!onScreen) { node.hidden = true; continue; }
         node.hidden = false;
-        node.firstChild.textContent = String(g.members.length);
+        /* A group says how much it holds in the page's own unit (degrees on
+           the home page), the same number the doors and the count use — not
+           how many places it covers (home round 2: "40" against "57 degrees"). */
+        node.firstChild.textContent = String(g.count || g.members.length);
         const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;

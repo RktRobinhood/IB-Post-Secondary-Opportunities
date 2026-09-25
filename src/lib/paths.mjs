@@ -19,8 +19,8 @@
  * scripts/test-unique-images.mjs reads this file back for literals.
  */
 import { html } from './html.mjs';
-import { url } from './layout.mjs';
-import { requirementModel, requirementSummary, requirementLine } from './components.mjs';
+import { url, SITE } from './layout.mjs';
+import { requirementModel, requirementSummary, requirementLine, needsRarity, keepTogether } from './components.mjs';
 import { entryAward, ENTRY_AWARD } from './eligibility.mjs';
 import { COMPARABLE_LEVEL } from './credentials.mjs';
 import { cardKey, families } from './families.mjs';
@@ -128,16 +128,36 @@ export function credentialLine(facets) {
 
 /* --- Admission facts, for comparing paths ------------------------------- */
 
-/** The last cut-off as a card tag, IB points first. Null when unrestricted. */
+/* The year this site's students start, from the cycle it is built for
+   ("Autumn 2027"), so a cut-off from the year before reads "Last year". */
+const ENTRY_YEAR = Number((String(SITE.cycle?.intake || '').match(/\d{4}/) || [])[0]) || null;
+
+/**
+ * Last year's cut-off as a plain fact, or null. `when` is "Last year" for the
+ * round before this site's intake and the year itself otherwise; `value` is
+ * "38 IB points", "any Diploma" or "all qualified" — never a local scale, which
+ * the programme page keeps (#46). Null for an unrestricted programme and for a
+ * restricted one with no published figure: "Restricted admission" said
+ * nothing a student can act on (programme cards round 3).
+ */
+export function cutoffFact(p) {
+  if (!p.restrictedAdmission || !p.cutoff?.value) return null;
+  const year = Number((String(p.cutoff.intake || '').match(/\d{4}/) || [])[0]) || null;
+  const when = year && ENTRY_YEAR && ENTRY_YEAR - year === 1 ? 'Last year' : year ? String(year) : 'Last year';
+  const v = String(p.cutoff.value).trim();
+  // "All admitted", "All qualified applicants accepted": nobody qualified was turned away.
+  if (/^all\b/i.test(v)) return { when, value: 'all qualified', open: true };
+  if (!/^\d+([.,]\d+)?$/.test(v)) return null;
+  if (p.cutoff.anyDiploma) return { when, value: 'any Diploma' };
+  if (p.cutoff.ibPoints) return { when, value: `${p.cutoff.ibPoints} IB points` };
+  return null;
+}
+
+/** "Last year: 38 IB points" / "Last year: all qualified got in", for a card's tag. */
 export function cutoffLabel(p) {
-  if (!p.restrictedAdmission) return null;
-  const v = p.cutoff?.value;
-  if (!(v && /^\d+([.,]\d+)?$/.test(String(v).trim()))) return 'Restricted admission';
-  /* In IB terms only: the institution's own number is on the programme page,
-     and on a card it made the tag too long for one line (#46). */
-  if (p.cutoff.anyDiploma) return 'Last cut-off: any IB Diploma';
-  if (p.cutoff.ibPoints) return `Last cut-off ${p.cutoff.ibPoints} IB points`;
-  return `Last cut-off ${v}`;
+  const f = cutoffFact(p);
+  if (!f) return null;
+  return `${f.when}: ${f.open || f.value === 'any Diploma' ? `${f.value} got in` : f.value}`;
 }
 
 const AWARD_TEXT = {
@@ -146,25 +166,99 @@ const AWARD_TEXT = {
   [ENTRY_AWARD.NOT_ESTABLISHED]: null,
 };
 
+/**
+ * The card's admission vocabulary: four kinds of tag, one per card, in plain
+ * words (programme cards round 3: six ways to say it, and Danish jargon).
+ * Anything else a card might have said is on the programme page.
+ */
+export const TAG_KINDS = {
+  cutoff: 'sand',                      // "Last year: 38 IB points"
+  open: 'ok',                          // "Open entry"
+  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'plain',          // "Full Diploma"
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'ok',      // "Diploma or Course Results"
+};
+const AWARD_TAG = {
+  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'Full Diploma',
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'Diploma or Course Results',
+};
+
 /** What a path asks, as short strings in IB terms, for comparison. */
 function admissionOf(site, p) {
   const opp = site.graph?.opportunities?.get(p.opportunityId || p.id);
   const model = requirementModel(p.entryRequirements);
   const withoutFloors = p.entryRequirements ? { ...p.entryRequirements, quotaFloors: [] } : null;
-  const award = opp ? entryAward(opp) : null;
+  const award = opp ? entryAward(opp) : entryAward(p);
+  const cut = cutoffFact(p);
   return {
     floor: model.floors.map((f) => f.ib).join('; ') || null,
-    // The floor without its quota's name, for a card row: "at least 31 IB points".
-    floorShort: model.floors.map((f) => f.ib.replace(`${f.quota}: `, '')).join('; ') || null,
+    // The floor as a card writes it: "31+ IB points".
+    floorShort: model.floors.map((f) => f.card).join('; ') || null,
     floorLocal: model.floors.map((f) => f.local).join('; ') || null,
+    awardKey: award,
     award: award ? AWARD_TEXT[award] : null,
-    awardShort: award ? AWARD_SHORT[award] || null : null,
+    awardShort: AWARD_TAG[award] || null,
     cutoff: cutoffLabel(p),
-    cutoffShort: p.restrictedAdmission && p.cutoff?.ibPoints ? `cut-off ${p.cutoff.ibPoints} IB points`
-      : p.restrictedAdmission && p.cutoff?.anyDiploma ? 'cut-off: any Diploma' : cutoffLabel(p),
+    cutoffValue: cut ? cut.value : null,
+    cutoffShort: cut ? `${cut.when.toLowerCase()} ${cut.value}` : null,
+    open: p.restrictedAdmission === false,
     // Every subject requirement in full, to tell whether the paths share them.
     subjects: requirementLine(withoutFloors),
   };
+}
+
+/**
+ * A card's one tag, from what is true of every path it holds: last year's
+ * cut-off is the most telling, then open entry, then the IB award asked for.
+ * One tag, not three (#46), and one of TAG_KINDS' four kinds.
+ */
+export function cardTag({ cutoff = null, open = false, award = null } = {}) {
+  if (cutoff) return { label: cutoff, mod: TAG_KINDS.cutoff };
+  if (open) return { label: 'Open entry', mod: TAG_KINDS.open };
+  if (AWARD_TAG[award]) return { label: AWARD_TAG[award], mod: TAG_KINDS[award] };
+  return null;
+}
+
+/* How a selection step is said on a card, by the schema's requirement kind. */
+const SELECTION_WORDS = {
+  essay: 'a written statement',
+  test: 'a test',
+  portfolio: 'a portfolio',
+  interview: 'an interview',
+  audition: 'an audition',
+  'work-sample': 'a work sample',
+  activity: 'your experience',
+};
+
+/**
+ * For a programme with no subject requirements to show, the card's one line
+ * is how places are decided: "Selected on a portfolio · an interview", from
+ * its Selection Factors (`mandatory: false`). What they weigh, and anything
+ * the schema has no word for, is on the programme page. '' when there are none.
+ */
+export function selectionLine(p) {
+  const steps = stepsOf(p, { selection: true });
+  if (!steps.length) return '';
+  return html`<div class="req"><p class="req__ib"><strong>Selected on</strong> ${steps.join(' · ')}</p></div>`;
+}
+
+/**
+ * The steps a programme asks of everyone beyond its subjects ("a portfolio",
+ * "a test"), or, with `selection`, the ones that rank those who qualify —
+ * in the card's words, from the record's requirement kinds.
+ */
+export function stepsOf(p, { selection = false } = {}) {
+  return [...new Set((p.requirements || [])
+    .filter((r) => (selection ? r.mandatory === false : r.mandatory !== false))
+    .map((r) => SELECTION_WORDS[r.kind]).filter(Boolean))];
+}
+
+const RARITY = new WeakMap();
+
+/** How common each thing a card could say is across this catalogue (needsRarity), worked out once. */
+export function rarityOf(site) {
+  const list = site.programmes || [];
+  if (!RARITY.has(list)) RARITY.set(list, needsRarity(list.map((p) => ({ entry: p.entryRequirements, steps: stepsOf(p) }))));
+  return RARITY.get(list);
 }
 
 /* --- Cards: one per programme, or one per family ------------------------ */
@@ -197,30 +291,11 @@ export function cardGroups(site, programmes) {
 const AXIS_HEAD = { credential: 'paths', campus: 'campuses', specialisation: 'paths' };
 
 /**
- * A card's one tag, chosen from what is true of every path it holds: a last
- * cut-off with a number is the most telling, then open admission, then the IB
- * award asked for, then plain "Restricted admission". One tag, not three
- * (#46: one line per block).
- */
-export function cardTag({ cutoff = null, open = false, award = null } = {}) {
-  if (cutoff && /\d/.test(cutoff)) return { label: cutoff, mod: 'sand' };
-  if (open) return { label: 'Open admission', mod: 'ok' };
-  if (award) return award;
-  if (cutoff) return { label: cutoff, mod: 'sand' };
-  return null;
-}
-
-const AWARD_SHORT = {
-  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'Course Results accepted',
-  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'full Diploma',
-};
-
-/**
  * Everything a family card shows, as data: the credential line — never
  * without the degree: "BSc or BEng · 3–3½ yrs · Sønderborg" when the paths
  * differ (programme cards round 2, change 1) — the requirement summary
  * (floors moved to the rows when they differ), one short row per path, and
- * what every path shares, for the tag. A single-member group returns null.
+ * its one tag, from what every path shares. A single-member group returns null.
  */
 export function familyCard(site, group, { campus = true } = {}) {
   if (!group.family || group.members.length < 2) return null;
@@ -250,7 +325,7 @@ export function familyCard(site, group, { campus = true } = {}) {
     return {
       href: p.href,
       label: f.tag ? `${label} (${f.tag})` : label,
-      // Short, so each row stays one line: "full Diploma · at least 31 IB points".
+      // Short, so each row stays one line: "Full Diploma · 31+ IB points".
       detail: [
         awardDiffer ? adm[i].awardShort : null,
         floorsDiffer ? adm[i].floorShort : null,
@@ -270,20 +345,54 @@ export function familyCard(site, group, { campus = true } = {}) {
     title: group.family.name,
     href: lead.href,
     line,
-    req: requirementSummary(floorsDiffer && leadEntry ? { ...leadEntry, quotaFloors: [] } : leadEntry),
+    req: requirementSummary(floorsDiffer && leadEntry ? { ...leadEntry, quotaFloors: [] } : leadEntry, { rarity: rarityOf(site), steps: stepsOf(lead) }),
     paths: {
       head: `${members.length} ${AXIS_HEAD[axis] || 'paths'}`,
       rows,
       note: subjectsDiffer ? 'The subject options differ slightly between them.' : null,
     },
-    // What every path shares, for the card's one tag (cardTag).
-    shared: {
+    // One tag, and only one every path shares.
+    tag: cardTag({
       cutoff: cutoffDiffer ? null : adm[0].cutoff,
-      open: members.every((p) => p.restrictedAdmission === false),
-      awardSame: !awardDiffer,
-    },
-    tag: cutoffDiffer ? null : adm[0].cutoff,
+      open: adm.every((a) => a.open),
+      award: awardDiffer ? null : adm[0].awardKey,
+    }),
     backdrop: lead.backdrop,
+  };
+}
+
+/**
+ * The props of one programme card, the same on every page that draws one
+ * (the home page, an institution's page): a family's card, or a single
+ * programme's — its credential line, its Needs line (what makes it
+ * different, components.mjs requirementSummary), or how places are decided
+ * when it has no subject requirements, and its one tag. `meta` is the page's
+ * own footer line. The campus is always named: a card is read on its own.
+ */
+export function programmeCard(site, group, { meta = [] } = {}) {
+  const fam = familyCard(site, group, { campus: true });
+  if (fam) {
+    return {
+      href: fam.href,
+      title: fam.title,
+      line: fam.line,
+      backdrop: fam.backdrop,
+      req: fam.req,
+      paths: pathsBlock(fam.paths),
+      meta,
+      tags: [fam.tag].filter(Boolean),
+    };
+  }
+  const p = group.lead;
+  const adm = admissionOf(site, p);
+  return {
+    href: p.href,
+    title: p.name,
+    line: credentialLine(facetsOf(site, p, { campus: true })),
+    backdrop: p.backdrop,
+    req: p.entryRequirements ? requirementSummary(p.entryRequirements, { rarity: rarityOf(site), steps: stepsOf(p) }) : selectionLine(p),
+    meta,
+    tags: [cardTag({ cutoff: adm.cutoff, open: adm.open, award: adm.awardKey })].filter(Boolean),
   };
 }
 
@@ -327,15 +436,17 @@ export function pathsTable(site, p, inst) {
   const quota = requirementModel(p.entryRequirements).floors[0]?.quota;
   const floorHead = quota ? `${quota} needs` : 'Minimum to apply';
   const stripLead = (t) => (t && quota ? t.split(`${quota}: `).join('') : t) || null;
+  // A figure stays on the line of its words: no "7.0" alone on a phone (round 3, bug 9).
+  const keep = (t) => (t ? keepTogether(t) : null);
 
   const cols = [
     { head: 'Degree', cell: (i) => facets[i].degree },
     { head: 'Length', cell: (i) => [facets[i].years, ects(members[i]) ? `${ects(members[i])} ECTS` : null].filter(Boolean).join(' · ') || null },
     { head: 'Campus', cell: (i) => facets[i].campus },
     { head: 'Starts', cell: (i) => members[i].startMonth || null },
-    { head: floorHead, cell: (i) => stripLead(adm[i].floor), small: (i) => stripLead(adm[i].floorLocal) },
+    { head: floorHead, cell: (i) => keep(stripLead(adm[i].floor)), small: (i) => keep(stripLead(adm[i].floorLocal)) },
     { head: 'DP Course Results', cell: (i) => (adm[i].award === AWARD_TEXT[ENTRY_AWARD.COURSE_RESULTS_ACCEPTED] ? 'Accepted' : adm[i].award === AWARD_TEXT[ENTRY_AWARD.DIPLOMA_REQUIRED] ? 'Full Diploma needed' : 'Not recorded') },
-    { head: 'Last cut-off', cell: (i) => adm[i].cutoff?.replace(/^Last cut-off:?\s*/, '') || null },
+    { head: 'Last cut-off', cell: (i) => (adm[i].cutoffValue === 'all qualified' ? 'all qualified got in' : adm[i].cutoffValue) },
   ]
     // Only what differs, and not a column that repeats the path's own name
     // (a campus family's paths are already called after their campuses).

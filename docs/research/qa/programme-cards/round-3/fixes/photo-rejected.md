@@ -1,0 +1,53 @@
+# Lookalike pass photo sourcing, 26 Sep 2026 — rejected candidates (one line each)
+
+- Frankfurt Stock Exchange (Ank Kumar) 01.jpg / 03.jpg — big readable "BÖRSE FRANKFURT" ring sign in the upper third.
+- Frankfurt Stock Exchange (Ank Kumar) 04/05/06.jpg, (Ank Kumar, Infosys) 02.jpg — close-ups of a spreadsheet screen / a mural photo; readable text, no place.
+- Frankfurt Stock Exchange (Ank Kumar) 07/08/09.jpg — floor of ticker-symbol tiles; all text.
+- NYSE Advanced Trading Floor.jpg — abstract blue projection wall, reads as the data-visualisation wall already on the site.
+- Stock-exchange-trading-floor.jpg — empty trading hall, flat and dull at card size.
+- MareNostrum racks close-ups (BSC-MareNostrum-B/C/D/E) — plain rack rows, too close to the existing server-room card.
+- MareNostrum III capilla / capilla 2 — chapel wall with no computer in frame.
+- BSC MareNostrum 5 (54686085845).jpg — lit racks but no context; reads as a server room.
+- Periscope Digital Agency Office (39448345044).jpg — a shop sign with a readable company name.
+- Admind agency office interior.jpg — a staircase with a giant readable agency name; 1250 px.
+- STUDIO 2 1.jpg — empty white cyclorama, portrait, nothing happening.
+- Studioarrangement for product photography and video 2296.jpg — cluttered softbox tangle; the rank-1 studio is cleaner.
+- Filming, News reports.jpg — press interview with a broadcaster's mic flag (logo).
+- THREE PREGNANCY - BEHIND THE SCENES - P1.jpg — event photo wall with readable Chinese/English banner text.
+- Velodyne Lidar Autonomous Shuttle.jpg — big readable brand name on the vehicle.
+- Television studio, Singapore Media Academy - 20150730.jpg — control-desk monitors showing the academy's name.
+- Newsroom ARD aktuell tagesschau WLB 2023 von oben01.jpg — railing slats fill the lower third; von oben02 is the cleaner view of the same room.
+- Frankfurt / NYSE trading floors: only (Ank Kumar) 02 kept; rest rejected as above.
+- Canary Wharf from Limehouse June 2016 HDR.jpg — night skyline over water too close to the container-port-at-sunset card.
+- La Défense, business district of Paris, 7 September 2020.jpg — mall signage (readable brand) and busy rail tracks in the lower third.
+- Interior of Markthal (Rotterdam).jpg / - 2025.jpg / Markthal Rotterdam (overview).jpg — shop fascias with readable names ("Cheese & More") or a dense crowd across the lower half.
+- Markthal (Rotterdam) pic12/13.JPG — big "Van Delft" shop sign; pic4 fine but ground-level and busier than the balcony view picked.
+- Skyline Amsterdam Zuidas.jpg — construction fences and parked vans across the lower third.
+- Zuidas Business District @ Amsterdam (16202275323).jpg — a gym's readable name on the facade; a sculpture, not a district.
+- Alley of flags UNO Geneva.jpg / Palace of Nations - flags(.JPG, - 2, - 3) — seen through a fence/gate or from the side; the picked view is cleaner.
+- Berlaymont building 2022 / 2024 — building facade only (2022) or yellow-blue barriers across the lower third (2024).
+- Robert Schuman roundabout / Rond-Point Schuman 11-14 — cars (2016) or a plain office block.
+- Self-checkout photos (Meny Norway series, EDEKA, Publix, ICA, Pepco, Sweden) — cluttered, with readable retailer names and product brands; not beautiful.
+- Heathrow T4 / Taipei check-in / Zurich Check-in 3 — airline and airport signage dominates.
+- Zuerich airport baggage handling 01/02 — a baggage-reclaim hall, dull at card size.
+- Region of Waterloo airport operations centre 1-4 — building exteriors and snowploughs.
+- Humber VTS control centre — a tower with a readable operator sign.
+- Centre supervision T5 (écran / Fourcade) — a screen close-up with a brand logo / people at desks with monitors.
+- Civilian air traffic controllers, Memphis — dated, faded colour.
+- Tower (602732164).jpg — silhouettes against windows, too close to the data-wall silhouettes card; 2048 px.
+- Goddard TV Control Room.jpg — NASA control room, reads as a generic ops room.
+- Ocado warehouse bots.jpg — readable Ocado logo; same scene type as the AutoStore pick.
+- G-Com Carrys und Regale in Bewegung7.jpg — shelving aisles, too close to the existing warehouse-racks card.
+- Almacén Automático Mini Load / Automated Storage and Retrieval System / Kommissionierroboter Münster — rack aisles; readable ULMA sign on one.
+- Starship robot close-ups (Sörnäinen, Niittykumpu, Loviisa, Milton Keynes) — large readable "Starship"/retailer branding; Oulu night and Espoo shots too dark or robot too small.
+- BLW High Speed Sorting Machine..jpg — a museum model behind glass.
+- ICPC 2019 Harvard / ITMO 2013 / ITMO 2015 / Waterloo 2005 / ASTU NEERC2008 — award ceremonies, team poses, sponsor walls.
+- Programming code.jpg / RustCodeOnScreen.jpg — legible code text over the whole frame would show through the card title.
+- Circumference C25 (Raspberry Pi cluster case) — a product shot on white.
+- Bletchley Park Bombe / Colossus shots — museum machinery; reads as "gears/circuit board", already on the site, and is history not study.
+- Hackathon group/ceremony photos (WTS 2024, Wikimedia hackathons, Jugend hackt stage shots, Jugend hackt Berlin 2018 microphone) — banners, stages, projection slides or people-round-a-table like existing cards.
+- Hackathon participants 20221112-3.jpg — people round a meeting table with laptops (already on the site).
+- WikiGameJam NYC 2025 from above 01 — cluttered event space, speaker and chairs.
+- Television studio, Singapore Media Academy / recording studios — control desks showing the academy name; mixing desks read as audio, not business.
+- Photoshoot 1.jpg / Elizabeth (15519815056).jpg — portrait/glamour photos, not a studio scene.
+- Zoox sensor close-up 07 — readable vehicle number; the Yandex roof unit is cleaner.

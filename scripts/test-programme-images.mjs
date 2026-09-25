@@ -399,6 +399,51 @@ check('every programme card: a degree on its credential line, one Needs line, on
   assert.deepEqual(bad.slice(0, 12), [], `${bad.length} cards`);
 });
 
+/* Round 3: six ways to talk about admission on the tags ("Accepts Course
+   Results", "Diploma, or another route", "Restricted admission", …) and a
+   seventh on the Needs line, with one country's jargon ("Quota 1") among
+   them. At most four kinds of tag, in plain words, and no jargon on a card. */
+const TAG_KIND = [
+  ['last year', /^(?:Last year|\d{4}): /],
+  ['open', /^Open entry$/],
+  ['diploma', /^Full Diploma$/],
+  ['course results', /^Diploma or Course Results$/],
+];
+function vocabularyFaults(cards) {
+  const out = [];
+  const kinds = new Set();
+  for (const c of cards) {
+    const id = (c.match(/\/programmes\/([a-z0-9-]+)\//) || [])[1];
+    for (const m of c.matchAll(/<li class="tag\b[^"]*">([\s\S]*?)<\/li>/g)) {
+      const label = cardText(m[1]);
+      const kind = TAG_KIND.find(([, re]) => re.test(label));
+      if (!kind) out.push(`${id}: the tag "${label}" is not one of the card's four kinds`);
+      else kinds.add(kind[0]);
+    }
+    const words = cardText(c);
+    for (const bad of [/\bQuota \d/, /Restricted admission/, /\bRequires\b/]) if (bad.test(words)) out.push(`${id}: says "${words.match(bad)[0]}"`);
+  }
+  if (kinds.size > 4) out.push(`${kinds.size} kinds of tag`);
+  return out;
+}
+
+check('the admission vocabulary guard can see what it is for', () => {
+  const old = '<article class="card card--link card--backdrop"><a href="/programmes/x/">x</a><ul class="tags"><li class="tag tag--sand">Restricted admission</li></ul>' +
+    '<p class="req__ib"><strong>Needs</strong> <span class="req-ib">Quota 1: at least 31 IB points</span></p></article>';
+  const f = vocabularyFaults([old]);
+  assert.ok(f.some((x) => /not one of/.test(x)), 'misses "Restricted admission"');
+  assert.ok(f.some((x) => /Quota/.test(x)), 'misses "Quota 1" on a card');
+  assert.deepEqual(vocabularyFaults(['<article class="card card--link card--backdrop"><ul class="tags"><li class="tag tag--sand">Last year: 38 IB points</li></ul></article>']), []);
+});
+
+check('every programme card speaks one admission vocabulary: at most four kinds of tag, no quota names, no "Restricted admission"', () => {
+  const pages = ['index.html', ...site.institutionCatalogue.all.filter((i) => i.programmes.length).map((i) => path.join(i.href, 'index.html'))];
+  const cards = pages.map(built).filter(Boolean).flatMap(programmeCards);
+  assert.ok(cards.length > 50, `only ${cards.length} programme cards found`);
+  const bad = vocabularyFaults(cards);
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} faults`);
+});
+
 check('the first screen of the discovery surface has twelve different titles, and "Show all" counts cards truthfully', () => {
   const page = built('index.html');
   const cards = [...page.matchAll(/<li class="discover__card"[^>]*>\s*(<article[\s\S]*?<\/article>)/g)].map((m) => m[1]);
@@ -407,6 +452,44 @@ check('the first screen of the discovery surface has twelve different titles, an
   assert.deepEqual(twice, [], `repeated in the first twelve: ${twice.join(', ')}`);
   const summary = cardText((page.match(/<details class="discover__more"[\s\S]*?<summary>([\s\S]*?)<\/summary>/) || [])[1] || '');
   if (summary) assert.ok(summary.includes(`${cards.length} card`), `"${summary}" does not say the ${cards.length} cards it opens`);
+});
+
+/* --- 6. The home page lands on places (#44 round 2) ----------------------
+   The first screen had no photograph: a form in the hero pushed the cards
+   below the fold. The filters are one row — the search and "Filters", a
+   sheet at every width — and the legend under the globe is one line. A door
+   ends on its researched countries' tiles, and a word with no degree can
+   find the degrees whose descriptions use it. */
+
+check('the discovery surface folds its filters into one row: a sheet at every width', () => {
+  const page = built('index.html');
+  assert.ok(/id="f-sheet-open"/.test(page) && /class="finder__sheet" id="f-sheet"/.test(page), 'no "Filters" button and sheet');
+  const css = read('src/assets/css/site.css');
+  // The rule that hides the sheet once the script is there, outside any @media block.
+  const topLevel = css.replace(/@media[^{]*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/g, '');
+  assert.ok(/\.discover__filters\[data-enhanced\] \.finder__sheet \{ display: none; \}/.test(topLevel), 'the sheet is folded only at some widths');
+});
+
+check('the legend under the globe is one line; the rest is one tap down', () => {
+  const page = built('index.html');
+  const caption = (page.match(/<figcaption class="world__caption">([\s\S]*?)<\/figcaption>/) || [])[1] || '';
+  const outside = caption.replace(/<details class="world__how">[\s\S]*?<\/details>/, '');
+  const lines = (outside.match(/class="world__legend"/g) || []).length;
+  assert.equal(lines, 1, `${lines} legend lines outside "How to use the globe"`);
+  assert.ok(/<details class="world__how">/.test(caption), 'no "How to use the globe"');
+});
+
+check('every researched country with no mapped degree is a tile a door can land on, and every degree carries its description\'s words', () => {
+  const page = built('index.html');
+  const tpl = (page.match(/<template id="discover-places-tiles">([\s\S]*?)<\/template>/) || [])[1] || '';
+  const scopes = [...tpl.matchAll(/<li data-scope="([a-z]+)">/g)].map((m) => m[1]);
+  const code = (p) => (typeof p.destination === 'object' ? p.destination?.code : p.destination);
+  const withDegrees = new Set(site.programmes.map(code));
+  const researched = [...(site.destinations || []), ...(site.countries || [])].map((d) => d.code).filter((c) => c && !withDegrees.has(c));
+  assert.equal(scopes.length, new Set(researched).size, `${scopes.length} tiles for ${new Set(researched).size} countries`);
+  const data = JSON.parse((page.match(/<script type="application\/json" id="discover-data">([\s\S]*?)<\/script>/) || [])[1] || '{}');
+  const bare = data.cards.flatMap((c) => c.members).filter((m) => typeof m.w !== 'string');
+  assert.deepEqual(bare.map((m) => m.id), []);
 });
 
 const SOURCES = [

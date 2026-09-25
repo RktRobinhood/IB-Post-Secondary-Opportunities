@@ -15,7 +15,7 @@
  * Back puts the cards, the camera and the scroll position back together. The
  * globe pushes its own entries when a place or country is chosen on it; a
  * filter that follows from that choice is written into the globe's entry
- * rather than a second one, so one Back undoes one choice. On a phone the
+ * rather than a second one, so one Back undoes one choice. At every width the
  * filters open as a sheet: opening it is one entry, the choices inside it one
  * step, and Back or "Show" closes it with the choices kept.
  *
@@ -56,17 +56,20 @@ const els = {
   places: $('discover-places'),
   more: $('discover-more'),
   ways: $('discover-empty-ways'),
+  emptyLine: $('discover-empty-line'),
+  placesLine: $('discover-places-line'),
   map: $('prog-map'),
   sheet: $('f-sheet'),
   sheetOpen: $('f-sheet-open'),
   presets: [...document.querySelectorAll('.preset[data-scope]')],
 };
 /* The researched countries with no mapped degree ship as a template (they are
-   shown only when a distance has no degree), stamped here once. */
+   shown only after a door, or for a word with nothing near it), stamped here once. */
 {
   const tpl = $('discover-places-tiles');
   if (tpl && els.places) els.places.append(tpl.content.cloneNode(true));
 }
+const FIRST_SHOWN = els.results?.children.length || 0;
 const cardEls = new Map([...document.querySelectorAll('[data-card]')].map((el) => [Number(el.dataset.card), el]));
 
 const esc = (s) =>
@@ -130,10 +133,12 @@ function chipCounts() {
 
 const world = enhanceWorld(els.map?.querySelector('.world'));
 
-function paintMap() {
+function paintMap(near = null) {
   if (!world) return;
   const counts = new Map();
-  for (const c of CARDS) for (const m of c.members) if (m.p && matches(m)) counts.set(m.p, (counts.get(m.p) || 0) + 1);
+  // The degrees on show: the matches, or the ones near a word that matched none.
+  const lit = near?.size ? [...near.values()].flat() : CARDS.flatMap((c) => c.members.filter((m) => matches(m)));
+  for (const m of lit) if (m.p) counts.set(m.p, (counts.get(m.p) || 0) + 1);
   // A Destination with no mapped degree stays lit until a filter asks about
   // degrees; then it has nothing to match and dims with the rest.
   if (!narrowed()) {
@@ -196,7 +201,7 @@ world?.figure.addEventListener('world:select', (e) => {
 
 /* --- Rendering ------------------------------------------------------------------- */
 
-const LABELS = { q: 'Search', field: 'Subject', where: 'Where', place: 'Place', award: 'IB award', open: 'Open admission', nomath: 'No Maths HL needed', scope: 'Distance' };
+const LABELS = { q: 'Search', field: 'Subject', where: 'Where', place: 'Place', award: 'IB award', open: 'Open entry', nomath: 'No Maths HL needed', scope: 'Distance' };
 
 function chosenLabel(key, value) {
   if (key === 'award') return els.award && value === els.award.dataset.value ? 'Accepts Course Results' : `${LABELS.award}: ${value}`;
@@ -209,27 +214,75 @@ function chosenLabel(key, value) {
   return option ? option.textContent.trim().replace(/\s*\(\d+\)$/, '') : value;
 }
 
-/* No degree matches: a way out for each filter that is on, one at a time,
-   and any guide whose title shares a word with the search ("medicine" has a
-   guide even where no degree is mapped yet). */
-const GUIDES = DATA.guides || [];
-function renderWays() {
-  if (!els.ways) return;
-  const ways = Object.entries(state)
-    .filter(([k, v]) => v && k !== 'scope')
-    .map(([k, v]) => {
-      const label = k === 'place' ? PLACES[v]?.name || v : v === true ? LABELS[k] : k === 'q' ? `“${v}”` : chosenLabel(k, v);
-      return `<li><button type="button" class="chip" data-clear="${k}">Without ${esc(label)}</button></li>`;
+/* --- A word that names no degree ------------------------------------------------ *
+ *
+ * "psychology" and "law" are the name of no degree on the map, and answering
+ * them with "No degrees" was a dead end (home round 2). The degrees whose own
+ * descriptions use the word — or a word that shares its stem, "economist" and
+ * "economics" — are the nearest thing on the map, and their subject areas are
+ * the way on. Read from each degree's description (discover.mjs `w`); no list
+ * of synonyms, and nothing here names a subject.
+ */
+const searchTerms = (q) => String(q || '').toLowerCase().split(/\s+/).filter((t) => t.length >= 3);
+const stemMatch = (t, w) => w === t || w === `${t}s` || (t.length >= 6 && w.startsWith(t.slice(0, t.length - 2)));
+function nearest(st = state) {
+  const terms = searchTerms(st.q);
+  if (!terms.length) return new Map();
+  const rest = { ...st, q: '' };
+  const out = new Map();
+  CARDS.forEach((c, n) => {
+    const hits = c.members.filter((m) => {
+      if (!matches(m, rest)) return false;
+      const words = `${m.q} ${m.w || ''}`.split(/[^\p{L}]+/u);
+      return terms.every((t) => words.some((w) => stemMatch(t, w)));
     });
-  const terms = (state.q || '').toLowerCase().split(/\s+/).filter((t) => t.length > 3);
+    if (hits.length) out.set(n, hits);
+  });
+  return out;
+}
+
+/* No degree matches: the nearest degrees and their subject areas, any guide
+   whose title shares a word with the search ("medicine" has a guide even
+   where no degree is mapped yet), and a way out for each filter that is on. */
+const GUIDES = DATA.guides || [];
+function renderWays(near) {
+  if (!els.ways) return;
+  const on = Object.entries(state).filter(([k, v]) => v && k !== 'scope');
+  const quoted = state.q ? `“${state.q.trim()}”` : '';
+  const nearCount = [...near.values()].reduce((n, h) => n + h.length, 0);
+  if (els.emptyLine) {
+    els.emptyLine.textContent = on.length === 1 && on[0][0] === 'q'
+      ? `Nothing on the map is called ${quoted} yet${nearCount ? `, but it comes up in ${plural(nearCount, 'degree')} below.` : '.'}`
+      : on.length === 1 ? 'No degree matches that yet.' : 'No degree matches all of those yet.';
+  }
+  const ways = on.map(([k, v]) => {
+    const label = k === 'place' ? PLACES[v]?.name || v : v === true ? LABELS[k] : k === 'q' ? `“${v}”` : chosenLabel(k, v);
+    return `<li><button type="button" class="chip" data-clear="${k}">Without ${esc(label)}</button></li>`;
+  });
+  const terms = searchTerms(state.q).filter((t) => t.length > 3);
   const guides = terms.length ? GUIDES.filter((g) => terms.some((t) => g.t.toLowerCase().includes(t))).slice(0, 3) : [];
+  // The subject areas of the nearest degrees, most degrees first.
+  const fields = new Map();
+  for (const hits of near.values()) for (const m of hits) fields.set(m.f, (fields.get(m.f) || 0) + 1);
+  const fieldChips = [...fields].sort((a, b) => b[1] - a[1]).slice(0, 4)
+    .map(([f]) => `<li><button type="button" class="chip" data-field-go="${esc(f)}">All ${esc(f)} degrees</button></li>`);
   els.ways.innerHTML = [
     ...guides.map((g) => `<li class="discover__guide"><a class="arrow-link" href="${esc(g.h)}">${esc(g.t)}</a></li>`),
+    ...fieldChips,
     ...ways,
     ways.length > 1 ? '<li><button type="button" class="chip" data-clear-all>Clear all</button></li>' : '',
   ].join('');
 }
 els.ways?.addEventListener('click', (e) => {
+  const go = e.target.closest('[data-field-go]');
+  if (go) {
+    // From a word to its subject area: the area replaces the word.
+    state.field = go.dataset.fieldGo;
+    state.q = '';
+    syncControls();
+    choose();
+    return;
+  }
   const b = e.target.closest('[data-clear]');
   if (!b) return;
   const k = b.dataset.clear;
@@ -238,19 +291,24 @@ els.ways?.addEventListener('click', (e) => {
   choose();
 });
 
-/* On a phone the results are a long way below the hero: when the count
-   changes out of sight, a pill says it and takes you there (home round 1). */
+/* When the count changes out of sight, a pill says it and takes you there
+   (home round 1), at every width (round 2, bug 7). It sits under the masthead
+   once the words above the globe have scrolled away, and at the foot while
+   they are on screen, so it never covers the eyebrow (round 2, bug 1). */
 let pillEl = null;
 let lastPill = '';
 let countSeen = true;
-if (els.count && 'IntersectionObserver' in window) {
-  new IntersectionObserver(([e]) => { countSeen = e.isIntersecting; if (countSeen && pillEl) pillEl.hidden = true; }).observe(els.count);
+let leadSeen = true;
+if ('IntersectionObserver' in window) {
+  if (els.count) new IntersectionObserver(([e]) => { countSeen = e.isIntersecting; if (countSeen && pillEl) pillEl.hidden = true; }).observe(els.count);
+  const lead = document.querySelector('.discover__lead');
+  if (lead) new IntersectionObserver(([e]) => { leadSeen = e.isIntersecting; pillEl?.classList.toggle('discover__pill--low', leadSeen); }).observe(lead);
 }
 function pill(text) {
   if (text === lastPill) return;
   const first = !lastPill;
   lastPill = text;
-  if (first || countSeen || !matchMedia('(max-width: 51.99rem)').matches) { if (pillEl) pillEl.hidden = true; return; }
+  if (first || countSeen) { if (pillEl) pillEl.hidden = true; return; }
   if (!pillEl) {
     pillEl = document.createElement('button');
     pillEl.type = 'button';
@@ -261,6 +319,7 @@ function pill(text) {
     });
     document.body.append(pillEl);
   }
+  pillEl.classList.toggle('discover__pill--low', leadSeen);
   pillEl.textContent = `${text} ↓`;
   pillEl.hidden = false;
 }
@@ -286,14 +345,35 @@ els.active?.addEventListener('click', (e) => {
   if (k === 'scope') frame('');
 });
 
+/* The researched countries a choice lands on, after its cards: a door's own
+   (Nearby ends with the European countries researched so far, not only the
+   one whose degrees are mapped), or, for a word with nothing near it, every
+   one in reach. Null when none belong. */
+function placesFor(shown, near) {
+  if (!els.places) return null;
+  const all = [...els.places.querySelectorAll('[data-scope]')];
+  const inScope = all.filter((li) => !state.scope || li.dataset.scope === state.scope);
+  if (!inScope.length) return null;
+  if (state.scope && !narrowed()) {
+    return { tiles: inScope, line: shown
+      ? `${plural(inScope.length, 'more country', 'more countries')} researched, their degrees not yet mapped one by one:`
+      : 'Their degrees are not mapped one by one yet. Each country has its own page:' };
+  }
+  if (!shown && !near.size && state.q && inScope.length) {
+    return { tiles: inScope, line: `${plural(inScope.length, 'researched country', 'researched countries')} to explore instead:` };
+  }
+  return null;
+}
+
 function render() {
-  let shown = 0;
+  const shown = hitsFor(state);
   let cardsShown = 0;
+  // Nothing matches a word: the degrees near it stand in (nearest).
+  const near = shown === 0 && state.q ? nearest() : new Map();
   for (const [n, c] of CARDS.entries()) {
-    const hit = c.members.filter((m) => matches(m)).length;
+    const hit = shown ? c.members.filter((m) => matches(m)).length : near.get(n)?.length || 0;
     const el = cardEls.get(n);
     if (el) el.hidden = hit === 0;
-    shown += hit;
     if (hit) cardsShown++;
   }
   const any = Object.values(state).some(Boolean);
@@ -303,24 +383,33 @@ function render() {
     if (any && !els.more.open) { els.more.open = true; els.more.dataset.auto = ''; }
     else if (!any && 'auto' in els.more.dataset) { els.more.open = false; delete els.more.dataset.auto; }
     els.more.toggleAttribute('data-filtering', any);
+    /* Filtered, the results are one grid: the folded cards join the first
+       ones, so two matches sit side by side rather than one above the fold
+       line and one below it; unfiltered, they go back behind "Show all". */
+    const folded = els.more.querySelector('.discover__cards');
+    if (folded && any) els.results.append(...folded.children);
+    else if (folded && !any) folded.append(...[...els.results.children].slice(FIRST_SHOWN));
   }
-  // A distance with no mapped degree shows its countries instead.
-  const placesInstead = !!state.scope && !narrowed() && shown === 0;
-  const doors = placesInstead ? [...(els.places?.querySelectorAll('[data-scope]') || [])].filter((li) => li.dataset.scope === state.scope).length : 0;
+  const places = placesFor(shown, near);
+  const doorOnly = !!state.scope && !narrowed();
   els.count.innerHTML = !any
     ? `<b>${TOTAL}</b> degrees`
     : shown
     ? `<b>${shown}</b> of ${TOTAL} degrees`
-    : placesInstead && doors
-    ? `<b>${plural(doors, 'country', 'countries')}</b> researched`
+    : doorOnly && places
+    ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
+    : near.size
+    ? `${plural([...near.values()].reduce((n, h) => n + h.length, 0), 'degree').replace(/^(\d+)/, '<b>$1</b>')} near “${esc(state.q.trim())}”`
     : '<b>No degrees</b>';
-  if (!shown && !placesInstead) renderWays();
+  if (!shown && !doorOnly) renderWays(near);
   pill(els.count.textContent);
   if (els.places) {
-    els.places.hidden = !placesInstead;
-    for (const li of els.places.querySelectorAll('[data-scope]')) li.hidden = li.dataset.scope !== state.scope;
+    els.places.hidden = !places;
+    const keep = new Set(places?.tiles || []);
+    for (const li of els.places.querySelectorAll('[data-scope]')) li.hidden = !keep.has(li);
+    if (places && els.placesLine) els.placesLine.textContent = places.line;
   }
-  if (els.empty) els.empty.hidden = shown > 0 || placesInstead;
+  if (els.empty) els.empty.hidden = shown > 0 || doorOnly;
 
   const badge = els.sheetOpen?.querySelector('[data-n]');
   const n = ['field', 'where', 'place', 'award', 'open', 'nomath'].filter((k) => state[k]).length;
@@ -332,7 +421,7 @@ function render() {
 
   renderActive();
   chipCounts();
-  paintMap();
+  paintMap(near);
   return cardsShown;
 }
 
@@ -444,9 +533,13 @@ addEventListener('popstate', (e) => {
 
 addEventListener('pagehide', stamp);
 
-/* --- The phone's filter sheet ------------------------------------------------------- */
-
-const phone = matchMedia('(max-width: 51.99rem)');
+/* --- The filter sheet ---------------------------------------------------------------- *
+ *
+ * "Filters" opens the questions and chips as a sheet at every width (home
+ * round 2: the form in the hero read as admin and pushed every photograph
+ * below the fold): a full-screen sheet on a phone, a drawer beside the page on
+ * a wider screen.
+ */
 
 function setSheet(open) {
   sheetIsOpen = open;
@@ -454,7 +547,7 @@ function setSheet(open) {
   els.sheetOpen?.setAttribute('aria-expanded', String(open));
   document.body.classList.toggle('has-sheet', open);
   if (open) els.sheet?.querySelector('select, button:not([data-sheet-close])')?.focus();
-  else if (phone.matches) els.sheetOpen?.focus({ preventScroll: true });
+  else els.sheetOpen?.focus({ preventScroll: true });
 }
 
 els.sheetOpen?.addEventListener('click', () => {
@@ -482,7 +575,14 @@ els.sheet?.addEventListener('keydown', (e) => {
   if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 });
-phone.addEventListener?.('change', () => { if (!phone.matches && sheetIsOpen) history.back(); });
+/* On a wide screen the sheet is a drawer: a click on the dimmed page beside
+   it closes it, as Close does. */
+document.addEventListener('click', (e) => {
+  if (!sheetIsOpen || !els.sheet || els.sheet.contains(e.target)) return;
+  e.preventDefault();
+  e.stopPropagation();
+  history.back();
+}, true);
 
 /* --- Wiring ---------------------------------------------------------------------------- */
 
