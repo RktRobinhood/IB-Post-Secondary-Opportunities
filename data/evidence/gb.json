@@ -156,5 +156,32 @@
       "at": "2026-09-24",
       "method": "read-source"
     }
+  },
+  {
+    "verificationState": "needs-review",
+    "retrievedAt": "2026-09-25",
+    "appliesToIntake": "2027-autumn",
+    "id": "ev-ukcisa-fee-status-england",
+    "sourceUrl": "https://www.ukcisa.org.uk/student-advice/fees/full-list-of-categories-for-he-in-england/",
+    "publisher": "UKCISA",
+    "publisherType": "other",
+    "sourceClass": "institutional-guidance",
+    "claim": "In England an EU/EEA/Swiss student pays the international fee unless they meet a Home fee category: settled or pre-settled status under the EU Settlement Scheme; or, for courses starting before 1 August 2028, the temporary categories for Irish citizens and for UK nationals and their family living in the EEA or Switzerland, each with a three-year residence test.",
+    "excerpt": "Full list of categories for higher education in England",
+    "supports": [
+      {
+        "entity": "gb",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-25"
+    },
+    "attestation": {
+      "by": "schools research, UK round-1 fixes (#43)",
+      "at": "2026-09-25",
+      "method": "read-source"
+    }
   }
 ]

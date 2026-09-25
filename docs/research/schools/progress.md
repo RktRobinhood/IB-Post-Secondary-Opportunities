@@ -26,7 +26,7 @@
 - Adds to gb.json: Cambridge asks 41–42 points with 776 at HL, and needs My Cambridge Application by 22 Oct 2026. You cannot apply to Oxford and Cambridge in the same year. Oxford asks 38–40 including core.
 - Adds to gb.json: QMUL teaches a five-year MBBS in Malta, applied for directly, with a 1 March 2027 deadline.
 - Contradicts gb.json (Imperial note): HL Maths AA is not always required. Imperial Mathematics accepts AA or AI (AA preferred). Warwick Economics also accepts either; only Warwick Mathematics insists on AA.
-- Contradicts gb.json (Edinburgh): its £1,546 a month living-cost estimate is labelled for 2027 on the degree pages, not 2026/27.
+- Corrected in round 1 (this line was wrong): Edinburgh's £1,546 a month is for 2026-27, as gb.json says. The Economics MA page (2027 entry) reads "For 2026-2027, we estimate that it will cost an average of £1,546 each month". https://study.ed.ac.uk/programmes/undergraduate/122-economics
 - Could not verify: 2027/28 international fees at Imperial, Manchester, Birmingham, Warwick, St Andrews and UAL (not yet published); those records give the latest published figure and say so.
 - Could not verify: UAL's 2027 course pages (its pages still show 2026 entry). Its course finder did not load results in either browser, so the hand-off is the subjects page.
 - Could not verify: gb.json claims not re-tested here: City St George's founding year (2024), UAL "six colleges", and Loughborough's "a few points lower than Russell Group".
@@ -52,3 +52,23 @@
 - UEF opening date (uef.fi/en/how-to-apply): "The next application period for bachelor's and master's programmes taught in English for the September 2027 intake will be open from 7 January until 21 January 2027". All 8 UEF programme URLs return that programme's own page.
 - Could not verify: Turku's 40% ICT certificate share (unchanged); Laurea Service Experience Management's 2027 method (Studyinfo lists no exam yet).
 - Outside scope: Studyinfo's 2027 joint application includes Hanken School of Economics' English "Business" bachelor's. Hanken is not in data/countries/fi.json.
+
+## United Kingdom, round-1 fixes (retrieved 2026-09-25)
+
+- Fixes for docs/research/qa/schools/round-1-data-gb.md. All 22 `gb-*` records pass `check-schools.mjs`.
+- LSE `ib`: HL Maths AA is required for 8 degrees, e.g. Data Science and Actuarial Science. The entry requirements page lists "Mathematics: analysis and approaches (HL) required" for them. "Prefer" is gone.
+- LSE hand-off: https://www.lse.ac.uk/programmes/search-courses?f.Study+Type%7Ctype=undergraduate&studyType=b6732bf8-36e3-4461-b325-c925ad870cb4. Opened in a browser with the Undergraduate box ticked: "Showing 1-12 results of 43". I paged through all 4 pages, and every result is a BA, BSc or LLB.
+- Fee status: removed the "who pays" sentence from the 18 English records (the critic's 17, plus Bath's). Where a fee figure was given, it stays. Durham's note had no figure, so it went. The rule belongs on gb.json, from UKCISA (see below). The Edinburgh, Glasgow and St Andrews notes stand.
+- Proposed gb.json fee-status wording (England), from https://www.ukcisa.org.uk/student-advice/fees/full-list-of-categories-for-he-in-england/ and its two "Brexit temporary offer" PDFs (UKCISA, 13 Dec 2024): "In England most EU/EEA/Swiss students pay the international (Overseas) fee. Exceptions: EU citizens with settled or pre-settled status; and, for courses starting before 2028 (autumn 2027 is the last intake), Irish citizens and UK nationals (and family) living in the EEA or Switzerland since before 31 Dec 2020 who meet a 3-year residence test. Scotland, Wales and Northern Ireland set their own rules."
+- UAL: Architecture is no longer used as the `ib` example. The note now says "A standalone architecture qualification at Undergraduate level is no longer running at Central Saint Martins", and that UAL points 2027 entrants to the Integrated MArch.
+- UAL hand-off: https://www.arts.ac.uk/search/course-finder?f.Course_level%7Clevel=Undergraduate shows "Showing results 1 - 10 of 107" in Chrome. Of those, 95 are BA (Hons), 7 are BSc (Hons), 1 is the Integrated MArch, 1 is an MSc and 3 are diplomas. The closed BA Architecture is still listed. In the Claude preview browser the results do not load (a CORS error from ual-search.arts.ac.uk).
+- Edinburgh: the living-cost note now says 2026-27. The earlier contradiction line above is corrected.
+- Oxford: the English exemption is now "Oxford will consider exempting you", from "Other exemptions … will be considered for those who: are studying … the International Baccalaureate programme, if it is taught in English".
+- KCL: the 15 Oct deadline is now labelled Medicine and Dentistry, and cites UCAS. KCL's test table lists Dentistry (A205, A206, A202) with Medicine.
+- Glasgow: `apply` now reads "UCAS, or Common App for some subjects". The History page says: "International students to Arts, Engineering, Law, Nursing, Science, and Social Sciences can also apply using The Common Application".
+- UCL `ib`: English A is 5 for Levels 1–2, 6 for Level 3, HL 6 or SL 7 for Level 4, and HL 7 for Level 5. That last one is "not acceptable at standard level".
+- Manchester `ib`: "Some courses, e.g. Maths, Chemical Engineering and Computer Science", from the page's "some courses, such as".
+- Summaries are all ≤150 characters. None uses "every", "all", "only", "largest" or "oldest".
+- `courses`, each as the listing counts it: Oxford 52, Imperial 73, UCL 441, St Andrews 151, Durham 174, Warwick 196, LSE 43, Bristol 270, Lancaster 474 ("for 2027/28 entry"), Nottingham 416, QMUL 122, UAL 107. Some counts include foundation-year and placement variants.
+- No `courses` where the listing gives no exact number: Bath says "over 190", Cambridge says "over 30", and Birmingham, City St George's, Edinburgh, Glasgow, KCL, Leeds, Loughborough and Manchester give none. The rough numbers in some summaries come from counting links: City 80, Edinburgh 334, Manchester 306. Loughborough's "about 150" was dropped, because I counted 125 links.
+- Could not verify: Oxford's course listing did not render its course cards in Chrome today. `courses: 52` is kept from round 1, which the critic confirmed.
