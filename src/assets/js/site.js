@@ -194,29 +194,27 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
   new MutationObserver(start).observe(root, { attributes: true, attributeFilter: ['data-motion'] });
 }
 
-/* --- Opening options in new tabs ------------------------------------------ */
+/* --- Leaving the site opens a new tab ------------------------------------ */
 
-/* A student collects options: they open a university from a search, a map or
-   a result list, then another, and come back to the tool. Following such a
-   link in the same tab threw the tool away each time. So a link to another
-   site, or to one university's or one programme's page, opens in a new tab.
-   Links for getting around (masthead, drawer, footer, breadcrumbs, pager)
-   keep to the tab, and a click with a modifier key is left to the browser. */
-const DETAIL = /\/(universities|programmes)\/[^/]+\/?(#.*)?$/;
-const WAYFINDING = '.masthead, .drawer, .site-foot, nav[aria-label="Breadcrumb"], .pager';
+/* Only a link that leaves this site opens a new tab, so the student never
+   loses their place here. Every link within the site stays in the tab, so
+   the back button always returns to where they were. "This site" is the
+   deployed base path, not the whole origin: GitHub Pages serves other
+   projects from the same host. A click with a modifier key is left to the
+   browser. */
+const SITE_ROOT = new URL('../../', import.meta.url).href;
 
-function opensNewTab(a) {
-  if (!a.href || a.target || a.hasAttribute('download') || a.closest(WAYFINDING)) return false;
+function leavesSite(a) {
+  if (!a.href || a.target || a.hasAttribute('download')) return false;
   const to = new URL(a.href, location.href);
   if (!/^https?:$/.test(to.protocol)) return false;
-  if (to.origin !== location.origin) return true;
-  return DETAIL.test(to.pathname) && to.pathname !== location.pathname;
+  return !to.href.startsWith(SITE_ROOT);
 }
 
 document.addEventListener('click', (e) => {
   if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
   const a = e.target.closest?.('a[href]');
-  if (!a || !opensNewTab(a)) return;
+  if (!a || !leavesSite(a)) return;
   a.target = '_blank';
-  if (!/\bnoopener\b/.test(a.rel)) a.rel = `${a.rel} noopener`.trim();
+  if (!/noopener/.test(a.rel)) a.rel = `${a.rel} noopener`.trim();
 }, true);
