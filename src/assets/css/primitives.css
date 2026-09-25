@@ -582,7 +582,7 @@
 .world__vehicle .world__vehicle-window { fill: var(--pin-ring); stroke: none; }
 /* The desk globe's ring and stand (globe.js drawDesk): brass and wood with a
    cartoon ink line, in globe radii (so strokes are fractions of a radius). The
-   back layer sits under the globe's canvas, the pole's pivot over it. Only
+   layer sits under the globe's canvas. Only
    while the globe is drawing: the flat first paint has no stand. */
 .world__desk {
   position: absolute;
@@ -601,7 +601,6 @@
 .world__desk-ink { fill: none; stroke: #3A2A18; stroke-width: .011; }
 .world__desk-ticks { fill: none; stroke: #3A2A18; stroke-width: .008; stroke-opacity: .55; }
 .world__desk-metal-fill { stroke: #3A2A18; stroke-width: .011; }
-.world__desk-pole { stroke-width: 1.2; }
 .world__desk-wood { fill: #8A5530; stroke: #3A2A18; stroke-width: .011; }
 .world__desk-wood--top { fill: #A96C3B; }
 .world__desk-shadow { fill: rgba(26, 22, 19, .22); stroke: none; }

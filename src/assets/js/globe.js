@@ -611,11 +611,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
   routeSvg.style.display = 'none';
   pinLayer.append(routeSvg);
   /* The desk globe's furniture: the stand and the graduated meridian ring
-     behind the globe, and the pivot at the north pole in front of it. Drawn
+     behind the globe (a pivot knob at the pole read as a place, round 5). Drawn
      in globe radii and placed each frame from where the globe is on screen. */
   const brassId = `brass-${figure.id || Math.random().toString(36).slice(2)}`;
   const deskBack = svgEl('svg', { class: 'world__desk', 'aria-hidden': 'true' });
-  const deskFront = svgEl('svg', { class: 'world__desk world__desk--front', 'aria-hidden': 'true' });
   {
     const defs = svgEl('defs');
     const grad = svgEl('linearGradient', { id: brassId, x1: '0', y1: '0', x2: '1', y2: '1' });
@@ -649,13 +648,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const deskPlace = svgEl('g');
   deskPlace.append(deskStand, deskRing);
   deskBack.append(deskPlace);
-  const deskPole = svgEl('circle', { class: 'world__desk-metal-fill world__desk-pole', fill: `url(#${brassId})`, r: 4 });
-  deskFront.append(deskPole);
 
   function drawDesk() {
     const k = closeActive ? 0 : desk(view.alt);
     const show = k > 0.01;
-    deskBack.style.display = deskFront.style.display = show ? '' : 'none';
+    deskBack.style.display = show ? '' : 'none';
     if (!show) return;
     const d = [-cam.eye[0], -cam.eye[1], -cam.eye[2]];
     const z = dot(d, cam.fwd);
@@ -664,14 +661,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const r = (Math.tan(Math.asin(Math.min(1, 1 / Math.hypot(...cam.eye)))) / TAN) * (H / 2);
     const cx = (nx + 1) * 0.5 * W, cy = (1 - ny) * 0.5 * H;
     const o = String(Math.min(1, k * 1.15));
-    deskBack.style.opacity = deskFront.style.opacity = o;
+    deskBack.style.opacity = o;
     deskPlace.setAttribute('transform', `translate(${cx.toFixed(1)} ${cy.toFixed(1)}) scale(${r.toFixed(2)})`);
     deskRing.setAttribute('transform', `rotate(${(cam.roll * R2D).toFixed(2)})`);
-    const pole = project([0, 1, 0]);
-    deskPole.style.display = pole.facing > 0 ? '' : 'none';
-    deskPole.setAttribute('cx', pole.x.toFixed(1));
-    deskPole.setAttribute('cy', pole.y.toFixed(1));
-    deskPole.setAttribute('r', Math.max(2.5, r * 0.022).toFixed(1));
   }
 
   const controls = el('div', { class: 'world__controls' });
@@ -687,7 +679,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const creditLink = el('a', { href: `${root.dataset.base === '/' ? '' : root.dataset.base || ''}/credits/#globe` }, 'Imagery: NASA');
   credit.append(creditLink);
 
-  stage.append(deskBack, canvas, deskFront, pinLayer, controls, card, hint, credit);
+  stage.append(deskBack, canvas, pinLayer, controls, card, hint, credit);
   stage.tabIndex = 0;
   stage.setAttribute('role', 'group');
   stage.setAttribute(
@@ -2433,7 +2425,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /** Turn the globe by a drag of dx, dy CSS pixels. Returns what it did. */
   function turn(dx, dy) {
     const k = radPerPx() * R2D;
-    const dLon = (-dx * k) / Math.max(0.25, Math.cos(view.lat * D2R));
+    /* On the desk a drag rolls the globe under the finger: a pixel is one
+       globe-radius-th of a radian, whatever the stage's shape (round 5: on a
+       tall phone stage the old gain turned it 1.7x faster than the finger). */
+    const dk = desk(view.alt);
+    const rPx = (Math.tan(Math.asin(Math.min(1, 1 / (1 + view.alt)))) / TAN) * (H / 2);
+    const free = (-dx * k) / Math.max(0.25, Math.cos(view.lat * D2R));
+    const dLon = free * (1 - dk) + ((-dx / rPx) * R2D) * dk;
     /* A desk globe turns on its axis and nothing else. */
     const dLat = dy * k * (1 + Math.sin(cam.pitch) * 0.9) * (1 - desk(view.alt));
     view.lat = Math.max(-80, Math.min(80, view.lat + dLat));
@@ -2458,7 +2456,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     if (drag && moved && e.type === 'pointerup' && !reducedMotion() && performance.now() - drag.t < 80) {
       const speed = Math.abs(drag.vLat) + Math.abs(drag.vLon);
-      if (speed > 0.002) spin = { vLat: drag.vLat, vLon: drag.vLon };
+      if (speed > 0.002) {
+        /* The glide after a fling carries on for ~380 ms of decay per unit of
+           speed; on the desk it is capped at ~40° of turn. */
+        const cap = 40 / 380;
+        const vLon = desk(view.alt) > 0.5 ? Math.max(-cap, Math.min(cap, drag.vLon)) : drag.vLon;
+        spin = { vLat: drag.vLat, vLon };
+      }
     }
     if (e.type === 'pointerup' && e.pointerType !== 'mouse') { engage(); touchHeld(); }
     drag = null;

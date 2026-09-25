@@ -2535,6 +2535,7 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 /* The hero is night in both themes, so the folded place list's line is light. */
 .discover__globe .world__fold > summary { color: rgb(255 255 255 / .74); }
 .discover__globe .world__fold > summary:hover { color: #fff; }
+@media (max-width: 43.99rem) { .discover__globe .world__fold, .discover__globe .world__caption { padding-inline: var(--s4, 16px); } }
 .discover__cards { list-style: none; margin: var(--s4) 0 0; padding: 0; }
 .discover__card[hidden] { display: none; }
 /* The rest of the cards, one tap away; with a filter on, the fold opens and
