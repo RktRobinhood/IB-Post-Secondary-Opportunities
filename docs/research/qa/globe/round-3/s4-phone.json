@@ -1,0 +1,179 @@
+{
+ "/programmes/": {
+  "rest": {
+   "lat": 52.258613984665715,
+   "lon": 9.206721867833494,
+   "alt": 0.252,
+   "fits": true
+  },
+  "stage": {
+   "x": 16,
+   "y": 243.484375,
+   "w": 358,
+   "h": 358
+  },
+  "pins": 4,
+  "clusters": [
+   "13",
+   "4"
+  ]
+ },
+ "/world/": {
+  "rest": {
+   "lat": -5,
+   "lon": 100,
+   "alt": 1.9
+  },
+  "stage": {
+   "x": 16,
+   "y": 243.46875,
+   "w": 358,
+   "h": 358
+  },
+  "pins": 5,
+  "clusters": [
+   "3"
+  ]
+ },
+ "/destinations/nl/": {
+  "rest": {
+   "lat": 51.05432279596612,
+   "lon": 5.5967701268707515,
+   "alt": 0.184,
+   "fits": true
+  },
+  "stage": {
+   "x": 16,
+   "y": 242.703125,
+   "w": 358,
+   "h": 358
+  },
+  "pins": 2,
+  "clusters": [
+   "11",
+   "2"
+  ]
+ },
+ "swipeUntouched": {
+  "scrolled": 235,
+  "altChanged": false
+ },
+ "phoneDive": {
+  "fs": {
+   "n": 484,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 16.9,
+   "max": 50,
+   "over50": 0,
+   "long": []
+  },
+  "firstCloseMs": null,
+  "maxZ": 5.16,
+  "hints": [
+   "Tap outside the globe to scroll the page"
+  ],
+  "kb": 83,
+  "end": {
+   "alt": 0.2673,
+   "close": false,
+   "zoom": 5.16,
+   "sy": 7444,
+   "card": "🇫🇷 France",
+   "engaged": null,
+   "hint": null
+  },
+  "layout": {
+   "stageTop": 62,
+   "stageBottom": 420,
+   "vh": 844,
+   "card": {
+    "top": 298,
+    "bottom": 411,
+    "h": 113,
+    "scrolls": false
+   },
+   "pinAboveCard": null
+  }
+ },
+ "closeOneFinger": {
+  "scrolled": 185,
+  "zoomBefore": 5.16,
+  "zoomAfter": 5.16,
+  "coopNotice": "maplibregl-cooperative-gesture-screen"
+ },
+ "closePinch": {
+  "zoomBefore": 5.16,
+  "zoomAfter": 5.16,
+  "sy": [
+   7426,
+   7426
+  ]
+ },
+ "afterReset": {
+  "alt": 0.184,
+  "close": false,
+  "zoom": 5.16,
+  "sy": 7426,
+  "card": null,
+  "engaged": null,
+  "hint": null
+ },
+ "phoneGroup": {
+  "cl": {
+   "x": 213.3000030517578,
+   "y": 394.68438720703125,
+   "n": "13"
+  },
+  "fs": {
+   "n": 393,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 66.8,
+   "max": 217,
+   "over50": 5,
+   "long": [
+    {
+     "at": 225,
+     "ms": 233
+    },
+    {
+     "at": 543,
+     "ms": 66
+    },
+    {
+     "at": 611,
+     "ms": 64
+    },
+    {
+     "at": 980,
+     "ms": 231
+    }
+   ]
+  },
+  "end": {
+   "alt": 0.0642,
+   "close": true,
+   "zoom": 5.82,
+   "sy": 243,
+   "card": null,
+   "engaged": null,
+   "hint": null
+  },
+  "clusters": [
+   "3"
+  ],
+  "pins": [
+   "Aarhus",
+   "Horsens",
+   "Viborg",
+   "Vejle",
+   "Roskilde",
+   "Herning",
+   "Kalundborg",
+   "Aalborg"
+  ],
+  "releasedAfter4s": true
+ },
+ "logs": []
+}

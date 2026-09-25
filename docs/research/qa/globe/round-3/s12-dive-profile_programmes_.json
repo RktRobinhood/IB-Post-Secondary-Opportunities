@@ -1,0 +1,273 @@
+{
+ "route": "/programmes/",
+ "re": "/Delft/",
+ "long": [
+  {
+   "at": 195,
+   "ms": 71
+  },
+  {
+   "at": 272,
+   "ms": 370
+  },
+  {
+   "at": 688,
+   "ms": 173
+  },
+  {
+   "at": 861,
+   "ms": 52
+  },
+  {
+   "at": 916,
+   "ms": 252
+  },
+  {
+   "at": 1749,
+   "ms": 103
+  },
+  {
+   "at": 2165,
+   "ms": 209
+  },
+  {
+   "at": 2963,
+   "ms": 67
+  },
+  {
+   "at": 4567,
+   "ms": 471
+  },
+  {
+   "at": 5056,
+   "ms": 73
+  }
+ ],
+ "hot": [
+  {
+   "at": 200,
+   "busy": 95,
+   "top": [
+    "29ms texImage2D :-1  <- texture globe.js:258",
+    "24ms buildGeography globe.js:357  <- buildGeography globe.js:357",
+    "11ms (garbage collector) :-1"
+   ]
+  },
+  {
+   "at": 300,
+   "busy": 100,
+   "top": [
+    "100ms texImage2D :-1  <- texture globe.js:258"
+   ]
+  },
+  {
+   "at": 400,
+   "busy": 100,
+   "top": [
+    "80ms getParameter :-1  <- texture globe.js:258",
+    "20ms texImage2D :-1  <- texture globe.js:258"
+   ]
+  },
+  {
+   "at": 500,
+   "busy": 100,
+   "top": [
+    "100ms getParameter :-1  <- texture globe.js:258"
+   ]
+  },
+  {
+   "at": 600,
+   "busy": 93,
+   "top": [
+    "40ms getParameter :-1  <- texture globe.js:258",
+    "13ms texImage2D :-1  <- texture globe.js:258",
+    "6ms (garbage collector) :-1"
+   ]
+  },
+  {
+   "at": 700,
+   "busy": 100,
+   "top": [
+    "100ms texImage2D :-1  <- texture globe.js:258"
+   ]
+  },
+  {
+   "at": 800,
+   "busy": 99,
+   "top": [
+    "36ms getParameter :-1  <- texture globe.js:258",
+    "24ms texImage2D :-1  <- texture globe.js:258",
+    "7ms parse maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 900,
+   "busy": 95,
+   "top": [
+    "47ms Ui maplibre-gl.js:45",
+    "7ms (anon) maplibre-gl.js:45",
+    "1ms _render maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 1000,
+   "busy": 99,
+   "top": [
+    "91ms Ui maplibre-gl.js:45",
+    "3ms render maplibre-gl.js:45",
+    "1ms ye maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 1100,
+   "busy": 79,
+   "top": [
+    "53ms Ui maplibre-gl.js:45",
+    "3ms fetch :-1",
+    "2ms _updateRetainedTiles maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 1400,
+   "busy": 73,
+   "top": [
+    "21ms _tryReadback maplibre-gl.js:45",
+    "10ms (anon) maplibre-gl.js:41",
+    "8ms _uploadDomImage maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 1700,
+   "busy": 82,
+   "top": [
+    "48ms _tryReadback maplibre-gl.js:45",
+    "7ms (anon) maplibre-gl.js:41",
+    "4ms _uploadDomImage maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 1800,
+   "busy": 83,
+   "top": [
+    "47ms _tryReadback maplibre-gl.js:45",
+    "4ms fetch :-1",
+    "3ms _uploadDomImage maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 2100,
+   "busy": 90,
+   "top": [
+    "33ms _tryReadback maplibre-gl.js:45",
+    "12ms (garbage collector) :-1",
+    "8ms (anon) maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 2200,
+   "busy": 100,
+   "top": [
+    "100ms _tryReadback maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 2300,
+   "busy": 89,
+   "top": [
+    "70ms _tryReadback maplibre-gl.js:45",
+    "2ms getTileBoundingVolume maplibre-gl.js:45",
+    "1ms _calcMatrices maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 2600,
+   "busy": 65,
+   "top": [
+    "8ms fetch :-1",
+    "6ms (anon) maplibre-gl.js:41",
+    "4ms (anon) maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 2800,
+   "busy": 73,
+   "top": [
+    "7ms (anon) maplibre-gl.js:45",
+    "5ms (anon) maplibre-gl.js:41",
+    "4ms we maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 2900,
+   "busy": 88,
+   "top": [
+    "25ms Ui maplibre-gl.js:45",
+    "9ms (anon) maplibre-gl.js:45",
+    "5ms fetch :-1"
+   ]
+  },
+  {
+   "at": 3000,
+   "busy": 84,
+   "top": [
+    "43ms Ui maplibre-gl.js:45",
+    "7ms l maplibre-gl.js:41",
+    "4ms (anon) maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 3100,
+   "busy": 74,
+   "top": [
+    "5ms _calcMatrices maplibre-gl.js:45",
+    "5ms t.S maplibre-gl.js:41",
+    "4ms (anon) maplibre-gl.js:41"
+   ]
+  },
+  {
+   "at": 4600,
+   "busy": 101,
+   "top": [
+    "81ms Ui maplibre-gl.js:45",
+    "6ms (garbage collector) :-1",
+    "3ms Po maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 4700,
+   "busy": 99,
+   "top": [
+    "96ms Ui maplibre-gl.js:45",
+    "1ms enableAttributes maplibre-gl.js:45",
+    "1ms (anon) maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 4800,
+   "busy": 100,
+   "top": [
+    "94ms Ui maplibre-gl.js:45",
+    "1ms getDash maplibre-gl.js:45",
+    "1ms symbol maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 4900,
+   "busy": 100,
+   "top": [
+    "97ms Ui maplibre-gl.js:45",
+    "1ms $e maplibre-gl.js:45",
+    "1ms ga maplibre-gl.js:45"
+   ]
+  },
+  {
+   "at": 5000,
+   "busy": 98,
+   "top": [
+    "29ms Ui maplibre-gl.js:45",
+    "11ms Po maplibre-gl.js:45",
+    "7ms receive maplibre-gl.js:41"
+   ]
+  }
+ ]
+}

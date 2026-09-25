@@ -1,0 +1,735 @@
+{
+ "name": "s4e-phone-programmes-group",
+ "frames": 222,
+ "frameStats": {
+  "n": 393,
+  "p50": 16.7,
+  "p95": 16.8,
+  "p99": 66.8,
+  "max": 217,
+  "over50": 5,
+  "long": [
+   {
+    "at": 225,
+    "ms": 233
+   },
+   {
+    "at": 543,
+    "ms": 66
+   },
+   {
+    "at": 611,
+    "ms": 64
+   },
+   {
+    "at": 980,
+    "ms": 231
+   }
+  ]
+ },
+ "firstCloseMs": 1811,
+ "minAlt": 0.0642,
+ "maxZ": 5.82,
+ "hints": [],
+ "loadingWaitMs": 0,
+ "bytes": {
+  "totalKB": 320,
+  "n": 45,
+  "by": {
+   "tiles.maps.eox.at (tiles)": "320 kB",
+   "/assets/js/globe-close.js": "0 kB",
+   "/assets/vendor/maplibre-gl/maplibre-gl.css": "0 kB",
+   "/assets/vendor/maplibre-gl/maplibre-gl.js": "0 kB",
+   "/assets/img/globe/earth-detail-europe.webp": "0 kB",
+   "/assets/geo/borders-50m.json": "0 kB",
+   "tiles.openfreemap.org/styles/liberty": "0 kB",
+   "image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E": "0 kB",
+   "tiles.openfreemap.org/planet": "0 kB",
+   "tiles.openfreemap.org/sprites/ofm_f384/ofm@2x.json": "0 kB",
+   "tiles.openfreemap.org/sprites/ofm_f384/ofm@2x.png": "0 kB",
+   "/assets/img/globe/earth-day-4096.webp": "0 kB"
+  }
+ },
+ "samples": [
+  {
+   "t": 0,
+   "alt": 0.252,
+   "lat": 52.259,
+   "lon": 9.557,
+   "close": false,
+   "cs": "none",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 91,
+   "alt": 0.252,
+   "lat": 52.259,
+   "lon": 9.573,
+   "close": false,
+   "cs": "none",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 191,
+   "alt": 0.252,
+   "lat": 52.259,
+   "lon": 9.588,
+   "close": false,
+   "cs": "none",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 291,
+   "alt": 0.252,
+   "lat": 52.259,
+   "lon": 9.603,
+   "close": false,
+   "cs": "none",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 664,
+   "alt": 0.2366,
+   "lat": 52.34,
+   "lon": 9.625,
+   "close": false,
+   "cs": "loading",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 915,
+   "alt": 0.1584,
+   "lat": 53.911,
+   "lon": 10.081,
+   "close": false,
+   "cs": "loading",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 1031,
+   "alt": 0.1274,
+   "lat": 54.799,
+   "lon": 10.355,
+   "close": false,
+   "cs": "loading",
+   "z": null,
+   "hint": ""
+  },
+  {
+   "t": 1125,
+   "alt": 0.116,
+   "lat": 55.09,
+   "lon": 10.447,
+   "close": false,
+   "cs": "ready",
+   "z": 5.22,
+   "hint": ""
+  },
+  {
+   "t": 1426,
+   "alt": 0.108,
+   "lat": 55.192,
+   "lon": 10.48,
+   "close": false,
+   "cs": "ready",
+   "z": 5.22,
+   "hint": ""
+  },
+  {
+   "t": 1525,
+   "alt": 0.1061,
+   "lat": 55.192,
+   "lon": 10.48,
+   "close": false,
+   "cs": "handing",
+   "z": 5.12,
+   "hint": ""
+  },
+  {
+   "t": 1625,
+   "alt": 0.1042,
+   "lat": 55.192,
+   "lon": 10.48,
+   "close": false,
+   "cs": "handing",
+   "z": 5.12,
+   "hint": ""
+  },
+  {
+   "t": 1726,
+   "alt": 0.1023,
+   "lat": 55.192,
+   "lon": 10.48,
+   "close": false,
+   "cs": "handing",
+   "z": 5.12,
+   "hint": ""
+  },
+  {
+   "t": 1825,
+   "alt": 0.1011,
+   "lat": 55.196,
+   "lon": 10.48,
+   "close": true,
+   "cs": "ready",
+   "z": 5.22,
+   "hint": ""
+  },
+  {
+   "t": 1925,
+   "alt": 0.1018,
+   "lat": 55.453,
+   "lon": 10.486,
+   "close": true,
+   "cs": "ready",
+   "z": 5.21,
+   "hint": ""
+  },
+  {
+   "t": 2025,
+   "alt": 0.103,
+   "lat": 55.919,
+   "lon": 10.497,
+   "close": true,
+   "cs": "ready",
+   "z": 5.19,
+   "hint": ""
+  },
+  {
+   "t": 2125,
+   "alt": 0.1039,
+   "lat": 56.267,
+   "lon": 10.505,
+   "close": true,
+   "cs": "ready",
+   "z": 5.18,
+   "hint": ""
+  },
+  {
+   "t": 2225,
+   "alt": 0.1045,
+   "lat": 56.472,
+   "lon": 10.509,
+   "close": true,
+   "cs": "ready",
+   "z": 5.17,
+   "hint": ""
+  },
+  {
+   "t": 2325,
+   "alt": 0.1048,
+   "lat": 56.589,
+   "lon": 10.512,
+   "close": true,
+   "cs": "ready",
+   "z": 5.17,
+   "hint": ""
+  },
+  {
+   "t": 2425,
+   "alt": 0.105,
+   "lat": 56.647,
+   "lon": 10.513,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 2526,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 2628,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 2726,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 2826,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 2928,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 3026,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 3126,
+   "alt": 0.105,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 3228,
+   "alt": 0.101,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.16,
+   "hint": ""
+  },
+  {
+   "t": 3326,
+   "alt": 0.0986,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.2,
+   "hint": ""
+  },
+  {
+   "t": 3427,
+   "alt": 0.094,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.27,
+   "hint": ""
+  },
+  {
+   "t": 3527,
+   "alt": 0.0881,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.36,
+   "hint": ""
+  },
+  {
+   "t": 3627,
+   "alt": 0.0823,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.46,
+   "hint": ""
+  },
+  {
+   "t": 3729,
+   "alt": 0.0775,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.55,
+   "hint": ""
+  },
+  {
+   "t": 3827,
+   "alt": 0.0739,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.61,
+   "hint": ""
+  },
+  {
+   "t": 3927,
+   "alt": 0.0712,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.67,
+   "hint": ""
+  },
+  {
+   "t": 4027,
+   "alt": 0.0691,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.71,
+   "hint": ""
+  },
+  {
+   "t": 4128,
+   "alt": 0.0675,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.74,
+   "hint": ""
+  },
+  {
+   "t": 4227,
+   "alt": 0.0664,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.77,
+   "hint": ""
+  },
+  {
+   "t": 4328,
+   "alt": 0.0655,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.79,
+   "hint": ""
+  },
+  {
+   "t": 4427,
+   "alt": 0.0649,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.8,
+   "hint": ""
+  },
+  {
+   "t": 4527,
+   "alt": 0.0645,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.81,
+   "hint": ""
+  },
+  {
+   "t": 4628,
+   "alt": 0.0643,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 4728,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 4828,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 4928,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5028,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5128,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5228,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5328,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5428,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5528,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5629,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5729,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5829,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 5929,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6029,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6129,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6229,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6329,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6429,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6530,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6630,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6730,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6830,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 6930,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 7030,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 7130,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 7230,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  },
+  {
+   "t": 7330,
+   "alt": 0.0642,
+   "lat": 56.664,
+   "lon": 10.514,
+   "close": true,
+   "cs": "ready",
+   "z": 5.82,
+   "hint": ""
+  }
+ ]
+}
