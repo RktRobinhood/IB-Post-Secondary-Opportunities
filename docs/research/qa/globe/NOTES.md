@@ -73,6 +73,21 @@ paint and fallback; reduced motion = instant camera.
     count and chips for each; none says "Nothing on this map here yet" and
     still links to the Destination page when one exists.
 
+16. **The desk globe** (owner, 25 September evening): at rest the camera
+    sits at `deskAlt`, fitted so the globe, its ring (`DESK_TOP`) and its
+    stand (`DESK_BOTTOM`) fill the stage; `desk(alt)` is 1 there and 0 below
+    `deskIn()`. The desk factor rolls the camera by `TILT` (23.4°, north end
+    right), zeroes the pitch, shifts the lens so the stand fits below, locks
+    drags and spin to longitude, fades clouds and the floor shadow, and turns
+    on the pastel political colours (a greedy six-colour map over the picking
+    raster's neighbours). A flight off the desk turns first, then leans in;
+    back onto it, sits back, then turns. Zoom-out stops at the desk, and the
+    latitude eases back to the desk's on the way (`liftLat`). The ring and
+    stand are SVG (`drawDesk`), placed each frame from the projected centre
+    and radius. Riffs taken from the owner's ChatGPT prototypes: the tilted
+    toy-globe framing, the coast ink line and the cel-flat light; left out:
+    sounds, a full-page layout, per-mode vehicle sprites.
+
 ## Measurements
 
 - CPU per frame (`draw()` incl. matrix build and every GL call): **0.15–0.33 ms**
