@@ -656,3 +656,83 @@ edits are in `apply-round1.mjs` (re-runnable).
 **Gate** (PowerShell, `SITE_BASE=/IB-Post-Secondary-Opportunities`): **all 30
 checks pass**, including `audience`, `calendar`, `validate`, `release` and
 `image-records` (now green after the photo agent's work).
+
+## Round 2 fixes (critique-round-2.md, scored 7/10)
+
+Verification is in `verification.md` §10. The data edits are in
+`apply-round2.mjs` and `apply-own-citizens.mjs`, both re-runnable.
+
+1. **Poland, written for the Polish citizen too.** Art. 324 governs
+   *cudzoziemcy* only; pkt 6 plus ust. 3 pkt 2 was read on 2026-09-25.
+   - The funding watch-out is now "If you are an EU citizen without Polish
+     citizenship … closed to you unless you work in Poland … if you hold
+     Polish citizenship, both are open to you on the ordinary terms".
+   - The Karta Polaka line was rewritten: it opens the grant and the loan
+     without the work condition, which EU citizenship alone does not.
+   - The "what you cannot get" and `workRights` lines are scoped to a
+     non-Polish EU citizen.
+   - Wroclaw Tech's "foreign candidate" rule for Polish citizens is marked as
+     a gap.
+2. **`/denmark/apply/`** now defines the harsher group by fee liability: "If
+   you will pay tuition — not EU/EEA/Swiss and no exempting permit (permanent
+   residence, Special Act)". It quotes AU's "paying applicant" rule, re-read
+   on AU's IB page, and says the rules do not apply if you do not pay. The edit
+   is local to that note; the conversion section was not touched.
+3. **Nordic readers.**
+   - The money page's residence step now reads "If you are a Nordic citizen you
+     need none: you register directly for a CPR number at Citizen Service"
+     (lifeindenmark).
+   - Australia (country and destination): Norwegian and Swedish citizens may be
+     exempt from OSHC under their own scheme, so check with Home Affairs
+     (privatehealth.gov.au).
+4. **FAQ.**
+   - Netherlands: "four through Studielink, of which at most two numerus
+     fixus" (UT FAQ). No medicine limit is stated, because it was not verified.
+   - "Czechia is free only in Czech; in Poland, Polish-taught study is free for
+     EU citizens and some English-taught programmes are too."
+5. **Danish-school framing removed.**
+   - The Jagiellonian "Danish English grade of 7" line is out of Poland's
+     "why"; the full rule stays in `language.notes`.
+   - The "Danish tuition support" clause is out of the Poland SU note.
+   - Australia now says "fly back once a year".
+6. **Guard.**
+   - **New patterns in `scripts/lib/audience.mjs`**, all built from data:
+     - `being {A|group}`, `as a citizen of {N}`, `you are a citizen of {N}`;
+     - `with {A} citizenship` and `you hold a {A} passport`, unless conditional;
+     - `as {A} citizens, you`, `{group} citizens like you`, `you are {group}`;
+     - `your {A} classmates|friends`, `parents' {A}`;
+     - `go/going/went home`, `leaving home in {N}`.
+   - **All 11 escaped phrasings are fixtures**, and their conditional forms
+     are asserted allowed.
+   - **New data rule:** every Destination with `membership.eu|eea|efta` must
+     carry `ownCitizens`, beginning "If you hold {adjective} citizenship". The
+     rule reads the adjective from the record and names no country.
+     - `schemas/destination.schema.json` gains `ownCitizens` and
+       `membership.efta`; Switzerland is marked `efta: true`.
+     - All 25 records are written: 20 in a deliberately modest general form,
+       and 5 with verified specifics (Poland art. 324; Germany's German-proof
+       rule and BAföG; Norway's Lånekassen; Switzerland's fee group and
+       EPFL's "Swiss applicants"; Denmark).
+     - They render as an "If you are {adjective}" topic after Money on every
+       destination page (`src/pages/destinations.mjs`, passed through
+       `src/lib/data.mjs`).
+     - Poland would have failed this check.
+7. **Prose and freshness.**
+   - **SU line verb.** It now reads "Danish SU can follow you here if you can
+     claim it (…) and meet the ties-to-Denmark requirement." The verb comes from
+     new `lead` and `abroad.lead` fields in the record and schema. The country
+     notes were rewritten to "The programme must be SU-approved, and outside
+     the Nordics SU is capped at four years (48 klip)."
+   - **Finland.** The residency list is de-duplicated, and the Migri sentence
+     is out of "why".
+   - **Czech.** The London sitting now names itself.
+   - **Vilnius.** The deadline is dated 1 July 2027 from admissions.vu.lt's
+     2027/28 round, with 1 May for non-EU/EFTA noted. The route's "Not
+     established" no longer lists Vilnius.
+
+**Build and gate.** A build to a scratch directory succeeds, and the page
+budget passes on it (35 pages; the largest topic is 90, at the ceiling).
+`node scripts/test-audience.mjs` passes with the new rule. The first gate runs
+failed in `build` with `ENOTEMPTY`/`EBUSY` on `dist/assets/img/*`: another
+process (OneDrive, or the programme-image agent's files) was holding the
+directory. On the second full retry the gate ran clean: **all 31 checks pass** (PowerShell, `SITE_BASE=/IB-Post-Secondary-Opportunities`).

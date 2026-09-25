@@ -46,7 +46,8 @@
     "ties": "You meet the ties-to-Denmark requirement through one of seven ties — for example two years of continuous residence in Denmark in the last ten, having gone to school in Denmark for a substantial period, or a parent who has worked in Denmark for five years.",
     "duration": "In another Nordic country SU is paid as if you studied in Denmark; elsewhere it is capped at four years (48 klip). Either way it uses SU klip, within an overall frame of 70 klip for higher education abroad. su.dk does not yet say how the 2027 reform changes that frame, so check there before counting on it.",
     "unverified": "The rules for a full degree outside the EU/EEA use a separate ties form; su.dk's page for it could not be read on 2026-09-24.",
-    "label": "if you can claim it (Danish citizens, or EU/EEA citizens with equal status under EU rules) and meet the ties-to-Denmark requirement"
+    "label": "if you can claim it (Danish citizens, or EU/EEA citizens with equal status under EU rules) and meet the ties-to-Denmark requirement",
+    "lead": "can follow you here"
   },
   "sources": [
     {
@@ -96,7 +97,9 @@
     "notes": [
       "Written once so that every page naming SU carries the same condition. The Destination funding lines in data/countries and data/destinations still restate it; phase 2b of docs/research/audience/PLAN.md replaces them with a reference to fund-dk-su.",
       "The equal-status routes cite su.dk directly because data/evidence was being edited when this record was written; phase 2b adds Evidence records for them.",
-      "Critic round 1: `abroad.label` added, because a line about studying in another country needs the ties-to-Denmark requirement and \"under EU rules\", and a line about Denmark does not. The Nordic klip question was settled on su.dk (verification.md §8)."
+      "Critic round 1: `abroad.label` added, because a line about studying in another country needs the ties-to-Denmark requirement and \"under EU rules\", and a line about Denmark does not. The Nordic klip question was settled on su.dk (verification.md §8).",
+      "Critic round 2: `lead` and `abroad.lead` give the rendered funding line a verb: \"Danish SU can follow you here if you can claim it (…) and meet the ties-to-Denmark requirement.\""
     ]
-  }
+  },
+  "lead": "is paid to you"
 }

@@ -466,6 +466,21 @@ export function destination(site, c, { prev, next }) {
       more: 'Fees, living costs and funding',
     }),
 
+    /* Most of this page is written for an EU/EEA citizen from somewhere else.
+       Some readers hold this country's citizenship; the record says what
+       changes for them (docs/research/audience, critique round 2). */
+    c.ownCitizens &&
+      (() => {
+        const [first, ...rest] = c.ownCitizens.split(/(?<=\.)\s+/);
+        return topic({
+          id: 'own-citizens',
+          title: `If you are ${c.adjective || 'a citizen'}`,
+          short: first,
+          body: rest.length ? html`<p>${rest.join(' ')}</p>` : '',
+          more: 'What else changes',
+        });
+      })(),
+
     c.language &&
       topic({
         id: 'language',

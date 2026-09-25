@@ -232,7 +232,7 @@ const QUESTIONS = [
     q: 'Everything says "free tuition". Is it really free?',
     a: `Tuition is genuinely free for EU/EEA citizens across the Nordics, Germany, Austria, Czechia and Poland
     — with important asterisks. Norway and Iceland charge a semester or registration fee. Germany charges a
-    semester contribution. Czechia and Poland are free only for programmes taught in the local language.
+    semester contribution. Czechia is free only for programmes taught in Czech; in Poland, Polish-taught study is free for EU citizens and some English-taught programmes are too.
     Living costs are the real number: Norway budgets NOK 15,488 a month (about €1,435), Denmark DKK 8,450–13,700 (about €1,130–1,830), at the ECB rate of 24 September 2026. Free tuition
     and an expensive city can still come to more than modest tuition somewhere cheap.`,
   },
@@ -246,8 +246,8 @@ const QUESTIONS = [
   {
     q: 'How many places can I apply to?',
     a: `It varies a lot and it shapes your strategy. Denmark: eight, ranked, one offer. Norway: ten ranked
-    through Samordna opptak. Finland: six. The UK: five through UCAS. The Netherlands: two if either is
-    numerus fixus. Ireland: ten at level 8 and ten at level 6/7. Where you rank choices, rank by where you
+    through Samordna opptak. Finland: six. The UK: five through UCAS. The Netherlands: four through Studielink,
+    of which at most two numerus fixus. Ireland: ten at level 8 and ten at level 6/7. Where you rank choices, rank by where you
     would rather be — a long shot at number one usually costs you nothing.`,
   },
   {
@@ -295,6 +295,17 @@ export function credits(site) {
   const commons = Object.entries(site.images || {}).sort((a, b) =>
     (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
   );
+  /* The faded photographs behind programme cards, one row per photograph:
+     several programmes can share one, and it is the photographer being
+     credited, not the card. */
+  const disciplines = [];
+  for (const r of Object.values(site.programmeImages || {})) {
+    if (!r.file || !r.src) continue;
+    const row = disciplines.find((d) => d.file === r.file);
+    if (row) row.subjects.push(r.subject);
+    else disciplines.push({ ...r, subjects: [r.subject] });
+  }
+  disciplines.sort((a, b) => a.subjects[0].localeCompare(b.subjects[0]));
   const official = Object.entries(site.officialImages || {}).sort((a, b) =>
     (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
   );
@@ -341,6 +352,23 @@ ${hero({
             head: ['Subject', 'Photographer', 'Licence', 'File'],
             rows: commons.map(([key, v]) => [
               v.subject || key,
+              v.author || 'Unknown',
+              v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
+              v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',
+            ]),
+          })
+        : html`<p><em>None recorded yet.</em></p>`}
+
+      <h2 id="disciplines">Behind the programme cards</h2>
+      <p>Each programme card has a faded photograph of its discipline behind it. The photograph is the
+      programme's own where one fits, and otherwise one of its field. These also come from Wikimedia Commons and
+      are hosted here under their licences.</p>
+      ${disciplines.length
+        ? dataTable({
+            caption: `${plural(disciplines.length, 'photograph')} behind programme cards`,
+            head: ['Used for', 'Photographer', 'Licence', 'File'],
+            rows: disciplines.map((v) => [
+              v.subjects.join(', '),
               v.author || 'Unknown',
               v.licenceUrl ? html`<a href="${v.licenceUrl}" rel="noopener nofollow">${v.licence}</a>` : v.licence || '—',
               v.page ? html`<a href="${v.page}" rel="noopener nofollow">${truncate(v.file || 'Commons', 46)}</a>` : v.file || '—',

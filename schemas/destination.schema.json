@@ -55,6 +55,10 @@
         },
         "schengen": {
           "type": "boolean"
+        },
+        "efta": {
+          "type": "boolean",
+          "description": "Member of EFTA. Switzerland is in neither the EU nor the EEA, but its citizens are in this site's default readership (EU, EEA or Swiss)."
         }
       },
       "additionalProperties": false
@@ -89,6 +93,12 @@
     "tagline": {
       "type": "string",
       "maxLength": 90
+    },
+    "ownCitizens": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 700,
+      "description": "What is different on this page for a reader who holds this Destination's citizenship, even if the answer is 'very little'. Most of the page is written for an EU/EEA citizen from somewhere else; some of this school's students are citizens of the country they are reading about. Begins 'If you hold <adjective> citizenship'. Required for every EU/EEA/EFTA Destination by scripts/test-audience.mjs."
     },
     "summary": {
       "type": "string"

@@ -25,6 +25,7 @@
       },
       "additionalProperties": false
     },
+    "lead": { "type": "string", "maxLength": 60, "description": "The verb phrase between the scheme's name and its label on its own Destination's page, e.g. 'is paid to you'." },
     "label": {
       "type": "string",
       "minLength": 20,
@@ -67,6 +68,7 @@
       "required": ["summary"],
       "properties": {
         "summary": { "type": "string", "maxLength": 600 },
+        "lead": { "type": "string", "maxLength": 60, "description": "The verb phrase between the scheme's name and `abroad.label` on another Destination's page, e.g. 'can follow you here'." },
         "label": { "type": "string", "minLength": 20, "maxLength": 240, "description": "Who can take it abroad, used in place of the scheme's `label` on a Destination other than the scheme's own. Studying abroad usually adds conditions studying at home does not." },
         "ties": { "type": "string", "maxLength": 600 },
         "duration": { "type": "string", "maxLength": 400 },

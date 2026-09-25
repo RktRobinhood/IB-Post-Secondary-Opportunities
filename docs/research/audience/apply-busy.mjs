@@ -63,7 +63,7 @@ const OVERRIDE = {
 };
 
 /* --- SU funding lines become references (verification §1) ---------------- */
-const EU = 'It can follow you to a full degree here if the programme is SU-approved; outside the Nordics it is capped at four years (48 klip).';
+const EU = 'The programme must be SU-approved, and outside the Nordics SU is capped at four years (48 klip).';
 const OUT = 'A full degree outside the EU/EEA follows separate rules, with its own ties-to-Denmark form: check su.dk before budgeting.';
 const RATE = 'In 2026 it is DKK 7,426 a month before tax if you live away from your parents.';
 const NORDIC = (n) => `Because ${n} is a Nordic country, it is paid as if you studied in Denmark — for anyone starting after 1 July 2025, for the programme's prescribed length only.`;

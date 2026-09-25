@@ -198,3 +198,18 @@ Sources, read 2026-09-24:
 **What changes:** one labelled line on `/denmark/` and `/denmark/money/`.
 SU eligibility for this group was **not** verified, so the line says nothing
 about SU.
+
+## 10. Round 2 (critique-round-2.md), read 2026-09-25
+
+| Fact | Source | Quote | Result |
+|---|---|---|---|
+| Art. 324 governs foreigners only, and its pkt 6 covers Karta Polaka holders | [Art. 324, Prawo o szkolnictwie wyższym i nauce](https://arslege.pl/zwolnienia-cudzoziemcow-z-oplat-za-studia/k1741/a117335/) | ust. 3: "O stypendium socjalne … i o kredyt studencki … może ubiegać się cudzoziemiec, o którym mowa w ust. 2: 1) pkt 1 i 1a: a) będący … pracownikiem … 2) pkt 2–8."; ust. 2 pkt 6: "posiadacza Karty Polaka" | ✓ Polish citizens are outside art. 324. A Karta Polaka holder may apply for the grant and the loan with no worker condition. An EU citizen may only as a worker, as someone who retains that right, or as a permanent resident. |
+| OSHC exemptions for Sweden, Norway, Belgium | [privatehealth.gov.au, OSHC](https://privatehealth.gov.au/health_insurance/overseas/overseas_student_health_cover.htm) | "Some exemptions to the requirement to purchase OSHC may apply if you are a student from Sweden, Norway, or Belgium" … "check with the Department of Home Affairs" | ✓ |
+| Nordic citizens need no EU residence document in Denmark | [lifeindenmark, when you arrive](https://lifeindenmark.borger.dk/theme/when-you-arrive) | "if you are a citizen of a Nordic country (Finland, Iceland, Norway or Sweden) … You do not need an EU residence document"; a CPR number at Citizen Service for stays over 6 months | ✓ |
+| Vilnius 2027/28 round | [admissions.vu.lt](https://admissions.vu.lt/) | opens 1 December 2026; deadline 1 May for non-EU/EFTA; 1 July for EU/EFTA citizens and non-EU/EFTA applicants whose visa-free period has not been exceeded | ✓ published |
+| Studielink limit | [UT, FAQ Studielink](https://www.utwente.nl/en/education/bachelor/how-to-apply/faq-studielink/) | "a maximum of 4 different programmes in total … a maximum of 2 Numerus Fixus programmes" | ✓. The page says nothing specific to medicine, so no medicine limit is stated. |
+| Aarhus: the IB-year rule is for paying applicants; the documentation deadline is for non-EU applicants without a Danish residence permit | [AU, IB page](https://bachelor.au.dk/en/international-applicants/moreinfo/international-baccalaureate-ib), re-read 2026-09-25 | "if you are a paying applicant, then you cannot apply if you earn your IB exam in the year of application as the documentation deadline for paying applicants is 15 March at 12:00 noon" | ✓ The rule is for **paying** applicants. The deadlines-page wording ("without a Danish residence permit") comes from the critique and was not re-read. |
+
+Not established:
+- **Wroclaw Tech:** whether a Polish citizen with a foreign IB applies in the
+  foreigners' recruitment. The page now says so and marks it as a gap.

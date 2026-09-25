@@ -89,7 +89,7 @@ export function denmarkHub(site) {
       title: 'Your subjects become Danish levels',
       short: 'HL generally becomes A level and SL becomes B — but not always, and the exceptions matter.',
       body: html`<p>Both mathematics courses — Analysis and Approaches and Applications and Interpretation — count
-        the same way at each level. Global Politics has no fixed equivalence at all.</p>
+        the same way at each level. Global Politics has no fixed national equivalence; a few universities publish their own rule for it, and the programme pages show it.</p>
         <p>Almost every programme names subjects and levels, and some name minimum grades too. Meeting the general
         entry requirement is not enough on its own.</p>
         <p><a class="arrow-link" href="${url('/planner/')}">Check yours against real programmes</a></p>`,
@@ -331,11 +331,13 @@ ${hero({
         </ol>
 
         ${note(
-          `**If you are a fee-paying applicant** — that is, not an EU, EEA or Swiss citizen — the rules are
-          harsher and differ between institutions. Aarhus requires your documentation by 15 March and will not
-          accept you at all if you sit the IB in the year you apply. Aalborg sets 1 May. Check your specific
-          institution early, because this can rule out the whole year.`,
-          { kind: 'warn', title: 'Non-EU applicants' }
+          `**If you will pay tuition** — you are not an EU, EEA or Swiss citizen and hold no permit that exempts
+          you, such as permanent residence or a Special Act permit for displaced persons from Ukraine (see Money) —
+          the rules are harsher and differ between institutions. Aarhus says that "if you are a paying applicant,
+          then you cannot apply if you earn your IB exam in the year of application", because paying applicants must
+          document everything by 15 March. Aalborg sets 1 May. Check your specific institution early, because this
+          can rule out the whole year. If you do not pay tuition, these harsher rules do not apply to you.`,
+          { kind: 'warn', title: 'Applicants who pay tuition' }
         )}
 
         <h2 id="short">If you are a subject short</h2>
@@ -397,7 +399,8 @@ ${hero({
 function levelRows(site, c) {
   const scheme = (site.recognitionSchemes || []).find((x) => x.authority?.name && x.authority.name === c.authority?.name);
   if (!scheme) return [];
-  const index = buildSubjectIndex({ subjects: site.ibSubjects || [], schemes: [scheme] });
+  const institutions = [...(site.graph?.institutions?.values() || [])].filter((i) => (i.ibEquivalences || []).length);
+  const index = buildSubjectIndex({ subjects: site.ibSubjects || [], schemes: [scheme], institutions });
   const scale = scheme.subjectScale.id;
   const rank = new Map(scheme.subjectScale.levels.map((l) => [l.code, l.rank]));
 
@@ -427,11 +430,18 @@ function levelRows(site, c) {
       const t = ibTermsFor({ subject, level, levelScale: scale }, index);
       const n = asked.get(`${subject}|${level}`)?.size || 0;
       const own = localName.get(`${subject}|${level}`);
+      /* Where an institution publishes its own route, it is named beside the
+         national answer: "no fixed equivalent" is not the whole story at Aarhus. */
+      const local = institutions
+        .map((i) => ({ i, t: ibTermsFor({ subject, level, levelScale: scale }, index, i.id) }))
+        .filter(({ t: x }) => x.institution);
       return [
         html`<strong>${subject} ${level}</strong>${own ? html`<br><small lang="da">${own} ${level}</small>` : ''}`,
         t.phrase
           ? html`<span class="req-ib">${t.phrase}</span>`
-          : html`<span class="req-none">No IB equivalent.</span> <small>${firstSentence(t.none, 40)}</small>`,
+          : html`<span class="req-none">No ${local.length ? 'national ' : ''}IB equivalent.</span> <small>${firstSentence(t.none, 40)}</small>${local.map(
+              ({ i, t: x }) => html`<br><small><strong>${i.shortName || i.name}:</strong> ${x.institution.phrase}</small>`
+            )}`,
         n ? plural(n, 'programme') : '—',
       ];
     });
@@ -469,10 +479,12 @@ ${hero({
         <p><strong>Danish A, B and C are levels of study, not grades.</strong> A is the highest level a subject can be
         taken at and C the lowest, and a higher level always covers a lower one. So when a programme asks for
         <em>English B</em>, it means English at B level — not the IB course English B, although English B SL is one
-        way to meet it.</p>
+        way to meet it. <em>Any IB English</em> means any English A or English B course — not English ab initio.</p>
+        <p>Every subject a programme on this site asks for, read through the Agency's handbook. SL or HL means
+        either level meets it. Where a university publishes its own additions, they are named under the national
+        answer.</p>
         ${levels.length
           ? dataTable({
-              caption: 'Every subject a programme on this site asks for, read through the Agency\x27s handbook. SL or HL means either level meets it.',
               head: ['Danish requirement', 'In IB terms', 'Asked for by'],
               rows: levels,
             })
@@ -497,6 +509,11 @@ ${hero({
         <p>This is the number you compete on in quota 1. It is re-issued every year — the table below is
         labelled <em>${c.gradeAverage.sourceLabel}</em>, and the version for the summer 2027 intake is published
         by 1 March 2027.</p>
+        <p>There is no bonus on top of it. The admission order in force for universities
+        (<a href="https://www.retsinformation.dk/eli/lta/2026/288" rel="noopener nofollow">Adgangsbekendtgørelsen, BEK nr 288 of 17 February 2026</a>,
+        § 17) ranks quota 1 on the exam average — for an IB Diploma, the converted average in this table — and
+        contains no multiplier for applying soon after school. So a programme's cut-off and your converted average
+        compare directly, and the IB points shown beside a cut-off on this site are read straight off this table.</p>
         ${dataTable({
           caption: c.gradeAverage.appliesTo,
           head: ['IB total', { label: 'Danish average', num: true }],
@@ -704,7 +721,7 @@ ${hero({
 
         <h2 id="admin">The order you have to do things in</h2>
         <ol class="steps">
-          <li><h4>Residence document</h4><p>If you already live in Denmark you will usually have a registration certificate; ask SIRI whether yours needs updating once you are here as a student rather than as a family member. If you are arriving, EU and EEA citizens get an EU registration certificate from SIRI within three months. Book the appointment in advance and bring your passport and letter of admission. Non-EU students need a residence permit before arrival — allow two to three months.</p></li>
+          <li><h4>Residence document</h4><p>If you are a Nordic citizen you need none: you register directly for a CPR number at Citizen Service. If you already live in Denmark as another EU/EEA citizen, you will usually have a registration certificate; ask SIRI whether yours needs updating once you are here as a student rather than as a family member. If you are arriving, EU and EEA citizens get an EU registration certificate from SIRI within three months. Book the appointment in advance and bring your passport and letter of admission. Non-EU students need a residence permit before arrival — allow two to three months.</p></li>
           <li><h4>CPR number</h4><p>Your Danish personal number. If you already live in Denmark you have one, and it stays yours when you move for university — register the new address within five days. Otherwise your municipality issues it once you have an address and the right to stay.</p></li>
           <li><h4>Health card</h4><p>Arrives automatically with your CPR registration. Choose insurance group 1 — 98% of residents do — which gives you an assigned GP with free consultations and referrals.</p></li>
           <li><h4>Bank account and NemKonto</h4><p>Needs the CPR number. Register the account as your NemKonto so public bodies, including SU, can pay you.</p></li>

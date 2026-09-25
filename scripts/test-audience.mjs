@@ -80,6 +80,30 @@ check('the loopholes the first critique found are closed', () => {
   assert.deepEqual(flags('Close to home — and equal status if you have it.'), ['home']);
 });
 
+check('the phrasings the second critique found are caught', () => {
+  /* Eleven of twelve fresh phrasings got through in round 2. Each must now
+     trip at least one rule; which one is not the point. */
+  for (const t of [
+    'Being Flatlandish, you pay nothing in Flatland.',
+    'As a citizen of Flatland you skip the registration office.',
+    'With Flatlandish citizenship you pay no tuition and need no permit.',
+    'Like most of your classmates, you hold a Flatlandish passport, so no visa is needed.',
+    "Your parents' Flatlandish salaries count in the means test.",
+    'Being a Coastal citizen, you skip the registration office entirely.',
+    'Coastal citizens like you do not register with the police.',
+    'You and your Flatlandish classmates apply through the national portal.',
+    'You are Coastal, so you skip the registration office.',
+    'As Flatlandish citizens, you and your friends pay nothing.',
+    'Moving abroad means leaving home in Flatland for the first time.',
+  ]) assert.ok(flags(t).length, `not caught: ${t}`);
+  /* …and their conditional forms stay allowed. */
+  for (const t of [
+    'If you hold Flatlandish citizenship, you pay no tuition.',
+    'If you are a citizen of Flatland, you skip the registration office.',
+    'If you hold a Flatlandish passport, no visa is needed.',
+  ]) assert.deepEqual(flags(t), [], t);
+});
+
 check('refuses a citizens-only fact offered to everyone', () => {
   assert.deepEqual(flags('Flatlandish FG for a full degree abroad, paid monthly to you.'), ['grant']);
   assert.deepEqual(flags('The embassy track is closed to Flatlandish nationals.'), ['nationality-closure']);
@@ -139,6 +163,25 @@ check('no student-facing string assumes the reader is a citizen of the school co
   assert.fail(`${open.length} string(s):\n${lines.join('\n')}${open.length > 40 ? `\n… and ${open.length - 40} more` : ''}\n` +
     'Rewrite for an EU/EEA student at a school in the country (docs/PRODUCT_VISION.md, "Who it is for"), ' +
     'label a citizens-only fact ("If you hold … citizenship"), or add a reasoned entry to data/audience-allowlist.json.');
+});
+
+check("every EU/EEA/EFTA Destination says what differs for its own citizens", () => {
+  /* The regexes above look for the school country's people. They cannot see
+     the Polish reader of the Poland page, told that Polish student support is
+     closed to them (critique round 2). Some of this school's students are
+     citizens of the country they are reading about, so every Destination whose
+     citizens are in the default readership states what changes for them, even
+     if the answer is very little. */
+  const missing = [];
+  for (const f of fs.readdirSync(path.join(ROOT, 'data/destinations')).filter((f) => f.endsWith('.json'))) {
+    const d = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/destinations', f), 'utf8'));
+    const m = d.membership || {};
+    if (!(m.eu || m.eea || m.efta)) continue;
+    const text = d.ownCitizens || '';
+    if (text.length < 40) missing.push(`${f}: no ownCitizens`);
+    else if (!text.startsWith(`If you hold ${d.adjective} citizenship`)) missing.push(`${f}: ownCitizens should begin "If you hold ${d.adjective} citizenship"`);
+  }
+  assert.equal(missing.length, 0, missing.join('\n'));
 });
 
 check('every allowlist entry still matches something, and says why', () => {
