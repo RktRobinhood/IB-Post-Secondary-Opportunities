@@ -15,6 +15,7 @@ import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
 import { backdropResolver } from './programme-imagery.mjs';
 import { cardKey } from './families.mjs';
+import { schoolKey, loadSchools, hostOf } from './schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -192,15 +193,30 @@ export async function load() {
         destination: destinationFacet(canonical.graph.destinations.get('dk'), 'dk'),
       }));
 
+  /* Every profile institution has a page of its own (#43): the canonical one
+     where the same institution also has a canonical record (matched by its
+     website), otherwise a school page built from data/schools/<key>.json, or
+     from the profile alone until that record is researched. */
+  const schools = loadSchools(path.join(DATA, 'schools'));
+  const canonicalByHost = new Map(institutions.map((i) => [hostOf(i.links?.website || i.website), i]));
+
   for (const c of countries) {
     c.flag = FLAGS[c.code] || '';
     c.scope = c.scope === 'worldwide' ? 'worldwide' : 'europe';
     c.region = c.region || (c.scope === 'worldwide' ? 'Other' : 'Western Europe');
     c.href = `/destinations/${c.code}/`;
-    c.institutions = asArray(c.institutions).map((i) => ({
-      ...i,
-      key: `${c.code}-${slugify(i.shortName || i.name)}`,
-    }));
+    c.institutions = asArray(c.institutions).map((i) => {
+      const key = schoolKey(c.code, i);
+      const canonicalTwin = canonicalByHost.get(hostOf(i.website)) || null;
+      return {
+        ...i,
+        key,
+        countryCode: c.code,
+        canonicalId: canonicalTwin?.id || null,
+        school: canonicalTwin ? null : schools.get(key) || null,
+        href: canonicalTwin ? canonicalTwin.href || `/universities/${canonicalTwin.id}/` : `/universities/${key}/`,
+      };
+    });
     for (const inst of c.institutions) inst.ibRecognitionStatement = statementFor(inst.key);
     c.whyConsider = asArray(c.whyConsider);
     c.watchOuts = asArray(c.watchOuts);

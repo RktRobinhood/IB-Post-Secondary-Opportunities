@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "school.schema.json",
+  "title": "School",
+  "description": "What one institution in a country profile (data/countries/) offers an IB student, researched from its own pages: a one-line summary, its English-taught bachelor's degrees with a link to each programme's own page, what it asks of IB applicants, and its dates for the next autumn intake. Where nearly every course is taught in English (a UK or US university), the programmes are not listed and the hand-off is the course search. One file per institution, data/schools/<key>.json, where <key> is the institution key the site derives: <country code>-<slug of shortName or name>. See docs/research/schools/BRIEF.md.",
+  "type": "object",
+  "required": ["institution", "name", "retrieved", "scope", "summary", "handoff", "programmes", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "institution": { "$ref": "common.schema.json#/$defs/id", "description": "The institution key, e.g. fi-uh. Must match an institution in data/countries/." },
+    "name": { "type": "string", "description": "The institution's name, for a human reading the file." },
+    "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" },
+    "intake": { "$ref": "common.schema.json#/$defs/intake", "description": "The intake the programmes and dates are for, normally 2027-autumn." },
+    "scope": {
+      "enum": ["listed", "catalogue", "none"],
+      "description": "listed: every English-taught bachelor's degree open to first-year applicants for the intake is in `programmes`. catalogue: nearly all courses are taught in English, too many to list; `programmes` is empty and `handoff` is the course search. none: no English-taught bachelor's degree for the intake; `programmes` is empty."
+    },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 170, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
+    "handoff": {
+      "type": "object",
+      "required": ["label", "url"],
+      "additionalProperties": false,
+      "description": "The one targeted page the site sends a student on to: the list of English-taught bachelor's degrees, the undergraduate course search, or the page for international or IB applicants. Never the homepage.",
+      "properties": {
+        "label": { "type": "string", "maxLength": 60, "description": "What the page is, e.g. 'English-taught bachelor's degrees' or 'Undergraduate course search'." },
+        "url": { "$ref": "common.schema.json#/$defs/url" }
+      }
+    },
+    "ib": {
+      "type": "object",
+      "required": ["text", "url"],
+      "additionalProperties": false,
+      "description": "What the institution asks of IB Diploma applicants in general: minimum points, subjects, English. From its own page.",
+      "properties": {
+        "text": { "type": "string", "maxLength": 220 },
+        "url": { "$ref": "common.schema.json#/$defs/url" }
+      }
+    },
+    "apply": {
+      "type": "object",
+      "required": ["via", "url"],
+      "additionalProperties": false,
+      "description": "Where the application is made, when it is not the institution's own portal alone (e.g. Studyinfo.fi, UCAS, Universityadmissions.se).",
+      "properties": {
+        "via": { "type": "string", "maxLength": 60 },
+        "url": { "$ref": "common.schema.json#/$defs/url" }
+      }
+    },
+    "dates": {
+      "type": "array",
+      "maxItems": 8,
+      "description": "Dates for the intake that apply to the whole institution. A date that belongs to one programme goes on that programme.",
+      "items": { "$ref": "#/$defs/date" }
+    },
+    "programmes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/programme" }
+    },
+    "courses": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "For scope catalogue: how many undergraduate courses it offers, as its own course listing counts them."
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "For scope none: the language its bachelor's degrees are taught in, e.g. 'Swedish'. The page is titled 'Taught in <language>'."
+    },
+    "notes": {
+      "type": "array",
+      "maxItems": 3,
+      "items": { "type": "string", "maxLength": 220 },
+      "description": "At most three things worth knowing that a student would not guess, one sentence each."
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "$ref": "common.schema.json#/$defs/url" },
+          "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "date": {
+      "type": "object",
+      "required": ["label", "date", "kind", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "maxLength": 90 },
+        "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day"] },
+        "who": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+        "url": { "$ref": "common.schema.json#/$defs/url" }
+      }
+    },
+    "programme": {
+      "type": "object",
+      "required": ["name", "credential", "years", "field", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "description": "The programme's English name as the institution writes it." },
+        "credential": { "type": "string", "maxLength": 16, "description": "The degree abbreviation, e.g. BSc, BA, BBA, LLB, BEng, BMus. 'Bachelor' when the institution gives none." },
+        "years": { "type": "number", "minimum": 1, "maximum": 7 },
+        "city": { "type": "string", "description": "Only when it differs from the institution's city." },
+        "field": {
+          "enum": ["engineering", "computing", "natural-sciences", "mathematics", "business", "economics", "social-sciences", "law", "humanities", "languages", "education", "health", "medicine", "veterinary", "agriculture-environment", "design-architecture", "arts-music", "sport", "hospitality-tourism", "interdisciplinary", "other"]
+        },
+        "url": { "$ref": "common.schema.json#/$defs/url", "description": "The programme's own page on the institution's site. Never the homepage or a generic list." },
+        "ib": { "type": "string", "maxLength": 180, "description": "What this programme asks of IB applicants beyond the institution's general rule: subjects and levels, points, an entrance exam." },
+        "tuitionEuEea": { "type": "string", "maxLength": 40, "description": "Per year for EU/EEA citizens, e.g. 'Free', '€1,500 a year'." },
+        "closes": { "$ref": "common.schema.json#/$defs/isoDate", "description": "The application deadline for this programme, when it differs from the institution's." }
+      }
+    }
+  }
+}

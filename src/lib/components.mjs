@@ -173,9 +173,9 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * programme is, and it is credited on /credits/. It is positioned absolutely,
  * so it cannot change the card's height, and it loads lazily.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, line, paths }) {
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, line, paths, kicker, sub, mod }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
-  return html`<article class="card card--link${backdrop ? ' card--backdrop' : ''}">
+  return html`<article class="card card--link${backdrop ? ' card--backdrop' : ''}${mod ? ` ${mod}` : ''}">
     ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : ''}
     ${image
       ? html`<div class="card__media">
@@ -196,6 +196,9 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
       : ''}
     <div class="card__body">
       ${logo ? html`<span class="logo-chip"><img src="${url(logo.src)}" alt="" loading="lazy"></span>` : ''}
+      ${/* A word above the title (a field), and the line a reader needs
+            straight after it (a degree type), both optional. */
+        kicker ? html`<p class="card__kicker">${kicker}</p>` : ''}
       <h3 class="card__title"><a href="${external ? href : url(href)}"${
         external ? raw(' rel="noopener"') : ''
       }>${title}</a></h3>
@@ -203,6 +206,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
             (src/lib/paths.mjs credentialLine), so two cards that share a name
             are never identical at a glance. */
         line ? html`<p class="card__cred">${line}</p>` : ''}
+      ${sub ? html`<p class="card__sub">${sub}</p>` : ''}
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
       ${/* A programme's requirements, IB terms first (requirementSummary). */ req || ''}
       ${/* A programme family's paths, one short row each (src/lib/paths.mjs). */ paths || ''}

@@ -697,8 +697,10 @@ section { scroll-margin-top: 5.5rem; }
 }
 .hero h1 { color: #fff; margin-bottom: var(--s4); max-width: 18ch; }
 .hero .lede { color: rgba(255,255,255,.88); max-width: 52ch; }
-.hero .eyebrow { color: var(--sand); }
+/* Cream, not sand: the gold label vanished on pale stone and sky (#43 critic). */
+.hero .eyebrow { color: #F3E6CC; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .hero .eyebrow::after { background: rgba(255,255,255,.3); }
+@media (max-width: 40rem) { .hero .eyebrow::after { display: none; } }
 .hero__credit {
   position: absolute; right: var(--s3); bottom: var(--s2); z-index: 1;
   font-size: var(--type-floor); color: rgba(255,255,255,.62);
@@ -1528,6 +1530,16 @@ figcaption a { color: inherit; }
   font-size: .8125rem; color: rgba(255,255,255,.6);
 }
 :root[data-theme="dark"] .site-foot__bar { border-top-color: var(--rule); color: var(--ink-mute); }
+/* The same, for a reader whose device is dark and who has not chosen a theme:
+   the rules above only matched an explicit choice, which left white text on
+   the dark palette's pale brand colour. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-foot { background: var(--paper-2); color: var(--ink-soft); }
+  :root:not([data-theme="light"]) .site-foot h2, :root:not([data-theme="light"]) .site-foot h3 { color: var(--ink); }
+  :root:not([data-theme="light"]) .site-foot a { color: var(--ink-soft); }
+  :root:not([data-theme="light"]) .site-foot a:hover { color: var(--ink); }
+  :root:not([data-theme="light"]) .site-foot__bar { border-top-color: var(--rule); color: var(--ink-mute); }
+}
 
 /* --- 19. Sources and provenance ------------------------------------------ */
 
@@ -2603,3 +2615,120 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   .prog .prog__name { font-size: 1.125rem; margin-bottom: var(--s1); }
   .prog .prog__meta { margin-bottom: var(--s2); }
 }
+
+/* --- School pages (#43) --------------------------------------------------- */
+
+/* Where a school's programmes are not a list (a catalogue, nothing in English,
+   or not researched yet): one line and what it is known for. */
+.handoff { display: grid; gap: var(--s3); justify-items: start; max-width: var(--measure); }
+.handoff__line { font: 600 1.125rem/1.4 var(--display); color: var(--ink); margin: 0; }
+.handoff__todo { color: var(--ink-mute); font-size: .875rem; margin: 0; }
+.handoff__known .tags { margin: 0; }
+.handoff__known .tags { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--s2); }
+.handoff__known .tag { font: 600 1rem/1.3 var(--display); padding: var(--s3) var(--s4); border-radius: var(--radius); text-align: left; }
+
+/* Deadlines & sessions, beside a school's details. */
+.dates-panel__list { list-style: none; padding: 0; margin: 0; font-size: .875rem; line-height: 1.5; }
+.dates-panel__list li { display: grid; gap: 0 var(--s2); padding: var(--s2) 0; border-top: 1px solid var(--rule); }
+.dates-panel__list li:first-child { border-top: 0; }
+.dates-panel__list strong { color: var(--ink); }
+.dates-panel__none, .dates-panel__more { font-size: .875rem; color: var(--ink-soft); margin: var(--s2) 0 0; }
+
+.plain-list { list-style: none; padding: 0; margin: 0; }
+
+.dates-panel__gone { margin-top: var(--s2); font-size: .8125rem; color: var(--ink-mute); }
+.dates-panel__gone summary { cursor: pointer; }
+.dates-panel__gone .dates-panel__list { opacity: .7; }
+
+/* A programme card on a school page: a band of its field's colour on top,
+   the field above the name, and the degree type straight under it. */
+.card--prog { border-top: 0; }
+/* One colour per family of fields (FAMILY in src/pages/schools.mjs), with a
+   lighter twin in the dark theme so no two families collapse into one mint. */
+.card--fam-tech { --fam: #3B6EA5; }
+.card--fam-science { --fam: #3F8A5A; }
+.card--fam-business { --fam: #B8862B; }
+.card--fam-society { --fam: #B5553A; }
+.card--fam-health { --fam: #8A4F9E; }
+.card--fam-creative { --fam: #C0457A; }
+.card--fam-general { --fam: #5E6B73; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .card--fam-tech { --fam: #7FA8D6; }
+  :root:not([data-theme="light"]) .card--fam-science { --fam: #7CC49A; }
+  :root:not([data-theme="light"]) .card--fam-business { --fam: #D9B062; }
+  :root:not([data-theme="light"]) .card--fam-society { --fam: #E08A6E; }
+  :root:not([data-theme="light"]) .card--fam-health { --fam: #BD8FD0; }
+  :root:not([data-theme="light"]) .card--fam-creative { --fam: #E58AB0; }
+  :root:not([data-theme="light"]) .card--fam-general { --fam: #A3AFB6; }
+}
+:root[data-theme="dark"] .card--fam-tech { --fam: #7FA8D6; }
+:root[data-theme="dark"] .card--fam-science { --fam: #7CC49A; }
+:root[data-theme="dark"] .card--fam-business { --fam: #D9B062; }
+:root[data-theme="dark"] .card--fam-society { --fam: #E08A6E; }
+:root[data-theme="dark"] .card--fam-health { --fam: #BD8FD0; }
+:root[data-theme="dark"] .card--fam-creative { --fam: #E58AB0; }
+:root[data-theme="dark"] .card--fam-general { --fam: #A3AFB6; }
+.card__kicker { margin: 0 0 var(--s1); font: 650 .75rem/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
+/* The field, as a band across the top of the card in its family's colour; a
+   card under a field heading keeps a thin band of the same colour. */
+.card--prog { box-shadow: inset 0 6px 0 var(--fam); }
+.card--prog .card__kicker {
+  margin: calc(-1 * var(--s5)) calc(-1 * var(--s5)) var(--s2);
+  padding: .55rem var(--s5);
+  color: var(--ink);
+  background: color-mix(in srgb, var(--fam) 24%, var(--paper));
+  box-shadow: inset 0 6px 0 var(--fam);
+}
+.card--prog .card__foot { color: var(--ink-mute); font-size: .8125rem; }
+.prog-group + .prog-group { margin-top: var(--s6); }
+.prog-group__head { font-size: 1.25rem; margin: 0 0 var(--s4); }
+.prog-group__head span { color: var(--ink-mute); font-weight: 400; }
+@media (max-width: 40rem) {
+  /* A long list on a phone: one compact row per programme, name and degree. */
+  .prog-group .grid { gap: var(--s2); }
+  .prog-group .card__body { padding: var(--s3) var(--s4); gap: 2px; }
+  .prog-group .card--prog .card__kicker { margin: calc(-1 * var(--s3)) calc(-1 * var(--s4)) var(--s1); padding: .3rem var(--s4); }
+  .prog-group .card__title { font-size: 1.0625rem; }
+  .prog-group .card__sub { font-size: .875rem; }
+  .prog-group .card__text, .prog-group .tags, .prog-group .card__foot { display: none; }
+}
+.card__sub { margin: var(--s1) 0 0; font: 500 1rem/1.4 var(--sans); color: var(--ink); }
+
+/* On a phone the side column stacks first: the dates are what a student
+   came for, and five answers above them pushed them to the end. */
+@media (max-width: 61.99rem) {
+  .layout-aside--dates-first > .layout-aside__side { order: -1; }
+}
+
+.sources-foot { margin-top: var(--s5); font-size: .875rem; color: var(--ink-mute); }
+.sources-foot summary { cursor: pointer; }
+.section--pager { padding-block: var(--s5); }
+
+/* The ruled paper behind a close is busy at phone width; plain paper there. */
+@media (max-width: 40rem) { .close { background: var(--paper-2); } }
+
+/* The # a script adds to each heading: there when you reach for it. */
+.heading-anchor { margin-left: .35em; color: var(--ink-mute); text-decoration: none; opacity: 0; transition: opacity .15s; }
+h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-visible { opacity: 1; }
+@media (hover: none) { .heading-anchor { display: none; } }
+
+.dates-panel__list a { color: var(--ink); text-decoration: none; }
+.dates-panel__list a:hover { text-decoration: underline; }
+.layout-aside__side .plain-list { font-size: .875rem; }
+.section--pager { padding-bottom: 0; }
+.section--pager + * , main > .section--pager:last-child { margin-bottom: 0; }
+/* The page's way out on a country card: say it as plainly as the IB link. */
+.grid--places .card__foot span:last-child { color: var(--accent); font-weight: 600; }
+.handoff__known .eyebrow { margin: 0 0 var(--s2); }
+.close .btn { white-space: normal; max-width: 100%; text-align: center; justify-content: center; }
+.close:has(+ .section--pager) { padding-bottom: var(--s7); }
+.section--pager .pager { margin-top: 0; padding-top: 0; border-top: 0; }
+.hero .crumbs, .hero .crumbs a { color: rgba(255,255,255,.82); }
+.hero--panel .crumbs, .hero--panel .crumbs a, .hero--plain .crumbs, .hero--plain .crumbs a { color: var(--ink-soft); }
+.hero .crumbs { margin-bottom: var(--s4); text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+/* A scrim at the top of a photo hero, where the trail sits over stonework. */
+.hero:has(.crumbs)::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 7rem; z-index: -1;
+  background: linear-gradient(to bottom, rgba(8, 20, 18, .55), transparent);
+}
+.hero--panel:has(.crumbs)::before, .hero--plain:has(.crumbs)::before { display: none; }

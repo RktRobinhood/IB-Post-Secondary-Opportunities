@@ -456,10 +456,10 @@ export function destination(site, c, { prev, next }) {
       name: readableName(i),
       lat: i.coords.lat,
       lon: i.coords.lon,
-      // The institution's own site, which is where its card on this page goes
-      // too. It leaves the site, so it opens in a new tab (site.js).
-      href: i.website || null,
-      external: !!i.website,
+      // The institution's own page on this site, which is where its card on
+      // this page goes too (#43).
+      href: i.href || null,
+      external: false,
       country: c.code,
       image: (() => { const p = picture(site, i.key); return p && !p.external ? p.src : ''; })(),
       precision: i.coordinatePrecision,
@@ -870,18 +870,25 @@ function institutionGroup(site, g, groupCount) {
 
 function institutionCard(site, i) {
   const pic = picture(site, i.key);
-  const meta = [i.city, i.type].filter(Boolean);
+  // The last word on the card says where it goes: this site's page on the school.
+  const meta = [i.city, i.type, 'See the school →'].filter(Boolean);
   return card({
-    href: i.website || '#',
-    external: true,
+    href: i.href,
     title: i.name,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
-    text: firstSentence(i.note, 24),
+    text: i.school?.summary || firstSentence(i.note, 24),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     placeholder: i.shortName || i.name,
     meta,
-    tags: i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
+    // What is taught in English, from the school's own record once it has one.
+    tags: i.school?.scope === 'listed'
+      ? [plural(i.school.programmes.length, 'degree') + ' in English']
+      : i.school?.scope === 'catalogue'
+      ? ['Nearly all in English']
+      : i.school?.scope === 'none'
+      ? ['Nothing in English']
+      : i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
     // One short line and a link of its own, when the record has one. Kept as
     // a slot so that #38 — each institution's IB recognition statement, from
     // the IB's database — is a data change plus this one line, not a redesign
