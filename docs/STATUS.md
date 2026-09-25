@@ -45,6 +45,14 @@ This page says where the work stands, so the next session (human or agent) start
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
+## 26 September (early): critics on the three WIP pieces, fixes live
+
+On `main` (d262c9f), gated on a clean worktree (`D:/ibp-tmp/ci2`, 35/35):
+- **Deadlines #47** — round 1 scored **4/10** with three wrong dates live (TU Delft, Twente, SDU accept) plus a split Maastricht date and a missing SDU uniTEST date. All corrected at their sources with evidence (`docs/research/qa/deadlines/round-1/fixes.md`); one `datesPanel` on every `/universities/` page (304 full panels, was 19); next hard deadline first; `/timeline/` filter-first. Round-2 critic running.
+- **Programme cards #46** (round 2: 7/10) and **home #44** (round 1: 6/10) — fixed together (`docs/research/qa/programme-cards/round-2/fixes.md`): cards ~300 px, one Needs line, one tag, the degree always named on family cards, a varied first dozen on `/`, the Worldwide door, a no-match way out, a phone count pill. A combined round-2/3 critic is running.
+- Record gaps for data work: Absalon Biotechnology has no length; Maastricht University College no abbreviation; business card photos look alike (`field-business-*`, Creative Business, Global Business Informatics, CBS Digital Management).
+- Screenshots over 400 kB from critic rounds stay local (not committed).
+
 ## Merged to `main` on 25 September (evening): branch `globe-desk`
 
 `globe-desk` (worktree `.claude/worktrees/globe-desk`) is the stopped agents' WIP merged with `main` (#43 school pages included), then brought to a **green gate (32 of 32 checks)**:
