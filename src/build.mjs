@@ -279,7 +279,7 @@ async function main() {
   for (const c of site.countries) {
     const schools = c.institutions.filter((i) => !i.canonicalId);
     for (const [i, inst] of schools.entries()) {
-      const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].shortName || schools[j].name };
+      const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].name };
       await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
     }
   }

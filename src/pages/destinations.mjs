@@ -879,7 +879,14 @@ function institutionCard(site, i) {
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     placeholder: i.shortName || i.name,
     meta,
-    tags: i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
+    // What is taught in English, from the school's own record once it has one.
+    tags: i.school?.scope === 'listed'
+      ? [plural(i.school.programmes.length, 'degree') + ' in English']
+      : i.school?.scope === 'catalogue'
+      ? ['Nearly all in English']
+      : i.school?.scope === 'none'
+      ? ['Nothing in English']
+      : i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
     // One short line and a link of its own, when the record has one. Kept as
     // a slot so that #38 — each institution's IB recognition statement, from
     // the IB's database — is a data change plus this one line, not a redesign

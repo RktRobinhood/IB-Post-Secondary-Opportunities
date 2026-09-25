@@ -695,8 +695,10 @@ section { scroll-margin-top: 5.5rem; }
 }
 .hero h1 { color: #fff; margin-bottom: var(--s4); max-width: 18ch; }
 .hero .lede { color: rgba(255,255,255,.88); max-width: 52ch; }
-.hero .eyebrow { color: var(--sand); }
+/* Cream, not sand: the gold label vanished on pale stone and sky (#43 critic). */
+.hero .eyebrow { color: #F3E6CC; text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .hero .eyebrow::after { background: rgba(255,255,255,.3); }
+@media (max-width: 40rem) { .hero .eyebrow::after { display: none; } }
 .hero__credit {
   position: absolute; right: var(--s3); bottom: var(--s2); z-index: 1;
   font-size: var(--type-floor); color: rgba(255,255,255,.62);
@@ -1523,6 +1525,16 @@ figcaption a { color: inherit; }
   font-size: .8125rem; color: rgba(255,255,255,.6);
 }
 :root[data-theme="dark"] .site-foot__bar { border-top-color: var(--rule); color: var(--ink-mute); }
+/* The same, for a reader whose device is dark and who has not chosen a theme:
+   the rules above only matched an explicit choice, which left white text on
+   the dark palette's pale brand colour. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-foot { background: var(--paper-2); color: var(--ink-soft); }
+  :root:not([data-theme="light"]) .site-foot h2, :root:not([data-theme="light"]) .site-foot h3 { color: var(--ink); }
+  :root:not([data-theme="light"]) .site-foot a { color: var(--ink-soft); }
+  :root:not([data-theme="light"]) .site-foot a:hover { color: var(--ink); }
+  :root:not([data-theme="light"]) .site-foot__bar { border-top-color: var(--rule); color: var(--ink-mute); }
+}
 
 /* --- 19. Sources and provenance ------------------------------------------ */
 
@@ -2486,12 +2498,13 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 
 /* --- School pages (#43) --------------------------------------------------- */
 
-/* Where a school's programmes are not a list (a catalogue, or not researched
-   yet): one line, what it is known for, and the one way in. */
+/* Where a school's programmes are not a list (a catalogue, nothing in English,
+   or not researched yet): one line and what it is known for. */
 .handoff { display: grid; gap: var(--s3); justify-items: start; max-width: var(--measure); }
 .handoff__line { font: 600 1.125rem/1.4 var(--display); color: var(--ink); margin: 0; }
 .handoff__todo { color: var(--ink-mute); font-size: .875rem; margin: 0; }
-.handoff .tags { margin: 0; }
+.handoff__known .tags { margin: 0; }
+.handoff__known .tag { font-size: .9375rem; padding: .35rem .8rem; }
 
 /* Deadlines & sessions, beside a school's details. */
 .dates-panel__list { list-style: none; padding: 0; margin: 0; font-size: .875rem; line-height: 1.5; }
@@ -2501,5 +2514,32 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .dates-panel__none, .dates-panel__more { font-size: .875rem; color: var(--ink-soft); margin: var(--s2) 0 0; }
 
 .plain-list { list-style: none; padding: 0; margin: 0; }
-.dates-panel__list li.is-past { opacity: .55; }
-.dates-panel__list li.is-past strong { text-decoration: line-through; }
+
+.dates-panel__gone { margin-top: var(--s2); font-size: .8125rem; color: var(--ink-mute); }
+.dates-panel__gone summary { cursor: pointer; }
+.dates-panel__gone .dates-panel__list { opacity: .7; }
+
+/* A programme card on a school page: a band of its field's colour on top,
+   the field above the name, and the degree type straight under it. */
+.card--prog { border-top: 5px solid var(--band, var(--brand)); }
+.card--band-0 { --band: var(--brand); }
+.card--band-1 { --band: var(--accent); }
+.card--band-2 { --band: var(--sand); }
+.card--band-3 { --band: var(--info); }
+.card--band-4 { --band: var(--ok); }
+.card--band-5 { --band: var(--brand-2); }
+.card__kicker { margin: 0 0 var(--s1); font: 650 .75rem/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
+.card__sub { margin: var(--s1) 0 0; font: 500 1rem/1.4 var(--sans); color: var(--ink); }
+
+/* On a phone the side column stacks first: the dates are what a student
+   came for, and five answers above them pushed them to the end. */
+@media (max-width: 61.99rem) {
+  .layout-aside--dates-first > .layout-aside__side { order: -1; }
+}
+
+.sources-foot { margin-top: var(--s5); font-size: .875rem; color: var(--ink-mute); }
+.sources-foot summary { cursor: pointer; }
+.section--pager { padding-block: var(--s5); }
+
+/* The ruled paper behind a close is busy at phone width; plain paper there. */
+@media (max-width: 40rem) { .close { background: var(--paper-2); } }

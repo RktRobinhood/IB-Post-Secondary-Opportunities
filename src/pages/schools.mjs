@@ -1,6 +1,6 @@
 import { html, raw, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
-import { hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
+import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { hostOf, isHomepage } from '../lib/schools.mjs';
 
@@ -8,8 +8,8 @@ import { hostOf, isHomepage } from '../lib/schools.mjs';
  * A school page: one institution from a country profile (issue #43).
  *
  * The same shape as a canonical institution's page (institutions.mjs), in the
- * same order: the place, then what you could study there, then what it asks of
- * you and when, then one targeted link on to the institution's own site.
+ * same order: the place, then what you could study there, then when and what
+ * it asks of you, then one targeted link on to the institution's own site.
  *
  * What is in the programme section depends only on the record's `scope`
  * (schemas/school.schema.json), never on the country:
@@ -17,7 +17,7 @@ import { hostOf, isHomepage } from '../lib/schools.mjs';
  *   - catalogue: nearly everything is taught in English, so one way into the
  *     course search instead of a list nobody could keep true;
  *   - none: nothing in English, said plainly;
- *   - no record yet: what the country profile holds, and the admissions page.
+ *   - no record yet: the profile's one-line answer, and the admissions page.
  *
  * Every sentence written here is under twelve words: it appears on hundreds
  * of pages, and the text-walls guard counts repeated sentences of twelve or
@@ -30,16 +30,31 @@ const FIELD = {
   humanities: 'Humanities', languages: 'Languages', education: 'Education', health: 'Health',
   medicine: 'Medicine', veterinary: 'Veterinary', 'agriculture-environment': 'Environment',
   'design-architecture': 'Design', 'arts-music': 'Arts', sport: 'Sport', 'hospitality-tourism': 'Hospitality',
-  interdisciplinary: 'Interdisciplinary', other: null,
+  interdisciplinary: 'Interdisciplinary', other: 'Other',
 };
+/* Each field's colour band on its card: six hues from the palette, so cards in
+   one grid are told apart at a glance without a photograph each. */
+const BAND = Object.fromEntries(Object.keys(FIELD).map((f, i) => [f, i % 6]));
 
 const TODAY = new Date().toISOString().slice(0, 10);
-
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const shortDate = (iso) => {
   const [y, m, d] = iso.split('-').map(Number);
   return `${d} ${MONTHS[m - 1]} ${y}`;
 };
+
+/** A profile's free-text answer, down to its first clause: "None", "Limited". */
+const firstClause = (text, words = 12) =>
+  truncate(
+    String(text || '')
+      .replace(/,?\s*(checked|as of|on)\s+\d{4}-\d{2}-\d{2}/gi, '')
+      .split(/[.;:(]| — /)[0]
+      .trim()
+      .split(/\s+/)
+      .slice(0, words)
+      .join(' '),
+    80
+  );
 
 /** The one page a student goes on to: the record's hand-off, else admissions. */
 function handoffOf(inst) {
@@ -57,66 +72,84 @@ function programmeCards(inst, school) {
       card({
         href: p.url,
         external: true,
+        mod: `card--prog card--band-${BAND[p.field] ?? 0}`,
+        kicker: FIELD[p.field],
         title: p.name,
-        // "BSc · 3 yrs · Vaasa": the degree type first, at a glance.
-        meta: [FIELD[p.field], p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean),
+        // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
+        sub: [p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
         text: p.ib || null,
         tags: [
-          p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
           p.closes ? { label: `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
+          p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
         ].filter(Boolean),
       })
     );
 }
 
-function programmeSection(inst, c, go) {
+function knownFor(inst) {
+  const f = inst.notableFields || [];
+  return f.length ? html`<div class="handoff__known">${tags(f, 'tag--brand')}</div>` : '';
+}
+
+function programmeSection(inst) {
   const school = inst.school;
-  const where = inst.shortName || inst.name;
+  const where = inst.shortName && inst.shortName.length > 4 ? inst.shortName : inst.name;
 
   if (school?.scope === 'listed') {
+    const n = school.programmes.length;
     return html`${sectionHead({
         title: 'What you could study here',
-        lede: `${plural(school.programmes.length, "bachelor's degree")} taught in English. Each card opens its own page.`,
+        lede: `${plural(n, "bachelor's degree")} taught in English.`,
         id: 'programmes',
       })}
-      <div class="grid grid--3">${programmeCards(inst, school)}</div>`;
+      <div class="grid ${n <= 2 ? 'grid--2' : 'grid--3'}">${programmeCards(inst, school)}</div>`;
   }
 
   if (school?.scope === 'catalogue') {
     return html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
       <div class="handoff">
         <p class="handoff__line">Nearly every course at ${where} is taught in English.</p>
-        ${(inst.notableFields || []).length ? tags(inst.notableFields.map((f) => `Known for ${f}`), 'tag--brand') : ''}
-        ${go ? html`<p><a class="btn btn--primary" href="${go.url}" rel="noopener">${go.label}<span aria-hidden="true"> ↗</span></a></p>` : ''}
+        ${knownFor(inst)}
       </div>`;
   }
 
   if (school?.scope === 'none') {
-    return html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
-      ${note(`No bachelor's degree here is taught in English for 2027.`, { kind: 'warn', title: 'Nothing in English' })}`;
+    return html`${sectionHead({ title: 'Nothing taught in English', id: 'programmes' })}
+      <div class="handoff">
+        <p class="handoff__line">No bachelor's degree here is taught in English for 2027.</p>
+        ${knownFor(inst)}
+      </div>`;
   }
 
-  // Not researched yet: what the country profile holds, honestly labelled.
+  // Not researched yet: the profile's one-line answer, honestly labelled.
+  const answer = firstClause(inst.englishBachelors);
   return html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
     <div class="handoff">
-      ${inst.englishBachelors ? html`<p class="handoff__line">In English: ${inst.englishBachelors}</p>` : ''}
-      ${(inst.notableFields || []).length ? tags(inst.notableFields.map((f) => `Known for ${f}`), 'tag--brand') : ''}
+      ${answer ? html`<p class="handoff__line">In English: ${answer}.</p>` : ''}
+      ${knownFor(inst)}
       <p class="handoff__todo">We have not listed its programmes one by one yet.</p>
     </div>`;
 }
 
+/**
+ * Deadlines & sessions. Dates already gone fold into one line at the foot,
+ * so the first line is always the next thing to do.
+ */
 function datesPanel(inst, c) {
-  const dates = [...(inst.school?.dates || [])].sort((a, b) => a.date.localeCompare(b.date));
+  const all = [...(inst.school?.dates || [])].sort((a, b) => a.date.localeCompare(b.date));
+  const ahead = all.filter((d) => d.date >= TODAY);
+  const gone = all.filter((d) => d.date < TODAY);
+  const item = (d) => html`<li data-date="${d.date}"><strong>${shortDate(d.date)}</strong>
+    <a href="${d.url}" rel="noopener nofollow">${d.label}</a></li>`;
   return html`<div class="dates-panel" id="dates">
     <p class="eyebrow eyebrow--plain">Deadlines &amp; sessions</p>
-    ${dates.length
-      ? html`<ul class="dates-panel__list">
-          ${dates.map(
-            (d) => html`<li data-date="${d.date}"${d.date < TODAY ? raw(' class="is-past"') : ''}><strong>${shortDate(d.date)}</strong>
-              <a href="${d.url}" rel="noopener nofollow">${d.label}</a></li>`
-          )}
-        </ul>`
+    ${ahead.length
+      ? html`<ul class="dates-panel__list">${ahead.map(item)}</ul>`
       : html`<p class="dates-panel__none">No dates of its own recorded yet.</p>`}
+    ${gone.length
+      ? html`<details class="dates-panel__gone"><summary>${plural(gone.length, 'date')} already passed</summary>
+          <ul class="dates-panel__list">${gone.map(item)}</ul></details>`
+      : ''}
     <p class="dates-panel__more"><a href="${`${c.href}#deadlines`}">${c.name}: every national date</a></p>
   </div>`;
 }
@@ -125,11 +158,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
   const school = inst.school;
   const pic = picture(site, inst.key);
   const go = handoffOf(inst);
-  const where = inst.shortName || inst.name;
   const statement = inst.ibRecognitionStatement;
-  // Only the school's own record names a portal: a country profile's portal
-  // field is often a paragraph, and would repeat on every school in it.
   const apply = school?.apply || null;
+  const lede = school?.summary || firstSentence(inst.note, 22);
 
   const inEnglish =
     school?.scope === 'listed'
@@ -137,60 +168,54 @@ export function schoolPage(site, inst, c, { prev, next }) {
       : school?.scope === 'catalogue'
       ? 'Nearly everything'
       : school?.scope === 'none'
-      ? 'None for 2027'
-      : inst.englishBachelors
-      ? truncate(inst.englishBachelors, 28)
-      : null;
+      ? 'Nothing'
+      : firstClause(inst.englishBachelors, 3) || null;
 
+  const ibLink = (u, label) => html`<p><a href="${u}" rel="noopener nofollow">${label}<span aria-hidden="true"> ↗</span></a></p>`;
+  const notes = school?.notes?.length ? school.notes : [];
   const topics = [
-    school?.ib &&
+    (school?.ib || statement) &&
       topic({
         id: 'ib',
         title: 'What it asks of IB students',
-        short: school.ib.text,
-        body: html`<p><a href="${school.ib.url}" rel="noopener nofollow">Where it says so<span aria-hidden="true"> ↗</span></a></p>`,
-        more: 'Source',
+        short: school?.ib?.text || (statement?.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : null),
+        body: html`${school?.ib ? ibLink(school.ib.url, 'Where it says so') : ''}
+          ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
+          ${statement ? ibLink(statement.url, 'Its IB recognition statement') : ''}`,
+        more: 'Sources',
       }),
-    statement &&
-      topic({
-        id: 'ib-statement',
-        title: 'What it tells the IB',
-        short: statement.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : 'It publishes an IB recognition statement.',
-        body: html`${statement.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
-          <p><a href="${statement.url}" rel="noopener nofollow">Its full IB recognition statement<span aria-hidden="true"> ↗</span></a></p>`,
-        more: 'In its own words',
-      }),
-    apply &&
-      topic({
-        id: 'apply',
-        title: 'Where you apply',
-        short: `Through ${apply.via}.`,
-        body: html`<p><a href="${apply.url}" rel="noopener nofollow">${hostOf(apply.url)}<span aria-hidden="true"> ↗</span></a></p>`,
-        more: 'Link',
-      }),
-    (school?.notes?.length || inst.note) &&
+    notes.length &&
       topic({
         id: 'notes',
         title: 'Worth knowing',
-        short: firstSentence(school?.notes?.[0] || inst.note, 30),
-        body: html`<ul>${(school?.notes?.length ? school.notes : [inst.note]).map((n) => html`<li>${n}</li>`)}</ul>`,
-        more: school?.notes?.length > 1 ? `All ${plural(school.notes.length, 'note')}` : 'In full',
+        short: notes[0],
+        body: notes.length > 1 ? html`<ul>${notes.slice(1).map((n) => html`<li>${n}</li>`)}</ul>` : '',
+        more: plural(notes.length - 1, 'more thing'),
       }),
-    school?.sources?.length &&
-      topic({
-        id: 'sources',
-        title: 'Sources',
-        short: `The ${plural(school.sources.length, 'page')} this was written from.`,
-        body: sources(school.sources, { title: null }),
-        more: 'All sources',
-      }),
+    // A profile note that says more than the hero already does.
+    !notes.length && inst.note && firstSentence(inst.note, 60) !== lede && inst.note.trim() !== lede
+      ? topic({
+          id: 'notes',
+          title: 'Worth knowing',
+          short: firstSentence(inst.note, 30),
+          body: firstSentence(inst.note, 30) !== inst.note.trim() ? html`<p>${inst.note}</p>` : '',
+          more: 'In full',
+        })
+      : null,
+  ].filter(Boolean);
+
+  const links = [
+    inst.admissionsUrl && inst.admissionsUrl !== go?.url && !isHomepage(inst.admissionsUrl, inst.website)
+      ? { href: inst.admissionsUrl, label: 'Admissions' }
+      : null,
+    inst.ibPageUrl && !isHomepage(inst.ibPageUrl, inst.website) ? { href: inst.ibPageUrl, label: 'Its IB page' } : null,
   ].filter(Boolean);
 
   const body = html`
 ${hero({
   eyebrow: [inst.city, c.name, inst.type].filter(Boolean).join(' · '),
   title: inst.name,
-  lede: school?.summary || firstSentence(inst.note, 22),
+  lede,
   // Some Commons authors wrote a paragraph where their name goes; the line
   // under the photo keeps the name, and /credits/ keeps the rest.
   image: pic && !pic.external
@@ -204,53 +229,54 @@ ${hero({
     ${glance([
       { label: 'In English', value: inEnglish },
       { label: 'City', value: inst.city },
-      { label: 'Apply via', value: apply?.via || null },
+      {
+        label: 'Apply via',
+        value: apply ? html`<a href="${apply.url}" rel="noopener nofollow">${apply.via}</a>` : null,
+      },
+      { label: 'IB transcripts', value: statement?.transcripts5y ? `${statement.transcripts5y.toLocaleString('en-GB')} in 5 yrs` : null },
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
-    ])}
+    ].filter((g) => g.value).slice(0, 4))}
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    ${crumbs([{ href: `${c.href}#institutions`, label: c.name }, { label: where.length > 4 ? where : inst.name }])}
-    ${programmeSection(inst, c, go)}
+    ${crumbs([{ href: `${c.href}#institutions`, label: c.name }, { label: inst.name }])}
+    ${programmeSection(inst)}
   </div>
 </section>
 
 <section class="section section--tinted section--rule">
   <div class="wrap">
-    <div class="layout-aside">
-      <div class="prose">${topics}</div>
+    <div class="layout-aside layout-aside--dates-first">
+      <div class="prose">
+        ${topics}
+        ${school?.sources?.length
+          ? html`<details class="sources-foot"><summary>Written from ${plural(school.sources.length, 'official page')}</summary>
+              ${sources(school.sources, { title: null })}</details>`
+          : ''}
+      </div>
       <aside class="layout-aside__side stack">
         ${school ? stamp(school.retrieved) : ''}
         ${datesPanel(inst, c)}
-        ${facts([
-          {
-            label: 'Links',
-            value: html`<ul class="plain-list">
-              ${inst.admissionsUrl && inst.admissionsUrl !== go?.url && !isHomepage(inst.admissionsUrl, inst.website)
-                ? html`<li><a href="${inst.admissionsUrl}" rel="noopener nofollow">Admissions</a></li>`
-                : ''}
-              ${inst.ibPageUrl && !isHomepage(inst.ibPageUrl, inst.website) ? html`<li><a href="${inst.ibPageUrl}" rel="noopener nofollow">Its IB page</a></li>` : ''}
-              ${statement ? html`<li><a href="${statement.url}" rel="noopener nofollow">Its IB statement</a></li>` : ''}
-            </ul>`,
-          },
-        ])}
+        ${links.length
+          ? html`<div><p class="eyebrow eyebrow--plain">Links</p><ul class="plain-list">
+              ${links.map((l) => html`<li><a href="${l.href}" rel="noopener nofollow">${l.label}</a></li>`)}
+            </ul></div>`
+          : ''}
       </aside>
     </div>
   </div>
 </section>
 
-${go
-  ? close({
-      eyebrow: 'Next step',
-      title: `Go on to ${inst.name}`,
-      copy: `${go.label}, on ${hostOf(go.url)}.`,
-      invitation: { href: go.url, label: `${go.label} ↗` },
-    })
-  : ''}
+${close({
+  eyebrow: 'Next step',
+  title: go ? `Go on to ${inst.name}` : `More in ${c.name}`,
+  copy: go ? `${go.label}, on ${hostOf(go.url)}.` : null,
+  invitation: go ? { href: go.url, label: `${go.label} ↗` } : { href: `${c.href}#institutions`, label: `Every institution in ${c.name}` },
+})}
 
-<section class="section">
+<section class="section section--pager">
   <div class="wrap">${pager({ prev, next })}</div>
 </section>`;
 
