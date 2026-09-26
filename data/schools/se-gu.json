@@ -20,6 +20,7 @@
   "dates": [
     {
       "label": "January round opens (only if you already hold your IB Diploma)",
+      "supersedes": "se-uhr-2027/ms-open",
       "forDiplomaHolders": true,
       "date": "2026-10-16",
       "kind": "opens",
@@ -28,6 +29,7 @@
     },
     {
       "label": "January round closes (only if you already hold your IB Diploma)",
+      "supersedes": "se-uhr-2027/ms-submit",
       "forDiplomaHolders": true,
       "date": "2027-01-15",
       "kind": "closes",
@@ -36,6 +38,7 @@
     },
     {
       "label": "April round opens (EU/EEA): the round for May 2027 IB candidates",
+      "programmes": ["bachelor-s-program-in-business-and-economics", "bachelor-s-program-in-computer-science-and-ai", "bachelor-s-program-in-international-relations", "bachelor-s-program-in-software-engineering-and-management"],
       "date": "2027-03-15",
       "kind": "opens",
       "who": "eu-eea-ch",
@@ -43,6 +46,8 @@
     },
     {
       "label": "April round closes",
+      "programmes": ["bachelor-s-program-in-business-and-economics", "bachelor-s-program-in-computer-science-and-ai", "bachelor-s-program-in-international-relations", "bachelor-s-program-in-software-engineering-and-management"],
+      "supersedes": "se-uhr-2027/ms-second",
       "date": "2027-04-15",
       "kind": "closes",
       "who": "eu-eea-ch",
@@ -50,6 +55,8 @@
     },
     {
       "label": "April round: proof of EU/EEA citizenship (fee exemption) due",
+      "programmes": ["bachelor-s-program-in-business-and-economics", "bachelor-s-program-in-computer-science-and-ai", "bachelor-s-program-in-international-relations", "bachelor-s-program-in-software-engineering-and-management"],
+      "supersedes": "se-uhr-2027/ms-second-fee-exempt",
       "date": "2027-04-23",
       "kind": "documents",
       "who": "eu-eea-ch",
@@ -57,6 +64,8 @@
     },
     {
       "label": "April round: final IB results due via the IB Result Service (recipient code UHR)",
+      "programmes": ["bachelor-s-program-in-business-and-economics", "bachelor-s-program-in-computer-science-and-ai", "bachelor-s-program-in-international-relations", "bachelor-s-program-in-software-engineering-and-management"],
+      "supersedes": "se-uhr-2027/ms-second-ib-results",
       "date": "2027-07-05",
       "kind": "documents",
       "who": "eu-eea-ch",
@@ -64,6 +73,8 @@
     },
     {
       "label": "April round results",
+      "programmes": ["bachelor-s-program-in-business-and-economics", "bachelor-s-program-in-computer-science-and-ai", "bachelor-s-program-in-international-relations", "bachelor-s-program-in-software-engineering-and-management"],
+      "supersedes": "se-uhr-2027/ms-second-results",
       "date": "2027-07-09",
       "kind": "decision",
       "who": "any",
@@ -71,6 +82,8 @@
     },
     {
       "label": "April round: reply to your offer or lose the place",
+      "programmes": ["bachelor-s-program-in-business-and-economics", "bachelor-s-program-in-computer-science-and-ai", "bachelor-s-program-in-international-relations", "bachelor-s-program-in-software-engineering-and-management"],
+      "supersedes": "se-uhr-2027/ms-second-reply",
       "date": "2027-07-16",
       "kind": "documents",
       "who": "any",
@@ -115,6 +128,8 @@
     },
     {
       "name": "Bachelor of Fine Arts in Contemporary Traditions in Music",
+      "selection": ["entrance-exam"],
+      "round": "January round",
       "credential": "BFA",
       "years": 3,
       "field": "arts-music",
@@ -126,6 +141,8 @@
     },
     {
       "name": "Bachelor's Programme in Music, with a specialization in Classical Performance",
+      "selection": ["entrance-exam"],
+      "round": "January round",
       "credential": "BMus",
       "years": 3,
       "field": "arts-music",
@@ -137,6 +154,8 @@
     },
     {
       "name": "Bachelor's Programme in Music, with a specialization in Improvisation Performance",
+      "selection": ["entrance-exam"],
+      "round": "January round",
       "credential": "BMus",
       "years": 3,
       "field": "arts-music",
@@ -148,6 +167,8 @@
     },
     {
       "name": "Bachelor of Fine Arts in Opera",
+      "selection": ["entrance-exam"],
+      "round": "January round",
       "credential": "BFA",
       "years": 3,
       "field": "arts-music",
@@ -158,6 +179,8 @@
     },
     {
       "name": "BFA Programme in Craft with Specialisation in Crafting Futures",
+      "selection": ["portfolio", "interview"],
+      "round": "January round",
       "credential": "BFA",
       "years": 3,
       "field": "design-architecture",
@@ -170,6 +193,8 @@
     },
     {
       "name": "BFA Programme in Metal Art",
+      "selection": ["portfolio", "interview"],
+      "round": "January round",
       "credential": "BFA",
       "years": 3,
       "field": "design-architecture",
@@ -182,6 +207,8 @@
     },
     {
       "name": "BFA Programme in Wood Oriented Furniture Design",
+      "selection": ["portfolio", "interview"],
+      "round": "January round",
       "credential": "BFA",
       "years": 3,
       "field": "design-architecture",

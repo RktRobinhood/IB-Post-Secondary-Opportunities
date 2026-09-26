@@ -37,7 +37,16 @@ for (const panel of document.querySelectorAll('[data-dates-panel]')) {
       a.dataset.date.localeCompare(b.dataset.date)
     );
     const binding = (li) => li.dataset.binding === 'true';
-    const ordered = [...items.filter(binding), ...items.filter((li) => !binding(li))];
+    const holders = (li) => li.dataset.diplomaHolders === 'true';
+    /* Binding deadlines, then the other dates, then the dates only for
+       Diploma holders; where the panel opens on a status line, those wait
+       under "All dates" whatever else there is. */
+    const behind = panel.dataset.holdersBehind === 'true';
+    const ordered = [
+      ...items.filter(binding),
+      ...items.filter((li) => !binding(li) && !holders(li)),
+      ...(behind ? [] : items.filter((li) => !binding(li) && holders(li))),
+    ];
     /* With no disclosure to hold the rest (three dates or fewer), all stay. */
     const shown = ordered.slice(0, rest ? first : ordered.length);
     head.replaceChildren(...shown);
@@ -59,7 +68,8 @@ for (const panel of document.querySelectorAll('[data-dates-panel]')) {
     const title = panel.querySelector('.dates-panel__title');
     if (title) title.textContent = 'Deadlines';
   }
-  if (head && !head.children.length) {
+  if (head && !head.children.length && panel.dataset.holdersBehind === 'true') head.remove();
+  else if (head && !head.children.length) {
     const p = document.createElement('p');
     p.className = 'dates-panel__empty';
     p.textContent = 'No upcoming deadlines recorded here.';

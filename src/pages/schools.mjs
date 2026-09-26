@@ -2,7 +2,7 @@ import { html, raw, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
 import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { hostOf, isHomepage, HOLDERS_ONLY } from '../lib/schools.mjs';
+import { hostOf, isHomepage, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 
 /**
@@ -36,7 +36,7 @@ export const FIELD = {
 };
 /* Each field belongs to one family, and each family has one colour (site.css,
    .card--fam-*), so a colour means the same kind of subject on every page. */
-const FAMILY = {
+export const FAMILY = {
   engineering: 'tech', computing: 'tech', mathematics: 'tech',
   'natural-sciences': 'science', 'agriculture-environment': 'science', veterinary: 'science',
   business: 'business', economics: 'business', 'hospitality-tourism': 'business',
@@ -91,11 +91,18 @@ function sharedTuition(programmes) {
 }
 
 /** A listed school's programmes in the order its page shows them; their own
-    pages page through them in the same order. */
+    pages page through them in the same order. The ones a final-year student
+    can apply to come first; a programme whose only round needs the Diploma
+    in hand (`closesForDiplomaHolders`) waits after them. */
 export const inCardOrder = (programmes) =>
-  [...programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
+  [...programmes].sort(
+    (a, b) =>
+      Number(Boolean(a.closesForDiplomaHolders)) - Number(Boolean(b.closesForDiplomaHolders)) ||
+      a.field.localeCompare(b.field) ||
+      a.name.localeCompare(b.name)
+  );
 
-export function programmeCard(inst, p, { tuitionOnCard, headed, brief = false }) {
+export function programmeCard(inst, p, { tuitionOnCard, headed, brief = false, at = null }) {
   return card({
     // Its own page on this site (school-programme.mjs), where the link to the
     // programme's page on the institution's site now lives.
@@ -105,13 +112,14 @@ export function programmeCard(inst, p, { tuitionOnCard, headed, brief = false })
     kicker: headed ? null : FIELD[p.field],
     title: p.name,
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
-    sub: [p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
+    // `at`: the school, on a card that stands for another school's programme.
+    sub: [at, p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
     // A brief card (a sibling on a programme page) leaves the IB line to its own page.
     text: brief ? null : p.ib || null,
     tags: [
       /* A programme whose only round is for Diploma holders gives no date to
          a final-year student: the card says whose round it is instead. */
-      p.closes ? { label: p.closesForDiplomaHolders ? HOLDERS_ONLY : `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
+      p.closes ? { label: p.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
       tuitionOnCard && p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
     ].filter(Boolean),
     // At rest, the card says it opens a page.

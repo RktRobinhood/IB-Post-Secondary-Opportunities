@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { slugify } from './html.mjs';
+import { identityWords } from './calendar.mjs';
 
 /** The key a profile institution is known by: `fi-uh`, `gb-oxford`. */
 export function schoolKey(countryCode, inst) {
@@ -121,5 +122,47 @@ export const roundOf = (label) =>
     .trim()
     .toLowerCase();
 
-/** A programme page's "Apply by" tile when every closing date is for Diploma holders. */
+/** The badge on a date only for Diploma holders. */
 export const HOLDERS_ONLY = 'Diploma holders only';
+
+/**
+ * A programme page's "Apply by" when every closing date is for Diploma
+ * holders: no round for a final-year student is published yet, or the
+ * programme's only round needs the Diploma in hand (a gap-year option).
+ */
+export const NOT_OPEN_YET = 'Not open yet';
+export const AFTER_DIPLOMA = 'After your Diploma';
+
+/* --- A school's notes, for one of its programmes ------------------------------ */
+
+/**
+ * Whether a sentence names a programme: every identifying word of its name
+ * (two or fewer), or at least half of them (more), leaving out the school's
+ * own name.
+ */
+function namesProgramme(sentence, q, schoolWords) {
+  const want = [...identityWords(q.name)].filter((w) => !schoolWords.has(w));
+  if (!want.length) return false;
+  const have = identityWords(sentence);
+  const hit = want.filter((w) => have.has(w)).length;
+  return want.length <= 2 ? hit === want.length : hit / want.length >= 0.5;
+}
+
+/**
+ * The school record's notes that are one programme's to read, the ones that
+ * name it first, then the ones that name no programme: the caveats the
+ * researchers wrote next to the dates ("ask UmU first", "you cannot apply
+ * yet", "late applications are not accepted"). A note only about another
+ * programme is left to that programme's page. `p` and the school's
+ * programmes carry their `slug` (programmePaths).
+ */
+export function notesFor(school, p) {
+  const schoolWords = new Set([...identityWords(school.name || '')]);
+  const others = (school.programmes || []).filter((q) => q.slug !== p.slug);
+  const notes = (school.notes || []).map((text) => ({
+    text,
+    mine: namesProgramme(text, p, schoolWords),
+    theirs: others.some((q) => namesProgramme(text, q, schoolWords)),
+  }));
+  return [...notes.filter((n) => n.mine), ...notes.filter((n) => !n.mine && !n.theirs)];
+}
