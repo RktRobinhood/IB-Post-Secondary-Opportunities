@@ -148,3 +148,24 @@ after each school:
 - Keep `ib` as the one-line summary the school page shows; the new fields carry the detail.
 - Unpublished 2027 criteria: record last year's and say "2026 criteria; 2027 not yet published" in
   `selectionNote` or `ib`.
+
+## Catalogue schools: flagships and faculties (owner, 26 September)
+
+For an English-language university where the whole school is open to an IB student (the `catalogue`
+scope: UK, Ireland, the US, Canada, Australia, New Zealand, Singapore, Hong Kong, most of the UAE), the
+owner does not want every course listed ("overkill"). The record gives the student direction instead:
+
+- **Flagships:** the few programmes the university is known for and excels in get a full programme page,
+  to the Danish standard above (`about`, `needs` in IB terms, `points`, `selection`, deadlines). Pick them
+  from what the university's own pages present as distinctive (an "areas of strength" page, a faculty's
+  own claims, published figures), never from league tables or search summaries, and say which page
+  in `sources`. Two to four per university is plenty.
+- **Faculties:** every faculty, school or college that admits first-year students, each with one line on
+  what it generally looks for from applicants (e.g. "Maths HL for every engineering degree; the
+  personal statement weighs heavily"), from that faculty's own admissions page, and a link to it.
+  The specifics stay on the university's site; the line is direction, not a requirement list.
+- **Known for and the vibe:** `summary` says what the place is known for and what it is like (size,
+  setting, residential or commuter), from the university's own "about" or "facts" pages.
+
+The schema and the page for flagships and faculties are built after the programme pages (#43) land on
+`main`; until then, research notes for them go in `docs/research/schools/leads/<cc>.md`.
