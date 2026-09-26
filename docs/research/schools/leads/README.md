@@ -20,6 +20,18 @@ there to make the next session with a browser fast.
 | [si.md](si.md) | Slovenia, 7 |
 | [mt.md](mt.md) | Malta, 6 |
 | [gr.md](gr.md) | Greece, 12 |
+| [us.md](us.md) | United States, 14 (types 6–7 only partly: see file) |
+| [ca.md](ca.md) | Canada, 20 |
+| [au.md](au.md) | Australia, 17 (14 searched; UTAS, Griffith, Curtin not) |
+
+Not yet made: nz, sg, hk, jp, kr, cn, ae (the session's web-search budget ran out).
+
+The English-language files (us, ca, au) use a different set of lead types, because those universities
+are `catalogue` scope: (1) programmes overview, (2) about / facts / student life for "known for" and
+"the vibe", (3) international first-year admissions and deadlines, (4) IB page, (5) international
+tuition, (6) faculties / schools and their own admissions pages, (7) candidate flagship programmes
+(only where the university's own pages present them as distinctive). "Known for" wording is always a
+hint until it is taken from the university's own page.
 
 ## What a lead is not
 
