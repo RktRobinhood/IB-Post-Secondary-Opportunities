@@ -1,0 +1,117 @@
+{
+  "institution": "fr-l-x",
+  "name": "École Polytechnique",
+  "retrieved": "2026-09-26",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "starts": "September",
+  "summary": "Engineering grande école (l'X) in Palaiseau, south of Paris; one small, maths-heavy English Bachelor of Science with three double majors.",
+  "handoff": {
+    "label": "Bachelor admission criteria and rounds",
+    "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+  },
+  "ib": {
+    "text": "Maths HL (preferably AA) and at least one other science at HL. No minimum grades; English C1 by IELTS 6.5, TOEFL iBT 90 or Cambridge 176.",
+    "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/faq"
+  },
+  "apply": {
+    "via": "Polytechnique's own portal (or Parcoursup, not both)",
+    "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+  },
+  "dates": [
+    {
+      "label": "Round 1 opens",
+      "date": "2026-09-17",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+    },
+    {
+      "label": "Round 1 closes, 23:59 CEST; interviews in December, results January",
+      "short": "Round 1",
+      "date": "2026-10-20",
+      "kind": "early",
+      "who": "any",
+      "supersedes": "fr-direct-2027/ms-fr-x-r1",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+    },
+    {
+      "label": "Round 2 closes, 23:59 CET; interviews Feb–Mar, results March",
+      "short": "Round 2",
+      "date": "2027-01-06",
+      "kind": "early",
+      "who": "any",
+      "supersedes": "fr-direct-2027/ms-fr-x-r2",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+    },
+    {
+      "label": "Round 3 closes at 2 pm CET (not midnight); results April",
+      "date": "2027-02-08",
+      "kind": "closes",
+      "who": "any",
+      "supersedes": "fr-direct-2027/ms-fr-x-r3",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Bachelor of Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "mathematics",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/about-the-bachelor/bachelor-of-science",
+      "about": "A demanding, research-led science degree taught entirely in English: a broad first year, then a double major in Mathematics with Physics, Computer Science or Economics, ending in a research thesis.",
+      "ib": "Maths HL (AA preferred) and one other science at HL; English C1 certificate unless exempt. Remote interview in English.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "Analysis and Approaches preferred."
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "The page asks for at least one other science at Higher Level."
+        }
+      ],
+      "selection": [
+        "grades",
+        "motivation",
+        "interview"
+      ],
+      "selectionNote": "Holistic: grades (above all maths and science), personal statement, CV and two references; shortlisted applicants get a 50-minute remote interview.",
+      "tuitionEuEea": "€15,900 a year (2027 intake)",
+      "requirementsUrl": "https://programmes.polytechnique.edu/en/bachelor/admissions/faq"
+    }
+  ],
+  "notes": [
+    "You may apply once a year, either here or through Parcoursup, never both; the application fee is €105.",
+    "No quotas per round or per nationality, so an early round costs you nothing and gets an answer sooner.",
+    "One application also covers the BS/MS track with Columbia University, chosen in the second semester."
+  ],
+  "sources": [
+    {
+      "title": "École Polytechnique – Bachelor admissions criteria and procedure (2027 rounds)",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/admissions-criteria-and-procedure",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "École Polytechnique – Bachelor FAQ (IB subjects, 2027 fees)",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/admissions/faq",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "École Polytechnique – Bachelor of Science",
+      "url": "https://programmes.polytechnique.edu/en/bachelor/about-the-bachelor/bachelor-of-science",
+      "retrieved": "2026-09-26"
+    }
+  ]
+}

@@ -458,9 +458,12 @@ export function campusSentence(paths, axis) {
     return `The same programme is offered at ${named.slice(0, -1).join(', ')} and ${named[named.length - 1]}.`;
   }
   const each = paths.map(({ label, city }) => {
-    const bare = String(label || '').replace(new RegExp(`,?\\s*${city.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`), '').trim();
+    const bare = String(label || '').replace(new RegExp(`,?\\s*${city.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`), '').trim().replace(/^the\s+/i, '');
     if (!bare || bare === city) return city;
-    const lead = /^[A-Z]{2,}|^\d/.test(bare) ? `the ${bare}` : `the ${bare.charAt(0).toLowerCase()}${bare.slice(1)}`;
+    // A proper name keeps its capitals ("Columbia University"); a common
+    // label reads mid-sentence ("Double degree" -> "the double degree").
+    const properName = /^[A-Z]{2,}|^\d/.test(bare) || /^[A-Z]\S*\s.*\b[A-Z]/.test(bare);
+    const lead = properName ? `the ${bare}` : `the ${bare.charAt(0).toLowerCase()}${bare.slice(1)}`;
     return `${lead} in ${city}`;
   });
   return `Taught on ${NUMBER_WORDS[cities.length] || cities.length} campuses: ${each.join('; ')}.`;
