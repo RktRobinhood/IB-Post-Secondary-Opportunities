@@ -524,7 +524,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       .map((q) => ({
         id: byId.has(q.id) ? `${p.id}:${q.id}` : q.id,
         name: q.name, lat: q.lat, lon: q.lon, xyz: toXYZ(q.lat, q.lon), href: q.href || '',
-        state: q.city || '', cue: '', precision: 'institution', country: p.country, image: '', external: false,
+        state: q.city || '', cue: '', precision: 'institution', country: p.country, image: q.image || '', external: false,
         count: 1, school: true, parent: p, dim: false, selected: false,
       }));
     delete p.schools;
@@ -708,7 +708,25 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const creditLink = el('a', { href: `${root.dataset.base === '/' ? '' : root.dataset.base || ''}/credits/#globe` }, 'Imagery: NASA');
   credit.append(creditLink);
 
-  stage.append(deskBack, canvas, pinLayer, controls, card, hint, credit);
+  stage.append(deskBack, canvas, pinLayer, hint, credit);
+  /* On a narrow screen (a phone) the camera buttons are a row above the
+     stage and the card is a sheet below it, so neither covers the globe or
+     the places just chosen (#53 round 1: the card hid a chosen country's
+     schools, and "+" sat on the ring). On a wide stage both sit in its
+     corners, as before. */
+  const narrowMQ = matchMedia('(max-width: 44rem)');
+  function placeFurniture() {
+    if (narrowMQ.matches) {
+      stage.before(controls);
+      stage.after(card);
+    } else {
+      pinLayer.after(controls);
+      controls.after(card);
+    }
+    figure.dataset.furniture = narrowMQ.matches ? 'outside' : 'inside';
+  }
+  placeFurniture();
+  narrowMQ.addEventListener?.('change', () => { placeFurniture(); camDirty = true; kick(); });
   stage.tabIndex = 0;
   stage.setAttribute('role', 'group');
   stage.setAttribute(
@@ -764,7 +782,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function deskAltFor() {
     /* A narrow stage keeps a column clear either side for the zoom buttons,
        so they never sit on the ring (round 4, phone). */
-    const room = W < 700 ? W - 2 * 58 : W * 0.9;
+    const room = W < 700 && controls.parentNode === stage ? W - 2 * 58 : W * 0.9;
     const r = Math.min((H * 0.92) / (DESK_TOP + DESK_BOTTOM), room / (2 * DESK_SIDE));
     const k = (r * 2 * TAN) / H;
     return Math.min(MAX_ALT, Math.max(2.2, 1 / Math.sin(Math.atan(k)) - 1));
@@ -866,6 +884,36 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const d0 = desk(a0), d1 = desk(a1);
     if (!deskPose || d1 <= d0 || d0 >= 1) return lat;
     return lat + (deskPose.lat - lat) * ((d1 - d0) / (1 - d0));
+  }
+
+  /**
+   * The lowest altitude at which the globe still reads as a sphere on the
+   * paper: both upper corners of the stage, and its sides a third of the way
+   * down, look past the Earth. A country's or a region's arrival stops here
+   * (the owner, #53: "resume into a sphere and not … a sphere with
+   * background"); only a dive onto a group of schools or a campus goes lower,
+   * into the full stage. Found against the real camera, as fitCamera is.
+   */
+  function sphereAlt() {
+    const misses = (c, x, y) => {
+      const nx = (x / W) * 2 - 1, ny = 1 - (y / H) * 2;
+      const dir = norm([
+        c.fwd[0] + c.right[0] * nx * TAN * (W / H) + c.up[0] * (ny - c.shift) * TAN,
+        c.fwd[1] + c.right[1] * nx * TAN * (W / H) + c.up[1] * (ny - c.shift) * TAN,
+        c.fwd[2] + c.right[2] * nx * TAN * (W / H) + c.up[2] * (ny - c.shift) * TAN,
+      ]);
+      const b = dot(c.eye, dir), cc = dot(c.eye, c.eye) - 1;
+      return b * b - cc < 0 || -b - Math.sqrt(b * b - cc) < 0;
+    };
+    const clear = (alt) => {
+      const c = solveCamera({ lat: 40, lon: 0, alt }, {});
+      return [[0, 0], [W, 0], [0, H / 3], [W, H / 3]].every(([x, y]) => misses(c, x, y));
+    };
+    let lo = 0.1, hi = Math.max(0.2, deskIn());
+    if (clear(lo)) return lo;
+    if (!clear(hi)) return hi;
+    for (let i = 0; i < 18; i++) { const mid = (lo + hi) / 2; if (clear(mid)) hi = mid; else lo = mid; }
+    return hi;
   }
 
   /** Radians of Earth under one CSS pixel at the middle of the view. */
@@ -1239,9 +1287,19 @@ export async function mountGlobe(figure, { onFail } = {}) {
      carry institution counts beside the cities' degree counts, and adding
      them made Denmark's group read 320 against 57 degrees (home round 3). */
   function groupCount(members) {
+    /* A door (a country with nothing of the page's unit in it, on a page
+       that counts degrees) and a school count one place each, never in the
+       page's unit: #53 round 1 found the Nearby door saying "16 degrees"
+       beside a globe saying 35, 28 and 33 (institutions). A group with
+       nothing in the unit says how many places it holds, and is drawn hollow
+       (`placesOnly`). */
     const precise = members.filter((m) => m.precision !== 'region' && !m.school);
-    return (precise.length ? precise : members).reduce((n, m) => n + (m.count || 0), 0);
+    if (precise.length) return precise.reduce((n, m) => n + (m.count || 0), 0);
+    if (members.some((m) => m.door || m.school)) return members.length;
+    return members.reduce((n, m) => n + (m.count || 0), 0);
   }
+  const hasDoors = places.some((p) => p.door);
+  const placesOnly = (members) => hasDoors && members.every((m) => m.door || m.school || m.precision === 'region') && members.some((m) => m.door || m.school);
 
   /* When a country's light gives way to its schools: once its schools would
      spread over more than half the stage (a big country, from not far), or
@@ -1249,8 +1307,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
      country in view). A little hysteresis, so a camera resting on the
      threshold does not flicker between the two. */
   const SCHOOLS_ALT = 0.45;
+  /* A country chosen (its light or its outline) is opened whatever the
+     altitude: the arrival frames its schools (#53 round 1). Cleared by the
+     next choice, Reset or Back. */
+  const opened = new Set();
+  function openOnly(list) {
+    opened.clear();
+    for (const p of list) if (p.subs?.length) opened.add(p.id);
+    clusterAt = -1;
+  }
   function schoolsOpen(p) {
     if (!p.subs.length) return false;
+    if (opened.has(p.id)) return true;
     const k = p.open ? 0.85 : 1;
     /* Close in, every country is open: its middle may be over the horizon
        while its schools are in front of you (Boston, seen from above it). */
@@ -1331,7 +1399,6 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function layoutPins() {
     if (touched) { maybeFine(); maybeDetail(); }
-    unfoldCardWhenArrived();
     /* A card is judged only once the camera has arrived: during a flight its
        subject is legitimately off-stage. */
     if (cardSubject && !flight && !closeFlying) cardStillAbout();
@@ -1393,6 +1460,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
            the home page), the same number the doors and the count use — not
            how many places it covers (home round 2: "40" against "57 degrees"). */
         node.firstChild.textContent = String(g.count || g.members.length);
+        node.toggleAttribute('data-places', placesOnly(g.members));
         const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
@@ -1565,7 +1633,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     gl.uniform3f(pr.u.uHalo, ...theme.halo);
     const dk = desk(view.alt);
-    gl.uniform1f(pr.u.uHaloStrength, theme.haloStrength * (1 - 0.65 * dk));
+    gl.uniform1f(pr.u.uHaloStrength, theme.haloStrength * (1 - 0.65 * dk) * (0.3 + 0.7 * smooth(0.3, 1.3, view.alt)));
     gl.uniform1f(pr.u.uShadow, theme.shadow * smooth(1.2, 2.2, view.alt) * (1 - dk));
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
@@ -2000,12 +2068,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
   let cardReturn = null;
   let cardFullHeight = 0;
   let cardSheet = false;
-  function foldCard() {
-    if (cardSheet && !card.hidden && !reducedMotion()) card.dataset.collapsed = 'true';
-  }
-  function unfoldCardWhenArrived() {
-    if (card.dataset.collapsed && !flight && !closeFlying && !pendingThen && closeState !== 'handing') delete card.dataset.collapsed;
-  }
+  /* A card is drawn once, in its final form, the moment something is
+     chosen. It used to be folded to its title while the camera travelled on
+     a phone and opened out on arrival, which the owner saw as one card being
+     replaced by another (#53, phone). On a phone the card is now below the
+     stage, so there is nothing to fold it out of the way of. */
   /* What the open card is about: a point on the sphere, and the altitude the
      camera arrived at. A card whose subject has left the view — panned off,
      round the back, or zoomed far out from — closes itself. */
@@ -2024,14 +2091,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     card.append(close);
     build(card);
     card.hidden = false;
-    delete card.dataset.collapsed;
     /* On a phone the card is a sheet across most of the stage; its full height
        is measured now (the camera frames the place above it) and then it is
        folded to its title and action while the camera travels, so the climb
        and the cloud dive are seen, not hidden behind it (round 3). It opens
        out when the camera arrives. */
     cardFullHeight = card.offsetHeight;
-    cardSheet = card.getBoundingClientRect().width > W * 0.7;
+    cardSheet = card.parentNode === stage && card.getBoundingClientRect().width > W * 0.7;
     cardReturn = from;
     if (focus) card.querySelector('h3')?.focus({ preventScroll: true });
   }
@@ -2052,16 +2118,20 @@ export async function mountGlobe(figure, { onFail } = {}) {
     cardSubject = { xyz: p.xyz, alt: null };
     openCard((c) => {
       if (p.image) {
-        const img = el('img', { class: 'world__card-img', src: p.image, alt: '', loading: 'lazy', decoding: 'async' });
+        const img = el('img', { class: 'world__card-img', src: p.image, alt: '', decoding: 'async' });
         img.addEventListener('error', () => img.remove());
         c.append(img);
       }
       const title = cardTitle(c, p.name);
       const facts = [];
-      if (unit && p.count && !p.school) facts.push(plural(p.count, unit));
+      if (p.door && p.count) facts.push(plural(p.count, 'institution'));
+      else if (unit && p.count && !p.school) facts.push(plural(p.count, unit));
       if (p.state) facts.push(p.state);
       if (facts.length) c.append(el('p', { class: 'world__card-meta' }, facts.join(' · ')));
-      if (p.cue) c.append(el('p', { class: 'world__card-cue' }, p.cue));
+      /* "Placed at the country, not at a campus" meant nothing to a student
+         on a country's own card (the owner, #53); a city's light still says
+         it is the city. */
+      if (p.cue && p.precision !== 'region') c.append(el('p', { class: 'world__card-cue' }, p.cue));
       const dest = pages.get(p.country);
       if (dest && !sameHref(dest.href, p.href) && !sameHref(dest.href, location.pathname)) {
         c.append(el('p', { class: 'world__card-where' }, `In ${dest.name}`));
@@ -2075,9 +2145,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
      ::after covers the whole card, so a click anywhere on the photograph, the
      title or the lines under it follows it, while the close button and any
      list of places sit above it and stay buttons of their own — nothing
-     interactive is nested in the link. The way on is still written at the foot
-     ("Open the Netherlands page →"), for the eye; the link says it too, for a
-     screen reader. site.js's rule — another site, or one university's or
+     interactive is nested in the link. There is no separate "Open … →" line
+     (the owner, #53: the card itself is the link): an arrow on the title and
+     the whole card lighting under the pointer say it, and the link's name
+     says where it goes, for a screen reader. site.js's rule — another site, or one university's or
      programme's page, opens in a new tab — covers it like any other link. A
      page that wants the choice for itself (the explorer filters on it) says so
      by cancelling `world:select`, and then the link does not navigate. */
@@ -2088,11 +2159,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
   }
   function cardLink(c, title, href, label, { external = false, select = null } = {}) {
     const a = el('a', { class: 'world__card-link', href }, title.textContent);
-    a.append(el('span', { class: 'visually-hidden' }, ` — ${label}`));
+    a.append(el('span', { class: 'visually-hidden' }, ` — ${label}`), el('span', { class: 'world__card-arrow', 'aria-hidden': 'true' }, '→'));
     if (external) a.rel = 'noopener nofollow';
     title.replaceChildren(a);
     c.dataset.link = 'true';
-    c.append(el('p', { class: 'world__card-go', 'aria-hidden': 'true' }, label));
     if (select) {
       a.addEventListener('click', (e) => {
         const ev = new CustomEvent('world:select', { detail: { id: select.id, name: select.name, href: select.href }, cancelable: true, bubbles: true });
@@ -2120,8 +2190,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
       /* One place in the country — on a page of countries, the place is the
          country — so its picture and its count are the country's. */
       const only = here.length === 1 ? here[0] : null;
-      if (only?.image) {
-        const img = el('img', { class: 'world__card-img', src: only.image, alt: '', loading: 'lazy', decoding: 'async' });
+      const photo = only?.image || dest?.image || '';
+      if (photo) {
+        const img = el('img', { class: 'world__card-img', src: photo, alt: '', decoding: 'async' });
         img.addEventListener('error', () => img.remove());
         c.append(img);
       }
@@ -2295,11 +2366,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
    */
   function goToPlace(p, { focus = false, from = null, push = true } = {}) {
     if (push) remember({ kind: 'place', id: p.id });
+    /* A school keeps its country open; anything else opens only itself. */
+    if (!(p.parent && opened.has(p.parent.id))) openOnly([p]);
     light(p.id);
     selectedCountry = null;
     paintMask(home);
     placeCard(p, { focus, from });
-    queueMicrotask(foldCard);
     const zoom = CLOSE_ZOOM[p.precision];
     if (zoom && closeState !== 'failed') {
       if (closeActive) {
@@ -2326,7 +2398,15 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     if (closeActive) { climbOut(() => goToPlace(p, { focus: false, push: false })); return; }
     startRoute(p.xyz);
-    const alt = Math.min(view.alt, Math.max(MIN_ALT * 3, 0.32));
+    /* A whole country's light: opened into its schools, and framed on them
+       (Boston to Chicago for the United States, not a bunch at the edge of
+       a frame over Kansas), no lower than the globe still reads as a sphere. */
+    if (p.subs?.length) {
+      const fit = fitCamera([p.xyz, ...p.subs.map((q) => q.xyz)], { maxAlt: 2.4, minAlt: sphereAlt(), pad: [0.1, 0.14, 0.1] });
+      flyTo(frameAbove(fit, p.xyz), { announce: p.name, travel: true });
+      return;
+    }
+    const alt = Math.min(view.alt, Math.max(MIN_ALT * 3, 0.32, sphereAlt()));
     flyTo(frameAbove({ lat: p.lat, lon: p.lon, alt }, p.xyz), { announce: p.name, travel: true });
   }
 
@@ -2335,9 +2415,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (closeActive) { climbOut(() => goToCountry(country, { focus, push: false })); return; }
     selectedCountry = country;
     paintMask(country);
-    const fit = fitCamera(country.frame, { maxAlt: 2.4, minAlt: 0.2 });
+    /* Framed on what the page holds there — its places, and the schools
+       inside its light — or on its outline when it holds nothing; opened
+       into its schools; no lower than the globe still reads as a sphere,
+       except as far as a country's own places need to come apart — on a
+       phone's small stage Denmark's sixteen towns were one "56" at 0.2
+       (#53 round 1), so a country with several places may come down to just
+       above the street map. */
+    const here = places.filter((q) => q.country === country.id);
+    openOnly(here);
+    const pts = here.flatMap((q) => (q.subs?.length ? q.subs.map((x) => x.xyz) : [q.xyz]));
+    const fit = fitCamera(pts.length ? pts : country.frame, { maxAlt: 2.4, minAlt: here.length > 1 ? HANDOFF_ALT * 1.1 : Math.max(0.2, sphereAlt()), pad: [0.1, 0.14, 0.1] });
     countryCard(country, { focus });
-    queueMicrotask(foldCard);
     startRoute(cardSubject.xyz);
     flyTo(frameAbove(fit, cardSubject.xyz), { announce: pages.get(country.id)?.name || country.name, travel: true });
   }
@@ -2361,7 +2450,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const [lat, lon] = toLatLon(centre);
     const altToSplit = (ang) => (ang / (PIN_GAP * 1.25)) * H / (2 * TAN);
     /* With the close map available the floor is street level, not the globe's. */
-    const floor = closeState === 'failed' ? MIN_ALT : altForZoom(17);
+    /* A group of countries dives to where it comes apart into countries and
+       no further: above SCHOOLS_ALT, and no lower than the globe still reads
+       as a sphere. Schools open on the next choice or zoom (the owner's
+       "country, region, countries, schools"; #53 round 1: a click on "281"
+       opened 31 groups of schools at once). */
+    const countries = members.some((m) => m.precision === 'region' && m.subs?.length);
+    if (!members.every((m) => m.parent && opened.has(m.parent.id))) openOnly([]);
+    const floor = countries
+      ? Math.max(SCHOOLS_ALT * 1.25, sphereAlt())
+      : closeState === 'failed' ? MIN_ALT : altForZoom(17);
     const bounds = () => {
       const lats = members.map((m) => m.lat), lons = members.map((m) => m.lon);
       return [[Math.min(...lons), Math.min(...lats)], [Math.max(...lons), Math.max(...lats)]];
@@ -2706,6 +2804,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function goHome() {
     closeCard();
     clearChoice();
+    openOnly([]);
     climbOut(() => flyTo({ ...rest }, { announce: 'the whole view', travel: true }));
   }
 

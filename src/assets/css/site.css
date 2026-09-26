@@ -2616,15 +2616,24 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 }
 body.has-sheet { overflow: hidden; }
 
+/* Named rows, so the phone's button row (above the stage) and card sheet
+   (below it) have their places (globe.js placeFurniture); an empty row
+   takes no room. */
 .discover__globe .world {
   gap: 0; display: grid; align-items: center;
-  grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto;
+  grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto auto;
+  grid-template-areas: "controls controls" "stage stage" "card card" "caption fold";
 }
 .discover__globe .world__stage {
-  grid-column: 1 / -1;
+  grid-area: stage;
   aspect-ratio: auto; height: 56vh; min-height: 20rem; max-height: none;
-  border: 0; border-radius: 0;
+  border: 0;
+  /* The side gutter the rest of the page keeps (#53 round 1: the stage ran
+     into the viewport's edge). */
+  margin-inline: var(--s4, 16px);
 }
+.discover__globe .world > .world__controls { grid-area: controls; margin: 0 var(--s4, 16px) var(--s2); }
+.discover__globe .world > .world__card { grid-area: card; margin: var(--s2) var(--s4, 16px) 0; }
 /* The list is the map's source of truth for a screen reader and a keyboard;
    here the Where filter and the cards say the same, so it is kept for them
    and not drawn. */
@@ -2633,15 +2642,20 @@ body.has-sheet { overflow: hidden; }
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
 }
 .discover__globe .world__list a:focus-visible { position: fixed; left: 1rem; bottom: 1rem; clip-path: none; width: auto; height: auto; z-index: 10; }
-/* Where the globe cannot run the list is the map (ADR 0007), so here it is
-   drawn after all, under one line saying so, across the band. */
-.discover__globe .world__off { grid-column: 1 / -1; padding: var(--s3) var(--gutter) 0; }
-.discover__globe .world[data-globe="off"],
-:root:not([data-js]) .discover__globe .world { display: block; }
-.discover__globe:has(.world[data-globe="off"]),
-:root:not([data-js]) .discover__globe { position: static; height: auto; }
-.discover__globe .world[data-globe="off"] .world__fold,
-:root:not([data-js]) .discover__globe .world__fold { grid-column: 1 / -1; grid-row: auto; padding: var(--s2) var(--gutter) var(--s4); }
+/* Where the globe cannot run the list is the map (ADR 0007): the still of
+   the globe stays in the stage, one line says where the places are, and the
+   list is drawn when "All places" is opened (#53 round 1: forced open, the
+   hero became 55 chips). */
+.discover__globe:has(.world[data-globe="off"] .world__fold[open]) { position: static; height: auto; }
+.discover__globe:has(.world[data-globe="off"] .world__fold[open]) .world__stage { height: 56vh; }
+.discover__globe .world[data-globe="off"] .world__off,
+:root:not([data-js]) .discover__globe .world__off { grid-area: caption; padding: var(--s2) var(--s3) var(--s2) var(--gutter); }
+.discover__globe .world.world[data-globe="off"] .world__fold > summary,
+:root:not([data-js]) .discover__globe .world .world__fold > summary {
+  position: static; width: auto; height: auto; min-height: var(--tap); margin: 0; overflow: visible; clip-path: none; white-space: normal;
+}
+.discover__globe .world[data-globe="off"] .world__fold[open],
+:root:not([data-js]) .discover__globe .world__fold[open] { grid-column: 1 / -1; grid-row: 5; padding: 0 var(--gutter) var(--s4); }
 .discover__globe .world[data-globe="off"] .world__list,
 :root:not([data-js]) .discover__globe .world__list {
   position: static; width: auto; height: auto; margin: 0; overflow: visible;
@@ -2649,8 +2663,8 @@ body.has-sheet { overflow: hidden; }
 }
 /* Under the globe, one line: the legend, "How to use the globe", and the
    folded list of places, side by side. */
-.discover__globe .world__fold { grid-column: 2; grid-row: 2; padding: 0 var(--gutter) 0 var(--s3); }
-.discover__globe .world__caption { grid-column: 1; grid-row: 2; padding: var(--s1) var(--s3) var(--s1) var(--gutter); color: var(--ink-mute); }
+.discover__globe .world__fold { grid-area: fold; padding: 0 var(--gutter) 0 var(--s3); }
+.discover__globe .world__caption { grid-area: caption; padding: var(--s1) var(--s3) var(--s1) var(--gutter); color: var(--ink-mute); }
 .discover__globe .world__fold > summary { color: var(--ink-soft); font-size: .75rem; min-height: var(--tap); display: flex; align-items: center; }
 .discover__globe .world__fold > summary:hover { color: var(--ink); }
 
@@ -2709,7 +2723,7 @@ body.has-sheet { overflow: hidden; }
     grid-area: globe; position: sticky; top: 4rem; height: calc(100vh - 4rem);
     display: flex; flex-direction: column;
   }
-  .discover__globe .world { flex: 1; min-height: 0; grid-template-rows: minmax(0, 1fr) auto; }
+  .discover__globe .world { flex: 1; min-height: 0; grid-template-rows: auto minmax(0, 1fr) auto auto; }
   .discover__globe .world__stage { height: auto; min-height: 0; align-self: stretch; }
   .discover__results {
     grid-area: results; width: auto; margin: 0;
