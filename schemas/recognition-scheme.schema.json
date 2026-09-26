@@ -323,8 +323,17 @@
           "type": "string",
           "description": "What the authority says about taking more than one course — how many may be finished after the documentation deadline. Two level gaps are only ever called \"Possible with action\" where this, or the institution's own, is recorded."
         },
-        "afterResults": {
+"afterResultsIfAccepted": {
           "type": "integer",
+          "minimum": 0,
+          "description": "Where `afterResults` is null (not recorded), the count that would apply if the unrecorded permission were given. A plan that fits only on it is \"Needs review\", never \"possible\"."
+        },
+        "unknownAfterResults": {
+          "type": "string",
+          "description": "What a card says where the count is not recorded — \"Whether this programme accepts summer supplementation is not recorded here — ask the institution\"."
+        },
+        "afterResults": {
+          "type": ["integer", "null"],
           "minimum": 0,
           "description": "How many courses may be finished after the IB results and still count for this intake, by the authority's rule (one, by summer supplementation)."
         },

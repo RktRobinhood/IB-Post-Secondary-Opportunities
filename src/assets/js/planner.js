@@ -300,21 +300,34 @@ function backdrop(b) {
 
 function renderCard({ opportunity, assessment }, common = new Map()) {
   const d = opportunity.display;
+  /* Below a quota 1 floor on a card that is not "Quota 2 only", the other
+     route and its date are said too (round 5: P8 at SDU and AU) — only for a
+     floor that stays unmet whatever the plan does: a total, or a grade
+     already held. A subject floor the plan's course supplies is "unknown". */
+  const shutFloor = !assessment.route && assessment.outcome !== OUTCOME.MEETS
+    ? (assessment.floors || []).find((f) => f.status === 'unmet' && f.otherRoute)
+    : null;
+  const quota2 = shutFloor
+    ? `<p style="margin:.35rem 0 0"><small><strong>Below the ${esc(shutFloor.quota.toLowerCase())} floor, your way in is ${esc(shutFloor.otherRoute.quota.toLowerCase())}:</strong> ${esc(shutFloor.otherRoute.text)}</small></p>`
+    : '';
   const [badgeClass, fixedLabel] = BADGE[assessment.outcome];
   const badgeLabel = fixedLabel || assessment.outcomeLabel;
   const ev = assessment.provenance.evidence;
 
+  /* What decides the verdict leads: gaps, then questions, then the quota
+     floors, then what is met (verification after round 5: the deciding "?"
+     came after three ✓ lines). */
+  /* A floor decides which quota ranks you, not whether you qualify; each is
+     said beside the lines of its own kind. */
+  const floor = (status, mark) => (assessment.floors || []).filter((f) => f.status === status)
+    .map((f) => rule({ message: `${f.quota}: ${f.message}` }, `<span aria-hidden="true">${mark}</span>`));
   const explanation = [
-    ...assessment.matched.map((e) => rule(e, '<span aria-hidden="true">✓</span>')),
     ...assessment.gaps.map((e) => rule(e, '<span aria-hidden="true">✗</span>', common)),
+    ...floor('unmet', '!'),
     ...assessment.unknowns.map((e) => rule(e, '<span aria-hidden="true">?</span>')),
-    /* A floor that decides which quota ranks you, not whether you qualify. */
-    ...(assessment.floors || []).map((f) =>
-      rule(
-        { message: `${f.quota}: ${f.message}` },
-        f.status === 'met' ? '<span aria-hidden="true">✓</span>' : f.status === 'unmet' ? '<span aria-hidden="true">!</span>' : '<span aria-hidden="true">?</span>'
-      )
-    ),
+    ...floor('unknown', '?'),
+    ...assessment.matched.map((e) => rule(e, '<span aria-hidden="true">✓</span>')),
+    ...floor('met', '✓'),
   ].join('');
 
   return `
@@ -327,6 +340,16 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
         ${d.campus ? `<span>${esc(d.campus)}</span>` : ''}
         ${d.degree ? `<span>${esc(d.degree)}</span>` : ''}
       </p>
+      ${/* The verdict and its step come first, under the title; the reasons
+           are one tap down (verification after round 5). */ ''}
+      <p style="margin:.35rem 0 0"><span class="tag ${badgeClass}">${esc(badgeLabel)}</span></p>
+      ${assessment.route
+        ? `<p style="margin:.35rem 0 0"><small><strong>Your way in:</strong> ${esc(assessment.route.text)}</small></p>`
+        : ''}
+      ${assessment.actionSummary
+        ? `<p style="margin:.35rem 0 0"><small><strong>${esc(assessment.actionLead || 'To do')}:</strong> ${esc(assessment.actionSummary)}</small></p>`
+        : ''}
+      ${quota2}
       <details class="acc" style="border:0">
         <summary style="font-family:var(--sans);font-size:.9375rem;padding:.35rem 1.6rem .35rem 0">
           Why this result
@@ -338,21 +361,6 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
       </details>
     </div>
     <div class="prog__side">
-      <p><span class="tag ${badgeClass}">${esc(badgeLabel)}</span></p>
-      ${assessment.route
-        ? `<p><small><strong>Your way in:</strong> ${esc(assessment.route.text)}</small></p>`
-        : ''}
-      ${assessment.actionSummary
-        ? `<p><small><strong>${esc(assessment.actionLead || 'To do')}:</strong> ${esc(assessment.actionSummary)}</small></p>`
-        : ''}
-      ${/* Below a quota 1 floor on a card that is not "Quota 2 only", the other
-           route and its date are said too (round 5: P8 at SDU and AU). */ ''}
-      ${!assessment.route && assessment.outcome !== OUTCOME.MEETS && (assessment.floors || []).some((f) => f.status === 'unmet' && f.otherRoute)
-        ? (() => {
-            const f = assessment.floors.find((x) => x.status === 'unmet' && x.otherRoute);
-            return `<p><small><strong>Below the ${esc(f.quota.toLowerCase())} floor, your way in is ${esc(f.otherRoute.quota.toLowerCase())}:</strong> ${esc(f.otherRoute.text)}</small></p>`;
-          })()
-        : ''}
       <p><small>
         ${assessment.selection.restricted
           ? `Restricted admission${assessment.selection.historicalCutoffs.length
@@ -386,18 +394,25 @@ function render() {
   const tally = {};
   for (const r of results) tally[r.assessment.outcome] = (tally[r.assessment.outcome] || 0) + 1;
 
-  const visible = results.filter((r) => show[r.assessment.outcome]);
+  /* Results a student can act on come first, then the ones that already
+     meet, then the rest (verification after round 5: P5's eight actionable
+     cards started below 48 "Meets" cards, 23,000 px down). */
+  const FIRST = [OUTCOME.OTHER_ROUTE, OUTCOME.POSSIBLE, OUTCOME.NEEDS_REVIEW, OUTCOME.MEETS, OUTCOME.DOES_NOT_MEET];
+  const visible = results
+    .filter((r) => show[r.assessment.outcome])
+    .sort((a, b) => FIRST.indexOf(a.assessment.outcome) - FIRST.indexOf(b.assessment.outcome));
 
   /* Each number is kept on the line of its label at 390 px (round 5). */
-  const pair = (n, label) => `<span style="white-space:nowrap"><b>${n || 0}</b> ${label}</span>`;
+  /* The separator opens each pair, so a wrapped line never ends on "·". */
+  const pair = (n, label, i) => `<span style="white-space:nowrap">${i ? '· ' : ''}<b>${n || 0}</b> ${label}</span>`;
   els.count.innerHTML =
     [
-      pair(tally[OUTCOME.MEETS], 'meet the published requirements'),
-      ...(tally[OUTCOME.OTHER_ROUTE] ? [pair(tally[OUTCOME.OTHER_ROUTE], esc(otherRouteLabel(results)))] : []),
-      pair(tally[OUTCOME.POSSIBLE], 'possible with action'),
-      pair(tally[OUTCOME.NEEDS_REVIEW], 'need review'),
-      pair(tally[OUTCOME.DOES_NOT_MEET], 'not currently met'),
-    ].join(' · ') +
+      [tally[OUTCOME.MEETS], 'meet the published requirements'],
+      ...(tally[OUTCOME.OTHER_ROUTE] ? [[tally[OUTCOME.OTHER_ROUTE], esc(otherRouteLabel(results))]] : []),
+      [tally[OUTCOME.POSSIBLE], 'possible with action'],
+      [tally[OUTCOME.NEEDS_REVIEW], 'need review'],
+      [tally[OUTCOME.DOES_NOT_MEET], 'not currently met'],
+    ].map(([n, label], i) => pair(n, label, i)).join(' ') +
     (profile.subjects.length < 6
       ? ` <span style="color:var(--warn)">(only ${profile.subjects.length} of 6 subjects entered)</span>`
       : '') +

@@ -366,13 +366,24 @@
               "text": { "type": "string", "description": "Replaces the text for this group." },
               "timing": { "type": "string", "description": "Replaces the timing for this group." },
               "multiple": { "type": "string", "description": "Replaces the sentence about more than one course for this group." },
-              "afterResults": { "type": "integer", "minimum": 0, "description": "Replaces the count of courses allowed after the results for this group (SDU outside the EU/EEA: 0)." }
+              "afterResults": { "type": ["integer", "null"], "minimum": 0, "description": "Replaces the count of courses allowed after the results for this group (SDU outside the EU/EEA: 0). Null: not recorded for this group." },
+              "afterResultsIfAccepted": { "type": "integer", "minimum": 0 },
+              "unknownAfterResults": { "type": "string" }
             },
             "additionalProperties": false
           }
         },
-"afterResults": {
+"afterResultsIfAccepted": {
           "type": "integer",
+          "minimum": 0,
+          "description": "Where `afterResults` is null (not recorded), the count that would apply if the unrecorded permission were given. A plan that fits only on it is \"Needs review\", never \"possible\"."
+        },
+        "unknownAfterResults": {
+          "type": "string",
+          "description": "What a card says where the count is not recorded — \"Whether this programme accepts summer supplementation is not recorded here — ask the institution\"."
+        },
+        "afterResults": {
+          "type": ["integer", "null"],
           "minimum": 0,
           "description": "How many supplementary courses may be finished after the IB results arrive and still count for this intake (AU: 2; CBS: 0). Only where a quotation supports the number; without one the Recognition Scheme's applies. A plan with more courses than this is \"Does not currently meet\" for this intake."
         },

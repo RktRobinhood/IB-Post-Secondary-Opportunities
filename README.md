@@ -110,7 +110,7 @@ file, which is how the two had come to run different checks from each other.
 | `npm run qa -- --only floor,map` | One or more checks by id, for when you know what you broke. |
 | `npm run qa:list` | The manifest: every check, and the network-dependent ones excluded on purpose. |
 | `npm run validate` | Records against schemas, and every cross-reference. Fails with the file and the field. |
-| `npm run test:eligibility` | 232 scenarios against the eligibility engine. |
+| `npm run test:eligibility` | 276 scenarios against the eligibility engine. |
 | `npm run test:probes` | Guards on the source-matching logic, including the negative cases. |
 | `npm run check` | The built site: structure, internal links, images, accessibility basics. |
 | `npm run check:links` | The above, plus every outbound link. |
@@ -188,15 +188,17 @@ bearing and should not be smoothed over to make the build summary look better.
 These are opinions, encoded, and they are the reason to trust the output.
 
 **Silence means "we do not know", never "not required".** A missing rule produces
-*Needs review*, not a pass. Several of the 232 eligibility scenarios exist purely
+*Needs review*, not a pass. Several of the 276 eligibility scenarios exist purely
 to assert that the engine refuses to be generous.
 
 **Four outcomes, and they mean what they say.** *Meets published requirements* ·
 *Possible with action* · *Does not currently meet* · *Needs review*. A student
 who meets every rule but sits below the floor for one admission route sees
 *Meets* as the route that is left (*Quota 2 only*), never as a plain yes. *Possible
-with action* names its step for every gap — one test or route, or at most two
-supplementary courses where the published rules say how. Nothing is
+with action* names its step for every gap — one test or route, or supplementary
+courses no more than the university is recorded as allowing after the IB results,
+and at most two (our limit). A permission nobody has recorded is *Needs review*,
+not a yes. Nothing is
 ever labelled safe, likely or guaranteed. A scenario asserts that no field
 anywhere in a result matches `/likely|probability|chance of|guaranteed/`.
 
