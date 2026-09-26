@@ -293,6 +293,10 @@ export function fromCountryDeadline(country, entry, index) {
     /* A date for Institutions that have no page, by name ("Reykjavik
        University"): it reaches no school page (school-dates.mjs). */
     institutionsWithoutPage: nameList(entry.institutionsWithoutPage),
+    /* The schools a shared date is NOT for, by page id: UCAS's 13 January
+       is for every course except those that close on 15 October, so it never
+       reaches Oxford's or Cambridge's page (school-dates.mjs). */
+    institutionsExcept: idList(entry.institutionsExcept),
     /* Only for numerus fixus programmes: on a Programme page it shows only
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(entry.numerusFixusOnly),
@@ -352,6 +356,10 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     /* A date for Institutions that have no page, by name ("Reykjavik
        University"): it reaches no school page (school-dates.mjs). */
     institutionsWithoutPage: nameList(milestone.institutionsWithoutPage),
+    /* The schools a shared date is NOT for, by page id: UCAS's 13 January
+       is for every course except those that close on 15 October, so it never
+       reaches Oxford's or Cambridge's page (school-dates.mjs). */
+    institutionsExcept: idList(milestone.institutionsExcept),
     /* Only for numerus fixus programmes: on a Programme page it shows only
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(milestone.numerusFixusOnly),
@@ -394,6 +402,10 @@ export function fromRouteRound(route, round, destinationName) {
     /* A date for Institutions that have no page, by name ("Reykjavik
        University"): it reaches no school page (school-dates.mjs). */
     institutionsWithoutPage: nameList(round.institutionsWithoutPage),
+    /* The schools a shared date is NOT for, by page id: UCAS's 13 January
+       is for every course except those that close on 15 October, so it never
+       reaches Oxford's or Cambridge's page (school-dates.mjs). */
+    institutionsExcept: idList(round.institutionsExcept),
     /* Only for numerus fixus programmes: on a Programme page it shows only
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(round.numerusFixusOnly),
@@ -636,6 +648,7 @@ export function mergeTwins(route, profile) {
     ibCalendar: route.ibCalendar || profile.ibCalendar,
     institutions: union(route.institutions, profile.institutions),
     institutionsWithoutPage: union(route.institutionsWithoutPage, profile.institutionsWithoutPage),
+    institutionsExcept: union(route.institutionsExcept, profile.institutionsExcept),
     numerusFixusOnly: Boolean(route.numerusFixusOnly || profile.numerusFixusOnly),
     /* Either record's doubt about the year stands: a provisional date is
        never shown as a confirmed one because its twin did not say so. */

@@ -118,6 +118,9 @@
           "institutionsWithoutPage": {
             "$ref": "common.schema.json#/$defs/institutionNames"
           },
+          "institutionsExcept": {
+            "$ref": "common.schema.json#/$defs/institutionExceptRefs"
+          },
           "yearUnpublished": {
             "$ref": "common.schema.json#/$defs/yearUnpublished"
           },
@@ -226,6 +229,9 @@
           },
           "institutionsWithoutPage": {
             "$ref": "common.schema.json#/$defs/institutionNames"
+          },
+          "institutionsExcept": {
+            "$ref": "common.schema.json#/$defs/institutionExceptRefs"
           },
           "yearUnpublished": {
             "$ref": "common.schema.json#/$defs/yearUnpublished"
