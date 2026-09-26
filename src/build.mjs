@@ -328,10 +328,11 @@ async function main() {
   // the documented purpose of each token cannot drift apart.
   await fs.writeFile(path.join(DIST, 'assets', 'css', 'motion.css'), motionCss());
   await fs.writeFile(path.join(DIST, 'data.json'), dataDump(site));
-  // The globe (assets/js/globe.js, ADR 0005) draws borders from the same
-  // basemap the flat map is baked from, and names a clicked country's page
-  // from the Destination records. Both are site-wide and fetched once, after
-  // the flat map has painted, so neither is inlined into any page.
+  // The globe (assets/js/globe.js, ADR 0005) draws borders and picks
+  // countries from the 110m basemap, and names a clicked country's page from
+  // the Destination records. Both are site-wide and fetched once, when the
+  // globe loads, so neither is inlined into any page (there is no flat map to
+  // bake the basemap into any more, ADR 0007).
   await fs.mkdir(path.join(DIST, 'assets', 'geo'), { recursive: true });
   await fs.copyFile(
     path.join(ROOT, 'data', 'geo', 'countries.json'),

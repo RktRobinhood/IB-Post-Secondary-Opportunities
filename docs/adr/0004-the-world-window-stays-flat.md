@@ -4,6 +4,9 @@
 > 24 September 2026. The site owner overruled this decision and asked for a
 > rotating, flyable 3D globe; 0005 records how that build answers each cost
 > measured here. The measurements below stand as measurements.
+> The flat map that 0005 kept as the first paint and the fallback was removed
+> on 26 September 2026 at the owner's request
+> ([ADR 0007](0007-the-flat-map-is-removed.md)).
 
 ## What forced the decision
 

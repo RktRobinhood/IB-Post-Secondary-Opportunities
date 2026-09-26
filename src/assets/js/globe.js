@@ -1,9 +1,10 @@
 /* The world window as a globe. ADR 0005.
  *
  * Hand-written WebGL 1, no library. `map.js` imports this only once the figure
- * is near the viewport and only where WebGL exists; until then, and wherever
- * this throws, the build-time flat SVG is the map, so nothing here is ever the
- * only way to see a place.
+ * is near the viewport and only where WebGL exists; until then the stage is
+ * empty and transparent, and wherever this throws the list under it is the
+ * whole map (ADR 0007: the flat map that used to stand in was removed), so
+ * nothing here is ever the only way to see a place.
  *
  * What it draws, back to front, every frame:
  *
@@ -496,18 +497,46 @@ function buildGeography(geo) {
 
 export async function mountGlobe(figure, { onFail } = {}) {
   const stage = figure.querySelector('.world__stage');
-  const svg = figure.querySelector('.world__svg');
   const list = figure.querySelector('.world__list');
   const caption = figure.querySelector('.world__caption');
   const dataEl = figure.querySelector('.world__data');
   if (!stage || !dataEl) throw new Error('no world data');
 
   const unit = figure.dataset.unit || '';
-  const layer = (svg?.getAttribute('aria-label') || 'Map').split(':')[0];
+  const layer = figure.dataset.layer || 'Map';
   const places = JSON.parse(dataEl.textContent || '[]')
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
     .map((p) => ({ ...p, xyz: toXYZ(p.lat, p.lon), dim: false, selected: false }));
   const byId = new Map(places.map((p) => [p.id, p]));
+  /* Country → schools (the owner, #53: zooming into a big country should do
+     "what Europe does … show the individual schools … as dots"). A light that
+     stands for a whole country may carry the institutions inside it that have
+     their own position (worldWindow's `schools`). Far out it is one light at
+     the country's middle; once the camera is close enough to that country
+     (schoolsOpen) it gives way to one pin per institution, which group and
+     split with the zoom like any other pins, and each opens a card that is a
+     link to that institution's page. Derived from the data; no country is
+     named. */
+  const schools = [];
+  for (const p of places) {
+    p.subs = (p.schools || [])
+      .filter((q) => Number.isFinite(q.lat) && Number.isFinite(q.lon))
+      .map((q) => ({
+        id: byId.has(q.id) ? `${p.id}:${q.id}` : q.id,
+        name: q.name, lat: q.lat, lon: q.lon, xyz: toXYZ(q.lat, q.lon), href: q.href || '',
+        state: q.city || '', cue: '', precision: 'institution', country: p.country, image: '', external: false,
+        count: 1, school: true, parent: p, dim: false, selected: false,
+      }));
+    delete p.schools;
+    p.open = false;
+    /* How far apart its schools are, on the sphere: the widest pair, and at
+       least two degrees, so a country of one school opens too, close in. */
+    let spread = 2 * D2R;
+    for (let i = 0; i < p.subs.length; i++) for (let j = i + 1; j < p.subs.length; j++) spread = Math.max(spread, angle(p.subs[i].xyz, p.subs[j].xyz));
+    p.spread = spread;
+    for (const q of p.subs) { byId.set(q.id, q); schools.push(q); }
+  }
+  const allPins = [...places, ...schools];
   const links = new Map();
   for (const a of list ? list.querySelectorAll('a[data-place]') : []) links.set(a.dataset.place, a);
 
@@ -516,8 +545,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const canvas = document.createElement('canvas');
   canvas.className = 'world__globe';
   canvas.setAttribute('aria-hidden', 'true');
-  /* A globe at 12 frames a second is worse than the flat map, so a machine
-     that would draw it in software gets the flat map instead: the browser is
+  /* A globe at 12 frames a second is worse than the list alone, so a machine
+     that would draw it in software gets the list instead: the browser is
      asked to refuse a "major performance caveat", and a renderer that names
      itself as software is refused here. `?map=globe` overrides both, for
      testing. */
@@ -1179,9 +1208,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const maxCount = () => Math.max(1, ...places.map((p) => p.count || 0));
   const radius = (p, max) => (p.count ? 4.5 + Math.sqrt(p.count / max) * 7 : 3.5);
 
-  for (const p of places) {
+  for (const p of allPins) {
     const node = el('div', { class: 'world__pin', 'data-place': p.id });
     if (p.cue) node.dataset.approx = 'true';
+    if (p.school) node.dataset.school = '';
     const dotEl = el('span', { class: 'world__pin-dot' });
     const label = el('span', { class: 'world__pin-label' }, p.name);
     node.append(dotEl, label);
@@ -1209,8 +1239,33 @@ export async function mountGlobe(figure, { onFail } = {}) {
      carry institution counts beside the cities' degree counts, and adding
      them made Denmark's group read 320 against 57 degrees (home round 3). */
   function groupCount(members) {
-    const precise = members.filter((m) => m.precision !== 'region');
+    const precise = members.filter((m) => m.precision !== 'region' && !m.school);
     return (precise.length ? precise : members).reduce((n, m) => n + (m.count || 0), 0);
+  }
+
+  /* When a country's light gives way to its schools: once its schools would
+     spread over more than half the stage (a big country, from not far), or
+     once the camera is down at the altitude a chosen place is flown to (any
+     country in view). A little hysteresis, so a camera resting on the
+     threshold does not flicker between the two. */
+  const SCHOOLS_ALT = 0.45;
+  function schoolsOpen(p) {
+    if (!p.subs.length) return false;
+    const k = p.open ? 0.85 : 1;
+    /* Close in, every country is open: its middle may be over the horizon
+       while its schools are in front of you (Boston, seen from above it). */
+    if (view.alt <= SCHOOLS_ALT / k) return true;
+    if (project(p.xyz).facing <= 0.15) return false;
+    return p.spread / radPerPx() >= 0.6 * Math.min(W, H) * k;
+  }
+  function pinnedNow() {
+    const out = [];
+    for (const p of places) {
+      p.open = schoolsOpen(p);
+      if (p.open) out.push(...p.subs);
+      else out.push(p);
+    }
+    return out;
   }
 
   function cluster() {
@@ -1220,11 +1275,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
        the camera has travelled, so the groups hold still under a spin. */
     const theta = PIN_GAP * radPerPx() * (1 + Math.sin(cam.pitch));
     const cosT = Math.cos(theta);
-    for (const p of places) p._s = project(p.xyz);
+    const shown = pinnedNow();
+    for (const p of shown) p._s = project(p.xyz);
     const near = (a, b) => (a._s.facing > 0.05 && b._s.facing > 0.05
       ? Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) < PIN_GAP
       : dot(a.xyz, b.xyz) > cosT);
-    const left = [...places].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+    const left = [...shown].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
     const out = [];
     while (left.length) {
       const seed = left.shift();
@@ -1303,18 +1359,20 @@ export async function mountGlobe(figure, { onFail } = {}) {
         const node = p.node;
         if (!onScreen) { node.hidden = true; continue; }
         node.hidden = false;
-        const r = radius(p, max);
+        const r = p.school ? 4.5 : radius(p, max);
+        const dim = (p.parent || p).dim;
+        const on = litSet.has(p.id) || (!!p.parent && litSet.has(p.parent.id));
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
-        node.style.opacity = String(fade * (p.dim ? 0.55 : 1));
-        node.toggleAttribute('data-dim', p.dim);
+        node.style.opacity = String(fade * (dim ? 0.55 : 1));
+        node.toggleAttribute('data-dim', dim);
         node.toggleAttribute('data-selected', p.selected);
-        node.toggleAttribute('data-on', litSet.has(p.id));
+        node.toggleAttribute('data-on', on);
         /* A label goes where it does not cover another label, biggest places
            first. Lit and selected places always get theirs. */
         let show = false;
         let flip = false;
-        if (fade > 0.6 && (labels || litSet.has(p.id) || p.selected)) {
+        if (fade > 0.6 && (labels || on || p.selected)) {
           const w = p.name.length * 6.6 + 18;
           /* To the left of the pin when the right would run off the stage
              ("HK Ho…" on a phone, round 3). */
@@ -1339,14 +1397,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
         node.style.opacity = String(fade);
-        node.toggleAttribute('data-dim', g.members.every((m) => m.dim));
-        node.toggleAttribute('data-on', g.members.some((m) => litSet.has(m.id)));
+        node.toggleAttribute('data-dim', g.members.every((m) => (m.parent || m).dim));
+        node.toggleAttribute('data-on', g.members.some((m) => litSet.has(m.id) || (!!m.parent && litSet.has(m.parent.id))));
         node.toggleAttribute('data-selected', g.members.some((m) => m.selected));
         taken.push([s.x - r, s.y - r, s.x + r, s.y + r]);
       }
     }
     for (let i = used; i < clusterPool.length; i++) { clusterPool[i].hidden = true; clusterPool[i]._members = null; }
-    for (const p of places) if (!seen.has(p.id)) p.node.hidden = true;
+    for (const p of allPins) if (!seen.has(p.id)) p.node.hidden = true;
 
     stage.dataset.zoomed = String(view.alt < rest.alt * 0.95);
     zoomIn.disabled = view.alt <= MIN_ALT * 1.01;
@@ -1849,7 +1907,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   /* The frame-rate watch. If the first 30 consecutive frames run at a median
      over 25 ms the pixel ratio drops to 1; if the next 30 are still over 40 ms
-     the globe gives up and the flat map takes over. */
+     the globe gives up and the list is the map. */
   const gaps = [];
   let lowPower = false;
   function watchFrame(gap) {
@@ -1929,7 +1987,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     lit = key;
     litSet = new Set(key ? key.split(' ') : []);
     if ([...litSet].some((id) => CLOSE_ZOOM[byId.get(id)?.precision])) ensureClose();
-    for (const [pid, a] of links) a.toggleAttribute('data-on', litSet.has(pid));
+    const parents = new Set([...litSet].map((id) => byId.get(id)?.parent?.id).filter(Boolean));
+    for (const [pid, a] of links) a.toggleAttribute('data-on', litSet.has(pid) || parents.has(pid));
     void fromMap;
     camDirty = true;
     kick();
@@ -1997,9 +2056,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
         img.addEventListener('error', () => img.remove());
         c.append(img);
       }
-      c.append(el('h3', { class: 'world__card-title', tabindex: '-1' }, p.name));
+      const title = cardTitle(c, p.name);
       const facts = [];
-      if (unit && p.count) facts.push(plural(p.count, unit));
+      if (unit && p.count && !p.school) facts.push(plural(p.count, unit));
       if (p.state) facts.push(p.state);
       if (facts.length) c.append(el('p', { class: 'world__card-meta' }, facts.join(' · ')));
       if (p.cue) c.append(el('p', { class: 'world__card-cue' }, p.cue));
@@ -2007,30 +2066,49 @@ export async function mountGlobe(figure, { onFail } = {}) {
       if (dest && !sameHref(dest.href, p.href) && !sameHref(dest.href, location.pathname)) {
         c.append(el('p', { class: 'world__card-where' }, `In ${dest.name}`));
       }
-      if (p.href) c.append(actionFor(p));
+      if (p.href) cardLink(c, title, p.href, actionLabel(p), { external: p.external, select: p });
     }, opts);
   }
 
-  /* One real link per card, so site.js's rule — another site, or one
-     university's or programme's page, opens in a new tab — covers it like any
-     other link. A page that wants the choice for itself (the explorer filters
-     on it) says so by cancelling `world:select`, and then the link does not
-     navigate. */
-  function actionFor(p) {
+  /* The card is the link (the owner, #53: "if a user chooses to click on the
+     card the card is the link"). One real link per card, in its title; its
+     ::after covers the whole card, so a click anywhere on the photograph, the
+     title or the lines under it follows it, while the close button and any
+     list of places sit above it and stay buttons of their own — nothing
+     interactive is nested in the link. The way on is still written at the foot
+     ("Open the Netherlands page →"), for the eye; the link says it too, for a
+     screen reader. site.js's rule — another site, or one university's or
+     programme's page, opens in a new tab — covers it like any other link. A
+     page that wants the choice for itself (the explorer filters on it) says so
+     by cancelling `world:select`, and then the link does not navigate. */
+  function cardTitle(c, text) {
+    const h = el('h3', { class: 'world__card-title', tabindex: '-1' }, text);
+    c.append(h);
+    return h;
+  }
+  function cardLink(c, title, href, label, { external = false, select = null } = {}) {
+    const a = el('a', { class: 'world__card-link', href }, title.textContent);
+    a.append(el('span', { class: 'visually-hidden' }, ` — ${label}`));
+    if (external) a.rel = 'noopener nofollow';
+    title.replaceChildren(a);
+    c.dataset.link = 'true';
+    c.append(el('p', { class: 'world__card-go', 'aria-hidden': 'true' }, label));
+    if (select) {
+      a.addEventListener('click', (e) => {
+        const ev = new CustomEvent('world:select', { detail: { id: select.id, name: select.name, href: select.href }, cancelable: true, bubbles: true });
+        if (!figure.dispatchEvent(ev)) {
+          e.preventDefault();
+          closeCard();
+        }
+      });
+    }
+    return a;
+  }
+  function actionLabel(p) {
     const inPage = p.href.startsWith('#');
-    const label = inPage
+    return inPage
       ? (unit && p.count ? `Show the ${plural(p.count, unit)} here` : 'Show what is here')
       : p.external ? 'Visit their website' : `Open ${p.name.replace(/^\p{RI}{2}\s*/u, '')}`;
-    const a = el('a', { class: 'world__card-go', href: p.href }, label);
-    if (p.external) a.rel = 'noopener nofollow';
-    a.addEventListener('click', (e) => {
-      const ev = new CustomEvent('world:select', { detail: { id: p.id, name: p.name, href: p.href }, cancelable: true, bubbles: true });
-      if (!figure.dispatchEvent(ev)) {
-        e.preventDefault();
-        closeCard();
-      }
-    });
-    return a;
   }
 
   function countryCard(country, opts) {
@@ -2047,13 +2125,20 @@ export async function mountGlobe(figure, { onFail } = {}) {
         img.addEventListener('error', () => img.remove());
         c.append(img);
       }
-      c.append(el('h3', { class: 'world__card-title', tabindex: '-1' }, `${dest?.flag ? `${dest.flag} ` : ''}${dest?.name || country.name}`));
+      const title = cardTitle(c, `${dest?.flag ? `${dest.flag} ` : ''}${dest?.name || country.name}`);
       const line = !here.length
         ? 'Nothing on this map here yet.'
         : only
           ? [unit && total ? plural(total, unit) : '', only.state].filter(Boolean).join(' · ') || only.name
           : [plural(here.length, 'place'), unit && total ? plural(total, unit) : ''].filter(Boolean).join(' · ') + ' on this map';
       c.append(el('p', { class: 'world__card-meta' }, line));
+      if (dest && !sameHref(dest.href, location.pathname)) {
+        cardLink(c, title, dest.href, `Open the ${dest.name} page`);
+      } else if (!dest) {
+        c.append(el('p', { class: 'world__card-cue' }, 'This guide does not cover it yet.'));
+      }
+      /* The places in it, as buttons of their own under the link and above
+         its cover: choosing one flies there instead of leaving the page. */
       if (here.length > 1 && here.length <= 8) {
         const ul = el('ul', { class: 'world__card-list' });
         for (const p of here) {
@@ -2062,11 +2147,6 @@ export async function mountGlobe(figure, { onFail } = {}) {
           const li = el('li'); li.append(b); ul.append(li);
         }
         c.append(ul);
-      }
-      if (dest && !sameHref(dest.href, location.pathname)) {
-        c.append(el('a', { class: 'world__card-go', href: dest.href }, `Open the ${dest.name} page`));
-      } else if (!dest) {
-        c.append(el('p', { class: 'world__card-cue' }, 'This guide does not cover it yet.'));
       }
     }, opts);
   }
@@ -2713,7 +2793,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const controller = {
     figure,
     /** Re-weight the pins from a filtered set: size means how much is here,
-        never how good it is. The list badges follow, as on the flat map. */
+        never how good it is. The list badges follow. */
     setCounts(counts, { selected = '' } = {}) {
       for (const p of places) {
         const n = counts.get(p.id) || 0;
@@ -2729,7 +2809,6 @@ export async function mountGlobe(figure, { onFail } = {}) {
           else a.removeAttribute('aria-current');
         }
       }
-      svg?.setAttribute('aria-label', `${layer}: ${counts.size} of ${places.length} places match the current filters.`);
       clusterAt = -1;
       camDirty = true;
       kick();

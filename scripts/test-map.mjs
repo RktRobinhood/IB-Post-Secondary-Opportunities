@@ -19,6 +19,7 @@
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import fsSync from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -39,79 +40,92 @@ console.log('\nMaps\n');
 const css = await fs.readFile(path.join(ROOT, 'src', 'assets', 'css', 'primitives.css'), 'utf8');
 /* The control policy lives in site.css since #34; the map's own styles stay here. */
 const siteCss = await fs.readFile(path.join(ROOT, 'src', 'assets', 'css', 'site.css'), 'utf8');
-/* Since ADR 0005 the flat interaction layer lives in map-flat.js (the fallback)
-   and map.js only decides between it and the globe. The flat map's guards
-   follow the flat map; the globe has its own at the end. */
-const mapJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'map-flat.js'), 'utf8');
+/* map.js decides whether a figure gets the globe; globe.js is the globe. The
+   flat map (map-flat.js and the build-time SVG) was removed on 26 September
+   2026 at the owner's request (#53, ADR 0007), and its guards with it — the
+   ones that still protect something moved to the globe. */
 const entryJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'map.js'), 'utf8');
 const globeJs = await fs.readFile(path.join(ROOT, 'src', 'assets', 'js', 'globe.js'), 'utf8');
 const texturesReadme = await fs.readFile(path.join(ROOT, 'src', 'assets', 'img', 'globe', 'README.md'), 'utf8').catch(() => '');
 const primitives = await fs.readFile(path.join(ROOT, 'src', 'lib', 'primitives.mjs'), 'utf8');
+const layoutMjs = await fs.readFile(path.join(ROOT, 'src', 'lib', 'layout.mjs'), 'utf8');
+const worldWindowSrc = (primitives.match(/export function worldWindow\([\s\S]*?\n\}\n/) || [''])[0];
 
-const decl = (selector, prop) => {
-  const block = css.match(new RegExp(`${selector.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`));
+const decl = (source, selector, prop) => {
+  const block = source.match(new RegExp(`(?:^|\\n)${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`));
   if (!block) return null;
-  const m = block[1].match(new RegExp(`(?:^|;)\\s*${prop}\\s*:\\s*([^;]+)`));
+  const m = block[1].match(new RegExp(`(?:^|;|\\n)\\s*${prop}\\s*:\\s*([^;]+)`));
   return m ? m[1].trim() : null;
 };
 
-/* --- The basemap has to be visible --------------------------------------- */
+/* --- One map: the globe, and the list it is drawn from (ADR 0007) --------- */
 
-check('the coastline is drawn at an opacity someone can see', () => {
-  const stroke = Number(decl('.world__land path', 'stroke-opacity'));
-  assert.ok(Number.isFinite(stroke), 'no stroke-opacity found on .world__land path');
-  assert.ok(
-    stroke >= 0.45,
-    `stroke-opacity is ${stroke}. It was .20 once, which measured 1.29:1 against the land — ` +
-      'a coastline nobody can see is a coastline that was not worth baking. ' +
-      'If this is being lowered deliberately, measure it again and update the comment beside it.'
-  );
+check('there is no flat map: no build-time SVG, no basemap in the page, no flat interaction layer', () => {
+  /* The owner (#53): "when the page loads I see the old map load and then I
+     see it getting replaced by the Globe … take out the code for the Old map
+     entirely". A second map drawn first is the flash, whatever it looks like. */
+  assert.ok(worldWindowSrc, 'worldWindow() is gone from primitives.mjs');
+  assert.ok(!/<svg/i.test(worldWindowSrc), 'worldWindow() writes an SVG into the page again — that is the flat map that flashed before the globe');
+  assert.ok(!/landPaths|mercatorY|countries\.json/.test(primitives), 'primitives.mjs draws a basemap again');
+  assert.ok(!/map-flat|enhanceFlat/.test(entryJs), 'map.js hands over to a flat map again');
 });
 
-check('land and sea are two surfaces', () => {
-  const fill = Number(decl('.world__land path', 'fill-opacity'));
-  assert.ok(Number.isFinite(fill), 'no fill-opacity found');
-  assert.ok(fill >= 0.15, `fill-opacity is ${fill}, which was .07 when the map read as an empty panel`);
+check('the stage is empty until the globe lands, and keeps its size so nothing moves', () => {
+  const stage = worldWindowSrc.match(/<div class="world__stage">([\s\S]*?)<\/div>/);
+  assert.ok(stage, 'worldWindow() no longer writes a .world__stage');
+  assert.deepEqual(stage[1].replace(/<script type="application\/json" class="world__data">[\s\S]*?<\/script>/, '').trim(), '',
+    'something is drawn in the stage before the globe — a different picture first is the flash the owner asked to be rid of');
+  assert.match(worldWindowSrc, /class="world__data"/, 'worldWindow() no longer writes the places for the globe');
+  assert.match(decl(css, '.world__stage', 'aspect-ratio') || '', /^\d+ \/ \d+$/, 'the stage no longer reserves the globe\'s size, so the page jumps when it lands');
 });
 
-check('the measured contrast ratios are recorded beside the values', () => {
-  // Numbers somebody took in a browser. If they are gone, the next person has
-  // no way to tell a considered value from a guess — which is how .07 happened.
-  assert.match(css, /\b\d\.\d{2}\s*:\s*1|\b\d\.\d{2}\b[^\n]*contrast|contrast[^\n]*\b\d\.\d{2}\b/i,
-    'no measured ratio appears near the basemap declarations');
-});
-
-/* --- The panel is not one shape ------------------------------------------ */
-
-check('the map crops rather than shrinking', () => {
-  assert.match(
-    primitives,
-    /preserveAspectRatio="xMidYMid slice"/,
-    'the SVG is back to the default `meet`, which letterboxes a narrow panel instead of cropping it'
-  );
-});
-
-check('a narrow viewport gets its own panel shape', () => {
+check('a narrow viewport gets its own stage shape', () => {
   assert.match(
     css,
     /@media \(max-width: 44rem\)[\s\S]{0,200}\.world__stage\s*\{[^}]*aspect-ratio/,
-    'no narrow-viewport aspect-ratio for .world__stage — a phone is back to a 2.38:1 letterbox'
+    'no narrow-viewport aspect-ratio for .world__stage — a phone is back to a letterbox'
   );
+});
+
+check('the globe floats: the stage is transparent, with no box, in both themes', () => {
+  /* The owner (#53): the dark panel "is kind of hidden in dark mode but is
+     obstructive in the light mode … we want the Globe to be floating". */
+  assert.equal(decl(css, '.world__stage', 'background'), 'transparent', 'the stage has a background again');
+  assert.match(decl(css, '.world__stage', 'border') || '', /^(0|none)$/, 'the stage has a border again');
+  assert.match(globeJs, /alpha: true, premultipliedAlpha: true/, 'the globe\'s canvas is no longer transparent');
+  assert.match(globeJs, /gl\.clearColor\(0, 0, 0, 0\)/, 'the globe clears to an opaque colour');
+  /* The home band used to be a night sky in both themes. Nothing that holds
+     the globe may paint a fixed dark colour behind it. */
+  const dark = /#0[0-9a-f]{5}\b|#1[0-2][0-9a-f]{4}\b|rgb\(\s*[0-9]\s+[0-9]+\s+[0-9]+\s*\)/i;
+  for (const sel of ['.discover__hero', '.discover__globe', '.discover__intro', '.discover__globe .world__stage']) {
+    for (const m of siteCss.matchAll(new RegExp(`(?:^|\\n)\\s*${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`, 'g'))) {
+      const bg = (m[1].match(/background(?:-color|-image)?\s*:\s*([^;]+)/) || [])[1] || '';
+      assert.ok(!dark.test(bg) && !/gradient/.test(bg), `${sel} paints "${bg.trim()}" behind the globe — in light mode that is the dark panel the owner called obstructive`);
+    }
+  }
+});
+
+check('without JavaScript or without the globe, the list is the map and one line says so', () => {
+  /* The stage may only be hidden when the globe is off or the script is. */
+  const hides = [...css.matchAll(/([^{}]*\.world__stage[^{}]*)\{([^}]*)\}/g)].filter(([, , body]) => /display:\s*none/.test(body));
+  assert.ok(hides.length, 'nothing hides the empty stage when the globe cannot run');
+  for (const [, sel] of hides) {
+    for (const part of sel.split(',')) {
+      if (!/\.world__stage/.test(part)) continue;
+      assert.match(part, /\[data-globe="off"\]|:not\(\[data-js\]\)/, `"${part.trim()}" hides the stage while the globe could still land`);
+    }
+  }
+  assert.match(css, /\.world\[data-globe="off"\] \.world__off\s*\{\s*display:\s*block/, 'with the globe off, the line saying the list is the map is not shown');
+  assert.match(css, /:root:not\(\[data-js\]\) \.world__off/, 'with JavaScript off, the line saying the list is the map is not shown');
+  assert.match(worldWindowSrc, /class="world__off"/, 'worldWindow() no longer writes the "every place is in the list" line');
+  assert.match(layoutMjs, /setAttribute\('data-js'/, 'the head no longer marks a page whose script runs, so a no-JS reader gets an empty stage');
 });
 
 /* --- Targets a thumb can hit --------------------------------------------- */
 
-check('the touch target is at least 44px', () => {
-  const m = mapJs.match(/const TOUCH_TARGET\s*=\s*(\d+)/);
-  assert.ok(m, 'TOUCH_TARGET is gone from map-flat.js');
-  assert.ok(Number(m[1]) >= 44, `TOUCH_TARGET is ${m[1]}`);
-});
-
-check('the hit radius is derived from the measured scale, not authored in viewBox units', () => {
-  // The whole bug: a circle authored at r=21 "the size of a fingertip" rendered
-  // at 14px on a phone, because a viewBox unit is not a pixel.
-  assert.match(mapJs, /TOUCH_TARGET\s*\/\s*2\s*\)\s*\/\s*unitPx|TOUCH_TARGET[\s\S]{0,120}metrics\(\)/,
-    'the hit radius no longer takes the rendered scale into account');
+check('a pin is a fingertip-sized target under a thumb', () => {
+  assert.match(css, /@media \(pointer: coarse\)\s*\{\s*\.world__pin::before, \.world__cluster::before\s*\{[^}]*width:\s*var\(--tap\)/,
+    'a pin or group on a touch screen is no longer --tap wide');
 });
 
 check('the controls are at least 44px under a thumb', () => {
@@ -120,15 +134,7 @@ check('the controls are at least 44px under a thumb', () => {
      rule became the seed of a site-wide control policy and was deleted here on
      purpose. The number now lives once on `:root` as `--tap`, and the map's
      buttons are covered by being *named in the policy* rather than by
-     restating it.
-     *
-     * So the assertion moved with the rule. What it protects is unchanged —
-     * a control under a thumb is at least 44px — but it now fails in the two
-     * ways that would actually break the map: the policy dropping the map's
-     * controls, or the map opting itself back out. It deliberately does NOT
-     * require a 44 in primitives.css; `test-controls.mjs` fails if any
-     * component restates it, so requiring one here would make the two guards
-     * contradict each other. */
+     restating it. */
   assert.match(siteCss, /--tap:\s*44px/, 'the touch minimum is no longer declared as --tap: 44px on :root');
 
   const policy = siteCss.match(/@media \(pointer: coarse\)\s*\{[\s\S]{0,600}?min-height:\s*var\(--tap\)/);
@@ -137,12 +143,6 @@ check('the controls are at least 44px under a thumb', () => {
     /\.world__list a|(^|[\s,(])button([\s,)]|$)/m.test(policy[0]),
     'the control policy no longer names the map buttons, so the map is back to whatever size it happens to be'
   );
-
-  /* The base `min-height: 2rem` on `.world__btn` stays and is correct: it is
-     the mouse size, and the policy raises it under a coarse pointer. Whether a
-     component can escape the policy by specificity is `test-controls.mjs`'s
-     question, and it asks it properly — asserting it here too would mean two
-     guards with one opinion between them and two places to update. */
 });
 
 check('a disabled control is dimmed rather than made translucent', () => {
@@ -150,40 +150,23 @@ check('a disabled control is dimmed rather than made translucent', () => {
   assert.ok(block, 'no :disabled rule');
   assert.ok(
     !/opacity\s*:/.test(block[1]),
-    'opacity on a disabled button applies to its background too, so the map shows through it and it reads ' +
+    'opacity on a disabled button applies to its background too, so the globe shows through it and it reads ' +
       'as a rendering fault rather than as a control that is currently unavailable'
   );
 });
 
 /* --- Gestures ------------------------------------------------------------- */
 
-check('pinch and double-tap exist', () => {
-  assert.match(mapJs, /pointerType\s*!==\s*'touch'/, 'no touch-specific handling at all');
-  assert.match(mapJs, /fingerGap|pinch/, 'no pinch handling');
+check('pinch and double-click zoom exist on the globe', () => {
+  assert.match(globeJs, /let pinch = null/, 'no pinch handling');
+  assert.match(globeJs, /A double click zooms in/, 'no double-click zoom');
 });
 
-check('the page can still be scrolled with the map at rest', () => {
-  assert.match(
-    mapJs,
-    /touchAction\s*=\s*view\.k > 1\.001 \? 'none' : 'pan-y'/,
-    'touch-action at rest is not pan-y — either the map eats the page scroll, or a pinch scrolls the page'
-  );
-});
+/* --- The pins are still not controls -------------------------------------- */
 
-check('the flat map still does not zoom on the wheel', () => {
-  // DYNAMIC_SITE_INSPIRATION.md is explicit, and it is the easiest thing to add
-  // by accident when adding the other gestures.
-  assert.ok(!/addEventListener\(\s*'wheel'/.test(mapJs), 'a wheel handler appeared; page scrolling must not zoom the map');
-});
-
-/* --- The markers are still not controls ---------------------------------- */
-
-check('markers stay decorative, so the list stays the one control surface', () => {
-  assert.ok(
-    !/world__place[\s\S]{0,200}tabindex/.test(primitives),
-    'a marker became focusable — that doubles every tab stop on the page with a worse copy of the list entry, ' +
-      'and a marker disappears when its place is grouped, so it is a control that vanishes while in use'
-  );
+check('nothing in the build-time world window is a second control for a place', () => {
+  assert.ok(!/tabindex/.test(worldWindowSrc),
+    'worldWindow() writes a focusable element besides the list — that doubles every tab stop on the page with a worse copy of the list entry');
 });
 
 check('the globe zooms on the wheel only once it has been taken hold of', () => {
@@ -217,15 +200,9 @@ check('on the globe, a thumb can still scroll the page until it takes hold', () 
     'touch-action is not pan-y until the globe is engaged — a thumb swiping up the page would spin the planet instead');
 });
 
-/* --- The globe's fallback and reduced-motion guarantees (ADR 0005) -------- */
+/* --- The globe's loading, fallback and reduced-motion guarantees ---------- */
 
 console.log('\nGlobe\n');
-
-check('the flat SVG is still the first paint: built into the page, with the globe data beside it', () => {
-  assert.match(primitives, /<svg viewBox="0 0 \$\{W\} \$\{H\}"/,
-    'worldWindow() no longer writes the inline SVG — without it there is no map with JavaScript or WebGL off');
-  assert.match(primitives, /class="world__data"/, 'worldWindow() no longer writes the places for the globe');
-});
 
 check('the globe is loaded progressively, never in the first request', () => {
   assert.ok(!/^\s*import[^;]*['"]\.\/globe\.js['"]/m.test(entryJs),
@@ -234,25 +211,45 @@ check('the globe is loaded progressively, never in the first request', () => {
   assert.match(entryJs, /IntersectionObserver/, 'the globe no longer waits for the map to come near the viewport');
 });
 
-check('without WebGL, or when the globe fails, the flat map takes over', () => {
+check('without WebGL, or when the globe fails, the list is the map', () => {
   assert.match(entryJs, /WebGLRenderingContext/, 'map.js no longer checks for WebGL before trying the globe');
-  assert.match(entryJs, /catch\s*\(err\)\s*\{[\s\S]{0,500}flat\(/, 'a globe that throws no longer falls back to the flat map');
-  assert.match(entryJs, /onFail:\s*\(\w*\)\s*=>\s*flat\(/, 'a lost WebGL context no longer falls back to the flat map');
+  assert.match(entryJs, /catch\s*\(err\)\s*\{[\s\S]{0,500}noGlobe\(/, 'a globe that throws no longer hands over to the list');
+  assert.match(entryJs, /onFail:\s*\(\w*\)\s*=>\s*noGlobe\(/, 'a lost WebGL context no longer hands over to the list');
+  assert.match(entryJs, /dataset\.globe = 'off'/, 'a globe that cannot run no longer marks the figure off, so its empty stage stays on the page');
+  assert.match(entryJs, /fold\.open = true/, 'a folded list stays folded when it is the only map');
+  assert.match(entryJs, /function paintList[\s\S]{0,600}data-dim/, 'without the globe the list no longer follows the filters');
   assert.match(globeJs, /failIfMajorPerformanceCaveat/, 'the globe no longer refuses a software-rendered context');
   assert.match(globeJs, /swiftshader\|llvmpipe/i, 'the globe no longer refuses a renderer that names itself as software');
-  assert.match(globeJs, /onFail\?\.\('frames too slow'\)/, 'a globe the machine cannot draw fast enough no longer hands over to the flat map');
+  assert.match(globeJs, /onFail\?\.\('frames too slow'\)/, 'a globe the machine cannot draw fast enough no longer hands over to the list');
   assert.match(globeJs, /webglcontextlost/, 'the globe no longer listens for a lost context');
-  assert.match(entryJs, /get\('map'\)\s*===\s*'flat'/, '?map=flat no longer forces the fallback, so nobody can look at it on purpose');
+  assert.match(entryJs, /get\('map'\)\s*===\s*'off'/, '?map=off no longer forces the list alone, so nobody can look at it on purpose');
 });
 
-check('the SVG is hidden only once the globe has drawn', () => {
-  const hides = [...css.matchAll(/([^{}]*\.world__svg[^{}]*)\{([^}]*)\}/g)]
-    .filter(([, , body]) => /opacity:\s*0\b|visibility:\s*hidden|display:\s*none/.test(body));
-  assert.ok(hides.length, 'no rule hides the SVG under the globe');
-  for (const [, sel] of hides) {
-    assert.match(sel, /\[data-globe="on"\]/,
-      `"${sel.trim()}" hides the flat map without waiting for the globe — a failed globe would leave no map`);
-  }
+check('a card on the globe is itself the link: one link, stretched over the card, nothing nested in it', () => {
+  /* The owner (#53): "make it so clicking the card on the map takes you to
+     that country's page instead of having to scroll down the card and click
+     on open country". */
+  const link = globeJs.match(/function cardLink\([\s\S]*?\n  \}\n/);
+  assert.ok(link, 'cardLink() is gone from globe.js');
+  assert.match(link[0], /el\('a', \{ class: 'world__card-link', href \}/, 'the card\'s link is no longer one real <a href>');
+  assert.match(link[0], /title\.replaceChildren\(a\)/, 'the link is no longer the card\'s title');
+  const appended = [...link[0].matchAll(/\ba\.append\(el\('(\w+)'/g)].map((m) => m[1]);
+  assert.deepEqual(appended.filter((t) => t !== 'span'), [], 'something other than text is put inside the card\'s link');
+  assert.match(link[0], /'aria-hidden': 'true' \}, label\)/, 'the visible "Open … →" line is announced as well as the link, so a screen reader hears it twice');
+  assert.match(css, /\.world__card-link::after\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0/, 'the link no longer covers the whole card, so only its title is clickable');
+  assert.match(css, /\.world__card-list\s*\{[^}]*position:\s*relative;[^}]*z-index:\s*1/, 'the list of places in a country card sits under the link\'s cover and cannot be clicked');
+  const country = globeJs.match(/function countryCard\([\s\S]*?\n  \}\n/);
+  assert.ok(country && /cardLink\(c, title, dest\.href/.test(country[0]), 'a country\'s card is no longer a link to the country\'s page');
+  const place = globeJs.match(/function placeCard\([\s\S]*?\n  \}\n/);
+  assert.ok(place && /cardLink\(c, title, p\.href/.test(place[0]), 'a place\'s card is no longer a link to the place');
+  assert.ok(!/world__card-go', href/.test(globeJs), 'a separate "Open …" link came back beside the card\'s own link');
+});
+
+check('the globe fades in only once it has drawn, and its stand with it', () => {
+  assert.equal(decl(css, '.world__globe', 'opacity'), '0', 'the canvas shows before its first frame');
+  assert.match(css, /\.world\[data-globe="on"\] \.world__globe \{ opacity: 1; \}/, 'the canvas never fades in');
+  assert.match(css, /\.world\[data-globe="on"\] \.world__desk \{ display: block; \}/, 'the desk stand shows before the globe it holds');
+  assert.match(globeJs, /if \(first\) \{\s*first = false;\s*figure\.dataset\.globe = 'on';/, 'the figure is marked on before the first frame is drawn');
 });
 
 check('reduced motion makes every camera move instant and stops the idle spin, the drift and the rush', () => {
@@ -540,6 +537,55 @@ check('the globe does not branch on a country', () => {
     .map((l) => `${l.what} [${l.country}] at ${l.lat.toFixed(2)}, ${l.lon.toFixed(2)}`);
   check(`every light sits inside its own country (${lights.length} lights, within 30 km of the 50m outline)`, () => {
     assert.deepEqual(misplaced, [], 'these lights are drawn outside their own country');
+  });
+
+  /* A country's light is at the country's middle, not at a campus (the
+     owner, #53: "your pips are not placed in the center of the country").
+     "Middle" is read back without trusting geo.mjs: the light must be at
+     least a third as deep inside the country — as far from its coast or
+     border — as the deepest point a coarse grid finds. The medoid it
+     replaced put the United States' light 51 km from Lake Erie, a twentieth
+     of the depth of Kansas. */
+  const shallow = [];
+  for (const c of site.countries) {
+    const rings = ringsOf.get(c.code);
+    const at = centroid(c);
+    if (!rings || !at) continue;
+    let w = Infinity, e = -Infinity, s = Infinity, n = -Infinity;
+    for (const r of rings) for (let i = 0; i < r.length; i += 2) { w = Math.min(w, r[i]); e = Math.max(e, r[i]); s = Math.min(s, r[i + 1]); n = Math.max(n, r[i + 1]); }
+    let deepest = 0;
+    const N = 36;
+    for (let i = 0; i <= N; i++) {
+      for (let j = 0; j <= N; j++) {
+        const lat = s + ((n - s) * i) / N, lon = w + ((e - w) * j) / N;
+        if (insideRings(lat, lon, rings)) deepest = Math.max(deepest, kmToRings(lat, lon, rings));
+      }
+    }
+    const depth = insideRings(at.lat, at.lon, rings) ? kmToRings(at.lat, at.lon, rings) : 0;
+    if (depth < deepest / 3) shallow.push(`${c.code}: ${Math.round(depth)} km deep, the country goes to ${Math.round(deepest)} km`);
+  }
+  check('every country\'s light is at its middle, not at a campus near its edge', () => {
+    assert.deepEqual(shallow, [], 'these country lights sit near an edge rather than in the middle');
+  });
+
+  /* Country → schools (#53): every institution with a position and a page
+     rides on its country's light, and the globe opens a country into them. */
+  const { schoolsOf } = await import('../src/pages/destinations.mjs');
+  const missing = [];
+  for (const c of site.countries) {
+    const ids = new Set(schoolsOf(site, c).map((s) => s.id));
+    for (const i of c.institutions || []) if (i.coords && i.href && !ids.has(i.key)) missing.push(`${c.code}: ${i.key}`);
+  }
+  check('every institution with a position rides on its country\'s light, for the globe\'s schools level', () => {
+    assert.deepEqual(missing, [], 'these institutions would never show as their own dot when their country is zoomed into');
+    for (const f of ['discover.mjs', 'destinations.mjs']) {
+      const src = fsSync.readFileSync(path.join(ROOT, 'src', 'pages', f), 'utf8');
+      assert.match(src, /precision: 'region',\s*schools: schoolsOf\(site, c\)/, `${f}: a country light no longer carries its schools`);
+    }
+    assert.match(globeJs, /function schoolsOpen\(p\)/, 'the globe no longer opens a country into its schools');
+    assert.match(globeJs, /if \(p\.open\) out\.push\(\.\.\.p\.subs\)/, 'an open country no longer gives way to its schools');
+    assert.match(globeJs, /const left = \[\.\.\.shown\]/, 'the schools no longer group and split with the zoom like other pins');
+    assert.match(worldWindowSrc, /schools: d\.schools/, 'worldWindow() no longer hands a light\'s schools to the globe');
   });
 }
 

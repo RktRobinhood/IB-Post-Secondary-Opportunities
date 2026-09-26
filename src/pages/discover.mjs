@@ -6,7 +6,7 @@ import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { institutionPicture } from './programme-facts.mjs';
-import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel } from './destinations.mjs';
+import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
 
 /**
@@ -195,6 +195,7 @@ export function discoverSection(site) {
       count: c.institutions.length,
       country: c.code,
       precision: 'region',
+      schools: schoolsOf(site, c),
       state: depthLabel(site, c),
       image: (() => { const p = picture(site, c.code, { prefer: 'commons' }); return p && !p.external ? p.src : ''; })(),
     }));

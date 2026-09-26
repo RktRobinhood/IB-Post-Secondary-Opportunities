@@ -3,9 +3,9 @@ import { page, url } from '../lib/layout.mjs';
 import {
   hero, card, note, facts, sources, crumbs, sectionHead, stamp, pager, freshness, sectorLandscape, contextNotes, close, topic,
 } from '../lib/components.mjs';
-import { picture, money, REGION_ORDER, RESEARCH_DEPTH } from '../lib/data.mjs';
+import { picture, money, REGION_ORDER, RESEARCH_DEPTH, countryOutline } from '../lib/data.mjs';
 import { worldWindow, evidenceBlock, artDirection, patternLayer, deadlineList } from '../lib/primitives.mjs';
-import { representativePoint } from '../lib/geo.mjs';
+import { representativePoint, visualCentre } from '../lib/geo.mjs';
 import { contextFor, destinationFacet } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { eventsForDestination } from '../lib/calendar.mjs';
@@ -113,11 +113,29 @@ function heroSlides(site, c, max = 4) {
   return out;
 }
 
-/** A country's position on the map: the one of its own places nearest the
-    rest (src/lib/geo.mjs). The mean of its places used to be used, and the
-    mean of Canada's campuses is in Minnesota. */
+/** A country's position on the map: the middle of its own outline, as the
+    eye sees it (src/lib/geo.mjs visualCentre) — Kansas for the United States,
+    not Detroit (the owner, #53: pins "not placed in the center of the
+    country"). A country with no outline at the globe's scale falls back to
+    the one of its own places nearest the rest (the medoid). The mean of its
+    places was used once, and the mean of Canada's campuses is in Minnesota. */
 export function centroid(c) {
-  return representativePoint(c.places?.map((p) => p.coordinates).filter(Boolean) || []);
+  const rings = c?.code ? countryOutline(c.code) : [];
+  return (rings.length && visualCentre(rings)) || representativePoint(c.places?.map((p) => p.coordinates).filter(Boolean) || []);
+}
+
+/** The institutions inside a country's light, for the globe's country →
+    schools level (worldWindow `schools`, #53): each one with a position and a
+    page of its own. Its own coordinates when the record has them, else its
+    (first) place's. */
+export function schoolsOf(site, c) {
+  return (c.institutions || [])
+    .map((i) => {
+      const at = i.coords || site.graph?.places?.get(i.place || i.placeIds?.[0])?.coordinates;
+      if (!at || !i.href) return null;
+      return { id: i.key || i.id, name: i.shortName || i.name, lat: at.lat, lon: at.lon, href: i.href, city: typeof i.city === 'string' ? i.city : '' };
+    })
+    .filter(Boolean);
 }
 
 /* --- Countries: every Destination, from right here to the other side ------ */
@@ -319,6 +337,7 @@ export function countriesIndex(site) {
         return p && !p.external ? p.src : '';
       })(),
       precision: 'region',
+      schools: schoolsOf(site, c),
       // How much is known about this destination, in the page's own words: a
       // light that says nothing about its own evidence implies a confidence
       // this site is not allowed to imply.

@@ -8,7 +8,7 @@ The experience should feel generous, editorial, and full of discovery. Beauty is
 
 Use a wide, cropped view of the earth or map as a recurring stage. It may curve, pan, rotate slightly, or zoom into regions, but it should not default to a small complete globe surrounded by dead space.
 
-Since [ADR 0005](adr/0005-the-world-window-becomes-a-globe.md) the stage is a real globe (`assets/js/globe.js`): at rest it sits large and cropped, the horizon curving across the top of the frame over the places the page holds; a student can drag it, spin it, zoom it, and click a country or a light to fly there — out, across, and down through the clouds. The build-time flat map stays underneath as the first paint and the fallback, and the list of places under it stays the control surface.
+Since [ADR 0005](adr/0005-the-world-window-becomes-a-globe.md) the stage is a real globe (`assets/js/globe.js`): at rest it sits large and cropped, the horizon curving across the top of the frame over the places the page holds; a student can drag it, spin it, zoom it, and click a country or a light to fly there — out, across, and down through the clouds. The globe floats on the page with nothing drawn before it, and the list of places under it stays the control surface — and, where the globe cannot run, the whole of the map ([ADR 0007](adr/0007-the-flat-map-is-removed.md): the build-time flat map that used to be the first paint was removed).
 
 The map and results must share one state:
 
