@@ -5,7 +5,8 @@
  * built. A page can then sit in a tab, or in a cache, for weeks, so here any
  * date whose day (or whose window's last day) has passed is removed and the
  * short list is laid out again in the build's order: every binding deadline
- * first (a hard deadline, or an equal-consideration date), by day, then the
+ * first (a hard deadline, or an equal-consideration date, and not one only for
+ * applicants who already hold the Diploma: `data-binding`), by day, then the
  * other dates by day; the rest wait behind the disclosure in date order, with
  * its count redone.
  * With this script blocked a student sees the build's list, which errs on the

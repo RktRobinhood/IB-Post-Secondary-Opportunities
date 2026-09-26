@@ -8,12 +8,17 @@
  * scope must agree with the programme list, no link the page hands a
  * student on to may be a homepage (issue #43), and a programme's `needs` must
  * name real IB subjects (data/ib-subjects.json) at a level each is offered at,
- * because its page names them from that catalogue. Exits non-zero on any failure.
+ * because its page names them from that catalogue. A date whose label says it
+ * is only for applicants who already hold the Diploma ("only if you already
+ * hold your IB Diploma", "not for final-year IB students") must carry
+ * `forDiplomaHolders`, and so must every other date of its round, because a
+ * programme page never makes such a date a final-year student's "Apply by".
+ * Exits non-zero on any failure.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
-import { schoolKeys, isHomepage } from '../src/lib/schools.mjs';
+import { schoolKeys, isHomepage, saysForDiplomaHolders, roundOf } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIR = path.join(ROOT, 'data', 'schools');
@@ -46,6 +51,41 @@ function needsProblems(needs = [], where = 'needs') {
     }
   }
   return out;
+}
+
+/** What is wrong with a record's dates only for Diploma holders, as sentences. */
+function holdersProblems(rec) {
+  const out = [];
+  const dates = rec.dates || [];
+  const rounds = new Set(dates.filter((d) => d.forDiplomaHolders).map((d) => roundOf(d.label)));
+  for (const [i, d] of dates.entries()) {
+    if (d.forDiplomaHolders) continue;
+    if (saysForDiplomaHolders(d.label)) out.push(`dates[${i}] "${d.label}" says it is for Diploma holders only: set forDiplomaHolders`);
+    else if (rounds.has(roundOf(d.label))) out.push(`dates[${i}] "${d.label}" is a date of a round for Diploma holders only: set forDiplomaHolders`);
+  }
+  for (const [i, p] of (rec.programmes || []).entries()) {
+    if (p.closesForDiplomaHolders && !p.closes) out.push(`programmes[${i}] "${p.name}" has closesForDiplomaHolders but no closes`);
+  }
+  return out;
+}
+
+/* Self-test: the Diploma-holders rule must catch the wording and a sibling
+   date of the same round, and pass the qualification's name ("IB Diploma
+   holders") and an April round beside a flagged January one. */
+{
+  const d = (label, flag) => ({ label, date: '2027-01-15', kind: 'closes', url: 'https://x.test/', ...(flag ? { forDiplomaHolders: true } : {}) });
+  const ok = [
+    holdersProblems({ dates: [d('January round closes (only if you already hold your IB Diploma)')] }).length === 1,
+    holdersProblems({ dates: [d('January round closes (not for final-year IB students)')] }).length === 1,
+    holdersProblems({ dates: [d('January round opens (only if you already hold your IB Diploma)', true), d('January round: documents due')] }).length === 1,
+    holdersProblems({ dates: [d('January round opens (only if you already hold your IB Diploma)', true), d('April round closes')] }).length === 0,
+    holdersProblems({ dates: [d('Admission group 2 (IB Diploma holders) closes')] }).length === 0,
+    holdersProblems({ programmes: [{ name: 'X', closesForDiplomaHolders: true }] }).length === 1,
+  ];
+  if (ok.some((x) => !x)) {
+    console.log('✗ self-test: the Diploma-holders rule misjudges a date');
+    process.exit(1);
+  }
 }
 
 /* Self-test: the needs rule must refuse an invented id and a level a subject
@@ -106,6 +146,7 @@ for (const f of files.sort()) {
     for (const [i, d] of (rec.dates || []).entries()) {
       if (d.date < '2026-01-01' || d.date > '2027-12-31') problems.push(`dates[${i}] ${d.date} is outside the 2027 cycle`);
     }
+    problems.push(...holdersProblems(rec));
 
     counts[rec.scope] = (counts[rec.scope] || 0) + 1;
     counts.programmes += progs.length;

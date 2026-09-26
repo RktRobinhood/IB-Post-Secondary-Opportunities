@@ -39,7 +39,7 @@ import {
 import { deadlineList } from '../src/lib/primitives.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
-import { datesFor, leadOrder, isBinding } from '../src/lib/school-dates.mjs';
+import { datesFor, leadOrder, isBinding, leadsFor } from '../src/lib/school-dates.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -653,10 +653,12 @@ for (const p of schoolPages) {
       if (e.numerusFixusOnly) fixusShown.push(`${prog.id || prog.name}: "${e.label}"`);
     }
   }
-  /* Binding before soft: in the panel's order no soft date comes before a binding one. */
+  /* Binding before soft: in the panel's order no soft date comes before a
+     binding one, and a deadline only for Diploma holders counts as soft (it
+     is not one a final-year student plans around). */
   const order = leadOrder(shown);
-  const firstSoft = order.findIndex((e) => !isBinding(e));
-  if (firstSoft >= 0 && order.slice(firstSoft).some(isBinding)) bindingLate.push(p.id);
+  const firstSoft = order.findIndex((e) => !leadsFor(e));
+  if (firstSoft >= 0 && order.slice(firstSoft).some(leadsFor)) bindingLate.push(p.id);
 }
 check(`no school page shows another institution's date, with a page or without (${panelsChecked} pages, ${[...pagelessByDest.values()].reduce((n, s) => n + s.size, 0)} institutions without a page known)`, () => {
   assert.ok(pagelessByDest.get('is')?.has('Reykjavik University'), 'the institutions without a page were not collected: Reykjavik University is missing');
@@ -735,7 +737,7 @@ check('a date whose source gives no year is provisional, and says so in a field'
   for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => look(`${c.code}.deadlines[${i}] "${String(d.label).slice(0, 50)}"`, d));
   if (bad.length) throw new Error(`${bad.length}\n          ${bad.join('\n          ')}`);
 });
-check('every binding date comes before any soft one on a school page', () => {
+check('every binding date comes before any soft one on a school page, and none only for Diploma holders leads', () => {
   if (bindingLate.length) throw new Error(`soft before binding on ${bindingLate.join(', ')}`);
 });
 

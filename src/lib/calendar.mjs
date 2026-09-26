@@ -363,6 +363,9 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     /* Only for numerus fixus programmes: on a Programme page it shows only
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(milestone.numerusFixusOnly),
+    /* Only for applicants who already hold the Diploma: listed on a school's
+       page, but never its "Apply by" and never the lead (school-dates.mjs). */
+    forDiplomaHolders: Boolean(milestone.forDiplomaHolders),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(milestone.yearUnpublished),
@@ -409,6 +412,7 @@ export function fromRouteRound(route, round, destinationName) {
     /* Only for numerus fixus programmes: on a Programme page it shows only
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(round.numerusFixusOnly),
+    forDiplomaHolders: Boolean(round.forDiplomaHolders),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(round.yearUnpublished),
@@ -650,6 +654,7 @@ export function mergeTwins(route, profile) {
     institutionsWithoutPage: union(route.institutionsWithoutPage, profile.institutionsWithoutPage),
     institutionsExcept: union(route.institutionsExcept, profile.institutionsExcept),
     numerusFixusOnly: Boolean(route.numerusFixusOnly || profile.numerusFixusOnly),
+    forDiplomaHolders: Boolean(route.forDiplomaHolders || profile.forDiplomaHolders),
     /* Either record's doubt about the year stands: a provisional date is
        never shown as a confirmed one because its twin did not say so. */
     provisional: Boolean(route.provisional || profile.provisional),

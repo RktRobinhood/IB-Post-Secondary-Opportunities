@@ -20,20 +20,23 @@
   "dates": [
     {
       "label": "January round opens, 13:00 CET (only if you already hold your IB Diploma)",
+      "forDiplomaHolders": true,
       "date": "2026-10-16",
       "kind": "opens",
       "who": "any",
       "url": "https://www.umu.se/en/education/programmes/bachelor-of-science-programme-in-life-science/"
     },
     {
-      "label": "January round closes: Life Science, Business, and Industrial Design (see its note)",
+      "label": "January round closes: Life Science, Business and Economics (Diploma holders only)",
+      "forDiplomaHolders": true,
       "date": "2027-01-15",
       "kind": "closes",
       "who": "any",
       "url": "https://www.umu.se/en/education/application-and-admission/key-dates-and-deadlines/"
     },
     {
-      "label": "January round: documents and proof of EU/EEA citizenship due",
+      "label": "January round: documents and EU/EEA proof due (Life Science, Business and Economics)",
+      "forDiplomaHolders": true,
       "date": "2027-02-01",
       "kind": "documents",
       "who": "any",
@@ -47,28 +50,28 @@
       "url": "https://www.umu.se/en/education/application-and-admission/key-dates-and-deadlines/"
     },
     {
-      "label": "April round closes",
+      "label": "April round closes (only Architecture so far)",
       "date": "2027-04-15",
       "kind": "closes",
       "who": "eu-eea-ch",
       "url": "https://www.umu.se/en/education/application-and-admission/key-dates-and-deadlines/"
     },
     {
-      "label": "April round: proof of EU/EEA citizenship (fee exemption) due",
+      "label": "April round (Architecture): proof of EU/EEA citizenship (fee exemption) due",
       "date": "2027-04-23",
       "kind": "documents",
       "who": "eu-eea-ch",
       "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
     },
     {
-      "label": "April round: final IB results due via the IB Result Service (recipient code UHR)",
+      "label": "April round (Architecture): final IB results due via the IB Result Service (code UHR)",
       "date": "2027-07-05",
       "kind": "documents",
       "who": "eu-eea-ch",
       "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
     },
     {
-      "label": "April round: reply to your offer or lose the place",
+      "label": "April round (Architecture): reply to your offer or lose the place",
       "date": "2027-07-16",
       "kind": "documents",
       "who": "eu-eea-ch",
@@ -83,7 +86,8 @@
       "field": "design-architecture",
       "url": "https://www.umu.se/en/education/programmes/bachelor-programme-in-industrial-design/",
       "ib": "IB grades do not rank you: work samples and a motivation letter (due 1 Feb 2027), then an interview in Umeå for 20–30 shortlisted. About 15 places.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "closes": "2027-01-15"
     },
     {
       "name": "Bachelor of Science Programme in Life Science",

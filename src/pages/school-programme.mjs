@@ -5,8 +5,8 @@ import { buildSubjectIndex, ibTermsPhrase } from '../lib/eligibility.mjs';
 import { ibOption } from '../lib/canonical.mjs';
 import { identityWords } from '../lib/calendar.mjs';
 import { picture } from '../lib/data.mjs';
-import { datesPanel, datesFor, isBinding } from '../lib/school-dates.mjs';
-import { hostOf } from '../lib/schools.mjs';
+import { datesPanel, datesFor, isBinding, leadsFor } from '../lib/school-dates.mjs';
+import { hostOf, HOLDERS_ONLY } from '../lib/schools.mjs';
 import { prettyDate } from './programme-facts.mjs';
 import { FIELD, inCardOrder, programmeCard } from './schools.mjs';
 
@@ -150,7 +150,8 @@ function generalRule(text, p, programmes) {
  * the sibling's page), and the programme's own closing date in place of the
  * school's. A programme's `closes` is, by the schema, where it differs from
  * the institution's, so the school's closing dates give way to it, and it
- * replaces whatever route date they replaced.
+ * replaces whatever route date they replaced. A programme whose only round is
+ * for Diploma holders (`closesForDiplomaHolders`) keeps that on its date.
  */
 function forDates(inst, c, p) {
   const school = inst.school;
@@ -160,7 +161,15 @@ function forDates(inst, c, p) {
     const supersedes = replaced.find((d) => d.supersedes)?.supersedes;
     dates = [
       ...dates.filter((d) => d.kind !== 'closes'),
-      { label: 'Applications close', date: p.closes, kind: 'closes', who: 'any', url: p.requirementsUrl || p.url, ...(supersedes ? { supersedes } : {}) },
+      {
+        label: p.closesForDiplomaHolders ? 'Applications close (only if you already hold your IB Diploma)' : 'Applications close',
+        date: p.closes,
+        kind: 'closes',
+        who: 'any',
+        url: p.requirementsUrl || p.url,
+        ...(supersedes ? { supersedes } : {}),
+        ...(p.closesForDiplomaHolders ? { forDiplomaHolders: true } : {}),
+      },
     ];
   }
   return {
@@ -219,19 +228,24 @@ const READER = new Set(['any', 'eu-eea-ch']);
  * "Apply by": the programme's own closing date, else its school record's,
  * else a route date tied to the school by id (`institutions`). Never a
  * route's general date, which may be for other programmes, and never one only
- * a label connects. None qualifying, no tile. The school-pages guard holds
- * every built tile to the same sources.
+ * a label connects. Never a date only for applicants who already hold the
+ * Diploma (`forDiplomaHolders`): the reader is in their final IB year. Where
+ * that is the only closing date there is, the tile says so instead of giving
+ * a day; with none at all, no tile. The school-pages guard holds every built
+ * tile to the same sources.
  */
 function applyBy(site, scope, keep, today) {
   const recorded = new Set(scope.inst.school.dates.map((d) => d.date));
-  const e = datesFor(site, scope.inst, { programme: scope.programme }).find(
+  const closing = datesFor(site, scope.inst, { programme: scope.programme }).filter(
     (x) =>
       x.schoolOwn && keep(x) && isBinding(x) && READER.has(x.audience || 'any') && (x.endDate || x.date) >= today &&
       (recorded.has(x.endDate || x.date) || (x.institutions || []).includes(scope.inst.key)) &&
       (x.kind ? x.kind === 'closes' : /\b(clos|deadline)/i.test(x.label))
   );
-  return e ? e.endDate || e.date : null;
+  const e = closing.find(leadsFor);
+  return { date: e ? e.endDate || e.date : null, holdersOnly: !e && closing.some((x) => x.forDiplomaHolders) };
 }
+
 
 /* --- The page ------------------------------------------------------------- */
 
@@ -243,7 +257,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   const scope = forDates(inst, c, p);
   const keep = keepFor(p, scope);
   const dates = datesPanel(site, scope.inst, { programme: scope.programme, countryName: c.articleName || c.name, keep });
-  const closes = applyBy(site, scope, keep, today);
+  const { date: closes, holdersOnly } = applyBy(site, scope, keep, today);
 
   /* The school's photograph: one slot with its page and its card. */
   const pic = picture(site, inst.key);
@@ -371,7 +385,11 @@ ${hero({
       { label: 'Length', value: `${p.years} years` },
       { label: 'Taught in', value: 'English' },
       { label: 'Starts', value: starts ? [starts, year].filter(Boolean).join(' ') : null },
-      { label: 'Apply by', value: closes ? prettyDate(closes) : null },
+      closes
+        ? { label: 'Apply by', value: prettyDate(closes) }
+        : holdersOnly
+          ? { label: 'Apply by', value: HOLDERS_ONLY, note: 'No round for final-year IB students recorded' }
+          : null,
       admissionTile,
       { label: 'EU/EEA fee', value: fee.value, note: fee.note },
     ])}
@@ -417,6 +435,8 @@ ${hero({
             label: 'Apply via',
             value: school.apply ? html`<a href="${school.apply.url}" rel="noopener nofollow">${school.apply.via.split(' (')[0]}</a>` : null,
           },
+          /* The code the application asks for (a CAO code), when it has one. */
+          { label: 'Course code', value: p.code || null },
         ])}
         ${note('Requirements change between admission years. Check the official page before you apply.', { kind: 'warn', title: 'Always verify' })}
       </aside>

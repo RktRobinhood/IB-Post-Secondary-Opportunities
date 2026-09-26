@@ -99,6 +99,7 @@
         "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day"] },
         "who": { "$ref": "common.schema.json#/$defs/applicantGroup" },
         "supersedes": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$", "description": "\"<routeId>/<milestoneId>\" of a route date this one replaces on this institution's page, e.g. an institution that runs its own application window instead of the national one. See the same field on an Application Route milestone." },
+        "forDiplomaHolders": { "$ref": "common.schema.json#/$defs/forDiplomaHolders" },
         "url": { "$ref": "common.schema.json#/$defs/url" }
       }
     },
@@ -118,6 +119,8 @@
         "ib": { "type": "string", "maxLength": 180, "description": "What this programme asks of IB applicants beyond the institution's general rule: subjects and levels, points, an entrance exam." },
         "tuitionEuEea": { "type": "string", "maxLength": 40, "description": "Per year for EU/EEA citizens, e.g. 'Free', '€1,500 a year'." },
         "closes": { "$ref": "common.schema.json#/$defs/isoDate", "description": "The application deadline for this programme, when it differs from the institution's." },
+        "closesForDiplomaHolders": { "type": "boolean", "description": "True when `closes` is a deadline only for applicants who already hold their IB Diploma (a programme that runs only in such a round). Its page lists the date but never shows it as 'Apply by', and its card says 'Diploma holders only'. See common.schema.json forDiplomaHolders." },
+        "code": { "type": "string", "maxLength": 16, "pattern": "^[A-Za-z0-9-]+$", "description": "The code you name the programme by when you apply (a CAO code such as AD211), when the application asks for one. Shown beside 'Apply via' on its page, never in `about`." },
         "about": { "type": "string", "minLength": 40, "maxLength": 320, "description": "What the degree is, in one or two plain sentences from the programme's own page: what you study and what makes it different from its neighbours. The 'What it is' block of the programme's page. No slogans, no rankings." },
         "needs": {
           "type": "array",

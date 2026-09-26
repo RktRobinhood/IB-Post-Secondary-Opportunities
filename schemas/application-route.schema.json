@@ -127,6 +127,9 @@
           "numerusFixusOnly": {
             "$ref": "common.schema.json#/$defs/numerusFixusOnly"
           },
+          "forDiplomaHolders": {
+            "$ref": "common.schema.json#/$defs/forDiplomaHolders"
+          },
           "provisional": {
             "type": "boolean",
             "description": "True when the round's closing date is not confirmed for this cycle (inherited, or its source gives no year). A provisional date must never be shown as a confirmed one."
@@ -238,6 +241,9 @@
           },
           "numerusFixusOnly": {
             "$ref": "common.schema.json#/$defs/numerusFixusOnly"
+          },
+          "forDiplomaHolders": {
+            "$ref": "common.schema.json#/$defs/forDiplomaHolders"
           }
         },
         "additionalProperties": false
