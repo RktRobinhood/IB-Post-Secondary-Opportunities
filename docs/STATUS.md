@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 25 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 26 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -44,6 +44,17 @@ This page says where the work stands, so the next session (human or agent) start
 - **Order of work:** pilots for Finland and the UK, then an admissions-counsellor critic on the data and an art-director critic on the page (`docs/research/qa/schools/`), then the other 32 countries in batches.
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
+
+## 26 September (morning): the owner's focus is university data
+
+The owner: the globe and the look are in a good place; the priority is the missing background data (universities), then closing open issues. Usage ceiling for that session: **70%** of the 5-hour window.
+
+- **School research (#43):** the queue, in priority order, is `docs/research/schools/QUEUE.md` on branch `feat-43-school-pages` (worktree `.claude/worktrees/w43`). Researchers write `data/schools/<key>.json` one school at a time and their reports to `docs/research/schools/reports/batch-*.md`; a stopped batch resumes by re-running it (existing files are skipped).
+- **Live on `main`:** UK (22 records, critic round 2 **8/10, accepted**) and Finland (14 records, round 2 **8/10, accepted**). `gb.json` now states England's fee/loan exceptions (Irish citizens, UK nationals long resident in the EEA) and that Irish citizens need no visa.
+- **On the branch, not yet critiqued:** Netherlands, Germany, Norway, Sweden (earlier run) and wave 1 (IE, BE, AT, CH, the rest of NL/DE/SE/NO, LU, IS). Each country needs its admissions-counsellor critic (8+) before it moves to `main`; move it with `git checkout feat-43-school-pages -- data/schools/<cc>-*.json`, then gate.
+- **#47:** Oxford and Cambridge no longer show UCAS 13 Jan / Extra / Clearing / 23 Sep. A shared date can now name the schools it is not for (`institutionsExcept`); a guard stops any date whose note says "Not available for X" reaching X.
+- **#49:** `node scripts/audit-links.mjs <dist>` opens every outbound link (resumable; report in `docs/research/qa/links/`). First run: 2,619 links, 22 dead (8 fixed; the rest were time-outs or bot walls), 427 Wikimedia rate limits.
+- **#50** closed: light-mode photos are visible on every card type.
 
 ## Where it stands (26 September, ~00:40): stopped at the usage ceiling
 
