@@ -368,11 +368,11 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
               : ''}.`
           : 'Open admission: meeting the requirements is enough.'}
       </small></p>
-      <p><small>
+      <p class="prog__source"><small>
         ${evidenceLine(ev)}
         Intake ${esc(assessment.provenance.intake || '')}.
       </small></p>
-      ${d.official ? `<p><small><a href="${esc(d.official)}" rel="noopener nofollow">Check the official page</a></small></p>` : ''}
+      ${d.official ? `<p class="prog__official"><small><a href="${esc(d.official)}" rel="noopener nofollow">Check the official page</a></small></p>` : ''}
     </div>
   </li>`;
 }
@@ -417,6 +417,10 @@ function render() {
       ? ` <span style="color:var(--warn)">(only ${profile.subjects.length} of 6 subjects entered)</span>`
       : '') +
     (AWARD_NOTE[profile.award] ? `<br><small>${AWARD_NOTE[profile.award]}</small>` : '');
+
+  /* A filter chip for an outcome no result has is hidden (verification 2:
+     "Quota 2 only" showed on profiles with none). */
+  for (const chip of document.querySelectorAll('[data-show]')) chip.hidden = !tally[chip.dataset.show];
 
   /* Passages on two or more of the visible cards are said once, above them. */
   const common = new Map();

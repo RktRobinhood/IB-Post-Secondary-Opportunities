@@ -1410,6 +1410,14 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); background: va
 .prog[data-match="yes"] { border-left: 3px solid var(--ok); padding-left: var(--s4); }
 .prog[data-match="near"] { border-left: 3px solid var(--sand); padding-left: var(--s4); }
 /* A result that is not met is dimmed at its badge and picture, never its words: grey-on-grey text was unreadable on a phone (round 4). */
+/* On a phone a "Meets" card is compact: title, badge, the cut-off, and its
+   reasons one tap down; the source line and link stay on the programme page
+   and on wider screens (verification 2 after round 5). */
+@media (max-width: 40em) {
+  .prog[data-match="yes"] .prog__source,
+  .prog[data-match="yes"] .prog__official,
+  .prog[data-match="yes"] .prog__backdrop { display: none; }
+}
 /* Round 5: the verdict stays legible; only the picture recedes. */
 .prog[data-match="no"] .prog__backdrop { opacity: .55; }
 /* One glyph per reason, no list bullet; the lead line opens to the rest. */

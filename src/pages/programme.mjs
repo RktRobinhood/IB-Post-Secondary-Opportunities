@@ -52,6 +52,7 @@ export function programme(site, p, inst) {
      subjects are chips; and every paragraph of rules and qualifications is one
      tap beneath its heading. Nothing was removed — see #37 for the argument. */
   const award = opp ? entryAward(opp) : null;
+  const openQuestions = (opp?.requirements || []).filter((r) => r.mandatory !== false && r.openQuestion);
   /* A quota floor, where the cut-off is not a number ("All qualified
      applicants accepted" still means nothing below the floor in quota 1). */
   const quotaFloorText = (req?.quotaFloors || []).length
@@ -139,6 +140,10 @@ ${hero({
               on every member page (src/lib/paths.mjs). */ pathsTable(site, p, inst)}
         <h2 id="requirements">What you need</h2>
         ${need}
+        ${/* A question the record leaves open is said where the requirements are
+             read, not only one tap down (verification 2 after round 5: SEA's
+             page led with "DP Course Results are accepted"). */
+          openQuestions.map((r) => html`<p class="need__note req-open"><strong>${(r.satisfiedBy || []).includes('ib-diploma') ? 'With DP Course Results:' : 'Open question:'}</strong> ${r.label ? `${r.label} — ` : ''}${r.openQuestion}</p>`)}
         ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
         <p class="need__cta"><a class="btn btn--primary" href="${url('/planner/')}">Check my subjects against it</a></p>
 
@@ -156,7 +161,9 @@ ${hero({
           title: 'The fine print',
           short: [
             award === ENTRY_AWARD.DIPLOMA_REQUIRED ? 'Asks for the full IB Diploma.' : null,
-            award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED ? 'DP Course Results are accepted.' : null,
+            award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED
+              ? openQuestions.some((r) => (r.satisfiedBy || []).includes('ib-diploma')) ? 'DP Course Results are accepted, with an open question: see "What you need".' : 'DP Course Results are accepted.'
+              : null,
             p.restrictedAdmission ? 'Meeting the requirements does not guarantee a place.' : null,
           ].filter(Boolean).join(' ') || null,
           body: html`
