@@ -11,6 +11,7 @@ here.
 | `earth-day-4096.webp` | 4096 x 2048, ~357 kB | Once the globe is showing and the browser is idle; replaces the 2048 |
 | `earth-detail-europe.webp` | 4096 x 2048 over lon −25…45, lat 34…72, ~443 kB | The first time the camera comes down (altitude < 0.9) over or near that rectangle |
 | `detail.json` | — | With the first frame: where the detail texture sits |
+| `poster-discover-map[-dark].webp`, `poster-index-countries[-dark].webp` | 600 x 700 with alpha, ~56 kB each | In the HTML of home and /countries/ (the theme's one only): a still of that page's desk globe at rest, the first paint and the no-WebGL picture. Made from these textures by `scripts/make-globe-poster.mjs` (#53 round 2) |
 
 So a page's first globe frame waits for ~437 kB of texture; a reader who dives
 into Europe eventually loads ~1.2 MB in all.

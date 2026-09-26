@@ -90,3 +90,20 @@ off, and the line shows then; the card is one stretched link with nothing
 nested; every country light is at least a third as deep inside its country as
 the country's deepest point; every institution with a position rides on its
 country's light and the globe opens it.
+
+## Round 2 (26 September 2026, after a 7/10 critique and the owner's phone notes)
+
+- **The still of the globe.** Home and `/countries/`, which rest on the desk,
+  carry a still of their own desk globe at rest (`scripts/make-globe-poster.mjs`,
+  ~56 kB WebP per theme) in the stage from the first paint, placed where the
+  globe will be drawn. The globe lands on its own picture. This is not a
+  second map, so it does not reopen the decision above; it answers "no WebGL
+  means no picture" for those two pages, where the still stays and the list
+  stays one tap away. Other pages still show no stage without the globe.
+- **The globe stays a sphere.** The stage is rounded and its imagery feathers
+  into the paper; a country's, a region's or a group of countries' arrival
+  stops at `sphereAlt()`, where the limb and paper are still in view. Only a
+  dive onto schools or a campus fills the stage.
+- **A card is the link, drawn once.** No visible "Open … →" line; no folded
+  first card replaced by a full one. On a phone the card is a sheet below the
+  stage and the buttons a row above it.

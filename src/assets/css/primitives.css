@@ -97,8 +97,9 @@
 }
 
 /*
- * The stage is where the globe lands, and nothing else is ever drawn in it
- * (ADR 0007). It is transparent in both themes — no box, no border, no night
+ * The stage is where the globe lands, and no other map is ever drawn in it
+ * (ADR 0007): only, on a page that rests on the desk, a still of that same
+ * globe (`.world__poster`, below). It is transparent in both themes — no box, no border, no night
  * sky — so the globe floats on the page's own paper (the owner, #53: "the
  * Globe to be floating and just land on the page"). Its size is reserved from
  * the first paint, so the page does not move when the globe arrives.
@@ -107,6 +108,7 @@
   position: relative;
   background: transparent;
   border: 0;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   /* 2:1 on a wide screen, square on a phone: a globe needs a stage that is
      not a letterbox, and a thumb needs a stage it can work with. */
@@ -116,17 +118,60 @@
 @media (max-width: 44rem) {
   .world__stage { aspect-ratio: 1 / 1; }
 }
+.world[data-poster] .world__stage { container-type: size; }
+
+/*
+ * The still of the desk globe at rest (scripts/make-globe-poster.mjs), where
+ * the globe will be drawn: globe.js deskAltFor() sizes the globe so that the
+ * ring and stand (1.13 radii above its centre, 1.62 below, 1.16 either side)
+ * fill 92% of the stage's height, or 90% of its width — less the two
+ * button columns on a stage under 700px that keeps its buttons inside — and
+ * centres that assembly. The image spans −1.35…1.35 radii across and
+ * −1.35…1.8 down (the halo and the stand's shadow included), so --r, the
+ * globe's radius, places it exactly. The canvas fades in over it; then it
+ * fades out.
+ */
+.world__poster {
+  --r: min(calc(.92 * 100cqh / 2.75), calc(.9 * 100cqw / 2.32));
+  position: absolute;
+  left: calc(50% - 1.35 * var(--r));
+  top: calc(50% - 1.595 * var(--r));
+  width: calc(2.7 * var(--r));
+  height: calc(3.15 * var(--r));
+  max-width: none;
+  pointer-events: none;
+  transition: opacity .4s ease .7s;
+}
+@container (max-width: 699.98px) {
+  .world__poster { --r: min(calc(.92 * 100cqh / 2.75), calc((100cqw - 116px) / 2.32)); }
+}
+@media (max-width: 44rem) {
+  /* On a phone the buttons are above the stage, so the globe has its width. */
+  .world__poster { --r: min(calc(.92 * 100cqh / 2.75), calc(.9 * 100cqw / 2.32)); }
+}
+.world[data-globe="on"] .world__poster { opacity: 0; }
+/* One still per theme, the globe's halo and shadow being the theme's; the
+   other is display: none and, being lazy, never fetched. */
+.world__poster--dark { display: none; }
+:root[data-theme="dark"] .world__poster--light { display: none; }
+:root[data-theme="dark"] .world__poster--dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .world__poster--light { display: none; }
+  :root:not([data-theme="light"]) .world__poster--dark { display: block; }
+}
+.world[data-close="on"] .world__poster { display: none; }
 
 /*
  * Where the globe cannot run — JavaScript off (`data-js` is set in the head
  * before first paint), no WebGL, a software renderer, a lost context — the
- * stage is not shown at all and the list is the world window. One line says
- * so. Nothing different is drawn in the globe's place: that was the flash the
+ * list is the world window, and one line says so. A page with a still of its
+ * globe keeps the still in the stage; any other page shows no stage at all.
+ * Nothing different is drawn in the globe's place: that was the flash the
  * owner asked to be rid of.
  */
 .world__off { display: none; margin: 0; font-size: .875rem; color: var(--ink-soft); }
-:root:not([data-js]) .world__stage,
-.world[data-globe="off"] .world__stage { display: none; }
+:root:not([data-js]) .world:not([data-poster]) .world__stage,
+.world:not([data-poster])[data-globe="off"] .world__stage { display: none; }
 :root:not([data-js]) .world__off,
 .world[data-globe="off"] .world__off { display: block; }
 :root:not([data-js]) .world__caption,
@@ -272,6 +317,18 @@
   transition: opacity .6s var(--ease-enter, ease);
 }
 .world[data-globe="on"] .world__globe { opacity: 1; }
+/* Whatever the camera does, the imagery never ends in a hard edge: the last
+   40px of the stage fade into the paper on every side (the owner, #53: "a
+   sphere and not … a sphere with background"). At rest the desk globe sits
+   well inside that margin; leaned in, a country's view is a soft-edged
+   window rather than a slab. The pins, buttons and card are not masked. */
+.world__globe,
+.world__stage > .world__close {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent), linear-gradient(to bottom, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent), linear-gradient(to bottom, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+  mask-composite: intersect;
+}
 /* The close map (MapLibre, globe-close.js) sits between the globe's canvas
    and the pins, and cross-fades in when the camera is handed to it. Its own
    attribution replaces the globe's NASA credit while it is showing. */
@@ -449,6 +506,13 @@
 .world__cluster[data-on] .world__cluster-n,
 .world__cluster[data-selected] .world__cluster-n { background: var(--pin-hot); }
 .world__cluster[data-dim] .world__cluster-n { background: #8A8F99; }
+/* A group of countries or schools on a page that counts degrees: hollow, as
+   a country's own light is, so its number is not read as degrees. */
+.world__cluster[data-places]:not([data-on]):not([data-selected]) .world__cluster-n {
+  background: rgba(8, 12, 20, .55);
+  color: #FBF7F0;
+  box-shadow: inset 0 0 0 2.5px var(--pin), 0 0 0 1.5px var(--pin-ring), 0 0 12px 3px rgba(227, 184, 99, .35);
+}
 
 /* The card: what was chosen, how much is there, and the one way on. A site
    surface, so it follows the theme. */
@@ -503,21 +567,12 @@
      blank grey box (round 3). */
   background: var(--paper-3);
 }
-/* Folded while the camera travels on a phone (globe.js foldCard): title and
-   way on only, so the dive is seen, not hidden behind the sheet. */
-.world__card[data-collapsed] .world__card-img,
-.world__card[data-collapsed] .world__card-meta,
-.world__card[data-collapsed] .world__card-cue,
-.world__card[data-collapsed] .world__card-where,
-.world__card[data-collapsed] .world__card-list { display: none; }
 .world__card-title { margin: 0 0 .25rem; padding-right: 1.75rem; font-size: 1.05rem; line-height: 1.25; }
 .world__card-img + .world__card-title { padding-right: 0; }
 .world__card-title:focus { outline: none; }
 .world__card-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .world__card-meta { margin: 0 0 .35rem; font-size: .8125rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .world__card-cue, .world__card-where { margin: 0 0 .35rem; font-size: .75rem; color: var(--ink-mute); }
-.world__card-go { display: block; margin: .35rem 0 0; font-weight: 600; font-size: .875rem; color: var(--accent); }
-.world__card-go::after { content: " \2192"; }
 /* The card is the link (#53): the title's link stretches over the whole card,
    so a click anywhere on it follows the link. Its one name is the title and
    the way on; nothing interactive is inside it. The close button and a list
@@ -526,7 +581,10 @@
 .world__card-link::after { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; }
 .world__card[data-link] { cursor: pointer; }
 .world__card[data-link]:hover { border-color: var(--accent); }
-.world__card[data-link]:hover .world__card-go { text-decoration: underline; text-underline-offset: .2em; }
+/* The one sign that it goes somewhere: an arrow after the title, which
+   moves a little under the pointer. No "Open … →" line (the owner, #53). */
+.world__card-arrow { display: inline-block; margin-left: .35em; color: var(--accent); font-weight: 600; transition: transform .15s ease; }
+.world__card[data-link]:hover .world__card-arrow { transform: translateX(3px); }
 .world__card-link:focus-visible { outline: none; }
 .world__card-link:focus-visible::after { outline: 3px solid var(--accent); outline-offset: -3px; }
 .world__card-list { position: relative; z-index: 1; list-style: none; margin: .25rem 0 .35rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
@@ -540,13 +598,30 @@
   cursor: pointer;
 }
 .world__card-list button:hover { border-color: var(--accent); color: var(--ink); }
+/* On a phone (globe.js placeFurniture) the card is a sheet below the stage,
+   full width, so the places just chosen own the whole stage (#53 round 1:
+   the card covered 61% of it), and the camera buttons are a row above it,
+   off the ring. */
+.world > .world__card {
+  position: relative;
+  top: auto; left: auto;
+  width: auto;
+  max-height: none;
+  overflow: visible;
+  margin-top: calc(var(--s2) - var(--s5));
+  box-shadow: var(--lift-1, 0 2px 8px rgba(0, 0, 0, .12));
+}
+.world > .world__card .world__card-img { aspect-ratio: 5 / 2; }
+/* Until the globe has put its buttons above the stage, their row's room is
+   kept, so the stage does not jump down when they arrive. */
 @media (max-width: 44rem) {
-  /* On a phone the card sits along the bottom, clear of the thumb's globe. */
-  .world__card { top: auto; bottom: var(--s2); left: var(--s2); right: var(--s2); width: auto; max-height: 62%; }
-  /* A strip of the photograph, not the photograph: the title, the facts and
-     the way on have to show without scrolling inside a card on a 358px stage.
-     globe.js flies the place into the room above the card. */
-  .world__card-img { aspect-ratio: auto; height: 5.5rem; }
+  :root[data-js] .world:not([data-furniture]):not([data-globe="off"]) .world__stage { margin-top: calc(var(--tap) + var(--s2)); }
+}
+.world > .world__controls {
+  position: static;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: calc(var(--s2) - var(--s5));
 }
 
 .world__hint {
