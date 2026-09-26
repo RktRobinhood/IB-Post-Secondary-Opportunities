@@ -15,7 +15,7 @@
       "enum": ["listed", "catalogue", "none"],
       "description": "listed: every English-taught bachelor's degree open to first-year applicants for the intake is in `programmes`. catalogue: nearly all courses are taught in English, too many to list; `programmes` is empty and `handoff` is the course search. none: no English-taught bachelor's degree for the intake; `programmes` is empty."
     },
-    "summary": { "type": "string", "minLength": 20, "maxLength": 170, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
+    "summary": { "type": "string", "minLength": 20, "maxLength": 150, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
     "handoff": {
       "type": "object",
       "required": ["label", "url"],
