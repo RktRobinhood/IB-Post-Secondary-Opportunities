@@ -99,6 +99,8 @@ function describe(p, inst) {
   const years = Number.isInteger(p.years) ? NUMBER[p.years] || String(p.years) : String(p.years).replace(/\.5$/, '½');
   const field = p.field === 'other' ? null : (FIELD[p.field] || '').toLowerCase().replace(/^sciences$/, 'science');
   const city = p.city || inst.city;
+  /* A degree taught online is not "in Online". */
+  if (/\b(online|distance)\b/i.test(p.city || '')) return `An online ${[`${years}-year`, field, 'degree'].filter(Boolean).join(' ')}.`;
   return `A ${[`${years}-year`, field, 'degree'].filter(Boolean).join(' ')}${city ? ` in ${city}` : ''}.`;
 }
 
@@ -164,8 +166,10 @@ const CAUTION = /\b(must|cannot|can't|not|no|only|deadline|before|late|ask|restr
 function beforeYouApply(school, p) {
   const notes = notesFor(school, p);
   if (!notes.length) return '';
-  /* A caution leads; a note that only describes waits one tap down. With no
-     caution at all, the block is what it is: worth knowing, not a warning. */
+  /* Only notes about this programme reach it (`notesFor`: one that names
+     it, or one that names no other programme and no other part of the
+     school). A caution leads; a note that only describes waits one tap down.
+     With no caution, the block is what it is: worth knowing, not a warning. */
   const lead = notes.find((n) => CAUTION.test(n.text));
   const kept = lead ? [lead, ...notes.filter((n) => n !== lead)] : notes;
   const [first, ...more] = kept;
@@ -354,7 +358,8 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     : {
         label: 'Admission',
         value: saysSelection ? 'See what you need' : admissionValue(selection),
-        note: [selection.length && !selection.includes('open') ? SELECTION[selection[0]] : null, placesNote].filter(Boolean).join(' · ') || null,
+        /* The selection's name once: not as the value and again as its note. */
+        note: [selection.length && !selection.includes('open') && admissionValue(selection) !== SELECTION[selection[0]] ? SELECTION[selection[0]] : null, placesNote].filter(Boolean).join(' · ') || null,
       };
   /* A fee not recorded is a gap, and says so, as the Admission tile does. */
   const fee = p.tuitionEuEea ? valueAndNote(p.tuitionEuEea) : { value: 'Not recorded yet', note: null };

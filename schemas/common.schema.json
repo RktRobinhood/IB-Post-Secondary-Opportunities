@@ -175,6 +175,10 @@
       "items": { "type": "string" },
       "description": "The teaching languages a date is for ('Norwegian'): Samordna opptak's main deadline is for Norwegian-taught programmes, so it never reaches an English-taught programme's page or a school page listing English-taught degrees."
     },
+    "via": {
+      "type": "string",
+      "description": "The portal a date is a step of ('uni-assist'): it reaches only the schools whose record says they are applied to through it (`apply.via` names it, and not as 'no uni-assist'). src/lib/school-dates.mjs."
+    },
     "everySchool": {
       "type": "boolean",
       "description": "The application deadline of every school the date reaches (CAO's normal closing date): a programme page may give it as 'Apply by', unless the school or programme runs its own (`ownDeadline`)."

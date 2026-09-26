@@ -139,6 +139,9 @@
           "everySchool": {
             "$ref": "common.schema.json#/$defs/everySchool"
           },
+          "via": {
+            "$ref": "common.schema.json#/$defs/via"
+          },
           "provisional": {
             "type": "boolean",
             "description": "True when the round's closing date is not confirmed for this cycle (inherited, or its source gives no year). A provisional date must never be shown as a confirmed one."
@@ -262,6 +265,9 @@
           },
           "everySchool": {
             "$ref": "common.schema.json#/$defs/everySchool"
+          },
+          "via": {
+            "$ref": "common.schema.json#/$defs/via"
           }
         },
         "additionalProperties": false

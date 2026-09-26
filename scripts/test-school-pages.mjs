@@ -43,7 +43,15 @@
  *      recorded yet". Every card of the programme on its school's page says
  *      the same as its tile. No page shows a raw time-zone id or a
  *      researcher's "page gives no year", and no display title runs past 48
- *      characters unless it is listed as an exception.
+ *      characters unless it is listed as an exception;
+ *  11. no dated Apply-by is later than a deadline the programme's own text
+ *      names (round 5): its `ib`, `selectionNote`, `about`, its `needs`
+ *      notes, its `closesNote`, and the school's notes that name it. Every
+ *      "apply by", "deadline", "due", "upload", "videos", "portfolio",
+ *      "audition" or "register" followed by a date is read, a date with no
+ *      year or last year's year taken as this cycle's; a date that begins a
+ *      range ("2 March to 19 May") is not a deadline. Exceptions go in
+ *      scripts/lib/own-deadline-allow.json with a reason.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
@@ -95,6 +103,42 @@ function applyByAllowed(key, rec, prog, iso) {
       )
   );
 }
+/* Rule 11: the deadlines a programme's own text names, as ISO dates of this
+   cycle. A date with no year, or with last year's, is read as this cycle's
+   same day (October to December in the autumn before the intake). */
+const MONTH_RE = '(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)';
+const DEADLINE_WORDS = /\b(apply|applications?|deadline|due|upload|videos?|portfolio|audition|register|registration|submit|closes?|by)\b/i;
+export function ownTextDeadlines(text, intakeYear) {
+  const out = [];
+  const re = new RegExp(`(\\d{1,2})\\s+${MONTH_RE}\\b(?:\\s+(?:in\\s+)?(\\d{4}))?`, 'g');
+  const str = String(text || '');
+  for (const m of str.matchAll(re)) {
+    const before = str.slice(Math.max(0, m.index - 45), m.index);
+    const after = str.slice(m.index + m[0].length, m.index + m[0].length + 6);
+    if (/^\s*(?:–|-|to\b)/.test(after)) continue; // the start of a range
+    if (/\b(from|opens?|opening|starts?|between)\s*$/i.test(before)) continue; // an opening, not a deadline
+    if (!DEADLINE_WORDS.test(before)) continue;
+    const month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'].indexOf(m[2].slice(0, 3).toLowerCase()) + 1;
+    /* A year this cycle or later stands; last year's spring date, or none,
+       is this cycle's same day; October to December is the autumn before. */
+    const given = Number(m[3]) || null;
+    const year = given && (given >= intakeYear || (given === intakeYear - 1 && month >= 9)) ? given : month >= 10 ? intakeYear - 1 : intakeYear;
+    out.push({ iso: `${year}-${String(month).padStart(2, '0')}-${m[1].padStart(2, '0')}`, said: m[0] });
+  }
+  return out;
+}
+const OWN_ALLOW = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'own-deadline-allow.json'), 'utf8')).allow;
+{
+  /* Self-test: Hanze Physiotherapy's own line against the school's 15 August. */
+  const said = ownTextDeadlines('International Physiotherapy Programme, selective: apply by 15 January, then a registration form, tests and an online selection day in February.', 2027);
+  const range = ownTextDeadlines('2026: register 2 March to 19 May, exam 30 June', 2027).map((d) => d.iso);
+  if (said[0]?.iso !== '2027-01-15' || !(said[0].iso < '2027-08-15') || range.includes('2027-03-02') || !range.includes('2027-05-19')) {
+    console.log('  FAIL  self-test: the own-deadline reader misreads a programme line');
+    process.exit(1);
+  }
+  console.log("  ok    self-test: a programme's own \"apply by 15 January\" is read, and would fail a 15 August tile");
+}
+
 /* Words that mark a date as not this school's deadline unless its record says
    it is: an earlier chance, a discount, or another group's general date. */
 const NOT_THE_DEADLINE = /\b(early|bird|priority|discount|public universities|norwegian-taught)\b/i;
@@ -206,6 +250,7 @@ let programmePages = 0;
 let applyTiles = 0;
 let holdersTiles = 0;
 let beforeNotes = 0;
+let ownChecked = 0;
 let cards = 0;
 for (const c of countries) {
   const countryPage = read(`destinations/${c.code}`);
@@ -312,6 +357,27 @@ for (const [key, inst] of known) {
       if (/page gives no year/i.test(visible)) fail(`${p.href}: shows the researcher's note "page gives no year"`);
       const h1 = unescape((body.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] || '').replace(/<[^>]+>/g, '')).trim();
       if (h1.length > 48 && !LONG_TITLES.has(h1)) fail(`${p.href}: the display title "${h1}" is ${h1.length} characters (allow it in scripts/lib/long-titles.json)`);
+      /* Rule 11: never later than a deadline the programme's own text names. */
+      const tileIso = isoOf(says || '');
+      if (tileIso) {
+        const intakeYear = Number(String(rec.intake || '').match(/\d{4}/)?.[0]) || 2027;
+        const programmeNotes = notesFor({ ...rec, programmes: programmePaths(key, rec.programmes) }, p).filter((n) => n.mine).map((n) => n.text);
+        const texts = [p.ib, p.selectionNote, p.about, p.closesNote, ...(p.needs || []).map((n) => n.note), ...programmeNotes];
+        for (const d of texts.flatMap((t) => ownTextDeadlines(t, intakeYear))) {
+          if (d.iso < tileIso && !OWN_ALLOW.some((a) => a.page === p.href && a.said === d.said)) {
+            fail(`${p.href}: "Apply by ${says}" is later than "${d.said}" in its own text`);
+          }
+        }
+        /* A school-wide date that itself warns some programmes are earlier
+           ("arts programmes are earlier") is not the tile of a programme its
+           own text says auditions or takes a portfolio, unless that programme
+           has its own date. */
+        const warned = (rec.dates || []).find((d) => d.date === tileIso && /\b(earlier|arts programmes?|auditions?)\b/i.test(d.label));
+        if (warned && !p.closes && /\b(audition|portfolio|videos?)\b/i.test(texts.join(' '))) {
+          fail(`${p.href}: "Apply by ${says}" is a school-wide date that says "${warned.label}", and this programme auditions or takes a portfolio`);
+        }
+        ownChecked++;
+      }
       /* Rule 8: only this programme's dates, for this reader. */
       const shownDates = panelDates(body);
       if (shownDates.some((d) => d.who === 'non-eu')) fail(`${p.href}: the dates panel shows a date only for applicants from outside the EU/EEA`);
@@ -355,5 +421,5 @@ if (!programmePages) {
   process.exit(1);
 }
 console.log(
-  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} say why there is no date; every strip 8 tiles; ${beforeNotes} open on the record's notes), ${cards} institution cards on country pages; none hands a student to a homepage`
+  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} say why there is no date; every strip 8 tiles; ${ownChecked} dated tiles no later than their own text; ${beforeNotes} open on the record's notes), ${cards} institution cards on country pages; none hands a student to a homepage`
 );

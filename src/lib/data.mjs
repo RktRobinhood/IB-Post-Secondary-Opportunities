@@ -698,6 +698,13 @@ function publishable(official) {
   return editoriallyPublishable(official, { scored: false }) ? official : null;
 }
 
+function creditName(author) {
+  const a = String(author || '').trim();
+  const assumed = a.match(/^No machine-readable author provided\.\s*(.+?)\s+assumed\b/i);
+  if (assumed) return assumed[1];
+  return a && !/^No machine-readable author/i.test(a) ? a : 'Wikimedia Commons';
+}
+
 export function picture(site, key, { prefer = 'official', also = [] } = {}) {
   // Canonical ids and image keys drifted apart twice, in different directions,
   // and an image that is fetched but never found is worse than one that was
@@ -749,7 +756,9 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
       external: false,
       alt: commons.description || commons.subject || '',
       credit: {
-        text: `${commons.author || 'Unknown'} · ${commons.licence || 'Wikimedia Commons'}`,
+        /* Commons' placeholder ("No machine-readable author provided. Qz10
+           assumed …") is not a credit: the name it assumes is. */
+        text: `${creditName(commons.author)} · ${commons.licence || 'Wikimedia Commons'}`,
         url: commons.page,
       },
     };

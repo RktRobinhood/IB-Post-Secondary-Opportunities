@@ -409,7 +409,16 @@ export function datesFor(site, inst, { programme = null } = {}) {
      has no school record, so no teaching language is known for it. */
   const instType = inst.type || self.type || null;
   const teaching = inst.school ? (inst.school.scope === 'none' ? inst.school.language || null : 'English') : null;
+  /* A step of one portal (uni-assist) is only for the schools applied to
+     through it, as their record says. */
+  const applyVia = inst.school ? String(inst.school.apply?.via || '') : null;
+  const usesPortal = (portal) => {
+    if (applyVia === null) return true;
+    const at = applyVia.toLowerCase().indexOf(portal.toLowerCase());
+    return at >= 0 && !/\bno\s*$/i.test(applyVia.slice(0, at));
+  };
   const governs = (e) =>
+    (!e.via || usesPortal(e.via)) &&
     (!(e.institutionTypes || []).length || (instType && e.institutionTypes.includes(instType))) &&
     (!(e.taughtIn || []).length || !teaching || e.taughtIn.some((l) => teaching.toLowerCase().includes(l.toLowerCase())));
   /* The route dates that are this school's own: tied to it, or naming it. */
@@ -634,7 +643,9 @@ function dateItem(site, e) {
   return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.audience && e.audience !== 'any' && /^[a-z-]+$/.test(e.audience) ? ` data-who="${e.audience}"` : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html` <span class="dates-panel__prov">· provisional</span>` : ''}</p>
     ${/* A line of the panel, not prose: the same school date is on each of
-          its programmes' pages (the text-walls guard reads <p> as prose). */ ''}<div class="dates-panel__what">${e.label}</div>
+          its programmes' pages (the text-walls guard reads <p> as prose).
+          "(yearly date)" is the record's reason for "provisional", which the
+          line already says. */ ''}<div class="dates-panel__what">${String(e.label).replace(/\s*\(yearly date\)/i, '')}</div>
     ${badge || paras.length || src
       ? html`<div class="dates-panel__foot">${badge}${
           /* The note is the same on every school in a country, so it waits
@@ -691,9 +702,11 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
   const where = countryName || countryLabel(site, destinationCode(inst)) || 'this country';
   const everyDate = html`<p class="dates-panel__more"><a href="${url(calendarLink)}">Every date in ${where}</a></p>`;
   if (!events.length && !sessions.length) {
-    return countryName
+    /* No date at all: the panel still opens on the page's answer. */
+    return countryName || status
       ? html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title">
           <h2 class="dates-panel__title" id="${id}-title">Deadlines</h2>
+          ${status ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>` : ''}
           ${everyDate}
         </section>`
       : '';

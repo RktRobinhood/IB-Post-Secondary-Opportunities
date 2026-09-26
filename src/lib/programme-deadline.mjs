@@ -74,6 +74,9 @@ export function forDates(inst, c, p) {
         return p.closesForDiplomaHolders ? { ...rest, forDiplomaHolders: true } : rest;
       });
   }
+  /* A programme with its own selection is not bound by the school's general
+     closing dates either: only its own `closes`, or dates scoped to it. */
+  if (p.ownDeadline) dates = dates.filter((d) => d.kind !== 'closes' || (d.programmes || []).includes(p.slug));
   if (p.closes) {
     const replaced = dates.filter((d) => d.kind === 'closes');
     const supersedes = replaced.find((d) => d.supersedes)?.supersedes;
@@ -142,6 +145,9 @@ export function keepFor(p, scope) {
   };
   return (e) => {
     if (!forReader(e)) return false;
+    /* A programme with its own selection: a route's deadline is not its own,
+       even one naming its school. */
+    if (p.ownDeadline && e.origin !== 'school' && isBinding(e)) return false;
     if (e.schoolOwn) return true;
     /* A programme in one named round has all its dates in the record. */
     if (scope.ownRound) return false;
@@ -188,17 +194,27 @@ function deadlineUncached(site, inst, c, p, today) {
          `closes`, or a date the record scopes to it. */
       (!p.ownDeadline || (p.closes && x.date === p.closes) || (x.programmes || []).includes(p.slug))
   );
-  const e = closing.find(leadsFor);
+  /* A school that sets no deadline for this reader ("with an IB you skip the
+     admission application") decides before any date meant for others. */
+  const noneNeeded = Boolean(school.noDeadline && !p.ownDeadline && !p.closes);
+  const e = noneNeeded ? null : closing.find(leadsFor);
   const closes = e ? e.endDate || e.date : null;
   /* Earlier chances and housing, before the deadline (or at all, with none). */
   const before = (x) => forYou(x) && (!closes || x.date <= closes);
   const early = all.find((x) => x.kind === 'early' && before(x)) || null;
   const housing = all.find((x) => x.kind === 'housing' && before(x)) || null;
+  /* A later closing date for some readers that the record names in a few
+     words (`short`): a rolling route, or the Samordna route for students
+     with a Nordic language A. The tile's note carries it. */
+  const later = e ? closing.find((x) => x !== e && x.short && (x.endDate || x.date) > closes && !x.forDiplomaHolders) : null;
 
   let status = null;
   if (!e) {
     const lastYear = p.lastYear || school.lastYear;
-    if (closing.some((x) => x.forDiplomaHolders)) {
+    if (school.noDeadline && !p.ownDeadline && !p.closes) {
+      /* The school sets none for this reader, whatever it asks of others. */
+      status = { value: NO_DEADLINE, note: school.noDeadline };
+    } else if (closing.some((x) => x.forDiplomaHolders)) {
       status = p.closesForDiplomaHolders
         ? { value: AFTER_DIPLOMA, note: p.round ? `Runs only in the ${p.round}, which needs the Diploma in hand` : 'Its only round needs the Diploma in hand' }
         : { value: NOT_OPEN_YET, note: `No ${year ? `${year} ` : ''}round for final-year IB students published yet` };
@@ -214,6 +230,8 @@ function deadlineUncached(site, inst, c, p, today) {
   const note = [
     e?.provisional ? `Not yet confirmed for ${year || 'this year'}` : null,
     status?.note || null,
+    closes && p.closesNote ? p.closesNote : null,
+    later ? `${later.short}: by ${shortDay(later.endDate || later.date)}` : null,
     earlyNote,
     housing ? `Housing by ${shortDay(housing.date)}` : null,
   ].filter(Boolean).join(' · ') || null;

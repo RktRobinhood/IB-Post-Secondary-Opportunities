@@ -3032,6 +3032,14 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .hero--fam { box-shadow: inset 0 6px 0 var(--fam); }
 /* Chips on a sibling card line up with the card's text (lists in prose are indented). */
 .prose .card .tags, .prog-siblings .tags { padding-left: 0; }
+/* On a phone the photo credit takes its own line under the lede, inside the
+   gutter, so a long credit never runs under the words (#43 round 4). */
+@media (max-width: 40rem) {
+  .hero--compact .hero__credit {
+    position: relative; right: auto; bottom: auto; display: block;
+    margin: var(--s4) var(--s4) 0; text-align: left; line-height: 1.35;
+  }
+}
 /* A long fact never overflows its tile at phone width ("Universityadmissions.se"). */
 .glance dd, .facts dd { overflow-wrap: anywhere; }
 /* A trail that wraps keeps each separator with the crumb after it. */
