@@ -1,6 +1,6 @@
 # Country audit (Europe): follow-ups from round 5 (issue #41)
 
-> **Round 2** (at the end) answers `follow-ups-41-critique-round-1.md`. It widens both guards and supersedes this section's description of them and of the allow-list.
+> **Round 2** and **Round 3** (at the end) answer the two critiques, `follow-ups-41-critique-round-1.md` and `-round-2.md`. They widen both guards; the latest round supersedes earlier descriptions of the guards and the allow-list.
 
 Editor pass, 2026-09-26, answering the follow-up issue in `round-5.md`. This pass was done offline: no page was fetched, and every rewrite uses only facts already in the same record (founding year, counts, fees, what the institution teaches). Nothing new is asserted.
 
@@ -834,3 +834,148 @@ Each cell holds the changed phrase, not the whole field.
 | `data/countries/se.json` | `institutions[1].note` | and a social life run by the student "nations" - the historic student societies that run much of student life. | and a social life organised around student "nations", the historic societies students can join. |
 | `data/countries/jp.json` | `institutions[0].note` | Todai has not opened a new undergraduate faculty in about seventy years; this one runs on a September intake with half its places on the international route; applications close on 5 November 2026. | Todai has not opened a new undergraduate faculty in about seventy years. This one runs on a September intake with half its places on the international route, and applications close on 5 November 2026. |
 | `data/countries/no.json` | `institutions[5].note` | With Danish, Norwegian or Swedish A, its Norwegian-taught bachelor's are open through Samordna opptak. | With Danish, Norwegian or Swedish A, the university's Norwegian-taught bachelor's are open through Samordna opptak. |
+
+## Round 3: answering the second critique
+
+This pass answers `follow-ups-41-critique-round-2.md`, which scored round 2 at 7/10. It was done on 2026-09-26, offline, on the branch after main was merged in (it includes the planner's `d0d4ec0`).
+
+Every rewrite uses only what the same record holds. The critique's replacement texts were used where the record supports them. In two places I kept to the record instead:
+- **KdG:** the record's `englishBachelors` says "business and multimedia routes". It does not say that Applied Computer Science is taught in English.
+- **Hasselt:** "Its fields include…", not "Strong in…".
+
+**Planner-owned files were not touched.** These are `data/institutions/dk-{itu,sdu,au,cbs}.json` and `data/dk/{itu,sdu,au,cbs}.json`. What those files still need is listed under "Handed to the planner agent" below.
+
+**Gate:** `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes all 37 checks. As before, the advisory `freshness` check reports the age of the evidence.
+
+### Each critique item, and what changed
+
+| # | Critique item | What changed |
+|---|---|---|
+| 1 | Research log off the university pages | These `meta.notes` are rewritten, in `data/institutions` and `data/dk` together, using the critique's texts: UCPH, AAU, Dania, BUas, Twente, TU Delft, and Maastricht ×2. ITU and SDU are planner-owned and are handed off (see below). |
+| 2 | Widen `research-log`; fix IS, LV, PL, EE, MT, US | **New patterns:** "N found", "none found", "<bar/example/scheme/figure/table/score/date/fee> found", "could be found", "page(s) checked", "at the time of checking", "not checked here", "<bachelor's/programme/course> checked", "this pass", "the record holds", `ADR \d{4}`, `docs/`, "critic", "Evidence record", "to a fetch", and a leaked camelCase field name. **Real camelCase names** (eApply, uSis, uOttawa, iSchool, ePortal, eResidence, iGraduate, myCampus) are exempt by name. **Fixtures:** 17 positive and 3 negative. One negative is the IT housing "found through Facebook groups". **Fixed on Destination pages:** the six strings the critique named, plus four more the new patterns found. Those four are AU "A table found on a coaching site", AE and SG "see workRights" (a field name on the page), the Innsbruck source title "44 pages checked", and two I found outside the guard's pages: the Minerva line in the `/guides/` page and the Denmark maritime note. **New `HANDED_OFF` list:** three lines are on planner-owned pages. Each entry names its owner and what to change, and fails once the line is gone, so it cannot outlive the fix. |
+| 3 | Widen `superlatives`; the six cards, NTNU and Warwick | **New words in the always-flagged list:** reputation, powerhouse, internationally known/recognised, well-respected, top-tier, elite, "a leading", "a top", "one of only …", "the sole", "than any other", "nowhere else", "rare in Europe", "great universities", "ranked 45th", and flagship. The US "public flagship" is exempt, and so are two proper names, the "6G Flagship" and the "Elite Institute". **Frames:** "the second largest" and "among the very best" are now caught. **The "its" loophole is closed:** "its <-est> university/school/institution/city" is flagged, and "its newest campus" still passes. **Fixtures:** 18 positive and 5 negative. **Result:** the rule found 9 strings, all rewritten, including the six named cards, NTNU, Warwick and the EE summary's "a reputation for teaching in English". |
+| 4 | Round-2 regressions | **SI summary:** it now says university dorms take private international students only in Maribor, so budget for the private market. **Tartu:** "first-level degrees … six-year integrated Medicine", and the repeated count is deleted. **EMÜ:** the repeat is gone. **ITU's duplicate "2,900 students"** is planner-owned and handed off. |
+| 5 | Place rankings; the canonical Destination records | **Fixed:** CH `housing`; LU `costs.notes[2]` and `housing`; and the EHL line in the distinctive-options guide, which now opens "Founded in Lausanne in 1893". **Canonical records:** `data/destinations/ch` (`whyConsider[0]`, `watchOuts[3]`), `ie` (`watchOuts[4]`), `de` (`whyConsider[1]`) and `lu` (`watchOuts[3]`), so these do not come back when the profiles retire. **Also swept by hand:** the rankings the rule now finds in fields it does not read. These are LV "the most selective route in the country", US "the most famous universities", NZ "Otago is famous for", CA "Waterloo built its reputation" and CN "the domestic elite universities". |
+| 6 | Polish | **KdG:** it now names its English-taught routes. **HU Szeged:** "Of the medical schools on this page, Szeged is the one that publishes an IB exemption". **CZ Göteborg:** "a short trip from Denmark". **SDU's "Denmark's newest IT campus"** is planner-owned and handed off. |
+
+### The 144 profile notes that never render
+
+The critique's point stands. For GB, NL, CH, AT, SE, NO, FI and DE, a `data/schools` summary replaces the profile note on both the card and the university page. So round 2's rewrites of those notes are correct but unseen.
+
+Two things now answer it:
+- **The research-log guard reads rendered pages,** so it sees the `data/schools` text that students actually get: 506 pages, including every `/universities/` page.
+- **The superlatives guard reads `data/schools` `summary`.** I swept `data/schools` `summary` and `notes` with the widened rule. The summaries have 0 hits. The notes have 3, and all three are about the institution itself: "Arcada's fourth English programme", "KI's first intake", "The first place you confirm in Finland". None is a ranking, so none was changed.
+
+The guard still reads the unrendered profile notes as well. They cost nothing to keep clean, and they come back into view if a school record is ever withdrawn.
+
+### Handed to the planner agent (not edited here)
+
+The coordinator said the planner agent owns these files. Each item is from the round-2 critique.
+
+**In both `data/institutions/dk-itu.json` and `data/dk/itu.json`:**
+- **`meta.notes[5]`:** delete it. It is the "as read by the round-4 conversion critic on 25 Sep 2026 (docs/research/qa/conversion/critique-round-4.md). No Evidence record holds that page's full URL yet; the levelRaise cites…" note. It is a reviewer note and belongs in the Evidence record or the conversion QA doc. The `research-log` guard carries it in `HANDED_OFF`.
+- **`about`:** delete ", with roughly 2,900 students in total" from the third sentence. The first sentence already gives the count.
+
+**In both `data/institutions/dk-sdu.json` and `data/dk/sdu.json`:**
+- **`meta.notes[10]`:** delete it, or replace it with "SDU's total student number is not confirmed here." Now: "SDU's own student total was not published in a form that could be verified on the pages checked, so it is left blank here rather than guessed." It is in `HANDED_OFF`.
+- **`meta.notes[2]`:** delete 'SDU calls it "Denmark's newest IT campus".' An attribution is not a source.
+
+**In both `data/institutions/dk-cbs.json` and `data/dk/cbs.json`:**
+- **`meta.notes[4]`** (in `data/dk/cbs.json` this is `notes[4]`): "Read the quotaNotes before planning around it." puts a schema field name on the page. Suggested: "Read the quota notes below before planning around it." It is in `HANDED_OFF`.
+
+**When each is fixed,** remove its `HANDED_OFF` entry in `scripts/test-research-log.mjs`. The guard fails until you do, by design.
+
+### Still open
+
+- **Item 4, which needs the web:** Warsaw resolution 315.
+- **LSMU:** the extra-round sentence still needs a reading of lsmu.lt.
+- **Programme pages:** they still render Evidence `interpretation`.
+- **Deeper prose:** about 40 comparisons remain in fields neither guard reads, such as `housing`, `steps` and `selectionNotes`. Examples are "by far the easiest route" (dorms in JP and KR) and "the only realistic first-year option" (SG). They compare options for the student, not institutions, and were left alone.
+
+### Every string changed in round 3
+
+Each cell holds the changed phrase, not the whole field.
+
+#### Change 1: research log off the university pages (11)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/institutions/dk-ucph.json` | `meta.notes[6]` | Tuition fee rates for non-EU/EEA bachelor applicants were not published on the English-language pages checked, so no figure is recorded here. | Tuition fees for non-EU/EEA bachelor applicants are not confirmed here; ask UCPH. |
+| `data/dk/ucph.json` | `notes[6]` | Tuition fee rates for non-EU/EEA bachelor applicants were not published on the English-language pages checked, so no figure is recorded here. | Tuition fees for non-EU/EEA bachelor applicants are not confirmed here; ask UCPH. |
+| `data/institutions/dk-aau.json` | `meta.notes[4]` | AAU did not publish a quota figure for Energy Engineering on its programme page at the time of checking, although the page describes quota 1 and quota 2 selection. | The quota split for Energy Engineering is not confirmed here; the programme page describes quota 1 and quota 2 selection without figures. |
+| `data/dk/aau.json` | `notes[4]` | AAU did not publish a quota figure for Energy Engineering on its programme page at the time of checking, although the page describes quota 1 and quota 2 selection. | The quota split for Energy Engineering is not confirmed here; the programme page describes quota 1 and quota 2 selection without figures. |
+| `data/institutions/dk-dania.json` | `meta.notes[1]` | Its specific entry requirement is still English B, and that is what the record holds. | Its specific entry requirement is still English B, so plan on English B. |
+| `data/dk/dania.json` | `notes[2]` | Its specific entry requirement is still English B, and that is what the record holds. | Its specific entry requirement is still English B, so plan on English B. |
+| `data/institutions/nl-breda-uas.json` | `meta.notes[2]` | The step-by-step panels on the BUas programme application pages load their contents by script and return nothing to a fetch or to a DOM read. The selection detail recorded here comes from the regulation PDF instead, which is better evidence anyway. | The selection details here come from BUas's admission regulation (PDF). |
+| `data/institutions/nl-utwente.json` | `meta.notes[1]` | Twente is the only institution in this pass that writes requirements three different ways on three programme pages: Advanced Technology in IB terms, Technical Computer Science on the Dutch VWO scale, Creative Technology with no subject at all. The three records preserve that difference instead of smoothing it. | Twente writes requirements three different ways on three programme pages: Advanced Technology in IB terms, Technical Computer Science on the Dutch VWO scale, Creative Technology with no subject at all. So read your own programme's page, not a sibling's. |
+| `data/institutions/nl-tudelft.json` | `meta.notes[0]` | TU Delft publishes its IB entry requirements in IB terms and in a single table covering every BSc programme, which is the cleanest example found in the Netherlands of the pattern ADR 0002 predicts: no local scale, no conversion, nothing to translate. | TU Delft publishes its IB entry requirements in IB terms, in one table covering every BSc programme: no local scale and no conversion. |
+| `data/institutions/nl-maastricht.json` | `meta.notes[0]` | in IB terms — the same pattern as TU Delft and the same conclusion for ADR 0002: nothing to translate. | in IB terms, as TU Delft does: nothing to convert. |
+| `data/institutions/nl-maastricht.json` | `meta.notes[1]` | The three programmes recorded here were chosen because they differ in admission regime rather than in subject: | The three programmes here differ in admission regime: |
+
+#### Change 2: what the widened research-log guard found (13)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/is.json` | `language.englishTaughtBachelors` | Three found. At the University of Iceland, | Three. At the University of Iceland, |
+| `data/countries/lv.json` | `institutions[8].englishBachelors` | None found | None confirmed here |
+| `data/countries/lv.json` | `funding[0]` | SSE Riga runs the most substantial scholarship scheme found: | SSE Riga runs a large scholarship scheme: |
+| `data/countries/pl.json` | `language.englishProof` | sets the highest bar found at IELTS 6.5, | sets a higher bar: IELTS 6.5, |
+| `data/countries/ee.json` | `ibRecognition.notes[2]` | No Estonian institution publishes a minimum IB point score, and no IB-to-Estonian grade conversion table could be found. If you need one, ask Harno, Estonia's recognition centre. | A minimum IB score and an IB-to-Estonian grade conversion are not confirmed here for any Estonian institution; if you need one, ask Harno, Estonia's recognition centre. |
+| `data/countries/mt.json` | `costs.tuitionEuEea.value` | for the full-time bachelor's checked: | for the full-time bachelor's listed here: |
+| `data/countries/us.json` | `funding[0]` | but were not checked here | but are not confirmed here |
+| `data/countries/au.json` | `ibRecognition.notes[3]` | A table found on a coaching site or remembered from a sibling's year | A table on a coaching site, or one remembered from a sibling's year, |
+| `data/countries/ae.json` | `funding[5]` | — see workRights. | — see 'Living there' below. |
+| `data/countries/sg.json` | `funding[7]` | — see workRights. | — see 'Living there' below. |
+| `data/schools/at-uni-innsbruck.json` | `sources[1].title` | Bachelor's programmes (44 pages checked for language of instruction) | Bachelor's programmes (the language of instruction is on each programme's page) |
+| `data/topics/distinctive-options.json` | `options[0].deadlineNote` | Deadlines were not published on the pages we read — check minerva.edu from September 2026. | Deadlines are not confirmed here — check minerva.edu from September 2026. |
+| `data/destinations/dk.json` | `sectorLandscape.routes[4].note` | Not yet researched in detail here. Recorded because it exists and is named by the Agency, not because we can currently advise on it. | Not covered in detail on this site; it is listed because the Agency names it. Ask the institutions directly. |
+
+#### Change 3: praise the widened superlatives rule found (9)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/be.json` | `institutions[4].note` | Small and young, with a strong reputation for teaching quality and a much lower cost of living than the big student cities. | Every bachelor's is taught in Dutch; English starts at master's level. Its fields include biomedical sciences, architecture, mobility sciences and data science, with a much lower cost of living than the big student cities. |
+| `data/countries/be.json` | `institutions[12].note` | Its game development programme is internationally known and taught in English, which makes Howest an outlier in the Belgian bachelor landscape. | Its Digital Arts and Entertainment bachelor's, a game-development degree, is taught in English. |
+| `data/countries/nl.json` | `institutions[6].note` | The business and economics powerhouse; | Business and economics at its core: |
+| `data/countries/kr.json` | `institutions[8].note` | A small Jesuit university in Seoul with a reputation for rigour. | A small Jesuit university in Seoul. Some business, economics and international studies courses are in English; check yours with the university. |
+| `data/countries/pt.json` | `institutions[5].note` | A public university in central Lisbon with a strong social-science and business focus and a practical, employment-oriented reputation. | A public university in central Lisbon focused on management, sociology, data science and international studies, with some English-taught teaching in management and international studies. |
+| `data/countries/pt.json` | `institutions[9].note` | A modern campus university with a strong engineering and materials reputation, in a small coastal city. | A modern campus university in a small coastal city, focused on engineering, materials science, telecommunications and marine sciences; little is taught in English at bachelor level. |
+| `data/countries/no.json` | `institutions[8].note` | Norway's engineering powerhouse and its largest university, with a Nobel-winning neuroscience institute. | An engineering-led university in Trondheim, with a Nobel-winning neuroscience institute. |
+| `data/countries/gb.json` | `institutions[11].note` | A campus university with a formidable maths and economics reputation; | A campus university known for mathematics and economics; |
+| `data/countries/ee.json` | `summary` | Estonia has a reputation for teaching in English, and at master's level that is true. | Estonia is often described as teaching in English, and at master's level that is true. |
+
+#### Change 4: round-2 regressions (4)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/si.json` | `summary` | If one of those programmes is what you want, you pay no tuition, and a dormitory room, if you can get one, costs EUR 80-250 a month. | If one of those programmes is what you want, you pay no tuition, but university dorms take private international students only in Maribor, so budget for the private market. |
+| `data/countries/ee.json` | `institutions[0].note` | Around 15,500 students, and three English-taught bachelor's: Business Administration, Science and Technology, and a six-year Medicine. | Around 15,500 students, and three English-taught first-level degrees: Business Administration, Science and Technology, and a six-year integrated Medicine. |
+| `data/countries/ee.json` | `institutions[0].note` |  For 2026 its admissions page listed 3 English-taught first-level programmes and 25 master's. | (deleted) |
+| `data/countries/ee.json` | `institutions[4].note` | Its admissions page lists three English-taught curricula, two master's and the six-year combined Veterinary Medicine, applied for through DreamApply, with | It is applied for through DreamApply, with |
+
+#### Change 5: place rankings, and the canonical Destination records (14)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/ch.json` | `housing` | Zurich, Geneva and Lausanne have some of the tightest and most expensive rental markets in Europe, and student halls | Zurich, Geneva and Lausanne have tight, expensive rental markets, and student halls |
+| `data/countries/lu.json` | `costs.notes[2]` | Luxembourg has one of the highest costs of living in the EU, driven mainly by rent. | Living costs in Luxembourg are high, driven mainly by rent. |
+| `data/countries/lu.json` | `housing` | The country has one of the most expensive rental markets in the EU and the student population | The country has an expensive rental market, and the student population |
+| `data/topics/distinctive-options.json` | `options[7].what` | The oldest hospitality school in the world, founded in Lausanne in 1893, and part of | Founded in Lausanne in 1893, and part of |
+| `data/destinations/ch.json` | `whyConsider[0]` | ETH Zurich and EPFL are world-class, at a fraction of UK or US tuition. | ETH Zurich and EPFL teach science and engineering at a fraction of UK or US tuition. |
+| `data/destinations/ch.json` | `watchOuts[3]` | Living costs are among the highest in Europe. | Living costs are high. |
+| `data/destinations/ie.json` | `watchOuts[4]` | Dublin rents are among the highest in Europe and student accommodation is genuinely scarce. | Dublin rents are high and student accommodation is genuinely scarce. |
+| `data/destinations/de.json` | `whyConsider[1]` | The largest higher education system in the EU, with real strength across | A large higher education system, with real strength across |
+| `data/destinations/lu.json` | `watchOuts[3]` | Luxembourg is one of the most expensive places in the EU to rent. | Rent in Luxembourg is high. |
+| `data/countries/lv.json` | `application.selectionNotes` | SSE Riga is the most selective route in the country: it requires | SSE Riga is selective: it requires |
+| `data/countries/us.json` | `application.selectionNotes` | International admit rates at the most famous universities are in the low single digits; | International admit rates at the most selective universities are in the low single digits; |
+| `data/countries/nz.json` | `housing` | Otago is famous for its all-in residential first year in Dunedin. | Otago runs an all-in residential first year in Dunedin. |
+| `data/countries/ca.json` | `whyConsider[1]` | - Waterloo built its reputation on this. | - Waterloo is built around it. |
+| `data/countries/cn.json` | `language.englishTaughtBachelors` | The domestic elite universities offer only a handful, | The Chinese-run universities listed here offer only a handful, |
+
+#### Change 6: polish (3)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/be.json` | `institutions[10].note` | A clearly signposted application route for its English-taught bachelor's. | Several English-taught bachelor's, including business and multimedia routes, with a clearly signposted application route. |
+| `data/countries/hu.json` | `ibRecognition.notes[3]` | Szeged publishes an IB exemption: grade 5 | Of the medical schools on this page, Szeged is the one that publishes an IB exemption: grade 5 |
+| `data/countries/cz.json` | `institutions[10].note` | runs an entrance exam venue in Göteborg, in Sweden. | runs an entrance exam venue in Göteborg, a short trip from Denmark. |
