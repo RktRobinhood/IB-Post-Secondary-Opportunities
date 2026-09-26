@@ -12,12 +12,36 @@ This page says where the work stands, so the next session (human or agent) start
 
 ## 26 September (afternoon): cloud session, and the clean-state rule
 
-The owner: `main` is the product; branches and worktrees are temporary and always return to `main` (`docs/PARALLEL_WORK.md`, "`main` is the product").
+The owner: `main` is the product; branches and worktrees are temporary and always return to `main` (`docs/PARALLEL_WORK.md`, "`main` is the product"). **Usage ceiling for cloud runs: at 92% of the 5-hour window, stop every agent and update this section.**
 
-- **Live on `main`:** #53 globe rounds 1–2 (flat map removed, floats, the card is the link and appears once, sphere kept when zoomed, phone controls off the globe, schools on zoom, a still while it loads); #41 rounds 1–3 (unsourced rankings and research-log wording out of student text; `superlatives` and `research-log` guards); #42 planner round-4 fixes and the post-round-5 bug fixes (courses after results per applicant group; no green verdict on an open question).
-- **Critic scores so far:** #53 7 → round 2 being scored; #41 7, 7 → round 3 being scored; #42 round 5 (the cap) 6, bugs fixed since, verification running; programme pages (#43) 6, 6, 5 → round 4 in progress; #52 round 1 being scored.
-- **In flight, one branch:** `claude/upbeat-rubin-hnw28y` holds the programme pages (#43, with the former `feat-43-school-pages` work: BE and IE records, FI enrichment) and #52 (one card per programme across campuses). It merges whole into `main` once the programme pages stop showing wrong deadlines. The old branches `feat-43-school-pages`, `globe-desk` and `wip/agents-2026-09-25` are **dead**: fully contained in it, never to be worked on again.
-- **Blocked in the cloud:** university sites and Wikimedia are not reachable from this environment, so wave-2/3 school research (ES/IT/FR/PT…, Asia, the Americas), the BE/IE/FI admissions critics and #54 degree photos wait for a session with web access.
+### Live on `main`
+- **#53 globe, rounds 1–3:** flat map removed; floats; the card is the link and appears once (no "Open …" line, no two-step flash); stays a sphere; phone controls above and card below the globe; schools on zoom with readable names and photos; a still while it loads; a clean arrival on a chosen country (US numbers add up).
+- **#41, rounds 1–5:** unsourced rankings and research-log wording out of student text; `superlatives` and `research-log` guards read every student page; evidence disclosure shows the site's own verification label.
+- **#42 planner:** round-4 fixes plus three rounds of verification fixes (courses after results per applicant group; no Possible on an unrecorded permission or a quota-2 route no record joins; open questions shown as "?"; phone order badge → step → why). 302 eligibility scenarios.
+- **Research leads** (`docs/research/schools/leads/`): official URLs found by web search for ES, IT, FR, PT, PL, CZ, HU, EE, LV, LT, SI, MT, GR, US, CA, AU (discovery, not facts). Possible errors in live country pages they suggest are on issue #41.
+- **Owner rules:** ship to `main`; catalogue schools get flagship programme pages and a faculties list (`docs/research/schools/BRIEF.md`).
+
+### Critic scores
+| Piece | Rounds | State |
+|---|---|---|
+| #53 globe (owner notes) | 7, 7.5, 7 | round 4 in progress: Back restores the globe; European countries land on their schools with numbers that add up; desktop lean-in |
+| #41 | 7, 7, 7, 7 | round 5 (last) critic running |
+| #42 planner | 6, 6, 7, 7, 6 (cap), then verifications 7, 7 | third verification running |
+| #43 programme pages | 6, 6, 5, 5 | round 5 (last) in progress: 11 pages showed an Apply-by later than the programme's own deadline; fix those first, with a whole-site guard |
+| #52 one card per programme | 6 | round-2 fixes done; critic running |
+
+### In flight: one branch
+`claude/upbeat-rubin-hnw28y` holds the programme pages (#43, with the former `feat-43-school-pages` work: BE and IE records, FI enrichment) and #52. It merges whole into `main` once no programme page shows a deadline later than its own text (round-4 critic: ~540 of 571 pages already better than what is live). The old branches `feat-43-school-pages`, `globe-desk` and `wip/agents-2026-09-25` are **dead**: fully contained in it.
+
+### To resume
+1. Programme pages round 5 → critic → if no page misleads, merge `claude/upbeat-rubin-hnw28y` into `main` (gate on a clean copy of `main` first), then delete the branch.
+2. Globe round 4 → critic (round 5 is the cap).
+3. Build flagships + faculties for catalogue schools (schema, page, guard) after #43 lands.
+4. With web access (a local machine): turn leads into `data/schools/<key>.json` records per BRIEF.md, wave 2 first; check the #41 lead items (Lithuania LAMA BPO, Portugal access route, Ljubljana, Malta); #54 degree photos; the BE/IE/FI admissions critics.
+5. Leads still missing: NZ, SG, HK, JP, KR, CN, AE (an agent was running them; check `docs/research/schools/QUEUE.md`).
+
+### Blocked in the cloud
+University sites, Wikipedia and Wikimedia are not reachable from this environment; only GitHub and web search are. Branch deletion and tag pushes are refused by the proxy.
 
 ## For the next session on a local machine (not the cloud)
 
