@@ -1,0 +1,14 @@
+# nl-ucr — University College Roosevelt, Middelburg (retrieved 2026-09-25)
+
+- Scope listed, 1 programme: Liberal Arts & Sciences, BA or BSc, 3 years (curriculum page: "three-year Bachelor's in Liberal Arts & Sciences", "24 courses, worth 180 credits in total"; BSc with 12+ science-cluster courses, otherwise BA).
+- Hand-off https://ucr.nl/admissions/application-process/ (single-programme college: how-to-apply page, 1 programme). Programme URL is UCR's own https://ucr.nl/education/liberal-arts-sciences/ (the nl.json website is https://ucr.nl/).
+- National-source cross-check: listed in both Studiekeuze123 and Study in NL; nothing excluded. Study in NL says "3.5 years"; UCR's curriculum page and UU's page say 3 years, used 3.
+- Deadlines: UCR's own page prints no years: "Apply by March 1 if you also wish to apply for a scholarship", "Apply by April 1 if you are not applying for a scholarship and have a non-European passport", "Apply by May 1 ... European passport". The recorded dates cite Study in NL, which prints for "Start date: 1 Sep '27": "App. deadline EU/EEA: 1 May '27", "App. deadline Non-EU/EEA: 1 Apr '27". The scholarship date (1 March) is only a note, since no year is printed anywhere.
+- Official pages disagree: UU's UCR page says deadlines "before 1 April / 15 May" and shows 2025-2026 fees ("€ 4,845 (EU/EEA)"); UCR's own pages (1 April / 1 May; 2026-2027 fees) were used.
+- February 2027 intake exists (Study in NL: "Start date: 1 Feb '27", EU/EEA deadline "1 Nov '26", non-EU "1 Oct '26"); not recorded as dates because the record is for autumn 2027; mentioned in the summary.
+- IB: "International Baccalaureate DP with a minimum of 30 out of 42 points (excluding TOK, EE & CAS)." "Not admissible are: IBCP, IB Certificates". English exemption: "Completed the International Baccalaureate Diploma in English, or Completed a bilingual International Baccalaureate Diploma with English A HL or a 6/7 for English B HL".
+- Tuition (UCR fees page): "€5,105 for students with a European nationality" and "€12,045 ... non-European nationality", stated for 2026-2027; 2027-28 not yet published, so "€5,105 (2026/27)".
+- Housing: "all students live on campus as part of our residential learning community"; "around €400 per month for your room, plus an additional €150 per month in service costs".
+- Selection: OSIRIS form with up to 3 referees and transcripts, then a Kira online assessment ("four video responses", two written); offer accepted within two weeks with a "€300 non-refundable deposit" deducted from tuition.
+- Contradicts data/countries/nl.json: nothing; nl.json admissionsUrl https://ucr.nl/admissions/ is a hub whose figures ("places available each year") render empty.
+- Unverified: when applications open ("Early October" of the year before, no year printed); final-diploma deadline not found on UCR pages.

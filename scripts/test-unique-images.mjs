@@ -16,7 +16,10 @@
  *      compared by URL, and may only repeat within one programme family.
  *   3. **Built pages.** On every built page, no two programme cards that are
  *      different cards draw the same background, and the finder and planner
- *      data agree with the cards.
+ *      data agree with the cards. A school's photograph is one slot with its
+ *      page, its card and its own programmes' pages (docs/STATUS.md, #43): a
+ *      programme page under /universities/<key>/ shows its school's hero or
+ *      none, and that photograph heads no page outside its school.
  *   4. **No special cases.** src/lib/families.mjs and the resolver name no
  *      programme, institution or country.
  *
@@ -191,6 +194,43 @@ check('on every built page, two different cards never draw one background', () =
     for (const [key, cs] of seen) if (cs.size > 1) bad.push(`${path.relative(DIST, f)}: ${key} on ${[...cs].join(', ')}`);
   }
   assert.ok(pages > 0, 'no built page carries a card background');
+  assert.deepEqual(bad, []);
+});
+
+check("a school's photograph heads only its own page and its own programmes' pages", () => {
+  const root = path.join(DIST, 'universities');
+  assert.ok(fs.existsSync(root), 'dist/universities/ is not built');
+  const heroOf = (f) => (fs.readFileSync(f, 'utf8').match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || null;
+  // Every hero on the site, by the page it heads.
+  const heroes = new Map();
+  for (const f of htmlFiles(DIST)) {
+    const src = heroOf(f);
+    if (src) heroes.set(path.relative(DIST, f).split(path.sep).join('/'), src);
+  }
+  const bad = [];
+  let pages = 0;
+  for (const key of fs.readdirSync(root)) {
+    const dir = path.join(root, key);
+    if (!fs.statSync(dir).isDirectory()) continue;
+    const school = heroes.get(`universities/${key}/index.html`) || null;
+    let children = 0;
+    for (const slug of fs.readdirSync(dir)) {
+      const f = path.join(dir, slug, 'index.html');
+      if (!fs.existsSync(f)) continue;
+      pages++;
+      children++;
+      const own = heroOf(f);
+      if (own && own !== school) bad.push(`universities/${key}/${slug}/: hero ${own} is not its school's (${school || 'none'})`);
+    }
+    /* A canonical Institution's photograph heads its Programmes' pages under
+       /programmes/, by the older rule; only a school with programme pages of
+       its own is held to its own directory. */
+    if (!school || !children) continue;
+    for (const [page, src] of heroes) {
+      if (src === school && !page.startsWith(`universities/${key}/`)) bad.push(`${page}: heads with ${key}'s photograph`);
+    }
+  }
+  assert.ok(pages > 0, 'no programme page under a school was built');
   assert.deepEqual(bad, []);
 });
 

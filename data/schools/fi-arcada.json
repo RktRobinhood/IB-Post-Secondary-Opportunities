@@ -1,7 +1,7 @@
 {
   "institution": "fi-arcada",
   "name": "Arcada University of Applied Sciences",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "Swedish-speaking applied-sciences university in Helsinki; three English bachelor's in IT, business and sustainable engineering, won on IB grades.",
@@ -26,13 +26,13 @@
     { "label": "Final IB grades due through IBIS, 15:00", "date": "2027-07-13", "kind": "documents", "who": "any", "url": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/joint-application/apply-international-business" }
   ],
   "programmes": [
-    { "name": "Information Technology", "credential": "BEng", "years": 4, "field": "computing", "url": "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/information-technology", "ib": "Maths at grade 2 in AA (SL or HL) or AI HL, or grade 4 in AI SL (Arcada's A/C rule on the UAS IB table); 12 places, 9 for matriculation/IB applicants.", "tuitionEuEea": "Free" },
-    { "name": "International Business", "credential": "BBA", "years": 3.5, "field": "business", "url": "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/international-business", "ib": "25 places, 20 for matriculation/IB applicants.", "tuitionEuEea": "Free" },
-    { "name": "Mechanical and Sustainable Engineering", "credential": "BEng", "years": 4, "field": "engineering", "url": "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/mechanical-and-sustainable-engineering", "ib": "Maths at grade 2 in AA (SL or HL) or AI HL, or grade 4 in AI SL (Arcada's A/C rule on the UAS IB table); 8 places, 6 for matriculation/IB applicants.", "tuitionEuEea": "Free" }
+    { "name": "Information Technology", "credential": "BEng", "years": 4, "field": "computing", "url": "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/information-technology", "about": "Software development for web, mobile and cloud, with a specialisation in Intelligent Robotics or in Data Processing and Analytics, plus internships and research projects with industry.", "ib": "Maths at grade 2 in AA (SL or HL) or AI HL, or grade 4 in AI SL (Arcada's A/C rule on the UAS IB table); 12 places, 9 for matriculation/IB applicants.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai@HL"],"level":"any","grade":2,"note":"AI SL at grade 4 also counts (UAS IB table: 2 = A, 4 = C)."}], "selection": ["grades","test-score"], "selectionNote": "January: ranked on IB grades with the UAS scoring table, 60 points minimum, 9 places. The separate application adds 28 places for SAT, ACT or OMPT holders.", "places": 40, "tuitionEuEea": "Free", "requirementsUrl": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/joint-application/apply-information-technology" },
+    { "name": "International Business", "credential": "BBA", "years": 3.5, "field": "business", "url": "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/international-business", "about": "Sustainable business solutions built with digital tools and industry systems, specialising in Strategic Marketing, Logistics and Trade, or Accounting, with work placements in Finland or abroad.", "ib": "25 places, 20 for matriculation/IB applicants.", "selection": ["grades","test-score"], "selectionNote": "January: ranked on IB grades with the UAS scoring table, 60 points minimum, 20 places. The separate application adds 55 places for SAT, ACT or OMPT holders.", "places": 80, "tuitionEuEea": "Free", "requirementsUrl": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/joint-application/apply-international-business" },
+    { "name": "Mechanical and Sustainable Engineering", "credential": "BEng", "years": 4, "field": "engineering", "url": "https://www.arcada.fi/en/study-arcada/bachelors-degree-programmes/mechanical-and-sustainable-engineering", "about": "Engineering, sustainability and digitalisation combined for carbon-neutral solutions: materials characterisation, product design and manufacturing technology, in small groups.", "ib": "Maths at grade 2 in AA (SL or HL) or AI HL, or grade 4 in AI SL (Arcada's A/C rule on the UAS IB table); 8 places, 6 for matriculation/IB applicants.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai@HL"],"level":"any","grade":2,"note":"AI SL at grade 4 also counts (UAS IB table: 2 = A, 4 = C)."}], "selection": ["grades","test-score"], "selectionNote": "January: ranked on IB grades with the UAS scoring table, 60 points minimum, 6 places. The separate application adds 17 places for SAT, ACT or OMPT holders.", "places": 25, "tuitionEuEea": "Free", "requirementsUrl": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/joint-application/apply-mechanical-and-sustainable-engineering" }
   ],
   "notes": [
-    "Intakes are tiny: 45 places across the three degrees, most of them reserved for matriculation and IB applicants.",
-    "If your IB grades miss the thresholds, a separate application (30 October 2026 to 19 April 2027) accepts SAT, ACT or the OMPT maths test instead.",
+    "In the January joint application only 35 places (IT 9, International Business 20, Engineering 6) go to matriculation-type diplomas such as the IB.",
+    "If your IB grades miss the thresholds, a separate application (30 October 2026 to 19 April 2027) accepts SAT, ACT or the OMPT maths test instead, with 100 more places; it may close early once full.",
     "Arcada's fourth English programme, Nursing TopUp, is only for nurses already qualified outside the EU/EEA."
   ],
   "sources": [
@@ -42,6 +42,9 @@
     { "title": "Arcada — Apply to Information Technology (joint application)", "url": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/joint-application/apply-information-technology", "retrieved": "2026-09-25" },
     { "title": "Arcada — Apply to Mechanical and Sustainable Engineering (joint application)", "url": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/joint-application/apply-mechanical-and-sustainable-engineering", "retrieved": "2026-09-25" },
     { "title": "UAS info — Certificate-based selection, IB scoring table (IB 7/6/5/4/3/2 = L/E/M/C/B/A; AA SL/HL and AI HL count as advanced maths, AI SL as basic)", "url": "https://www.uasinfo.fi/certificate-based-selection/", "retrieved": "2026-09-25" },
-    { "title": "Studyinfo — Arcada International Business, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041180", "retrieved": "2026-09-25" }
+    { "title": "Studyinfo — Arcada International Business, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041180", "retrieved": "2026-09-25" },
+    { "title": "Arcada — Separate application 30 Oct 2026 – 19 Apr 2027 (IT 28, International Business 55, Engineering 17 places)", "url": "https://www.arcada.fi/en/study-arcada/application/bachelors-application/separate-application", "retrieved": "2026-09-26" },
+    { "title": "Studyinfo — Arcada Information Technology 2027 (joint application 12 places; separate application 28)", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041181", "retrieved": "2026-09-26" },
+    { "title": "Studyinfo — Arcada Mechanical and Sustainable Engineering 2027 (joint application 8 places; separate application 17)", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000041182", "retrieved": "2026-09-26" }
   ]
 }

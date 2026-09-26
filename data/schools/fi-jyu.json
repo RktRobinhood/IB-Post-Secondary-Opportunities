@@ -1,7 +1,7 @@
 {
   "institution": "fi-jyu",
   "name": "University of Jyväskylä",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "University in Jyväskylä, central Finland; three English bachelor's: sustainable business, project-based software and AI, and early childhood.",
@@ -25,14 +25,14 @@
     { "label": "Official final IB grades due, and deadline to accept your place", "date": "2027-07-13", "kind": "documents", "who": "any", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes" }
   ],
   "programmes": [
-    { "name": "Business Innovation and Sustainability", "credential": "BSc (Economics and Business Administration)", "years": 3, "field": "business", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability", "ib": "Certificate-based admission (group I) on IB grades; results by 28 May 2027.", "tuitionEuEea": "Free" },
-    { "name": "Immersive Software Engineering and AI", "credential": "BSc (Tech)", "years": 3, "field": "computing", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence", "ib": "Online admission test, 10–11 February 2027, then online interviews, 17–24 March 2027.", "tuitionEuEea": "Free" },
-    { "name": "Early Childhood Education", "credential": "Bachelor of Arts (Education)", "years": 3, "field": "education", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education", "ib": "Includes an online interview, 17–24 March 2027.", "tuitionEuEea": "Free" }
+    { "name": "Business Innovation and Sustainability", "credential": "BSc (Economics and Business Administration)", "years": 3, "field": "business", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability", "about": "Science-based business studies focused on sustainability, international business, corporate responsibility, innovation management, strategy and entrepreneurship. Admits you to a 3+2 bachelor's and master's.", "ib": "Certificate-based admission (group I) on IB grades; results by 28 May 2027.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai"],"level":"any","grade":2,"note":"National business threshold: grade 2 in any IB maths."}], "selection": ["grades","test-score"], "selectionNote": "Group 1: 12 places ranked on IB grades with the national business table, 10 kept for first-time applicants. The other 18 go on SAT (1100+) or ACT (22+).", "places": 30, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936/valintaperuste" },
+    { "name": "Immersive Software Engineering and AI", "credential": "BSc (Tech)", "years": 3, "field": "computing", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence", "about": "Software engineering, artificial intelligence, mathematics and entrepreneurship learned through projects in small teams instead of lectures, with two paid internships in IT companies.", "ib": "Online admission test, 10–11 February 2027, then online interviews, 17–24 March 2027.", "selection": ["entrance-exam","interview"], "selectionNote": "An online exam (10–11 Feb 2027) on problem solving, maths and English picks about 100 applicants for an online interview. IB grades do not count.", "places": 30, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373/valintaperuste" },
+    { "name": "Early Childhood Education", "credential": "Bachelor of Arts (Education)", "years": 3, "field": "education", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education", "about": "Research-based studies of childhood and early childhood education with supervised teaching practice, qualifying you as an early childhood teacher in Finland; Finnish is built into the degree.", "ib": "SAT (1100+) or ACT (22+) is needed to reach the online interview, 17–24 March 2027; IB grades are not used. Finnish is taught within the degree.", "selection": ["test-score","interview"], "selectionNote": "Ranked on SAT or ACT; about three to four times as many as there are places get an online interview, and the interview score decides.", "places": 25, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642/valintaperuste" }
   ],
   "notes": [
     "Early Childhood Education is functionally bilingual: taught in English with Finnish built in, and it qualifies you to work as an early childhood teacher in Finland.",
     "Immersive Software Engineering and AI replaces lectures with project work and includes two four-month company internships.",
-    "Programme-specific admission criteria for 2027 were not yet public on Studyinfo on 25 September 2026."
+    "Only Business Innovation and Sustainability ranks on IB grades, and only 12 of its 30 places; the other two programmes select by exam or SAT/ACT plus interview."
   ],
   "sources": [
     { "title": "University of Jyväskylä — How to apply for international bachelor's programmes", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/how-to-apply-for-international-bachelors-programmes", "retrieved": "2026-09-25" },
@@ -40,6 +40,10 @@
     { "title": "University of Jyväskylä — Business Innovation and Sustainability", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-business-innovation-and-sustainability", "retrieved": "2026-09-25" },
     { "title": "University of Jyväskylä — Immersive Software Engineering and AI", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-programme-in-immersive-software-engineering-and-artificial-intelligence", "retrieved": "2026-09-25" },
     { "title": "University of Jyväskylä — Early Childhood Education", "url": "https://www.jyu.fi/en/study-with-us/bachelors-degree-programmes/bachelors-degree-in-early-childhood-education", "retrieved": "2026-09-25" },
-    { "title": "Studyinfo — JYU Business Innovation and Sustainability, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042620", "retrieved": "2026-09-25" }
+    { "title": "Studyinfo — JYU Business Innovation and Sustainability, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000042620", "retrieved": "2026-09-25" },
+    { "title": "Studyinfo — JYU Business Innovation and Sustainability 2027 admission criteria (12 certificate, 18 SAT/ACT places)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000098936/valintaperuste", "retrieved": "2026-09-26" },
+    { "title": "Studyinfo — JYU Immersive Software Engineering and AI 2027 admission criteria (online exam, interview; 30 places)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100373/valintaperuste", "retrieved": "2026-09-26" },
+    { "title": "Studyinfo — JYU Early Childhood Education 2027 admission criteria (SAT/ACT pre-selection, interview; 25 places)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000100642/valintaperuste", "retrieved": "2026-09-26" },
+    { "title": "Yliopistovalinnat.fi — Scoring 2026, business: IB threshold 'At least grade 2 in mathematics (advanced or basic syllabus)'", "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/business", "retrieved": "2026-09-26" }
   ]
 }

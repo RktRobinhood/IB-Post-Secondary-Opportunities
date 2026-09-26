@@ -448,8 +448,9 @@ function project(graph, ibSubjectNames = new Map(), subjectIndex = null) {
  * assesses correctly and the page cannot draw is worse than one we never
  * recorded — the student is told there is nothing to meet.
  */
-/** A requirement published in IB terms, as an option the phrase-maker reads. */
-function ibOption(r, subjectIndex) {
+/** A requirement published in IB terms, as an option the phrase-maker reads.
+    Also how a school record's `needs` are named (src/pages/school-programme.mjs). */
+export function ibOption(r, subjectIndex) {
   const found = subjectIndex?.get(r.ibSubject);
   return {
     id: r.ibSubject,

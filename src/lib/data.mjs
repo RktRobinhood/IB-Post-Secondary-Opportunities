@@ -15,7 +15,11 @@ import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
 import { backdropResolver } from './programme-imagery.mjs';
 import { cardKey } from './families.mjs';
-import { schoolKey, loadSchools, hostOf } from './schools.mjs';
+import { schoolKey, loadSchools, hostOf, programmePaths } from './schools.mjs';
+
+/* A school record with each listed programme's page address on it (#43). */
+const withProgrammePages = (key, rec) =>
+  rec ? { ...rec, programmes: rec.scope === 'listed' ? programmePaths(key, rec.programmes) : rec.programmes || [] } : null;
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -213,7 +217,7 @@ export async function load() {
         key,
         countryCode: c.code,
         canonicalId: canonicalTwin?.id || null,
-        school: canonicalTwin ? null : schools.get(key) || null,
+        school: canonicalTwin ? null : withProgrammePages(key, schools.get(key)),
         href: canonicalTwin ? canonicalTwin.href || `/universities/${canonicalTwin.id}/` : `/universities/${key}/`,
       };
     });

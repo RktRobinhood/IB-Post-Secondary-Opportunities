@@ -774,6 +774,13 @@ export function ibTermsPhrase(options = [], subjectIndex = null) {
     byLevels.get(key).push(o);
   }
 
+  /* Courses of one family at different levels, and nothing else: the family
+     named once, each course with its own levels — "Maths AA (SL or HL) or AI
+     HL", never "Maths AI HL or Maths AA". */
+  if (!clauses.length && byLevels.size > 1 && rest.every((o) => o.family && o.course && o.family === rest[0].family)) {
+    return `${rest[0].family} ${orList([...byLevels.values()].map((g) => withLevels(orList(g.map((o) => o.course)), g[0].levels)))}`;
+  }
+
   for (const group of byLevels.values()) {
     const levels = group[0].levels;
     const named = [];

@@ -8,13 +8,18 @@
  *   1. every institution in data/countries/ has a page under /universities/;
  *   2. every institution card on a country page links to a page on this site;
  *   3. no link on a school page that leaves the site is a homepage;
- *   4. a school record listing programmes renders one card per programme.
+ *   4. a school record listing programmes renders one card per programme;
+ *   5. each listed programme has its own page under its school, the school's
+ *      page links to it, and nothing on it that leaves the site is a homepage;
+ *   6. a programme page's "Apply by" is a date from the programme (`closes`),
+ *      its school record (`dates`), or a route date tied to that school by id
+ *      (`institutions`), never a route's general date for other programmes.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKeys, loadSchools, isHomepage } from '../src/lib/schools.mjs';
+import { schoolKeys, loadSchools, isHomepage, programmePaths } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -27,12 +32,52 @@ const read = (p) => {
   return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
 };
 
+/* Where a programme page's "Apply by" may come from (rule 6). */
+const milestones = fs
+  .readdirSync(path.join(ROOT, 'data', 'application-routes'))
+  .filter((f) => f.endsWith('.json'))
+  .flatMap((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'application-routes', f), 'utf8')).milestones || []);
+function applyByAllowed(key, rec, prog, iso) {
+  if (prog.closes === iso) return true;
+  if ((rec.dates || []).some((d) => d.date === iso)) return true;
+  return milestones.some((m) => (m.institutions || []).includes(key) && (m.date === iso || m.endDate === iso));
+}
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const isoOf = (text) => {
+  const m = String(text).trim().match(/^(\d{1,2}) ([A-Z][a-z]+) (\d{4})$/);
+  const month = m ? MONTHS.indexOf(m[2]) + 1 : 0;
+  return month ? `${m[3]}-${String(month).padStart(2, '0')}-${m[1].padStart(2, '0')}` : null;
+};
+
 /* Self-test: the homepage rule must catch a homepage and pass a targeted page. */
 if (!isHomepage('https://www.helsinki.fi/en', null) || isHomepage('https://www.helsinki.fi/en/admissions', null)) {
   console.log('  FAIL  self-test: isHomepage cannot tell a homepage from a targeted page');
   process.exit(1);
 }
 console.log('  ok    self-test: a homepage is caught, a targeted page passes');
+
+/* Self-test: the Apply-by rule must refuse the two route dates that reached
+   programme pages in review round 1 (a national medicine date on an aerospace
+   degree; a numerus fixus date on a degree not recorded as one) and accept the
+   school's own closing date. */
+{
+  const seeds = loadSchools(path.join(ROOT, 'data', 'schools'));
+  const prog = (key, slug) => programmePaths(key, seeds.get(key)?.programmes || []).find((p) => p.slug === slug);
+  const cases = [
+    ['de-tum', 'aerospace', '2027-05-31', false],
+    ['nl-radboud', 'artificial-intelligence', '2027-01-15', false],
+    ['de-tum', 'aerospace', '2027-07-15', true],
+  ];
+  const wrong = cases.filter(([key, slug, iso, want]) => {
+    const p = prog(key, slug);
+    return !p || applyByAllowed(key, seeds.get(key), p, iso) !== want;
+  });
+  if (wrong.length || isoOf('15 July 2027') !== '2027-07-15') {
+    console.log(`  FAIL  self-test: the Apply-by rule misjudges ${wrong.map((w) => `${w[0]}/${w[1]} ${w[2]}`).join(', ') || 'a date'}`);
+    process.exit(1);
+  }
+  console.log("  ok    self-test: a route date for other programmes is refused as Apply by; the school's own passes");
+}
 
 const known = schoolKeys(path.join(ROOT, 'data', 'countries'));
 const records = loadSchools(path.join(ROOT, 'data', 'schools'));
@@ -42,6 +87,8 @@ const countries = fs
   .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'countries', f), 'utf8')));
 
 let pages = 0;
+let programmePages = 0;
+let applyTiles = 0;
 let cards = 0;
 for (const c of countries) {
   const countryPage = read(`destinations/${c.code}`);
@@ -79,6 +126,28 @@ for (const [key, inst] of known) {
   if (rec?.scope === 'listed') {
     const shown = (main.split('id="programmes"')[1] || '').match(/class="card card--link/g)?.length || 0;
     if (shown !== rec.programmes.length) fail(`/universities/${key}/ shows ${shown} programme cards; its record lists ${rec.programmes.length}`);
+    for (const p of programmePaths(key, rec.programmes)) {
+      const own = read(p.href.slice(1, -1));
+      if (!own) {
+        fail(`${p.href} was not built for "${p.name}"`);
+        continue;
+      }
+      programmePages++;
+      if (!main.includes(`href="${BASE}${p.href}"`)) fail(`/universities/${key}/ does not link to ${p.href}`);
+      const body = own.split('<main')[1]?.split('</main>')[0] || '';
+      for (const m of body.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
+        const link = m[1].replace(/&amp;/g, '&');
+        if (isHomepage(link, inst.website)) fail(`${p.href} hands the student to a homepage: ${link}`);
+      }
+      const tile = body.match(/<dt>Apply by<\/dt>\s*<dd>([^<]+)/)?.[1];
+      if (tile) {
+        const iso = isoOf(tile);
+        if (!iso || !applyByAllowed(key, rec, p, iso)) fail(`${p.href}: "Apply by ${tile.trim()}" is not the programme's, its school's, or a date tied to the school`);
+        applyTiles++;
+      }
+      // The hand-off is the programme's own page, and it is the page's last word.
+      if (!body.includes(`href="${p.url.replace(/&/g, '&amp;')}"`)) fail(`${p.href} does not hand on to the programme's own page`);
+    }
   }
 }
 
@@ -89,5 +158,10 @@ if (failures.length) {
   if (failures.length > 40) console.log(`  … and ${failures.length - 40} more`);
   process.exit(1);
 }
-console.log(`  ok    ${pages} school pages, ${cards} institution cards on country pages; none hands a student to a homepage`);
-void BASE;
+if (!programmePages) {
+  console.log('  FAIL  no programme pages found under any listed school — has the markup changed?');
+  process.exit(1);
+}
+console.log(
+  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school), ${cards} institution cards on country pages; none hands a student to a homepage`
+);

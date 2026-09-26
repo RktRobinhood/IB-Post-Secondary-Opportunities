@@ -17,6 +17,26 @@ export function schoolKey(countryCode, inst) {
   return `${countryCode}-${slugify(inst.shortName || inst.name)}`;
 }
 
+/**
+ * Where each programme of a listed school record has its own page:
+ * /universities/<key>/<slug>/, the slug from the programme's name. Two
+ * programmes with one name are told apart by their credential, then their
+ * city, then their place in the record, so a slug is unique within its school
+ * and stays put while the record is edited around it. The build, the school
+ * page's cards and the school-pages guard all read it from here.
+ */
+export function programmePaths(key, programmes = []) {
+  const taken = new Set();
+  return programmes.map((p, i) => {
+    const base = slugify(p.name) || 'programme';
+    const tries = [base, `${base}-${slugify(p.credential)}`, `${base}-${slugify(p.credential)}-${slugify(p.city)}`];
+    let slug = tries.find((s) => !s.endsWith('-') && !taken.has(s)) || `${base}-${i + 1}`;
+    while (taken.has(slug)) slug = `${slug}-${i + 1}`;
+    taken.add(slug);
+    return { ...p, slug, href: `/universities/${key}/${slug}/` };
+  });
+}
+
 /** Every profile institution by key, read straight from data/countries/. */
 export function schoolKeys(countriesDir) {
   const out = new Map();

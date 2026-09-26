@@ -2932,3 +2932,29 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
   background: linear-gradient(to bottom, rgba(8, 20, 18, .55), transparent);
 }
 .hero--panel:has(.crumbs)::before, .hero--plain:has(.crumbs)::before { display: none; }
+
+/* A programme's requirement in its institution's words, as one card
+   (src/pages/school-programme.mjs): read as the requirement, not as a note. */
+.need__said { color: var(--ink); line-height: 1.45; }
+.need__card .need__why + .need__said { flex-basis: 100%; }
+
+/* A school's programme card opens its page: the foot says so (#43). */
+.card--prog .card__foot { color: var(--accent); font-weight: 600; }
+/* A panel or plain hero sits on paper: its trail needs no shadow. */
+.hero--panel .crumbs, .hero--plain .crumbs { text-shadow: none; }
+/* Chips under a topic's heading line up with its text. */
+.prose .topic__short .tags { padding-left: 0; }
+/* The facts strip never ends on an empty cell: eight facts are two rows of
+   four on a wide screen, and an odd last fact on a phone takes the whole row. */
+@media (min-width: 40.01rem) {
+  .glance:has(> .glance__item:nth-child(8):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 40rem) {
+  .glance__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+/* A school programme's siblings, one row each in the reading column. */
+.prog-siblings { display: grid; gap: var(--s3); margin-top: var(--s4); }
+/* How places are decided, as one card: the chips, then the school's line. */
+.need__card--plain { background: var(--paper-2); }
+.need__card--plain .tags { margin: 0; flex-basis: 100%; }
+.need__card--plain .need__said { flex-basis: 100%; }
