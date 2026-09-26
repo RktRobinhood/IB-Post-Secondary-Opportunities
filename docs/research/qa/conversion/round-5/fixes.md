@@ -534,3 +534,165 @@ excerpt. That needs web access, so nothing was faked here.
 - Not mine and left alone: UCPH still says "not published on the
   English-language pages checked" in `data/institutions/dk-ucph.json` and
   `data/dk/ucph.json`.
+
+## Verification fixes (verification-after-round-5.md, scored 7/10)
+
+The verification found three problems:
+- **A.** 7 cards were "possible" on a national permission nobody had
+  recorded;
+- **B.** 4 cards for P7 were "possible" on a question this file listed as
+  open;
+- **C.** "Your way in is quota 2" appeared on 12 cards where a course would
+  supply the missing grade, and it hid the step.
+
+Changes 1–5 are done in full. Changes 6–8 are mostly done.
+
+Gate: `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes
+37/37 with exit 0. Eligibility has 276 scenarios, and the README is updated.
+ib-terms has 816 checks. Every check named below is in
+`scripts/test-eligibility.mjs` or ib-terms.
+`planner-verdicts.txt` has been regenerated in `after-verification/`, and the
+phone shots are there too.
+
+### 1. The national count after the results is conditional
+
+- The national rule allows one course after 5 July only "where the programme
+  accepts it". So `data/recognition/dk.json` now records:
+  - `levelRaise.afterResults: null` (not recorded);
+  - `afterResultsIfAccepted: 1`;
+  - `unknownAfterResults`: "Whether this programme accepts summer
+    supplementation is not recorded here — ask the institution; otherwise the
+    course has to be passed before your IB results."
+- A count is used only where an institution record confirms it:
+  - AU: 2;
+  - SDU EU/EEA: 1, from "conditional on you passing the supplementary
+    course(s) by 31 August", which means at least one;
+  - ITU fee-exempt: 1, from conditional admission with the pass due by
+    1 September;
+  - SDU non-EU: 0;
+  - CBS: 0;
+  - ITU without fee exemption: 0.
+- A plan that fits only if the unrecorded permission is given is "Needs
+  review", headed "To check".
+- The legend now says "…no more than the university is recorded as allowing
+  after your results".
+- These seven cards are no longer "possible":
+  - VIA GBE for P1, P5 and P7;
+  - AAU AIE, Absalon Robot Systems and VIA STE (both) for P2.
+- **Guards:**
+  - no "possible" in the catalogue rests on a raise whose count is not
+    recorded;
+  - the seven named cards are not possible;
+  - the "not recorded" line is said;
+  - the unit scenarios were updated: the national rule gives Needs review,
+    and SDU EU/EEA gives Possible.
+
+### 2. No "your way in is quota 2" when the plan supplies the missing subject
+
+- A quota floor on a subject the student does not hold yet is now
+  `status: 'unknown'` when a gap's supplementary course will supply that
+  subject. It reads "Also needs a 5 in Maths HL (AA or AI) — that will be the
+  grade from your course."
+- The card's quota 2 line appears only for floors that stay unmet whatever the
+  plan does: a total, or a grade the student already holds.
+- **Guards:**
+  - P1 at AU CS, DS and ITPD: no quota 2 line, and the floor says "grade from
+    your course";
+  - P8 at AU CS still shows the quota 2 line.
+
+### 3. Every open question is a "?"
+
+- AU gained a non-EU group: `afterResults: null`, `afterResultsIfAccepted: 2`,
+  and the line "Whether AU's conditional admission after 5 July is open to
+  applicants from outside the EU/EEA is not recorded — ask AU…".
+- The national rule is not recorded for anyone, so it covers the non-EU case
+  too.
+- Maastricht's maths rule gained `openFor` for non-EU applicants: "the date
+  for applicants from outside the EU/EEA is not recorded — ask Maastricht". A
+  plan that depends on it is "Needs review".
+- P7 is now "Needs review" at AU CS, DS and ITPD, VIA GBE and Maastricht DSAI.
+- **Guard:** each item in the list below maps to a scenario that checks both
+  the "?" or "not met" verdict and its wording. A test counts the bullets under
+  the last "### Still needs a source" heading in this file and fails if the
+  count differs from the scenarios, so the list and the data cannot drift.
+
+### 4. The caution leads
+
+- A mapping with a scheme `caution` now leads with the caution. P9 at ITU GBI
+  reads "Danish A: Literature SL for Danish A (SL or HL): at SL the handbook
+  formally counts this as Danish B; …".
+- ITU's English test: ITU's quoted sentence ("The specific admission
+  requirement in English may be met by submitting one of the approved English
+  tests") is unconditional, so the "confirm with ITU" hedge was removed from
+  the ITU DS and GBI test notes. P5 at ITU DS stays "possible".
+- A met "one of" now leads with the option that met it and ends with "(One of
+  the n accepted options.)".
+- **Guards:**
+  - no caution's first sentence says "counts as";
+  - no "possible" gap says "confirm with".
+
+### 5. SEA's open question is on the SEA programme pages
+
+- The "Which IB award" box on SEA CS and SEA MMD now carries "**But:** English
+  documented with a test … — SEA exempts 'an International Baccalaureate
+  exam'; whether that includes DP Course Results is not published". The box
+  turns amber.
+- **Guard** (ib-terms): every requirement with an `openQuestion` has it on its
+  programme page.
+
+### 6–8. Phone (mostly done)
+
+Done:
+- The badge now sits directly under the title. Under it come "Your way in",
+  or the one-line "To do", "To check", "For 2027" or "Our limit", then the
+  quota 2 line where it applies, then "Why this result".
+- Every "possible" card has a one-line step, including single steps:
+  - "Mathematics at A level as a supplementary course. An EU/EEA applicant who
+    has not finished by 5 July is offered a place conditional on passing by
+    31 August";
+  - tests keep their dates, as in "… — CBS must have the result by 5 July,
+    12:00".
+  - Guard: every "possible" result has a step, and CBS's step contains "by
+    5 July, 12:00".
+- Inside "Why this result" the order is ✗, then ?, then the quota floors,
+  then ✓.
+- Results a student can act on come first: Quota 2 only, Possible, Needs
+  review, then Meets, then Not met.
+- The legend's four outcomes are a list.
+- The count line no longer ends a wrapped line on "·".
+- Danish A Language and Literature is a "?" at both levels. The caution text
+  now reads "The handbook names Danish A Literature, not Language and
+  Literature, so whether this counts is not established." The false "formally
+  counts this as Danish B" is gone for Lang & Lit. This follows
+  `DK_AUDIT_NATIONAL.md` F10.
+
+Not done:
+- "Meets" cards are not collapsed into a compact list. They are only moved
+  below the actionable ones.
+- P5's first CBS ✗ still offers the IELTS route, which needs English B 5,
+  before the Cambridge line. The "To do" line names Cambridge.
+- Some ✓ leads, such as the Maths grade conversion, are still long.
+
+### Cautious values (not open questions)
+
+These counts are used cautiously and cannot make a card greener than the
+source:
+- SDU EU/EEA is taken as 1 because "course(s)" means at least one;
+- ITU fee-exempt is taken as 1;
+- `MAX_RAISES` = 2 is our own limit.
+
+### Still needs a source
+
+- Whether VIA, AAU, Absalon and the other programmes under the national rule
+  accept summer supplementation after 5 July.
+- Whether AU's conditional admission after 5 July is open to applicants from
+  outside the EU/EEA.
+- Maastricht's deficiency deadline for applicants from outside the EU/EEA.
+- Whether SEA's English-test exemption for "an International Baccalaureate
+  exam" includes DP Course Results.
+- Whether a subject taken from nothing (Physics B, Danish A, a second foreign
+  language B) can be one supplementary course.
+- Whether Danish A Literature at SL is accepted for Danish A at a given
+  institution, since the handbook formally counts it as Danish B.
+- Whether Danish A Language and Literature counts for Danish A at all, since
+  the handbook names only Danish A Literature.

@@ -211,8 +211,8 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     { ...options, evidenceStatus: verified }
   );
   eq('Physics SL + Biology HL satisfies the second alternative', r.outcome, OUTCOME.MEETS);
-  check('the explanation names the combination that was met',
-    r.matched.some((m) => /accepted options is met/i.test(m.message) && /Biology HL/.test(m.message)),
+  check('the explanation names the combination that was met, leading with it',
+    r.matched.some((m) => /^Needs Physics/.test(m.message) && /Biology HL/.test(m.message) && /One of the 2 accepted options/.test(m.message)),
     JSON.stringify(r.matched.map((m) => m.message)));
 }
 
@@ -229,7 +229,11 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     engineering,
     { ...options, evidenceStatus: verified }
   );
-  eq('Maths SL against a Maths A requirement is possible with action', r.outcome, OUTCOME.POSSIBLE);
+  /* Verification after round 5: under the national rule the course after the
+     results is allowed only "where the programme accepts it", which this
+     fixture does not record — so one missing level is a question for 2027. */
+  eq('Maths SL against a Maths A requirement, with no recorded summer supplementation, is Needs review', r.outcome, OUTCOME.NEEDS_REVIEW);
+  check('and the To check line says the permission is not recorded', r.actionLead === 'To check' && /accepts summer supplementation is not recorded/.test(r.actionSummary || ''), r.actionSummary);
   eq('exactly one gap is reported', r.gaps.length, 1);
   check('the gap leads with the IB level it needs', /^This needs Maths HL \(AA or AI\)/.test(r.gaps[0].message), r.gaps[0].message);
   check('and names the requirement as published', /Mathematics A\.\)$/.test(r.gaps[0].message), r.gaps[0].message);
@@ -1334,7 +1338,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
   check('no programme hides a missing Physics behind Geoscience for a student without Physics', hidden.length === 0, hidden.join(', '));
   const au = run('p1', 'dk-au-computer-science');
-  check('one missing level at AU is one step, with no summary', au.outcome === OUTCOME.POSSIBLE && au.actionSummary === null, msgs(au));
+  check('one missing level at AU is one step, said in one line', au.outcome === OUTCOME.POSSIBLE && au.actionLead === 'To do' && /^Mathematics at A level as a supplementary course\./.test(au.actionSummary || ''), msgs(au));
 
   /* Courses counted against what the publisher lets this group finish after
      the results (round 5), and never more than our own limit. Each fixture
@@ -1364,7 +1368,13 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     const national = assess(sl, { ...two, institution: 'dk-aau' }, opts);
     eq('two are not under the national rule, which allows one after the results', national.outcome, OUTCOME.DOES_NOT_MEET);
     check('and the For 2027 line says one has to come before the results', /1 of them has to be passed before your IB results/.test(national.actionSummary || ''), national.actionSummary);
-    eq('one is, under the national rule', assess(sl, { ...two, institution: 'dk-aau', requirements: two.requirements.slice(0, 1) }, opts).outcome, OUTCOME.POSSIBLE);
+    /* The national rule's one course after the results applies only "where
+       the programme accepts it": unrecorded, so a question (verification
+       after round 5), and one where the institution records it (SDU, EU). */
+    const nat1 = assess(sl, { ...two, institution: 'dk-aau', requirements: two.requirements.slice(0, 1) }, opts);
+    eq('one under the national rule is Needs review: the programme\x27s acceptance is not recorded', nat1.outcome, OUTCOME.NEEDS_REVIEW);
+    check('and says so', /accepts summer supplementation is not recorded/.test(nat1.actionSummary || ''), nat1.actionSummary);
+    eq('one at SDU (EU/EEA, recorded: pass by 31 August) is possible', assess(sl, { ...two, institution: 'dk-sdu', requirements: two.requirements.slice(0, 1) }, opts).outcome, OUTCOME.POSSIBLE);
     const nonEu = { ...sl, applicantGroup: 'non-eu', applicantGroups: ['non-eu'] };
     const sduOne = assess(nonEu, { ...two, institution: 'dk-sdu', requirements: two.requirements.slice(0, 1) }, opts);
     eq('one course is not possible for 2027 at SDU from outside the EU/EEA (none after 5 July)', sduOne.outcome, OUTCOME.DOES_NOT_MEET);
@@ -1500,6 +1510,100 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
   check('no summary line contradicts its own gap lines about 5 July', contradictions.length === 0, contradictions.slice(0, 3).join(' | '));
   check('no Meets result contains "Confirm with" or "formally"', greenQuestions.length === 0, greenQuestions.slice(0, 5).join(', '));
+
+  /* Verification after round 5 (verification-after-round-5.md, 7/10).
+     1. The national one-course-after-the-results applies only "where the
+        programme accepts it": nothing records VIA, AAU or Absalon doing so. */
+  const permissionless = [];
+  for (const [key, p] of Object.entries(P)) {
+    for (const o of allOpps) {
+      const r = assess(asProfile(p), o, opts);
+      if (r.outcome !== OUTCOME.POSSIBLE) continue;
+      for (const g of r.gaps) for (const a of g.actions || []) {
+        if (a.kind === 'raise' && /where the programme accepts it/.test(a.text) && !Number.isInteger(a.afterResults)) permissionless.push(`${key} ${o.id}`);
+        if (a.kind === 'raise' && !Number.isInteger(a.afterResults)) permissionless.push(`${key} ${o.id} (count not recorded)`);
+      }
+    }
+  }
+  check('no "possible with action" rests on a course count nobody has recorded', permissionless.length === 0, permissionless.slice(0, 5).join(', '));
+  for (const [key, id] of [['p1', 'dk-via-global-business-engineering-beng'], ['p5', 'dk-via-global-business-engineering-beng'], ['p7', 'dk-via-global-business-engineering-beng'],
+    ['p2', 'dk-aau-applied-industrial-electronics'], ['p2', 'dk-absalon-robot-systems-beng'], ['p2', 'dk-via-software-technology-engineering-beng'], ['p2', 'dk-via-software-technology-engineering-xr-beng']]) {
+    const r = run(key, id);
+    check(`${key} at ${id} is not "possible": whether it accepts summer supplementation is not recorded`,
+      r.outcome !== OUTCOME.POSSIBLE && r.outcome !== OUTCOME.MEETS, msgs(r));
+  }
+  check('and the card says what is not recorded', /accepts summer supplementation is not recorded/.test(run('p2', 'dk-aau-applied-industrial-electronics').actionSummary || ''),
+    run('p2', 'dk-aau-applied-industrial-electronics').actionSummary);
+
+  /* 2. "Your way in is quota 2" only where the floor stays unmet whatever the
+     plan does: not on a subject floor the plan's course will supply. */
+  const quota2Line = (r) => r.outcome !== OUTCOME.MEETS && !r.route && (r.floors || []).some((f) => f.status === 'unmet' && f.otherRoute);
+  for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development']) {
+    const r1 = run('p1', id);
+    check(`P1 (34 points, Maths A from a course) at ${id} is not told its way in is quota 2`, !quota2Line(r1), JSON.stringify(r1.floors.map((f) => [f.status, f.message])));
+    check(`and the Maths floor says it will be the grade from the course (${id})`, r1.floors.some((f) => f.status === 'unknown' && /grade from your course/.test(f.message)), JSON.stringify(r1.floors));
+  }
+  check('P8 (24 points, below the 28 floor) at AU CS is still told its way in is quota 2', quota2Line(run('p8', 'dk-au-computer-science')));
+
+  /* 3. Every "Still needs a source" item is a "?" on the profiles it affects.
+     The list is the one under the last "### Still needs a source" heading in
+     round-5/fixes.md: one bullet per entry here, so the two cannot drift. */
+  const danishLangLit = profile([...P.p9.subjects.filter((x) => x.subject !== 'danish-a-literature'), { subject: 'danish-a-lang-lit', level: 'HL', grade: 5 }],
+    { totalPoints: 33, applicantGroup: 'nordic', applicantGroups: applicantGroupsOf('nordic', groupsTable) });
+  const OPEN = [
+    ['national-rule programmes accepting summer supplementation', () => run('p2', 'dk-aau-applied-industrial-electronics'), /accepts summer supplementation is not recorded/],
+    ['AU after 5 July for applicants outside the EU/EEA', () => run('p7', 'dk-au-computer-science'), /outside the EU\/EEA is not recorded/],
+    ['Maastricht deficiency date outside the EU/EEA', () => run('p7', 'nl-maastricht-data-science-and-artificial-intelligence'), /outside the EU\/EEA is not recorded/],
+    ['SEA English-test exemption for Course Results', () => run('p6', 'dk-sea-computer-science-ap'), /whether that includes DP Course Results is not published/],
+    ['a subject from nothing as one course', () => run('p1', 'dk-itu-global-business-informatics'), /from nothing|whether that can be done as one supplementary course/],
+    ['Danish A Literature at SL for Danish A', () => run('p9', 'dk-itu-global-business-informatics'), /formally counts this as Danish B/],
+    ['Danish A Language and Literature for Danish A', () => assess(danishLangLit, opps.get('dk-itu-global-business-informatics-2027-autumn'), opts), /names Danish A Literature, not Language and Literature/],
+  ];
+  for (const [name, get, said] of OPEN) {
+    const r = get();
+    const lines = [r.actionSummary || '', ...r.gaps.map((g) => g.message), ...r.unknowns.map((u) => u.message), ...r.floors.map((f) => f.message)];
+    check(`needs a source → "?": ${name}`, r.outcome === OUTCOME.NEEDS_REVIEW || r.outcome === OUTCOME.DOES_NOT_MEET, r.outcome);
+    check(`and the open question is said: ${name}`, lines.some((m) => said.test(m)), msgs(r));
+  }
+  for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development', 'dk-via-global-business-engineering-beng', 'nl-maastricht-data-science-and-artificial-intelligence']) {
+    eq(`P7 (outside the EU/EEA) at ${id} is Needs review`, run('p7', id).outcome, OUTCOME.NEEDS_REVIEW);
+  }
+  {
+    const fixes = await fs.readFile(path.join(ROOT, 'docs', 'research', 'qa', 'conversion', 'round-5', 'fixes.md'), 'utf8');
+    const at = fixes.lastIndexOf('### Still needs a source');
+    const section = at < 0 ? '' : fixes.slice(at).split('\n').slice(1).join('\n').split(/\n#{2,3} /)[0];
+    const bullets = section.split('\n').filter((l) => /^- /.test(l)).length;
+    eq('fixes.md\x27s last "Still needs a source" list has one bullet per open question the tests hold as a "?"', bullets, OPEN.length);
+  }
+
+  /* 4. The caution leads, and no "possible" card says "confirm with". */
+  const cautionLeads = [];
+  const hedged = [];
+  for (const [key, p] of Object.entries(P)) {
+    for (const o of allOpps) {
+      const r = assess(asProfile(p), o, opts);
+      for (const u of r.unknowns) {
+        const lead = u.message.split(/\.(?=\s+[A-Z(])/)[0];
+        if (/formally|not established/.test(u.message) && /counts as/.test(lead)) cautionLeads.push(`${key} ${o.id}: ${lead}`);
+      }
+      if (r.outcome === OUTCOME.POSSIBLE && r.gaps.some((g) => /confirm with/i.test(g.message))) hedged.push(`${key} ${o.id}`);
+    }
+  }
+  check('a caution\x27s visible lead is the caution, never "counts as"', cautionLeads.length === 0, cautionLeads.slice(0, 3).join(' | '));
+  check('no "possible with action" gap says "confirm with"', hedged.length === 0, hedged.slice(0, 5).join(', '));
+  eq('P5 at ITU Data Science is possible through the test (ITU\x27s sentence is unconditional)', run('p5', 'dk-itu-data-science').outcome, OUTCOME.POSSIBLE);
+
+  /* 6. Every "possible" card has a one-line step; a test keeps its date. */
+  const stepless = [];
+  for (const [key, p] of Object.entries(P)) {
+    for (const o of allOpps) {
+      const r = assess(asProfile(p), o, opts);
+      if (r.outcome === OUTCOME.POSSIBLE && !r.actionSummary) stepless.push(`${key} ${o.id}`);
+    }
+  }
+  check('every "possible with action" result has a one-line step', stepless.length === 0, stepless.slice(0, 5).join(', '));
+  check('CBS\x27s step keeps "by 5 July, 12:00"', /by 5 July, 12:00/.test(run('p5', 'dk-cbs-international-business').actionSummary || '') && /by 5 July, 12:00/.test(run('p1', 'dk-cbs-international-business').actionSummary || ''),
+    JSON.stringify([run('p5', 'dk-cbs-international-business').actionSummary, run('p1', 'dk-cbs-international-business').actionSummary]));
 
   /* 7. SEA exempts IB holders from the English test, not from English B. */
   for (const id of ['dk-sea-computer-science-ap', 'dk-sea-multimedia-design-ap']) {

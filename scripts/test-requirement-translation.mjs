@@ -465,6 +465,20 @@ check('there are programmes with local-scale requirements to check', translatedP
   }
   check('no university or programme page shows research-log words', logged.length === 0, logged.slice(0, 6).join(', '));
   check('the research-log scan can see one', LOG.test('as read by the round-4 conversion critic'));
+
+  /* An open question the planner shows as a "?" is on the programme page too
+     (verification after round 5: SEA's pages said only "Course Results are
+     accepted"). */
+  let asked = 0;
+  for (const opp of graph.opportunities.values()) {
+    for (const r of (opp.requirements || []).filter((x) => x.mandatory !== false && x.openQuestion)) {
+      asked++;
+      const page = await read('programmes', opp.id, 'index.html');
+      check(`${opp.id}: its programme page says the open question the planner asks`, !!page && text(page).includes(text(r.openQuestion).replace(/"/g, '"')),
+        r.openQuestion);
+    }
+  }
+  check('there are open questions to look for', asked > 0);
 }
 
 /* --- report ------------------------------------------------------------------ */
