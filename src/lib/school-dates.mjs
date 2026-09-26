@@ -391,6 +391,8 @@ export function datesFor(site, inst, { programme = null } = {}) {
   const national = siteEvents(site).filter((e) => {
     if (e.destination !== dest || !isActionable(e) || isForEarlierEntry(e, CYCLE_YEAR)) return false;
     if (e.numerusFixusOnly && noFixus) return false;
+    /* A shared date that says which schools it is not for never reaches them. */
+    if ((e.institutionsExcept || []).some((id) => selfIds.has(id))) return false;
     if (tied(e)) {
       if (!tiedToSelf(e)) return false;
       if (programme) {

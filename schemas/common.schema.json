@@ -131,6 +131,15 @@
       },
       "description": "Every consequential claim should carry at least one."
     },
+    "institutionExceptRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "description": "The schools a shared date does not apply to, by the id their page answers to. UCAS's 13 January equal-consideration date covers every course except those with a 15 October deadline, so Oxford and Cambridge, where every course closes on 15 October, list here. Their pages leave the date out; the calendar keeps it. src/lib/school-dates.mjs reads it; scripts/test-calendar.mjs checks every id resolves to a page."
+    },
     "institutionRefs": {
       "type": "array",
       "minItems": 1,

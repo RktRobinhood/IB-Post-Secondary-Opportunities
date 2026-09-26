@@ -142,6 +142,8 @@ const ALLOWED = new Set([
   /* Institutions with no page, by name; only numerus fixus programmes; the
      source gives no year (#47 round 3): checked below. */
   'institutionsWithoutPage',
+  /* The schools a shared date is not for, by page id: checked below. */
+  'institutionsExcept',
   'numerusFixusOnly',
   'yearUnpublished',
 ]);
@@ -513,9 +515,15 @@ check('every date tied to schools names schools that have a page, in its own cou
     for (const id of ids) if (pageIds.get(id) !== dest) bad.push(`${where}: "${id}" is not a school page in ${dest}`);
   };
   for (const r of site.graph.applicationRoutes.values()) {
-    for (const x of [...(r.rounds || []), ...(r.milestones || [])]) look(`${r.id}/${x.id}`, r.destination, x.institutions);
+    for (const x of [...(r.rounds || []), ...(r.milestones || [])]) {
+      look(`${r.id}/${x.id}`, r.destination, x.institutions);
+      look(`${r.id}/${x.id} (except)`, r.destination, x.institutionsExcept);
+    }
   }
-  for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => look(`${c.code}.deadlines[${i}]`, c.code, d.institutions));
+  for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => {
+    look(`${c.code}.deadlines[${i}]`, c.code, d.institutions);
+    look(`${c.code}.deadlines[${i}] (except)`, c.code, d.institutionsExcept);
+  });
   if (bad.length) throw new Error(`${bad.length} bad ties\n          ${bad.slice(0, 20).join('\n          ')}`);
 });
 
@@ -592,6 +600,19 @@ const guessed = [];
 const pagelessShown = [];
 const fixusShown = [];
 let panelsChecked = 0;
+/* A date whose own note says it is not for a school ("Not available for
+   Oxford or Cambridge applicants") must not sit on that school's page: the
+   page would contradict itself (#47 round 4). */
+const notForShown = [];
+function notForPage(p, shown) {
+  const own = namesOfPage(p.inst);
+  const out = [];
+  for (const e of shown) {
+    const m = String(e.note || '').match(/not (?:available|applicable|open) (?:for|to) ([^.;]+)/i);
+    if (m && own.some((n) => mentions(m[1], n))) out.push(`${p.id}: "${e.label}" says "${m[0]}"`);
+  }
+  return out;
+}
 const bindingLate = [];
 /* One school page's dates, read for three faults. Kept as a function so the
    faults round 3 found can be fed to it below and must be caught. */
@@ -623,6 +644,7 @@ for (const p of schoolPages) {
   wrongSchool.push(...found.wrong);
   guessed.push(...found.guessed);
   pagelessShown.push(...found.pageless);
+  notForShown.push(...notForPage(p, shown));
   /* A Programme page recorded as not numerus fixus shows no numerus fixus date. */
   for (const prog of p.inst.programmes || []) {
     const opp = site.graph.opportunities.get(prog.opportunityId || prog.id);
@@ -650,6 +672,20 @@ check('the scan catches the round-3 faults: Reykjavik and Akureyri on Iceland pa
     assert.equal(found.wrong.length, 2, `${id}: the scan missed the dates of institutions without a page`);
   }
   assert.equal(scanPage(page('gb-ual'), [uat]).guessed.length, 1, 'gb-ual: the scan missed UAT-UK read as University of the Arts');
+});
+check('a date whose note says it is not for a school never reaches that school', () => {
+  const oxford = schoolPages.find((p) => p.id === 'gb-oxford');
+  const planted = { label: 'Test sitting', date: '2027-01-04', note: 'Not available for Oxford or Cambridge applicants.' };
+  assert.equal(notForPage(oxford, [planted]).length, 1, 'the scan missed a note that excludes this school');
+  if (notForShown.length) throw new Error(notForShown.join('\n          '));
+});
+check('UCAS 13 January, Extra, Clearing and the final date stay off Oxford and Cambridge, where every course closes 15 October', () => {
+  for (const id of ['gb-oxford', 'gb-cambridge']) {
+    const p = schoolPages.find((q) => q.id === id);
+    const ids = new Set(datesFor(site, p.inst).map((e) => e.routeId && `${e.routeId}/${e.id}`).filter(Boolean));
+    for (const ref of ['gb-ucas-2027/ms-main', 'gb-ucas-2027/ms-extra', 'gb-ucas-2027/ms-clearing', 'gb-ucas-2027/ms-final']) assert.ok(!ids.has(ref), `${id} shows ${ref}`);
+    assert.ok(ids.has('gb-ucas-2027/ms-oxbridge'), `${id} lost its 15 October date`);
+  }
 });
 check('a date for an institution without a page reaches no school page', () => {
   if (pagelessShown.length) throw new Error(pagelessShown.join('\n          '));
