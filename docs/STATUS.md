@@ -27,14 +27,14 @@ The owner: `main` is the product; branches and worktrees are temporary and alway
 | #53 globe (owner notes) | 7, 7.5, 7 | round 4 in progress: Back restores the globe; European countries land on their schools with numbers that add up; desktop lean-in |
 | #41 | 7, 7, 7, 7 | round 5 (last) critic running |
 | #42 planner | 6, 6, 7, 7, 6 (cap), then verifications 7, 7 | third verification running |
-| #43 programme pages | 6, 6, 5, 5 | round 5 (last) in progress: 11 pages showed an Apply-by later than the programme's own deadline; fix those first, with a whole-site guard |
-| #52 one card per programme | 6 | round-2 fixes done; critic running |
+| #43 programme pages | 6, 6, 5, 5, (5 not scored) | live; round 5 fixed the 11 pages whose Apply-by was later than their own deadline, guarded site-wide. Next: photos for 68 ruled-hero pages (Hanze first), a sweep of "What you need" for non-requirement text |
+| #52 one card per programme | 6, 7 | live; round 3 to do: counts on /denmark/ and /universities/ are cards too; the Laurea pair; Fontys Marketing Management; "each path is a separate application" line (`docs/research/qa/campuses-52/round-2/critique.md`) |
 
-### In flight: one branch
-`claude/upbeat-rubin-hnw28y` holds the programme pages (#43, with the former `feat-43-school-pages` work: BE and IE records, FI enrichment) and #52. It merges whole into `main` once no programme page shows a deadline later than its own text (round-4 critic: ~540 of 571 pages already better than what is live). The old branches `feat-43-school-pages`, `globe-desk` and `wip/agents-2026-09-25` are **dead**: fully contained in it.
+### Branches
+`main` holds everything. `claude/upbeat-rubin-hnw28y` equals `main` (51bb9df) and is finished; delete it with the three dead branches (`feat-43-school-pages`, `globe-desk`, `wip/agents-2026-09-25`) from a local session. The programme pages (#43), one card per programme (#52), the BE and IE school records and the FI enrichment went live together on 26 September once no programme page showed an Apply-by later than its own deadline (rule 11 of `test-school-pages.mjs`). **Not yet reviewed by an admissions critic:** Belgium round 2, Ireland, the Finland enrichment, and programme pages round 5.
 
 ### To resume
-1. Programme pages round 5 → critic → if no page misleads, merge `claude/upbeat-rubin-hnw28y` into `main` (gate on a clean copy of `main` first), then delete the branch.
+1. #52 round 3 (critique above), then an admissions critic on programme pages round 5 and the BE/IE/FI data.
 2. Globe round 4 → critic (round 5 is the cap).
 3. Build flagships + faculties for catalogue schools (schema, page, guard) after #43 lands.
 4. With web access (a local machine): turn leads into `data/schools/<key>.json` records per BRIEF.md, wave 2 first; check the #41 lead items (Lithuania LAMA BPO, Portugal access route, Ljubljana, Malta); #54 degree photos; the BE/IE/FI admissions critics.
