@@ -11,6 +11,15 @@ there to make the next session with a browser fast.
 | [it.md](it.md) | Italy, 13 |
 | [fr.md](fr.md) | France, 12 |
 | [pt.md](pt.md) | Portugal, 12 |
+| [pl.md](pl.md) | Poland, 14 |
+| [cz.md](cz.md) | Czechia, 13 |
+| [hu.md](hu.md) | Hungary, 14 |
+| [ee.md](ee.md) | Estonia, 10 |
+| [lv.md](lv.md) | Latvia, 11 |
+| [lt.md](lt.md) | Lithuania, 12 |
+| [si.md](si.md) | Slovenia, 7 |
+| [mt.md](mt.md) | Malta, 6 |
+| [gr.md](gr.md) | Greece, 12 |
 
 ## What a lead is not
 
@@ -34,7 +43,9 @@ For each institution, in manifest order:
 2. Read the country section first. It says whether there is a countrywide deadline (France's
    Parcoursup, Portugal's Concurso Nacional) or only regional or per-university ones (Spain, Italy),
    and which route an **EU/EEA** IB student actually takes. This matters most in **Portugal**, where
-   "international student" pages are for non-EU applicants only.
+   "international student" pages are for non-EU applicants only. In **Lithuania** an EU citizen may have to apply
+   through the national LAMA BPO system rather than the university portal; in **Hungary** and **Greece**
+   the English-taught (direct) and local-language (Felvi / Ministry) routes have different deadlines.
 3. Open each lead URL, types 1 to 5. Confirm it is the institution's page, for bachelor's, and for the
    2027 intake (or say "2026 criteria; 2027 not yet published").
 4. Check each hint against the page. Keep what the page says, and drop the hint.
