@@ -200,5 +200,126 @@ export function checkFamilies(programmes, opportunities) {
       if (!programmes.some((q) => q.id === s.programme)) problems.push(`${p.id}: separateFrom names ${s.programme}, which is not a programme`);
     }
   }
+
+  /* The owner's acceptance line (#52): no two cards at one institution share
+     a name. A card is a family (its name) or a programme outside one (its own). */
+  const titlesBy = new Map();
+  const counted = new Set();
+  for (const p of programmes) {
+    const key = cardKey(p);
+    if (counted.has(key)) continue;
+    counted.add(key);
+    if (!titlesBy.has(p.institution)) titlesBy.set(p.institution, []);
+    titlesBy.get(p.institution).push(p.family?.name || p.name);
+  }
+  for (const [inst, titles] of titlesBy) {
+    for (const [title, n] of nameClashes(titles)) {
+      problems.push(`${inst}: ${n} programme cards would be called "${title}"; make them one family, or name them apart`);
+    }
+  }
+  return problems;
+}
+
+/* --- The same families in a school record ------------------------------- */
+
+/**
+ * A school record (data/schools/<key>.json, schemas/school.schema.json) lists
+ * its programmes inline, without ids, so a family there is named rather than
+ * numbered: every member carries
+ *
+ *   "family": { "name": "Electrical Engineering", "axis": "credential",
+ *               "path": "LUT + HEBUT double degree", "differs": "…", "primary": false }
+ *
+ * and the members of one family are the programmes of one record that share
+ * `family.name`. It is the same decision as a canonical family — the card's
+ * title, what the paths differ on, one line per path saying how — and it is
+ * checked the same way. `separateFrom: [{ name, reason }]` records a
+ * deliberate "these look alike but are two cards" (issue #52).
+ */
+
+/** A school's programmes as cards: `{ key, family, members, lead }`, in the order given. */
+export function schoolCardGroups(programmes = []) {
+  const groups = new Map();
+  for (const [i, p] of programmes.entries()) {
+    const key = p.family?.name ? `family:${p.family.name}` : `programme:${p.slug || p.url || i}`;
+    if (!groups.has(key)) groups.set(key, { key, family: p.family?.name ? p.family : null, members: [] });
+    groups.get(key).members.push(p);
+  }
+  for (const g of groups.values()) g.lead = g.members.find((p) => p.family?.primary) || g.members[0];
+  return [...groups.values()];
+}
+
+/** The title a card shows: its family's name, or its programme's. */
+export const cardTitle = (group) => group.family?.name || group.lead.name;
+
+/** Two card titles are "the same name" when they match ignoring case, spacing and punctuation. */
+export const sameName = (a, b) => normalName(a) === normalName(b);
+export function normalName(name) {
+  return String(name || '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+/** Titles that more than one card of one list shares, as `[title, count]`. */
+export function nameClashes(titles) {
+  const seen = new Map();
+  for (const t of titles) {
+    const k = normalName(t);
+    if (!seen.has(k)) seen.set(k, { title: t, n: 0 });
+    seen.get(k).n++;
+  }
+  return [...seen.values()].filter((x) => x.n > 1).map((x) => [x.title, x.n]);
+}
+
+/** Problems with the families of one school record, as sentences. */
+export function checkSchoolFamilies(programmes = [], where = 'record') {
+  const problems = [];
+  const groups = schoolCardGroups(programmes);
+  const cityOf = (p) => p.city || '';
+  for (const g of groups) {
+    if (!g.family) continue;
+    const at = `${where}: family "${g.family.name}"`;
+    const m = g.members;
+    if (m.length < 2) problems.push(`${at} has one member; a family is two or more paths`);
+    if (new Set(m.map((p) => p.family.axis)).size > 1) problems.push(`${at}: members disagree on axis`);
+    const axis = m[0].family.axis;
+    if (!FAMILY_AXES.includes(axis)) problems.push(`${at}: axis "${axis}" is not one of ${FAMILY_AXES.join(', ')}`);
+    if (m.filter((p) => p.family.primary).length !== 1) problems.push(`${at}: exactly one member must be primary (the card's link)`);
+    const labels = new Set();
+    const lines = new Set();
+    for (const p of m) {
+      const f = p.family;
+      if (!f.path || f.path.length > PATH_LABEL_MAX) problems.push(`${at}: "${p.name}" path label must be 1–${PATH_LABEL_MAX} characters`);
+      if (labels.has(f.path)) problems.push(`${at}: two paths are both called "${f.path}"`);
+      labels.add(f.path);
+      if (!f.differs || f.differs.length > DIFFERS_MAX || /\n/.test(f.differs)) problems.push(`${at}: "${p.name}" "differs" must be one line of at most ${DIFFERS_MAX} characters`);
+      if (lines.has(f.differs)) problems.push(`${at}: two paths have the same "differs" line — then they do not differ`);
+      lines.add(f.differs);
+    }
+    if (axis === 'campus' && new Set(m.map(cityOf)).size < 2) problems.push(`${at}: axis is campus but every path is on the same campus`);
+    if (axis === 'credential' && new Set(m.map((p) => `${p.credential}|${p.years}`)).size < 2 && new Set(m.map((p) => p.family.path)).size < 2) {
+      problems.push(`${at}: axis is credential but every path awards the same credential`);
+    }
+  }
+
+  /* Near-duplicates: one subject stem, neither one family nor declared separate. */
+  const declared = (a, b) => (a.separateFrom || []).some((s) => s.name === b.name) || (b.separateFrom || []).some((s) => s.name === a.name);
+  for (let i = 0; i < programmes.length; i++) {
+    for (let j = i + 1; j < programmes.length; j++) {
+      const [a, b] = [programmes[i], programmes[j]];
+      if (nameStem(a.name) !== nameStem(b.name)) continue;
+      if (a.family?.name && a.family.name === b.family?.name) continue;
+      if (declared(a, b)) continue;
+      problems.push(`${where}: "${a.name}" and "${b.name}" are the same subject but neither one family nor declared separate (separateFrom)`);
+    }
+  }
+  for (const p of programmes) {
+    for (const s of p.separateFrom || []) {
+      if (!programmes.some((q) => q.name === s.name && q !== p)) problems.push(`${where}: "${p.name}" separateFrom names "${s.name}", which is not a programme of this record`);
+    }
+  }
+
+  /* The owner's acceptance line (#52): no two cards at one institution share a name. */
+  for (const [title, n] of nameClashes(groups.map(cardTitle))) {
+    problems.push(`${where}: ${n} programme cards would be called "${title}"; make them one family, or name them apart`);
+  }
   return problems;
 }

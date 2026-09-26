@@ -491,6 +491,9 @@ function subjectOf(r, ibSubjectNames, subjectIndex = null, institution = null) {
       level: r.level,
       ...(r.minGrade ? { minGrade: r.minGrade } : {}),
       ...(r.levelScale ? { levelScale: r.levelScale } : {}),
+      /* A test the source accepts in place of the grade (CBS's Cambridge
+         route), carried so the card and the page name it beside the grade. */
+      ...(r.alternativeTest ? { alternativeTest: { label: r.alternativeTest.label, shortLabel: r.alternativeTest.shortLabel || null, note: r.alternativeTest.note || null } } : {}),
       translation: ibTermsFor(r, subjectIndex, institution),
     };
   }

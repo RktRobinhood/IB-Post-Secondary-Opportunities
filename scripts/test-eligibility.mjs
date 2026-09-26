@@ -16,7 +16,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
-  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, entryAward, ENTRY_AWARD, floorTerms, ibPointsFor, ibTermsFor, OUTCOME,
+  applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, cutoffComparison, entryAward, ENTRY_AWARD, floorTerms, ibPointsFor, ibTermsFor,
+  levelRaiseFor, OUTCOME,
 } from '../src/lib/eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -465,8 +466,14 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
       { id: 'r1', kind: 'ib-total-points', mandatory: true, minPoints: 32, label: '32 points overall', evidence: ['ev-test'] },
     ],
   };
+  /* Round 4: a predicted total below a minimum names no step a student can
+     take, so it is not "Possible with action" unless the source publishes a
+     route (decision 35 said the same of a grade; this says it of a total). */
   const below = assess(profile([], { totalPoints: 30 }), pointsRule, { ...options, evidenceStatus: verified });
-  eq('30 points against a 32-point rule is possible with action', below.outcome, OUTCOME.POSSIBLE);
+  eq('30 points against a 32-point rule, with no published route, does not currently meet', below.outcome, OUTCOME.DOES_NOT_MEET);
+  const routed = assess(profile([], { totalPoints: 30 }), { ...pointsRule, requirements: [{ ...pointsRule.requirements[0], alternativeRoute: 'A foundation year the source names.' }] }, { ...options, evidenceStatus: verified });
+  eq('with a published route it is possible with action', routed.outcome, OUTCOME.POSSIBLE);
+  check('and the route is the action named', /To close it: A foundation year/.test(routed.gaps[0]?.message || ''), routed.gaps[0]?.message);
 
   const wayBelow = assess(profile([], { totalPoints: 24 }), pointsRule, { ...options, evidenceStatus: verified });
   eq('24 points against a 32-point rule does not currently meet', wayBelow.outcome, OUTCOME.DOES_NOT_MEET);
@@ -583,7 +590,10 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     elsewhere,
     { ...ibOnlyOptions, evidenceStatus: verified }
   );
-  eq('one IB grade short is possible with action, not a rejection', short.outcome, OUTCOME.POSSIBLE);
+  /* A grade below an IB-terms minimum is the same as one below a local
+     minimum (decision 35): nothing recorded replaces it, so it names no step.
+     Round 4 found Dutch cards "Possible with action" with no action at all. */
+  eq('one IB grade short, with no published route, does not currently meet', short.outcome, OUTCOME.DOES_NOT_MEET);
   check('and the shortfall is stated in IB grades',
     short.gaps.some((g) => /asks for at least 5 and your profile records 4/.test(g.message)),
     JSON.stringify(short.gaps.map((g) => g.message)));
@@ -728,6 +738,7 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
       id: 'r1', kind: 'ib-diploma', mandatory: true, evidence: ['ev-test'],
       label: 'A qualifying upper-secondary examination',
       alternativeRoute: 'Two further subjects raised in level open this one without the Diploma.',
+      alternativeRouteSummary: { short: 'Two further subjects raised in level open this one.', reachesAtEighteen: true },
     },
   ]);
 
@@ -759,6 +770,16 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     gatedForCandidate.outcome,
     OUTCOME.POSSIBLE
   );
+
+  /* A route that waits for the student's 21st birthday is a route, not a
+     step before this intake's deadline: said, but not "Possible with action"
+     (round 4: Dutch colloquium-doctum cards were "possible"). */
+  const aged = opp([{ ...gated.requirements[0], alternativeRouteSummary: { short: 'From 21: a colloquium doctum.', reachesAtEighteen: false } }]);
+  const agedResult = assess(courseCandidate(), aged, awardOpts);
+  eq('a route that opens only at 21 does not make it possible with action', agedResult.outcome, OUTCOME.DOES_NOT_MEET);
+  check('but the route is still said', agedResult.gaps.some((g) => /raised in level/.test(g.message)), JSON.stringify(agedResult.gaps.map((g) => g.message)));
+  const unsummarised = opp([{ ...gated.requirements[0], alternativeRouteSummary: undefined }]);
+  eq('nor does a route whose record does not say it opens before 21', assess(courseCandidate(), unsummarised, awardOpts).outcome, OUTCOME.DOES_NOT_MEET);
 
   /* A record whose source publishes no way round says so and does not invent
      one, and the outcome is correspondingly harder. */
@@ -822,12 +843,20 @@ for (const maths of ['mathematics-aa', 'mathematics-ai']) {
     assess(failing, openToCourseResults, awardOpts).outcome
   );
 
+  /* Course Results have no Diploma total: their points are the six grades
+     added up. Round 4's critic entered six grades totalling 34 and was asked
+     for a "predicted total" on every academy that accepts Course Results. */
   const noTotal = profile(subjects, { holdsDiploma: false });
-  eq(
-    'a missing total is a question, not a pass',
-    assess(noTotal, openToCourseResults, awardOpts).outcome,
-    OUTCOME.NEEDS_REVIEW
-  );
+  const summed = assess(noTotal, openToCourseResults, awardOpts);
+  eq('six graded subjects are summed: no predicted total is asked for', summed.outcome, OUTCOME.MEETS);
+  check('and the sum is said', summed.matched.some((m) => /grades add up to 32/.test(m.message)), JSON.stringify(summed.matched.map((m) => m.message)));
+  const lowSum = profile(subjects.map((x) => ({ ...x, grade: 3 })), { holdsDiploma: false });
+  eq('six grades of 3 add up to 18, which clears 18', assess(lowSum, openToCourseResults, awardOpts).outcome, OUTCOME.MEETS);
+  const ungraded = profile([...subjects.slice(0, 5), { subject: 'history', level: 'SL', grade: null }], { holdsDiploma: false });
+  eq('a missing grade is a question, not a pass', assess(ungraded, openToCourseResults, awardOpts).outcome, OUTCOME.NEEDS_REVIEW);
+  check('and it asks for the grades, not a predicted total',
+    !assess(ungraded, openToCourseResults, awardOpts).unknowns.some((u) => /predicted total/.test(u.message)),
+    JSON.stringify(assess(ungraded, openToCourseResults, awardOpts).unknowns.map((u) => u.message)));
 
   eq(
     'an unanswered profile is not told Course Results are accepted for it',
@@ -1165,6 +1194,234 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     }
   }
   check('no "possible with action" across the catalogue is without an actionable gap', actionless.length === 0, actionless.slice(0, 3).join(' | '));
+}
+
+/* --- round 4: every action keyed to its gap, and every gap counted ----------- *
+ *
+ * The round-4 critic (docs/research/qa/conversion/critique-round-4.md) ran
+ * nine profiles through the planner and found, among others:
+ *   1. a missing Danish A told to take ITU's Maths course;
+ *   2. a missing Physics hidden behind a Geoscience "?", so "Possible with
+ *      action" named one course where two were needed;
+ *   3. English B SL 4 at CBS "not met" although CBS publishes Cambridge C1
+ *      185 as meeting English B at 6.0 and English A both;
+ *   4. a Course candidate asked for a "predicted total" beside six grades;
+ *   5. "Possible with action" with no action (RUC below a hard minimum,
+ *      Dutch programmes missing an IB subject);
+ *   6. a student holding Danish A told they lacked it (ITU).
+ * The profiles are the critic's own (round-4/planner-profiles.json), inlined
+ * so this file does not read the evidence folder. Every assertion below reads
+ * the real records, as the planner does.
+ */
+{
+  const readDir = async (d) => {
+    const out = [];
+    for (const f of (await fs.readdir(path.join(ROOT, 'data', d))).filter((x) => x.endsWith('.json'))) {
+      out.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', d, f), 'utf8')));
+    }
+    return out;
+  };
+  const institutions = await readDir('institutions');
+  const destinations = await readDir('destinations');
+  const allOpps = await readDir('opportunities');
+  const opps = new Map(allOpps.map((o) => [o.id, o]));
+  const groupsTable = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'applicant-groups.json'), 'utf8')).groups;
+  const index = buildSubjectIndex({ subjects: catalogue.subjects, schemes, institutions, diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
+  const opts = { subjectIndex: index, dataVersion: 'test', evidenceStatus: verified };
+
+  const S = (list) => list.map(([subject, level, grade]) => ({ subject, level, grade: grade == null ? null : Number(grade) }));
+  const P = {
+    p1: { total: 34, group: 'eu-eea-ch', subjects: S([['language-a-other', 'HL', 6], ['english-b', 'SL', 5], ['history', 'HL', 6], ['economics', 'HL', 6], ['biology', 'SL', 5], ['mathematics-ai', 'SL', 5]]) },
+    p2: { total: 36, group: 'eu-eea-ch', subjects: S([['english-a-lang-lit', 'HL', 6], ['language-b-other', 'SL', 5], ['computer-science', 'HL', 6], ['physics', 'HL', 5], ['business-management', 'SL', 6], ['mathematics-ai', 'SL', 6]]) },
+    p3: { total: 37, group: 'eu-eea-ch', subjects: S([['english-a-literature', 'HL', 6], ['language-b-other', 'HL', 6], ['global-politics', 'HL', 7], ['psychology', 'SL', 6], ['biology', 'SL', 5], ['mathematics-aa', 'SL', 5]]) },
+    p4: { total: 27, group: 'eu-eea-ch', subjects: S([['language-a-other', 'SL', 4], ['english-b', 'HL', 4], ['economics', 'SL', 5], ['physics', 'HL', 4], ['chemistry', 'SL', 4], ['mathematics-aa', 'HL', 4]]) },
+    p5: { total: 38, group: 'eu-eea-ch', subjects: S([['language-a-other', 'SL', 6], ['english-b', 'SL', 4], ['economics', 'SL', 6], ['physics', 'HL', 7], ['chemistry', 'HL', 6], ['mathematics-aa', 'HL', 7]]) },
+    p6: { total: null, group: 'eu-eea-ch', award: false, subjects: S([['english-a-lang-lit', 'HL', 6], ['mathematics-aa', 'HL', 6], ['physics', 'HL', 6], ['chemistry', 'SL', 5], ['economics', 'SL', 5], ['language-b-other', 'SL', 5]]) },
+    p7: { total: 34, group: 'non-eu', subjects: S([['language-a-other', 'HL', 6], ['english-b', 'SL', 5], ['history', 'HL', 6], ['economics', 'HL', 6], ['biology', 'SL', 5], ['mathematics-ai', 'SL', 5]]) },
+    p8: { total: 24, group: 'eu-eea-ch', subjects: S([['language-a-other', 'SL', 4], ['english-b', 'HL', 4], ['business-management', 'SL', 4], ['psychology', 'HL', 4], ['visual-arts', 'HL', 4], ['mathematics-ai', 'SL', 3]]) },
+    p9: { total: 33, group: 'nordic', subjects: S([['danish-a-literature', 'SL', 5], ['english-a-lang-lit', 'HL', 6], ['mathematics-aa', 'SL', 5], ['economics', 'HL', 6], ['business-management', 'HL', 5], ['psychology', 'SL', 6]]) },
+  };
+  const asProfile = (p) => profile(p.subjects, {
+    totalPoints: p.total, holdsDiploma: p.award === false ? false : true,
+    applicantGroup: p.group, applicantGroups: applicantGroupsOf(p.group, groupsTable),
+  });
+  const run = (key, id) => assess(asProfile(P[key]), opps.get(`${id}-2027-autumn`), opts);
+  const msgs = (r) => JSON.stringify([r.outcome, r.actionSummary, ...r.gaps.map((g) => g.message), ...r.unknowns.map((u) => u.message)]);
+
+  /* 1. The action is keyed to the missing subject. */
+  const gbi = run('p1', 'dk-itu-global-business-informatics');
+  eq('P1 at ITU Global Business Informatics is possible with action (Danish A)', gbi.outcome, OUTCOME.POSSIBLE);
+  const danish = gbi.gaps.find((g) => /Danish A/.test(g.message));
+  check('the Danish A gap names ITU\x27s Danish A course', /supplementary course in Danish level A/.test(danish?.message || ''), msgs(gbi));
+  check('and says nothing about Mathematics', !/Mathematics|Maths/.test((danish?.message || '').split('To close it:')[1] || 'x'), danish?.message);
+  const itds = run('p1', 'dk-itu-data-science');
+  check('the Maths gap at ITU still names ITU\x27s Maths routes', /University of Amsterdam/.test(itds.gaps[0]?.message || ''), msgs(itds));
+
+  /* The guard: for every subject rule in the catalogue, for every applicant
+     group, the action names that subject or no subject — never another. A
+     subject is "named" when it is written with a level ("Danish A", "Danish
+     level A", "Danish at A level") or, for a subject whose name is not also a
+     Destination's adjective, anywhere ("Mathematics"). */
+  const adjectives = new Set(destinations.map((d) => d.adjective).filter(Boolean));
+  const localNames = new Set();
+  for (const s of schemes) {
+    for (const row of s.subjectEquivalence || []) for (const ts of Object.values(row.maps || {})) for (const t of ts) localNames.add(t.subject);
+    for (const row of s.subjectsWithoutEquivalence || []) localNames.add(row.subject);
+  }
+  const rulesOf = (rs) => (rs || []).flatMap((r) => [r, ...rulesOf((r.alternatives || []).flat())]);
+  for (const o of allOpps) for (const r of rulesOf(o.requirements)) if (r.kind === 'local-equivalency' && r.subject) localNames.add(r.subject);
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const namesOther = (text, subject) => {
+    for (const name of localNames) {
+      if (name === subject || subject.startsWith(`${name} `) || name.startsWith(`${subject} `)) continue;
+      const n = esc(name);
+      const withLevel = new RegExp(`\\b${n}(?: level)? [A-C]\\b|\\b${n} at [A-C] level|\\bin ${n}\\b`);
+      if (withLevel.test(text)) return name;
+      if (!adjectives.has(name) && new RegExp(`\\b${n}\\b`).test(text)) return name;
+    }
+    return null;
+  };
+  const wrong = [];
+  let actionsRead = 0;
+  for (const o of allOpps) {
+    for (const r of rulesOf(o.requirements)) {
+      if (r.kind !== 'local-equivalency' || !r.subject) continue;
+      for (const group of ['eu-eea-ch', 'nordic', 'non-eu', null]) {
+        const a = levelRaiseFor(r, index, o.institution, { applicantGroup: group, applicantGroups: applicantGroupsOf(group, groupsTable) });
+        if (!a) continue;
+        actionsRead++;
+        const other = namesOther(a.text, r.subject);
+        if (other) wrong.push(`${o.id} ${r.subject} ${r.level} (${group}): names ${other} — "${a.text.slice(0, 80)}…"`);
+      }
+    }
+  }
+  check(`no action names a subject other than the one missing (${actionsRead} actions read)`, wrong.length === 0 && actionsRead > 100, [...new Set(wrong)].slice(0, 4).join(' | '));
+  // A guard nobody has watched fail is a comment: round 4's ITU text, planted on Danish.
+  check('the guard catches round 4\x27s ITU Maths text on a Danish gap',
+    namesOther("ITU accepts a VUC course, the University of Amsterdam's online Mathematics B (it corresponds to Danish A) or an International A level in Mathematics at C or better.", 'Danish') === 'Mathematics');
+  check('and passes the national sentence, whose "Danish" is an adjective',
+    namesOther('Take the level as a Danish supplementary course (gymnasial supplering) passed by 5 July.', 'Physics') === null);
+
+  /* 2. A missing Physics is named, and two courses are counted as two. */
+  const aie = run('p1', 'dk-aau-applied-industrial-electronics');
+  eq('P1 (no Physics) at AAU Applied Industrial Electronics is possible with action', aie.outcome, OUTCOME.POSSIBLE);
+  check('the Physics gap is named as a gap, not hidden behind a Geoscience "?"',
+    aie.gaps.some((g) => /^This needs Physics/.test(g.message)) && !aie.unknowns.some((u) => /Geoscience/.test(u.message)), msgs(aie));
+  check('the action names both courses and the limit after 5 July',
+    /^2 supplementary courses: Mathematics at A level and Physics at B level\./.test(aie.actionSummary || '') && /after 5 July/.test(aie.actionSummary || ''), aie.actionSummary);
+  const hidden = [];
+  for (const o of allOpps) {
+    const r = assess(asProfile(P.p1), o, opts);
+    if (r.unknowns.some((u) => /equivalent to Geoscience/.test(u.message))) hidden.push(o.id);
+  }
+  check('no programme hides a missing Physics behind Geoscience for a student without Physics', hidden.length === 0, hidden.join(', '));
+  const au = run('p1', 'dk-au-computer-science');
+  check('one missing subject is one step, with no summary', au.outcome === OUTCOME.POSSIBLE && au.actionSummary === null, msgs(au));
+
+  // Three courses, or two where nobody publishes a word on taking two, are not "possible".
+  {
+    const three = {
+      id: 'opp-test-three', destination: 'dk', intake: '2027-autumn', meta: {}, evidence: ['ev-test'], institution: 'dk-aau',
+      requirements: [req('r1', 'Mathematics', 'A'), req('r2', 'Physics', 'B'), req('r3', 'Chemistry', 'B')],
+    };
+    const bare = profile([{ subject: 'english-b', level: 'SL', grade: 5 }], { totalPoints: 30 });
+    eq('three supplementary courses are not "possible with action"', assess(bare, three, opts).outcome, OUTCOME.DOES_NOT_MEET);
+    const two = { ...three, requirements: three.requirements.slice(0, 2) };
+    eq('two are, where the published rules say how', assess(bare, two, opts).outcome, OUTCOME.POSSIBLE);
+    const silentScheme = { ...localScheme, levelRaise: { text: localScheme.levelRaise.text } };
+    const silent = buildSubjectIndex({ subjects: catalogue.subjects, schemes: [silentScheme, ...schemes.filter((s) => s !== localScheme)], diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
+    eq('and are not where nobody says anything about taking more than one',
+      assess(bare, { ...two, institution: null }, { ...opts, subjectIndex: silent }).outcome, OUTCOME.DOES_NOT_MEET);
+  }
+
+  /* 3. CBS: Cambridge C1 185 meets English B at 6.0 and English A. */
+  const cbsIds = allOpps.filter((o) => o.institution === 'dk-cbs').map((o) => o.id.replace(/-2027-autumn$/, ''));
+  eq('there are six CBS programmes', cbsIds.length, 6);
+  for (const id of cbsIds) {
+    const r = run('p5', id);
+    eq(`P5 (English B SL 4) at ${id} is possible with action`, r.outcome, OUTCOME.POSSIBLE);
+    check(`and the one step named is Cambridge (${id})`, /^One step closes both: Cambridge C1 Advanced/.test(r.actionSummary || ''), msgs(r));
+  }
+  const cbsP1 = run('p1', 'dk-cbs-international-business');
+  check('English B SL 5 at CBS still names the IELTS/TOEFL route as its one step', cbsP1.outcome === OUTCOME.POSSIBLE && /IELTS Academic 7.0/.test(cbsP1.gaps[0]?.message || ''), msgs(cbsP1));
+  const noTest = { ...opps.get('dk-cbs-international-business-2027-autumn') };
+  noTest.requirements = noTest.requirements.map((r) => (r.alternativeTest ? { ...r, alternativeTest: undefined } : r));
+  eq('without the recorded Cambridge route, English B SL 4 at CBS does not currently meet (the rule is the data)',
+    assess(asProfile(P.p5), noTest, opts).outcome, OUTCOME.DOES_NOT_MEET);
+
+  /* 4. Course Results: the six grades are the total. */
+  const sea = run('p6', 'dk-sea-computer-science-ap');
+  eq('P6 (Course Results, six grades, no total) at SEA Computer Science meets it', sea.outcome, OUTCOME.MEETS);
+  check('and the grades are added up for the student', sea.matched.some((m) => /grades add up to 33/.test(m.message)), msgs(sea));
+  const askedTotal = [];
+  for (const o of allOpps) {
+    const r = assess(asProfile(P.p6), o, opts);
+    const said = [...r.unknowns.map((u) => u.message), ...r.floors.map((f) => f.message)];
+    if (said.some((m) => /predicted total/.test(m))) askedTotal.push(o.id);
+  }
+  check('no result asks a Course candidate with six grades for a predicted total', askedTotal.length === 0, askedTotal.slice(0, 4).join(', '));
+  const auP6 = run('p6', 'dk-au-computer-science');
+  check('the Agency\x27s Course Results route is marked as a shared passage, so the planner says it once',
+    auP6.gaps.some((g) => (g.shared || []).some((s) => s.key.startsWith('route:') && g.message.includes(s.text))), msgs(auP6));
+
+  /* 5. "Possible with action" names an action, for every profile, everywhere. */
+  const ruc = run('p8', 'dk-ruc-international-bachelor-in-social-sciences');
+  eq('P8 (24 points) at RUC Social Sciences does not currently meet: RUC\x27s minimum is a rejection', ruc.outcome, OUTCOME.DOES_NOT_MEET);
+  check('and the gap quotes RUC\x27s rule', ruc.gaps.some((g) => /rejection letter/.test(g.message)), msgs(ruc));
+  eq('P1 at TU Delft Computer Science (no Maths AA) does not currently meet: nothing is published to close it',
+    run('p1', 'nl-tudelft-computer-science-and-engineering').outcome, OUTCOME.DOES_NOT_MEET);
+  const um = run('p1', 'nl-maastricht-data-science-and-artificial-intelligence');
+  check('at Maastricht, which publishes a deficiency route, it is possible and names it',
+    um.outcome === OUTCOME.POSSIBLE && /deficiency/.test(um.gaps[0]?.message || ''), msgs(um));
+  const actionless = [];
+  for (const [key, p] of Object.entries(P)) {
+    for (const o of allOpps) {
+      const r = assess(asProfile(p), o, opts);
+      if (r.outcome !== OUTCOME.POSSIBLE) continue;
+      for (const g of r.gaps) {
+        if (!g.actions?.length || !g.actions.every((a) => a.text) || !/To close it:|The other published way|It does not close this one to you/.test(g.message)) {
+          actionless.push(`${key} ${o.id}: ${g.message.slice(0, 90)}`);
+        }
+      }
+    }
+  }
+  check('every gap of every "possible with action", for all nine round-4 profiles, names its step', actionless.length === 0, actionless.slice(0, 4).join(' | '));
+
+  /* 6. A student who holds Danish A is not told they lack it. */
+  const gbi9 = run('p9', 'dk-itu-global-business-informatics');
+  eq('P9 (Danish A Literature SL) at ITU Global Business Informatics meets it', gbi9.outcome, OUTCOME.MEETS);
+  check('with no "documentation the profile does not hold" line', ![...gbi9.unknowns, ...gbi9.gaps].some((x) => /documentation the profile does not hold/.test(x.message)), msgs(gbi9));
+  check('and the SL caution is said where the rule is met', gbi9.matched.some((m) => /formally counts this as Danish B/.test(m.message)), JSON.stringify(gbi9.matched.map((m) => m.message)));
+  // A language rule that is a subject at a level in disguise is the bug's shape.
+  const disguised = [];
+  const levelled = new RegExp(`\\b(${[...localNames].map(esc).join('|')}) [A-C]\\b`);
+  for (const o of allOpps) {
+    for (const r of rulesOf(o.requirements)) {
+      if (['language-general', 'language-programme'].includes(r.kind) && levelled.test(r.label || '') && !(r.subject && r.levelScale)) disguised.push(`${o.id}: ${r.label}`);
+    }
+  }
+  check('no language rule names a subject at a level without saying which (it cannot be checked)', disguised.length === 0, disguised.join(' | '));
+
+  /* 7. The applicant group changes the action where the publisher says so. */
+  const sduNon = run('p7', 'dk-sdu-computer-science');
+  check('P7 (outside the EU/EEA) at SDU is told to finish before 5 July, not offered 31 August',
+    /before 5 July/.test(sduNon.gaps[0]?.message || '') && !/31 August/.test(sduNon.gaps[0]?.message || ''), msgs(sduNon));
+  check('an EU/EEA student at SDU is still offered 31 August', /31 August/.test(run('p1', 'dk-sdu-computer-science').gaps[0]?.message || ''));
+  const ituNon = run('p7', 'dk-itu-data-science');
+  check('P7 at ITU is told conditional admission is not open to them', /not fee-exempt|without fee exemption/.test(ituNon.gaps[0]?.message || '') && !/1 September/.test(ituNon.gaps[0]?.message || ''), msgs(ituNon));
+
+  /* 7. A cut-off any IB Diploma clears is not printed as a points total. */
+  const chem = opps.get('dk-aau-chemical-engineering-and-biotechnology-2027-autumn');
+  const cmp = cutoffComparison(chem.admission.historicalCutoffs[0], 27, index);
+  check('AAU Chemical Engineering\x27s 3.3 reads "any IB Diploma clears it", not a sub-Diploma total',
+    cmp.anyDiploma && cmp.points === null && cmp.you === 'You: 27 · any IB Diploma clears it', JSON.stringify(cmp));
+  eq('a 10.7 cut-off beside 34 points reads as the comparison', cutoffComparison({ value: '10.7', scale: localScheme.gradeScale.id }, 34, index).you, 'You: 34 · last cut-off: 40');
+
+  /* 7. SEA exempts IB holders from the English test, not from English B. */
+  for (const id of ['dk-sea-computer-science-ap', 'dk-sea-multimedia-design-ap']) {
+    const english = rulesOf(opps.get(`${id}-2027-autumn`).requirements).find((r) => r.subject === 'English');
+    check(`${id}: English B is required of IB holders (the exemption is from the test)`, !(english?.satisfiedBy || []).includes('ib-diploma'), JSON.stringify(english));
+  }
 }
 
 /* --- and the engine may not learn any destination's vocabulary -------------- *

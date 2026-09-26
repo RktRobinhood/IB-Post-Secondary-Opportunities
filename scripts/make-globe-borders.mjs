@@ -3,9 +3,10 @@
  *
  *   node scripts/make-globe-borders.mjs [path/to/ne_50m_admin_0_countries.geojson]
  *
- * `data/geo/countries.json` (110m, simplified to 0.22°) is right for the flat
- * map and for the globe from a distance, and it is what every page's build
- * draws. Dived in on a single country it is not: the Netherlands is a pentagon.
+ * `data/geo/countries.json` (110m, simplified to 0.22°) is right for the globe
+ * from a distance. Dived in on a single country it is not: the Netherlands is
+ * a pentagon. (The build also reads this finer layer, to put a country's light
+ * at the middle of its outline: src/lib/geo.mjs visualCentre.)
  * This writes a finer layer to `src/assets/geo/borders-50m.json`, which the
  * globe fetches only once the camera comes down below the altitude where the
  * difference shows, so a reader who never zooms in never pays for it.

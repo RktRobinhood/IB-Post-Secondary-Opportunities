@@ -387,6 +387,70 @@ check('there are programmes with local-scale requirements to check', translatedP
   check('the planner sentences were looked at', seen > 0);
 }
 
+/* --- round 4: what the pages say about outcomes, cut-offs and tests ---------- *
+ *
+ * The round-4 critic (docs/research/qa/conversion/critique-round-4.md) read
+ * these on the live site: a legend for four outcomes beside five chips and a
+ * stale definition; a chip called "Another route only" beside a count that
+ * said "quota 2 only"; "Also accepted … with no IB route", which contradicts
+ * itself; the test phrase printed two or three times in one English box; a
+ * glance "Last cut-off Restricted"; and the finder's "No Mathematics A".
+ */
+{
+  const planner = await read('planner', 'index.html');
+  check('the planner page is built', !!planner);
+  if (planner) {
+    const visible = text(planner.replace(/<script[\s\S]*?<\/script>/g, ' '));
+    const chip = text(planner.match(/<button[^>]*data-show="other-route-only"[^>]*>([\s\S]*?)<\/button>/)?.[1] || '');
+    const quotas = [...new Set([...graph.institutions.values()].flatMap((i) => (i.admissionRoutes || []).map((r) => r.quota)))];
+    check('the planner\'s other-route chip is named as the count names it (the route\'s own name)',
+      quotas.length !== 1 || chip === `${quotas[0]} only`, `chip "${chip}", routes ${JSON.stringify(quotas)}`);
+    const { OUTCOME_LABEL, OUTCOME } = await import('../src/lib/eligibility.mjs');
+    for (const [k, label] of Object.entries(OUTCOME_LABEL)) {
+      if (k === OUTCOME.OTHER_ROUTE) continue;
+      check(`the planner legend defines "${label}"`, new RegExp(`${esc(label)}\\s*:`).test(visible), label);
+    }
+    check('the legend names the other-route outcome by the chip\'s name', !chip || visible.includes(chip), chip);
+    check('the legend no longer says one unmet rule is "possible" and two are not',
+      !/one rule is not met|more than one rule is unmet/.test(visible));
+  }
+
+  const progDir = path.join(DIST, 'programmes');
+  const stale = [];
+  const glanceWords = [];
+  const doubled = [];
+  for (const id of await fs.readdir(progDir).catch(() => [])) {
+    const page = await read('programmes', id, 'index.html');
+    if (!page) continue;
+    const t = text(page.replace(/<script[\s\S]*?<\/script>/g, ' '));
+    if (/Also accepted:[^|]{0,120}no IB route/.test(t)) stale.push(id);
+    for (const m of page.matchAll(/<dt>Last cut-off<\/dt>\s*<dd>([^<]*)/g)) {
+      if (!/^\s*(\d|Any IB Diploma)/.test(decode(m[1]))) glanceWords.push(`${id}: "${m[1].trim()}"`);
+    }
+    // A test written out as its own line is not repeated in the published line beneath it.
+    for (const card of page.matchAll(/<li class="need__card">([\s\S]*?)<\/li>/g)) {
+      const whys = [...card[1].matchAll(/class="need__why req-why">([\s\S]*?)<\/span>/g)].map((m) => text(m[1]));
+      const local = text(card[1].match(/class="req-local">([\s\S]*?)<\/small>/)?.[1] || '');
+      for (const w of whys) {
+        const head = w.split('. ')[0];
+        if (head.length > 20 && local.includes(head)) doubled.push(`${id}: "${head.slice(0, 50)}…"`);
+      }
+    }
+  }
+  check('no programme page says "Also accepted … with no IB route"', stale.length === 0, stale.slice(0, 5).join(', '));
+  check('no glance "Last cut-off" is a word rather than a figure', glanceWords.length === 0, glanceWords.slice(0, 5).join(', '));
+  check('the glance scan can see one (round 4\'s "Last cut-off Restricted")',
+    [...'<dt>Last cut-off</dt>\n      <dd>Restricted<small>'.matchAll(/<dt>Last cut-off<\/dt>\s*<dd>([^<]*)/g)].some((m) => !/^\s*(\d|Any IB Diploma)/.test(m[1])));
+  check('no test is written out twice in one requirement card', doubled.length === 0, doubled.slice(0, 5).join(' | '));
+  const cbs = await read('programmes', 'dk-cbs-international-business-2027-autumn', 'index.html');
+  if (cbs) {
+    const detail = text(cbs.match(/<div class="req-detail"[\s\S]*?<p class="need__how">/)?.[0] || '');
+    check('CBS International Business names the Cambridge route beside the English grade', /Cambridge C1 185\+/.test(detail), detail.slice(0, 200));
+    check('and writes the IELTS scores out once', (detail.match(/IELTS Academic 7\.0 overall/g) || []).length <= 1, detail.slice(0, 300));
+  }
+  check('the finder does not say "No Mathematics A"', !(finder || '').includes('No Mathematics A'));
+}
+
 /* --- report ------------------------------------------------------------------ */
 
 console.log('\nRequirements are shown in IB terms first\n');

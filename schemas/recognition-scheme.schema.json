@@ -316,7 +316,12 @@
       ],
       "properties": {
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "Names no subject: it is shown beside every subject gap."
+        },
+        "multiple": {
+          "type": "string",
+          "description": "What the authority says about taking more than one course — how many may be finished after the documentation deadline. Two level gaps are only ever called \"Possible with action\" where this, or the institution's own, is recorded."
         },
         "source": {
           "type": "string"

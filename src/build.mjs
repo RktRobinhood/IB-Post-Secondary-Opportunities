@@ -16,7 +16,7 @@ import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
 import { programme } from './pages/programme.mjs';
-import { schoolPage, inCardOrder } from './pages/schools.mjs';
+import { schoolPage, schoolCards } from './pages/schools.mjs';
 import { schoolProgrammePage } from './pages/school-programme.mjs';
 import { planner } from './pages/planner.mjs';
 import { courseResultsGuide } from './pages/course-results.mjs';
@@ -285,7 +285,7 @@ async function main() {
       /* A listed school's programmes: a page each under the school, paged
          in the order the school's page lists them. */
       if (inst.school?.scope === 'listed') {
-        const progs = inCardOrder(inst.school.programmes);
+        const progs = schoolCards(inst.school.programmes).flatMap((g) => g.members);
         const step = (j) => progs[j] && { href: progs[j].href, label: progs[j].name };
         for (const [j, p] of progs.entries()) {
           await write(p.href, schoolProgrammePage(site, inst, c, p, { prev: step(j - 1), next: step(j + 1) }));
@@ -328,10 +328,11 @@ async function main() {
   // the documented purpose of each token cannot drift apart.
   await fs.writeFile(path.join(DIST, 'assets', 'css', 'motion.css'), motionCss());
   await fs.writeFile(path.join(DIST, 'data.json'), dataDump(site));
-  // The globe (assets/js/globe.js, ADR 0005) draws borders from the same
-  // basemap the flat map is baked from, and names a clicked country's page
-  // from the Destination records. Both are site-wide and fetched once, after
-  // the flat map has painted, so neither is inlined into any page.
+  // The globe (assets/js/globe.js, ADR 0005) draws borders and picks
+  // countries from the 110m basemap, and names a clicked country's page from
+  // the Destination records. Both are site-wide and fetched once, when the
+  // globe loads, so neither is inlined into any page (there is no flat map to
+  // bake the basemap into any more, ADR 0007).
   await fs.mkdir(path.join(DIST, 'assets', 'geo'), { recursive: true });
   await fs.copyFile(
     path.join(ROOT, 'data', 'geo', 'countries.json'),

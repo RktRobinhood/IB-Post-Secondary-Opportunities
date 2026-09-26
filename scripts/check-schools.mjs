@@ -13,6 +13,10 @@
  * hold your IB Diploma", "not for final-year IB students") must carry
  * `forDiplomaHolders`, and so must every other date of its round, because a
  * programme page never makes such a date a final-year student's "Apply by".
+ * One programme offered on several campuses or as several paths is one card
+ * (issue #52): its members share a `family`, two programmes of one subject
+ * that stay apart say so in `separateFrom`, and no two cards of one school
+ * may share a name (src/lib/families.mjs checkSchoolFamilies).
  * A date scoped to some programmes (`programmes`) names real ones, by the slug
  * of their page; a programme's `round` is one its school's dates name; and no
  * name carries an acute accent (´) where an apostrophe belongs.
@@ -22,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
 import { schoolKeys, isHomepage, saysForDiplomaHolders, roundOf, programmePaths } from '../src/lib/schools.mjs';
+import { checkSchoolFamilies } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIR = path.join(ROOT, 'data', 'schools');
@@ -148,6 +153,24 @@ function scopeProblems(rec, key) {
     process.exit(1);
   }
 }
+/* Self-test: the family rule must refuse two cards with one name, a pair of
+   one subject that is neither a family nor declared separate, and a family
+   whose paths do not differ; and pass a proper family and a declared pair. */
+{
+  const prog = (name, extra = {}) => ({ name, credential: 'BSc', years: 3, ...extra });
+  const fam = (path, extra = {}) => ({ name: 'Physics', axis: 'campus', path, differs: `Taught in ${path}.`, ...extra });
+  const bad = [
+    checkSchoolFamilies([prog('Physics'), prog('Physics', { city: 'B' })]).length > 0,
+    checkSchoolFamilies([prog('Physics'), prog('Physics (double degree)')]).length > 0,
+    checkSchoolFamilies([prog('Physics', { city: 'A', family: fam('A', { primary: true }) }), prog('Physics', { city: 'A', family: fam('B') })]).length > 0,
+    checkSchoolFamilies([prog('Physics', { city: 'A', family: fam('A', { primary: true }) }), prog('Physics', { city: 'B', family: fam('B') })]).length === 0,
+    checkSchoolFamilies([prog('Physics', { separateFrom: [{ name: 'Physics - Astro', reason: 'x' }] }), prog('Physics - Astro')]).length === 0,
+  ].some((ok) => !ok);
+  if (bad) {
+    console.log('✗ self-test: the family rule lets two cards of one name through, or refuses a proper family');
+    process.exit(1);
+  }
+}
 const only = process.argv.slice(2).map((a) => a.replace(/\.json$/, ''));
 const files = fs.existsSync(DIR)
   ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json') && (!only.length || only.includes(f.slice(0, -5))))
@@ -189,6 +212,7 @@ for (const f of files.sort()) {
       if (d.date < '2026-01-01' || d.date > '2027-12-31') problems.push(`dates[${i}] ${d.date} is outside the 2027 cycle`);
     }
     problems.push(...holdersProblems(rec));
+    problems.push(...checkSchoolFamilies(progs, 'programmes'));
     problems.push(...scopeProblems(rec, key));
 
     counts[rec.scope] = (counts[rec.scope] || 0) + 1;

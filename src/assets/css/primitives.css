@@ -96,195 +96,44 @@
   gap: var(--s5);
 }
 
-.world__stage {
-  position: relative;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(120% 90% at 50% 8%, var(--paper-2), var(--paper-3));
-  overflow: hidden;
-}
-
 /*
- * The panel's shape is the CSS's business and the projection's shape is the
- * SVG's, and they were the same thing until now: `height: auto` derived the
- * panel from the viewBox's 1000x420, so every viewport got the same 2.38:1
- * crop. On a 375px phone that is a 343x145 letterbox — and because everything
- * inside is authored in viewBox units, the hit circle authored at "the size of
- * a fingertip" rendered at 14px.
- *
- * The panel now has its own aspect ratio per viewport and the SVG fills it,
- * cropping the sides rather than shrinking (see `slice` on the element).
+ * The stage is where the globe lands, and nothing else is ever drawn in it
+ * (ADR 0007). It is transparent in both themes — no box, no border, no night
+ * sky — so the globe floats on the page's own paper (the owner, #53: "the
+ * Globe to be floating and just land on the page"). Its size is reserved from
+ * the first paint, so the page does not move when the globe arrives.
  */
 .world__stage {
-  /* 2:1 since the globe (ADR 0005): a little taller than the flat map's 2.38:1
-     so a tilted camera has room for the horizon, and the flat first paint
-     simply crops a little less sea. */
+  position: relative;
+  background: transparent;
+  border: 0;
+  overflow: hidden;
+  /* 2:1 on a wide screen, square on a phone: a globe needs a stage that is
+     not a letterbox, and a thumb needs a stage it can work with. */
   aspect-ratio: 2 / 1;
   max-height: 78vh;
 }
-/* A phone is tall. Square shows a useful amount of a continent — or of a
-   planet — at a size a thumb can work with, and the whole panel is still in
-   the first screen of /programmes/. */
 @media (max-width: 44rem) {
   .world__stage { aspect-ratio: 1 / 1; }
 }
-.world__svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 
 /*
- * Sea, land and coastline: three surfaces a reader has to be able to tell
- * apart. Quiet, because the markers are the information — but quiet is not the
- * same as absent, and this was absent.
- *
- * **These numbers are measurements, not taste. Do not lower them without
- * taking new ones.** They were `.07` and `.20`, which on `/europe/` in the
- * light theme measured land against sea at **1.09:1** and coastline against
- * land at **1.29:1**. 1.0 is invisible. The basemap was baked from Natural
- * Earth in #12 specifically so that "a reader cannot tell they are looking at
- * Europe" would stop being true, and it was then drawn at an opacity where it
- * still was.
- *
- * At `.20` fill and `.55` stroke, in the light theme:
- *
- *   land against sea       1.52:1
- *   coastline against land 3.34:1
- *   coastline against sea  5.08:1
- *   a default marker against land   4.63:1   (`--brand-2`)
- *   the weakest Destination marker  3.32:1   (Malta, via `--art-mark`)
- *   a selected marker against land  3.07:1   (`--accent`)
- *
- * and in the dark theme the same two numbers give 1.72, 4.09 and 7.05, because
- * the tokens invert with the theme. Land deliberately stops well short of the
- * 3:1 that the markers clear: it is the ground, and ground that competes with
- * the figure is a worse map, not a more accessible one. The coastline carries
- * the shape, and that is the line that has to be seen.
+ * Where the globe cannot run — JavaScript off (`data-js` is set in the head
+ * before first paint), no WebGL, a software renderer, a lost context — the
+ * stage is not shown at all and the list is the world window. One line says
+ * so. Nothing different is drawn in the globe's place: that was the flash the
+ * owner asked to be rid of.
  */
-.world__sea { fill: var(--paper-2); }
-.world__land path {
-  fill: var(--ink);
-  fill-opacity: .20;
-  stroke: var(--ink);
-  stroke-opacity: .55;
-  stroke-width: .8;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
-}
-:root[data-theme="dark"] .world__sea { fill: color-mix(in oklab, var(--paper) 88%, black); }
-
-/* The markers are a picture of the list and nothing but: no focus, no name of
-   their own, no tab stop. Everything they can do, the list entry can do. */
-.world__place {
-  animation: world-in var(--motion-set-change) both;
-  animation-delay: calc(var(--i, 0) * var(--motion-set-change-stagger, 18ms));
-}
-.world__place[hidden] { display: none; }
-
-/* Opacity only. The script moves markers with a transform attribute as the
-   camera moves, and an animation that also wrote transform would fight it. */
-@keyframes world-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.world__dot {
-  fill: var(--art-mark);
-  stroke: var(--paper);
-  stroke-width: 1.5;
-  pointer-events: none;
-  transition: r var(--motion-set-change), fill var(--motion-set-change);
-}
-
-/*
- * The halo is a state, not a marker.
- *
- * It used to be drawn at rest, at 2.6 times the dot's own radius, so the thing
- * a reader actually saw was a soft cloud two and a half times too big — and
- * where two places were near each other the clouds merged into one larger
- * cloud, which is precisely the density problem the grouping in `map.js` exists
- * to solve, recreated in paint. A marker's job is to say "here", and "here" is
- * a point.
- *
- * So the glow now only appears under the pointer or on the selected place,
- * where a soft halo is doing real work: it says which one of these the rest of
- * the page is talking about, at a size the eye catches from across the panel.
- * The radius stays where it is because `map.js` writes it on every re-weight;
- * this is opacity, which nothing else touches. With the script off there is no
- * hover and no selection, and the map is dots on a coastline, which is what it
- * should have looked like all along.
- */
-.world__glow { pointer-events: none; opacity: 0; }
-.world__place[data-on] .world__glow,
-.world__place[data-selected] .world__glow { opacity: 1; }
-.world__land { pointer-events: none; }
-
-/* A dot the width of a full stop is not a target. The hit area is the size of a
-   fingertip and invisible. */
-.world__hit { fill: transparent; }
-.world__stage[data-reachable="true"] .world__hit { cursor: pointer; }
-
-
-/* Hollow means we only know the city, not the campus. */
-.world__place[data-approx="true"] .world__dot {
-  fill: none;
-  stroke: var(--art-mark);
-  stroke-width: 2;
-}
-/* Lit from either direction: the pointer on the marker, or the pointer or the
-   keyboard on the matching list entry. */
-.world__place[data-on] .world__dot,
-.world__place[data-selected] .world__dot {
-  fill: var(--accent);
-  stroke-width: 2.5;
-}
-.world__place[data-on] .world__glow { opacity: 1; }
-.world__place[data-dim] { opacity: .45; }
-.world__place[data-dim] .world__glow { display: none; }
-.world__place[data-dim] .world__dot { fill: var(--ink-mute); stroke-width: 1; }
-
-/* Places that land on top of each other, said out loud rather than stacked and
-   hoped for. The number is places, not opportunities. */
-.world__group-dot {
-  fill: var(--art-mark);
-  stroke: var(--paper);
-  stroke-width: 2;
-  pointer-events: none;
-}
-.world__group-ring {
-  fill: none;
-  stroke: var(--art-mark);
-  stroke-opacity: .35;
-  stroke-width: 1.5;
-  pointer-events: none;
-}
-.world__group-count {
-  fill: var(--paper);
-  font: 700 13px/1 var(--sans);
-  text-anchor: middle;
-  dominant-baseline: central;
-  pointer-events: none;
-}
-.world__group[data-on] .world__group-dot,
-.world__group[data-selected] .world__group-dot { fill: var(--accent); }
-.world__group[data-dim] { opacity: .45; }
-.world__spider-leg {
-  stroke: var(--art-mark);
-  stroke-opacity: .5;
-  stroke-width: 1.5;
-  pointer-events: none;
-}
-.world__spider-hub { fill: var(--art-mark); fill-opacity: .6; pointer-events: none; }
+.world__off { display: none; margin: 0; font-size: .875rem; color: var(--ink-soft); }
+:root:not([data-js]) .world__stage,
+.world[data-globe="off"] .world__stage { display: none; }
+:root:not([data-js]) .world__off,
+.world[data-globe="off"] .world__off { display: block; }
+:root:not([data-js]) .world__caption,
+.world[data-globe="off"] .world__caption { display: none; }
 
 /* --- The camera ----------------------------------------------------------- */
 
-.world__stage[data-zoomed="true"] { cursor: grab; }
-.world__stage[data-zoomed="true"]:active { cursor: grabbing; }
 
 .world__controls {
   position: absolute;
@@ -334,32 +183,6 @@
 @media (max-width: 44rem) {
   .world__controls { flex-direction: row; }
 }
-
-/* The name, the number and the cue, at the marker. It repeats what the list
-   entry says, because it is the same fact seen from the other side. */
-.world__callout {
-  position: absolute;
-  z-index: 1;
-  max-width: 16rem;
-  padding: .35rem .6rem;
-  transform: translate(-50%, .9rem);
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius);
-  background: var(--paper);
-  box-shadow: var(--lift-2);
-  font-size: .75rem;
-  line-height: 1.4;
-  color: var(--ink-soft);
-  pointer-events: none;
-}
-.world__callout[data-side="above"] { transform: translate(-50%, calc(-100% - .9rem)); }
-.world__callout[data-align="left"] { transform: translate(-.5rem, .9rem); }
-.world__callout[data-align="left"][data-side="above"] { transform: translate(-.5rem, calc(-100% - .9rem)); }
-.world__callout[data-align="right"] { transform: translate(calc(-100% + .5rem), .9rem); }
-.world__callout[data-align="right"][data-side="above"] { transform: translate(calc(-100% + .5rem), calc(-100% - .9rem)); }
-.world__callout-name { display: block; color: var(--ink); font-size: .8125rem; }
-.world__callout-count { font-variant-numeric: tabular-nums; }
-.world__callout-cue { display: block; color: var(--ink-mute); }
 
 /* A folded list (worldWindow foldList): one line until opened. */
 .world__fold { margin-top: var(--s3); }
@@ -426,26 +249,19 @@
 .world__legend-dot--sm { width: .4rem; height: .4rem; }
 .world__legend-dot--lg { width: .75rem; height: .75rem; }
 
-/* --- The globe (ADR 0005) -------------------------------------------------
+/* --- The globe (ADR 0005, ADR 0007) -------------------------------------
  *
  * `assets/js/globe.js` lays a WebGL canvas, a layer of pins, a card and the
- * camera buttons over the flat SVG, and cross-fades the SVG out once the first
- * frame is drawn. The SVG stays in the page: it is the first paint, the no-JS
- * map and the no-WebGL map, and `data-globe="off"` means it is the map now.
+ * camera buttons into the empty stage and fades the canvas in once its first
+ * frame is drawn. There is nothing under it: the flat map that used to be the
+ * first paint was removed (ADR 0007), so the page shows its own paper until
+ * the globe lands on it.
  *
- * The frame is space in both site themes — a night sky is not a colour scheme
- * — so everything drawn over it (pins, labels, the hint, the credit) uses
- * fixed light-on-dark values rather than the theme's ink. The card and the
- * buttons are the site's own surfaces and follow the theme like any other.
+ * The canvas is transparent and the stage has no background in either theme:
+ * the globe floats. The pins and their labels carry their own dark pill, so
+ * they read on light paper and dark alike; the card and the buttons are the
+ * site's own surfaces and follow the theme like any other.
  */
-/* Once the globe is drawing it floats on the page (the owner's art direction,
-   round 4): no box, no night sky — the page's own paper, with the globe's halo
-   and ground shadow drawn by the globe itself. The flat first paint keeps its
-   framed panel until then. */
-.world[data-globe="on"] .world__stage {
-  background: transparent;
-  border-color: transparent;
-}
 .world__globe {
   position: absolute;
   inset: 0;
@@ -456,8 +272,6 @@
   transition: opacity .6s var(--ease-enter, ease);
 }
 .world[data-globe="on"] .world__globe { opacity: 1; }
-.world__svg { transition: opacity .6s var(--ease-exit, ease), visibility 0s .6s; }
-.world[data-globe="on"] .world__svg { opacity: 0; visibility: hidden; }
 /* The close map (MapLibre, globe-close.js) sits between the globe's canvas
    and the pins, and cross-fades in when the camera is handed to it. Its own
    attribution replaces the globe's NASA credit while it is showing. */
@@ -548,6 +362,10 @@
   box-shadow: 0 0 0 2px var(--pin-ring), 0 0 16px 5px rgba(244, 147, 95, .7);
 }
 .world__pin[data-dim] .world__pin-dot { background: #8A8F99; box-shadow: 0 0 0 1px rgba(251, 247, 240, .6); }
+/* One institution inside a country that has opened (globe.js schoolsOpen):
+   a small, solid dot without the country light's glow, so the country level
+   and the school level read as two levels. */
+.world__pin[data-school]:not([data-on]):not([data-dim]) .world__pin-dot { box-shadow: 0 0 0 1.5px var(--pin-ring), 0 1px 3px rgba(0, 0, 0, .6); }
 .world__pin-label {
   position: absolute;
   left: calc(var(--r) + 5px);
@@ -582,8 +400,8 @@
 .world__vehicle .world__vehicle-window { fill: var(--pin-ring); stroke: none; }
 /* The desk globe's ring and stand (globe.js drawDesk): brass and wood with a
    cartoon ink line, in globe radii (so strokes are fractions of a radius). The
-   layer sits under the globe's canvas. Only
-   while the globe is drawing: the flat first paint has no stand. */
+   layer sits under the globe's canvas, and shows only once the globe is
+   drawing, so the stand never arrives before the globe it holds. */
 .world__desk {
   position: absolute;
   inset: 0;
@@ -698,9 +516,20 @@
 .world__card-title:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .world__card-meta { margin: 0 0 .35rem; font-size: .8125rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .world__card-cue, .world__card-where { margin: 0 0 .35rem; font-size: .75rem; color: var(--ink-mute); }
-.world__card-go { display: inline-block; margin-top: .35rem; font-weight: 600; font-size: .875rem; }
+.world__card-go { display: block; margin: .35rem 0 0; font-weight: 600; font-size: .875rem; color: var(--accent); }
 .world__card-go::after { content: " \2192"; }
-.world__card-list { list-style: none; margin: .25rem 0 .35rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
+/* The card is the link (#53): the title's link stretches over the whole card,
+   so a click anywhere on it follows the link. Its one name is the title and
+   the way on; nothing interactive is inside it. The close button and a list
+   of places sit above the cover and stay buttons of their own. */
+.world__card-link { color: inherit; text-decoration: none; }
+.world__card-link::after { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; }
+.world__card[data-link] { cursor: pointer; }
+.world__card[data-link]:hover { border-color: var(--accent); }
+.world__card[data-link]:hover .world__card-go { text-decoration: underline; text-underline-offset: .2em; }
+.world__card-link:focus-visible { outline: none; }
+.world__card-link:focus-visible::after { outline: 3px solid var(--accent); outline-offset: -3px; }
+.world__card-list { position: relative; z-index: 1; list-style: none; margin: .25rem 0 .35rem; padding: 0; display: flex; flex-wrap: wrap; gap: .35rem; }
 .world__card-list button {
   padding: .2rem .6rem;
   border: 1px solid var(--rule-strong);
@@ -750,11 +579,10 @@
 /* Reduced motion: the globe still arrives, it just does not fade in, and the
    card does not slide. The camera itself is instant in globe.js. */
 @media (prefers-reduced-motion: reduce) {
-  .world__globe, .world__svg, .world__pin-dot { transition: none; }
+  .world__globe, .world__pin-dot { transition: none; }
   .world__card { animation: none; }
 }
 :root[data-motion="reduced"] .world__globe,
-:root[data-motion="reduced"] .world__svg,
 :root[data-motion="reduced"] .world__pin-dot { transition: none; }
 :root[data-motion="reduced"] .world__card { animation: none; }
 
@@ -1178,7 +1006,6 @@
 
 /* A place with nothing in the current filter set stays visible but recedes —
    disappearing markers make the map feel broken rather than filtered. */
-.world__place[data-dim="true"] .world__dot,
 .world__list a[data-dim="true"] {
   opacity: .28;
 }

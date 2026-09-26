@@ -1,0 +1,166 @@
+{
+  "console": [
+    "warning: [world] the close map could not start; the globe stays on its own. Failed to fetch"
+  ],
+  "home-200ms": {
+    "svgMaps": 0,
+    "stageChildren": [
+      "world__data"
+    ],
+    "globe": "waiting"
+  },
+  "countries-200ms": {
+    "svgMaps": 0,
+    "stageChildren": [
+      "world__data"
+    ],
+    "globe": "waiting"
+  },
+  "home-desk-light": "on",
+  "home-desk-dark": "on",
+  "home-phone-light": "on",
+  "home-phone-dark": "on",
+  "countries-desk-light": "on",
+  "countries-desk-dark": "on",
+  "countries-phone-light": "on",
+  "countries-phone-dark": "on",
+  "usLight": {
+    "lat": 39.1193,
+    "lon": -98.8063,
+    "schools": 14
+  },
+  "usOpen": {
+    "schoolPins": 6,
+    "groups": 3,
+    "usPinHidden": true
+  },
+  "card": {
+    "links": 1,
+    "href": "/destinations/us/",
+    "nestedInteractive": 0,
+    "linkName": "🇺🇸 United States — Open United States"
+  },
+  "cardClickWentTo": "http://127.0.0.1:4413/destinations/us/",
+  "schoolCard": {
+    "title": "Harvard — Open Harvard",
+    "href": "/universities/us-harvard/"
+  },
+  "homeEurope": {
+    "schoolPins": 19,
+    "groups": 35
+  },
+  "home-off": {
+    "globe": "off",
+    "why": "asked for no globe",
+    "stageShown": false,
+    "listVisible": true
+  },
+  "countries-off": {
+    "globe": "off",
+    "why": "asked for no globe",
+    "stageShown": false,
+    "listVisible": true
+  },
+  "shots": [
+    {
+      "file": "01-home-desk-light-200ms.jpg",
+      "kB": 82,
+      "what": "/ 200 ms after navigation: the stage is empty, no flat map"
+    },
+    {
+      "file": "01-home-desk-light-load.jpg",
+      "kB": 131,
+      "what": "/ at the load event"
+    },
+    {
+      "file": "01-countries-desk-light-200ms.jpg",
+      "kB": 116,
+      "what": "/countries/ 200 ms after navigation: the stage is empty, no flat map"
+    },
+    {
+      "file": "01-countries-desk-light-load.jpg",
+      "kB": 126,
+      "what": "/countries/ at the load event"
+    },
+    {
+      "file": "02-home-desk-light.jpg",
+      "kB": 131,
+      "what": "/, desk, light theme, globe at rest"
+    },
+    {
+      "file": "02-home-desk-dark.jpg",
+      "kB": 126,
+      "what": "/, desk, dark theme, globe at rest"
+    },
+    {
+      "file": "02-home-phone-light.jpg",
+      "kB": 48,
+      "what": "/, phone, light theme, globe at rest"
+    },
+    {
+      "file": "02-home-phone-dark.jpg",
+      "kB": 46,
+      "what": "/, phone, dark theme, globe at rest"
+    },
+    {
+      "file": "02-countries-desk-light.jpg",
+      "kB": 86,
+      "what": "/countries/, desk, light theme, globe at rest"
+    },
+    {
+      "file": "02-countries-desk-dark.jpg",
+      "kB": 83,
+      "what": "/countries/, desk, dark theme, globe at rest"
+    },
+    {
+      "file": "02-countries-phone-light.jpg",
+      "kB": 40,
+      "what": "/countries/, phone, light theme, globe at rest"
+    },
+    {
+      "file": "02-countries-phone-dark.jpg",
+      "kB": 38,
+      "what": "/countries/, phone, dark theme, globe at rest"
+    },
+    {
+      "file": "03-countries-us-light-centred.jpg",
+      "kB": 94,
+      "what": "The United States light at the middle of the country (Kansas), before zooming in"
+    },
+    {
+      "file": "04-countries-us-schools-and-card.jpg",
+      "kB": 121,
+      "what": "Chosen: the US card (one link) and the US opened into its schools"
+    },
+    {
+      "file": "05-card-click-landed.jpg",
+      "kB": 162,
+      "what": "After clicking the card body (not the title): the United States page"
+    },
+    {
+      "file": "06-countries-us-east-schools.jpg",
+      "kB": 88,
+      "what": "Zoomed in over the US east coast: the schools as their own dots and groups"
+    },
+    {
+      "file": "07-countries-harvard-card.jpg",
+      "kB": 68,
+      "what": "A school chosen: its card is a link to its page on this site"
+    },
+    {
+      "file": "08-home-europe-schools.jpg",
+      "kB": 157,
+      "what": "Home, over Germany and the Low Countries: countries opened into schools"
+    },
+    {
+      "file": "09-home-no-globe.jpg",
+      "kB": 141,
+      "what": "/ with the globe unavailable (?map=off): the list and one line"
+    },
+    {
+      "file": "09-countries-no-globe.jpg",
+      "kB": 93,
+      "what": "/countries/ with the globe unavailable (?map=off): the list and one line"
+    }
+  ]
+}

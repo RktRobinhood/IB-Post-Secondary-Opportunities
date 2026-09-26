@@ -1,6 +1,6 @@
 /**
- * Turns Natural Earth's 110m country polygons into the small basemap the world
- * window draws underneath its markers.
+ * Turns Natural Earth's 110m country polygons into the small basemap the globe
+ * draws its far borders from.
  *
  *   node scripts/make-basemap.mjs [path/to/ne_110m_admin_0_countries.geojson]
  *
@@ -9,10 +9,10 @@
  * looking at Europe, or which dot was in which country. Geography is the thing
  * that makes a map a map.
  *
- * Why it is baked rather than fetched: the world window is inline SVG with no
- * dependencies, so that it works with JavaScript off, at 200% zoom and with a
- * keyboard. A basemap that arrives over the network would break that, so the
- * coastlines ship as data and the build draws them.
+ * It was baked for the build-time flat map, which was removed on 26 September
+ * 2026 (ADR 0007). The file it writes, `data/geo/countries.json`, is still
+ * what the globe draws its far borders and picks countries from (the build
+ * copies it to `assets/geo/`), and what the build's country check reads.
  *
  * Source: Natural Earth, public domain. https://www.naturalearthdata.com/
  */

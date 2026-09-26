@@ -4,6 +4,8 @@ import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, gl
 import { picture } from '../lib/data.mjs';
 import { hostOf, isHomepage, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
+import { schoolCardGroups } from '../lib/families.mjs';
+import { pathsBlock } from '../lib/paths.mjs';
 
 /**
  * A school page: one institution from a country profile (issue #43).
@@ -102,25 +104,88 @@ export const inCardOrder = (programmes) =>
       a.name.localeCompare(b.name)
   );
 
-export function programmeCard(inst, p, { tuitionOnCard, headed, brief = false, at = null }) {
+/**
+ * A listed school's cards, in card order: one per programme, or one per
+ * family of paths — the same programme on several campuses, or as a double
+ * degree or a longer version (issues #46 and #52; src/lib/families.mjs).
+ */
+export const schoolCards = (programmes) => schoolCardGroups(inCardOrder(programmes));
+
+/** "3 years", "3½ years": a length as a path's fact. */
+export const yearsText = (y) => `${String(y).replace(/\.5$/, '½')} ${Number(y) === 1 ? 'year' : 'years'}`;
+const yrs = (y) => `${String(y).replace(/\.5$/, '½')} yrs`;
+
+/** The distinct values of a list, in order, joined with "or". */
+const orOf = (list) => [...new Set(list.filter(Boolean))].join(' or ');
+
+/**
+ * What differs between the paths of a family, fact by fact, for the card's
+ * rows: only a fact whose value is not the same on every path, and not one
+ * every path's own label already says ("Lahti" in "LUT + HEBUT double
+ * degree, Lahti"). Each row is short: "60 places · €8,700 a semester".
+ */
+function pathRows(inst, members) {
+  const facts = [
+    (p) => p.credential,
+    (p) => yearsText(p.years),
+    (p) => p.city || inst.city || null,
+    (p) => (p.places ? plural(p.places, 'place') : null),
+    (p) => (p.closes ? (p.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(p.closes)}`) : null),
+    (p) => p.tuitionEuEea || null,
+  ].filter((f) => new Set(members.map((p) => f(p) ?? '')).size > 1)
+    .filter((f) => !members.every((p) => f(p) && String(p.family.path).includes(f(p))));
+  return members.map((p) => {
+    const detail = facts.map((f) => f(p)).filter(Boolean);
+    return { href: p.href, label: p.family.path, detail, full: detail };
+  });
+}
+
+/** The sentences every path's `ib` line shares, in the lead's order: said once on the card. */
+function sharedSentences(members) {
+  const split = (t) => String(t || '').split(/(?<=[.!?])\s+(?=[A-Z])/).filter(Boolean);
+  const [first, ...rest] = members.map((p) => split(p.ib));
+  return (first || []).filter((sn) => rest.every((r) => r.includes(sn))).join(' ') || null;
+}
+
+/**
+ * One programme card: a single programme's, or a family's (`group` from
+ * schoolCards). A family card carries the family's name, its facts once
+ * where every path shares them ("BSc (Tech) · 3 yrs · 2 campuses"), and a
+ * short row per path linking to its page, with what differs about it.
+ */
+export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null }) {
+  const g = group.members ? group : { family: null, members: [group], lead: group };
+  const p = g.lead;
+  const members = g.members;
+  const fam = g.family && members.length > 1;
+  const same = (f) => new Set(members.map((q) => f(q) ?? '')).size === 1;
+  const cities = [...new Set(members.map((q) => q.city || inst.city || ''))];
+  const where = cities.length > 1 ? `${cities.length} campuses` : p.city && p.city !== inst.city ? p.city : null;
+  const years = same((q) => q.years)
+    ? yrs(p.years)
+    : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;
+  const closes = same((q) => `${q.closes}|${!!q.closesForDiplomaHolders}`) ? p : null;
+  const fee = same((q) => q.tuitionEuEea) ? p.tuitionEuEea : null;
   return card({
     // Its own page on this site (school-programme.mjs), where the link to the
-    // programme's page on the institution's site now lives.
+    // programme's page on the institution's site now lives. A family's card
+    // opens its primary path; each row opens its own.
     href: p.href,
     mod: `card--prog card--fam-${FAMILY[p.field] || 'general'}`,
     // The field names the card's band, unless a heading above already does.
     kicker: headed ? null : FIELD[p.field],
-    title: p.name,
+    title: fam ? g.family.name : p.name,
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     // `at`: the school, on a card that stands for another school's programme.
-    sub: [at, p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
+    sub: [at, orOf(members.map((q) => q.credential)), years, where].filter(Boolean).join(' · '),
     // A brief card (a sibling on a programme page) leaves the IB line to its own page.
-    text: brief ? null : p.ib || null,
+    text: brief ? null : fam ? sharedSentences(members) : p.ib || null,
+    paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members) }) : '',
     tags: [
       /* A programme whose only round is for Diploma holders gives no date to
          a final-year student: the card says whose round it is instead. */
-      p.closes ? { label: p.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
-      tuitionOnCard && p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
+      closes?.closes ? { label: closes.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(closes.closes)}`, mod: 'sand' } : null,
+      tuitionOnCard && fee ? { label: `EU/EEA: ${fee}`, mod: 'brand' } : null,
     ].filter(Boolean),
     // At rest, the card says it opens a page.
     meta: ['The programme →'],
@@ -147,28 +212,30 @@ function programmeSection(inst, c) {
   if (school?.scope === 'listed') {
     const progs = inCardOrder(school.programmes);
     const fee = sharedTuition(progs);
-    const one = (p, headed = false) => programmeCard(inst, p, { tuitionOnCard: !fee, headed });
+    /* One card per programme, or per family of paths (#52). */
+    const groups = schoolCards(school.programmes);
+    const one = (g, headed = false) => programmeCard(inst, g, { tuitionOnCard: !fee, headed });
     const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;
 
     let cards;
-    if (progs.length < GROUP_FROM) {
-      cards = html`<div class="grid ${progs.length <= 2 ? 'grid--2' : 'grid--3'}">${progs.map((p) => one(p))}</div>`;
+    if (groups.length < GROUP_FROM) {
+      cards = html`<div class="grid ${groups.length <= 2 ? 'grid--2' : 'grid--3'}">${groups.map((g) => one(g))}</div>`;
     } else {
       const byField = new Map();
-      for (const p of progs) {
-        const f = FIELD[p.field];
+      for (const g of groups) {
+        const f = FIELD[g.lead.field];
         if (!byField.has(f)) byField.set(f, []);
-        byField.get(f).push(p);
+        byField.get(f).push(g);
       }
-      const groups = [...byField].filter(([, list]) => list.length >= GROUP_MIN);
+      const fieldGroups = [...byField].filter(([, list]) => list.length >= GROUP_MIN);
       const rest = [...byField].filter(([, list]) => list.length < GROUP_MIN).flatMap(([, list]) => list);
       const group = (head, list, headed) => html`<div class="prog-group">
           <h3 class="prog-group__head">${head} <span>· ${list.length}</span></h3>
-          <div class="grid grid--3">${list.map((p) => one(p, headed))}</div>
+          <div class="grid grid--3">${list.map((g) => one(g, headed))}</div>
         </div>`;
       cards = [
-        ...groups.map(([field, list]) => group(field, list, true)),
-        rest.length ? group(groups.length ? 'Other fields' : 'All fields', rest, false) : '',
+        ...fieldGroups.map(([field, list]) => group(field, list, true)),
+        rest.length ? group(fieldGroups.length ? 'Other fields' : 'All fields', rest, false) : '',
       ];
     }
     return html`${sectionHead({ title: 'What you could study here', lede, id: 'programmes' })}${cards}`;

@@ -2,6 +2,12 @@
 
 Supersedes [ADR 0004](0004-the-world-window-stays-flat.md).
 
+> **Superseded in part by [ADR 0007](0007-the-flat-map-is-removed.md)** on
+> 26 September 2026: the flat SVG is no longer the first paint or the
+> fallback, and `map-flat.js` is gone. Where the globe cannot run, the list is
+> the map. A country's light is now the middle of its outline, not the medoid
+> of its places. Everything else here stands.
+
 ## What forced the decision
 
 ADR 0004 declined the globe on measurements: an orthographic disc uses a third

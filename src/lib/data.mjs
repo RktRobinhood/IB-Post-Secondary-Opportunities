@@ -544,6 +544,24 @@ function basemap() {
   return BASEMAP_CACHE;
 }
 
+/**
+ * A country's outline at the globe's finer scale (Natural Earth 50m, the same
+ * file the globe dives into), as flat [lon, lat, …] rings — for placing a
+ * light that stands for the whole country at its middle (geo.mjs
+ * visualCentre). Empty when the country has no outline there.
+ */
+let OUTLINES = null;
+export function countryOutline(code) {
+  if (!OUTLINES) {
+    OUTLINES = new Map();
+    try {
+      const borders = JSON.parse(fsSync.readFileSync(path.join(ROOT, 'src', 'assets', 'geo', 'borders-50m.json'), 'utf8'));
+      for (const c of borders.countries || []) if (c.id) OUTLINES.set(c.id, [...(OUTLINES.get(c.id) || []), ...c.rings]);
+    } catch { /* no outlines: callers fall back to the places */ }
+  }
+  return OUTLINES.get(code) || [];
+}
+
 function degreesOutside(lat, lon, code) {
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
   const country = basemap().countries.find((c) => c.id === code);

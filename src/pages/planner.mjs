@@ -61,7 +61,13 @@ export function planner(site) {
      those additions: the engine reads them for their own Opportunities. */
   const institutions = [...(site.graph?.institutions?.values() || [])]
     .filter((i) => (i.ibEquivalences || []).length || (i.admissionRoutes || []).length || i.levelRaise)
-    .map((i) => ({ id: i.id, name: i.name, ibEquivalences: i.ibEquivalences, admissionRoutes: i.admissionRoutes, levelRaise: i.levelRaise }));
+    .map((i) => ({ id: i.id, name: i.name, shortName: i.shortName, ibEquivalences: i.ibEquivalences, admissionRoutes: i.admissionRoutes, levelRaise: i.levelRaise }));
+  /* What the "eligible, but only through another route" outcome is called:
+     the route's own name where every institution names the same one ("Quota
+     2 only"), so the filter chip and the count line say one thing (round 4:
+     "Another route only" beside "15 quota 2 only"). */
+  const routeNames = [...new Set(institutions.flatMap((i) => (i.admissionRoutes || []).map((r) => r.quota)).filter(Boolean))];
+  const otherRouteLabel = routeNames.length === 1 ? `${routeNames[0]} only` : 'Another route only';
   const schemes = (site.recognitionSchemes || []).filter((s) => destinations.has(s.destination));
   const soleScheme = schemes.length === 1 ? schemes[0] : null;
   /* What to call the levels the panel fills in. "Your Danish levels" is right
@@ -174,11 +180,12 @@ ${hero({
         </p>
         <div class="chips" style="margin-bottom:var(--s5)">
           <button type="button" class="chip" data-show="meets" aria-pressed="true">Meets requirements</button>
-          <button type="button" class="chip" data-show="other-route-only" aria-pressed="true">Another route only</button>
+          <button type="button" class="chip" data-show="other-route-only" aria-pressed="true">${otherRouteLabel}</button>
           <button type="button" class="chip" data-show="possible-with-action" aria-pressed="true">Possible with action</button>
           <button type="button" class="chip" data-show="needs-review" aria-pressed="true">Needs review</button>
           <button type="button" class="chip" data-show="does-not-currently-meet" aria-pressed="false">Does not currently meet</button>
         </div>
+        <details class="acc" id="p-how" hidden open style="margin-bottom:var(--s5)"></details>
         <ul class="prog-list" id="p-results"></ul>
         <noscript>
           <p class="state state--empty">The subject checker needs JavaScript, because it runs entirely in your
@@ -189,11 +196,11 @@ ${hero({
         </noscript>
 
         ${note(
-          `Four outcomes, and they mean exactly what they say. **Meets published requirements** means every
-          recorded mandatory rule is satisfied for the 2027 intake. **Possible with action** means one rule is
-          not met but could plausibly be before the deadline. **Does not currently meet** means more than one
-          rule is unmet. **Needs review** means the data is missing, unverified, or the rule is one no tool can
-          check — an essay, an interview, a language document.`,
+          `**Meets published requirements**: every recorded rule is met — shown as **${otherRouteLabel}** where
+          you are below the floor for the main route, so only that route is open. **Possible with action**:
+          every gap has a named step — one test or route, or at most two supplementary courses. **Does not
+          currently meet**: a gap with no recorded step. **Needs review**: missing or unverified data, or a
+          rule a person must judge.`,
           { title: 'What the four outcomes mean' }
         )}
 

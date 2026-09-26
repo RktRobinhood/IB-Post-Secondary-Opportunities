@@ -113,5 +113,5 @@ _Avoid_: Conversion table, equivalence, mapping
 ## Surfaces
 
 **World Window**:
-The geographic view of the places a page holds, drawn from the same list that sits beneath it: a globe where WebGL runs (ADR 0005), the build-time flat map everywhere else and as the first paint. It lights, groups and flies to Places; the list under it is the control, and the two can never disagree because the view is drawn from the list.
+The geographic view of the places a page holds, drawn from the same list that sits beneath it: a globe that floats on the page (ADR 0005), and nothing else — there is no flat map (ADR 0007). It lights, groups and flies to Places, opens a country into its Institutions as the camera comes close, and its card for a place is a link to that place. The list under it is the control, and where the globe cannot run (no JavaScript, no WebGL) the list is the whole World Window; the two can never disagree because the globe is drawn from the list.
 _Avoid_: Map widget, globe component, hero map

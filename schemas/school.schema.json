@@ -163,6 +163,32 @@
         },
         "places": { "type": "integer", "minimum": 1, "description": "Study places for the 2027 intake (or the latest published), when stated." },
         "starts": { "enum": ["January", "February", "March", "April", "August", "September", "October"], "description": "Start month, when not September." },
+        "family": {
+          "type": "object",
+          "required": ["name", "axis", "path", "differs"],
+          "additionalProperties": false,
+          "description": "One programme offered on several campuses, or as several paths (a double degree, a longer version with an internship), is one card with its paths inside (issues #46 and #52). Every member carries the same `name` and `axis`; the members of a family are the programmes of this record that share `name`. Checked by src/lib/families.mjs checkSchoolFamilies.",
+          "properties": {
+            "name": { "type": "string", "description": "The card's title, the same on every member." },
+            "axis": { "enum": ["credential", "campus", "specialisation"], "description": "What the paths differ on." },
+            "path": { "type": "string", "maxLength": 40, "description": "This path's short label: its campus, or what makes it different ('LUT + HEBUT double degree')." },
+            "differs": { "type": "string", "maxLength": 160, "description": "One line: what is different about this path, from the record's own fields." },
+            "primary": { "type": "boolean", "description": "Exactly one member is the card's link." }
+          }
+        },
+        "separateFrom": {
+          "type": "array",
+          "description": "A deliberate 'these look alike but are two cards': another programme of this record with the same subject name, and why it stays a card of its own (what a student must do differs).",
+          "items": {
+            "type": "object",
+            "required": ["name", "reason"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "reason": { "type": "string", "maxLength": 240 }
+            }
+          }
+        },
         "requirementsUrl": { "$ref": "common.schema.json#/$defs/url", "description": "The page that states this programme's entry requirements, when it is not `url`." }
       }
     }

@@ -9,8 +9,8 @@
  * All four have a token below. The fourth, `geographic`, came back with the
  * globe (ADR 0005): the camera in `assets/js/globe.js` is its one spender, and
  * the note above `MOTION` records why it was once removed and what brought it
- * back. The flat fallback (`assets/js/map-flat.js`) still pans on
- * `overview-to-detail`, as it always did.
+ * back. The flat fallback that panned on `overview-to-detail` was removed with
+ * the flat map (ADR 0007).
  *
  * Each token carries its purpose in the data, not in a comment, so the
  * generated stylesheet and the documentation cannot drift apart. Every token

@@ -22,6 +22,7 @@ This page says where the work stands, so the next session (human or agent) start
 - **Globe:** it floats on a transparent background, is "a bit cartoony, lean into fun", and moving between places shows a dotted route with a little plane, train or bus ("Where in the World is Carmen Sandiego"). The owner capped it at 5 critic rounds; round 5 ships whatever the score.
 - **Desk globe (25 September, evening):** the base is a globe held in its arms — a brass meridian ring on a stand, axis tipped 23.4° — that turns left and right only; choosing a place turns it to face you and leans in. Routes, vehicles and clouds are "eye candy, nice to have". The globe is a visual element (it may sit in a horizontal band), not a full-page simulation. Two ChatGPT prototypes were shared as inspiration only.
 - **Usage ceiling:** no new agents or tasks once the **5-hour** plan window reaches 80% (not the weekly total).
+- **Ship to `main` (26 September, afternoon):** work of acceptable quality (critic 8+) or a clear improvement on what is live goes to `main` at once, so students, counsellors and the owner see it on the live site. Nothing good waits for a later release. A branch is only for work in flight, is meant to merge whole into `main`, and is closed afterwards. Close an issue when its acceptance criteria are live.
 
 ## Done and live
 
@@ -56,6 +57,17 @@ This page says where the work stands, so the next session (human or agent) start
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Settled with the art director (programme pages, round 1):** a programme page under a school (`/universities/<key>/<slug>/`) shows its school's hero photo; the school's page, card and programme pages are one image slot. `unique-images` holds it: that photo heads no page outside its school.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
+
+## 26 September (late morning): the Danish standard for every country
+
+The owner: "the value is in bringing the other regions as close to our Danish standard as possible." Usage ceiling 70% of the 5-hour window. The owner's globe notes are on #53 (transparent floating globe, pins centred on large countries, zoom to schools, remove the old map that flashes first, whole card links to the country); not started.
+
+- **Live on `main` (critic 8+):** UK 22, Finland 14, Switzerland 15, Luxembourg 2, Iceland 2, Netherlands 17, Austria 15, Germany 14, Norway 14, Sweden 14 = **129 researched school records**.
+- **On `feat-43-school-pages`, not yet accepted:** Belgium 14 (round 1 7/10, fixes in, needs round 2), Ireland 14 (researched, no critic yet; DkIT and SETU rest on archived copies).
+- **Programme pages (branch only):** every programme of a `listed` school gets `/universities/<key>/<slug>/`, laid out like the Danish programme page (`src/pages/school-programme.mjs`). Art-director round 1: **6/10**; all round-1 fixes are in (branch gate 35/35, shots in `D:/ibp-tmp/w43/pp-r2/`). **Before round 2:** a school's January date that is only for Diploma holders (Sweden: labelled "only if you already hold your IB Diploma"; KTH's 15 Jan) must not become a final-year student's Apply-by: give school dates a way to say so (e.g. `forDiplomaHolders: true`) and skip them in the tile. Also data: `ie-ncad` Fashion Design `about` starts "CAO code AD211.", and its Product/Interaction Design maths add-on belongs on those programmes. Goes to `main` only after an 8+.
+- **Enrichment:** `schemas/school.schema.json` programmes carry `about`, `needs` (IB subject ids, `id@HL` for per-option levels), `points`, `selection`, `cutoff`, `places`, `requirementsUrl`; brief section "Enrichment: the Danish standard". **Finland is enriched (101 programmes, branch only)** and needs an admissions critic before it ships with the programme pages.
+- **Degree photos (#54), owner's request:** every degree card of the new countries gets its own photograph, as the Danish cards do (not a shared university photo). Pilot Finland, then NL/CH/AT/DE/NO/SE; photo-editor critic per batch. First job after the usage window resets.
+- **Next:** programme pages round 2 → FI enrichment critic → ship both; Sweden/Belgium/Ireland critics; enrich the live countries (NL, DE, AT, CH, NO) one at a time; then wave 2 research (ES/IT/FR/PT…, queue in `docs/research/schools/QUEUE.md`).
 
 ## 26 September (morning): the owner's focus is university data
 
