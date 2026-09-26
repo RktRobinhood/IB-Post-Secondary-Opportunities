@@ -109,3 +109,26 @@ Dates: only 2027-cycle dates an official page states for 2027 (or as a standing 
 - IB: IBDP accepted; general "Minimum Secondary School Grade Point Average (GPA) of 2.5 based on a 4-point scale or its converted equivalent" with no IB conversion; English: "HL English A: 4; HL English B: 5; SL English A: 5; SL English B: 6". CS/AI: "IB Mathematics HL score of 5" among maths options.
 - Dates: only "Academic Year 2026-2027" published (EU/EEA/AT deadline "July 31, 2026"). None recorded; noted as a 2026 precedent.
 - Hand-off: undergraduate programs page (6 bachelor's only).
+
+## at-imc-krems (listed, 8 programmes)
+- Scope listed: 20 bachelor's pages checked ("Language English/German" in the fact box). English and full-time: Business Administration, International Business Management, International Wine Business, StartUp Management, Tourism and Leisure Management, Chemistry, Informatics, Medical and Pharmaceutical Biotechnology. German: Gesundheitsmanagement, Unternehmensführung und digitales Management, and all health degrees (Ergotherapie, Gesundheits- und Krankenpflege, Hebammen, Musiktherapie, Physiotherapie).
+- Excluded: Sustainability Management (English, "part-time / 6 semesters"; application box says only "No application possible" with no next-year opening, unlike the others). Could not verify whether it takes a 2027 intake.
+- Agrees with data/countries/at.json in substance ("Nine taught in English"): nine counting the part-time Sustainability Management.
+- Dates (quoted from each programme page): "Application for the next study year possible from 01/12/2026" (recorded as opens 2026-12-01); "Application deadline for EU nationals 15/04/2026" is the 2026 cycle (not recorded; in a note as precedent). Info Day: "Friday 27.11.2026 Highlight Info Event IMC Info Day 14:00 - 18:00" (open-day).
+- IB: no IB-specific page; "we check the equivalence ... Supplementary examinations might be necessary"; English: "we'll assess your English language proficiency at your interview".
+- Credentials written as the page's full titles: "Bachelor of Arts in Business", "Bachelor of Science in Engineering".
+- Hand-off: overview of bachelor programmes (20 bachelor's; bachelor's only).
+
+## at-mci (listed, 3 programmes)
+- Scope listed: 16 bachelor's fact boxes read ("Time model & Language"). English: Business & Management ("Full-time | English"); Entrepreneurship, Tourism & Leisure Business ("Full-time | German or English"; its Tourism, Sports & Leisure Business major "held entirely in English"); Business Administration Online ("Online + attendance modules | German or English"). All others "German".
+- Agrees with data/countries/at.json ("Business & Management and Entrepreneurship, Tourism & Leisure Business full-time in English, plus an online Business Administration").
+- Dates (quoted): "Application Deadlines 2027/2028 Date 1: November 8, 2026 Date 2: February 7, 2027 Date 3: April 11, 2027 Date 4: May 30, 2027"; "Online Info Sessions October 20 & 21, 2026". Page also says "Start of studies in fall 2027!". All recorded.
+- Round-1 interviews for Business & Management and ETLB "November 23-25, 2026" (programme pages); not recorded as institution dates.
+- Could not verify: an MCI bachelor's page stating IB or English-proof rules (the IB English exemption found by search is on a master's page).
+- Hand-off: /en/study/bachelor (bachelor's only, 16).
+
+## Summary
+- 15 of 15 finished: 8 listed, 7 none (TU Wien, Uni Graz, TU Graz, Innsbruck, Salzburg, BOKU, MedUni Wien; all German-taught).
+- Programme count by record: at-uni-wien 1, at-wu-vienna 1, at-jku 6, at-aau 6, at-modul 7, at-webster-vienna 6, at-imc-krems 8, at-mci 3 = 38 programmes.
+- 2027-cycle dates recorded only where published: MCI's four 2027/28 rounds (8 Nov 2026 – 30 May 2027) and info sessions; IMC's 1 Dec 2026 opening and 27 Nov 2026 Info Day; JKU and MODUL standing (yearless) deadlines, labelled as such. No public university had published 2027/28 admission periods; MedAT 2027 and WU BBE 2027 unpublished (WU due mid-November 2026).
+- Main contradictions with data/countries/at.json: Uni Wien has an English bachelor's (country says none); JKU has six English-language bachelor's (country names only AI); Webster lists six, not four; national IB conditions exist (three HL totalling 12, no grade below 3, per OeAD/ENIC NARIC and Graz) where the country record says "None published".

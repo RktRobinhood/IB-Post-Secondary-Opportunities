@@ -6,12 +6,12 @@ Reports go to `reports/batch-<name>.md`; the coordinator folds them into `progre
 
 | Wave | Batch | Schools | State |
 |---|---|---|---|
-| 0 | fi, gb | 36 | researched; round-1 critic 7/10 each, fixes in; round-2 critics running |
-| 1 | nl-fontys, de ×5, lu, is | 10 | running |
+| 0 | fi, gb | 36 | **accepted 8/10 (round 2), live on main** |
+| 1 | nl-fontys, de ×5, lu, is | 10 | done: nl 17/17, de 14/14, lu 2/2, is 2/2 (`reports/batch-nl-de-lu-is.md`) |
 | 1 | se ×5, no ×4 | 9 | done: se 14/14, no 14/14 (report `reports/batch-se-no.md`) |
 | 1 | ie | 14 | running |
-| 1 | be | 14 | running |
-| 1 | at | 15 | running |
+| 1 | be | 14 | done (`reports/batch-be.md`) |
+| 1 | at | 15 | done (`reports/batch-at.md`) |
 | 1 | ch | 15 | done (report `reports/batch-ch.md`). Critic: check the dates labelled "(standing date)" (no year on the page) against the brief's rule |
 | 2 | es, it, fr, pt | 50 | queued |
 | 2 | pl, cz, hu | 41 | queued |
@@ -21,3 +21,5 @@ Reports go to `reports/batch-<name>.md`; the coordinator folds them into `progre
 
 Accepted countries (critic 8+) are merged to `main`; the rest stay on `feat-43-school-pages`.
 A stopped run resumes by re-running its batch: researchers skip files that exist.
+
+Next for each done country: an admissions-counsellor critic (round 1), fixes, then move to `main`.

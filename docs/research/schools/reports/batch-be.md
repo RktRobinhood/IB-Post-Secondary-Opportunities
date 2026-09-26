@@ -91,3 +91,30 @@ Researcher run started 2026-09-26. One line per point. WebFetch/WebSearch only (
 - Page oddity: under the Fall 2027 heading the page also says "Leave your details here to be notified once applications for SPRING 26/27 (start in February 2027) open at the end of January 2027" — a copy-paste slip; the 18 January 2027 opening sits under Fall 2027.
 - data/countries/be.json note ("it says it has the largest set of English-taught professional bachelor's in Belgium"): not found on the pages read; unverified. City "Mechelen, Antwerp, Turnhout, Geel": English degrees are in Mechelen, Geel and Sint-Katelijne-Waver.
 - IBM has no degree-level page (404); linked the International Business and Trade major page.
+
+## be-howest (listed, 5 programmes)
+- Scope: listed. apply.howest.be lists five "[Ba]" English-taught bachelor's: Cybersecurity, Creative Technologies and AI, Digital Arts and Entertainment (DAE), Digital Design and Development (DEVINE), Industrial Product Design. Cross-checked against all 39 bachelor pages on howest.be: 25 say "only available in Dutch"; HRM and MCT give no English option. DAE majors merged into one entry.
+- Contradicts data/countries/be.json englishBachelors ("Digital Arts and Entertainment is taught in English"): there are five, not one.
+- Hand-off: "Applications for English-taught degree programmes" page (bachelor admissions). apply.howest.be mixes 5 bachelor's with 3 advanced bachelor's, so not used.
+- IB English proof: "an International Baccalaureate diploma in English, or with a minimum grade of 5 for the course English A or B high level, or minimum grade 6 for the course English B standard level". Fee: "The application processing fee is 50 EUR".
+- Dates: page gives "Application deadlines for the academic year 2026-2027" only ("1 July for EEA citizens and other applicants who do not require a visa"); and "Applications for the autumn semester begin on 1 January of the same year" — kept as notes, no 2027 date recorded.
+
+## be-odisee (listed, 1 programme)
+- Scope: listed. Study in Flanders (VLUHR's national portal) filtered to Odisee + Bachelor's returns 1 result: "Bachelor of Business Management | PBA | 180 ECTS | English". Contradicts data/countries/be.json englishBachelors (null).
+- Could not verify on odisee.be: every odisee.be URL returns HTTP 403 to WebFetch and curl (bot protection). Programme and admission details were read from web.archive.org copies: programme page (2024/2025 snapshot, "Campus Brussels", "three-year day-time on-campus programme of 180 ECTS", open day 15 March 2025) and admission page (snapshot 15 January 2025: "Applicants who obtained a bilingual IB diploma or an IB diploma fully taught in English" are exempt from an English test; "All registered students are required to take an additional on-campus English proficiency test (Elao) in October"). ib text marked as January 2025 / 2027 not confirmed.
+- URL: Study in Flanders links /en/programmes/bachelor-business-management-major-marketing, which the archive shows 301-redirecting (May 2024) to /en/programmes/bachelor-business-management-marketing; the record uses the latter. Neither could be opened live.
+- Hand-off: the Study in Flanders filtered list (bachelor's only, 1 result), because odisee.be cannot be checked.
+- No dates: none readable.
+
+## Completeness check (Study in Flanders, all bachelor's taught in English, 104 entries across p1–p6)
+- KU Leuven: SiF lists European Studies, Philosophy, TRS, Business Engineering, Engineering Technology (chemical, electronics-ICT, electromechanical), BASUS — but not Business Administration; KU Leuven's own programme page lists BA as English, so kept (7).
+- UGent/VUB Social Sciences (3 majors), VUB Business Economics (2 majors) and Linguistics (language pairs): consistent with records.
+- UAntwerp 2, KdG 4 (IBM as 3 majors), Howest 5 (DAE majors), Thomas More 9 degrees (SiF uses older Electronics-ICT track names), Odisee 1: consistent.
+- Flemish UCs not in this batch also appear (Artevelde, VIVES, UCLL, PXL, AP, LUCA, Erasmus Brussels) — out of scope for batch be (not in the manifest).
+
+## Batch summary
+- 14 of 14 done: 11 listed (38 programmes), 3 none (UHasselt Dutch; ULiège, UMONS French). `node scripts/check-schools.mjs` passes for all be-* files.
+- 2027 dates recorded only where the page names 2027: VUB (opens 2026-11-15; closes 2027-03-31 non-EU / 2027-07-31 EEA), UAntwerp (opens 2026-11-04; 2027-02-28, 2027-05-31, 2027-06-30), Thomas More (2027-01-18, 2027-05-24, non-EU), Vesalius/BSoG (opens 2026-10-01). KU Leuven, UGent, UCLouvain, ULB, ULiège, UMONS, KdG, Howest, Odisee publish no 2027 date yet; their 2026 or year-less rules are in notes.
+- Programme URLs: 37 of 38 return 200; Odisee's returns 403 (bot protection), read via web archive.
+- Hand-offs whose counts need a browser check (JS lists): KU Leuven programme search, VUB bachelor list, UAntwerp language filter.
+- Contradictions with data/countries/be.json englishBachelors: KU Leuven (+Engineering Technology, +Sustainability), UCLouvain ("Essentially none" → 1 joint), ULB ("Essentially none" → 2), Howest (1 → 5), Odisee (null → 1), Vesalius (communication BA gone, law BA added).

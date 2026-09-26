@@ -95,3 +95,11 @@ Researcher run of 2026-09-26. WebFetch/WebSearch only (no browser), so hand-off 
 - Contradicts ie.json (country record, not recorded here): 106 of 107 Level 8 pages show "Fees (EU) €3,000 Per Year", while ie.json says the student contribution is 2,500 EUR maximum for 2026/27. Likely stale TU Dublin copy; the coordinator may want to recheck the HEA figure.
 - Not used: ie.json note "Ireland's largest technological university" (not verified).
 
+## ie-mtu (catalogue)
+
+- Read with curl. Scope: catalogue. Hand-off is MTU's own course search with its filters `courseStudyModeName=Full-time&courseType=Undergraduate&courseNFQLevelName=Level+8`: 4 pages, 72 distinct MT codes (the unfiltered "View CAO Courses" search mixes Level 7 and 8 over 7 pages). No stated total; `courses` omitted.
+- I opened all 72 course pages. General rule: "Leaving Certificate in six subjects, i.e. H5 in two subjects and O6/H7 in four other subjects. The six subjects must include Mathematics and either English or Irish grade O6/H7." No third language.
+- Strictest: BEng Structural, Mechanical, Chemical and Biopharmaceutical, Biomedical, Mechanical and Manufacturing: "Mathematics H4 or see Note 1" ("The requirement for H4 Maths may be satisfied by H4 in Applied Maths plus H6 in Maths") = IB HL 5; Engineering Common Entry MT830 "Mathematics O1/H6" (SL 7 or HL 4); Software Development MT800 "O3/H7 Mathematics" (SL 6 or HL 3); Biomedical Science MT871 "Science grade H4" (HL 5).
+- Portfolio courses: MT811, MT820, MT821, MT822, MT823, MT834. Fine Art MT821: "The deadline for applicants applying through the CAO is 1st February (5pm), after which they will receive an invitation to submit their portfolio for assessment in March." and "the CAO Change of Mind facility does not apply to restricted access courses such as MT 821". MT834: "Portfolio submission + CAO Points w/ 50/50 weighting, max 600 each". No 2027 portfolio date, so no `dates`.
+- Not used: ie.json note "lower points requirements" (comparative claim; not checked).
+
