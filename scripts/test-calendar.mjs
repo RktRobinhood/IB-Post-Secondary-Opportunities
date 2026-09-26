@@ -682,9 +682,11 @@ check('a date whose note says it is not for a school never reaches that school',
 check('UCAS 13 January, Extra, Clearing and the final date stay off Oxford and Cambridge, where every course closes 15 October', () => {
   for (const id of ['gb-oxford', 'gb-cambridge']) {
     const p = schoolPages.find((q) => q.id === id);
-    const ids = new Set(datesFor(site, p.inst).map((e) => e.routeId && `${e.routeId}/${e.id}`).filter(Boolean));
+    const shown = datesFor(site, p.inst);
+    const ids = new Set(shown.map((e) => e.routeId && `${e.routeId}/${e.id}`).filter(Boolean));
     for (const ref of ['gb-ucas-2027/ms-main', 'gb-ucas-2027/ms-extra', 'gb-ucas-2027/ms-clearing', 'gb-ucas-2027/ms-final']) assert.ok(!ids.has(ref), `${id} shows ${ref}`);
-    assert.ok(ids.has('gb-ucas-2027/ms-oxbridge'), `${id} lost its 15 October date`);
+    /* The route's 15 October, or the school's own record of it. */
+    assert.ok(shown.some((e) => e.date === '2026-10-15' && isBinding(e)), `${id} lost its 15 October deadline`);
   }
 });
 check('a date for an institution without a page reaches no school page', () => {
