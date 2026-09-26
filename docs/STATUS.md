@@ -13,8 +13,12 @@ This page says where the work stands, so the next session (human or agent) start
 ## 26 September (midday): local session with Chrome
 
 - **Done:** the cloud branch's coverage report is on `main`; GitHub now has only `main` (deleted `feat-43-school-pages`, `globe-desk`, `wip/agents-2026-09-25`, `claude/upbeat-rubin-hnw28y`, `claude/vigilant-clarke-04w3my`, all merged first). Local worktrees `globe-desk` and `w37` removed (their folders may linger, locked by OneDrive); `design-40` and `w43` kept, they hold uncommitted edits.
-- **Running (researchers read official sites through the owner's Chrome, one tab each):** wave 2 records ES, IT, FR, PT (`data/schools/<key>.json`, reports `docs/research/schools/reports/batch-<cc>.md`); the #41 lead checks (`docs/research/qa/issue-41-leads/findings.md`); #54 Finland degree photos (`docs/research/qa/degree-photos/fi/progress.md`). Each writes as it goes and skips what exists, so a stopped run resumes by re-running it.
-- **Then:** an admissions critic per country (8+ to ship), a photo-editor critic for FI photos, and the BE/IE/FI admissions critics.
+- **Live:** #41 lead checks (Lithuania's LAMA BPO route, Ljubljana's English degree open to EU applicants, Malta, Nova SBE; `docs/research/qa/issue-41-leads/findings.md`); **France** 12 records (critic 6 → **8**, `docs/research/qa/schools/fr/`); **Italy** 13 records (critic **8** in round 1, `docs/research/qa/schools/it/`). Bocconi's Early session closes 29 Sep 2026.
+- **Researched, not yet critiqued (files in the working tree, not committed):** **Spain** 13 (`data/schools/es-*.json`, `reports/batch-es.md`) and **Portugal** 12 (`pt-*.json`, `reports/batch-pt.md`). Each needs an admissions critic (8+), then the gate; expect long-title and text-wall fixes like France's.
+- **Running at the pause:** #54 Finland degree photos (`data/programme-images.json`, `src/assets/img/programmes/school-fi-*`, log `docs/research/qa/degree-photos/fi/progress.md`). Then a photo-editor critic.
+- **Owner questions from Spain:** should a joint degree sit on every partner's record, and should English groups inside Spanish-language degrees be listed?
+- **Subagents cannot write report files in `docs/research/qa/`**: critics return the critique as their report and the coordinator saves it.
+- **Next:** ES and PT critics; FI photo critic; the BE/IE/FI admissions critics; then wave 2b (PL, CZ, HU).
 
 ## 26 September (afternoon): cloud session, and the clean-state rule
 
