@@ -451,7 +451,8 @@ check('the first screen of the discovery surface has twelve different titles, an
   const twice = first.filter((t, i) => first.indexOf(t) !== i);
   assert.deepEqual(twice, [], `repeated in the first twelve: ${twice.join(', ')}`);
   const summary = cardText((page.match(/<details class="discover__more"[\s\S]*?<summary>([\s\S]*?)<\/summary>/) || [])[1] || '');
-  if (summary) assert.ok(summary.includes(`${cards.length} card`), `"${summary}" does not say the ${cards.length} cards it opens`);
+  // It counts cards, in the word a student reads them by (#52 round 2: "Show all 67 programmes").
+  if (summary) assert.ok(summary.includes(`${cards.length} programme`), `"${summary}" does not say the ${cards.length} cards it opens`);
 });
 
 /* --- 6. The home page lands on places (#44 round 2) ----------------------

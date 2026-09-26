@@ -140,7 +140,8 @@ ${hero({
 <section class="section section--tinted section--glance">
   <div class="wrap">
     ${glance([
-      { label: 'In English', value: plural(inst.programmes.length, 'degree') },
+      /* Cards, as the student counts them (#52): a family of paths is one. */
+      { label: 'In English', value: plural(cardGroups(site, inst.programmes).length, 'programme') },
       { label: 'City', value: inst.city },
       { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },

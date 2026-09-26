@@ -126,7 +126,9 @@ export function discoverSection(site) {
   });
 
   /* --- The filters' options, from the records ------------------------------ */
-  const count = (pred) => site.programmes.filter(pred).length;
+  /* Every number counts cards, what a student sees and can count (#52): a
+     card matches when any of its paths does, as the filters do. */
+  const count = (pred) => groups.filter((g) => g.members.some(pred)).length;
   const fields = [...new Set(site.programmes.map((p) => p.field).filter(Boolean))].sort();
   const dests = [...new Map(site.programmes.map((p) => [destCode(p), destOf(p)])).entries()]
     .filter(([c]) => c)
@@ -139,13 +141,13 @@ export function discoverSection(site) {
       .sort((a, b) => a.name.localeCompare(b.name));
     return [
       { label: `${name}: places`, options: [
-        { value: `dest:${code}`, label: `Anywhere in ${d?.sentenceName || name}`, count: inDest.length },
-        ...cities.map((c) => ({ value: `city:${c}`, label: c, count: inDest.filter((p) => p.campus === c).length })),
+        { value: `dest:${code}`, label: `Anywhere in ${d?.sentenceName || name}`, count: count((p) => destCode(p) === code) },
+        ...cities.map((c) => ({ value: `city:${c}`, label: c, count: count((p) => destCode(p) === code && p.campus === c) })),
       ] },
       { label: `${name}: universities and colleges`, options: insts.map((i) => ({ value: `inst:${i.id}`, label: i.name, count: count((p) => p.institutionId === i.id) })) },
     ];
   });
-  const total = site.programmes.length;
+  const total = groups.length;
   const accepted = count((p) => entryAward(p) === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED);
   const unknown = count((p) => entryAward(p) === ENTRY_AWARD.NOT_ESTABLISHED);
   const noMaths = count((p) => !requiresMathsHL(p.entryRequirements));
@@ -253,7 +255,7 @@ export function discoverSection(site) {
                 data-view="${JSON.stringify(presetView[d.key] || {})}">
               <span class="preset__eyebrow">${d.eyebrow}</span>
               <span class="preset__title">${d.title}</span>
-              <span class="preset__count">${scopeDegrees(d.key) ? plural(scopeDegrees(d.key), 'degree') : plural(tiles.filter((c) => scopeOf(c.code) === d.key).length, 'country', 'countries')}</span>
+              <span class="preset__count">${scopeDegrees(d.key) ? plural(scopeDegrees(d.key), 'programme') : plural(tiles.filter((c) => scopeOf(c.code) === d.key).length, 'country', 'countries')}</span>
             </button>`
           )}
         </div>
@@ -322,7 +324,7 @@ export function discoverSection(site) {
 
   <div class="wrap wrap--wide discover__results">
     <div class="shell__bar">
-      <p class="result-count" id="prog-count" role="status" aria-live="polite" style="margin:0">${plural(total, 'degree')}</p>
+      <p class="result-count" id="prog-count" role="status" aria-live="polite" style="margin:0">${plural(total, 'programme')}</p>
       <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
     </div>
     <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is listed below.</p></noscript>
@@ -340,7 +342,7 @@ export function discoverSection(site) {
           folded away. */
       cards.length > FIRST_CARDS
       ? html`<details class="discover__more" id="discover-more">
-          <summary>Show all ${plural(cards.length, 'card')}${cards.length !== total ? ` (${plural(total, 'degree')})` : ''}</summary>
+          <summary>Show all ${plural(cards.length, 'programme')}</summary>
           <ul class="grid grid--3 discover__cards" role="list">${cards.slice(FIRST_CARDS)}</ul>
         </details>`
       : ''}

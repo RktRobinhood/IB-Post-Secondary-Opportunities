@@ -2291,10 +2291,12 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   color: var(--ink-soft);
 }
 .card__path-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
-.card__path { display: grid; gap: .1rem; font-size: .9375rem; }
+/* A path row reads at the weight of the card's meta line, not as a second
+   title: the label is a link, the detail what differs about it (#52 round 2). */
+.card__path { display: grid; gap: .1rem; font-size: .875rem; }
 .card__path a {
   position: relative; z-index: 1;
-  font-weight: 600; color: var(--ink);
+  font-weight: 400; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: .2em;
 }
 .card__path a:hover { text-decoration-color: currentColor; }

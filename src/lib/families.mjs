@@ -98,41 +98,97 @@ export function admissionSignature(opportunity) {
 
 /* --- Near-duplicates ---------------------------------------------------- */
 
-/** Credential abbreviations and campus suffixes that do not make a different subject. */
-const CREDENTIAL_WORDS = new Set(['bsc', 'beng', 'ba', 'bba', 'ap', 'pba', 'msc', 'bachelor', 'of']);
+/** Degree words that do not make a different subject. */
+const CREDENTIAL_WORDS = new Set(['bsc', 'beng', 'ba', 'bba', 'bfa', 'bmus', 'llb', 'ap', 'pba', 'msc', 'tech', 'hons', 'honours', 'bachelor', 'bachelors', 'programme', 'program', 'degree', 'of', 'in']);
 
-/** A programme name reduced to its subject: no brackets, no dash suffix, no credential words. */
-export function nameStem(name) {
-  return String(name || '')
-    .toLowerCase()
-    .replace(/\([^)]*\)/g, ' ')
-    .replace(/\s[–—-]\s.*$/, ' ')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .split(' ')
-    .filter((w) => w && !CREDENTIAL_WORDS.has(w))
-    .join(' ');
+/** Accents off and lower case: "Sønderborg" and "sonderborg" are one word. */
+const fold = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ø/gi, 'o').replace(/æ/gi, 'ae').replace(/å/gi, 'a').toLowerCase();
+
+/** The words of a list of place names ("Lappeenranta and Lahti", "dk-herning"), for nameStem. */
+export function placeWords(places = []) {
+  const out = new Set();
+  for (const p of places) {
+    for (const w of fold(p).replace(/^[a-z]{2}-/, '').split(/[^a-z0-9]+/)) if (w.length > 2 && !['and', 'the'].includes(w)) out.add(w);
+  }
+  return out;
 }
 
 /**
- * Pairs of programmes at one institution whose names reduce to the same stem
- * and which neither share a family nor declare themselves separate.
+ * A programme name reduced to its subject, for telling "the same programme"
+ * apart from a different one (issue #52): no degree prefix ("BSc in",
+ * "Bachelor's Programme in"), no brackets ("(Herning)", "(HEBUT double
+ * degree)"), no dash suffix, no campus (", Campus Herning", "at Herning", or
+ * any word that is one of the institution's `places`), no "with professional
+ * experience", no degree words.
  */
-export function suspectedVariants(programmes) {
+export function nameStem(name, places = new Set()) {
+  const words = places instanceof Set ? places : placeWords(places);
+  return fold(name)
+    .replace(/[´’']/g, '')
+    .replace(/^international\s+bachelor(?:s)?\b/, ' ')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/\s[–—-]\s.*$/, ' ')
+    .replace(/,\s*campus\b.*$/, ' ')
+    .replace(/\s+at\s+[^,]*$/, ' ')
+    .replace(/\bwith\s+(?:a\s+)?(?:professional|work|practical)\s+experience\b/, ' ')
+    .replace(/\bwith\s+(?:a\s+)?(?:year\s+in\s+industry|placement|internship)\b/, ' ')
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .split(' ')
+    .filter((w) => w && !CREDENTIAL_WORDS.has(w) && !words.has(w))
+    .join(' ');
+}
+
+const GLUE = new Set(['and', 'the', 'for', 'with', 'a', 'an', 'to', 'on']);
+
+/**
+ * Whether two names look like one programme to a student: the same stem, or
+ * near it — one stem is the other with words added ("International Business"
+ * and "International Business and Politics"), two thirds of their words are
+ * shared, or they share the umbrella before a comma ("Sciences, Mathematics"
+ * and "Sciences, Physics"). A near pair must be one family or say, in
+ * `separateFrom`, why it is two cards. Returns 'same', 'near' or null.
+ */
+export function namesAlike(a, b, places = new Set()) {
+  const sa = nameStem(a, places);
+  const sb = nameStem(b, places);
+  if (!sa || !sb) return null;
+  if (sa === sb) return 'same';
+  if (sa.startsWith(`${sb} `) || sb.startsWith(`${sa} `)) return 'near';
+  /* Content words, each once: "and" is shared by half the catalogue. */
+  const content = (st) => new Set(st.split(' ').filter((w) => !GLUE.has(w)));
+  const wa = content(sa);
+  const wb = content(sb);
+  const shared = [...wa].filter((w) => wb.has(w)).length;
+  if (shared && shared / Math.max(wa.size, wb.size) >= 2 / 3) return 'near';
+  const umbrella = (n) => (/,/.test(n) ? nameStem(String(n).split(',')[0], places) : null);
+  if (umbrella(a) && umbrella(a) === umbrella(b)) return 'near';
+  return null;
+}
+
+/**
+ * Pairs of programmes at one institution whose names are alike (namesAlike)
+ * and which neither share a family nor declare themselves separate.
+ * `placesOf(p)` gives the place names a programme's campus words come from.
+ */
+export function suspectedVariants(programmes, placesOf = () => []) {
   const out = [];
-  const byKey = new Map();
+  const byInst = new Map();
   for (const p of programmes) {
-    const k = `${p.institution}|${nameStem(p.name)}`;
-    if (!byKey.has(k)) byKey.set(k, []);
-    byKey.get(k).push(p);
+    if (!byInst.has(p.institution)) byInst.set(p.institution, []);
+    byInst.get(p.institution).push(p);
   }
   const declared = (a, b) => (a.separateFrom || []).some((s) => s.programme === b.id) || (b.separateFrom || []).some((s) => s.programme === a.id);
-  for (const list of byKey.values()) {
+  for (const list of byInst.values()) {
+    const places = placeWords(list.flatMap((p) => placesOf(p)));
     for (let i = 0; i < list.length; i++) {
       for (let j = i + 1; j < list.length; j++) {
         const [a, b] = [list[i], list[j]];
+        const alike = namesAlike(a.name, b.name, places);
+        if (!alike) continue;
         if (a.family?.id && a.family.id === b.family?.id) continue;
         if (declared(a, b)) continue;
-        out.push([a.id, b.id]);
+        out.push([a.id, b.id, alike]);
       }
     }
   }
@@ -192,8 +248,8 @@ export function checkFamilies(programmes, opportunities) {
     if (axis === 'credential' && new Set(m.map(credOf)).size < 2) problems.push(`${at}: axis is credential but every path awards the same credential`);
   }
 
-  for (const [a, b] of suspectedVariants(programmes)) {
-    problems.push(`${a} and ${b}: same subject at one institution but neither in one family nor declared separate (separateFrom)`);
+  for (const [a, b, alike] of suspectedVariants(programmes, (p) => [...placesOf(p)])) {
+    problems.push(`${a} and ${b}: ${alike === 'same' ? 'the same subject' : 'near-identical names'} at one institution but neither in one family nor declared separate (separateFrom)`);
   }
   for (const p of programmes) {
     for (const s of p.separateFrom || []) {
@@ -213,7 +269,10 @@ export function checkFamilies(programmes, opportunities) {
     titlesBy.get(p.institution).push(p.family?.name || p.name);
   }
   for (const [inst, titles] of titlesBy) {
-    for (const [title, n] of nameClashes(titles)) {
+    const mine = programmes.filter((p) => p.institution === inst);
+    const words = placeWords(mine.flatMap((p) => [...placesOf(p)]));
+    const separateStems = new Set(mine.filter((p) => p.separateFrom?.length).map((p) => nameStem(p.name, words)));
+    for (const [title, n] of nameClashes(titles, (t) => nameStem(t, words), separateStems)) {
       problems.push(`${inst}: ${n} programme cards would be called "${title}"; make them one family, or name them apart`);
     }
   }
@@ -259,10 +318,11 @@ export function normalName(name) {
 }
 
 /** Titles that more than one card of one list shares, as `[title, count]`. */
-export function nameClashes(titles) {
+export function nameClashes(titles, keyOf = normalName, allowed = new Set()) {
   const seen = new Map();
   for (const t of titles) {
-    const k = normalName(t);
+    const k = keyOf(t);
+    if (allowed.has(k)) continue;
     if (!seen.has(k)) seen.set(k, { title: t, n: 0 });
     seen.get(k).n++;
   }
@@ -270,7 +330,7 @@ export function nameClashes(titles) {
 }
 
 /** Problems with the families of one school record, as sentences. */
-export function checkSchoolFamilies(programmes = [], where = 'record') {
+export function checkSchoolFamilies(programmes = [], where = 'record', places = []) {
   const problems = [];
   const groups = schoolCardGroups(programmes);
   const cityOf = (p) => p.city || '';
@@ -300,15 +360,17 @@ export function checkSchoolFamilies(programmes = [], where = 'record') {
     }
   }
 
-  /* Near-duplicates: one subject stem, neither one family nor declared separate. */
+  /* Alike names (the same stem, or near it): one family, or declared separate. */
   const declared = (a, b) => (a.separateFrom || []).some((s) => s.name === b.name) || (b.separateFrom || []).some((s) => s.name === a.name);
+  const words = placeWords([...places, ...programmes.map((p) => p.city).filter(Boolean)]);
   for (let i = 0; i < programmes.length; i++) {
     for (let j = i + 1; j < programmes.length; j++) {
       const [a, b] = [programmes[i], programmes[j]];
-      if (nameStem(a.name) !== nameStem(b.name)) continue;
+      const alike = namesAlike(a.name, b.name, words);
+      if (!alike) continue;
       if (a.family?.name && a.family.name === b.family?.name) continue;
       if (declared(a, b)) continue;
-      problems.push(`${where}: "${a.name}" and "${b.name}" are the same subject but neither one family nor declared separate (separateFrom)`);
+      problems.push(`${where}: "${a.name}" and "${b.name}" ${alike === 'same' ? 'are the same subject' : 'have near-identical names'} but are neither one family nor declared separate (separateFrom)`);
     }
   }
   for (const p of programmes) {
@@ -317,8 +379,11 @@ export function checkSchoolFamilies(programmes = [], where = 'record') {
     }
   }
 
-  /* The owner's acceptance line (#52): no two cards at one institution share a name. */
-  for (const [title, n] of nameClashes(groups.map(cardTitle))) {
+  /* The owner's acceptance line (#52): no two cards at one institution share
+     a name — or a name once its campus and degree words are set aside, unless
+     the two are declared separate. */
+  const separateStems = new Set(programmes.filter((p) => p.separateFrom?.length).map((p) => nameStem(p.name, words)));
+  for (const [title, n] of nameClashes(groups.map(cardTitle), (t) => nameStem(t, words), separateStems)) {
     problems.push(`${where}: ${n} programme cards would be called "${title}"; make them one family, or name them apart`);
   }
   return problems;

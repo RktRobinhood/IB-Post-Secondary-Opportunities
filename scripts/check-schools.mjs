@@ -197,6 +197,21 @@ function scopeProblems(rec, key) {
     checkSchoolFamilies([prog('Physics', { city: 'A', family: fam('A', { primary: true }) }), prog('Physics', { city: 'A', family: fam('B') })]).length > 0,
     checkSchoolFamilies([prog('Physics', { city: 'A', family: fam('A', { primary: true }) }), prog('Physics', { city: 'B', family: fam('B') })]).length === 0,
     checkSchoolFamilies([prog('Physics', { separateFrom: [{ name: 'Physics - Astro', reason: 'x' }] }), prog('Physics - Astro')]).length === 0,
+    /* The owner's complaint (#52) in every shape a title takes: a campus in
+       brackets, after "at" or ", Campus", or bare; a degree prefix; a longer
+       version; a near name. Each must be a family or declared separate. */
+    ...[
+      ['Civil Engineering', 'Civil Engineering (Lappeenranta)'],
+      ['Economics', 'BSc in Economics'],
+      ['Economics', "Bachelor's Programme in Economics"],
+      ['Economics', 'Economics, Campus Herning'],
+      ['Economics', 'Economics at Herning'],
+      ['Economics', 'Economics Venlo'],
+      ['BSc in Management', 'BSc in Management with Professional Experience'],
+      ['International Business', 'International Business and Politics'],
+      ['Sciences, Mathematics', 'Sciences, Physics'],
+    ].map(([a, b]) => checkSchoolFamilies([prog(a), prog(b, { city: 'Venlo' })], 'x', ['Herning']).length > 0),
+    checkSchoolFamilies([prog('Economics'), prog('Philosophy')]).length === 0,
   ].some((ok) => !ok);
   if (bad) {
     console.log('✗ self-test: the family rule lets two cards of one name through, or refuses a proper family');
@@ -244,7 +259,7 @@ for (const f of files.sort()) {
       if (d.date < '2026-01-01' || d.date > '2027-12-31') problems.push(`dates[${i}] ${d.date} is outside the 2027 cycle`);
     }
     problems.push(...holdersProblems(rec));
-    problems.push(...checkSchoolFamilies(progs, 'programmes'));
+    problems.push(...checkSchoolFamilies(progs, 'programmes', [inst?.city].filter(Boolean)));
     problems.push(...scopeProblems(rec, key));
     problems.push(...earlyProblems(rec));
 

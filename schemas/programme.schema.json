@@ -254,6 +254,12 @@
           "maxLength": 160,
           "description": "One line: what is different about this path, and nothing that is the same on every path."
         },
+        "cardLine": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 60,
+          "description": "Optional short form of `differs` for this path's row on the card (issue #52: every row says what differs, for this reader). Required where no recorded fact tells the paths apart on the card."
+        },
         "tag": {
           "type": "string",
           "minLength": 2,

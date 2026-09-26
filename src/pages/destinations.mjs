@@ -10,6 +10,8 @@ import { contextFor, destinationFacet } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
+import { cardGroups } from '../lib/paths.mjs';
+import { schoolCardGroups } from '../lib/families.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
 
@@ -218,7 +220,8 @@ export function distanceDoors(site) {
   const doorsList = [];
   if (hereTile) {
     const teaching = hereTile.institutions.filter((i) => i.programmes?.length);
-    const degrees = teaching.reduce((n, i) => n + i.programmes.length, 0);
+    // Counted in cards, as a student sees them (#52).
+    const degrees = teaching.reduce((n, i) => n + cardGroups(site, i.programmes).length, 0);
     doorsList.push({
       key: 'here',
       href: hereTile.href,
@@ -226,7 +229,7 @@ export function distanceDoors(site) {
       eyebrow: 'Right here',
       title: hereTile.name,
       count: degrees
-        ? `${plural(degrees, 'degree')} in English · ${institutionCount(teaching)}`
+        ? `${plural(degrees, 'programme')} in English · ${institutionCount(teaching)}`
         : institutionCount(hereTile.institutions),
       image: photo(choices.here?.image),
     });
@@ -923,7 +926,7 @@ function institutionCard(site, i) {
     meta,
     // What is taught in English, from the school's own record once it has one.
     tags: i.school?.scope === 'listed'
-      ? [plural(i.school.programmes.length, 'degree') + ' in English']
+      ? [plural(schoolCardGroups(i.school.programmes).length, 'programme') + ' in English']
       : i.school?.scope === 'catalogue'
       ? ['Nearly all in English']
       : i.school?.scope === 'none'
