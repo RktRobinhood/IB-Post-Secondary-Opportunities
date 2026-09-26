@@ -186,8 +186,8 @@ ${hero({
         ${undated.length
           ? topic({
               id: 'undated',
-              title: `${plural(undated.length, 'date')} we could not pin down`,
-              short: 'Looked for and not published, or set by each institution rather than centrally.',
+              title: `${plural(undated.length, 'date')} with no published day`,
+              short: 'Not published yet, or set by each institution rather than centrally.',
               body: deadlineList(undated, { showDestination: true }),
               more: `Show all ${undated.length}`,
             })

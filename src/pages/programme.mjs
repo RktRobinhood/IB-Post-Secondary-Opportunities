@@ -174,19 +174,19 @@ ${hero({
               : ''}
             ${p.restrictedAdmission === null
               ? note(
-                  `Whether places on this programme are limited is not recorded here. Check the institution's own
+                  `Whether places on this programme are limited is not confirmed here. Check the institution's own
                   page: if it is restricted, meeting the requirements does not guarantee a place.`,
-                  { kind: 'warn', title: 'Admission not recorded' }
+                  { kind: 'warn', title: 'Admission not confirmed' }
                 )
               : p.restrictedAdmission
               ? note(
                   `Places on this programme are limited, so meeting the requirements does not guarantee a place.
                   ${cutoffSentence(p.cutoff, cutoffScale, scheme?.display?.averageExplainedAt ? url(scheme.display.averageExplainedAt) : null) ||
-                    'How places are allocated among everyone who qualifies is set by the institution, and is listed above where we have recorded it.'}`,
+                    'How places are allocated among everyone who qualifies is set by the institution, and is listed above where it publishes it.'}`,
                   { kind: 'warn', title: 'Limited places' }
                 )
               : note(
-                  `As recorded here, places on this programme are not limited — everyone who meets the
+                  `Places on this programme are not limited: everyone who meets the
                   entry requirements is admitted. Confirm on the university's own page before you rely on it.`,
                   { kind: 'ok', title: 'Open entry' }
                 )}`,
