@@ -8,7 +8,8 @@ import { picture } from '../lib/data.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 import { hostOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { deadlineOf, startsOf } from '../lib/programme-deadline.mjs';
-import { FIELD, FAMILY, programmeCard, schoolCards, yearsText } from './schools.mjs';
+import { FIELD, FAMILY, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
+import { campusSentence } from '../lib/paths.mjs';
 
 /**
  * A page for one programme of a listed school record (issue #43), laid out
@@ -219,12 +220,6 @@ function sameFieldElsewhere(site, c, inst, p, n, today) {
 
 /* --- The paths of a family ------------------------------------------------- */
 
-/** "the Lappeenranta campus and the Lahti campus". */
-const campusList = (cities) => {
-  const named = cities.map((c) => `the ${c} campus`);
-  return named.length > 1 ? `${named.slice(0, -1).join(', ')} and ${named[named.length - 1]}` : named[0];
-};
-
 /**
  * On every path's page of a family (issues #46 and #52): the same small
  * table, the current path marked, and only the facts in which the paths
@@ -248,12 +243,12 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
     { head: 'Campus', cell: (m) => m.city || inst.city || null },
     { head: 'Starts', cell: (m) => startsOfPath(m) },
     { head: 'Apply by', cell: (m) => applyByOf(m) },
-    { head: 'Places', cell: (m) => (m.places ? String(m.places) : null) },
+    { head: 'Places', cell: (m) => placesText(m) },
     { head: 'Minimum', cell: (m) => (m.points ? `${m.points} IB points` : null) },
     { head: 'Subjects', cell: needsOf },
     { head: 'Places decided by', cell: (m) => (m.selection || []).map((x) => SELECTION[x]).filter(Boolean).join(', ') || null },
     { head: 'Last cut-off', cell: (m) => (m.cutoff ? cutoffTile(m.cutoff).value : null) },
-    { head: 'EU/EEA fee', cell: (m) => valueAndNote(m.tuitionEuEea).value },
+    { head: 'EU/EEA fee', cell: (m) => feeText({ ...m, tuitionEuEea: valueAndNote(m.tuitionEuEea).value }) },
   ]
     // Only what differs, and not a fact every path's own label already says.
     .filter((c) => new Set(members.map((m) => c.cell(m) ?? '')).size > 1)
@@ -261,12 +256,15 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
   const heads = new Set(cols.map((c) => c.head));
   const admissionDiffers = ['Minimum', 'Subjects', 'Places decided by'].some((h) => heads.has(h));
   const onlyCampus = cities.length > 1 && group.family.axis === 'campus';
+  /* Whatever the axis, paths on different campuses say so in plain words (#52). */
+  const where = campusSentence(members.map((m) => ({ label: m.family.path, city: m.city || inst.city })), group.family.axis);
   const lede = [
-    onlyCampus ? `The same programme is offered at ${campusList(cities)}.` : `${short} offers this as ${members.length} paths.`,
+    onlyCampus ? where : `${short} offers this as ${members.length} paths.`,
+    onlyCampus ? null : where,
     admissionDiffers
       ? 'What it takes to get in differs between them, so check each one.'
       : `The entry requirements are the same on each${heads.has('Last cut-off') ? ', but last year’s cut-offs were not' : ''}.`,
-  ].join(' ');
+  ].filter(Boolean).join(' ');
   return html`<section class="paths" aria-labelledby="paths-title">
     <h2 id="paths-title">${onlyCampus ? `${displayName(group.family.name)} on ${members.length} campuses` : `${members.length} ways to study ${displayName(group.family.name)}`}</h2>
     <p class="paths__lede">${lede}</p>
@@ -347,7 +345,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   const selection = p.selection || [];
   const cut = p.cutoff;
   const cutShown = cut ? cutoffTile(cut) : null;
-  const placesNote = p.places ? plural(p.places, 'place') : null;
+  const placesNote = placesText(p);
   /* Where the record has no `selection` but its requirement line says how
      places are decided, the tile points to it rather than calling it a gap. */
   const saysSelection = !selection.length && SAYS_SELECTION.test(`${p.ib || ''} ${school.ib?.text || ''}`);

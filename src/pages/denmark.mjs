@@ -8,6 +8,7 @@ import { picture } from '../lib/data.mjs';
 import { contextFor } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
+import { cardGroups } from '../lib/paths.mjs';
 
 /** The first publishable photograph among these image keys, shaped for a hero. */
 function photo(site, keys) {
@@ -57,8 +58,8 @@ export function denmarkHub(site) {
   // Denmark's programmes, not every programme on the site. `site.programmes`
   // stopped meaning "Danish programmes" when the Dutch Opportunities landed,
   // and this page went on counting them under "Where you can study in English".
-  const dkProgrammes = site.dkInstitutions.flatMap((i) => i.programmes || []);
-  const totalProgrammes = dkProgrammes.length;
+  // Counted in cards, as a student sees them (#52): a family of paths is one.
+  const totalProgrammes = site.dkInstitutions.reduce((n, i) => n + cardGroups(site, i.programmes || []).length, 0);
   const institutions = site.dkInstitutions
     .slice()
     .sort((a, b) => (b.programmes.length || 0) - (a.programmes.length || 0));
@@ -164,7 +165,7 @@ export function denmarkHub(site) {
 ${hero({
   eyebrow: 'Denmark · ' + SITE.cycle.label,
   title: 'Denmark',
-  lede: `${plural(totalProgrammes, 'degree')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
+  lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
   // The universities a student could actually go to, each named, in turn.
   slides: institutions

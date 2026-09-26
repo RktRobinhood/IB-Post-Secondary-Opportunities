@@ -167,6 +167,7 @@
           }
         },
         "places": { "type": "integer", "minimum": 1, "description": "Study places for the 2027 intake (or the latest published), when stated." },
+        "routePlaces": { "type": "integer", "minimum": 1, "description": "Of `places`, the ones in the route this site's reader applies through (an EU/EEA student in their final IB year), when the source splits them, e.g. 35 of 50 in international rolling admission. Shown as '35 of 50 places in your route'." },
         "starts": { "enum": ["January", "February", "March", "April", "August", "September", "October"], "description": "Start month, when not September." },
         "family": {
           "type": "object",
@@ -178,6 +179,7 @@
             "axis": { "enum": ["credential", "campus", "specialisation"], "description": "What the paths differ on." },
             "path": { "type": "string", "maxLength": 40, "description": "This path's short label: its campus, or what makes it different ('LUT + HEBUT double degree')." },
             "differs": { "type": "string", "maxLength": 160, "description": "One line: what is different about this path, from the record's own fields." },
+            "cardLine": { "type": "string", "minLength": 4, "maxLength": 60, "description": "Optional short form of `differs` for this path's row on the card. Required where no recorded fact tells the paths apart on the card." },
             "primary": { "type": "boolean", "description": "Exactly one member is the card's link." }
           }
         },

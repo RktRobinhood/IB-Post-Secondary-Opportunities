@@ -130,16 +130,36 @@ function pathRows(inst, members, chipOf) {
     (p) => p.credential,
     (p) => yearsText(p.years),
     (p) => p.city || inst.city || null,
-    (p) => (p.places ? plural(p.places, 'place') : null),
+    (p) => placesText(p),
     (p) => chipOf(p),
-    (p) => p.tuitionEuEea || null,
+    (p) => feeText(p),
   ].filter((f) => new Set(members.map((p) => f(p) ?? '')).size > 1)
     .filter((f) => !members.every((p) => f(p) && String(p.family.path).includes(f(p))));
   return members.map((p) => {
-    const detail = facts.map((f) => f(p)).filter(Boolean);
+    // The record's own short line first (`cardLine`), then the facts that differ.
+    const detail = [p.family.cardLine, ...facts.map((f) => f(p))].filter(Boolean);
     return { href: p.href, label: p.family.path, detail, full: detail };
   });
 }
+
+/**
+ * Places as this reader meets them: the ones in their route where the record
+ * splits them ("35 of 50 places in your route"), else all of them.
+ */
+export const placesText = (p) =>
+  p.routePlaces && p.places ? `${p.routePlaces} of ${p.places} places in your route` : p.places ? plural(p.places, 'place') : null;
+
+/**
+ * A fee as a path's fact. A fee by the semester carries the path's number of
+ * semesters beside it ("€8,700 a semester · 7 semesters"), because paths of
+ * different lengths are not compared on the rate alone; no total is printed,
+ * because whether every semester is charged is not recorded.
+ */
+export const feeText = (p) => {
+  const fee = p.tuitionEuEea || null;
+  if (!fee || !/\ba semester\b/i.test(fee) || !p.years) return fee;
+  return `${fee} · ${Math.round(p.years * 2)} semesters`;
+};
 
 /** The sentences every path's `ib` line shares, in the lead's order: said once on the card. */
 function sharedSentences(members) {
@@ -302,7 +322,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
 
   const inEnglish =
     school?.scope === 'listed'
-      ? plural(school.programmes.length, 'degree')
+      ? plural(schoolCards(school.programmes).length, 'programme')
       : school?.scope === 'catalogue'
       ? school.courses ? `${school.courses} courses` : 'Nearly everything'
       : school?.scope === 'none'

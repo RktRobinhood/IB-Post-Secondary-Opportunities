@@ -327,6 +327,16 @@ export function familyCard(site, group, { campus = true } = {}) {
   const cutoffDiffer = !same('cutoff', adm);
   const subjectsDiffer = !same('subjects', adm);
 
+  /* Where the subject options differ, the path that accepts more of them
+     says so on its row: the Needs line above is the lead path's, and a
+     student who fits only the other path's extra combination must not read
+     it as closed to them (#52 round 2). */
+  const combos = members.map((p) => {
+    const e = p.entryRequirements || {};
+    const sets = e.oneOfSets || (e.oneOf?.length ? [e.oneOf] : []);
+    return sets.reduce((n, set) => n + set.length, 0);
+  });
+  const moreCombos = (i) => subjectsDiffer && combos[i] > Math.min(...combos);
   const rows = members.map((p, i) => {
     const f = recs[i]?.family || {};
     const label = axis === 'specialisation' || !differing.length
@@ -336,15 +346,20 @@ export function familyCard(site, group, { campus = true } = {}) {
       href: p.href,
       label: f.tag ? `${label} (${f.tag})` : label,
       // Short, so each row stays one line: "Full Diploma · 31+ IB points".
+      // The record's own short line leads where it has one (`cardLine`).
       detail: [
+        f.cardLine || null,
         awardDiffer ? adm[i].awardShort : null,
         floorsDiffer ? adm[i].floorShort : null,
         cutoffDiffer ? adm[i].cutoffShort : null,
+        moreCombos(i) ? 'more subject combinations' : null,
       ].filter(Boolean),
       full: [
+        f.cardLine || null,
         awardDiffer ? adm[i].award : null,
         floorsDiffer ? adm[i].floor : null,
         cutoffDiffer ? adm[i].cutoff : null,
+        moreCombos(i) ? 'accepts more subject combinations than the other path' : null,
       ].filter(Boolean),
     };
   });
@@ -423,6 +438,34 @@ export function pathsBlock(paths) {
   </div>`;
 }
 
+/* --- Where each path is taught -------------------------------------------- */
+
+const NUMBER_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
+
+/**
+ * The plain sentence for a family whose paths are not all on one campus
+ * (#52): "The same programme is offered at the Aarhus campus and the Herning
+ * campus." when the campus is all that differs (`axis: campus`), else where
+ * each path is taught, by its own label: "Taught on two campuses: the LUT
+ * degree in Lappeenranta; the LUT + HEBUT double degree in Lahti." Null when
+ * every path is in one place. `paths` is `[{ label, city }]`.
+ */
+export function campusSentence(paths, axis) {
+  const cities = [...new Set(paths.map((x) => x.city).filter(Boolean))];
+  if (cities.length < 2) return null;
+  if (axis === 'campus') {
+    const named = cities.map((c) => `the ${c} campus`);
+    return `The same programme is offered at ${named.slice(0, -1).join(', ')} and ${named[named.length - 1]}.`;
+  }
+  const each = paths.map(({ label, city }) => {
+    const bare = String(label || '').replace(new RegExp(`,?\\s*${city.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`), '').trim();
+    if (!bare || bare === city) return city;
+    const lead = /^[A-Z]{2,}|^\d/.test(bare) ? `the ${bare}` : `the ${bare.charAt(0).toLowerCase()}${bare.slice(1)}`;
+    return `${lead} in ${city}`;
+  });
+  return `Taught on ${NUMBER_WORDS[cities.length] || cities.length} campuses: ${each.join('; ')}.`;
+}
+
 /* --- The Paths table on a member's page --------------------------------- */
 
 /**
@@ -479,10 +522,11 @@ export function pathsTable(site, p, inst) {
      taught in more than one place (#52). */
   const cities = [...new Set(facets.map((f) => f.campus).filter(Boolean))];
   const onlyCampus = rec.family.axis === 'campus' && cities.length > 1;
-  const campusList = cities.map((c) => `the ${c} campus`);
+  /* Whatever the axis, paths on different campuses say so in plain words. */
+  const where = campusSentence(members.map((m, i) => ({ label: recs[i]?.family?.path, city: facets[i].campus })), rec.family.axis);
   const opening = onlyCampus
-    ? `The same programme is offered at ${campusList.slice(0, -1).join(', ')} and ${campusList[campusList.length - 1]}.`
-    : `${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}.`;
+    ? where
+    : [`${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}.`, where].filter(Boolean).join(' ');
   return html`<section class="paths" aria-labelledby="paths-title">
     <h2 id="paths-title">${onlyCampus ? `${rec.family.name} on ${members.length} campuses` : `${members.length} ways to study ${rec.family.name}`}</h2>
     <p class="paths__lede">${opening} ${

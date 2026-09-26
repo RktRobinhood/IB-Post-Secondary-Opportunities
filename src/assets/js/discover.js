@@ -34,7 +34,8 @@ const DATA = json('discover-data') || { cards: [], lights: {} };
 const CARDS = DATA.cards;
 const LIGHTS = DATA.lights || {};
 const PLACES = json('place-data') || {};
-const TOTAL = CARDS.reduce((n, c) => n + c.members.length, 0);
+/* Counted in cards, as the student sees them (#52): one card may hold several paths. */
+const TOTAL = CARDS.length;
 
 const EMPTY = { q: '', field: '', where: '', place: '', award: '', open: false, nomath: false, scope: '' };
 const state = { ...EMPTY };
@@ -109,7 +110,8 @@ function matches(m, st = state) {
   return true;
 }
 
-const hitsFor = (st) => CARDS.reduce((n, c) => n + c.members.filter((m) => matches(m, st)).length, 0);
+/* Cards that match: a card matches when any of its paths does, and it counts once (#52). */
+const hitsFor = (st) => CARDS.filter((c) => c.members.some((m) => matches(m, st))).length;
 
 /** A filter other than the distance: something that narrows by what a degree is. */
 const narrowed = (st = state) => ['q', 'field', 'where', 'place', 'award', 'open', 'nomath'].some((k) => st[k]);
@@ -249,10 +251,10 @@ function renderWays(near) {
   if (!els.ways) return;
   const on = Object.entries(state).filter(([k, v]) => v && k !== 'scope');
   const quoted = state.q ? `“${state.q.trim()}”` : '';
-  const nearCount = [...near.values()].reduce((n, h) => n + h.length, 0);
+  const nearCount = near.size;
   if (els.emptyLine) {
     els.emptyLine.textContent = on.length === 1 && on[0][0] === 'q'
-      ? `Nothing on the map is called ${quoted} yet${nearCount ? `, but it comes up in ${plural(nearCount, 'degree')} below.` : '.'}`
+      ? `Nothing on the map is called ${quoted} yet${nearCount ? `, but it comes up in ${plural(nearCount, 'programme')} below.` : '.'}`
       : on.length === 1 ? 'No degree matches that yet.' : 'No degree matches all of those yet.';
   }
   const ways = on.map(([k, v]) => {
@@ -393,13 +395,13 @@ function render() {
   const places = placesFor(shown, near);
   const doorOnly = !!state.scope && !narrowed();
   els.count.innerHTML = !any
-    ? `<b>${TOTAL}</b> degrees`
+    ? `<b>${TOTAL}</b> programmes`
     : shown
-    ? `<b>${shown}</b> of ${TOTAL} degrees`
+    ? `<b>${cardsShown}</b> of ${TOTAL} programmes`
     : doorOnly && places
     ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
     : near.size
-    ? `${plural([...near.values()].reduce((n, h) => n + h.length, 0), 'degree').replace(/^(\d+)/, '<b>$1</b>')} near “${esc(state.q.trim())}”`
+    ? `${plural(near.size, 'programme').replace(/^(\d+)/, '<b>$1</b>')} near “${esc(state.q.trim())}”`
     : '<b>No degrees</b>';
   if (!shown && !doorOnly) renderWays(near);
   pill(els.count.textContent);
@@ -415,7 +417,7 @@ function render() {
   const n = ['field', 'where', 'place', 'award', 'open', 'nomath'].filter((k) => state[k]).length;
   if (badge) badge.textContent = n ? ` (${n})` : '';
   for (const b of document.querySelectorAll('[data-show]')) {
-    b.textContent = shown ? `Show ${plural(shown, 'degree')}` : 'Nothing matches: close';
+    b.textContent = shown ? `Show ${plural(cardsShown, 'programme')}` : 'Nothing matches: close';
   }
   for (const b of els.presets) b.setAttribute('aria-pressed', String(state.scope === b.dataset.scope));
 

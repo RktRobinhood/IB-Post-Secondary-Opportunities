@@ -174,3 +174,10 @@ Issue #52 asked for one card for "the same programme on several campuses". Campu
 - `scripts/test-card-names.mjs` checks the built pages.
 
 The sweep and every decision are in [../programme-families/campuses-52.md](../programme-families/campuses-52.md).
+
+**Round 2 (#52):**
+
+- **Rows.** A family's rows lead with the path's own short line, `cardLine` (60 characters at most). Where the rows would otherwise be empty, the record has to carry one. After it, a row shows the facts that differ: campus, places ("35 of 50 places in your route", from `routePlaces`), deadline, and fee. A fee charged by the semester shows the semester count beside it, and never a total.
+- **Row styling.** Rows are set at the meta line's weight.
+- **Counts.** Every count a student reads counts cards: the "In English" tile, the Denmark and destination counts, and the home counter with its "Show all N programmes". The `card-names` guard checks that the tile equals the cards on the page.
+- **Campus sentence.** A family whose paths span campuses gets a sentence on where each is taught, whatever its axis.
