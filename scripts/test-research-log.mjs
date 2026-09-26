@@ -143,26 +143,7 @@ export const researchLog = (text) => matches(text).map(([m]) => m);
  * hand-off list, not a place to excuse wording: nothing goes here that the
  * author of this guard was free to rewrite.
  */
-const HANDED_OFF = [
-  {
-    page: 'universities/dk-itu/index.html',
-    match: 'as read by the round-4 conversion critic',
-    owner: 'the planner agent (data/institutions/dk-itu.json, data/dk/itu.json)',
-    ask: '#41 critique round 2, change 1: delete meta.notes[5]; it is a reviewer note about a missing citation.',
-  },
-  {
-    page: 'universities/dk-sdu/index.html',
-    match: 'could be verified on the pages checked',
-    owner: 'the planner agent (data/institutions/dk-sdu.json, data/dk/sdu.json)',
-    ask: "#41 critique round 2, change 1: delete meta.notes[10], or write \"SDU's total student number is not confirmed here.\"",
-  },
-  {
-    page: 'universities/dk-cbs/index.html',
-    match: 'Read the quotaNotes before planning around it.',
-    owner: 'the planner agent (data/institutions/dk-cbs.json, data/dk/cbs.json)',
-    ask: 'a schema field name on the page: "Read the quota notes below before planning around it."',
-  },
-];
+const HANDED_OFF = [];
 
 let failures = 0;
 const check = (name, fn) => {
