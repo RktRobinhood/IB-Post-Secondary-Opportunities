@@ -1,7 +1,8 @@
 import { html } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { toolkit } from '../lib/components.mjs';
-import { discoverSection } from './discover.mjs';
+import { discoverSection, DISCOVER_POSTER } from './discover.mjs';
+import { posterPreload } from '../lib/primitives.mjs';
 
 /* --- Home ---------------------------------------------------------------- */
 
@@ -40,6 +41,7 @@ ${discoverSection(site)}
     section: '/#discover',
     bodyClass: 'page-discover',
     body,
+    preload: posterPreload(DISCOVER_POSTER),
     scripts: ['discover.js'],
     jsonLd: {
       '@context': 'https://schema.org',

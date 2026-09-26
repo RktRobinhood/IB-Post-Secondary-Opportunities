@@ -179,7 +179,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}${poster ? raw(' data-poster') : ''}>
   <div class="world__stage">
     ${poster
-      ? html`<img class="world__poster world__poster--light" src="${url(poster)}" alt="" width="600" height="700" decoding="async" loading="lazy"><img class="world__poster world__poster--dark" src="${url(poster.replace(/\.webp$/, '-dark.webp'))}" alt="" width="600" height="700" decoding="async" loading="lazy">`
+      ? html`<picture class="world__poster"><source srcset="${url(poster.replace(/\.webp$/, '-dark.webp'))}" media="(prefers-color-scheme: dark)"><img src="${url(poster)}" alt="" width="600" height="700" decoding="async" loading="eager" fetchpriority="high"></picture>`
       : ''}
     <script type="application/json" class="world__data">${raw(globeData)}</script>
   </div>
@@ -216,7 +216,10 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     <span class="world__legend">
       <span class="world__legend-dot world__legend-dot--sm"></span>
       <span class="world__legend-dot world__legend-dot--lg"></span>
-      Bigger light, more ${unit ? `${unit}s` : 'opportunities'}
+      ${/* A page with doors counts two things — degrees at a place, institutions
+            at a country's own light — so its legend names neither (#53 round
+            2: "more degrees" under a card saying "14 institutions"). */
+        dots.some((d) => d.door) ? 'Bigger light, more to study there' : `Bigger light, more ${unit ? `${unit}s` : 'opportunities'}`}
     </span>
     ${(() => {
       /* One line for every hollow marker, however many kinds of place it
@@ -232,6 +235,15 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     })()}
   </figcaption>
 </figure>`;
+}
+
+/** The preload lines for a world window's still (layout.mjs `preload`): the
+    theme the reader's system asks for, fetched with the page. */
+export function posterPreload(poster) {
+  return [
+    { href: poster, media: '(prefers-color-scheme: light)' },
+    { href: poster.replace(/\.webp$/, '-dark.webp'), media: '(prefers-color-scheme: dark)' },
+  ];
 }
 
 /* ========================================================================

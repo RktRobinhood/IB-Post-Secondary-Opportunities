@@ -14,6 +14,9 @@
  * box `.world__poster` is placed on in primitives.css. It writes
  * src/assets/img/globe/poster-<figure id>[-dark].webp, 600 × 700, with alpha.
  *
+ * The alpha is kept lossless: the globe's halo is a long, faint falloff, and
+ * a lossy alpha flattened it into a grey plate with a rim (#53 round 2).
+ *
  * Remake it when the desk changes (globe.js: TILT, DESK_*, the pastel
  * shader) or when a page's resting pose moves (its places change where the
  * weight of the page is). A stale poster is a slightly different turn of the
@@ -110,7 +113,7 @@ try {
       const clip = { x: SW / 2 - 1.35 * r, y: sy + SH / 2 - 1.595 * r, width: 2.7 * r, height: 3.15 * r, scale: 1 };
       const shot = await send('Page.captureScreenshot', { format: 'png', clip, captureBeyondViewport: false });
       const file = path.join(OUT, `poster-${id}${dark ? '-dark' : ''}.webp`);
-      await sharp(Buffer.from(shot.data, 'base64')).resize(600, 700).webp({ quality: 60, alphaQuality: 70, effort: 6 }).toFile(file);
+      await sharp(Buffer.from(shot.data, 'base64')).resize(600, 700).webp({ quality: 60, alphaQuality: 100, effort: 6 }).toFile(file);
       console.log(`  ${path.relative(ROOT, file)}  ${Math.round((await fs.stat(file)).size / 1024)} kB`);
     }
   }

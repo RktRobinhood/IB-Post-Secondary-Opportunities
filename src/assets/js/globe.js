@@ -139,10 +139,22 @@ vec3 sharp(sampler2D t, vec2 uv, vec2 texel) {
           + texture2D(t, uv + vec2(0.0, texel.y)).rgb + texture2D(t, uv - vec2(0.0, texel.y)).rgb) * 0.25;
   return clamp(c + (c - b) * uSharp, 0.0, 1.0);
 }
+/* The sea without its compression blocks (#53 round 2: 8×8 squares in the
+   North Sea, the Adriatic and the Gulf at a country's arrival). Magnified,
+   no mip level blurs, so this averages eight taps two and a half texels out:
+   wider than a block, far narrower than a coast. */
+vec3 soft(sampler2D t, vec2 uv, vec2 texel) {
+  vec2 a = texel * 2.5, b = texel * 1.25;
+  return (texture2D(t, uv + vec2(a.x, 0.0)).rgb + texture2D(t, uv - vec2(a.x, 0.0)).rgb
+        + texture2D(t, uv + vec2(0.0, a.y)).rgb + texture2D(t, uv - vec2(0.0, a.y)).rgb
+        + texture2D(t, uv + b).rgb + texture2D(t, uv - b).rgb
+        + texture2D(t, uv + vec2(b.x, -b.y)).rgb + texture2D(t, uv + vec2(-b.x, b.y)).rgb) * 0.125;
+}
 void main() {
   vec3 n = normalize(vN);
   vec3 v = normalize(uEye - vW);
   vec3 c = sharp(uDay, vUv, uTexel);
+  vec3 cs = soft(uDay, vUv, uTexel);
   /* The detail texture, where there is one, blended in with a soft edge.
      Sampled everywhere and weighted to nothing outside its rectangle, so no
      texture fetch sits in a branch. */
@@ -150,6 +162,7 @@ void main() {
   vec2 de = min(du, 1.0 - du);
   float dw = uDetailOn * smoothstep(0.0, 0.025, min(de.x, de.y));
   c = mix(c, sharp(uDetail, clamp(du, 0.0, 1.0), uDetailTexel), dw);
+  cs = mix(cs, soft(uDetail, clamp(du, 0.0, 1.0), uDetailTexel), dw);
   float d = max(dot(n, uSun), 0.0);
   /* Water is where blue leads: a glint there, none on land. */
   /* On the desk, land and water come from the country raster, not from the
@@ -158,7 +171,9 @@ void main() {
      where that raster's coverage changes, one of its texels away. */
   vec4 pol = texture2D(uPol, vUv);
   float onDesk = clamp(uPolOn * 2.0, 0.0, 1.0);
-  float water = mix(wet(c), 1.0 - pol.a, onDesk);
+  float water = mix(wet(cs), 1.0 - pol.a, onDesk);
+  /* Water takes the smoothed photograph; land keeps its sharp one. */
+  c = mix(c, cs, water);
   float px = texture2D(uPol, vUv + vec2(1.0 / 1024.0, 0.0)).a;
   float py = texture2D(uPol, vUv + vec2(0.0, 1.0 / 512.0)).a;
   float coast = clamp((abs(pol.a - px) + abs(pol.a - py)) * 1.6, 0.0, 1.0);
@@ -170,7 +185,7 @@ void main() {
   vec3 land = clamp(mix(vec3(lum), c, 1.45) * vec3(1.07, 1.04, 0.9) + 0.035, 0.0, 1.0);
   float band = floor(lum * 6.0 + 0.5) / 6.0;
   land = clamp(mix(land, land * (band + 0.04) / (lum + 0.04), 0.4), 0.0, 1.0);
-  vec3 ocean = mix(vec3(0.13, 0.40, 0.70), vec3(0.28, 0.62, 0.86), smoothstep(0.02, 0.22, c.b));
+  vec3 ocean = mix(vec3(0.13, 0.40, 0.70), vec3(0.28, 0.62, 0.86), smoothstep(0.02, 0.22, cs.b));
   /* On the desk the land wears a classroom globe's pastel political colours,
      each country its own, with a little of the relief left in. */
   land = mix(land, pol.rgb * (0.8 + 0.4 * lum), uPolOn * 0.85 * pol.a);
@@ -678,6 +693,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
   deskPlace.append(deskStand, deskRing);
   deskBack.append(deskPlace);
 
+  /** Where the globe's disc is on the stage, in CSS pixels. */
+  function globeDisc() {
+    const d = [-cam.eye[0], -cam.eye[1], -cam.eye[2]];
+    const z = dot(d, cam.fwd);
+    const nx = dot(d, cam.right) / (z * TAN * (W / H));
+    const ny = dot(d, cam.up) / (z * TAN) + cam.shift;
+    const r = (Math.tan(Math.asin(Math.min(1, 1 / Math.hypot(...cam.eye)))) / TAN) * (H / 2);
+    return { cx: (nx + 1) * 0.5 * W, cy: (1 - ny) * 0.5 * H, r };
+  }
+
   function drawDesk() {
     const k = closeActive ? 0 : desk(view.alt);
     const show = k > 0.01;
@@ -888,8 +913,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   /**
    * The lowest altitude at which the globe still reads as a sphere on the
-   * paper: both upper corners of the stage, and its sides a third of the way
-   * down, look past the Earth. A country's or a region's arrival stops here
+   * paper: the top of the stage (corners and middle) and both its sides
+   * half way down look past the Earth, so the limb shows on top, left and
+   * right (on a phone the sphere may run on below the feathered bottom). A country's or a region's arrival stops here
    * (the owner, #53: "resume into a sphere and not … a sphere with
    * background"); only a dive onto a group of schools or a campus goes lower,
    * into the full stage. Found against the real camera, as fitCamera is.
@@ -907,7 +933,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     };
     const clear = (alt) => {
       const c = solveCamera({ lat: 40, lon: 0, alt }, {});
-      return [[0, 0], [W, 0], [0, H / 3], [W, H / 3]].every(([x, y]) => misses(c, x, y));
+      /* The Earth's edge shows across the top and down both sides (#53
+         round 2: a phone landed on a dome whose sides were feathered off). */
+      return [[0, 0], [W / 2, 0], [W, 0], [0, H / 2], [W, H / 2]].every(([x, y]) => misses(c, x, y));
     };
     let lo = 0.1, hi = Math.max(0.2, deskIn());
     if (clear(lo)) return lo;
@@ -1267,6 +1295,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     p.node = node;
     p.labelEl = label;
     node.addEventListener('pointerenter', () => light(p.id, { fromMap: true }));
+    /* The card's photograph is on its way before the finger lifts. */
+    node.addEventListener('pointerdown', () => prefetch(p.image || pages.get(p.country)?.image));
+    node.addEventListener('pointerenter', () => prefetch(p.image || pages.get(p.country)?.image), { once: true });
     node.addEventListener('pointerleave', () => light(null));
   }
 
@@ -1316,9 +1347,17 @@ export async function mountGlobe(figure, { onFail } = {}) {
     for (const p of list) if (p.subs?.length) opened.add(p.id);
     clusterAt = -1;
   }
+  /* A chosen country opens only once the turn has brought it round to face
+     the camera, off the desk's ring (#53 round 2: its schools rode the brass
+     ring at the limb while the globe still showed Africa). While a country
+     is chosen, no other country opens: its neighbours stay single, faded
+     lights, so everything numbered on the stage is the chosen country's
+     (round 2: a "19" of 11 US and 8 Canadian schools). */
+  const chosenSide = (m) => (opened.has((m.parent || m).id) ? 1 : 0);
   function schoolsOpen(p) {
     if (!p.subs.length) return false;
-    if (opened.has(p.id)) return true;
+    if (opened.has(p.id)) return project(p.xyz).facing > 0.3 && desk(view.alt) < 0.05;
+    if (opened.size) return false;
     const k = p.open ? 0.85 : 1;
     /* Close in, every country is open: its middle may be over the horizon
        while its schools are in front of you (Boston, seen from above it). */
@@ -1345,7 +1384,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const cosT = Math.cos(theta);
     const shown = pinnedNow();
     for (const p of shown) p._s = project(p.xyz);
-    const near = (a, b) => (a._s.facing > 0.05 && b._s.facing > 0.05
+    const near = (a, b) => chosenSide(a) === chosenSide(b) && (a._s.facing > 0.05 && b._s.facing > 0.05
       ? Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) < PIN_GAP
       : dot(a.xyz, b.xyz) > cosT);
     const left = [...shown].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
@@ -1369,6 +1408,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         for (let j = i + 1; j < out.length; j++) {
           const a = out[i], b = out[j];
           if (a._s.facing <= 0.05 || b._s.facing <= 0.05) continue;
+          if (chosenSide(a.members[0]) !== chosenSide(b.members[0])) continue;
           if (Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) >= drawnR(a) + drawnR(b)) continue;
           const members = [...a.members, ...b.members];
           out.splice(j, 1);
@@ -1416,60 +1456,89 @@ export async function mountGlobe(figure, { onFail } = {}) {
     });
     let used = 0;
     const seen = new Set();
+    /* On the desk, the globe's disc on screen: a pin or a label past its edge
+       would be drawn over the brass ring (#53 round 2). */
+    const dk = closeActive ? 0 : desk(view.alt);
+    const disc = dk > 0.02 ? globeDisc() : null;
+    const offDisc = (x, y, pad = 0) => !!disc && Math.hypot(x - disc.cx, y - disc.cy) + pad > disc.r;
+    /* Pins and groups are placed first and are all obstacles; labels come
+       after, so a label never lands on a group drawn later (round 2:
+       "Macalester" across a "19"). */
+    const obstacles = [];
+    const wanted = [];
     for (const g of groups) {
       const s = project(g.xyz);
       const onScreen = s.facing > 0 && s.x > -40 && s.x < W + 40 && s.y > -40 && s.y < H + 40;
       const fade = Math.min(1, Math.max(0, (s.facing - 0.02) / 0.2));
+      /* A chosen country's neighbours recede. */
+      const aside = opened.size && !chosenSide(g.members[0]) ? 0.45 : 1;
       if (g.members.length === 1) {
         const p = g.members[0];
         seen.add(p.id);
         const node = p.node;
-        if (!onScreen) { node.hidden = true; continue; }
-        node.hidden = false;
         const r = p.school ? 4.5 : radius(p, max);
+        if (!onScreen || offDisc(s.x, s.y, r + 2)) { node.hidden = true; continue; }
+        node.hidden = false;
         const dim = (p.parent || p).dim;
         const on = litSet.has(p.id) || (!!p.parent && litSet.has(p.parent.id));
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
-        node.style.opacity = String(fade * (dim ? 0.55 : 1));
+        node.style.opacity = String(fade * (dim ? 0.55 : 1) * aside);
         node.toggleAttribute('data-dim', dim);
         node.toggleAttribute('data-selected', p.selected);
         node.toggleAttribute('data-on', on);
-        /* A label goes where it does not cover another label, biggest places
-           first. Lit and selected places always get theirs. */
-        let show = false;
-        let flip = false;
-        if (fade > 0.6 && (labels || on || p.selected)) {
-          const w = p.name.length * 6.6 + 18;
-          /* To the left of the pin when the right would run off the stage
-             ("HK Ho…" on a phone, round 3). */
-          flip = s.x + r + 2 + w > W - 4 && s.x - r - 2 - w > 4;
-          const rect = flip ? [s.x - r - 2 - w, s.y - 11, s.x - r - 2, s.y + 11] : [s.x + r + 2, s.y - 11, s.x + r + 2 + w, s.y + 11];
-          const clash = taken.some((t) => rect[0] < t[2] && rect[2] > t[0] && rect[1] < t[3] && rect[3] > t[1]);
-          if (!clash || litSet.has(p.id) || p.selected) { show = true; taken.push(rect); }
+        obstacles.push({ id: p.id, rect: [s.x - r - 2, s.y - r - 2, s.x + r + 2, s.y + r + 2] });
+        if (fade > 0.6 && aside === 1 && (labels || on || p.selected)) {
+          wanted.push({ p, node, s, r, rank: (p.selected ? 4 : 0) + (litSet.has(p.id) ? 2 : 0) + (chosenSide(p) ? 1 : 0) });
+        } else {
+          node.toggleAttribute('data-label', false);
+          node.toggleAttribute('data-flip', false);
         }
-        node.toggleAttribute('data-label', show);
-        node.toggleAttribute('data-flip', show && flip);
       } else {
         for (const m of g.members) { seen.add(m.id); m.node.hidden = true; }
         const node = clusterNode(used++);
         node._members = g.members;
-        if (!onScreen) { node.hidden = true; continue; }
+        const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
+        if (!onScreen || offDisc(s.x, s.y, r)) { node.hidden = true; continue; }
         node.hidden = false;
         /* A group says how much it holds in the page's own unit (degrees on
            the home page), the same number the doors and the count use — not
            how many places it covers (home round 2: "40" against "57 degrees"). */
         node.firstChild.textContent = String(g.count || g.members.length);
         node.toggleAttribute('data-places', placesOnly(g.members));
-        const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
-        node.style.opacity = String(fade);
+        node.style.opacity = String(fade * aside);
         node.toggleAttribute('data-dim', g.members.every((m) => (m.parent || m).dim));
         node.toggleAttribute('data-on', g.members.some((m) => litSet.has(m.id) || (!!m.parent && litSet.has(m.parent.id))));
         node.toggleAttribute('data-selected', g.members.some((m) => m.selected));
-        taken.push([s.x - r, s.y - r, s.x + r, s.y + r]);
+        obstacles.push({ id: null, rect: [s.x - r - 3, s.y - r - 3, s.x + r + 3, s.y + r + 3] });
       }
+    }
+    /* Labels, most wanted first (the selected place, a lit one, the chosen
+       country's, then the biggest): to the right of the pin, or flipped to
+       its left, or not at all — never across a group, another pin, another
+       label, the furniture, the stage's edge or the ring. */
+    const hits = (a, b) => a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1];
+    wanted.sort((a, b) => b.rank - a.rank || (b.p.count || 0) - (a.p.count || 0) || a.p.name.localeCompare(b.p.name));
+    for (const { p, node, s, r } of wanted) {
+      const w = p.name.length * 6.6 + 18;
+      const sides = [
+        [s.x + r + 2, s.y - 11, s.x + r + 2 + w, s.y + 11],
+        [s.x - r - 2 - w, s.y - 11, s.x - r - 2, s.y + 11],
+      ];
+      let placed = -1;
+      for (let i = 0; i < sides.length && placed < 0; i++) {
+        const rect = sides[i];
+        if (rect[0] < 4 || rect[2] > W - 4 || rect[1] < 2 || rect[3] > H - 2) continue;
+        if (disc && (offDisc(rect[0], rect[1]) || offDisc(rect[2], rect[1]) || offDisc(rect[0], rect[3]) || offDisc(rect[2], rect[3]))) continue;
+        if (taken.some((t) => hits(rect, t))) continue;
+        if (obstacles.some((o) => o.id !== p.id && hits(rect, o.rect))) continue;
+        placed = i;
+        taken.push(rect);
+      }
+      node.toggleAttribute('data-label', placed >= 0);
+      node.toggleAttribute('data-flip', placed === 1);
     }
     for (let i = used; i < clusterPool.length; i++) { clusterPool[i].hidden = true; clusterPool[i]._members = null; }
     for (const p of allPins) if (!seen.has(p.id)) p.node.hidden = true;
@@ -1588,7 +1657,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     for (let i = 0; i < 4; i++) gl.disableVertexAttribArray(i);
   }
 
-  const cloudAlpha = () => 0.82 * smooth(0.22, 0.85, view.alt) * (1 - desk(view.alt));
+  /* No clouds below about alt 1.3: at a country's arrival they covered its
+     schools and drew a long streak down the stage (#53 round 2). */
+  const cloudAlpha = () => 0.82 * smooth(1.3, 1.9, view.alt) * (1 - desk(view.alt));
 
   function draw(now) {
     const t0 = performance.now();
@@ -2114,12 +2185,30 @@ export async function mountGlobe(figure, { onFail } = {}) {
     kick();
   }
 
+  /* A card's photograph fades into its reserved box, on the paper's tone,
+     rather than popping in (#53 round 2); one already fetched is there at
+     once. */
+  const fetched = new Set();
+  function prefetch(src) {
+    if (!src || fetched.has(src)) return;
+    fetched.add(src);
+    const im = new Image();
+    im.decoding = 'async';
+    im.src = src;
+  }
+  function photoIn(img) {
+    const done = () => img.setAttribute('data-in', '');
+    if (img.complete && img.naturalWidth) done();
+    else img.addEventListener('load', done, { once: true });
+  }
+
   function placeCard(p, opts) {
     cardSubject = { xyz: p.xyz, alt: null };
     openCard((c) => {
       if (p.image) {
         const img = el('img', { class: 'world__card-img', src: p.image, alt: '', decoding: 'async' });
         img.addEventListener('error', () => img.remove());
+        photoIn(img);
         c.append(img);
       }
       const title = cardTitle(c, p.name);
@@ -2194,6 +2283,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       if (photo) {
         const img = el('img', { class: 'world__card-img', src: photo, alt: '', decoding: 'async' });
         img.addEventListener('error', () => img.remove());
+        photoIn(img);
         c.append(img);
       }
       const title = cardTitle(c, `${dest?.flag ? `${dest.flag} ` : ''}${dest?.name || country.name}`);

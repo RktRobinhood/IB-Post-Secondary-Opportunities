@@ -77,8 +77,11 @@ check('the stage holds nothing but the globe\'s own still until the globe lands,
      stage (it is the globe, not another map); nothing else may. */
   const rest = stage[1]
     .replace(/<script type="application\/json" class="world__data">[\s\S]*?<\/script>/, '')
-    .replace(/\$\{poster\s*\?\s*html`(<img class="world__poster[^`]*)`\s*:\s*''\}/, (m, imgs) => {
-      assert.ok(/^(<img class="world__poster [^>]*>)+$/.test(imgs.replace(/\$\{[^}]*\}/g, '')), 'the stage\'s still is something other than an image of the globe');
+    .replace(/\$\{poster\s*\?\s*html`(<picture class="world__poster">[^`]*<\/picture>)`\s*:\s*''\}/, (m, pic) => {
+      const bare = pic.replace(/\$\{[^}]*\}/g, '');
+      assert.ok(/^<picture class="world__poster">(<source [^>]*>)*<img [^>]*><\/picture>$/.test(bare), 'the stage\'s still is something other than an image of the globe');
+      /* #53 round 2: a lazy still arrived ~4 s in on a school network. */
+      assert.match(bare, /loading="eager" fetchpriority="high"/, 'the globe\'s still is fetched late again');
       return '';
     })
     .trim();
@@ -90,6 +93,10 @@ check('the stage holds nothing but the globe\'s own still until the globe lands,
     }
   }
   assert.match(css, /\.world\[data-globe="on"\] \.world__poster \{ opacity: 0; \}/, 'the still stays up under the moving globe');
+  assert.match(layoutMjs, /rel="preload" as="image"/, 'the page head can no longer preload the globe\'s still');
+  const homeSrc = fsSync.readFileSync(path.join(ROOT, 'src', 'pages', 'home.mjs'), 'utf8');
+  assert.match(homeSrc, /preload: posterPreload\(DISCOVER_POSTER\)/, 'home no longer preloads its globe\'s still');
+  assert.match(fsSync.readFileSync(path.join(ROOT, 'scripts', 'make-globe-poster.mjs'), 'utf8'), /alphaQuality: 100/, 'the still\'s halo is compressed into a grey plate again');
   assert.match(worldWindowSrc, /class="world__data"/, 'worldWindow() no longer writes the places for the globe');
   assert.match(decl(css, '.world__stage', 'aspect-ratio') || '', /^\d+ \/ \d+$/, 'the stage no longer reserves the globe\'s size, so the page jumps when it lands');
 });
@@ -301,6 +308,42 @@ check('the globe stays a sphere: its imagery feathers into the paper, and a coun
   assert.match(globeJs, /function sphereAlt\(\)/, 'there is no floor under a country\'s arrival');
   assert.match(globeJs, /fitCamera\(\[p\.xyz, \.\.\.p\.subs\.map\(\(q\) => q\.xyz\)\], \{ maxAlt: 2\.4, minAlt: sphereAlt\(\)/, 'a country light is no longer framed on its schools, above the sphere floor');
   assert.match(globeJs, /\? Math\.max\(SCHOOLS_ALT \* 1\.25, sphereAlt\(\)\)/, 'a group of countries dives past the countries level into every school at once');
+});
+
+check('a chosen country arrives clean: only its own schools group, labels never cross a group, nothing rides the ring', () => {
+  /* #53 round 2, the owner's own test (phone, tap the United States):
+     "Macalester" across a "19" of 11 US and 8 Canadian schools, three
+     numbers for one country, schools on the brass ring mid-turn. Measured
+     at 390×844 by docs/research/qa/globe/owner-notes-53/round-3/shoot.mjs
+     (report.json phoneUs.chosen: visibleSum equals count; labelsOverGroups
+     empty); here, that the code keeps it so. */
+  assert.match(globeJs, /const near = \(a, b\) => chosenSide\(a\) === chosenSide\(b\) &&/, 'a chosen country\'s schools can group with a neighbour\'s again');
+  assert.match(globeJs, /if \(chosenSide\(a\.members\[0\]\) !== chosenSide\(b\.members\[0\]\)\) continue;/, 'overlapping groups can merge across the chosen country\'s border again');
+  assert.match(globeJs, /if \(opened\.has\(p\.id\)\) return project\(p\.xyz\)\.facing > 0\.3 && desk\(view\.alt\) < 0\.05;/, 'a chosen country opens before it faces the camera, onto the ring');
+  assert.match(globeJs, /if \(opened\.size\) return false;/, 'a neighbour opens into schools while another country is chosen');
+  const layout = globeJs.match(/function layoutPins\(\) \{[\s\S]*?\n  \}\n/);
+  assert.ok(layout, 'layoutPins() is gone');
+  const groupsLoop = layout[0].indexOf('for (const g of groups)');
+  const labelsLoop = layout[0].indexOf('for (const { p, node, s, r } of wanted)');
+  assert.ok(groupsLoop >= 0 && labelsLoop > groupsLoop, 'labels are placed before every group is, so a later group can land on one');
+  assert.match(layout[0], /obstacles\.some\(\(o\) => o\.id !== p\.id && hits\(rect, o\.rect\)\)/, 'a label may cross a group or another pin again');
+  assert.match(layout[0], /offDisc\(s\.x, s\.y, r\)/, 'a group may sit on the desk\'s ring again');
+  assert.ok(!/\[data-on\] \.world__pin-label \{ display: block/.test(css), 'a lit pin shows its label wherever it lands, across groups, again');
+});
+
+check('a country\'s lean-in lands on a sphere: the limb on top and both sides, no clouds, no blocky sea', () => {
+  assert.match(globeJs, /\[\[0, 0\], \[W \/ 2, 0\], \[W, 0\], \[0, H \/ 2\], \[W, H \/ 2\]\]\.every/, 'a country\'s arrival can come down until its sides are cut off');
+  assert.match(globeJs, /const cloudAlpha = \(\) => 0\.82 \* smooth\(1\.3, /, 'clouds cover a country\'s schools on arrival again (round 2: a third of the United States)');
+  assert.match(globeJs, /float water = mix\(wet\(cs\), 1\.0 - pol\.a, onDesk\);\s*\/\*[^*]*\*\/\s*c = mix\(c, cs, water\);/, 'the sea takes the photograph\'s compression blocks again');
+});
+
+check('the card\'s photograph fades into its box, and is fetched on touch-down', () => {
+  assert.match(css, /\.world__card-img \{[^}]*opacity: 0;[^}]*transition: opacity \.15s/, 'the card\'s photograph pops in again');
+  assert.match(globeJs, /addEventListener\('pointerdown', \(\) => prefetch\(/, 'a card\'s photograph is no longer fetched before the finger lifts');
+});
+
+check('home\'s legend does not call an institution a degree', () => {
+  assert.match(worldWindowSrc, /dots\.some\(\(d\) => d\.door\) \? 'Bigger light, more to study there'/, 'a page whose lights count two things says they all count degrees again');
 });
 
 check('the globe fades in only once it has drawn, and its stand with it', () => {
@@ -638,6 +681,15 @@ check('the globe does not branch on a country', () => {
     withPhoto += list.filter((x) => x.image).length;
     /* Initials where the record has a full name (ESADE's full name is ESADE). */
     const fullName = new Map((c.institutions || []).map((i) => [i.key || i.id, i.name]));
+    /* Round 2: "U of T", "Dal", "Unistra", "Nord" and "Michigan". A school's
+       name on the globe is its full name, or — only when that is too long
+       for a label — a short name made of the full name's own words. */
+    for (const x of list) {
+      const full = fullName.get(x.id);
+      if (x.name === full) continue;
+      const words = new Set(full.toLowerCase().split(/[^\p{L}'’-]+/u));
+      if (full.length <= 26 || !x.name.split(/\s+/).every((w) => words.has(w.toLowerCase()))) initials.push(`${x.id}: "${x.name}" for "${full}"`);
+    }
     initials.push(...list.filter((x) => /^[A-Z][A-Za-z]?[A-Z][A-Z-]*$/.test(x.name) && fullName.get(x.id) !== x.name).map((x) => `${x.id}: ${x.name}`));
     const ids = new Set(list.map((s) => s.id));
     for (const i of c.institutions || []) if (i.coords && i.href && !ids.has(i.key)) missing.push(`${c.code}: ${i.key}`);
