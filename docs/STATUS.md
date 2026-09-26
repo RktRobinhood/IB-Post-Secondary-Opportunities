@@ -22,6 +22,7 @@ This page says where the work stands, so the next session (human or agent) start
 - **Globe:** it floats on a transparent background, is "a bit cartoony, lean into fun", and moving between places shows a dotted route with a little plane, train or bus ("Where in the World is Carmen Sandiego"). The owner capped it at 5 critic rounds; round 5 ships whatever the score.
 - **Desk globe (25 September, evening):** the base is a globe held in its arms — a brass meridian ring on a stand, axis tipped 23.4° — that turns left and right only; choosing a place turns it to face you and leans in. Routes, vehicles and clouds are "eye candy, nice to have". The globe is a visual element (it may sit in a horizontal band), not a full-page simulation. Two ChatGPT prototypes were shared as inspiration only.
 - **Usage ceiling:** no new agents or tasks once the **5-hour** plan window reaches 80% (not the weekly total).
+- **Ship to `main` (26 September, afternoon):** work of acceptable quality (critic 8+) or a clear improvement on what is live goes to `main` at once, so students, counsellors and the owner see it on the live site. Nothing good waits for a later release. A branch is only for work in flight, is meant to merge whole into `main`, and is closed afterwards. Close an issue when its acceptance criteria are live.
 
 ## Done and live
 
