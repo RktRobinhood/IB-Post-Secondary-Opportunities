@@ -194,7 +194,24 @@ export function notesFor(school, p) {
   const notes = (school.notes || []).map((text) => ({
     text,
     mine: namesProgramme(text, p, schoolWords),
-    theirs: others.some((q) => namesProgramme(text, q, schoolWords)),
+    theirs: others.some((q) => namesProgramme(text, q, schoolWords)) || aboutOtherUnit(text, school, p),
   }));
   return [...notes.filter((n) => n.mine), ...notes.filter((n) => !n.mine && !n.theirs)];
+}
+
+/* A part of a school with a name of its own: "Prince Claus Conservatoire",
+   "Leiden University College", "Campus Steneby". */
+const UNIT = /\b(?:[A-Z][\w'’-]+\s+){1,3}(?:College|Academy|Conservatoire|Conservatory|Campus|Institute)\b|\bCampus\s+[A-Z][\w'’-]+/g;
+
+/**
+ * Whether a note is about another part of the school: it names such a part,
+ * and none of the parts it names is this programme's (in the school's name,
+ * or in the programme's own name or line). A Conservatoire note is Classical
+ * Music's, not Physiotherapy's.
+ */
+function aboutOtherUnit(text, school, p) {
+  const units = [...String(text).matchAll(UNIT)].map((m) => m[0].toLowerCase());
+  if (!units.length) return false;
+  const own = `${school.name || ''} ${p.name} ${p.ib || ''} ${p.about || ''}`.toLowerCase();
+  return !units.some((u) => own.includes(u) || own.includes(u.replace(/^the\s+/, '')));
 }

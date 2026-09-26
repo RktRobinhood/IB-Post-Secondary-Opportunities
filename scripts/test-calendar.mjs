@@ -151,6 +151,8 @@ const ALLOWED = new Set([
   'institutionTypes',
   'taughtIn',
   'everySchool',
+  /* The portal a date is a step of (uni-assist): school-dates.mjs. */
+  'via',
 ]);
 
 const problems = [];

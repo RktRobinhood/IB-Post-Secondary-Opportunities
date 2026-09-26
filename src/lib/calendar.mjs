@@ -314,6 +314,7 @@ export function fromCountryDeadline(country, entry, index) {
     institutionTypes: nameList(entry.institutionTypes),
     taughtIn: nameList(entry.taughtIn),
     everySchool: Boolean(entry.everySchool),
+    via: clean(entry.via),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(entry.yearUnpublished),
@@ -383,6 +384,7 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     institutionTypes: nameList(milestone.institutionTypes),
     taughtIn: nameList(milestone.taughtIn),
     everySchool: Boolean(milestone.everySchool),
+    via: clean(milestone.via),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(milestone.yearUnpublished),
@@ -433,6 +435,7 @@ export function fromRouteRound(route, round, destinationName) {
     institutionTypes: nameList(round.institutionTypes),
     taughtIn: nameList(round.taughtIn),
     everySchool: Boolean(round.everySchool),
+    via: clean(round.via),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(round.yearUnpublished),
@@ -679,6 +682,7 @@ export function mergeTwins(route, profile) {
     institutionTypes: route.institutionTypes?.length ? route.institutionTypes : profile.institutionTypes || [],
     taughtIn: route.taughtIn?.length ? route.taughtIn : profile.taughtIn || [],
     everySchool: Boolean(route.everySchool || profile.everySchool),
+    via: route.via || profile.via || null,
     /* Either record's doubt about the year stands: a provisional date is
        never shown as a confirmed one because its twin did not say so. */
     provisional: Boolean(route.provisional || profile.provisional),
