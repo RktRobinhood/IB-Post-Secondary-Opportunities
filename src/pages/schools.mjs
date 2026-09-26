@@ -2,7 +2,7 @@ import { html, raw, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
 import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { hostOf, isHomepage, HOLDERS_ONLY } from '../lib/schools.mjs';
+import { hostOf, isHomepage, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
@@ -38,7 +38,7 @@ export const FIELD = {
 };
 /* Each field belongs to one family, and each family has one colour (site.css,
    .card--fam-*), so a colour means the same kind of subject on every page. */
-const FAMILY = {
+export const FAMILY = {
   engineering: 'tech', computing: 'tech', mathematics: 'tech',
   'natural-sciences': 'science', 'agriculture-environment': 'science', veterinary: 'science',
   business: 'business', economics: 'business', 'hospitality-tourism': 'business',
@@ -93,9 +93,16 @@ function sharedTuition(programmes) {
 }
 
 /** A listed school's programmes in the order its page shows them; their own
-    pages page through them in the same order. */
+    pages page through them in the same order. The ones a final-year student
+    can apply to come first; a programme whose only round needs the Diploma
+    in hand (`closesForDiplomaHolders`) waits after them. */
 export const inCardOrder = (programmes) =>
-  [...programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
+  [...programmes].sort(
+    (a, b) =>
+      Number(Boolean(a.closesForDiplomaHolders)) - Number(Boolean(b.closesForDiplomaHolders)) ||
+      a.field.localeCompare(b.field) ||
+      a.name.localeCompare(b.name)
+  );
 
 /**
  * A listed school's cards, in card order: one per programme, or one per
@@ -123,7 +130,7 @@ function pathRows(inst, members) {
     (p) => yearsText(p.years),
     (p) => p.city || inst.city || null,
     (p) => (p.places ? plural(p.places, 'place') : null),
-    (p) => (p.closes ? (p.closesForDiplomaHolders ? HOLDERS_ONLY : `Apply by ${shortDate(p.closes)}`) : null),
+    (p) => (p.closes ? (p.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(p.closes)}`) : null),
     (p) => p.tuitionEuEea || null,
   ].filter((f) => new Set(members.map((p) => f(p) ?? '')).size > 1)
     .filter((f) => !members.every((p) => f(p) && String(p.family.path).includes(f(p))));
@@ -146,7 +153,7 @@ function sharedSentences(members) {
  * where every path shares them ("BSc (Tech) · 3 yrs · 2 campuses"), and a
  * short row per path linking to its page, with what differs about it.
  */
-export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false }) {
+export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null }) {
   const g = group.members ? group : { family: null, members: [group], lead: group };
   const p = g.lead;
   const members = g.members;
@@ -169,14 +176,15 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     kicker: headed ? null : FIELD[p.field],
     title: fam ? g.family.name : p.name,
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
-    sub: [orOf(members.map((q) => q.credential)), years, where].filter(Boolean).join(' · '),
+    // `at`: the school, on a card that stands for another school's programme.
+    sub: [at, orOf(members.map((q) => q.credential)), years, where].filter(Boolean).join(' · '),
     // A brief card (a sibling on a programme page) leaves the IB line to its own page.
     text: brief ? null : fam ? sharedSentences(members) : p.ib || null,
     paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members) }) : '',
     tags: [
       /* A programme whose only round is for Diploma holders gives no date to
          a final-year student: the card says whose round it is instead. */
-      closes?.closes ? { label: closes.closesForDiplomaHolders ? HOLDERS_ONLY : `Apply by ${shortDate(closes.closes)}`, mod: 'sand' } : null,
+      closes?.closes ? { label: closes.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(closes.closes)}`, mod: 'sand' } : null,
       tuitionOnCard && fee ? { label: `EU/EEA: ${fee}`, mod: 'brand' } : null,
     ].filter(Boolean),
     // At rest, the card says it opens a page.

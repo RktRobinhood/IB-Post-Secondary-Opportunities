@@ -17,12 +17,15 @@
  * (issue #52): its members share a `family`, two programmes of one subject
  * that stay apart say so in `separateFrom`, and no two cards of one school
  * may share a name (src/lib/families.mjs checkSchoolFamilies).
+ * A date scoped to some programmes (`programmes`) names real ones, by the slug
+ * of their page; a programme's `round` is one its school's dates name; and no
+ * name carries an acute accent (´) where an apostrophe belongs.
  * Exits non-zero on any failure.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { SchemaSet } from '../src/lib/validate-schema.mjs';
-import { schoolKeys, isHomepage, saysForDiplomaHolders, roundOf } from '../src/lib/schools.mjs';
+import { schoolKeys, isHomepage, saysForDiplomaHolders, roundOf, programmePaths } from '../src/lib/schools.mjs';
 import { checkSchoolFamilies } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -68,10 +71,49 @@ function holdersProblems(rec) {
     if (saysForDiplomaHolders(d.label)) out.push(`dates[${i}] "${d.label}" says it is for Diploma holders only: set forDiplomaHolders`);
     else if (rounds.has(roundOf(d.label))) out.push(`dates[${i}] "${d.label}" is a date of a round for Diploma holders only: set forDiplomaHolders`);
   }
+  /* A round the school has not confirmed ("if a programme runs it") is
+     provisional on every one of its dates. */
+  const unconfirmed = new Set(dates.filter((d) => d.provisional || /\bif a programme runs it\b/i.test(d.label)).map((d) => roundOf(d.label)));
+  for (const [i, d] of dates.entries()) {
+    if (!d.provisional && unconfirmed.has(roundOf(d.label))) out.push(`dates[${i}] "${d.label}" is a date of a round not confirmed for 2027: set provisional`);
+  }
   for (const [i, p] of (rec.programmes || []).entries()) {
     if (p.closesForDiplomaHolders && !p.closes) out.push(`programmes[${i}] "${p.name}" has closesForDiplomaHolders but no closes`);
   }
   return out;
+}
+
+/** What is wrong with a record's scopes and rounds, as sentences. */
+function scopeProblems(rec, key) {
+  const out = [];
+  const slugs = new Set(programmePaths(key, rec.programmes || []).map((p) => p.slug));
+  const rounds = new Set((rec.dates || []).map((d) => roundOf(d.label)));
+  for (const [i, d] of (rec.dates || []).entries()) {
+    for (const slug of d.programmes || []) {
+      if (!slugs.has(slug)) out.push(`dates[${i}] "${d.label}" is scoped to "${slug}", which is no programme of this record`);
+    }
+  }
+  for (const [i, p] of (rec.programmes || []).entries()) {
+    if (p.round && !rounds.has(roundOf(p.round))) out.push(`programmes[${i}] "${p.name}" runs in "${p.round}", which no date of this record names`);
+    if (/\u00B4/.test(p.name)) out.push(`programmes[${i}] "${p.name}" has an acute accent (´) for an apostrophe`);
+  }
+  if (/\u00B4/.test(rec.name || '')) out.push(`name "${rec.name}" has an acute accent (´) for an apostrophe`);
+  return out;
+}
+
+/* Self-test: the scope rule must catch an unknown slug, an unknown round and
+   an acute accent, and pass a real slug and round. */
+{
+  const rec = {
+    name: 'X',
+    programmes: [{ name: 'Metal Art' }, { name: 'Bachelor\u00B4s Programme in Y', round: 'June round' }],
+    dates: [{ label: 'April round closes', programmes: ['metal-art', 'nope'] }],
+  };
+  const good = { name: 'X', programmes: [{ name: 'Metal Art', round: 'April round' }], dates: [{ label: 'April round closes', programmes: ['metal-art'] }] };
+  if (scopeProblems(rec, 'xx-x').length !== 3 || scopeProblems(good, 'xx-x').length !== 0) {
+    console.log('✗ self-test: the scope rule misjudges a record');
+    process.exit(1);
+  }
 }
 
 /* Self-test: the Diploma-holders rule must catch the wording and a sibling
@@ -171,6 +213,7 @@ for (const f of files.sort()) {
     }
     problems.push(...holdersProblems(rec));
     problems.push(...checkSchoolFamilies(progs, 'programmes'));
+    problems.push(...scopeProblems(rec, key));
 
     counts[rec.scope] = (counts[rec.scope] || 0) + 1;
     counts.programmes += progs.length;

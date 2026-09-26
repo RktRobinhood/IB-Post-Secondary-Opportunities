@@ -16,17 +16,25 @@
  *      its school record (`dates`), or a route date tied to that school by id
  *      (`institutions`), never a route's general date for other programmes;
  *   7. and never a date only for applicants who already hold the Diploma
- *      (`forDiplomaHolders`, `closesForDiplomaHolders`): where those are all
- *      there is, the tile says "Diploma holders only", no card says "Apply by"
- *      for such a programme, and no dates panel lifts such a date to the top
+ *      (`forDiplomaHolders`, `closesForDiplomaHolders`), nor a housing date
+ *      (`kind: "housing"`): where Diploma-holder dates are all there is, the
+ *      tile says "After your Diploma" (the programme's only round needs it)
+ *      or "Not open yet" (no round for the reader published), and the dates
+ *      panel opens on the same line; no card says "Apply by" for such a
+ *      programme, and no dates panel lifts such a date to the top
  *      (`data-binding`). A route date whose words say it is for Diploma
- *      holders reaching a school page must carry the flag.
+ *      holders reaching a school page must carry the flag;
+ *   8. a programme page shows only its own dates, for its reader: none scoped
+ *      to other programmes (`programmes`), none of a round it does not run in
+ *      (`round`), none only for applicants from outside the EU/EEA;
+ *   9. and it opens on the school record's note for it ("Before you apply"),
+ *      where the record has one that names it or names no other programme.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, HOLDERS_ONLY } from '../src/lib/schools.mjs';
+import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, roundOf, notesFor, NOT_OPEN_YET, AFTER_DIPLOMA } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -49,11 +57,25 @@ const routes = fs
 const milestones = routes.flatMap((r) => r.milestones || []);
 function applyByAllowed(key, rec, prog, iso) {
   if (prog.closes === iso) return !prog.closesForDiplomaHolders;
-  if ((rec.dates || []).some((d) => d.date === iso && !d.forDiplomaHolders)) return true;
+  const ownRound = prog.round ? roundOf(prog.round) : null;
+  const holders = (d) => (ownRound && prog.closes && roundOf(d.label) === ownRound ? prog.closesForDiplomaHolders : d.forDiplomaHolders);
+  if ((rec.dates || []).some((d) => d.date === iso && d.kind !== 'housing' && !holders(d) && (!(d.programmes || []).length || d.programmes.includes(prog.slug)))) return true;
   return milestones.some((m) => (m.institutions || []).includes(key) && !m.forDiplomaHolders && (m.date === iso || m.endDate === iso));
 }
-/* A tile that gives no day, because every closing date is for Diploma holders. */
-const holdersOnlyAllowed = (rec, prog) => Boolean(prog.closesForDiplomaHolders || (rec.dates || []).some((d) => d.forDiplomaHolders));
+/* A tile that gives no day, because every closing date is for Diploma
+   holders: which of the two it says follows from the record. */
+const statusAllowed = (rec, prog, value) =>
+  value === AFTER_DIPLOMA
+    ? Boolean(prog.closesForDiplomaHolders)
+    : value === NOT_OPEN_YET && !prog.closesForDiplomaHolders && (rec.dates || []).some((d) => d.forDiplomaHolders);
+const unescape = (t) => String(t).replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+/* The dates in a built dates panel, as [day, label, who]. */
+const panelDates = (html) =>
+  [...(html.split('class="dates-panel"')[1] || '').split('</section>')[0].matchAll(/<li class="dates-panel__item" data-date="([^"]+)"([^>]*)>[\s\S]*?class="dates-panel__what">([^<]*)</g)].map((m) => ({
+    date: m[1],
+    who: m[2].match(/data-who="([^"]+)"/)?.[1] || null,
+    label: unescape(m[3]).trim(),
+  }));
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const isoOf = (text) => {
   const m = String(text).trim().match(/^(\d{1,2}) ([A-Z][a-z]+) (\d{4})$/);
@@ -76,6 +98,9 @@ console.log('  ok    self-test: a homepage is caught, a targeted page passes');
   const seeds = loadSchools(path.join(ROOT, 'data', 'schools'));
   const prog = (key, slug) => programmePaths(key, seeds.get(key)?.programmes || []).find((p) => p.slug === slug);
   const cases = [
+    /* A housing lottery date is not an application deadline. */
+    ['nl-radboud', 'artificial-intelligence', '2027-05-01', false],
+    ['nl-radboud', 'artificial-intelligence', '2027-07-01', true],
     ['de-tum', 'aerospace', '2027-05-31', false],
     ['nl-radboud', 'artificial-intelligence', '2027-01-15', false],
     ['de-tum', 'aerospace', '2027-07-15', true],
@@ -120,6 +145,7 @@ let pages = 0;
 let programmePages = 0;
 let applyTiles = 0;
 let holdersTiles = 0;
+let beforeNotes = 0;
 let cards = 0;
 for (const c of countries) {
   const countryPage = read(`destinations/${c.code}`);
@@ -150,6 +176,7 @@ for (const [key, inst] of known) {
   pages++;
   const main = html.split('<main')[1]?.split('</main>')[0] || '';
   if (liftsHolders(main)) fail(`/universities/${key}/: the dates panel leads with a date only for Diploma holders`);
+  if (panelDates(main).some((d) => d.who === 'non-eu')) fail(`/universities/${key}/: the dates panel shows a date only for applicants from outside the EU/EEA`);
   for (const m of main.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
     const link = m[1].replace(/&amp;/g, '&');
     if (isHomepage(link, inst.website)) fail(`/universities/${key}/ hands the student to a homepage: ${link}`);
@@ -174,8 +201,10 @@ for (const [key, inst] of known) {
         if (isHomepage(link, inst.website)) fail(`${p.href} hands the student to a homepage: ${link}`);
       }
       const tile = body.match(/<dt>Apply by<\/dt>\s*<dd>([^<]+)/)?.[1];
-      if (tile && tile.trim() === HOLDERS_ONLY) {
-        if (!holdersOnlyAllowed(rec, p)) fail(`${p.href}: "Apply by ${HOLDERS_ONLY}" but its record has no date for Diploma holders`);
+      if (tile && (tile.trim() === NOT_OPEN_YET || tile.trim() === AFTER_DIPLOMA)) {
+        if (!statusAllowed(rec, p, tile.trim())) fail(`${p.href}: "Apply by ${tile.trim()}" does not follow from its record`);
+        const line = body.match(/class="dates-panel__status"><strong>([^<]+)/)?.[1];
+        if (line !== tile.trim()) fail(`${p.href}: the dates panel does not open on "${tile.trim()}"`);
         holdersTiles++;
       } else if (tile) {
         const iso = isoOf(tile);
@@ -185,6 +214,24 @@ for (const [key, inst] of known) {
         applyTiles++;
       }
       if (liftsHolders(body)) fail(`${p.href}: the dates panel leads with a date only for Diploma holders`);
+      /* Rule 8: only this programme's dates, for this reader. */
+      const shownDates = panelDates(body);
+      if (shownDates.some((d) => d.who === 'non-eu')) fail(`${p.href}: the dates panel shows a date only for applicants from outside the EU/EEA`);
+      const rounds = new Set((rec.dates || []).filter((d) => d.kind === 'closes').map((d) => roundOf(d.label)));
+      for (const d of rec.dates || []) {
+        const otherProgramme = (d.programmes || []).length && !d.programmes.includes(p.slug);
+        const otherRound = p.round && rounds.has(roundOf(d.label)) && roundOf(d.label) !== roundOf(p.round);
+        if ((otherProgramme || otherRound) && shownDates.some((x) => x.date === d.date && x.label === d.label)) {
+          fail(`${p.href}: shows "${d.label}", a date ${otherProgramme ? 'for other programmes' : 'of a round it does not run in'}`);
+        }
+      }
+      /* Rule 9: the record's note for this programme opens the page. */
+      const notes = notesFor({ ...rec, programmes: programmePaths(key, rec.programmes) }, p);
+      if (notes.length) {
+        const block = body.split('aria-label="Before you apply"')[1]?.split('</aside>')[0] || '';
+        if (!unescape(block).includes(notes[0].text)) fail(`${p.href}: "Before you apply" does not show the record's note for it`);
+        else beforeNotes++;
+      }
       /* Its card on the school's page gives no day to a final-year student either. */
       if (p.closesForDiplomaHolders) {
         const at = main.indexOf(`href="${BASE}${p.href}"`);
@@ -209,5 +256,5 @@ if (!programmePages) {
   process.exit(1);
 }
 console.log(
-  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} "${HOLDERS_ONLY}"), ${cards} institution cards on country pages; none hands a student to a homepage`
+  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} "${NOT_OPEN_YET}" or "${AFTER_DIPLOMA}"; ${beforeNotes} open on the record's note), ${cards} institution cards on country pages; none hands a student to a homepage`
 );

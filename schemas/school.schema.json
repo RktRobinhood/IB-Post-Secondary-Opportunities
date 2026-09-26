@@ -96,10 +96,12 @@
       "properties": {
         "label": { "type": "string", "maxLength": 90 },
         "date": { "$ref": "common.schema.json#/$defs/isoDate" },
-        "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day"] },
+        "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day", "housing"], "description": "What happens on the day. 'closes' is an application deadline, the only kind a programme page gives as 'Apply by'. 'housing' is a date to apply for housing (a housing lottery, a residence's own deadline): shown in the dates and as the Apply-by tile's note, never as the deadline itself." },
         "who": { "$ref": "common.schema.json#/$defs/applicantGroup" },
         "supersedes": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$", "description": "\"<routeId>/<milestoneId>\" of a route date this one replaces on this institution's page, e.g. an institution that runs its own application window instead of the national one. See the same field on an Application Route milestone." },
         "forDiplomaHolders": { "$ref": "common.schema.json#/$defs/forDiplomaHolders" },
+        "provisional": { "type": "boolean", "description": "True when the record does not confirm the date for this school's 2027 programmes: a national round the school has not yet said which programmes run in ('if a programme runs it'). A programme page gives it as 'Apply by' with the note 'Not yet confirmed for 2027', and the dates panel marks it provisional. scripts/check-schools.mjs requires it on every date of a round whose label says so." },
+        "programmes": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }, "description": "Only for these programmes, by the slug of their page (/universities/<key>/<slug>/): a round only some programmes run in. The date shows on those programmes' pages and on the school's, and on no other programme's page. scripts/check-schools.mjs checks each slug names a programme of the record." },
         "url": { "$ref": "common.schema.json#/$defs/url" }
       }
     },
@@ -119,6 +121,7 @@
         "ib": { "type": "string", "maxLength": 180, "description": "What this programme asks of IB applicants beyond the institution's general rule: subjects and levels, points, an entrance exam." },
         "tuitionEuEea": { "type": "string", "maxLength": 40, "description": "Per year for EU/EEA citizens, e.g. 'Free', '€1,500 a year'." },
         "closes": { "$ref": "common.schema.json#/$defs/isoDate", "description": "The application deadline for this programme, when it differs from the institution's." },
+        "round": { "type": "string", "maxLength": 40, "description": "The one admission round this programme runs in, when the school's dates name several ('January round', 'April round'): the words its dates' labels begin with. Its page then shows the school's dates of that round only, with this programme's `closesForDiplomaHolders` in place of the round's own flag, and none of the route's general dates." },
         "closesForDiplomaHolders": { "type": "boolean", "description": "True when `closes` is a deadline only for applicants who already hold their IB Diploma (a programme that runs only in such a round). Its page lists the date but never shows it as 'Apply by', and its card says 'Diploma holders only'. See common.schema.json forDiplomaHolders." },
         "code": { "type": "string", "maxLength": 16, "pattern": "^[A-Za-z0-9-]+$", "description": "The code you name the programme by when you apply (a CAO code such as AD211), when the application asks for one. Shown beside 'Apply via' on its page, never in `about`." },
         "about": { "type": "string", "minLength": 40, "maxLength": 320, "description": "What the degree is, in one or two plain sentences from the programme's own page: what you study and what makes it different from its neighbours. The 'What it is' block of the programme's page. No slogans, no rankings." },

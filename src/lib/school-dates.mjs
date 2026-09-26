@@ -310,11 +310,13 @@ function fromSchoolDate(inst, d, i) {
     timeZone: null,
     consequence: KIND_CONSEQUENCE[d.kind] || 'indicative',
     audience: d.who || 'any',
-    provisional: false,
+    provisional: Boolean(d.provisional),
     intake: null,
     note: null,
     supersedes: d.supersedes || null,
     forDiplomaHolders: Boolean(d.forDiplomaHolders),
+    /* Only for these programmes (their page slugs), when the record says so. */
+    programmes: d.programmes || [],
     kind: d.kind,
     sources: d.url ? [d.url] : [],
     evidence: [],
@@ -439,6 +441,8 @@ export function datesFor(site, inst, { programme = null } = {}) {
     .map((d, i) => fromSchoolDate(inst, d, i))
     .filter((e) => {
       if (!programme) return true;
+      /* A date the record scopes to some programmes is theirs alone. */
+      if (e.programmes.length) return e.programmes.includes(programme.id);
       const progs = programmesNamed(e);
       return !progs.length || progs.some((p) => p.id === programme.id);
     });
@@ -448,7 +452,7 @@ export function datesFor(site, inst, { programme = null } = {}) {
      page only a date for the whole school does; a date naming one programme
      replaces it on that programme's page (the others are already gone). */
   const superseded = new Set(
-    mine.filter((e) => e.supersedes && (programme || !programmesNamed(e).length)).map((e) => e.supersedes)
+    mine.filter((e) => e.supersedes && (programme || (!programmesNamed(e).length && !(e.programmes || []).length))).map((e) => e.supersedes)
   );
   /* `schoolOwn`: the date is the school's own (its record's, or a route date
      tied to it or naming it), as against a date of the route it is applied
@@ -549,7 +553,11 @@ export function sessionsFor(site, inst, { programme = null } = {}) {
  * the rest (`leadsFor`). dates-panel.js keeps this order as dates pass.
  */
 export function leadOrder(events) {
-  return [...events.filter(leadsFor), ...events.filter((e) => !leadsFor(e))];
+  return [
+    ...events.filter(leadsFor),
+    ...events.filter((e) => !leadsFor(e) && !e.forDiplomaHolders),
+    ...events.filter((e) => !leadsFor(e) && e.forDiplomaHolders),
+  ];
 }
 
 /**
@@ -557,10 +565,20 @@ export function leadOrder(events) {
  * wait behind the disclosure in date order, where a student looking for one
  * date looks for it.
  */
-export function splitPanel(events, n) {
-  const head = leadOrder(events).slice(0, n);
+export function splitPanel(events, n, { holdersBehind = false } = {}) {
+  const head = leadOrder(events)
+    .filter((e) => !holdersBehind || !e.forDiplomaHolders)
+    .slice(0, n);
   return { head, rest: events.filter((e) => !head.includes(e)) };
 }
+
+/**
+ * The groups a date can be for that this site's reader belongs to: an EU/EEA
+ * citizen at a school in Denmark. A date only for applicants from outside the
+ * EU/EEA (`who: "non-eu"`, a visa deadline) is not theirs, and a panel that
+ * leads with it sends them to the wrong day.
+ */
+export const forReader = (e) => e.audience !== 'non-eu';
 
 /** A Destination as a sentence names it: "the Netherlands", "Denmark". */
 function countryLabel(site, code) {
@@ -601,7 +619,7 @@ function dateItem(site, e) {
     : holders;
   /* `data-binding` is what dates-panel.js lifts to the top as dates pass: a
      deadline a final-year student plans around (`leadsFor`). */
-  return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
+  return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.audience && e.audience !== 'any' && /^[a-z-]+$/.test(e.audience) ? ` data-who="${e.audience}"` : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html` <span class="dates-panel__prov">· provisional</span>` : ''}</p>
     ${/* A line of the panel, not prose: the same school date is on each of
           its programmes' pages (the text-walls guard reads <p> as prose). */ ''}<div class="dates-panel__what">${e.label}</div>
@@ -652,9 +670,10 @@ function sessionItem(s) {
  * saying there are none. The link reads "Every date in <country>" on every
  * page, the country named from its record when the caller does not say.
  */
-export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null } = {}) {
-  /* `keep`, when given, narrows the dates further (a school programme's page). */
-  const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today && (!keep || keep(e)));
+export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null, status = null } = {}) {
+  /* `keep`, when given, narrows the dates further (a school programme's page).
+     Dates for applicants outside the EU/EEA are never this reader's. */
+  const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today && forReader(e) && (!keep || keep(e)));
   const sessions = sessionsFor(site, inst, { programme }).filter((s) => endOf(s) >= today);
   const calendarLink = `/timeline/?destinations=${destinationCode(inst)}`;
   const where = countryName || countryLabel(site, destinationCode(inst)) || 'this country';
@@ -668,15 +687,21 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
       : '';
   }
 
-  const { head: first, rest } = splitPanel(events, PANEL_FIRST);
+  /* `status`, when given, is the page's answer when no date is this reader's
+     to act on ("Not open yet", "After your Diploma"): the panel opens on it,
+     and the dates only for Diploma holders wait under "All dates". */
+  const { head: first, rest } = splitPanel(events, PANEL_FIRST, { holdersBehind: Boolean(status) });
   const whose = programme ? 'this programme' : 'this school';
   /* No sessions recorded: the panel is named for what it holds. */
   const title = sessions.length ? 'Deadlines & sessions' : 'Deadlines';
 
-  return html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title" data-dates-panel data-first="${PANEL_FIRST}" data-first-narrow="${PANEL_FIRST_NARROW}">
+  return html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title" data-dates-panel data-first="${PANEL_FIRST}" data-first-narrow="${PANEL_FIRST_NARROW}"${raw(status ? ' data-holders-behind="true"' : '')}>
     <h2 class="dates-panel__title" id="${id}-title">${title}</h2>
+    ${status
+      ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>`
+      : ''}
     ${events.length
-      ? html`<ol class="dates-panel__list" data-dates-head>${first.map((e) => dateItem(site, e))}</ol>
+      ? html`${first.length || !status ? html`<ol class="dates-panel__list" data-dates-head>${first.map((e) => dateItem(site, e))}</ol>` : ''}
           ${rest.length
             ? html`<details class="dates-panel__all">
                 <summary>All dates for ${whose} <span data-dates-rest-n>(${rest.length} more)</span></summary>

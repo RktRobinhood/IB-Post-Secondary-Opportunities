@@ -30,3 +30,23 @@ The sweep, and the reason for each case, are in [../../../programme-families/cam
 - A school page's "In English" tile still counts degrees (LUT "15 degrees"), not cards (12). A double degree is a degree of its own, so the count stays. Say so if it reads as a mismatch.
 - **Open question (in `campuses-52.md`).** SDU's BSc and BEng families differ in admission. #52 says "separate cards only when what a student must do differs", and #46 put them on one card. They were not changed.
 - **Candidate specialisation family.** Göteborg's Music, Classical against Improvisation Performance, is still two cards until someone checks that the two use the same admission test.
+
+## After the merge with programme pages round 3 (#43)
+
+Merge resolved on 26 September 2026. Four phone-light shots were re-taken from the merged build. The AU Herning shot came out byte-identical, because round 3 did not touch that page.
+
+**Both sides are kept.** Round 3 brought:
+- date scoping;
+- the "After your Diploma" and "Not open yet" labels;
+- the "Before you apply" note;
+- `displayName`;
+- the panel hero;
+- "More <field> in <country>".
+
+#52 brought families, `separateFrom` and the Paths table.
+
+**Where the two meet:**
+- The Paths table's Apply-by column uses round 3's reader-aware `applyBy`. A path with no round for a final-year student shows "After your Diploma" or "Not open yet", the same as its own facts strip.
+- A family card's row says "After your Diploma" for a Diploma-holders-only path.
+- "More <field> in <country>" draws each other school's card as that school's page does, so a family appears as one card.
+- The table heading uses `displayName` ("2 ways to study International Management").

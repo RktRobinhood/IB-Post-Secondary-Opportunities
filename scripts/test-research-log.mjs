@@ -1,5 +1,5 @@
 /**
- * No research log on a Destination page.
+ * No research log on a Destination or university page.
  *
  * Registered in scripts/lib/quality-gate.mjs as 'research-log' (stage built).
  *
@@ -17,13 +17,28 @@
  *
  * This keeps the regex, and runs it over the visible text of every built
  * Destination page — every dist/destinations/<code>/index.html and the
- * Denmark page — not only the twenty in the audit.
+ * Denmark page — not only the twenty in the audit, and of every institution
+ * page under dist/universities/, because each card on a Destination page links
+ * there and the page renders the same note, `about`, "In English" text and
+ * `meta.notes`. DIST_DIR reads another build, as for every built-stage check.
+ *
+ * Programme pages (dist/programmes/) are not read: they render Evidence
+ * `interpretation`, which is written for reviewers, and whether they should
+ * is a question for the programme template, not for this guard
+ * (docs/research/qa/country-audit-europe/follow-ups-41.md).
  *
  * ## What is and is not a research log
  *
- * Flagged: the act of researching, narrated — a page "read on" a date, "no
- * page found", "retrieved", "re-read", "could not be confirmed on…", "not
- * recorded here", "left as context", "during this research".
+ * Flagged: the act of researching, narrated — a page "read on" a date, "read
+ * in French on…", "no page found", "was not found", "retrieved", "re-read",
+ * "when checked", "cited here", "could not be confirmed on…", "not recorded
+ * here", "left as context", "during this research", "Its admissions page on
+ * 23 September 2026: …".
+ *
+ * The site's convention for a gap is "not confirmed here": it says what the
+ * student can rely on without claiming that nobody publishes it. "Not
+ * published yet" is only right when the record shows the publisher has said
+ * so.
  *
  * Not flagged: a date that tells the student how current something is. "The
  * 2027 dates were still not published on 2026-09-24" and "as of 23 September
@@ -36,7 +51,7 @@
  * read 2026-09-23)"), never as the first word of a stamp.
  *
  * The rewrite is always the same move: say what it means for the student.
- * "No page read stated X" becomes "X is not published yet — ask the faculty".
+ * "No page read stated X" becomes "X is not confirmed here — ask the faculty".
  *
  * The Evidence records keep their `interpretation` and `retrievedAt`; they are
  * not rendered, and they are where the research belongs
@@ -50,7 +65,8 @@ import path from 'node:path';
 import { htmlToText } from './lib/html-text.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+// DIST_DIR reads another build, as `src/build.mjs` writes one.
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 
 export const RESEARCH_LOG = [
   /\bpages? read\b/i,
@@ -74,6 +90,12 @@ export const RESEARCH_LOG = [
   /\bthe model can\b/i,
   /\bnow 404s?\b/i,
   /\bnot on this calendar\b/i,
+  // Round 1 of the #41 critique: the forms the first version missed.
+  /\bread in \w+ (?:on|from)\b/i,
+  /\b(?:was|were) (?:not )?found\b/i,
+  /\bwhen checked\b/i,
+  /\bcited here\b/i,
+  /\b(?:page|leaflet|portal) on \d{1,2} \w+ 20\d\d:/i,
 ];
 
 export const researchLog = (text) => RESEARCH_LOG.map((rx) => text.match(rx)?.[0]).filter(Boolean);
@@ -89,7 +111,7 @@ const check = (name, fn) => {
   }
 };
 
-console.log('\nNo research log on a Destination page\n');
+console.log('\nNo research log on a Destination or university page\n');
 
 check('flags the research narrated', () => {
   for (const t of [
@@ -105,6 +127,12 @@ check('flags the research narrated', () => {
     'It is not on any official page, so it is not recorded here.',
     'Current figure on the university budget page, read 2026-09-24',
     'No equivalence is needed (equivalences.cfwb.be, read 2026-09-23).',
+    'the CVEC portal, read in French on 2026-09-23, says to pay',
+    'Precedent, read in Slovene from the University of Ljubljana VPIS leaflet on 23 September 2026:',
+    'No national minimum points figure was found on an official page.',
+    'its 2027 dates were not on the page when checked.',
+    'does not appear on any official page cited here, so treat it as unconfirmed.',
+    'Its admissions page on 23 September 2026: for 2026 Tartu admits to 3 programmes.',
   ]) assert.ok(researchLog(t).length, `not caught: ${t}`);
 });
 
@@ -114,33 +142,41 @@ check('leaves dates of currency and advice alone', () => {
     "The University of Vienna's page, as of 23 September 2026, dates this window.",
     'Re-check the University of Vienna admission page from January 2027.',
     'Study in Slovenia - Programmes in English — checked 2026-09-24',
-    'IB-specific minimum points are not published yet; ask the faculty directly.',
+    'IB-specific minimum points are not confirmed here; ask the faculty directly.',
     'Vilnius University confirms that EU citizens can apply for state-funded places.',
     'For the 2027/2028 round admissions.vu.lt now reads: applications open on 1 December 2026.',
     'Last read 24 September 2026.',
     'Read 2026-09-22.',
     "so read 28 August as the pattern rather than as the 2027 date.",
+    'IB-specific minimum points are not confirmed here; ask the faculty directly.',
+    'the CVEC portal says (in French) to pay',
+    'Precedent, from medizinstudieren.at (in German, as of 23 September 2026):',
+    'None of the university pages linked from this page publishes a minimum.',
   ]) assert.deepEqual(researchLog(t), [], t);
 });
 
 /* --- The built pages --------------------------------------------------------- */
 
 const pages = [];
-const destDir = path.join(DIST, 'destinations');
-if (fs.existsSync(destDir)) {
-  for (const code of fs.readdirSync(destDir)) {
-    const f = path.join(destDir, code, 'index.html');
-    if (fs.existsSync(f)) pages.push(f);
-  }
-}
+const indexPages = (dir) => {
+  const abs = path.join(DIST, dir);
+  if (!fs.existsSync(abs)) return [];
+  return fs.readdirSync(abs).map((d) => path.join(abs, d, 'index.html')).filter((f) => fs.existsSync(f));
+};
+const destinationPages = indexPages('destinations');
+pages.push(...destinationPages);
 const denmark = path.join(DIST, 'denmark', 'index.html');
 if (fs.existsSync(denmark)) pages.push(denmark);
+// Every card on a Destination page links to the institution's own page, and
+// that page renders the same note, `about` and "In English" text.
+const universityPages = indexPages('universities');
+pages.push(...universityPages);
 
 check('the build produced a page for every Destination profile', () => {
   const profiles = fs.readdirSync(path.join(ROOT, 'data', 'countries')).filter((f) => f.endsWith('.json')).length;
   assert.ok(
-    pages.length >= profiles,
-    `found ${pages.length} Destination page(s) in dist/ for ${profiles} profiles — run \`node src/build.mjs\` first`
+    destinationPages.length >= profiles && universityPages.length > 0,
+    `found ${destinationPages.length} Destination page(s) and ${universityPages.length} university page(s) in ${path.relative(ROOT, DIST) || DIST} for ${profiles} profiles — run \`node src/build.mjs\` first`
   );
 });
 
@@ -158,15 +194,15 @@ for (const f of pages) {
   }
 }
 
-check(`no Destination page narrates the research (${pages.length} pages read)`, () => {
+check(`no Destination or university page narrates the research (${pages.length} pages read)`, () => {
   assert.equal(
     found.length,
     0,
     `${found.length} line(s):\n${found.join('\n')}\n` +
-      'Say what it means for the student instead ("not published yet — check the university\'s page"). ' +
+      'Say what it means for the student instead ("not confirmed here — check the university\'s page"). ' +
       'What was read and when belongs in the Evidence record (retrievedAt, interpretation), which is not rendered.'
   );
 });
 
-console.log(failures ? `\n${failures} failed.\n` : '\nNo research log on any Destination page.\n');
+console.log(failures ? `\n${failures} failed.\n` : '\nNo research log on any Destination or university page.\n');
 process.exit(failures ? 1 : 0);
