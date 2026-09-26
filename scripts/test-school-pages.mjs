@@ -28,13 +28,28 @@
  *      to other programmes (`programmes`), none of a round it does not run in
  *      (`round`), none only for applicants from outside the EU/EEA;
  *   9. and it opens on the school record's note for it ("Before you apply"),
- *      where the record has one that names it or names no other programme.
+ *      where the record has one that names it or names no other programme;
+ *  10. one deadline rule for every country (round 4): the Apply-by tile is
+ *      always there (8 tiles in the strip); a date it gives is a closing date
+ *      of this programme or school for an EU/EEA final-year reader, or a
+ *      route date that is every such school's deadline (`everySchool`) at a
+ *      school of a kind it governs (`institutionTypes`) that runs no selection
+ *      of its own (`ownDeadline`); never an earlier chance (`early`) or a
+ *      housing date. A word-level net refuses an Apply-by or leading date
+ *      whose label says "early", "bird", "priority", "discount", "public
+ *      universities" or "Norwegian-taught" unless the school's record owns it.
+ *      Without a date the tile says why, from the record: "Not published
+ *      yet" (last year's date or an own selection), "No deadline", "Not
+ *      recorded yet". Every card of the programme on its school's page says
+ *      the same as its tile. No page shows a raw time-zone id or a
+ *      researcher's "page gives no year", and no display title runs past 48
+ *      characters unless it is listed as an exception.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, roundOf, notesFor, NOT_OPEN_YET, AFTER_DIPLOMA } from '../src/lib/schools.mjs';
+import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -55,13 +70,41 @@ const routes = fs
   .filter((f) => f.endsWith('.json'))
   .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'application-routes', f), 'utf8')));
 const milestones = routes.flatMap((r) => r.milestones || []);
+const knownSchools = schoolKeys(path.join(ROOT, 'data', 'countries'));
 function applyByAllowed(key, rec, prog, iso) {
   if (prog.closes === iso) return !prog.closesForDiplomaHolders;
   const ownRound = prog.round ? roundOf(prog.round) : null;
   const holders = (d) => (ownRound && prog.closes && roundOf(d.label) === ownRound ? prog.closesForDiplomaHolders : d.forDiplomaHolders);
-  if ((rec.dates || []).some((d) => d.date === iso && d.kind !== 'housing' && !holders(d) && (!(d.programmes || []).length || d.programmes.includes(prog.slug)))) return true;
-  return milestones.some((m) => (m.institutions || []).includes(key) && !m.forDiplomaHolders && (m.date === iso || m.endDate === iso));
+  /* A closing date of the record, for an EU/EEA final-year reader. */
+  const own = (rec.dates || []).some(
+    (d) =>
+      d.date === iso && d.kind === 'closes' && d.who !== 'non-eu' && !holders(d) &&
+      (!(d.programmes || []).length || d.programmes.includes(prog.slug)) &&
+      (!prog.ownDeadline || (d.programmes || []).includes(prog.slug))
+  );
+  if (own) return true;
+  if (milestones.some((m) => (m.institutions || []).includes(key) && !m.forDiplomaHolders && (m.date === iso || m.endDate === iso))) return true;
+  /* A route's date that is every school's deadline, where it governs this one. */
+  const type = knownSchools.get(key)?.type;
+  const ownSelection = Boolean(rec.ownDeadline || prog.ownDeadline);
+  return !ownSelection && routes.some(
+    (r) => r.destination === key.slice(0, 2) &&
+      (r.milestones || []).some(
+        (m) => m.everySchool && m.date === iso && m.audience !== 'non-eu' &&
+          (!(m.institutionTypes || []).length || m.institutionTypes.includes(type))
+      )
+  );
 }
+/* Words that mark a date as not this school's deadline unless its record says
+   it is: an earlier chance, a discount, or another group's general date. */
+const NOT_THE_DEADLINE = /\b(early|bird|priority|discount|public universities|norwegian-taught)\b/i;
+/* Owned: the school's record has it, or a route says it governs this kind of
+   school (`institutionTypes`), and the school runs no selection of its own. */
+const recordOwns = (rec, label, key) =>
+  (rec.dates || []).some((d) => d.label === label && d.kind === 'closes') ||
+  (!rec.ownDeadline && routes.some((r) => r.destination === key.slice(0, 2) && (r.milestones || []).some(
+    (m) => m.label === label && (m.institutionTypes || []).includes(knownSchools.get(key)?.type)
+  )));
 /* A tile that gives no day, because every closing date is for Diploma
    holders: which of the two it says follows from the record. */
 const statusAllowed = (rec, prog, value) =>
@@ -98,6 +141,16 @@ console.log('  ok    self-test: a homepage is caught, a targeted page passes');
   const seeds = loadSchools(path.join(ROOT, 'data', 'schools'));
   const prog = (key, slug) => programmePaths(key, seeds.get(key)?.programmes || []).find((p) => p.slug === slug);
   const cases = [
+    /* A discount date is not the deadline; the final one is (MODUL). */
+    ['at-modul', 'bba-in-tourism-and-hospitality-management', '2027-01-15', false],
+    ['at-modul', 'bba-in-tourism-and-hospitality-management', '2027-08-15', true],
+    /* Austria's public-university 5 September: not WU's (its own selection),
+       not IMC's (a Fachhochschule), but a public university's open degree. */
+    ['at-wu-vienna', 'business-and-economics-bbe', '2027-09-05', false],
+    ['at-imc-krems', 'business-administration', '2027-09-05', false],
+    ['at-aau', 'social-sciences', '2027-09-05', true],
+    /* Samordna's Norwegian-taught 15 April is not a ballet audition's. */
+    ['no-khio', 'bachelor-s-programme-in-classical-ballet', '2027-04-15', false],
     /* A housing lottery date is not an application deadline. */
     ['nl-radboud', 'artificial-intelligence', '2027-05-01', false],
     ['nl-radboud', 'artificial-intelligence', '2027-07-01', true],
@@ -112,6 +165,10 @@ console.log('  ok    self-test: a homepage is caught, a targeted page passes');
     const p = prog(key, slug);
     return !p || applyByAllowed(key, seeds.get(key), p, iso) !== want;
   });
+  /* And the word-level net catches what the rule is for. */
+  const net = ['Super Early Bird, fall entry: €2,000 off the year', 'General closing date at public universities', 'Samordna opptak main deadline (Norwegian-taught programmes)', 'Priority deadline']
+    .every((l) => NOT_THE_DEADLINE.test(l)) && !NOT_THE_DEADLINE.test('Final deadline, fall entry');
+  if (!net) wrong.push(['the word net', '', '', '']);
   if (wrong.length || isoOf('15 July 2027') !== '2027-07-15') {
     console.log(`  FAIL  self-test: the Apply-by rule misjudges ${wrong.map((w) => `${w[0]}/${w[1]} ${w[2]}`).join(', ') || 'a date'}`);
     process.exit(1);
@@ -135,6 +192,9 @@ const liftsHolders = (html) =>
   [...html.matchAll(/<li class="dates-panel__item"[^>]*>/g)].some((m) => /data-binding="true"/.test(m[0]) && /data-diploma-holders="true"/.test(m[0]));
 
 const known = schoolKeys(path.join(ROOT, 'data', 'countries'));
+/* Official names with no degree-type words to take off, each longer than 48
+   characters: the exceptions rule 10 allows. */
+const LONG_TITLES = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'long-titles.json'), 'utf8')).titles);
 const records = loadSchools(path.join(ROOT, 'data', 'schools'));
 const countries = fs
   .readdirSync(path.join(ROOT, 'data', 'countries'))
@@ -201,7 +261,27 @@ for (const [key, inst] of known) {
         if (isHomepage(link, inst.website)) fail(`${p.href} hands the student to a homepage: ${link}`);
       }
       const tile = body.match(/<dt>Apply by<\/dt>\s*<dd>([^<]+)/)?.[1];
-      if (tile && (tile.trim() === NOT_OPEN_YET || tile.trim() === AFTER_DIPLOMA)) {
+      /* Rule 10: never a dropped tile, never a short strip. */
+      if (!tile) fail(`${p.href}: no Apply-by tile`);
+      const strip = (body.match(/<dl class="glance">([\s\S]*?)<\/dl>/)?.[1] || '').match(/class="glance__item"/g)?.length || 0;
+      if (strip !== 8) fail(`${p.href}: the facts strip has ${strip} tiles, not 8`);
+      const says = tile?.trim();
+      const whyNot = {
+        [NOT_PUBLISHED]: Boolean(p.lastYear || rec.lastYear || p.ownDeadline || rec.ownDeadline),
+        [NO_DEADLINE]: Boolean(rec.noDeadline),
+        /* No reader's closing date that could be this programme's: none
+           scoped or named to another programme. */
+        [NOT_RECORDED]: !p.closes && !(rec.dates || []).some((d) =>
+          d.kind === 'closes' && d.who !== 'non-eu' && !d.forDiplomaHolders &&
+          (!(d.programmes || []).length || d.programmes.includes(p.slug)) &&
+          !rec.programmes.some((q) => q.name !== p.name && d.label.toLowerCase().includes(displayName(q.name).toLowerCase()))),
+      };
+      if (says in whyNot) {
+        if (!whyNot[says]) fail(`${p.href}: "Apply by ${says}" does not follow from its record`);
+        const line = body.match(/class="dates-panel__status"><strong>([^<]+)/)?.[1];
+        if (line && line !== says) fail(`${p.href}: the dates panel opens on "${line}", not "${says}"`);
+        holdersTiles++;
+      } else if (tile && (tile.trim() === NOT_OPEN_YET || tile.trim() === AFTER_DIPLOMA)) {
         if (!statusAllowed(rec, p, tile.trim())) fail(`${p.href}: "Apply by ${tile.trim()}" does not follow from its record`);
         const line = body.match(/class="dates-panel__status"><strong>([^<]+)/)?.[1];
         if (line !== tile.trim()) fail(`${p.href}: the dates panel does not open on "${tile.trim()}"`);
@@ -214,6 +294,24 @@ for (const [key, inst] of known) {
         applyTiles++;
       }
       if (liftsHolders(body)) fail(`${p.href}: the dates panel leads with a date only for Diploma holders`);
+      /* Rule 10: no leading deadline that is someone else's, by its words. */
+      for (const m of body.matchAll(/<li class="dates-panel__item"[^>]*data-binding="true"[^>]*>[\s\S]*?class="dates-panel__what">([^<]*)</g)) {
+        const label = unescape(m[1]).trim();
+        if (NOT_THE_DEADLINE.test(label) && !recordOwns(rec, label, key)) fail(`${p.href}: the dates panel leads with "${label}", which is not this school's deadline`);
+      }
+      /* Rule 10: the card says what the tile says. */
+      const expect = isoOf(says || '') ? `Apply by ${says.split(' ').slice(0, 2).join(' ').replace(/(\d+ [A-Z][a-z]{2})[a-z]*/, '$1')}` : says;
+      const at = main.indexOf(`href="${BASE}${p.href}"`);
+      const cardHtml = at < 0 ? '' : main.slice(main.lastIndexOf('<article', at), main.indexOf('</article>', at));
+      const chip = cardHtml.match(/<li class="tag tag--sand">([^<]+)<\/li>/)?.[1];
+      const inFamily = /class="card__paths|paths-block|pathrow/.test(cardHtml);
+      if (!inFamily && chip && unescape(chip) !== expect) fail(`${p.href}: its card says "${unescape(chip)}", its page "${expect}"`);
+      /* Rule 10: what a student reads, not what a researcher wrote. */
+      const visible = body.replace(/<[^>]+>/g, ' ');
+      if (/\b(Europe|America|Asia|Australia|Africa)\/[A-Z][a-z_]+/.test(visible)) fail(`${p.href}: shows a raw time-zone id`);
+      if (/page gives no year/i.test(visible)) fail(`${p.href}: shows the researcher's note "page gives no year"`);
+      const h1 = unescape((body.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] || '').replace(/<[^>]+>/g, '')).trim();
+      if (h1.length > 48 && !LONG_TITLES.has(h1)) fail(`${p.href}: the display title "${h1}" is ${h1.length} characters (allow it in scripts/lib/long-titles.json)`);
       /* Rule 8: only this programme's dates, for this reader. */
       const shownDates = panelDates(body);
       if (shownDates.some((d) => d.who === 'non-eu')) fail(`${p.href}: the dates panel shows a date only for applicants from outside the EU/EEA`);
@@ -225,11 +323,12 @@ for (const [key, inst] of known) {
           fail(`${p.href}: shows "${d.label}", a date ${otherProgramme ? 'for other programmes' : 'of a round it does not run in'}`);
         }
       }
-      /* Rule 9: the record's note for this programme opens the page. */
+      /* Rule 9: the record's notes for this programme open the page, a
+         caution first ("Before you apply"), else as "Worth knowing". */
       const notes = notesFor({ ...rec, programmes: programmePaths(key, rec.programmes) }, p);
       if (notes.length) {
-        const block = body.split('aria-label="Before you apply"')[1]?.split('</aside>')[0] || '';
-        if (!unescape(block).includes(notes[0].text)) fail(`${p.href}: "Before you apply" does not show the record's note for it`);
+        const block = unescape(body.split(/aria-label="(?:Before you apply|Worth knowing)"/)[1]?.split('</aside>')[0] || '');
+        if (!notes.every((n) => block.includes(n.text))) fail(`${p.href}: "Before you apply" does not show the record's notes for it`);
         else beforeNotes++;
       }
       /* Its card on the school's page gives no day to a final-year student either. */
@@ -256,5 +355,5 @@ if (!programmePages) {
   process.exit(1);
 }
 console.log(
-  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} "${NOT_OPEN_YET}" or "${AFTER_DIPLOMA}"; ${beforeNotes} open on the record's note), ${cards} institution cards on country pages; none hands a student to a homepage`
+  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} say why there is no date; every strip 8 tiles; ${beforeNotes} open on the record's notes), ${cards} institution cards on country pages; none hands a student to a homepage`
 );

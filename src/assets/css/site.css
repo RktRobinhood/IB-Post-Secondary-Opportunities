@@ -3013,7 +3013,7 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
    line under the facts strip, the rest one tap down. */
 .section--before { padding-block: var(--s5) 0; }
 .section--before + .section { padding-top: var(--s6); }
-.note--before { margin: 0; max-width: 48rem; }
+.note--before { margin: 0; }
 .note--before .note__line { line-height: 1.5; color: var(--ink); }
 .note__more { margin-top: var(--s3); }
 .note__more summary { cursor: pointer; font-weight: 600; color: var(--warn); }

@@ -73,7 +73,7 @@ function holdersProblems(rec) {
   }
   /* A round the school has not confirmed ("if a programme runs it") is
      provisional on every one of its dates. */
-  const unconfirmed = new Set(dates.filter((d) => d.provisional || /\bif a programme runs it\b/i.test(d.label)).map((d) => roundOf(d.label)));
+  const unconfirmed = new Set(dates.filter((d) => /\bif a programme runs it\b/i.test(d.label)).map((d) => roundOf(d.label)));
   for (const [i, d] of dates.entries()) {
     if (!d.provisional && unconfirmed.has(roundOf(d.label))) out.push(`dates[${i}] "${d.label}" is a date of a round not confirmed for 2027: set provisional`);
   }
@@ -81,6 +81,38 @@ function holdersProblems(rec) {
     if (p.closesForDiplomaHolders && !p.closes) out.push(`programmes[${i}] "${p.name}" has closesForDiplomaHolders but no closes`);
   }
   return out;
+}
+
+/** What is wrong with a record's early dates and labels, as sentences. */
+const EARLY_WORDS = /\b(early|bird|priority|discount)\b/i;
+function earlyProblems(rec) {
+  const out = [];
+  for (const [i, d] of (rec.dates || []).entries()) {
+    /* An earlier chance is never the deadline: it is `early`, which a
+       programme page gives as the Apply-by tile's note. */
+    if (d.kind === 'closes' && EARLY_WORDS.test(d.label)) out.push(`dates[${i}] "${d.label}" is an earlier chance, not the deadline: kind "early"`);
+    /* A researcher's working note is not for a student. */
+    if (/page gives no year/i.test(d.label)) out.push(`dates[${i}] "${d.label}": say "(yearly date)" and set provisional`);
+  }
+  if ((rec.lastYear || (rec.programmes || []).some((p) => p.lastYear)) && rec.noDeadline) out.push('lastYear and noDeadline cannot both be said');
+  return out;
+}
+
+/* Self-test: the early rule must catch an early bird left as a deadline and a
+   researcher's note, and pass a final deadline. */
+{
+  const d = (label, kind = 'closes') => ({ label, date: '2027-01-15', kind, url: 'https://x.test/' });
+  const ok = [
+    earlyProblems({ dates: [d('Super Early Bird: €2,000 off')] }).length === 1,
+    earlyProblems({ dates: [d('Priority deadline')] }).length === 1,
+    earlyProblems({ dates: [d('Super Early Bird: €2,000 off', 'early')] }).length === 0,
+    earlyProblems({ dates: [d('Final deadline (page gives no year)')] }).length === 1,
+    earlyProblems({ dates: [d('Final deadline, fall entry (yearly date)')] }).length === 0,
+  ];
+  if (ok.some((x) => !x)) {
+    console.log('✗ self-test: the early-date rule misjudges a date');
+    process.exit(1);
+  }
 }
 
 /** What is wrong with a record's scopes and rounds, as sentences. */
@@ -214,6 +246,7 @@ for (const f of files.sort()) {
     problems.push(...holdersProblems(rec));
     problems.push(...checkSchoolFamilies(progs, 'programmes'));
     problems.push(...scopeProblems(rec, key));
+    problems.push(...earlyProblems(rec));
 
     counts[rec.scope] = (counts[rec.scope] || 0) + 1;
     counts.programmes += progs.length;
