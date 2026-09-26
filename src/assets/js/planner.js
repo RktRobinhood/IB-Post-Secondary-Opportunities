@@ -8,7 +8,7 @@
  * request, no identifying field.
  */
 import {
-  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, ibPointsFor, OUTCOME,
+  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, cutoffComparison, OUTCOME,
 } from './eligibility.js';
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
@@ -142,6 +142,7 @@ const els = {
   converted: document.getElementById('p-converted'),
   results: document.getElementById('p-results'),
   count: document.getElementById('p-count'),
+  how: document.getElementById('p-how'),
 };
 
 const BADGE = {
@@ -204,35 +205,66 @@ function renderConverted(profile) {
       : ''}`;
 }
 
-/* A cut-off on a scheme's grade scale, in IB points: the lowest total whose
-   converted average reaches it. Nothing where no loaded scheme defines the scale. */
-function cutoffPoints(c) {
-  const pts = ibPointsFor(c?.value, c?.scale, subjectIndex);
-  if (pts != null && subjectIndex.diplomaMinimumPoints != null && pts <= subjectIndex.diplomaMinimumPoints) return ', which any IB Diploma clears';
-  return pts ? `, ${pts} IB points` : '';
-}
-
-/* The cut-off beside the student's own total — "You: 34 · last cut-off: 40
-   IB points" — and, where the figure is not a number but a floor exists, the
-   floor in its place: "All qualified applicants accepted" is only true above it. */
+/* The cut-off beside the student's own total — "You: 34 · last cut-off: 40"
+   (cutoffComparison, in the engine, where the tests read it) — and, where the
+   figure is not a number but a floor exists, the floor in its place: "All
+   qualified applicants accepted" is only true above it. A cut-off any IB
+   Diploma clears is never printed as a points total below the Diploma's. */
 function cutoffLine(assessment) {
   const c = assessment.selection.historicalCutoffs[0];
-  const intake = c.intake ? ` (${esc(c.intake.split('-')[0])} intake, not a prediction)` : '';
-  const pts = ibPointsFor(c?.value, c?.scale, subjectIndex);
+  const year = c.intake ? esc(c.intake.split('-')[0]) : null;
+  const intake = year ? ` (${year} intake, not a prediction)` : '';
   const floor = (assessment.floors || []).find((f) => f.terms?.ibPoints != null);
-  if (pts == null && floor && !/^\d/.test(String(c.value))) {
-    return ` — ${esc(c.value)} in quota 1, from ${floor.terms.ibPoints} IB points${intake}`;
+  if (!/^\d+([.,]\d+)?$/.test(String(c.value).trim())) {
+    if (floor) return ` — ${esc(c.value)} in ${esc(floor.quota.toLowerCase())}, from ${floor.terms.ibPoints} IB points${intake}`;
+    /* "All admitted" is an outcome, not a figure: nobody qualified was turned away. */
+    return /^all\b/i.test(String(c.value))
+      ? ` — in the ${year || 'last'} intake every qualified applicant got a place ("${esc(c.value)}"; not a prediction)`
+      : ` — most recent outcome "${esc(c.value)}"${intake}`;
   }
-  const you = lastProfile?.totalPoints;
-  return ` — most recent cut-off ${esc(c.value)}${cutoffPoints(c)}${intake}${
-    you != null && pts != null ? `. <strong>You: ${you} · last cut-off: ${pts}</strong>` : ''
-  }`;
+  const cmp = cutoffComparison(c, lastProfile?.totalPoints ?? null, subjectIndex);
+  const said = cmp.anyDiploma ? ', which any IB Diploma clears' : cmp.points ? `, ${cmp.points} IB points` : '';
+  return ` — most recent cut-off ${esc(c.value)}${said}${intake}${cmp.you ? `. <strong>${esc(cmp.you)}</strong>` : ''}`;
 }
 
 let lastProfile = null;
 
-function rule(entry, mark) {
-  return `<li>${mark} ${esc(entry.message)}</li>`;
+/* A passage many results share — the national supplementary-course sentence,
+   the Agency's Course Results route — is said once, above the results, and a
+   card that shares it says what it is and points up (round 4: one 90-word
+   paragraph was repeated on 46 cards). `common` holds the keys said above. */
+function rule(entry, mark, common = new Map()) {
+  let text = esc(entry.message);
+  for (const s of entry.shared || []) {
+    if (!common.has(s.key)) continue;
+    text = text.replace(esc(s.text), `${esc(s.short)} (<a href="#p-how">how: see above</a>)`);
+  }
+  return `<li>${mark} ${text}</li>`;
+}
+
+/* Who a shared passage belongs to, for the box above the results. */
+function sharedWhose(s) {
+  if (s.key.startsWith('route:')) return 'Without the full Diploma';
+  return s.whose ? `At ${s.whose}` : `Where the institution names no route of its own${ADJ ? ` (the ${ADJ} national rule)` : ''}`;
+}
+
+function renderHow(common) {
+  if (!els.how) return;
+  if (!common.size) {
+    els.how.hidden = true;
+    els.how.innerHTML = '';
+    return;
+  }
+  els.how.hidden = false;
+  els.how.innerHTML = `<summary>How to close a gap: said once here for the results below that share it</summary>
+    <ul style="margin:.25rem 0 0;padding-left:1.2em;font-size:.875rem;color:var(--ink-soft);line-height:1.6">
+      ${[...common.values()].map(({ s, n }) => s.key.startsWith('route:')
+        /* A route is long (up to 400 words for a Dutch one): its one-line
+           summary here, the whole of it one tap down. */
+        ? `<li><strong>${esc(sharedWhose(s))}</strong> (${n} results): ${esc(s.short)}
+             <details><summary style="font-family:var(--sans);font-size:.8125rem;font-weight:400;padding:.2rem 1.6rem .2rem 0">The whole route, as its record words it</summary><p style="margin:.25rem 0 0">${esc(s.text)}</p></details></li>`
+        : `<li><strong>${esc(sharedWhose(s))}</strong> (${n} results): ${esc(s.text)}</li>`).join('')}
+    </ul>`;
 }
 
 /* The faded photograph of the discipline behind a result. The same markup as
@@ -244,7 +276,7 @@ function backdrop(b) {
     : '';
 }
 
-function renderCard({ opportunity, assessment }) {
+function renderCard({ opportunity, assessment }, common = new Map()) {
   const d = opportunity.display;
   const [badgeClass, fixedLabel] = BADGE[assessment.outcome];
   const badgeLabel = fixedLabel || assessment.outcomeLabel;
@@ -252,7 +284,7 @@ function renderCard({ opportunity, assessment }) {
 
   const explanation = [
     ...assessment.matched.map((e) => rule(e, '<span aria-hidden="true">✓</span>')),
-    ...assessment.gaps.map((e) => rule(e, '<span aria-hidden="true">✗</span>')),
+    ...assessment.gaps.map((e) => rule(e, '<span aria-hidden="true">✗</span>', common)),
     ...assessment.unknowns.map((e) => rule(e, '<span aria-hidden="true">?</span>')),
     /* A floor that decides which quota ranks you, not whether you qualify. */
     ...(assessment.floors || []).map((f) =>
@@ -288,6 +320,9 @@ function renderCard({ opportunity, assessment }) {
       ${assessment.route
         ? `<p><small><strong>Your way in:</strong> ${esc(assessment.route.text)}</small></p>`
         : ''}
+      ${assessment.actionSummary
+        ? `<p><small><strong>To do:</strong> ${esc(assessment.actionSummary)}</small></p>`
+        : ''}
       <p><small>
         ${assessment.selection.restricted
           ? `Restricted admission${assessment.selection.historicalCutoffs.length
@@ -312,6 +347,7 @@ function render() {
   if (profile.subjects.length < 2) {
     els.count.textContent = 'Choose at least two subjects to see where you stand.';
     els.results.innerHTML = '';
+    renderHow(new Map());
     return;
   }
 
@@ -335,8 +371,24 @@ function render() {
       : '') +
     (AWARD_NOTE[profile.award] ? `<br><small>${AWARD_NOTE[profile.award]}</small>` : '');
 
+  /* Passages on two or more of the visible cards are said once, above them. */
+  const common = new Map();
+  for (const r of visible) {
+    const seen = new Set();
+    for (const g of r.assessment.gaps) {
+      for (const s of g.shared || []) {
+        if (seen.has(s.key)) continue;
+        seen.add(s.key);
+        const had = common.get(s.key);
+        common.set(s.key, { s, n: (had?.n || 0) + 1 });
+      }
+    }
+  }
+  for (const [k, v] of common) if (v.n < 2) common.delete(k);
+  renderHow(common);
+
   els.results.innerHTML = visible.length
-    ? visible.map(renderCard).join('')
+    ? visible.map((r) => renderCard(r, common)).join('')
     : '<li class="empty">Nothing to show with those filters on.</li>';
 }
 

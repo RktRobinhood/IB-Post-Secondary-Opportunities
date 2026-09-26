@@ -459,6 +459,23 @@
         "shortLabel": {
           "type": "string",
           "description": "A shorter label for a card, where the full label is too long to scan — \"an English test (IELTS 7.0)\". The programme page shows `label`."
+        },
+        "alternativeTest": {
+          "type": "object",
+          "description": "A test the source accepts in place of this rule's minimum grade, for a student who holds the subject below it — CBS: Cambridge C1 Advanced 185 \"fulfil[s] both\" English B at 6.0 and English A. `alsoMeets` names the ids of other requirements on the same Opportunity the source says it satisfies too, so one test is counted as one step.",
+          "required": ["label", "evidence"],
+          "properties": {
+            "label": { "type": "string" },
+            "shortLabel": { "type": "string" },
+            "note": { "type": "string" },
+            "alsoMeets": { "type": "array", "items": { "type": "string" } },
+            "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
+          },
+          "additionalProperties": false
+        },
+        "consequence": {
+          "type": "string",
+          "description": "What the source says happens to an applicant who does not meet this, quoted — RUC: \"you will receive a rejection letter, regardless of whether there are fewer applicants than the number of study places\". Said beside a gap with no action."
         }
       },
       "additionalProperties": false

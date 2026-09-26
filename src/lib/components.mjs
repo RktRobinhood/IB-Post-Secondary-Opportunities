@@ -758,15 +758,19 @@ export function requirementModel(entry) {
     const low = all.find((x) => x.r.translation && x.r.subject === subj.subject && x.r.translation.waiver &&
       x.r.translation.waiver.rank <= subj.translation.levelRank && x.r.translation.minIbGrade != null);
     const testText = tests.map((o) => o.parts.map((x) => x.text).join(' + ')).join(' or ');
+    /* A test that replaces the grade itself stands on its own, not "with"
+       the grade: CBS's Cambridge C1 185 meets English B at 6.0 and English A
+       both (round 4). */
+    const own = low?.r.alternativeTest ? ` — or ${low.r.alternativeTest.shortLabel || low.r.alternativeTest.label}` : '';
     const text = low
-      ? `${subj.translation.phrase} — or ${low.r.translation.waiver.gradedPhrase} ${low.r.translation.minIbGrade}+ with ${testText}`
+      ? `${subj.translation.phrase} — or ${low.r.translation.waiver.gradedPhrase} ${low.r.translation.minIbGrade}+ with ${testText}${own}`
       : `${subjectOptions[0].parts.map((x) => x.text).join(' + ')} — or ${testText}`;
     const at = low ? all.indexOf(low) : 0;
     if (low) all.splice(at, 1);
     all.splice(at, 0, {
       kind: 'ib', text, detail: text, fold: true,
       r: subj, merged: [...(low ? [low.r] : []), ...subjectOptions[0].groups.slice(1).flat()],
-      tests: tests.flatMap((o) => o.groups.flat()),
+      tests: [...tests.flatMap((o) => o.groups.flat()), ...(low?.r.alternativeTest ? [low.r.alternativeTest] : [])],
     });
     set.folded = true;
   }
@@ -1056,7 +1060,10 @@ export function requirementDetail(entry) {
             ? html`<li class="need__card">
                 <strong class="req-ib">${x.detail}</strong>
                 ${x.tests.map((t) => html`<span class="need__why req-why">${[t.label, t.note].filter(Boolean).join('. ')}</span>`)}
-                ${asPublished([x.r, ...x.merged, ...x.tests.map((t) => ({ other: true, kind: 'published', label: t.label }))], ' · ')}
+                ${/* The tests are written out once, just above: the published
+                     line carries the subjects only (round 4: the test phrase
+                     was printed twice on CBS's page, three times on ITU's). */ ''}
+                ${asPublished([x.r, ...x.merged], ' · ')}
               </li>`
             : html`<li class="need__card${x.kind === 'none' ? ' need__card--none' : ''}">
                 ${detailItem(x.r, { phrase: x.detail })}${asPublished([x.r, ...x.merged])}
@@ -1078,7 +1085,7 @@ export function requirementDetail(entry) {
             ...(closed.length
               ? [html`<li class="need__card need__card--none">
                   <strong class="req-none">${someOpen
-                    ? `Also accepted: ${closedNote(closed, first, false)}, with no IB route`
+                    ? `Not open with IB: ${closedNote(closed, first, false)}`
                     : `None of these has an IB route`}</strong>
                   ${[...new Map(closed.flat().filter((r) => r.translation && !r.translation.phrase).map((r) => [r.translation.local, `${r.translation.local}: ${r.translation.none}`])).values()].map(
                     (why) => html`<span class="need__why req-why">${why}</span>`

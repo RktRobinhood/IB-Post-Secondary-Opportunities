@@ -397,3 +397,60 @@ Decisions:
 Round 3 result: gate 33/33, exit 0 (eligibility 143 scenarios, README updated
 131 → 143; ib-terms 736 checks). Screenshots in `round-3b/` (the critic's
 evidence is in `round-3/`), scratch builds under `.cache/`.
+
+## Round 4 — critic fixes (critique-round-4.md, scored 7/10; issue #42)
+
+No page was fetched this round. Outbound access to university sites was
+blocked, so every changed rule rests on a quotation already in the repo:
+- the round-4 critique's own browser reads of 25 Sep 2026;
+- NOTES rounds 2–3;
+- record notes and `officialWording`.
+
+The full write-up, with guards and evidence, is `round-5/fixes.md`.
+
+Decisions:
+
+41. **Actions are keyed to the subject and the applicant group.**
+    - `levelRaise` holds `text` (names no subject), `subjects[]`, `timing`,
+      `groups[]` and `multiple`, on both the institution and the scheme.
+    - The engine resolves it with `levelRaiseFor`.
+    - A guard reads all 1,028 subject actions in the catalogue and fails if
+      one names another subject. It caught the round-4 ITU text when that
+      text was planted back.
+42. **Every gap carries its steps, and `planSteps` decides "possible".**
+    - One step is possible.
+    - Up to two supplementary courses are possible where a publisher's
+      `multiple` sentence is recorded. The sentence is then shown as the card's
+      "To do".
+    - Otherwise the result is not met.
+    - A step whose `alsoMeets` covers another gap counts once (CBS Cambridge).
+    - `MAX_RAISES = 2` is a product rule, not a published one.
+43. **A "one of" option no IB subject reaches is a closed door, not a
+    question.** Geoscience A no longer hides a missing Physics.
+44. **Nothing is "possible" without a named step.** These now name no step:
+    - a short total;
+    - a minimum average;
+    - an IB-terms grade or subject that is short, unless the record has an
+      `alternativeRoute`;
+    - a Course Results route that waits until 21
+      (`alternativeRouteSummary.reachesAtEighteen`).
+45. **Course Results points are the grades added up.** A Course candidate is
+    never asked for a "predicted total".
+46. **A passage shared by several results is said once**, in the planner's
+    "How to close a gap" box.
+47. **The legend keeps the four outcomes.** "Quota 2 only" is described as a
+    form of Meets, and the chip takes the route's own name.
+48. **New Opportunity fields in the schema:**
+    - `alternativeTest`, for CBS's Cambridge route;
+    - `consequence`, for RUC's "rejection letter".
+    - ITU GBI's duplicate Danish rule was removed.
+    - SEA's English B is no longer marked as exempt for Diploma holders.
+
+Still to source:
+- ITU's supplementary-courses page as an Evidence record;
+- SDU's own limit after 5 July;
+- ITU's date for applicants who are not fee-exempt;
+- whether SEA's English-test exemption covers Course Results.
+
+Round 4 result: gate 35/35, exit 0 (eligibility 202 scenarios, README
+updated 143 → 202; ib-terms 811 checks). Screenshots are in `round-5/`.
