@@ -354,6 +354,10 @@
               "minLength": 20,
               "maxLength": 220
             },
+            "withinIntake": {
+              "type": "boolean",
+              "description": "True only where the long text shows the route can be completed after the IB results and in time for this Opportunity's intake. Absent is read as false: a route that needs further study after the results points to a later intake, and \"Possible with action\" is not said of it."
+            },
             "reachesAtEighteen": {
               "type": "boolean",
               "description": "True when the long text describes a way in without the full Diploma that is open without waiting for an age limit (a supplement, a test anyone may sit). False when every such route waits for an age (typically 21) or none is published, which the long text then says."
@@ -472,6 +476,10 @@
             "evidence": { "$ref": "common.schema.json#/$defs/evidenceRefs" }
           },
           "additionalProperties": false
+        },
+        "openQuestion": {
+          "type": "string",
+          "description": "A question the record leaves open about who this rule's exemption reaches, said to the students it affects as a \"?\" rather than resolved either way — SEA exempts \"an International Baccalaureate exam\", and whether that includes Course Results is not published."
         },
         "consequence": {
           "type": "string",

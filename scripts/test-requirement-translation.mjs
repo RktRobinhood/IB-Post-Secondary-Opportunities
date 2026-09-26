@@ -449,6 +449,22 @@ check('there are programmes with local-scale requirements to check', translatedP
     check('and writes the IELTS scores out once', (detail.match(/IELTS Academic 7\.0 overall/g) || []).length <= 1, detail.slice(0, 300));
   }
   check('the finder does not say "No Mathematics A"', !(finder || '').includes('No Mathematics A'));
+
+  /* The research log stays out of what a student reads: the Editor critic
+     found "as read by the round-4 conversion critic … No Evidence record
+     holds that page's full URL yet; the levelRaise cites …" on ITU's page. */
+  const LOG = /\bcritic\b|\bcritique\b|\bround-\d\b|docs\/research|Evidence record|\blevelRaise\b|\bibEquivalences\b/;
+  const logged = [];
+  for (const dir of ['universities', 'programmes']) {
+    for (const id of await fs.readdir(path.join(DIST, dir)).catch(() => [])) {
+      const page = await read(dir, id, 'index.html');
+      if (!page) continue;
+      const m = text(page.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<!--[\s\S]*?-->/g, ' ')).match(LOG);
+      if (m) logged.push(`${dir}/${id}: "${m[0]}"`);
+    }
+  }
+  check('no university or programme page shows research-log words', logged.length === 0, logged.slice(0, 6).join(', '));
+  check('the research-log scan can see one', LOG.test('as read by the round-4 conversion critic'));
 }
 
 /* --- report ------------------------------------------------------------------ */

@@ -130,6 +130,15 @@
           "forDiplomaHolders": {
             "$ref": "common.schema.json#/$defs/forDiplomaHolders"
           },
+          "institutionTypes": {
+            "$ref": "common.schema.json#/$defs/institutionTypes"
+          },
+          "taughtIn": {
+            "$ref": "common.schema.json#/$defs/taughtIn"
+          },
+          "everySchool": {
+            "$ref": "common.schema.json#/$defs/everySchool"
+          },
           "provisional": {
             "type": "boolean",
             "description": "True when the round's closing date is not confirmed for this cycle (inherited, or its source gives no year). A provisional date must never be shown as a confirmed one."
@@ -244,6 +253,15 @@
           },
           "forDiplomaHolders": {
             "$ref": "common.schema.json#/$defs/forDiplomaHolders"
+          },
+          "institutionTypes": {
+            "$ref": "common.schema.json#/$defs/institutionTypes"
+          },
+          "taughtIn": {
+            "$ref": "common.schema.json#/$defs/taughtIn"
+          },
+          "everySchool": {
+            "$ref": "common.schema.json#/$defs/everySchool"
           }
         },
         "additionalProperties": false

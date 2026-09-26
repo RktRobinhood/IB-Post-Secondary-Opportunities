@@ -48,7 +48,8 @@ for (const panel of document.querySelectorAll('[data-dates-panel]')) {
       ...(behind ? [] : items.filter((li) => !binding(li) && holders(li))),
     ];
     /* With no disclosure to hold the rest (three dates or fewer), all stay. */
-    const shown = ordered.slice(0, rest ? first : ordered.length);
+    /* Chosen in that order, read in time order. */
+    const shown = ordered.slice(0, rest ? first : ordered.length).sort((a, b) => a.dataset.date.localeCompare(b.dataset.date));
     head.replaceChildren(...shown);
     if (rest) {
       rest.replaceChildren(...items.filter((li) => !shown.includes(li)));

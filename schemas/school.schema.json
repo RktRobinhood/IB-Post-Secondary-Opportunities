@@ -36,6 +36,10 @@
         "url": { "$ref": "common.schema.json#/$defs/url" }
       }
     },
+    "starts": { "type": "string", "maxLength": 32, "description": "When the first year starts, as the record's sources say it ('October', 'Late August or early September'). A programme's own `starts` overrides it. Absent: the page says 'Autumn <year>', never a guessed month." },
+    "noDeadline": { "type": "string", "maxLength": 80, "description": "The school sets no application deadline for an EU/EEA applicant: what its record says instead ('Apply up to the start of the semester'). The Apply-by tile reads 'No deadline' with this as its note." },
+    "ownDeadline": { "type": "boolean", "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded." },
+    "lastYear": { "type": "object", "required": ["year", "text"], "additionalProperties": false, "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.", "properties": { "year": { "type": "integer", "minimum": 2024, "maximum": 2027 }, "text": { "type": "string", "maxLength": 60, "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'." } } },
     "apply": {
       "type": "object",
       "required": ["via", "url"],
@@ -96,7 +100,8 @@
       "properties": {
         "label": { "type": "string", "maxLength": 90 },
         "date": { "$ref": "common.schema.json#/$defs/isoDate" },
-        "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day", "housing"], "description": "What happens on the day. 'closes' is an application deadline, the only kind a programme page gives as 'Apply by'. 'housing' is a date to apply for housing (a housing lottery, a residence's own deadline): shown in the dates and as the Apply-by tile's note, never as the deadline itself." },
+        "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day", "housing", "early"], "description": "What happens on the day. 'closes' is an application deadline, the only kind a programme page gives as 'Apply by'; where several are the reader's, the first. 'early' is an earlier chance you can still apply after: Early Action, an early bird, a priority date, a discount, an earlier round. 'housing' is a date to apply for housing (a housing lottery, a residence's own deadline). Neither is ever the deadline: the nearest shows as the Apply-by tile's note." },
+        "short": { "type": "string", "maxLength": 32, "description": "The date's name in a few words, for a fact tile's note: 'Early Action', '€2,000 off', 'Round 1'. Read on an 'early' date." },
         "who": { "$ref": "common.schema.json#/$defs/applicantGroup" },
         "supersedes": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$", "description": "\"<routeId>/<milestoneId>\" of a route date this one replaces on this institution's page, e.g. an institution that runs its own application window instead of the national one. See the same field on an Application Route milestone." },
         "forDiplomaHolders": { "$ref": "common.schema.json#/$defs/forDiplomaHolders" },
@@ -189,6 +194,8 @@
             }
           }
         },
+        "ownDeadline": { "type": "boolean", "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded." },
+        "lastYear": { "type": "object", "required": ["year", "text"], "additionalProperties": false, "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.", "properties": { "year": { "type": "integer", "minimum": 2024, "maximum": 2027 }, "text": { "type": "string", "maxLength": 60, "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'." } } },
         "requirementsUrl": { "$ref": "common.schema.json#/$defs/url", "description": "The page that states this programme's entry requirements, when it is not `url`." }
       }
     }

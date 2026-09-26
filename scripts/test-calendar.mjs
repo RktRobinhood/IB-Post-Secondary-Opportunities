@@ -146,6 +146,11 @@ const ALLOWED = new Set([
   'institutionsExcept',
   'numerusFixusOnly',
   'yearUnpublished',
+  /* Whom a date governs (#43 round 4): kinds of institution, teaching
+     languages, every school's deadline. Read by src/lib/school-dates.mjs. */
+  'institutionTypes',
+  'taughtIn',
+  'everySchool',
 ]);
 
 const problems = [];

@@ -340,3 +340,197 @@ defaults. Its fixed shot list does not drive planner profiles. The round-5
 profile shots were taken with a scratch driver outside the repository, using
 the same DevTools approach. It was run against `PORT=4412 node
 scripts/serve.mjs` with the round-4 `planner-profiles.json`.
+
+## Post-round-5 bug fixes (critique-round-5.md, scored 6/10)
+
+The round-5 critic found:
+- one wrong rule: the SDU non-EU "To do" line allowed a course after 5 July;
+- two verdicts greener than the sources support: SEA for Course Results, and
+  Danish A SL at ITU;
+- one planning fault: two-course plans were counted as "possible for 2027"
+  when one course had to come before the IB results.
+
+Changes 1 and 2 are done in full. Most of change 3 is done.
+
+Gate: `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes
+35/35 with exit 0.
+- eligibility: 232 scenarios; the README count is updated;
+- ib-terms: 813 checks;
+- text-walls: `/planner/` now passes every budget, so it was taken off
+  `scripts/lib/text-walls-known.json`.
+
+Phone shots of P1, P5, P7 and P9 are in `after-fixes/`:
+- `*-phone-default.jpg` shows the planner as a student first sees it;
+- the card shots have "Why this result" open;
+- `p1-meaning-open-phone.jpg` and `p1-how-open-phone.jpg` show the two
+  disclosures opened;
+- `planner-verdicts.txt` covers all nine profiles.
+
+### 1. The plan depends on the applicant group and on timing
+
+The engine now counts how many courses each student may finish after the IB
+results, per publisher and per applicant group:
+- `levelRaise.afterResults` on the Recognition Scheme and the Institution;
+- `groups[].afterResults` and `groups[].multiple` per applicant group;
+- `levelRaiseFor` picks the count and the "more than one course" sentence for
+  the student's group, exactly as it picks the timing.
+
+| Publisher | afterResults | Quotation in the repo |
+|---|---|---|
+| National (ug.dk) | 1 | "Du kan som udgangspunkt kun tage ét fag på ét niveau via sommersupplering" (scheme `levelRaise.source`) |
+| AU | 2 | "It is only possible to take 2 supplementary courses if they are completed after 5 July" (NOTES round 3) |
+| SDU, EU/EEA | 1, the national fallback | Cautious value. SDU's only quotation says "course(s) by 31 August" and gives no number |
+| SDU, outside the EU/EEA | 0 | "If you are from a country outside of the EU/EEA, you must have finished your supplementary courses before 5 July" (critique round 4) |
+| CBS | 0 | "CBS accepterer ikke sommersupplering" (ug.dk, NOTES round 3) |
+| ITU, without fee exemption | 0 | Conditional admission is "only an opportunity for applicants exempted from paying tuition fee" (critique round 4) |
+| ITU, fee-exempt | 1, the national fallback | Cautious value. ITU gives no number |
+
+**How `planSteps` decides.** Supplementary courses are "Possible with action"
+only when their number is at or below the student's count and at most
+`MAX_RAISES` (2).
+- If more courses are needed than the count allows, the result is "Does not
+  currently meet". The card says "For 2027: n supplementary courses: … k of
+  them has/have to be passed before your IB results arrive — in practice
+  during DP2, or by applying for 2028", followed by the publisher's sentence
+  for that group.
+- Only where a publisher would allow more than two does the cap decide. The
+  card then says "Our limit: … It is our limit, not the university's." A
+  synthetic scenario covers this.
+
+**The Course Results route.** A route that needs further study after the
+results is now a later intake. It becomes a step only where
+`alternativeRouteSummary.withinIntake` is true, and no record says that. P6
+at Danish universities now reads "For 2027: Nothing recorded here says this
+route can be completed in time for the 2027 intake…".
+
+**A subject from nothing.** A subject the student holds at no level, required
+above the scale's lowest level (Physics B, Danish A, a second foreign language
+B), is counted as at least one course. The line says "whether that can be done
+as one supplementary course is not recorded here — ask the institution".
+- If the plan would fit only on that count, the result is "Needs review" with
+  "To check: …". It is never "possible".
+- If the plan cannot fit even at one course each, the result is "Does not
+  currently meet".
+- ITU GBI's Danish A gap quotes ITU: "only the programme in Data Science is
+  open to international students". This uses the new `consequence` field on
+  `req-all-3`.
+
+**Legend.** The legend now reads "…supplementary courses no more than the
+university lets you finish after your results, and at most two (our limit).
+Does not currently meet: a gap with no recorded step, or steps that do not fit
+this intake."
+
+**Guards** (`scripts/test-eligibility.mjs`):
+- P7 at SDU Electronics (both), EIB, ITE, Mechatronics (both) and CS: no line,
+  including the summary, says anything about "after 5 July".
+- Across nine profiles and every Opportunity, no summary says "after 5 July"
+  where a gap line says a course must be finished before it.
+- P1 at AAU AIE is "Does not currently meet", with "1 of them has to be passed
+  before your IB results".
+- P1 at ITU GBI is "Needs review" and quotes ITU.
+- P7 at ITU GBI is "Does not currently meet".
+- Synthetic scenarios: AU with two courses is Possible; the national rule with
+  two is not, and with one is. SDU non-EU with one course is not Possible, and
+  neither is CBS. A scheme with no count allows none, and the "our limit" case
+  is covered.
+- A Course Results route not recorded as completable for this intake is
+  "Does not currently meet", with a "For 2027" line.
+
+### 2. No green verdict where the record has an open question
+
+- **SEA CS and SEA MMD.** A `language-general` rule "English documented with a
+  test" was added. `satisfiedBy: ib-diploma` covers Diploma holders.
+  - The rule has a new `openQuestion` field: "SEA exempts 'an International
+    Baccalaureate exam'; whether that includes DP Course Results is not
+    published. Ask SEA before you rely on it."
+  - P6 is now "Needs review" at both, with that "?". A Diploma holder still
+    meets it.
+- **Danish A at SL.** A mapping the scheme qualifies (`caution`, "formally
+  counts this as Danish B … Confirm with the university") is now a "?" and not
+  a tick. The only exception is an institution whose own `ibEquivalences`
+  confirm it, and none do. P9 at ITU GBI is "Needs review". Danish A HL meets.
+- **Guards:**
+  - no Meets result, across nine profiles and every Opportunity, contains
+    "Confirm with" or "formally";
+  - P6 at SEA is "Needs review" with the open question;
+  - P9 at ITU GBI is "Needs review";
+  - Danish A HL meets.
+
+### 3. Phone reading order (mostly done)
+
+Done:
+- "What these results mean, and what they cannot tell you" is one collapsed
+  line under the count and chips. It holds the legend and the caveat.
+- "How to close a gap" is collapsed by default, and its heading now reads
+  "How to close a gap".
+- Each number in the count line stays with its label (`white-space:nowrap`).
+- The evidence line reads "Source read 23 Sep 2026 · not yet reviewed by a
+  person."
+- "Not met" cards dim only the picture, not the badge.
+- Each reason shows its first sentence, with the rest one tap down (▸). The
+  list bullet is gone; one glyph per line remains.
+- A combination gap leads with the gap, then "(None of the n accepted
+  combinations is complete; this is the closest.)", so "The closest needs:
+  Needs …" no longer stutters.
+- Cards below a quota 1 floor that are not "Quota 2 only" say "Below the
+  quota 1 floor, your way in is quota 2: …" with the 15 March date. This
+  covers P8 at SDU CS and AU CS.
+
+Not done:
+- Lead lines are the first sentence, not a rewritten "Missing: X — see above"
+  line of 15 words or fewer. Some leads are still long, for example the Maths
+  line with its grade conversion.
+- The national sentence "Take the level as…" is still used where there is no
+  level to take. From-nothing gaps no longer show it, but it can still
+  appear inside the "How to close a gap" box.
+
+### Sourcing gap (recorded, not fixed)
+
+The AU, SDU, CBS and ITU supplementary-course rules that decide these verdicts
+are quoted in markdown: NOTES rounds 2–3 and critiques 4–5. The Evidence
+records they cite are mostly landing pages whose excerpts do not contain the
+sentence:
+- `ev-bachelor-au-dk-sq8b48` is bachelor.au.dk/en;
+- `ev-sdu-dk-1cc7woa` is SDU's bachelor list;
+- `ev-cbs-dk-jtk0jr` is CBS's application page, whose excerpt lacks the
+  Cambridge and summer-supplementation sentences;
+- `ev-en-itu-dk-zf4fun` is ITU's general admission page.
+
+ITU's supplementary-courses page has no Evidence record at all. A student who
+taps "Check the official page" will not find these sentences. Each needs an
+Evidence record for the page that holds the sentence, with the sentence as its
+excerpt. That needs web access, so nothing was faked here.
+
+### Still needs a source
+
+- SDU's own number of courses after 5 July for EU/EEA applicants. The cautious
+  national 1 is used.
+- ITU's number for fee-exempt applicants. The cautious national 1 is used.
+- Whether the national one-subject summer supplementation, and AU's two, apply
+  to applicants from outside the EU/EEA. They are applied as published, with
+  no group split. P7 is still "Possible" at AU CS, AU DS, AU ITPD and VIA GBE.
+- Maastricht's deficiency deadline for non-EU applicants. Only the EU/EEA date,
+  1 June 2027, is recorded.
+- Whether a subject taken from nothing (Physics B, Danish A) is one
+  supplementary course. The cautious reading is used: counted as at least
+  one, and never "possible".
+
+### Editor fixes (university pages)
+
+- ITU: the research-log note about the Danish A sentence's sourcing was
+  removed from `meta.notes`. The sourcing gap is recorded above instead.
+- ITU `about`: the "roughly 2,900 students" clause was removed, since the Editor
+  found it twice on the page. The built ITU page no longer shows "2,900" at all.
+- SDU: the "student total … pages checked … left blank" note was removed, and
+  the quoted "Denmark's newest IT campus" was removed. This was done in both
+  `data/institutions/` and `data/dk/`.
+- Reworded to drop research-log words:
+  - CBS's Social Studies note;
+  - the SEA English notes;
+  - ITU GBI's Danish note.
+- Guard (ib-terms): no university or programme page shows "critic",
+  "critique", "round-N", "docs/research", "Evidence record", "levelRaise" or
+  "ibEquivalences". A planted sample is caught.
+- Not mine and left alone: UCPH still says "not published on the
+  English-language pages checked" in `data/institutions/dk-ucph.json` and
+  `data/dk/ucph.json`.

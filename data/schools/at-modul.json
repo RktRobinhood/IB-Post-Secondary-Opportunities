@@ -18,10 +18,10 @@
     "url": "https://www.modul.ac.at/study-at-mu/admissions"
   },
   "dates": [
-    { "label": "Super Early Bird, fall entry: €2,000 off the year (yearly date; the page gives no year)", "date": "2027-01-15", "kind": "closes", "who": "any", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
-    { "label": "Early Bird, fall entry: €1,000 off the year (yearly date; the page gives no year)", "date": "2027-03-15", "kind": "closes", "who": "any", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
-    { "label": "Final deadline, fall entry (yearly date; the page gives no year)", "date": "2027-08-15", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
-    { "label": "Final deadline, fall entry, if you need a visa (yearly date; the page gives no year)", "date": "2027-04-01", "kind": "closes", "who": "non-eu", "url": "https://www.modul.ac.at/study-at-mu/admissions" }
+    { "label": "Super Early Bird, fall entry: €2,000 off the year (yearly date)", "provisional": true, "short": "€2,000 off", "date": "2027-01-15", "kind": "early", "who": "any", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
+    { "label": "Early Bird, fall entry: €1,000 off the year (yearly date)", "provisional": true, "short": "€1,000 off", "date": "2027-03-15", "kind": "early", "who": "any", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
+    { "label": "Final deadline, fall entry (yearly date)", "provisional": true, "date": "2027-08-15", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.modul.ac.at/study-at-mu/admissions" },
+    { "label": "Final deadline, fall entry, if you need a visa (yearly date)", "provisional": true, "date": "2027-04-01", "kind": "closes", "who": "non-eu", "url": "https://www.modul.ac.at/study-at-mu/admissions" }
   ],
   "programmes": [
     {
@@ -91,7 +91,7 @@
       "years": 4,
       "field": "hospitality-tourism",
       "url": "https://www.modul.ac.at/programs/bachelor-programs/bba-tourism--hotel-management---operations",
-      "ib": "Optional year at The City College of New York (the New York Extension).",
+      "about": "Tourism and hotel management with operations in practice, and an optional year at The City College of New York (the New York Extension).",
       "tuitionEuEea": "€9,000 a semester"
     }
   ],

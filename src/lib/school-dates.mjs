@@ -317,6 +317,7 @@ function fromSchoolDate(inst, d, i) {
     forDiplomaHolders: Boolean(d.forDiplomaHolders),
     /* Only for these programmes (their page slugs), when the record says so. */
     programmes: d.programmes || [],
+    short: d.short || null,
     kind: d.kind,
     sources: d.url ? [d.url] : [],
     evidence: [],
@@ -401,11 +402,22 @@ export function datesFor(site, inst, { programme = null } = {}) {
      programme is recorded as not numerus fixus (a programme's own page, or a
      school whose programmes are all open). */
   const noFixus = scoped.length > 0 && scoped.every((o) => o.admission?.numerusFixus === false);
+  /* Whom a route date governs: kinds of institution (Austria's public
+     universities' 5 September), and teaching languages (Samordna opptak's
+     Norwegian-taught deadline). A school of another kind, or a page of
+     degrees taught in another language, never sees it. A canonical record
+     has no school record, so no teaching language is known for it. */
+  const instType = inst.type || self.type || null;
+  const teaching = inst.school ? (inst.school.scope === 'none' ? inst.school.language || null : 'English') : null;
+  const governs = (e) =>
+    (!(e.institutionTypes || []).length || (instType && e.institutionTypes.includes(instType))) &&
+    (!(e.taughtIn || []).length || !teaching || e.taughtIn.some((l) => teaching.toLowerCase().includes(l.toLowerCase())));
   /* The route dates that are this school's own: tied to it, or naming it. */
   const schools = new Set();
   const national = siteEvents(site).filter((e) => {
     if (e.destination !== dest || !isActionable(e) || isForEarlierEntry(e, CYCLE_YEAR)) return false;
     if (e.numerusFixusOnly && noFixus) return false;
+    if (!governs(e)) return false;
     /* A shared date that says which schools it is not for never reaches them. */
     if ((e.institutionsExcept || []).some((id) => selfIds.has(id))) return false;
     if (tied(e)) {
@@ -701,7 +713,7 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
       ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>`
       : ''}
     ${events.length
-      ? html`${first.length || !status ? html`<ol class="dates-panel__list" data-dates-head>${first.map((e) => dateItem(site, e))}</ol>` : ''}
+      ? html`${first.length || !status ? html`<ol class="dates-panel__list" data-dates-head>${[...first].sort((a, b) => sortKey(a).localeCompare(sortKey(b))).map((e) => dateItem(site, e))}</ol>` : ''}
           ${rest.length
             ? html`<details class="dates-panel__all">
                 <summary>All dates for ${whose} <span data-dates-rest-n>(${rest.length} more)</span></summary>

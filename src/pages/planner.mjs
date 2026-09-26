@@ -185,7 +185,28 @@ ${hero({
           <button type="button" class="chip" data-show="needs-review" aria-pressed="true">Needs review</button>
           <button type="button" class="chip" data-show="does-not-currently-meet" aria-pressed="false">Does not currently meet</button>
         </div>
-        <details class="acc" id="p-how" hidden open style="margin-bottom:var(--s5)"></details>
+        ${/* What the badges mean, and what no badge can say, one tap under the
+             count: on a phone they used to sit below every result, about
+             26,000 px down (round 5). */ ''}
+        <details class="acc" id="p-meaning" style="margin-bottom:var(--s4)">
+          <summary style="font-family:var(--sans);font-size:.9375rem;padding:.35rem 1.6rem .35rem 0">What these results mean, and what they cannot tell you</summary>
+          ${note(
+            `**Meets published requirements**: every recorded rule is met — shown as **${otherRouteLabel}** where
+            you are below the floor for the main route, so only that route is open. **Possible with action**:
+            every gap has a named step you can finish for this intake — one test, or supplementary courses no more
+            than the university lets you finish after your results, and at most two (our limit). **Does not
+            currently meet**: a gap with no recorded step, or steps that do not fit this intake. **Needs review**:
+            missing or unverified data, or a rule a person must judge.`,
+            { title: 'What the four outcomes mean' }
+          )}
+          ${note(
+            `This checks published requirements. It does not predict whether you will be offered a place — for
+            programmes with restricted admission, meeting the requirements is where the competition starts, not
+            where it ends. Past cut-offs are shown as context and are never used as a rule.`,
+            { kind: 'warn', title: 'What this cannot tell you' }
+          )}
+        </details>
+        <details class="acc" id="p-how" hidden style="margin-bottom:var(--s5)"></details>
         <ul class="prog-list" id="p-results"></ul>
         <noscript>
           <p class="state state--empty">The subject checker needs JavaScript, because it runs entirely in your
@@ -195,21 +216,6 @@ ${hero({
           <a href="${url('/denmark/ib-conversion/')}">conversion page</a>.</p>
         </noscript>
 
-        ${note(
-          `**Meets published requirements**: every recorded rule is met — shown as **${otherRouteLabel}** where
-          you are below the floor for the main route, so only that route is open. **Possible with action**:
-          every gap has a named step — one test or route, or at most two supplementary courses. **Does not
-          currently meet**: a gap with no recorded step. **Needs review**: missing or unverified data, or a
-          rule a person must judge.`,
-          { title: 'What the four outcomes mean' }
-        )}
-
-        ${note(
-          `This checks published requirements. It does not predict whether you will be offered a place — for
-          programmes with restricted admission, meeting the requirements is where the competition starts, not
-          where it ends. Past cut-offs are shown as context and are never used as a rule.`,
-          { kind: 'warn', title: 'What this cannot tell you' }
-        )}
       </div>
     </div>
   </div>

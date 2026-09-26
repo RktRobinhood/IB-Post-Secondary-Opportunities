@@ -11,6 +11,35 @@ committed as done, the coordinator puts it through the critic loop in
 above is accepted, and after five rounds below 8 the problem becomes an issue.
 Agents doing a single scoped task inside the workflow do not run the loop.
 
+## `main` is the product; everything else is scaffolding
+
+The owner, 26 September 2026: "main is the primary focus; branches and work
+trees are temporary work environments with the intention of putting them on
+main", and every session must "return always to a clean state". The owner
+follows the live site, not branches, and so do students and counsellors.
+
+1. **Start from `main`.** Each piece of work begins as a fresh worktree or
+   branch cut from the current `main`, never from another unfinished branch.
+   Stacking one unfinished branch on another is how `feat-43-school-pages`
+   grew to 197 files and kept work off the site for days.
+2. **Keep the piece small enough to land the same day.** One issue, or one
+   slice of one. If it cannot be made good in a day, split it.
+3. **Land it.** When the gate passes on a clean copy of `main`
+   (`SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs`) and a
+   critic scores it 8 or more — or it is plainly better than what is live,
+   with no wrong fact added — merge it to `main` and push. Keep iterating on
+   `main` afterwards; do not hold a better version back for a later release.
+   Work that would put a wrong date or a generous verdict in front of a
+   student does not land until that is fixed.
+4. **Clean up in the same session.** Delete the branch (on GitHub too) and
+   the worktree once it is on `main`, and update [STATUS.md](STATUS.md). At
+   the end of a session the only branches are `main` and any piece still in
+   flight, and STATUS says what each in-flight branch is for.
+5. **Never commit the scaffolding.** A worktree often links `node_modules`
+   to the main checkout; `.gitignore` ignores it as a file or folder, and
+   `git add -A` must never be used where it would pick up anything else
+   outside the work.
+
 ## Every finding goes into the repository, not into a report
 
 **This is the rule the others exist to protect.** An agent's report is a

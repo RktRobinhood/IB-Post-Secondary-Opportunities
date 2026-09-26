@@ -163,6 +163,22 @@
       "type": "boolean",
       "description": "True when the cited source gives the day and month but no year (\"15 January\"), so the year is inferred from the intake. Such a date must be `provisional`; scripts/test-calendar.mjs checks the two agree and that a note saying \"no year\" carries this flag."
     },
+    "institutionTypes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "description": "The kinds of institution a route date governs, by the `type` their country profile gives them ('Research university', 'Technical university'): Austria's 5 September is the public universities' date, and a Fachhochschule or a private university never sees it (src/lib/school-dates.mjs). Absent: every school the route reaches."
+    },
+    "taughtIn": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "description": "The teaching languages a date is for ('Norwegian'): Samordna opptak's main deadline is for Norwegian-taught programmes, so it never reaches an English-taught programme's page or a school page listing English-taught degrees."
+    },
+    "everySchool": {
+      "type": "boolean",
+      "description": "The application deadline of every school the date reaches (CAO's normal closing date): a programme page may give it as 'Apply by', unless the school or programme runs its own (`ownDeadline`)."
+    },
     "forDiplomaHolders": {
       "type": "boolean",
       "description": "True for a date only for applicants who already hold their IB Diploma: a round a final-year IB student is told not to use (Sweden's January round, a direct route that wants the diploma in hand). School and programme pages still list it, under its label, but it is never a programme's 'Apply by' and never leads a dates panel (src/lib/school-dates.mjs, src/pages/school-programme.mjs). scripts/check-schools.mjs requires it on every school date whose label says so, and on every date of the same round."

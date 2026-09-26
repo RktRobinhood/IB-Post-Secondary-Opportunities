@@ -11,12 +11,13 @@ import path from 'node:path';
 import { load, validate } from './lib/data.mjs';
 import { setBase, setGuides, setRevision, setScope, setFeedback, setPlaces, redirectPage, url, SITE } from './lib/layout.mjs';
 import { home } from './pages/home.mjs';
-import { countriesIndex, distanceDoors, destination } from './pages/destinations.mjs';
+import { countriesIndex, distanceDoors, destination, placeTiles, countryPicture } from './pages/destinations.mjs';
 import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
 import { programme } from './pages/programme.mjs';
 import { schoolPage, schoolCards } from './pages/schools.mjs';
+import { displayName } from './lib/schools.mjs';
 import { schoolProgrammePage } from './pages/school-programme.mjs';
 import { planner } from './pages/planner.mjs';
 import { courseResultsGuide } from './pages/course-results.mjs';
@@ -286,7 +287,7 @@ async function main() {
          in the order the school's page lists them. */
       if (inst.school?.scope === 'listed') {
         const progs = schoolCards(inst.school.programmes).flatMap((g) => g.members);
-        const step = (j) => progs[j] && { href: progs[j].href, label: progs[j].name };
+        const step = (j) => progs[j] && { href: progs[j].href, label: displayName(progs[j].name) };
         for (const [j, p] of progs.entries()) {
           await write(p.href, schoolProgrammePage(site, inst, c, p, { prev: step(j - 1), next: step(j + 1) }));
         }
@@ -348,6 +349,13 @@ async function main() {
       name: d.name,
       flag: d.flag || '',
       href: url(destinationFacet(site.graph?.destinations?.get(d.code) || d, d.code).href),
+      /* The country's photograph, for its card on the globe (#53 round 1:
+         Denmark's card was the one without). */
+      image: (() => {
+        const tile = placeTiles(site).find((t) => t.code === d.code);
+        const p = tile ? countryPicture(site, tile) : null;
+        return p && !p.external ? url(p.src) : '';
+      })(),
     })))
   );
 

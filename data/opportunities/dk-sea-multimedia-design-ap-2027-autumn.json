@@ -63,7 +63,7 @@
       "evidence": [
         "ev-sea-multimedia-design"
       ],
-      "note": "English B is required; the IB exemption SEA publishes is from documenting English with a test, not from English B. SEA: \"All applicants holding a foreign entrance examination must document their English qualifications, and English tests must be submitted\" … \"Applicants holding Nordic and German entrance exams, an International Baccalaureate exam or applicants who have English as their native language are exempt from the requirement.\" (s-e-a.dk, read 25 Sep 2026; the round-4 critic read the exemption this way on the Computer Science page.)"
+      "note": "English B is required; the IB exemption SEA publishes is from documenting English with a test, not from English B. SEA: \"All applicants holding a foreign entrance examination must document their English qualifications, and English tests must be submitted\" … \"Applicants holding Nordic and German entrance exams, an International Baccalaureate exam or applicants who have English as their native language are exempt from the requirement.\" (s-e-a.dk, read 25 Sep 2026.)"
     },
     {
       "id": "req-oneof-1",
@@ -116,6 +116,24 @@
         "applicantGroup": "any"
       },
       "note": "SEA's page contradicts itself: its notice says \"English level B plus either Maths or Managerial Economics level C or Business Economics level C\", and its requirements list says \"Mathematic C (required for Multimedia Design)\". Every IB Diploma includes Maths, so it makes no difference to a Diploma holder.",
+      "evidence": [
+        "ev-sea-multimedia-design"
+      ]
+    },
+    {
+      "id": "req-english-test",
+      "kind": "language-general",
+      "mandatory": true,
+      "label": "English documented with a test (applicants with a foreign entrance examination)",
+      "applicability": {
+        "intake": "2027-autumn",
+        "applicantGroup": "any"
+      },
+      "satisfiedBy": [
+        "ib-diploma"
+      ],
+      "openQuestion": "SEA exempts \"an International Baccalaureate exam\"; whether that includes DP Course Results is not published. Ask SEA before you rely on it.",
+      "note": "SEA: \"All applicants holding a foreign entrance examination must document their English qualifications, and English tests must be submitted\" … \"Applicants holding Nordic and German entrance exams, an International Baccalaureate exam or applicants who have English as their native language are exempt from the requirement.\" Met by the full IB Diploma; whether the exemption reaches DP Course Results is not published.",
       "evidence": [
         "ev-sea-multimedia-design"
       ]

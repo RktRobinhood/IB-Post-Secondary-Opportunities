@@ -107,9 +107,11 @@ export function enhanceWorld(figure) {
     pendingShow = null;
     figure.dataset.globeOff = why || 'the globe stopped';
     figure.dataset.globe = 'off';
-    /* The list is the map now: a folded one opens. */
+    /* The list is the map now: a folded one opens — unless the still of the
+       globe is there to stand in the stage, and then the list stays one tap
+       away (#53 round 1: home's hero became 55 chips). */
     const fold = figure.querySelector('.world__fold');
-    if (fold) fold.open = true;
+    if (fold && !figure.hasAttribute('data-poster')) fold.open = true;
     if (last) paintList(figure, ...last);
   };
 

@@ -6,7 +6,7 @@ import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { institutionPicture } from './programme-facts.mjs';
-import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf } from './destinations.mjs';
+import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf, countryPicture } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
 
 /**
@@ -195,9 +195,13 @@ export function discoverSection(site) {
       count: c.institutions.length,
       country: c.code,
       precision: 'region',
+      // A door: a country with no degree on this page. Its light counts
+      // institutions, never degrees, and a group of doors says how many
+      // countries it holds (#53 round 1).
+      door: true,
       schools: schoolsOf(site, c),
       state: depthLabel(site, c),
-      image: (() => { const p = picture(site, c.code, { prefer: 'commons' }); return p && !p.external ? p.src : ''; })(),
+      image: (() => { const p = countryPicture(site, c); return p && !p.external ? p.src : ''; })(),
     }));
 
   /* The three distances, as ways to move the globe. Each frames what it names:
@@ -311,6 +315,7 @@ export function discoverSection(site) {
         activeLayer: 'Where the degrees are',
         caption: 'Choose a place to see its degrees.',
         foldList: 'All places',
+        poster: '/assets/img/globe/poster-discover-map.webp',
       })}
     </div>
   </div>
