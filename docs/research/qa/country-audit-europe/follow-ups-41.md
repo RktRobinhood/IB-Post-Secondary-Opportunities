@@ -1,5 +1,7 @@
 # Country audit (Europe): follow-ups from round 5 (issue #41)
 
+> **Round 2** (at the end) answers `follow-ups-41-critique-round-1.md`. It widens both guards and supersedes this section's description of them and of the allow-list.
+
 Editor pass, 2026-09-26, answering the follow-up issue in `round-5.md`. This pass was done offline: no page was fetched, and every rewrite uses only facts already in the same record (founding year, counts, fees, what the institution teaches). Nothing new is asserted.
 
 Scope is wider than the audit's 20 countries. Round 5 asked for the class to be fixed, not the sentences it listed. So the guard reads every Destination, and every hit on every Destination was fixed.
@@ -578,3 +580,257 @@ The table cells hold the changed phrase, not the whole field. JSON paths use the
 |---|---|---|
 | `options[7].deadlineNote` | Its programme page moved during this research and the fee documents could not be read — check ehl.edu directly. | Its programme page has moved and its fee documents are not available here — check ehl.edu directly. |
 | `options[11].cost` | No figures were verified in this research. | None of these figures is verified; ask each school for a quote. |
+
+## Round 2: answering the critique
+
+This pass answers `follow-ups-41-critique-round-1.md`, which scored round 1 at 7/10. It was done on 2026-09-26, offline like round 1.
+
+Every rewrite uses only what the same record already holds: a count, a fee, a named programme, a city or a founding year. Nothing is new and nothing was fetched. Where a replacement text in the critique said more than the record, I used the site's own "not confirmed here" convention instead. This happened three times:
+- IT minimum points;
+- PT application fee;
+- Laurea's 2027 dates.
+
+The critique suggested "not published yet" or "No national minimum is published" for these, which is the overclaim its change 3 objects to.
+
+**Gate:** `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes all 37 checks. As before, the advisory `freshness` check reports the age of the evidence.
+
+**This section supersedes round 1's descriptions** of both guards and of the allow-list.
+
+### Each critique item, and what changed
+
+| # | Critique item | What changed |
+|---|---|---|
+| 1 | Close the vocabulary hole in `test-superlatives`, read `englishBachelors` and `ibRecognition.notes`, and rewrite what it finds | The rule now follows its own definition. It moved to `scripts/lib/superlatives.mjs`, so a sweep of other fields can use it. The four shapes are listed after this table. **The guard now also reads** `institutions[].englishBachelors` and `ibRecognition.notes` (country and destination): 1,397 strings, up from 632. **Fixtures:** there are 26 new positive ones, including every phrasing the critique listed as missed, and 11 new negative ones (see after this table). **Result:** every string the widened rule found was rewritten from its own record; there are 80 rewrites in the change 1 table below. Every example the critique named is fixed. **Also fixed by hand,** although the guard does not read these fields: the AT, BE, FI, LU and SI `whyConsider`/`watchOuts` rankings, and CH `watchOuts[4]`, which is where the CH summary got "highest in Europe". **Context notes are still not read,** for a stated reason: 7 of the 9 hits there were about systems, not institutions ("the lowest-scoring applicant admitted", "the highest-ranked place that accepts you"). The two real ones were fixed (change 2, and `no-language-is-the-obstacle`). |
+| 2 | Denmark: UCPH on the language-reality note, and ITU | `dk-language-reality.json` now says "founded in 1479, with about 36,800 students". `dk-itu.json` and `data/dk/itu.json` now say "ITU was founded in 1999, has about 2,900 students, and is built around…". Both figures are already in each institution's own record. Aarhus ("Denmark's second university") and CBS ("among the hardest degrees in Denmark") were also fixed, in both `data/institutions` and `data/dk`. So was SDU ("more here than at any other Danish university"). |
+| 3 | Undo the "not published yet" overclaims | These are back to "not confirmed here": SI `watchOuts[2]`, `ibRecognition.notes[5]`, `language.notes[1]`, and the GR Deree card. |
+| 4 | The GB summary that read backwards | It now reads "For an IB student that solves an awkward problem: you know the exact grades you need before you sit the exams." |
+| 5 | SI Maribor: quote Study in Slovenia, do not extend it | The card now reads: Study in Slovenia says a "private international student" cannot stay in university dormitories "except in Maribor". That is the record's own quotation. **The allow-list entry is removed, not updated:** a quotation is not a ranking, so the guard no longer matches the card, and a stale entry fails the guard. **Two allow-list entries remain:** EE Tallinn University and LU University of Luxembourg. |
+| 6 | Research-log guard: the missed patterns, `DIST_DIR`, `/universities/` | **Five patterns added:** `read in <language> on/from`, `was/were (not) found`, `when checked`, `cited here`, and `<page/leaflet/portal> on <date>:`. **`DIST_DIR`:** now honoured, as in every other built-stage check. **Pages read:** 506, up from 36. The guard now reads every `dist/universities/*/index.html` as well as the Destination pages. The rewrites are listed in the tables below: AT ×2, FR, SI, IT ×3, PT, FI Laurea, EE ×3, BE ×5, HU, KR ×3, LU ×2 and PL. **`meta.notes`:** the four university-page `meta.notes` that the new scope surfaced were rewritten for a student: BUas, Erasmus ×2, TU Delft and SEA. Round 1 had left these alone. **Programme pages** are still not read. They render Evidence `interpretation`, which is a template question. |
+| 7 | Finish the sweep: HU Corvinus, EE `whyConsider[4]` | "Corvinus is the most IB-literate institution in Hungary." is deleted. The Baltic Film, Media and Arts School line now states only what the school teaches. |
+| 8 | Polish, and the "Founded in <year>" openers | **Fixes:** the HU stray space. The SI repeated sentence now gives the dorm cost, EUR 80-250 a month, "if you can get one". The two figures come from `si.json` `housing` (80) and `whyConsider[1]` (250). The destination record, which has no dorm figures, drops the sentence. WU now leads with its 240 BBE places. Metropolia is rewritten as the critique proposed. Oslo no longer opens on a non-sequitur. Trinity's circular clause is gone. **Openers:** 30 cards that opened on a founding year now open on a count, a fee, a named programme or a place. Uppsala now explains student "nations". Four "Founded in" openers remain, all pre-existing: Leuven, Bologna, Coimbra, and SGH, which gives its origin as a trade school. |
+
+**The four shapes the superlatives rule now flags:**
+1. **Unframed words that always rank:**
+   - best/well known, well/highly regarded, famous(ly), world-famous, renowned, prestigious, excellent, unique, premier, unlike any(where);
+   - one of (the/relatively/very) few, top-N, No. 1;
+   - ranking verbs used of a place, such as "top-ranked" and "ranked among". "Ranked" on its own is not flagged, because selection mechanics like "ranked on the SAT" and "ten ranked choices" use it.
+2. **Any superlative inside the existing frames:** any -est or -most word, "most <adjective>", an "-ranked" compound, best, worst, top, leading or only.
+3. **An ordinal after a possessive field,** such as "the world's fifth".
+4. **Being first,** such as "the first private university in the country to…" or "the first … degree at a German public university".
+
+**The 11 new negative fixtures** cover:
+- selection mechanics ("ranked on the SAT");
+- transcript rules ("the highest grade counts");
+- first in time ("the first cohort", "the first year can be taken in English", "the first opens in October");
+- "the most likely reading";
+- "the latest date" and "the nearest centre";
+- "its newest campus".
+
+### Still open
+
+- **Item 4, which needs the web:** Warsaw Senate resolution 315 and § 4 of resolution 278.
+- **LSMU:** the extra-round sentence still waits on `ev-lsmu-calendar`, as in round 1.
+- **Programme pages** still show research-log wording from Evidence `interpretation`: 89 lines on DK and NL Opportunities. This is a decision for the owner of `src/pages/programme.mjs`.
+- **`data/schools` `notes`** were swept but are not guarded. The 3 hits are all about the institution itself, such as "KI's first intake" and "Arcada's fourth English programme". They are not rankings, and the files are another agent's.
+- **Comparisons in prose the guard does not read.** Examples are "the only compulsory payment" and "the top of the Norwegian scale". These are statements about rules and scales, not rankings of institutions.
+
+### Every string changed in round 2
+
+Each cell holds the changed phrase, not the whole field.
+
+#### Change 1: rankings the widened guard finds (80)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/au.json` | `institutions[13].note` | Accessible entry requirements and well-regarded sport science. | Accessible entry requirements, and sport science, nutrition and cyber security among its degrees. |
+| `data/countries/be.json` | `tagline` | Cheap, excellent, and mostly not in English at bachelor level | Low fees, and mostly not in English at bachelor level |
+| `data/destinations/be.json` | `tagline` | Cheap, excellent, and mostly not in English at bachelor level | Low fees, and mostly not in English at bachelor level |
+| `data/countries/be.json` | `institutions[9].note` | Founded with VUB, this is one of the few places in Belgium offering an entirely English-taught, American-style liberal arts bachelor's | Founded with VUB, it offers an entirely English-taught, American-style liberal arts bachelor's |
+| `data/countries/be.json` | `institutions[10].note` | One of the few Flemish institutions with a clearly signposted English-taught bachelor application route. | A clearly signposted application route for its English-taught bachelor's. |
+| `data/countries/ca.json` | `institutions[3].englishBachelors` | Best known for co-op degrees that alternate study terms | Co-op degrees that alternate study terms |
+| `data/countries/ch.json` | `summary` | Switzerland publishes one of the clearest IB rules in Europe and one of the strictest: swissuniversities sets | Switzerland publishes a precise IB rule, and a strict one: swissuniversities sets |
+| `data/countries/ch.json` | `summary` | Tuition is low, but living costs are the highest in Europe and almost every | Tuition is low, but living costs are high - ETH estimates CHF 22,100 a year in Zurich before tuition - and almost every |
+| `data/countries/ch.json` | `watchOuts[4]` | Living costs are the highest in Europe: ETH estimates CHF 22,100 a year | Living costs are high: ETH estimates CHF 22,100 a year |
+| `data/destinations/ch.json` | `summary` | Switzerland publishes one of Europe's clearest IB rules and one of its strictest: 32 of 42 points | Switzerland publishes a precise IB rule, and a strict one: 32 of 42 points |
+| `data/countries/ch.json` | `institutions[12].note` | Switzerland's smallest and newest public university, right by the lake and the mountains; German-speaking and strong in law and health policy. | A public university right by the lake and the mountains; German-speaking, and focused on law, health sciences, political science and sociology. |
+| `data/countries/cz.json` | `institutions[1].note` | The broadest English-taught bachelor's menu outside Prague, priced from 3,000 to 14,000 euros depending on programme, and the one institution that runs its medicine entrance exam | Around 11 English-taught bachelor's, priced from 3,000 to 14,000 euros depending on programme, and it runs its medicine entrance exam |
+| `data/countries/cz.json` | `institutions[8].note` | The first private university in the country to teach in English, with rolling admissions | A private university teaching in English, with rolling admissions |
+| `data/countries/cz.json` | `institutions[10].note` | runs an entrance exam venue in Göteborg — the closest to Denmark found anywhere. | runs an entrance exam venue in Göteborg, in Sweden. |
+| `data/countries/cz.json` | `institutions[11].note` | Home of FAMU, the world's fifth university-level film school, with three | Home of FAMU, its film and television school, with three |
+| `data/countries/de.json` | `institutions[4].note` | The closest thing Germany has to a Dutch-style English-taught liberal arts college inside a big public research university; | A Dutch-style English-taught liberal arts college inside a big public research university; |
+| `data/countries/de.json` | `institutions[4].englishBachelors` | Liberal Arts and Sciences BA/BSc, taught in English - described as the first English-language liberal arts degree at a German public university. | Liberal Arts and Sciences BA/BSc, taught in English. |
+| `data/countries/de.json` | `institutions[5].note` | and one of the few German institutions where you can do a full English-taught bachelor's on the state system. | and a large share of its bachelor's degrees are taught entirely in English, across engineering, life sciences, society and economics. |
+| `data/countries/de.json` | `institutions[9].note` | but the housing market is the hardest part. | but the housing market is hard. |
+| `data/countries/de.json` | `ibRecognition.notes[0]` | Mathematics at Standard Level is the single biggest trap. | Mathematics at Standard Level is the trap to watch. |
+| `data/countries/ee.json` | `institutions[3].note` | A private, non-profit business university of around 1,400 students, and the first institution in the Soviet Union to teach business in English. | A private, non-profit business university of around 1,400 students. |
+| `data/countries/ee.json` | `institutions[4].note` | Around 2,900 students and a top-100 world position in agriculture and forestry. Its English-taught veterinary degree is one of relatively few in Europe and worth knowing about if that is your plan, | Around 2,900 students, in veterinary medicine, agriculture, forestry and environmental science. Its English-taught six-year Veterinary Medicine is worth knowing about if that is your plan, |
+| `data/countries/fi.json` | `institutions[5].note` | Home of the Finland Futures Research Centre and one of the few places in Europe where futures studies is a real discipline. | Home of the Finland Futures Research Centre, where futures studies is taught as a discipline of its own. |
+| `data/countries/fi.json` | `institutions[10].note` | The clearest non-exam route among the universities of applied sciences: certificate-based or SAT, | A non-exam route: certificate-based or SAT, |
+| `data/countries/fi.json` | `institutions[12].note` | The Safety, Security and Risk Management degree is close to unique in English anywhere in the EU. | Seven English-taught bachelor's, among them Safety, Security and Risk Management, and Cyber Security. |
+| `data/countries/fi.json` | `ibRecognition.notes[0]` | The IB and the European Baccalaureate are the only foreign certificates that count for certificate-based selection wherever they were taken. German Reifeprüfung and DIA only count if completed in Finland. | The IB and the European Baccalaureate count for certificate-based selection wherever they were taken; German Reifeprüfung and DIA count only if completed in Finland. |
+| `data/countries/fr.json` | `tagline` | Public university costs €178 a year; the famous schools cost 100x that | Public university costs €178 a year; a private business school about 100 times that |
+| `data/destinations/fr.json` | `tagline` | Public university costs €178 a year; the famous schools cost 100x that | Public university costs €178 a year; a private business school about 100 times that |
+| `data/countries/fr.json` | `institutions[8].note` | France's highest-ranked research university, especially in mathematics and physics, on a large science campus south of Paris. | A research university founded in 2019, focused on mathematics, physics, biology and computer science, on a large science campus south of Paris. |
+| `data/countries/gb.json` | `summary` | The teaching and the offer system are excellent; the money is the problem. | The money is the problem. |
+| `data/countries/gb.json` | `institutions[3].note` | The broadest subject range of any London university, and one of the few places offering genuinely unusual combinations. | Around 400 undergraduate programmes, all in English, from architecture to neuroscience. |
+| `data/countries/gb.json` | `institutions[8].note` | Not Russell Group but consistently top-ranked, very international, and tiny - a small coastal town, | Not Russell Group; around 200 degree combinations, very international, in a small coastal town, |
+| `data/countries/gr.json` | `institutions[8].note` | with a well-regarded medical school and a very low cost of living. | with a medical school and a very low cost of living. |
+| `data/countries/hk.json` | `institutions[1].note` | and its 2027/28 non-local fee, HK$230,000, is the lowest of HKU, HKUST and CUHK. | and its 2027/28 non-local fee is HK$230,000, against HKU's HK$250,000 to 280,000 outside medicine and dentistry. |
+| `data/countries/hk.json` | `institutions[11].note` | Hong Kong's first private university, small and teaching-focused, with a well-regarded journalism department. | A small, teaching-focused private university, with journalism and communication, psychology, law and business taught in English and Chinese. |
+| `data/countries/hu.json` | `ibRecognition.notes[3]` | Szeged is the only medical school here with a published IB exemption: grade 5 | Szeged publishes an IB exemption: grade 5 |
+| `data/countries/ie.json` | `institutions[3].note` | A green campus in Ireland's second city, strong in food, | A green campus in Cork, strong in food, |
+| `data/countries/is.json` | `ibRecognition.notes[0]` | The University of Iceland is the only Icelandic institution with a dedicated IB page. It confirms | The University of Iceland has a dedicated IB page. It confirms |
+| `data/countries/it.json` | `institutions[6].note` | Small and alpine, with well-regarded student services. | Small and alpine, with Comparative, European and International Legal Studies taught in English, and computer science and economics in English and Italian. |
+| `data/countries/it.json` | `institutions[10].note` | in a city that is hard to live in cheaply but unlike anywhere else. | in a city that is hard to live in cheaply. |
+| `data/countries/jp.json` | `institutions[0].note` | It is Todai's first new undergraduate faculty in about seventy years, | Todai has not opened a new undergraduate faculty in about seventy years; this one runs |
+| `data/countries/jp.json` | `ibRecognition.notes[4]` | The only published IB score found is the UTokyo College of Design's expectation of 38/42 plus 2 core points, which it says is not a cut-off. | The UTokyo College of Design expects 38/42 plus 2 core points, and says this is not a cut-off. |
+| `data/countries/kr.json` | `institutions[7].note` | founded by the POSCO steel company, with a famously high staff-to-student ratio. | founded by the POSCO steel company. |
+| `data/countries/lu.json` | `summary` | founded in 2003, and it is unlike anywhere else on this site. | founded in 2003. |
+| `data/countries/lv.json` | `institutions[7].note` | A small coastal university best known for its radio astronomy centre. | A small coastal university with a radio astronomy centre, and two English-taught bachelor's: Computer Science, and Start-Up Management. |
+| `data/countries/nl.json` | `institutions[7].note` | Amsterdam's second research university, smaller and less frantic than UvA, | Amsterdam's other research university, smaller and less frantic than UvA, |
+| `data/countries/no.json` | `institutions[4].note` | Home to a veterinary school, and one of very few English-taught entry points for an IB student drawn to ESS, biology and global development. | Home to a veterinary school, and to an English-taught bachelor in International Environment and Development Studies, for an IB student drawn to ESS, biology and global development. |
+| `data/countries/no.json` | `institutions[10].note` | The world's northernmost university and unique for Arctic, marine and space science — but | In Tromsø, focused on Arctic and polar research, space science and fisheries — but |
+| `data/countries/no.json` | `ibRecognition.notes[0]` | That Maths AA SL alone satisfies R1+R2 is the single most favourable rule in Norway for IB students. | Maths AA SL alone satisfies R1+R2, which works strongly in an IB student's favour. |
+| `data/countries/nz.json` | `institutions[1].englishBachelors` | New Zealand's oldest university, with a famously residential first year and a large health sciences pathway. | A residential first year in Dunedin, and a large health sciences pathway. |
+| `data/countries/nz.json` | `institutions[5].englishBachelors` | Mid-sized, with a management school and a well-regarded computing and mathematical sciences faculty. | Mid-sized, with a management school and a computing and mathematical sciences faculty. |
+| `data/countries/nz.json` | `institutions[5].note` | and a well-known machine-learning group. | and a machine-learning group. |
+| `data/countries/nz.json` | `institutions[6].englishBachelors` | Practice-focused degrees with compulsory work placements in many programmes; New Zealand's youngest university. | Practice-focused degrees with compulsory work placements in many programmes. |
+| `data/countries/nz.json` | `institutions[7].englishBachelors` | New Zealand's smallest university, specialising entirely in land, food and environment. | Under 3,000 students, specialising entirely in land, food and environment. |
+| `data/countries/pl.json` | `institutions[1].note` | Founded in 1364, and one of the few with its 2027/28 admission rules already adopted - its medical school | Seven English-taught first-cycle programmes plus Medicine in English, and its 2027/28 admission rules are already adopted - its medical school |
+| `data/countries/se.json` | `institutions[1].note` | Founded in 1477, with a student-nation social life that is unlike anywhere else in Scandinavia. | Eight international bachelor's, in Uppsala and at Campus Gotland in Visby, and a social life run by the student "nations" - the historic student societies that run much of student life. |
+| `data/countries/se.json` | `institutions[5].note` | A broad university spread across Sweden's second city, with unusually strong art and design schools attached. | A broad university spread across Gothenburg, with ten international bachelor's, several of them in craft, design and music. |
+| `data/countries/se.json` | `institutions[13].note` | World-famous for medical research and it awards the Nobel Prize in Medicine. | A medical university that awards the Nobel Prize in Medicine. |
+| `data/countries/si.json` | `institutions[2].englishBachelors` | Ten - the widest choice in Slovenia: Tourism; | Ten: Tourism; |
+| `data/destinations/ca.json` | `ibRecognition.notes[5]` | the universities appear to be the only rule-owners. | the universities appear to set the rules themselves. |
+| `data/institutions/dk-au.json` | `about` | Aarhus is Denmark's second university and second city, with roughly 38,000 students | Aarhus University has roughly 38,000 students |
+| `data/dk/au.json` | `about` | Aarhus is Denmark's second university and second city, with roughly 38,000 students | Aarhus University has roughly 38,000 students |
+| `data/institutions/dk-cbs.json` | `about` | and they are among the hardest degrees in Denmark to get into on grades alone: | and they are hard to get into on grades alone: |
+| `data/dk/cbs.json` | `about` | and they are among the hardest degrees in Denmark to get into on grades alone: | and they are hard to get into on grades alone: |
+| `data/institutions/dk-sdu.json` | `about` | and where you study matters more here than at any other Danish university. | and where you study matters a great deal. |
+| `data/dk/sdu.json` | `about` | and where you study matters more here than at any other Danish university. | and where you study matters a great deal. |
+| `data/institutions/dk-sdu.json` | `about` | or in Vejle, SDU's newest campus and an IT-focused one. | or in Vejle, its newest campus and an IT-focused one. |
+| `data/dk/sdu.json` | `about` | or in Vejle, SDU's newest campus and an IT-focused one. | or in Vejle, its newest campus and an IT-focused one. |
+| `data/institutions/nl-breda-uas.json` | `about` | It is the clearest example in this catalogue of the route | It is a clear example of the route |
+| `data/institutions/nl-erasmus.json` | `about` | in a city rebuilt after 1940 and unlike anywhere else in the Netherlands to look at. | in a city rebuilt after 1940. |
+| `data/context-notes/no-language-is-the-obstacle.json` | `text` | several of the largest universities teach no bachelor programme in English at all | several large universities teach no bachelor programme in English at all |
+| `data/countries/cn.json` | `institutions[2].note` | Its English-taught MBBS is a well-known English-medium medical degree. | It also teaches an English-medium medical degree, the MBBS. |
+| `data/countries/es.json` | `institutions[7].note` | A well-known private business-and-law school in Madrid, with its own admission. | A private business-and-law school in Madrid, with its own admission. |
+| `data/countries/kr.json` | `institutions[8].note` | Its well-known Korean-language institute helps | Its Korean-language institute helps |
+| `data/countries/nz.json` | `institutions[3].englishBachelors` | a large engineering school and a well-known forestry programme. | a large engineering school and a forestry programme. |
+| `data/countries/at.json` | `whyConsider[3]` | Vienna is consistently ranked among the most liveable cities in Europe and student transport and culture are heavily discounted. | In Vienna, student transport and culture are heavily discounted. |
+| `data/countries/be.json` | `whyConsider[1]` | KU Leuven, founded in 1425, is one of the oldest universities in Europe, and Ghent | KU Leuven dates from 1425, and Ghent |
+| `data/countries/fi.json` | `watchOuts[2]` | Several famous names have almost nothing in English at bachelor level: | Several big universities have almost nothing in English at bachelor level: |
+| `data/countries/lu.json` | `watchOuts[4]` | Rents in and around Luxembourg City are among the most expensive in the EU, and student housing is limited. | Rents in and around Luxembourg City are high, and student housing is limited. |
+| `data/countries/si.json` | `whyConsider[3]` | University of Primorska in Koper has the widest English-taught choice, including | University of Primorska in Koper has ten English-taught bachelor's, including |
+
+#### Change 2: Denmark (3)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/context-notes/dk-language-reality.json` | `text` | The University of Copenhagen — the country's largest and best known university — teaches | The University of Copenhagen — founded in 1479, with about 36,800 students — teaches |
+| `data/institutions/dk-itu.json` | `about` | ITU is Denmark's smallest and youngest university, founded in 1999 and built around | ITU was founded in 1999, has about 2,900 students, and is built around |
+| `data/dk/itu.json` | `about` | ITU is Denmark's smallest and youngest university, founded in 1999 and built around | ITU was founded in 1999, has about 2,900 students, and is built around |
+
+#### Change 3: "not published yet" back to "not confirmed here" (4)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/si.json` | `watchOuts[2]` | IB-specific minimum points and a mapping onto the Slovenian Matura are not published yet; ask | IB-specific minimum points and a mapping onto the Slovenian Matura are not confirmed here; ask |
+| `data/countries/si.json` | `ibRecognition.notes[5]` | IB-specific minimum points, an HL/SL mapping onto the Slovenian Matura and a grade conversion table are not published yet (as of September 2026). | IB-specific minimum points, an HL/SL mapping onto the Slovenian Matura and a grade conversion table are not confirmed here. |
+| `data/countries/si.json` | `language.notes[1]` | Whether IB English A or B counts as proof of English, and the IELTS/TOEFL thresholds, are not published yet (as of September 2026). | Whether IB English A or B counts as proof of English, and the IELTS/TOEFL thresholds, are not confirmed here. |
+| `data/countries/gr.json` | `institutions[9].note` | tuition is not published, so ask the college. | tuition is not confirmed here, so ask the college. |
+
+#### Change 4: the GB summary that read backwards (1)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/destinations/gb.json` | `summary` | For an IB student that removes an awkward problem: applying before you know your results. | For an IB student that solves an awkward problem: you know the exact grades you need before you sit the exams. |
+
+#### Change 5: SI Maribor quotes Study in Slovenia (1)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/si.json` | `institutions[1].note` | Five English-taught bachelor's confirmed, and the only university where private international students can get a dormitory place: Study in Slovenia says they cannot stay in university dormitories "except in Maribor". | Five English-taught bachelor's confirmed, and Study in Slovenia says a "private international student" cannot stay in university dormitories "except in Maribor". |
+
+#### Change 6: research log the first guard missed (29)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/at.json` | `application.deadlines[0].notes` | Precedent, read in German on medizinstudieren.at on 23 September 2026: registration | Precedent, from medizinstudieren.at (in German, as of 23 September 2026): registration |
+| `data/countries/at.json` | `application.deadlines[1].notes` | Precedent, read in German on medizinstudieren.at on 23 September 2026: "Der Aufnahmetest | Precedent, from medizinstudieren.at (in German, as of 23 September 2026): "Der Aufnahmetest |
+| `data/countries/fr.json` | `application.deadlines[14].notes` | the CVEC portal, read in French on 2026-09-23, says to pay | the CVEC portal says (in French) to pay |
+| `data/countries/si.json` | `application.deadlines[1].notes` | Precedent, read in Slovene from the University of Ljubljana VPIS leaflet on 23 September 2026: | Precedent, from the University of Ljubljana's Slovene VPIS leaflet for 2026: |
+| `data/countries/it.json` | `ibRecognition.minimumPoints` | No national minimum points figure was found on an official page; individual universities | No national minimum points figure is confirmed here; individual universities |
+| `data/countries/it.json` | `ibRecognition.gradeConversion` | No national IB-to-Italian conversion was found. | A national IB-to-Italian conversion is not confirmed here. |
+| `data/countries/it.json` | `application.deadlines[6].notes` | does not appear on any official page cited here, so treat it as unconfirmed. | is not on any official source this page links to, so treat it as unconfirmed. |
+| `data/countries/pt.json` | `costs.applicationFee` | No application fee was found for the national contest. | No application fee for the national contest is confirmed here. |
+| `data/countries/fi.json` | `institutions[12].note` | its 2027 dates were not on the page when checked. | its 2027 dates are not confirmed here. |
+| `data/countries/ee.json` | `institutions[0].note` | Its admissions page on 23 September 2026: for 2026 Tartu admits to 3 English-taught first-level programmes and 25 master's. | For 2026 its admissions page listed 3 English-taught first-level programmes and 25 master's. |
+| `data/countries/ee.json` | `institutions[1].note` | Its admissions page on 23 September 2026: international applicants prepare their application in DreamApply; | Its admissions page says international applicants prepare their application in DreamApply; |
+| `data/countries/ee.json` | `institutions[4].note` | Its admissions page on 23 September 2026: its three English-taught curricula are two master's and the six-year combined Veterinary Medicine, | Its admissions page lists three English-taught curricula, two master's and the six-year combined Veterinary Medicine, |
+| `data/countries/be.json` | `application.deadlines[0].notes` | Read in Dutch on the Flemish government's own site. The exam pages are now at vlaanderen.be/toelatingsexamens. | Source, in Dutch: the Flemish government's exam pages at vlaanderen.be/toelatingsexamens. |
+| `data/countries/be.json` | `application.deadlines[1].notes` | Read in Dutch on the Flemish government's own site. The exam pages are now at vlaanderen.be/toelatingsexamens. | Source, in Dutch: the Flemish government's exam pages at vlaanderen.be/toelatingsexamens. |
+| `data/countries/be.json` | `application.deadlines[2].notes` | Read in Dutch on the Flemish government's own site. The exam pages are now at vlaanderen.be/toelatingsexamens. | Source, in Dutch: the Flemish government's exam pages at vlaanderen.be/toelatingsexamens. |
+| `data/countries/be.json` | `application.deadlines[3].notes` | Read in Dutch on the Flemish government's own site. The exam pages are now at vlaanderen.be/toelatingsexamens. | Source, in Dutch: the Flemish government's exam pages at vlaanderen.be/toelatingsexamens. |
+| `data/countries/be.json` | `application.deadlines[4].notes` | Read in Dutch on the Flemish government's own site. The exam pages are now at vlaanderen.be/toelatingsexamens. | Source, in Dutch: the Flemish government's exam pages at vlaanderen.be/toelatingsexamens. |
+| `data/countries/hu.json` | `application.deadlines[6].notes` | through FELVI." Read in Hungarian on 23 September 2026. | through FELVI." (felvi.hu is in Hungarian.) |
+| `data/countries/kr.json` | `ibRecognition.subjectLevelRule` | None of the university pages cited here publishes a minimum IB point score. | None of the university pages linked from this page publishes a minimum IB point score. |
+| `data/destinations/kr.json` | `ibRecognition.subjectLevelRule` | None of the university pages cited here publishes a minimum IB point score, | None of the university pages linked from this page publishes a minimum IB point score, |
+| `data/countries/kr.json` | `ibRecognition.notes[2]` | Minimum and typical IB scores are not published on any university page cited here. | Minimum and typical IB scores are not published on any university page linked from this page. |
+| `data/countries/pl.json` | `application.deadlines[30].notes` | the individual days are on the examination page cited here. | the individual days are on the university's entrance-examination page. |
+| `data/institutions/dk-sea.json` | `meta.notes[2]` | SEA does not publish a tuition fee for non-EU students on the pages read, so no fee is recorded here. | A tuition fee for non-EU students is not confirmed here; ask SEA. |
+| `data/institutions/nl-breda-uas.json` | `meta.notes[0]` | The admission pages read on 2026-09-23 set out a havo-or-vwo-equivalent diploma and an English requirement and name no examination subject for any of the four programmes recorded here. That is recorded as checked-and-absent rather than as not-checked. | Its admission pages (as of 23 September 2026) set out a havo-or-vwo-equivalent diploma and an English requirement, and name no examination subject for any of the four programmes on this site. |
+| `data/institutions/nl-erasmus.json` | `meta.notes[1]` | Both Erasmus pages read on 2026-09-23 describe the 2026-2027 round. | As of 23 September 2026, both Erasmus pages describe the 2026-2027 round. |
+| `data/institutions/nl-erasmus.json` | `meta.notes[1]` | Both records carry a reviewBy date for that reason and neither carries a 2027 figure that the source did not state. | So check both again in autumn 2026; no 2027 figure is given here that the source did not state. |
+| `data/institutions/nl-tudelft.json` | `meta.notes[3]` | The Aerospace Engineering selection pages carried last year's procedure when read on 2026-09-23 and say | On 23 September 2026 the Aerospace Engineering selection pages still carried last year's procedure, and said |
+| `data/countries/lu.json` | `application.deadlines[1].notes` | Precedent, from the Bachelor in Computer Science admissions page on 23 September 2026: | Precedent, from the Bachelor in Computer Science admissions page (as of 23 September 2026): |
+| `data/countries/lu.json` | `application.deadlines[2].notes` | Precedent, from the Bachelor in Computer Science admissions page on 23 September 2026: | Precedent, from the Bachelor in Computer Science admissions page (as of 23 September 2026): |
+
+#### Change 7: the rest of the sweep on HU and EE (2)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/hu.json` | `ibRecognition.notes[4]` | Corvinus is the most IB-literate institution in Hungary. It names the IB Diploma | Corvinus names the IB Diploma |
+| `data/countries/ee.json` | `whyConsider[4]` | Tallinn University's Baltic Film, Media and Arts School describes itself as the only place in northern Europe teaching film, television and audiovisual production in English. | Tallinn University's Baltic Film, Media and Arts School teaches film, television and audiovisual production in English. |
+
+#### Change 8: polish, and cards that opened on a founding year (37)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/hu.json` | `whyConsider[1]` | two Higher Level natural sciences , and it will consider | two Higher Level natural sciences, and it will consider |
+| `data/countries/si.json` | `summary` | If one of those programmes is what you want, you study it without tuition. If not, | If one of those programmes is what you want, you pay no tuition, and a dormitory room, if you can get one, costs EUR 80-250 a month. If not, |
+| `data/destinations/si.json` | `summary` |  If one of those is what you want, you study it without tuition. | (deleted) |
+| `data/countries/at.json` | `institutions[2].note` | A business and economics university on a modern campus by the Prater. | Its English-taught BBE had 240 places in 2026/27, taught on a modern campus by the Prater. |
+| `data/countries/fi.json` | `institutions[9].note` | Thirty-two English-taught listings for the January 2027 cycle, fewer of them open to a school leaver, including creative degrees like game design and XR design. | 32 English-taught options for January 2027, though some are top-up degrees you cannot enter from school; they include game design and XR design. |
+| `data/countries/no.json` | `institutions[5].note` | Founded in 1811 — but for an IB student without Norwegian there is exactly one English bachelor's door, | For an IB student without Norwegian there is exactly one English bachelor's door, |
+| `data/countries/at.json` | `institutions[0].note` | Founded in 1365; bachelor's teaching is in German, | Its bachelor's teaching is in German, |
+| `data/countries/at.json` | `institutions[3].note` | Founded in 1585, in a UNESCO-listed student city | In a UNESCO-listed student city |
+| `data/countries/au.json` | `institutions[1].note` | Founded in 1850, on a sandstone campus near central Sydney. | A sandstone campus near central Sydney. |
+| `data/countries/ch.json` | `institutions[4].note` | Founded in 1460, German-speaking, at the heart of the Basel pharmaceutical cluster. | German-speaking, at the heart of the Basel pharmaceutical cluster, and known for life sciences and pharmacy. |
+| `data/countries/cz.json` | `institutions[0].note` | Founded in 1347, and organised so that the faculty matters more than the name. | Organised so that the faculty matters more than the name. |
+| `data/countries/cz.json` | `institutions[2].note` | Founded in 1707, and explicit about the IB: | Explicit about the IB: |
+| `data/countries/cz.json` | `institutions[4].note` | Founded in 1573, with English-taught medicine at 12,500 euros a year, | English-taught medicine at 12,500 euros a year, |
+| `data/countries/de.json` | `institutions[2].note` | A general research university founded in 1472; bachelor's are almost entirely in German, | A general research university whose bachelor's are almost entirely in German, |
+| `data/countries/de.json` | `institutions[3].note` | Founded in 1386, and known for medicine, life sciences, physics and law. | Known for medicine, life sciences, physics and law. |
+| `data/countries/ee.json` | `institutions[0].note` | Founded in 1632, with around 15,500 students. | Around 15,500 students, and three English-taught bachelor's: Business Administration, Science and Technology, and a six-year Medicine. |
+| `data/countries/fi.json` | `institutions[0].note` | A broad research university founded in 1640, but only two of its bachelor's degrees are in English. | A broad research university, but only two of its bachelor's degrees are in English: Liberal Arts and Sciences, and Science. |
+| `data/countries/fr.json` | `institutions[1].note` | An engineering school founded in 1794; its three-year English-taught Bachelor | An engineering school whose three-year English-taught Bachelor |
+| `data/countries/gr.json` | `institutions[0].note` | A research university founded in 1837. Its English-taught MD costs EUR 17,000 a year (2026-27), its BA in Ancient Greece EUR 6,000, and it also runs an integrated master in Pharmacy. | Three English-taught degrees: an MD at EUR 17,000 a year (2026-27), a BA in Ancient Greece at EUR 6,000, and an integrated master in Pharmacy. |
+| `data/countries/hk.json` | `institutions[0].note` | Founded in 1911, and reviewing applications on a rolling basis until 25 August 2027, after IB results. | Every programme is taught in English, and applications are reviewed on a rolling basis until 25 August 2027, after IB results. |
+| `data/countries/hu.json` | `institutions[3].note` | Founded in 1367, and its medical school has already published | Its medical school has already published |
+| `data/countries/hu.json` | `institutions[4].note` | Founded in 1787, with veterinary medicine taught in English at 12,480 euros a year. | Veterinary medicine taught in English at 12,480 euros a year, over five years plus a practical semester. |
+| `data/countries/hu.json` | `institutions[7].note` | A technical university founded in 1782, with 13 English-taught BSc degrees | A technical university with 13 English-taught BSc degrees |
+| `data/countries/hu.json` | `institutions[8].note` | Founded in 1635, a general-academic university in Budapest with a second campus in Szombathely. | A general-academic university in Budapest with a second campus in Szombathely; computer science, economics and mechanical engineering are among its English-taught degrees. |
+| `data/countries/ie.json` | `institutions[0].note` | Founded in 1592, on a walled city-centre campus; its high-points courses are hard to reach. | A walled city-centre campus, with every programme taught in English; check each course's points from last year before you shortlist it. |
+| `data/countries/is.json` | `institutions[0].note` | Founded in 1911, with around 14,000 students across five schools, and a dedicated IB page. | Around 14,000 students across five schools, and a dedicated IB page. |
+| `data/countries/jp.json` | `institutions[3].note` | A private university founded in 1858, and Waseda's historic rival. | A private university and Waseda's historic rival. |
+| `data/countries/lt.json` | `institutions[0].note` | Founded in 1579, with more than 30 English-taught bachelor's | More than 30 English-taught bachelor's |
+| `data/countries/lv.json` | `institutions[0].note` | Founded in 1919, and clear on its own pages about the AIC recognition requirement. | Clear on its own pages about the AIC recognition requirement, with a small number of English-taught bachelor's in business, IT and social sciences. |
+| `data/countries/nl.json` | `institutions[0].note` | Founded in 1632, in a city where finding a student room is hard; | A research university in a city where finding a student room is hard; |
+| `data/countries/nl.json` | `institutions[1].note` | A technical university founded in 1842; its English-taught bachelor's | A technical university whose English-taught bachelor's |
+| `data/countries/nl.json` | `institutions[5].note` | Founded in 1575, with a second campus in The Hague | Split between Leiden and a second campus in The Hague |
+| `data/countries/si.json` | `institutions[0].note` | Founded in 1919, teaching its bachelor's in Slovene; an EU applicant wanting its one English programme should ask the faculty first. | Teaches its bachelor's in Slovene; an EU applicant wanting its one English programme, Business and Economics, should ask the faculty first. |
+| `data/countries/at.json` | `institutions[2].note` | Its English-taught BBE had 240 places in 2026/27, taught on a modern campus by the Prater. | On a modern campus by the Prater, with 240 places on its English-taught BBE in 2026/27. |
+| `data/countries/se.json` | `institutions[1].note` | and a social life run by the student "nations" - the historic student societies that run much of student life. | and a social life organised around student "nations", the historic societies students can join. |
+| `data/countries/jp.json` | `institutions[0].note` | Todai has not opened a new undergraduate faculty in about seventy years; this one runs on a September intake with half its places on the international route; applications close on 5 November 2026. | Todai has not opened a new undergraduate faculty in about seventy years. This one runs on a September intake with half its places on the international route, and applications close on 5 November 2026. |
+| `data/countries/no.json` | `institutions[5].note` | With Danish, Norwegian or Swedish A, its Norwegian-taught bachelor's are open through Samordna opptak. | With Danish, Norwegian or Swedish A, the university's Norwegian-taught bachelor's are open through Samordna opptak. |

@@ -256,7 +256,7 @@ export const CHECKS = [
     id: 'research-log',
     script: 'scripts/test-research-log.mjs',
     stage: 'built',
-    title: 'No Destination page narrates the research instead of telling the student what to do',
+    title: 'No Destination or university page narrates the research instead of telling the student what to do',
   },
   {
     id: 'ib-terms',
