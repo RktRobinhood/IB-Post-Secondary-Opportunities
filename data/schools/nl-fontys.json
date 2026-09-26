@@ -181,7 +181,13 @@
       "years": 4,
       "field": "business",
       "url": "https://www.fontys.nl/en/Programmes/Marketing-Management-bachelor-full-time.htm",
-      "city": "Venlo"
+      "city": "Venlo",
+      "separateFrom": [
+        {
+          "name": "Marketing Management - Digital Business Concepts",
+          "reason": "Venlo, without the Digital Business Concepts specialisation; the Tilburg version records an intake conversation on your economics background."
+        }
+      ]
     },
     {
       "name": "Marketing Management - Digital Business Concepts",
@@ -190,7 +196,13 @@
       "field": "business",
       "url": "https://www.fontys.nl/en/Programmes/Marketing-Management-Digital-Business-Concepts-bachelor-full-time.htm",
       "city": "Tilburg",
-      "ib": "An intake conversation checks whether your economics background is enough."
+      "ib": "An intake conversation checks whether your economics background is enough.",
+      "separateFrom": [
+        {
+          "name": "Marketing Management",
+          "reason": "A different specialisation (Digital Business Concepts) in Tilburg, not Venlo, and only this one records an intake conversation that checks your economics background."
+        }
+      ]
     },
     {
       "name": "Mechanical Engineering",

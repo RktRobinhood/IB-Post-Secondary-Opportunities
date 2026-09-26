@@ -8,7 +8,7 @@ import { picture } from '../lib/data.mjs';
 import { datesPanel, datesFor, isBinding, leadsFor } from '../lib/school-dates.mjs';
 import { hostOf, HOLDERS_ONLY } from '../lib/schools.mjs';
 import { prettyDate } from './programme-facts.mjs';
-import { FIELD, inCardOrder, programmeCard } from './schools.mjs';
+import { FIELD, programmeCard, schoolCards, yearsText } from './schools.mjs';
 
 /**
  * A page for one programme of a listed school record (issue #43), laid out
@@ -247,6 +247,75 @@ function applyBy(site, scope, keep, today) {
 }
 
 
+/* --- The paths of a family ------------------------------------------------- */
+
+/** "the Lappeenranta campus and the Lahti campus". */
+const campusList = (cities) => {
+  const named = cities.map((c) => `the ${c} campus`);
+  return named.length > 1 ? `${named.slice(0, -1).join(', ')} and ${named[named.length - 1]}` : named[0];
+};
+
+/**
+ * On every path's page of a family (issues #46 and #52): the same small
+ * table, the current path marked, and only the facts in which the paths
+ * actually differ — campus, start, deadline, places, the minimum, the
+ * subjects, how places are decided, the last cut-off, the fee. A family whose
+ * paths differ only in where they are taught says so in plain words first:
+ * "The same programme is offered at the X campus and the Y campus." The markup
+ * and its phone layout are the Danish Paths table's (site.css `.paths`).
+ */
+function schoolPathsTable(site, inst, p, { starts: startsOf, applyByOf }) {
+  const group = schoolCards(inst.school.programmes).find((g) => g.members.some((m) => m.slug === p.slug));
+  if (!group?.family || group.members.length < 2) return '';
+  const members = group.members;
+  const short = inst.shortName || inst.name;
+  const sx = subjectIndexOf(site);
+  const needsOf = (m) => (m.needs || []).map((n) => `${needPhrase(n, sx)}${n.grade ? ` (${n.grade}+)` : ''}`).join('; ') || null;
+  const cities = [...new Set(members.map((m) => m.city || inst.city).filter(Boolean))];
+  const cols = [
+    { head: 'Degree', cell: (m) => m.credential },
+    { head: 'Length', cell: (m) => yearsText(m.years) },
+    { head: 'Campus', cell: (m) => m.city || inst.city || null },
+    { head: 'Starts', cell: (m) => startsOf(m) },
+    { head: 'Apply by', cell: (m) => applyByOf(m) },
+    { head: 'Places', cell: (m) => (m.places ? String(m.places) : null) },
+    { head: 'Minimum', cell: (m) => (m.points ? `${m.points} IB points` : null) },
+    { head: 'Subjects', cell: needsOf },
+    { head: 'Places decided by', cell: (m) => (m.selection || []).map((x) => SELECTION[x]).filter(Boolean).join(', ') || null },
+    { head: 'Last cut-off', cell: (m) => (m.cutoff ? cutoffTile(m.cutoff).value : null) },
+    { head: 'EU/EEA fee', cell: (m) => valueAndNote(m.tuitionEuEea).value },
+  ]
+    // Only what differs, and not a fact every path's own label already says.
+    .filter((c) => new Set(members.map((m) => c.cell(m) ?? '')).size > 1)
+    .filter((c) => !members.every((m) => c.cell(m) && String(m.family.path).includes(c.cell(m))));
+  const heads = new Set(cols.map((c) => c.head));
+  const admissionDiffers = ['Minimum', 'Subjects', 'Places decided by'].some((h) => heads.has(h));
+  const onlyCampus = cities.length > 1 && group.family.axis === 'campus';
+  const lede = [
+    onlyCampus ? `The same programme is offered at ${campusList(cities)}.` : `${short} offers this as ${members.length} paths.`,
+    admissionDiffers
+      ? 'What it takes to get in differs between them, so check each one.'
+      : `The entry requirements are the same on each${heads.has('Last cut-off') ? ', but last year’s cut-offs were not' : ''}.`,
+  ].join(' ');
+  return html`<section class="paths" aria-labelledby="paths-title">
+    <h2 id="paths-title">${onlyCampus ? `${group.family.name} on ${members.length} campuses` : `${members.length} ways to study ${group.family.name}`}</h2>
+    <p class="paths__lede">${lede}</p>
+    <div class="table-scroll paths__scroll"><table class="data paths__table">
+      <thead><tr><th scope="col">Path</th>${cols.map((c) => html`<th scope="col">${c.head}</th>`)}<th scope="col">What is different</th></tr></thead>
+      <tbody>${members.map((m) => {
+        const here = m.slug === p.slug;
+        return html`<tr${here ? html` aria-current="page" class="paths__here"` : ''}>
+          <th scope="row">${here
+            ? html`<strong>${m.family.path}</strong> <span class="paths__you">You are here</span>`
+            : html`<a href="${url(m.href)}">${m.family.path}</a>`}</th>
+          ${cols.map((c) => html`<td data-label="${c.head}">${c.cell(m) || '—'}</td>`)}
+          <td class="paths__diff" data-label="What is different">${m.family.differs}</td>
+        </tr>`;
+      })}</tbody>
+    </table></div>
+  </section>`;
+}
+
 /* --- The page ------------------------------------------------------------- */
 
 export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
@@ -348,10 +417,12 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
 
   /* A page with little of its own still ends on the way on, in the column. */
   const bare = !p.about && !selection.length && !p.selectionNote && !cut;
-  const progs = inCardOrder(school.programmes);
-  const at = progs.findIndex((q) => q.slug === p.slug);
-  const siblings = progs.length > 1
-    ? [1, 2, 3].map((k) => progs[(at + k) % progs.length]).filter((q, i, all) => q.slug !== p.slug && all.indexOf(q) === i)
+  /* Siblings are cards, never the page's own family: its paths are in the
+     table above (#52). */
+  const groups = schoolCards(school.programmes);
+  const at = groups.findIndex((g) => g.members.some((q) => q.slug === p.slug));
+  const siblings = groups.length > 1
+    ? [1, 2, 3].map((k) => groups[(at + k) % groups.length]).filter((g, i, all) => g !== groups[at] && all.indexOf(g) === i)
     : [];
 
   const pageSources = [
@@ -362,6 +433,16 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   ].filter((s, i, all) => s && all.findIndex((t) => t && t.url === s.url) === i);
 
   const handoff = { href: p.url, label: `Open on ${hostOf(p.url)} ↗` };
+
+  const paths = schoolPathsTable(site, inst, p, {
+    starts: (m) => m.starts || (/autumn/.test(school.intake || '') ? 'September' : null),
+    applyByOf: (m) => {
+      if (m.slug === p.slug) return closes ? prettyDate(closes) : holdersOnly ? HOLDERS_ONLY : null;
+      const s = forDates(inst, c, m);
+      const r = applyBy(site, s, keepFor(m, s), today);
+      return r.date ? prettyDate(r.date) : r.holdersOnly ? HOLDERS_ONLY : null;
+    },
+  });
 
   const body = html`
 ${hero({
@@ -401,6 +482,8 @@ ${hero({
     <div class="layout-aside${dates ? ' layout-aside--dates' : ''}">
       ${dates}
       <div class="prose">
+        ${/* One programme on several campuses, or as several paths: what
+              differs, in one small table, on every path's page. */ paths}
         <h2 id="requirements">What you need</h2>
         ${lead}
         ${!lead ? html`<p class="need__note">No requirement is recorded here yet.</p>` : ''}
@@ -418,7 +501,7 @@ ${hero({
         ${siblings.length
           ? html`<section class="topic" aria-labelledby="more-here">
               <h2 id="more-here">More at ${short}</h2>
-              <div class="prog-siblings">${siblings.map((q) => programmeCard(inst, q, { tuitionOnCard: false, headed: false, brief: true }))}</div>
+              <div class="prog-siblings">${siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true }))}</div>
             </section>`
           : ''}
 

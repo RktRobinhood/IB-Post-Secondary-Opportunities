@@ -150,3 +150,27 @@ critique lands (anchoring the photograph at 16:10).
 - `test-programme-images.mjs` counts "cards ≥ programmes" on institution pages.
   Change it to count ≥ cards.
 - Search and the sitemap keep every member page.
+
+## 6. Campuses, and school records (#52)
+
+Issue #52 asked for one card for "the same programme on several campuses". Campus was already one of the family axes, so there is no second mechanism.
+
+**Card.**
+- Where the paths are taught in different places, the credential line gives a count: "BSc · 3 yrs · 2 campuses".
+- The rows under it name each campus once, with what differs. This replaces the old "Aarhus or Herning".
+
+**Page.**
+- A campus family says it plainly: "The same programme is offered at the Aarhus campus and the Herning campus."
+- The table compares degree, length, campus, teaching language, start, Apply-by date, the minimum, DP Course Results and the last cut-off.
+- It shows only the columns that differ between the paths.
+
+**School records.** School records (`data/schools/*.json`) list their programmes inline, without ids. A family there is named, not numbered: members share `family.name`, with the same `axis`, `path`, `differs` and `primary`. `separateFrom` takes `[{ name, reason }]`.
+- The school page draws one card per family, with rows linking to each path's page.
+- Each path's page carries the same kind of Paths table, built from the record's own fields: places, the minimum, subjects, selection, cut-off and fee.
+- The "More at …" siblings are cards, and never the page's own family.
+
+**Checks.**
+- `checkSchoolFamilies` in `src/lib/families.mjs` holds school families, and runs in `check-schools`.
+- `scripts/test-card-names.mjs` checks the built pages.
+
+The sweep and every decision are in [../programme-families/campuses-52.md](../programme-families/campuses-52.md).

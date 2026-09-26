@@ -8,7 +8,8 @@
  *   1. every institution in data/countries/ has a page under /universities/;
  *   2. every institution card on a country page links to a page on this site;
  *   3. no link on a school page that leaves the site is a homepage;
- *   4. a school record listing programmes renders one card per programme;
+ *   4. a school record listing programmes renders one card per programme, or
+ *      per family of paths (#52), and links to every programme's page;
  *   5. each listed programme has its own page under its school, the school's
  *      page links to it, and nothing on it that leaves the site is a homepage;
  *   6. a programme page's "Apply by" is a date from the programme (`closes`),
@@ -26,6 +27,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, HOLDERS_ONLY } from '../src/lib/schools.mjs';
+import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -155,7 +157,9 @@ for (const [key, inst] of known) {
   const rec = records.get(key);
   if (rec?.scope === 'listed') {
     const shown = (main.split('id="programmes"')[1] || '').match(/class="card card--link/g)?.length || 0;
-    if (shown !== rec.programmes.length) fail(`/universities/${key}/ shows ${shown} programme cards; its record lists ${rec.programmes.length}`);
+    // One card per programme, or per family of paths (#52), which links to every path.
+    const want = schoolCardGroups(rec.programmes).length;
+    if (shown !== want) fail(`/universities/${key}/ shows ${shown} programme cards; its record makes ${want} (${rec.programmes.length} programmes)`);
     for (const p of programmePaths(key, rec.programmes)) {
       const own = read(p.href.slice(1, -1));
       if (!own) {

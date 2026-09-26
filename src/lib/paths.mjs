@@ -96,6 +96,13 @@ export function yearsRange(list) {
   return `${yearsShort(lo).replace(/ yrs?$/, '')}–${yearsShort(hi)}`;
 }
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+/** "15 March 2027" from an ISO date (or date-time). */
+const prettyDay = (iso) => {
+  const [y, m, d] = String(iso).slice(0, 10).split('-').map(Number);
+  return y && m && d ? `${d} ${MONTHS[m - 1]} ${y}` : null;
+};
+
 /** Several values as one fact: the distinct ones, in path order, joined with "or". */
 const orList = (list) => [...new Set(list.filter(Boolean))].join(' or ') || null;
 
@@ -306,10 +313,13 @@ export function familyCard(site, group, { campus = true } = {}) {
   const same = (k, list) => new Set(list.map((x) => x[k] ?? '')).size === 1;
 
   const differing = ['degree', 'years', 'campus'].filter((k) => !same(k, facets));
+  /* Several campuses read as a count on the line ("BSc · 3 yrs · 2
+     campuses"); the rows under it name them, each once (#52). */
+  const campuses = new Set(facets.map((f) => f.campus).filter(Boolean));
   const line = credentialLine({
     degree: orList(facets.map((f) => f.degree)),
     years: same('years', facets) ? facets[0].years : yearsRange(facets.map((f) => f.rawYears)),
-    campus: orList(facets.map((f) => f.campus)),
+    campus: campuses.size > 1 ? `${campuses.size} campuses` : orList(facets.map((f) => f.campus)),
   });
   const axis = group.family.axis;
   const floorsDiffer = !same('floor', adm);
@@ -439,11 +449,21 @@ export function pathsTable(site, p, inst) {
   // A figure stays on the line of its words: no "7.0" alone on a phone (round 3, bug 9).
   const keep = (t) => (t ? keepTogether(t) : null);
 
+  /* The first hard closing date of each path's Application Route, for the
+     reader: the "Apply by" of its own page. */
+  const applyBy = (m) => {
+    const opp = site.graph?.opportunities?.get(m.opportunityId || m.id);
+    const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
+    const close = (route?.milestones || []).find((x) => x.type === 'submit' && x.consequence === 'hard');
+    return close?.date ? prettyDay(close.date) : null;
+  };
   const cols = [
     { head: 'Degree', cell: (i) => facets[i].degree },
     { head: 'Length', cell: (i) => [facets[i].years, ects(members[i]) ? `${ects(members[i])} ECTS` : null].filter(Boolean).join(' · ') || null },
     { head: 'Campus', cell: (i) => facets[i].campus },
+    { head: 'Taught in', cell: (i) => members[i].language || null },
     { head: 'Starts', cell: (i) => members[i].startMonth || null },
+    { head: 'Apply by', cell: (i) => applyBy(members[i]) },
     { head: floorHead, cell: (i) => keep(stripLead(adm[i].floor)), small: (i) => keep(stripLead(adm[i].floorLocal)) },
     { head: 'DP Course Results', cell: (i) => (adm[i].award === AWARD_TEXT[ENTRY_AWARD.COURSE_RESULTS_ACCEPTED] ? 'Accepted' : adm[i].award === AWARD_TEXT[ENTRY_AWARD.DIPLOMA_REQUIRED] ? 'Full Diploma needed' : 'Not recorded') },
     { head: 'Last cut-off', cell: (i) => (adm[i].cutoffValue === 'all qualified' ? 'all qualified got in' : adm[i].cutoffValue) },
@@ -455,9 +475,17 @@ export function pathsTable(site, p, inst) {
   const cutoffsDiffer = cols.some((c) => c.head === 'Last cut-off');
 
   const differsAdmission = rec.family.admission === 'differs';
+  /* A family of campuses says what it is in plain words: one programme,
+     taught in more than one place (#52). */
+  const cities = [...new Set(facets.map((f) => f.campus).filter(Boolean))];
+  const onlyCampus = rec.family.axis === 'campus' && cities.length > 1;
+  const campusList = cities.map((c) => `the ${c} campus`);
+  const opening = onlyCampus
+    ? `The same programme is offered at ${campusList.slice(0, -1).join(', ')} and ${campusList[campusList.length - 1]}.`
+    : `${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}.`;
   return html`<section class="paths" aria-labelledby="paths-title">
-    <h2 id="paths-title">${members.length} ways to study ${rec.family.name}</h2>
-    <p class="paths__lede">${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}. ${
+    <h2 id="paths-title">${onlyCampus ? `${rec.family.name} on ${members.length} campuses` : `${members.length} ways to study ${rec.family.name}`}</h2>
+    <p class="paths__lede">${opening} ${
       differsAdmission
         ? 'What it takes to get in differs between them, so check each one.'
         : `The entry requirements are the same on each${cutoffsDiffer ? ', but last year’s cut-offs were not' : ''}.`

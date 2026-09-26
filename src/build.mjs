@@ -16,7 +16,7 @@ import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
 import { programme } from './pages/programme.mjs';
-import { schoolPage, inCardOrder } from './pages/schools.mjs';
+import { schoolPage, schoolCards } from './pages/schools.mjs';
 import { schoolProgrammePage } from './pages/school-programme.mjs';
 import { planner } from './pages/planner.mjs';
 import { courseResultsGuide } from './pages/course-results.mjs';
@@ -285,7 +285,7 @@ async function main() {
       /* A listed school's programmes: a page each under the school, paged
          in the order the school's page lists them. */
       if (inst.school?.scope === 'listed') {
-        const progs = inCardOrder(inst.school.programmes);
+        const progs = schoolCards(inst.school.programmes).flatMap((g) => g.members);
         const step = (j) => progs[j] && { href: progs[j].href, label: progs[j].name };
         for (const [j, p] of progs.entries()) {
           await write(p.href, schoolProgrammePage(site, inst, c, p, { prev: step(j - 1), next: step(j + 1) }));

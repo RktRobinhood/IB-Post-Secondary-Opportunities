@@ -241,6 +241,12 @@ export const CHECKS = [
     title: 'Every institution has its own page; nothing hands a student to a homepage',
   },
   {
+    id: 'card-names',
+    script: 'scripts/test-card-names.mjs',
+    stage: 'built',
+    title: 'No institution shows two programme cards with one name; every path page says what differs',
+  },
+  {
     id: 'text-walls',
     script: 'scripts/test-text-walls.mjs',
     stage: 'built',
