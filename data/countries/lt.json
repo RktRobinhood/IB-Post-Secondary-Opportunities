@@ -41,7 +41,7 @@
   "application": {
     "centralised": false,
     "portal": {
-      "name": "Study in Lithuania (national information portal; applications go direct to each university)",
+      "name": "Study in Lithuania (information portal); fee-paying places are applied for at each university, state-funded places through LAMA BPO",
       "url": "https://studyin.lt/"
     },
     "deadlines": [
@@ -185,18 +185,32 @@
         "source": "https://lsmu.lt/en/admission/admission-process/"
       },
       {
+        "label": "LAMA BPO - joint admission closes (state-funded places)",
+        "date": null,
+        "dateState": "not-published",
+        "consequence": "hard",
+        "provisional": false,
+        "year": "2027 entry",
+        "audience": "EU/EEA citizens seeking a state-funded place, and every EU/EEA applicant to the Vilnius Academy of Arts",
+        "notes": "For 2026 LAMA BPO took applications \"Until 23 July, 12:00 PM (noon)\", with SKVC recognition of your IB applied for by the same day. The 2027 date is not published yet.",
+        "source": "https://lamabpo.lt/en/admissions-to-higher-education-institutions-key-information-for-international-applicants/",
+        "sources": [
+          "https://www.vda.lt/en/admission/how-to-apply"
+        ]
+      },
+      {
         "label": "Everything else - each university sets its own date",
         "date": null,
         "dateState": "varies-by-institution",
         "consequence": "indicative",
         "provisional": false,
         "year": "2027 entry",
-        "notes": "There is no national application and no national deadline for international students in Lithuania, so beyond the three universities dated on this page you have to ask each institution. The national portal publishes only a pattern: \"The deadlines to apply for the autumn semester at most universities are in June, however, international students are strongly advised to apply as early as possible\", followed by the warning that recognition can take a month or more. The portal gives no year and no day, so there is no date here. Note how far the three dated universities sit from that June pattern - LSMU closes in July, ISM in late July for an EU applicant, Vilnius on 1 July - so \"most universities close in June\" is a reason to check, not a date to plan around.",
+        "notes": "Fee-paying places have no national application or deadline in Lithuania, so beyond the three universities dated on this page you have to ask each institution. State-funded places are the exception: they go through LAMA BPO, dated on its own card. The national portal publishes only a pattern: \"The deadlines to apply for the autumn semester at most universities are in June, however, international students are strongly advised to apply as early as possible\", followed by the warning that recognition can take a month or more. The portal gives no year and no day, so there is no date here. Note how far the three dated universities sit from that June pattern - LSMU closes in July, ISM in late July for an EU applicant, Vilnius on 1 July - so \"most universities close in June\" is a reason to check, not a date to plan around.",
         "source": "https://studyin.lt/how-to-apply/application-procedure/"
       }
     ],
     "steps": [
-      "Choose the university and programme first - there is no single national application for international students and each institution runs its own process and its own deadline.",
+      "Choose the university and programme first. Fee-paying places are applied for at each university; as an EU/EEA citizen you can also seek a state-funded place through LAMA BPO, the joint admission system.",
       "Check how your IB Diploma gets recognised. Some universities do it inside admission (LSMU does), others send you to SKVC first. Either way it can take a month or more, so start it two months before the deadline you are aiming at.",
       "Check which deadline is yours. ISM and Vilnius both publish different closing dates for visa-free and visa-required applicants, and as an EU/EEA citizen you get the later one, but only if you read the right line. In 2026 that was 24 July at ISM and 1 July at Vilnius; neither has confirmed its 2027 dates yet.",
       "Apply on the university’s own portal with your transcript, passport, proof of English and, at Vilnius University, a motivation letter of 1,200-4,000 characters. Vilnius University charges EUR 100 per application, which covers up to three programme choices, and will not process the application until the fee has cleared.",
@@ -437,7 +451,7 @@
       "type": "Art/Design/Music academy",
       "founded": 1793,
       "website": "https://www.vda.lt/en",
-      "admissionsUrl": "https://www.vda.lt/en/admission/application-portal",
+      "admissionsUrl": "https://www.vda.lt/en/admission/how-to-apply",
       "ibPageUrl": null,
       "englishBachelors": "Bachelor teaching is mainly in Lithuanian; English-taught bachelor options not confirmed here",
       "notableFields": [
@@ -446,7 +460,7 @@
         "Architecture",
         "Textile"
       ],
-      "note": "The national art academy, with campuses in four cities; entry is portfolio-based and you should assume Lithuanian at bachelor level unless told otherwise.",
+      "note": "The national art academy, with campuses in four cities; entry is portfolio-based and you should assume Lithuanian at bachelor level unless told otherwise. EU/EEA citizens apply through LAMA BPO, not the VDA portal.",
       "wikipedia": "https://en.wikipedia.org/wiki/Vilnius_Academy_of_Arts",
       "place": "lt-vilnius"
     },
@@ -560,6 +574,16 @@
       "title": "LAMA BPO - Key dates and deadlines (2026)",
       "url": "https://lamabpo.lt/en/bachelors-studies/key-dates-and-deadlines/",
       "retrieved": "2026-09-24"
+    },
+    {
+      "title": "LAMA BPO - Key information for international applicants (2026)",
+      "url": "https://lamabpo.lt/en/admissions-to-higher-education-institutions-key-information-for-international-applicants/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Vilnius Academy of Arts - How to apply",
+      "url": "https://www.vda.lt/en/admission/how-to-apply",
+      "retrieved": "2026-09-26"
     },
     {
       "title": "Founding years and institution types are from Wikipedia.",
