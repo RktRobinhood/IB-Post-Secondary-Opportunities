@@ -5,8 +5,10 @@
  *   node scripts/check-schools.mjs fi-uh fi-aalto  # just these
  *
  * Beyond the schema: the key must name an institution in data/countries/, the
- * scope must agree with the programme list, and no link the page hands a
- * student on to may be a homepage (issue #43). Exits non-zero on any failure.
+ * scope must agree with the programme list, no link the page hands a
+ * student on to may be a homepage (issue #43), and a programme's `needs` must
+ * name real IB subjects (data/ib-subjects.json) at a level each is offered at,
+ * because its page names them from that catalogue. Exits non-zero on any failure.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,6 +24,40 @@ for (const f of ['common.schema.json', 'school.schema.json']) {
 }
 
 const known = schoolKeys(path.join(ROOT, 'data', 'countries'));
+/* The IB subject catalogue: every id a `needs` entry may name, and its levels. */
+const IB = new Map(
+  JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'ib-subjects.json'), 'utf8')).subjects.map((x) => [x.id, x.levels || ['HL', 'SL']])
+);
+
+/** What is wrong with one programme's `needs`, as sentences. */
+function needsProblems(needs = [], where = 'needs') {
+  const out = [];
+  for (const [j, n] of (needs || []).entries()) {
+    for (const id of n.anyOf || []) {
+      const levels = IB.get(id);
+      if (!levels) out.push(`${where}[${j}]: "${id}" is not an IB subject in data/ib-subjects.json`);
+      else if (n.level && n.level !== 'any' && !levels.includes(n.level)) {
+        out.push(`${where}[${j}]: "${id}" is not offered at ${n.level} (only ${levels.join(', ')})`);
+      }
+    }
+  }
+  return out;
+}
+
+/* Self-test: the needs rule must refuse an invented id and a level a subject
+   is not offered at, and pass a real one. */
+{
+  const abInitio = [...IB].find(([, l]) => !l.includes('HL'))?.[0];
+  const bad = [
+    needsProblems([{ anyOf: ['not-a-subject'], level: 'HL' }]).length === 1,
+    !abInitio || needsProblems([{ anyOf: [abInitio], level: 'HL' }]).length === 1,
+    needsProblems([{ anyOf: [[...IB.keys()][0]], level: 'any' }]).length === 0,
+  ].some((ok) => !ok);
+  if (bad) {
+    console.log('✗ self-test: the needs rule cannot tell a catalogue subject from an invented one');
+    process.exit(1);
+  }
+}
 const only = process.argv.slice(2).map((a) => a.replace(/\.json$/, ''));
 const files = fs.existsSync(DIR)
   ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json') && (!only.length || only.includes(f.slice(0, -5))))
@@ -56,6 +92,7 @@ for (const f of files.sort()) {
     for (const [i, p] of progs.entries()) {
       if (isHomepage(p.url, home)) problems.push(`programmes[${i}] "${p.name}" links to a homepage`);
       if (seen.has(p.url)) problems.push(`programmes[${i}] "${p.name}" shares its link with another programme`);
+      problems.push(...needsProblems(p.needs, `programmes[${i}] "${p.name}" needs`));
       seen.add(p.url);
     }
     for (const [i, d] of (rec.dates || []).entries()) {

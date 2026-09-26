@@ -16,7 +16,8 @@ import { compare } from './pages/compare.mjs';
 import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
 import { programme } from './pages/programme.mjs';
-import { schoolPage } from './pages/schools.mjs';
+import { schoolPage, inCardOrder } from './pages/schools.mjs';
+import { schoolProgrammePage } from './pages/school-programme.mjs';
 import { planner } from './pages/planner.mjs';
 import { courseResultsGuide } from './pages/course-results.mjs';
 import { timeline } from './pages/timeline.mjs';
@@ -281,6 +282,15 @@ async function main() {
     for (const [i, inst] of schools.entries()) {
       const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].name };
       await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
+      /* A listed school's programmes: a page each under the school, paged
+         in the order the school's page lists them. */
+      if (inst.school?.scope === 'listed') {
+        const progs = inCardOrder(inst.school.programmes);
+        const step = (j) => progs[j] && { href: progs[j].href, label: progs[j].name };
+        for (const [j, p] of progs.entries()) {
+          await write(p.href, schoolProgrammePage(site, inst, c, p, { prev: step(j - 1), next: step(j + 1) }));
+        }
+      }
     }
   }
   // The finder is the home page now (plan.md, Batch D); old links arrive there.

@@ -8,13 +8,15 @@
  *   1. every institution in data/countries/ has a page under /universities/;
  *   2. every institution card on a country page links to a page on this site;
  *   3. no link on a school page that leaves the site is a homepage;
- *   4. a school record listing programmes renders one card per programme.
+ *   4. a school record listing programmes renders one card per programme;
+ *   5. each listed programme has its own page under its school, the school's
+ *      page links to it, and nothing on it that leaves the site is a homepage.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKeys, loadSchools, isHomepage } from '../src/lib/schools.mjs';
+import { schoolKeys, loadSchools, isHomepage, programmePaths } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -42,6 +44,7 @@ const countries = fs
   .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'countries', f), 'utf8')));
 
 let pages = 0;
+let programmePages = 0;
 let cards = 0;
 for (const c of countries) {
   const countryPage = read(`destinations/${c.code}`);
@@ -79,6 +82,22 @@ for (const [key, inst] of known) {
   if (rec?.scope === 'listed') {
     const shown = (main.split('id="programmes"')[1] || '').match(/class="card card--link/g)?.length || 0;
     if (shown !== rec.programmes.length) fail(`/universities/${key}/ shows ${shown} programme cards; its record lists ${rec.programmes.length}`);
+    for (const p of programmePaths(key, rec.programmes)) {
+      const own = read(p.href.slice(1, -1));
+      if (!own) {
+        fail(`${p.href} was not built for "${p.name}"`);
+        continue;
+      }
+      programmePages++;
+      if (!main.includes(`href="${BASE}${p.href}"`)) fail(`/universities/${key}/ does not link to ${p.href}`);
+      const body = own.split('<main')[1]?.split('</main>')[0] || '';
+      for (const m of body.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
+        const link = m[1].replace(/&amp;/g, '&');
+        if (isHomepage(link, inst.website)) fail(`${p.href} hands the student to a homepage: ${link}`);
+      }
+      // The hand-off is the programme's own page, and it is the page's last word.
+      if (!body.includes(`href="${p.url.replace(/&/g, '&amp;')}"`)) fail(`${p.href} does not hand on to the programme's own page`);
+    }
   }
 }
 
@@ -89,5 +108,10 @@ if (failures.length) {
   if (failures.length > 40) console.log(`  … and ${failures.length - 40} more`);
   process.exit(1);
 }
-console.log(`  ok    ${pages} school pages, ${cards} institution cards on country pages; none hands a student to a homepage`);
-void BASE;
+if (!programmePages) {
+  console.log('  FAIL  no programme pages found under any listed school — has the markup changed?');
+  process.exit(1);
+}
+console.log(
+  `  ok    ${pages} school pages, ${programmePages} programme pages, ${cards} institution cards on country pages; none hands a student to a homepage`
+);

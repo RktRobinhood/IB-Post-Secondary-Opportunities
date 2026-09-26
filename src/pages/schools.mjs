@@ -14,7 +14,8 @@ import { datesPanel } from '../lib/school-dates.mjs';
  *
  * What is in the programme section depends only on the record's `scope`
  * (schemas/school.schema.json), never on the country:
- *   - listed: a card per English-taught degree, each linking to its own page;
+ *   - listed: a card per English-taught degree, each linking to its page here
+ *     (school-programme.mjs), which hands on to the programme's own page;
  *   - catalogue: nearly everything is taught in English, so one way into the
  *     course search instead of a list nobody could keep true;
  *   - none: nothing in English, said plainly;
@@ -25,7 +26,7 @@ import { datesPanel } from '../lib/school-dates.mjs';
  * more as boilerplate.
  */
 
-const FIELD = {
+export const FIELD = {
   engineering: 'Engineering', computing: 'Computing', 'natural-sciences': 'Sciences', mathematics: 'Maths',
   business: 'Business', economics: 'Economics', 'social-sciences': 'Social sciences', law: 'Law',
   humanities: 'Humanities', languages: 'Languages', education: 'Education', health: 'Health',
@@ -89,10 +90,16 @@ function sharedTuition(programmes) {
   return fees.size === 1 ? [...fees][0] : null;
 }
 
+/** A listed school's programmes in the order its page shows them; their own
+    pages page through them in the same order. */
+export const inCardOrder = (programmes) =>
+  [...programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
+
 function programmeCard(inst, p, { tuitionOnCard, headed }) {
   return card({
-    href: p.url,
-    external: true,
+    // Its own page on this site (school-programme.mjs), where the link to the
+    // programme's page on the institution's site now lives.
+    href: p.href,
     mod: `card--prog card--fam-${FAMILY[p.field] || 'general'}`,
     // The field names the card's band, unless a heading above already does.
     kicker: headed ? null : FIELD[p.field],
@@ -104,8 +111,6 @@ function programmeCard(inst, p, { tuitionOnCard, headed }) {
       p.closes ? { label: `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
       tuitionOnCard && p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
     ].filter(Boolean),
-    // Where the card goes: the programme's own page, on the school's site.
-    meta: [`On ${hostOf(p.url)} ↗`],
   });
 }
 
@@ -127,7 +132,7 @@ function programmeSection(inst, c) {
   const where = inst.shortName && inst.shortName.length > 4 ? inst.shortName : inst.name;
 
   if (school?.scope === 'listed') {
-    const progs = [...school.programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
+    const progs = inCardOrder(school.programmes);
     const fee = sharedTuition(progs);
     const one = (p, headed = false) => programmeCard(inst, p, { tuitionOnCard: !fee, headed });
     const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;

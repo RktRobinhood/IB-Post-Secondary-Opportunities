@@ -2932,3 +2932,8 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
   background: linear-gradient(to bottom, rgba(8, 20, 18, .55), transparent);
 }
 .hero--panel:has(.crumbs)::before, .hero--plain:has(.crumbs)::before { display: none; }
+
+/* A programme's requirement in its institution's words, as one card
+   (src/pages/school-programme.mjs): read as the requirement, not as a note. */
+.need__said { color: var(--ink); line-height: 1.45; }
+.need__card .need__why + .need__said { flex-basis: 100%; }

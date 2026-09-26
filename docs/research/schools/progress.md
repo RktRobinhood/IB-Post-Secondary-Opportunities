@@ -72,3 +72,12 @@
 - `courses`, each as the listing counts it: Oxford 52, Imperial 73, UCL 441, St Andrews 151, Durham 174, Warwick 196, LSE 43, Bristol 270, Lancaster 474 ("for 2027/28 entry"), Nottingham 416, QMUL 122, UAL 107. Some counts include foundation-year and placement variants.
 - No `courses` where the listing gives no exact number: Bath says "over 190", Cambridge says "over 30", and Birmingham, City St George's, Edinburgh, Glasgow, KCL, Leeds, Loughborough and Manchester give none. The rough numbers in some summaries come from counting links: City 80, Edinburgh 334, Manchester 306. Loughborough's "about 150" was dropped, because I counted 125 links.
 - Could not verify: Oxford's course listing did not render its course cards in Chrome today. `courses: 52` is kept from round 1, which the critic confirmed.
+
+## Ireland (ie): 14 of 14 done, retrieved 2026-09-26
+
+- Scope: 12 catalogue (TCD, UCD, Galway, UCC, UL, DCU, Maynooth, TU Dublin, MTU, ATU, SETU, DkIT); 2 listed (RCSI 5 programmes, NCAD 10 CAO codes). Details per school in `reports/batch-ie.md`.
+- IB rule everywhere is CAO's 2026 booklet ("Award of diploma with 24 overall"); labelled 2026 criteria, 2027 not yet published. National dates live on the CAO route, not in school records.
+- Only 2027 dates published: NCAD portfolio deadline 12 Feb 2027 17:00; Maynooth BMus closing 1 Feb 2027.
+- Contradicts/adds to ie.json: UCC/RCSI/IUA HPAT reweighting for 2027 medicine entry; UL now runs undergraduate Medicine; RCSI offers Dentistry; TU Dublin pages show EU fee €3,000 vs ie.json's €2,500 (recheck); several ie.json superlatives ("oldest", "largest") unverified and not used.
+- Could not verify: dkit.ie and setu.ie block scripted reads (Cloudflare); both records rest on Wayback copies and CAO's 2026 course list, and their hand-off filter URLs need a live browser check and count.
+- Hand-off counts were read by curl/WebFetch, not in a browser, for all 14.

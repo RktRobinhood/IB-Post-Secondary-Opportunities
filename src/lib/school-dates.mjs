@@ -417,7 +417,16 @@ export function datesFor(site, inst, { programme = null } = {}) {
     return true;
   });
 
-  const own = programme ? [] : (inst.school?.dates || []).map((d, i) => fromSchoolDate(inst, d, i));
+  /* The school record's own dates: on its page, all of them; on one of its
+     programmes' pages, the ones that name no other programme. A canonical
+     Institution has no school record, so its Programme pages read none. */
+  const own = (inst.school?.dates || [])
+    .map((d, i) => fromSchoolDate(inst, d, i))
+    .filter((e) => {
+      if (!programme) return true;
+      const progs = programmesNamed(e);
+      return !progs.length || progs.some((p) => p.id === programme.id);
+    });
   const mine = restated(national, own, namesSelfIn);
 
   /* A school's own date for a step replaces the general one. On a school's
