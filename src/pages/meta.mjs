@@ -357,7 +357,7 @@ const QUESTIONS = [
   },
   {
     q: 'Something on this site contradicts my university\'s website.',
-    a: `Believe the university, then tell us. Every page here carries the date it was checked and links to its
+    a: `Believe the university, then tell us. Every page here carries the date its sources were last read and links to its
     sources, precisely so you can see how old a claim is. Admissions rules change annually and some of the ones
     here are scheduled to change before autumn 2027.`,
   },
@@ -490,7 +490,7 @@ ${hero({
       ${topic_({
         id: 'text',
         title: 'Text and data',
-        short: 'National admissions agencies, ministries and the universities’ own pages. Each page lists its sources at the foot, with the date it was checked.',
+        short: 'National admissions agencies, ministries and the universities’ own pages. Each page lists its sources at the foot, with the date each was last read.',
         body: html`<p>Facts on this site come from national admissions agencies, ministries and the universities' own
           admissions pages. Each country and institution page lists its own sources at the foot, with the date it
           was checked. The Danish conversion tables come from the Agency's <em>Eksamenshåndbogen</em>.</p>

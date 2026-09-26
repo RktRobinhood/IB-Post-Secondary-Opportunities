@@ -75,7 +75,35 @@ export const VOCABULARY = [
   // "verified electronically" is what IBIS does; neither is a research log.
   /\b(?:not |never )?(?<!(?:documents|document|diploma|copies|certificates|results) )(?:researched|verified)\b(?! (?:automatically|electronically|in Studielink|by (?:the|your) (?:university|school|coordinator)))/i,
   /\b(?:Recorded|Listed) (?:because|so)\b/i,
-  /\binferred from\b/i,
+  // Round 4 of the critique: the site explaining its own coverage, whatever
+  // the verb. "Named so the route is visible", "Listed for completeness",
+  // "recorded here", "recorded as", "inferred", "this site cannot state…".
+  /\b(?:Named|Listed|Included|Recorded|Mentioned|Shown)\b[^.]{0,40}\b(?:so that|so the|because|for completeness)\b/,
+  /\b(?:named|listed|included|recorded|mentioned) (?:so that|so the|because)\b/i,
+  /\bfor completeness\b/i,
+  /\bworth naming\b/i,
+  // "Recorded here" and "named on this page" are the site describing its
+  // records. "Listed above / below / here" is left alone: it points the reader
+  // to another part of the page ("not listed here", "listed above it"), which
+  // is navigation, not a research log. "Listed here because …" is flagged.
+  /\b(?:recorded|named) (?:here|above|below|on this page)\b/i,
+  /\b(?:named|listed|included) here because\b/i,
+  /\brecorded as\b/i,
+  /\bto record\b/i,
+  /\binferred\b/i,
+  // The site's machinery. "This site assumes the 2027 intake" and "this site
+  // treats X as meeting it" stay: they tell the student what judgement was
+  // made on their behalf, which is the honest form. "This site cannot state
+  // …" and "has no field for …" explain the data model instead.
+  /\bthis site (?:cannot|can't|can not|has no|records|does not record)\b/i,
+  // "Checked": only the research act. The stamps ("Checked 24 September
+  // 2026", "— checked 2026-09-24"), the verification labels ("not yet checked
+  // by a person") and the student's own step ("has to be checked with CSN")
+  // are not flagged.
+  /\b(?:was|were|been|when|we|absence was) checked\b(?! by a person)/i,
+  /\bchecked (?:in a browser|for (?:language|[A-Z]{2,}))\b/,
+  /\blooked for and\b/i,
+  /\bwe (?:could not|did not|have not|found|checked|looked)\b/i,
 ];
 
 export const RESEARCH_LOG = [...PHRASES, ...VOCABULARY];

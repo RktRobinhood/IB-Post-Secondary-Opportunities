@@ -563,6 +563,12 @@ export function evidenceBlock({ claim, records = [], summary }) {
   const states = records.map((r) => classify(r));
   const oneState = states.every((s) => s === states[0]) ? states[0] : null;
   const stateLabel = (s) => EVIDENCE_LABELS[s] || EVIDENCE_LABELS.none;
+  /* Said of every source at once, so a bare label after the list cannot read
+     as if it belonged to the last one (#41, critique round 4). */
+  const allSay = (s) =>
+    s === 'needs-review'
+      ? records.length > 1 ? 'None of these sources has been checked by a person yet.' : 'This source has not been checked by a person yet.'
+      : `${records.length > 1 ? 'All of these sources' : 'This source'}: ${stateLabel(s).toLowerCase()}.`;
 
   return html`<details class="evidence${conflicted ? ' evidence--conflict' : ''}">
     <summary>Where this comes from${records.length > 1 ? html` <span>(${records.length} sources)</span>` : ''}</summary>
@@ -598,7 +604,7 @@ export function evidenceBlock({ claim, records = [], summary }) {
         </li>`
       )}
     </ol>
-    ${oneState ? html`<p class="evidence__meta">${stateLabel(oneState)}.</p>` : ''}
+    ${oneState ? html`<p class="evidence__meta">${allSay(oneState)}</p>` : ''}
   </details>`;
 }
 

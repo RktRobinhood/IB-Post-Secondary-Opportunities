@@ -35,6 +35,17 @@
  * from" — which is what catches a phrasing nobody has quoted yet. The 31
  * phrasings are fixtures below.
  *
+ * Round 4 found the vocabulary was still built from quoted cases: "Listed so
+ * the route is visible" was gone and "Named so the route is visible" was not.
+ * So the rule now also catches the shape — a sentence in which the site
+ * explains its own coverage ("Named / Listed / Included / Recorded / Mentioned
+ * … so / because / for completeness", "recorded here / as", "to record",
+ * "inferred", "this site cannot / has no …", "we could not / found", "was
+ * checked"). Two forms deliberately stay: "listed above / below / here" is
+ * navigation, and "this site assumes / treats / shows X as …" tells the
+ * student what judgement was made on their behalf, which is the honest form
+ * and the convention for a year the publisher did not give.
+ *
  * Evidence `interpretation` is no longer rendered at all (src/lib/primitives.mjs
  * evidenceBlock): it is the researcher's account of how a source was read,
  * and on /prepare/ and /programmes/ it put "This corrects
@@ -91,7 +102,26 @@ export { RESEARCH_LOG, researchLog } from './lib/research-log.mjs';
  * hand-off list, not a place to excuse wording: nothing goes here that the
  * author of this guard was free to rewrite.
  */
-const HANDED_OFF = [];
+const HANDED_OFF = [
+  {
+    page: 'universities/at-mci/index.html',
+    match: 'fact boxes checked for language',
+    owner: 'the programme pages branch (data/schools/*.json is being edited there; not edited here)',
+    ask: 'data/schools/at-mci.json sources[].title: "MCI — Bachelor\'s programs (16 listed; language on each fact box)".',
+  },
+  {
+    page: 'universities/de-hsrw/index.html',
+    match: 'checked in a browser',
+    owner: 'the programme pages branch (data/schools/*.json is being edited there; not edited here)',
+    ask: 'data/schools/de-hsrw.json sources[].title: drop ", checked in a browser" from "(filter Bachelor + English: 16 of 23 bachelor\'s, checked in a browser)".',
+  },
+  {
+    page: 'universities/de-tum/index.html',
+    match: 'checked for TUM',
+    owner: 'the programme pages branch (data/schools/*.json is being edited there; not edited here)',
+    ask: 'data/schools/de-tum.json sources[].title: "(237 results, filtered to TUM)".',
+  },
+];
 
 let failures = 0;
 const check = (name, fn) => {
@@ -177,6 +207,38 @@ check('flags the research narrated', () => {
     'It was never researched for IB applicants.',
     '2027 entry, inferred from the 2026 calendar',
     'The year is inferred from a recurring date.',
+    // Round 4 of the critique: the site explaining its own coverage in other
+    // words. Each was live on a page the first four versions passed.
+    'Named so the route is visible.',
+    'Not covered here; named so that the route is visible.',
+    'Named here so that a student who meets the word knows where it sits.',
+    'Named because they exist and are on the same ministry route.',
+    'Named because MEXT names it as one of the five routes.',
+    'which is exactly why it is worth naming.',
+    'Listed for completeness.',
+    'Listed for completeness only.',
+    'these schools do not appear in the listings, which is why they are named here.',
+    "this site cannot state 'a qualification at this level', so it shows a full IB Diploma",
+    'and that absence was checked rather than assumed:',
+    'As recorded here, places on this programme are not limited.',
+    'so they are recorded as that one programme.',
+    'is recorded as meeting it.',
+    "ETH's estimate is the only official figure recorded here.",
+    'Trinity College Dublin is recorded above as an example.',
+    '2026 session - recorded as the pattern for 2027',
+    'so there is no opening date to record.',
+    'so the year here is inferred one cycle forward.',
+    'The years are inferred forward to the autumn 2027 intake.',
+    '212 dates we could not pin down',
+    'Looked for and not published, or set by each institution.',
+    'We have not listed its programmes one by one yet.',
+    'it is listed here because it was founded in Budapest',
+    'Included here and not only in the UAE file because its funding model is unusual.',
+    "Bachelor's programs (16 listed; fact boxes checked for language)",
+    "16 of 23 bachelor's, checked in a browser",
+    'We found no minimum on any page.',
+    'This site has no field for the second condition.',
+    'Mentioned so that nobody mistakes it for an EU route.',
   ]) assert.ok(researchLog(t).length, `not caught: ${t}`);
 });
 
@@ -207,6 +269,18 @@ check('leaves dates of currency and advice alone', () => {
     'Published as "1 February" with no year; this site assumes the 2027 intake.',
     'Not covered in detail on this site; ask the institutions directly.',
     '2027 entry, projected from the 2026 calendar',
+    // Round 4: navigation, the student's own steps and the honest disclosures stay.
+    'None of these sources has been checked by a person yet.',
+    'This source has not been checked by a person yet.',
+    'Checked 24 September 2026',
+    'The rule has to be checked while those subjects are still changeable.',
+    'Eligibility must be checked directly with CSN.',
+    'Four are taught in English and are listed here.',
+    'the higher preferences you listed above it',
+    'This site treats either one, at SL or HL, as meeting the requirement; Zealand has not confirmed that.',
+    'chosen when you apply, so this site shows them as that one programme.',
+    '212 dates with no published day',
+    'ETH gives no years; this site assumes the autumn 2027 intake.',
   ]) assert.deepEqual(researchLog(t), [], t);
 });
 
