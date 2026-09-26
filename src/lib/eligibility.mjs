@@ -264,8 +264,12 @@ function prepareRaise(record, whose = null) {
     text: record.text || null,
     timing: record.timing || null,
     subjects,
-    groups: (record.groups || []).filter((g) => g?.applicantGroup && (g.timing || g.text)),
+    groups: (record.groups || []).filter((g) => g?.applicantGroup && (g.timing || g.text || g.multiple || g.afterResults != null)),
     multiple: record.multiple || null,
+    /* How many supplementary courses may be finished after the IB results
+       arrive and still count for this intake. Null where the publisher says
+       nothing: then the scheme's number applies, and without one, none. */
+    afterResults: Number.isInteger(record.afterResults) ? record.afterResults : null,
   };
   return out.text || subjects.size ? out : null;
 }
@@ -297,10 +301,18 @@ export function levelRaiseFor(rule, subjectIndex, institutionId = null, profile 
        way — "from outside the EU/EEA you must have finished before 5 July". */
     const g = raise.groups.find((x) => groups.includes(x.applicantGroup)) || null;
     const text = [g?.text || base, g?.timing || raise.timing].filter(Boolean).join(' ');
+    /* The sentence about more than one course, and the count behind it, are
+       chosen for the student's group exactly as the timing is: round 5 found
+       SDU's non-EU students told "only one subject … after 5 July" under a
+       gap line that said every course must be finished before it. A group's
+       own words win; then the publisher's; then the scheme's. */
+    const national = raise === own ? scheme?.levelRaise : null;
+    const pick = (field) => g?.[field] ?? raise[field] ?? national?.[field] ?? null;
     return {
       text,
       whose: raise.whose,
-      multiple: raise.multiple || (raise === own ? scheme?.levelRaise?.multiple || null : null),
+      multiple: pick('multiple'),
+      afterResults: pick('afterResults') ?? 0,
       group: g?.applicantGroup || null,
     };
   }
@@ -396,6 +408,8 @@ export function convertProfile(profile, subjectIndex, scale = null) {
         held.set(target.subject, {
           level: target.level,
           rank,
+          ibId: found.id,
+          ibLevel: level,
           ibSubject: `${found.name} ${level}`,
           grade: entry.grade ?? null,
           note: row?.note || null,
@@ -404,6 +418,8 @@ export function convertProfile(profile, subjectIndex, scale = null) {
       } else if (rank === existing.rank && num(entry.grade) > num(existing.grade)) {
         existing.grade = entry.grade;
         existing.ibSubject = `${found.name} ${level}`;
+        existing.ibId = found.id;
+        existing.ibLevel = level;
         existing.caution = caution;
       }
     }
@@ -1072,7 +1088,7 @@ function localEquivalencyRule(rule, ctx) {
           // A supplementary course is taken at a level, so the step names it
           // that way ("Mathematics at A level"); the gap line gives the IB terms.
           subject: rule.subject, level: rule.level, phrase, course: `${rule.subject} at ${rule.level} level`,
-          whose: raiseFor.whose, multiple: raiseFor.multiple,
+          whose: raiseFor.whose, multiple: raiseFor.multiple, afterResults: raiseFor.afterResults,
         })],
         shared: ctx.quiet ? [] : [{ key: `raise:${raise}`, text: raise, short: 'a supplementary course', whose: raiseFor.whose }],
       }
@@ -1085,6 +1101,39 @@ function localEquivalencyRule(rule, ctx) {
     ? { actions: [step('test', `test:${alt.label}`, alt.label, { alsoMeets: alt.alsoMeets || [] })] }
     : {};
   const altSaid = alt ? ` The other published way in: ${[alt.label, alt.note].filter(Boolean).join('. ').replace(/\.?$/, '.')}` : '';
+  // What the source says of an applicant without it (ITU GBI: "only the programme in Data Science is open to international students").
+  const consequence = rule.consequence && !ctx.quiet ? ` ${rule.consequence}` : '';
+
+  /* A subject the student holds at no level, asked for above the scale's
+     lowest level (a language at A, a second foreign language at B, from nothing), is
+     not counted as one supplementary course: the national rule speaks of "ét
+     fag på ét niveau", and nothing recorded says a subject never taken can
+     reach B or A in one course. It is counted as at least one course, so a
+     plan that does not fit even then is "not met" for this intake; one that
+     would fit is a question, never "possible" (round 5). */
+  const lowest = Math.min(...scheme.rank.values());
+  const fromNothing = (lead) => {
+    const x = raiseExtra(wanted || terms.local);
+    for (const a of x.actions || []) a.uncertain = true;
+    return unmet(
+      `${lead} From no ${rule.subject} to ${rule.level} level: whether that can be done as one supplementary course is not recorded here — ask the institution.${consequence} (${asked}.)`,
+      true,
+      { actions: x.actions, fromNothing: true }
+    );
+  };
+
+  /* A mapping the scheme itself qualifies at this level ("formally counts as
+     B … confirm with the university") is a rule a person must judge, not a
+     tick — unless the institution's own record confirms it (round 5: P9's
+     language A Literature SL was green at ITU). */
+  const confirmedByInstitution = (h) => {
+    const rows = ctx.subjectIndex?.institutionRoutes?.get(ctx.institution)?.rows || [];
+    return rows.some((r) => r.levelScale === rule.levelScale && r.subject === rule.subject &&
+      (r.accepts || []).some((g) => g.length === 1 && g[0].ibSubject === h.ibId && (g[0].ibLevel === h.ibLevel || g[0].ibLevel === 'SL')));
+  };
+  const metOrAsk = (message, h) => (h?.caution && !confirmedByInstitution(h)
+    ? unsure(message.replace(/^Needs /, 'Check: needs '), false, { caution: true })
+    : met(message));
 
   /* The institution's own route, where the scheme's does not reach. */
   const viaInstitution = () => {
@@ -1099,6 +1148,7 @@ function localEquivalencyRule(rule, ctx) {
     const held = viaInstitution();
     const whose = `${terms.institution.name}'s own rule`;
     if (!held) {
+      if (!have && wantRank > lowest && raise) return fromNothing(`This needs ${wanted} (${whose}), and your profile has none of these.`);
       return unmet(`This needs ${wanted} (${whose}), and your profile has none of these.${closeIt} (${asked}.)`, !!raise, raiseExtra(wanted));
     }
     const names = held.map((h) => `${h.name} ${h.level}`).join(' with ');
@@ -1123,7 +1173,8 @@ function localEquivalencyRule(rule, ctx) {
        Physics was shown as a Geoscience "?"). */
     if (reason) return unsure(`No IB subject is equivalent to ${terms.local}. ${action || reason} (${asked}.)`, false, action ? {} : { noIbRoute: true, local: terms.local });
     if (!wanted) return unmet(`No IB subject is equivalent to ${terms.local}: ${terms.none} (${asked}.)`, false, { noIbRoute: true, local: terms.local });
-    return unmet(`This needs ${wanted}, and your profile has none.${closeIt} (${asked}.)`, !!raise, raiseExtra(wanted));
+    if (wantRank > lowest && raise) return fromNothing(`This needs ${wanted}, and your profile has none.`);
+    return unmet(`This needs ${wanted}, and your profile has none.${closeIt}${consequence} (${asked}.)`, !!raise, raiseExtra(wanted));
   }
   if (have.rank < wantRank) {
     return unmet(
@@ -1136,8 +1187,9 @@ function localEquivalencyRule(rule, ctx) {
   const caution = have.caution ? ` ${have.caution}` : '';
 
   if (rule.minGrade != null && terms.waiver && have.rank >= terms.waiver.rank) {
-    return met(
-      `Needs ${wanted}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level, where no minimum grade applies.${caution} (${asked}.)`
+    return metOrAsk(
+      `Needs ${wanted}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level, where no minimum grade applies.${caution} (${asked}.)`,
+      have
     );
   }
 
@@ -1159,13 +1211,15 @@ function localEquivalencyRule(rule, ctx) {
         false
       );
     }
-    return met(
-      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}.${caution} (${asked}.)`
+    return metOrAsk(
+      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}.${caution} (${asked}.)`,
+      have
     );
   }
 
-  return met(
-    `Needs ${wanted || terms.local}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}.${caution} (${asked}.)`
+  return metOrAsk(
+    `Needs ${wanted || terms.local}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}.${caution} (${asked}.)`,
+    have
   );
 }
 
@@ -1201,7 +1255,12 @@ function evaluateRule(rule, ctx) {
           soon,
           route
             ? {
-                ...(soon ? { actions: [step('route', `route:${route}`, rule.alternativeRouteSummary.short)] } : {}),
+                ...(soon ? { actions: [step('route', `route:${route}`, rule.alternativeRouteSummary.short, {
+                  /* A Course Results route to a university bachelor that needs
+                     further raises after the results arrive is a later intake: only a record that
+                     says it can be done for this intake makes it a step for it. */
+                  withinIntake: rule.alternativeRouteSummary.withinIntake === true,
+                })] } : {}),
                 shared: [{ key: `route:${route}`, text: route, short: rule.alternativeRouteSummary?.short || firstSentenceOf(route), whose: null }],
               }
             : {}
@@ -1370,18 +1429,20 @@ function evaluateRule(rule, ctx) {
       const actionable = best.unmet.every((r) => r.actionable);
       const others = scored.filter((o) => o !== best);
       const closedOthers = others.filter((o) => o.unmet.length === 0 && o.closed.length && !o.unknown.length);
+      /* The gap first, so its first sentence is the line a phone shows; which
+         combination it is comes after (round 5: "The closest needs: Needs …"). */
       const lead = others.length && closedOthers.length === others.length
         ? ''
-        : `None of the ${groups.length} accepted combinations is complete. The closest needs: `;
+        : ` (None of the ${groups.length} accepted combinations is complete; this is the closest.)`;
       const closedSaid = closedOthers.length && !lead
         ? ` The other option${closedOthers.length > 1 ? 's' : ''}, ${orList(closedOthers.flatMap((o) => o.closed.map((r) => r.local || 'one with no IB subject')))}, ${closedOthers.length > 1 ? 'have' : 'has'} no IB equivalent, so ${closedOthers.length > 1 ? 'they are' : 'it is'} not a way in.`
         : '';
       const consequence = !actionable && rule.consequence ? ` The published rule: "${rule.consequence}"` : '';
       return unmet(
-        `${lead}${best.unmet.map((r) => r.message).join(' ')}${closedSaid}${consequence}`,
+        `${best.unmet.map((r) => r.message).join(' ')}${lead}${closedSaid}${consequence}`,
         actionable,
         actionable
-          ? { actions: best.unmet.flatMap((r) => r.actions || []), shared: best.unmet.flatMap((r) => r.shared || []) }
+          ? { actions: best.unmet.flatMap((r) => r.actions || []), shared: best.unmet.flatMap((r) => r.shared || []), fromNothing: best.unmet.some((r) => r.fromNothing) }
           : { shared: best.unmet.flatMap((r) => r.shared || []) }
       );
     }
@@ -1408,6 +1469,10 @@ function evaluateRule(rule, ctx) {
           return met('Holders of a full IB Diploma are exempt from this requirement.');
         }
         if (profile.holdsDiploma === false) {
+          /* Where the record says the exemption's reach is an open question
+             (SEA exempts "an International Baccalaureate exam"), the question
+             is what the student is told. */
+          if (rule.openQuestion) return unsure(`${rule.label || 'A language requirement'} — ${rule.openQuestion}`);
           return unsure(
             `${rule.label || 'A language requirement'} — the exemption is for full IB Diploma holders, so with Course Results you would need to meet it directly. Check the official page.`
           );
@@ -1423,7 +1488,10 @@ function evaluateRule(rule, ctx) {
         const have = conv.held.get(rule.subject);
         const want = rule.level ? conv.scheme?.rank.get(rule.level) : null;
         if (conv.scheme && have && (want == null || have.rank >= want)) {
-          return met(`${rule.subject}${rule.level ? ` ${rule.level}` : ''} is covered by your ${have.ibSubject}.${have.caution ? ` ${have.caution}` : ''}`);
+          const said = `${rule.subject}${rule.level ? ` ${rule.level}` : ''} is covered by your ${have.ibSubject}.`;
+          // A mapping the scheme qualifies is a question, not a tick (round 5).
+          if (have.caution) return unsure(`${said} ${have.caution}`, false, { caution: true });
+          return met(said);
         }
       } else if (rule.ibSubject) {
         const found = lookupSubject(ctx.subjectIndex, rule.ibSubject);
@@ -1478,19 +1546,24 @@ function evaluateRule(rule, ctx) {
 }
 
 /**
- * Whether every gap can be closed by a named step before the deadline, and
- * what the steps are. Null when they cannot — that is "Does not currently
- * meet".
+ * Whether every gap can be closed by a named step in time for this intake,
+ * and what the steps are. Null when a gap names no step at all.
  *
  *   - every gap must carry a step (a gap that is only "actionable" names
  *     nothing, and "Possible with action" has to say what the action is);
  *   - a step the source says also meets another requirement closes that one
  *     too (CBS's Cambridge C1 185: English B at 6.0 and English A);
- *   - one step is possible; several are possible only when every one is a
- *     supplementary course, there are at most MAX_RAISES of them, and the
- *     publisher says something about taking more than one — which is then
- *     said, because it is the constraint the student has to plan around
- *     ("only one subject after 5 July").
+ *   - one test or route is possible, unless the record does not say the route
+ *     can be completed for this intake (`withinIntake`);
+ *   - supplementary courses are possible only as many as the publisher lets
+ *     this student's applicant group finish after the IB results arrive
+ *     (`afterResults`), and never more than MAX_RAISES, which is this site's
+ *     own limit. The student is in DP2: a course that must be passed before
+ *     the results is not a step for this intake (round 5).
+ *
+ * Returns { possible, lead, summary }: `lead` is what the planner prints
+ * before the summary — "To do" when possible, "For 2027" or "Our limit" when
+ * the steps exist but do not fit.
  */
 function planSteps(gaps) {
   if (!gaps.length || !gaps.every((g) => g.actionable && g.actions?.length)) return null;
@@ -1503,16 +1576,58 @@ function planSteps(gaps) {
   const steps = new Map();
   for (const g of gaps.filter((x) => !covered.has(x.id))) for (const a of g.actions) if (!steps.has(a.key)) steps.set(a.key, a);
   const list = [...steps.values()];
-  if (list.length === 1) {
+  const raises = list.filter((a) => a.kind === 'raise');
+  const others = list.filter((a) => a.kind !== 'raise');
+
+  if (others.some((a) => a.withinIntake === false)) {
     return {
-      steps: 1,
-      summary: covered.size ? `One step closes ${gaps.length === 2 ? 'both' : `all ${gaps.length}`}: ${list[0].text}`.replace(/\.?$/, '.') : null,
+      possible: false,
+      lead: 'For 2027',
+      summary: 'Nothing recorded here says this route can be completed in time for the 2027 intake, so it counts toward a later one.',
     };
   }
-  if (list.length > MAX_RAISES || !list.every((a) => a.kind === 'raise')) return null;
-  const multiple = list.find((a) => a.multiple)?.multiple || null;
-  if (!multiple) return null;
-  return { steps: list.length, summary: `${list.length} supplementary courses: ${listOf(list.map((a) => a.course || a.phrase))}. ${multiple}` };
+  if (others.length && raises.length) return null;
+  if (others.length > 1) return null;
+  if (others.length === 1) {
+    return {
+      possible: true,
+      lead: 'To do',
+      summary: covered.size ? `One step closes ${gaps.length === 2 ? 'both' : `all ${gaps.length}`}: ${others[0].text}`.replace(/\.?$/, '.') : null,
+    };
+  }
+
+  const n = raises.length;
+  const courses = `${n} supplementary course${n === 1 ? '' : 's'}: ${listOf(raises.map((a) => a.course || a.phrase))}.`;
+  const multiple = raises.find((a) => a.multiple)?.multiple || null;
+  const allowed = Math.min(...raises.map((a) => a.afterResults ?? 0));
+  /* A subject from nothing is counted as one course, but that it is one is
+     not established: a plan that fits only on that count is a question. */
+  const uncertain = raises.some((a) => a.uncertain);
+  if (n <= allowed && n > MAX_RAISES) {
+    /* Only where the publisher would allow more: our cap is then the reason, and it says so. */
+    return {
+      possible: false,
+      lead: 'Our limit',
+      summary: `${courses} That is more than one intake allows: this site counts at most ${MAX_RAISES} supplementary courses as "possible with action". It is our limit, not the university's.`,
+    };
+  }
+  if (n <= allowed) {
+    return {
+      possible: true,
+      uncertain,
+      lead: uncertain ? 'To check' : 'To do',
+      summary: uncertain
+        ? `${courses} Whether ${raises.filter((a) => a.uncertain).map((a) => a.subject).join(' and ')} from nothing can be done in one course is not recorded here.`
+        : n === 1 ? null : `${courses} ${multiple || ''}`.trim(),
+    };
+  }
+  const before = n - allowed;
+  const who = before === n ? (n === 1 ? 'It has' : 'All of them have') : `${before} of them ${before === 1 ? 'has' : 'have'}`;
+  return {
+    possible: false,
+    lead: 'For 2027',
+    summary: `${courses} ${who} to be passed before your IB results arrive — in practice during DP2, or by applying for 2028.${multiple ? ` ${multiple}` : ''}`,
+  };
 }
 
 /* --- Evaluating an Opportunity ---------------------------------------------- */
@@ -1566,6 +1681,7 @@ export function assess(profile, opportunity, options) {
       actionable: !!result.actionable,
       actions: result.actions || [],
       shared: result.shared || [],
+      fromNothing: !!result.fromNothing,
       evidence: rule.evidence || [],
       officialWording: rule.officialWording?.text || null,
     };
@@ -1674,7 +1790,9 @@ export function assess(profile, opportunity, options) {
   if (dataIssues.length) outcome = OUTCOME.NEEDS_REVIEW;
   else if (gaps.length === 0 && unknowns.length === 0) outcome = OUTCOME.MEETS;
   else if (gaps.length === 0) outcome = OUTCOME.NEEDS_REVIEW;
-  else if (plan) outcome = OUTCOME.POSSIBLE;
+  /* A step we could not count (a subject from nothing) beside the ones we
+     can: the plan is not known to be complete, so it is a question. */
+  else if (plan?.possible) outcome = plan.uncertain ? OUTCOME.NEEDS_REVIEW : OUTCOME.POSSIBLE;
   else outcome = OUTCOME.DOES_NOT_MEET;
 
   /* Eligible, but below a floor that closes one route: not a plain yes. */
@@ -1695,7 +1813,8 @@ export function assess(profile, opportunity, options) {
     /* What "Possible with action" asks of the student, as one line, where it
        is more than a single gap's own step: "2 supplementary courses: …", or
        "One step closes both: …". Null otherwise. */
-    actionSummary: outcome === OUTCOME.POSSIBLE ? plan?.summary || null : null,
+    actionSummary: plan?.summary && (outcome === OUTCOME.POSSIBLE || (outcome === OUTCOME.NEEDS_REVIEW && plan.uncertain) || (outcome === OUTCOME.DOES_NOT_MEET && !plan.possible)) ? plan.summary : null,
+    actionLead: plan?.summary ? plan.lead : null,
     matched,
     gaps,
     unknowns,

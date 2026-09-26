@@ -239,7 +239,29 @@ function rule(entry, mark, common = new Map()) {
     if (!common.has(s.key)) continue;
     text = text.replace(esc(s.text), `${esc(s.short)} (<a href="#p-how">how: see above</a>)`);
   }
-  return `<li>${mark} ${text}</li>`;
+  /* One short lead line per reason, the rest one tap down (round 5: gap
+     lines were paragraphs, about 900 px of them on a phone). The lead is the
+     first sentence; nothing is dropped. */
+  const cut = text.search(/\.(?=\s+(?:[A-Z(]|&quot;))/);
+  if (cut > 0 && cut < text.length - 2) {
+    const lead = text.slice(0, cut + 1);
+    const more = text.slice(cut + 1).trim();
+    return `<li class="why">${mark} <details class="why__more"><summary>${lead}</summary><span>${more}</span></details></li>`;
+  }
+  return `<li class="why">${mark} ${text}</li>`;
+}
+
+/* "Source read 23 Sep 2026 · not yet reviewed by a person": what was read,
+   when, and whether a person has looked (round 5: "not yet checked by a
+   person, checked 2026-09-23" read as "not checked, checked"). */
+function evidenceLine(ev) {
+  if (!ev) return '';
+  const d = ev.checkedAt ? new Date(`${ev.checkedAt}T12:00:00Z`) : null;
+  const when = d && !Number.isNaN(d.getTime())
+    ? `${d.getUTCDate()} ${'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[d.getUTCMonth()]} ${d.getUTCFullYear()}`
+    : null;
+  const state = ev.level === 'needs-review' ? 'not yet reviewed by a person' : ev.label.toLowerCase();
+  return when ? `Source read ${esc(when)} · ${esc(state)}.` : `Source: ${esc(state)}.`;
 }
 
 /* Who a shared passage belongs to, for the box above the results. */
@@ -256,7 +278,7 @@ function renderHow(common) {
     return;
   }
   els.how.hidden = false;
-  els.how.innerHTML = `<summary>How to close a gap: said once here for the results below that share it</summary>
+  els.how.innerHTML = `<summary>How to close a gap</summary>
     <ul style="margin:.25rem 0 0;padding-left:1.2em;font-size:.875rem;color:var(--ink-soft);line-height:1.6">
       ${[...common.values()].map(({ s, n }) => s.key.startsWith('route:')
         /* A route is long (up to 400 words for a Dutch one): its one-line
@@ -309,7 +331,7 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
         <summary style="font-family:var(--sans);font-size:.9375rem;padding:.35rem 1.6rem .35rem 0">
           Why this result
         </summary>
-        <ul style="margin:.25rem 0 0;padding-left:1.2em;font-size:.875rem;color:var(--ink-soft);line-height:1.6">
+        <ul class="why-list" style="margin:.25rem 0 0;padding-left:0;list-style:none;font-size:.875rem;color:var(--ink-soft);line-height:1.6">
           ${explanation || '<li>No requirements are recorded for this programme yet.</li>'}
           ${assessment.dataIssues.map((i) => `<li><strong>${esc(i)}</strong></li>`).join('')}
         </ul>
@@ -321,7 +343,15 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
         ? `<p><small><strong>Your way in:</strong> ${esc(assessment.route.text)}</small></p>`
         : ''}
       ${assessment.actionSummary
-        ? `<p><small><strong>To do:</strong> ${esc(assessment.actionSummary)}</small></p>`
+        ? `<p><small><strong>${esc(assessment.actionLead || 'To do')}:</strong> ${esc(assessment.actionSummary)}</small></p>`
+        : ''}
+      ${/* Below a quota 1 floor on a card that is not "Quota 2 only", the other
+           route and its date are said too (round 5: P8 at SDU and AU). */ ''}
+      ${!assessment.route && assessment.outcome !== OUTCOME.MEETS && (assessment.floors || []).some((f) => f.status === 'unmet' && f.otherRoute)
+        ? (() => {
+            const f = assessment.floors.find((x) => x.status === 'unmet' && x.otherRoute);
+            return `<p><small><strong>Below the ${esc(f.quota.toLowerCase())} floor, your way in is ${esc(f.otherRoute.quota.toLowerCase())}:</strong> ${esc(f.otherRoute.text)}</small></p>`;
+          })()
         : ''}
       <p><small>
         ${assessment.selection.restricted
@@ -331,7 +361,7 @@ function renderCard({ opportunity, assessment }, common = new Map()) {
           : 'Open admission: meeting the requirements is enough.'}
       </small></p>
       <p><small>
-        ${ev ? `Evidence: ${esc(ev.label.toLowerCase())}${ev.checkedAt ? `, checked ${esc(ev.checkedAt)}` : ''}. ` : ''}
+        ${evidenceLine(ev)}
         Intake ${esc(assessment.provenance.intake || '')}.
       </small></p>
       ${d.official ? `<p><small><a href="${esc(d.official)}" rel="noopener nofollow">Check the official page</a></small></p>` : ''}
@@ -358,14 +388,16 @@ function render() {
 
   const visible = results.filter((r) => show[r.assessment.outcome]);
 
+  /* Each number is kept on the line of its label at 390 px (round 5). */
+  const pair = (n, label) => `<span style="white-space:nowrap"><b>${n || 0}</b> ${label}</span>`;
   els.count.innerHTML =
-    `<b>${tally[OUTCOME.MEETS] || 0}</b> meet the published requirements · ` +
-    (tally[OUTCOME.OTHER_ROUTE]
-      ? `<b>${tally[OUTCOME.OTHER_ROUTE]}</b> ${esc(otherRouteLabel(results))} · `
-      : '') +
-    `<b>${tally[OUTCOME.POSSIBLE] || 0}</b> possible with action · ` +
-    `<b>${tally[OUTCOME.NEEDS_REVIEW] || 0}</b> need review · ` +
-    `<b>${tally[OUTCOME.DOES_NOT_MEET] || 0}</b> not currently met` +
+    [
+      pair(tally[OUTCOME.MEETS], 'meet the published requirements'),
+      ...(tally[OUTCOME.OTHER_ROUTE] ? [pair(tally[OUTCOME.OTHER_ROUTE], esc(otherRouteLabel(results)))] : []),
+      pair(tally[OUTCOME.POSSIBLE], 'possible with action'),
+      pair(tally[OUTCOME.NEEDS_REVIEW], 'need review'),
+      pair(tally[OUTCOME.DOES_NOT_MEET], 'not currently met'),
+    ].join(' · ') +
     (profile.subjects.length < 6
       ? ` <span style="color:var(--warn)">(only ${profile.subjects.length} of 6 subjects entered)</span>`
       : '') +
