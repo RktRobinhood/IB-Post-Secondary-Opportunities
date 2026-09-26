@@ -36,7 +36,14 @@
     "note": "Campus is the single biggest decision at SDU, because the towns are genuinely far apart and nothing like each other."
   },
   "levelRaise": {
-    "text": "SDU accepts supplementary courses; an EU/EEA applicant who has not finished by 5 July is offered a place conditional on passing by 31 August.",
+    "text": "SDU accepts supplementary courses.",
+    "timing": "An EU/EEA applicant who has not finished by 5 July is offered a place conditional on passing by 31 August.",
+    "groups": [
+      {
+        "applicantGroup": "non-eu",
+        "timing": "From outside the EU/EEA you must have finished them before 5 July."
+      }
+    ],
     "evidence": [
       "ev-sdu-dk-1cc7woa"
     ]

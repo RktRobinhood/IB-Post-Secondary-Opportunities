@@ -175,7 +175,7 @@ export function buildSubjectIndex(input = []) {
   for (const inst of institutionRecords) {
     const rows = inst?.ibEquivalences || [];
     const quotas = inst?.admissionRoutes || [];
-    const raise = inst?.levelRaise || null;
+    const raise = prepareRaise(inst?.levelRaise, inst?.shortName || inst?.name || inst?.id);
     if (!inst?.id || (!rows.length && !quotas.length && !raise)) continue;
     institutionRoutes.set(inst.id, { name: inst.name || inst.shortName || inst.id, rows, quotas, raise });
   }
@@ -227,7 +227,8 @@ function prepareScheme(record) {
     withoutEquivalenceAction,
     /* How a student raises a subject to a level they do not hold, as the
        scheme's authority publishes it. An institution may add its own. */
-    levelRaise: record.levelRaise?.text || null,
+    // Nobody is named as its owner: the scheme is the table, not the authority that words the route.
+    levelRaise: prepareRaise(record.levelRaise, null),
     noEquivalenceNote: record.noEquivalenceNote || 'No equivalent is published.',
     /* The words and the link a page uses when it shows a requirement in this
        scheme's own vocabulary beside its IB translation. Data, because the
@@ -241,6 +242,69 @@ function prepareScheme(record) {
     single: record.gradeConversion?.single?.table || [],
     average: record.gradeConversion?.average?.table || [],
   };
+}
+
+/**
+ * How a subject level is raised, as one publisher writes it: a default that
+ * names no subject, a text per subject where the publisher words it per
+ * subject ("You complete a supplementary course in [the language] level A"), the
+ * timing that applies to everyone, a timing per applicant group, and what
+ * the publisher says about taking more than one. Every part is optional.
+ *
+ * The parts are kept apart because the round-4 critic found one publisher's
+ * Maths sentence attached to every subject: a student missing a language at
+ * A level was told to take an online Mathematics course.
+ */
+function prepareRaise(record, whose = null) {
+  if (!record) return null;
+  const subjects = new Map();
+  for (const s of record.subjects || []) if (s?.subject && s.text) subjects.set(normalise(s.subject), s.text);
+  const out = {
+    whose,
+    text: record.text || null,
+    timing: record.timing || null,
+    subjects,
+    groups: (record.groups || []).filter((g) => g?.applicantGroup && (g.timing || g.text)),
+    multiple: record.multiple || null,
+  };
+  return out.text || subjects.size ? out : null;
+}
+
+/**
+ * The action that closes a missing or too-low subject level: the
+ * institution's own where it publishes one for this subject (or for every
+ * subject), otherwise the Recognition Scheme authority's. Null when neither
+ * publishes one, and then nothing is claimed.
+ *
+ * `text` names the subject asked for or no subject at all, never another one:
+ * scripts/test-eligibility.mjs reads every rule in the catalogue through this
+ * and fails if it does.
+ */
+export function levelRaiseFor(rule, subjectIndex, institutionId = null, profile = null) {
+  if (!rule?.subject) return null;
+  const scheme = rule.levelScale ? subjectIndex?.schemes?.get(rule.levelScale) || null : null;
+  const own = institutionId ? subjectIndex?.institutionRoutes?.get(institutionId)?.raise || null : null;
+  const key = normalise(rule.subject);
+  const groups = Array.isArray(profile?.applicantGroups) && profile.applicantGroups.length
+    ? profile.applicantGroups
+    : profile?.applicantGroup ? [profile.applicantGroup] : [];
+
+  for (const raise of [own, scheme?.levelRaise]) {
+    if (!raise) continue;
+    const base = raise.subjects.get(key) || raise.text;
+    if (!base) continue;
+    /* The first group the profile belongs to that the publisher words its own
+       way — "from outside the EU/EEA you must have finished before 5 July". */
+    const g = raise.groups.find((x) => groups.includes(x.applicantGroup)) || null;
+    const text = [g?.text || base, g?.timing || raise.timing].filter(Boolean).join(' ');
+    return {
+      text,
+      whose: raise.whose,
+      multiple: raise.multiple || (raise === own ? scheme?.levelRaise?.multiple || null : null),
+      group: g?.applicantGroup || null,
+    };
+  }
+  return null;
 }
 
 function lookupSubject(subjectIndex, name) {
@@ -323,6 +387,8 @@ export function convertProfile(profile, subjectIndex, scale = null) {
       continue;
     }
 
+    // A mapping the scheme qualifies at this level ("formally counts as B …").
+    const caution = row?.caution && (row.caution.levels || []).includes(level) ? row.caution.text : null;
     for (const target of targets) {
       const rank = scheme.rank.get(target.level) ?? 0;
       const existing = held.get(target.subject);
@@ -333,10 +399,12 @@ export function convertProfile(profile, subjectIndex, scale = null) {
           ibSubject: `${found.name} ${level}`,
           grade: entry.grade ?? null,
           note: row?.note || null,
+          caution,
         });
       } else if (rank === existing.rank && num(entry.grade) > num(existing.grade)) {
         existing.grade = entry.grade;
         existing.ibSubject = `${found.name} ${level}`;
+        existing.caution = caution;
       }
     }
   }
@@ -383,6 +451,24 @@ export function ibPointsFor(value, gradeScale, subjectIndex) {
     return reaching.length ? Math.min(...reaching) : null;
   }
   return null;
+}
+
+/**
+ * A published cut-off beside a student's own total, in IB points. Where even
+ * the lowest total a Diploma is awarded at converts above the cut-off, the
+ * figure is not printed as points — "last cut-off: 21" brought back a
+ * sub-Diploma total (round 4, AAU Chemical Engineering) — and the line says
+ * any IB Diploma clears it. A cut-off that is not a figure ("All admitted")
+ * has no points and no comparison.
+ */
+export function cutoffComparison(cutoff, total, subjectIndex) {
+  const pts = ibPointsFor(cutoff?.value, cutoff?.scale, subjectIndex);
+  const floor = subjectIndex?.diplomaMinimumPoints ?? null;
+  const anyDiploma = pts != null && floor != null && pts <= floor;
+  const you = total == null || pts == null
+    ? null
+    : anyDiploma ? `You: ${total} · any IB Diploma clears it` : `You: ${total} · last cut-off: ${pts}`;
+  return { points: anyDiploma ? null : pts, anyDiploma, you };
 }
 
 /** The scheme whose grade scale a figure is on. */
@@ -454,11 +540,18 @@ function minimumAverageRule(rule, ctx) {
 
   if (!subjects.length) {
     const pts = ctx.profile.totalPoints;
+    /* A Course candidate has no Diploma total to add, and the table converts
+       Diploma totals: how Course Results are averaged is not recorded here. */
+    if (pts == null && ctx.profile.holdsDiploma === false) {
+      return unsure(`Needs ${terms.ibText}. The table converts Diploma totals, and how Course Results are averaged is not recorded here: ask the institution. (${asked}.)`);
+    }
     if (pts == null) return unsure(`Needs ${terms.ibText}. Add your predicted total to check. (${asked}.)`, true);
     const avg = convertAverage(pts, scheme.average);
     if (avg == null) return unsure(`${scheme.label} publishes no conversion for ${pts} points, so this cannot be checked.`);
+    /* Below a minimum average there is nothing to do before the deadline: it
+       is a gap without an action (RUC: "you will receive a rejection letter"). */
     if (avg < terms.min) {
-      return unmet(`Needs ${terms.ibText}: your ${pts} points convert to ${avg.toFixed(1)}, below ${terms.label}. (${asked}.)`, true);
+      return unmet(`Needs ${terms.ibText}: your ${pts} points convert to ${avg.toFixed(1)}, below ${terms.label}. (${asked}.)`);
     }
     return met(`Needs ${terms.ibText}: your ${pts} points convert to ${avg.toFixed(1)}. (${asked}.)`);
   }
@@ -468,7 +561,7 @@ function minimumAverageRule(rule, ctx) {
     const have = ctx.converted(x.levelScale).held.get(x.subject);
     const rank = x.level ? scheme && ctx.converted(x.levelScale).scheme?.rank.get(x.level) : null;
     if (!have || (rank != null && have.rank < rank)) {
-      return unmet(`Needs ${terms.ibText}, and your profile has no IB subject that counts as ${x.subject}${x.level ? ` ${x.level}` : ''}. (${asked}.)`, true);
+      return unmet(`Needs ${terms.ibText}, and your profile has no IB subject that counts as ${x.subject}${x.level ? ` ${x.level}` : ''}. (${asked}.)`);
     }
     if (have.grade == null) return unsure(`Needs ${terms.ibText}. Add your grade for ${have.ibSubject} to check. (${asked}.)`, true);
     const c = convertGrade(have.grade, scheme.single);
@@ -481,7 +574,7 @@ function minimumAverageRule(rule, ctx) {
   const said = grades.map((g) => `${g.name} at ${g.grade}`).join(' and ');
   return avg >= terms.min
     ? met(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}. (${asked}.)`)
-    : unmet(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}, below ${terms.label}. (${asked}.)`, true);
+    : unmet(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}, below ${terms.label}. (${asked}.)`);
 }
 
 /** An IB total on a Recognition Scheme's grade-average table. */
@@ -712,7 +805,10 @@ export function unionPhrase(translations, subjectIndex) {
     }
   }
   for (const o of opts.values()) o.levels.sort((a, b) => IB_LEVEL_RANK[a] - IB_LEVEL_RANK[b]);
-  return [ibTermsPhrase([...opts.values()], subjectIndex), ...combos].filter(Boolean).join(' / ');
+  /* A combined route closes the list with ", or": a slash inside a list of
+     subjects was hard to parse (round 4, AU cards). */
+  const parts = [ibTermsPhrase([...opts.values()], subjectIndex), ...combos].filter(Boolean);
+  return parts.length <= 1 ? parts[0] || '' : `${parts.slice(0, -1).join(', ')}, or ${parts.at(-1)}`;
 }
 
 /** A grade as its scale writes it, or as a number where the scale does not say. */
@@ -832,8 +928,31 @@ export function ibTermsPhrase(options = [], subjectIndex = null) {
 /* --- Evaluating one rule ---------------------------------------------------- */
 
 const met = (message) => ({ status: 'met', message });
-const unmet = (message, actionable = false) => ({ status: 'unmet', message, actionable });
-const unsure = (message, actionable = false) => ({ status: 'unknown', message, actionable });
+/* `extra` carries what the outcome is decided on besides the words: the
+   `actions` that would close the gap (each a step a student can name), and
+   the `shared` passages a page may say once for many results. */
+const unmet = (message, actionable = false, extra = {}) => ({ status: 'unmet', message, actionable, ...extra });
+const unsure = (message, actionable = false, extra = {}) => ({ status: 'unknown', message, actionable, ...extra });
+
+/**
+ * A step that closes a gap. `kind` is 'raise' (a subject taken to a level as
+ * a supplementary course), 'test' (a test the source accepts in its place) or
+ * 'route' (another published route, as the source words it). `alsoMeets`
+ * names other requirements the same step satisfies, on the source's word —
+ * CBS: a Cambridge C1 185 "fulfil[s] both" English B at 6.0 and English A.
+ */
+const step = (kind, key, text, extra = {}) => ({ kind, key, text, ...extra });
+
+/* More supplementary courses than this in one summer are not treated as a
+   plausible action, whatever the publisher allows: a product rule, so that
+   "Possible with action" never stands for a year of extra schooling. */
+const MAX_RAISES = 2;
+
+/** The first sentence of a passage, for a line that points at the rest. */
+function firstSentenceOf(text) {
+  const m = String(text).match(/^.*?[.!?](?=\s+[A-Z]|$)/);
+  return (m ? m[0] : String(text)).trim();
+}
 
 /** "a, b and c" — a list a person can read aloud. */
 function listOf(parts) {
@@ -864,11 +983,20 @@ function ibSubjectRule(rule, ctx) {
   const phrase = ibLevelPhrase(wantLevel);
   const have = found ? ctx.ib.held.get(found.id) : null;
 
+  /* An IB subject a student does not hold cannot be added after the fact.
+     Only a route the source itself publishes (a deficiency course, a test)
+     makes the gap one with an action; without one it is a plain gap. */
+  const route = rule.alternativeRoute || null;
+  const closeIt = route ? ` To close it: ${route}` : '';
+  const gap = (message) => route
+    ? unmet(`${message}${closeIt}`, true, { actions: [step('route', `route:${route}`, route)] })
+    : unmet(message);
+
   if (!have) {
-    return unmet(`You do not have ${label} at any level.`, true);
+    return gap(`You do not have ${label} at any level.`);
   }
   if (wantLevel !== 'any' && have.rank < (IB_LEVEL_RANK[wantLevel] || 0)) {
-    return unmet(`${label}: this asks for ${phrase} and your profile records ${have.level}.`, true);
+    return gap(`${label}: this asks for ${phrase} and your profile records ${have.level}.`);
   }
 
   if (rule.minGrade != null) {
@@ -876,9 +1004,8 @@ function ibSubjectRule(rule, ctx) {
       return unsure(`${label} ${phrase} needs an IB grade of at least ${rule.minGrade}. Add your grade for ${label} to check.`);
     }
     if (num(have.grade) < Number(rule.minGrade)) {
-      return unmet(
-        `${label} ${have.level}: this asks for at least ${rule.minGrade} and your profile records ${have.grade}. Both are IB grades, so nothing is converted.`,
-        true
+      return gap(
+        `${label} ${have.level}: this asks for at least ${rule.minGrade} and your profile records ${have.grade}. Both are IB grades, so nothing is converted.`
       );
     }
     return met(
@@ -939,11 +1066,32 @@ function localEquivalencyRule(rule, ctx) {
   /* The action that closes a missing or too-low level: the institution's own
      where it publishes one, then the scheme authority's. None recorded means
      none is claimed — the gap is then not "possible with action". */
-  const own = ctx.institution ? ctx.subjectIndex?.institutionRoutes?.get(ctx.institution)?.raise : null;
-  const raise = own?.text || scheme.levelRaise || null;
+  const raiseFor = levelRaiseFor(rule, ctx.subjectIndex, ctx.institution, ctx.profile);
+  const raise = raiseFor ? `${raiseFor.text.charAt(0).toUpperCase()}${raiseFor.text.slice(1)}` : null;
   // Inside a "one of" whose other option is the action (a test), the gap is
   // said without one: the combination names the way in.
-  const closeIt = ctx.quiet ? '' : raise ? ` To close it: ${raise.charAt(0).toUpperCase()}${raise.slice(1)}` : ' No published way to close this gap is recorded here.';
+  const closeIt = ctx.quiet ? '' : raise ? ` To close it: ${raise}` : ' No published way to close this gap is recorded here.';
+  /* The step, keyed by the subject it raises: two gaps are two courses. The
+     passage is shared so a page can say it once above many results. */
+  const raiseExtra = (phrase) => raise
+    ? {
+        actions: [step('raise', `raise:${rule.levelScale}:${rule.subject}`, raise, {
+          // A supplementary course is taken at a level, so the step names it
+          // that way ("Mathematics at A level"); the gap line gives the IB terms.
+          subject: rule.subject, level: rule.level, phrase, course: `${rule.subject} at ${rule.level} level`,
+          whose: raiseFor.whose, multiple: raiseFor.multiple,
+        })],
+        shared: ctx.quiet ? [] : [{ key: `raise:${raise}`, text: raise, short: 'a supplementary course', whose: raiseFor.whose }],
+      }
+    : {};
+  /* A test the source accepts in place of this rule, where the student holds
+     the subject but not the grade (CBS: Cambridge C1 185 meets English B at
+     6.0 and English A both). */
+  const alt = rule.alternativeTest || null;
+  const altExtra = alt
+    ? { actions: [step('test', `test:${alt.label}`, alt.label, { alsoMeets: alt.alsoMeets || [] })] }
+    : {};
+  const altSaid = alt ? ` The other published way in: ${[alt.label, alt.note].filter(Boolean).join('. ').replace(/\.?$/, '.')}` : '';
 
   /* The institution's own route, where the scheme's does not reach. */
   const viaInstitution = () => {
@@ -958,7 +1106,7 @@ function localEquivalencyRule(rule, ctx) {
     const held = viaInstitution();
     const whose = `${terms.institution.name}'s own rule`;
     if (!held) {
-      return unmet(`This needs ${wanted} (${whose}), and your profile has none of these. (${asked}.)`, true);
+      return unmet(`This needs ${wanted} (${whose}), and your profile has none of these.${closeIt} (${asked}.)`, !!raise, raiseExtra(wanted));
     }
     const names = held.map((h) => `${h.name} ${h.level}`).join(' with ');
     if (rule.minGrade != null) {
@@ -966,7 +1114,7 @@ function localEquivalencyRule(rule, ctx) {
       if (grade == null) return unsure(`This needs ${wanted}. Add your grade for ${held[0].name} to check. (${asked}.)`);
       const converted = convertGrade(grade, scheme.single);
       if (converted == null || converted < Number(rule.minGrade)) {
-        return unmet(`This needs ${wanted}. Your ${held[0].name} at ${grade} converts to ${gradeLabel(scheme, converted)}, below the ${terms.localMinGradeLabel} asked for. (${asked}.)`, true);
+        return unmet(`This needs ${wanted}. Your ${held[0].name} at ${grade} converts to ${gradeLabel(scheme, converted)}, below the ${terms.localMinGradeLabel} asked for. (${asked}.)`);
       }
     }
     return met(`Needs ${wanted}: your ${names} meets it under ${whose}. (${asked}.)`);
@@ -975,20 +1123,28 @@ function localEquivalencyRule(rule, ctx) {
   if (!have) {
     const reason = scheme.withoutEquivalence.get(normalise(rule.subject));
     const action = scheme.withoutEquivalenceAction.get(normalise(rule.subject));
-    if (reason) return unsure(`No IB subject is equivalent to ${terms.local}. ${action || reason} (${asked}.)`);
-    if (!wanted) return unmet(`No IB subject is equivalent to ${terms.local}: ${terms.none} (${asked}.)`, true);
-    return unmet(`This needs ${wanted}, and your profile has none of them.${closeIt} (${asked}.)`, !!raise);
+    /* No IB subject reaches it. With a published question to ask (Social
+       Studies: "ask the admissions office"), that is a question; without one
+       it is not a way in for an IB student at all (Geoscience A), and a "one
+       of" must not let it hide the option that is (round 4: a missing
+       Physics was shown as a Geoscience "?"). */
+    if (reason) return unsure(`No IB subject is equivalent to ${terms.local}. ${action || reason} (${asked}.)`, false, action ? {} : { noIbRoute: true, local: terms.local });
+    if (!wanted) return unmet(`No IB subject is equivalent to ${terms.local}: ${terms.none} (${asked}.)`, false, { noIbRoute: true, local: terms.local });
+    return unmet(`This needs ${wanted}, and your profile has none.${closeIt} (${asked}.)`, !!raise, raiseExtra(wanted));
   }
   if (have.rank < wantRank) {
     return unmet(
       `This needs ${wanted || terms.local}. Your ${have.ibSubject} counts only as ${rule.subject} at ${have.level} level.${closeIt} (${asked}.)`,
-      !!raise
+      !!raise,
+      raiseExtra(wanted || terms.local)
     );
   }
+  // The scheme's own qualification of this mapping, said where it is used.
+  const caution = have.caution ? ` ${have.caution}` : '';
 
   if (rule.minGrade != null && terms.waiver && have.rank >= terms.waiver.rank) {
     return met(
-      `Needs ${wanted}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level, where no minimum grade applies. (${asked}.)`
+      `Needs ${wanted}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level, where no minimum grade applies.${caution} (${asked}.)`
     );
   }
 
@@ -1003,18 +1159,20 @@ function localEquivalencyRule(rule, ctx) {
       return unsure(`${scheme.label} publishes no conversion for an IB grade of ${have.grade}, so this cannot be checked.`);
     }
     if (converted < Number(rule.minGrade)) {
+      const said = `This needs ${wanted || terms.local}. Your ${have.ibSubject} at ${have.grade} converts to ${gradeLabel(scheme, converted)}, below the ${terms.localMinGradeLabel} asked for.`;
+      if (alt && !ctx.quiet) return unmet(`${said}${altSaid} (${asked}.)`, true, altExtra);
       return unmet(
-        `This needs ${wanted || terms.local}. Your ${have.ibSubject} at ${have.grade} converts to ${gradeLabel(scheme, converted)}, below the ${terms.localMinGradeLabel} asked for.${ctx.quiet ? '' : ' Nothing recorded here replaces this grade: it has to come from your Diploma.'} (${asked}.)`,
+        `${said}${ctx.quiet ? '' : ' Nothing recorded here replaces this grade: it has to come from your Diploma.'} (${asked}.)`,
         false
       );
     }
     return met(
-      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}. (${asked}.)`
+      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}.${caution} (${asked}.)`
     );
   }
 
   return met(
-    `Needs ${wanted || terms.local}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}. (${asked}.)`
+    `Needs ${wanted || terms.local}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}.${caution} (${asked}.)`
   );
 }
 
@@ -1037,11 +1195,23 @@ function evaluateRule(rule, ctx) {
     case 'ib-diploma':
       if (profile.holdsDiploma === true) return met('You expect to hold the full IB Diploma, which this asks for.');
       if (profile.holdsDiploma === false) {
+        /* A route counts as an action only where the record says it opens
+           before 21 (`reachesAtEighteen`): a colloquium doctum at 21 is a
+           route, not a step before this intake's deadline. The words are said
+           either way. The long passage is shared, so a page can say it once. */
+        const route = rule.alternativeRoute || null;
+        const soon = !!route && rule.alternativeRouteSummary?.reachesAtEighteen === true;
         return unmet(
           `This asks for the full IB Diploma, and Course Results on their own do not satisfy it.${
-            rule.alternativeRoute ? ` ${rule.alternativeRoute}` : ' No other route to this one is recorded here, so ask the institution what it will accept before you rule it out.'
+            route ? ` ${route}` : ' No other route to this one is recorded here, so ask the institution what it will accept before you rule it out.'
           }`,
-          !!rule.alternativeRoute
+          soon,
+          route
+            ? {
+                ...(soon ? { actions: [step('route', `route:${route}`, rule.alternativeRouteSummary.short)] } : {}),
+                shared: [{ key: `route:${route}`, text: route, short: rule.alternativeRouteSummary?.short || firstSentenceOf(route), whose: null }],
+              }
+            : {}
         );
       }
       return unsure('Whether you will hold the full Diploma or Course Results is not recorded in your profile. Answer that question and this becomes a yes or a no.');
@@ -1094,25 +1264,36 @@ function evaluateRule(rule, ctx) {
           missing.push(`a grade for ${ungraded.map((s) => s.name).join(', ')}`);
         }
       }
+      /* Course Results carry no Diploma total and no bonus points: their
+         points are the subject grades added up. Six graded subjects answer
+         the question, so the student is not asked for a "predicted total"
+         they will never be awarded (round 4). */
+      const graded = held.filter((s) => s.grade != null);
+      const needed = rule.minSubjects ?? 6;
+      const summed = held.length >= needed && graded.length === held.length
+        ? graded.reduce((n, s) => n + num(s.grade), 0)
+        : null;
+      const points = profile.totalPoints ?? summed;
+      const whose = profile.totalPoints != null ? 'your profile says' : `your ${held.length} grades add up to`;
       if (rule.minPoints != null) {
         conditions.push(`${rule.minPoints} points in total`);
-        if (profile.totalPoints == null) missing.push('your predicted total');
-        else if (profile.totalPoints < Number(rule.minPoints)) {
-          shortfalls.push(`it needs ${rule.minPoints} points and your profile says ${profile.totalPoints}`);
+        if (points == null) missing.push(held.length < needed ? `all ${needed} subjects with their grades` : 'your grades');
+        else if (points < Number(rule.minPoints)) {
+          shortfalls.push(`it needs ${rule.minPoints} points and ${whose} ${points}`);
         }
       }
 
       const asks = conditions.length ? ` It asks for ${listOf(conditions)}.` : '';
       if (shortfalls.length) {
-        return unmet(
-          `Course Results are accepted here, but not as your profile stands: ${listOf(shortfalls)}.`,
-          shortfalls.length === 1
-        );
+        // A shortfall in awarded grades is not something a step before the deadline changes.
+        return unmet(`Course Results are accepted here, but not as your profile stands: ${listOf(shortfalls)}.`);
       }
       if (missing.length) {
         return unsure(`Course Results are accepted here.${asks} Add ${listOf(missing)} to check that you clear it.`);
       }
-      return met(`Course Results are accepted here and your profile clears the conditions.${asks}`);
+      return met(`Course Results are accepted here and your profile clears the conditions${
+        summed != null && profile.totalPoints == null ? ` (your ${held.length} grades add up to ${summed})` : ''
+      }.${asks}`);
     }
 
     case 'ib-total-points': {
@@ -1121,12 +1302,13 @@ function evaluateRule(rule, ctx) {
       if (profile.totalPoints == null) {
         return unsure(`This needs at least ${need} points. Add your predicted total to check.`);
       }
-      return profile.totalPoints >= need
-        ? met(`${profile.totalPoints} points meets the minimum of ${need}.`)
-        : unmet(
-            `This needs at least ${need} points and your profile says ${profile.totalPoints}.`,
-            need - profile.totalPoints <= 3
-          );
+      /* A total below the minimum names no step: predicted points are not an
+         action. Only a route the source publishes makes it one. */
+      if (profile.totalPoints >= need) return met(`${profile.totalPoints} points meets the minimum of ${need}.`);
+      return rule.alternativeRoute
+        ? unmet(`This needs at least ${need} points and your profile says ${profile.totalPoints}. To close it: ${rule.alternativeRoute}`, true,
+          { actions: [step('route', `route:${rule.alternativeRoute}`, rule.alternativeRoute)] })
+        : unmet(`This needs at least ${need} points and your profile says ${profile.totalPoints}.`);
     }
 
     case 'ib-subject':
@@ -1142,42 +1324,72 @@ function evaluateRule(rule, ctx) {
       const groups = rule.alternatives || [];
       if (!groups.length) return unsure('A combination requirement is recorded without alternatives.');
 
-      let best = null;
-      for (const group of groups) {
+      /* Every option, scored: a gap counts 10, a question 1. An option no IB
+         subject can reach (Geoscience A) is not a question but a closed door,
+         so it counts as a gap too — and on a tie the option whose gaps each
+         have a step wins, so a missing Physics is named rather than hidden
+         behind a Geoscience "?" (round 4). */
+      const scored = groups.map((group) => {
         const results = group.map((r) => evaluateRule(r, ctx));
         const unmetOnes = results.filter((r) => r.status === 'unmet');
-        const unknown = results.filter((r) => r.status === 'unknown');
-        const score = unmetOnes.length * 10 + unknown.length;
-        if (!best || score < best.score) best = { score, unmet: unmetOnes, unknown, group, results };
-        if (score === 0) break;
-      }
+        const closed = results.filter((r) => r.status === 'unknown' && r.noIbRoute);
+        const unknown = results.filter((r) => r.status === 'unknown' && !r.noIbRoute);
+        const stuck = unmetOnes.filter((r) => !r.actionable).length + closed.length;
+        return { score: (unmetOnes.length + closed.length) * 10 + unknown.length, stuck, unmet: unmetOnes, closed, unknown, group, results };
+      });
+      const best = [...scored].sort((a, b) => a.score - b.score || a.stuck - b.stuck)[0];
       if (best.score === 0) {
         return met(`One of the ${groups.length} accepted options is met. ${best.results.map((r) => r.message).join(' ')}`);
       }
-      if (best.unmet.length === 0) {
-        /* Nothing the profile holds meets it, and what is left is a test the
-           student can go and take (CBS: English B at 6.0 plus IELTS 7.0).
-           That is a gap with an action, not a question we cannot answer. */
-        const onlyTests = best.group.every((r) => r.kind === 'test');
-        if (onlyTests && groups.length > 1) {
+      /* What is left is a test the student can go and take (CBS: English B at
+         6.0 plus IELTS 7.0; ITU: an approved test in place of the grade). That
+         is a gap with an action, not a question we cannot answer. Every
+         option that is only a test away is named. */
+      const testOnly = (o) => o.unmet.length === 0 && o.closed.length === 0 &&
+        o.results.every((r, i) => r.status === 'met' || o.group[i].kind === 'test');
+      if (best.unmet.length === 0 && best.closed.length === 0) {
+        const tests = scored.filter((o) => testOnly(o) && o.score === best.score);
+        if (tests.length && groups.length > 1) {
           // What the subject route lacks, in IB terms, then the published test.
           let closest = null;
           for (const group of groups) {
-            if (group === best.group) continue;
+            if (tests.some((o) => o.group === group)) continue;
             const results = group.map((r) => evaluateRule(r, { ...ctx, quiet: true })).filter((r) => r.status === 'unmet');
             if (results.length && (!closest || results.length < closest.length)) closest = results;
           }
           const lacking = closest ? `${closest.map((r) => r.message).join(' ')} ` : '';
+          const named = tests.map((o) => o.group.filter((r) => r.kind === 'test').map((r) => [r.label, r.note].filter(Boolean).join('. ')).join(' and '));
+          const key = tests.map((o) => o.group.filter((r) => r.kind === 'test').map((r) => r.label).join(' + ')).join(' / ');
           return unmet(
-            `${lacking}The other published way in: ${best.group.map((r) => [r.label, r.note].filter(Boolean).join('. ')).join(' and ')}`.replace(/\.?$/, '.'),
-            true
+            `${lacking}The other published way${named.length > 1 ? 's' : ''} in: ${named.join('; or ')}`.replace(/\.?$/, '.'),
+            true,
+            { actions: [step('test', `test:${key}`, named.join('; or '))] }
           );
         }
         return unsure(best.unknown.map((r) => r.message).join(' '));
       }
+      if (best.unmet.length === 0) {
+        // Every option is a door no IB subject opens.
+        return unsure([...best.closed, ...best.unknown].map((r) => r.message).join(' '));
+      }
+      /* The gap, named. Options no IB subject can reach are said after it, as
+         what they are, rather than standing in for it. */
+      const actionable = best.unmet.every((r) => r.actionable);
+      const others = scored.filter((o) => o !== best);
+      const closedOthers = others.filter((o) => o.unmet.length === 0 && o.closed.length && !o.unknown.length);
+      const lead = others.length && closedOthers.length === others.length
+        ? ''
+        : `None of the ${groups.length} accepted combinations is complete. The closest needs: `;
+      const closedSaid = closedOthers.length && !lead
+        ? ` The other option${closedOthers.length > 1 ? 's' : ''}, ${orList(closedOthers.flatMap((o) => o.closed.map((r) => r.local || 'one with no IB subject')))}, ${closedOthers.length > 1 ? 'have' : 'has'} no IB equivalent, so ${closedOthers.length > 1 ? 'they are' : 'it is'} not a way in.`
+        : '';
+      const consequence = !actionable && rule.consequence ? ` The published rule: "${rule.consequence}"` : '';
       return unmet(
-        `None of the ${groups.length} accepted combinations is complete. The closest needs: ${best.unmet.map((r) => r.message).join(' ')}`,
-        best.unmet.length === 1
+        `${lead}${best.unmet.map((r) => r.message).join(' ')}${closedSaid}${consequence}`,
+        actionable,
+        actionable
+          ? { actions: best.unmet.flatMap((r) => r.actions || []), shared: best.unmet.flatMap((r) => r.shared || []) }
+          : { shared: best.unmet.flatMap((r) => r.shared || []) }
       );
     }
 
@@ -1215,8 +1427,10 @@ function evaluateRule(rule, ctx) {
        * see and the honest answer is that we cannot see it. */
       if (rule.subject && rule.levelScale) {
         const conv = ctx.converted(rule.levelScale);
-        if (conv.scheme && conv.held.has(rule.subject)) {
-          return met(`${rule.subject} is covered by your IB subjects.`);
+        const have = conv.held.get(rule.subject);
+        const want = rule.level ? conv.scheme?.rank.get(rule.level) : null;
+        if (conv.scheme && have && (want == null || have.rank >= want)) {
+          return met(`${rule.subject}${rule.level ? ` ${rule.level}` : ''} is covered by your ${have.ibSubject}.${have.caution ? ` ${have.caution}` : ''}`);
         }
       } else if (rule.ibSubject) {
         const found = lookupSubject(ctx.subjectIndex, rule.ibSubject);
@@ -1270,6 +1484,44 @@ function evaluateRule(rule, ctx) {
   }
 }
 
+/**
+ * Whether every gap can be closed by a named step before the deadline, and
+ * what the steps are. Null when they cannot — that is "Does not currently
+ * meet".
+ *
+ *   - every gap must carry a step (a gap that is only "actionable" names
+ *     nothing, and "Possible with action" has to say what the action is);
+ *   - a step the source says also meets another requirement closes that one
+ *     too (CBS's Cambridge C1 185: English B at 6.0 and English A);
+ *   - one step is possible; several are possible only when every one is a
+ *     supplementary course, there are at most MAX_RAISES of them, and the
+ *     publisher says something about taking more than one — which is then
+ *     said, because it is the constraint the student has to plan around
+ *     ("only one subject after 5 July").
+ */
+function planSteps(gaps) {
+  if (!gaps.length || !gaps.every((g) => g.actionable && g.actions?.length)) return null;
+  const covered = new Set();
+  for (const g of gaps) {
+    for (const a of g.actions) {
+      for (const id of a.alsoMeets || []) if (gaps.some((x) => x !== g && x.id === id)) covered.add(id);
+    }
+  }
+  const steps = new Map();
+  for (const g of gaps.filter((x) => !covered.has(x.id))) for (const a of g.actions) if (!steps.has(a.key)) steps.set(a.key, a);
+  const list = [...steps.values()];
+  if (list.length === 1) {
+    return {
+      steps: 1,
+      summary: covered.size ? `One step closes ${gaps.length === 2 ? 'both' : `all ${gaps.length}`}: ${list[0].text}`.replace(/\.?$/, '.') : null,
+    };
+  }
+  if (list.length > MAX_RAISES || !list.every((a) => a.kind === 'raise')) return null;
+  const multiple = list.find((a) => a.multiple)?.multiple || null;
+  if (!multiple) return null;
+  return { steps: list.length, summary: `${list.length} supplementary courses: ${listOf(list.map((a) => a.course || a.phrase))}. ${multiple}` };
+}
+
 /* --- Evaluating an Opportunity ---------------------------------------------- */
 
 /**
@@ -1319,6 +1571,8 @@ export function assess(profile, opportunity, options) {
       kind: rule.kind,
       message: result.message,
       actionable: !!result.actionable,
+      actions: result.actions || [],
+      shared: result.shared || [],
       evidence: rule.evidence || [],
       officialWording: rule.officialWording?.text || null,
     };
@@ -1422,11 +1676,12 @@ export function assess(profile, opportunity, options) {
     caveats.push(`${names.join(', ')} has no published equivalent in ${label}, so it was not counted.`);
   }
 
+  const plan = planSteps(gaps);
   let outcome;
   if (dataIssues.length) outcome = OUTCOME.NEEDS_REVIEW;
   else if (gaps.length === 0 && unknowns.length === 0) outcome = OUTCOME.MEETS;
   else if (gaps.length === 0) outcome = OUTCOME.NEEDS_REVIEW;
-  else if (gaps.length === 1 && gaps[0].actionable) outcome = OUTCOME.POSSIBLE;
+  else if (plan) outcome = OUTCOME.POSSIBLE;
   else outcome = OUTCOME.DOES_NOT_MEET;
 
   /* Eligible, but below a floor that closes one route: not a plain yes. */
@@ -1444,6 +1699,10 @@ export function assess(profile, opportunity, options) {
     outcome,
     outcomeLabel,
     route,
+    /* What "Possible with action" asks of the student, as one line, where it
+       is more than a single gap's own step: "2 supplementary courses: …", or
+       "One step closes both: …". Null otherwise. */
+    actionSummary: outcome === OUTCOME.POSSIBLE ? plan?.summary || null : null,
     matched,
     gaps,
     unknowns,
