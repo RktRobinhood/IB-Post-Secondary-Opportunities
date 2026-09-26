@@ -10,6 +10,12 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 37 checks.
 
+## 26 September (midday): local session with Chrome
+
+- **Done:** the cloud branch's coverage report is on `main`; GitHub now has only `main` (deleted `feat-43-school-pages`, `globe-desk`, `wip/agents-2026-09-25`, `claude/upbeat-rubin-hnw28y`, `claude/vigilant-clarke-04w3my`, all merged first). Local worktrees `globe-desk` and `w37` removed (their folders may linger, locked by OneDrive); `design-40` and `w43` kept, they hold uncommitted edits.
+- **Running (researchers read official sites through the owner's Chrome, one tab each):** wave 2 records ES, IT, FR, PT (`data/schools/<key>.json`, reports `docs/research/schools/reports/batch-<cc>.md`); the #41 lead checks (`docs/research/qa/issue-41-leads/findings.md`); #54 Finland degree photos (`docs/research/qa/degree-photos/fi/progress.md`). Each writes as it goes and skips what exists, so a stopped run resumes by re-running it.
+- **Then:** an admissions critic per country (8+ to ship), a photo-editor critic for FI photos, and the BE/IE/FI admissions critics.
+
 ## 26 September (afternoon): cloud session, and the clean-state rule
 
 The owner: `main` is the product; branches and worktrees are temporary and always return to `main` (`docs/PARALLEL_WORK.md`, "`main` is the product"). **Usage ceiling for cloud runs: at 92% of the 5-hour window, stop every agent and update this section.**
