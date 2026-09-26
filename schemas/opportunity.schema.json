@@ -477,6 +477,20 @@
           },
           "additionalProperties": false
         },
+        "openFor": {
+          "type": "array",
+          "description": "A question the record leaves open for one applicant group — Maastricht's deficiency date for applicants from outside the EU/EEA. Said as a \"?\" to that group; a plan that depends on it is \"Needs review\".",
+          "items": {
+            "type": "object",
+            "required": ["applicantGroup", "question"],
+            "properties": {
+              "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+              "question": { "type": "string" },
+              "evenWhenMet": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
         "openQuestion": {
           "type": "string",
           "description": "A question the record leaves open about who this rule's exemption reaches, said to the students it affects as a \"?\" rather than resolved either way — SEA exempts \"an International Baccalaureate exam\", and whether that includes Course Results is not published."

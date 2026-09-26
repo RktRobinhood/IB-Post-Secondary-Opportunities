@@ -55,11 +55,16 @@ export function awardBlock(opp) {
       rule?.minGrade != null ? `at least ${rule.minGrade} in every subject` : null,
       rule?.minPoints != null ? `${rule.minPoints} points in total` : null,
     ].filter(Boolean);
+    /* A rule whose exemption reaches the Diploma and leaves Course Results an
+       open question (SEA's English test) is said here too, so the page and
+       the planner, which shows it as a "?", cannot disagree. */
+    const open = (opp.requirements || []).filter((r) => r.mandatory !== false && r.openQuestion);
+    const questions = open.map((r) => `\n\n**But:** ${r.label ? `${r.label} — ` : ''}${r.openQuestion}`).join('');
     return note(
       `**DP Course Results** are accepted here — you do not need to have been awarded the full Diploma.${
         asks.length ? ` The source asks for ${asks.slice(0, -1).join(', ')}${asks.length > 1 ? ' and ' : ''}${asks.at(-1)}.` : ''
-      }${tail}`,
-      { kind: 'ok', title: 'Which IB award this asks for' }
+      }${questions}${tail}`,
+      { kind: open.length ? 'warn' : 'ok', title: 'Which IB award this asks for' }
     );
   }
 

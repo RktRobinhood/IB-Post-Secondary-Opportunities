@@ -14,6 +14,7 @@
 import { html, raw, md, truncate, plural, slugify } from './html.mjs';
 import { url } from './layout.mjs';
 import { formatWhen, consequenceOf, isClosed, READER_ACCESS } from './calendar.mjs';
+import { classify, LABELS as EVIDENCE_LABELS } from './evidence-policy.mjs';
 
 /* ========================================================================
    Art direction
@@ -542,6 +543,14 @@ export function evidenceBlock({ claim, records = [], summary }) {
   }
 
   const conflicted = records.some((r) => (r.conflictsWith || []).length);
+  /* The Verification State, in words, once. Each record used to end "Status:
+     needs-review." — the schema's enum, 210 times on a Destination page, under
+     a paragraph that already said it. A student needs the state, not the enum
+     (the evidence-policy labels are the words the rest of the site uses), and
+     needs it per record only when the records disagree about it. */
+  const states = records.map((r) => classify(r));
+  const oneState = states.every((s) => s === states[0]) ? states[0] : null;
+  const stateLabel = (s) => EVIDENCE_LABELS[s] || EVIDENCE_LABELS.none;
 
   return html`<details class="evidence${conflicted ? ' evidence--conflict' : ''}">
     <summary>Where this comes from${records.length > 1 ? html` <span>(${records.length} sources)</span>` : ''}</summary>
@@ -553,7 +562,7 @@ export function evidenceBlock({ claim, records = [], summary }) {
       : ''}
     <ol class="evidence__list">
       ${records.map(
-        (r) => html`<li>
+        (r, i) => html`<li>
           <p class="evidence__source">
             <a href="${r.sourceUrl}" rel="noopener nofollow">${r.publisher || r.sourceUrl}</a>
             ${r.publisherType ? html` <span class="evidence__type">${r.publisherType.replace(/-/g, ' ')}</span>` : ''}
@@ -566,12 +575,18 @@ export function evidenceBlock({ claim, records = [], summary }) {
             ${r.appliesToApplicantGroup && r.appliesToApplicantGroup !== 'any'
               ? html` For ${r.appliesToApplicantGroup.replace(/-/g, '/')} applicants.`
               : ''}
-            Status: ${r.verificationState || 'unknown'}.
+            ${oneState ? '' : html` ${stateLabel(states[i])}.`}
           </p>
-          ${r.interpretation ? html`<p class="evidence__interpretation">${r.interpretation}</p>` : ''}
+          ${/* `interpretation` is not rendered. It is the researcher's account of
+                how the source was read — written for the reviewer, in the
+                repository's own vocabulary (docs/PARALLEL_WORK.md) — and on
+                /prepare/ and /programmes/ it put file paths, Evidence ids and
+                "our file said…" in front of students (#41). The claim and the
+                excerpt above are the student's version. */ ''}
         </li>`
       )}
     </ol>
+    ${oneState ? html`<p class="evidence__meta">${stateLabel(oneState)}.</p>` : ''}
   </details>`;
 }
 

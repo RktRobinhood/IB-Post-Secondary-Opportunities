@@ -16,8 +16,13 @@ The owner: `main` is the product; branches and worktrees are temporary and alway
 
 - **Live on `main`:** #53 globe rounds 1–2 (flat map removed, floats, the card is the link and appears once, sphere kept when zoomed, phone controls off the globe, schools on zoom, a still while it loads); #41 rounds 1–3 (unsourced rankings and research-log wording out of student text; `superlatives` and `research-log` guards); #42 planner round-4 fixes and the post-round-5 bug fixes (courses after results per applicant group; no green verdict on an open question).
 - **Critic scores so far:** #53 7 → round 2 being scored; #41 7, 7 → round 3 being scored; #42 round 5 (the cap) 6, bugs fixed since, verification running; programme pages (#43) 6, 6, 5 → round 4 in progress; #52 round 1 being scored.
-- **In flight, one branch:** `claude/upbeat-rubin-hnw28y` holds the programme pages (#43, with the former `feat-43-school-pages` work: BE and IE records, FI enrichment) and #52 (one card per programme across campuses). It merges whole into `main` once the programme pages stop showing wrong deadlines. The old branches `feat-43-school-pages`, `globe-desk` and `wip/agents-2026-09-25` are fully contained in it and can be deleted (the cloud proxy refused the deletion).
+- **In flight, one branch:** `claude/upbeat-rubin-hnw28y` holds the programme pages (#43, with the former `feat-43-school-pages` work: BE and IE records, FI enrichment) and #52 (one card per programme across campuses). It merges whole into `main` once the programme pages stop showing wrong deadlines. The old branches `feat-43-school-pages`, `globe-desk` and `wip/agents-2026-09-25` are **dead**: fully contained in it, never to be worked on again.
 - **Blocked in the cloud:** university sites and Wikimedia are not reachable from this environment, so wave-2/3 school research (ES/IT/FR/PT…, Asia, the Americas), the BE/IE/FI admissions critics and #54 degree photos wait for a session with web access.
+
+## For the next session on a local machine (not the cloud)
+
+- **Delete the dead branches** on GitHub: `git push origin --delete feat-43-school-pages globe-desk wip/agents-2026-09-25` (the cloud proxy refuses deletions). Nothing is lost: all three are ancestors of `claude/upbeat-rubin-hnw28y` (check with `git merge-base --is-ancestor origin/<branch> origin/claude/upbeat-rubin-hnw28y`), and that branch merges into `main`. Delete `claude/upbeat-rubin-hnw28y` too once it is in `main`.
+- Remove old local worktrees under `.claude/worktrees/` (`w43`, `globe-desk`) once `main` has their work.
 
 ## Owner's standing rules (from this session)
 

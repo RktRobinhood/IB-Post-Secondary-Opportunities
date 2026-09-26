@@ -13,7 +13,7 @@ Reports go to `reports/batch-<name>.md`; the coordinator folds them into `progre
 | 1 | be | 14 | done (`reports/batch-be.md`) |
 | 1 | at | 15 | done (`reports/batch-at.md`) |
 | 1 | ch | 15 | done (report `reports/batch-ch.md`). Critic: check the dates labelled "(standing date)" (no year on the page) against the brief's rule |
-| 2 | es, it, fr, pt | 50 | queued |
+| 2 | es, it, fr, pt | 50 | queued; leads in `leads/es.md`, `leads/it.md`, `leads/fr.md`, `leads/pt.md` (web-search discovery, 26 Sep; unverified — see `leads/README.md`) |
 | 2 | pl, cz, hu | 41 | queued |
 | 2 | ee, lv, lt, si, mt, gr | 58 | queued |
 | 3 | us, ca, au, nz | 61 | queued |
