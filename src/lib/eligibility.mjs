@@ -277,6 +277,9 @@ function prepareRaise(record, whose = null) {
     afterResultsIfAccepted: Number.isInteger(record.afterResultsIfAccepted) ? record.afterResultsIfAccepted : undefined,
     // What a card says where the count is not known.
     unknownAfterResults: record.unknownAfterResults || undefined,
+    // Whether the after-results route is recorded as applying in quota 2, and what to ask where it is not.
+    quota2AfterResults: record.quota2AfterResults === true,
+    quota2Question: record.quota2Question || undefined,
   };
   return out.text || subjects.size ? out : null;
 }
@@ -328,6 +331,8 @@ export function levelRaiseFor(rule, subjectIndex, institutionId = null, profile 
         ? pick('unknownAfterResults') || 'Whether this programme lets you finish a course after the IB results is not recorded here — ask the institution; otherwise it has to be passed before your results.'
         : null,
       timing: g?.timing || raise.timing || null,
+      quota2AfterResults: raise.quota2AfterResults === true,
+      quota2Question: raise.quota2Question || null,
       group: g?.applicantGroup || null,
     };
   }
@@ -975,8 +980,11 @@ const MAX_RAISES = 2;
 /** The sentence of a note that carries a dated deadline ("CBS must have the
     result by 5 July, 12:00"), so a one-line step can keep its date. */
 function deadlineOf(text) {
-  const m = String(text || '').match(/[^.;]*\bby \d{1,2} [A-Z][a-z]+(?:, \d{1,2}[:.]\d{2})?[^.;]*/);
-  return m ? m[0].trim() : null;
+  const m = String(text || '').match(/[^.;]*\b(?:by|on) \d{1,2} [A-Z][a-z]+(?:, \d{1,2}[:.]\d{2})?[^.;]*/);
+  if (!m) return null;
+  const t = m[0].trim();
+  // "The test may be …" reads as a clause after a dash; "CBS must …" keeps its capitals.
+  return /^[A-Z][a-z]/.test(t) ? `${t.charAt(0).toLowerCase()}${t.slice(1)}` : t;
 }
 
 /** The first sentence of a passage, for a line that points at the rest. */
@@ -1113,6 +1121,7 @@ function localEquivalencyRule(rule, ctx) {
           whose: raiseFor.whose, multiple: raiseFor.multiple, afterResults: raiseFor.afterResults,
           afterResultsIfAccepted: raiseFor.afterResultsIfAccepted, unknownAfterResults: raiseFor.unknownAfterResults,
           timing: raiseFor.timing,
+          quota2AfterResults: raiseFor.quota2AfterResults, quota2Question: raiseFor.quota2Question,
         })],
         shared: ctx.quiet ? [] : [{ key: `raise:${raise}`, text: raise, short: 'a supplementary course', whose: raiseFor.whose }],
       }
@@ -1141,7 +1150,10 @@ function localEquivalencyRule(rule, ctx) {
   const lowest = Math.min(...scheme.rank.values());
   const fromNothing = (lead) => {
     const x = raiseExtra(wanted || terms.local);
-    for (const a of x.actions || []) a.uncertain = true;
+    for (const a of x.actions || []) {
+      a.uncertain = true;
+      if (rule.consequence) a.consequence = rule.consequence;
+    }
     return unmet(
       `${lead} From no ${rule.subject} to ${rule.level} level: whether that can be done as one supplementary course is not recorded here — ask the institution.${consequence} (${asked}.)`,
       true,
@@ -1536,6 +1548,10 @@ function evaluateRule(rule, ctx) {
       if (rule.label && languages.some((l) => normalise(rule.label).includes(l))) {
         return met(`Your profile records ${rule.label}.`);
       }
+      /* A rule whose basis the record says it could not quote (Maastricht's
+         English exemption "rests on a pattern rather than on a quoted
+         sentence") is the question the record asks, never a tick. */
+      if (rule.openQuestion) return unsure(`${rule.label || 'A language requirement'} — ${rule.openQuestion}`);
       return unsure(
         `${rule.label || 'A language requirement'} — this depends on documentation the profile does not hold. Check the official page.`
       );
@@ -1657,12 +1673,20 @@ function planSteps(gaps) {
   }
   if (n <= allowed) {
     const fromNothing = raises.filter((a) => a.uncertain).map((a) => a.subject);
+    /* What the institution itself says of a student without the subject
+       leads (ITU GBI: "only the programme in Data Science is open to
+       international students"), before any course count. */
+    const said = [...new Set(raises.filter((a) => a.uncertain && a.consequence).map((a) => a.consequence.trim()))];
+    if (said.length) {
+      return { possible: true, uncertain: true, lead: 'To check', summary: said.join(' '), raises };
+    }
     const questions = [
       fromNothing.length ? `Whether ${fromNothing.join(' and ')} from nothing can be done in one course is not recorded here.` : '',
       known ? '' : unknownSaid,
     ].filter(Boolean).join(' ');
     return {
       possible: true,
+      raises,
       uncertain: uncertain || !known,
       lead: uncertain || !known ? 'To check' : 'To do',
       summary: questions
@@ -1671,12 +1695,45 @@ function planSteps(gaps) {
     };
   }
   const before = n - allowed;
-  const who = before === n ? (n === 1 ? 'It has' : 'All of them have') : `${before} of them ${before === 1 ? 'has' : 'have'}`;
+  /* Where the count is not recorded, "1 of them" would state a permission
+     nobody has recorded: it is "at least" that many, and all of them unless
+     the programme lets a course be finished after the results
+     (verification 2 after round 5). */
+  const who = before === n
+    ? (n === 1 ? 'It has' : 'All of them have')
+    : known
+      ? `${before} of them ${before === 1 ? 'has' : 'have'}`
+      : `At least ${before} of them (all of them, unless the programme lets you finish courses after the results) ${before === 1 ? 'has' : 'have'}`;
   return {
     possible: false,
     lead: 'For 2027',
     summary: `${courses} ${who} to be passed before your IB results arrive — in practice during DP2, or by applying for 2028.${known && multiple ? ` ${multiple}` : ''}`,
   };
+}
+
+/* The one line a collapsed card shows under its badge. A "possible" card
+   says its step; a card whose plan depends on an open question says the
+   question (once — verification 2: Maastricht's deadline was said twice);
+   every other "Needs review" card says the first thing to check, so no
+   collapsed card hides the reason for its verdict. */
+function summaryOf(outcome, plan, unknowns, dataIssues, floors) {
+  const blocking = unknowns.filter((u) => u.blocksPlan).map((u) => u.message);
+  if (plan?.summary && outcome === OUTCOME.POSSIBLE) return plan.summary;
+  if (plan?.summary && outcome === OUTCOME.DOES_NOT_MEET && !plan.possible) return plan.summary;
+  if (outcome === OUTCOME.NEEDS_REVIEW) {
+    if (plan?.possible && !plan.uncertain && blocking.length) return blocking.join(' ');
+    if (plan?.possible && plan.summary) return plan.summary;
+    const first = dataIssues[0] || unknowns[0]?.message || floors.find((f) => f.status === 'unknown')?.message || null;
+    // The question itself, without the published form in brackets that closes it.
+    return first ? first.replace(/\s*\((?:[A-Z][^()]*requirement|As published)[^()]*\)\.?\s*$/, '').trim() : null;
+  }
+  return null;
+}
+function leadOf(outcome, plan, unknowns) {
+  if (outcome === OUTCOME.NEEDS_REVIEW) return 'To check';
+  if (outcome === OUTCOME.POSSIBLE) return plan?.lead || 'To do';
+  if (outcome === OUTCOME.DOES_NOT_MEET && plan && !plan.possible) return plan.lead;
+  return null;
 }
 
 /* --- Evaluating an Opportunity ---------------------------------------------- */
@@ -1763,7 +1820,14 @@ export function assess(profile, opportunity, options) {
     if (have && (want == null || have.rank >= want)) continue;
     f.status = 'unknown';
     f.fromCourse = true;
-    f.message = `Also needs ${f.terms?.ibText || r.label} — that will be the grade from your course. (As published: ${f.terms?.localText || r.label}.)`;
+    /* The grade will come from the course, which is graded on the local
+       scale, not in IB terms: said in the published unit, with the lowest
+       grade on that scale that reaches it (verification 2: "a 5 in Maths HL"
+       from a VUC course was the wrong unit). */
+    const scheme = schemeForGrade(r.gradeScale, subjectIndex);
+    const grades = [...(scheme?.gradeLabels?.keys() || [])].filter((g) => g >= Number(r.minAverage)).sort((a, b) => a - b);
+    const lowest = grades.length ? scheme.gradeLabels.get(grades[0]) : null;
+    f.message = `Also needs ${f.terms?.localText || r.label}${lowest ? ` — a ${lowest} or better from your course` : ''}; whether this floor is applied to a course passed after 5 July is not recorded.`;
   }
 
   /* The award nobody recorded.
@@ -1861,7 +1925,22 @@ export function assess(profile, opportunity, options) {
     caveats.push(`${names.join(', ')} has no published equivalent in ${label}, so it was not counted.`);
   }
 
-  const plan = planSteps(gaps);
+  let plan = planSteps(gaps);
+  /* Below a floor that leaves only the other quota open, a plan that relies
+     on finishing a course after the IB results is not joined to that quota by
+     any record: AU's quota 2 has "everything documented by 15 March", SDU's
+     is an entrance test. So it is a question unless the institution records
+     that its after-results route applies there (`quota2AfterResults`)
+     (verification 2 after round 5, P8 at AU CS). */
+  const shutFloors = floors.filter((f) => f.status === 'unmet' && f.otherRoute);
+  if (plan?.possible && shutFloors.length && (plan.raises || []).length) {
+    const open = plan.raises.every((a) => a.quota2AfterResults === true);
+    if (!open) {
+      const q = [...new Set(plan.raises.map((a) => a.quota2Question).filter(Boolean))].join(' ')
+        || `Whether a course finished after the IB results counts in ${shutFloors[0].otherRoute.quota.toLowerCase()}, the only route open to you here, is not recorded — ask the institution.`;
+      plan = { ...plan, uncertain: true, lead: 'To check', summary: `${plan.summary || ''} ${q}`.trim() };
+    }
+  }
   let outcome;
   if (dataIssues.length) outcome = OUTCOME.NEEDS_REVIEW;
   else if (gaps.length === 0 && unknowns.length === 0) outcome = OUTCOME.MEETS;
@@ -1889,10 +1968,8 @@ export function assess(profile, opportunity, options) {
     /* What "Possible with action" asks of the student, as one line, where it
        is more than a single gap's own step: "2 supplementary courses: …", or
        "One step closes both: …". Null otherwise. */
-    actionSummary: plan?.summary && (outcome === OUTCOME.POSSIBLE || (outcome === OUTCOME.NEEDS_REVIEW && plan.possible) || (outcome === OUTCOME.DOES_NOT_MEET && !plan.possible))
-      ? [plan.summary, ...(plan.possible && !plan.uncertain ? unknowns.filter((u) => u.blocksPlan).map((u) => u.message) : [])].join(' ')
-      : null,
-    actionLead: plan?.summary ? (plan.possible && unknowns.some((u) => u.blocksPlan) ? 'To check' : plan.lead) : null,
+    actionSummary: summaryOf(outcome, plan, unknowns, dataIssues, floors),
+    actionLead: leadOf(outcome, plan, unknowns),
     matched,
     gaps,
     unknowns,

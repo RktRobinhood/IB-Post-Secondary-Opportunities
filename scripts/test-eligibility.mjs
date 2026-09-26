@@ -1330,7 +1330,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('the Physics gap is named as a gap, not hidden behind a Geoscience "?"',
     aie.gaps.some((g) => /^This needs Physics/.test(g.message)) && !aie.unknowns.some((u) => /Geoscience/.test(u.message)), msgs(aie));
   check('the "For 2027" line names both courses and how many must come before the results',
-    aie.actionLead === 'For 2027' && /^2 supplementary courses: Mathematics at A level and Physics at B level\. 1 of them has to be passed before your IB results/.test(aie.actionSummary || ''), aie.actionSummary);
+    aie.actionLead === 'For 2027' && /^2 supplementary courses: Mathematics at A level and Physics at B level\. At least 1 of them \(all of them, unless the programme lets you finish courses after the results\) has to be passed before your IB results/.test(aie.actionSummary || ''), aie.actionSummary);
   const hidden = [];
   for (const o of allOpps) {
     const r = assess(asProfile(P.p1), o, opts);
@@ -1367,7 +1367,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     check('and the To do line gives AU\x27s own sentence', /at most two passed after it/.test(r2.actionSummary || ''), r2.actionSummary);
     const national = assess(sl, { ...two, institution: 'dk-aau' }, opts);
     eq('two are not under the national rule, which allows one after the results', national.outcome, OUTCOME.DOES_NOT_MEET);
-    check('and the For 2027 line says one has to come before the results', /1 of them has to be passed before your IB results/.test(national.actionSummary || ''), national.actionSummary);
+    check('and the For 2027 line says at least one has to come before the results, and all unless the programme allows otherwise', /At least 1 of them \(all of them, unless/.test(national.actionSummary || ''), national.actionSummary);
     /* The national rule's one course after the results applies only "where
        the programme accepts it": unrecorded, so a question (verification
        after round 5), and one where the institution records it (SDU, EU). */
@@ -1541,7 +1541,9 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development']) {
     const r1 = run('p1', id);
     check(`P1 (34 points, Maths A from a course) at ${id} is not told its way in is quota 2`, !quota2Line(r1), JSON.stringify(r1.floors.map((f) => [f.status, f.message])));
-    check(`and the Maths floor says it will be the grade from the course (${id})`, r1.floors.some((f) => f.status === 'unknown' && /grade from your course/.test(f.message)), JSON.stringify(r1.floors));
+    /* Verification 2: in the published unit, never as an IB HL grade. */
+    check(`and the Maths floor says 6.0 in Mathematics A, a 7 or better from the course (${id})`,
+      r1.floors.some((f) => f.status === 'unknown' && /6\.0 in Mathematics A — a 7 or better from your course/.test(f.message) && /after 5 July is not recorded/.test(f.message) && !/HL/.test(f.message)), JSON.stringify(r1.floors.map((f) => f.message)));
   }
   check('P8 (24 points, below the 28 floor) at AU CS is still told its way in is quota 2', quota2Line(run('p8', 'dk-au-computer-science')));
 
@@ -1558,6 +1560,10 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     ['a subject from nothing as one course', () => run('p1', 'dk-itu-global-business-informatics'), /from nothing|whether that can be done as one supplementary course/],
     ['Danish A Literature at SL for Danish A', () => run('p9', 'dk-itu-global-business-informatics'), /formally counts this as Danish B/],
     ['Danish A Language and Literature for Danish A', () => assess(danishLangLit, opps.get('dk-itu-global-business-informatics-2027-autumn'), opts), /names Danish A Literature, not Language and Literature/],
+    // Verification 2 after round 5.
+    ['AU conditional admission after 5 July in quota 2', () => run('p8', 'dk-au-computer-science'), /applies to quota 2 applicants/],
+    ['SDU conditional place after 5 July in quota 2', () => run('p8', 'dk-sdu-computer-science'), /applies in quota 2/],
+    ['Maastricht English exemption for IB Diploma holders', () => run('p1', 'nl-maastricht-international-business'), /could not be captured as a quoted sentence/],
   ];
   for (const [name, get, said] of OPEN) {
     const r = get();
@@ -1604,6 +1610,60 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   check('every "possible with action" result has a one-line step', stepless.length === 0, stepless.slice(0, 5).join(', '));
   check('CBS\x27s step keeps "by 5 July, 12:00"', /by 5 July, 12:00/.test(run('p5', 'dk-cbs-international-business').actionSummary || '') && /by 5 July, 12:00/.test(run('p1', 'dk-cbs-international-business').actionSummary || ''),
     JSON.stringify([run('p5', 'dk-cbs-international-business').actionSummary, run('p1', 'dk-cbs-international-business').actionSummary]));
+
+  /* Verification 2 after round 5 (verification-2-after-round-5.md, 7/10). */
+  {
+    const everyResult = [];
+    for (const [key, p] of Object.entries(P)) for (const o of allOpps) everyResult.push([key, o, assess(asProfile(p), o, opts)]);
+
+    /* 1. Below a floor that leaves only quota 2 open, a plan that needs a
+       course after the results is a question: no record joins the two. */
+    for (const id of ['dk-au-computer-science', 'dk-au-data-science', 'dk-au-it-product-development']) {
+      const r = run('p8', id);
+      eq(`P8 (24 points, only quota 2 open) at ${id} is Needs review`, r.outcome, OUTCOME.NEEDS_REVIEW);
+      check(`and asks whether AU's after-5-July admission applies in quota 2 (${id})`, /applies to quota 2 applicants/.test(r.actionSummary || ''), r.actionSummary);
+    }
+    for (const id of ['dk-sdu-computer-science', 'dk-sdu-artificial-intelligence', 'dk-sdu-software-engineering-sonderborg']) {
+      check(`P8 at ${id} is not "possible" on a course the quota 2 route is not recorded as taking`, run('p8', id).outcome !== OUTCOME.POSSIBLE, run('p8', id).outcome);
+    }
+    const joined = everyResult.filter(([, , r]) => r.outcome === OUTCOME.POSSIBLE &&
+      (r.floors || []).some((f) => f.status === 'unmet' && f.otherRoute) &&
+      r.gaps.some((g) => (g.actions || []).some((a) => a.kind === 'raise' && a.quota2AfterResults !== true)));
+    check('no "possible" joins an after-results course to a quota 2 route no record joins', joined.length === 0, joined.slice(0, 4).map(([k, o]) => `${k} ${o.id}`).join(', '));
+
+    /* 2. A requirement the record could not quote is never a tick. */
+    const UNQUOTED = /rests on a pattern|could not be captured|not on a quoted sentence/i;
+    const ticked = [];
+    for (const [key, o, r] of everyResult) {
+      const ids = new Set(rulesOf(o.requirements).filter((x) => UNQUOTED.test(x.note || '')).map((x) => x.id));
+      if (r.matched.some((m) => ids.has(m.id))) ticked.push(`${key} ${o.id}`);
+    }
+    check('no requirement whose note says it rests on a pattern (no quoted sentence) is ever met', ticked.length === 0, ticked.slice(0, 5).join(', '));
+    check('and such a requirement is never satisfiedBy', !allOpps.some((o) => rulesOf(o.requirements).some((x) => UNQUOTED.test(x.note || '') && (x.satisfiedBy || []).length)));
+    check('P5 at Maastricht DSAI is not green on an unquoted English exemption', run('p5', 'nl-maastricht-data-science-and-artificial-intelligence').outcome !== OUTCOME.MEETS);
+
+    /* 3. A bare "N of them" is said only where every count is recorded. */
+    const bare = everyResult.filter(([, , r]) => /(^|[^t] )\d+ of them/.test((r.actionSummary || '').replace(/At least \d+ of them/g, '')) &&
+      r.gaps.some((g) => (g.actions || []).some((a) => a.kind === 'raise' && !Number.isInteger(a.afterResults))));
+    check('no "For 2027" line gives a bare "N of them" on an unrecorded count', bare.length === 0, bare.slice(0, 3).map(([k, o, r]) => `${k} ${o.id}: ${r.actionSummary}`).join(' | '));
+
+    /* 4. A floor a course supplies is never said as an IB grade. */
+    const ibUnit = everyResult.filter(([, , r]) => (r.floors || []).some((f) => f.fromCourse && /\bHL\b|\bSL\b/.test(f.message)));
+    check('no floor the plan\x27s course supplies is said in IB grades', ibUnit.length === 0, ibUnit.slice(0, 3).map(([k, o]) => `${k} ${o.id}`).join(', '));
+
+    /* 6. Every "Needs review" card says what to check; nothing is said twice. */
+    const silent = everyResult.filter(([, , r]) => r.outcome === OUTCOME.NEEDS_REVIEW && !r.actionSummary);
+    check('every "Needs review" result has a one-line "To check"', silent.length === 0, silent.slice(0, 4).map(([k, o]) => `${k} ${o.id}`).join(', '));
+    const um7 = run('p7', 'nl-maastricht-data-science-and-artificial-intelligence');
+    check('P7 at Maastricht says its deadline once in the "To check" line', (um7.actionSummary.match(/1 June 2027/g) || []).length <= 1, um7.actionSummary);
+
+    /* 7. Dates in the step. */
+    check('AU\x27s one-line step names 5 July and 5 September', /5 July/.test(run('p1', 'dk-au-computer-science').actionSummary || '') && /5 September/.test(run('p1', 'dk-au-computer-science').actionSummary || ''), run('p1', 'dk-au-computer-science').actionSummary);
+    check('ITU\x27s test step keeps "on 5 July"', /on 5 July/.test(run('p5', 'dk-itu-data-science').actionSummary || ''), run('p5', 'dk-itu-data-science').actionSummary);
+
+    /* 8. ITU GBI without Danish: ITU's own sentence leads. */
+    check('P1 at ITU GBI leads with ITU: only Data Science is open to international students', /^ITU's own BSc overview page: "only the programme in Data Science/.test(run('p1', 'dk-itu-global-business-informatics').actionSummary || ''), run('p1', 'dk-itu-global-business-informatics').actionSummary);
+  }
 
   /* 7. SEA exempts IB holders from the English test, not from English B. */
   for (const id of ['dk-sea-computer-science-ap', 'dk-sea-multimedia-design-ap']) {

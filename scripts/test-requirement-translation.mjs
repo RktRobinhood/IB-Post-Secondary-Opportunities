@@ -474,8 +474,13 @@ check('there are programmes with local-scale requirements to check', translatedP
     for (const r of (opp.requirements || []).filter((x) => x.mandatory !== false && x.openQuestion)) {
       asked++;
       const page = await read('programmes', opp.id, 'index.html');
-      check(`${opp.id}: its programme page says the open question the planner asks`, !!page && text(page).includes(text(r.openQuestion).replace(/"/g, '"')),
+      check(`${opp.id}: its programme page says the open question the planner asks`, !!page && text(page).includes(text(r.openQuestion)),
         r.openQuestion);
+      /* …and says it where the requirements are read, not only inside a
+         closed disclosure (verification 2: SEA's visible summary read "DP
+         Course Results are accepted" and the "But" was one tap down). */
+      const visible = (page || '').replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<details(?![^>]*\bopen\b)[^>]*>[\s\S]*?<\/details>/g, ' ');
+      check(`${opp.id}: the open question is visible without opening anything`, text(visible).includes(text(r.openQuestion)), r.openQuestion);
     }
   }
   check('there are open questions to look for', asked > 0);
