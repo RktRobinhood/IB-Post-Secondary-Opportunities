@@ -267,6 +267,9 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
     if (m) document.documentElement.setAttribute('data-motion', m);
   } catch (e) {}
 </script>
+${/* Images the first screen cannot do without (the globe's still on home,
+      #53 round 2: fetched late, the hero was an empty hole for ~3 s). */
+  (o.preload || []).map((p) => raw(`<link rel="preload" as="image" href="${url(p.href)}"${p.media ? ` media="${p.media}"` : ''} fetchpriority="high">`))}
 ${o.jsonLd ? raw(`<script type="application/ld+json">${JSON.stringify(o.jsonLd)}</script>`) : ''}
 </head>
 <body class="${o.bodyClass || ''}">

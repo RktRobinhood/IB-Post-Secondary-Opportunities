@@ -150,15 +150,9 @@
   .world__poster { --r: min(calc(.92 * 100cqh / 2.75), calc(.9 * 100cqw / 2.32)); }
 }
 .world[data-globe="on"] .world__poster { opacity: 0; }
-/* One still per theme, the globe's halo and shadow being the theme's; the
-   other is display: none and, being lazy, never fetched. */
-.world__poster--dark { display: none; }
-:root[data-theme="dark"] .world__poster--light { display: none; }
-:root[data-theme="dark"] .world__poster--dark { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .world__poster--light { display: none; }
-  :root:not([data-theme="light"]) .world__poster--dark { display: block; }
-}
+/* One still per theme (a <picture> by the system's theme: the globe's halo
+   and shadow are the theme's), fetched eagerly and preloaded on home. */
+.world__poster > img { display: block; width: 100%; height: 100%; max-width: none; }
 .world[data-close="on"] .world__poster { display: none; }
 
 /*
@@ -483,8 +477,10 @@
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .world__desk-shadow { fill: rgba(0, 0, 0, .45); } }
 /* A label that would run off the stage's right edge goes to the left. */
 .world__pin[data-flip] .world__pin-label { left: auto; right: calc(var(--r) + 5px); }
-.world__pin[data-label] .world__pin-label,
-.world__pin[data-on] .world__pin-label { display: block; }
+/* A label shows only where globe.js placed it (data-label): a lit pin's
+   label used to show regardless, across whatever group it hit (#53 round 2:
+   "Michigan" on a "4"). The lit pin is placed first, so it rarely loses. */
+.world__pin[data-label] .world__pin-label { display: block; }
 .world__pin[data-on] .world__pin-label { background: rgba(6, 10, 18, .9); box-shadow: 0 0 0 1px var(--pin-hot); }
 .world__pin[data-on], .world__pin[data-selected] { z-index: 2; }
 
@@ -566,7 +562,12 @@
   /* The space is the paper's own tone while the photograph loads, not a
      blank grey box (round 3). */
   background: var(--paper-3);
+  opacity: 0;
+  transition: opacity .15s ease;
 }
+.world__card-img[data-in] { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .world__card-img { transition: none; } }
+:root[data-motion="reduced"] .world__card-img { transition: none; }
 .world__card-title { margin: 0 0 .25rem; padding-right: 1.75rem; font-size: 1.05rem; line-height: 1.25; }
 .world__card-img + .world__card-title { padding-right: 0; }
 .world__card-title:focus { outline: none; }

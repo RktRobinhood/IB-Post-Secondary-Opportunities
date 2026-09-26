@@ -2664,18 +2664,18 @@ body.has-sheet { overflow: hidden; }
    the globe stays in the stage, one line says where the places are, and the
    list is drawn when "All places" is opened (#53 round 1: forced open, the
    hero became 55 chips). */
-.discover__globe:has(.world[data-globe="off"] .world__fold[open]) { position: static; height: auto; }
-.discover__globe:has(.world[data-globe="off"] .world__fold[open]) .world__stage { height: 56vh; }
+.discover__globe:has(.world__fold[open]) { position: static; height: auto; }
+.discover__globe:has(.world__fold[open]) .world__stage { height: 56vh; }
 .discover__globe .world[data-globe="off"] .world__off,
 :root:not([data-js]) .discover__globe .world__off { grid-area: caption; padding: var(--s2) var(--s3) var(--s2) var(--gutter); }
 .discover__globe .world.world[data-globe="off"] .world__fold > summary,
 :root:not([data-js]) .discover__globe .world .world__fold > summary {
   position: static; width: auto; height: auto; min-height: var(--tap); margin: 0; overflow: visible; clip-path: none; white-space: normal;
 }
-.discover__globe .world[data-globe="off"] .world__fold[open],
-:root:not([data-js]) .discover__globe .world__fold[open] { grid-column: 1 / -1; grid-row: 5; padding: 0 var(--gutter) var(--s4); }
-.discover__globe .world[data-globe="off"] .world__list,
-:root:not([data-js]) .discover__globe .world__list {
+/* "All places", opened, is a real list under the globe, across the band,
+   with the globe running too (#53 round 2: opening it drew nothing). */
+.discover__globe .world .world__fold[open] { grid-column: 1 / -1; grid-row: 5; padding: 0 var(--gutter) var(--s4); }
+.discover__globe .world .world__fold[open] .world__list {
   position: static; width: auto; height: auto; margin: 0; overflow: visible;
   clip: auto; clip-path: none; white-space: normal;
 }

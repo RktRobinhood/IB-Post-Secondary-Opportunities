@@ -35,6 +35,9 @@ const STOP = new Set(('the and for you are but not its with from that this into 
   + 'year years first second third degree programme course courses taught english study studies student students').split(' '));
 
 /** A description's distinct words, lower case, three letters or more, in one string. */
+/** The still of home's desk globe (scripts/make-globe-poster.mjs). */
+export const DISCOVER_POSTER = '/assets/img/globe/poster-discover-map.webp';
+
 export function wordsOf(text) {
   const words = String(text || '').toLowerCase().normalize('NFC').match(/\p{L}{3,}/gu) || [];
   return [...new Set(words)].filter((w) => !STOP.has(w)).join(' ');
@@ -315,7 +318,7 @@ export function discoverSection(site) {
         activeLayer: 'Where the degrees are',
         caption: 'Choose a place to see its degrees.',
         foldList: 'All places',
-        poster: '/assets/img/globe/poster-discover-map.webp',
+        poster: DISCOVER_POSTER,
       })}
     </div>
   </div>
