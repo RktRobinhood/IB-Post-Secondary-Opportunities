@@ -117,7 +117,47 @@
         "url": { "$ref": "common.schema.json#/$defs/url", "description": "The programme's own page on the institution's site. Never the homepage or a generic list." },
         "ib": { "type": "string", "maxLength": 180, "description": "What this programme asks of IB applicants beyond the institution's general rule: subjects and levels, points, an entrance exam." },
         "tuitionEuEea": { "type": "string", "maxLength": 40, "description": "Per year for EU/EEA citizens, e.g. 'Free', '€1,500 a year'." },
-        "closes": { "$ref": "common.schema.json#/$defs/isoDate", "description": "The application deadline for this programme, when it differs from the institution's." }
+        "closes": { "$ref": "common.schema.json#/$defs/isoDate", "description": "The application deadline for this programme, when it differs from the institution's." },
+        "about": { "type": "string", "minLength": 40, "maxLength": 320, "description": "What the degree is, in one or two plain sentences from the programme's own page: what you study and what makes it different from its neighbours. The 'What it is' block of the programme's page. No slogans, no rankings." },
+        "needs": {
+          "type": "array",
+          "maxItems": 6,
+          "description": "The subjects this programme requires, in IB terms, one entry per requirement. Every subject the institution names, with the strictest reading where a table converts local levels (never 'prefers' where it requires). Empty or absent when none are required beyond the Diploma.",
+          "items": {
+            "type": "object",
+            "required": ["anyOf", "level"],
+            "additionalProperties": false,
+            "properties": {
+              "anyOf": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "Acceptable IB subjects by id in data/ib-subjects.json (e.g. [\"mathematics-aa\", \"mathematics-ai\"]). Any one of them satisfies this requirement." },
+              "level": { "enum": ["HL", "SL", "any"], "description": "The lowest level accepted: HL means HL only; SL means SL or HL; any means the level is not specified." },
+              "grade": { "type": "integer", "minimum": 1, "maximum": 7, "description": "Minimum IB grade, when one is stated or converted from a published table." },
+              "note": { "type": "string", "maxLength": 120, "description": "A condition the fields cannot hold, e.g. 'grade 5 at SL is also accepted'." }
+            }
+          }
+        },
+        "points": { "type": "integer", "minimum": 24, "maximum": 45, "description": "Minimum IB Diploma points the programme states (or the institution states for it)." },
+        "selection": {
+          "type": "array",
+          "maxItems": 4,
+          "items": { "enum": ["grades", "entrance-exam", "interview", "portfolio", "audition", "assignment", "motivation", "test-score", "first-come", "lottery", "open"] },
+          "description": "How places are decided, in order of weight. grades: ranked on IB results; entrance-exam: the institution's or a national exam; assignment: a pre-assignment or task; motivation: letter or CV scored; test-score: SAT/ACT/uniTEST-type; first-come: rolling until full; lottery: drawn; open: everyone eligible is admitted."
+        },
+        "selectionNote": { "type": "string", "maxLength": 180, "description": "One line on how the selection works, in the student's terms." },
+        "cutoff": {
+          "type": "object",
+          "required": ["value", "intake", "url"],
+          "additionalProperties": false,
+          "description": "The last admitted applicant's score, only where the institution or national portal publishes it. Never estimated.",
+          "properties": {
+            "value": { "type": "string", "maxLength": 40, "description": "As published, e.g. '34 IB points', '8.9 (Swedish BI scale)'." },
+            "ibPoints": { "type": "number", "minimum": 24, "maximum": 45, "description": "The same cut-off in IB points, only when an official table converts it." },
+            "intake": { "type": "string", "pattern": "^20[0-9]{2}$" },
+            "url": { "$ref": "common.schema.json#/$defs/url" }
+          }
+        },
+        "places": { "type": "integer", "minimum": 1, "description": "Study places for the 2027 intake (or the latest published), when stated." },
+        "starts": { "enum": ["January", "February", "March", "April", "August", "September", "October"], "description": "Start month, when not September." },
+        "requirementsUrl": { "$ref": "common.schema.json#/$defs/url", "description": "The page that states this programme's entry requirements, when it is not `url`." }
       }
     }
   }
