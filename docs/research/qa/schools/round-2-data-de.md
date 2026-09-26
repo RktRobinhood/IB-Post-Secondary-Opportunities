@@ -223,3 +223,21 @@ one abroad".
 - Score: 7/10, not yet. No deadline is wrong in 10 re-checked records, and every round-1 error and smaller point is fixed on the official page.
 - Errors: 1, on four lines of de-tum. Bioeconomy, SEMP and Geodesy (and the institution line) call the aptitude check "only a recommendation", but taking part is compulsory: an online test with proof for Bioeconomy and SEMP, and an interview if invited for Geodesy.
 - Most important fix: on those three TUM cards, and in TUM's `ib.text`, say that taking part in the aptitude step is compulsory and only its result is advice. Then this is an 8.
+
+## Re-check of E1 (26 September)
+
+I opened the three TUM programme pages cited in `de-tum.json` again and compared the four lines.
+
+- **E1a, SEMP › `ib`:** now reads "No language certificate. The online aptitude test is compulsory (upload proof); only its result is advice."
+  - Page: "participation in the test – and the corresponding proof – is mandatory for the application"; "the result of the online test has no influence on your eligibility for admission". It also says you "must upload the proof of participation". **Fixed.**
+- **E1b, Bioeconomy › `ib`:** now reads "Mainly English, but some modules may be offered in German only. No language certificate. The online aptitude test is compulsory (upload proof); only its result is advice."
+  - Page: "participation in the test is a required part of the complete application"; "the result of the online test has no impact on your potential admission". The language wording matches the page too. **Fixed.**
+  - Small point: the page I fetched does not mention uploading proof for Bioeconomy (SEMP's page does). This is not wrong, because proof of taking part is how the test is shown. Say "take part" if the proof wording cannot be found.
+- **E1c, Geodesy › `ib`:** now reads "No language certificate. The aptitude process is compulsory, with an interview if invited."
+  - Page: "The Aptitude Recommendation is a mandatory part of the application process… applicants are either immediately admitted, or invited to a mandatory interview"; the result "is merely a recommendation". **Fixed.** The line does not say the result is only advice, but nothing in it is wrong.
+- **E1d, TUM `ib.text`:** now reads "…Most programmes rank on grades and may interview; a few add a compulsory aptitude test whose result is advice."
+  - Page wording: the same as E1a–c. **Fixed.** For Geodesy, the "test" is a points check plus an interview, so the word is loose but not misleading.
+
+No new errors on the three pages.
+
+## Score after re-check: 8/10
