@@ -7,7 +7,7 @@
 
 // Words that rank wherever they stand.
 export const ALWAYS = new RegExp(
-  String.raw`\b(?:by far|best[- ]known|well[- ]known|best-value|world-class|world-leading|world-famous|well[- ]regarded|highly regarded|famous(?:ly)?|renowned|prestigious|excellent|unique(?:ly)?|unlike any(?:where| other)?|one of (?:the |relatively |very )?few|(?:top|highest|high|highly|consistently|traditionally|internationally|globally|best|world)[- ]ranked|ranked (?:among|as|first|second|third|in the top|no\.?|#|\d)|top-\d+|top \d+|No\. ?1|premier)\b`,
+  String.raw`\b(?:by far|best[- ]known|well[- ]known|best-value|world-class|world-leading|world-famous|well[- ]regarded|highly regarded|famous(?:ly)?|renowned|prestigious|excellent|unique(?:ly)?|unlike any(?:where| other)?|one of (?:the |relatively |very )?few|(?:top|highest|high|highly|consistently|traditionally|internationally|globally|best|world)[- ]ranked|ranked (?:among|as|first|second|third|in the top|no\.?|#|\d)|top-\d+|top \d+|No\. ?1|premier|ranked \d+(?:st|nd|rd|th)|reputation|powerhouse|internationally (?:known|recognised|recognized)|well[- ]respected|top-tier|elite(?! Institute)|(?:a|an) (?:leading|top) |one of (?:only|just) \w+|the sole|than any other|nowhere else|rare in (?:Europe|the world|the country)|great (?:universities|schools)|(?<!public |6G )flagship)\b`,
   'gi'
 );
 // "The first private university in the country to teach in English": being
@@ -23,13 +23,17 @@ const SUPERLATIVE = String.raw`(?:(?:second|third|fourth|fifth)-)?${NOT_SUPERLAT
 const POSSESSIVE = String.raw`(?!(?:It|That|There|What|Here|Who|He|She|Let)['’]s)[A-Z][\w-]*(?:['’]s|s['’])`;
 const FIELD = String.raw`(?:${POSSESSIVE}|world['’]s|country['’]s|nation['’]s|region['’]s|city['’]s)`;
 const FRAMED = new RegExp(
-  String.raw`\b(?:[Tt]he|[Oo]ne of the|[Aa]mong the|${FIELD})\s+(?:single\s+)?${SUPERLATIVE}\b`,
+  String.raw`\b(?:[Tt]he|[Oo]ne of the|[Aa]mong the|${FIELD})\s+(?:single\s+|very\s+|(?:second|third|fourth|fifth)\s+)?${SUPERLATIVE}\b`,
   'g'
 );
+// "its largest university" where "its" is a country: the scope exemption is for
+// an institution's own campus, programme or door, never for a ranking of
+// institutions or cities.
+const ITS = /\bits \w+est (?:universit(?:y|ies)|schools?|institutions?|cit(?:y|ies))\b/gi;
 // "Hong Kong's first private university", "the world's fifth film school".
 const ORDINAL = new RegExp(String.raw`\b${FIELD}\s+(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b`, 'g');
 
 export function rankings(text) {
   if (typeof text !== 'string') return [];
-  return [ALWAYS, FIRST, FRAMED, ORDINAL].flatMap((rx) => text.match(rx) || []);
+  return [ALWAYS, FIRST, FRAMED, ORDINAL, ITS].flatMap((rx) => text.match(rx) || []);
 }

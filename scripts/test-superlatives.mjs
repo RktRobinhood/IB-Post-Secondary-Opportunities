@@ -66,6 +66,22 @@
  *      English", "the first English-language degree at a German public
  *      university".
  *
+ * Round 2 of the critique added praise that is not a superlative, and closed
+ * three gaps:
+ *
+ *   - to shape 1: "reputation", "powerhouse", "internationally known /
+ *     recognised", "well-respected", "top-tier", "elite", "a leading", "a top",
+ *     "one of only …", "the sole", "than any other", "nowhere else", "rare in
+ *     Europe", "great universities", "ranked 45th" and "flagship". A US
+ *     "public flagship" is the name of a kind of state university, and the
+ *     "6G Flagship" and "Elite Institute" are names, so those stay.
+ *   - to shape 2: an ordinal or "very" before the superlative ("the second
+ *     largest", "among the very best").
+ *   - "its largest university": the "its" scope exemption is for an
+ *     institution's own campus, programme or door. "Its" followed by an -est
+ *     word and university, school, institution or city is a country ranking
+ *     its institutions, and is flagged.
+ *
  * Deliberately not flagged, because they are not rankings:
  *
  *   - "most" as a quantifier, with no frame: "most bachelor's are three years".
@@ -191,6 +207,25 @@ check('flags a ranking', () => {
     'The country’s largest and best known university.',
     'A well-known forestry programme.',
     "Hong Kong's first private university.",
+    // Round 2 of the critique: praise that is not a superlative, and the gaps.
+    'A leading research university.',
+    'The second largest university in Denmark.',
+    'One of only three conservatoires.',
+    'The sole public university.',
+    "Estonia's flagship university.",
+    'A well-respected law school.',
+    'Small and young, with a strong reputation for teaching quality.',
+    'The business and economics powerhouse.',
+    'Its game development programme is internationally known.',
+    'An elite institution.',
+    'A top-tier business school.',
+    'Among the very best in Europe.',
+    "One of Europe's great universities.",
+    'More English-taught degrees than any other Danish university.',
+    'A programme found nowhere else in Europe.',
+    'A degree that is rare in Europe.',
+    'Ranked 45th in the world.',
+    "Norway's engineering powerhouse and its largest university.",
   ]) assert.ok(rankings(t).length, `not caught: ${t}`);
 });
 
@@ -216,6 +251,11 @@ check('leaves quantifiers, adverbs and scope statements alone', () => {
     'The latest date to register is 31 March; the nearest centre is in Oslo.',
     'In Vejle, its newest campus.',
     'The first year can be taken in English.',
+    'It is the public flagship of the state system.',
+    'The SJTU-ParisTech Elite Institute of Technology teaches in French.',
+    'Home of the 6G Flagship programme.',
+    'Its newest campus is in Vejle.',
+    'Its biggest faculty is engineering.',
     'Places go down the ranking, and you pay the rest.',
   ]) assert.deepEqual(rankings(t), [], t);
 });
