@@ -60,3 +60,43 @@ Dates: only 2027-cycle dates an official page states for 2027 (or as a standing 
 - Dates: the registration page gives a standing rule with no year: winter semester "General admission period early July September 5" (EU/EEA) and non-EU "To begin studies in winter semester February 6 March 31". Recorded as 2027-09-05 and 2027-03-31, labelled as standing dates. "Early July" opening has no day, so not recorded.
 - Could not verify: any JKU page giving IB points/subject rules.
 - Hand-off: bachelor's and diploma list (27 programmes, no master's).
+
+## at-plus (none, German)
+- Scope none: bachelor's list page says "The language of instruction for all bachelor's degree programmes is German." (about 34 programmes listed, including Artificial Intelligence and Philosophy, Politics and Economics).
+- Agrees with data/countries/at.json ("all its bachelor's are taught in German").
+- German: B2 or higher (not C1): "language proficiency of B2 or higher is confirmed in the secondary school certificate" or a certificate; A2 + VPLUS course otherwise.
+- Could not verify: any Salzburg page naming the IB Diploma or IB German grades.
+- Dates: none recorded; no dated 2027/28 admission period found.
+- Hand-off: information for prospective international students (bachelor's admission rules).
+
+## at-aau (listed, 6 programmes)
+- Scope listed: "Degree Programmes taught in English" page lists 6 bachelor's; each programme page confirms "Language of instruction English". Matches data/countries/at.json (six named) exactly.
+- Only IBE has a selection ("Special admission procedure & general admission procedure"); DMC says "Special admission procedure: No"; the others "General admission procedure".
+- IBE 2026/27: "12 January 2026 to 23 February 2026", exam "22 April 2026", 50 places; 2027/28 not published. General admission 2026: "06.07.2026 – 05.09.2026"; 2027 not published. No dates recorded.
+- English B2 (regulation, §6(1)b): "Successful completion of the subject English as part of the school leaving examination at a school in a member state of the European Union or the European Economic Area..." (PDF read with pdftotext). The IB is not named.
+- Could not verify: an AAU page naming IB Diploma requirements.
+- Hand-off: "Degree programmes taught in English" (6 bachelor's but also 11 master's and 4 doctoral on the same page; bachelor's listed first). No bachelor's-only English list exists.
+- Completeness: AAU's full degree list (data-filter-lang='Englisch', type "Bachelor's degree programme") gives the same 6; the rest are English minors, not degrees.
+
+## at-boku (none, German)
+- Scope none: the partner-institution page links "Bachelor Programmes (in German)"; the English list (ECTS guides) covers master's only. No BOKU page lists an English-taught bachelor's.
+- Agrees with data/countries/at.json (englishBachelors null).
+- German: "sufficient knowledge of the German language must be demonstrated at level C 1"; accepted proofs are certificates or a school-leaving certificate from a German-speaking country; IB German not mentioned.
+- Could not verify: any BOKU page naming the IB Diploma.
+- Dates: none recorded; the admission page gives "Winter Semester 2026: June 16 – September 5" only.
+- Note: the manifest-era URL pattern .../bachelorstudien/zulassung-zu-bachelorstudien-mit-internationaler-vorbildung returns 404; the live page is .../bachelors-programmes/admission-to-a-bachelors-programme-with-international-educational-background.
+- Hand-off: that bachelor's admission page (bachelor's only).
+
+## at-meduni-wien (none, German)
+- Scope none: only Human Medicine and Dentistry for school-leavers, both diploma degrees ("diploma studies in human medicine or dentistry") taught in German; no bachelor's in English.
+- Agrees with data/countries/at.json ("Entry is only through the MedAT test ... the degree is taught in German").
+- IB: the page names an "IB Diploma" obtained under IBO regulations as general entrance qualification; no points/subject rule. German C1 before courses; Latin supplementary exam "not necessary, if you have successfully taken Latin at a secondary school to the extent of 10 semester hours", due "before the completion of the first study phase (2 semesters)" (extended by decree to the third semester).
+- Dates: none recorded. medizinstudieren.at gives 2026 only ("02.03.2026 bis 31.03.2026 (24:00 Uhr)"); 2027 not published.
+- Hand-off: MedUni admission requirements for medicine and dentistry (only those two degrees).
+
+## at-modul (listed, 7 programmes)
+- Scope listed: the admissions page and /programs/bachelor-programs list 7 bachelor's (BSc Applied Data Science, BSc HRM, BSc International Management, BSc IM with Professional Experience, BA International Relations and Sustainability, BBA Tourism and Hospitality Management, BBA Tourism, Hotel Management and Operations). The Vienna–Hong Kong "Mobility Agreement" page is an option inside BBA/BSc, not a separate degree; excluded.
+- Agrees with data/countries/at.json ("24 points plus a maths minimum"). Fills its gap "fees were not on its admissions page": each programme page gives "€9.000 tuition fee per semester" (IM with Professional Experience "€8.700").
+- IB (quoted): "IBDP (International Baccalaureate Diploma) with min. 24 points"; maths "Analysis and Approaches SL minimum 4 points or HL minimum 3 points, or Applications and Interpretation SL minimum 4 points or HL minimum 3 points".
+- Dates: the page gives standing dates with no year, per group. EU/EEA FALL: "Super Early Bird 15 January", "Early Bird 15 March", "Final Deadline ... 15 August"; non-EU needing a visa FALL final "1 April". Recorded for 2027 labelled "standing date".
+- Hand-off: /programs/bachelor-programs (7 bachelor's + the Hong Kong mobility option; no master's).

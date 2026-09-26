@@ -49,3 +49,60 @@ fetch-based; where a table loads by JavaScript, the underlying JSON was read ins
 - IB rule (2026/2027 country table): "3 exams at High Level and 3 exams at Standard Level … Mathematics or one subject in experimental sciences must be taken at High Level. Required grade: 32 points"; not recognised: "Literature and performance, Global politics, … Psychology, … Visual arts, Environmental systems and societies …". ch.json does not list excluded subjects.
 - Not recorded: the 2027 French exam date (2026's was "20 August 2026 (for the autumn semester)").
 - Hand-off: bachelor's-with-foreign-diploma page (bachelor-only).
+
+## ch-hsg (listed, 3 programmes)
+- Scope listed: "The Assessment Year in Economic Sciences (BWL, VWL, IA, Law and Economics) can be taken either entirely in English or entirely in German" (admission page); Assessment Year page: "English track: in Economics or International Affairs". Majors: BWL "you can study primarily in German or English; however, at least 12 ECTS-Credits must be completed in the 'other' language"; Economics "You can decide for yourself by choosing the respective courses"; BIA "can be predominantly studied in either English or German. However, a minimum of 9 ECTS credits must be completed in the complementary language". Law and Economics: "Implementation in German" — excluded; Law and Computer Science German-only — excluded.
+- Programmes are the three majors reached through the English-track Assessment Year (you apply to the Assessment Year, not the major). Credential BA: FAQ says any major leads "to a Bachelor of Arts degree". The BWL page also calls it "(BBA)"; BA used.
+- ch.json lists four majors reachable in English ("Business Administration, Economics, International Affairs or Law and Economics"); the English track's specialisations are Economics or International Affairs, and BLE is "Implementation in German". Partial contradiction: BLE is reachable after the English Assessment Year but is taught in German.
+- 2027 dates published on the selection-procedure page: "Online aptitude test: Tuesday, 16 February 2027, 2 p.m. – 5 p.m. (CET) Video interview: Thursday, 18 February 2027 … Online aptitude test: Tuesday, 8 June 2027 … Video interview: Thursday, 10 June 2027"; "If you submit your full application by 10 January, you may register by 31 January for the selection procedure in February" (years inferred from the February 2027 sitting).
+- Standing dates: "Application period: 1 October - 30 April"; IB guideline: predicted grades and subject combination "fristgerecht bis zum 30. April".
+- IB rule (HSG guideline, valid from autumn 2020): 32/42, six groups, three HL with maths or a group-4 science at HL; non-recognised subjects include Psychology, ESS, Global Politics, Visual Arts, Music, Theatre. Agrees with ch.json's 32-point line. ch.json `ibPageUrl: null` — the guideline PDF is the IB page.
+- Hand-off: the Assessment Year page (bachelor-only; explains both tracks and the majors they lead to).
+
+## ch-usi (listed, 3 programmes)
+- Scope listed: "The Bachelor of Science in Informatics and the Bachelor in Data Science are taught entirely in English. From A.Y. 2024/25, the Bachelor in Economics also offers an English-language track (in parallel with the Italian-language track)" (Bachelor's at a glance). Matches ch.json.
+- Economics caveat: same page says "Italian is the official teaching language of the Bachelor's degrees in … Economics"; admission page: "students may choose to take the 'core' courses entirely in Italian … or entirely in English"; English stream needs "an English language certificate of at least B2 … presented at the time of enrollment"; "Students possessing a secondary school leaving certificate from an English-speaking high school are exempt" (whether an IB school counts is not stated — could not verify).
+- 2027 dates published on each programme's application page: "Academic Year 2027/28 Autumn Semester 2027 (September) Opening of applications: December 2026. … 30 April 2027 for international (non-EU/EFTA) candidates. 30 June 2027 for Swiss and European (EU/EFTA) candidates who do not require a visa". Opening has no day, so not recorded.
+- Contradicts nothing in ch.json, but ch.json has no USI deadline (its "Other Swiss universities" entry says "typically closing 30 April"); for EU/EFTA applicants USI's is 30 June 2027.
+- Fees (tuition page): from 2027/28 "a semester fee of CHF 5,000 will apply" for non-resident students; "reduced to CHF 2,000" for residents. Recorded per programme as tuitionEuEea "CHF 10,000 a year"; not in notes (country rule).
+- IB: the admission page defers to swissuniversities for "the accepted subjects and the minimum final score"; the ib line cites 32/42 as the 2026/27 swissuniversities figure.
+- Excluded: Architecture, Communication (Italian B2), Philosophy (Italian B1), Theology, Italian Language, Medicine (taught in German at Basel/Bern).
+- Hand-off: "Bachelor's at a glance" (bachelor-only; names the two English degrees and the English track; 9 bachelor's listed).
+
+## ch-unifr (none, French or German)
+- Scope none: "French and German are the teaching languages of the University of Fribourg, apart from specific cases such as language and literature studies and a few Master's study programmes which are taught in English"; bachelor's need "French or German … B2" (language-proficiency page).
+- Dates are standing: "Autumn semester General application period: 1 February - 30 April Late application period (specific conditions): 1 Mai - 31 August Application period for candidates requiring a visa: 1 February - 28 February"; "the opening date for online application may be slightly carried forward from year to year", so no opening date recorded. The admissions calendar lists dates only to 31.01.2027 so far.
+- IB: Fribourg's per-country list is a Flutter app (admin.unifr.ch/cageo) that could not be read by fetch; IB line relies on swissuniversities' IB page, which lists Fribourg among universities on the 32-point baseline. Could not verify a Fribourg-specific IB page. ch.json `ibPageUrl: null` agrees.
+- Possible trap for a reviewer: the foreign-certificate page says "If you will be completing your baccalaureate … during the summer, we strongly recommend you to apply for the autumn semester of the following year" — it sits in the ECUS paragraph, so read as ECUS candidates only; not put on the page.
+- Hand-off: bachelor's admission with a foreign certificate (bachelor-only).
+
+## ch-unilu (none, German)
+- Scope none: "German is the primary language of instruction at the University of Lucerne … Master's programmes that are entirely taught in English do not require proof of German proficiency" (Admission Guidelines 2026/2027, § 32) — English-only teaching exists at master's level only.
+- Standing dates from the live application page (no year): "Registration is possible from 15 February for the autumn semester"; "Autumn semester April 30"; late "June 30 for applications from countries WITH visa requirements. August 31 for applications from countries WITHOUT visa requirements". Same in the 2026/27 guidelines § 1.
+- IB (guidelines § 21): "at least 32 out of 42 points (excluding bonus points) … At least three subjects must be completed at Higher Level (including at least one mathematics or science subject)". Matches ch.json.
+- German (§ 33): "Proof of sufficient German language proficiency does not need to be submitted with the application; however, it must be provided by the start of the programme."
+- ch.json note calls Lucerne "Switzerland's smallest and newest public university"; not used (unsourced). Also calls it "strong in … health policy"; summary sticks to its faculties.
+- Hand-off: application and admission page (covers bachelor, master, doctorate — no bachelor-only page exists).
+
+## ch-franklin (catalogue)
+- Scope catalogue: all teaching in English; applicants apply to "the bachelor of arts program" and "As students progress, they choose a major field of study". Majors page lists 18 majors plus a Political Science emphasis variant and combined majors; the page gives no count, so `courses` left out.
+- Dates are standing (no year) from the admission page: "Early Action Priority Deadline: December 1"; "The Admissions Committee will notify you of the decision by January 15"; "Visa-seeking Students: Regular Application Deadline is May 1"; "Non-Visa Students (including EU/EFTA …): Rolling admissions continue through mid-August, depending on availability. Regular Application deadline is July 15"; deposit "required by May 15 for the Fall Semester".
+- IB: no minimum points published; IB is listed under "Advanced Standing". English: "Applicants whose primary language of instruction is not English must provide proof … TOEFL: 90, IELTS – 6.5, and DET – 110". Could not verify whether an English-taught IB Diploma waives the test (page speaks of "primary language of instruction").
+- ch.json says "tuition … is not confirmed here"; not researched (fee is a country-record matter).
+- Hand-off: majors page (undergraduate-only; 18 majors).
+
+## ch-ehl (listed, 1 programme)
+- Scope listed: one bachelor, "our Bachelor program is delivered in English or in French (please note the Preparatory Year is only delivered in English)"; programme H1 "Bachelor in International Hospitality Management", diploma "Bachelor of Science (HES-SO) in Hospitality Management".
+- 2027 dates published: "Application deadlines for September 2027 31st May 2027 (VISA deadline) 15th June 2027 (Final deadline)" (admission-procedures page).
+- IB: "We only consider full IB Diploma From September 2026 to February 2029 intakes minimum 28/42, priority to 30/42"; subjects are "recommended … priority will be given" until 2029, then required. English: C1, met by studying "one of the following curricula in English: IB".
+- ch.json calls EHL "The world's best-known hospitality school" — not used (unsourced superlative). ch.json's englishBachelors line ("Bachelor in International Hospitality Management, taught in English") agrees, though French is also offered.
+- Fees not recorded (the fee PDFs linked cover direct entry only).
+- Hand-off: bachelor admissions and fees page (bachelor-only).
+
+## ch-webster-geneva (catalogue)
+- Scope catalogue: all teaching in English, US-style; "Students do not have to declare their major immediately upon their arrival." Majors page lists 5 BA and 10 BS options (10 programme pages, several with emphases); no count given, so `courses` left out.
+- No dates recorded: the undergraduate page still reads "Freshman Application Deadline for August 2025 Term: May 15, 2025" and "Priority Application Deadline for International Students (Fall semester): May 1"; the 2027 freshman deadline is not published. Admission is rolling.
+- IB: "IB Diploma with 24 points (32+ for Scholars Program)" — matches ch.json's 24 points. English waiver: "HL English A — min. score 4 HL English B — min. score 5 SL English A — min. score 5 SL English B — min. score 6"; "applicants from an English-based school may also be eligible for waivers".
+- ch.json englishBachelors mentions "media"; the current majors page lists no media major (Media Studies is a minor only). Minor contradiction.
+- ch.json fee (CHF 17,500 per semester 2026/27) not re-checked here (fee is a country-record matter).
+- Hand-off: undergraduate majors and minors page (undergraduate-only; 15 major options).

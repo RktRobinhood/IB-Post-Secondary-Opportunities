@@ -57,3 +57,49 @@ Retrieved 2026-09-26. WebFetch/curl only, no browser. One line per point.
 - Second-round selection: "final upper secondary school qualifications and results from the Swedish Scholastic Aptitude Test. The test is given in Swedish and is not a requirement."
 - IB: Biology 2, Chemistry 2, Mathematics 4, English 6 → Biology and Chemistry SL at 4 / HL at 3; Ma 4 = AA SL at 4 or AA/AI HL at 3 (antagning.se). KI: "KI is not involved in the assessment of your upper secondary school credentials."
 - data/countries/se.json note "it awards the Nobel Prize in Medicine" not checked on a KI page in this run; not used.
+
+## no-uib — University of Bergen
+
+- Scope: none, language Norwegian. UiB's programme finder, Bachelor's + English, "Displaying 1-3 of totally 3 hits": Kinesisk, Samfunnsøkonomi, Sosialantropologi. Their pages say "Undervisningsspråk: Norsk, engelsk og kinesisk" / "Norsk og engelsk" and "Søk på Samordna opptak". None is an English-taught degree. Agrees with data/countries/no.json ("None in practice … all three are Norwegian-language degrees with English components").
+- Arts bachelor's at KMD (applied via Søknadsweb, not Samordna): kunst-bachelor and design-bachelor pages say "Undervisningsspråk Norsk". Other KMD bachelor slugs I guessed returned 404; not exhaustive.
+- Hand-off: UiB programme finder filtered to bachelor's, `?study_level=bachelor` → "Displaying 1-10 of totally 62 hits" (bachelor's only). Caveat: the finder is flaky by fetch — `/en/programmes?study_level=bachelor` and paged URLs returned "3 hits" on some requests; the `/en/studies/programmes?study_level=bachelor` URL returned 62 on re-check.
+- Could not find a UiB English page that states in words that bachelor's are taught in Norwegian or need Norwegian (the English admissions pages cover master's only). The none verdict rests on the programme finder and the Samordna opptak rule that general admission needs Norwegian.
+- IB way in (Samordna IB page): "Norwegian A på higher level eller … Swedish A på higher eller standard level eller Danish A på higher eller standard level" at grade 3; for 2021+ diplomas Norwegian B only at HL ("På IB-diplom fra og med 2021 dekker Norwegian A … eller Norwegian B på Higher level kravet i norsk"). no-ntnu's `ib` line omits Norwegian B HL; mine includes it.
+- MATTE4 (Samfunnsøkonomi): Samordna IB table "4 i studiekompetansefaget matematikk (224 timer): Mathematics på standard level (alle kurs) med karakteren 3 eller Mathematics på higher level (alle kurs) med karakteren 3".
+- Dates: none recorded. Samordna opptak's deadline page says "Gjeld for opptaket til universitet og høgskole i 2026"; 2027 calendar not published. Note says "has been 15 April".
+
+## no-uit — UiT The Arctic University of Norway
+
+- Scope: none, language Norwegian. UiT admission page: "UiT the Arctic University of Norway currently does not offer any bachelor programmes taught in English." FAQ: "Please note that for bachelor programmes and integrated master degrees you have to document sufficient Norwegian language proficiency, and they are not taught in English." Agrees with data/countries/no.json.
+- Hand-off: en.uit.no/admission (international admissions; states the no-English-bachelor's rule). No bachelor's list to count.
+- Contradicts data/countries/no.json note: "The world's northernmost university" — not found on UiT pages I read; not used. The same note's "Master's applications open 1 February 2027" not checked (master's, out of scope).
+- UiT FAQ: "Nordic applicants may meet the Norwegian language requirements with completed High School from their home country." Quoted as UiT's words in a note; whether a Danish-school IB counts as "completed High School from their home country" is not stated — could not verify.
+- Summary campuses from UiT's About page: "The main campuses are located in Tromsø, Alta, Narvik and Harstad".
+- Dates: none recorded (Samordna opptak 2027 calendar not published).
+
+## no-nih — Norwegian School of Sport Sciences
+
+- Scope: none, language Norwegian. NIH Studies: "We offer online courses, one-year, master, and Ph.d. programs in English." Programs in English lists 2 master's, online courses, 1 one-year study (Sport, Culture and Development Cooperation), PhD — no bachelor's. Admission page: "You apply for one-year studies, bachelor- and 5-year integrated master programs through the Samordna opptak application portal." Agrees with data/countries/no.json.
+- NIH's Norwegian list has four bachelor's: Friluftsliv, helse og naturguiding; Sport Management; Trenerrollen og idrettspsykologi; Trening, helse og prestasjon (each "Bachelor / Heltid / 3 år"). "Sport Management" has an English name but is not on the English list and its page is Norwegian-only ("Søknadsfrist: 15. april Studieplasser: 35").
+- Hand-off: NIH's English "Application and admission" page (bachelor's via Samordna opptak). No bachelor's list in English to count.
+- Contradicts data/countries/no.json note: "Ranked among the top three sport-science schools in the world since 2017" — not found on NIH pages I read; not used.
+- NIH additional requirements: "If you wish to apply to one of our Norwegian language programs, you must have a documented B2 level of Norwegian", then points to Samordna opptak's list; Samordna's IB page counts Danish A (SL/HL) at 3 as meeting "kravet i norsk". Did not find a page equating the two explicitly.
+- Dates: none recorded. NIH says "The ordinary deadline to apply through Samordna opptak is April 15" (no year); Samordna's calendar is for 2026.
+
+## no-oslomet — Oslo Metropolitan University
+
+- Scope: none, language Norwegian. Resolves data/countries/no.json's "Unclear — the programme filter indicates one, but it could not be identified": OsloMet's English search filtered to "Bachelor's degree" (`education_type=6`) shows "Showing: 1 of 1 … Entrepreneurial Mindset, Resilience, and Long-Term Success (ØAADM3820) Bachelor's degree 1 semester 7.5 ECTS credits" — a mislabelled single course, not a degree programme.
+- OsloMet's English "Study at OsloMet" page offers "Master's programmes", "Exchange students", "PhD programmes" and links "Study programmes in Norwegian"; no English bachelor's.
+- Norwegian study overview, "Bachelorprogram (42)"; the hand-off is that filter (`studier/studieoversikt?education_type=6`), 42 hits, bachelor's only (loads 30, "p=2" shows all 42).
+- Checked all 42 pages for "Undervisningsspråk": 25 say "Norsk" only; 17 say "Norsk Engelsk" (bioingeniør, ergoterapi, farmasi, ortopediingeniør, paramedisin, psykologi, radiografi, sykepleie, vernepleie, utviklingsstudier, anvendt datateknologi, dataingeniør, energi og miljø, informasjonsteknologi, maskiningeniør, matematisk modellering og datavitenskap, produktdesign); tegnspråk and tolking pages did not match the pattern. None is English-only.
+- Utviklingsstudier: "Du søker på Samordna opptak med studiekode 215 484"; "store deler av undervisningen vil derfor foregå på engelsk" (a semester shared with exchange students) — still a Norwegian-entry degree with GSK. Produktdesign/Informasjonsteknologi: "må du ha generell studiekompetanse"; "Søkere med utdanningsbakgrunn fra land utenfor Norden må dokumentere at de oppfyller krav til norsk".
+- data/countries/no.json note (product-design fee cut for non-EEA, "around 20,000 students") not checked; not used.
+- Dates: none recorded (Samordna opptak 2027 calendar not published).
+
+## Summary
+
+- 9 of 9 done: 5 listed (se-umu 4, se-mau 6, se-ltu 5, se-slu 1, se-ki 1 = 17 programmes), 4 none (no-uib, no-uit, no-nih, no-oslomet; all Norwegian). `node scripts/check-schools.mjs`: 0 failing.
+- Riskiest: whether IB final-year students can use the January round at UmU (3 programmes) and LTU (all 5) — only January occasions are published for 2027; recorded as notes pointing to University Admissions' advice, not as a bar.
+- Riskiest: IB translations of Swedish course codes (Maths 3b/3c/4, Chemistry 1 at LTU) come from antagning.se's table, not from the universities.
+- Date conflicts left out or flagged in labels: UmU first-round results (6 vs 8 April), MAU second round (16 vs 15 March; 10 vs 9 July), MAU "apply by 16 January" vs 15 January. No Norwegian dates recorded (Samordna 2027 calendar unpublished).
+- Contradicts data/countries: se.json LTU count (four → five, new Computer Game Design); no.json OsloMet "Unclear" resolved to none (the one "Bachelor's degree" is a 7.5-credit course).
