@@ -9,7 +9,7 @@ Reports go to `reports/batch-<name>.md`; the coordinator folds them into `progre
 | 0 | fi, gb | 36 | **accepted 8/10 (round 2), live on main** |
 | 1 | nl-fontys, de ×5, lu, is | 10 | done: nl 17/17, de 14/14, lu 2/2, is 2/2 (`reports/batch-nl-de-lu-is.md`) |
 | 1 | se ×5, no ×4 | 9 | done: se 14/14, no 14/14 (report `reports/batch-se-no.md`) |
-| 1 | ie | 14 | running |
+| 1 | ie | 14 | 11/14; stopped at the usage ceiling. Re-run the batch to finish (TU Dublin was next) |
 | 1 | be | 14 | done (`reports/batch-be.md`) |
 | 1 | at | 15 | done (`reports/batch-at.md`) |
 | 1 | ch | 15 | done (report `reports/batch-ch.md`). Critic: check the dates labelled "(standing date)" (no year on the page) against the brief's rule |
