@@ -18,14 +18,14 @@
     "url": "https://www.universityadmissions.se/en/"
   },
   "dates": [
-    { "label": "January round opens (only if you already hold your IB Diploma)", "forDiplomaHolders": true, "date": "2026-10-16", "kind": "opens", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
-    { "label": "January round closes (only if you already hold your IB Diploma)", "forDiplomaHolders": true, "date": "2027-01-15", "kind": "closes", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
+    { "label": "January round opens (only if you already hold your IB Diploma)", "supersedes": "se-uhr-2027/ms-open", "forDiplomaHolders": true, "date": "2026-10-16", "kind": "opens", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
+    { "label": "January round closes (only if you already hold your IB Diploma)", "supersedes": "se-uhr-2027/ms-submit", "forDiplomaHolders": true, "date": "2027-01-15", "kind": "closes", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
     { "label": "April round opens (EU/EEA): the round for May 2027 IB candidates", "date": "2027-03-15", "kind": "opens", "who": "eu-eea-ch", "url": "https://www.lunduniversity.lu.se/study/admission-degree-studies/applying-studies-when-apply" },
-    { "label": "April round closes", "date": "2027-04-15", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
-    { "label": "April round: proof of EU/EEA citizenship (fee exemption) due", "date": "2027-04-23", "kind": "documents", "who": "eu-eea-ch", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
-    { "label": "April round: final IB results due via the IB Result Service (recipient code UHR)", "date": "2027-07-05", "kind": "documents", "who": "eu-eea-ch", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
-    { "label": "April round results", "date": "2027-07-09", "kind": "decision", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
-    { "label": "April round: reply to your offer or lose the place", "date": "2027-07-16", "kind": "documents", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" }
+    { "label": "April round closes", "supersedes": "se-uhr-2027/ms-second", "date": "2027-04-15", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
+    { "label": "April round: proof of EU/EEA citizenship (fee exemption) due", "supersedes": "se-uhr-2027/ms-second-fee-exempt", "date": "2027-04-23", "kind": "documents", "who": "eu-eea-ch", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
+    { "label": "April round: final IB results due via the IB Result Service (recipient code UHR)", "supersedes": "se-uhr-2027/ms-second-ib-results", "date": "2027-07-05", "kind": "documents", "who": "eu-eea-ch", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
+    { "label": "April round results", "supersedes": "se-uhr-2027/ms-second-results", "date": "2027-07-09", "kind": "decision", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" },
+    { "label": "April round: reply to your offer or lose the place", "supersedes": "se-uhr-2027/ms-second-reply", "date": "2027-07-16", "kind": "documents", "who": "any", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/" }
   ],
   "programmes": [
     { "name": "Biomedicine", "credential": "BSc", "years": 3, "field": "natural-sciences", "url": "https://www.lunduniversity.lu.se/study/biomedicine-bachelors-programme-MGBIM", "ib": "Biology and Chemistry (grade 4 at SL, 3 at HL), and Maths AA SL at 4, or AA or AI HL at 3.", "tuitionEuEea": "Free" },

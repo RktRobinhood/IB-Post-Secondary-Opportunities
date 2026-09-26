@@ -19,7 +19,8 @@
   },
   "dates": [
     {
-      "label": "January round opens, 13:00 CET (only if you already hold your IB Diploma)",
+      "label": "January round opens, 13:00 CET",
+      "supersedes": "se-uhr-2027/ms-open",
       "forDiplomaHolders": true,
       "date": "2026-10-16",
       "kind": "opens",
@@ -27,7 +28,8 @@
       "url": "https://www.umu.se/en/education/programmes/bachelor-of-science-programme-in-life-science/"
     },
     {
-      "label": "January round closes: Life Science, Business and Economics (Diploma holders only)",
+      "label": "January round closes",
+      "supersedes": "se-uhr-2027/ms-submit",
       "forDiplomaHolders": true,
       "date": "2027-01-15",
       "kind": "closes",
@@ -35,7 +37,8 @@
       "url": "https://www.umu.se/en/education/application-and-admission/key-dates-and-deadlines/"
     },
     {
-      "label": "January round: documents and EU/EEA proof due (Life Science, Business and Economics)",
+      "label": "January round: documents and proof of EU/EEA citizenship due",
+      "supersedes": "se-uhr-2027/ms-documents",
       "forDiplomaHolders": true,
       "date": "2027-02-01",
       "kind": "documents",
@@ -43,35 +46,44 @@
       "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
     },
     {
-      "label": "April round opens (EU/EEA): the round for May 2027 IB candidates; only Architecture so far",
+      "label": "April round opens (EU/EEA): the round for May 2027 IB candidates",
+      "programmes": ["architecture-programme"],
       "date": "2027-03-15",
       "kind": "opens",
       "who": "eu-eea-ch",
       "url": "https://www.umu.se/en/education/application-and-admission/key-dates-and-deadlines/"
     },
     {
-      "label": "April round closes (only Architecture so far)",
+      "label": "April round closes",
+      "programmes": ["architecture-programme"],
+      "supersedes": "se-uhr-2027/ms-second",
       "date": "2027-04-15",
       "kind": "closes",
       "who": "eu-eea-ch",
       "url": "https://www.umu.se/en/education/application-and-admission/key-dates-and-deadlines/"
     },
     {
-      "label": "April round (Architecture): proof of EU/EEA citizenship (fee exemption) due",
+      "label": "April round: proof of EU/EEA citizenship (fee exemption) due",
+      "programmes": ["architecture-programme"],
+      "supersedes": "se-uhr-2027/ms-second-fee-exempt",
       "date": "2027-04-23",
       "kind": "documents",
       "who": "eu-eea-ch",
       "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
     },
     {
-      "label": "April round (Architecture): final IB results due via the IB Result Service (code UHR)",
+      "label": "April round: final IB results due via the IB Result Service (recipient code UHR)",
+      "programmes": ["architecture-programme"],
+      "supersedes": "se-uhr-2027/ms-second-ib-results",
       "date": "2027-07-05",
       "kind": "documents",
       "who": "eu-eea-ch",
       "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
     },
     {
-      "label": "April round (Architecture): reply to your offer or lose the place",
+      "label": "April round: reply to your offer or lose the place",
+      "programmes": ["architecture-programme"],
+      "supersedes": "se-uhr-2027/ms-second-reply",
       "date": "2027-07-16",
       "kind": "documents",
       "who": "eu-eea-ch",
@@ -81,6 +93,8 @@
   "programmes": [
     {
       "name": "Bachelor Programme in Industrial Design",
+      "selection": ["portfolio", "motivation", "interview"],
+      "round": "January round",
       "credential": "BFA",
       "years": 3,
       "field": "design-architecture",
@@ -109,7 +123,8 @@
     },
     {
       "name": "Architecture Programme",
-      "credential": "Master of Architecture (5-year programme)",
+      "round": "April round",
+      "credential": "Master of Architecture",
       "years": 5,
       "field": "design-architecture",
       "url": "https://www.umu.se/en/education/programmes/architecture-program/",

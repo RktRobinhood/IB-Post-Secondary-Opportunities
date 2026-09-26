@@ -78,6 +78,7 @@ export function hero(o) {
     o.variant === 'compact' && 'hero--compact',
     plain && 'hero--plain',
     o.variant === 'panel' && 'hero--panel',
+    o.mod,
   ]
     .filter(Boolean)
     .join(' ');
