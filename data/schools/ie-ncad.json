@@ -10,7 +10,7 @@
     "url": "https://www.ncad.ie/undergraduate/undergraduate-year-1/"
   },
   "ib": {
-    "text": "IB Diploma with 24 points (CAO's 2026 criteria; 2027 not yet published), with English and Irish; NUI exempts most students born or schooled abroad from Irish. Product and Interaction Design add Maths SL 4 or HL 3.",
+    "text": "IB Diploma with 24 points (CAO's 2026 criteria; 2027 not yet published), with English and Irish; NUI exempts most students born or schooled abroad from Irish.",
     "url": "https://www.ncad.ie/files/undergrad_files/2027-28_NCAD_Minimum_Entry_Requirements.pdf"
   },
   "apply": {
@@ -32,7 +32,8 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/first-year/",
-      "about": "CAO code AD101. A shared first year across art and design, after which you choose a degree in fine art (print, media, sculpture, painting), applied art or one of eight design areas.",
+      "code": "AD101",
+      "about": "A shared first year across art and design, after which you choose a degree in fine art (print, media, sculpture, painting), applied art or one of eight design areas.",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
@@ -42,7 +43,8 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/school-of-design/graphic-design/",
-      "about": "CAO code AD102. Direct entry to the School of Design, leading to a degree in Graphic Design or in Moving Image Design; an optional Studio+ placement year makes it four years.",
+      "code": "AD102",
+      "about": "Direct entry to the School of Design, leading to a degree in Graphic Design or in Moving Image Design; an optional Studio+ placement year makes it four years.",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
@@ -52,7 +54,8 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/school-of-design/textile-and-surface-design/",
-      "about": "CAO code AD103. Direct entry leading to a degree in Textile & Surface Design or in Jewellery & Objects; an optional Studio+ placement year makes it four years.",
+      "code": "AD103",
+      "about": "Direct entry leading to a degree in Textile & Surface Design or in Jewellery & Objects; an optional Studio+ placement year makes it four years.",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
@@ -62,7 +65,8 @@
       "years": 3,
       "field": "arts-music",
       "url": "https://www.ncad.ie/undergraduate/school-of-fine-art/",
-      "about": "CAO code AD104. Direct entry to Fine Art (Media, Painting, Print or Sculpture) or Applied Art (Ceramics & Glass, or Textile Art & Artefact).",
+      "code": "AD104",
+      "about": "Direct entry to Fine Art (Media, Painting, Print or Sculpture) or Applied Art (Ceramics & Glass, or Textile Art & Artefact).",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
@@ -72,7 +76,8 @@
       "years": 4,
       "field": "education",
       "url": "https://www.ncad.ie/undergraduate/school-of-education/design-or-fine-art-and-education/",
-      "about": "CAO code AD202. A joint honours degree that pairs the full Design or Fine Art course with teacher education, qualifying you to teach art in secondary schools.",
+      "code": "AD202",
+      "about": "A joint honours degree that pairs the full Design or Fine Art course with teacher education, qualifying you to teach art in secondary schools.",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule. Garda vetting at registration."
     },
@@ -82,7 +87,8 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/school-of-design/fashion-design/",
-      "about": "CAO code AD211. The design process as it applies to the fashion industry, from a personal visual language to a final-year collection; optional Studio+ placement year.",
+      "code": "AD211",
+      "about": "Fashion design, taught through the design process as it applies to the fashion industry: from a personal visual language to a final-year collection, with an optional Studio+ placement year.",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
@@ -92,7 +98,9 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/school-of-design/product-design/",
-      "about": "CAO code AD212. Designing and making new physical objects and experiences; optional Studio+ placement year.",
+      "code": "AD212",
+      "about": "Designing and making new physical objects and experiences; optional Studio+ placement year.",
+      "ib": "Adds Maths at SL 4 or HL 3; a science can stand in for Maths.",
       "needs": [
         {
           "anyOf": ["mathematics-aa", "mathematics-ai", "physics", "chemistry", "biology"],
@@ -110,7 +118,8 @@
       "years": 3,
       "field": "humanities",
       "url": "https://www.ncad.ie/undergraduate/school-of-visual-culture/ba-hons-visual-culture/",
-      "about": "CAO code AD215. The history and theory of contemporary art, design, film and digital culture, with study visits in Ireland and Europe and a final-year work placement.",
+      "code": "AD215",
+      "about": "The history and theory of contemporary art, design, film and digital culture, with study visits in Ireland and Europe and a final-year work placement.",
       "selection": ["grades"],
       "selectionNote": "No portfolio; ranked on CAO points."
     },
@@ -120,7 +129,8 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/school-of-design/illustration/",
-      "about": "CAO code AD217. Drawing, printing, composition, narrative and sequence, with live competition briefs in the final year; optional Studio+ placement year.",
+      "code": "AD217",
+      "about": "Drawing, printing, composition, narrative and sequence, with live competition briefs in the final year; optional Studio+ placement year.",
       "selection": ["portfolio"],
       "selectionNote": "Ranked on portfolio score; CAO points are not used once you meet the minimum entry rule."
     },
@@ -130,7 +140,9 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://www.ncad.ie/undergraduate/school-of-design/interaction-design/",
-      "about": "CAO code AD222. Designing digital interactions for apps, websites, products, services and user experience; optional Studio+ placement year.",
+      "code": "AD222",
+      "about": "Designing digital interactions for apps, websites, products, services and user experience; optional Studio+ placement year.",
+      "ib": "Adds Maths at SL 4 or HL 3; a science can stand in for Maths.",
       "needs": [
         {
           "anyOf": ["mathematics-aa", "mathematics-ai", "physics", "chemistry", "biology"],

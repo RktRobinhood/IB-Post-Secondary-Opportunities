@@ -2,7 +2,7 @@ import { html, raw, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
 import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { hostOf, isHomepage } from '../lib/schools.mjs';
+import { hostOf, isHomepage, HOLDERS_ONLY } from '../lib/schools.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 
 /**
@@ -109,7 +109,9 @@ export function programmeCard(inst, p, { tuitionOnCard, headed, brief = false })
     // A brief card (a sibling on a programme page) leaves the IB line to its own page.
     text: brief ? null : p.ib || null,
     tags: [
-      p.closes ? { label: `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
+      /* A programme whose only round is for Diploma holders gives no date to
+         a final-year student: the card says whose round it is instead. */
+      p.closes ? { label: p.closesForDiplomaHolders ? HOLDERS_ONLY : `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
       tuitionOnCard && p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
     ].filter(Boolean),
     // At rest, the card says it opens a page.

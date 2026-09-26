@@ -93,3 +93,33 @@ export function hostOf(link) {
     return null;
   }
 }
+
+/* --- Dates only for Diploma holders ------------------------------------------ */
+
+/**
+ * Whether a date's words say it is only for applicants who already hold their
+ * IB Diploma: "only if you already hold your IB Diploma", "not for final-year
+ * IB students", "diploma already in hand". Such a date carries
+ * `forDiplomaHolders` (schemas/common.schema.json); scripts/check-schools.mjs
+ * and scripts/test-school-pages.mjs hold the words and the flag together.
+ * "IB Diploma holders" alone is not it: that names the qualification (Helsinki's
+ * admission group for the IB), not a round a final-year student may not use.
+ */
+const HOLDERS_WORDING =
+  /\balready holds?\b|\bdiploma already in hand\b|\bnot for final-year\b|\bincluding your diploma\b|\bdiploma holders only\b|\bhave not finished the diploma\b/i;
+export const saysForDiplomaHolders = (text) => HOLDERS_WORDING.test(String(text || ''));
+
+/**
+ * The round a school date belongs to, read off its label: the words before
+ * what happens in it ("January round opens (…)", "January round: documents",
+ * "January round results" are all "january round"). A round that is for
+ * Diploma holders is so on every one of its dates.
+ */
+export const roundOf = (label) =>
+  String(label || '')
+    .split(/[:(,;]| (?:opens|closes|deadline|results)\b/i)[0]
+    .trim()
+    .toLowerCase();
+
+/** A programme page's "Apply by" tile when every closing date is for Diploma holders. */
+export const HOLDERS_ONLY = 'Diploma holders only';

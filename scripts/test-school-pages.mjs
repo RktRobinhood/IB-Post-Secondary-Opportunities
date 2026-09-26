@@ -13,13 +13,19 @@
  *      page links to it, and nothing on it that leaves the site is a homepage;
  *   6. a programme page's "Apply by" is a date from the programme (`closes`),
  *      its school record (`dates`), or a route date tied to that school by id
- *      (`institutions`), never a route's general date for other programmes.
+ *      (`institutions`), never a route's general date for other programmes;
+ *   7. and never a date only for applicants who already hold the Diploma
+ *      (`forDiplomaHolders`, `closesForDiplomaHolders`): where those are all
+ *      there is, the tile says "Diploma holders only", no card says "Apply by"
+ *      for such a programme, and no dates panel lifts such a date to the top
+ *      (`data-binding`). A route date whose words say it is for Diploma
+ *      holders reaching a school page must carry the flag.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKeys, loadSchools, isHomepage, programmePaths } from '../src/lib/schools.mjs';
+import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, HOLDERS_ONLY } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -32,16 +38,20 @@ const read = (p) => {
   return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : null;
 };
 
-/* Where a programme page's "Apply by" may come from (rule 6). */
-const milestones = fs
+/* Where a programme page's "Apply by" may come from (rules 6 and 7): never a
+   date only for Diploma holders. */
+const routes = fs
   .readdirSync(path.join(ROOT, 'data', 'application-routes'))
   .filter((f) => f.endsWith('.json'))
-  .flatMap((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'application-routes', f), 'utf8')).milestones || []);
+  .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'application-routes', f), 'utf8')));
+const milestones = routes.flatMap((r) => r.milestones || []);
 function applyByAllowed(key, rec, prog, iso) {
-  if (prog.closes === iso) return true;
-  if ((rec.dates || []).some((d) => d.date === iso)) return true;
-  return milestones.some((m) => (m.institutions || []).includes(key) && (m.date === iso || m.endDate === iso));
+  if (prog.closes === iso) return !prog.closesForDiplomaHolders;
+  if ((rec.dates || []).some((d) => d.date === iso && !d.forDiplomaHolders)) return true;
+  return milestones.some((m) => (m.institutions || []).includes(key) && !m.forDiplomaHolders && (m.date === iso || m.endDate === iso));
 }
+/* A tile that gives no day, because every closing date is for Diploma holders. */
+const holdersOnlyAllowed = (rec, prog) => Boolean(prog.closesForDiplomaHolders || (rec.dates || []).some((d) => d.forDiplomaHolders));
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const isoOf = (text) => {
   const m = String(text).trim().match(/^(\d{1,2}) ([A-Z][a-z]+) (\d{4})$/);
@@ -67,6 +77,9 @@ console.log('  ok    self-test: a homepage is caught, a targeted page passes');
     ['de-tum', 'aerospace', '2027-05-31', false],
     ['nl-radboud', 'artificial-intelligence', '2027-01-15', false],
     ['de-tum', 'aerospace', '2027-07-15', true],
+    /* KTH's January round is for Diploma holders; its April round is not. */
+    ['se-kth', 'information-and-communication-technology', '2027-01-15', false],
+    ['se-kth', 'information-and-communication-technology', '2027-04-15', true],
   ];
   const wrong = cases.filter(([key, slug, iso, want]) => {
     const p = prog(key, slug);
@@ -76,8 +89,23 @@ console.log('  ok    self-test: a homepage is caught, a targeted page passes');
     console.log(`  FAIL  self-test: the Apply-by rule misjudges ${wrong.map((w) => `${w[0]}/${w[1]} ${w[2]}`).join(', ') || 'a date'}`);
     process.exit(1);
   }
-  console.log("  ok    self-test: a route date for other programmes is refused as Apply by; the school's own passes");
+  console.log("  ok    self-test: a route date for other programmes, or a date for Diploma holders, is refused as Apply by; the school's own passes");
 }
+
+/* Rule 7, on the routes: a milestone whose words say it is for Diploma
+   holders ("tells IB students who have not finished the Diploma not to apply
+   in this round") carries the flag, so no school page leads with it. */
+for (const r of routes) {
+  for (const m of r.milestones || []) {
+    if (!m.forDiplomaHolders && saysForDiplomaHolders(`${m.label} ${m.note || ''}`)) {
+      fail(`${r.id}/${m.id} "${m.label}" says it is for Diploma holders only: set forDiplomaHolders`);
+    }
+  }
+}
+
+/* No dates panel lifts a date only for Diploma holders to the top. */
+const liftsHolders = (html) =>
+  [...html.matchAll(/<li class="dates-panel__item"[^>]*>/g)].some((m) => /data-binding="true"/.test(m[0]) && /data-diploma-holders="true"/.test(m[0]));
 
 const known = schoolKeys(path.join(ROOT, 'data', 'countries'));
 const records = loadSchools(path.join(ROOT, 'data', 'schools'));
@@ -89,6 +117,7 @@ const countries = fs
 let pages = 0;
 let programmePages = 0;
 let applyTiles = 0;
+let holdersTiles = 0;
 let cards = 0;
 for (const c of countries) {
   const countryPage = read(`destinations/${c.code}`);
@@ -118,6 +147,7 @@ for (const [key, inst] of known) {
   }
   pages++;
   const main = html.split('<main')[1]?.split('</main>')[0] || '';
+  if (liftsHolders(main)) fail(`/universities/${key}/: the dates panel leads with a date only for Diploma holders`);
   for (const m of main.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
     const link = m[1].replace(/&amp;/g, '&');
     if (isHomepage(link, inst.website)) fail(`/universities/${key}/ hands the student to a homepage: ${link}`);
@@ -140,10 +170,22 @@ for (const [key, inst] of known) {
         if (isHomepage(link, inst.website)) fail(`${p.href} hands the student to a homepage: ${link}`);
       }
       const tile = body.match(/<dt>Apply by<\/dt>\s*<dd>([^<]+)/)?.[1];
-      if (tile) {
+      if (tile && tile.trim() === HOLDERS_ONLY) {
+        if (!holdersOnlyAllowed(rec, p)) fail(`${p.href}: "Apply by ${HOLDERS_ONLY}" but its record has no date for Diploma holders`);
+        holdersTiles++;
+      } else if (tile) {
         const iso = isoOf(tile);
-        if (!iso || !applyByAllowed(key, rec, p, iso)) fail(`${p.href}: "Apply by ${tile.trim()}" is not the programme's, its school's, or a date tied to the school`);
+        if (!iso || !applyByAllowed(key, rec, p, iso)) {
+          fail(`${p.href}: "Apply by ${tile.trim()}" is not the programme's, its school's, or a date tied to the school, or is only for Diploma holders`);
+        }
         applyTiles++;
+      }
+      if (liftsHolders(body)) fail(`${p.href}: the dates panel leads with a date only for Diploma holders`);
+      /* Its card on the school's page gives no day to a final-year student either. */
+      if (p.closesForDiplomaHolders) {
+        const at = main.indexOf(`href="${BASE}${p.href}"`);
+        const cardHtml = at < 0 ? '' : main.slice(main.lastIndexOf('<article', at), main.indexOf('</article>', at));
+        if (/Apply by/.test(cardHtml)) fail(`/universities/${key}/: the card for "${p.name}" says "Apply by" a date only for Diploma holders`);
       }
       // The hand-off is the programme's own page, and it is the page's last word.
       if (!body.includes(`href="${p.url.replace(/&/g, '&amp;')}"`)) fail(`${p.href} does not hand on to the programme's own page`);
@@ -163,5 +205,5 @@ if (!programmePages) {
   process.exit(1);
 }
 console.log(
-  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school), ${cards} institution cards on country pages; none hands a student to a homepage`
+  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} "${HOLDERS_ONLY}"), ${cards} institution cards on country pages; none hands a student to a homepage`
 );

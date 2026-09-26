@@ -53,6 +53,7 @@
  */
 import { html, raw } from './html.mjs';
 import { url, SITE } from './layout.mjs';
+import { HOLDERS_ONLY } from './schools.mjs';
 import {
   allEvents, consequenceOf, eventKind, formatWhen, identityWords, initialismOf, isActionable, isForEarlierEntry, mergeTwins, nameMatch, sortKey,
 } from './calendar.mjs';
@@ -71,6 +72,15 @@ const CYCLE_YEAR = Number(String(SITE.cycle?.intake || '').match(/\d{4}/)?.[0]) 
  */
 const BINDING = new Set(['hard', 'equal-consideration']);
 export const isBinding = (e) => BINDING.has(e.consequence) && isActionable(e);
+
+/**
+ * The deadlines a final-year IB student plans around: binding, and not only
+ * for applicants who already hold the Diploma (`forDiplomaHolders`: Sweden's
+ * January round, a direct route that wants the diploma in hand). Such a date
+ * is still listed, under its own label, but it never leads a panel and never
+ * becomes a programme's "Apply by" (school-programme.mjs).
+ */
+export const leadsFor = (e) => isBinding(e) && !e.forDiplomaHolders;
 
 const eventsCache = new WeakMap();
 function siteEvents(site) {
@@ -304,6 +314,7 @@ function fromSchoolDate(inst, d, i) {
     intake: null,
     note: null,
     supersedes: d.supersedes || null,
+    forDiplomaHolders: Boolean(d.forDiplomaHolders),
     kind: d.kind,
     sources: d.url ? [d.url] : [],
     evidence: [],
@@ -503,7 +514,14 @@ function condense(events) {
       const wa = identityWords(a.label);
       const wb = identityWords(b.label);
       if (!wa.size || wa.size >= wb.size || ![...wa].every((w) => wb.has(w))) continue;
-      out[j] = { ...mergeTwins(b, a), schoolOwn: Boolean(a.schoolOwn || b.schoolOwn) };
+      /* Whether it is only for Diploma holders is the school's own word where
+         one of the pair is the school's; otherwise either one saying so. */
+      const own = [a, b].find((x) => x.origin === 'school');
+      out[j] = {
+        ...mergeTwins(b, a),
+        schoolOwn: Boolean(a.schoolOwn || b.schoolOwn),
+        forDiplomaHolders: own ? Boolean(own.forDiplomaHolders) : Boolean(a.forDiplomaHolders || b.forDiplomaHolders),
+      };
       out[i] = null;
       break;
     }
@@ -526,11 +544,12 @@ export function sessionsFor(site, inst, { programme = null } = {}) {
  * date, because those are the dates a student came for, then everything else
  * by date. Opening days and steps to set yourself come earlier in the year
  * and used to take the visible slots while a second deadline waited behind
- * the fold (SDU's uniTEST behind "Optagelse.dk opens"). dates-panel.js keeps
- * this order as dates pass.
+ * the fold (SDU's uniTEST behind "Optagelse.dk opens"). A deadline only for
+ * Diploma holders is not one a final-year student came for, so it waits with
+ * the rest (`leadsFor`). dates-panel.js keeps this order as dates pass.
  */
 export function leadOrder(events) {
-  return [...events.filter(isBinding), ...events.filter((e) => !isBinding(e))];
+  return [...events.filter(leadsFor), ...events.filter((e) => !leadsFor(e))];
 }
 
 /**
@@ -573,10 +592,16 @@ function dateItem(site, e) {
   const src = sourceOf(site, e);
   /* The whole note, behind its disclosure: opening a detail shows all of it. */
   const paras = String(e.note || '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
-  const badge = e.consequence && e.consequence !== 'indicative'
-    ? html`<span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>`
+  /* A date only for Diploma holders says so, where its label does not. */
+  const holders = e.forDiplomaHolders && !/diploma/i.test(e.label)
+    ? html`<span class="timeline__badge" data-for="diploma-holders">${HOLDERS_ONLY}</span>`
     : '';
-  return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(isBinding(e) ? ' data-binding="true"' : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
+  const badge = e.consequence && e.consequence !== 'indicative'
+    ? html`<span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>${holders}`
+    : holders;
+  /* `data-binding` is what dates-panel.js lifts to the top as dates pass: a
+     deadline a final-year student plans around (`leadsFor`). */
+  return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html` <span class="dates-panel__prov">· provisional</span>` : ''}</p>
     ${/* A line of the panel, not prose: the same school date is on each of
           its programmes' pages (the text-walls guard reads <p> as prose). */ ''}<div class="dates-panel__what">${e.label}</div>

@@ -163,6 +163,10 @@
       "type": "boolean",
       "description": "True when the cited source gives the day and month but no year (\"15 January\"), so the year is inferred from the intake. Such a date must be `provisional`; scripts/test-calendar.mjs checks the two agree and that a note saying \"no year\" carries this flag."
     },
+    "forDiplomaHolders": {
+      "type": "boolean",
+      "description": "True for a date only for applicants who already hold their IB Diploma: a round a final-year IB student is told not to use (Sweden's January round, a direct route that wants the diploma in hand). School and programme pages still list it, under its label, but it is never a programme's 'Apply by' and never leads a dates panel (src/lib/school-dates.mjs, src/pages/school-programme.mjs). scripts/check-schools.mjs requires it on every school date whose label says so, and on every date of the same round."
+    },
     "numerusFixusOnly": {
       "type": "boolean",
       "description": "True for a date that concerns only numerus fixus programmes (a national fixus closing date, ranking numbers). A Programme page whose opportunity records `admission.numerusFixus: false`, and a school page whose every listed programme does, leaves it out (src/lib/school-dates.mjs)."
