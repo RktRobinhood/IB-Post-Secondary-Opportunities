@@ -96,9 +96,54 @@ export const RESEARCH_LOG = [
   /\bwhen checked\b/i,
   /\bcited here\b/i,
   /\b(?:page|leaflet|portal) on \d{1,2} \w+ 20\d\d:/i,
+  // Round 2 of the #41 critique: counts and checks narrated, and the
+  // repository's own vocabulary leaking onto the page.
+  /\b(?:none|one|two|three|four|five|six|seven|eight|nine|ten|\d+) found\b/i,
+  /\b(?:bar|example|scheme|figure|table|score|date|fee) found\b/i,
+  /\bcould be found\b/i,
+  /\bpages? checked\b/i,
+  /\bat the time of checking\b/i,
+  /\bnot checked here\b/i,
+  /\b(?:bachelor's|programmes?|courses?) checked\b/i,
+  /\bthis pass\b/i,
+  /\bthe record holds\b/i,
+  /\bADR \d{4}\b/,
+  /\bdocs\//,
+  /\bcritic\b/i,
+  /\bEvidence record\b/i,
+  /\bto a fetch\b/i,
+  // A field name from the schema ("levelRaise", "dateState"). Real names that
+  // happen to be written this way are listed in CAMEL_OK.
+  /\b[a-z]+[A-Z][a-z]+\w*\b/g,
 ];
 
-export const researchLog = (text) => RESEARCH_LOG.map((rx) => text.match(rx)?.[0]).filter(Boolean);
+// Product and portal names that really are written in camelCase.
+const CAMEL_OK = new Set(['uOttawa', 'iSchool', 'eApply', 'iGraduate', 'eResidence', 'ePortal', 'myCampus', 'uSis', 'iPhone', 'eBay']);
+
+/** Every research-log phrase in a line of text, as [match, index] pairs. */
+function matches(text) {
+  const out = [];
+  for (const rx of RESEARCH_LOG) {
+    if (rx.global) {
+      for (const m of text.matchAll(rx)) if (!CAMEL_OK.has(m[0])) out.push([m[0], m.index]);
+    } else {
+      const m = rx.exec(text);
+      if (m) out.push([m[0], m.index]);
+    }
+  }
+  return out;
+}
+
+export const researchLog = (text) => matches(text).map(([m]) => m);
+
+/*
+ * Lines another agent owns right now, and which it has been asked to change.
+ * An entry names the page, an exact substring of the line and who has it; it
+ * fails when it no longer matches, so it cannot outlive the fix. This is a
+ * hand-off list, not a place to excuse wording: nothing goes here that the
+ * author of this guard was free to rewrite.
+ */
+const HANDED_OFF = [];
 
 let failures = 0;
 const check = (name, fn) => {
@@ -133,6 +178,24 @@ check('flags the research narrated', () => {
     'its 2027 dates were not on the page when checked.',
     'does not appear on any official page cited here, so treat it as unconfirmed.',
     'Its admissions page on 23 September 2026: for 2026 Tartu admits to 3 programmes.',
+    // Round 2 of the critique.
+    'English-taught bachelors: Three found.',
+    'In English: None found.',
+    'SSE Riga runs the most substantial scholarship scheme found.',
+    'sets the highest bar found at IELTS 6.5',
+    'no IB-to-Estonian grade conversion table could be found.',
+    'was not published in a form that could be verified on the pages checked',
+    'did not publish a quota figure at the time of checking',
+    'belong to the group but were not checked here',
+    "None at the University of Malta for the full-time bachelor's checked",
+    'Twente is the only institution in this pass that writes requirements',
+    'Its specific entry requirement is still English B, and that is what the record holds.',
+    'the pattern ADR 0002 predicts',
+    'as read by the round-4 conversion critic (docs/research/qa/conversion/critique-round-4.md).',
+    'No Evidence record holds that page yet.',
+    'the panels return nothing to a fetch or to a DOM read.',
+    'the levelRaise cites the general admission page.',
+    'Part-time work is restricted — see workRights.',
   ]) assert.ok(researchLog(t).length, `not caught: ${t}`);
 });
 
@@ -152,6 +215,9 @@ check('leaves dates of currency and advice alone', () => {
     'the CVEC portal says (in French) to pay',
     'Precedent, from medizinstudieren.at (in German, as of 23 September 2026):',
     'None of the university pages linked from this page publishes a minimum.',
+    'Rooms are usually found through Facebook groups.',
+    "Apply through eApply, then Leiden's portal uSis; see uOttawa and the iSchool.",
+    'The selection details here come from the admission regulation (PDF).',
   ]) assert.deepEqual(researchLog(t), [], t);
 });
 
@@ -181,16 +247,17 @@ check('the build produced a page for every Destination profile', () => {
 });
 
 const found = [];
+const handedOff = new Set();
 for (const f of pages) {
+  const rel = path.relative(DIST, f).split(path.sep).join('/');
   const text = htmlToText(fs.readFileSync(f, 'utf8'));
   for (const line of text.split('\n')) {
-    for (const rx of RESEARCH_LOG) {
-      const m = rx.exec(line);
-      if (!m) continue;
-      const at = m.index;
-      found.push(`${path.relative(ROOT, f)}: "${m[0]}" in "…${line.slice(Math.max(0, at - 70), at + 90).trim()}…"`);
-      break;
-    }
+    const hit = matches(line)[0];
+    if (!hit) continue;
+    const excused = HANDED_OFF.find((h) => h.page === rel && line.includes(h.match));
+    if (excused) { handedOff.add(excused); continue; }
+    const [m, at] = hit;
+    found.push(`${path.relative(ROOT, f)}: "${m}" in "…${line.slice(Math.max(0, at - 70), at + 90).trim()}…"`);
   }
 }
 
@@ -203,6 +270,12 @@ check(`no Destination or university page narrates the research (${pages.length} 
       'What was read and when belongs in the Evidence record (retrievedAt, interpretation), which is not rendered.'
   );
 });
+
+check('every handed-off line is still there, and names its owner', () => {
+  const stale = HANDED_OFF.filter((h) => !handedOff.has(h));
+  assert.equal(stale.length, 0, stale.map((h) => `fixed or moved — remove it from HANDED_OFF: ${h.page} "${h.match}"`).join('\n'));
+});
+if (HANDED_OFF.length) console.log(`  note  ${HANDED_OFF.length} line(s) handed off to their owner: ${HANDED_OFF.map((h) => h.page.split('/')[1]).join(', ')}`);
 
 console.log(failures ? `\n${failures} failed.\n` : '\nNo research log on any Destination or university page.\n');
 process.exit(failures ? 1 : 0);

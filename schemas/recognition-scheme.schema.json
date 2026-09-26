@@ -323,6 +323,11 @@
           "type": "string",
           "description": "What the authority says about taking more than one course — how many may be finished after the documentation deadline. Two level gaps are only ever called \"Possible with action\" where this, or the institution's own, is recorded."
         },
+        "afterResults": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many courses may be finished after the IB results and still count for this intake, by the authority's rule (one, by summer supplementation)."
+        },
         "source": {
           "type": "string"
         }
