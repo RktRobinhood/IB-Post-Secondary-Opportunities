@@ -45,6 +45,16 @@ This page says where the work stands, so the next session (human or agent) start
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
+## 26 September (late morning): the Danish standard for every country
+
+The owner: "the value is in bringing the other regions as close to our Danish standard as possible." Usage ceiling 70% of the 5-hour window. The owner's globe notes are on #53 (transparent floating globe, pins centred on large countries, zoom to schools, remove the old map that flashes first, whole card links to the country); not started.
+
+- **Live on `main` (critic 8+):** UK 22, Finland 14, Switzerland 15, Luxembourg 2, Iceland 2, Netherlands 17, Austria 15, Germany 14, Norway 14 = **115 researched school records**.
+- **On `feat-43-school-pages`, not yet accepted:** Sweden 14 (round 1 6/10, fixes in, round-2 critic running or next), Belgium 14 (round 1 7/10, fixes in, needs round 2), Ireland 14 (researched, no critic yet).
+- **Programme pages (branch only):** every programme of a `listed` school gets `/universities/<key>/<slug>/`, laid out like the Danish programme page (`src/pages/school-programme.mjs`). Art-director round 1: **6/10** (apply-by could show another programme's date; no photo; repeated lede; facts-strip gaps); round-1 fixes in progress. Goes to `main` only after an 8+.
+- **Enrichment:** `schemas/school.schema.json` programmes carry `about`, `needs` (IB subject ids, `id@HL` for per-option levels), `points`, `selection`, `cutoff`, `places`, `requirementsUrl`; brief section "Enrichment: the Danish standard". **Finland is enriched (101 programmes, branch only)** and needs an admissions critic before it ships with the programme pages.
+- **Next:** programme pages round 2 → FI enrichment critic → ship both; Sweden/Belgium/Ireland critics; enrich the live countries (NL, DE, AT, CH, NO) one at a time; then wave 2 research (ES/IT/FR/PT…, queue in `docs/research/schools/QUEUE.md`).
+
 ## 26 September (morning): the owner's focus is university data
 
 The owner: the globe and the look are in a good place; the priority is the missing background data (universities), then closing open issues. Usage ceiling for that session: **70%** of the 5-hour window.
