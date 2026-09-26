@@ -269,7 +269,7 @@ ${hero({
           ${sectionHead({
             eyebrow: plural(d.institutions.length, 'institution'),
             title: `In ${d.sentenceName}`,
-            lede: `${plural(d.programmes, 'English-taught programme')} recorded here.`,
+            lede: `${plural(d.programmes, 'English-taught programme')} on this site.`,
           })}
           <div class="grid grid--3" style="margin-bottom:var(--s7)">
             ${d.institutions

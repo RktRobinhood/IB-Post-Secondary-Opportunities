@@ -107,3 +107,16 @@ country's light and the globe opens it.
 - **A card is the link, drawn once.** No visible "Open … →" line; no folded
   first card replaced by a full one. On a phone the card is a sheet below the
   stage and the buttons a row above it.
+
+## Round 3 (26 September 2026, after 7.5/10)
+
+- A chosen country's schools group only with each other, and no other
+  country opens while it is chosen, so every number on the stage belongs to
+  it and they add up to its total. Labels are placed after all pins and
+  groups and are dropped rather than drawn across one; nothing is drawn over
+  the desk's ring.
+- A country's lean-in stops where the Earth's edge shows on top and at both
+  sides; clouds are gone below alt 1.3; the sea is drawn from a smoothed
+  sample, so the photograph's compression blocks do not show.
+- The still is eager, high priority and preloaded on home, with a lossless
+  alpha so its halo is as soft as the live one.

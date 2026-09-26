@@ -1,6 +1,6 @@
 # Country audit (Europe): follow-ups from round 5 (issue #41)
 
-> **Rounds 2, 3 and 4** (at the end) answer the three critiques (`follow-ups-41-critique-round-1.md`, `-round-2.md`, `-round-3.md`). Each widens the guards; the latest round supersedes earlier descriptions of the guards and the allow-list.
+> **Rounds 2 to 5** (at the end) answer the four critiques (`follow-ups-41-critique-round-1.md` to `-round-4.md`). Each widens the guards; the latest round supersedes earlier descriptions of the guards and the allow-lists.
 
 Editor pass, 2026-09-26, answering the follow-up issue in `round-5.md`. This pass was done offline: no page was fetched, and every rewrite uses only facts already in the same record (founding year, counts, fees, what the institution teaches). Nothing new is asserted.
 
@@ -1175,3 +1175,158 @@ These were changed by rule rather than one at a time. The rule, and every file i
 | "Not researched in detail here." and its variants (sectorLandscape route notes) | "Not covered in detail on this site." / "Not covered on this site." / "Not covered for IB applicants on this site." … | 25 | destinations/at.json, destinations/be.json, destinations/ch.json, destinations/cz.json, destinations/de.json, destinations/fr.json, destinations/gb.json, destinations/hu.json, destinations/ie.json, destinations/is.json, destinations/lu.json, destinations/lv.json, destinations/nl.json, destinations/pl.json, destinations/se.json, destinations/si.json |
 | "(page gives no year)" / "(yearly date; the page gives no year)" (school calendar labels) | "(year assumed)" / "(yearly date; year assumed)" | 18 | schools/at-modul.json, schools/no-inn.json, schools/no-nmbu.json, schools/no-nord.json, schools/no-uia.json, schools/no-uio.json, schools/no-uis.json |
 | "Verified example(s):" | "Example(s):" | 4 | countries/at.json, countries/au.json, countries/fi.json, countries/nz.json |
+
+## Round 5 (last): answering the fourth critique
+
+This pass answers `follow-ups-41-critique-round-4.md`, which scored round 4 "a strong 7". It was done on 2026-09-26, offline, on main `d4e2c3d`, and it is the last round allowed.
+
+The critique found two gaps:
+- the rankings had moved to fields the guard did not read;
+- the research-log guard caught the words critics had quoted but not their synonyms.
+
+Both guards now read those fields and catch the shape of the sentence, not only the quoted phrases. Every data rewrite uses only what its own record holds.
+
+`data/schools/*.json` is being edited on the programme pages branch and was not touched. The three lines there that the guard now catches are handed off (see "Handed off").
+
+**Gate:** `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes all 37 checks. As before, the advisory `freshness` check reports the age of the evidence.
+
+### Each critique item, and what changed
+
+| # | Critique item | What changed |
+|---|---|---|
+| 1 | Rankings on programme pages; the guard should read them | **Rewritten with the critique's texts:** the six named summaries (Maastricht IB, Breda games, TU Delft aerospace, CBS IB, SDU interactive technology, Twente Creative Technology), US `jurisdictions[2]` (MIT), and the Duke Kunshan line in the guide. **The guard now reads** `data/programmes/*.json` `summary` and `data/destinations/*.json` `jurisdictions[].summary`: 2,160 strings in all. **Other hits, rewritten:** AU Herning "Denmark's second city", AU Economics "the broadest", SDU Economics (now its own cut-off, 8.3), SDU Mechanical ×2 "the broadest / widest set", SDU Mechatronics "SDU's largest intake" (deleted), TU Delft CSE "lightest … heaviest competition", and CA Ontario "the largest system" and Nova Scotia "the smallest allocation". **Added to `NOT_A_RANKING`, each with the figures as its reason:** comparisons the site's own records prove: AU Computer Science (2026 quota 1 cut-offs of AU's six English-taught bachelors: 11.4, 11.2, 10.7, 10.1, 9.2, 6.9), AU IT Product Development (10.1 against 11.2 and 11.4), CBS International Business (the six CBS cut-offs: 11.1, 10.7, 10.2, 9.8, 9.8, 9.4), AAU Economics and SDU Anthropology (each university's own programme and campus list), three "the only subject requirement" lines, BUas's selection-score shares, and SG's Tuition Grant rule. **New phrasings flagged:** "internationally acclaimed", "globally respected", "a leader in", "at the forefront of", "cutting-edge", "ranked in the QS…", "features in the THE… rankings", "number one in/for", "voted best", "no other … comes close", "few places match", "hugely popular", "carries real weight", "alumni include … a Nobel laureate". There are 17 new fixtures. |
+| 2 | Synonyms of "Listed because" | **Route notes:** every "Named so / Named here so / Named because / Listed for completeness / worth naming" note, on AE, CN, HK, SG, CA, GR, JP, KR ×3 and NL. **Deadline notes:** PT ×2 and IT. **Other data:** JP `funding[0]` (now "It is not open to you:"); Breda ×4 ("…and a full IB Diploma clears it."); and Maastricht ×2 ("publishes no route: it states…"). **Zealand**, in both `data/institutions` and `data/dk`, and in the two opportunities, now says that this site treats AA or AI, SL or HL, as meeting the requirement, that Zealand has not confirmed this, and to check with Zealand. **VIA** ×2 now says "so this site shows them as that one programme". **"Recorded here / above / as", rewritten on:** CH, IE ×3, BE, IS, CA ×3, DE, HU (CEU ×4), JP ×3, KR, LU, NZ, PL, SG, the US, the guide, the GB context note, and the three SDU Course Results notes. **Templates (`src/`):** `programme.mjs` now says "Places on this programme are not limited: everyone who meets…", "is not confirmed here" (was "not recorded here"), and "listed above where it publishes it". `timeline.mjs` now reads "212 dates with no published day" / "Not published yet, or set by each institution rather than centrally." `institutions.mjs` now says "… programmes on this site". `schools.mjs` now says "Its programmes are not listed here yet." (the longer wording breached the `text-walls` 12-word budget). `meta.mjs` FAQ and credits now say "the date its sources were last read". `planner.mjs` now says "no more than the university allows". The research-depth summary in `data.mjs`, and `dates-panel.js`, are also changed. |
+| 3 | "Inferred" to "this site assumes the 2027 intake" | **Done on:** CH (five `year` labels, and the ETH note, now "ETH gives no years; this site assumes the autumn 2027 intake"), AT, HU ×2 (country note and route milestone), LT (and "comes first on this page" is gone), and the MT year label. **`data/schools`:** there are no "inferred" hits there that render. |
+| 4 | Widen `research-log` to the shape of the sentence | **New patterns in `scripts/lib/research-log.mjs`:** "Named / Listed / Included / Recorded / Mentioned / Shown … so that / so the / because / for completeness", "named / listed / included here because", "for completeness", "worth naming", "recorded / named here / above / below / on this page", "recorded as", "to record", "inferred", "this site cannot / has no / records", "was / were / been / when / we checked" (but not "checked by a person"), "checked in a browser / for <X>", "looked for and", and "we could not / did not / have not / found / checked". **Kept on purpose:** "listed above / below / here", which is navigation; "this site assumes / treats / shows X as …", which tells the student what judgement was made for them and is the convention the critique itself proposed for Zealand and VIA; the "Checked <date>" stamps; and the verification labels. **Fixtures:** 31 new positive ones, covering every live miss in the critique plus probes in the same register, and 11 new negative ones. **Hand-offs:** three lines on university pages come from `data/schools` source titles and are in `HANDED_OFF` (see below). |
+| 5 | Rewrites that fell short | **MT:** "This is why the IB deadline above is a concession: …". **CN:** "No Chinese university waits for this date." **NO attribution:** now "this site's own count" again, so it no longer implies an outside count exists. **Erasmus Mundus:** "a route into a master's in Europe where a scholarship can cover tuition, travel and living costs". It does not say "fully funded", because the record says scholarships "normally cover". **McMaster:** "All programmes". **Jönköping:** "whose English-taught bachelor's are mostly in its international business school". **Also QUT:** the "In English" line no longer quotes a marketing slogan. |
+| 6 | Template polish | **`evidenceBlock` foot label:** now "None of these sources has been checked by a person yet." when there are several sources, or "This source has not been checked by a person yet." when there is one. For other shared states it reads "All of these sources: past its review date." and so on. **`src/pages/schools.mjs`:** a new self-contained `wholeAnswer()` replaces `firstClause()` for the "In English:" line only. It keeps the first clause whole. A full stop ends the clause only when a space or the end follows and it is not an initial ("B.A."), and a bracket ("BA (Hons) in…") never ends it. If the clause is longer than 30 words, the line is dropped rather than cut. The ANU, LASALLE, DigiPen and ESCP answers now read whole. `firstClause` itself, and the fact tiles that use it, are unchanged. |
+
+### Handed off: the programme pages branch
+
+The research-log guard's `HANDED_OFF` list holds three rendered lines from `data/schools/*.json` source titles. Each entry names the owner and the fix, and fails once the line is gone, so whoever fixes it removes the entry.
+- `data/schools/at-mci.json` source title: "(16 listed; fact boxes checked for language)" should become "(16 listed; language on each fact box)".
+- `data/schools/de-hsrw.json` source title: drop ", checked in a browser".
+- `data/schools/de-tum.json` source title: "(237 results, checked for TUM)" should become "(237 results, filtered to TUM)".
+
+### Still open after the last round
+
+- **Warsaw resolution 315** needs the web.
+- **The LSMU extra-round sentence** needs a reading of lsmu.lt.
+- **Unrendered research notes** in `data/opportunities` and `data/destinations` `meta.notes` still use this vocabulary. They are the place `docs/PARALLEL_WORK.md` sets aside for it, and the rendered-page guard confirms none of it reaches a student.
+- **Prose the superlatives guard does not read:** `watchOuts`, deadline notes, `housing`, `steps` and `selectionNotes`. What is left there compares options for the student.
+- **The marketing-register phrasings** the critique probed are now in the rule. Registers nobody has written yet ("a jewel of…") will need their own fixture when they appear.
+
+### Every string changed in round 5
+
+Each cell holds the changed phrase, not the whole field. The `src/` changes are described in the table above.
+
+#### Change 1: rankings on programme pages and in jurisdiction summaries (17)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/programmes/nl-maastricht-international-business.json` | `summary` | Maastricht's flagship business bachelor, taught entirely | Maastricht's International Business bachelor, taught entirely |
+| `data/programmes/nl-breda-uas-creative-media-and-game-technologies.json` | `summary` | One of the few games degrees in Europe with a real industry behind it, split into | A games degree split into |
+| `data/programmes/nl-tudelft-aerospace-engineering.json` | `summary` | It is the most oversubscribed engineering degree in the Netherlands, and the whole of the competition | Every one of its 440 places (2026-27) is allocated by selection, and the whole of the competition |
+| `data/programmes/dk-cbs-international-business.json` | `summary` | It is the most applied-to and the highest cut-off of any CBS bachelor, and a third | Its 2026 quota 1 cut-off, 11.1, was the highest of CBS's six English-taught bachelors on this site, and a third |
+| `data/programmes/dk-sdu-interactive-technology-engineering.json` | `summary` |  It is one of the few engineering degrees where a portfolio instinct is genuinely useful. | (deleted) |
+| `data/programmes/nl-utwente-creative-technology.json` | `summary` | which makes it one of the few technical-university routes open to a student who did not take HL sciences | so it is open to a student who did not take HL sciences |
+| `data/programmes/dk-au-economics-and-business-administration-herning.json` | `summary` | rather than Denmark's second city. | rather than Aarhus. |
+| `data/programmes/dk-au-economics-and-business-administration.json` | `summary` | It is the broadest of AU's English-taught degrees and the usual route | It is a broad degree and the usual route |
+| `data/programmes/dk-sdu-economics-and-business-administration.json` | `summary` | It has the lowest quota 1 grade floor of SDU's non-engineering English-taught degrees. | Its 2026 quota 1 cut-off was 8.3. |
+| `data/programmes/dk-sdu-mechanical-engineering-beng.json` | `summary` | It offers the broadest set of alternative science entry combinations at SDU. | It accepts several alternative science entry combinations. |
+| `data/programmes/dk-sdu-mechanical-engineering.json` | `summary` | It has the widest set of alternative science entry routes of any SDU English-taught degree. | It accepts several alternative science entry routes. |
+| `data/programmes/dk-sdu-mechatronics.json` | `summary` |  This is SDU's largest English-taught engineering intake. | (deleted) |
+| `data/programmes/nl-tudelft-computer-science-and-engineering.json` | `summary` | It has the lightest subject requirement of the four English-taught Delft degrees — Mathematics AA HL and nothing else — and the heaviest competition for a foreign applicant, because only the English track is open to you. | Its one subject requirement is Mathematics AA HL, and a foreign applicant can only take the English track. |
+| `data/destinations/us.json` | `jurisdictions[2].summary` | and MIT is its best-known practitioner: | and MIT is one: |
+| `data/destinations/ca.json` | `jurisdictions[0].summary` | The largest system, with its own central application service for universities. | A system with its own central application service for universities. |
+| `data/destinations/ca.json` | `jurisdictions[4].summary` | No shared application service, and the smallest study permit allocation of the five provinces here. | No shared application service. |
+| `data/topics/distinctive-options.json` | `options[14].whoItSuits` | with a qualification that reads clearly to European and American employers. | with both a US and a Chinese degree at the end. |
+
+#### Change 2: synonyms of "Listed because", and "recorded here / as" (55)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/destinations/ae.json` | `sectorLandscape.routes[4].note` | Named so the route is visible. No institution | No institution |
+| `data/destinations/cn.json` | `sectorLandscape.routes[2].note` | Named so the route is visible. Whether | Whether |
+| `data/destinations/hk.json` | `sectorLandscape.routes[3].note` | Named so the route is visible; not covered here. | Not covered here. |
+| `data/destinations/sg.json` | `sectorLandscape.routes[4].note` | Not covered here; named so that the route is visible. | Not covered here. |
+| `data/destinations/ca.json` | `sectorLandscape.routes[2].note` | Named here so that a student who meets the word knows where it sits. Whether | Whether |
+| `data/destinations/gr.json` | `sectorLandscape.routes[1].note` | Named because they exist and are on the same ministry route; not covered further here. | On the same ministry route; not covered further on this site. |
+| `data/destinations/jp.json` | `sectorLandscape.routes[1].note` | Named because MEXT names it as one of the five routes open to international students. | MEXT names it as one of the five routes open to international students. |
+| `data/destinations/kr.json` | `sectorLandscape.routes[3].note` | Named because it is a visible part of the sector and because it is an example of a route that exists and is not open to this reader: | Not open to you: |
+| `data/destinations/kr.json` | `sectorLandscape.routes[4].note` | because it belongs to a different ministry, which is exactly why it is worth naming. Not covered here beyond its existence. | because it belongs to a different ministry. Not covered on this site. |
+| `data/destinations/kr.json` | `sectorLandscape.routes[5].note` | Listed for completeness. Note that | Note that |
+| `data/destinations/nl.json` | `sectorLandscape.routes[3].note` | these schools do not appear in the ordinary programme listings, which is why they are named here. | these schools do not appear in the ordinary programme listings. |
+| `data/countries/pt.json` | `application.deadlines[0].notes` | Listed for completeness. EU citizens cannot use this route: | EU citizens cannot use this route: |
+| `data/countries/pt.json` | `application.deadlines[2].notes` | goes through the Concurso Nacional de Acesso instead. Listed for completeness. The spring intake | goes through the Concurso Nacional de Acesso instead. The spring intake |
+| `data/countries/it.json` | `application.deadlines[4].notes` |  Listed for completeness only. | (deleted) |
+| `data/countries/jp.json` | `funding[0]` | It is here because people ask about it; it is not available: | It is not open to you: |
+| `data/opportunities/nl-breda-uas-applied-data-science-and-ai-2027-autumn.json` | `requirements[0].note` | BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. | BUas's bar is a havo- or vwo-equivalent diploma, one level below what a Dutch research university needs, and a full IB Diploma clears it. |
+| `data/opportunities/nl-breda-uas-creative-business-2027-autumn.json` | `requirements[0].note` | BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. | BUas's bar is a havo- or vwo-equivalent diploma, one level below what a Dutch research university needs, and a full IB Diploma clears it. |
+| `data/opportunities/nl-breda-uas-creative-media-and-game-technologies-2027-autumn.json` | `requirements[0].note` | BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. | BUas's bar is a havo- or vwo-equivalent diploma, one level below what a Dutch research university needs, and a full IB Diploma clears it. |
+| `data/opportunities/nl-breda-uas-hotel-management-2027-autumn.json` | `requirements[0].note` | BUas's bar is a havo-OR-vwo equivalent, which is one level below what a Dutch research university needs, and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. | BUas's bar is a havo- or vwo-equivalent diploma, one level below what a Dutch research university needs, and a full IB Diploma clears it. |
+| `data/opportunities/nl-maastricht-international-business-2027-autumn.json` | `requirements[0].alternativeRoute` | This programme's own admission page publishes no route, and that absence was checked rather than assumed: it states | This programme's own admission page publishes no route: it states |
+| `data/opportunities/nl-maastricht-university-college-maastricht-2027-autumn.json` | `requirements[0].alternativeRoute` | This programme's own admission page publishes no route, and that absence was checked rather than assumed: it states | This programme's own admission page publishes no route: it states |
+| `data/institutions/dk-zealand.json` | `meta.notes[0]` | Mathematics: Applications and Interpretation or Analysis and Approaches at SL or HL is recorded as meeting it. | This site treats Mathematics: Applications and Interpretation or Analysis and Approaches, at SL or HL, as meeting it; Zealand does not say so, so confirm with Zealand. |
+| `data/dk/zealand.json` | `notes[1]` | Mathematics: Applications and Interpretation or Analysis and Approaches at SL or HL is recorded as meeting it. | This site treats Mathematics: Applications and Interpretation or Analysis and Approaches, at SL or HL, as meeting it; Zealand does not say so, so confirm with Zealand. |
+| `data/opportunities/dk-zealand-architectural-technology-and-construction-management-2027-autumn.json` | `requirements[1].note` | Either one at SL or HL is recorded as meeting the requirement, because both are at least the level the source names. Confirm with the institution if in doubt. | This site treats either one, at SL or HL, as meeting the requirement, because both are at least the level the source names; Zealand has not confirmed that, so check with Zealand. |
+| `data/opportunities/dk-zealand-cybersecurity-2027-autumn.json` | `requirements[1].note` | Either one at SL or HL is recorded as meeting the requirement, because both are at least the level the source names. Confirm with the institution if in doubt. | This site treats either one, at SL or HL, as meeting the requirement, because both are at least the level the source names; Zealand has not confirmed that, so check with Zealand. |
+| `data/institutions/dk-via.json` | `meta.notes[3]` | chosen when you apply, so they are recorded as that one programme. | chosen when you apply, so this site shows them as that one programme. |
+| `data/dk/via.json` | `notes[4]` | chosen when you apply, so they are recorded as that one programme. | chosen when you apply, so this site shows them as that one programme. |
+| `data/countries/ch.json` | `costs.notes[1]` | ETH's estimate is the only official figure recorded here; | ETH's estimate is the only official figure on this page; |
+| `data/countries/ie.json` | `costs.notes[0]` | Trinity College Dublin is recorded above as an example. | Trinity College Dublin's figure is above, as an example. |
+| `data/countries/ie.json` | `costs.notes[1]` | Trinity College Dublin is recorded above; expect Dublin | Trinity College Dublin's figure is above; expect Dublin |
+| `data/countries/be.json` | `application.deadlines[7].year` | 2026 session - recorded as the pattern for 2027 | 2026 session, the pattern for 2027 |
+| `data/countries/ie.json` | `application.deadlines[2].notes` | No date is recorded here, deliberately, because | No date is given here, because |
+| `data/countries/is.json` | `application.deadlines[4].notes` | so there is no opening date to record. | so there is no opening date. |
+| `data/context-notes/gb-conditional-offers.json` | `text` | and it is worth naming, because the UK is usually discussed in terms of cost. | and it is worth knowing, because the UK is usually discussed in terms of cost. |
+| `data/countries/ca.json` | `application.deadlines[16].notes` | UBC's 15 January 2027 and Simon Fraser's 31 January 2027 are each recorded above as their own entries; | UBC's 15 January 2027 and Simon Fraser's 31 January 2027 each have their own entries above; |
+| `data/countries/ca.json` | `application.deadlines[20].notes` | McGill's and Concordia's dates are recorded as their own entries below | McGill's and Concordia's dates have their own entries below |
+| `data/countries/ca.json` | `application.deadlines[27].notes` | the 2026 figures above are recorded as precedent, not as next year | the 2026 figures above are precedent, not next year |
+| `data/countries/de.json` | `application.deadlines[12].notes` | Every DoSV date recorded here is the 2026/27 day carried forward | Every DoSV date on this page is the 2026/27 day carried forward |
+| `data/countries/jp.json` | `watchOuts[0]` | the earliest Japanese deadline recorded here. | the earliest Japanese deadline on this page. |
+| `data/countries/jp.json` | `ibRecognition.notes[1]` | Every September or October 2027 decision recorded here is made | Every September or October 2027 decision on this page is made |
+| `data/application-routes/jp-direct-2027.json` | `rounds[3].note` | The latest closing date of any Japanese route recorded here, | The latest closing date of any Japanese route on this page, |
+| `data/destinations/kr.json` | `sectorLandscape.routes[0].what` | every English-taught undergraduate programme named on this page sits | every English-taught undergraduate programme on this page sits |
+| `data/countries/lu.json` | `application.deadlines[3].notes` | so no single window is recorded here. | so no single window is given here. |
+| `data/countries/nz.json` | `application.deadlines[4].notes` | recorded here as precedent and not as a prediction. | given here as precedent, not as a prediction. |
+| `data/countries/pl.json` | `application.deadlines[46].notes` | so no date is recorded here. | so no date is given here. |
+| `data/destinations/sg.json` | `sectorLandscape.routes[4].what` | It is listed here because LASALLE's | It appears on this page because LASALLE's |
+| `data/countries/us.json` | `application.deadlines[13].notes` | recorded here as precedent and not as a prediction. | given here as precedent, not as a prediction. |
+| `data/topics/distinctive-options.json` | `options[13].what` | Included here and not only in the UAE file because its funding model is genuinely unusual. NYUAD | Its funding model is unusual. NYUAD |
+| `data/opportunities/dk-sdu-electronics-beng-2027-autumn.json` | `requirements[0].note` | And the 18-point floor recorded here is | And the 18-point floor given here is |
+| `data/opportunities/dk-sdu-mechanical-engineering-beng-2027-autumn.json` | `requirements[0].note` | And the 18-point floor recorded here is | And the 18-point floor given here is |
+| `data/opportunities/dk-sdu-mechatronics-beng-2027-autumn.json` | `requirements[0].note` | And the 18-point floor recorded here is | And the 18-point floor given here is |
+| `data/countries/hu.json` | `application.deadlines[0].notes` | it is listed here because it was founded in Budapest | it appears on this page because it was founded in Budapest |
+| `data/countries/hu.json` | `application.deadlines[5].notes` | it is listed here because it was founded in Budapest | it appears on this page because it was founded in Budapest |
+| `data/countries/hu.json` | `application.deadlines[8].notes` | it is listed here because it was founded in Budapest | it appears on this page because it was founded in Budapest |
+| `data/countries/hu.json` | `application.deadlines[14].notes` | it is listed here because it was founded in Budapest | it appears on this page because it was founded in Budapest |
+
+#### Change 3: the year assumption in the site's convention (12)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/ch.json` | `application.deadlines[3].year` | 2027 entry - the period is published with no year, so the years here are inferred | 2027 entry - published with no year; this site assumes the 2027 intake |
+| `data/countries/ch.json` | `application.deadlines[4].year` | 2027 entry - the period is published with no year, so the year here is inferred | 2027 entry - published with no year; this site assumes the 2027 intake |
+| `data/countries/ch.json` | `application.deadlines[3].notes` | The years are inferred forward to the autumn 2027 intake because the page gives none. | ETH gives no years; this site assumes the autumn 2027 intake. |
+| `data/countries/at.json` | `application.deadlines[3].notes` | so the year here is inferred one cycle forward and the day could move. | so this site assumes the same window in 2027, and the day could move. |
+| `data/countries/hu.json` | `application.deadlines[11].notes` | so this is a genuine 2027 date rather than an inferred one. | so this is a genuine 2027 date rather than an assumed one. |
+| `data/application-routes/hu-direct-2027.json` | `milestones[2].note` | '21st of August the year of application', so the year is inferred. | '21st of August the year of application', so this site assumes 2027. |
+| `data/countries/lt.json` | `application.deadlines[4].notes` | so the year is inferred. | so this site assumes 2027. |
+| `data/countries/lt.json` | `application.deadlines[4].notes` | Vilnius University comes first on this page. It has one intake | Vilnius University has one intake |
+| `data/countries/mt.json` | `application.deadlines[7].year` | 2027-28 - published, not inferred | 2027-28 - published with its year |
+| `data/countries/ch.json` | `application.deadlines[5].year` | 2027 entry - published with no year, so the year here is inferred | 2027 entry - published with no year; this site assumes the 2027 intake |
+| `data/countries/ch.json` | `application.deadlines[6].year` | 2027 entry - published with no year, so the year here is inferred | 2027 entry - published with no year; this site assumes the 2027 intake |
+| `data/countries/ch.json` | `application.deadlines[8].year` | 2027 entry - published with no year, so the years here are inferred | 2027 entry - published with no year; this site assumes the 2027 intake |
+
+#### Change 5: rewrites that fell short (7)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/topics/distinctive-options.json` | `options[5].whoItSuits` | this is a fully funded route into a master's in Europe, | this is a route into a master's in Europe where a scholarship can cover tuition, travel and living costs, |
+| `data/countries/ca.json` | `institutions[5].englishBachelors` | Problem-based learning across health and science programmes. | All programmes. |
+| `data/countries/se.json` | `institutions[7].note` | A smaller foundation university in a lakeside town, with English-taught bachelor's especially through its international business school. | A smaller foundation university in a lakeside town, whose English-taught bachelor's are mostly in its international business school. |
+| `data/countries/mt.json` | `application.deadlines[2].notes` | It shows the IB deadline above for the concession it is: | This is why the IB deadline above is a concession: |
+| `data/countries/cn.json` | `application.deadlines[11].notes` | This date matters for where it sits, not because anything in China is waiting for it. | No Chinese university waits for this date. |
+| `data/context-notes/no-language-is-the-obstacle.json` | `attribution` | Samordna opptak’s published rules, and a count of English-taught Norwegian bachelor programmes, September 2026 | Samordna opptak’s published rules, and this site’s own count of English-taught Norwegian bachelor programmes, September 2026 |
+| `data/countries/au.json` | `institutions[QUT].englishBachelors` | Applied degrees branded 'the university for the real world', with work-integrated learning across most programmes. | Applied degrees, with work-integrated learning across most programmes. |

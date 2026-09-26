@@ -73,7 +73,7 @@ for (const panel of document.querySelectorAll('[data-dates-panel]')) {
   else if (head && !head.children.length) {
     const p = document.createElement('p');
     p.className = 'dates-panel__empty';
-    p.textContent = 'No upcoming deadlines recorded here.';
+    p.textContent = 'No upcoming deadlines on this site.';
     head.replaceWith(p);
   }
 }

@@ -696,3 +696,151 @@ source:
   institution, since the handbook formally counts it as Danish B.
 - Whether Danish A Language and Literature counts for Danish A at all, since
   the handbook names only Danish A Literature.
+
+## Verification 2 fixes (verification-2-after-round-5.md, scored 7/10)
+
+Changes 1–5 are correctness fixes, and all of them have landed. Changes 6–8
+are done except where noted below.
+
+Gate: `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes
+with exit 0. Eligibility has 302 scenarios, and the README is updated.
+ib-terms has 824 checks.
+
+`planner-verdicts.txt` has been regenerated, and it and the phone shots are
+in `after-verification-2/`.
+
+### 1. A plan that needs a course after the results, where only quota 2 is open
+
+- When a quota floor stays unmet and leaves only the other quota open, a plan
+  that relies on a course finished after the IB results is now "Needs review".
+  The one exception would be an institution that records
+  `levelRaise.quota2AfterResults: true`, and none does.
+- Each institution states its own question in `quota2Question`:
+  - AU: "Whether AU's conditional admission after 5 July applies to quota 2
+    applicants, whose documents are due by 15 March, is not recorded — ask
+    AU."
+  - SDU: the same question for its 31 August conditional place, uniTEST and
+    15 March.
+  - ITU has a question too.
+- These cards changed:
+  - P8 at AU CS, DS and ITPD are now "Needs review".
+  - P8 at SDU CS, AI and SE are no longer "possible".
+- Guards:
+  - the P8 cards named above;
+  - across the catalogue, no "possible" has both an unmet floor with another
+    route and an after-results course that is not recorded as open in quota 2.
+
+### 2. Maastricht's English is a "?", not a tick
+
+- On all three Maastricht records, `r-english` no longer has
+  `satisfiedBy: ib-diploma`. Its own note says the exemption "rests on a
+  pattern rather than on a quoted sentence".
+- It now carries an `openQuestion` that every profile sees as a "?":
+  "Maastricht's English exemption for IB Diploma holders could not be captured
+  as a quoted sentence … Confirm it on the programme page."
+- Guards:
+  - no requirement whose note says it rests on a pattern, or could not be
+    captured, is ever met or `satisfiedBy`;
+  - P5 at Maastricht DSAI is not green.
+
+### 3. The unrecorded count in the "For 2027" line
+
+- Where any course's count after the results is not recorded, the line reads
+  "At least N of them (all of them, unless the programme lets you finish
+  courses after the results) has/have to be passed before your IB results
+  arrive".
+- A bare "N of them" is left only where every count is recorded (SDU, AU,
+  ITU, CBS).
+- Guard: no bare "N of them" appears on an unrecorded count.
+
+### 4. The AU Maths floor in its published unit
+
+- A floor that the plan's course will supply now reads "Also needs 6.0 in
+  Mathematics A — a 7 or better from your course; whether this floor is
+  applied to a course passed after 5 July is not recorded."
+- The "7" is the lowest grade on the Recognition Scheme's grade scale that
+  reaches 6.0.
+- Guards:
+  - P1 at AU CS, DS and ITPD show this exact wording;
+  - no such floor, anywhere, is said as an IB HL or SL grade.
+
+### 5. SEA's open question where the page is read
+
+- "What you need" on SEA CS and SEA MMD now shows "**With DP Course Results:**
+  English documented with a test … — SEA exempts 'an International
+  Baccalaureate exam'; whether that includes DP Course Results is not
+  published."
+- The visible fine-print summary now reads "DP Course Results are accepted,
+  with an open question: see 'What you need'."
+- Guard (ib-terms): every `openQuestion` appears in the page's text once
+  closed disclosures are removed. I checked that this guard fails on the SEA
+  page with the new line removed.
+
+### 6. Every "Needs review" card has a "To check" line
+
+- A card with no plan now shows its first question under the badge, without
+  the published form in brackets. Examples:
+  - the Social Studies question;
+  - the Danish A caution;
+  - Maastricht's English;
+  - a portfolio.
+- Maastricht P7's "To check" line now gives its question once, and states the
+  date once.
+- Guards:
+  - every "Needs review" result has a one-line summary;
+  - Maastricht P7 names "1 June 2027" at most once.
+
+### 7. Dates in the step
+
+- AU's `levelRaise` now separates the text from its timing. The one-line step
+  reads "Mathematics at A level as a supplementary course. Pass it by 5 July,
+  or after 5 July as conditional admission with documentation by 5 September
+  (at most two after 5 July)."
+  - All three facts are AU's, quoted in NOTES round 3: "before 5 July";
+    "It is only possible to take 2 supplementary courses if they are
+    completed after 5 July"; documentation by 5 September.
+- The ITU test step keeps "the test may be at most two years old on 5 July".
+  This comes from the record's own note.
+- Guards: AU's step names 5 July and 5 September, and ITU's step names "on
+  5 July".
+
+### 8. Smaller points
+
+- **Chips.** A chip whose outcome has a count of 0 is now hidden.
+- **ITU GBI without Danish.** For P1, P2 and P5, the "To check" line now
+  leads with ITU's own sentence: "only the programme in Data Science is open
+  to international students". It no longer frames Danish from nothing as
+  "1 supplementary course". Guard: P1's line starts with ITU's sentence.
+- **Meets cards on a phone.** Below 40em, the "Meets" cards hide their source
+  line, official link and background picture. The title, badge and cut-off
+  remain, with the reasons one tap down.
+
+Not done:
+- Each card's side block on non-Meets cards is still about 200 px.
+- P5's first CBS ✗ still opens with the IELTS route.
+
+### Still needs a source
+
+This list replaces the one above. `scripts/test-eligibility.mjs` counts its
+bullets against the scenarios that show each item as a "?".
+
+- Whether VIA, AAU, Absalon and the other programmes under the national rule
+  accept summer supplementation after 5 July.
+- Whether AU's conditional admission after 5 July is open to applicants from
+  outside the EU/EEA.
+- Maastricht's deficiency deadline for applicants from outside the EU/EEA.
+- Whether SEA's English-test exemption for "an International Baccalaureate
+  exam" includes DP Course Results.
+- Whether a subject taken from nothing (Physics B, Danish A, a second foreign
+  language B) can be one supplementary course.
+- Whether Danish A Literature at SL is accepted for Danish A at a given
+  institution, since the handbook formally counts it as Danish B.
+- Whether Danish A Language and Literature counts for Danish A at all, since
+  the handbook names only Danish A Literature.
+- Whether AU's conditional admission after 5 July applies to an applicant
+  admitted in quota 2, whose documents are due by 15 March.
+- Whether SDU's conditional place for a course passed by 31 August applies in
+  quota 2, which runs on the entrance test with applications closing on
+  15 March.
+- Maastricht's English exemption for IB Diploma holders, as a quoted sentence.
+  The record says it "rests on a pattern".

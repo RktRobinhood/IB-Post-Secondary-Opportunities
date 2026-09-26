@@ -367,13 +367,29 @@
               "timing": { "type": "string", "description": "Replaces the timing for this group." },
               "multiple": { "type": "string", "description": "Replaces the sentence about more than one course for this group." },
               "afterResults": { "type": ["integer", "null"], "minimum": 0, "description": "Replaces the count of courses allowed after the results for this group (SDU outside the EU/EEA: 0). Null: not recorded for this group." },
-              "afterResultsIfAccepted": { "type": "integer", "minimum": 0 },
+              "quota2AfterResults": {
+          "type": "boolean",
+          "description": "True only where a quotation says the institution's after-results route (conditional admission) applies to an applicant admitted in quota 2. Without it, a plan that needs a course after the results, for a student below the quota 1 floor, is \"Needs review\"."
+        },
+        "quota2Question": {
+          "type": "string",
+          "description": "What a card asks where that is not recorded."
+        },
+        "afterResultsIfAccepted": { "type": "integer", "minimum": 0 },
               "unknownAfterResults": { "type": "string" }
             },
             "additionalProperties": false
           }
         },
-"afterResultsIfAccepted": {
+        "quota2AfterResults": {
+          "type": "boolean",
+          "description": "True only where a quotation says the institution's after-results route (conditional admission) applies to an applicant admitted in quota 2. Without it, a plan that needs a course after the results, for a student below the quota 1 floor, is \"Needs review\"."
+        },
+        "quota2Question": {
+          "type": "string",
+          "description": "What a card asks where that is not recorded."
+        },
+        "afterResultsIfAccepted": {
           "type": "integer",
           "minimum": 0,
           "description": "Where `afterResults` is null (not recorded), the count that would apply if the unrecorded permission were given. A plan that fits only on it is \"Needs review\", never \"possible\"."

@@ -147,12 +147,11 @@ export function schoolsOf(site, c) {
       const pic = picture(site, i.key || i.id);
       return {
         id: i.key || i.id,
-        /* The name a student can read: its short name when that is a word
-           ("Yale", "McGill"), its full name when the short one is initials
-           ("University of Central Florida", not "UCF"; #53 round 1: 275 of
-           416 pins were initials). A long name that has no room on a crowded
-           stage loses its label, as any label does; the card names it. */
-        name: readableName(i),
+        /* The name a student can read (globeName): never initials ("UCF",
+           #53 round 1) and never a nickname ("U of T", round 2). A long name
+           that has no room on a crowded stage loses its label, as any label
+           does; the card names it. */
+        name: globeName(i),
         lat: at.lat, lon: at.lon, href: i.href, city: typeof i.city === 'string' ? i.city : '',
         image: pic && !pic.external ? pic.src : '',
       };
@@ -306,6 +305,27 @@ export function distanceDoorsHtml(items) {
 export function readableName(i) {
   const s = i.shortName;
   return !s || (!/\s/.test(s) && (s.match(/\p{Lu}/gu) || []).length >= 2) ? i.name : s;
+}
+
+/**
+ * The name a school carries on the globe, where a student meets it with no
+ * page around it (#53 round 2: "U of T", "Dal", "Unistra", "Nord" and
+ * "Western" were cryptic, and "Michigan" read as a state). Its full name
+ * whenever that is short enough to be a label ("University of Michigan",
+ * "Yale University", "Dalhousie University"); for a long one, its short name
+ * only when every word of it is in the full name, none is a code, and it is
+ * not the place the school is "of" ("Illinois"): "Chalmers", "Queen's";
+ * else the full name. Derived, never listed.
+ */
+export function globeName(i) {
+  const name = i.name || i.shortName || '';
+  const s = i.shortName || '';
+  if (!s || name.length <= 26) return name;
+  const words = new Set(name.toLowerCase().split(/[^\p{L}'’-]+/u).filter(Boolean));
+  const code = (w) => w.length < 3 || (w.match(/\p{Lu}/gu) || []).length >= 2;
+  /* "Illinois" for the University of Illinois is a state, not a school. */
+  const ofPlace = new RegExp(`\\bof\\s+${s.split(/\s+/)[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'iu').test(name);
+  return !ofPlace && s.split(/\s+/).every((w) => words.has(w.toLowerCase()) && !code(w)) ? s : name;
 }
 
 const regionSlug = (region) => `region-${slugify(region)}`;

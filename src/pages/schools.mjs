@@ -69,6 +69,24 @@ const firstClause = (text, words = 12) =>
   );
 
 /**
+ * The "In English:" answer, whole or not at all. `firstClause` cut at twelve
+ * words and at every full stop, so sixteen answers stopped mid-sentence ("…and
+ * unusually.", "In English: BA.", "…BA in Game Design,."; #41). This keeps the
+ * first clause entire — a full stop only ends it when a space or the end
+ * follows and it is not an initial ("B.A."), and a bracket ("BA (Hons) in…")
+ * never does — and drops the line rather than cut a clause longer than 30
+ * words.
+ */
+const wholeAnswer = (text) => {
+  const clause = String(text || '')
+    .replace(/,?\s*(checked|as of|on)\s+\d{4}-\d{2}-\d{2}/gi, '')
+    .split(/(?<!\b[A-Z])\.(?=\s|$)|[;:]|\s—\s/)[0]
+    .trim()
+    .replace(/[\s,.]+$/, '');
+  return clause && clause.split(/\s+/).length <= 30 ? clause : null;
+};
+
+/**
  * A profile's answer for a fact tile, whole or not at all: its first clause
  * when that is six words or fewer ("All courses in English"), never a clause
  * cut short ("All courses in"). A longer answer is left to the page's text.
@@ -294,12 +312,12 @@ function programmeSection(site, inst, c) {
   }
 
   // Not researched yet: the profile's one-line answer, honestly labelled.
-  const answer = firstClause(inst.englishBachelors);
+  const answer = wholeAnswer(inst.englishBachelors);
   return html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
     <div class="handoff">
       ${answer ? html`<p class="handoff__line">In English: ${answer}.</p>` : ''}
       ${knownFor(inst)}
-      <p class="handoff__todo">We have not listed its programmes one by one yet.</p>
+      <p class="handoff__todo">Its programmes are not listed here yet.</p>
     </div>`;
 }
 

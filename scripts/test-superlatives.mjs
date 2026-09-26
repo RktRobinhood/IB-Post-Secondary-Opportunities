@@ -38,6 +38,13 @@
  *   - data/context-notes/*.json  `text` ("What it is actually like")
  *   - data/topics/*.json         the guide's `options[].what` and `whoItSuits`
  *
+ * And since round 4, the first paragraph of every programme page and the
+ * summaries of federal Destinations' jurisdictions, where the rankings had
+ * moved to:
+ *
+ *   - data/programmes/*.json     `summary`
+ *   - data/destinations/*.json   `jurisdictions[].summary`
+ *
  * In that prose a superlative is sometimes about a rule, a scale or a cost,
  * not about an institution or a place: "the only compulsory payment is the ÖH
  * fee", "the score of the lowest-scoring applicant admitted", "the top of the
@@ -210,6 +217,18 @@ const NOT_A_RANKING = [
   { file: 'data/context-notes/ie-points-are-a-market.json', match: 'the lowest-scoring applicant admitted', why: 'how CAO points are set' },
   { file: 'data/context-notes/se-january-is-the-deadline.json', match: 'carries the most English-taught programmes', why: 'the two Swedish admission rounds' },
   { file: 'data/context-notes/se-nothing-to-add.json', match: 'the highest-ranked place that accepts you', why: 'how Swedish offers are made' },
+  // Round 4 of the critique: comparisons the site's own figures prove, and
+  // requirement lists. Each reason names the figures.
+  { file: 'data/programmes/dk-au-computer-science.json', match: 'It is the most competitive English-taught bachelor at AU on 2026 figures', why: "2026 quota 1 cut-offs of AU's six English-taught bachelors on this site: Computer Science 11.4, Data Science 11.2, Cognitive Science 10.7, IT Product Development 10.1, Economics 9.2, Herning 6.9" },
+  { file: 'data/programmes/dk-au-it-product-development.json', match: "the most reachable of AU's three English-taught computing degrees", why: '2026 quota 1 cut-offs on this site: IT Product Development 10.1, against Data Science 11.2 and Computer Science 11.4' },
+  { file: 'data/programmes/dk-aau-economics-and-business-administration.json', match: "the only one of AAU's English-taught bachelor's degrees that is not an engineering degree, and the only one based in Aalborg", why: "AAU's own programme list: its other English-taught bachelors on this site are engineering degrees outside Aalborg" },
+  { file: 'data/programmes/dk-sdu-market-and-management-anthropology.json', match: 'the only fully English-taught bachelor\'s degree on the Odense campus', why: "SDU's own campus split: its record says the fully English-taught bachelors sit in Sønderborg and Vejle, with this one in Odense" },
+  { file: 'data/programmes/dk-via-architectural-technology-and-construction-management.json', match: 'Maths at C level is the only subject requirement.', why: 'a requirement list, not a ranking' },
+  { file: 'data/programmes/dk-via-construction-technology-ap.json', match: 'Maths at C level is the only subject requirement.', why: 'a requirement list, not a ranking' },
+  { file: 'data/programmes/dk-zealand-architectural-technology-and-construction-management.json', match: 'the only subject requirement is a maths course at SL', why: 'a requirement list, not a ranking' },
+  { file: 'data/programmes/nl-breda-uas-applied-data-science-and-ai.json', match: 'a mathematics test carries the largest single share of the selection score', why: "the parts of BUas's own published selection score" },
+  { file: 'data/destinations/sg.json', match: 'the only place an international student meets the MOE Tuition Grant', why: 'who the grant applies to' },
+  { file: 'data/programmes/dk-cbs-international-business.json', match: "was the highest of CBS's six English-taught bachelors on this site", why: '2026 quota 1 cut-offs of the six on this site: International Business 11.1, International Business and Politics 10.7, International Shipping and Trade 10.2, Digital Management 9.8, Sociology 9.8, Service Management 9.4' },
 ];
 
 /* --- Harness ----------------------------------------------------------------- */
@@ -307,6 +326,24 @@ check('flags a ranking', () => {
     'Known for its rigour.',
     'Well known for its prestigious law school.',
     'A strong reputation for teaching quality.',
+    // Round 4 of the critique: marketing registers.
+    'An internationally acclaimed design school.',
+    'A globally respected business school.',
+    'A leader in sustainable engineering.',
+    'At the forefront of quantum research.',
+    'Cutting-edge laboratories.',
+    'Ranked in the QS top 200.',
+    'It features in the THE World University Rankings.',
+    'Number one in Denmark for engineering.',
+    'Voted best student city in Europe.',
+    'No other Danish school comes close.',
+    'Few places match its campus life.',
+    'Hugely popular with international students.',
+    'A degree that carries real weight with employers.',
+    'Its alumni include a Nobel laureate.',
+    "Maastricht's flagship business bachelor.",
+    'One of the few games degrees in Europe with a real industry behind it.',
+    'The most oversubscribed engineering degree in the Netherlands.',
   ]) assert.ok(rankings(t).length, `not caught: ${t}`);
 });
 
@@ -374,6 +411,13 @@ for (const f of readDir('data/destinations')) {
 }
 for (const f of [...readDir('data/institutions'), ...readDir('data/dk')]) add(f, 'about', JSON.parse(fs.readFileSync(f, 'utf8')).about);
 for (const f of readDir('data/schools')) add(f, 'summary', JSON.parse(fs.readFileSync(f, 'utf8')).summary);
+// Programme summaries (the lede of every programme page) and jurisdiction
+// summaries (round 4 of the critique).
+for (const f of readDir('data/programmes')) add(f, 'summary', JSON.parse(fs.readFileSync(f, 'utf8')).summary);
+for (const f of readDir('data/destinations')) {
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  (d.jurisdictions || []).forEach((j, k) => add(f, `jurisdictions[${k}].summary`, j.summary));
+}
 // The prose beside the cards (round 3 of the critique).
 for (const f of readDir('data/countries')) {
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));

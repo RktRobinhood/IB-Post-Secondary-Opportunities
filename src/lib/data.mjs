@@ -639,7 +639,7 @@ function researchDepth(c, graph) {
 export const RESEARCH_DEPTH = {
   researched: {
     label: 'Researched in depth',
-    summary: 'Its sector, application route and deadlines are recorded as evidence, each with a source and a date.',
+    summary: 'Its sector, application route and deadlines each come with a source and a date.',
   },
   profiled: {
     label: 'Profile with sources',
