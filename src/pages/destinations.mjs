@@ -15,6 +15,18 @@ import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdic
 
 /* --- Country cards and indexes -------------------------------------------- */
 
+/** A country's photograph: its own, or else the first of its institutions'
+    that the site hosts. The tile and the globe's card for the country use the
+    same one (Denmark has no country photograph of its own, and was the one
+    text-only card on the globe: #53 round 1). */
+export function countryPicture(site, c) {
+  return (
+    picture(site, c.code, { prefer: 'commons' }) ||
+    (c.institutions || []).map((i) => picture(site, i.key || i.id, { prefer: 'commons' })).find((p) => p && !p.external) ||
+    null
+  );
+}
+
 /**
  * A country as a photograph with its name on it: the place, the one-line
  * tagline, how many universities, and how far the research has got. Fees,
@@ -22,10 +34,7 @@ import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdic
  * them cut each one off mid-sentence.
  */
 export function countryTile(site, c) {
-  const pic =
-    picture(site, c.code, { prefer: 'commons' }) ||
-    c.institutions.map((i) => picture(site, i.key || i.id, { prefer: 'commons' })).find((p) => p && !p.external) ||
-    null;
+  const pic = countryPicture(site, c);
 
   // Coverage here is uneven and looks uniform, which is the worst combination,
   // so every tile still says which of the three depths it is — in the count
@@ -133,7 +142,18 @@ export function schoolsOf(site, c) {
     .map((i) => {
       const at = i.coords || site.graph?.places?.get(i.place || i.placeIds?.[0])?.coordinates;
       if (!at || !i.href) return null;
-      return { id: i.key || i.id, name: i.shortName || i.name, lat: at.lat, lon: at.lon, href: i.href, city: typeof i.city === 'string' ? i.city : '' };
+      const pic = picture(site, i.key || i.id);
+      return {
+        id: i.key || i.id,
+        /* The name a student can read: its short name when that is a word
+           ("Yale", "McGill"), its full name when the short one is initials
+           ("University of Central Florida", not "UCF"; #53 round 1: 275 of
+           416 pins were initials). A long name that has no room on a crowded
+           stage loses its label, as any label does; the card names it. */
+        name: readableName(i),
+        lat: at.lat, lon: at.lon, href: i.href, city: typeof i.city === 'string' ? i.city : '',
+        image: pic && !pic.external ? pic.src : '',
+      };
     })
     .filter(Boolean);
 }
@@ -333,7 +353,7 @@ export function countriesIndex(site) {
       count: c.institutions.length,
       country: c.code,
       image: (() => {
-        const p = picture(site, c.code, { prefer: 'commons' });
+        const p = countryPicture(site, c);
         return p && !p.external ? p.src : '';
       })(),
       precision: 'region',
@@ -389,6 +409,7 @@ ${mapPlaces.length
           places: mapPlaces,
           id: 'index-countries',
           unit: 'institution',
+          poster: '/assets/img/globe/poster-index-countries.webp',
           activeLayer: 'Destinations covered',
           caption: 'Each light is a country. Follow one, or read the list above.',
         })}

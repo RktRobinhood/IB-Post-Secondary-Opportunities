@@ -70,11 +70,26 @@ check('there is no flat map: no build-time SVG, no basemap in the page, no flat 
   assert.ok(!/map-flat|enhanceFlat/.test(entryJs), 'map.js hands over to a flat map again');
 });
 
-check('the stage is empty until the globe lands, and keeps its size so nothing moves', () => {
+check('the stage holds nothing but the globe\'s own still until the globe lands, and keeps its size so nothing moves', () => {
   const stage = worldWindowSrc.match(/<div class="world__stage">([\s\S]*?)<\/div>/);
   assert.ok(stage, 'worldWindow() no longer writes a .world__stage');
-  assert.deepEqual(stage[1].replace(/<script type="application\/json" class="world__data">[\s\S]*?<\/script>/, '').trim(), '',
-    'something is drawn in the stage before the globe — a different picture first is the flash the owner asked to be rid of');
+  /* Round 2 (#53): a still of the same desk globe at rest may stand in the
+     stage (it is the globe, not another map); nothing else may. */
+  const rest = stage[1]
+    .replace(/<script type="application\/json" class="world__data">[\s\S]*?<\/script>/, '')
+    .replace(/\$\{poster\s*\?\s*html`(<img class="world__poster[^`]*)`\s*:\s*''\}/, (m, imgs) => {
+      assert.ok(/^(<img class="world__poster [^>]*>)+$/.test(imgs.replace(/\$\{[^}]*\}/g, '')), 'the stage\'s still is something other than an image of the globe');
+      return '';
+    })
+    .trim();
+  assert.deepEqual(rest, '', 'something is drawn in the stage before the globe — a different picture first is the flash the owner asked to be rid of');
+  for (const f of ['poster-discover-map', 'poster-index-countries']) {
+    for (const t of ['', '-dark']) {
+      const bytes = fsSync.statSync(path.join(ROOT, 'src', 'assets', 'img', 'globe', `${f}${t}.webp`), { throwIfNoEntry: false })?.size || 0;
+      assert.ok(bytes > 10000 && bytes < 90 * 1024, `${f}${t}.webp is ${Math.round(bytes / 1024)} kB — missing, blank, or too big to be a first paint (make it with scripts/make-globe-poster.mjs)`);
+    }
+  }
+  assert.match(css, /\.world\[data-globe="on"\] \.world__poster \{ opacity: 0; \}/, 'the still stays up under the moving globe');
   assert.match(worldWindowSrc, /class="world__data"/, 'worldWindow() no longer writes the places for the globe');
   assert.match(decl(css, '.world__stage', 'aspect-ratio') || '', /^\d+ \/ \d+$/, 'the stage no longer reserves the globe\'s size, so the page jumps when it lands');
 });
@@ -113,6 +128,7 @@ check('without JavaScript or without the globe, the list is the map and one line
     for (const part of sel.split(',')) {
       if (!/\.world__stage/.test(part)) continue;
       assert.match(part, /\[data-globe="off"\]|:not\(\[data-js\]\)/, `"${part.trim()}" hides the stage while the globe could still land`);
+      assert.match(part, /:not\(\[data-poster\]\)/, `"${part.trim()}" hides the globe's still too, so a reader without WebGL gets no picture`);
     }
   }
   assert.match(css, /\.world\[data-globe="off"\] \.world__off\s*\{\s*display:\s*block/, 'with the globe off, the line saying the list is the map is not shown');
@@ -235,7 +251,12 @@ check('a card on the globe is itself the link: one link, stretched over the card
   assert.match(link[0], /title\.replaceChildren\(a\)/, 'the link is no longer the card\'s title');
   const appended = [...link[0].matchAll(/\ba\.append\(el\('(\w+)'/g)].map((m) => m[1]);
   assert.deepEqual(appended.filter((t) => t !== 'span'), [], 'something other than text is put inside the card\'s link');
-  assert.match(link[0], /'aria-hidden': 'true' \}, label\)/, 'the visible "Open … →" line is announced as well as the link, so a screen reader hears it twice');
+  /* The owner, on his phone (#53): no visible "Open United States →" line;
+     the card itself is the link. The way on is in the link's name, for a
+     screen reader, and an arrow on the title, for the eye. */
+  assert.ok(!/world__card-go/.test(globeJs), 'a visible "Open … →" line came back on the globe\'s card');
+  assert.ok(!/el\('p', \{[^}]*\}, label\)/.test(link[0]), 'the card writes its "Open …" label as a visible line again');
+  assert.match(link[0], /class: 'visually-hidden' \}, ` — \$\{label\}`\)/, 'the link no longer says where it goes, for a screen reader');
   assert.match(css, /\.world__card-link::after\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0/, 'the link no longer covers the whole card, so only its title is clickable');
   assert.match(css, /\.world__card-list\s*\{[^}]*position:\s*relative;[^}]*z-index:\s*1/, 'the list of places in a country card sits under the link\'s cover and cannot be clicked');
   const country = globeJs.match(/function countryCard\([\s\S]*?\n  \}\n/);
@@ -243,6 +264,43 @@ check('a card on the globe is itself the link: one link, stretched over the card
   const place = globeJs.match(/function placeCard\([\s\S]*?\n  \}\n/);
   assert.ok(place && /cardLink\(c, title, p\.href/.test(place[0]), 'a place\'s card is no longer a link to the place');
   assert.ok(!/world__card-go', href/.test(globeJs), 'a separate "Open …" link came back beside the card\'s own link');
+});
+
+check('a card is drawn once, in its final form: no summary card that a fuller one replaces', () => {
+  /* The owner, on his phone (#53): "an initial card appears, then it is
+     replaced by a more detailed card". That was the phone card folded to its
+     title during the flight and opened out on arrival; and a lazy photograph
+     that pushed it open when it arrived. */
+  assert.ok(!/foldCard|unfoldCard|dataset\.collapsed/.test(globeJs), 'the card is folded during a flight and unfolded on arrival again');
+  assert.ok(!/data-collapsed/.test(css), 'the stylesheet folds the card again');
+  for (const fn of ['placeCard', 'countryCard']) {
+    const body = globeJs.match(new RegExp(`function ${fn}\\([\\s\\S]*?\\n  \\}\\n`));
+    assert.ok(body, `${fn}() is gone`);
+    assert.ok(!/loading: 'lazy'/.test(body[0]), `${fn}() loads its photograph lazily, so it pushes the card open after it is shown`);
+    assert.equal((body[0].match(/openCard\(/g) || []).length, 1, `${fn}() draws its card more than once`);
+  }
+  assert.match(css, /\.world__card-img\s*\{[^}]*aspect-ratio/, 'the card\'s photograph has no reserved space, so it reflows the card as it loads');
+});
+
+check('on a phone the buttons are a row above the stage and the card a sheet below it, never on the globe', () => {
+  /* #53 round 1 and the owner's phone: "+ − RESET" sat on the ring and the
+     card covered most of the stage. Measured in the browser at 390×844 by
+     docs/research/qa/globe/owner-notes-53/round-2/shoot.mjs (report.json
+     phoneControlsOffRing); here, that nothing can put them back inside. */
+  assert.match(globeJs, /const narrowMQ = matchMedia\('\(max-width: 44rem\)'\)/, 'the globe no longer knows a phone from a desktop');
+  assert.match(globeJs, /if \(narrowMQ\.matches\) \{\s*stage\.before\(controls\);\s*stage\.after\(card\);/, 'on a phone the buttons or the card are inside the stage again');
+  assert.match(css, /\.world > \.world__controls\s*\{[^}]*position:\s*static/, 'the buttons above the stage are still positioned over it');
+  assert.match(css, /\.world > \.world__card\s*\{[^}]*position:\s*relative/, 'the card below the stage is still positioned over it');
+  assert.match(globeJs, /cardSheet = card\.parentNode === stage &&/, 'the camera still frames places above a card that is no longer on the stage');
+});
+
+check('the globe stays a sphere: its imagery feathers into the paper, and a country\'s arrival stops above the full-bleed view', () => {
+  /* The owner (#53): "resume into a sphere and not … a sphere with background". */
+  assert.match(css, /\.world__globe,\s*\.world__stage > \.world__close\s*\{[\s\S]{0,120}mask-image: linear-gradient\(to right, transparent, #000 40px/, 'the globe\'s imagery ends in a hard edge again');
+  assert.match(decl(css, '.world__stage', 'border-radius') || '', /radius/, 'the stage has square corners again');
+  assert.match(globeJs, /function sphereAlt\(\)/, 'there is no floor under a country\'s arrival');
+  assert.match(globeJs, /fitCamera\(\[p\.xyz, \.\.\.p\.subs\.map\(\(q\) => q\.xyz\)\], \{ maxAlt: 2\.4, minAlt: sphereAlt\(\)/, 'a country light is no longer framed on its schools, above the sphere floor');
+  assert.match(globeJs, /\? Math\.max\(SCHOOLS_ALT \* 1\.25, sphereAlt\(\)\)/, 'a group of countries dives past the countries level into every school at once');
 });
 
 check('the globe fades in only once it has drawn, and its stand with it', () => {
@@ -572,15 +630,29 @@ check('the globe does not branch on a country', () => {
      rides on its country's light, and the globe opens a country into them. */
   const { schoolsOf } = await import('../src/pages/destinations.mjs');
   const missing = [];
+  const initials = [];
+  let schoolCount = 0, withPhoto = 0;
   for (const c of site.countries) {
-    const ids = new Set(schoolsOf(site, c).map((s) => s.id));
+    const list = schoolsOf(site, c);
+    schoolCount += list.length;
+    withPhoto += list.filter((x) => x.image).length;
+    /* Initials where the record has a full name (ESADE's full name is ESADE). */
+    const fullName = new Map((c.institutions || []).map((i) => [i.key || i.id, i.name]));
+    initials.push(...list.filter((x) => /^[A-Z][A-Za-z]?[A-Z][A-Z-]*$/.test(x.name) && fullName.get(x.id) !== x.name).map((x) => `${x.id}: ${x.name}`));
+    const ids = new Set(list.map((s) => s.id));
     for (const i of c.institutions || []) if (i.coords && i.href && !ids.has(i.key)) missing.push(`${c.code}: ${i.key}`);
   }
   check('every institution with a position rides on its country\'s light, for the globe\'s schools level', () => {
     assert.deepEqual(missing, [], 'these institutions would never show as their own dot when their country is zoomed into');
+    /* #53 round 1: 275 of 416 pins were initials (UCF, MUG, SZTE) and none
+       had a photograph. */
+    assert.deepEqual(initials, [], 'these schools are named by their initials on the globe');
+    assert.ok(withPhoto >= schoolCount * 0.8, `only ${withPhoto} of ${schoolCount} schools on the globe carry a photograph for their card`);
+    const buildSrc = fsSync.readFileSync(path.join(ROOT, 'src', 'build.mjs'), 'utf8');
+    assert.match(buildSrc, /image: \(\(\) => \{\s*const tile = placeTiles\(site\)/, 'a country\'s card on the globe has no photograph to open on (Denmark had none)');
     for (const f of ['discover.mjs', 'destinations.mjs']) {
       const src = fsSync.readFileSync(path.join(ROOT, 'src', 'pages', f), 'utf8');
-      assert.match(src, /precision: 'region',\s*schools: schoolsOf\(site, c\)/, `${f}: a country light no longer carries its schools`);
+      assert.match(src, /precision: 'region',[\s\S]{0,300}?schools: schoolsOf\(site, c\)/, `${f}: a country light no longer carries its schools`);
     }
     assert.match(globeJs, /function schoolsOpen\(p\)/, 'the globe no longer opens a country into its schools');
     assert.match(globeJs, /if \(p\.open\) out\.push\(\.\.\.p\.subs\)/, 'an open country no longer gives way to its schools');

@@ -108,10 +108,18 @@ export function patternLayer(pattern) {
  * (a picture the page already shows of it), `external` (its `href` leaves
  * the site) and `schools` — for a light that stands for a whole country, the
  * institutions inside it that have their own position, as
- * [{ id, name, lat, lon, href, city }]. The globe shows those as their own
+ * [{ id, name, lat, lon, href, city, image }]. The globe shows those as their own
  * dots once the camera is close enough to that country (country → schools).
+ *
+ * @param {string} [o.poster] a still of this page's desk globe at rest, from
+ *   `scripts/make-globe-poster.mjs` (a page that rests on the desk: home and
+ *   /countries/). It is in the stage from the first paint, in the pose and at
+ *   the place the globe will be drawn, so the globe lands on its own picture
+ *   and the handover cannot be seen (#53 round 2: the stage was empty paper
+ *   for ~4 s on a school network). It is not a second map: it is the same
+ *   globe, still. Where the globe cannot run, it stays.
  */
-export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '' }) {
+export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '', poster = '' }) {
   const dots = places
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
     // The list's order: the biggest first, as the lights were always drawn.
@@ -145,6 +153,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       country: d.country || '',
       image: d.image ? url(d.image) : '',
       external: !!d.external,
+      ...(d.door ? { door: true } : {}),
       ...(d.schools?.length
         ? {
             schools: d.schools
@@ -156,6 +165,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
                 lon: +s.lon.toFixed(4),
                 href: s.href ? url(s.href) : '',
                 city: s.city || '',
+                ...(s.image ? { image: url(s.image) } : {}),
               })),
           }
         : {}),
@@ -165,8 +175,11 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
   const listName = foldList ? `“${foldList}” below` : 'the list below';
 
   return html`<figure class="world" id="${id}" data-world data-layer="${activeLayer}"${unit ? html` data-unit="${unit}"` : ''}${
-    bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}>
+    bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}${poster ? raw(' data-poster') : ''}>
   <div class="world__stage">
+    ${poster
+      ? html`<img class="world__poster world__poster--light" src="${url(poster)}" alt="" width="600" height="700" decoding="async" loading="lazy"><img class="world__poster world__poster--dark" src="${url(poster.replace(/\.webp$/, '-dark.webp'))}" alt="" width="600" height="700" decoding="async" loading="lazy">`
+      : ''}
     <script type="application/json" class="world__data">${raw(globeData)}</script>
   </div>
   <p class="world__off">This browser cannot draw the globe. Every place is in ${listName}.</p>
@@ -211,6 +224,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       const more = [
         'Size says how much is here, not how good a place is.',
         kinds.length ? `Hollow markers: placed at the ${kinds.join(' or the ')}, not at a campus.` : '',
+        dots.some((d) => d.door) ? `A hollow group counts countries or schools, not ${unit ? `${unit}s` : 'opportunities'}.` : '',
         caption || '',
       ].filter(Boolean);
       return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
