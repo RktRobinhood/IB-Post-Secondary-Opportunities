@@ -132,6 +132,34 @@ export const HOLDERS_ONLY = 'Diploma holders only';
  */
 export const NOT_OPEN_YET = 'Not open yet';
 export const AFTER_DIPLOMA = 'After your Diploma';
+/** Its own date is not out yet (last year's, where recorded, is the note). */
+export const NOT_PUBLISHED = 'Not published yet';
+/** No date is recorded for it at all. */
+export const NOT_RECORDED = 'Not recorded yet';
+/** The school sets no application deadline for the reader. */
+export const NO_DEADLINE = 'No deadline';
+
+/**
+ * The programme's name without the degree type the eyebrow and the card's
+ * degree line already carry: "Bachelor´s Programme in Experimental and
+ * Industrial Biomedicine" is set as "Experimental and Industrial
+ * Biomedicine", "Degree Programme in Information and Communication
+ * Technology" as "Information and Communication Technology", "BBA in Tourism
+ * and Hospitality Management" as "Tourism and Hospitality Management". The
+ * official name stays on the programme's page, in its aside.
+ */
+export function displayName(name) {
+  const n = String(name || '').trim();
+  const shorter = n
+    .replace(
+      /^(?:International\s+)?(?:Bachelor(?:['´’]?s)?(?:\s+and\s+Master(?:['´’]?s)?)?|BFA|BBA|BSc|BA|BEng|BMus)(?:\s+of\s+(?:Fine\s+Arts|Science|Arts|Business\s+Administration|Engineering))?(?:\s+(?:Degree\s+)?(?:Programme|Program))?\s+(?:in|of)\s+/i,
+      ''
+    )
+    .replace(/^Degree\s+(?:Programme|Program)\s+in\s+/i, '')
+    .replace(/,?\s+(?:Bachelor(?:['´’]?s)?\s+)?(?:Degree\s+)?(?:Programme|Program)$/i, '')
+    .trim();
+  return shorter.length >= 3 && shorter !== n ? shorter.charAt(0).toUpperCase() + shorter.slice(1) : n;
+}
 
 /* --- A school's notes, for one of its programmes ------------------------------ */
 
@@ -141,7 +169,11 @@ export const AFTER_DIPLOMA = 'After your Diploma';
  * own name.
  */
 function namesProgramme(sentence, q, schoolWords) {
-  const want = [...identityWords(q.name)].filter((w) => !schoolWords.has(w));
+  /* The school's own name is left out, unless it is all the programme's name
+     has ("Medicine" at a University of Medicine). */
+  const all = [...identityWords(q.name)];
+  const own = all.filter((w) => !schoolWords.has(w));
+  const want = own.length ? own : all;
   if (!want.length) return false;
   const have = identityWords(sentence);
   const hit = want.filter((w) => have.has(w)).length;

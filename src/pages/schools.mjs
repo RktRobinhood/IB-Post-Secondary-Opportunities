@@ -2,8 +2,9 @@ import { html, raw, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
 import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { hostOf, isHomepage, AFTER_DIPLOMA } from '../lib/schools.mjs';
-import { datesPanel } from '../lib/school-dates.mjs';
+import { hostOf, isHomepage, displayName, AFTER_DIPLOMA } from '../lib/schools.mjs';
+import { datesPanel, isBinding } from '../lib/school-dates.mjs';
+import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
 
@@ -124,13 +125,13 @@ const orOf = (list) => [...new Set(list.filter(Boolean))].join(' or ');
  * every path's own label already says ("Lahti" in "LUT + HEBUT double
  * degree, Lahti"). Each row is short: "60 places · €8,700 a semester".
  */
-function pathRows(inst, members) {
+function pathRows(inst, members, chipOf) {
   const facts = [
     (p) => p.credential,
     (p) => yearsText(p.years),
     (p) => p.city || inst.city || null,
     (p) => (p.places ? plural(p.places, 'place') : null),
-    (p) => (p.closes ? (p.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(p.closes)}`) : null),
+    (p) => chipOf(p),
     (p) => p.tuitionEuEea || null,
   ].filter((f) => new Set(members.map((p) => f(p) ?? '')).size > 1)
     .filter((f) => !members.every((p) => f(p) && String(p.family.path).includes(f(p))));
@@ -153,7 +154,7 @@ function sharedSentences(members) {
  * where every path shares them ("BSc (Tech) · 3 yrs · 2 campuses"), and a
  * short row per path linking to its page, with what differs about it.
  */
-export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null }) {
+export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null, statusOf = null }) {
   const g = group.members ? group : { family: null, members: [group], lead: group };
   const p = g.lead;
   const members = g.members;
@@ -164,7 +165,12 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const years = same((q) => q.years)
     ? yrs(p.years)
     : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;
-  const closes = same((q) => `${q.closes}|${!!q.closesForDiplomaHolders}`) ? p : null;
+  /* The same answer as the programme's own page ("Apply by 15 Apr", "Not
+     open yet", "After your Diploma"), from programme-deadline.mjs when the
+     caller has the site to ask; else only what the record's own `closes` says. */
+  const chipOf = (q) =>
+    statusOf ? statusOf(q) : q.closes ? (q.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(q.closes)}`) : null;
+  const chip = same(chipOf) ? chipOf(p) : null;
   const fee = same((q) => q.tuitionEuEea) ? p.tuitionEuEea : null;
   return card({
     // Its own page on this site (school-programme.mjs), where the link to the
@@ -174,17 +180,18 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     mod: `card--prog card--fam-${FAMILY[p.field] || 'general'}`,
     // The field names the card's band, unless a heading above already does.
     kicker: headed ? null : FIELD[p.field],
-    title: fam ? g.family.name : p.name,
+    // The name without the degree type the line under it already says.
+    title: displayName(fam ? g.family.name : p.name),
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     // `at`: the school, on a card that stands for another school's programme.
     sub: [at, orOf(members.map((q) => q.credential)), years, where].filter(Boolean).join(' · '),
     // A brief card (a sibling on a programme page) leaves the IB line to its own page.
     text: brief ? null : fam ? sharedSentences(members) : p.ib || null,
-    paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members) }) : '',
+    paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
     tags: [
       /* A programme whose only round is for Diploma holders gives no date to
          a final-year student: the card says whose round it is instead. */
-      closes?.closes ? { label: closes.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(closes.closes)}`, mod: 'sand' } : null,
+      chip ? { label: chip, mod: 'sand' } : null,
       tuitionOnCard && fee ? { label: `EU/EEA: ${fee}`, mod: 'brand' } : null,
     ].filter(Boolean),
     // At rest, the card says it opens a page.
@@ -205,7 +212,7 @@ function knownFor(inst) {
 const GROUP_FROM = 13;
 const GROUP_MIN = 3;
 
-function programmeSection(inst, c) {
+function programmeSection(site, inst, c) {
   const school = inst.school;
   const where = inst.shortName && inst.shortName.length > 4 ? inst.shortName : inst.name;
 
@@ -214,7 +221,9 @@ function programmeSection(inst, c) {
     const fee = sharedTuition(progs);
     /* One card per programme, or per family of paths (#52). */
     const groups = schoolCards(school.programmes);
-    const one = (g, headed = false) => programmeCard(inst, g, { tuitionOnCard: !fee, headed });
+    /* Each card carries its programme page's Apply-by answer. */
+    const statusOf = (q) => deadlineOf(site, inst, c, q).chip;
+    const one = (g, headed = false) => programmeCard(inst, g, { tuitionOnCard: !fee, headed, statusOf });
     const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;
 
     let cards;
@@ -284,7 +293,12 @@ export function schoolPage(site, inst, c, { prev, next }) {
   /* The same panel as a canonical institution's page (src/lib/school-dates.mjs):
      its own dates and its country's route, first on a phone and beside the
      degrees on a wide screen. */
-  const dates = datesPanel(site, { ...inst, id: inst.key, destination: c.code }, { countryName: c.articleName || c.name });
+  /* A school that runs its own selection (`ownDeadline`) is not bound by
+     the route's general closing date, so its panel does not lead with it. */
+  const dates = datesPanel(site, { ...inst, id: inst.key, destination: c.code }, {
+    countryName: c.articleName || c.name,
+    keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null,
+  });
 
   const inEnglish =
     school?.scope === 'listed'
@@ -369,7 +383,7 @@ ${hero({
 <section class="section">
   <div class="wrap">
     <div class="layout-aside layout-aside--dates">${dates}<div class="layout-aside__main">
-      ${programmeSection(inst, c)}
+      ${programmeSection(site, inst, c)}
     </div></div>
   </div>
 </section>

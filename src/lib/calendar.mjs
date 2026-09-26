@@ -79,8 +79,17 @@ export function formatWhen(event) {
   }
 
   if (event.timeOfDay) when += `, ${event.timeOfDay}`;
-  if (event.timeZone) when += ` ${event.timeZone}`;
+  if (event.timeZone) when += ` ${zoneName(event.timeZone)}`;
   return when;
+}
+
+/* A time zone as a student says it: "Irish time", not "Europe/Dublin". */
+const ZONE_NAMES = { 'Europe/Dublin': 'Irish time', 'Europe/London': 'UK time' };
+export function zoneName(tz) {
+  const z = String(tz || '').trim();
+  if (ZONE_NAMES[z]) return ZONE_NAMES[z];
+  const m = z.match(/^[A-Z][a-z]+\/([A-Za-z_]+)$/);
+  return m ? `${m[1].replace(/_/g, ' ')} time` : z;
 }
 
 /** For sorting and for "is this still ahead of me". Absent dates sort last. */
@@ -300,6 +309,11 @@ export function fromCountryDeadline(country, entry, index) {
     /* Only for numerus fixus programmes: on a Programme page it shows only
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(entry.numerusFixusOnly),
+    /* Who the date governs: kinds of institution, teaching languages, and
+       whether it is every such school's deadline (school-dates.mjs). */
+    institutionTypes: nameList(entry.institutionTypes),
+    taughtIn: nameList(entry.taughtIn),
+    everySchool: Boolean(entry.everySchool),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(entry.yearUnpublished),
@@ -366,6 +380,9 @@ export function fromRouteMilestone(route, milestone, destinationName) {
     /* Only for applicants who already hold the Diploma: listed on a school's
        page, but never its "Apply by" and never the lead (school-dates.mjs). */
     forDiplomaHolders: Boolean(milestone.forDiplomaHolders),
+    institutionTypes: nameList(milestone.institutionTypes),
+    taughtIn: nameList(milestone.taughtIn),
+    everySchool: Boolean(milestone.everySchool),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(milestone.yearUnpublished),
@@ -413,6 +430,9 @@ export function fromRouteRound(route, round, destinationName) {
        where the programme's admission is numerus fixus. */
     numerusFixusOnly: Boolean(round.numerusFixusOnly),
     forDiplomaHolders: Boolean(round.forDiplomaHolders),
+    institutionTypes: nameList(round.institutionTypes),
+    taughtIn: nameList(round.taughtIn),
+    everySchool: Boolean(round.everySchool),
     /* The cited source gives the day and month and no year. Such a date is
        provisional; scripts/test-calendar.mjs holds the two together. */
     yearUnpublished: Boolean(round.yearUnpublished),
@@ -655,6 +675,10 @@ export function mergeTwins(route, profile) {
     institutionsExcept: union(route.institutionsExcept, profile.institutionsExcept),
     numerusFixusOnly: Boolean(route.numerusFixusOnly || profile.numerusFixusOnly),
     forDiplomaHolders: Boolean(route.forDiplomaHolders || profile.forDiplomaHolders),
+    /* The narrower of the two says whom the date governs. */
+    institutionTypes: route.institutionTypes?.length ? route.institutionTypes : profile.institutionTypes || [],
+    taughtIn: route.taughtIn?.length ? route.taughtIn : profile.taughtIn || [],
+    everySchool: Boolean(route.everySchool || profile.everySchool),
     /* Either record's doubt about the year stands: a provisional date is
        never shown as a confirmed one because its twin did not say so. */
     provisional: Boolean(route.provisional || profile.provisional),
