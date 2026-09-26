@@ -89,6 +89,9 @@
           "decisionBy": {
             "$ref": "common.schema.json#/$defs/isoDate"
           },
+          "institutions": {
+            "$ref": "common.schema.json#/$defs/institutionRefs"
+          },
           "consequence": {
             "$ref": "common.schema.json#/$defs/consequence"
           },
@@ -111,6 +114,19 @@
               "withdrawn"
             ],
             "description": "Why there is no date, when there is none. A researched finding — \"there is no central deadline\", \"each institution sets its own\" — is not a missing value, and a milestone that cannot say which it is renders as \"Date not published\", which is a lie about work that was done. Mirrors the states a country profile deadline may declare; src/lib/publication-floor.mjs holds the list and src/lib/calendar.mjs reads it."
+          },
+          "institutionsWithoutPage": {
+            "$ref": "common.schema.json#/$defs/institutionNames"
+          },
+          "yearUnpublished": {
+            "$ref": "common.schema.json#/$defs/yearUnpublished"
+          },
+          "numerusFixusOnly": {
+            "$ref": "common.schema.json#/$defs/numerusFixusOnly"
+          },
+          "provisional": {
+            "type": "boolean",
+            "description": "True when the round's closing date is not confirmed for this cycle (inherited, or its source gives no year). A provisional date must never be shown as a confirmed one."
           }
         },
         "additionalProperties": false
@@ -184,6 +200,14 @@
           "evidence": {
             "$ref": "common.schema.json#/$defs/evidenceRefs"
           },
+          "institutions": {
+            "$ref": "common.schema.json#/$defs/institutionRefs"
+          },
+          "supersedes": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "\"<routeId>/<milestoneId>\" of a general date this one replaces wherever this one is shown. An institution's own date for a step the route also dates in general (TU Delft's 1 April beside the national 1 May, SDU's 3 August beside the earliest-known reply date): on that institution's pages the general date is left out, because two dates for one step leave a student to guess which binds. src/lib/school-dates.mjs reads it; the calendar keeps both."
+          },
           "ibCalendar": {
             "type": "string",
             "pattern": "^[0-9]{4}-[0-9]{2}/[a-z0-9]+(-[a-z0-9]+)*$",
@@ -199,6 +223,15 @@
               "withdrawn"
             ],
             "description": "Why there is no date, when there is none. A researched finding — \"there is no central deadline\", \"each institution sets its own\" — is not a missing value, and a milestone that cannot say which it is renders as \"Date not published\", which is a lie about work that was done. Mirrors the states a country profile deadline may declare; src/lib/publication-floor.mjs holds the list and src/lib/calendar.mjs reads it."
+          },
+          "institutionsWithoutPage": {
+            "$ref": "common.schema.json#/$defs/institutionNames"
+          },
+          "yearUnpublished": {
+            "$ref": "common.schema.json#/$defs/yearUnpublished"
+          },
+          "numerusFixusOnly": {
+            "$ref": "common.schema.json#/$defs/numerusFixusOnly"
           }
         },
         "additionalProperties": false

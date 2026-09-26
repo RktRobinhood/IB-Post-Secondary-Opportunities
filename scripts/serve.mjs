@@ -11,7 +11,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const PORT = Number(process.env.PORT || 4321);
 
 const TYPES = {

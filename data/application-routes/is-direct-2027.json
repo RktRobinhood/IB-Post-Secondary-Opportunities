@@ -9,13 +9,21 @@
   "milestones": [
     {
       "id": "ms-hi-international",
+      "institutions": [
+        "is-hi"
+      ],
       "type": "submit",
       "label": "University of Iceland: international applicants, undergraduate",
       "date": "2027-02-01",
       "consequence": "hard",
       "provisional": true,
       "note": "Printed as \"1 February\" with no year. The university's own pages disagree on whether a Nordic citizen may instead use 5 June; work to 1 February unless the university confirms otherwise in writing.",
-      "evidence": ["ev-is-hi-deadlines", "ev-hi-is-deadline-page-5-june", "ev-hi-is-faq-5-june"]
+      "evidence": [
+        "ev-is-hi-deadlines",
+        "ev-hi-is-deadline-page-5-june",
+        "ev-hi-is-faq-5-june"
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-ru-eea",
@@ -25,7 +33,13 @@
       "consequence": "hard",
       "provisional": true,
       "note": "Opens 5 February; printed with no year.",
-      "evidence": ["ev-is-ru-deadlines"]
+      "evidence": [
+        "ev-is-ru-deadlines"
+      ],
+      "institutionsWithoutPage": [
+        "Reykjavik University"
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-unak-eea",
@@ -35,7 +49,13 @@
       "consequence": "hard",
       "provisional": true,
       "note": "Open from the beginning of March; printed with no year.",
-      "evidence": ["ev-is-unak-deadlines"]
+      "evidence": [
+        "ev-is-unak-deadlines"
+      ],
+      "institutionsWithoutPage": [
+        "University of Akureyri"
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-others",
@@ -44,7 +64,9 @@
       "dateState": "varies-by-institution",
       "consequence": "indicative",
       "note": "Each sets its own date. Check the institution's page.",
-      "evidence": ["ev-is-study-iceland-no-central-system"]
+      "evidence": [
+        "ev-is-study-iceland-no-central-system"
+      ]
     },
     {
       "id": "ms-ib",
@@ -52,11 +74,19 @@
       "label": "IB results released",
       "date": "2027-07-06",
       "consequence": "indicative",
-      "evidence": ["ev-ib-results-day-2027-05"],
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ],
       "ibCalendar": "2027-05/results-day",
       "provisional": true
     }
   ],
-  "evidence": ["ev-is-study-iceland-no-central-system"],
-  "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24", "reviewBy": "2027-01-15" }
+  "evidence": [
+    "ev-is-study-iceland-no-central-system"
+  ],
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataAsOf": "2026-09-24",
+    "reviewBy": "2027-01-15"
+  }
 }

@@ -10,6 +10,9 @@
   "milestones": [
     {
       "id": "ms-ae-branch-rit-early",
+      "institutions": [
+        "ae-rit-dubai"
+      ],
       "type": "submit",
       "label": "RIT Dubai — Fall 2027 Early Admission Phase closes",
       "date": "2027-01-15",
@@ -18,10 +21,14 @@
       "note": "The phase to be in if you want a scholarship. RIT Dubai says its scholarship seats are limited. The date is published without a year, so 2027 is expected.",
       "evidence": [
         "ev-ae-rit-dubai-dates"
-      ]
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-ae-branch-rit-regular",
+      "institutions": [
+        "ae-rit-dubai"
+      ],
       "type": "submit",
       "label": "RIT Dubai — Fall 2027 Regular Admission Phase closes",
       "date": "2027-05-31",
@@ -46,6 +53,9 @@
     },
     {
       "id": "ms-ae-branch-rit-deadline",
+      "institutions": [
+        "ae-rit-dubai"
+      ],
       "type": "submit",
       "label": "RIT Dubai — Fall 2027 application deadline",
       "date": "2027-08-22",
@@ -54,10 +64,14 @@
       "note": "Seven weeks after IB results. RIT Dubai says applications received after this date are reviewed based on space availability, so a late application is not automatically shut out. The date is published without a year, so 2027 is expected.",
       "evidence": [
         "ev-ae-rit-dubai-dates"
-      ]
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-ae-branch-hw-last",
+      "institutions": [
+        "ae-heriot-watt-dubai"
+      ],
       "type": "submit",
       "label": "Heriot-Watt Dubai — last practical date for a September 2027 start",
       "consequence": "rolling",
@@ -68,6 +82,9 @@
     },
     {
       "id": "ms-ae-branch-bham-visa",
+      "institutions": [
+        "ae-birmingham-dubai"
+      ],
       "type": "visa",
       "label": "Birmingham Dubai — visa sponsorship deadline, September 2027 intake",
       "consequence": "hard",

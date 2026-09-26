@@ -60,6 +60,9 @@
       },
       {
         "label": "Duke Kunshan University — Early Decision, and it is binding",
+        "institutions": [
+          "cn-dku"
+        ],
         "date": "2026-11-02",
         "timeOfDay": "23:59",
         "timeZone": "ET",
@@ -75,6 +78,9 @@
       },
       {
         "label": "NYU Shanghai — Early Decision I, and it is binding",
+        "institutions": [
+          "cn-nyu-shanghai"
+        ],
         "date": "2026-11-01",
         "timeOfDay": "23:59",
         "timeZone": "EST",
@@ -82,10 +88,14 @@
         "provisional": true,
         "year": "2027 entry",
         "notes": "NYU Shanghai publishes \"November 1\" and \"11:59 p.m EST\" with no calendar year, so 2026 is expected rather than confirmed. It is binding, and NYU's wording is more specific than most: if you are admitted to the campus you named as your primary interest, \"you must accept the offer within 25 days\", and \"If accepted, you'll also need to withdraw applications from other schools, and cannot submit new applications\" — so an NYU Shanghai Early Decision admission in December ends your application season, including applications you have already paid for elsewhere. One Common Application covers all three of NYU's degree-granting campuses, New York, Abu Dhabi and Shanghai, which is why an Early Decision here binds you against the others. The application fee is US$85, with waivers available.",
-        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision"
+        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision",
+        "yearUnpublished": true
       },
       {
         "label": "NYU Shanghai — Early Decision II, also binding",
+        "institutions": [
+          "cn-nyu-shanghai"
+        ],
         "date": "2027-01-01",
         "timeOfDay": "23:59",
         "timeZone": "EST",
@@ -93,10 +103,14 @@
         "provisional": true,
         "year": "2027 entry",
         "notes": "Published as \"January 1\" with no calendar year, so 2027 is expected rather than confirmed. Same binding terms as Early Decision I, in the same window as Regular Decision, and it exists for a student whose first binding choice turned them down in December. The 25-day acceptance rule and the requirement to withdraw every other application apply here too.",
-        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision"
+        "source": "https://shanghai.nyu.edu/undergraduate-admissions/how-to-apply/early-decision",
+        "yearUnpublished": true
       },
       {
         "label": "Duke Kunshan University — Regular Decision",
+        "institutions": [
+          "cn-dku"
+        ],
         "date": "2027-01-04",
         "timeOfDay": "23:59",
         "timeZone": "ET",
@@ -112,6 +126,9 @@
       },
       {
         "label": "NYU Shanghai — Regular Decision",
+        "institutions": [
+          "cn-nyu-shanghai"
+        ],
         "date": "2027-01-05",
         "consequence": "hard",
         "provisional": true,
@@ -122,10 +139,14 @@
           "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/all-freshmen-applicants.html"
         ],
         "timeOfDay": "23:59",
-        "timeZone": "EST"
+        "timeZone": "EST",
+        "yearUnpublished": true
       },
       {
         "label": "Duke Kunshan University — Regular Decision acceptance deadline",
+        "institutions": [
+          "cn-dku"
+        ],
         "date": "2027-05-01",
         "timeOfDay": "23:59",
         "timeZone": "ET",
@@ -138,6 +159,9 @@
       },
       {
         "label": "Xi'an Jiaotong-Liverpool University — applications close for most programmes",
+        "institutions": [
+          "cn-xjtlu"
+        ],
         "date": "2027-05-31",
         "consequence": "hard",
         "provisional": false,
@@ -150,6 +174,9 @@
       },
       {
         "label": "Tsinghua University — international undergraduate admission, in three batches whose dates are behind a login",
+        "institutions": [
+          "cn-tsinghua"
+        ],
         "date": null,
         "dateState": "not-published",
         "consequence": "hard",
@@ -165,6 +192,11 @@
       },
       {
         "label": "Peking University, Fudan University and Shanghai Jiao Tong University — international undergraduate admission",
+        "institutions": [
+          "cn-pku",
+          "cn-fudan",
+          "cn-sjtu"
+        ],
         "date": null,
         "dateState": "varies-by-institution",
         "consequence": "indicative",

@@ -18,11 +18,20 @@
  * With this script blocked, a student sees every country's next ten dates, and
  * every date one tap away — more than they need, rather than nothing at all.
  */
-import { interest, set as setExploration, explicit, SOURCE_WORDING } from './exploration.js';
+import { interest, set as setExploration, explicit } from './exploration.js';
 
 const NEXT_UP = 10;
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const monthName = (k) => `${MONTHS[Number(k.slice(5, 7)) - 1]} ${k.slice(0, 4)}`;
+
+/* Where the chosen countries came from, as the end of one short sentence:
+   "Dates for Denmark, from the link you followed." */
+const FROM = {
+  url: 'from the link you followed',
+  list: 'from the countries you are exploring',
+  compare: 'from the countries you are comparing',
+  profile: 'from your profile',
+};
 
 const scope = document.getElementById('cal-scope');
 if (scope) {
@@ -38,6 +47,22 @@ if (scope) {
   const allN = document.getElementById('cal-all-n');
   const pastN = document.getElementById('cal-past-n');
   const monthLinks = [...document.querySelectorAll('.cal-months a[data-month]')];
+  const earlierBox = document.getElementById('cal-earlier');
+  const earlierN = document.getElementById('cal-earlier-n');
+  const chipStrip = scope.querySelector('.cal-chips');
+
+  /* Filter-first: with no country chosen the page is the chips and one line
+     asking for a choice. Every list below them is one country's dates or
+     several chosen ones, never every country's at once. */
+  const scoped = [
+    document.getElementById('cal-next-wrap'),
+    document.querySelector('.cal-months'),
+    all,
+    pastBox,
+    earlierBox,
+    document.getElementById('undated')?.closest('.topic'),
+    document.getElementById('closed')?.closest('.topic'),
+  ].filter(Boolean);
 
   /* Every real entry on the page. The "Next up" list is made of copies and is
      never counted, or it would count its ten dates twice. */
@@ -113,6 +138,27 @@ if (scope) {
     recount(shown);
     describe(shown.length, codes);
     syncBoxes(codes);
+    for (const el of scoped) el.hidden = !codes;
+    if (earlierBox && codes) earlierBox.hidden = earlierBox.dataset.empty === 'true';
+    showChosen();
+  }
+
+  /* On a phone, with a country chosen, the chips are one row that scrolls
+     sideways, and it starts at the first chosen chip, without moving the page.
+     With none chosen the chips are all there is to do, so every one of them
+     shows, wrapped (primitives.css, [data-chosen]); no country waits
+     off-screen behind the first few in the alphabet. */
+  function showChosen() {
+    const chip = scope.querySelector('input[name="scope"]:checked')?.closest('label');
+    scope.dataset.chosen = chip ? 'true' : 'false';
+    if (!chipStrip) return;
+    if (!chip) {
+      chipStrip.scrollLeft = 0;
+      return;
+    }
+    if (chipStrip.scrollWidth <= chipStrip.clientWidth) return;
+    const off = chip.getBoundingClientRect().left - chipStrip.getBoundingClientRect().left;
+    chipStrip.scrollLeft += off - 16;
   }
 
   /* `site.js` marks what has passed and what is next on load, by start date.
@@ -149,6 +195,12 @@ if (scope) {
   function recount(shown) {
     if (allN) allN.textContent = `(${shown.length})`;
     if (pastN && pastList) pastN.textContent = `(${[...pastList.children].filter((li) => !li.hidden).length})`;
+    const earlierList = earlierBox?.querySelector('.timeline');
+    if (earlierN && earlierList) {
+      const n = [...earlierList.children].filter((li) => !li.hidden).length;
+      earlierN.textContent = `(${n})`;
+      earlierBox.dataset.empty = n ? 'false' : 'true';
+    }
     const byMonth = new Map();
     for (const li of shown) {
       const k = (li.dataset.date < today ? today : li.dataset.date).slice(0, 7);
@@ -166,11 +218,12 @@ if (scope) {
 
   function describe(shown, codes) {
     if (!codes) {
-      stateLine.textContent = 'Every country. Pick yours to see only their dates.';
+      stateLine.textContent = 'Pick a country to see its dates.';
     } else if (shown === 0) {
       stateLine.textContent = `Nothing ahead for ${listSentence([...codes].map((c) => names.get(c) || c))} yet.`;
     } else {
-      stateLine.textContent = `${listSentence([...codes].map((c) => names.get(c) || c))} — ${SOURCE_WORDING[current.source] || 'your selection'}.`;
+      const from = FROM[current?.source];
+      stateLine.textContent = `Dates for ${listSentence([...codes].map((c) => names.get(c) || c))}${from ? `, ${from}` : ''}.`;
     }
 
     showAll.hidden = !codes;

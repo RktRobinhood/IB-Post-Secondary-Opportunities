@@ -32,7 +32,7 @@ import { cardKey, families } from '../src/lib/families.mjs';
 import { entries, publishable } from '../src/lib/imagery.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const ALLOW = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'unique-images-allow.json'), 'utf8'));
 
 let failures = 0;
@@ -194,10 +194,9 @@ check('on every built page, two different cards never draw one background', () =
   assert.deepEqual(bad, []);
 });
 
-check('the finder and planner data give different cards different backgrounds', () => {
+check('the planner data gives different cards different backgrounds', () => {
   const bad = [];
   for (const [rel, id, pick] of [
-    ['programmes/index.html', 'programme-data', (r) => [r.id, r.backdrop?.key]],
     ['planner/index.html', 'planner-opportunities', (o) => [o.id, o.display?.backdrop?.key]],
   ]) {
     const f = path.join(DIST, rel);
@@ -225,7 +224,7 @@ check('the family rules and the resolver name no programme, institution or count
   for (const d of site.graph.destinations.values()) { if (d.name) names.add(d.name.toLowerCase()); }
   for (const c of site.countries || []) { if (c.name) names.add(String(c.name).toLowerCase()); }
   const bad = [];
-  for (const rel of ['src/lib/families.mjs', 'src/lib/programme-imagery.mjs']) {
+  for (const rel of ['src/lib/families.mjs', 'src/lib/programme-imagery.mjs', 'src/lib/paths.mjs']) {
     const src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
     const literals = [...src.matchAll(/'([^'\n]*)'|"([^"\n]*)"/g)].map((m) => (m[1] ?? m[2]).toLowerCase());
     for (const l of literals) if (names.has(l)) bad.push(`${rel}: "${l}"`);

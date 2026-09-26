@@ -10,16 +10,24 @@
   "milestones": [
     {
       "id": "ms-open-eth",
+      "institutions": [
+        "ch-eth"
+      ],
       "type": "open",
       "label": "ETH Zurich bachelor applications open",
       "date": "2026-12-01",
       "consequence": "indicative",
       "provisional": true,
       "note": "ETH publishes day and month only; the year is read for autumn 2027 entry.",
-      "evidence": ["ev-ch-eth-how-to-apply"]
+      "evidence": [
+        "ev-ch-eth-how-to-apply"
+      ]
     },
     {
       "id": "ms-submit-eth",
+      "institutions": [
+        "ch-eth"
+      ],
       "type": "submit",
       "label": "ETH Zurich bachelor applications close",
       "date": "2027-03-31",
@@ -27,17 +35,27 @@
       "timeZone": "Europe/Zurich",
       "consequence": "hard",
       "provisional": true,
-      "evidence": ["ev-ch-eth-how-to-apply"]
+      "evidence": [
+        "ev-ch-eth-how-to-apply"
+      ]
     },
     {
       "id": "ms-submit-epfl",
+      "institutions": [
+        "ch-epfl",
+        "ch-uzh"
+      ],
       "type": "submit",
       "label": "EPFL and the University of Zurich close for bachelor applications",
       "date": "2027-04-30",
       "consequence": "hard",
       "provisional": true,
       "note": "Both publish 30 April with no year; read here for autumn 2027. EPFL opens in mid-November and the CHF 150 fee is due by the same day. The University of Zurich opens on 1 January and its later July window is for Swiss certificates only.",
-      "evidence": ["ev-ch-epfl-how-to-apply", "ev-ch-uzh-deadlines"]
+      "evidence": [
+        "ev-ch-epfl-how-to-apply",
+        "ev-ch-uzh-deadlines"
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-submit-others",
@@ -46,7 +64,9 @@
       "dateState": "varies-by-institution",
       "consequence": "indicative",
       "note": "No national portal and no national date. Each university sets its own; most fall in spring, before IB results.",
-      "evidence": ["ev-ch-swissuniversities-institutions"]
+      "evidence": [
+        "ev-ch-swissuniversities-institutions"
+      ]
     },
     {
       "id": "ms-ib",
@@ -56,10 +76,16 @@
       "consequence": "indicative",
       "provisional": true,
       "ibCalendar": "2027-05/results-day",
-      "evidence": ["ev-ib-results-day-2027-05"]
+      "evidence": [
+        "ev-ib-results-day-2027-05"
+      ]
     }
   ],
-  "evidence": ["ev-ch-eth-how-to-apply", "ev-ch-epfl-how-to-apply", "ev-ch-uzh-deadlines"],
+  "evidence": [
+    "ev-ch-eth-how-to-apply",
+    "ev-ch-epfl-how-to-apply",
+    "ev-ch-uzh-deadlines"
+  ],
   "meta": {
     "schemaVersion": "1.0",
     "dataAsOf": "2026-09-24",

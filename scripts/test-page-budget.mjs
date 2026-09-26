@@ -60,7 +60,7 @@ import { measure, countWords, defaultView } from './lib/page-measure.mjs';
 const ROOT = path.resolve(import.meta.dirname, '..');
 // An optional argument points at another build — how the "before" figures in
 // #37 were taken, and how to see this guard fail on the old page order.
-const DIR = path.join(process.argv[2] ? path.resolve(process.argv[2]) : path.join(ROOT, 'dist'), 'destinations');
+const DIR = path.join(process.argv[2] ? path.resolve(process.argv[2]) : process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist'), 'destinations');
 
 export const BUDGET = {
   beforeInstitutions: 120,

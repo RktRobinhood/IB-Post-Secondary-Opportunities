@@ -127,7 +127,7 @@ const BASEMAP = JSON.parse(
  * With `slice` the panel keeps whatever height the stylesheet gives it and
  * gives up the sides instead. For a Europe frame what it gives up is Atlantic.
  */
-export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '' }) {
+export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '' }) {
   const W = 1000;
   const H = 420;
   const view = frameFor(bounds || boundsFor(places), W / H);
@@ -243,6 +243,10 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
        a screen reader, and no JavaScript at all. Everything the marker callout
        shows on hover is written into the entry itself, because a cue a mouse
        can read and a keyboard cannot is not a cue. -->
+  ${/* A page whose own filters already name every place (the home page's
+        "Where") folds the list behind one line: it is still the keyboard's
+        and the screen reader's way in, one tap away. */
+    foldList ? raw(`<details class="world__fold"><summary>${foldList} (${dots.length})</summary>`) : ''}
   <ul class="world__list" aria-label="${activeLayer}">
     ${dots.map(
       (d) => html`<li>
@@ -256,20 +260,30 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       </li>`
     )}
   </ul>
+  ${foldList ? raw('</details>') : ''}
 
+  ${/* One line under the map (home round 2: four grey paragraphs between the
+        globe and the results). The rest — hollow markers, what is outside
+        the frame, how to use it — one tap down. The globe adds its own hint
+        to the caption; site.css shows it only while "How to use" is open. */ ''}
   <figcaption class="world__caption">
     <span class="world__legend">
       <span class="world__legend-dot world__legend-dot--sm"></span>
       <span class="world__legend-dot world__legend-dot--lg"></span>
-      Larger means more opportunities here — not a better place.
+      Bigger light, more ${unit ? `${unit}s` : 'opportunities'}
     </span>
-    ${[...new Set(dots.map(cueFor).filter(Boolean))].map(
-      (cue) => html`<span class="world__legend">Hollow markers: ${cue.toLowerCase()}.</span>`
-    )}
-    ${hidden > 0
-      ? html`<span class="world__legend">${plural(hidden, 'place')} outside this frame — in the list below, not on the map.</span>`
-      : ''}
-    ${caption ? html`<span>${caption}</span>` : ''}
+    ${(() => {
+      /* One line for every hollow marker, however many kinds of place it
+         stands for (round 4: two "Hollow markers" lines that disagreed). */
+      const kinds = [...new Set(dots.filter((d) => cueFor(d)).map((d) => (d.precision === 'region' ? 'country' : 'city')))].sort();
+      const more = [
+        'Size says how much is here, not how good a place is.',
+        kinds.length ? `Hollow markers: placed at the ${kinds.join(' or the ')}, not at a campus.` : '',
+        hidden > 0 ? `${plural(hidden, 'place')} outside this frame — in the list, not on the map.` : '',
+        caption || '',
+      ].filter(Boolean);
+      return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
+    })()}
   </figcaption>
 </figure>`;
 }

@@ -21,7 +21,7 @@ import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdic
  * language and the rest are on the country page — a card that tried to carry
  * them cut each one off mid-sentence.
  */
-function countryTile(site, c) {
+export function countryTile(site, c) {
   const pic =
     picture(site, c.code, { prefer: 'commons' }) ||
     c.institutions.map((i) => picture(site, i.key || i.id, { prefer: 'commons' })).find((p) => p && !p.external) ||
@@ -43,7 +43,7 @@ function countryTile(site, c) {
 }
 
 /** How far a Destination has been researched, in the words every tile and light uses. */
-function depthLabel(site, c) {
+export function depthLabel(site, c) {
   const hasProgrammes = [...(site.graph?.opportunities?.values() || [])].some((o) => o.destination === c.code);
   if (hasProgrammes && (!c.researchDepth || c.researchDepth.tier === 'researched')) return 'Programmes recorded';
   return c.researchDepth ? RESEARCH_DEPTH[c.researchDepth.tier].label : '';
@@ -257,13 +257,14 @@ export function distanceDoorsHtml(items) {
 }
 
 /**
- * The name a map label can carry. A short name that is a word ("Leiden",
- * "Groningen") reads on a pin; one that is an acronym ("UT", "UM", "EUR") is a
- * code only its own students know, so the pin takes the full name instead.
+ * The name a label can carry. A short name that is a word ("Leiden") or names
+ * its place ("TU Delft", "KU Leuven") reads on its own; a single word with two
+ * or more capitals ("UT", "EUR", "BUas") is a code only its own students know,
+ * so the label takes the full name instead.
  */
 export function readableName(i) {
   const s = i.shortName;
-  return !s || /^[\p{Lu}&.\-\s]{1,6}$/u.test(s) ? i.name : s;
+  return !s || (!/\s/.test(s) && (s.match(/\p{Lu}/gu) || []).length >= 2) ? i.name : s;
 }
 
 const regionSlug = (region) => `region-${slugify(region)}`;

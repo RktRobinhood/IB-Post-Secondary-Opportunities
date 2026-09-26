@@ -47,6 +47,9 @@
     "deadlines": [
       {
         "label": "LSMU - application portal opens",
+        "institutions": [
+          "lt-lsmu"
+        ],
         "date": "2026-11-01",
         "consequence": "indicative",
         "provisional": true,
@@ -69,6 +72,9 @@
       },
       {
         "label": "LSMU - entrance tests and motivational interviews begin",
+        "institutions": [
+          "lt-lsmu"
+        ],
         "date": "2027-01-13",
         "consequence": "indicative",
         "provisional": true,
@@ -78,6 +84,9 @@
       },
       {
         "label": "ISM University - early admission closes",
+        "institutions": [
+          "lt-ism"
+        ],
         "date": "2027-04-30",
         "consequence": "priority",
         "provisional": true,
@@ -87,16 +96,23 @@
       },
       {
         "label": "Vilnius University - applications close for EU/EFTA citizens",
+        "institutions": [
+          "lt-vu"
+        ],
         "date": "2027-07-01",
         "consequence": "hard",
-        "provisional": false,
+        "provisional": true,
         "year": "2027 entry",
         "audience": "EU and EFTA citizens",
-        "notes": "Vilnius University is the university this profile sends you to first. It has one intake a year and splits the deadline by citizenship. For autumn 2026 the page read: \"1 May for applicants from non-EU/EFTA countries\" and \"1 July for applicants who are citizens of EU/EFTA countries and for non-EU/EFTA applicants with a 90-day visa-free period that has not yet been exceeded\". As an EU/EFTA citizen you are in the July group. For the 2027/2028 round admissions.vu.lt now reads (25 September 2026): applications open on 1 December 2026, with 1 May for applicants from non-EU/EFTA countries and 1 July for EU/EFTA citizens and non-EU/EFTA applicants whose visa-free period has not been exceeded. Two things that are not dates but behave like them: the application fee is 100 EUR, non-refundable, and \"An online application will be processed only after the application fee is collected and the application is submitted with all the required documents\", so an unpaid invoice on the closing day is a missed deadline; and admission can close early, because the published deadline runs only until the limit of study places is reached. EU and EFTA citizens may apply for state-funded as well as fee-paying places.",
-        "source": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies"
+        "notes": "Vilnius University is the university this profile sends you to first. It has one intake a year and splits the deadline by citizenship. For autumn 2026 the page read: \"1 May for applicants from non-EU/EFTA countries\" and \"1 July for applicants who are citizens of EU/EFTA countries and for non-EU/EFTA applicants with a 90-day visa-free period that has not yet been exceeded\". As an EU/EFTA citizen you are in the July group. For the 2027/2028 round admissions.vu.lt now reads (25 September 2026): applications open on 1 December 2026, with 1 May for applicants from non-EU/EFTA countries and 1 July for EU/EFTA citizens and non-EU/EFTA applicants whose visa-free period has not been exceeded. Two things that are not dates but behave like them: the application fee is 100 EUR, non-refundable, and \"An online application will be processed only after the application fee is collected and the application is submitted with all the required documents\", so an unpaid invoice on the closing day is a missed deadline; and admission can close early, because the published deadline runs only until the limit of study places is reached. EU and EFTA citizens may apply for state-funded as well as fee-paying places. Vilnius gives 1 July with no year, both on this page and on its admissions site for the 2027/2028 round (which opens on 1 December 2026), so the year is inferred.",
+        "source": "https://www.vu.lt/en/admissions/admissions-to-bachelor-studies",
+        "yearUnpublished": true
       },
       {
         "label": "LSMU - primary application deadline, and it closes at midnight the night before",
+        "institutions": [
+          "lt-lsmu"
+        ],
         "date": "2027-07-06",
         "timeOfDay": "00:00",
         "consequence": "priority",
@@ -107,6 +123,9 @@
       },
       {
         "label": "ISM University - main admission closes for visa-free countries",
+        "institutions": [
+          "lt-ism"
+        ],
         "date": "2027-07-24",
         "consequence": "hard",
         "provisional": true,
@@ -117,6 +136,9 @@
       },
       {
         "label": "LSMU - final application deadline",
+        "institutions": [
+          "lt-lsmu"
+        ],
         "date": "2027-07-30",
         "timeOfDay": "00:00",
         "consequence": "equal-consideration",
@@ -127,6 +149,9 @@
       },
       {
         "label": "ISM University - submit your final IB Diploma",
+        "institutions": [
+          "lt-ism"
+        ],
         "date": "2027-08-01",
         "consequence": "hard",
         "provisional": true,
@@ -136,6 +161,9 @@
       },
       {
         "label": "ISM University - additional admission round, visa-free countries only",
+        "institutions": [
+          "lt-ism"
+        ],
         "date": "2027-08-14",
         "consequence": "hard",
         "provisional": true,
@@ -146,6 +174,9 @@
       },
       {
         "label": "LSMU - studies begin",
+        "institutions": [
+          "lt-lsmu"
+        ],
         "date": "2027-09-01",
         "consequence": "indicative",
         "provisional": true,

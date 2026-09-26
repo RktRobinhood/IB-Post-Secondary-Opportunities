@@ -9,7 +9,7 @@
   "portalUrl": "https://www.xjtlu.edu.cn/en/admissions/global/how-to-apply",
   "milestones": [
     { "id": "ms-cn-jv-bnbu", "type": "submit", "label": "BNBU applications close", "dateState": "not-yet-announced", "consequence": "hard", "note": "For 2026 entry BNBU gave one deadline, 15 May. For 2025 entry it ran two periods, 1 September to 31 December and 10 February to 15 May. It has not published its dates for 2027 entry.", "evidence": ["ev-cn-bnbu-deadline-2026", "ev-cn-bnbu-periods"] },
-    { "id": "ms-cn-jv-xjtlu", "type": "submit", "label": "XJTLU applications close (most programmes)", "date": "2027-05-31", "consequence": "hard", "evidence": ["ev-cn-xjtlu-deadline"] },
+    { "id": "ms-cn-jv-xjtlu", "institutions": ["cn-xjtlu"], "type": "submit", "label": "XJTLU applications close (most programmes)", "date": "2027-05-31", "consequence": "hard", "evidence": ["ev-cn-xjtlu-deadline"] },
     { "id": "ms-cn-jv-others", "type": "submit", "label": "UNNC, CUHK-Shenzhen and Wenzhou-Kean", "dateState": "varies-by-institution", "consequence": "indicative", "note": "Each sets its own dates. CUHK-Shenzhen's international application system is open from September to April, with no closing day printed; check UNNC's and Wenzhou-Kean's on their own pages.", "evidence": ["ev-cn-cuhksz-intl"] }
   ],
   "supplementarySteps": [

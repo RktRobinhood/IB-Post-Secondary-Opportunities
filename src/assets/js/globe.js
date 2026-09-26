@@ -41,10 +41,9 @@ const R2D = 180 / Math.PI;
 const FOV = 36.87 * D2R;
 const TAN = Math.tan(FOV / 2);
 const MIN_ALT = 0.06;       // Earth radii above the surface: ~380 km. Closer, even the detail texture is magnified past reading
-const MAX_ALT = 4.2;
-const REST_MAX_ALT = 1.4;   // a page's resting camera never backs off further: big, cropped, not a small disc
-const REST_MIN_ALT = 0.42;  // nor comes closer: at rest the horizon is in the frame
-const HOME_REST_MIN_ALT = 0.2; // a single-country page rests on its country, not on a group of its places
+const MAX_ALT = 6.5;         // the desk view is the furthest out a page goes; a tall, narrow stage needs this much
+const REST_MAX_ALT = 1.4;   // a single-country page rests no further out; a region shown by show({ bounds }), 1.6x this
+const HOME_REST_MIN_ALT = 0.2; // …and no closer: its country, not a group of its places
 const TRAVEL_CLIMB = 1.05;  // a journey of more than a hop climbs at least this high, above the cloud deck, so the dive goes through it
 const HOP = 500 / 6371;     // …and "more than a hop" is 500 km of great circle
 const PHONE_HOLD_MS = 4000; // a finger lets go of the globe this long after its last gesture
@@ -70,6 +69,16 @@ const PIN_GAP = 30;
 const TOUCH_TARGET = 44;
 const LABEL_ALT = 2.5;      // below this, pins with room carry their names (a whole-world rest included)
 const DPR_CAP = 2;
+/* The desk globe (the owner, 25 September 2026): at rest the Earth stands in
+   a brass meridian ring on a stand, its axis tipped 23.4°, and turns only left
+   and right, like the globe on a classroom desk. Choosing somewhere turns it
+   to face you and then leans in; the stand fades and the axis straightens as
+   the camera comes close, so the dive and the close map are unchanged. */
+const TILT = 23.44 * D2R;
+const DESK_LAT_MAX = 40;    // the eye sits this far above the equator at most: looking down a little at a desk
+/* The assembly in globe radii: the ring's outer edge above, the foot of the
+   stand below. The resting camera fits both in the stage. */
+const DESK_TOP = 1.13, DESK_BOTTOM = 1.62, DESK_SIDE = 1.16;
 
 /** Camera pitch and lens shift grow as the camera comes down, so a close
     view shows the horizon curving across the top of the frame instead of a
@@ -116,8 +125,10 @@ void main() { vec3 p = aPos * uR; vN = aPos; vUv = aUv; vW = p; gl_Position = uV
 const EARTH_FS = `${MED}
 uniform sampler2D uDay; uniform sampler2D uMask; uniform sampler2D uDetail;
 uniform vec3 uEye; uniform vec3 uSun; uniform vec3 uTint; uniform float uMaskOn; uniform float uSharp;
-uniform vec2 uTexel; uniform vec4 uDetailRect; uniform vec2 uDetailTexel; uniform float uDetailOn; uniform float uPunch;
+uniform vec2 uTexel; uniform vec4 uDetailRect; uniform vec2 uDetailTexel; uniform float uDetailOn; uniform float uPunch; uniform float uToon;
+uniform sampler2D uPol; uniform float uPolOn; uniform float uInk;
 varying vec3 vN; varying vec2 vUv; varying vec3 vW;
+float wet(vec3 c) { return smoothstep(0.015, 0.09, c.b - max(c.r, c.g)); }
 /* An unsharp mask that works under magnification: the pixel against the mean
    of its four neighbours one texel away. (A blurrier mip level does nothing
    here — magnified, every LOD bias still lands on level 0.) */
@@ -139,12 +150,40 @@ void main() {
   float dw = uDetailOn * smoothstep(0.0, 0.025, min(de.x, de.y));
   c = mix(c, sharp(uDetail, clamp(du, 0.0, 1.0), uDetailTexel), dw);
   float d = max(dot(n, uSun), 0.0);
-  float light = 0.30 + 0.85 * d;
   /* Water is where blue leads: a glint there, none on land. */
-  float water = smoothstep(0.015, 0.09, c.b - max(c.r, c.g));
+  /* On the desk, land and water come from the country raster, not from the
+     photograph's colour: a dark or shallow sea read as land by colour
+     (round 4: a black Caspian, black bands along coasts). The ink line is
+     where that raster's coverage changes, one of its texels away. */
+  vec4 pol = texture2D(uPol, vUv);
+  float onDesk = clamp(uPolOn * 2.0, 0.0, 1.0);
+  float water = mix(wet(c), 1.0 - pol.a, onDesk);
+  float px = texture2D(uPol, vUv + vec2(1.0 / 1024.0, 0.0)).a;
+  float py = texture2D(uPol, vUv + vec2(0.0, 1.0 / 512.0)).a;
+  float coast = clamp((abs(pol.a - px) + abs(pol.a - py)) * 1.6, 0.0, 1.0);
+  /* A little cartoony (the owner, round 4) — still recognisably Earth: a
+     friendlier ocean, warmer and more saturated land, gently posterised, and
+     flatter light. uToon eases off towards the handoff so the close map's
+     photograph does not arrive as a different world. */
+  float lum = dot(c, vec3(0.299, 0.587, 0.114));
+  vec3 land = clamp(mix(vec3(lum), c, 1.45) * vec3(1.07, 1.04, 0.9) + 0.035, 0.0, 1.0);
+  float band = floor(lum * 6.0 + 0.5) / 6.0;
+  land = clamp(mix(land, land * (band + 0.04) / (lum + 0.04), 0.4), 0.0, 1.0);
+  vec3 ocean = mix(vec3(0.13, 0.40, 0.70), vec3(0.28, 0.62, 0.86), smoothstep(0.02, 0.22, c.b));
+  /* On the desk the land wears a classroom globe's pastel political colours,
+     each country its own, with a little of the relief left in. */
+  land = mix(land, pol.rgb * (0.8 + 0.4 * lum), uPolOn * 0.85 * pol.a);
+  /* A flat classroom ocean: the photograph's blue ramp amplified its JPEG
+     blocks into squares (round 4). */
+  ocean = mix(ocean, vec3(0.45, 0.72, 0.89), uPolOn);
+  vec3 toon = mix(land, ocean, water);
+  c = mix(c, toon, uToon);
+  float light = mix(0.30 + 0.85 * d, 0.64 + 0.40 * d, uToon);
+  light = mix(light, 0.86 + 0.24 * d, uPolOn); // a desk lamp, not the sun
   vec3 h = normalize(uSun + v);
-  float spec = pow(max(dot(n, h), 0.0), 70.0) * 0.45 * water;
+  float spec = pow(max(dot(n, h), 0.0), 70.0) * mix(0.45, 0.25, uToon) * water;
   vec3 col = c * light * vec3(1.02, 1.03, 1.06) + spec * vec3(1.0, 0.96, 0.9);
+  col = mix(col, vec3(0.13, 0.19, 0.25), coast * uInk);
   float m = texture2D(uMask, vUv).r * uMaskOn;
   col = mix(col, uTint, m * 0.30) + uTint * m * 0.06;
   /* Just above the handoff the Blue Marble leans towards the satellite map's
@@ -162,9 +201,11 @@ const CLOUD_FS = `${MED}
 uniform sampler2D uClouds; uniform vec3 uSun; uniform float uShift; uniform float uAlpha;
 varying vec3 vN; varying vec2 vUv; varying vec3 vW;
 void main() {
-  float a = texture2D(uClouds, vec2(vUv.x + uShift, vUv.y)).r;
-  a = smoothstep(0.1, 0.95, a);
-  float light = 0.35 + 0.8 * max(dot(normalize(vN), uSun), 0.0);
+  /* Softer and rounder: a blurrier level of the cloud map, cut into puffs
+     with a soft edge, and lit flat and bright. */
+  float a = texture2D(uClouds, vec2(vUv.x + uShift, vUv.y), 1.5).r;
+  a = smoothstep(0.28, 0.62, a) * 0.9;
+  float light = 0.82 + 0.2 * max(dot(normalize(vN), uSun), 0.0);
   gl_FragColor = vec4(vec3(light), a * uAlpha);
 }`;
 
@@ -185,28 +226,26 @@ void main() { vXY = aXY; gl_Position = vec4(aXY, 0.0, 1.0); }`;
    they turn with the camera and the spin reads as a spin. */
 const SKY_FS = `${MED}
 uniform vec3 uEye; uniform vec3 uRight; uniform vec3 uUp; uniform vec3 uFwd;
-uniform float uTan; uniform float uAspect; uniform float uShift; uniform float uCellPx;
+uniform float uTan; uniform float uAspect; uniform float uShift;
+uniform vec3 uHalo; uniform float uHaloStrength; uniform vec3 uDisc; uniform float uShadow;
 varying vec2 vXY;
-float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+/* The globe floats on the page (the owner's art direction, round 4): no space,
+   no stars — only the atmosphere's halo round the limb and a soft shadow on
+   the "ground" beneath a whole globe, written premultiplied onto a transparent
+   canvas so the page's own paper shows everywhere else. */
 void main() {
   vec3 dir = normalize(uFwd + uRight * vXY.x * uTan * uAspect + uUp * (vXY.y - uShift) * uTan);
-  vec3 col = mix(vec3(0.010, 0.014, 0.030), vec3(0.030, 0.045, 0.085), 0.5 + 0.5 * vXY.y);
-  vec2 sp = vec2(atan(dir.z, dir.x), asin(clamp(dir.y, -1.0, 1.0))) * 38.0;
-  vec2 cell = floor(sp);
-  float h = hash(cell);
-  if (h > 0.90) {
-    vec2 at = vec2(hash(cell + 7.1), hash(cell + 3.7));
-    float d = length(fract(sp) - at) * uCellPx;
-    float b = (h - 0.90) * 10.0;
-    col += vec3(0.85, 0.9, 1.0) * b * b * smoothstep(1.6, 0.0, d);
-  }
   float tca = -dot(uEye, dir);
   float b = length(uEye + dir * max(tca, 0.0));
+  float halo = 0.0;
   if (tca > 0.0 && b > 1.0) {
     float x = b - 1.0;
-    col += vec3(0.32, 0.58, 1.0) * (exp(-x * 26.0) * 0.95 + exp(-x * 5.0) * 0.14);
+    halo = clamp((exp(-x * 22.0) * 0.85 + exp(-x * 6.0) * 0.18) * uHaloStrength, 0.0, 1.0);
   }
-  gl_FragColor = vec4(col, 1.0);
+  vec2 q = (gl_FragCoord.xy - vec2(uDisc.x, uDisc.y - uDisc.z * 1.1)) / vec2(uDisc.z * 0.8, uDisc.z * 0.11);
+  float shadow = (1.0 - smoothstep(0.15, 1.0, length(q))) * uShadow;
+  float a = halo + shadow * (1.0 - halo);
+  gl_FragColor = vec4(uHalo * halo, a);
 }`;
 
 /* The dive. Three sheets of the same cloud texture, each growing past the
@@ -256,11 +295,11 @@ function program(gl, vs, fs) {
   return { p, u, a: (name) => gl.getAttribLocation(p, name) };
 }
 
-function texture(gl, source, { repeat = false, mip = true, luminance = false } = {}) {
+function texture(gl, source, { repeat = false, mip = true, luminance = false, alpha = false } = {}) {
   const t = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, t);
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-  const fmt = luminance ? gl.LUMINANCE : gl.RGB;
+  const fmt = luminance ? gl.LUMINANCE : alpha ? gl.RGBA : gl.RGB;
   gl.texImage2D(gl.TEXTURE_2D, 0, fmt, fmt, gl.UNSIGNED_BYTE, source);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, repeat ? gl.REPEAT : gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
@@ -270,13 +309,16 @@ function texture(gl, source, { repeat = false, mip = true, luminance = false } =
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
     /* Anisotropic filtering keeps the ground sharp where the tilted camera
        sees it at a grazing angle, towards the horizon. */
-    const aniso = gl.getExtension('EXT_texture_filter_anisotropic')
-      || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic')
-      || gl.getExtension('MOZ_EXT_texture_filter_anisotropic');
-    if (aniso) {
-      const max = gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT) || 1;
-      gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, max));
+    /* The limit is read once per context: a getParameter straight after
+       generateMipmap forces the GPU to finish, which cost ~200 ms a texture
+       (round 3). */
+    if (gl.__aniso === undefined) {
+      const e = gl.getExtension('EXT_texture_filter_anisotropic')
+        || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic')
+        || gl.getExtension('MOZ_EXT_texture_filter_anisotropic');
+      gl.__aniso = e ? { e, max: Math.min(8, gl.getParameter(e.MAX_TEXTURE_MAX_ANISOTROPY_EXT) || 1) } : null;
     }
+    if (gl.__aniso) gl.texParameterf(gl.TEXTURE_2D, gl.__aniso.e.TEXTURE_MAX_ANISOTROPY_EXT, gl.__aniso.max);
   } else {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   }
@@ -304,6 +346,15 @@ function sphereMesh(latSteps = 80, lonSteps = 160) {
     }
   }
   return { pos: new Float32Array(pos), uv: new Float32Array(uv), idx: new Uint16Array(idx) };
+}
+
+/** A lazily loaded texture, decoded off the main thread where the browser
+    can (createImageBitmap), so the upload is the only main-thread cost. */
+async function loadBitmap(src) {
+  if (!('createImageBitmap' in window)) return loadImage(src);
+  const r = await fetch(String(src));
+  if (!r.ok) throw new Error(`image: ${src}`);
+  return createImageBitmap(await r.blob());
 }
 
 function loadImage(src) {
@@ -408,7 +459,35 @@ function buildGeography(geo) {
     return ranges[i - 1] || null;
   };
 
-  return { lines: new Float32Array(lines), ranges, byId: new Map(ranges.map((r) => [r.id, r])), countryAt };
+  /* The desk globe's political colours: neighbours (countries whose pixels
+     touch in the picking raster) never share one of six pastels, so every
+     border reads without a legend. Greedy, largest country first. */
+  const idAt = (k) => (pixels[k + 1] === 255 && pixels[k] && pixels[k + 2] === ((pixels[k] * 53) & 255) ? pixels[k] : 0);
+  const near = ranges.map(() => new Set());
+  for (let y = 0; y < PH; y++) {
+    for (let x = 0; x < PW; x++) {
+      const a = idAt((y * PW + x) * 4);
+      if (!a) continue;
+      for (const k of [(y * PW + ((x + 2) % PW)) * 4, y + 2 < PH ? ((y + 2) * PW + x) * 4 : -1]) {
+        const b = k < 0 ? 0 : idAt(k);
+        if (b && b !== a) { near[a - 1].add(b - 1); near[b - 1].add(a - 1); }
+      }
+    }
+  }
+  const PASTEL = ['#f3d98b', '#efb28c', '#e7a3ad', '#b8d59a', '#c7b5de', '#9fd3bd'];
+  const hue = new Array(ranges.length).fill(-1);
+  const order = ranges.map((_, i) => i).sort((i, j) => near[j].size - near[i].size);
+  for (const i of order) {
+    const used = new Set([...near[i]].map((j) => hue[j]));
+    const free = PASTEL.findIndex((_, h) => !used.has(h));
+    hue[i] = free < 0 ? i % PASTEL.length : free;
+  }
+  const political = document.createElement('canvas');
+  political.width = PW; political.height = PH;
+  const pol = political.getContext('2d');
+  ranges.forEach((r, i) => { pol.fillStyle = PASTEL[hue[i]]; traceRings(pol, r.rings, PW, PH); });
+
+  return { lines: new Float32Array(lines), ranges, byId: new Map(ranges.map((r) => [r.id, r])), countryAt, political };
 }
 
 /* ========================================================================
@@ -443,7 +522,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
      itself as software is refused here. `?map=globe` overrides both, for
      testing. */
   const forced = new URLSearchParams(location.search).get('map') === 'globe';
-  const attrs = { antialias: true, alpha: false, depth: true, powerPreference: 'default', failIfMajorPerformanceCaveat: !forced };
+  /* Transparent and premultiplied: the globe floats on the page's paper. */
+  const attrs = { antialias: true, alpha: true, premultipliedAlpha: true, depth: true, powerPreference: 'default', failIfMajorPerformanceCaveat: !forced };
   const gl = canvas.getContext('webgl', attrs) || canvas.getContext('experimental-webgl', attrs);
   if (!gl) throw new Error('WebGL refused (or only in software)');
   if (!forced) {
@@ -510,10 +590,82 @@ export async function mountGlobe(figure, { onFail } = {}) {
   maskCanvas.width = 1024; maskCanvas.height = 512;
   const maskCtx = maskCanvas.getContext('2d');
   let maskTex = texture(gl, maskCanvas, { mip: false, luminance: true });
+  let polTex = texture(gl, geography.political, { alpha: true }); // alpha is the land: the seas are where no country is
 
   /* --- Furniture ---------------------------------------------------------- */
 
   const pinLayer = el('div', { class: 'world__pins', 'aria-hidden': 'true' });
+  /* The route between two choices, and the little vehicle that travels it
+     (the owner, round 4: "a little plane or bus or train… a 'Where in the
+     World is Carmen Sandiego' vibe"). SVG in the pin layer, so it is crisp at
+     any pixel ratio and decorative like the pins. */
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const svgEl = (tag, attrs = {}) => { const n = document.createElementNS(SVGNS, tag); for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v); return n; };
+  const routeSvg = svgEl('svg', { class: 'world__route', 'aria-hidden': 'true' });
+  const routeDone = svgEl('path', { class: 'world__route-done' });
+  const routeLeft = svgEl('path', { class: 'world__route-left' });
+  const vehicle = svgEl('g', { class: 'world__vehicle' });
+  const vehicleShape = svgEl('g');
+  vehicle.append(vehicleShape);
+  routeSvg.append(routeDone, routeLeft, vehicle);
+  routeSvg.style.display = 'none';
+  pinLayer.append(routeSvg);
+  /* The desk globe's furniture: the stand and the graduated meridian ring
+     behind the globe (a pivot knob at the pole read as a place, round 5). Drawn
+     in globe radii and placed each frame from where the globe is on screen. */
+  const brassId = `brass-${figure.id || Math.random().toString(36).slice(2)}`;
+  const deskBack = svgEl('svg', { class: 'world__desk', 'aria-hidden': 'true' });
+  {
+    const defs = svgEl('defs');
+    const grad = svgEl('linearGradient', { id: brassId, x1: '0', y1: '0', x2: '1', y2: '1' });
+    grad.append(svgEl('stop', { offset: '0', class: 'world__desk-shine' }), svgEl('stop', { offset: '0.55', class: 'world__desk-metal' }), svgEl('stop', { offset: '1', class: 'world__desk-deep' }));
+    defs.append(grad);
+    deskBack.append(defs);
+  }
+  const deskStand = svgEl('g', { class: 'world__desk-stand' });
+  deskStand.append(
+    svgEl('ellipse', { class: 'world__desk-shadow', cx: 0, cy: 1.63, rx: 0.66, ry: 0.05 }),
+    svgEl('rect', { class: 'world__desk-wood', x: -0.56, y: 1.53, width: 1.12, height: 0.09, rx: 0.035 }),
+    svgEl('path', { class: 'world__desk-wood world__desk-wood--top', d: 'M-0.48 1.54Q-0.44 1.39 0 1.37Q0.44 1.39 0.48 1.54Z' }),
+    svgEl('path', { class: 'world__desk-metal-fill', fill: `url(#${brassId})`, d: 'M-0.045 1.1L0.045 1.1L0.075 1.38L-0.075 1.38Z' }),
+    svgEl('circle', { class: 'world__desk-metal-fill', fill: `url(#${brassId})`, cx: 0, cy: 1.2, r: 0.06 }),
+  );
+  const deskRing = svgEl('g', { class: 'world__desk-ring' });
+  const ticks = [];
+  for (let deg = 0; deg < 360; deg += 10) {
+    const a = deg * D2R, long = deg % 30 === 0;
+    const r0 = long ? 1.05 : 1.062;
+    ticks.push(`M${(Math.sin(a) * r0).toFixed(3)} ${(-Math.cos(a) * r0).toFixed(3)}L${(Math.sin(a) * 1.09).toFixed(3)} ${(-Math.cos(a) * 1.09).toFixed(3)}`);
+  }
+  deskRing.append(
+    svgEl('circle', { class: 'world__desk-band', stroke: `url(#${brassId})`, cx: 0, cy: 0, r: 1.07 }),
+    svgEl('circle', { class: 'world__desk-ink', cx: 0, cy: 0, r: 1.1 }),
+    svgEl('circle', { class: 'world__desk-ink', cx: 0, cy: 0, r: 1.04 }),
+    svgEl('path', { class: 'world__desk-ticks', d: ticks.join('') }),
+    svgEl('circle', { class: 'world__desk-metal-fill', fill: `url(#${brassId})`, cx: 0, cy: -1.07, r: 0.045 }),
+    svgEl('circle', { class: 'world__desk-metal-fill', fill: `url(#${brassId})`, cx: 0, cy: 1.07, r: 0.045 }),
+  );
+  const deskPlace = svgEl('g');
+  deskPlace.append(deskStand, deskRing);
+  deskBack.append(deskPlace);
+
+  function drawDesk() {
+    const k = closeActive ? 0 : desk(view.alt);
+    const show = k > 0.01;
+    deskBack.style.display = show ? '' : 'none';
+    if (!show) return;
+    const d = [-cam.eye[0], -cam.eye[1], -cam.eye[2]];
+    const z = dot(d, cam.fwd);
+    const nx = dot(d, cam.right) / (z * TAN * (W / H));
+    const ny = dot(d, cam.up) / (z * TAN) + cam.shift;
+    const r = (Math.tan(Math.asin(Math.min(1, 1 / Math.hypot(...cam.eye)))) / TAN) * (H / 2);
+    const cx = (nx + 1) * 0.5 * W, cy = (1 - ny) * 0.5 * H;
+    const o = String(Math.min(1, k * 1.15));
+    deskBack.style.opacity = o;
+    deskPlace.setAttribute('transform', `translate(${cx.toFixed(1)} ${cy.toFixed(1)}) scale(${r.toFixed(2)})`);
+    deskRing.setAttribute('transform', `rotate(${(cam.roll * R2D).toFixed(2)})`);
+  }
+
   const controls = el('div', { class: 'world__controls' });
   const zoomIn = button('Zoom in', '+');
   const zoomOut = button('Zoom out', '−');
@@ -527,7 +679,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const creditLink = el('a', { href: `${root.dataset.base === '/' ? '' : root.dataset.base || ''}/credits/#globe` }, 'Imagery: NASA');
   credit.append(creditLink);
 
-  stage.append(canvas, pinLayer, controls, card, hint, credit);
+  stage.append(deskBack, canvas, pinLayer, controls, card, hint, credit);
   stage.tabIndex = 0;
   stage.setAttribute('role', 'group');
   stage.setAttribute(
@@ -555,6 +707,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
     canvas.height = Math.round(H * dpr);
     camDirty = true;
     clusterAt = -1;
+    if (rest) {
+      const atRest = Math.abs(view.alt - rest.alt) < 0.02;
+      rest = restCamera();
+      if (atRest && !flight) view.alt = rest.alt;
+    }
     kick();
   }
 
@@ -563,22 +720,51 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /* `view` is what is on screen; `goal` is where it is heading, for the same
      reason the flat map kept them apart: two quick presses mean two steps. */
   const view = { lat: 20, lon: 0, alt: 2 };
-  const cam = { eye: [0, 0, 3], right: [1, 0, 0], up: [0, 1, 0], fwd: [0, 0, -1], shift: 0, pitch: 0, vp: new Float32Array(16) };
+  const cam = { eye: [0, 0, 3], right: [1, 0, 0], up: [0, 1, 0], fwd: [0, 0, -1], shift: 0, pitch: 0, roll: 0, vp: new Float32Array(16) };
   let camDirty = true;
+  let rest = null;
+  let deskPose = null;      // the desk view: the furthest out any page goes, and where Back-to-the-desk returns
+
+  /* How much of a desk globe the camera is looking at: 1 at the resting
+     altitude, 0 once it has leaned in far enough that the stand is gone. */
+  let deskAlt = 3.4;
+  const deskIn = () => Math.max(1.3, deskAlt * 0.55);
+  const desk = (alt) => smooth(deskIn(), deskAlt * 0.93, alt);
+  /** The resting altitude at which the globe, its ring and its stand fill the
+      stage with a margin: the globe's radius on screen, back to a distance. */
+  function deskAltFor() {
+    /* A narrow stage keeps a column clear either side for the zoom buttons,
+       so they never sit on the ring (round 4, phone). */
+    const room = W < 700 ? W - 2 * 58 : W * 0.9;
+    const r = Math.min((H * 0.92) / (DESK_TOP + DESK_BOTTOM), room / (2 * DESK_SIDE));
+    const k = (r * 2 * TAN) / H;
+    return Math.min(MAX_ALT, Math.max(2.2, 1 / Math.sin(Math.atan(k)) - 1));
+  }
 
   function solveCamera(s, out = cam) {
     const T = toXYZ(s.lat, s.lon);
     const la = s.lat * D2R, lo = s.lon * D2R;
     const north = [-Math.sin(la) * Math.sin(lo), Math.cos(la), -Math.sin(la) * Math.cos(lo)];
-    const p = pitchFor(s.alt);
+    const dk = desk(s.alt);
+    const p = pitchFor(s.alt) * (1 - dk);
     const cp = Math.cos(p), sp = Math.sin(p);
     const back = [cp * T[0] - sp * north[0], cp * T[1] - sp * north[1], cp * T[2] - sp * north[2]];
     out.eye = [T[0] + s.alt * back[0], T[1] + s.alt * back[1], T[2] + s.alt * back[2]];
     out.fwd = [-back[0], -back[1], -back[2]];
     out.up = [sp * T[0] + cp * north[0], sp * T[1] + cp * north[1], sp * T[2] + cp * north[2]];
     out.right = cross(out.fwd, out.up);
-    out.shift = shiftFor(s.alt);
+    /* On the desk the camera rolls, so the axis leans 23.4° with its north
+       end to the right, and the globe sits high enough for its stand below. */
+    const roll = TILT * dk;
+    if (roll) {
+      const c = Math.cos(roll), sn = Math.sin(roll), r0 = out.right, u0 = out.up;
+      out.right = [c * r0[0] + sn * u0[0], c * r0[1] + sn * u0[1], c * r0[2] + sn * u0[2]];
+      out.up = [c * u0[0] - sn * r0[0], c * u0[1] - sn * r0[1], c * u0[2] - sn * r0[2]];
+    }
+    const deskShift = ((DESK_BOTTOM - DESK_TOP) / 2) * Math.tan(Math.asin(1 / (1 + s.alt))) / TAN;
+    out.shift = shiftFor(s.alt) * (1 - dk) + deskShift * dk;
     out.pitch = p;
+    out.roll = roll;
     return out;
   }
 
@@ -645,6 +831,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
     return { lat, lon, xyz: p };
   }
 
+  /** Backing off from alt a0 to a1: the view's latitude eases back towards the
+      desk's as the stand comes into view, arriving as it does. */
+  function liftLat(lat, a0, a1) {
+    const d0 = desk(a0), d1 = desk(a1);
+    if (!deskPose || d1 <= d0 || d0 >= 1) return lat;
+    return lat + (deskPose.lat - lat) * ((d1 - d0) / (1 - d0));
+  }
+
   /** Radians of Earth under one CSS pixel at the middle of the view. */
   const radPerPx = (alt = view.alt) => (alt * 2 * TAN) / H;
 
@@ -703,6 +897,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
      places this page holds. Never further out than REST_MAX_ALT — a whole-world
      page rests on a big, cropped globe that turns, not on a small disc. */
   function restCamera() {
+    deskAlt = deskAltFor();
     const f = (figure.dataset.frame || '').split(',').map(Number);
     let pts;
     if (f.length === 4 && f.every(Number.isFinite)) {
@@ -713,42 +908,31 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     /* A phone's square stage is a third of a desktop's width, so it may rest
        closer before its places become one group. */
-    const narrow = Math.min(1, Math.max(0.6, W / 1100));
-    /* …but never below the hand-back altitude: the globe owns every resting
-       view, and the close map only ever arrives because someone dived. */
-    const minAlt = Math.max(HANDBACK_ALT * 1.15, (home ? HOME_REST_MIN_ALT : REST_MIN_ALT) * narrow);
-    const fit = fitCamera(pts, { maxAlt: REST_MAX_ALT, minAlt, pad: [0.16, 0.24, 0.14] });
-    return fit.fits ? fit : worldRest(pts);
+    /* The desk, turned so the weight of what the page holds — its places,
+       weighted by how much each holds — faces the reader, and seen from above
+       towards it: for Europe, from about 40° north (round 4). */
+    /* Weighted by the square of what each holds, so where most of the page is
+       decides, not a scatter of single places far away (round 4: Asia). */
+    /* A place known only to its country (a whole country's light) weighs a
+       tenth of a city or a campus: it is a door, not a place with degrees. */
+    const count = pts.map((q) => {
+      const pl = places.find((x) => x.xyz === q);
+      return (pl?.count || 1) ** 2 * (pl?.precision === 'region' ? 0.1 : 1);
+    });
+    const heart = pts.length ? norm(pts.reduce((acc, q, i) => [acc[0] + q[0] * count[i], acc[1] + q[1] * count[i], acc[2] + q[2] * count[i]], [0, 0, 0])) : toXYZ(45, 10);
+    const [hLat, hLon] = toLatLon(heart);
+    deskPose = { lat: Math.max(0, Math.min(DESK_LAT_MAX, hLat * 0.75)), lon: hLon, alt: deskAlt };
+    /* A single-country page rests on its country (round 4: the Netherlands
+       as one bubble on the edge of a whole-world desk); the desk is one
+       zoom-out away. Never below the hand-back altitude. */
+    if (home) {
+      const narrow = Math.min(1, Math.max(0.6, W / 1100));
+      const fit = fitCamera(pts, { maxAlt: REST_MAX_ALT, minAlt: Math.max(HANDBACK_ALT * 1.15, HOME_REST_MIN_ALT * narrow), pad: [0.16, 0.24, 0.14] });
+      if (fit.fits) return { lat: fit.lat, lon: fit.lon, alt: fit.alt };
+    }
+    return { ...deskPose, alt: deskAlt };
   }
 
-  /**
-   * Places spread round the planet do not fit any one camera. Rest where the
-   * most of them — weighted by how much each holds — are in view and facing,
-   * on a whole globe that still overfills the panel, and let the idle spin
-   * bring the rest round.
-   */
-  function worldRest(pts) {
-    const weight = pts.map((q) => {
-      const p = places.find((pl) => pl.xyz === q);
-      return 1 + Math.log(1 + (p?.count || 0));
-    });
-    let best = null;
-    for (const alt of [1.7, 1.9, 2.1, 2.3]) {
-      for (let lat = -10; lat <= 30; lat += 5) {
-        for (let lon = -180; lon < 180; lon += 10) {
-          const c = solveCamera({ lat, lon, alt }, {});
-          let score = 0;
-          pts.forEach((q, i) => {
-            const s = project(q, c);
-            if (s.facing > 0.2 && s.x > W * 0.06 && s.x < W * 0.94 && s.y > H * 0.08 && s.y < H * 0.94) score += weight[i];
-          });
-          score -= alt * 0.5; // a bigger, more cropped globe wins unless backing off shows another place
-          if (!best || score > best.score) best = { lat, lon, alt, score };
-        }
-      }
-    }
-    return { lat: best.lat, lon: best.lon, alt: best.alt };
-  }
 
   /* --- Motion -------------------------------------------------------------- */
 
@@ -813,7 +997,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
        are not journeys and do not climb. */
     const fromRest = Math.abs(from.alt - rest.alt) < 0.02 && angle(a, toXYZ(rest.lat, rest.lon)) < 0.05;
     const climb = travel && (w > HOP || fromRest) ? Math.max(TRAVEL_CLIMB, to.alt * 2.4) : 0;
-    const peak = Math.log(Math.min(3.2, Math.max(from.alt, to.alt, w * 1.5, climb)));
+    /* A journey's climb stays below the desk, so the stand never blinks in mid-way. */
+    const peak = Math.log(Math.min(3.2, deskIn() * 0.95, Math.max(from.alt, to.alt, w * 1.5, climb)));
     const ctrl = peak > Math.max(la0, la1) ? 2 * peak - (la0 + la1) / 2 : (la0 + la1) / 2;
     const top = Math.exp(Math.max(peak, la0, la1));
     /* The site's `geographic` motion token is the length of a typical flight;
@@ -824,8 +1009,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     maybeDetail(to);
     const diveIn = to.alt < 0.9 && top / to.alt > 2.2;
     const climbOut = !diveIn && from.alt < 0.9 && to.alt / from.alt > 2.2;
+    /* Off the desk: the globe turns on its axis to face you, then you lean in.
+       Back onto it: you sit back, then it turns. */
+    const leanIn = desk(from.alt) > 0.5 && to.alt < from.alt * 0.8;
+    const sitBack = !leanIn && desk(to.alt) > 0.5 && from.alt < to.alt * 0.8;
+    const dLon = wrapLon(to.lon - from.lon);
     spin = null;
-    flight = { t0: performance.now(), dur, from, to, a, b, la0, la1, ctrl, diveIn, climbOut, announce, onArrive };
+    flight = { t0: performance.now(), dur: dur * (leanIn || sitBack ? 1.3 : 1), from, to, a, b, la0, la1, ctrl, diveIn, climbOut, leanIn, sitBack, dLon, announce, onArrive };
     if (announce) say(`Flying to ${announce}.`);
     kick();
   }
@@ -835,12 +1025,22 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const t = Math.min(1, (now - f.t0) / f.dur);
     const s = easeInOut(t);
     const move = easeInOut(Math.min(1, Math.max(0, (t - 0.12) / 0.76)));
-    const p = slerp(f.a, f.b, move);
-    const [lat, lon] = toLatLon(p);
-    const la = (1 - s) * (1 - s) * f.la0 + 2 * s * (1 - s) * f.ctrl + s * s * f.la1;
-    view.lat = lat;
-    view.lon = lon;
-    view.alt = clampAlt(Math.exp(la));
+    f.move = move; // the travelling vehicle rides the same fraction of the way
+    if (f.leanIn || f.sitBack) {
+      const span = (a, b) => easeInOut(Math.min(1, Math.max(0, (t - a) / (b - a))));
+      const turnT = f.leanIn ? span(0, 0.45) : span(0.4, 1);
+      const leanT = f.leanIn ? span(0.3, 1) : span(0, 0.65);
+      view.lon = wrapLon(f.from.lon + f.dLon * turnT);
+      view.lat = f.from.lat + (f.to.lat - f.from.lat) * leanT;
+      view.alt = clampAlt(Math.exp(f.la0 + (f.la1 - f.la0) * leanT));
+    } else {
+      const p = slerp(f.a, f.b, move);
+      const [lat, lon] = toLatLon(p);
+      const la = (1 - s) * (1 - s) * f.la0 + 2 * s * (1 - s) * f.ctrl + s * s * f.la1;
+      view.lat = lat;
+      view.lon = lon;
+      view.alt = clampAlt(Math.exp(la));
+    }
     rush = 0;
     if (f.diveIn && t > 0.5) {
       const k = (t - 0.5) / 0.46;
@@ -866,7 +1066,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const k = Math.exp(-dt / 380);
     spin.vLat *= k;
     spin.vLon *= k;
-    view.lat = Math.max(-80, Math.min(80, view.lat + spin.vLat * dt));
+    view.lat = Math.max(-80, Math.min(80, view.lat + spin.vLat * dt * (1 - desk(view.alt))));
     view.lon = wrapLon(view.lon + spin.vLon * dt);
     camDirty = true;
     if (Math.abs(spin.vLat) + Math.abs(spin.vLon) < 0.0004) spin = null;
@@ -878,7 +1078,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function stepIdle(now) {
     if (!idleBase) idleBase = { ...view, t0: now };
     const t = (now - idleBase.t0) / 1000;
-    if (idleBase.alt > 1.3) {
+    if (desk(idleBase.alt) > 0.5) {
+      /* On the desk the globe rocks ±18° either side of the page's places and
+         comes back to them, rather than turning them round the back (round 4). */
+      view.lon = wrapLon(idleBase.lon + Math.sin(t * 0.22) * 18);
+    } else if (idleBase.alt > 1.3) {
       view.lon = wrapLon(idleBase.lon + t * 6);
     } else {
       /* A sway of about 4% of the panel's width, whatever the zoom: enough to
@@ -895,19 +1099,24 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /* The big textures, lazily. The 4096 day map replaces the 2048 once the
      globe is on and the browser is idle; the detail texture is fetched the
      first time the camera comes below FINE_ALT over (or near) its rectangle. */
+  /* Uploads wait for stillness. A 4096² texture upload is tens of
+     milliseconds on the main thread; during a flight that turned the climb to
+     space into a slideshow (round 3). Fetching and decoding start on intent;
+     the upload happens on the first frame with nothing moving. */
+  const uploads = [];
+  const whenStill = (fn) => { uploads.push(fn); kick(); };
   let big = 'none';
   function upgradeDay() {
     if (big !== 'none' || dead) return;
     big = 'loading';
-    loadImage(new URL('img/globe/earth-day-4096.webp', assets))
-      .then((img) => {
+    loadBitmap(new URL('img/globe/earth-day-4096.webp', assets))
+      .then((img) => whenStill(() => {
         if (dead) return;
         const t = texture(gl, img);
+        img.close?.();
         gl.deleteTexture(dayTex);
         dayTex = t;
-        camDirty = true;
-        kick();
-      })
+      }))
       .catch(() => {});
   }
   let detail = detailInfo ? 'none' : 'done';
@@ -918,11 +1127,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const lon = wrapLon(at.lon);
     if (lon < detailInfo.west - m || lon > detailInfo.east + m) return;
     detail = 'loading';
-    loadImage(new URL(`img/globe/${detailInfo.file}`, assets))
+    loadBitmap(new URL(`img/globe/${detailInfo.file}`, assets))
+      .then((img) => new Promise((res) => whenStill(() => res(img))))
       .then((img) => {
         if (dead) return;
         gl.deleteTexture(detailTex);
         detailTex = texture(gl, img);
+        img.close?.();
         const t0 = performance.now();
         const fade = () => {
           detailOn = reducedMotion() ? 1 : Math.min(1, (performance.now() - t0) / 500);
@@ -942,11 +1153,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
     fine = 'loading';
     fetch(new URL('geo/borders-50m.json', assets))
       .then((r) => (r.ok ? r.json() : null))
+      .then((data) => new Promise((res) => whenStill(() => res(data))))
       .then((data) => {
         if (!data || dead) return;
         const g = buildGeography(data);
         if (!g.ranges.length) return;
         geography = g;
+        gl.deleteTexture(polTex);
+        polTex = texture(gl, g.political, { alpha: true });
         gl.bindBuffer(gl.ARRAY_BUFFER, lineBuf);
         gl.bufferData(gl.ARRAY_BUFFER, g.lines, gl.STATIC_DRAW);
         if (selectedCountry) selectedCountry = g.byId.get(selectedCountry.id) || null;
@@ -989,6 +1203,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * screen, so the groups hold still while the globe spins and only split
    * or merge as the camera comes down or backs off.
    */
+  /* What a group holds, in the page's unit. A place known only to its
+     country (a whole country's light, precision "region") counts only when
+     nothing more precise is in the group: on the home page those lights
+     carry institution counts beside the cities' degree counts, and adding
+     them made Denmark's group read 320 against 57 degrees (home round 3). */
+  function groupCount(members) {
+    const precise = members.filter((m) => m.precision !== 'region');
+    return (precise.length ? precise : members).reduce((n, m) => n + (m.count || 0), 0);
+  }
+
   function cluster() {
     /* Facing places are compared where they land on the screen, which is what
        a reader sees — a tilted camera squeezes north and south together. The
@@ -1009,7 +1233,26 @@ export async function mountGlobe(figure, { onFail } = {}) {
         if (members.some((m) => near(m, left[i]))) members.push(...left.splice(i, 1));
       }
       const xyz = norm(members.reduce((s, m) => [s[0] + m.xyz[0], s[1] + m.xyz[1], s[2] + m.xyz[2]], [0, 0, 0]));
-      out.push({ members, xyz, count: members.reduce((n, m) => n + (m.count || 0), 0) });
+      out.push({ members, xyz, count: groupCount(members) });
+    }
+    /* Two groups whose circles (and glow) overlap on screen are one group
+       (round 4: a "4" drawn over a "36"). Repeated until nothing overlaps. */
+    const drawnR = (g) => (g.members.length === 1 ? radius(g.members[0], maxCount()) + 4 : 11 + Math.min(9, Math.sqrt(g.members.length) * 3) + 7);
+    for (let merged = true; merged;) {
+      merged = false;
+      for (const g of out) g._s = project(g.xyz);
+      outer: for (let i = 0; i < out.length; i++) {
+        for (let j = i + 1; j < out.length; j++) {
+          const a = out[i], b = out[j];
+          if (a._s.facing <= 0.05 || b._s.facing <= 0.05) continue;
+          if (Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) >= drawnR(a) + drawnR(b)) continue;
+          const members = [...a.members, ...b.members];
+          out.splice(j, 1);
+          out[i] = { members, xyz: norm(members.reduce((s2, m) => [s2[0] + m.xyz[0], s2[1] + m.xyz[1], s2[2] + m.xyz[2]], [0, 0, 0])), count: groupCount(members) };
+          merged = true;
+          break outer;
+        }
+      }
     }
     groups = out;
     clusterAt = view.alt;
@@ -1032,6 +1275,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function layoutPins() {
     if (touched) { maybeFine(); maybeDetail(); }
+    unfoldCardWhenArrived();
     /* A card is judged only once the camera has arrived: during a flight its
        subject is legitimately off-stage. */
     if (cardSubject && !flight && !closeFlying) cardStillAbout();
@@ -1069,20 +1313,28 @@ export async function mountGlobe(figure, { onFail } = {}) {
         /* A label goes where it does not cover another label, biggest places
            first. Lit and selected places always get theirs. */
         let show = false;
+        let flip = false;
         if (fade > 0.6 && (labels || litSet.has(p.id) || p.selected)) {
           const w = p.name.length * 6.6 + 18;
-          const rect = [s.x + r + 2, s.y - 11, s.x + r + 2 + w, s.y + 11];
+          /* To the left of the pin when the right would run off the stage
+             ("HK Ho…" on a phone, round 3). */
+          flip = s.x + r + 2 + w > W - 4 && s.x - r - 2 - w > 4;
+          const rect = flip ? [s.x - r - 2 - w, s.y - 11, s.x - r - 2, s.y + 11] : [s.x + r + 2, s.y - 11, s.x + r + 2 + w, s.y + 11];
           const clash = taken.some((t) => rect[0] < t[2] && rect[2] > t[0] && rect[1] < t[3] && rect[3] > t[1]);
           if (!clash || litSet.has(p.id) || p.selected) { show = true; taken.push(rect); }
         }
         node.toggleAttribute('data-label', show);
+        node.toggleAttribute('data-flip', show && flip);
       } else {
         for (const m of g.members) { seen.add(m.id); m.node.hidden = true; }
         const node = clusterNode(used++);
         node._members = g.members;
         if (!onScreen) { node.hidden = true; continue; }
         node.hidden = false;
-        node.firstChild.textContent = String(g.members.length);
+        /* A group says how much it holds in the page's own unit (degrees on
+           the home page), the same number the doors and the count use — not
+           how many places it covers (home round 2: "40" against "57 degrees"). */
+        node.firstChild.textContent = String(g.count || g.members.length);
         const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
@@ -1098,10 +1350,92 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
     stage.dataset.zoomed = String(view.alt < rest.alt * 0.95);
     zoomIn.disabled = view.alt <= MIN_ALT * 1.01;
-    zoomOut.disabled = view.alt >= MAX_ALT * 0.99;
+    zoomOut.disabled = view.alt >= Math.min(MAX_ALT, deskAlt) * 0.99;
+  }
+
+  /* --- The route and the vehicle ------------------------------------------ */
+
+  /* Drawn in a 24-unit box, pointing along +x. */
+  const VEHICLES = {
+    plane: [
+      ['path', { d: 'M22.5 12c0-.9-.8-1.4-1.7-1.4h-5.6L10.2 3.2H8.1l2.6 7.4H5.9L4.1 8.3H2.6l1.2 3.7-1.2 3.7h1.5l1.8-2.3h4.8L8.1 20.8h2.1l5-7.4h5.6c.9 0 1.7-.5 1.7-1.4z' }],
+    ],
+    train: [
+      ['path', { d: 'M2.5 7.5h12.8c3.1 0 5.7 2.5 5.7 5.6V16H2.5z' }],
+      ['path', { class: 'world__vehicle-window', d: 'M4.5 9.3h3v2.6h-3zM9 9.3h3v2.6H9zM16 9.3c1.7.3 2.9 1.4 3.3 2.6H16z' }],
+      ['circle', { cx: 6.5, cy: 17.4, r: 1.6 }],
+      ['circle', { cx: 15.5, cy: 17.4, r: 1.6 }],
+    ],
+  };
+  let route = null;
+  let lastChosen = null;
+  let vehicleKind = '';
+  function setVehicle(kind) {
+    if (kind === vehicleKind) return;
+    vehicleKind = kind;
+    vehicleShape.replaceChildren(...VEHICLES[kind].map(([tag, attrs]) => svgEl(tag, attrs)));
+  }
+  /* A plane for a long hop or one over water; a train for a short one over land. */
+  function vehicleFor(a, b) {
+    if (angle(a, b) * 6371 > 600) return 'plane';
+    for (let i = 1; i < 12; i++) {
+      const [lat, lon] = toLatLon(slerp(a, b, i / 12));
+      if (!geography.countryAt(lat, lon)) return 'plane';
+    }
+    return 'train';
+  }
+  /** A new choice: travel to it from the last one, if there was one. */
+  function startRoute(to) {
+    const from = lastChosen;
+    lastChosen = to;
+    if (!from || reducedMotion() || angle(from, to) < 0.003) { route = null; drawRoute(); return; }
+    route = { a: from, b: to, done: 0 };
+    setVehicle(vehicleFor(from, to));
+  }
+  function drawRoute() {
+    if (!route) { routeSvg.style.display = 'none'; return; }
+    const t = flight ? (flight.move ?? 0) : 1;
+    if (!flight && !route.done) route.done = performance.now();
+    const fade = route.done ? Math.max(0, 1 - (performance.now() - route.done) / 1400) : 1;
+    if (fade <= 0) { route = null; routeSvg.style.display = 'none'; return; }
+    routeSvg.style.display = '';
+    routeSvg.style.opacity = String(fade);
+    const N = 64;
+    let done = '', left = '', penDone = false, penLeft = false;
+    for (let i = 0; i <= N; i++) {
+      const u = i / N;
+      const q = project(slerp(route.a, route.b, u));
+      const ok = q.facing > 0.02;
+      const xy = `${q.x.toFixed(1)} ${q.y.toFixed(1)}`;
+      if (u <= t) { if (ok) { done += (penDone ? 'L' : 'M') + xy; penDone = true; } else penDone = false; }
+      if (u >= t - 1 / N) { if (ok) { left += (penLeft ? 'L' : 'M') + xy; penLeft = true; } else penLeft = false; }
+    }
+    routeDone.setAttribute('d', done);
+    routeLeft.setAttribute('d', left);
+    const here = project(slerp(route.a, route.b, t));
+    const next = project(slerp(route.a, route.b, Math.min(1, t + 0.02)));
+    const prev = project(slerp(route.a, route.b, Math.max(0, t - 0.02)));
+    const dir = t < 0.99 ? [next.x - here.x, next.y - here.y] : [here.x - prev.x, here.y - prev.y];
+    let deg = Math.atan2(dir[1], dir[0]) * R2D;
+    /* A train is drawn from the side: going left it is mirrored, not upside down. */
+    const flipY = vehicleKind === 'train' && Math.abs(deg) > 90;
+    vehicle.style.display = here.facing > 0.02 && fade > 0.25 ? '' : 'none';
+    vehicle.setAttribute('transform', `translate(${here.x.toFixed(1)} ${here.y.toFixed(1)}) rotate(${deg.toFixed(1)}) scale(1.15 ${flipY ? -1.15 : 1.15}) translate(-12 -12)`);
   }
 
   /* --- Drawing ------------------------------------------------------------- */
+
+  const theme = { halo: [0.35, 0.62, 1.0], haloStrength: 0.9, shadow: 0.22 };
+  function readTheme() {
+    const paper = getComputedStyle(root).getPropertyValue('--paper').trim();
+    const m = paper.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+    const lum = m ? (0.2126 * parseInt(m[1], 16) + 0.7152 * parseInt(m[2], 16) + 0.0722 * parseInt(m[3], 16)) / 255 : 0.9;
+    const dark = lum < 0.5;
+    Object.assign(theme, dark
+      ? { halo: [0.36, 0.64, 1.0], haloStrength: 0.95, shadow: 0.35 }
+      : { halo: [0.28, 0.55, 0.92], haloStrength: 0.7, shadow: 0.16 });
+  }
+  readTheme();
 
   let hoverCountry = null;
   let selectedCountry = null;
@@ -1128,13 +1462,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     for (let i = 0; i < 4; i++) gl.disableVertexAttribArray(i);
   }
 
-  const cloudAlpha = () => 0.82 * smooth(0.22, 0.85, view.alt);
+  const cloudAlpha = () => 0.82 * smooth(0.22, 0.85, view.alt) * (1 - desk(view.alt));
 
   function draw(now) {
     const t0 = performance.now();
     buildVP();
     gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.clearColor(0.01, 0.014, 0.03, 1);
+    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     /* Light from over the viewer's left shoulder, so the side being looked
@@ -1160,7 +1494,21 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform1f(pr.u.uAspect, W / H);
     gl.uniform1f(pr.u.uShift, cam.shift);
     // How many CSS pixels one star cell spans, so a star is a point at any zoom.
-    gl.uniform1f(pr.u.uCellPx, (H / 2) / (TAN * 38));
+    /* Where the whole globe sits on the canvas, for its ground shadow: the
+       centre projected, the radius from its angular size. */
+    {
+      const d = [-cam.eye[0], -cam.eye[1], -cam.eye[2]];
+      const z = dot(d, cam.fwd);
+      const dist = Math.hypot(...cam.eye);
+      const nx = dot(d, cam.right) / (z * TAN * (W / H));
+      const ny = dot(d, cam.up) / (z * TAN) + cam.shift;
+      const r = Math.tan(Math.asin(Math.min(1, 1 / dist))) / TAN * canvas.height / 2;
+      gl.uniform3f(pr.u.uDisc, (nx + 1) / 2 * canvas.width, (ny + 1) / 2 * canvas.height, r);
+    }
+    gl.uniform3f(pr.u.uHalo, ...theme.halo);
+    const dk = desk(view.alt);
+    gl.uniform1f(pr.u.uHaloStrength, theme.haloStrength * (1 - 0.65 * dk));
+    gl.uniform1f(pr.u.uShadow, theme.shadow * smooth(1.2, 2.2, view.alt) * (1 - dk));
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
     // 2. Earth
@@ -1184,7 +1532,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform4f(pr.u.uDetailRect, ...detailRect);
     gl.uniform2f(pr.u.uDetailTexel, 1 / detailTex.w, 1 / detailTex.h);
     gl.uniform1f(pr.u.uDetailOn, detailOn);
-    gl.uniform1f(pr.u.uPunch, closeState === 'failed' ? 0 : 0.8 * smooth(0.24, HANDOFF_ALT, view.alt));
+    gl.uniform1f(pr.u.uPunch, closeState === 'failed' ? 0 : 0.5 * smooth(0.24, HANDOFF_ALT, view.alt));
+    gl.uniform1f(pr.u.uToon, 0.3 + 0.7 * smooth(0.13, 0.5, view.alt));
+    gl.uniform1f(pr.u.uPolOn, dk);
+    gl.uniform1f(pr.u.uInk, 0.5 * dk);
+    gl.activeTexture(gl.TEXTURE3);
+    gl.bindTexture(gl.TEXTURE_2D, polTex);
+    gl.uniform1i(pr.u.uPol, 3);
     gl.activeTexture(gl.TEXTURE2);
     gl.bindTexture(gl.TEXTURE_2D, detailTex);
     gl.uniform1i(pr.u.uDetail, 2);
@@ -1199,7 +1553,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     // 3. Borders
     if (geography.ranges.length) {
       gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
       gl.depthMask(false);
       pr = progs.line;
       gl.useProgram(pr.p);
@@ -1209,11 +1563,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
       gl.enableVertexAttribArray(a);
       gl.vertexAttribPointer(a, 3, gl.FLOAT, false, 0, 0);
       gl.uniformMatrix4fv(pr.u.uVP, false, cam.vp);
-      gl.uniform4f(pr.u.uColor, 1, 1, 1, 0.16 + 0.12 * smooth(1.2, 0.2, view.alt));
+      /* Crisp, warm outlines — the cartoon's ink line — over the stylised globe. */
+      gl.uniform4f(pr.u.uColor, 0.24, 0.18, 0.12, 0.42 + 0.15 * smooth(1.2, 0.2, view.alt));
       gl.drawArrays(gl.LINES, 0, geography.lines.length / 3);
       const outline = selectedCountry || home;
       if (hoverCountry && hoverCountry !== outline) {
-        gl.uniform4f(pr.u.uColor, 1, 1, 1, 0.75);
+        gl.uniform4f(pr.u.uColor, 0.16, 0.11, 0.07, 0.9);
         gl.drawArrays(gl.LINES, hoverCountry.start, hoverCountry.count);
       }
       if (outline) {
@@ -1227,7 +1582,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const ca = cloudAlpha();
     if (cloudTex && ca > 0.01) {
       gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
       gl.depthMask(false);
       pr = progs.cloud;
       gl.useProgram(pr.p);
@@ -1250,7 +1605,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (cloudTex && rush > 0.01) {
       gl.disable(gl.DEPTH_TEST);
       gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
       pr = progs.rush;
       gl.useProgram(pr.p);
       resetAttribs();
@@ -1322,6 +1677,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
           if (!closeActive) return;
           calibrate();
           closeFlying = false;
+          camDirty = true; // one more layout pass: a folded card opens on arrival
+          kick();
           if (view.alt > HANDBACK_ALT) handBack();
         });
         map.on('dragstart', () => { moved = true; touch(); });
@@ -1346,13 +1703,23 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * Cancelled by any later warm, and by the handoff itself.
    */
   let warmToken = 0;
-  async function warmClose(lat, lon, zoom) {
+  let warming = null;
+  function warmClose(lat, lon, zoom) {
+    const run = warmSteps(lat, lon, zoom);
+    warming = run;
+    run.finally(() => { if (warming === run) warming = null; });
+    return run;
+  }
+  async function warmSteps(lat, lon, zoom) {
     const token = ++warmToken;
     const c = await ensureClose();
     if (!c || closeActive || token !== warmToken) return;
     const m = c.map;
     const start = zoomForAlt(HANDOFF_ALT * 0.9);
-    const stops = [start, 8.5, 11, 13, zoom].filter((z, i) => i === 0 || (z > start + 0.4 && z <= zoom + 0.01));
+    /* A stop just above the handoff too: the first frames with the horizon
+       and the sky compile MapLibre's shaders here, hidden, instead of in a
+       one-second freeze on the first Reset (round 3). */
+    const stops = [start - 1.2, start, 8.5, 11, 13, zoom].filter((z, i) => i < 2 || (z > start + 0.4 && z <= zoom + 0.01));
     const padding = { top: Math.max(0, -shiftFor(0.1) * H), bottom: 0, left: 0, right: 0 };
     for (const z of stops) {
       if (closeActive || closeState !== 'ready' || token !== warmToken) return;
@@ -1372,7 +1739,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
       return false;
     }
     closeState = 'handing';
+    /* Let the warm-up finish — every level of the dive loaded and drawn once,
+       hidden — before the cross-fade, for at most 2.5 s; the globe keeps
+       sinking meanwhile. Cutting it short at the handoff is what left the
+       street level to arrive tile by tile (round 3's pop). */
+    if (warming) await Promise.race([warming, new Promise((r) => setTimeout(r, 2500))]);
     warmToken++;
+    if (dead || view.alt > HANDBACK_ALT) { closeState = 'ready'; return false; }
     const map = close.map;
     map.jumpTo(closeCamera());
     calibrate();
@@ -1414,7 +1787,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
    */
   async function closeFlyTo({ center, zoom }) {
     const m = close.map;
-    const bottom = !card.hidden && card.getBoundingClientRect().width > W * 0.7 ? card.offsetHeight + 12 : 0;
+    const bottom = !card.hidden && cardSheet ? cardFullHeight + 12 : 0;
     const padding = { top: Math.max(0, -shiftFor(0.1) * H), bottom, left: 0, right: 0 };
     const pitch = pitchFor(0.1) * R2D;
     if (cardSubject) cardSubject.alt = null;
@@ -1502,6 +1875,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     else if (idle && !reducedMotion()) stepIdle(now);
 
     if (closeState === 'none' && touched && view.alt < CLOSE_PRELOAD_ALT) ensureClose();
+    const still = !flight && !spin && !closeFlying && !pointers.size && closeState !== 'handing';
+    if (uploads.length && still) { uploads.shift()(); camDirty = true; }
     /* A dive that has arrived before the close map is ready keeps sinking,
        slowly, instead of stopping dead: a still frame reads as broken, a slow
        descent reads as "nearly there". */
@@ -1513,10 +1888,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (!closeActive && closeState === 'ready' && view.alt <= HANDOFF_ALT && !flight && !pointers.size) handOff();
 
     const drifting = !closeActive && cloudTex && !reducedMotion() && cloudAlpha() > 0.01;
+    if (closeActive && closeFlying) camDirty = true;
+    if (route) camDirty = true;
     if (camDirty || (drifting && now - lastDraw > 48)) {
-      /* Under the close map the globe is covered; only the pins move. */
-      if (!closeActive) draw(now);
-      if (camDirty) layoutPins();
+      /* The globe keeps drawing under the close map, at the same camera: any
+         tile the map has not loaded yet shows Earth, not the style's cream
+         (round 3). The seam between the two is ~1.4 px. */
+      draw(now);
+      if (camDirty) { layoutPins(); drawRoute(); drawDesk(); }
       camDirty = false;
       if (first) {
         first = false;
@@ -1528,10 +1907,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
            gesture (touch()), not for idle time on every visit — except on a
            single-country page, where the country's own outline is the
            subject of the resting view and a 110m outline of it is a polygon. */
-        if (home) (window.requestIdleCallback || ((fn) => setTimeout(fn, 800)))(() => maybeFine(0), { timeout: 3000 });
+        /* But a page that rests below FINE_ALT rests on the detail texture and
+           the finer borders: that is the first picture a student sees, and
+           round 2's saving there (0.6 MB) cost the flagship page its
+           sharpness. Fetched at idle, uploaded when still. */
+        if (rest.alt < FINE_ALT) (window.requestIdleCallback || ((fn) => setTimeout(fn, 800)))(() => { maybeFine(0); maybeDetail(rest); }, { timeout: 3000 });
       }
     }
-    if (moving || waiting || flight || spin || drifting || camDirty) raf = requestAnimationFrame(frame);
+    if (moving || waiting || flight || spin || drifting || camDirty || uploads.length) raf = requestAnimationFrame(frame);
     else lastNow = 0;
   }
   function kick() {
@@ -1556,6 +1939,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
   let cardReturn = null;
+  let cardFullHeight = 0;
+  let cardSheet = false;
+  function foldCard() {
+    if (cardSheet && !card.hidden && !reducedMotion()) card.dataset.collapsed = 'true';
+  }
+  function unfoldCardWhenArrived() {
+    if (card.dataset.collapsed && !flight && !closeFlying && !pendingThen && closeState !== 'handing') delete card.dataset.collapsed;
+  }
   /* What the open card is about: a point on the sphere, and the altitude the
      camera arrived at. A card whose subject has left the view — panned off,
      round the back, or zoomed far out from — closes itself. */
@@ -1570,10 +1961,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function openCard(build, { focus = false, from = null } = {}) {
     card.replaceChildren();
     const close = el('button', { type: 'button', class: 'world__card-close', 'aria-label': 'Close' }, '×');
-    close.addEventListener('click', () => closeCard({ restore: true }));
+    close.addEventListener('click', () => { closeCard({ restore: true }); clearChoice(); });
     card.append(close);
     build(card);
     card.hidden = false;
+    delete card.dataset.collapsed;
+    /* On a phone the card is a sheet across most of the stage; its full height
+       is measured now (the camera frames the place above it) and then it is
+       folded to its title and action while the camera travels, so the climb
+       and the cloud dive are seen, not hidden behind it (round 3). It opens
+       out when the camera arrives. */
+    cardFullHeight = card.offsetHeight;
+    cardSheet = card.getBoundingClientRect().width > W * 0.7;
     cardReturn = from;
     if (focus) card.querySelector('h3')?.focus({ preventScroll: true });
   }
@@ -1718,10 +2117,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * than under it. On a wide stage the card is in a corner and nothing moves.
    */
   function frameAbove(target, xyz) {
-    const r = card.hidden ? null : card.getBoundingClientRect();
+    if (card.hidden || !cardSheet) return target;
     const sr = stage.getBoundingClientRect();
-    if (!r || r.top - sr.top < H * 0.3 || r.width < W * 0.7) return target;
-    const want = (r.top - sr.top) / 2;
+    const r = card.getBoundingClientRect();
+    const top = r.bottom - sr.top - cardFullHeight;
+    if (top < H * 0.3) return target;
+    const want = top / 2;
     let t = { ...target };
     for (let i = 0; i < 4; i++) {
       const s = project(xyz, solveCamera(t, {}));
@@ -1743,6 +2144,28 @@ export async function mountGlobe(figure, { onFail } = {}) {
    */
   let currentSel = null;
   let restoring = false;
+  /**
+   * `world:choose` on the figure: { kind: 'place' | 'country' | 'view' | null,
+   * id, name, restored? }. Fired when the reader chooses something on the
+   * globe (or through `show()`), when they clear it (close, Escape, the sea,
+   * Reset), and on Back/Forward with `restored: true`. A page filters on it;
+   * the globe does not know what the page does with it.
+   */
+  function announceChoice(sel, extra = {}) {
+    const name = !sel ? null
+      : sel.kind === 'place' ? byId.get(sel.id)?.name
+      : sel.kind === 'country' ? (pages.get(sel.id)?.name || geography.byId.get(sel.id)?.name)
+      : null;
+    figure.dispatchEvent(new CustomEvent('world:choose', {
+      bubbles: true,
+      detail: sel ? { kind: sel.kind, id: sel.id, name: name ?? null, ...extra } : { kind: null, id: null, name: null, ...extra },
+    }));
+  }
+  function clearChoice() {
+    if (!currentSel) return;
+    currentSel = null;
+    announceChoice(null);
+  }
   const sameSel = (a, b) => !!a && !!b && a.kind === b.kind && a.id === b.id;
   function remember(sel) {
     if (restoring || sameSel(sel, currentSel)) return;
@@ -1754,8 +2177,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
       history.pushState({ world: figure.id, sel, cam: null }, '', `#${sel.kind}=${encodeURIComponent(sel.id)}`);
     } catch { /* a sandboxed frame without history: choices still work, Back just leaves */ }
     currentSel = sel;
+    announceChoice(sel);
   }
   function select(sel) {
+    if (sel.kind === 'view') { if (sel.cam) goToView(sel.cam); return !!sel.cam; }
     if (sel.kind === 'place') { const p = byId.get(sel.id); if (p) goToPlace(p, { push: false }); return !!p; }
     const c = geography.byId.get(sel.id);
     if (c) goToCountry(c, { push: false });
@@ -1768,8 +2193,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
     try {
       if (st?.sel && select(st.sel)) {
         currentSel = st.sel;
+        announceChoice(st.sel, { restored: true });
       } else {
         currentSel = null;
+        announceChoice(null, { restored: true });
         closeCard();
         const cam = st?.cam;
         if (cam) climbOut(() => flyTo(cam, { travel: true }));
@@ -1792,6 +2219,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     selectedCountry = null;
     paintMask(home);
     placeCard(p, { focus, from });
+    queueMicrotask(foldCard);
     const zoom = CLOSE_ZOOM[p.precision];
     if (zoom && closeState !== 'failed') {
       if (closeActive) {
@@ -1805,16 +2233,19 @@ export async function mountGlobe(figure, { onFail } = {}) {
         }
         /* The place's own depth, not wherever the camera happens to be: a
            city is a city even when you arrive from a campus. */
+        lastChosen = p.xyz; // a short hop inside the close map: no vehicle, but the next journey starts here
         closeFlyTo({ center: [p.lon, p.lat], zoom });
         say(`Flying to ${p.name}.`);
         return;
       }
+      startRoute(p.xyz);
       warmClose(p.lat, p.lon, zoom);
       const onArrive = () => handOff({ then: () => closeFlyTo({ center: [p.lon, p.lat], zoom }) });
       flyTo({ lat: p.lat, lon: p.lon, alt: Math.min(view.alt, HANDOFF_ALT * 0.9) }, { announce: p.name, travel: true, onArrive });
       return;
     }
     if (closeActive) { climbOut(() => goToPlace(p, { focus: false, push: false })); return; }
+    startRoute(p.xyz);
     const alt = Math.min(view.alt, Math.max(MIN_ALT * 3, 0.32));
     flyTo(frameAbove({ lat: p.lat, lon: p.lon, alt }, p.xyz), { announce: p.name, travel: true });
   }
@@ -1826,6 +2257,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     paintMask(country);
     const fit = fitCamera(country.frame, { maxAlt: 2.4, minAlt: 0.2 });
     countryCard(country, { focus });
+    queueMicrotask(foldCard);
+    startRoute(cardSubject.xyz);
     flyTo(frameAbove(fit, cardSubject.xyz), { announce: pages.get(country.id)?.name || country.name, travel: true });
   }
 
@@ -1853,16 +2286,19 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const lats = members.map((m) => m.lat), lons = members.map((m) => m.lon);
       return [[Math.min(...lons), Math.min(...lats)], [Math.max(...lons), Math.max(...lats)]];
     };
+    void bounds;
     const announce = `${members.length} places`;
-    /* In the close map: frame the group, always closer than now and never so
-       far out that the camera would be handed straight back (the old bounce). */
+    /* Frame every member. The camera is found with the globe's own fit — the
+       same projection, pitch and lens shift the close map is driven with (the
+       seam is ~1.4 px) — so it is the frame that shows them all, not
+       MapLibre's flat, pitch-0 bounds fit that put ten of Denmark's twelve
+       below the stage (round 3). */
+    const pts = members.map((m) => m.xyz);
+    const fitAll = (maxAlt) => fitCamera(pts, { maxAlt, minAlt: floor, pad: [0.1, 0.16, 0.12] });
     const fitClose = () => {
-      const m = close.map;
-      const pad = Math.min(60, W * 0.08);
-      const cam = m.cameraForBounds(bounds(), { padding: { top: Math.max(0, -shiftFor(0.1) * H) + pad, bottom: pad, left: pad, right: pad }, maxZoom: 17 });
-      const z = Math.min(17, Math.max(cam?.zoom ?? 0, m.getZoom() + 0.6, zoomForAlt(HANDOFF_ALT) + 0.3));
-      const c = cam?.center ? [cam.center.lng, cam.center.lat] : [lon, lat];
-      closeFlyTo({ center: c, zoom: z });
+      const fit = fitAll(Math.max(view.alt * 0.95, floor * 1.01));
+      if (fit.alt > HANDBACK_ALT * 0.95) { climbOut(() => flyTo(fit, { announce })); return; }
+      closeFlyTo({ center: [fit.lon, fit.lat], zoom: Math.min(17, zoomForAlt(fit.alt)) });
     };
     if (altToSplit(maxAng) < floor) {
       crowdCard(members, { xyz: centre });
@@ -1870,19 +2306,25 @@ export async function mountGlobe(figure, { onFail } = {}) {
       flyTo(frameAbove({ lat, lon, alt: Math.max(MIN_ALT, Math.min(view.alt, 0.25)) }, centre), { announce });
       return;
     }
+    /* A dive into a group is a choice, and Back undoes it (the owner's rule;
+       round 3 found group dives pushed nothing, so Back left the page). */
+    const fit = fitAll(Math.max(view.alt * 0.8, floor * 1.01));
+    remember({ kind: 'view', id: members.map((m) => m.id).sort().join(','), cam: { lat: fit.lat, lon: fit.lon, alt: fit.alt } });
     if (closeActive) { fitClose(); return; }
-    /* Decide the engine before diving: frame the whole group on the globe; if
-       that frame is above the handoff the globe does it alone (the next click
-       on a smaller group goes further), and only a frame below the handoff
-       dives through to the close map. */
-    const fit = fitCamera(members.map((m) => m.xyz), { maxAlt: view.alt * 0.8, minAlt: floor });
-    const target = Math.min(fit.alt, view.alt * 0.7);
-    if (target >= HANDOFF_ALT || closeState === 'failed') {
-      flyTo({ lat: fit.lat, lon: fit.lon, alt: Math.max(MIN_ALT, target) }, { announce });
+    /* Decide the engine before diving: the globe does a frame above the
+       handoff alone; only a frame below it dives through to the close map. */
+    if (fit.alt >= HANDOFF_ALT || closeState === 'failed') {
+      flyTo({ lat: fit.lat, lon: fit.lon, alt: Math.max(MIN_ALT, fit.alt) }, { announce });
       return;
     }
-    warmClose(fit.lat, fit.lon, zoomForAlt(target));
+    warmClose(fit.lat, fit.lon, zoomForAlt(fit.alt));
     flyTo({ lat: fit.lat, lon: fit.lon, alt: HANDOFF_ALT * 0.9 }, { announce, onArrive: () => handOff({ then: fitClose }) });
+  }
+
+  /** Return to a camera a choice recorded (a group dive, on Back). */
+  function goToView(cam) {
+    if (closeActive && cam.alt < HANDBACK_ALT) { closeFlyTo({ center: [cam.lon, cam.lat], zoom: Math.min(17, zoomForAlt(cam.alt)) }); return; }
+    climbOut(() => flyTo(cam, { travel: angle(toXYZ(view.lat, view.lon), toXYZ(cam.lat, cam.lon)) > HOP }));
   }
 
   function say(message) { status.textContent = message; }
@@ -1963,7 +2405,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (pinch && pointers.size >= 2) {
       const [a, b] = [...pointers.values()];
       const gap = Math.hypot(a.x - b.x, a.y - b.y) || 1;
-      view.alt = clampAlt(pinch.alt * (pinch.gap / gap));
+      const a1 = Math.min(deskAlt, clampAlt(pinch.alt * (pinch.gap / gap)));
+      view.lat = liftLat(view.lat, view.alt, a1);
+      view.alt = a1;
       const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
       turn(mx - pinch.mx, my - pinch.my);
       pinch.mx = mx; pinch.my = my;
@@ -1994,8 +2438,15 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /** Turn the globe by a drag of dx, dy CSS pixels. Returns what it did. */
   function turn(dx, dy) {
     const k = radPerPx() * R2D;
-    const dLon = (-dx * k) / Math.max(0.25, Math.cos(view.lat * D2R));
-    const dLat = dy * k * (1 + Math.sin(cam.pitch) * 0.9);
+    /* On the desk a drag rolls the globe under the finger: a pixel is one
+       globe-radius-th of a radian, whatever the stage's shape (round 5: on a
+       tall phone stage the old gain turned it 1.7x faster than the finger). */
+    const dk = desk(view.alt);
+    const rPx = (Math.tan(Math.asin(Math.min(1, 1 / (1 + view.alt)))) / TAN) * (H / 2);
+    const free = (-dx * k) / Math.max(0.25, Math.cos(view.lat * D2R));
+    const dLon = free * (1 - dk) + ((-dx / rPx) * R2D) * dk;
+    /* A desk globe turns on its axis and nothing else. */
+    const dLat = dy * k * (1 + Math.sin(cam.pitch) * 0.9) * (1 - desk(view.alt));
     view.lat = Math.max(-80, Math.min(80, view.lat + dLat));
     view.lon = wrapLon(view.lon + dLon);
     return [dLat, dLon];
@@ -2018,7 +2469,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
     }
     if (drag && moved && e.type === 'pointerup' && !reducedMotion() && performance.now() - drag.t < 80) {
       const speed = Math.abs(drag.vLat) + Math.abs(drag.vLon);
-      if (speed > 0.002) spin = { vLat: drag.vLat, vLon: drag.vLon };
+      if (speed > 0.002) {
+        /* The glide after a fling carries on for ~380 ms of decay per unit of
+           speed; on the desk it is capped at ~40° of turn. */
+        const cap = 40 / 380;
+        const vLon = desk(view.alt) > 0.5 ? Math.max(-cap, Math.min(cap, drag.vLon)) : drag.vLon;
+        spin = { vLat: drag.vLat, vLon };
+      }
     }
     if (e.type === 'pointerup' && e.pointerType !== 'mouse') { engage(); touchHeld(); }
     drag = null;
@@ -2067,7 +2524,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const hit = pick(at.x, at.y);
       const country = hit ? geography.countryAt(hit.lat, hit.lon) : null;
       if (country) goToCountry(country);
-      else closeCard();
+      else { closeCard(); clearChoice(); }
     }, 250);
   });
 
@@ -2098,7 +2555,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     touch();
     flight = null; rush = 0; spin = null;
     const factor = Math.exp(Math.max(-0.6, Math.min(0.6, e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0018))));
-    const alt = clampAlt(view.alt * factor);
+    const alt = Math.min(deskAlt, clampAlt(view.alt * factor));
+    view.lat = liftLat(view.lat, view.alt, alt);
     const hit = pick(e.clientX, e.clientY);
     if (hit && alt < view.alt) {
       // Zoom towards the pointer: move the target a share of the way to it.
@@ -2141,14 +2599,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const keys = {
       ArrowLeft: () => flyTo({ ...view, lon: view.lon - step / Math.max(0.3, Math.cos(view.lat * D2R)) }),
       ArrowRight: () => flyTo({ ...view, lon: view.lon + step / Math.max(0.3, Math.cos(view.lat * D2R)) }),
-      ArrowUp: () => flyTo({ ...view, lat: view.lat + step }),
-      ArrowDown: () => flyTo({ ...view, lat: view.lat - step }),
+      ArrowUp: () => flyTo({ ...view, lat: view.lat + step * (1 - desk(view.alt)) }),
+      ArrowDown: () => flyTo({ ...view, lat: view.lat - step * (1 - desk(view.alt)) }),
       '+': () => zoomBy(0.55),
       '=': () => zoomBy(0.55),
       '-': () => zoomBy(1 / 0.55),
       _: () => zoomBy(1 / 0.55),
       0: () => goHome(),
-      Escape: () => (card.hidden ? goHome() : closeCard({ restore: true })),
+      Escape: () => { if (card.hidden) goHome(); else { closeCard({ restore: true }); clearChoice(); } },
     };
     const act = keys[e.key];
     if (!act) return;
@@ -2162,10 +2620,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
       else close.map.zoomOut({ animate: !reducedMotion() });
       return;
     }
-    flyTo({ ...view, alt: view.alt * f });
+    const alt = Math.min(deskAlt, clampAlt(view.alt * f));
+    flyTo({ ...view, lat: liftLat(view.lat, view.alt, alt), alt });
   }
   function goHome() {
     closeCard();
+    clearChoice();
     climbOut(() => flyTo({ ...rest }, { announce: 'the whole view', travel: true }));
   }
 
@@ -2216,8 +2676,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     camDirty = true;
     kick();
   };
-  const motionObserver = new MutationObserver(onMotion);
-  motionObserver.observe(root, { attributes: true, attributeFilter: ['data-motion'] });
+  const motionObserver = new MutationObserver(() => { readTheme(); onMotion(); });
+  motionObserver.observe(root, { attributes: true, attributeFilter: ['data-motion', 'data-theme'] });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => { readTheme(); camDirty = true; kick(); });
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener?.('change', onMotion);
 
   canvas.addEventListener('webglcontextlost', (e) => {
@@ -2245,7 +2706,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /* --- Go ------------------------------------------------------------------ */
 
   resize();
-  let rest = restCamera();
+  rest = restCamera();
   Object.assign(view, rest);
   paintMask(home);
 
@@ -2274,6 +2735,35 @@ export async function mountGlobe(figure, { onFail } = {}) {
       kick();
     },
     reset() { goHome(); },
+    /**
+     * Go somewhere by data — for a page that drives the globe, such as the
+     * home page's distance doors. One of:
+     *   { place: id }            a place on this map (its card opens)
+     *   { country: code }        a country (its card opens)
+     *   { bounds: { north, south, west, east }, label? }   a region, framed
+     *   { camera: { lat, lon, alt } }                      an exact camera
+     * A place or country is a choice (history, `world:choose`); a region or
+     * a camera is a view. Returns false for something this map cannot show.
+     */
+    show(spec, { push = true } = {}) {
+      if (!spec) return false;
+      if (spec.place) { const p = byId.get(spec.place); if (!p) return false; goToPlace(p, { push }); return true; }
+      if (spec.country) { const c = geography.byId.get(spec.country); if (!c) return false; goToCountry(c, { push }); return true; }
+      /* A camera further out than the desk stops at the desk. */
+      let cam = spec.camera && Number.isFinite(spec.camera.lat) ? { ...spec.camera, alt: Math.min(deskAlt, spec.camera.alt) } : null;
+      if (spec.bounds) {
+        const { north, south, west, east } = spec.bounds;
+        if (![north, south, west, east].every(Number.isFinite)) return false;
+        cam = fitCamera([toXYZ(north, west), toXYZ(north, east), toXYZ(south, west), toXYZ(south, east), toXYZ((north + south) / 2, (west + east) / 2)],
+          { maxAlt: REST_MAX_ALT * 1.6, minAlt: HANDBACK_ALT * 1.15 });
+      }
+      if (!cam) return false;
+      closeCard();
+      clearChoice();
+      const target = { lat: cam.lat, lon: cam.lon, alt: cam.alt };
+      climbOut(() => flyTo(target, { announce: spec.label || '', travel: true }));
+      return true;
+    },
     destroy,
     /* For the QA scripts and the console: the camera, and the few actions a
        screenshot needs to be taken mid-way through. Not used by the page. */
@@ -2306,6 +2796,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         stepFlight(now);
         draw(now);
         layoutPins();
+        drawDesk();
         return true;
       },
     },
@@ -2316,7 +2807,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   if (linked) {
     const sel = { kind: linked[1], id: decodeURIComponent(linked[2]) };
     restoring = true;
-    try { if (select(sel)) currentSel = sel; } finally { restoring = false; }
+    try { if (select(sel)) { currentSel = sel; announceChoice(sel, { restored: true }); } } finally { restoring = false; }
   }
   return controller;
 }

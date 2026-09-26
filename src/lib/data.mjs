@@ -170,6 +170,9 @@ export async function load() {
       // (src/lib/programme-imagery.mjs). Credited on /credits/ like the rest.
       readJson(path.join(DATA, 'programme-images.json'), {}),
     ]);
+  /* Open days, info sessions and webinars, one file per Institution
+     (schemas/session.schema.json). None recorded is the normal case. */
+  const sessionFiles = await readDir(path.join(DATA, 'sessions'));
   const statementFor = (key) => ibStatementFacet(ibStatements.statements?.[key]);
   const fundingById = Object.fromEntries(fundingSchemes.map((f) => [f.id, f]));
   const adjectiveOf = (code) => canonical.graph.destinations.get(code)?.adjective || null;
@@ -400,6 +403,7 @@ export async function load() {
     backdropFor,
     glossary,
     faq,
+    sessions: new Map(sessionFiles.map((f) => [f.institution || f.slug, Array.isArray(f.sessions) ? f.sessions : []])),
   };
 }
 

@@ -17,8 +17,8 @@ import * as dk from './pages/denmark.mjs';
 import { universitiesIndex, university } from './pages/institutions.mjs';
 import { programme } from './pages/programme.mjs';
 import { schoolPage } from './pages/schools.mjs';
-import { programmesIndex } from './pages/explorer.mjs';
 import { planner } from './pages/planner.mjs';
+import { courseResultsGuide } from './pages/course-results.mjs';
 import { timeline } from './pages/timeline.mjs';
 import * as meta from './pages/meta.mjs';
 import { counsellors } from './pages/counsellors.mjs';
@@ -283,12 +283,14 @@ async function main() {
       await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
     }
   }
-  await write('/programmes/', programmesIndex(site));
+  // The finder is the home page now (plan.md, Batch D); old links arrive there.
+  await write('/programmes/', redirectPage('/#discover', 'Find a degree'));
   await write('/planner/', planner(site));
   await write('/timeline/', timeline(site));
   await write('/prepare/', prepare(site));
 
   /* Guides */
+  await write('/guides/course-results/', courseResultsGuide(site));
   for (const topic of site.topicList) {
     const slug = slugify(topic.slug || topic.title || 'guide');
     await write(`/guides/${slug}/`, meta.topicPage(site, topic, slug));

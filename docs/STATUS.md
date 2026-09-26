@@ -20,6 +20,8 @@ This page says where the work stands, so the next session (human or agent) start
 - **Deadlines live with each school:** a side panel of deadlines and sessions on institution and programme pages. The Deadlines page is filter-first and never shows one combined list.
 - **The home page is the discovery surface:** a globe hero, filters, and cards below that react to the globe. `/programmes/` folds into it.
 - **Globe:** it floats on a transparent background, is "a bit cartoony, lean into fun", and moving between places shows a dotted route with a little plane, train or bus ("Where in the World is Carmen Sandiego"). The owner capped it at 5 critic rounds; round 5 ships whatever the score.
+- **Desk globe (25 September, evening):** the base is a globe held in its arms — a brass meridian ring on a stand, axis tipped 23.4° — that turns left and right only; choosing a place turns it to face you and leans in. Routes, vehicles and clouds are "eye candy, nice to have". The globe is a visual element (it may sit in a horizontal band), not a full-page simulation. Two ChatGPT prototypes were shared as inspiration only.
+- **Usage ceiling:** no new agents or tasks once the **5-hour** plan window reaches 80% (not the weekly total).
 
 ## Done and live
 
@@ -29,7 +31,7 @@ This page says where the work stands, so the next session (human or agent) start
 | Photos (three review rounds, ~350 re-judged) | **8/10, accepted** | `docs/research/qa/photos/round-4/critique.md`. The official-site place checks are an open issue |
 | Audience rewrite (EU/EEA readers, `ownCitizens` on every EU/EEA/EFTA destination, shared SU record) | 7/10 in round 2; round-2 fixes are live, no round-3 critic has run | `docs/research/audience/` |
 | Danish levels in IB terms, cut-offs and floors in IB points, "Quota 2 only", named actions | 7/10 (round 4) | Remaining fixes: issue #42 |
-| Globe (WebGL, cloud dive, MapLibre street level, Back-able selections) | 7/10 (round 3) | Round-3 fixes and the art direction are in progress (below) |
+| Globe as a **desk globe** (ring and stand, 23.4° axis, turn-then-lean-in, pastel political colours) over the WebGL globe, cloud dive and MapLibre street level | **8/10, accepted (round 5 of 5)** | `docs/research/qa/globe/round-5/critique.md`; the polish it listed is an open issue |
 | Programme card photos: 67 cards, 67 photographs | 6/10 (round 1, before uniqueness) | The crop fix and credential line are in progress |
 | Four-item menu (ADR 0006), `/countries/` with distance doors, redirects | not critiqued | `docs/research/ia/progress.md` |
 | Text walls: Deadlines, the Denmark pages, Trust, Credits, Glossary, About, Counsellors, Compare | `text-walls` guard | Only `/programmes/` and `/planner/` are left on the grandfather list |
@@ -54,9 +56,33 @@ This page says where the work stands, so the next session (human or agent) start
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
-## In progress: stopped by the usage limit on 25 September
+## Where it stands (26 September, ~00:40): stopped at the usage ceiling
 
-Five agents were stopped mid-edit. Their work is **not on `main`**. It is preserved on the branch **`wip/agents-2026-09-25`**, which does not build as is. Resume each piece from that branch, finish it, gate it, and merge it to `main` one piece at a time.
+`main` = ed9868d, every push gated 35/35 on a clean worktree (`D:/ibp-tmp/ci2`; preview of it on :4380 via the `preview-ci2` launch config). Work continues on branch `globe-desk` (worktree `.claude/worktrees/globe-desk`), which is level with `main`.
+
+| Piece | Critic rounds | State |
+|---|---|---|
+| Globe (desk globe) | 7 → **8, accepted** | leftovers: issue #53 |
+| Deadlines #47 | 4 → 6 → 6 → 6 | wrong dates and wrong-school dates fixed (99 → 0, guarded); left: UCAS 13 Jan/Extra/Clearing on Oxbridge pages, desktop panel below the fold, 166 link-only pages, weak year citations — issue #47 comment |
+| Home #44 | 6 → 7 → 7 | photos on the first screen, doors land on places; left: globe rim ghosts, phone controls on the sphere, thin results — issue #44 comment. The 320-vs-57 bubble count was fixed (c9377d1) after round 3, not re-critiqued |
+| Programme cards #46 | 6 → 7 → 7 → 7 | four tag kinds, distinctive Needs line, 9 photos replaced; left: one point figure per card, plain requirement words, a few lookalike photos — issue #46 comment |
+
+Next session: the #47 Oxbridge exception first (a wrong date for real applicants), then critic rounds 5 on #44/#46/#47.
+
+## 26 September (early): critics on the three WIP pieces, fixes live
+
+On `main` (d262c9f), gated on a clean worktree (`D:/ibp-tmp/ci2`, 35/35):
+- **Deadlines #47** — round 1 scored **4/10** with three wrong dates live (TU Delft, Twente, SDU accept) plus a split Maastricht date and a missing SDU uniTEST date. All corrected at their sources with evidence (`docs/research/qa/deadlines/round-1/fixes.md`); one `datesPanel` on every `/universities/` page (304 full panels, was 19); next hard deadline first; `/timeline/` filter-first. Round-2 critic running.
+- **Programme cards #46** (round 2: 7/10) and **home #44** (round 1: 6/10) — fixed together (`docs/research/qa/programme-cards/round-2/fixes.md`): cards ~300 px, one Needs line, one tag, the degree always named on family cards, a varied first dozen on `/`, the Worldwide door, a no-match way out, a phone count pill. A combined round-2/3 critic is running.
+- Record gaps for data work: Absalon Biotechnology has no length; Maastricht University College no abbreviation; business card photos look alike (`field-business-*`, Creative Business, Global Business Informatics, CBS Digital Management).
+- Screenshots over 400 kB from critic rounds stay local (not committed).
+
+## Merged to `main` on 25 September (evening): branch `globe-desk`
+
+`globe-desk` (worktree `.claude/worktrees/globe-desk`) is the stopped agents' WIP merged with `main` (#43 school pages included), then brought to a **green gate (32 of 32 checks)**:
+the desk globe (`globe.js`: `desk()`, `drawDesk()`, `TILT`, lean-in/sit-back flights; guards in `test-map.mjs`), the home page within its word budget (12 cards then "Show all", opened by any filter; the place list folded; 6,096 → 1,209 words), the dates panel's notes behind "Note", and three guards taught about programme families and `/#discover`. The globe scored 7/10 in round 4 and **8/10 in round 5 (accepted)**; `globe-desk` fast-forwarded `main`. Items 1, 3 and 4 below are live but have not had their own critic rounds yet: that is the next work.
+
+What the stopped agents left, for reference (items 1–4 below now build and pass on `globe-desk`, but none has had its own critic round):
 
 1. **Home page as the discovery surface.** `src/pages/discover.mjs` and `src/assets/js/discover.js` are new; `src/assets/js/explorer.js` is deleted; `src/pages/course-results.mjs` holds the Course Results guide. The agent stopped while writing its styles. Plan: `docs/research/ia/plan.md`. The "My subjects" panel and the `/planner/` redirect come after this.
 2. **Globe final round.** This is round 4 of the 5-round cap. Round-3 fixes 1–5 (no cream gaps, no freezes, sharp view at rest, no pop at street level, group fixes). Then the owner's art direction: a floating transparent background, a cartoony shader, and a route line with a vehicle. The agent stopped while writing the route and vehicle CSS. See `docs/research/qa/globe/round-3/critique.md` and `NOTES.md`. After round 5 it ships, and leftovers become an issue.

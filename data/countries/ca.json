@@ -81,6 +81,9 @@
       },
       {
         "label": "Ontario — University of Toronto, recommended early application date",
+        "institutions": [
+          "ca-u-of-t"
+        ],
         "date": "2026-11-07",
         "consequence": "priority",
         "provisional": false,
@@ -95,6 +98,9 @@
       },
       {
         "label": "Ontario — University of Toronto, documents for early consideration",
+        "institutions": [
+          "ca-u-of-t"
+        ],
         "date": "2026-12-01",
         "consequence": "priority",
         "provisional": false,
@@ -110,6 +116,9 @@
       },
       {
         "label": "Ontario — University of Toronto applications close",
+        "institutions": [
+          "ca-u-of-t"
+        ],
         "date": "2027-01-15",
         "consequence": "hard",
         "provisional": false,
@@ -124,6 +133,9 @@
       },
       {
         "label": "Ontario — University of Toronto, supporting documents",
+        "institutions": [
+          "ca-u-of-t"
+        ],
         "date": "2027-02-01",
         "consequence": "hard",
         "provisional": false,
@@ -166,6 +178,9 @@
       },
       {
         "label": "British Columbia — UBC applications open",
+        "institutions": [
+          "ca-ubc"
+        ],
         "date": null,
         "dateState": "not-published",
         "consequence": "indicative",
@@ -180,6 +195,9 @@
       },
       {
         "label": "British Columbia — UBC International Scholars Program: apply and submit the award application",
+        "institutions": [
+          "ca-ubc"
+        ],
         "date": "2026-11-15",
         "timeOfDay": "23:59",
         "timeZone": "PST",
@@ -197,6 +215,9 @@
       },
       {
         "label": "British Columbia — Simon Fraser University, Undergraduate Scholars Entrance Scholarship closes",
+        "institutions": [
+          "ca-sfu"
+        ],
         "date": "2026-12-15",
         "consequence": "hard",
         "provisional": false,
@@ -212,6 +233,9 @@
       },
       {
         "label": "British Columbia — UBC applications close",
+        "institutions": [
+          "ca-ubc"
+        ],
         "date": "2027-01-15",
         "timeOfDay": "23:59",
         "timeZone": "PST",
@@ -229,6 +253,9 @@
       },
       {
         "label": "British Columbia — Simon Fraser University applications close",
+        "institutions": [
+          "ca-sfu"
+        ],
         "date": "2027-01-31",
         "consequence": "hard",
         "provisional": false,
@@ -243,6 +270,9 @@
       },
       {
         "label": "British Columbia — UBC, documents from high school applicants outside Canada",
+        "institutions": [
+          "ca-ubc"
+        ],
         "date": "2027-03-15",
         "consequence": "hard",
         "provisional": false,
@@ -259,6 +289,9 @@
       },
       {
         "label": "British Columbia — Simon Fraser University, Beedie and Contemporary Arts supplemental requirements",
+        "institutions": [
+          "ca-sfu"
+        ],
         "date": "2027-02-07",
         "consequence": "hard",
         "provisional": false,
@@ -274,6 +307,9 @@
       },
       {
         "label": "British Columbia — Simon Fraser University, admission documents",
+        "institutions": [
+          "ca-sfu"
+        ],
         "date": "2027-02-28",
         "consequence": "hard",
         "provisional": false,
@@ -288,6 +324,9 @@
       },
       {
         "label": "British Columbia — University of Victoria applications close",
+        "institutions": [
+          "ca-uvic"
+        ],
         "date": null,
         "dateState": "varies-by-institution",
         "consequence": "indicative",
@@ -306,6 +345,9 @@
       },
       {
         "label": "British Columbia — Simon Fraser University, accept your offer",
+        "institutions": [
+          "ca-sfu"
+        ],
         "date": "2027-05-01",
         "consequence": "hard",
         "provisional": false,
@@ -321,6 +363,9 @@
       },
       {
         "label": "British Columbia — UBC, final transcript from applicants outside Canada",
+        "institutions": [
+          "ca-ubc"
+        ],
         "date": "2027-07-25",
         "consequence": "hard",
         "provisional": false,
@@ -370,6 +415,9 @@
       },
       {
         "label": "Quebec — McGill University applications close",
+        "institutions": [
+          "ca-mcgill"
+        ],
         "date": "2027-01-15",
         "consequence": "hard",
         "provisional": false,
@@ -389,6 +437,9 @@
       },
       {
         "label": "Quebec — Concordia University, recommended date for US and international applicants",
+        "institutions": [
+          "ca-concordia"
+        ],
         "date": "2027-02-01",
         "consequence": "priority",
         "provisional": true,
@@ -400,10 +451,14 @@
         "source": "https://www.concordia.ca/admissions/undergraduate/apply.html",
         "evidence": [
           "ev-concordia-deadline"
-        ]
+        ],
+        "yearUnpublished": true
       },
       {
         "label": "Quebec — Concordia University, fall entry, general deadline",
+        "institutions": [
+          "ca-concordia"
+        ],
         "date": "2027-03-01",
         "consequence": "hard",
         "provisional": true,
@@ -415,10 +470,15 @@
         "source": "https://www.concordia.ca/admissions/undergraduate/apply.html",
         "evidence": [
           "ev-concordia-deadline"
-        ]
+        ],
+        "yearUnpublished": true
       },
       {
         "label": "Alberta — University of Alberta and University of Calgary applications close",
+        "institutions": [
+          "ca-ualberta",
+          "ca-ucalgary"
+        ],
         "date": null,
         "dateState": "varies-by-institution",
         "consequence": "indicative",

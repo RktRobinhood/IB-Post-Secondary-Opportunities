@@ -685,6 +685,15 @@ every university linked to its own website. The shapes are in
 `npm test` for Cyprus. Watch for `shorter than 30 characters` on the sector
 description.
 
+Once the country has degrees on the site, give it one sentence on DP Course
+Results: `ibRecognition.courseResults.short` (20–260 characters, what Course
+Results open there, from the same sources as `minimumPoints`). It heads the
+country's section on `/guides/course-results/`. Without it the section still
+lists every degree and what it asks for, with no summary line. A
+programme's own route without the Diploma goes in that programme's
+`requirements[].alternativeRoute`, never in page copy: the `text-walls` check
+fails any page other than the programme's own and the guide that shows it.
+
 The country's flag emoji is a list in the code (`FLAGS` in `src/lib/data.mjs`).
 A new country has no flag until someone adds it there. Nothing breaks.
 

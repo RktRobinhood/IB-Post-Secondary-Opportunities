@@ -17,10 +17,13 @@
   "rounds": [
     {
       "id": "round-mit-ea",
+      "institutions": [
+        "us-mit"
+      ],
       "label": "Early Action — not binding",
       "closes": "2026-11-01",
       "decisionBy": "2026-12-20",
-      "consequence": "priority",
+      "consequence": "hard",
       "note": "1 November for the application, fee, teacher recommendations and transcript, with tests taken by the November test date and decisions in mid-December. Not binding: an Early Action admission can be held to 1 May alongside everything else. MIT states there is no strategic benefit to either cycle. The financial aid application is separate and due 30 November — after the application, unlike most colleges.",
       "evidence": [
         "ev-mit-deadlines-2027"
@@ -28,6 +31,9 @@
     },
     {
       "id": "round-mit-ra",
+      "institutions": [
+        "us-mit"
+      ],
       "label": "Regular Action",
       "closes": "2027-01-04",
       "decisionBy": "2027-03-20",
@@ -41,18 +47,25 @@
   "milestones": [
     {
       "id": "ms-mit-ea",
+      "institutions": [
+        "us-mit"
+      ],
       "type": "submit",
       "label": "MIT Early Action closes",
       "date": "2026-11-01",
-      "consequence": "priority",
+      "consequence": "hard",
       "provisional": true,
-      "note": "MIT publishes the day without a year, so 2026 is expected rather than confirmed. Application form, fee, teacher recommendations and transcript all due on the same day.",
+      "note": "MIT publishes the day without a year, so 2026 is expected rather than confirmed. The application form and fee are due that day; only teachers' letters may arrive later. Early Action is not binding, but the deadline is firm.",
       "evidence": [
         "ev-mit-deadlines-2027"
-      ]
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-mit-tests",
+      "institutions": [
+        "us-mit"
+      ],
       "type": "test",
       "label": "SAT or ACT taken, for MIT Early Action",
       "date": "2026-11-30",
@@ -65,6 +78,9 @@
     },
     {
       "id": "ms-mit-aid-ea",
+      "institutions": [
+        "us-mit"
+      ],
       "type": "document",
       "label": "MIT financial aid application, Early Action",
       "date": "2026-11-30",
@@ -77,6 +93,9 @@
     },
     {
       "id": "ms-mit-ra",
+      "institutions": [
+        "us-mit"
+      ],
       "type": "submit",
       "label": "MIT Regular Action closes",
       "date": "2027-01-04",
@@ -89,6 +108,9 @@
     },
     {
       "id": "ms-mit-aid-ra",
+      "institutions": [
+        "us-mit"
+      ],
       "type": "document",
       "label": "MIT financial aid application, Regular Action",
       "date": "2027-02-15",
@@ -100,6 +122,9 @@
     },
     {
       "id": "ms-mit-reply",
+      "institutions": [
+        "us-mit"
+      ],
       "type": "reply",
       "label": "MIT enrolment reply",
       "date": "2027-05-01",

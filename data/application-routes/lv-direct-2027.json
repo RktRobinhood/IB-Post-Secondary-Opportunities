@@ -9,6 +9,9 @@
   "milestones": [
     {
       "id": "ms-rsu-med-open",
+      "institutions": [
+        "lv-rsu"
+      ],
       "type": "open",
       "label": "RSU: Medicine and Dentistry applications open",
       "date": "2027-03-01",
@@ -19,6 +22,9 @@
     },
     {
       "id": "ms-sse-close",
+      "institutions": [
+        "lv-sse-riga"
+      ],
       "type": "submit",
       "label": "SSE Riga: BSc applications close",
       "date": "2027-04-06",
@@ -30,6 +36,9 @@
     },
     {
       "id": "ms-sse-test",
+      "institutions": [
+        "lv-sse-riga"
+      ],
       "type": "test",
       "label": "SSE Riga: admissions test",
       "date": "2027-04-17",
@@ -43,6 +52,9 @@
     },
     {
       "id": "ms-rsu-noneu-close",
+      "institutions": [
+        "lv-rsu"
+      ],
       "type": "submit",
       "label": "RSU: applications close for non-EU/EEA applicants",
       "date": "2027-05-01",
@@ -54,6 +66,9 @@
     },
     {
       "id": "ms-sse-results",
+      "institutions": [
+        "lv-sse-riga"
+      ],
       "type": "result",
       "label": "SSE Riga: results for EU applicants",
       "date": "2027-06-08",
@@ -65,6 +80,9 @@
     },
     {
       "id": "ms-rsu-eu-close",
+      "institutions": [
+        "lv-rsu"
+      ],
       "type": "submit",
       "label": "RSU: applications close for EU/EEA applicants",
       "date": "2027-07-01",
@@ -89,6 +107,9 @@
     },
     {
       "id": "ms-turiba-close",
+      "institutions": [
+        "lv-turiba"
+      ],
       "type": "submit",
       "label": "Turība: autumn intake applications close",
       "date": "2027-08-01",
@@ -97,7 +118,8 @@
       "note": "Published as \"February 1 to August 1\" with no year. The only window here that stays open after IB results.",
       "evidence": [
         "ev-turiba-admission"
-      ]
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-others",

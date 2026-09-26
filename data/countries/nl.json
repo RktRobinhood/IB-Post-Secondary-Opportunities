@@ -49,7 +49,7 @@
         "provisional": false,
         "year": "2027 entry",
         "notes": "Published with its year by the University of Amsterdam: \"You can submit your enrolment application for the academic year 2027-2028 in Studielink from 1 October 2026 till 15 January 2027.\" Studielink's information site info.studielink.nl states the 15 January and 1 May deadlines without saying when applications open, so the opening date is taken from the university's page.",
-        "source": "https://www.uva.nl/en/programmes/bachelors/psychology/application-and-admission/international-prior-education/application-and-admission.html"
+        "source": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028"
       },
       {
         "label": "Numerus fixus (selective) programmes",
@@ -60,11 +60,11 @@
         "provisional": false,
         "year": "2027 entry",
         "notes": "Absolute, and published to the minute: Studielink's own guidance is \"until 23:59 on 15 January\", and the University of Amsterdam states the 2027 date: \"from 1 October 2026 till 15 January 2027\". You may apply to at most two numerus fixus programmes in one academic year. Medicine, Dentistry, Dental Hygiene and Physiotherapy allow only one application per programme, so you cannot apply for Medicine at two universities. Selection then runs between 15 January and 15 April; what happens on 15 April, and what you then have to do, are entries of their own.",
-        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "source": "https://info.studielink.nl/nl/nieuws/vanaf-1-oktober-inschrijven-mogelijk-voor-studiejaar-2027-2028",
         "sources": [
-          "https://www.uva.nl/en/programmes/bachelors/psychology/application-and-admission/international-prior-education/application-and-admission.html",
-          "https://vu.nl/en/education/more-about/selection-procedure-numerus-fixus"
-        ]
+          "https://www.studyinnl.org/plan-your-stay/how-to-apply"
+        ],
+        "numerusFixusOnly": true
       },
       {
         "label": "Numerus fixus ranking numbers issued",
@@ -73,7 +73,9 @@
         "provisional": true,
         "year": "2027 entry",
         "notes": "Published as \"Applicants in the selection procedure will receive a ranking number via Studielink on 15 April\". Nothing is required of you on the day itself — but this is the day the two-week clock starts for anyone offered a place, so it is the day to start watching Studielink rather than the day to relax. A ranking number above the number of places is not a refusal: places freed by students who do not accept are offered down the list, so ranking 101 of 100 places can still become an offer.",
-        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply"
+        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "numerusFixusOnly": true,
+        "yearUnpublished": true
       },
       {
         "label": "Accept your numerus fixus place in Studielink",
@@ -83,7 +85,8 @@
         "provisional": false,
         "year": "2027 entry",
         "notes": "The deadline is two weeks from your own offer, not a day in the calendar. Published as \"If you are offered a place, you have to accept this place via Studielink within two weeks\", and Studielink is explicit that a place not accepted in time \"will be assigned to another student automatically\". If your offer arrives with the ranking numbers on 15 April, that puts you at the end of April; if it arrives later, because someone above you declined, your fortnight starts then. This is the most expensive thing on the Dutch page to miss and the only one with no date you can set in advance, so the practical answer is to check Studielink from 15 April onwards rather than to wait for an email.",
-        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply"
+        "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "numerusFixusOnly": true
       },
       {
         "label": "All other (non-selective) bachelor's programmes",
@@ -96,7 +99,8 @@
         "source": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
         "sources": [
           "https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/studiekeuze-en-toelating"
-        ]
+        ],
+        "yearUnpublished": true
       }
     ],
     "steps": [

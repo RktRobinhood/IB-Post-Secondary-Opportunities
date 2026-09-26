@@ -12,7 +12,10 @@
     "excerpt": "Recognised with a minimum of 32 out of 42 points (not counting bonus points) […] At least 3 of these subjects must be taken at Higher Level (one of which must be mathematics or another natural sciences subject)",
     "interpretation": "Like Germany, a subject-shape rule that has to be checked when choosing IB subjects. The page is stamped valid for 2026/27 and is updated annually, so the 2027/28 version needs a re-read.",
     "supports": [
-      { "entity": "ch", "field": "ibRecognition" }
+      {
+        "entity": "ch",
+        "field": "ibRecognition"
+      }
     ],
     "attestation": {
       "by": "the Austria/Switzerland/Czechia floor pass",
@@ -20,7 +23,10 @@
       "method": "read-source",
       "note": "Page states the requirements are valid for academic year 2026/27."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
   },
   {
     "id": "ev-ch-swissuniversities-institutions",
@@ -34,7 +40,10 @@
     "excerpt": "This list of accredited Swiss higher education institutions is maintained by swissuniversities for information purposes only",
     "interpretation": "The four headings on the list are the sector landscape. Accreditation itself is the Swiss Accreditation Council's responsibility, not swissuniversities'.",
     "supports": [
-      { "entity": "ch", "field": "sectorLandscape" }
+      {
+        "entity": "ch",
+        "field": "sectorLandscape"
+      }
     ],
     "attestation": {
       "by": "the Austria/Switzerland/Czechia floor pass",
@@ -42,7 +51,10 @@
       "method": "read-source",
       "note": "The older swissuniversities 'Swiss higher education system' page returned 404 on 2026-09-23."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-23" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-23"
+    }
   },
   {
     "id": "ev-ch-eth-how-to-apply",
@@ -57,7 +69,10 @@
     "excerpt": "from 1 December to 31 March, 23:59 Central European Time",
     "interpretation": "The window carries no year; for autumn 2027 entry it is read as 1 December 2026 to 31 March 2027, so the dates on the route are provisional. Applicants who need the ETH entrance exam were on an earlier timetable (apply by 31 March 2026).",
     "supports": [
-      { "entity": "ch-direct-2027", "field": "milestones" }
+      {
+        "entity": "ch-direct-2027",
+        "field": "milestones"
+      }
     ],
     "attestation": {
       "by": "the Austria/Switzerland/Czechia floor pass",
@@ -65,7 +80,10 @@
       "method": "read-source",
       "note": "The page gives day and month only, no year. Fee amount not stated on this page."
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
   },
   {
     "id": "ev-ch-eth-tuition",
@@ -80,14 +98,20 @@
     "excerpt": "Simple tuition fee: CHF 730 / semester […] Threefold tuition fee: CHF 2190 / semester",
     "interpretation": "Switzerland splits fees by residence, not by EU citizenship, so a student coming from Denmark pays the higher rate. Only ETH's fees are established here; other universities set their own.",
     "supports": [
-      { "entity": "ch", "field": "feeContext" }
+      {
+        "entity": "ch",
+        "field": "feeContext"
+      }
     ],
     "attestation": {
       "by": "the Austria/Switzerland/Czechia floor pass",
       "at": "2026-09-23",
       "method": "read-source"
     },
-    "meta": { "schemaVersion": "1.0", "dataAsOf": "2026-09-24" }
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-24"
+    }
   },
   {
     "id": "ev-ch-epfl-how-to-apply",
@@ -204,6 +228,34 @@
     "meta": {
       "schemaVersion": "1.0",
       "dataAsOf": "2026-09-24"
+    }
+  },
+  {
+    "id": "ev-ch-eth-entrance-exam-2027",
+    "sourceUrl": "https://ethz.ch/en/studies/bachelor/application/non-swiss-matriculation-certificate/eth-entrance-examination.html",
+    "publisher": "ETH Zurich",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-26",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "The entrance examination on ETH's page, 18-28 January 2027 with registration from 15 September to 15 October 2026, is for applicants who applied by 31 March 2026. A student applying from 1 December 2026 for autumn 2027 cannot take it.",
+    "excerpt": "You must apply by 31 March 2026 at the latest [...] The registration for the entrance examination is between 15 September and 15 October [...] The next entrance examination will be held on 18–28 January 2027 (possibility to begin studies in Autumn Semester 2027).",
+    "interpretation": "Closed to every reader of this site applying now: its application deadline, 31 March 2026, has passed. ETH had not published the next cycle's examination dates on 26 September 2026.",
+    "supports": [
+      {
+        "entity": "ch",
+        "field": "application.deadlines"
+      }
+    ],
+    "attestation": {
+      "by": "issue #47 round-3 fixes",
+      "at": "2026-09-26",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-26"
     }
   }
 ]

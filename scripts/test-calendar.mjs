@@ -29,12 +29,17 @@ import {
   isActionable,
   isClosed,
   READER_ACCESS,
+  identityWords,
+  initialismOf,
+  nameMatch,
+  sameOccasion,
   sortKey,
   standing,
 } from '../src/lib/calendar.mjs';
 import { deadlineList } from '../src/lib/primitives.mjs';
 import { toString } from '../src/lib/html.mjs';
 import { load } from '../src/lib/data.mjs';
+import { datesFor, leadOrder, isBinding } from '../src/lib/school-dates.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REPORT = process.argv.includes('--report');
@@ -132,6 +137,13 @@ const ALLOWED = new Set([
   /* Whether the reader can act on this at all (#35). Checked below, and by
      the guard that a closed entry never renders as a date to act on. */
   'readerAccess',
+  /* The schools this date is theirs, by page id (#47): checked below. */
+  'institutions',
+  /* Institutions with no page, by name; only numerus fixus programmes; the
+     source gives no year (#47 round 3): checked below. */
+  'institutionsWithoutPage',
+  'numerusFixusOnly',
+  'yearUnpublished',
 ]);
 
 const problems = [];
@@ -233,6 +245,118 @@ check('a round and its own closing milestone are not two things to do', () => {
   const events = eventsForDestination({ code: 'xx', name: 'X' }, graph);
   assert.equal(events.length, 1, 'the same day was listed twice');
   assert.equal(events[0].label, 'Applications close', 'the round won, but the milestone is the one that says what closes');
+});
+
+/* --- One event, one card ---------------------------------------------------- */
+
+/* The same deadline from the country profile and from the route, worded
+   differently, reached the calendar as two cards ~90 times across 25
+   Destinations (docs/research/variants/systemic.md §5). The fold lives in
+   `foldTwins`; the test of "the same event" here is deliberately a different
+   one — same day, same end, same kind, no two different routes, and labels
+   that name the same things — so a change to the fold's scoring cannot quietly
+   redefine what it is checked against. */
+const flatLabel = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+function sameEvent(a, b) {
+  if (!sameOccasion(a, b)) return false;
+  const fa = flatLabel(a.label);
+  const fb = flatLabel(b.label);
+  if (fa.startsWith(fb) || fb.startsWith(fa)) return 'one label is the other with words added';
+  const wa = identityWords(a.label);
+  const wb = identityWords(b.label);
+  const within = (x, y) => [...x].every((w) => y.has(w));
+  if (within(wa, wb) && within(wb, wa)) return 'both labels name the same things';
+  if (a.origin !== b.origin && ((wa.size && within(wa, wb)) || (wb.size && within(wb, wa)))) return 'the profile and the route name the same thing';
+  return false;
+}
+function twinsIn(events) {
+  const dated = events.filter((e) => e.date && isActionable(e));
+  const out = [];
+  for (let i = 0; i < dated.length; i++)
+    for (let j = i + 1; j < dated.length; j++) {
+      const why = dated[i].destination === dated[j].destination && sameEvent(dated[i], dated[j]);
+      if (why) out.push(`${dated[i].destination} ${dated[i].date}: "${dated[i].label}" and "${dated[j].label}" (${why})`);
+    }
+  return out;
+}
+
+const twinGraph = (milestones) => ({
+  applicationRoutes: new Map([['r', { id: 'r', destination: 'xx', intake: '2027-autumn', label: 'Applying to Xland', milestones }]]),
+});
+
+check('a deadline worded differently in the profile and the route is one card, with both sources and the stricter consequence', () => {
+  const graph = twinGraph([{ id: 'm', type: 'submit', label: 'Alpha University first round closes', date: '2026-11-25', consequence: 'priority', note: 'Results in March.' }]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [
+    { label: 'Alpha University — first round', date: '2026-11-25', timeOfDay: '12:00', consequence: 'hard', source: 'https://alpha.example/dates', notes: 'Results in March. Fee 50 EUR.' },
+  ] } };
+  const events = eventsForDestination(country, graph);
+  assert.equal(events.length, 1, `the same deadline printed ${events.length} cards`);
+  const [e] = events;
+  assert.deepEqual(e.sources, ['https://alpha.example/dates'], 'the profile source was lost in the merge');
+  assert.equal(e.consequence, 'hard', 'the merge kept the weaker consequence');
+  assert.equal(e.timeOfDay, '12:00', 'the time of day recorded only in the profile was lost');
+  assert.equal(e.note, 'Results in March. Fee 50 EUR.', 'the notes were repeated or lost rather than joined once');
+});
+
+check('two institutions on one day each keep their own card, and each finds its own twin', () => {
+  const graph = twinGraph([
+    { id: 'a', type: 'submit', label: 'ABC first round closes', date: '2026-11-25', consequence: 'priority' },
+    { id: 'b', type: 'submit', label: 'ABCD priority round closes', date: '2026-11-25', consequence: 'priority' },
+  ]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [
+    { label: 'ABCD — priority round', date: '2026-11-25', consequence: 'priority', source: 'https://abcd.example' },
+    { label: 'ABC — first round', date: '2026-11-25', consequence: 'priority', source: 'https://abc.example' },
+    { label: 'Omega College — applications close', date: '2026-11-25', consequence: 'priority' },
+  ] } };
+  const events = eventsForDestination(country, graph);
+  assert.equal(events.length, 3, `expected ABC, ABCD and Omega; got ${events.map((e) => e.label).join(' / ')}`);
+  assert.deepEqual(events.find((e) => e.id === 'a').sources, ['https://abc.example'], 'ABC took the wrong twin');
+  assert.deepEqual(events.find((e) => e.id === 'b').sources, ['https://abcd.example'], 'ABCD took the wrong twin');
+});
+
+check('an exam and the application it belongs to are two things on one day', () => {
+  const graph = twinGraph([{ id: 'm', type: 'submit', label: 'Alpha University applications close', date: '2026-10-15', consequence: 'hard' }]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [{ label: 'Alpha University admissions test', date: '2026-10-15', consequence: 'hard' }] } };
+  assert.equal(eventsForDestination(country, graph).length, 2);
+});
+
+check('a window restating an opening and a closing adds no card, and loses neither day', () => {
+  const graph = twinGraph([
+    { id: 'o', type: 'open', label: 'Beta University applications open', date: '2026-10-15', consequence: 'indicative' },
+    { id: 'c', type: 'submit', label: 'Beta University applications close', date: '2027-03-19', consequence: 'hard' },
+  ]);
+  const country = { code: 'xx', name: 'X', application: { deadlines: [
+    { label: 'Beta University — application window', date: '2026-10-15', endDate: '2027-03-19', consequence: 'hard', source: 'https://beta.example' },
+  ] } };
+  const events = eventsForDestination(country, graph);
+  assert.deepEqual(events.map((e) => e.id), ['o', 'c']);
+  assert.ok(events.every((e) => e.sources.includes('https://beta.example')), 'the window’s source did not reach both days');
+});
+
+const rawEvents = [...site.countries].flatMap((c) => eventsForDestination(c, site.graph, { fold: false }));
+const foldedEvents = [...site.countries].flatMap((c) => eventsForDestination(c, site.graph));
+
+check(`no two cards on the site are the same event (${rawEvents.length} records → ${foldedEvents.length} cards on country pages)`, () => {
+  assert.ok(twinsIn(rawEvents).length > 0, 'the detector finds no twins in the unfolded records, so it would pass on anything');
+  const found = [...twinsIn(allEvents(site)), ...twinsIn(foldedEvents)];
+  if (found.length) throw new Error([...new Set(found)].join('\n          '));
+});
+
+check('folding twins loses no date, no source and no note', () => {
+  const problems = [];
+  for (const c of site.countries) {
+    const raw = eventsForDestination(c, site.graph, { fold: false });
+    const folded = eventsForDestination(c, site.graph);
+    const days = new Set(folded.flatMap((e) => [e.date, e.endDate]).filter(Boolean));
+    const sources = new Set(folded.flatMap((e) => e.sources));
+    const notes = folded.map((e) => flatLabel(e.note));
+    for (const e of raw) {
+      for (const d of [e.date, e.endDate].filter(Boolean)) if (!days.has(d)) problems.push(`${c.code} lost ${d} ("${e.label}")`);
+      for (const s of e.sources) if (!sources.has(s)) problems.push(`${c.code} lost the source ${s}`);
+      if (e.note && !notes.some((n) => n.includes(flatLabel(e.note)))) problems.push(`${c.code} lost the note on "${e.label}"`);
+    }
+  }
+  if (problems.length) throw new Error(problems.join('\n          '));
 });
 
 /* --- A route the reader cannot take is not a date to act on (#35) ---------- */
@@ -368,6 +492,214 @@ for (const today of ['2026-09-25', '2027-02-01']) {
     assert.deepEqual(missing.map((e) => e.id), [], 'dated events missing from the page');
   });
 }
+
+/* --- A school's dates are its own (#47) ----------------------------------- */
+
+/* Every page a school has, by the id it answers to, and its Destination. */
+const schoolPages = [
+  ...site.countries.flatMap((c) =>
+    c.institutions.filter((i) => !i.canonicalId).map((i) => ({ id: i.key, dest: c.code, inst: { ...i, id: i.key, destination: c.code } }))
+  ),
+  ...site.institutionCatalogue.all.map((i) => ({ id: i.id, dest: i.destination?.code || i.destination, inst: i })),
+];
+const pageIds = new Map(schoolPages.map((p) => [p.id, p.dest]));
+for (const c of site.countries) for (const i of c.institutions) if (i.canonicalId) pageIds.set(i.key, c.code);
+
+check('every date tied to schools names schools that have a page, in its own country', () => {
+  const bad = [];
+  const look = (where, dest, ids) => {
+    if (ids === undefined) return;
+    if (!Array.isArray(ids) || !ids.length) return bad.push(`${where}: institutions must be a non-empty list`);
+    for (const id of ids) if (pageIds.get(id) !== dest) bad.push(`${where}: "${id}" is not a school page in ${dest}`);
+  };
+  for (const r of site.graph.applicationRoutes.values()) {
+    for (const x of [...(r.rounds || []), ...(r.milestones || [])]) look(`${r.id}/${x.id}`, r.destination, x.institutions);
+  }
+  for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => look(`${c.code}.deadlines[${i}]`, c.code, d.institutions));
+  if (bad.length) throw new Error(`${bad.length} bad ties\n          ${bad.slice(0, 20).join('\n          ')}`);
+});
+
+check('every date a school says it replaces is a real route date', () => {
+  const refs = new Set([...site.graph.applicationRoutes.values()].flatMap((r) => [...(r.milestones || []), ...(r.rounds || [])].map((m) => `${r.id}/${m.id}`)));
+  const bad = [];
+  for (const r of site.graph.applicationRoutes.values()) for (const m of r.milestones || []) if (m.supersedes && !refs.has(m.supersedes)) bad.push(`${r.id}/${m.id} → ${m.supersedes}`);
+  for (const c of site.countries) for (const i of c.institutions) for (const d of i.school?.dates || []) if (d.supersedes && !refs.has(d.supersedes)) bad.push(`${i.key} "${d.label}" → ${d.supersedes}`);
+  if (bad.length) throw new Error(`${bad.length} dangling supersedes\n          ${bad.join('\n          ')}`);
+});
+
+/* The wrong-school scan. On every school page, a date that is not tied to
+   schools by id and whose label names one other school of the same country,
+   by its full name or its short name as whole words, and not this one, is
+   that other school's date on the wrong page (#47: SFU's dates on UBC's page
+   because "British Columbia —" completed UBC's name). A label naming several
+   other schools is a shared rule ("Oxford, Cambridge, medicine …") and is
+   left to the tie: a date that is only those schools' carries `institutions`. */
+const fold = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, "'");
+const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const namesOfPage = (r) =>
+  [r.name, r.shortName, r.localName].filter(Boolean)
+    .flatMap((n) => { const m = n.match(/^(.*?)\s*\(([^)]+)\)\s*$/); return m ? [m[1], m[2]] : [n]; })
+    .filter((n) => n.length >= 3);
+const mentions = (label, n) => {
+  const N = fold(n);
+  return new RegExp(`(^|[^A-Za-z0-9])${escRe(N)}($|[^A-Za-z0-9])`, /\s/.test(N.trim()) ? 'i' : '').test(fold(label));
+};
+const byDest = new Map();
+for (const p of schoolPages) byDest.set(p.dest, [...(byDest.get(p.dest) || []), p]);
+
+/* Institutions with no page, which the round-2 scan could not see (#47 round
+   3: Reykjavik University's and Akureyri's dates on both Iceland pages). They
+   are collected from the records, not listed here: the names a date gives in
+   `institutionsWithoutPage`, and every institution that publishes evidence
+   for the Destination, cut to the name before a unit ("ETH Zurich, Financial
+   Aid Office"). A publisher that names one of the school pages is that page. */
+const pagelessByDest = new Map();
+{
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return null; } };
+  const urlsOf = (r) => [r.website, r.admissionsUrl, ...Object.values(r.links || {})].filter((u) => typeof u === 'string');
+  const add = (dest, n, ev = null) => {
+    const name = String(n || '').split(/\s+[—–-]\s+|,\s|\s\(/)[0].trim();
+    if (name.length < 4 || !/\s/.test(name)) return;
+    const pages = byDest.get(dest) || [];
+    /* A publisher that names a page, or is spelled by one ("NYU Abu Dhabi"),
+       writes on a page's own site, or is about a page or its programme, is
+       that page. */
+    const size = identityWords(name).size;
+    const h = ev && host(ev.sourceUrl);
+    const about = (ev?.supports || []).map((x) => site.graph.opportunities.get(x.entity)?.institution || x.entity);
+    if (pages.some((q) =>
+      namesOfPage(q.inst).some((qn) => mentions(n, qn) || mentions(qn, name) || nameMatch(name, qn) >= size) ||
+      (h && urlsOf(q.inst).map(host).some((qh) => qh && (qh === h || h.endsWith(`.${qh}`) || qh.endsWith(`.${h}`)))) ||
+      about.includes(q.id)
+    )) return;
+    if (!pagelessByDest.has(dest)) pagelessByDest.set(dest, new Set());
+    pagelessByDest.get(dest).add(name);
+  };
+  for (const e of allEvents(site)) for (const n of e.institutionsWithoutPage || []) add(e.destination, n);
+  for (const ev of site.graph.evidence.values()) {
+    if (ev.publisherType !== 'institution') continue;
+    for (const s of ev.supports || []) {
+      const dest = String(s.entity || '').split('-')[0];
+      if (byDest.has(dest)) add(dest, ev.publisher, ev);
+    }
+  }
+}
+const pagelessNamed = (dest, label) => [...(pagelessByDest.get(dest) || [])].filter((n) => mentions(label, n));
+
+const schoolToday = new Date().toISOString().slice(0, 10);
+const wrongSchool = [];
+const guessed = [];
+const pagelessShown = [];
+const fixusShown = [];
+let panelsChecked = 0;
+const bindingLate = [];
+/* One school page's dates, read for three faults. Kept as a function so the
+   faults round 3 found can be fed to it below and must be caught. */
+function scanPage(p, shown) {
+  const out = { wrong: [], guessed: [], pageless: [] };
+  const own = namesOfPage(p.inst);
+  const others = byDest.get(p.dest).filter((q) => q !== p);
+  for (const e of shown) {
+    if ((e.institutions || []).length) continue;
+    if ((e.institutionsWithoutPage || []).length) out.pageless.push(`${p.id}: "${e.label}" is ${e.institutionsWithoutPage.join(', ')}'s, which has no page`);
+    if (own.some((n) => mentions(e.label, n))) continue;
+    /* A date on no route reaches a school page by naming it, in full or by
+       its short name, or by a tie. Anything else was a guess at the name
+       (UAT-UK's test dates on UAL's page: "UAT" read as University of the
+       Arts). */
+    if (!e.routeId && e.origin !== 'school') out.guessed.push(`${p.id}: "${e.label}" names no school on this page and has no tie`);
+    let named = others.filter((q) => namesOfPage(q.inst).some((n) => mentions(e.label, n)));
+    named = named.filter((q) => !named.some((o) => o !== q && namesOfPage(o.inst).some((on) => namesOfPage(q.inst).some((qn) => on !== qn && fold(on).includes(fold(qn)) && mentions(e.label, on)))));
+    const pageless = pagelessNamed(p.dest, e.label);
+    /* Any other institution named, with a page or without, and not this one. */
+    if (named.length || pageless.length) out.wrong.push(`${p.id}: "${e.label}" is ${[...named.map((q) => q.id), ...pageless].join(', ')}'s`);
+  }
+  return out;
+}
+for (const p of schoolPages) {
+  const shown = datesFor(site, p.inst).filter((e) => e.date && (e.endDate || e.date) >= schoolToday);
+  panelsChecked++;
+  const found = scanPage(p, shown);
+  wrongSchool.push(...found.wrong);
+  guessed.push(...found.guessed);
+  pagelessShown.push(...found.pageless);
+  /* A Programme page recorded as not numerus fixus shows no numerus fixus date. */
+  for (const prog of p.inst.programmes || []) {
+    const opp = site.graph.opportunities.get(prog.opportunityId || prog.id);
+    if (opp?.admission?.numerusFixus !== false) continue;
+    for (const e of datesFor(site, p.inst, { programme: prog }).filter((e) => e.date && (e.endDate || e.date) >= schoolToday)) {
+      if (e.numerusFixusOnly) fixusShown.push(`${prog.id || prog.name}: "${e.label}"`);
+    }
+  }
+  /* Binding before soft: in the panel's order no soft date comes before a binding one. */
+  const order = leadOrder(shown);
+  const firstSoft = order.findIndex((e) => !isBinding(e));
+  if (firstSoft >= 0 && order.slice(firstSoft).some(isBinding)) bindingLate.push(p.id);
+}
+check(`no school page shows another institution's date, with a page or without (${panelsChecked} pages, ${[...pagelessByDest.values()].reduce((n, s) => n + s.size, 0)} institutions without a page known)`, () => {
+  assert.ok(pagelessByDest.get('is')?.has('Reykjavik University'), 'the institutions without a page were not collected: Reykjavik University is missing');
+  if (wrongSchool.length) throw new Error(`${wrongSchool.length} dates on the wrong page\n          ${wrongSchool.slice(0, 25).join('\n          ')}`);
+});
+check('the scan catches the round-3 faults: Reykjavik and Akureyri on Iceland pages, UAT-UK on UAL', () => {
+  const page = (id) => schoolPages.find((p) => p.id === id);
+  const reykjavik = { label: 'Reykjavik University, EU/EEA residents, autumn', date: '2027-04-30', routeId: 'is-direct-2027', origin: 'route' };
+  const akureyri = { label: 'University of Akureyri: EU/EEA applicants', date: '2027-06-05', routeId: 'is-direct-2027', origin: 'route' };
+  const uat = { label: 'UAT-UK admissions tests (ESAT, TMUA, TARA) - October sitting', date: '2026-10-12', routeId: null, origin: 'profile' };
+  for (const id of ['is-hi', 'is-lhi']) {
+    const found = scanPage(page(id), [reykjavik, akureyri]);
+    assert.equal(found.wrong.length, 2, `${id}: the scan missed the dates of institutions without a page`);
+  }
+  assert.equal(scanPage(page('gb-ual'), [uat]).guessed.length, 1, 'gb-ual: the scan missed UAT-UK read as University of the Arts');
+});
+check('a date for an institution without a page reaches no school page', () => {
+  if (pagelessShown.length) throw new Error(pagelessShown.join('\n          '));
+});
+check('a date on no route reaches a school page by its name or a tie, never a guessed initialism', () => {
+  if (guessed.length) throw new Error(`${guessed.length} guessed\n          ${guessed.slice(0, 25).join('\n          ')}`);
+});
+check('a programme recorded as not numerus fixus shows no numerus fixus date', () => {
+  if (fixusShown.length) throw new Error(fixusShown.join('\n          '));
+});
+check('an initialism names a whole name or its closing words, never a phrase inside it', () => {
+  assert.equal(initialismOf('UAT-UK admissions tests', 'University of the Arts London', { toEnd: true }), null, 'UAT read as University of the Arts London');
+  assert.equal(initialismOf('UAT-UK admissions tests', 'Iceland University of the Arts', { toEnd: true }), null, 'UAT read as University of the Arts (T from inside "Arts")');
+  assert.equal(initialismOf('UBC applications close', 'University of British Columbia', { toEnd: true }), 'UBC');
+  assert.equal(initialismOf('International UAS Exam', 'Laurea University of Applied Sciences', { toEnd: true }), 'UAS');
+  assert.equal(initialismOf('XJTLU closes', "Xi'an Jiaotong-Liverpool University", { toEnd: true }), 'XJTLU');
+});
+
+/* Every dated label that names an institution with no page says so in its
+   record, so the rule does not rest on the name matcher alone. */
+check('every dated label that names an institution without a page carries institutionsWithoutPage or a tie', () => {
+  const bad = allEvents(site)
+    .filter((e) => e.date && isActionable(e) && !(e.institutions || []).length && !(e.institutionsWithoutPage || []).length)
+    .filter((e) => pagelessNamed(e.destination, e.label).length)
+    .map((e) => `${e.destination} "${e.label}" names ${pagelessNamed(e.destination, e.label).join(', ')}`);
+  if (bad.length) throw new Error(bad.join('\n          '));
+});
+
+/* A date whose source gives no year is provisional (#47 round 3: the Dutch
+   1 May, rijksoverheid's and Study in NL's "1 mei", shown as confirmed). The
+   record says so with `yearUnpublished` once its source has been read; a note
+   that says the year is missing must carry the flag. */
+check('a date whose source gives no year is provisional, and says so in a field', () => {
+  const noYear = /\b(no|without a|without any|with no calendar|carries no|gives no|give no) year\b|published with no year|year here is inferred|years here are inferred/i;
+  const bad = [];
+  const look = (where, x) => {
+    if (!x || !(x.date || x.closes || x.opens)) return;
+    if (x.yearUnpublished && !x.provisional) bad.push(`${where}: yearUnpublished but not provisional`);
+    const text = [x.note, x.notes, x.year].filter(Boolean).join(' ');
+    /* `yearUnpublished: false` says the source was read and does give the
+       year, where the note's "no year" is about something else. */
+    if (noYear.test(text) && x.yearUnpublished === undefined) bad.push(`${where}: its note says the source gives no year, but yearUnpublished is not set`);
+  };
+  for (const r of site.graph.applicationRoutes.values()) for (const x of [...(r.rounds || []), ...(r.milestones || [])]) look(`${r.id}/${x.id} "${String(x.label).slice(0, 50)}"`, x);
+  for (const c of site.countries) (c.application?.deadlines || []).forEach((d, i) => look(`${c.code}.deadlines[${i}] "${String(d.label).slice(0, 50)}"`, d));
+  if (bad.length) throw new Error(`${bad.length}\n          ${bad.join('\n          ')}`);
+});
+check('every binding date comes before any soft one on a school page', () => {
+  if (bindingLate.length) throw new Error(`soft before binding on ${bindingLate.join(', ')}`);
+});
 
 /* --- Progress ------------------------------------------------------------- */
 

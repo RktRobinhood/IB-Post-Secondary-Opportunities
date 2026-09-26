@@ -98,6 +98,7 @@
         "date": { "$ref": "common.schema.json#/$defs/isoDate" },
         "kind": { "enum": ["opens", "closes", "test", "documents", "decision", "open-day"] },
         "who": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+        "supersedes": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$", "description": "\"<routeId>/<milestoneId>\" of a route date this one replaces on this institution's page, e.g. an institution that runs its own application window instead of the national one. See the same field on an Application Route milestone." },
         "url": { "$ref": "common.schema.json#/$defs/url" }
       }
     },

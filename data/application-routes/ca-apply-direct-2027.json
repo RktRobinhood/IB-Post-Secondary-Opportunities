@@ -9,6 +9,9 @@
   "milestones": [
     {
       "id": "ms-mcgill-apply",
+      "institutions": [
+        "ca-mcgill"
+      ],
       "type": "submit",
       "label": "McGill University - applications close for Fall 2027",
       "date": "2027-01-15",
@@ -20,6 +23,9 @@
     },
     {
       "id": "ms-mcgill-scholarship",
+      "institutions": [
+        "ca-mcgill"
+      ],
       "type": "submit",
       "label": "McGill - Major Entrance Scholarship application and documents",
       "date": "2027-01-21",
@@ -28,10 +34,14 @@
       "note": "McGill's IB requirements page publishes 21 January without a year. So 2027 is expected rather than confirmed. Six days after the application itself, so it is not something to start after applying.",
       "evidence": [
         "ev-mcgill-ib-2027"
-      ]
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-concordia-intl",
+      "institutions": [
+        "ca-concordia"
+      ],
       "type": "submit",
       "label": "Concordia University - recommended date for international applicants",
       "date": "2027-02-01",
@@ -52,10 +62,16 @@
       "note": "Published for September 2027 entry. Other Dalhousie programmes are considered where space is available until classes start, but the scholarship deadline is the same day.",
       "evidence": [
         "ev-dalhousie-dates-2027"
+      ],
+      "institutions": [
+        "ca-dal"
       ]
     },
     {
       "id": "ms-mcgill-docs",
+      "institutions": [
+        "ca-mcgill"
+      ],
       "type": "document",
       "label": "McGill - supporting documents due",
       "date": "2027-03-01",
@@ -64,10 +80,14 @@
       "note": "Published as 1 March without a year on McGill's IB requirements page; read as the 2027 cycle. McGill wants the school transcript with first-semester results and the predicted IB grades.",
       "evidence": [
         "ev-mcgill-ib-2027"
-      ]
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-concordia-apply",
+      "institutions": [
+        "ca-concordia"
+      ],
       "type": "submit",
       "label": "Concordia University - applications close for fall entry",
       "date": "2027-03-01",

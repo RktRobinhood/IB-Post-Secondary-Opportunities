@@ -15,7 +15,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA = path.join(ROOT, 'data');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 
 const blocking = [];
 const advisory = [];
@@ -239,7 +239,7 @@ async function main() {
   } else ok('Pages load nothing from third parties except the font stylesheet');
 
   /* --- Accessibility and journeys that must not need JavaScript ------------ */
-  const mustWorkWithoutJs = ['/programmes/index.html', '/compare/index.html', '/planner/index.html'];
+  const mustWorkWithoutJs = ['/index.html', '/compare/index.html', '/planner/index.html'];
   for (const rel of mustWorkWithoutJs) {
     const file = path.join(DIST, rel.replace(/\//g, path.sep));
     try {

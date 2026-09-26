@@ -19,11 +19,12 @@
       "timeZone": "UTC+2 (Finnish time)",
       "consequence": "hard",
       "audience": "any",
-      "note": "The national window, on Studyinfo.fi, closing at 15:00 Finnish time on 21 January. Six months before IB results, so you apply on predicted grades.",
-      "evidence": ["ev-fi-tampere-joint-application-2027", "ev-fi-jyu-joint-application-2027", "ev-fi-studyinfinland-joint-application"]
+      "note": "The national window, on Studyinfo.fi, closing at 15:00 Finnish time on 21 January. Six months before IB results, so you apply on predicted grades. Aalto, the University of Helsinki and LUT are not in it: each runs its own application (Aalto closes on 22 January, Helsinki's IB group on 23 March, LUT's rolling admission on 30 April). Åbo Akademi's bachelor's programmes are in the second joint application, in March.",
+      "evidence": ["ev-fi-studyinfo-joint-application-2027", "ev-fi-tampere-joint-application-2027", "ev-fi-jyu-joint-application-2027", "ev-fi-studyinfinland-joint-application"]
     },
     {
       "id": "ms-attachments",
+      "institutions": ["fi-jyu"],
       "type": "document",
       "label": "Attachments uploaded to Studyinfo (Jyväskylä's date)",
       "date": "2027-01-28",
@@ -33,6 +34,7 @@
     },
     {
       "id": "ms-helsinki-group-2",
+      "institutions": ["fi-uh"],
       "type": "submit",
       "label": "University of Helsinki, Admission group 2 — the IB route",
       "date": "2027-03-09",
@@ -45,6 +47,7 @@
     },
     {
       "id": "ms-predicted",
+      "institutions": ["fi-jyu"],
       "type": "document",
       "label": "Predicted IB grades entered on Studyinfo (Jyväskylä's date)",
       "date": "2027-04-01",
@@ -63,6 +66,7 @@
     },
     {
       "id": "ms-final-grades",
+      "institutions": ["fi-jyu"],
       "type": "document",
       "label": "Official final IB grades (Jyväskylä's date)",
       "date": "2027-07-13",

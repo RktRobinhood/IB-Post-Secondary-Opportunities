@@ -37,10 +37,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mjs';
-import { requirementLine, requirementModel } from '../src/lib/components.mjs';
+import { requirementLine, requirementModel, floorShort } from '../src/lib/components.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 
 let passed = 0;
 const failures = [];
@@ -110,7 +110,7 @@ const within = (tag, cls) => new RegExp(`<${tag}[^>]*class="[^"]*\\b${cls}\\b[^"
  * block should show: `allowed` (every IB text that may appear) and `required`
  * (every one that must). Without it only the structural checks run.
  */
-function faults(block, expect = null) {
+function faults(block, expect = null, { card = false } = {}) {
   const out = [];
   const ib = [...block.matchAll(classed('req-ib'))].map((m) => text(m[2]));
   const local = [...block.matchAll(classed('req-local'))].map((m) => text(m[2]));
@@ -145,7 +145,26 @@ function faults(block, expect = null) {
     if (twice.length) out.push(`"${twice[0]}" is listed twice in one list`);
   }
 
-  if (expect) {
+  if (expect && card) {
+    /* A card is one Needs line (#46 round 2): the published form stays on the
+       programme page, and whatever does not fit is counted, "+n more", never
+       silently dropped. */
+    if (local.length) out.push('a card shows the published form; it belongs on the programme page');
+    for (const p of ib) if (!expect.allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the model produces for this programme`);
+    const more = Number((block.match(/class="req__count">\+(\d+) more</) || [])[1] || 0);
+    // A "one of" shown as one option says how many others it has ("or 2 other routes").
+    const others = /class="req__others">or \d+ other/.test(block);
+    const shown = new Set(ib.map((p) => expect.alias?.get(p) || p));
+    const missing = [...expect.required].filter((p) => !shown.has(p));
+    if (missing.length && !more && !others) out.push(`"${missing[0]}" is neither shown nor counted in a "+n more"`);
+    /* Round 3: "one of: Any IB English +1 more" showed a choice of one. A
+       "one of:" names at least two options, or none. */
+    for (const m of block.matchAll(within('p', 'req__ib'))) {
+      for (const seg of text(m[1]).split(' · ').filter((x) => /one of:/.test(x))) {
+        if (!/ \/ /.test(seg)) out.push(`"${seg}" is a "one of" with a single option`);
+      }
+    }
+  } else if (expect) {
     if (!local.length) out.push('the requirement as published is not shown beside its translation');
     if (firstLocal !== -1 && (firstIb === -1 || firstLocal < firstIb)) out.push('the published form comes before the IB terms');
     for (const p of ib) if (!expect.allowed.has(p)) out.push(`"${p}" is in the IB slot but is not a phrase the model produces for this programme`);
@@ -158,13 +177,17 @@ function faults(block, expect = null) {
 function expected(entry) {
   const model = requirementModel(entry);
   const open = model.sets.filter((x) => !x.implied);
+  /* A card writes a points floor without its quota's name, "31+ IB points",
+     and may write a one-level grade short, "Any IB Maths, 5+ in Maths SL". */
+  const cardText = (x) => (x.floor ? floorShort(x.text) : x.text);
   const card = new Set();
-  for (const x of model.all) if (x.kind === 'ib') card.add(x.text);
+  const shortForms = new Set();
+  for (const x of model.all) if (x.kind === 'ib') { card.add(x.text); if (x.short) shortForms.add(x.short); }
   for (const set of open) {
     if (set.union) card.add(set.union.text);
-    else for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(x.text);
+    else for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') card.add(cardText(x));
   }
-  for (const f of model.floors) card.add(f.ib);
+  for (const f of model.floors) card.add(f.card);
 
   const detail = new Set();
   const detailText = (r) =>
@@ -177,9 +200,11 @@ function expected(entry) {
   detail.delete(null);
   // A card may show an option on its own where the union is not formed, and
   // the page shows each option: either is an honest rendering of the model.
-  const allowed = new Set([...card, ...detail]);
-  for (const set of open) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') allowed.add(x.text);
-  return { card: { allowed, required: card }, detail: { allowed, required: detail } };
+  const allowed = new Set([...card, ...detail, ...shortForms]);
+  for (const set of open) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') allowed.add(cardText(x));
+  // A card's short form stands for the full one: shown, it counts as shown.
+  const alias = new Map(model.all.filter((x) => x.short).map((x) => [x.short, x.text]));
+  return { card: { allowed, required: card, alias }, detail: { allowed, required: detail } };
 }
 
 /* --- the guard can see what it is for ----------------------------------------- */
@@ -203,6 +228,14 @@ function expected(entry) {
     '<div class="req" data-req><p><span class="req-local">As published: Mathematics A</span></p><p class="req__ib"><span class="req-ib">Maths HL (AA or AI)</span></p></div>';
   const expect = { allowed: new Set(['Maths HL (AA or AI)']), required: new Set(['Maths HL (AA or AI)']) };
   check('and refuses the published form leading', faults(blocks(flipped)[0], expect).some((f) => /comes before/.test(f)));
+
+  const cardExpect = { allowed: new Set(['Any IB English', 'Maths HL (AA or AI)']), required: new Set(['Any IB English', 'Maths HL (AA or AI)']) };
+  const cut = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> <span class="req-ib">Any IB English</span></p></div>';
+  check('a card that drops a requirement without counting it is caught', faults(blocks(cut)[0], cardExpect, { card: true }).some((f) => /neither shown nor counted/.test(f)));
+  const counted = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> <span class="req-ib">Any IB English</span> <span class="req__count">+1 more</span></p></div>';
+  check('and one that counts it passes', faults(blocks(counted)[0], cardExpect, { card: true }).length === 0, faults(blocks(counted)[0], cardExpect, { card: true }).join('; '));
+  const single = '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> one of: <span class="req-ib">Any IB English</span> <span class="req__count">+1 more</span></p></div>';
+  check('a "one of" showing a single option is caught (round 3, Crafts in Glass and Ceramics)', faults(blocks(single)[0], cardExpect, { card: true }).some((f) => /single option/.test(f)));
 }
 
 /* --- the built pages --------------------------------------------------------- */
@@ -211,15 +244,26 @@ const read = async (...parts) => {
   try { return await fs.readFile(path.join(DIST, ...parts), 'utf8'); } catch { return null; }
 };
 
-const finder = await read('programmes', 'index.html');
-const finderData = (() => {
-  const m = finder?.match(/<script type="application\/json" id="programme-data">([\s\S]*?)<\/script>/);
-  return m ? new Map(JSON.parse(m[1]).map((p) => [p.id, p])) : new Map();
+/* The finder is the home page's discovery surface (docs/research/ia/plan.md,
+   Batch D). Its cards are drawn at build time, one per programme or family. */
+const finder = await read('index.html');
+const finderIds = (() => {
+  const m = finder?.match(/<script type="application\/json" id="discover-data">([\s\S]*?)<\/script>/);
+  return m ? new Set(JSON.parse(m[1]).cards.flatMap((c) => c.members.map((x) => x.id))) : new Set();
 })();
-check('the programme finder is built and carries its data', finderData.size > 0);
+check('the discovery surface is built and carries its data', finderIds.size > 0);
 
 const instPages = new Map();
 let translatedProgrammes = 0;
+/* A programme family's card (src/lib/paths.mjs) shows each path's own grade
+   floor — "Quota 1: at least 31 IB points" — in that path's row, since the
+   paths differ there; the shared block holds what they share. A phrase a
+   path row shows counts as shown. */
+const onPaths = (exp, html) => {
+  // A row shows a short form and carries the full one in its title.
+  const rows = [...html.matchAll(/<span class="card__path-detail"(?: title="([^"]*)")?>([\s\S]*?)<\/span>/g)].map((m) => `${decode(m[1] || '')} ${text(m[2])}`).join(' | ');
+  return rows ? { ...exp, required: [...exp.required].filter((r) => !rows.includes(r)) } : exp;
+};
 const stripBlocks = (s) => s.replace(/<div[^>]*\bdata-req\b[^>]*>[\s\S]*?<\/div>/g, ' ');
 
 for (const p of programmes) {
@@ -256,25 +300,26 @@ for (const p of programmes) {
       const cb = blocks(cardHtml);
       check(`${p.id}: its card shows requirements in a data-req block`, cb.length === 1);
       for (const b of cb) {
-        const f = faults(b, expect.card);
+        const f = faults(b, onPaths(expect.card, cardHtml), { card: true });
         check(`${p.id}: institution card`, !f.length, f.join('\n        '));
       }
       check(`${p.id}: its card never prints the bare published line`, !bareLine || !text(stripBlocks(cardHtml)).includes(bareLine), bareLine);
     }
   }
 
-  // The programme finder, which the browser renders from this data as-is.
-  const row = finderData.get(p.id);
-  check(`${p.id}: is in the programme finder`, !!row);
-  if (row) {
-    const fb = blocks(row.reqHtml || '');
-    check(`${p.id}: finder row carries a data-req block`, fb.length === 1);
-    for (const b of fb) {
-      const f = faults(b, expect.card);
-      check(`${p.id}: programme finder`, !f.length, f.join('\n        '));
+  // Its card on the discovery surface (the home page).
+  check(`${p.id}: is on the discovery surface`, finderIds.has(p.id));
+  const homeRe = new RegExp(`<article class="card[^"]*"[^>]*>(?:(?!<\\/article>)[\\s\\S])*?/programmes/${esc(p.id)}/(?:(?!<\\/article>)[\\s\\S])*?<\\/article>`);
+  const homeCard = finder?.match(homeRe)?.[0];
+  check(`${p.id}: has a card on the discovery surface`, !!homeCard);
+  if (homeCard) {
+    const hb = blocks(homeCard);
+    check(`${p.id}: its discovery card shows requirements in a data-req block`, hb.length === 1);
+    for (const b of hb) {
+      const f = faults(b, onPaths(expect.card, homeCard), { card: true });
+      check(`${p.id}: discovery card`, !f.length, f.join('\n        '));
     }
-    check(`${p.id}: finder row has no bare requirements string`, !row.requirements || !BARE.test(row.requirements), row.requirements);
-    BARE.lastIndex = 0;
+    check(`${p.id}: its discovery card never prints the bare published line`, !bareLine || !text(stripBlocks(homeCard)).includes(bareLine), bareLine);
   }
 }
 check('there are programmes with local-scale requirements to check', translatedProgrammes > 0);

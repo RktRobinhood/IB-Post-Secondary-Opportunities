@@ -12,7 +12,7 @@ import { findPromises } from './lib/no-promises.mjs';
 import { EXT as IMAGE_EXT, conforms, probeWebp } from './lib/image-standard.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIST = path.join(ROOT, 'dist');
+const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
 const CHECK_EXTERNAL = process.argv.includes('--external');
 
 const fails = [];

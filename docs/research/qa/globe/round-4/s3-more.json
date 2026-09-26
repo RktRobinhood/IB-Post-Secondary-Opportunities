@@ -1,0 +1,211 @@
+{
+ "mid": {
+  "0.5": {
+   "lat": 26.93,
+   "lon": 12.83,
+   "alt": 2.592,
+   "pitch": 0,
+   "close": false,
+   "desk": 0.48947
+  },
+  "0.55": {
+   "lat": 29.72,
+   "lon": 12.83,
+   "alt": 1.898,
+   "pitch": 4.4,
+   "close": false,
+   "desk": 0
+  },
+  "0.6": {
+   "lat": 33.89,
+   "lon": 12.83,
+   "alt": 1.192,
+   "pitch": 24.1,
+   "close": false,
+   "desk": 0
+  },
+  "0.65": {
+   "lat": 39.71,
+   "lon": 12.83,
+   "alt": 0.623,
+   "pitch": 37.9,
+   "close": false,
+   "desk": 0
+  }
+ },
+ "wheel": {
+  "before": {
+   "lat": 24,
+   "lon": 34.25,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": 1
+  },
+  "sy0": 0,
+  "afterOut": {
+   "lat": 24,
+   "lon": 45.47,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": 1
+  },
+  "sy1": 720,
+  "afterIn": {
+   "lat": 24,
+   "lon": 58.28,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": 1
+  },
+  "sy2": 0
+ },
+ "reduced": {
+  "rest": {
+   "lat": 24,
+   "lon": 24.94,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": 1
+  },
+  "idleSpin": null,
+  "restLater": {
+   "lat": 24,
+   "lon": 24.94,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": 1
+  },
+  "afterGroup250": {
+   "lat": 55.41,
+   "lon": 12.83,
+   "alt": 0.108,
+   "pitch": 40,
+   "close": false,
+   "desk": 0
+  },
+  "afterGroup": {
+   "lat": 55.41,
+   "lon": 12.83,
+   "alt": 0.073,
+   "pitch": 40,
+   "close": true,
+   "desk": 0
+  },
+  "ms": 3000,
+  "back": {
+   "lat": 24,
+   "lon": 24.94,
+   "alt": 3.594,
+   "pitch": 0,
+   "close": false,
+   "desk": 1
+  },
+  "phonePin": {
+   "pin": {
+    "id": "ae",
+    "x": 275.8999938964844,
+    "y": 406.3031311035156
+   },
+   "at300": {
+    "lat": 16.26,
+    "lon": 55.16,
+    "alt": 0.32,
+    "pitch": 40,
+    "close": false,
+    "desk": 0
+   },
+   "end": {
+    "lat": 16.26,
+    "lon": 55.16,
+    "alt": 0.32,
+    "pitch": 40,
+    "close": false,
+    "desk": 0
+   }
+  }
+ },
+ "/countries/": {
+  "target": {
+   "n": 17,
+   "x": 621.7999877929688,
+   "y": 220.67813110351562
+  },
+  "end": {
+   "lat": 46.57,
+   "lon": 7.02,
+   "alt": 0.364,
+   "pitch": 40,
+   "close": false,
+   "desk": 0
+  },
+  "frameStats": {
+   "n": 292,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 50.2,
+   "max": 83.4,
+   "over50": 3,
+   "long": [
+    {
+     "at": 2259,
+     "ms": 65
+    },
+    {
+     "at": 2324,
+     "ms": 54
+    },
+    {
+     "at": 2379,
+     "ms": 54
+    }
+   ]
+  }
+ },
+ "/destinations/nl/": {
+  "target": {
+   "n": 15,
+   "x": 665,
+   "y": 237.9375
+  },
+  "end": {
+   "lat": 51.4,
+   "lon": 5.58,
+   "alt": 0.054,
+   "pitch": 40,
+   "close": true,
+   "desk": 0
+  },
+  "frameStats": {
+   "n": 282,
+   "p50": 16.7,
+   "p95": 16.8,
+   "p99": 66.7,
+   "max": 83.5,
+   "over50": 5,
+   "long": [
+    {
+     "at": 3039,
+     "ms": 74
+    },
+    {
+     "at": 4344,
+     "ms": 79
+    },
+    {
+     "at": 4423,
+     "ms": 66
+    },
+    {
+     "at": 4491,
+     "ms": 63
+    }
+   ]
+  }
+ },
+ "logs": []
+}

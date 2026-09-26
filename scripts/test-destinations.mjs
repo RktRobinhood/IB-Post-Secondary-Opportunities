@@ -348,8 +348,10 @@ await checkAsync('the institution and Programme templates hard-code no Destinati
     ]
       .map((m) => m[0])
       // The Programme explorer, the subject checker and the calendar are their
-      // own top-level navigation items and are nobody's Destination.
-      .filter((s) => !/^section:\s*['"]\/(programmes|planner|timeline|prepare|countries)\/['"]$/.test(s));
+      // own top-level navigation items and are nobody's Destination; so is
+      // "Find a degree", which since the home page became the discovery
+      // surface is the home page's own #discover.
+      .filter((s) => !/^section:\s*['"]\/((programmes|planner|timeline|prepare|countries)\/|#discover)['"]$/.test(s));
     assert.deepEqual(
       suspects,
       [],

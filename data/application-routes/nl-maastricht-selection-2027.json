@@ -21,6 +21,7 @@
       "consequence": "rolling",
       "note": "Maastricht states applications open on 1 October and, for University College Maastricht, are reviewed on a rolling basis from then — so applying in October is materially different from applying in March.",
       "evidence": [
+        "ev-studielink-2027-2028-dates",
         "ev-um-nl-ucm"
       ]
     },
@@ -94,6 +95,20 @@
       ]
     },
     {
+      "id": "ms-maths-syllabus-noneu",
+      "type": "document",
+      "label": "Data Science and AI maths syllabus due, non-EU/EEA (only if Maastricht asks)",
+      "date": "2027-05-01",
+      "timeOfDay": "23:59",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "audience": "non-eu",
+      "note": "Only if Maastricht tells you your mathematics falls short: a syllabus for its mathematics sufficiency check. EU/EEA and Swiss applicants: 1 June.",
+      "evidence": [
+        "ev-um-nl-dsai"
+      ]
+    },
+    {
       "id": "ms-ib-ranking",
       "type": "result",
       "label": "International Business ranking number published",
@@ -110,15 +125,16 @@
     {
       "id": "ms-maths-syllabus",
       "type": "document",
-      "label": "Mathematics sufficiency check: syllabus deadline (only if Maastricht asks)",
+      "label": "Data Science and AI maths syllabus due, EU/EEA and Swiss (only if Maastricht asks)",
       "date": "2027-06-01",
       "timeOfDay": "23:59",
       "timeZone": "CET",
       "consequence": "hard",
-      "note": "Maastricht’s deadline for EU/EEA and Swiss applicants to submit a syllabus for the mathematics sufficiency check - only if it tells you your mathematics falls short of the requirement. A shortfall is a process rather than a refusal, and it must be cleared before the first year starts.",
+      "note": "Only if Maastricht tells you your mathematics falls short: a syllabus for its mathematics sufficiency check. A shortfall is a process rather than a refusal, and it must be cleared before the first year starts. Non-EU/EEA applicants: 1 May.",
       "evidence": [
         "ev-um-nl-dsai"
-      ]
+      ],
+      "audience": "eu-eea-ch"
     },
     {
       "id": "ms-enrolment",

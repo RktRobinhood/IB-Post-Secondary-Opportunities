@@ -20,7 +20,9 @@
       "note": "There is no later round for IB holders. The 5 July deadline that Danish-qualified applicants use does not apply to you.",
       "evidence": [
         "ev-ufsn-adgang-frister"
-      ]
+      ],
+      "provisional": true,
+      "yearUnpublished": true
     }
   ],
   "milestones": [
@@ -39,13 +41,15 @@
     {
       "id": "ms-ibis",
       "type": "document",
-      "label": "Ask your IB coordinator to register you for the IB results service",
+      "label": "Have your IB coordinator register you for IB results",
       "date": "2027-03-01",
       "consequence": "personal",
       "note": "Not an official deadline, but results must be authorised to travel before the documentation deadline. Get a receipt. Institution codes: Copenhagen 002600, Aarhus 000150, Aalborg 000148, Southern Denmark 000157.",
       "evidence": [
         "ev-ufsn-adgang-frister"
-      ]
+      ],
+      "provisional": true,
+      "yearUnpublished": true
     },
     {
       "id": "ms-submit",
@@ -59,7 +63,9 @@
       "note": "Twelve noon, not midnight. Applies to every applicant with an international or IB qualification, whether the diploma was earned in Denmark or abroad, and whether you are aiming at quota 1 or quota 2.",
       "evidence": [
         "ev-ufsn-adgang-frister"
-      ]
+      ],
+      "provisional": true,
+      "yearUnpublished": true
     },
     {
       "id": "ms-signature",
@@ -72,7 +78,27 @@
       "note": "With MitID you sign inside optagelse.dk. Without MitID, print the signature page, sign it by hand and email or post it to every institution you apply to. Never uploaded. The application is not complete without it.",
       "evidence": [
         "ev-ufsn-adgang-frister"
-      ]
+      ],
+      "provisional": true,
+      "yearUnpublished": true
+    },
+    {
+      "id": "ms-sdu-unitest",
+      "institutions": [
+        "dk-sdu"
+      ],
+      "type": "test",
+      "label": "SDU uniTEST registration closes",
+      "date": "2027-03-20",
+      "timeOfDay": "12:00",
+      "timeZone": "CET",
+      "consequence": "hard",
+      "provisional": true,
+      "note": "SDU's admission test, used for quota 2 on nearly all its programmes. You register after you have applied. SDU publishes the day and month without a year. The 2027 test itself is on 17-18 April (Odense) or 20-25 April (online).",
+      "evidence": [
+        "ev-sdu-dk-frister-2027"
+      ],
+      "yearUnpublished": true
     },
     {
       "id": "ms-documents",
@@ -85,7 +111,9 @@
       "note": "Priorities can be reordered until 12:00. Documentation deadlines are set by each institution: Aarhus and Aalborg accept documents until 5 July, Copenhagen wants them with the application on 15 March, and some academies set 1 April. Check each one you list.",
       "evidence": [
         "ev-ufsn-adgang-frister"
-      ]
+      ],
+      "provisional": true,
+      "yearUnpublished": true
     },
     {
       "id": "ms-results",
@@ -110,7 +138,9 @@
       "note": "Every programme's cut-off average is published the same day. Vacant places appear in the same week.",
       "evidence": [
         "ev-ufsn-adgang-frister"
-      ]
+      ],
+      "provisional": true,
+      "yearUnpublished": true
     },
     {
       "id": "ms-reply",
@@ -119,10 +149,27 @@
       "date": "2027-08-02",
       "consequence": "hard",
       "provisional": true,
-      "note": "Set by each institution, a few days after offers. In 2026: Copenhagen 2 August, Southern Denmark 3 August, Aalborg 5 August. Dated here at the earliest known.",
+      "note": "Set by each institution, a few days after offers: check the date in your offer. In 2026: Copenhagen 2 August, Southern Denmark 3 August, Aalborg 5 August. Dated here at the earliest known; a school that publishes its own date shows that instead.",
       "evidence": [
         "ev-ufsn-adgang-frister"
       ]
+    },
+    {
+      "id": "ms-sdu-reply",
+      "institutions": [
+        "dk-sdu"
+      ],
+      "type": "reply",
+      "label": "SDU: accept your place",
+      "date": "2027-08-03",
+      "consequence": "hard",
+      "provisional": true,
+      "supersedes": "dk-optagelse-international-2027/ms-reply",
+      "note": "SDU: \"you must confirm your admission via sdu.dk/admission by 3 August to secure your place\". Published without a year.",
+      "evidence": [
+        "ev-sdu-dk-frister-2027"
+      ],
+      "yearUnpublished": true
     }
   ],
   "submissionItems": [

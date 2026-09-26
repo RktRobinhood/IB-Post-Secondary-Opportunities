@@ -51,6 +51,9 @@
     "deadlines": [
       {
         "label": "CEU (Vienna) bachelor’s - round 1 of four",
+        "institutions": [
+          "hu-ceu"
+        ],
         "date": "2026-10-15",
         "timeOfDay": "23:59",
         "timeZone": "CET",
@@ -62,6 +65,9 @@
       },
       {
         "label": "Corvinus applications open for 2027/28",
+        "institutions": [
+          "hu-corvinus"
+        ],
         "date": null,
         "dateState": "not-yet-announced",
         "consequence": "indicative",
@@ -75,6 +81,9 @@
       },
       {
         "label": "University of Debrecen - application closes for the February 2027 intake",
+        "institutions": [
+          "hu-ud"
+        ],
         "date": "2026-11-01",
         "consequence": "hard",
         "provisional": false,
@@ -85,6 +94,9 @@
       },
       {
         "label": "University of Pécs - applications open for 2027/28",
+        "institutions": [
+          "hu-pte"
+        ],
         "date": "2026-11-01",
         "consequence": "indicative",
         "provisional": false,
@@ -94,16 +106,23 @@
       },
       {
         "label": "University of Veterinary Medicine Budapest - rolling application window",
+        "institutions": [
+          "hu-univet"
+        ],
         "date": "2027-01-01",
         "endDate": "2027-06-30",
         "consequence": "rolling",
         "provisional": true,
         "year": "annual standing rule, applied to 2027",
         "notes": "Published as a standing rule with no year: \"Applications are accepted on a rolling basis from 1st January until 30th June (in cases of vacancies later)\"; the year here is inferred from the intake this profile covers. Decisions are made on a rolling basis through the window, so an early application is a better one. Entrance examinations are arranged online between March and July, with \"further rounds of entrance examinations organized in August depending on the number of vacancies\" - a real second chance, but one that depends on other people turning places down. An applicant still in the final year of school may apply, but the school leaving certificate must be presented before enrolment.",
-        "source": "https://univet.hu/en/education/admission/application/application-and-admission-requirements/"
+        "source": "https://univet.hu/en/education/admission/application/application-and-admission-requirements/",
+        "yearUnpublished": true
       },
       {
         "label": "CEU (Vienna) bachelor’s - round 2 of four",
+        "institutions": [
+          "hu-ceu"
+        ],
         "date": "2027-02-02",
         "timeOfDay": "23:59",
         "timeZone": "CET",
@@ -129,6 +148,9 @@
       },
       {
         "label": "University of Pécs - entrance exams, every Wednesday",
+        "institutions": [
+          "hu-pte"
+        ],
         "date": "2027-03-03",
         "endDate": "2027-07-14",
         "consequence": "indicative",
@@ -142,6 +164,9 @@
       },
       {
         "label": "CEU (Vienna) bachelor’s - round 3 of four",
+        "institutions": [
+          "hu-ceu"
+        ],
         "date": "2027-04-15",
         "timeOfDay": "23:59",
         "timeZone": "CET",
@@ -153,6 +178,9 @@
       },
       {
         "label": "University of Debrecen - application closes for September 2027",
+        "institutions": [
+          "hu-ud"
+        ],
         "date": "2027-05-15",
         "consequence": "hard",
         "provisional": false,
@@ -162,6 +190,9 @@
       },
       {
         "label": "Corvinus - applications close for September 2027",
+        "institutions": [
+          "hu-corvinus"
+        ],
         "date": null,
         "dateState": "not-yet-announced",
         "consequence": "hard",
@@ -172,6 +203,9 @@
       },
       {
         "label": "Semmelweis University - application closes for autumn 2027",
+        "institutions": [
+          "hu-semmelweis"
+        ],
         "date": "2027-05-31",
         "consequence": "hard",
         "provisional": false,
@@ -181,6 +215,9 @@
       },
       {
         "label": "University of Szeged - application deadline",
+        "institutions": [
+          "hu-szte"
+        ],
         "date": null,
         "dateState": "not-yet-announced",
         "consequence": "hard",
@@ -191,6 +228,9 @@
       },
       {
         "label": "University of Pécs - application closes for September 2027",
+        "institutions": [
+          "hu-pte"
+        ],
         "date": "2027-06-30",
         "consequence": "hard",
         "provisional": false,
@@ -203,6 +243,9 @@
       },
       {
         "label": "CEU (Vienna) bachelor’s - round 4 of four",
+        "institutions": [
+          "hu-ceu"
+        ],
         "date": "2027-07-15",
         "timeOfDay": "23:59",
         "timeZone": "CET",
@@ -214,6 +257,9 @@
       },
       {
         "label": "Corvinus - final diplomas, certificates and proof of English due",
+        "institutions": [
+          "hu-corvinus"
+        ],
         "date": "2027-08-01",
         "consequence": "hard",
         "provisional": true,
@@ -222,17 +268,22 @@
         "source": "https://www.uni-corvinus.hu/post/landing-page/application/admissions-requirements/?lang=en",
         "sources": [
           "https://www.uni-corvinus.hu/post/landing-page/application/application-information/?lang=en"
-        ]
+        ],
+        "yearUnpublished": true
       },
       {
         "label": "Semmelweis - upload your IB Diploma",
+        "institutions": [
+          "hu-semmelweis"
+        ],
         "date": "2027-08-21",
         "consequence": "hard",
         "provisional": true,
         "year": "2027 entry, inferred from an undated annual rule",
         "audience": "applicants who applied before their diploma was issued",
         "notes": "Published as \"the 21st of August the year of application\", with no year; the year here is inferred from the intake this profile covers. Semmelweis lets you apply and sit the entrance exam while still in your final year - \"Those who have not yet received this certificate can also submit their application and take the entrance examination\" - but \"The final deadline for uploading the Matriculation Certificate is the 21st of August.\" Your IB Diploma is issued in early July, so the gap is about six weeks; the risk is not the date but forgetting the step exists.",
-        "source": "https://semmelweis.hu/admission/programs/medicine/"
+        "source": "https://semmelweis.hu/admission/programs/medicine/",
+        "yearUnpublished": true
       }
     ],
     "steps": [

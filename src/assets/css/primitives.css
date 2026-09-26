@@ -361,6 +361,10 @@
 .world__callout-count { font-variant-numeric: tabular-nums; }
 .world__callout-cue { display: block; color: var(--ink-mute); }
 
+/* A folded list (worldWindow foldList): one line until opened. */
+.world__fold { margin-top: var(--s3); }
+.world__fold > summary { cursor: pointer; min-height: 24px; font-size: .875rem; color: var(--ink-soft); }
+.world__fold[open] > summary { margin-bottom: var(--s2); }
 .world__list {
   list-style: none;
   margin: 0;
@@ -434,9 +438,13 @@
  * fixed light-on-dark values rather than the theme's ink. The card and the
  * buttons are the site's own surfaces and follow the theme like any other.
  */
-.world[data-globe]:not([data-globe="off"]) .world__stage {
-  background: radial-gradient(120% 100% at 50% 110%, #0b1426, #03050b 70%);
-  border-color: var(--rule-strong);
+/* Once the globe is drawing it floats on the page (the owner's art direction,
+   round 4): no box, no night sky — the page's own paper, with the globe's halo
+   and ground shadow drawn by the globe itself. The flat first paint keeps its
+   framed panel until then. */
+.world[data-globe="on"] .world__stage {
+  background: transparent;
+  border-color: transparent;
 }
 .world__globe {
   position: absolute;
@@ -555,6 +563,51 @@
   pointer-events: none;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
 }
+/* The route between two choices and the vehicle on it (globe.js drawRoute):
+   the way already travelled is a solid trail, the way ahead dotted; paper on
+   an ink under-shadow so it reads on ocean, land and cloud alike. */
+.world__route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1.5px rgba(26, 22, 19, .55));
+}
+.world__route path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.world__route-done { stroke: var(--pin-ring); stroke-width: 2.5; }
+.world__route-left { stroke: var(--pin-ring); stroke-width: 3; stroke-dasharray: .5 7; }
+.world__vehicle path, .world__vehicle circle { fill: var(--pin-hot); stroke: var(--pin-ring); stroke-width: 1.3; paint-order: stroke; }
+.world__vehicle .world__vehicle-window { fill: var(--pin-ring); stroke: none; }
+/* The desk globe's ring and stand (globe.js drawDesk): brass and wood with a
+   cartoon ink line, in globe radii (so strokes are fractions of a radius). The
+   layer sits under the globe's canvas. Only
+   while the globe is drawing: the flat first paint has no stand. */
+.world__desk {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  display: none;
+}
+.world[data-globe="on"] .world__desk { display: block; }
+.world__desk-shine { stop-color: #F7DC8E; }
+.world__desk-metal { stop-color: #D3A13C; }
+.world__desk-deep { stop-color: #9A6A22; }
+.world__desk-band { fill: none; stroke-width: .06; }
+.world__desk-ink { fill: none; stroke: #3A2A18; stroke-width: .011; }
+.world__desk-ticks { fill: none; stroke: #3A2A18; stroke-width: .008; stroke-opacity: .55; }
+.world__desk-metal-fill { stroke: #3A2A18; stroke-width: .011; }
+.world__desk-wood { fill: #8A5530; stroke: #3A2A18; stroke-width: .011; }
+.world__desk-wood--top { fill: #A96C3B; }
+.world__desk-shadow { fill: rgba(26, 22, 19, .22); stroke: none; }
+:root[data-theme="dark"] .world__desk-shadow { fill: rgba(0, 0, 0, .45); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .world__desk-shadow { fill: rgba(0, 0, 0, .45); } }
+/* A label that would run off the stage's right edge goes to the left. */
+.world__pin[data-flip] .world__pin-label { left: auto; right: calc(var(--r) + 5px); }
 .world__pin[data-label] .world__pin-label,
 .world__pin[data-on] .world__pin-label { display: block; }
 .world__pin[data-on] .world__pin-label { background: rgba(6, 10, 18, .9); box-shadow: 0 0 0 1px var(--pin-hot); }
@@ -628,7 +681,17 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  /* The space is the paper's own tone while the photograph loads, not a
+     blank grey box (round 3). */
+  background: var(--paper-3);
 }
+/* Folded while the camera travels on a phone (globe.js foldCard): title and
+   way on only, so the dive is seen, not hidden behind the sheet. */
+.world__card[data-collapsed] .world__card-img,
+.world__card[data-collapsed] .world__card-meta,
+.world__card[data-collapsed] .world__card-cue,
+.world__card[data-collapsed] .world__card-where,
+.world__card[data-collapsed] .world__card-list { display: none; }
 .world__card-title { margin: 0 0 .25rem; padding-right: 1.75rem; font-size: 1.05rem; line-height: 1.25; }
 .world__card-img + .world__card-title { padding-right: 0; }
 .world__card-title:focus { outline: none; }
@@ -679,7 +742,7 @@
   bottom: var(--s1);
   margin: 0;
   font-size: var(--type-floor);
-  color: rgba(243, 236, 224, .6);
+  color: var(--ink-mute);
 }
 .world__credit a { color: inherit; text-decoration: none; }
 .world__credit a:hover { text-decoration: underline; }
@@ -1228,6 +1291,8 @@
     padding-inline: var(--s4);
   }
   .cal-chip { flex: none; scroll-snap-align: start; }
+  /* Nothing chosen yet: the chips are the whole page, so all of them show. */
+  .cal-scope[data-chosen="false"] .cal-chips { flex-wrap: wrap; overflow-x: visible; }
 }
 .cal-chip { position: relative; align-items: center; white-space: nowrap; }
 /* The box is the state, the chip is the target: the checkbox stays in the
@@ -1417,4 +1482,74 @@
   .set__row > summary { grid-template-columns: minmax(0, 1fr) auto; row-gap: 2px; }
   .set__fee { grid-column: 1 / -1; grid-row: 2; font-size: .875rem; }
   .set__more > div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
+
+/* =========================================================================
+   Deadlines & sessions: one school's dates, beside the school
+   (src/lib/school-dates.mjs). On a wide screen it takes the top of the side
+   column and the page's own aside sits under it; on a phone it comes first,
+   before the prose, as a short block: three dates, the rest one tap away.
+   ========================================================================= */
+
+.dates-panel {
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  padding: var(--s4);
+  font-size: .9375rem;
+}
+.dates-panel__title { font-size: 1.0625rem; margin: 0 0 var(--s3); }
+.dates-panel__sub {
+  font: 600 .75rem/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink-mute); margin: var(--s4) 0 var(--s2);
+}
+.dates-panel__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+.dates-panel__item { padding-bottom: var(--s3); border-bottom: 1px solid var(--rule); }
+.dates-panel__list > .dates-panel__item:last-child { border-bottom: 0; padding-bottom: 0; }
+.dates-panel__item > p { margin: 0; }
+/* The older school panel in site.css rules a line above every item; this
+   panel rules one below, so one of the two goes. */
+.dates-panel .dates-panel__list > li { border-top: 0; padding-top: 0; display: block; }
+.dates-panel__when { font-weight: 650; color: var(--ink); }
+.dates-panel__what { color: var(--ink); line-height: 1.4; }
+.dates-panel__meta { margin-top: 2px !important; font-size: .8125rem; color: var(--ink-mute); }
+/* The whole note: it is already behind its own "Note" disclosure, so opening
+   it shows all of it rather than a clipped two lines. */
+.dates-panel__note { font-size: .875rem; color: var(--ink-soft); line-height: 1.45; margin: var(--s1) 0 0; }
+/* A date carried over or inferred says so on its date line, as /timeline/ does. */
+.dates-panel__prov { font-weight: 400; color: var(--warn); }
+.dates-panel__src { font-size: .8125rem; }
+/* One row under each date: what missing it costs, the note behind a
+   disclosure, and the source. Three short lines a date on a phone (about
+   90px), not five. An opened note takes a line of its own under the row. */
+.dates-panel__foot {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--s3); row-gap: 0;
+  margin-top: 2px; font-size: .8125rem;
+}
+.dates-panel__foot > .timeline__badge { margin: 0; }
+/* Links a thumb has to hit: 24px tall at least (WCAG 2.5.8). The older school
+   panel's rule in site.css strips the underline from every link in the list;
+   these are links and look like links. */
+.dates-panel .dates-panel__foot > .dates-panel__src,
+.dates-panel .dates-panel__more a {
+  display: inline-flex; align-items: center; min-height: 24px; min-width: 24px;
+  color: var(--accent-2); text-decoration: underline; text-underline-offset: 2px;
+}
+/* A date's note is one tap away: the same country-wide line on every school. */
+.dates-panel__why { font-size: .8125rem; }
+.dates-panel__why > summary { cursor: pointer; color: var(--ink-mute); width: max-content; min-height: 24px; line-height: 24px; }
+.dates-panel__why[open] { order: 1; flex-basis: 100%; }
+.dates-panel__why[open] > summary { color: var(--ink-soft); }
+.dates-panel__all { margin-top: var(--s3); border-top: 1px solid var(--rule); padding-top: var(--s3); }
+.dates-panel__all > summary { cursor: pointer; font-weight: 600; color: var(--accent-2); }
+.dates-panel__all > .dates-panel__list { margin-top: var(--s3); }
+.dates-panel__empty { margin: 0; color: var(--ink-soft); }
+.dates-panel__more { margin: var(--s4) 0 0; font-size: .875rem; }
+
+@media (min-width: 62rem) {
+  .layout-aside--dates { grid-template-rows: auto 1fr; }
+  .layout-aside--dates > .dates-panel { grid-column: 2; grid-row: 1; }
+  .layout-aside--dates > :not(.dates-panel):not(.layout-aside__side) { grid-column: 1; grid-row: 1 / span 2; }
+  .layout-aside--dates > .layout-aside__side { grid-column: 2; grid-row: 2; }
 }
