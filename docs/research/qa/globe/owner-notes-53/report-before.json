@@ -1,0 +1,51 @@
+{
+  "console": [],
+  "home-200ms": {
+    "svgMaps": 57,
+    "stageChildren": [
+      {},
+      "world__data"
+    ],
+    "globe": "loading"
+  },
+  "countries-200ms": {
+    "svgMaps": 37,
+    "stageChildren": [
+      {},
+      "world__data"
+    ],
+    "globe": "waiting"
+  },
+  "shots": [
+    {
+      "file": "00-before-home-desk-light-200ms.jpg",
+      "kB": 129,
+      "what": "/ 200 ms after navigation, before this change: the flat map is the first paint"
+    },
+    {
+      "file": "00-before-home-desk-light-load.jpg",
+      "kB": 134,
+      "what": "/ at the load event, before this change"
+    },
+    {
+      "file": "00-before-home-desk-light-globe.jpg",
+      "kB": 135,
+      "what": "/ once the globe has replaced it, before this change"
+    },
+    {
+      "file": "00-before-countries-desk-light-200ms.jpg",
+      "kB": 121,
+      "what": "/countries/ 200 ms after navigation, before this change: the flat map is the first paint"
+    },
+    {
+      "file": "00-before-countries-desk-light-load.jpg",
+      "kB": 120,
+      "what": "/countries/ at the load event, before this change"
+    },
+    {
+      "file": "00-before-countries-desk-light-globe.jpg",
+      "kB": 81,
+      "what": "/countries/ once the globe has replaced it, before this change"
+    }
+  ]
+}

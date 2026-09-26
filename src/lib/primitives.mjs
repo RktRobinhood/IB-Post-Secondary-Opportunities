@@ -14,8 +14,6 @@
 import { html, raw, md, truncate, plural, slugify } from './html.mjs';
 import { url } from './layout.mjs';
 import { formatWhen, consequenceOf, isClosed, READER_ACCESS } from './calendar.mjs';
-import fsSync from 'node:fs';
-import nodePath from 'node:path';
 
 /* ========================================================================
    Art direction
@@ -68,36 +66,38 @@ export function patternLayer(pattern) {
   return raw(`<div class="pattern pattern--${pattern}" aria-hidden="true"></div>`);
 }
 
-/* The basemap ships as data and is drawn at build time, so the world window
-   stays inline SVG with no dependencies: it works with JavaScript off, at 200%
-   zoom and with a keyboard. Regenerate with `npm run basemap`. */
-const BASEMAP = JSON.parse(
-  fsSync.readFileSync(nodePath.join(import.meta.dirname, '..', '..', 'data', 'geo', 'countries.json'), 'utf8')
-);
-
 /* ========================================================================
-   WorldWindow — geographic overview with a static fallback
+   WorldWindow — the globe, and the list it is drawn from
    ======================================================================== */
 
 /**
- * A cropped band of the world with a light for each place that has
- * opportunities in view. Renders as an inline SVG with no dependencies, so it
- * works with JavaScript off, at 200% zoom, and with a keyboard.
+ * The places a page holds, as a list — and, where the browser can draw it, as
+ * the globe drawn from that list (ADR 0005, ADR 0007).
  *
- * The markers are a picture of the list, and are marked as one: they are not
- * focusable and carry no accessible name of their own, because the list right
- * underneath already names every place, counts it, and is a real control. Two
- * tab stops for the same place, the second one less informative than the first,
- * would be a worse map and a worse page. `assets/js/map.js` reads the geometry
- * off these markers to light them, group them and move the camera; everything
- * it offers is reachable from the list or from the buttons it adds.
+ * **There is no build-time map any more.** Until 26 September 2026 this wrote
+ * an inline SVG flat map that was the first paint, the no-JavaScript map and
+ * the no-WebGL map, and `assets/js/map.js` cross-faded it out under the globe.
+ * The owner saw it flash before every globe and asked for it to go (issue
+ * #53, ADR 0007). What this writes now:
+ *
+ *   - an empty, transparent stage the size the globe will be, so nothing on
+ *     the page moves when it lands, and nothing different is drawn first;
+ *   - the places as JSON for the globe (`world__data`);
+ *   - the list, which is the control and the source of truth, and which is
+ *     the whole of the world window where the globe cannot run (no
+ *     JavaScript, no WebGL, a software renderer): primitives.css hides the
+ *     stage and shows the one line `world__off` instead.
+ *
+ * The pins are a picture of the list and nothing but: not focusable, no name
+ * of their own. Everything a pin does, its list entry does.
  *
  * @param {object} o
  * @param {Array}  o.places   [{ id, name, lat, lon, count, href, precision, state }]
  *                            `state` is a short, record-derived confidence cue —
  *                            the wording is the caller's, because this file does
  *                            not know what kind of record a place stands for.
- * @param {object} [o.bounds] { north, south, west, east } — defaults to Europe
+ * @param {object} [o.bounds] { north, south, west, east } — a region the page
+ *                            is about, which the globe frames (`data-frame`)
  * @param {string} [o.caption]
  * @param {string} [o.activeLayer] what the lights currently mean
  * @param {string} [o.unit]   what `count` counts, singular ("programme"), for
@@ -105,69 +105,23 @@ const BASEMAP = JSON.parse(
  *
  * A place may also carry `country` (the ISO code of the Destination it sits in,
  * so the globe can total a country without guessing from a raster), `image`
- * (a picture the page already shows of it) and `external` (its `href` leaves
- * the site). All three are optional and none of them changes the SVG.
- *
- * **The SVG is the first paint and the fallback, not the map.** Since ADR 0005
- * `assets/js/map.js` replaces it with a WebGL globe once the figure is near the
- * viewport and WebGL is there. The globe reads the places from the JSON block
- * this writes, not from the markers, because it needs every place — a place
- * outside the flat frame is still somewhere on a sphere.
- */
-/*
- * A note on `preserveAspectRatio="xMidYMid slice"`, since it decides the shape
- * of every map on the site.
- *
- * The panel is a window onto the projection, and a narrow window should show a
- * taller, narrower piece of it rather than the same wide piece made small. With
- * the default `meet`, a 375px phone got the whole 1000x420 frame scaled to
- * 343x145 — a letterbox, and because everything inside is authored in viewBox
- * units, the hit circle authored at "the size of a fingertip" rendered at 14px.
- *
- * With `slice` the panel keeps whatever height the stylesheet gives it and
- * gives up the sides instead. For a Europe frame what it gives up is Atlantic.
+ * (a picture the page already shows of it), `external` (its `href` leaves
+ * the site) and `schools` — for a light that stands for a whole country, the
+ * institutions inside it that have their own position, as
+ * [{ id, name, lat, lon, href, city }]. The globe shows those as their own
+ * dots once the camera is close enough to that country (country → schools).
  */
 export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '' }) {
-  const W = 1000;
-  const H = 420;
-  const view = frameFor(bounds || boundsFor(places), W / H);
-
-  const project = (lat, lon) => ({
-    x: ((lon - view.x0) / (view.x1 - view.x0)) * W,
-    y: ((view.y1 - mercatorY(lat)) / (view.y1 - view.y0)) * H,
-  });
-
-  const maxCount = Math.max(1, ...places.map((p) => p.count || 1));
   const dots = places
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
-    .map((p) => {
-      const { x, y } = project(p.lat, p.lon);
-      // Size communicates how much is here, never prestige.
-      const r = 4 + Math.sqrt((p.count || 1) / maxCount) * 9;
-      return { ...p, x, y, r, offscreen: x < -2 || x > W + 2 || y < -2 || y > H + 2 };
-    })
-    // Draw order only: a big light behind a small one keeps the small one
-    // visible. It is not a fix for two places in the same bay — that is what
-    // the grouping in map.js is for.
-    .sort((a, b) => b.r - a.r);
+    // The list's order: the biggest first, as the lights were always drawn.
+    .sort((a, b) => (b.count || 0) - (a.count || 0));
 
-  // A place outside the frame used to be clamped to the edge, which put a
-  // marker in the wrong country and said nothing about it. With a coastline
-  // underneath, that is a lie rather than an approximation, so it is not drawn.
-  // It stays in the list, which is the source of truth and must not lose a
-  // place because of where the camera happens to be, and the caption says so.
-  const plotted = dots.filter((d) => !d.offscreen);
-  const hidden = dots.length - plotted.length;
-  const land = landPaths(view, W, H);
-
-  // How exactly this light is placed, in one phrase, written once. The marker
+  // How exactly this light is placed, in one phrase, written once. The pin
   // carries it and so does the list entry, because the reader who cannot hover
-  // needs it as much as the one who can — and a second copy of the wording in
-  // the script is a second wording waiting to drift.
+  // needs it as much as the one who can.
   // `institution` locates the institution itself (schemas/common.schema.json),
-  // finer than a city: it carries no cue, like a campus. It used to fall
-  // through to "placed at the city", which the globe's street-level dive onto
-  // TU Delft's Aula showed to be false.
+  // finer than a city: it carries no cue, like a campus.
   const cueFor = (p) =>
     !p.precision || p.precision === 'campus' || p.precision === 'institution'
       ? ''
@@ -175,8 +129,8 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
         ? 'Placed at the country, not at a campus'
         : 'Placed at the city, not at the campus';
 
-  // What the globe needs about every place, including the ones the flat frame
-  // leaves out. `<` is escaped so no record can close the script element.
+  // What the globe needs about every place. `<` is escaped so no record can
+  // close the script element.
   const globeData = JSON.stringify(
     dots.map((d) => ({
       id: d.id,
@@ -191,58 +145,37 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       country: d.country || '',
       image: d.image ? url(d.image) : '',
       external: !!d.external,
+      ...(d.schools?.length
+        ? {
+            schools: d.schools
+              .filter((s) => Number.isFinite(s.lat) && Number.isFinite(s.lon))
+              .map((s) => ({
+                id: s.id,
+                name: s.name,
+                lat: +s.lat.toFixed(4),
+                lon: +s.lon.toFixed(4),
+                href: s.href ? url(s.href) : '',
+                city: s.city || '',
+              })),
+          }
+        : {}),
     }))
   ).replace(/</g, '\\u003c');
 
-  return html`<figure class="world" id="${id}" data-world${unit ? html` data-unit="${unit}"` : ''}${
+  const listName = foldList ? `“${foldList}” below` : 'the list below';
+
+  return html`<figure class="world" id="${id}" data-world data-layer="${activeLayer}"${unit ? html` data-unit="${unit}"` : ''}${
     bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}>
   <div class="world__stage">
-    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice"
-         class="world__svg" role="img" data-w="${W}" data-h="${H}"
-         aria-label="${activeLayer}: ${plural(plotted.length, 'place')} shown.">
-      <defs>
-        <radialGradient id="${id}-glow">
-          <stop offset="0%" stop-color="var(--art, var(--sand))" stop-opacity=".9"/>
-          <stop offset="70%" stop-color="var(--art, var(--sand))" stop-opacity=".18"/>
-          <stop offset="100%" stop-color="var(--art, var(--sand))" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-
-      <rect class="world__sea" x="0" y="0" width="${W}" height="${H}" aria-hidden="true"/>
-
-      <!-- Coastlines, so this is a map rather than a dot cloud. Decorative:
-           the list below carries every place as text. -->
-      <g class="world__land" aria-hidden="true">
-        ${land.map((d) => raw(`<path d="${d}"/>`))}
-      </g>
-
-      <!-- One group per place, carrying its own geometry. The script needs to
-           know where a marker belongs before it can move the camera or group it
-           with its neighbours, and reading that back out of the attributes
-           beats projecting the coordinates a second time in a second language. -->
-      <g class="world__marks" aria-hidden="true">
-        ${plotted.map(
-          (d, i) => html`<g class="world__place" style="--i:${i}" data-place="${d.id}" data-name="${d.name}"
-             data-x="${d.x.toFixed(1)}" data-y="${d.y.toFixed(1)}" data-r="${d.r.toFixed(1)}" data-count="${d.count || 0}"${
-               d.href ? html` data-href="${url(d.href)}"` : ''}${
-               d.state ? html` data-state="${d.state}"` : ''}${
-               cueFor(d) ? html` data-cue="${cueFor(d)}" data-approx="true"` : ''}>
-            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${(d.r * 2.6).toFixed(1)}" fill="url(#${id}-glow)" class="world__glow"/>
-            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${d.r.toFixed(1)}" class="world__dot"/>
-            <circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="${Math.max(d.r + 8, 14).toFixed(1)}" class="world__hit"/>
-          </g>`
-        )}
-      </g>
-      <g class="world__groups" aria-hidden="true"></g>
-    </svg>
     <script type="application/json" class="world__data">${raw(globeData)}</script>
   </div>
+  <p class="world__off">This browser cannot draw the globe. Every place is in ${listName}.</p>
 
-  <!-- The semantic list is the interaction source of truth. The picture is an
+  <!-- The semantic list is the interaction source of truth. The globe is an
        enhancement of it, never a replacement — so this works with a keyboard,
-       a screen reader, and no JavaScript at all. Everything the marker callout
-       shows on hover is written into the entry itself, because a cue a mouse
-       can read and a keyboard cannot is not a cue. -->
+       a screen reader, and no JavaScript at all. Everything a pin's card says
+       is written into the entry itself, because a cue a mouse can read and a
+       keyboard cannot is not a cue. -->
   ${/* A page whose own filters already name every place (the home page's
         "Where") folds the list behind one line: it is still the keyboard's
         and the screen reader's way in, one tap away. */
@@ -255,17 +188,16 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
           ${d.count ? html`<span class="world__count">${d.count}</span>` : ''}
           ${d.state ? html`<span class="visually-hidden">. ${d.state}</span>` : ''}
           ${cueFor(d) ? html`<span class="visually-hidden">. ${cueFor(d)}</span>` : ''}
-          ${d.offscreen ? html`<span class="visually-hidden">. Outside the map frame</span>` : ''}
         </a>
       </li>`
     )}
   </ul>
   ${foldList ? raw('</details>') : ''}
 
-  ${/* One line under the map (home round 2: four grey paragraphs between the
-        globe and the results). The rest — hollow markers, what is outside
-        the frame, how to use it — one tap down. The globe adds its own hint
-        to the caption; site.css shows it only while "How to use" is open. */ ''}
+  ${/* One line under the globe (home round 2: four grey paragraphs between the
+        globe and the results). The rest — hollow markers, how to use it — one
+        tap down. The globe adds its own hint to the caption; site.css shows it
+        only while "How to use" is open. */ ''}
   <figcaption class="world__caption">
     <span class="world__legend">
       <span class="world__legend-dot world__legend-dot--sm"></span>
@@ -279,7 +211,6 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       const more = [
         'Size says how much is here, not how good a place is.',
         kinds.length ? `Hollow markers: placed at the ${kinds.join(' or the ')}, not at a campus.` : '',
-        hidden > 0 ? `${plural(hidden, 'place')} outside this frame — in the list, not on the map.` : '',
         caption || '',
       ].filter(Boolean);
       return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
@@ -287,101 +218,6 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
   </figcaption>
 </figure>`;
 }
-
-/**
- * Mercator northing, expressed in the same units as longitude so that the two
- * axes can be compared. Without that the map is stretched by a different amount
- * on every page: W and H were fixed while the bounding box was fitted to the
- * data, so the longitude range and the latitude range were each squashed to
- * fill the panel independently, and Europe came out a different shape on the
- * Europe page than on the Netherlands page.
- */
-const mercatorY = (deg) => (Math.log(Math.tan(Math.PI / 4 + (clamp(deg, -84, 84) * Math.PI) / 360)) * 180) / Math.PI;
-
-/**
- * Fit a bounding box to the panel's aspect ratio by *widening* it, never by
- * stretching what is inside. Showing more sea than asked for is honest; showing
- * Denmark half as wide as it is is not.
- */
-function frameFor(box, ratio) {
-  let x0 = box.west;
-  let x1 = box.east;
-  let y0 = mercatorY(box.south);
-  let y1 = mercatorY(box.north);
-
-  // A single-city Destination has a box of nothing. Give it a country's worth
-  // of context rather than a 400× zoom onto one dot.
-  const MIN_SPAN = 6;
-  if (x1 - x0 < MIN_SPAN) { const c = (x0 + x1) / 2; x0 = c - MIN_SPAN / 2; x1 = c + MIN_SPAN / 2; }
-  if (y1 - y0 < MIN_SPAN) { const c = (y0 + y1) / 2; y0 = c - MIN_SPAN / 2; y1 = c + MIN_SPAN / 2; }
-
-  const spanX = x1 - x0;
-  const spanY = y1 - y0;
-  if (spanX / spanY < ratio) {
-    const want = spanY * ratio;
-    const c = (x0 + x1) / 2;
-    x0 = c - want / 2;
-    x1 = c + want / 2;
-  } else {
-    const want = spanX / ratio;
-    const c = (y0 + y1) / 2;
-    y0 = c - want / 2;
-    y1 = c + want / 2;
-  }
-  return { x0, x1, y0, y1 };
-}
-
-/**
- * Coastline path data for everything inside the frame.
- *
- * Countries wholly outside the view are skipped rather than drawn and clipped,
- * because at Europe's zoom that is most of the world and every one of them
- * would be bytes in every page that carries a map.
- */
-function landPaths(view, W, H) {
-  const out = [];
-  const sx = W / (view.x1 - view.x0);
-  const sy = H / (view.y1 - view.y0);
-
-  for (const country of BASEMAP.countries || []) {
-    for (const flat of country.rings) {
-      let minX = Infinity;
-      let maxX = -Infinity;
-      let minY = Infinity;
-      let maxY = -Infinity;
-      const pts = [];
-      for (let i = 0; i < flat.length; i += 2) {
-        const x = (flat[i] - view.x0) * sx;
-        const y = (view.y1 - mercatorY(flat[i + 1])) * sy;
-        if (x < minX) minX = x;
-        if (x > maxX) maxX = x;
-        if (y < minY) minY = y;
-        if (y > maxY) maxY = y;
-        pts.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
-      }
-      if (maxX < 0 || minX > W || maxY < 0 || minY > H) continue;
-      // Smaller than a marker on screen: not worth the bytes.
-      if (maxX - minX < 3 && maxY - minY < 3) continue;
-      out.push(`M${pts.join('L')}Z`);
-    }
-  }
-  return out;
-}
-
-function boundsFor(places) {
-  const lats = places.map((p) => p.lat).filter(Number.isFinite);
-  const lons = places.map((p) => p.lon).filter(Number.isFinite);
-  if (!lats.length) return { north: 71, south: 35, west: -11, east: 32 };
-  const pad = 4;
-  return {
-    north: Math.min(83, Math.max(...lats) + pad),
-    south: Math.max(-83, Math.min(...lats) - pad),
-    west: Math.max(-179, Math.min(...lons) - pad),
-    east: Math.min(179, Math.max(...lons) + pad),
-  };
-}
-
-const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
 /* ========================================================================
    MapChapter — a configured step in a geographic journey
@@ -399,12 +235,11 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
  * on screen and flies it to the active chapter's target as the reader scrolls.
  * That is not what happens here, and the difference is deliberate: the research
  * doc forbids scroll hijacking and narrative text that leaves before it can be
- * read, and the world window is dependency-free inline SVG precisely so that it
- * works with JavaScript switched off. So a chapter's camera is resolved at
- * build time — `bounds`, or the frame `places` implies — and the reader is
- * handed the view already arrived at. `assets/js/map.js` then wires each one
- * like any other world window, so the camera is still a camera: it pans, zooms
- * and resets from the keyboard once the script is there.
+ * read. So a chapter's camera is resolved at build time — `bounds`, written
+ * as the figure's `data-frame`, or the frame `places` implies — and the
+ * reader is handed the view already arrived at. `assets/js/map.js` then wires
+ * each one like any other world window (a globe since ADR 0005; the list alone
+ * where the globe cannot run, ADR 0007).
  *
  * **There is no motion policy, and there was.** The doc's chapter carries one,
  * and this took a `motion` parameter that wrote `data-motion` for the stylesheet

@@ -257,6 +257,9 @@ ${REVISION ? raw(`<meta name="data-revision" content="${REVISION}">`) : ''}
 <link rel="stylesheet" href="${url('/assets/css/primitives.css')}">
 <script>
   // Applied before first paint so the page never flashes the wrong theme.
+  // data-js: the script runs, so a globe may land in the world window's
+  // stage; without it the stage is not shown and the list is the map.
+  document.documentElement.setAttribute('data-js', '');
   try {
     var t = localStorage.getItem('ibp-theme');
     if (t) document.documentElement.setAttribute('data-theme', t);
