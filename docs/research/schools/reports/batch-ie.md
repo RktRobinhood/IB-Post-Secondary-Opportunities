@@ -85,3 +85,13 @@ Researcher run of 2026-09-26. WebFetch/WebSearch only (no browser), so hand-off 
 - Contradicts ie.json: its RCSI note lists "Advanced Therapeutic Technologies" among notable fields but omits Dentistry; RCSI's page says "RCSI Undergraduate programme in Advanced Therapeutics, Dentistry, Medicine, Pharmacy or Physiotherapy". EU places (page): Medicine "90 (EU); 220 (Non-EU)", Dentistry "35 (EU); c.20 (Non-EU)", Pharmacy "90 (EU); 35 (Non-EU)", Physiotherapy "68 (EU); 10 (Non-EU)", ATT "60 (EU); 10 (Non-EU)".
 - No `tuitionEuEea`: RCSI applies the HEA Free Fees rules (country rule, on ie.json).
 
+## ie-tu-dublin (catalogue)
+
+- Read with curl. Scope: catalogue. The plain "View all courses" search (`courseType=Undergraduate`) mixes NFQ Levels 6, 7 and 8 over 15 pages, so the hand-off uses the page's own filters: `courseType=Undergraduate&courseLevel=8&courseEntry=1st+year+entry`. That returns 8 pages, 107 result rows, 100 distinct TU codes, every row "Level 8". No stated total; `courses` omitted.
+- I opened all 107 Level 8 course pages. General rule on each: "Minimum Number of Subjects 6", "2 H5's", Maths and "English OR Irish" (O6/H7 unless raised). No third-language requirement anywhere in the set.
+- Strictest (converted with CAO Table 1): Engineering General Entry TU805 Maths "H4" (IB HL 5) "Or a Grade H4 in Applied Mathematics if combined with a minimum grade of H6 in Mathematics"; Mathematics & Statistics TU874 "O2/H6" (SL 6 or HL 4); Law TU918, Journalism TU985, Film and Broadcasting TU983 English "H4" (HL 5); Law with a Language TU917 "At least H4 in one of: French, German or Spanish"; Global Business and Languages TU965 "A minimum H4 in either French, German, Irish, Italian and Spanish"; several sciences "At least H4 in one of: Physics, Chemistry...". Some courses need no Maths (Law, Journalism, Film, Drama: "N/A").
+- Selection by portfolio/audition: Architecture TU832 "Interview with a Portfolio" ("Suitability Test is no longer required"), Design Visual Communication TU973 "Submission of Portfolio", Music TU963 and Drama TU962 "audition/interview"; Visual Art (Sherkin Island) TU977 portfolio window shown only for 2026 ("from 20th March 2026 until 15th May 2026"), so no 2027 date recorded.
+- Adds: TU962 "Note: from 2027 onwards, TU962 will no longer require Irish. A minimum grade of O2/H6 in English will be required."
+- Contradicts ie.json (country record, not recorded here): 106 of 107 Level 8 pages show "Fees (EU) €3,000 Per Year", while ie.json says the student contribution is 2,500 EUR maximum for 2026/27. Likely stale TU Dublin copy; the coordinator may want to recheck the HEA figure.
+- Not used: ie.json note "Ireland's largest technological university" (not verified).
+

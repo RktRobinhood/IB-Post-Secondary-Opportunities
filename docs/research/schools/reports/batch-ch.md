@@ -106,3 +106,28 @@ fetch-based; where a table loads by JavaScript, the underlying JSON was read ins
 - ch.json englishBachelors mentions "media"; the current majors page lists no media major (Media Studies is a minor only). Minor contradiction.
 - ch.json fee (CHF 17,500 per semester 2026/27) not re-checked here (fee is a country-record matter).
 - Hand-off: undergraduate majors and minors page (undergraduate-only; 15 major options).
+
+## ch-eu-business-school (listed, 7 programmes)
+- Scope listed: Geneva campus page lists seven bachelor's (BBA; BA International Relations, AI for Business, Sports Management, Digital Business Design & Innovation, Leisure & Tourism Management; BSc Business Finance); each programme page: "Length 3 years Language English Start dates Oct, Feb, Jun & Aug Fee CHF 15,400/semester". All seven URLs checked (HTTP 200, Geneva titles).
+- ch.json lists "tourism" among programmes and omits Leisure & Tourism's full name — agrees; it also says "a BBA and bachelor's in business finance, international relations, AI for business, sports management, digital business and tourism" — agrees (7).
+- IB: the only IB line on the admissions page is "IB: IB Diploma with minimum of 24 points", printed under the "BA (Hons) in Business" block's accepted-diplomas note; the general "Bachelor's" block names no IB threshold. The ib line says "Its admission page lists…" rather than presenting 24 as a rule for every programme. Matches ch.json's 24 points.
+- No dates: rolling admission with four start dates; "You will be informed of the admission decision within one week". No 2027 deadline published.
+- Degrees: every Geneva programme page lists "An ACBSP and IACBE accredited bachelor's degree from EU Business School Switzerland, which is institutionally accredited by IQA and certified by eduQua", a UVic-UCC "titulo propio" and "A state-recognized BA (Hons) in Business Management degree from University of Derby, U.K." ch.json's warning that it is "not accredited by the Swiss state as a university" is not contradicted by these pages (none claims Swiss state accreditation).
+- Tuition recorded per semester, not per year, because the BBA runs "seven-semester program (240 ECTS)" in three years.
+- Hand-off: the Bachelor's programmes page (bachelor-only; 26 entries across Barcelona, Geneva, Munich and Digital; 7 Geneva).
+
+## ch-uzh (none, German)
+- Bot/outage note: www.uzh.ch returned HTTP 502 to every request (curl and WebFetch) on 26 Sep 2026. Pages were read from Internet Archive snapshots of the official URLs: deadlines (20260918212034), bachelor admission (20260624084203), language requirements (20260512223402). Exact sentences follow so a reviewer can re-check.
+- Scope none: "As a rule, the main language of instruction for the Bachelor's programs, the teaching diploma and the Bachelor's and Master's programs of the Faculty of Medicine and the Vetsuisse Faculty is German." The English-or-German list on that page covers master's programmes only.
+- Dates (standing, no year): "Please note that the following deadlines can not be extended. Fall Semester … Bachelor, Master, Teacher's Education Excluding applicants with visa requirements* … 1 January until 30 April"; "Bachelor (ext. deadline) Only possible for applicants with Swiss university entrance qualification at an additional fee of CHF 300 … 1 May until 31 July"; "Applicants with visa requirements … 1 January until 28 February"; "Bachelor Medicine Application requires a registration at swissuniversities until 15 February."
+- Agrees with ch.json's UZH deadline entry (1 Jan–30 Apr; 31 July only for Swiss qualifications; 28 Feb with a visa).
+- German: "Proof of proficiency at the C1 or a higher level … must be submitted"; exempt with "Completion of the last three years at an upper secondary school in the language of instruction relevant for the studies and in a region where the official language is the same as the language of instruction" — so an IB in Denmark taught in German would not exempt. The ib line states this regional condition.
+- IB: the bachelor page sets the six-subject rule and says "a minimum overall grade determined by the University of Zurich may also have to be achieved"; the 32-point figure is swissuniversities' 2026/27 list, which names Zürich.
+- ch.json calls UZH "Switzerland's largest university"; not used (unsourced).
+- Hand-off: bachelor admission page (bachelor-only).
+
+## Batch summary
+- 15 of 15 done: 4 listed (HSG 3, USI 3, EHL 1, EU Business School 7 = 14 programmes), 2 catalogue (Franklin, Webster Geneva), 9 none (ETH, EPFL, UZH, UNIGE, Basel, Bern, UNIL, Fribourg, Lucerne).
+- Dates with years published for 2027: ETH (1 Dec 2026 – 31 Mar 2027; diploma by 31 Aug 2027), HSG selection tests (16/18 Feb, 8/10 Jun 2027), USI (30 Jun 2027 EU/EFTA; 30 Apr non-EU), EHL (31 May / 15 Jun 2027). Standing dates (no year on the page) labelled "standing date": EPFL, UNIL, HSG, Fribourg, Lucerne, UZH, Franklin. Year-labelled 2026 pages (UNIGE, Basel, Bern, Webster) → no dates recorded.
+- Main contradictions with data/countries/ch.json: Basel's IB rule needs one HL science/maths, not three HL; HSG's English track does not cover Law and Economics (taught in German); USI's EU/EFTA deadline is 30 June 2027, not the "typically 30 April" in ch.json; Webster lists no media major; ETH's 2027 period is published with years (ch.json marks it provisional).
+- Could not verify: ETH application fee; Fribourg's IB page (Flutter app); whether an IB school counts as "English-speaking high school" for USI Economics or as "primary language of instruction" for Franklin's English test; Bern's German exemption for IB German A; UZH live pages (502 — read via Internet Archive snapshots).

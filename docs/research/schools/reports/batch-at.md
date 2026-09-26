@@ -100,3 +100,12 @@ Dates: only 2027-cycle dates an official page states for 2027 (or as a standing 
 - IB (quoted): "IBDP (International Baccalaureate Diploma) with min. 24 points"; maths "Analysis and Approaches SL minimum 4 points or HL minimum 3 points, or Applications and Interpretation SL minimum 4 points or HL minimum 3 points".
 - Dates: the page gives standing dates with no year, per group. EU/EEA FALL: "Super Early Bird 15 January", "Early Bird 15 March", "Final Deadline ... 15 August"; non-EU needing a visa FALL final "1 April". Recorded for 2027 labelled "standing date".
 - Hand-off: /programs/bachelor-programs (7 bachelor's + the Hong Kong mobility option; no master's).
+
+## at-webster-vienna (listed, 6 programmes)
+- Scope listed: /academics/undergraduate.php lists 6 bachelor's: BA International Relations, BA Strategic Communication, BSc Business Administration, BSc Computer Science with an Emphasis in AI, BSc Psychology, LLB Comparative International Business Law.
+- Contradicts data/countries/at.json: englishBachelors says "Four English-taught American-style bachelor's" (BA, IR, Psychology, Strategic Communication); the page now also lists Computer Science/AI and the LLB. The admissions page itself still names only the four. Fills "fees are not confirmed here": "24,068 euros flat fee" a year full-time (2026-2027), same for EU and non-EU.
+- LLB: "*Pending AQ Austria and Higher Learning Commission approval"; included with that caveat in its ib line.
+- Durations: Business, IR, Strategic Communication and LLB state 4 years/8 semesters (240 ECTS). Psychology and CS/AI pages give no duration; 4 years recorded by analogy with WVPU's other 240-ECTS bachelor's. Could not verify directly.
+- IB: IBDP accepted; general "Minimum Secondary School Grade Point Average (GPA) of 2.5 based on a 4-point scale or its converted equivalent" with no IB conversion; English: "HL English A: 4; HL English B: 5; SL English A: 5; SL English B: 6". CS/AI: "IB Mathematics HL score of 5" among maths options.
+- Dates: only "Academic Year 2026-2027" published (EU/EEA/AT deadline "July 31, 2026"). None recorded; noted as a 2026 precedent.
+- Hand-off: undergraduate programs page (6 bachelor's only).

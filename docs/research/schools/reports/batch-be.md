@@ -65,3 +65,29 @@ Researcher run started 2026-09-26. One line per point. WebFetch/WebSearch only (
 - Hand-off: bachelor registration page for EU students with a degree obtained abroad (bachelor-only procedure page).
 - Dates: page says "Applications may be submitted up to and including 30th September" (no year; its document list refers to 2026 school-leavers) — note only. French test page: "The dates for the 2025-2026 academic year have yet to be set" (stale), so no test date recorded.
 - Engineering admission exam page shows 2023 dates only; not recorded. It says holders of a CESS or engineering equivalence take maths only; "Other candidates will also have non-mathematical tests (French, History, Geography, Science, and a second language". Whether a full IB (no equivalence needed in FWB) counts as "valid equivalence for engineering sciences" is not stated — could not verify; note gives the page's rule.
+
+## be-ulb (listed, 2 programmes)
+- Scope: listed. Solvay's bachelors page (updated 25 March 2026): "Starting from September 2024, the Faculty of Economics and Management at ULB is expanding its offerings by introducing the English versions of its two historical bachelor's programmes: Business Engineer and Economic Sciences"; each "Teaching languages: English 80% / 2nd language: French 15% / 3rd language: Dutch/German 5%" and "A B2 level in English is required to enroll in this bachelor's programme for every students (EU and Non EU)". ULB programme pages BA-INGEE and BA-ECONE list "Languages of instruction: english".
+- Contradicts data/countries/be.json englishBachelors ("Essentially none at bachelor level; some English master's").
+- Official pages disagree: Solvay's older enrolment page says "Bachelor programmes are mostly taught in French (there are English and Dutch courses and some courses taught in English)". Followed the programme pages.
+- Hand-off: Solvay bachelor programmes page (bachelor's only: 2 French + 2 English versions = 4). ULB has no English-bachelor filter page.
+- Dates: none for 2027. Submit-an-application page: "Students of European nationality: Applications are open for all programmes until 30 September" and "Applications for the 2026–2027 academic year are open." — note only.
+- Could not verify: which proofs of B2 English ULB accepts for these bachelor's (access-conditions tab loads dynamically); whether an English-taught IB counts. ulb.be refused WebFetch ("Socket is closed"); read with curl.
+
+## be-kdg (listed, 4 programmes)
+- Scope: listed. The apply page names the English-taught bachelor's by deadline group: "Applied Computer Science, International Business Management and Multimedia & Creative Technologies" plus "Nursing" (four years). IBM specialisations (Global Business, Global Supply Chain Management, International Entrepreneurship) merged into IBM. Exchange programmes and Sustainable Business Innovation excluded (not first-year degree routes).
+- Refines data/countries/be.json ("Several English-taught bachelor's, including business and multimedia routes"): four, including computing and nursing.
+- Hand-off: "Apply for an English-taught bachelor's degree" page (bachelor's only; no count list; 4 programmes named).
+- IB: "Achieved a score of five or higher in your International Baccalaureate Diploma for English A or English B" counts as B2 proof. "No interview or additional tests are required for admission to KdG."
+- Dates: page covers "Academic year 2026-27" only: "EEA nationals : there is no application or payment deadline." No 2027 date recorded. Tuition "€1181,40 for EEA nationals" (2026-27).
+- Nursing: "an additional C1 speaking requirement applies"; Dutch is taught inside the programme ("depending on your entry level"), not required at entry.
+- KdG credential changed to "Professional bachelor" (KdG pages title each "Professional bachelor of ..."; full titles exceed the 48-character cap).
+
+## be-thomas-more (listed, 9 programmes)
+- Scope: listed. "Our English bachelor degree programmes (full programmes)" lists 19 track/major entries; condensed to 9 degrees (Applied Computer Science, Automotive Technology, Electronics-ICT, Information Management and Multimedia: International Digital Experience Design, International Business Management, International Communication and Media, International Journalism, International Media and Entertainment Business, International Tourism and Leisure). Short (one-year) programmes excluded (need a prior degree).
+- Hand-off: Bachelor's degrees page — bachelor's only (19 full-programme entries + 6 short-programme entries), no master's.
+- IB: "Other exemptions: IB-Diploma" (English B2 proof). "We also do not require an application fee!"
+- Dates: application page, "Start your Study in September 2027 (Fall AY 2027-2028) ... Opening applications: 18 January 2027 / Application deadline for non-EEA candidates: 24 May 2027 / Payment deadline (tuition fee & blocked account): 7 June 2027" — recorded as non-eu (they sit under "Deadlines for non-EEA students in need of a student visa"). "There are no application deadlines for bachelor programmes for EEA students."
+- Page oddity: under the Fall 2027 heading the page also says "Leave your details here to be notified once applications for SPRING 26/27 (start in February 2027) open at the end of January 2027" — a copy-paste slip; the 18 January 2027 opening sits under Fall 2027.
+- data/countries/be.json note ("it says it has the largest set of English-taught professional bachelor's in Belgium"): not found on the pages read; unverified. City "Mechelen, Antwerp, Turnhout, Geel": English degrees are in Mechelen, Geel and Sint-Katelijne-Waver.
+- IBM has no degree-level page (404); linked the International Business and Trade major page.

@@ -8,11 +8,11 @@ Reports go to `reports/batch-<name>.md`; the coordinator folds them into `progre
 |---|---|---|---|
 | 0 | fi, gb | 36 | researched; round-1 critic 7/10 each, fixes in; round-2 critics running |
 | 1 | nl-fontys, de ×5, lu, is | 10 | running |
-| 1 | se ×5, no ×4 | 9 | running |
+| 1 | se ×5, no ×4 | 9 | done: se 14/14, no 14/14 (report `reports/batch-se-no.md`) |
 | 1 | ie | 14 | running |
 | 1 | be | 14 | running |
 | 1 | at | 15 | running |
-| 1 | ch | 15 | running |
+| 1 | ch | 15 | done (report `reports/batch-ch.md`). Critic: check the dates labelled "(standing date)" (no year on the page) against the brief's rule |
 | 2 | es, it, fr, pt | 50 | queued |
 | 2 | pl, cz, hu | 41 | queued |
 | 2 | ee, lv, lt, si, mt, gr | 58 | queued |
