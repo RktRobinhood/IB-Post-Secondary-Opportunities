@@ -29,14 +29,37 @@
  *   - data/schools/*.json        `summary` (it replaces the profile's note on
  *                                the Destination card once a school is researched)
  *
- * Not read: watch-outs, deadline notes, "why it might suit you", and the
- * context notes ("What it is actually like"). There a comparison is usually the
- * point of the sentence — "the only compulsory payment is the ÖH fee", "the
- * score of the lowest-scoring applicant admitted", "the first round carries the
- * most English-taught programmes" — and the rule below cannot tell those from a
- * ranking of institutions. Round 1 of the #41 critique found rankings there
- * too; they were fixed by hand (see follow-ups-41.md) and are a sweep, not a
- * guard.
+ * Since round 3 of the #41 critique it also reads the prose next to those
+ * cards, because every live ranking that critique found was there:
+ *
+ *   - data/countries/*.json      `whyConsider`
+ *   - data/destinations/*.json   `whyConsider`, `sectorLandscape.summary`,
+ *                                `sectorLandscape.routes[].what` and `.note`
+ *   - data/context-notes/*.json  `text` ("What it is actually like")
+ *   - data/topics/*.json         the guide's `options[].what` and `whoItSuits`
+ *
+ * In that prose a superlative is sometimes about a rule, a scale or a cost,
+ * not about an institution or a place: "the only compulsory payment is the ÖH
+ * fee", "the score of the lowest-scoring applicant admitted", "the top of the
+ * Norwegian scale". Those are listed in NOT_A_RANKING, each with the reason,
+ * matched by exact substring, and an entry that stops matching fails — the
+ * same discipline as ALLOW. Watch-outs and deadline notes are still not read:
+ * there the comparison is nearly always between options for the student.
+ *
+ * ## House style: "Known for …" and "Strong in …"
+ *
+ * The site's owner wants each school to say what it is known for and what it
+ * is like. So "Known for <subjects>" and "Strong in <subjects>" are the house
+ * style, and allowed, when what follows is the subjects, programmes or
+ * features the record itself lists (`notableFields`, `knownFor`, the
+ * programme list): "Known for marine and climate science", "strong in food,
+ * pharma and life sciences". They say where the institution's weight is, not
+ * how good it is.
+ *
+ * What is not allowed is "known for" followed by praise: "known for
+ * excellence", "known for its quality", "known for its rigour", "a strong
+ * reputation". Those are the reputation claims this guard exists to stop,
+ * and the rule flags them wherever they stand.
  *
  * ## The rule
  *
@@ -135,9 +158,9 @@ const ALLOW = [
     file: 'data/countries/ee.json',
     match: "The widest choice of English-taught bachelor's degrees in Estonia: six of the 27 on the national list",
     source:
-      "ev-ee-sie-bachelors-list (data/evidence/ee.json): Study in Estonia's national list of English-taught bachelor's, " +
-      'https://www.studyinestonia.ee/study/programmes/bachelors-programmes — "Tallinn University has the most (six)"; ' +
-      'the same count is in ee.json language.englishTaughtBachelors.',
+      "counted from Study in Estonia's national list of English-taught bachelor's, " +
+      'https://www.studyinestonia.ee/study/programmes/bachelors-programmes: six of 27 at Tallinn University, more than at any other ' +
+      'institution (ev-ee-sie-bachelors-list in data/evidence/ee.json; the count is also in ee.json language.englishTaughtBachelors).',
   },
   {
     file: 'data/countries/lu.json',
@@ -146,6 +169,47 @@ const ALLOW = [
       'ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, ' +
       'https://mengstudien.public.lu/en/etudier-luxembourg.html — "The University of Luxembourg is the only public university in the country".',
   },
+  {
+    file: 'data/destinations/lu.json',
+    match: 'the Université du Luxembourg is the only public university',
+    source:
+      'ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, ' +
+      'https://mengstudien.public.lu/en/etudier-luxembourg.html — "The University of Luxembourg is the only public university in the country".',
+  },
+  {
+    file: 'data/destinations/lu.json',
+    match: 'The only public university.',
+    source:
+      'ev-lu-mengstudien-sector (data/evidence/lu.json): the Ministry of Higher Education, ' +
+      'https://mengstudien.public.lu/en/etudier-luxembourg.html — "The University of Luxembourg is the only public university in the country".',
+  },
+];
+
+/* --- Not a ranking: a superlative about a rule, a scale or a cost ---------------
+ *
+ * The prose fields read since round 3 sometimes use a superlative about
+ * something that is not an institution or a place. Each entry says why. It is
+ * matched by exact substring and fails when it no longer matches, as ALLOW
+ * does. A comparison scoped to this page's own list ("of the five
+ * universities covered here") is allowed here too: it is checkable on the
+ * page, which is the scope convention the critiques accepted. */
+const NOT_A_RANKING = [
+  { file: 'data/countries/at.json', match: 'the only compulsory payment is the OeH fee', why: 'a fee, not an institution' },
+  { file: 'data/countries/cz.json', match: 'the only Czech faculty in this guide known to do so', why: "scoped to this page's own faculty records" },
+  { file: 'data/countries/hk.json', match: "HKU's first round closes", why: 'first in time: the first application round' },
+  { file: 'data/countries/no.json', match: 'the top of the Norwegian scale', why: 'a grading scale' },
+  { file: 'data/destinations/au.json', match: 'It is the only one confirmed open to a candidate sitting the exams in Europe', why: "admissions systems, scoped to what this page confirms" },
+  { file: 'data/destinations/hk.json', match: 'Of the five universities covered here, it is the only one.', why: "scoped to this page's five universities" },
+  { file: 'data/destinations/it.json', match: 'the most anyone paid was about', why: 'a fee ceiling' },
+  { file: 'data/destinations/jp.json', match: 'the only decision here that lands after the examination session', why: "scoped to this page's deadlines" },
+  { file: 'data/destinations/nz.json', match: 'are the only providers NZQA does not quality assure', why: 'a statutory fact about quality assurance, not a ranking' },
+  { file: 'data/destinations/sg.json', match: 'the only institutions where the MOE Tuition Grant', why: 'who the grant applies to' },
+  { file: 'data/context-notes/de-subjects-decide.json', match: 'Excellent points do not compensate', why: "a student's grades" },
+  { file: 'data/context-notes/dk-aau-pbl.json', match: 'the worst part of the Diploma', why: "the student's own experience" },
+  { file: 'data/context-notes/ie-free-fees-are-not-free.json', match: 'the largest predictable cost of an Irish degree', why: 'a cost' },
+  { file: 'data/context-notes/ie-points-are-a-market.json', match: 'the lowest-scoring applicant admitted', why: 'how CAO points are set' },
+  { file: 'data/context-notes/se-january-is-the-deadline.json', match: 'carries the most English-taught programmes', why: 'the two Swedish admission rounds' },
+  { file: 'data/context-notes/se-nothing-to-add.json', match: 'the highest-ranked place that accepts you', why: 'how Swedish offers are made' },
 ];
 
 /* --- Harness ----------------------------------------------------------------- */
@@ -226,6 +290,23 @@ check('flags a ranking', () => {
     'A degree that is rare in Europe.',
     'Ranked 45th in the world.',
     "Norway's engineering powerhouse and its largest university.",
+    // Round 3 of the critique: soft praise, and "known for" + praise.
+    'An aviation engineering programme you will not find elsewhere in the region.',
+    'Far better regarded by German employers than the translation suggests.',
+    'Problem-based learning, which it pioneered in medicine.',
+    'Its teaching is second to none.',
+    'An unrivalled alumni network.',
+    'A world leader in marine science.',
+    'Estonia is often described as teaching in English.',
+    'A highly rated business school.',
+    'A household name in design.',
+    'The go-to university for engineers.',
+    'A small university that punches above its weight.',
+    'Ranks 12th in the world for law.',
+    'Known for excellence in teaching.',
+    'Known for its rigour.',
+    'Well known for its prestigious law school.',
+    'A strong reputation for teaching quality.',
   ]) assert.ok(rankings(t).length, `not caught: ${t}`);
 });
 
@@ -254,6 +335,11 @@ check('leaves quantifiers, adverbs and scope statements alone', () => {
     'It is the public flagship of the state system.',
     'The SJTU-ParisTech Elite Institute of Technology teaches in French.',
     'Home of the 6G Flagship programme.',
+    // The house style: "Known for / Strong in" + the subjects the record lists.
+    'Known for marine and climate science.',
+    'Strong in food, pharma and life sciences.',
+    'Known for film, drama and the performing arts.',
+    'A campus university known for mathematics and economics.',
     'Its newest campus is in Vejle.',
     'Its biggest faculty is engineering.',
     'Places go down the ranking, and you pay the rest.',
@@ -288,6 +374,28 @@ for (const f of readDir('data/destinations')) {
 }
 for (const f of [...readDir('data/institutions'), ...readDir('data/dk')]) add(f, 'about', JSON.parse(fs.readFileSync(f, 'utf8')).about);
 for (const f of readDir('data/schools')) add(f, 'summary', JSON.parse(fs.readFileSync(f, 'utf8')).summary);
+// The prose beside the cards (round 3 of the critique).
+for (const f of readDir('data/countries')) {
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  (d.whyConsider || []).forEach((t, k) => add(f, `whyConsider[${k}]`, t));
+}
+for (const f of readDir('data/destinations')) {
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  (d.whyConsider || []).forEach((t, k) => add(f, `whyConsider[${k}]`, t));
+  add(f, 'sectorLandscape.summary', d.sectorLandscape?.summary);
+  (d.sectorLandscape?.routes || []).forEach((r, k) => {
+    add(f, `sectorLandscape.routes[${k}].what`, r.what);
+    add(f, `sectorLandscape.routes[${k}].note`, r.note);
+  });
+}
+for (const f of readDir('data/context-notes')) add(f, 'text', JSON.parse(fs.readFileSync(f, 'utf8')).text);
+for (const f of readDir('data/topics')) {
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  (d.options || []).forEach((o, k) => {
+    add(f, `options[${k}].what`, o.what);
+    add(f, `options[${k}].whoItSuits`, o.whoItSuits);
+  });
+}
 
 if (process.argv.includes('--report')) {
   for (const s of strings) {
@@ -299,7 +407,8 @@ if (process.argv.includes('--report')) {
 
 const hits = strings.flatMap((s) => rankings(s.text).map((m) => ({ ...s, m })));
 const allowedBy = (h) => ALLOW.find((a) => a.file === h.file && h.text.includes(a.match) && a.match.includes(h.m));
-const open = hits.filter((h) => !allowedBy(h));
+const notRanking = (h) => NOT_A_RANKING.find((n) => n.file === h.file && h.text.includes(n.match) && n.match.toLowerCase().includes(h.m.toLowerCase()));
+const open = hits.filter((h) => !allowedBy(h) && !notRanking(h));
 
 check(`no card, headline or short version ranks without a source (${strings.length} strings read)`, () => {
   assert.equal(
@@ -310,6 +419,13 @@ check(`no card, headline or short version ranks without a source (${strings.leng
       '\nSay what makes the place worth a look instead — a founding year, a count, a fee — from the record itself, ' +
       'or, if the record cites a source for the ranking, add an entry to ALLOW in this file naming it.'
   );
+});
+
+check('every not-a-ranking entry still matches, and says why', () => {
+  const stale = NOT_A_RANKING.filter((n) => !hits.some((h) => notRanking(h) === n));
+  const unreasoned = NOT_A_RANKING.filter((n) => typeof n.why !== 'string' || n.why.length < 5);
+  assert.equal(stale.length + unreasoned.length, 0,
+    [...stale.map((n) => `stale (remove it): ${n.file} "${n.match}"`), ...unreasoned.map((n) => `no reason: ${n.file} "${n.match}"`)].join('\n'));
 });
 
 check('every exception still matches, and names its source', () => {

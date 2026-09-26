@@ -1,6 +1,6 @@
 # Country audit (Europe): follow-ups from round 5 (issue #41)
 
-> **Round 2** and **Round 3** (at the end) answer the two critiques, `follow-ups-41-critique-round-1.md` and `-round-2.md`. They widen both guards; the latest round supersedes earlier descriptions of the guards and the allow-list.
+> **Rounds 2, 3 and 4** (at the end) answer the three critiques (`follow-ups-41-critique-round-1.md`, `-round-2.md`, `-round-3.md`). Each widens the guards; the latest round supersedes earlier descriptions of the guards and the allow-list.
 
 Editor pass, 2026-09-26, answering the follow-up issue in `round-5.md`. This pass was done offline: no page was fetched, and every rewrite uses only facts already in the same record (founding year, counts, fees, what the institution teaches). Nothing new is asserted.
 
@@ -979,3 +979,199 @@ Each cell holds the changed phrase, not the whole field.
 | `data/countries/be.json` | `institutions[10].note` | A clearly signposted application route for its English-taught bachelor's. | Several English-taught bachelor's, including business and multimedia routes, with a clearly signposted application route. |
 | `data/countries/hu.json` | `ibRecognition.notes[3]` | Szeged publishes an IB exemption: grade 5 | Of the medical schools on this page, Szeged is the one that publishes an IB exemption: grade 5 |
 | `data/countries/cz.json` | `institutions[10].note` | runs an entrance exam venue in Göteborg, in Sweden. | runs an entrance exam venue in Göteborg, a short trip from Denmark. |
+
+## Round 4: answering the third critique
+
+This pass answers `follow-ups-41-critique-round-3.md`, which scored round 3 at 7/10. It was done on 2026-09-26, offline, on the worktree fast-forwarded to main `b417cdd`.
+
+**The critique's structural point was right.** Both guards caught the phrasings critics had quoted, not the class. So this round changes the guards' method before it changes the data:
+- **The research-log guard** now flags the repository's own vocabulary, whatever sentence it sits in. It also reads every page a student reads.
+- **The superlatives guard** now reads the prose beside the cards, not only the cards.
+
+Every data rewrite uses only what its own record holds. The one exception is changing wording to the site's "not confirmed here" convention.
+
+**Gate:** `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs` passes all 37 checks. As before, the advisory `freshness` check reports the age of the evidence.
+
+### The owner's decision: "Known for …" / "Strong in …"
+
+The owner wants each school to say what it is known for and what it is like. So "Known for <subjects>" and "Strong in <subjects>" are now house style, written into the header of `scripts/test-superlatives.mjs`. The phrase is allowed when what follows is the subjects, programmes or features the record itself lists (`notableFields`, `knownFor`, the programme list). It is not allowed when what follows is praise. The rule flags "known / famous / noted / renowned / respected for" followed by excellence, quality, high standards, reputation, prestige, rigour, outstanding or strength, and "a strong reputation / standing / name".
+
+Four fixtures cover each side:
+- **Allowed:** "Known for marine and climate science", "Strong in food, pharma and life sciences", "Known for film, drama and the performing arts", and Warwick's "known for mathematics and economics".
+- **Flagged:** "Known for excellence in teaching", "Known for its rigour", "Well known for its prestigious law school", and "A strong reputation for teaching quality".
+
+**Consequences for the cards:**
+- **Warwick** keeps "known for mathematics and economics". The critique's rewrite is not needed under the owner's rule.
+- **NTNU** now reads "known for engineering, neuroscience, architecture and the natural sciences", which is its `notableFields`. The "Nobel-winning" clause is gone because the record does not support it.
+
+### The Evidence template (`src/lib/primitives.mjs` `evidenceBlock`)
+
+**`interpretation` is no longer rendered.** It is the researcher's account of how a source was read. `docs/PARALLEL_WORK.md` names it as the place for that account, and it is written for reviewers. On `/prepare/` it showed students "This corrects data/ib-conversion.json… Our file said…". On `/programmes/` it produced about 150 lines of the same register. The claim and the excerpt remain; they are the student's version.
+
+Two things follow:
+- **The Evidence records are unchanged.** That includes `dk-national.json` `[11]` and `[2]`, which the critique asked to be rewritten. Their text no longer renders, and reviewers still have it.
+- **`data/ib-conversion.json`** no longer carries the wrong "hf-enkeltfag or GSK" sentence. I checked: 0 matches.
+
+**The verification state is kept, in words, once.** "Status: needs-review." after every source was the schema's enum, repeated 210 times on a Destination page. It is replaced by the evidence-policy label: "Not yet checked by a person", "Past its review date", "Sources disagree" and so on. It is shown once per disclosure when every source there shares a state, and on each source when they differ. The product's honesty rule, that the verification state is visible, still holds. It now uses the same words as the rest of the site.
+
+### Each critique item, and what changed
+
+| # | Critique item | What changed |
+|---|---|---|
+| 1 | Research log off the guarded pages and `/prepare/` | **Rewritten with the critique's texts:** SE `deadlines[4]` and the Erasmus IBIS note (`meta.notes[0]`). **`/prepare/`** is clean through the template change above. **Attributions:** `nl-english-narrowing` now names the bill and "institutions' own announcements". `no-language-is-the-obstacle` now cites "Samordna opptak's published rules, and a count of English-taught Norwegian bachelor programmes". Neither cites "this project" any more. |
+| 2 | Gap wording on Destination pages, and siblings | **By rule (70 strings, summarised after this table):** every "Not researched …" route note (25), the 14 "year here is inferred from the intake this profile covers" deadline notes, the card year labels "inferred from the 2026 calendar", the school calendar labels "(page gives no year)", and "Verified example(s)". **By hand (61 strings):** every "Listed/Recorded because/so" note; the critique's NL, LV, JP and DK notes; "Verified …" wherever no person verified anything; the eight "not verified" guide lines, now "not confirmed here"; "this catalogue" and "the model" on programme pages and in programme summaries; LT "this profile sends you to first"; and HU "the only route in this profile". |
+| 3 | The 16 live rankings; widen `superlatives` | **All 16 rewritten,** with the critique's texts where the record supports them. Where a critique text was itself a superlative, I used something plainer: US "at the most selective" became "at some of them", and GB "the closest thing in the UK" became "the UK route to look at". **14 more** were found once the guard read the new fields; all rewritten. **New fields read:** countries `whyConsider`; destinations `whyConsider`, `sectorLandscape.summary` and `routes[].what`/`.note`; `context-notes` `text`; and the guide's `options[].what`/`whoItSuits`. **New phrasings flagged:** not find elsewhere, far better regarded, pioneered, second to none, unrivalled, world leader, often described as, highly rated, household name, go-to, punches above its weight, "ranks 12th", and "known for" + praise. **New `NOT_A_RANKING` list (16 entries):** each is a superlative about a fee, a scale, a rule, a student's own experience, or a comparison scoped to the page's own list. Examples are "the only compulsory payment is the ÖH fee", "the top of the Norwegian scale" and "of the five universities covered here". Each entry says why, and a stale entry fails the guard. **Two `ALLOW` entries added** for the LU destination record's "only public university", from the same Ministry evidence as the profile. **`ALLOW[0]`** now says the Estonian count is counted from the national list, instead of quoting the researcher's claim as the page's words. |
+| 4 | Widen `research-log`; read every student page | **The rule moved to a new file, `scripts/lib/research-log.mjs`,** in two halves. **Phrases:** every form a critic has quoted. **Vocabulary:** "this profile / project / record / pass / audit / catalogue / dataset", "the model / schema", "our file / sentence / research / record", `data/…` paths, `*.json`, `ev-xx-…` ids, snake_case and camelCase field names, "(not / never) researched / verified", "Recorded / Listed because / so", and "inferred from". **Exemptions:** the page's own furniture is blanked out before matching. That covers the research-depth tier label "Researched in depth", the home page's "Also researched:", and URLs (so `fechas_clave` in a link is not a field name). The student's own "have your documents verified" and "results verified electronically" are exempt too. **Pages read:** 598, every page in `dist/` except the four method pages (`/trust/`, `/counsellors/`, `/about/` and `/credits/`), which describe the method on purpose. That includes the home page, `/prepare/`, the guides, `/compare/`, `/faq/`, `/glossary/`, `/timeline/`, and every university and programme page. **Fixtures:** 31 new positive ones, covering every phrasing the critique listed as missed, plus the round-4 forms. There are 8 new negative ones. |
+| 5 | Carry round 3's fixes to their siblings | **Rewritten:** `destinations/ca` `whyConsider[3]`; `destinations/nz` "Otago is famous" (now "runs"); SI `whyConsider[1]`, where the dorm price is gone and the dorms-only-in-Maribor fact is in; the EE summary, now "Estonia teaches many master's degrees in English; at bachelor's level the choice is small"; and NTNU (see above). **Warwick:** kept, under the owner's house style. |
+| 6 | Polish | **Done:** McMaster `englishBachelors` (no longer "pioneered"; it now describes problem-based learning across programmes); VGTU (ends at "an aviation engineering programme"); Chung-Ang (the actors clause is deleted); Dania ×2 (the critique's sentence); `ALLOW[0]`'s source (see change 3); and the "Status:" template line (see above). **Not changed:** Guelph's `englishBachelors` "with particular strength in agriculture, food…" stays, as house style (the subjects are the record's own). |
+
+### Still open
+
+- **Item 4, which needs the web:** Warsaw resolution 315.
+- **LSMU:** the extra-round sentence still needs a reading of lsmu.lt.
+- **Unrendered text:** notes in `data/opportunities` `meta.notes` and some `requirements[].note` still use "this catalogue" or "the model". The rendered-page guard confirms none of them reaches a student page. The same goes for the destination records' `meta.notes` ("MODEL FRICTION", "ADR 0002"). These are the research notes `docs/PARALLEL_WORK.md` puts there, and they were left alone.
+- **Deeper prose the superlatives guard still does not read:** `watchOuts`, deadline notes, `housing`, `steps` and `selectionNotes`. As in round 3, what remains there compares options for the student, such as "by far the easiest route" for dorms. The research-log guard does read them, because it reads rendered pages.
+
+### Every string changed in round 4
+
+Each cell holds the changed phrase, not the whole field. The rule-based changes are grouped by rule at the end.
+
+#### Change 1: research log on the guarded pages and /prepare/ (4)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/se.json` | `application.deadlines[4].notes` | Master's results come a week earlier, on 1 April — that date is context here rather than a milestone of its own, because nothing on this profile is a master's application. | Master's results come a week earlier, on 1 April. |
+| `data/institutions/nl-erasmus.json` | `meta.notes[0]` | The IBIS institute code 034892 is RSM's, published on RSM's own admission page for graduated applicants who want their IB results verified electronically. It is recorded at institution level because that is where the model holds codes, but it was published by the school rather than by the university. | The IBIS institute code 034892 is published on the admission page of RSM, Erasmus's business school, for graduated applicants who want their IB results verified electronically. RSM publishes it; the university itself does not. |
+| `data/context-notes/nl-english-narrowing.json` | `attribution` | The Internationalisation in Balance bill and institutions’ announced responses, as recorded in this project’s country research | The Internationalisation in Balance bill and institutions’ own announcements |
+| `data/context-notes/no-language-is-the-obstacle.json` | `attribution` | This project’s own survey of Norwegian bachelor provision, September 2026 | Samordna opptak’s published rules, and a count of English-taught Norwegian bachelor programmes, September 2026 |
+
+#### Change 2: gap wording, "Listed/Recorded because", "Verified", "this catalogue", "the model" (61)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/destinations/nl.json` | `sectorLandscape.routes[3].note` | Not covered in detail on this site. Recorded because it exists and because a student who needs it will not find it in the ordinary listings. | Not covered in detail on this site; these schools do not appear in the ordinary programme listings, which is why they are named here. |
+| `data/destinations/lv.json` | `sectorLandscape.routes[3].note` | Recorded so the route is visible. Not covered for international applicants on this site. | Not covered for international applicants on this site. |
+| `data/destinations/jp.json` | `sectorLandscape.routes[4].note` | The newest category in the Japanese system and the least documented in English. Listed so that the route is visible. | A recent category in the Japanese system, with little documentation in English. |
+| `data/destinations/dk.json` | `sectorLandscape.routes[4].note` | Not covered in detail on this site; it is listed because the Agency names it. Ask the institutions directly. | Not covered in detail on this site; the Agency names it as part of the sector. Ask the institutions directly. |
+| `data/destinations/ae.json` | `sectorLandscape.routes[1].note` | Listed because a student who would suit it will not otherwise hear of it. | A student who would suit it may not otherwise hear of it. |
+| `data/destinations/au.json` | `sectorLandscape.routes[1].note` | Listed because the category exists and a student will meet the phrase. | You will meet the phrase. |
+| `data/destinations/au.json` | `sectorLandscape.routes[5].note` | Listed because it is what an agent will offer a student whose predicted score is short, and because it costs a year. | It is what an agent will offer a student whose predicted score is short, and it costs a year. |
+| `data/destinations/ca.json` | `sectorLandscape.routes[1].note` | Listed because it exists and is easy to overlook. Two cautions: | Easy to overlook. Two cautions: |
+| `data/destinations/de.json` | `sectorLandscape.routes[4].note` | Taught in German. Recorded because it is the route that exists when the KMK rule has not been satisfied. | Taught in German. It is the route that exists when the KMK rule has not been satisfied. |
+| `data/destinations/gb.json` | `sectorLandscape.routes[3].note` |  Recorded so that the restriction is visible rather than discovered late. | (deleted) |
+| `data/destinations/jp.json` | `sectorLandscape.routes[2].note` | Listed because it has no European equivalent and is rarely mentioned in English-language advice. | It is rarely mentioned in English-language advice. |
+| `data/destinations/kr.json` | `sectorLandscape.routes[1].note` | ; it is listed because a student who needs it will not find it in the ordinary listings. | ; a student who needs it will not find it in the ordinary listings. |
+| `data/destinations/no.json` | `sectorLandscape.routes[3].note` | Taught in Norwegian. Recorded because it is a real tier of Norwegian post-secondary education, not because it is a realistic route from an IB. | Taught in Norwegian. A real tier of Norwegian post-secondary education, but not a realistic route from an IB. |
+| `data/destinations/nz.json` | `sectorLandscape.routes[2].note` | Listed because it is unique to New Zealand and rarely appears in guidance for international undergraduates. | It rarely appears in guidance for international undergraduates. |
+| `data/destinations/se.json` | `sectorLandscape.routes[3].note` | Recorded because it is a real and commonly-taken route that no international guidance mentions. Mostly taught in Swedish. | A real and commonly taken route that international guidance rarely mentions. Mostly taught in Swedish. |
+| `data/destinations/sg.json` | `sectorLandscape.routes[3].note` | Listed because the route exists, is large, and explains why SIT's admissions calendar | The route is large, and it explains why SIT's admissions calendar |
+| `data/destinations/us.json` | `sectorLandscape.routes[5].note` | Not covered in detail here. Listed because a student who needs it will not find it in the ordinary listings. | Not covered in detail on this site; a student who needs it will not find it in the ordinary listings. |
+| `data/destinations/us.json` | `sectorLandscape.routes[6].note` | Listed because a student searching online will often meet it first. | A student searching online will often meet it first. |
+| `data/countries/cn.json` | `application.deadlines[11].notes` | Listed because of where it sits rather than because anything in China is waiting for it. | This date matters for where it sits, not because anything in China is waiting for it. |
+| `data/countries/jp.json` | `funding[0]` | It is listed because people ask about it, not because it is available: | It is here because people ask about it; it is not available: |
+| `data/countries/mt.json` | `application.deadlines[2].notes` | Listed so that the IB deadline above is visible as the concession it is: | It shows the IB deadline above for the concession it is: |
+| `data/countries/pt.json` | `application.deadlines[14].notes` | It is listed because it falls in this window and is easy to mistake for an EU-open one. | It falls in this window and is easy to mistake for an EU-open one. |
+| `data/countries/lt.json` | `application.deadlines[4].notes` | Vilnius University is the university this profile sends you to first. | Vilnius University comes first on this page. |
+| `data/countries/hu.json` | `application.deadlines[2].notes` | This is the only route in this profile that starts in February | This is the only route on this page that starts in February |
+| `data/application-routes/nl-breda-uas-selection-2027.json` | `milestones[0].note` | The year is inferred from the regulation's stated academic year | The year is taken from the regulation's stated academic year |
+| `data/countries/ca.json` | `costs.tuitionNonEu.value` | Verified for 2026/27 at UBC: | At UBC, for 2026/27: |
+| `data/destinations/ca.json` | `feeContext[1].typicalRange` | Verified at UBC for 2026/27: | At UBC, for 2026/27: |
+| `data/countries/cz.json` | `language.englishTaughtBachelors` | At bachelor's level, verified counts include | At bachelor's level, counts include |
+| `data/countries/cz.json` | `costs.tuitionNonEu.value` | Verified gaps: | Examples: |
+| `data/countries/cz.json` | `costs.applicationFee` | Verified: 500 CZK | Examples: 500 CZK |
+| `data/countries/fi.json` | `funding[3]` | Verified waivers run | Waivers run |
+| `data/countries/nz.json` | `ibRecognition.notes[0]` | Verified guaranteed-entry rank scores | Guaranteed-entry rank scores |
+| `data/countries/nz.json` | `costs.tuitionNonEu.year` | 2026 (verified) and 2027 (indicative) | 2026 (published) and 2027 (indicative) |
+| `data/countries/pl.json` | `costs.livingCostMonthly.value` | contradicted by verified 2026/27 dormitory rates of 670-1,270 PLN at the Jagiellonian. | contradicted by the Jagiellonian's own 2026/27 dormitory rates of 670-1,270 PLN. |
+| `data/countries/pl.json` | `costs.livingCostMonthly.year` | dormitory figures verified for 2026/27 | dormitory figures from 2026/27 rates |
+| `data/topics/distinctive-options.json` | `options[11].cost` | None of these figures is verified; ask each school for a quote. | None of these figures is confirmed here; ask each school for a quote. |
+| `data/topics/distinctive-options.json` | `options[13].cost` | — that could not be verified here. | — that is not confirmed here. |
+| `data/topics/distinctive-options.json` | `options[3].cost` | Individual colleges were not verified. | Individual colleges' fees are not confirmed here. |
+| `data/topics/distinctive-options.json` | `options[5].cost` | Amounts vary by programme and were not verified here. | Amounts vary by programme and are not confirmed here. |
+| `data/topics/distinctive-options.json` | `options[6].cost` | Figures were not verified from an official page. | These figures are not confirmed here. |
+| `data/topics/distinctive-options.json` | `options[9].deadlineNote` | Fees were not verified — request the fee schedule from admissions. | Fees are not confirmed here — request the fee schedule from admissions. |
+| `data/topics/distinctive-options.json` | `options[10].cost` | Individual figures not verified. | Individual figures are not confirmed here. |
+| `data/topics/distinctive-options.json` | `options[14].cost` | Not verified. Duke Kunshan offers | Not confirmed here. Duke Kunshan offers |
+| `data/topics/distinctive-options.json` | `options[15].deadlineNote` | Not verified. Check xjtlu.edu.cn | Not confirmed here. Check xjtlu.edu.cn |
+| `data/topics/distinctive-options.json` | `options[12].whoItSuits` | For the destinations in this dataset, | For the destinations on this site, |
+| `data/opportunities/nl-breda-uas-applied-data-science-and-ai-2027-autumn.json` | `requirements[0].alternativeRoute` | Breda is the only institution in this catalogue whose own rules open a door before you turn 21. | Breda's own rules open a door before you turn 21. |
+| `data/opportunities/nl-breda-uas-applied-data-science-and-ai-2027-autumn.json` | `requirements[0].note` | and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. | and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. |
+| `data/opportunities/nl-breda-uas-creative-business-2027-autumn.json` | `requirements[0].alternativeRoute` | Breda is the only institution in this catalogue whose own rules open a door before you turn 21. | Breda's own rules open a door before you turn 21. |
+| `data/opportunities/nl-breda-uas-creative-business-2027-autumn.json` | `requirements[0].note` | and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. | and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. |
+| `data/opportunities/nl-breda-uas-creative-media-and-game-technologies-2027-autumn.json` | `requirements[0].alternativeRoute` | Breda is the only institution in this catalogue whose own rules open a door before you turn 21. | Breda's own rules open a door before you turn 21. |
+| `data/opportunities/nl-breda-uas-creative-media-and-game-technologies-2027-autumn.json` | `requirements[0].note` | and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. | and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. |
+| `data/opportunities/nl-breda-uas-hotel-management-2027-autumn.json` | `requirements[0].alternativeRoute` | Breda is the only institution in this catalogue whose own rules open a door before you turn 21. | Breda's own rules open a door before you turn 21. |
+| `data/opportunities/nl-breda-uas-hotel-management-2027-autumn.json` | `requirements[0].note` | and the model has no requirement kind that says 'a qualification at this level'. It is recorded as a full IB Diploma because that is what this site's readers hold and because it certainly clears the bar. | and this site cannot state 'a qualification at this level', so it shows a full IB Diploma, which is what this site's readers hold and which certainly clears the bar. |
+| `data/opportunities/nl-erasmus-international-business-administration-2027-autumn.json` | `requirements[0].alternativeRoute` | This is the one Dutch record in this catalogue where the institution answers the question by name, and the answer is no: | Here the institution answers the question by name, and the answer is no: |
+| `data/opportunities/nl-erasmus-international-business-administration-2027-autumn.json` | `requirements[0].note` | which makes this the clearest published refusal of Course Results in this catalogue, and a researched no rather than a silence. | so for Course Results the answer is a published no, not a silence. |
+| `data/opportunities/nl-erasmus-international-business-administration-2027-autumn.json` | `requirements[2].note` | The exemption has a second condition the model cannot express: | The exemption has a second condition: |
+| `data/programmes/nl-breda-uas-creative-business.json` | `summary` | Its selection procedure is the most explicitly scored in this catalogue: a published points rubric across | Its selection procedure is scored on a published points rubric across |
+| `data/programmes/nl-erasmus-economics-and-business-economics.json` | `summary` | It is one of the largest English-taught economics cohorts in Europe, and it is also the programme in this catalogue that states its IB entry rule most precisely: | It states its IB entry rule precisely: |
+| `data/programmes/nl-tudelft-nanobiology.json` | `summary` | It asks for more IB science than anything else in this catalogue — | It asks for a lot of IB science — |
+| `data/programmes/nl-utwente-technical-computer-science.json` | `summary` | It is also the programme in this catalogue that will not tell you in IB terms whether your mathematics is enough: | It does not tell you in IB terms whether your mathematics is enough: |
+| `data/countries/ie.json` | `costs.livingCostMonthly.value` | (an annual figure; the page gives no monthly one) | (an annual figure; TCD gives no monthly one) |
+
+#### Change 3: rankings in the prose beside the cards (30)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/destinations/gr.json` | `sectorLandscape.routes[2].what` | The American College of Greece (Deree) is the best known. | The American College of Greece (Deree) is one. |
+| `data/destinations/se.json` | `sectorLandscape.routes[2].what` | Konstfack, the Royal Institute of Art and the Stockholm University of the Arts are the best known. | They include Konstfack, the Royal Institute of Art and the Stockholm University of the Arts. |
+| `data/destinations/se.json` | `sectorLandscape.summary` | but it teaches bachelor degrees of the same standing, and several are highly regarded. | but it teaches bachelor degrees of the same standing. |
+| `data/destinations/no.json` | `sectorLandscape.routes[2].what` | Some of the strongest teaching in the country is here, and it is invisible if you only look at the universities. | They are easy to miss if you only look at the universities. |
+| `data/destinations/de.json` | `sectorLandscape.routes[2].note` | Worth knowing it exists, because for the right student it is the strongest version of what Germany offers. | Worth knowing it exists. |
+| `data/destinations/de.json` | `sectorLandscape.routes[1].what` | Excellent for engineering and business, and far better regarded by German employers than the English translation suggests. | Many of their degrees are in engineering and business. |
+| `data/destinations/lt.json` | `sectorLandscape.routes[1].what` | Kauno kolegija, one of the largest, admits | Kauno kolegija, for example, admits |
+| `data/destinations/us.json` | `sectorLandscape.routes[1].note` | The best known are highly selective, | Many are highly selective, |
+| `data/destinations/us.json` | `sectorLandscape.routes[0].what` | Admission is holistic, opaque and at the famous names in the low single digits for international appl | Admission is holistic, opaque and at some of them in the low single digits for international appl |
+| `data/destinations/au.json` | `sectorLandscape.routes[2].note` | Some of these providers are excellent and some are not registered to enrol international students at all. | Some of these providers are registered to enrol international students and some are not. |
+| `data/destinations/gb.json` | `sectorLandscape.routes[1].what` | this is the closest thing in the UK to what they are after. | this is the UK route to look at. |
+| `data/destinations/is.json` | `sectorLandscape.routes[0].what` | The University of Iceland in Reykjavík, the largest and broadest, and the University of Akureyri in the north. | The University of Iceland in Reykjavík, and the University of Akureyri in the north. |
+| `data/destinations/kr.json` | `sectorLandscape.routes[3].note` | because it is the clearest example of a route that exists and is not open to this reader: | because it is an example of a route that exists and is not open to this reader: |
+| `data/destinations/lv.json` | `whyConsider[0]` | Some English-taught options close after IB results, which is rare in Europe — Turība | Some English-taught options close after IB results — Turība |
+| `data/topics/distinctive-options.json` | `options[3].what` | AUC and UCR are the two best known, but the Netherlands has around eight of these honours liberal arts colleges attached to its research universities: | The Netherlands has around eight of these honours liberal arts colleges attached to its research universities, AUC and UCR among them: |
+| `data/topics/distinctive-options.json` | `options[3].whoItSuits` | These are the closest thing in Europe to an American liberal arts college at European prices, | They are close to an American liberal arts college, at European prices, |
+| `data/topics/distinctive-options.json` | `options[4].what` | An EU flagship initiative in which | An EU initiative in which |
+| `data/topics/distinctive-options.json` | `options[5].what` | Erasmus Mundus Joint Programmes are the EU's flagship joint degrees, | Erasmus Mundus Joint Programmes are the EU's joint degrees, |
+| `data/topics/distinctive-options.json` | `options[5].whoItSuits` | this is one of the best-funded routes into a master's in Europe, | this is a fully funded route into a master's in Europe, |
+| `data/topics/distinctive-options.json` | `options[10].what` | A route almost invisible from a gymnasium, and one of the few where a bachelor's degree comes with a licence attached. | A route almost invisible from a gymnasium, where the bachelor's degree comes with a licence attached. |
+| `data/topics/distinctive-options.json` | `options[10].whoItSuits` | Denmark, with Maersk and one of the world's largest merchant fleets, is an unusually good place | Denmark, home to Maersk, is a good place |
+| `data/topics/distinctive-options.json` | `options[13].what` | the only named merit scholarship is | its only named merit scholarship is |
+| `data/topics/distinctive-options.json` | `options[14].whoItSuits` | The deadlines are the friendliest in Asia for a May 2027 IB candidate. | The deadlines suit a May 2027 IB candidate. |
+| `data/context-notes/dk-language-reality.json` | `text` | Denmark has a reputation for English-language higher education, and at master's level that reputation is earned. At bachelor's level it is not. | Denmark teaches many master's degrees in English. At bachelor's level it mostly does not. |
+| `data/context-notes/nl-english-narrowing.json` | `text` | The Netherlands built its reputation with IB students on English-taught bachelor programmes, | The Netherlands has long drawn IB students with English-taught bachelor programmes, |
+| `data/context-notes/nl-two-systems.json` | `text` | The single most common misreading of the Dutch system | A common misreading of the Dutch system |
+| `data/countries/is.json` | `whyConsider[4]` | Nordic citizens get the simplest possible healthcare position — confirmation of home insurance is enough — and register domicile | Nordic citizens need only confirmation of home insurance for healthcare, and register domicile |
+| `data/countries/ca.json` | `institutions[5].englishBachelors` | Known for problem-based learning, which it pioneered in medicine and now uses across health and science programmes. | Problem-based learning across health and science programmes. |
+| `data/countries/lt.json` | `institutions[5].note` | including an aviation engineering programme you will not find elsewhere in the region. | including an aviation engineering programme. |
+| `data/countries/se.json` | `institutions[7].note` | A smaller foundation university in a lakeside town that punches above its weight on English-taught bachelor's, especially through its international business school. | A smaller foundation university in a lakeside town, with English-taught bachelor's especially through its international business school. |
+
+#### Change 5: round 3's fixes carried to their siblings (5)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/destinations/ca.json` | `whyConsider[3]` | Waterloo built its reputation on this. | Waterloo is built around it. |
+| `data/destinations/nz.json` | `livingContext.housing` | Otago is famous for an almost entirely residential first year in Dunedin. | Otago runs an almost entirely residential first year in Dunedin. |
+| `data/countries/si.json` | `whyConsider[1]` | Living costs are genuinely low: a student dorm room is EUR 120-250 a month and a student meal costs you about EUR 4.37 | Living costs are low: a student meal costs about EUR 4.37, but university dorms take private international students only in Maribor, so budget for the private market |
+| `data/countries/ee.json` | `summary` | Estonia is often described as teaching in English, and at master's level that is true. At bachelor's level it is not. | Estonia teaches many master's degrees in English; at bachelor's level the choice is small. |
+| `data/countries/no.json` | `institutions[8].note` | An engineering-led university in Trondheim, with a Nobel-winning neuroscience institute. | An engineering-led university in Trondheim, known for engineering, neuroscience, architecture and the natural sciences. |
+
+#### Change 6: polish (3)
+
+| File | Field | Before | After |
+|---|---|---|---|
+| `data/countries/kr.json` | `institutions[13].note` | ; many Korean screen actors and directors trained here. | . |
+| `data/institutions/dk-dania.json` | `meta.notes[1]` | meet the language requirement. Its specific entry requirement is still English B, so plan on English B. | meet the language requirement, but the specific entry requirement is still English B. |
+| `data/dk/dania.json` | `notes[2]` | meet the language requirement. Its specific entry requirement is still English B, so plan on English B. | meet the language requirement, but the specific entry requirement is still English B. |
+
+#### Change 2, by rule (70 strings)
+
+These were changed by rule rather than one at a time. The rule, and every file it touched:
+
+| Rule | Replacement | Strings | Files |
+|---|---|---|---|
+| the year here is inferred from the intake this profile covers | "this site assumes the 2027 intake" | 14 | countries/hu.json, countries/ie.json, countries/is.json, countries/lv.json, countries/no.json |
+| "inferred from the 2026 calendar / cycle / booklet / period", "an undated annual rule", "a recurring date" (card year labels and route notes) | "projected from …" | 9 | application-routes/ca-apply-direct-2027.json, countries/at.json, countries/hu.json, countries/ie.json, countries/lt.json |
+| "Not researched in detail here." and its variants (sectorLandscape route notes) | "Not covered in detail on this site." / "Not covered on this site." / "Not covered for IB applicants on this site." … | 25 | destinations/at.json, destinations/be.json, destinations/ch.json, destinations/cz.json, destinations/de.json, destinations/fr.json, destinations/gb.json, destinations/hu.json, destinations/ie.json, destinations/is.json, destinations/lu.json, destinations/lv.json, destinations/nl.json, destinations/pl.json, destinations/se.json, destinations/si.json |
+| "(page gives no year)" / "(yearly date; the page gives no year)" (school calendar labels) | "(year assumed)" / "(yearly date; year assumed)" | 18 | schools/at-modul.json, schools/no-inn.json, schools/no-nmbu.json, schools/no-nord.json, schools/no-uia.json, schools/no-uio.json, schools/no-uis.json |
+| "Verified example(s):" | "Example(s):" | 4 | countries/at.json, countries/au.json, countries/fi.json, countries/nz.json |
