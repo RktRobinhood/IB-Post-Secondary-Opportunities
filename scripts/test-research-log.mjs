@@ -102,26 +102,7 @@ export { RESEARCH_LOG, researchLog } from './lib/research-log.mjs';
  * hand-off list, not a place to excuse wording: nothing goes here that the
  * author of this guard was free to rewrite.
  */
-const HANDED_OFF = [
-  {
-    page: 'universities/at-mci/index.html',
-    match: 'fact boxes checked for language',
-    owner: 'the programme pages branch (data/schools/*.json is being edited there; not edited here)',
-    ask: 'data/schools/at-mci.json sources[].title: "MCI — Bachelor\'s programs (16 listed; language on each fact box)".',
-  },
-  {
-    page: 'universities/de-hsrw/index.html',
-    match: 'checked in a browser',
-    owner: 'the programme pages branch (data/schools/*.json is being edited there; not edited here)',
-    ask: 'data/schools/de-hsrw.json sources[].title: drop ", checked in a browser" from "(filter Bachelor + English: 16 of 23 bachelor\'s, checked in a browser)".',
-  },
-  {
-    page: 'universities/de-tum/index.html',
-    match: 'checked for TUM',
-    owner: 'the programme pages branch (data/schools/*.json is being edited there; not edited here)',
-    ask: 'data/schools/de-tum.json sources[].title: "(237 results, filtered to TUM)".',
-  },
-];
+const HANDED_OFF = [];
 
 let failures = 0;
 const check = (name, fn) => {
