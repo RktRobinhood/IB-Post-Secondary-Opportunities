@@ -10,7 +10,10 @@
  * dependency, and writes <round>/*.png plus text.json (the visible text of
  * each shot's element, so a critic can read what the picture says).
  *
- * Set CHROME to the browser binary if it is not at the Windows default.
+ * Set CHROME to the browser binary if it is not at the Windows default,
+ * PROFILE_ROOT to where Chrome's throwaway profile goes (default: the OS temp
+ * directory), DEVTOOLS_PORT if 9334 is taken, and BASE_URL to shoot a server
+ * that is already running (then DIST and PORT are not used).
  */
 import { spawn } from 'node:child_process';
 import http from 'node:http';
@@ -23,8 +26,8 @@ const OUT = path.join(import.meta.dirname, ROUND);
 const DIST = path.resolve(process.env.DIST || path.join(import.meta.dirname, '..', '..', '..', '..', 'dist'));
 const PORT = Number(process.env.PORT || 4399);
 const CHROME = process.env.CHROME || 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe';
-const DEVTOOLS = 9334;
-const BASE = `http://localhost:${PORT}`;
+const DEVTOOLS = Number(process.env.DEVTOOLS_PORT || 9334);
+const BASE = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript',
@@ -43,10 +46,10 @@ const server = http.createServer(async (req, res) => {
     res.end('not found');
   }
 });
-await new Promise((r) => server.listen(PORT, r));
+if (!process.env.BASE_URL) await new Promise((r) => server.listen(PORT, r));
 
 await fs.mkdir(OUT, { recursive: true });
-const profile = await fs.mkdtemp(path.join(os.tmpdir(), 'conv-shoot-'));
+const profile = await fs.mkdtemp(path.join(process.env.PROFILE_ROOT || os.tmpdir(), 'conv-shoot-'));
 const chrome = spawn(CHROME, [
   '--headless=new', `--remote-debugging-port=${DEVTOOLS}`, `--user-data-dir=${profile}`,
   '--hide-scrollbars', '--no-first-run', 'about:blank',
@@ -259,5 +262,5 @@ try {
   if (logs.length) console.log(`  page errors:\n    ${logs.join('\n    ')}`);
   ws.close();
   chrome.kill();
-  server.close();
+  if (server.listening) server.close();
 }

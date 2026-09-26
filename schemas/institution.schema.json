@@ -325,14 +325,53 @@
     },
     "levelRaise": {
       "type": "object",
-      "description": "How this institution lets a student add a subject level they lack (supplementary courses, conditional admission), where it publishes its own terms. Overrides the Recognition Scheme's national text.",
+      "description": "How this institution lets a student add a subject level they lack (supplementary courses, conditional admission), where it publishes its own terms. Overrides the Recognition Scheme's national text. `text` is subject-neutral; a text that names a subject goes under `subjects` (round 4: ITU's Maths sentence was shown to a student missing Danish A). scripts/test-eligibility.mjs fails if the action for one subject names another.",
       "required": [
-        "text",
         "evidence"
+      ],
+      "anyOf": [
+        { "required": ["text"] },
+        { "required": ["subjects"] }
       ],
       "properties": {
         "text": {
-          "type": "string"
+          "type": "string",
+          "description": "What the institution accepts, for any subject. Names no subject."
+        },
+        "subjects": {
+          "type": "array",
+          "description": "What the institution accepts for one subject, in its own words, used in place of `text` for that subject.",
+          "items": {
+            "type": "object",
+            "required": ["subject", "text"],
+            "properties": {
+              "subject": { "type": "string", "description": "The subject on the Recognition Scheme's scale, as a requirement names it (\"Mathematics\")." },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "timing": {
+          "type": "string",
+          "description": "When the course must be passed, for everyone; said after the text."
+        },
+        "groups": {
+          "type": "array",
+          "description": "Where one applicant group is told something else — SDU: from outside the EU/EEA, supplementary courses must be finished before 5 July.",
+          "items": {
+            "type": "object",
+            "required": ["applicantGroup"],
+            "properties": {
+              "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
+              "text": { "type": "string", "description": "Replaces the text for this group." },
+              "timing": { "type": "string", "description": "Replaces the timing for this group." }
+            },
+            "additionalProperties": false
+          }
+        },
+        "multiple": {
+          "type": "string",
+          "description": "What the institution says about taking more than one supplementary course (AU: at most two after 5 July). Without it the Recognition Scheme's national sentence applies."
         },
         "evidence": {
           "$ref": "common.schema.json#/$defs/evidenceRefs"

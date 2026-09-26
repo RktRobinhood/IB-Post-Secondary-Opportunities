@@ -1409,7 +1409,9 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); background: va
 .prog__side { font-size: .8125rem; }
 .prog[data-match="yes"] { border-left: 3px solid var(--ok); padding-left: var(--s4); }
 .prog[data-match="near"] { border-left: 3px solid var(--sand); padding-left: var(--s4); }
-.prog[data-match="no"] { opacity: .55; }
+/* A result that is not met is dimmed at its badge and picture, never its words: grey-on-grey text was unreadable on a phone (round 4). */
+.prog[data-match="no"] .prog__side .tag, .prog[data-match="no"] .prog__backdrop { opacity: .55; }
+.prog[data-match="no"] { border-left: 3px solid var(--rule-strong); padding-left: var(--s4); }
 
 /* --- 16. Subject picker -------------------------------------------------- */
 
