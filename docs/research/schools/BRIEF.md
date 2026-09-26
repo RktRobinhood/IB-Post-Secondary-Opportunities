@@ -123,3 +123,28 @@ When your share is done, append one section to `docs/research/schools/progress.m
 Keep it to one line per point.
 
 Don't run git. The coordinating session commits.
+
+## Enrichment: the Danish standard (26 September)
+
+The owner wants every country's degrees as close to the Danish pages as possible. A Danish degree has its
+own page: what it is, what you need in IB terms, how places are allocated, the last cut-off, its deadlines,
+its sources. Each `listed` programme now gets such a page, built from these optional fields. Fill them from
+the programme's own page (and its entry-requirements page), one programme at a time, and write the file
+after each school:
+
+- `about`: one or two plain sentences, 40–320 characters: what you study and what sets it apart. From the
+  programme page, in your words. No slogans, no rankings.
+- `needs[]`: every subject the programme requires, in IB terms: `anyOf` (ids from `data/ib-subjects.json`,
+  e.g. `["mathematics-aa", "mathematics-ai"]`), `level` (HL / SL / any), `grade` when stated or converted by
+  an official table (quote the table's URL in `sources`). Name the strictest case; never soften "required" to
+  "preferred". A local-language requirement goes in `ib` (the field has no subject for it), as before.
+- `points`: minimum IB points, only when stated for this programme (or for the institution and it applies).
+- `selection[]` and `selectionNote`: how places are decided, in order of weight, and one line in the
+  student's terms ("Ranked on IB grades with Finland's scoring table; the top 40 get in").
+- `cutoff`: the last admitted score, only where the institution or national portal publishes it, with its
+  intake year and URL. `ibPoints` only when an official table converts it. Never estimate.
+- `places`: study places for 2027, or the latest published figure.
+- `requirementsUrl`: the page that states the requirements, when it is not the programme page.
+- Keep `ib` as the one-line summary the school page shows; the new fields carry the detail.
+- Unpublished 2027 criteria: record last year's and say "2026 criteria; 2027 not yet published" in
+  `selectionNote` or `ib`.
