@@ -1,7 +1,7 @@
 {
   "institution": "fi-utu",
   "name": "University of Turku",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "University in Turku on Finland's south-west coast; two English bachelor's: sustainable business, and a 3+2 ICT engineering track.",
@@ -24,8 +24,8 @@
     { "label": "Conditionally admitted: proof of graduation must reach Turku", "date": "2027-08-15", "kind": "documents", "who": "any", "url": "https://www.utu.fi/en/study-at-utu/apply-to-bachelors-programmes" }
   ],
   "programmes": [
-    { "name": "Bachelor's Degree Programme in Sustainable and Social Entrepreneurship", "credential": "BSc (Economics and Business Administration)", "years": 3, "field": "business", "url": "https://www.utu.fi/en/study-at-utu/bachelors-degree-programme-in-sustainable-and-social-entrepreneurship", "ib": "Only 30% of places go to certificate-based (IB) applicants; 70% go to SAT applicants.", "tuitionEuEea": "Free" },
-    { "name": "Degree Programme in Information and Communication Technology", "credential": "BSc (Tech)", "years": 3, "field": "computing", "url": "https://www.utu.fi/en/study-at-utu/bachelors-degree-programme-in-information-and-communication-technology", "ib": "40% of places are certificate-based, scored on the technology table; you need advanced maths at a grade comparable to C in the Finnish exam.", "tuitionEuEea": "Free" }
+    { "name": "Bachelor's Degree Programme in Sustainable and Social Entrepreneurship", "credential": "BSc (Economics and Business Administration)", "years": 3, "field": "business", "url": "https://www.utu.fi/en/study-at-utu/bachelors-degree-programme-in-sustainable-and-social-entrepreneurship", "about": "Business studies combined with entrepreneurship and multidisciplinary sustainability courses at Turku School of Economics, for careers in social entrepreneurship, regenerative business or NGOs.", "ib": "Only 30% of places go to certificate-based (IB) applicants; 70% go to SAT applicants.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai"],"level":"any","grade":2,"note":"National business threshold: grade 2 in any IB maths."}], "selection": ["test-score","grades"], "selectionNote": "70% of the 20 places on SAT (1150+, maths 600+); 30% (6) on certificates such as the IB, business table, minimum 110 points.", "places": 20, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094607/valintaperuste" },
+    { "name": "Degree Programme in Information and Communication Technology", "credential": "BSc (Tech)", "years": 3, "field": "computing", "url": "https://www.utu.fi/en/study-at-utu/bachelors-degree-programme-in-information-and-communication-technology", "about": "Software engineering and ICT for varied work communities, combining technical skills (cyber security, machine learning, robotics) with communication; a 3+2 bachelor's and master's.", "ib": "40% of places are certificate-based, scored on the technology table; you need advanced maths (AA, or AI at HL) at grade 4.", "needs": [{"anyOf":["mathematics-aa","mathematics-ai@HL"],"level":"SL","grade":4,"note":"Turku asks 'C or a comparable grade'; the national technology table pairs C with IB 4."},{"anyOf":["physics","chemistry"],"level":"any","grade":2,"note":"National technology threshold."}], "selection": ["test-score","grades"], "selectionNote": "60% of the 30 places (18) on SAT (1150+, maths 600+); 40% (12) on certificates such as the IB, ranked on the national technology table.", "places": 30, "tuitionEuEea": "Free", "requirementsUrl": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094606/valintaperuste" }
   ],
   "notes": [
     "You can apply to at most three Turku programmes in one joint application.",
@@ -39,6 +39,10 @@
     { "title": "University of Turku — Information and Communication Technology", "url": "https://www.utu.fi/en/study-at-utu/bachelors-degree-programme-in-information-and-communication-technology", "retrieved": "2026-09-25" },
     { "title": "University of Turku — Language requirements for bachelor's degree programmes", "url": "https://www.utu.fi/en/study-at-utu/language-requirements-for-bachelors-degree-programmes", "retrieved": "2026-09-25" },
     { "title": "Studyinfo — Turku Sustainable and Social Entrepreneurship, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000025055", "retrieved": "2026-09-25" },
-    { "title": "Studyinfo — Turku ICT, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000025047", "retrieved": "2026-09-25" }
+    { "title": "Studyinfo — Turku ICT, Joint Application Spring 2027", "url": "https://opintopolku.fi/konfo/en/toteutus/1.2.246.562.17.00000000000000025047", "retrieved": "2026-09-25" },
+    { "title": "Studyinfo — Turku Sustainable and Social Entrepreneurship 2027 criteria (20 places; SAT 70%, certificates 30%; minimum 110 points)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094607/valintaperuste", "retrieved": "2026-09-26" },
+    { "title": "Studyinfo — Turku ICT 2027 criteria (30 places; SAT 60%, certificates 40%)", "url": "https://opintopolku.fi/konfo/en/hakukohde/1.2.246.562.20.00000000000000094606/valintaperuste", "retrieved": "2026-09-26" },
+    { "title": "Yliopistovalinnat.fi — Scoring 2026, technology and engineering (IB threshold; Finnish 'C' paired with IB 4)", "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/technology-and-engineering", "retrieved": "2026-09-26" },
+    { "title": "Yliopistovalinnat.fi — Scoring 2026, business: IB threshold 'At least grade 2 in mathematics (advanced or basic syllabus)'", "url": "https://yliopistovalinnat.fi/en/scoring-of-certificate-based-admissions-in-2026/business", "retrieved": "2026-09-26" }
   ]
 }
