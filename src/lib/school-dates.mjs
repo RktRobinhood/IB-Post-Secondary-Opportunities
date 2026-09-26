@@ -388,6 +388,8 @@ export function datesFor(site, inst, { programme = null } = {}) {
      programme is recorded as not numerus fixus (a programme's own page, or a
      school whose programmes are all open). */
   const noFixus = scoped.length > 0 && scoped.every((o) => o.admission?.numerusFixus === false);
+  /* The route dates that are this school's own: tied to it, or naming it. */
+  const schools = new Set();
   const national = siteEvents(site).filter((e) => {
     if (e.destination !== dest || !isActionable(e) || isForEarlierEntry(e, CYCLE_YEAR)) return false;
     if (e.numerusFixusOnly && noFixus) return false;
@@ -399,6 +401,7 @@ export function datesFor(site, inst, { programme = null } = {}) {
         const progs = programmesNamed(e);
         if (progs.length && !progs.some((p) => p.id === programme.id)) return false;
       }
+      schools.add(e);
       return true;
     }
     if (forPageless(e)) return false;
@@ -414,6 +417,7 @@ export function datesFor(site, inst, { programme = null } = {}) {
       const progs = programmesNamed(e);
       if (progs.length && !progs.some((p) => p.id === programme.id)) return false;
     }
+    if (namesSelf) schools.add(e);
     return true;
   });
 
@@ -435,7 +439,12 @@ export function datesFor(site, inst, { programme = null } = {}) {
   const superseded = new Set(
     mine.filter((e) => e.supersedes && (programme || !programmesNamed(e).length)).map((e) => e.supersedes)
   );
-  const kept = mine.filter((e) => !superseded.has(refOf(e)));
+  /* `schoolOwn`: the date is the school's own (its record's, or a route date
+     tied to it or naming it), as against a date of the route it is applied
+     through. A programme page leans on the difference (school-programme.mjs). */
+  const kept = mine
+    .filter((e) => !superseded.has(refOf(e)))
+    .map((e) => ({ ...e, schoolOwn: e.origin === 'school' || schools.has(e) }));
 
   return condense(kept).sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
 }
@@ -494,7 +503,7 @@ function condense(events) {
       const wa = identityWords(a.label);
       const wb = identityWords(b.label);
       if (!wa.size || wa.size >= wb.size || ![...wa].every((w) => wb.has(w))) continue;
-      out[j] = mergeTwins(b, a);
+      out[j] = { ...mergeTwins(b, a), schoolOwn: Boolean(a.schoolOwn || b.schoolOwn) };
       out[i] = null;
       break;
     }
@@ -569,7 +578,8 @@ function dateItem(site, e) {
     : '';
   return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(isBinding(e) ? ' data-binding="true"' : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
     <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html` <span class="dates-panel__prov">· provisional</span>` : ''}</p>
-    <p class="dates-panel__what">${e.label}</p>
+    ${/* A line of the panel, not prose: the same school date is on each of
+          its programmes' pages (the text-walls guard reads <p> as prose). */ ''}<div class="dates-panel__what">${e.label}</div>
     ${badge || paras.length || src
       ? html`<div class="dates-panel__foot">${badge}${
           /* The note is the same on every school in a country, so it waits
@@ -610,13 +620,16 @@ function sessionItem(s) {
  * every binding deadline leads, then the next few dates, and the rest are one
  * tap away.
  *
+ * `keep`, when given, is a further test each date must pass.
+ *
  * `countryName`, when given, keeps the panel on a page whose school has no
  * dates of its own yet: one line into that country's dates, never a sentence
  * saying there are none. The link reads "Every date in <country>" on every
  * page, the country named from its record when the caller does not say.
  */
-export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null } = {}) {
-  const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today);
+export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null } = {}) {
+  /* `keep`, when given, narrows the dates further (a school programme's page). */
+  const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today && (!keep || keep(e)));
   const sessions = sessionsFor(site, inst, { programme }).filter((s) => endOf(s) >= today);
   const calendarLink = `/timeline/?destinations=${destinationCode(inst)}`;
   const where = countryName || countryLabel(site, destinationCode(inst)) || 'this country';

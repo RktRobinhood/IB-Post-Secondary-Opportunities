@@ -95,7 +95,7 @@ function sharedTuition(programmes) {
 export const inCardOrder = (programmes) =>
   [...programmes].sort((a, b) => a.field.localeCompare(b.field) || a.name.localeCompare(b.name));
 
-function programmeCard(inst, p, { tuitionOnCard, headed }) {
+export function programmeCard(inst, p, { tuitionOnCard, headed, brief = false }) {
   return card({
     // Its own page on this site (school-programme.mjs), where the link to the
     // programme's page on the institution's site now lives.
@@ -106,11 +106,14 @@ function programmeCard(inst, p, { tuitionOnCard, headed }) {
     title: p.name,
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     sub: [p.credential, `${p.years} yrs`, p.city && p.city !== inst.city ? p.city : null].filter(Boolean).join(' · '),
-    text: p.ib || null,
+    // A brief card (a sibling on a programme page) leaves the IB line to its own page.
+    text: brief ? null : p.ib || null,
     tags: [
       p.closes ? { label: `Apply by ${shortDate(p.closes)}`, mod: 'sand' } : null,
       tuitionOnCard && p.tuitionEuEea ? { label: `EU/EEA: ${p.tuitionEuEea}`, mod: 'brand' } : null,
     ].filter(Boolean),
+    // At rest, the card says it opens a page.
+    meta: ['The programme →'],
   });
 }
 

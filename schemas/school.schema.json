@@ -128,7 +128,7 @@
             "required": ["anyOf", "level"],
             "additionalProperties": false,
             "properties": {
-              "anyOf": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "Acceptable IB subjects by id in data/ib-subjects.json (e.g. [\"mathematics-aa\", \"mathematics-ai\"]). Any one of them satisfies this requirement." },
+              "anyOf": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(@(HL|SL))?$" }, "description": "Acceptable IB subjects by id in data/ib-subjects.json (e.g. [\"mathematics-aa\", \"mathematics-ai\"]). Any one of them satisfies this requirement. An option accepted only at one level carries it after the id, \"<id>@HL\" or \"<id>@SL\", and that overrides `level` for that option alone: AA at SL or HL, or AI only at HL, is {\"anyOf\": [\"mathematics-aa\", \"mathematics-ai@HL\"], \"level\": \"SL\"}, shown as \"Maths AA (SL or HL) or AI HL\". The level must be one the subject is offered at." },
               "level": { "enum": ["HL", "SL", "any"], "description": "The lowest level accepted: HL means HL only; SL means SL or HL; any means the level is not specified." },
               "grade": { "type": "integer", "minimum": 1, "maximum": 7, "description": "Minimum IB grade, when one is stated or converted from a published table." },
               "note": { "type": "string", "maxLength": 120, "description": "A condition the fields cannot hold, e.g. 'grade 5 at SL is also accepted'." }

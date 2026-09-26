@@ -54,6 +54,7 @@ This page says where the work stands, so the next session (human or agent) start
   3. The remaining 28 countries are researched later, a few at a time, with the brief as it now stands.
 - **To resume research:** re-run a country's researcher with the same prompt, which is in this session's history. Any school whose `data/schools/<key>.json` already exists is skipped.
 - **Settled with the critic (round 3):** a school's hero photo is the same photo as its card on the country page. That is one image slot, the card being a thumbnail of the page it opens, as for the Danish institutions. It does not count as a repeat under the no-repeated-images rule.
+- **Settled with the art director (programme pages, round 1):** a programme page under a school (`/universities/<key>/<slug>/`) shows its school's hero photo; the school's page, card and programme pages are one image slot. `unique-images` holds it: that photo heads no page outside its school.
 - **Screenshots:** `node docs/research/qa/schools/shoot.mjs <out> <base> <paths…>`. It writes to `D:/ibp-tmp`, never C:.
 
 ## 26 September (morning): the owner's focus is university data

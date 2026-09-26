@@ -33,11 +33,15 @@ const IB = new Map(
 function needsProblems(needs = [], where = 'needs') {
   const out = [];
   for (const [j, n] of (needs || []).entries()) {
-    for (const id of n.anyOf || []) {
+    for (const option of n.anyOf || []) {
+      // "<id>" at the need's level, or "<id>@HL" / "<id>@SL" at that level alone.
+      const [id, at] = String(option).split('@');
+      const level = at || n.level;
       const levels = IB.get(id);
       if (!levels) out.push(`${where}[${j}]: "${id}" is not an IB subject in data/ib-subjects.json`);
-      else if (n.level && n.level !== 'any' && !levels.includes(n.level)) {
-        out.push(`${where}[${j}]: "${id}" is not offered at ${n.level} (only ${levels.join(', ')})`);
+      else if (at !== undefined && !['HL', 'SL'].includes(at)) out.push(`${where}[${j}]: "${option}" names no IB level (use @HL or @SL)`);
+      else if (level && level !== 'any' && !levels.includes(level)) {
+        out.push(`${where}[${j}]: "${id}" is not offered at ${level} (only ${levels.join(', ')})`);
       }
     }
   }
@@ -52,6 +56,10 @@ function needsProblems(needs = [], where = 'needs') {
     needsProblems([{ anyOf: ['not-a-subject'], level: 'HL' }]).length === 1,
     !abInitio || needsProblems([{ anyOf: [abInitio], level: 'HL' }]).length === 1,
     needsProblems([{ anyOf: [[...IB.keys()][0]], level: 'any' }]).length === 0,
+    needsProblems([{ anyOf: ['not-a-subject@HL'], level: 'SL' }]).length === 1,
+    !abInitio || needsProblems([{ anyOf: [`${abInitio}@HL`], level: 'SL' }]).length === 1,
+    needsProblems([{ anyOf: [`${[...IB.keys()][0]}@XL`], level: 'SL' }]).length === 1,
+    needsProblems([{ anyOf: [[...IB.keys()][0], `${[...IB.keys()][0]}@HL`], level: 'SL' }]).length === 0,
   ].some((ok) => !ok);
   if (bad) {
     console.log('✗ self-test: the needs rule cannot tell a catalogue subject from an invented one');
