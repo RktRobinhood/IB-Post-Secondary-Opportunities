@@ -50,3 +50,13 @@ Dates: only 2027-cycle dates an official page states for 2027 (or as a standing 
 - Could not verify: any UIBK page with IB Diploma points/subjects rules (the language page only names the "IB Diploma ... with English as a school subject" as English proof).
 - Dates: none recorded (no 2027/28 dates found).
 - Hand-off: language-certificates admission page (bachelor's rules first); the programme list is JavaScript-filtered and mixes levels.
+
+## at-jku (listed, 6 programmes)
+- Scope listed: 27 bachelor's/diploma pages fetched; "Language English" on 6: Artificial Intelligence, Biological Chemistry, Chemistry and Chemical Technology, International Business Administration ("English (Level C1)"), Quantum Science and Technology, Transformation Studies. Art x Science. The rest German (B2/C1); Medical Engineering "German (Level B2) and English" and NASCITEC "German (Level B2) and partially in English" excluded.
+- Contradicts data/countries/at.json: englishBachelors names only "Artificial Intelligence"; the note says "its Artificial Intelligence bachelor's is in English". JKU lists five more English-language bachelor's.
+- Quantum Science and Technology: "supposed to start in autumn 2027" pending Senate approval; included with that caveat. Transformation Studies: "Program Begins WS 2027/2028"; Angewandte: "Next admission procedure: January/February 2027, details of the admission procedure will be published in autumn 2026."
+- CCT: "during the first year of the program, some of the courses will also be held in German" (no German certificate required); recorded in its ib line.
+- IB English (quoted): B2 = "English as Language A with a minimum grade of 4 or Language B with a minimum grade of 5 (HL) or 6 (SL)"; C1 = "Language A with a minimum grade of 6 or Language B with a minimum grade of 7 (HL)".
+- Dates: the registration page gives a standing rule with no year: winter semester "General admission period early July September 5" (EU/EEA) and non-EU "To begin studies in winter semester February 6 March 31". Recorded as 2027-09-05 and 2027-03-31, labelled as standing dates. "Early July" opening has no day, so not recorded.
+- Could not verify: any JKU page giving IB points/subject rules.
+- Hand-off: bachelor's and diploma list (27 programmes, no master's).

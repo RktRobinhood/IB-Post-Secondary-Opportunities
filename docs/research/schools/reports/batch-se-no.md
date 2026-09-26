@@ -40,3 +40,20 @@ Retrieved 2026-09-26. WebFetch/curl only, no browser. One line per point.
 - Degree titles: Mineral "Degree of Bachelor of Science - Major; Natural Resources Engineering…" (BSc). CG "Degree of Bachelor - Major; Media Technology…" → "Bachelor (180 credits)"; Game Dev and Game Design pages give no degree link, same credential used (unverified).
 - IB translations (antagning.se): Ma 2a-2c = any IB maths (AI SL at 3 gives Ma 2a); Ma 3b/3c = AI SL 4, AA SL 3, or any HL maths 3; Ma 4 = AA SL 4 or AA/AI HL 3; Physics 2 = Physics SL/HL at 4 (HL 3). Chemistry 1 is not in the antagning table; I wrote "Chemistry at grade 4 (3 at HL)" from the Chemistry 2 row — the strictest reading, unverified that other IB subjects could cover Chemistry 1.
 - First-round results 8 April 2027 recorded from University Admissions (no LTU page checked for it).
+
+## se-slu — Swedish University of Agricultural Sciences
+
+- Scope: listed, 1 programme. SLU's bachelor's page: "SLU offers one international Bachelor's programme, Forest and Landscape. The application period for international students is from 16 October 2026 to 15 January 2027 for studies starting in the autumn semester of 2027." Hand-off is that page (1 English programme; it links Swedish-taught ones only via the Swedish site). Matches data/countries/se.json.
+- Forest and Landscape facts block: "Next start: HT 2027", "Application deadline for international students: 2027-01-15", "Application deadline for Swedish students: 2027-04-15", "Study location: Alnarp", "Language: English". Recorded 15 April as the second (national) round close, labelled with SLU's words "Swedish students"; the second round is open to EU/EEA citizens per University Admissions.
+- Page glitch: the admission paragraph says "There are two admission rounds for this Master's programme" on a bachelor's page. Not used.
+- IB: requirements "Mathematics 2a, 2b or 2c Natural sciences 2 Social sciences 1b … English 6"; antagning.se maps Naturkunskap 2 to "Environmental Systems, SL eller två av ämnena Chemistry, Physics och Biology" and Samhällskunskap 1b to "IB-examen". SLU also mentions "general substitute requirements" for Natural sciences 2 (not read).
+- Could not verify completeness against Universityadmissions.se search (JS app); relied on SLU's own "one international Bachelor's programme".
+
+## se-ki — Karolinska Institutet
+
+- Scope: listed, 1 programme. KI: "Karolinska Institutet offers one bachelor's programme in English, the Bachelor's Programme in Biomedicine." KI's programme search (Bachelor + English) shows "1 result … Autumn 2026, Autumn 2027". Hand-off: KI's "Apply for a bachelor's programme" page (one programme, bachelor's only). Matches data/countries/se.json.
+- Two 2027 intakes on the programme page: "First intake Autumn 2027 … KI-D7000 … Application deadline: 2027-01-15" and "Second intake Autumn 2027 … KI-D8000 … Application deadline: 2027-04-15". Degree: "Bachelor of Medical Science with a Major in Biomedicine". Location Solna.
+- Round rule (quoted in a note): "The first admissions round is open for non-EU and EU/EEA citizens with completed upper secondary studies" … "If you are an EU/EEA citizen in your final upper secondary school year you can apply to the Second admissions round." Second-round documentation: "21 June 2027* … *… until 5 July 2027 to submit documentation of your completed upper secondary studies".
+- Second-round selection: "final upper secondary school qualifications and results from the Swedish Scholastic Aptitude Test. The test is given in Swedish and is not a requirement."
+- IB: Biology 2, Chemistry 2, Mathematics 4, English 6 → Biology and Chemistry SL at 4 / HL at 3; Ma 4 = AA SL at 4 or AA/AI HL at 3 (antagning.se). KI: "KI is not involved in the assessment of your upper secondary school credentials."
+- data/countries/se.json note "it awards the Nobel Prize in Medicine" not checked on a KI page in this run; not used.

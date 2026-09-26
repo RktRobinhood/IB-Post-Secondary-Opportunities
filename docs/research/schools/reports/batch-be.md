@@ -31,3 +31,10 @@ Researcher run started 2026-09-26. One line per point. WebFetch/WebSearch only (
 - Dates: "Applications for our Fall 2027 BA programmes open on 1 October 2026" recorded. Deadline table says "EEA citizens 30 June" / "Non-EEA citizens 30 April" for Fall with no year, so kept as a note, not a date.
 - Contradiction between official pages: VUB's deadline page says "Brussels School of Governance : apply before 1 September 2026 (last day: 31 August)" (2026 cycle), BSoG's own admission page says 30 June for EEA. Followed BSoG's own page; neither is a 2027 date.
 - Tuition "7.500 EUR per semester, so 15.000 EUR for a full academic year" for EEA and non-EEA; data/countries/be.json englishBachelors says "business, international affairs and communication": there is no communication BA now, and law is missing.
+
+## be-uantwerpen (listed, 2 programmes)
+- Scope: listed. Bachelors page: "34 results found", two tagged "Taught in English": Social-Economic Sciences, Urban Sustainability Studies. The admission page confirms: "Except for the Bachelor of Social-Economic Science and the YUFE Bachelor of Urban Sustainability Studies, all our bachelor's programmes (undergraduate) are taught in Dutch." Matches data/countries/be.json.
+- Hand-off: the bachelors page with language filter; the unfiltered page returns 34 bachelor's only (programme level = Bachelor), 2 in English. Filter state is client-side, so the link opens unfiltered; browser check wanted.
+- Dates: "The admission application for academic year 2027-2028 will open on 4 November 2026"; Objective 1 "28 February 2027" (non-EEA) / "31 May 2027" (EEA); Objective 2 "31 May 2027" / "30 June 2027". These apply only to those who must file an admission application; IB holders without a visa "can enrol directly" ("Enrolments start in July").
+- Urban Sustainability Studies: own YUFE procedure; its page still shows 2026 periods ("EEA students with an EEA degree: Registration is open from 1 June 2026 to 10 July 2026") — not recorded.
+- Could not verify: the exact degree title of both programmes (BSc/BA not stated); recorded as the page names them.
