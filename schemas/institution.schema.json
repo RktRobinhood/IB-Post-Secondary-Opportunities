@@ -364,10 +364,17 @@
             "properties": {
               "applicantGroup": { "$ref": "common.schema.json#/$defs/applicantGroup" },
               "text": { "type": "string", "description": "Replaces the text for this group." },
-              "timing": { "type": "string", "description": "Replaces the timing for this group." }
+              "timing": { "type": "string", "description": "Replaces the timing for this group." },
+              "multiple": { "type": "string", "description": "Replaces the sentence about more than one course for this group." },
+              "afterResults": { "type": "integer", "minimum": 0, "description": "Replaces the count of courses allowed after the results for this group (SDU outside the EU/EEA: 0)." }
             },
             "additionalProperties": false
           }
+        },
+"afterResults": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many supplementary courses may be finished after the IB results arrive and still count for this intake (AU: 2; CBS: 0). Only where a quotation supports the number; without one the Recognition Scheme's applies. A plan with more courses than this is \"Does not currently meet\" for this intake."
         },
         "multiple": {
           "type": "string",

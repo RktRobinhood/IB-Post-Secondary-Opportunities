@@ -1410,7 +1410,23 @@ a.chip:hover { border-color: var(--accent); color: var(--accent); background: va
 .prog[data-match="yes"] { border-left: 3px solid var(--ok); padding-left: var(--s4); }
 .prog[data-match="near"] { border-left: 3px solid var(--sand); padding-left: var(--s4); }
 /* A result that is not met is dimmed at its badge and picture, never its words: grey-on-grey text was unreadable on a phone (round 4). */
-.prog[data-match="no"] .prog__side .tag, .prog[data-match="no"] .prog__backdrop { opacity: .55; }
+/* Round 5: the verdict stays legible; only the picture recedes. */
+.prog[data-match="no"] .prog__backdrop { opacity: .55; }
+/* One glyph per reason, no list bullet; the lead line opens to the rest. */
+.why-list .why { margin: 0 0 .25rem; }
+.why__more { display: inline; }
+/* Inside the card's own disclosure, so the accordion's heading style is undone. */
+details.acc .why__more > summary {
+  display: inline; cursor: pointer; list-style: none; padding: 0; position: static;
+  font: inherit; font-variation-settings: normal; color: inherit;
+}
+details.acc .why__more > summary::-webkit-details-marker { display: none; }
+details.acc .why__more > summary::after,
+details.acc[open] .why__more > summary::after {
+  content: " ▸"; position: static; transform: none; font: inherit; color: var(--ink-mute);
+}
+details.acc[open] .why__more[open] > summary::after { content: " ▾"; }
+details.acc .why__more > span { display: block; margin-top: .15rem; padding: 0; }
 .prog[data-match="no"] { border-left: 3px solid var(--rule-strong); padding-left: var(--s4); }
 
 /* --- 16. Subject picker -------------------------------------------------- */

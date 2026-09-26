@@ -454,3 +454,26 @@ Still to source:
 
 Round 4 result: gate 35/35, exit 0 (eligibility 202 scenarios, README
 updated 143 → 202; ib-terms 811 checks). Screenshots are in `round-5/`.
+
+## Round 5 — post-critique bug fixes (critique-round-5.md, scored 6/10)
+
+The full write-up is in `round-5/fixes.md`, under "Post-round-5 bug fixes".
+
+49. **`afterResults` decides "possible".** It counts, per publisher and
+    applicant group, the courses a student may finish after the IB results
+    arrive. The values are national 1, AU 2, SDU non-EU 0, CBS 0 and ITU
+    non-fee-exempt 0. SDU EU and ITU fee-exempt fall back cautiously to the
+    national 1. More courses than that gives "Does not currently meet" with a
+    "For 2027" line. `MAX_RAISES` is labelled "our limit".
+50. **The Course Results route needs a record to count for this intake.** It
+    is a step only if `alternativeRouteSummary.withinIntake` is true, and no
+    record says so.
+51. **A subject from nothing, above the scale's lowest level, counts as at
+    least one course.** Where the plan fits only on that count, the result is
+    Needs review, never possible.
+52. **An open question is shown as a "?", never a tick.** A scheme `caution`
+    ("formally … confirm with the university") is shown as a "?". SEA's
+    English-test exemption for Course Results is an `openQuestion`.
+53. **The planner's legend and caveat moved under the count.** Both are
+    collapsed, "How to close a gap" is collapsed, and each reason is one line
+    with the rest one tap down.
