@@ -216,6 +216,9 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // opens its primary path; each row opens its own.
     href: p.href,
     mod: `card--prog card--fam-${FAMILY[p.field] || 'general'}`,
+    /* Its own photograph (#54), when one was chosen for it: a family's card
+       shows its lead path's, else the first path's that has one. */
+    backdrop: p.backdrop || members.find((q) => q.backdrop)?.backdrop || null,
     // The field names the card's band, unless a heading above already does.
     kicker: headed ? null : FIELD[p.field],
     // The name without the degree type the line under it already says.

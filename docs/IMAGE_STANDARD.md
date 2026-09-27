@@ -147,6 +147,12 @@ Every record there is pinned to a Commons file a reviewer chose, and it carries 
 `scope` (`programme:<id>` or `field:<value>`) that `src/lib/programme-imagery.mjs`
 resolves each card by.
 
+A degree on a school page (`data/schools/<key>.json`, issue #54) has its own record,
+keyed `school-<key>-<slug>` with scope `school:<key>-<slug>`, the slug being the one
+its page lives at (`programmePaths` in `src/lib/schools.mjs`). Its card and its page's
+hero use it; a degree without one keeps its school's photograph. Finland was the pilot:
+`docs/research/qa/degree-photos/fi/progress.md` logs each choice.
+
 Two things differ, and both follow from the use:
 
 - **They are stored at 960 px, not 1600.** A card is at most about 400 CSS px wide,

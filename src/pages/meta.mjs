@@ -445,6 +445,16 @@ export function credits(site) {
     if (!usedBy.has(p.backdrop.src)) usedBy.set(p.backdrop.src, new Set());
     usedBy.get(p.backdrop.src).add(label);
   }
+  /* A school programme's own photograph (#54) is used by that programme. */
+  for (const c of site.countries || []) {
+    for (const inst of c.institutions || []) {
+      for (const p of inst.school?.programmes || []) {
+        if (!p.backdrop?.src) continue;
+        if (!usedBy.has(p.backdrop.src)) usedBy.set(p.backdrop.src, new Set());
+        usedBy.get(p.backdrop.src).add(`${p.name} (${inst.shortName || inst.name})`);
+      }
+    }
+  }
   const disciplines = [];
   for (const r of Object.values(site.programmeImages || {})) {
     if (!r.file || !r.src) continue;

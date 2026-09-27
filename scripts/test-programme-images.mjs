@@ -87,6 +87,55 @@ check('every programme-specific record names a programme that exists', () => {
   assert.deepEqual(orphans, [], `records for programmes that are not in the catalogue: ${orphans.join(', ')}`);
 });
 
+/* A school record's programme (#54): a `school:<key>-<slug>` record names a
+   programme of a listed school record, at the slug its page lives at, and is
+   keyed `school-<key>-<slug>`. Its card on the school page and its own page
+   show it; a programme with no record keeps its school's photograph. */
+const schoolProgrammes = new Map();
+for (const c of site.countries || []) {
+  for (const inst of c.institutions || []) {
+    for (const p of inst.school?.programmes || []) if (p.slug) schoolProgrammes.set(`${inst.key}-${p.slug}`, { inst, p });
+  }
+}
+const schoolRecords = Object.entries(records).filter(([, r]) => r.scope?.startsWith('school:'));
+
+check('every school-programme record names a listed programme at the slug of its page, under its own key', () => {
+  const bad = [];
+  for (const [key, r] of schoolRecords) {
+    const id = r.scope.slice('school:'.length);
+    if (!schoolProgrammes.has(id)) bad.push(`${key}: no listed school programme "${id}"`);
+    if (key !== `school-${id}`) bad.push(`${key}: its scope is for "${id}", so its key should be "school-${id}"`);
+  }
+  assert.deepEqual(bad, []);
+});
+
+check('every school programme with a publishable record shows it on its card and heads its own page with it', () => {
+  const bad = [];
+  let seen = 0;
+  for (const [key, r] of schoolRecords) {
+    if (!publishable(r)) continue;
+    const hit = schoolProgrammes.get(r.scope.slice('school:'.length));
+    if (!hit) continue;
+    const { inst, p } = hit;
+    seen++;
+    if (p.backdrop?.src !== r.src) { bad.push(`${key}: the programme resolves ${p.backdrop?.src || 'no photograph'}`); continue; }
+    const pageHtml = built(path.join(p.href, 'index.html'));
+    if (!pageHtml) { bad.push(`${p.href}: not built`); continue; }
+    const hero = (pageHtml.match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || '';
+    if (!hero.endsWith(r.src)) bad.push(`${p.href}: heads with ${hero || 'no photograph'}, not ${r.src}`);
+    const schoolHtml = built(path.join(inst.href, 'index.html'));
+    if (!schoolHtml) { bad.push(`${inst.href}: not built`); continue; }
+    // The card that links to this programme (its own, or its family's, whose
+    // rows link every path) draws a photograph.
+    const cards = [...schoolHtml.matchAll(/<article class="card[^"]*">[\s\S]*?<\/article>/g)].map((m) => m[0]);
+    const mine = cards.filter((c) => c.includes(`${p.href}"`));
+    if (!mine.length) bad.push(`${inst.href}: no card links to ${p.href}`);
+    else if (!mine.some((c) => /^<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*<img class="card__backdrop"/.test(c))) bad.push(`${inst.href}: the card for ${p.slug} draws no photograph`);
+  }
+  assert.ok(seen > 0 || !schoolRecords.length, 'no school-programme record resolved');
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} problems`);
+});
+
 check('a field with two pictures shares them out rather than repeating one', () => {
   const byScope = new Map();
   for (const r of Object.values(records)) if (publishable(r)) byScope.set(r.scope, (byScope.get(r.scope) || 0) + 1);
@@ -168,7 +217,7 @@ check('every record is credited, signed for its own file, and names its Commons 
     if (title(r.page) !== r.file) bad.push(`${key}: names "${r.file}" but its page is for "${title(r.page)}"`);
     if (!r.author || !r.licence) bad.push(`${key}: no ${!r.author ? 'author' : 'licence'} to credit`);
     if (!/^(?:CC0|Public domain|PD|CC BY(?:-SA)? \d\.\d)/i.test(r.licence || '')) bad.push(`${key}: licence "${r.licence}" is not CC0, PD, CC BY or CC BY-SA`);
-    if (!r.scope || !/^(?:programme|field):[a-z0-9-]+$/.test(r.scope)) bad.push(`${key}: scope "${r.scope}"`);
+    if (!r.scope || !/^(?:programme|field|school):[a-z0-9-]+$/.test(r.scope)) bad.push(`${key}: scope "${r.scope}"`);
     const rv = review(r);
     if (!rv) bad.push(`${key}: no complete review for "${r.file}"`);
     else if (rv.state === 'approved' && !rv.note) bad.push(`${key}: approved with no note saying why`);

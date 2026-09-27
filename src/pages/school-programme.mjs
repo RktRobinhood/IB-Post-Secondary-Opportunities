@@ -24,7 +24,9 @@ import { campusSentence } from '../lib/paths.mjs';
  * `cutoff`, `places` and `starts` each light up their block once a researcher
  * fills them. Nothing here names a country or a school.
  *
- * Its photograph is its school's: the school's hero, its card and its
+ * Its photograph is its own when one was chosen for it (data/programme-
+ * images.json, a `school:` record, #54), as a Danish Programme page has its
+ * own; otherwise its school's: the school's hero, its card and its
  * programmes' pages are one image slot (docs/STATUS.md, #43), as a Danish
  * Programme page falls back to its Institution's picture.
  *
@@ -324,7 +326,17 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   const elsewhere = p.city && inst.city && !sameTown(p.city, inst.city);
   const pic = picture(site, inst.key);
   const campus = elsewhere ? `${short}'s ${inst.city} campus` : null;
-  const image = pic && !pic.external
+  const title = displayName(p.name);
+  /* Its own photograph first (#54): the one its card shows. */
+  const ownPhoto = p.backdrop
+    ? {
+        src: p.backdrop.src,
+        alt: truncate(p.backdrop.alt || title, 120),
+        credit: p.backdrop.credit ? { ...p.backdrop.credit, text: truncate(p.backdrop.credit.text, 100) } : null,
+        focal: p.backdrop.focus || '50% 50%',
+      }
+    : null;
+  const image = ownPhoto || (pic && !pic.external
     ? {
         src: pic.src,
         alt: campus ? `${campus}: ${pic.alt || ''}`.replace(/: $/, '') : pic.alt,
@@ -333,8 +345,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
           : campus ? { text: campus } : null,
         focal: '50% 45%',
       }
-    : null;
-  const title = displayName(p.name);
+    : null);
 
   /* Said once: the lede is the first sentence of `about` only when "What it
      is" has more to say; otherwise a line from the record's own fields. */

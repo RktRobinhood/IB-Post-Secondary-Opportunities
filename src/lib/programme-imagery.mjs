@@ -18,6 +18,11 @@
  *   3. `field:interdisciplinary`, for `other`, an unknown field, a field with
  *      no pool or a spent one.
  *
+ * A school record's programme (src/lib/schools.mjs, issue #54) is not in that
+ * catalogue. It has a picture only when a record is chosen for it, scoped
+ * `school:<school key>-<programme slug>` (`schoolBackdropResolver` below);
+ * without one, its card has none and its page keeps its school's photograph.
+ *
  * `field.secondary` is not consulted. The research explains why:
  * docs/research/programme-images/README.md.
  *
@@ -150,7 +155,15 @@ export function backdropResolver(records, programmes) {
 
   const cardOf = new Map(programmes.map((p) => [p.id, p.card || p.id]));
 
-  const shape = (r) => ({
+  return (id) => {
+    const r = chosen.get(cardOf.get(id) || id);
+    return r ? shape(r) : null;
+  };
+}
+
+/** A record as a backdrop: `{ key, scope, src, width, height, focus?, srcset }`. */
+function shape(r) {
+  return {
     key: r.key,
     scope: r.scope,
     src: r.src,
@@ -164,11 +177,32 @@ export function backdropResolver(records, programmes) {
       .filter((v) => v.src && v.width)
       .sort((a, b) => a.width - b.width)
       .map((v) => ({ src: v.src, width: v.width })),
-  });
+  };
+}
 
-  return (id) => {
-    const r = chosen.get(cardOf.get(id) || id);
-    return r ? shape(r) : null;
+/** The scope of a picture chosen for one programme of a school record. */
+export const schoolScope = (schoolKey, slug) => `school:${schoolKey}-${slug}`;
+
+/**
+ * Pictures for the programmes of school records (issue #54): a degree on a
+ * school page gets the photograph chosen for it, as a Danish degree does.
+ *
+ * Returns `(schoolKey, slug) => backdrop | null`, the slug being the one its
+ * page lives at (`programmePaths` in src/lib/schools.mjs). The backdrop also
+ * carries what a page needs to show and credit it: `alt`, `author`, `licence`
+ * and `page`. A programme with no publishable record resolves null, and every
+ * caller falls back to what it showed before: no card photograph, and the
+ * school's own photograph on the programme's page. Which programmes have a
+ * picture is decided by the records alone; nothing here names a school, a
+ * programme or a country.
+ */
+export function schoolBackdropResolver(records) {
+  const scopes = byScope(records);
+  return (schoolKey, slug) => {
+    const r = schoolKey && slug ? scopes.get(schoolScope(schoolKey, slug))?.[0] : null;
+    return r
+      ? { ...shape(r), alt: r.description || r.subject || '', author: r.author || null, licence: r.licence || null, page: r.page || null }
+      : null;
   };
 }
 

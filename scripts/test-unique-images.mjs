@@ -18,8 +18,9 @@
  *      different cards draw the same background, and the finder and planner
  *      data agree with the cards. A school's photograph is one slot with its
  *      page, its card and its own programmes' pages (docs/STATUS.md, #43): a
- *      programme page under /universities/<key>/ shows its school's hero or
- *      none, and that photograph heads no page outside its school.
+ *      programme page under /universities/<key>/ shows its own photograph
+ *      when one was chosen for it (#54), else its school's hero or none, and
+ *      the school's photograph heads no page outside its school.
  *   4. **No special cases.** src/lib/families.mjs and the resolver name no
  *      programme, institution or country.
  *
@@ -127,6 +128,12 @@ check('no hosted photograph fills two slots anywhere on the site', () => {
     add(hashOf(e.pick.src), `place:${e.key}`);
   }
   for (const [k, s] of cards) add(hashOf([...s][0]), `card:${k}`);
+  // A school programme's own photograph (#54) is a slot of its own.
+  for (const c of site.countries || []) {
+    for (const inst of c.institutions || []) {
+      for (const p of inst.school?.programmes || []) if (p.backdrop?.src) add(hashOf(p.backdrop.src), `degree:${inst.key}/${p.slug}`);
+    }
+  }
   const bad = [...slots]
     .filter(([h, s]) => s.size > 1 && !allowed(h, [...s]))
     .map(([h, s]) => `${h.slice(0, 10)}: ${[...s].join(', ')}`);
@@ -182,10 +189,12 @@ check('on every built page, two different cards never draw one background', () =
     if (!text.includes('data-backdrop=')) continue;
     pages++;
     const seen = new Map();
-    const re = /<article class="card[^"]*card--backdrop">([\s\S]*?)<\/article>/g;
+    const re = /<article class="card[^"]*\bcard--backdrop\b[^"]*">([\s\S]*?)<\/article>/g;
     for (let m; (m = re.exec(text)); ) {
       const key = (m[1].match(/data-backdrop="([^"]+)"/) || [])[1];
-      const id = (m[1].match(/\/programmes\/([a-z0-9-]+)\//) || [])[1];
+      // A programme card links to /programmes/<id>/; a school programme's
+      // card (#54) to /universities/<key>/<slug>/, its first link.
+      const id = (m[1].match(/\/programmes\/([a-z0-9-]+)\//) || m[1].match(/\/universities\/([a-z0-9-]+\/[a-z0-9-]+)\//) || [])[1];
       if (!key || !id) continue;
       const card = oppCard.get(id) || cardOf.get(id) || id;
       if (!seen.has(key)) seen.set(key, new Set());
@@ -197,9 +206,15 @@ check('on every built page, two different cards never draw one background', () =
   assert.deepEqual(bad, []);
 });
 
-check("a school's photograph heads only its own page and its own programmes' pages", () => {
+check("a school's photograph heads only its own page and its own programmes' pages; a programme with its own photograph heads with that", () => {
   const root = path.join(DIST, 'universities');
   assert.ok(fs.existsSync(root), 'dist/universities/ is not built');
+  const degreeSrc = new Map();
+  for (const c of site.countries || []) {
+    for (const inst of c.institutions || []) {
+      for (const p of inst.school?.programmes || []) if (p.backdrop?.src) degreeSrc.set(`${inst.key}/${p.slug}`, p.backdrop.src);
+    }
+  }
   const heroOf = (f) => (fs.readFileSync(f, 'utf8').match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || null;
   // Every hero on the site, by the page it heads.
   const heroes = new Map();
@@ -220,7 +235,10 @@ check("a school's photograph heads only its own page and its own programmes' pag
       pages++;
       children++;
       const own = heroOf(f);
-      if (own && own !== school) bad.push(`universities/${key}/${slug}/: hero ${own} is not its school's (${school || 'none'})`);
+      // Its own photograph (#54), when one was chosen for it; else its school's or none.
+      const degree = degreeSrc.get(`${key}/${slug}`);
+      if (degree) { if (!own || !own.endsWith(degree)) bad.push(`universities/${key}/${slug}/: hero ${own || 'none'} is not its own photograph (${degree})`); }
+      else if (own && own !== school) bad.push(`universities/${key}/${slug}/: hero ${own} is not its school's (${school || 'none'})`);
     }
     /* A canonical Institution's photograph heads its Programmes' pages under
        /programmes/, by the older rule; only a school with programme pages of

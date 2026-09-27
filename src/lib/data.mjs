@@ -13,7 +13,7 @@ import { destinationFacet, loadCanonical } from './canonical.mjs';
 import { reconcileDestinations } from './catalogue.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
-import { backdropResolver } from './programme-imagery.mjs';
+import { backdropResolver, schoolBackdropResolver } from './programme-imagery.mjs';
 import { cardKey } from './families.mjs';
 import { schoolKey, loadSchools, hostOf, programmePaths } from './schools.mjs';
 
@@ -202,6 +202,19 @@ export async function load() {
      website), otherwise a school page built from data/schools/<key>.json, or
      from the profile alone until that record is researched. */
   const schools = loadSchools(path.join(DATA, 'schools'));
+  /* A school programme's own photograph (#54), when one was chosen for it:
+     its card and its page use it; without one they show what they did. */
+  const schoolBackdrop = schoolBackdropResolver(programmeImages);
+  const withBackdrops = (key, rec) =>
+    rec
+      ? {
+          ...rec,
+          programmes: rec.programmes.map((p) => {
+            const b = schoolBackdrop(key, p.slug);
+            return b ? { ...p, backdrop: { ...b, credit: { text: `${creditName(b.author)} · ${b.licence || 'Wikimedia Commons'}`, url: b.page } } } : p;
+          }),
+        }
+      : null;
   const canonicalByHost = new Map(institutions.map((i) => [hostOf(i.links?.website || i.website), i]));
 
   for (const c of countries) {
@@ -217,7 +230,7 @@ export async function load() {
         key,
         countryCode: c.code,
         canonicalId: canonicalTwin?.id || null,
-        school: canonicalTwin ? null : withProgrammePages(key, schools.get(key)),
+        school: canonicalTwin ? null : withBackdrops(key, withProgrammePages(key, schools.get(key))),
         href: canonicalTwin ? canonicalTwin.href || `/universities/${canonicalTwin.id}/` : `/universities/${key}/`,
       };
     });
