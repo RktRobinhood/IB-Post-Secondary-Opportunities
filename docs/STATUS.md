@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 26 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 27 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -8,17 +8,25 @@ This page says where the work stands, so the next session (human or agent) start
 
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
-- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 37 checks.
+- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 38 checks.
+
+## 27 September: Finland degree-photo pilot shipped
+
+- **Live candidate on `main` (`e9a60b8`):** all 101 Finnish programme cards and programme-page heroes now have their own credited, reviewed photograph, with 303 responsive WebP variants. The resolver is scoped by school and works for every country without country-specific rendering branches.
+- **Consistency guards:** the gate now requires every published programme image to be credited and reviewed, rejects byte-identical reuse across decorative image slots, and verifies image records against their files.
+- **Visual review:** representative Aalto, Metropolia, LUT, Tampere, Quantum Technology and Paramedic Nursing pages were checked on desktop and phone, in light and dark modes. Card treatment, crops, contrast and programme heroes match the Danish interaction pattern.
+- **Release proof:** a clean detached worktree at `e9a60b8` passed all 38 checks with `SITE_BASE=/IB-Post-Secondary-Opportunities`; freshness remained advisory only.
+- **Still in flight and intentionally uncommitted:** 13 Spanish and 12 Portuguese school records plus their coverage-report updates. They still need their admissions reviews before shipping.
 
 ## 26 September (midday): local session with Chrome
 
 - **Done:** the cloud branch's coverage report is on `main`; GitHub now has only `main` (deleted `feat-43-school-pages`, `globe-desk`, `wip/agents-2026-09-25`, `claude/upbeat-rubin-hnw28y`, `claude/vigilant-clarke-04w3my`, all merged first). Local worktrees `globe-desk` and `w37` removed (their folders may linger, locked by OneDrive); `design-40` and `w43` kept, they hold uncommitted edits.
 - **Live:** #41 lead checks (Lithuania's LAMA BPO route, Ljubljana's English degree open to EU applicants, Malta, Nova SBE; `docs/research/qa/issue-41-leads/findings.md`); **France** 12 records (critic 6 → **8**, `docs/research/qa/schools/fr/`); **Italy** 13 records (critic **8** in round 1, `docs/research/qa/schools/it/`). Bocconi's Early session closes 29 Sep 2026.
 - **Researched, not yet critiqued (files in the working tree, not committed):** **Spain** 13 (`data/schools/es-*.json`, `reports/batch-es.md`) and **Portugal** 12 (`pt-*.json`, `reports/batch-pt.md`). Each needs an admissions critic (8+), then the gate; expect long-title and text-wall fixes like France's.
-- **#54 Finland degree photos, done but not critiqued (working tree, not committed):** 101 of 101 degrees have their own Commons photo (`data/programme-images.json`, 303 WebP files `src/assets/img/programmes/school-fi-*`, log `docs/research/qa/degree-photos/fi/progress.md`), wired for every country with no branches: `src/lib/programme-imagery.mjs`, `src/lib/data.mjs`, `src/pages/schools.mjs` (card), `src/pages/school-programme.mjs` (hero), `src/pages/meta.mjs` (credits), `src/assets/css/site.css`, guards in `scripts/test-programme-images.mjs` and `test-unique-images.mjs`. Nobody has looked at the photo cards in a browser yet. Next: screenshots of a few FI school pages (desktop and phone), a photo-editor critic and an art-director look, then gate and ship (gate these files without the ES/PT records).
+- **#54 Finland degree photos shipped (`e9a60b8`):** 101 of 101 degrees have their own Commons photo (`data/programme-images.json`, 303 WebP files `src/assets/img/programmes/school-fi-*`, log `docs/research/qa/degree-photos/fi/progress.md`), wired for every country with no country branch. Representative cards and programme heroes were reviewed on desktop and phone in both colour modes; a clean detached checkout passed all 38 gates.
 - **Owner questions from Spain:** should a joint degree sit on every partner's record, and should English groups inside Spanish-language degrees be listed?
 - **Subagents cannot write report files in `docs/research/qa/`**: critics return the critique as their report and the coordinator saves it.
-- **Next:** ES and PT critics; FI photo critic; the BE/IE/FI admissions critics; then wave 2b (PL, CZ, HU).
+- **Next:** ES and PT critics; the BE/IE/FI admissions critics; then wave 2b (PL, CZ, HU) and the next degree-photo batch chosen by #59.
 
 ## 26 September (afternoon): cloud session, and the clean-state rule
 
