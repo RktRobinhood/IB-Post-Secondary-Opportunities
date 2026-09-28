@@ -29,9 +29,11 @@ const record = (key) => {
   return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;
 };
 
-// A degree meets the Danish standard when it says what it is and how places
-// are decided. `needs` is left out: a degree with no subject requirement
-// rightly has none.
+// Programme-detail coverage is one layer of the parity contract
+// (docs/research/schools/PARITY.md): the degree says what it is and how places
+// are decided. It is deliberately not called "the Danish standard" because
+// research, imagery, interaction and evidence are measured separately.
+// `needs` is left out: a degree with no subject requirement rightly has none.
 const DETAIL = ['about', 'selection'];
 const detailed = (p) => DETAIL.every((f) => p[f] != null && (!Array.isArray(p[f]) || p[f].length));
 // A degree's own photograph is keyed `school-<key>-<slug>` (#54), the slug
@@ -83,13 +85,13 @@ out.push('');
 out.push('## Totals');
 out.push('');
 out.push(`- Institutions with a record: **${totals.records} of ${totals.institutions}** (${pct(totals.records, totals.institutions)}); ${totals.listed} listed, ${totals.catalogue} catalogue, ${totals.none} none.`);
-out.push(`- Degrees listed: **${totals.degrees}**; with about and selection (the Danish standard): **${totals.detailed}** (${pct(totals.detailed, totals.degrees)}).`);
+out.push(`- Degrees listed: **${totals.degrees}**; with programme detail (about and selection): **${totals.detailed}** (${pct(totals.detailed, totals.degrees)}).`);
 out.push(`- Degrees with a photograph of their own (#54): **${totals.ownPhoto}** (${pct(totals.ownPhoto, totals.degrees)}). The rest show their school's photo.`);
 out.push(`- Institutions with a school photo: **${totals.schoolPhoto} of ${totals.institutions}**.`);
 out.push('');
 out.push('## By country');
 out.push('');
-out.push('| Country | Records | Listed / catalogue / none | Degrees | Danish standard | Own photo | School photo | Leads |');
+out.push('| Country | Records | Listed / catalogue / none | Degrees | Programme detail | Own photo | School photo | Leads |');
 out.push('|---|---|---|---|---|---|---|---|');
 for (const c of countries) {
   out.push(`| ${c.name} (${c.cc}) | ${c.records}/${c.institutions} | ${c.scopes.listed || 0} / ${c.scopes.catalogue || 0} / ${c.scopes.none || 0} | ${c.degrees} | ${c.degrees ? `${c.detailed} (${pct(c.detailed, c.degrees)})` : '–'} | ${c.degrees ? c.ownPhoto : '–'} | ${c.schoolPhoto}/${c.institutions} | ${c.leads ? `[yes](leads/${c.cc}.md)` : 'no'} |`);

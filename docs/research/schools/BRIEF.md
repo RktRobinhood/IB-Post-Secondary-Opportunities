@@ -4,6 +4,10 @@ Every institution on the site gets its own curated page before any hand-off. Den
 institutions already have one, built from the canonical records. This brief covers the other ~450
 institutions: the ones in the country profiles, `data/countries/<code>.json`.
 
+The finished states and the gaps that must not be mistaken for intentional
+country variation are defined in [the school-page parity contract](PARITY.md).
+Read it before choosing or reviewing a batch.
+
 ## The reader
 
 An IB Diploma student at a school in Denmark, applying for autumn 2027 entry. About a fifth are Danish.
