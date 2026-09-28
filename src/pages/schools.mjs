@@ -7,6 +7,7 @@ import { datesPanel, isBinding } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
+import { renderProgrammeCard } from '../lib/programme-card.mjs';
 
 /**
  * A school page: one institution from a country profile (issue #43).
@@ -208,35 +209,32 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
      caller has the site to ask; else only what the record's own `closes` says. */
   const chipOf = (q) =>
     statusOf ? statusOf(q) : q.closes ? (q.closesForDiplomaHolders ? AFTER_DIPLOMA : `Apply by ${shortDate(q.closes)}`) : null;
-  const chip = same(chipOf) ? chipOf(p) : null;
-  const fee = same((q) => q.tuitionEuEea) ? p.tuitionEuEea : null;
-  return card({
+  const requirement = brief ? '' : fam ? sharedSentences(members) : p.ib || null;
+  return renderProgrammeCard({
     // Its own page on this site (school-programme.mjs), where the link to the
     // programme's page on the institution's site now lives. A family's card
     // opens its primary path; each row opens its own.
     href: p.href,
-    mod: `card--prog card--fam-${FAMILY[p.field] || 'general'}`,
     /* Its own photograph (#54), when one was chosen for it: a family's card
        shows its lead path's, else the first path's that has one. */
     backdrop: p.backdrop || members.find((q) => q.backdrop)?.backdrop || null,
-    // The field names the card's band, unless a heading above already does.
-    kicker: headed ? null : FIELD[p.field],
     // The name without the degree type the line under it already says.
     title: displayName(fam ? g.family.name : p.name),
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     // `at`: the school, on a card that stands for another school's programme.
-    sub: [at, orOf(members.map((q) => q.credential)), years, where].filter(Boolean).join(' · '),
-    // A brief card (a sibling on a programme page) leaves the IB line to its own page.
-    text: brief ? null : fam ? sharedSentences(members) : p.ib || null,
+    line: [orOf(members.map((q) => q.credential)), years, where].filter(Boolean).join(' · '),
+    // School records currently carry their concise IB answer as prose. Put it
+    // in the shared requirement slot rather than selecting a different card
+    // layout; structured `needs` can deepen this adapter later.
+    req: requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : '',
     paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
-    tags: [
-      /* A programme whose only round is for Diploma holders gives no date to
-         a final-year student: the card says whose round it is instead. */
-      chip ? { label: chip, mod: 'sand' } : null,
-      tuitionOnCard && fee ? { label: `EU/EEA: ${fee}`, mod: 'brand' } : null,
-    ].filter(Boolean),
+    /* The Danish reference card uses its single chip for admission, not for
+       a deadline or a fee. Those facts remain in the adjacent dates panel,
+       the section lede and the programme page. Only claim open entry when
+       every path explicitly records it. */
+    tags: [members.every((q) => (q.selection || []).includes('open')) ? { label: 'Open entry', mod: 'ok' } : null].filter(Boolean),
     // At rest, the card says it opens a page.
-    meta: ['The programme →'],
+    meta: [at || (headed ? null : FIELD[p.field])].filter(Boolean),
   });
 }
 

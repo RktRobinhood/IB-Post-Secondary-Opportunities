@@ -7,6 +7,7 @@ import {
 import { picture } from '../lib/data.mjs';
 import { destinationOf, institutionPicture } from './programme-facts.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
+import { renderProgrammeCard } from '../lib/programme-card.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -74,7 +75,7 @@ export function university(site, inst, { prev, next }) {
   // cards that read the same. It is the home page's card (programmeCard):
   // a photograph of the discipline, what kind of degree it is, how long and
   // where, what makes it different, and one tag; the field is its footer.
-  const programmeCards = cardGroups(site, sorted).map((g) => card(programmeCard(site, g, { meta: [g.lead.field].filter(Boolean) })));
+  const programmeCards = cardGroups(site, sorted).map((g) => renderProgrammeCard(programmeCard(site, g, { meta: [g.lead.field].filter(Boolean) })));
 
   const statement = inst.ibRecognitionStatement;
   const topics = [

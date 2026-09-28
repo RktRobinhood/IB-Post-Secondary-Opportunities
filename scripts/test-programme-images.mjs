@@ -416,7 +416,13 @@ function cardFaults(card) {
 }
 
 /** Programme cards in a built page: articles with a backdrop. */
-const programmeCards = (page) => [...page.matchAll(/<article class="card card--link card--backdrop">[\s\S]*?<\/article>/g)].map((m) => m[0]);
+const programmeCards = (page) => [...page.matchAll(/<article class="card card--link[^"]*card--backdrop[^"]*">[\s\S]*?<\/article>/g)].map((m) => m[0]);
+
+const programmeCardPages = () => [
+  'index.html',
+  ...site.institutionCatalogue.all.filter((i) => i.programmes.length).map((i) => path.join(i.href, 'index.html')),
+  ...new Set([...schoolProgrammes.values()].map(({ inst }) => path.join(inst.href, 'index.html'))),
+];
 
 check('the card guard can see what it is for', () => {
   const old = '<article class="card card--link card--backdrop"><h3 class="card__title">Electronics</h3><p class="card__cred">Sønderborg</p>' +
@@ -432,7 +438,7 @@ check('the card guard can see what it is for', () => {
 });
 
 check('every programme card: a degree on its credential line, one Needs line, one tag, no published form', () => {
-  const pages = ['index.html', ...site.institutionCatalogue.all.filter((i) => i.programmes.length).map((i) => path.join(i.href, 'index.html'))];
+  const pages = programmeCardPages();
   const bad = [];
   let seen = 0;
   for (const rel of pages) {
@@ -444,7 +450,7 @@ check('every programme card: a degree on its credential line, one Needs line, on
       if (f.length) bad.push(`${rel} ${(c.match(/\/programmes\/([a-z0-9-]+)\//) || [])[1]}: ${f.join('; ')}`);
     }
   }
-  assert.ok(seen > 50, `only ${seen} programme cards found`);
+  assert.ok(seen > 150, `only ${seen} programme cards found`);
   assert.deepEqual(bad.slice(0, 12), [], `${bad.length} cards`);
 });
 

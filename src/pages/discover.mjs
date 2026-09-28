@@ -1,10 +1,10 @@
 import { html, raw, plural, toString, slugify } from '../lib/html.mjs';
 import { url, SITE } from '../lib/layout.mjs';
-import { card } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
+import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf, countryPicture } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
@@ -125,7 +125,7 @@ export function discoverSection(site) {
     const where = inst ? readableName(inst) : lead.institutionName;
     cardData.push({ members: g.members.map(facts) });
     // The same card an institution's page draws (paths.mjs programmeCard).
-    return html`<li class="discover__card" data-card="${n}">${card(programmeCard(site, g, { meta: [where] }))}</li>`;
+    return html`<li class="discover__card" data-card="${n}">${renderProgrammeCard(programmeCard(site, g, { meta: [where] }))}</li>`;
   });
 
   /* --- The filters' options, from the records ------------------------------ */

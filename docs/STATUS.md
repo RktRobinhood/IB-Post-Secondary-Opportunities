@@ -10,6 +10,22 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 38 checks.
 
+## 28 September: one programme-card system (#63)
+
+- The visual mismatch was real even though the renderer had no country-code
+  branch: canonical Danish programmes and country school-record programmes
+  fed different props and modifiers into the broad `card()` primitive.
+- The Danish treatment is now the programme-card contract. Both data models
+  pass through `renderProgrammeCard`: full-bleed 16:10 image and veil, then
+  title, credential/length/place, one concise requirement or selection line,
+  optional paths, one admission chip and page-context meta.
+- The school-only subject-colour band, separate subtitle/prose layout,
+  deadline chip and fee chip are removed. Deadlines remain in the adjacent
+  dates panel; fees remain in the section summary and programme page.
+- The programme-card guard now reads both canonical and school-record pages,
+  so a second country-style card cannot return unnoticed.
+- Programme-page convergence remains the next bounded part of #63.
+
 ## 28 September: France degree-photo batch ready
 
 - **France now has a distinct, licensed photograph for all 24 listed programme
