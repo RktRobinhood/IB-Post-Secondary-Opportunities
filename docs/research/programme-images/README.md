@@ -9,6 +9,11 @@ Researched on 24 September 2026 by Claude (automated visual review, delegated by
 - `proposal.jsonl` has one line per scope. The fields are `scope`, `commonsFile`, `commonsPage`, `licence`, `author`, `width`, `height`, `why` and `cropNote`.
   - `field:<value>` is the fallback for a `field.primary`.
   - `programme:<id>` is a programme-specific override.
+- `schools-<country>.jsonl` uses the same fields for programmes held in
+  `data/schools/`. Its scope is `school:<institution-key>-<programme-slug>`;
+  `scripts/import-programme-images.mjs` derives the manifest key and subject
+  from that scope. Keep one country per file so a stopped or rejected batch is
+  isolated from every other release.
 - `contact-sheet.jpg` shows each of the 49 distinct photographs three ways:
   - the 16:10 centre crop;
   - a light-mode card with the paper overlay;

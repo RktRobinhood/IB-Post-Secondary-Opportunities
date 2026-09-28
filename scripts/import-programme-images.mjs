@@ -8,6 +8,7 @@
  * Reads, in this order (a later line for the same key wins):
  *   docs/research/programme-images/proposal.jsonl   one line per scope
  *   docs/research/programme-images/additions.jsonl  later picks, with an explicit key
+ *   docs/research/programme-images/schools-*.jsonl   one country's school-record programmes
  *
  * and does three things:
  *
@@ -34,6 +35,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { FIELD_LABELS } from '../src/lib/canonical.mjs';
+import { programmePaths } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const RESEARCH = path.join(ROOT, 'docs', 'research', 'programme-images');
@@ -56,13 +58,36 @@ for (const f of (await fs.readdir(path.join(ROOT, 'data', 'programmes'))).filter
   programmeNames.set(p.id, p.name);
 }
 
+// School-record programmes are not canonical programme records, but use the
+// same manifest and import path. Resolve their subject from the same generated
+// slug that the page and image resolver use.
+const schoolProgrammeNames = new Map();
+for (const f of (await fs.readdir(path.join(ROOT, 'data', 'schools'))).filter((f) => f.endsWith('.json'))) {
+  const school = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'schools', f), 'utf8'));
+  if (school.scope !== 'listed') continue;
+  for (const p of programmePaths(school.institution, school.programmes || [])) {
+    schoolProgrammeNames.set(`${school.institution}-${p.slug}`, p.name);
+  }
+}
+
+const schoolResearch = (await fs.readdir(RESEARCH))
+  .filter((f) => /^schools-[a-z]{2}\.jsonl$/.test(f))
+  .sort();
+
 const wanted = new Map();
-for (const l of [...(await lines('proposal.jsonl')), ...(await lines('additions.jsonl'))]) {
+const research = [
+  ...(await lines('proposal.jsonl')),
+  ...(await lines('additions.jsonl')),
+  ...(await Promise.all(schoolResearch.map((f) => lines(f)))).flat(),
+];
+for (const l of research) {
   const [kind, value] = String(l.scope).split(':');
-  if (!['programme', 'field'].includes(kind) || !value) throw new Error(`bad scope: ${l.scope}`);
+  if (!['programme', 'field', 'school'].includes(kind) || !value) throw new Error(`bad scope: ${l.scope}`);
   const key = l.key || `${kind}-${value}`;
   const subject = kind === 'programme'
     ? programmeNames.get(value) || value
+    : kind === 'school'
+    ? schoolProgrammeNames.get(value) || value
     : `${FIELD_LABELS[value] || value} (field)`;
   wanted.set(key, { key, kind, scope: l.scope, file: l.commonsFile.replace(/^File:/, ''), subject, line: l });
 }
