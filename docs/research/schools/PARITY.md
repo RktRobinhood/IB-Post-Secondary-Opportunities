@@ -93,3 +93,21 @@ urgent:
 Every release should be a small, reviewable commit on `main` (or a short-lived
 branch merged immediately), with focused checks first and the full release gate
 before push.
+
+## First post-Finland photo batch (28 September 2026)
+
+Issue #59 ranks the next candidates this way:
+
+| Rank | Country | Ready programme detail | Release state | Batch risk | Decision |
+|---|---|---:|---|---|---|
+| 1 | France | 23 of 24 programmes | On `main` | Bounded: 24 photographs across seven listed institutions; campus and partner-university subjects give the 11 Sciences Po routes distinct, verifiable options | Run the next pipeline proof here. Fix the one detail gap in the same bounded slice if its official page supports it. |
+| 2 | Italy | 87 of 87 programmes | On `main` | High payoff, but 3.6 times the number of assets in France | Follow France once the second-country workflow is proven. |
+| 3 | Portugal | 24 of 25 programmes | Research is in the working tree, not released | Small photo batch, but blocked by admissions review and release of the underlying records | Re-rank against Italy as soon as its records land. |
+| 4 | Spain | 99 of 99 programmes | Research is in the working tree, not released | Largest payoff and largest batch; its current title-length findings still need review | Photograph only after the country record release is clean. |
+
+Ireland is not ahead of these: only 10 of its 15 listed programmes have the
+minimum detail, while 12 of 14 institutions are `catalogue` schools whose next
+useful slice is flagship/faculty enrichment rather than blanket degree photos.
+
+The order is deliberately revisitable after each release. “France first” is a
+decision about the next bounded slice, not a permanent country priority.
