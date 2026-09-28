@@ -11,12 +11,15 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { picture } from '../src/lib/data.mjs';
+import { programmePaths } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 
 const manifest = read('docs/research/schools/manifest.json');
 const images = read('data/images.json');
+const officialImages = read('data/official-images.json');
 const programmeImages = read('data/programme-images.json');
 const leadsDir = path.join(ROOT, 'docs/research/schools/leads');
 const hasLeads = (cc) => fs.existsSync(path.join(leadsDir, `${cc}.md`));
@@ -31,11 +34,9 @@ const record = (key) => {
 // rightly has none.
 const DETAIL = ['about', 'selection'];
 const detailed = (p) => DETAIL.every((f) => p[f] != null && (!Array.isArray(p[f]) || p[f].length));
-const ownPhoto = (key, p) => {
-  const slug = (p.slug || p.name || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  return Boolean(programmeImages[`programme-${key}-${slug}`]);
-};
+// A degree's own photograph is keyed `school-<key>-<slug>` (#54), the slug
+// its page lives at (src/lib/schools.mjs programmePaths).
+const ownPhoto = (key, p) => Boolean(programmeImages[`school-${key}-${p.slug}`]);
 
 const countries = [];
 const totals = { institutions: 0, records: 0, listed: 0, catalogue: 0, none: 0, degrees: 0, detailed: 0, ownPhoto: 0, schoolPhoto: 0, flagshipsDone: 0 };
@@ -45,12 +46,15 @@ for (const [cc, entry] of Object.entries(manifest).sort()) {
   const c = { cc, name: entry.country, institutions: entry.institutions.length, records: 0, degrees: 0, detailed: 0, ownPhoto: 0, schoolPhoto: 0, scopes: { listed: 0, catalogue: 0, none: 0 }, leads: hasLeads(cc) };
   for (const inst of entry.institutions) {
     const r = record(inst.key);
-    const photo = Boolean(images[inst.key]);
+    // Count what a student can actually see, not just locally hosted Commons
+    // records. `picture()` includes approved official hot-links and excludes
+    // rejected, oversized, or below-floor candidates using the build's rules.
+    const photo = Boolean(picture({ images, officialImages }, inst.key));
     if (photo) c.schoolPhoto++;
     if (!r) { rows.push({ key: inst.key, name: inst.name, state: 'no record', photo }); continue; }
     c.records++;
     c.scopes[r.scope] = (c.scopes[r.scope] || 0) + 1;
-    const ps = r.programmes || [];
+    const ps = r.scope === 'listed' ? programmePaths(inst.key, r.programmes || []) : r.programmes || [];
     const d = ps.filter(detailed).length;
     const o = ps.filter((p) => ownPhoto(inst.key, p)).length;
     c.degrees += ps.length; c.detailed += d; c.ownPhoto += o;

@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 27 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 28 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,13 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 38 checks.
+
+## 28 September: institution-photo gaps audited
+
+- The reported **13 institutions without a Commons record** were not 13 visible empty states: Birmingham Dubai and SIM already had approved official images; Sorbonne Abu Dhabi, EMTA and DigiPen Singapore had rejected generic/graphic share images; eight had no image record at all.
+- **Ten fixes are ready to ship:** reviewed official campus/student photographs for Khalifa, Sorbonne Abu Dhabi, Middlesex Dubai, RIT Dubai, University College Freiburg, EMTA, Hanze, DigiPen Singapore and Nova Gorica, plus a normalized, credited CC BY-SA 4.0 Commons photograph of the University of Malta gateway.
+- **One intentional empty state remains:** St Martin's Institute of Higher Education. Its site exposes promotional graphics rather than an honest campus/student photograph, and Commons has no verified match.
+- The coverage report now counts images through the same publication decision as the renderer. After these fixes, **399 of 450** institutions have a photograph students can actually see; the other 51 have missing, rejected or below-floor records and correctly render the designed panel. The broader recovery/place-verification queue belongs to #48, not #58.
 
 ## 27 September: Finland degree-photo pilot shipped
 
