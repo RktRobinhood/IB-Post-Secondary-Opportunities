@@ -10,6 +10,22 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 38 checks.
 
+## 28 September: France degree-photo batch ready
+
+- **France now has a distinct, licensed photograph for all 24 listed programme
+  paths** across EDHEC, emlyon, ESCP, ESSEC, École Polytechnique, PSL and
+  Sciences Po. Every image was fetched through the shared country-agnostic
+  pipeline, normalized without enlargement, credited and signed only after the
+  stored crop was reviewed.
+- The importer now has an explicit `--unsigned` first pass. A country batch can
+  fetch and normalize its candidates for visual QA without manufacturing an
+  approval, then sign only the files that actually landed after review.
+- The rendered France cards and the smallest source (the 517 px ESCP Paris
+  photograph) were checked in light and dark mode. The focused programme-image,
+  unique-image and imagery guards pass after a fresh 1,410-page build.
+- The unrelated Spain and Portugal research remains uncommitted and outside
+  this release.
+
 ## 28 September: institution-photo gaps audited
 
 - The reported **13 institutions without a Commons record** were not 13 visible empty states: Birmingham Dubai and SIM already had approved official images; Sorbonne Abu Dhabi, EMTA and DigiPen Singapore had rejected generic/graphic share images; eight had no image record at all.

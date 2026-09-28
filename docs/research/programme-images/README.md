@@ -1,8 +1,9 @@
-# Programme card images: proposal
+# Programme card image research
 
-Research only. Nothing here is wired into the site. Nothing in `data/images.json` or `src/` has been touched.
-
-Researched on 24 September 2026 by Claude (automated visual review, delegated by the site owner).
+`proposal.jsonl` is the original Danish research set, researched on 24
+September 2026 by Claude (automated visual review, delegated by the site
+owner). Country batch files are later, independently releasable additions.
+Only signed records with a landed local asset are published by the site.
 
 ## Files
 
@@ -14,6 +15,17 @@ Researched on 24 September 2026 by Claude (automated visual review, delegated by
   `scripts/import-programme-images.mjs` derives the manifest key and subject
   from that scope. Keep one country per file so a stopped or rejected batch is
   isolated from every other release.
+
+For a new batch, run `node scripts/import-programme-images.mjs --unsigned`
+first. This writes and fetches the proposed records without manufacturing an
+approval. Inspect every normalized crop at card size in light and dark, correct
+the research file, then rerun without `--unsigned` to sign only the reviewed
+files that actually landed.
+
+Released country batches:
+
+- `schools-fi.jsonl`: Finland pilot, 101 programmes.
+- `schools-fr.jsonl`: France follow-up, 24 programmes.
 - `contact-sheet.jpg` shows each of the 49 distinct photographs three ways:
   - the 16:10 centre crop;
   - a light-mode card with the paper overlay;

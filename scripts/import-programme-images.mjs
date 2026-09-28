@@ -4,6 +4,7 @@
  *
  *   node scripts/import-programme-images.mjs            # upsert, fetch what is missing, sign
  *   node scripts/import-programme-images.mjs --dry-run  # report only
+ *   node scripts/import-programme-images.mjs --unsigned # upsert and fetch, but do not sign
  *
  * Reads, in this order (a later line for the same key wins):
  *   docs/research/programme-images/proposal.jsonl   one line per scope
@@ -22,11 +23,10 @@
  *      the same fetcher as every other picture, and it cannot sign anything.
  *   3. Reviews. Every record whose file has landed (its record names the file,
  *      and its Commons page is that file) is signed as approved. The note is the
- *      research's cropNote, which is the judgement made when the picture was
- *      viewed at 16:10 and at card size in light and dark. The owner delegated
- *      photo review to that automated visual check on 24 September 2026; see
- *      docs/IMAGE_STANDARD.md, "Who reviews". A record whose fetch failed is left
- *      unsigned, so it is not published.
+ *      research's cropNote, which records the judgement made when the picture
+ *      was viewed at 16:10 and at card size in light and dark; see
+ *      docs/IMAGE_STANDARD.md, "Who reviews". A record whose fetch failed is
+ *      left unsigned, so it is not published.
  *
  * Nothing here names a programme, a field or a country. Everything comes from
  * the research lines and the programme records.
@@ -41,7 +41,8 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const RESEARCH = path.join(ROOT, 'docs', 'research', 'programme-images');
 const MANIFEST = path.join(ROOT, 'data', 'programme-images.json');
 const DRY = process.argv.includes('--dry-run');
-const REVIEWER = 'Claude (automated visual review, delegated by the site owner)';
+const UNSIGNED = process.argv.includes('--unsigned');
+const REVIEWER = 'Codex (automated visual review, delegated by the site owner)';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const readJson = async (f, fallback) => { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return fallback; } };
@@ -115,6 +116,11 @@ try {
 }
 
 /* --- 3. Reviews --------------------------------------------------------- */
+
+if (UNSIGNED) {
+  console.log('reviews: skipped (--unsigned); inspect the fetched crops, then rerun without the flag');
+  process.exit(0);
+}
 
 const fetched = await readJson(MANIFEST, {});
 const title = (page) => decodeURIComponent(String(page || '').replace(/^.*\/File:/, '')).replace(/_/g, ' ');
