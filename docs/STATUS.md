@@ -29,8 +29,21 @@ This page says where the work stands, so the next session (human or agent) start
   from records, Denmark-style cards); university pages share one side rail
   and fixed topic headings; programme pages share "What you need → How places
   are decided → What it is → More at … → Sources" and the official-page button.
-- Parity critiques: round 1 6/10 (`docs/research/qa/parity/round-1/`);
-  round 2 on the templated state in `round-2/`.
+- Parity critiques: 6 → 7 → 7 (`docs/research/qa/parity/round-{1,2,3}/`).
+  After round 3: phones show possibilities before dates; IE's 11 dual
+  degrees are paths inside their partner subject's card (27 → 16); one
+  sources block and a captioned hand-off on programme pages. Everything
+  left is in #67 (template items, data gaps, one owner decision on the
+  phone order of the dates panel).
+- Also landed tonight: #42 closed (planner round 6, 313 scenarios); #62
+  closed and #53 advanced (SVG flags, per-country bubbles, hover outlines,
+  globe as filter); #49 ten dead links fixed from a 6,283-URL sweep; #66
+  ULisboa and NOVA published, UMinho still blocked (draft untracked).
+- In flight: Spain degree photos (#54), IE first
+  (`docs/research/qa/degree-photos/es/progress.md`).
+- Old branches `design-40` and `feat-43-school-pages` have no commits off
+  `main`; their worktrees' uncommitted edits are saved in
+  `D:\ibp-tmprchive\`. Awaiting the owner's word to delete them.
 
 ## 29 September: two admissions follow-ups closed (#41)
 
