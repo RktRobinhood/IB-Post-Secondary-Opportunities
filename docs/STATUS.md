@@ -39,8 +39,13 @@ This page says where the work stands, so the next session (human or agent) start
   closed and #53 advanced (SVG flags, per-country bubbles, hover outlines,
   globe as filter); #49 ten dead links fixed from a 6,283-URL sweep; #66
   ULisboa and NOVA published, UMinho still blocked (draft untracked).
-- In flight: Spain degree photos (#54), IE first
-  (`docs/research/qa/degree-photos/es/progress.md`).
+- Spain degree photos (#54): 54 of 93 paths signed after three photo-editor
+  rounds (5 → 6 → 7; every flagged photo removed). The other 39 show a plain
+  text card; a designed no-photo card is on #67.
+- Student-eyes QA pass (late): 18 of 20 findings fixed (open windows shown
+  as past, IE rounds, Sweden, Parcoursup, MedAT, counts across pages, raw
+  ids in text, empty date panels, trust wording, Dutch award wall, planner
+  Danish B). The rest are on #67.
 - Old branches `design-40` and `feat-43-school-pages` have no commits off
   `main`; their worktrees' uncommitted edits are saved in
   `D:\ibp-tmprchive\`. Awaiting the owner's word to delete them.
