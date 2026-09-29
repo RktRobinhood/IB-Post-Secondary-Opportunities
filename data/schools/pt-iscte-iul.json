@@ -1,0 +1,70 @@
+{
+  "institution": "pt-iscte-iul",
+  "name": "ISCTE — Instituto Universitário de Lisboa",
+  "retrieved": "2026-09-26",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Public university in central Lisbon; International Studies is taught in English and Management has an all-English class, via the national contest.",
+  "handoff": {
+    "label": "Iscte undergraduate degrees (30, language shown)",
+    "url": "https://www.iscte-iul.pt/programmes/undergraduate"
+  },
+  "ib": {
+    "text": "EU citizens apply through the national contest: IB final grade 50%, IB exams replacing entrance exams 50%; at least 100 of 200 overall and 95 per exam (2026 criteria).",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "lastYear": { "year": 2026, "text": "IB candidates (exam substitution): 20–29 July" },
+  "apply": {
+    "via": "Concurso Nacional de Acesso (DGES)",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Bachelor Degree in International Studies",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.iscte-iul.pt/programmes/degree/0527",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A026&code=6800",
+      "about": "International relations, political science, history, economics, law and sociology, applied to energy, cybersecurity, migration and sustainability, with regional options from Europe to Latin America. Taught entirely in English.",
+      "ib": "No single subject required: IB English (A Lang & Lit or Literature SL/HL, or English B HL) alone meets the exam rule (2026 criteria).",
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall and 95 per exam. 2026 criteria.",
+      "places": 26,
+      "tuitionEuEea": "€697 a year"
+    },
+    {
+      "name": "Bachelor Degree in Management (English-taught class)",
+      "credential": "BSc",
+      "years": 3,
+      "field": "business",
+      "url": "https://ibs.iscte-iul.pt/degree/code/9147/bachelor-degree-in-management",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=9147&code=6800",
+      "about": "Iscte Business School's management degree, with one class taught entirely in English that you choose when you enrol; double-degree options with KEDGE and Pforzheim.",
+      "ib": "Maths AA (SL or HL) or AI HL for Mathematics A, alone or with a second exam such as English (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Mathematics A is in every exam set; IB homologue per CNAES table 2026" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "One national-contest course for both languages; pick the English class at enrolment. At least 100 of 200 overall. 2026 criteria.",
+      "cutoff": { "value": "164.5 of 200 (last placed, 1st phase)", "intake": "2025", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=9147&code=6800" },
+      "tuitionEuEea": "€697 a year (2026/27)"
+    }
+  ],
+  "notes": [
+    "EU/EEA citizens cannot use Iscte's International Student Statute route, which is for non-EU nationals.",
+    "Management's 176 national-contest places cover the Portuguese and English classes together.",
+    "International Studies takes its first students in 2026/27, so it has no published cut-off."
+  ],
+  "sources": [
+    { "title": "Iscte — Undergraduate programmes (30 degrees with language: International Studies English; Management Portuguese and English)", "url": "https://www.iscte-iul.pt/programmes/undergraduate", "retrieved": "2026-09-26" },
+    { "title": "Iscte — Bachelor Degree in International Studies (new in 2026/2027; taught entirely in English; ingress exams; fees)", "url": "https://www.iscte-iul.pt/programmes/degree/0527", "retrieved": "2026-09-26" },
+    { "title": "Iscte Business School — Bachelor Degree in Management (class taught entirely in English, chosen at enrolment)", "url": "https://ibs.iscte-iul.pt/degree/code/9147/bachelor-degree-in-management", "retrieved": "2026-09-26" },
+    { "title": "DGES — Estudos Internacionais (ensino em inglês), Iscte 6800/A026 (26 places 2026-2027)", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A026&code=6800", "retrieved": "2026-09-26" },
+    { "title": "DGES — Gestão, Iscte 6800/9147 (exams, minimums, 2023–2025 last-placed grades)", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=9147&code=6800", "retrieved": "2026-09-26" },
+    { "title": "DGES — Students with foreign secondary education (equivalence, exam substitution)", "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros", "retrieved": "2026-09-26" },
+    { "title": "DGES — Calendário Concurso Nacional de Acesso 2026", "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0", "retrieved": "2026-09-26" },
+    { "title": "CNAES Deliberação n.º 619/2026 (IB maths for Matemática A; IB English for Inglês)", "url": "https://files.diariodarepublica.pt/2s/2026/05/103000000/0015000170.pdf", "retrieved": "2026-09-26" }
+  ]
+}

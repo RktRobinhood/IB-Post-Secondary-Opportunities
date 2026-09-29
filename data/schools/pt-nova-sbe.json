@@ -1,0 +1,94 @@
+{
+  "institution": "pt-nova-sbe",
+  "name": "Nova School of Business and Economics",
+  "retrieved": "2026-09-26",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "NOVA's business and economics school on the coast at Carcavelos, near Lisbon; three bachelor's taught in English, entered via the national contest.",
+  "handoff": {
+    "label": "Nova SBE bachelor's programmes (three)",
+    "url": "https://www.novasbe.unl.pt/en/programs/bachelors"
+  },
+  "ib": {
+    "text": "EU citizens apply through Portugal's national contest: your IB grade, converted to 0–200, plus IB exams in place of Portuguese entrance exams; each exam at least 9.5 of 20 (2026 criteria).",
+    "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call"
+  },
+  "lastYear": { "year": 2026, "text": "IB candidates (exam substitution): 20–29 July" },
+  "apply": {
+    "via": "Concurso Nacional de Acesso (DGES)",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Bachelor's in Economics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "economics",
+      "city": "Carcavelos",
+      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/economics/overview",
+      "requirementsUrl": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call",
+      "about": "Economics taught in English over six semesters (180–195 ECTS), with electives from management, social sciences and law, or an internship. Only three first-year maths courses can optionally be taken in Portuguese.",
+      "ib": "Maths AA (SL or HL) or AI HL, standing in for Portugal's Mathematics A exam (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces the Mathematics A entrance exam (CNAES table 2026); at least 9.5 of 20" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% maths (or maths plus one other exam); under 135 of 200 is never admitted. 2026 criteria.",
+      "cutoff": { "value": "17.46 of 20 (last placed)", "intake": "2025", "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call" },
+      "places": 195,
+      "tuitionEuEea": "€697 a year (2026/27)"
+    },
+    {
+      "name": "Bachelor's in Management",
+      "credential": "BSc",
+      "years": 3,
+      "field": "business",
+      "city": "Carcavelos",
+      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/management/overview",
+      "requirementsUrl": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call",
+      "about": "Management taught in English over six semesters (180–195 ECTS), mixing theory with real cases, with electives from economics, social sciences and law, or an internship.",
+      "ib": "Maths AA (SL or HL) or AI HL, standing in for Portugal's Mathematics A exam (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces the Mathematics A entrance exam (CNAES table 2026); at least 9.5 of 20" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% maths (or maths plus one other exam); under 135 of 200 is never admitted. 2026 criteria.",
+      "cutoff": { "value": "17.76 of 20 (last placed)", "intake": "2025", "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call" },
+      "places": 295,
+      "tuitionEuEea": "€697 a year (2026/27)"
+    },
+    {
+      "name": "Bachelor's in Ocean Studies",
+      "credential": "BSc",
+      "years": 3,
+      "field": "interdisciplinary",
+      "city": "Carcavelos",
+      "url": "https://www.novasbe.unl.pt/en/programs/bachelors/ocean-studies/overview",
+      "requirementsUrl": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call",
+      "about": "An interdisciplinary ocean degree run by five NOVA schools with the universities of Algarve and Évora and the Navy's Hydrographic Institute. Taught fully in English; it opens with a field week in Faro.",
+      "ib": "Maths is not required: exam pairs include Biology or Geography with English (2026 criteria; 2027 not yet published).",
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams (maths alone, or one of six pairs); under 135 of 200 is never admitted. 2026 criteria.",
+      "cutoff": { "value": "13.75 of 20 (last placed)", "intake": "2025", "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call" },
+      "places": 34,
+      "tuitionEuEea": "€697 a year (2026/27)"
+    }
+  ],
+  "notes": [
+    "The 36-point IB rule on the international-students page is for non-EU applicants; EU/EEA citizens are excluded from that route.",
+    "Placed in the first phase? You enrol online within four days (24–27 August in 2026).",
+    "Economics and Management offer a first-year Mixed Track with three maths courses in Portuguese; years two and three are English only."
+  ],
+  "sources": [
+    { "title": "Nova SBE — National Call (exam combinations, 2026/27 vacancies, 2025 last-placed grades, fees)", "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/national-call", "retrieved": "2026-09-26" },
+    { "title": "Nova SBE — International Students applying to bachelor's (statute excludes EU/EEA nationals; IB 36 points, maths HL 6)", "url": "https://www.novasbe.unl.pt/en/programs/apply/bachelors/international-students", "retrieved": "2026-09-26" },
+    { "title": "Nova SBE — Bachelor's programs (three listed)", "url": "https://www.novasbe.unl.pt/en/programs/bachelors", "retrieved": "2026-09-26" },
+    { "title": "Nova SBE — Bachelor's in Economics: program (English and Mixed tracks, 180–195 ECTS)", "url": "https://www.novasbe.unl.pt/en/programs/bachelors/economics/program", "retrieved": "2026-09-26" },
+    { "title": "Nova SBE — Bachelor's in Management: program", "url": "https://www.novasbe.unl.pt/en/programs/bachelors/management/program", "retrieved": "2026-09-26" },
+    { "title": "Nova SBE — Bachelor's in Ocean Studies: program (taught fully in English; first week in Faro)", "url": "https://www.novasbe.unl.pt/en/programs/bachelors/ocean-studies/program", "retrieved": "2026-09-26" },
+    { "title": "DGES — Students with foreign secondary education (equivalence, exam substitution)", "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros", "retrieved": "2026-09-26" },
+    { "title": "DGES — Calendário Concurso Nacional de Acesso 2026", "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0", "retrieved": "2026-09-26" },
+    { "title": "CNAES Deliberação n.º 619/2026 (homologous foreign exams, 2026-2027 contests; IB maths AA SL/HL, AI HL for Matemática A)", "url": "https://files.diariodarepublica.pt/2s/2026/05/103000000/0015000170.pdf", "retrieved": "2026-09-26" }
+  ]
+}

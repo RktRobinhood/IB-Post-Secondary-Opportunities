@@ -6,10 +6,10 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 
 ## Totals
 
-- Institutions with a record: **195 of 450** (43%); 121 listed, 37 catalogue, 37 none.
-- Degrees listed: **775**; with programme detail (about and selection): **313** (40%).
+- Institutions with a record: **203 of 451** (45%); 127 listed, 37 catalogue, 39 none.
+- Degrees listed: **787**; with programme detail (about and selection): **325** (41%).
 - Degrees with a photograph of their own (#54): **125** (16%). The rest show their school's photo.
-- Institutions with a school photo: **399 of 450**.
+- Institutions with a school photo: **399 of 451**.
 
 ## By country
 
@@ -45,7 +45,7 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | Norway (no) | 14/14 | 9 / 0 / 5 | 21 | 0 (0%) | 0 | 13/14 | no |
 | New Zealand (nz) | 0/10 | 0 / 0 / 0 | 0 | – | – | 10/10 | [yes](leads/nz.md) |
 | Poland (pl) | 0/14 | 0 / 0 / 0 | 0 | – | – | 14/14 | [yes](leads/pl.md) |
-| Portugal (pt) | 0/12 | 0 / 0 / 0 | 0 | – | – | 12/12 | [yes](leads/pt.md) |
+| Portugal (pt) | 8/13 | 6 / 0 / 2 | 12 | 12 (100%) | 0 | 12/13 | [yes](leads/pt.md) |
 | Sweden (se) | 14/14 | 13 / 0 / 1 | 59 | 0 (0%) | 0 | 13/14 | no |
 | Singapore (sg) | 0/13 | 0 / 0 / 0 | 0 | – | – | 11/13 | [yes](leads/sg.md) |
 | Slovenia (si) | 0/7 | 0 / 0 / 0 | 0 | – | – | 5/7 | [yes](leads/si.md) |
@@ -294,7 +294,13 @@ Only institutions with something missing are listed.
 
 ### Portugal
 
-- **No record (12):** `pt-nova-sbe`, `pt-catolica-lisbon`, `pt-ulisboa`, `pt-ist`, `pt-nova`, `pt-iscte-iul`, `pt-u-porto`, `pt-uminho`, `pt-uc`, `pt-ua`, `pt-ualg`, `pt-ucp`
+- `pt-nova-sbe` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `pt-catolica-lisbon` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `pt-ist` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `pt-iscte-iul` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `pt-u-porto` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `pt-uac` (listed, 1 degrees): 1 of 1 degrees have no photo of their own; no school photo
+- **No record (5):** `pt-ulisboa`, `pt-nova`, `pt-uminho`, `pt-ua`, `pt-ucp`
 
 ### Sweden
 
