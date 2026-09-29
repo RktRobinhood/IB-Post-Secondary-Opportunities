@@ -1,8 +1,10 @@
 # School pages research brief (issue #43)
 
-Every institution on the site gets its own curated page before any hand-off. Denmark and five Dutch
-institutions already have one, built from the canonical records. This brief covers the other ~450
-institutions: the ones in the country profiles, `data/countries/<code>.json`.
+Every institution with an English-taught first-year option gets its own curated page before any
+hand-off. Denmark and five Dutch institutions already have one, built from the canonical records.
+This brief researches the other institutions in the country profiles,
+`data/countries/<code>.json`. A completed `scope: none` record is retained as internal evidence but
+is excluded from student-facing cards, maps, pagination, and school pages.
 
 The finished states and the gaps that must not be mistaken for intentional
 country variation are defined in [the school-page parity contract](PARITY.md).
@@ -47,8 +49,10 @@ because it was outside this batch's scope.
   typical in the UK, Ireland, the US, Canada, Australia, New Zealand, Singapore and Hong Kong.
   Leave `programmes` empty. `handoff` is the undergraduate course search. Put the effort into
   `summary`, `ib`, `apply` and `dates` instead.
-- **`none`**: no English-taught bachelor's degree for 2027. `handoff` is the page for international
-  applicants. One note says what language the degrees are taught in.
+- **`none`**: no English-taught bachelor's degree for 2027. This is a researched exclusion, not a
+  public empty state. Keep `programmes` empty; `handoff` records the supporting admissions page and
+  one note says what language the degrees are taught in. The build must not surface the institution
+  as a student choice.
 
 These are examples, not rules by country. Decide from what the institution publishes.
 

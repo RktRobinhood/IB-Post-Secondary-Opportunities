@@ -21,6 +21,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import fsSync from 'node:fs';
 import path from 'node:path';
+import { isEnglishStudyOption } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -669,8 +670,9 @@ check('the globe does not branch on a country', () => {
     assert.deepEqual(shallow, [], 'these country lights sit near an edge rather than in the middle');
   });
 
-  /* Country → schools (#53): every institution with a position and a page
-     rides on its country's light, and the globe opens a country into them. */
+  /* Country → schools (#53): every public English-study option with a position
+     and a page rides on its country's light. Confirmed `scope:none` research
+     records are deliberately absent from both the list and the globe. */
   const { schoolsOf } = await import('../src/pages/destinations.mjs');
   const missing = [];
   const initials = [];
@@ -692,9 +694,11 @@ check('the globe does not branch on a country', () => {
     }
     initials.push(...list.filter((x) => /^[A-Z][A-Za-z]?[A-Z][A-Z-]*$/.test(x.name) && fullName.get(x.id) !== x.name).map((x) => `${x.id}: ${x.name}`));
     const ids = new Set(list.map((s) => s.id));
-    for (const i of c.institutions || []) if (i.coords && i.href && !ids.has(i.key)) missing.push(`${c.code}: ${i.key}`);
+    for (const i of c.institutions || []) {
+      if (isEnglishStudyOption(i) && i.coords && i.href && !ids.has(i.key)) missing.push(`${c.code}: ${i.key}`);
+    }
   }
-  check('every institution with a position rides on its country\'s light, for the globe\'s schools level', () => {
+  check('every public institution with a position rides on its country\'s light, for the globe\'s schools level', () => {
     assert.deepEqual(missing, [], 'these institutions would never show as their own dot when their country is zoomed into');
     /* #53 round 1: 275 of 416 pins were initials (UCF, MUG, SZTE) and none
        had a photograph. */

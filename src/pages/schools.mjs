@@ -1,6 +1,6 @@
-import { html, raw, plural, truncate, firstSentence } from '../lib/html.mjs';
+import { html, raw, plural, truncate, firstSentence, listSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
-import { hero, card, sources, crumbs, sectionHead, tags, stamp, pager, topic, glance, close } from '../lib/components.mjs';
+import { hero, card, sources, crumbs, sectionHead, stamp, pager, topic, glance, close } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { datesPanel, isBinding } from '../lib/school-dates.mjs';
@@ -229,7 +229,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
 function knownFor(inst) {
   const f = inst.notableFields || [];
   return f.length
-    ? html`<div class="handoff__known"><p class="eyebrow eyebrow--plain">Known for</p>${tags(f, 'tag--brand')}</div>`
+    ? html`<p class="handoff__known"><strong>Known for:</strong> ${listSentence(f)}.</p>`
     : '';
 }
 

@@ -12,6 +12,7 @@ import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
+import { isEnglishStudyOption } from '../lib/schools.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
 
@@ -24,10 +25,13 @@ import { schoolCardGroups } from '../lib/families.mjs';
 export function countryPicture(site, c) {
   return (
     picture(site, c.code, { prefer: 'commons' }) ||
-    (c.institutions || []).map((i) => picture(site, i.key || i.id, { prefer: 'commons' })).find((p) => p && !p.external) ||
+    publicInstitutions(c).map((i) => picture(site, i.key || i.id, { prefer: 'commons' })).find((p) => p && !p.external) ||
     null
   );
 }
+
+/** Institutions this English-taught study finder can actually recommend. */
+const publicInstitutions = (c) => (c.institutions || []).filter(isEnglishStudyOption);
 
 /**
  * A country as a photograph with its name on it: the place, the one-line
@@ -37,6 +41,7 @@ export function countryPicture(site, c) {
  */
 export function countryTile(site, c) {
   const pic = countryPicture(site, c);
+  const institutions = publicInstitutions(c);
 
   // Coverage here is uneven and looks uniform, which is the worst combination,
   // so every tile still says which of the three depths it is — in the count
@@ -48,7 +53,7 @@ export function countryTile(site, c) {
     <span class="tile__text">
       <span class="tile__name">${c.name}</span>
       ${c.tagline ? html`<span class="tile__line">${c.tagline}</span>` : ''}
-      <span class="tile__where">${institutionCount(c.institutions)}${depth ? ` · ${depth}` : ''}</span>
+      <span class="tile__where">${institutionCount(institutions)}${depth ? ` · ${depth}` : ''}</span>
     </span>
   </a></li>`;
 }
@@ -109,7 +114,7 @@ function researchDepthNote(c, { freshnessNote = '', events = null } = {}) {
  */
 function heroSlides(site, c, max = 4) {
   const out = [];
-  for (const i of c.institutions) {
+  for (const i of publicInstitutions(c)) {
     if (out.length >= max) break;
     const p = picture(site, i.key);
     if (!p?.src) continue;
@@ -140,7 +145,7 @@ export function centroid(c) {
     page of its own. Its own coordinates when the record has them, else its
     (first) place's. */
 export function schoolsOf(site, c) {
-  return (c.institutions || [])
+  return publicInstitutions(c)
     .map((i) => {
       const at = i.coords || site.graph?.places?.get(i.place || i.placeIds?.[0])?.coordinates;
       if (!at || !i.href) return null;
@@ -212,13 +217,14 @@ export function distanceDoors(site) {
     const p = key ? picture(site, key, { prefer: 'commons' }) : null;
     return p && !p.external ? p : null;
   };
-  const institutionsIn = (list) => institutionCount(list.flatMap((c) => c.institutions));
+  const institutionsIn = (list) => institutionCount(list.flatMap(publicInstitutions));
   const near = tiles.filter((c) => c.scope === 'europe' && c.code !== hereCode);
   const far = tiles.filter((c) => c.scope === 'worldwide' && c.code !== hereCode);
 
   const doorsList = [];
   if (hereTile) {
-    const teaching = hereTile.institutions.filter((i) => i.programmes?.length);
+    const hereInstitutions = publicInstitutions(hereTile);
+    const teaching = hereInstitutions.filter((i) => i.programmes?.length);
     // Counted in cards, as a student sees them (#52).
     const degrees = teaching.reduce((n, i) => n + cardGroups(site, i.programmes).length, 0);
     doorsList.push({
@@ -229,7 +235,7 @@ export function distanceDoors(site) {
       title: hereTile.name,
       count: degrees
         ? `${plural(degrees, 'programme')} in English · ${institutionCount(teaching)}`
-        : institutionCount(hereTile.institutions),
+        : institutionCount(hereInstitutions),
       image: photo(choices.here?.image),
     });
   }
@@ -373,7 +379,7 @@ export function countriesIndex(site) {
       lat: pos.lat,
       lon: pos.lon,
       href: c.href,
-      count: c.institutions.length,
+      count: publicInstitutions(c).length,
       country: c.code,
       image: (() => {
         const p = countryPicture(site, c);
@@ -507,12 +513,14 @@ export function destination(site, c, { prev, next }) {
   // Declared in the record, never inferred here: a country that is genuinely
   // one system and a country nobody has examined both render as one group, and
   // `grouping.declared` is the only thing that tells them apart.
-  const { grouping, groups } = groupInstitutions(c, site.graph);
+  const institutions = publicInstitutions(c);
+  const publicCountry = { ...c, institutions };
+  const { grouping, groups } = groupInstitutions(publicCountry, site.graph);
 
   // Institutions that have a resolved location become lights on the map. The
   // list beneath it is the same set, and is what a keyboard or screen reader
   // uses — the picture is an enhancement of the list, never a replacement.
-  const mapPlaces = c.institutions
+  const mapPlaces = institutions
     .filter((i) => i.coords)
     .map((i) => ({
       id: i.key,
@@ -753,7 +761,7 @@ export function destination(site, c, { prev, next }) {
   ].filter(Boolean);
 
   const toc = [
-    c.institutions.length && ['#institutions', 'Where to study'],
+    institutions.length && ['#institutions', 'Where to study'],
     ['#overview', 'The short version'],
     c.whyConsider.length && ['#why', 'Why it might suit you'],
     c.watchOuts.length && ['#watch', 'What to watch for'],
@@ -779,7 +787,7 @@ ${hero({
   title: c.name,
   lede: c.tagline,
   image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
-  slides: pic ? heroSlides(site, c) : [],
+  slides: pic ? heroSlides(site, publicCountry) : [],
   // No publishable photograph of this Destination, so the hero becomes the
   // designed empty state rather than a hero that lost its picture.
   variant: pic ? undefined : 'panel',
@@ -810,9 +818,9 @@ ${/* What is possible: the institutions, straight after the place itself. The
       }),
     })}
 
-    ${c.institutions.length
+    ${institutions.length
       ? html`${sectionHead({
-            eyebrow: plural(c.institutions.length, 'institution'),
+            eyebrow: plural(institutions.length, 'institution'),
             title: 'Where to study',
             lede: grouping.id === 'none'
               ? `A spread of what ${c.name} offers, not a ranking. Check each one's own pages before you apply.`

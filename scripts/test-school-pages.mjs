@@ -1,11 +1,14 @@
 /**
- * Every institution has its own page, and nothing hands a student to a homepage.
+ * Every institution with an English-taught option has its own page, and
+ * nothing hands a student to a homepage.
  *
  * Issue #43: an institution card on a country page linked straight to the
  * university's homepage and left the student to find the English-taught
  * degrees on a foreign site. This reads the built site back and holds:
  *
- *   1. every institution in data/countries/ has a page under /universities/;
+ *   1. every institution not confirmed as `scope: none` has a page under
+ *      /universities/; confirmed local-language-only institutions have no
+ *      public card or page;
  *   2. every institution card on a country page links to a page on this site;
  *   3. no link on a school page that leaves the site is a homepage;
  *   4. a school record listing programmes renders one card per programme, or
@@ -60,7 +63,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from '../src/lib/schools.mjs';
+import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -263,6 +266,12 @@ for (const c of countries) {
   }
   // The institution cards sit in the #institutions section, before the map.
   const section = countryPage.split('id="institutions"')[1]?.split('class="world')[0] || '';
+  for (const inst of c.institutions || []) {
+    const key = schoolKey(c.code, inst);
+    if (records.get(key)?.scope === 'none' && section.includes(`/universities/${key}/`)) {
+      fail(`/destinations/${c.code}/ publishes ${key}, despite its confirmed scope:none record`);
+    }
+  }
   for (const m of section.matchAll(/<h3 class="card__title"><a href="([^"]+)"/g)) {
     cards++;
     if (/^(https?:)?\/\//.test(m[1])) fail(`/destinations/${c.code}/: an institution card leaves the site (${m[1]})`);
@@ -271,6 +280,10 @@ for (const c of countries) {
 
 for (const [key, inst] of known) {
   const html = read(`universities/${key}`);
+  if (records.get(key)?.scope === 'none') {
+    if (html) fail(`/universities/${key}/ was built despite its confirmed scope:none record`);
+    continue;
+  }
   if (!html) {
     // A profile institution with a canonical twin is served by the canonical page.
     const twin = [...fs.readdirSync(path.join(ROOT, 'data', 'institutions'))].some((f) => {

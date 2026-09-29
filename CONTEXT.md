@@ -4,6 +4,9 @@ This context describes how the product represents post-secondary choices for IB 
 
 ## Study choices
 
+**Publication boundary**:
+Student-facing discovery surfaces only Institutions with a plausible English-taught first-year Programme for the target Intake. A researched `scope: none` Institution remains in the repository as evidence, but it is not a student choice: do not publish its card, map point, detail page, or pager entry. A citizen seeking local-language study follows a different advising and application path outside this product's current scope.
+
 **Opportunity**:
 A specific programme offering at an institution for a particular intake, campus, and teaching language. It is the smallest useful item a student can assess or save.
 _Avoid_: School, option, university

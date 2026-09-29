@@ -59,6 +59,22 @@ export function loadSchools(dir) {
 }
 
 /**
+ * Whether a country-profile institution belongs in student-facing discovery.
+ *
+ * A `none` record is useful research evidence: it prevents another researcher
+ * from looking for the same non-existent English-taught bachelor's again. It
+ * is not a study option for this product's reader, so it must not become a
+ * country card, map point, pager neighbour, or public school page.
+ *
+ * Missing records remain visible until their research is finished. Unknown is
+ * not the same claim as confirmed-none; the coverage report keeps that gap
+ * visible separately.
+ */
+export function isEnglishStudyOption(inst) {
+  return inst?.school?.scope !== 'none';
+}
+
+/**
  * Is this link a homepage — the thing #43 forbids handing a student to?
  *
  * The root of the institution's own site is (`/`, `/en/`, `/en/home/`), and so
