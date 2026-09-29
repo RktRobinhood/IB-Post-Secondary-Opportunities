@@ -1,8 +1,8 @@
-# Batch report: pt-* (Portugal, 12 institutions), issue #43
+# Batch report: pt-* (Portugal, 13 institutions), issue #43
 
 Researched 2026-09-26 through the user's Chrome (own tab; page text read in the browser, PDFs via WebFetch + pdftotext).
 
-Release status after review (2026-09-29): 8 of 13 institution records are ready — six `listed` and two `none`. Universidade dos Açores was added after the national catalogue exposed its fully English Ocean Sciences degree. ULisboa, NOVA, UMinho, Aveiro and UCP remain blocked: their English scope is not yet exhaustive or one programme lacks the required application detail. UAlg is `none` because SeaBluE does not admit first-year students through UAlg; it only hosts some students later.
+Release status after review (2026-09-29): 9 of 13 institution records are ready — seven `listed` and two `none`. Universidade dos Açores was added after the national catalogue exposed its fully English Ocean Sciences degree. UCP was released after its online Data Science application route and calendar were verified and its alternative exam combinations were removed from the schema's cumulative `needs` model. ULisboa, NOVA, UMinho and Aveiro remain blocked because their English scope is not yet exhaustive. UAlg is `none` because SeaBluE does not admit first-year students through UAlg; it only hosts some students later.
 
 EU route established from DGES before any school: EU/EEA citizens apply through the Concurso Nacional de Acesso (public
 universities) and may replace the Portuguese entrance exams with homologous foreign exams. DGES: "só pode substituir as provas
@@ -106,7 +106,7 @@ AND APROACHES — HL/ SL" and "MATHEMATICS APPLICATIONS AND INTERPRETATIONS — 
 - Scope from ucp.pt undergraduate list filtered "Languages: English": CLSBE (4, incl. its Portuguese-first-year Business Administration), Católica Medical School (Medicine), Católica Porto SBE (Economics, Management), FCSE Lisbon (Systems and Cognitive Neuroscience), FFCS Braga (Data Science and Technology).
 - Porto: "possibility of completing the degree entirely in English"; EU route "Regime Geral ... Candidatos nacionais e da UE"; 2026/27 phases "01 de junho a 24 de julho" ... "31 de agosto a 21 de setembro"; "Vagas (para o conjunto dos cursos): 251" (DGES shows 58 + 200; places not recorded).
 - Neuroscience: EU foreign-secondary page lists IB equivalents ("02 Biologia e Geologia Biology SL/HL"; "07 Física e Química Chemistry SL/HL and Physics SL/HL"; "16 Matemática ... Mathematics Analysis and Aproaches - SL/HL or Mathematics Applications and Interpretations - SL/HL"), English C1, "30 vacancies", 2026 phases 1 June–24 July to 11–21 September.
-- Data Science and Technology: "delivered in online distance learning (e-learning)", "entirely taught in English", with USJ Macau; 20 places (DGES). No calendar read.
+- Data Science and Technology: "delivered in online distance learning (e-learning)", "entirely taught in English", with USJ Macau; 20 places (DGES). The distance-learning route accepts Mathematics A plus Biology and Geology, Physics and Chemistry, or English, requires English B2, and uses the Braga 2026/27 application calendar.
 - Medicine is excluded: although the classroom degree is marketed in English, its clinical component is in Portuguese, so a student cannot complete the professional programme through English.
-- Contradicts data/countries/pt.json englishBachelors ("mainly through Católica Lisbon and its Porto business school"): also neuroscience, online data science and medicine.
+- Contradicts data/countries/pt.json englishBachelors ("mainly through Católica Lisbon and its Porto business school"): also neuroscience and online data science.
 - No 2027 calendars published; all dates as lastYear. Hand-off: ucp.pt undergraduate list with the English filter (9 entries; first-cycle and integrated master's only).
