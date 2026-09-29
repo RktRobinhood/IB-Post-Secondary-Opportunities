@@ -221,7 +221,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // A family whose paths are different degrees (a single degree and a
     // dual one) leaves the credential to each path's row: joined with "or"
     // it read "BBA + Bachelor in or Bachelor in Economics + …".
-    line: [same((q) => q.credential) ? credentialShort(p.credential, displayName(fam ? g.family.name : p.name)) : null, years, where].filter(Boolean).join(' · '),
+    line: [same((q) => q.credential) ? credentialShort(p.credential, displayName(fam ? g.family.name : p.name)) : `${members.length} degree paths`, years, where].filter(Boolean).join(' · '),
     // School records currently carry their concise IB answer as prose. Put it
     // in the shared requirement slot rather than selecting a different card
     // layout; structured `needs` can deepen this adapter later.

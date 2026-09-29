@@ -391,7 +391,7 @@ check(`every tag chip reaches ${AA}:1 on its own background, in every theme and 
    page draws is held to it. */
 
 /** A degree named in a credential line: an abbreviation (BSc, BEng, LLB) or a word. */
-const DEGREE_WORD = /\b(?:B[A-Z][A-Za-z]{0,4}|LLB|M[A-Z][A-Za-z]{0,4}|PhD|bachelor|master|degree|diploma|certificate|associate)\b/i;
+const DEGREE_WORD = /\b(?:B[A-Z][A-Za-z]{0,4}|LLB|M[A-Z][A-Za-z]{0,4}|PhD|bachelor|master|degrees?|diploma|certificate|associate)\b/i;
 
 const cardText = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
 
