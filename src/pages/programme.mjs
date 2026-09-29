@@ -83,6 +83,8 @@ export function programme(site, p, inst) {
           )}</ul>`)}
     ${!req && !p.requirementsText ? emptyState('No entry requirements have been recorded for this programme yet.') : ''}`;
 
+  const evidenceRecords = site.graph ? resolveEvidence(site.graph, opp?.evidence) : [];
+
   /* More at this university: its other degrees, as the school pages end. */
   const siblings = cardGroups(site, inst.programmes.filter((q) => q.id !== p.id))
     .filter((g) => !g.members?.some?.((q) => q.id === p.id))
@@ -210,12 +212,16 @@ export function programme(site, p, inst) {
         }
       : null,
     more: siblings.length ? { title: `More at ${inst.shortName || inst.name}`, cards: siblings } : null,
-    evidence: evidenceBlock({
-      claim: `Entry requirements and admission rules for ${p.name}.`,
-      records: site.graph ? resolveEvidence(site.graph, opp?.evidence) : [],
-      summary: 'Open this to see the exact page each rule came from, when it was read, and whether a person has checked it.',
-    }),
-    sources: [
+    /* One place for sources: where the rules carry evidence records, their
+       disclosure is it; otherwise the pages the record was written from. */
+    evidence: evidenceRecords.length
+      ? evidenceBlock({
+          claim: `Entry requirements and admission rules for ${p.name}.`,
+          records: evidenceRecords,
+          summary: 'Open this to see the exact page each rule came from, when it was read, and whether a person has checked it.',
+        })
+      : null,
+    sources: evidenceRecords.length ? [] : [
       p.url ? { title: `${p.name} at ${inst.shortName || inst.name}`, url: p.url, retrieved: p.verified } : null,
       p.source && p.source !== p.url ? { title: 'Entry requirements', url: p.source, retrieved: p.verified } : null,
     ],

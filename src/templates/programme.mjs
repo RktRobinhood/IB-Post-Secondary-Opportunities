@@ -40,6 +40,10 @@ import { hero, glance, crumbs, topic, pager, stamp, facts, note, sources } from 
  * @param {object} [vm.pager]   { prev, next }
  * @param {object} vm.page      { title, description, path, section }
  */
+const hostName = (u) => {
+  try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return 'its own site'; }
+};
+
 export function programmeTemplate(vm) {
   const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url) === i);
   const body = html`
@@ -84,8 +88,10 @@ ${vm.before
       </div>
       <aside class="layout-aside__side stack">
         ${stamp(vm.rail.checked)}
-        ${vm.rail.official
-          ? html`<a class="btn btn--solid btn--block" href="${vm.rail.official}" rel="noopener nofollow">The official page ↗</a>`
+        ${/* The hand-off, as on a university page: the button, and where it goes. */
+          vm.rail.official
+          ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${vm.rail.official}" rel="noopener nofollow">The official page ↗</a>
+              <p class="rail-note">This programme on ${hostName(vm.rail.official)}</p></div>`
           : ''}
         ${facts(vm.rail.rows || [])}
         ${note('Requirements change between admission years. Check the official page before you apply.', { kind: 'warn', title: 'Always verify' })}
