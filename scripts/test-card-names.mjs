@@ -47,9 +47,12 @@ const read = (p) => {
 const mainOf = (html) => html.split('<main')[1]?.split('</main>')[0] || '';
 const text = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
 
-/** Programme cards all use the one backdrop card contract (#63). */
+/** Programme cards all use the one card contract (#63): a backdrop when the
+    programme has its own photograph, and always a credential line — which is
+    what marks a programme card, so a card still waiting for its photograph
+    counts too (a page can hold both). */
 function programmeCards(main) {
-  return [...main.matchAll(/<article class="card card--link[^"]*card--backdrop[^"]*">([\s\S]*?)<\/article>/g)].map((m) => ({
+  return [...main.matchAll(/<article class="card card--link[^"]*">([\s\S]*?)<\/article>/g)].filter((m) => m[1].includes('class="card__cred"')).map((m) => ({
     title: text(m[1].match(/<h3 class="card__title"><a [^>]*>([\s\S]*?)<\/a>/)?.[1] || ''),
     foot: text(m[1].match(/<div class="card__foot">([\s\S]*?)<\/div>/)?.[1] || ''),
     // Each path row of a family card: its label, and whether it says what differs.
@@ -69,7 +72,7 @@ const tileCount = (main) => {
 
 /* --- Self-test --------------------------------------------------------------- */
 {
-  const art = (t) => `<article class="card card--link card--backdrop"><div class="card__body"><h3 class="card__title"><a href="/x/">${t}</a></h3></div></article>`;
+  const art = (t) => `<article class="card card--link card--backdrop"><div class="card__body"><h3 class="card__title"><a href="/x/">${t}</a></h3><p class="card__cred">BSc</p></div></article>`;
   const twice = programmeCards(art('Computer Science') + art('Computer  science') + art('Electronics'));
   const clash = nameClashes(twice.map((c) => c.title));
   /* The owner's complaint (#52): the same name with its campus in brackets. */

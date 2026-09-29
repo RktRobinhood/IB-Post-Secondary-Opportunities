@@ -26,6 +26,7 @@ Released country batches:
 
 - `schools-fi.jsonl`: Finland pilot, 101 programmes.
 - `schools-fr.jsonl`: France follow-up, 24 programmes.
+- `schools-es.jsonl`: Spain, 82 research picks; 54 signed after three photo-editor rounds (the rest fall back to the school photo; `docs/research/qa/degree-photos/es/`).
 - `contact-sheet.jpg` shows each of the 49 distinct photographs three ways:
   - the 16:10 centre crop;
   - a light-mode card with the paper overlay;
