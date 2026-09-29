@@ -38,18 +38,6 @@ export const FIELD = {
   'design-architecture': 'Design', 'arts-music': 'Arts', sport: 'Sport', 'hospitality-tourism': 'Hospitality',
   interdisciplinary: 'Interdisciplinary', other: 'Other',
 };
-/* Each field belongs to one family, and each family has one colour (site.css,
-   .card--fam-*), so a colour means the same kind of subject on every page. */
-export const FAMILY = {
-  engineering: 'tech', computing: 'tech', mathematics: 'tech',
-  'natural-sciences': 'science', 'agriculture-environment': 'science', veterinary: 'science',
-  business: 'business', economics: 'business', 'hospitality-tourism': 'business',
-  'social-sciences': 'society', law: 'society', education: 'society', humanities: 'society', languages: 'society',
-  health: 'health', medicine: 'health', sport: 'health',
-  'design-architecture': 'creative', 'arts-music': 'creative',
-  interdisciplinary: 'general', other: 'general',
-};
-
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const shortDate = (iso) => {
   const [y, m, d] = iso.split('-').map(Number);

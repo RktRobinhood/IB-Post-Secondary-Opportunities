@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 28 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 29 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -10,7 +10,7 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 38 checks.
 
-## 28 September: one programme-card system (#63)
+## 29 September: one programme-card and page system (#63)
 
 - The visual mismatch was real even though the renderer had no country-code
   branch: canonical Danish programmes and country school-record programmes
@@ -24,7 +24,14 @@ This page says where the work stands, so the next session (human or agent) start
   dates panel; fees remain in the section summary and programme page.
 - The programme-card guard now reads both canonical and school-record pages,
   so a second country-style card cannot return unnoticed.
-- Programme-page convergence remains the next bounded part of #63.
+- School-record programme pages now use the same compact hero grammar as the
+  canonical Danish pages, with the same institution, credential, length and
+  place eyebrow. Missing degree photos no longer trigger a separate coloured
+  subject-family panel; the compact layout remains stable with or without an
+  image. A site-wide build guard rejects the retired country-specific hero
+  modifiers. Breadcrumbs now follow the facts strip and the official-page
+  action sits in the side rail in both renderers, rather than switching to a
+  separate school-record closing panel.
 
 ## 28 September: France degree-photo batch ready
 

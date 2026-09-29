@@ -51,7 +51,10 @@
  *      "audition" or "register" followed by a date is read, a date with no
  *      year or last year's year taken as this cycle's; a date that begins a
  *      range ("2 March to 19 May") is not a deadline. Exceptions go in
- *      scripts/lib/own-deadline-allow.json with a reason.
+ *      scripts/lib/own-deadline-allow.json with a reason;
+ *  12. school-record programme pages use the same compact programme hero as
+ *      the canonical Danish pages, whether or not a programme photo exists;
+ *      the retired field-colour panel classes never return.
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
@@ -301,6 +304,12 @@ for (const [key, inst] of known) {
       programmePages++;
       if (!main.includes(`href="${BASE}${p.href}"`)) fail(`/universities/${key}/ does not link to ${p.href}`);
       const body = own.split('<main')[1]?.split('</main>')[0] || '';
+      const heroClass = body.match(/<section class="([^"]*\bhero\b[^"]*)"/)?.[1] || '';
+      if (!heroClass.split(/\s+/).includes('hero--compact')) fail(`${p.href}: programme hero is not compact like the Danish reference`);
+      if (/\b(?:hero--fam|hero--panel|card--fam-\S+)/.test(heroClass)) fail(`${p.href}: programme hero uses a retired country-specific treatment (${heroClass})`);
+      const heroHtml = body.slice(0, body.indexOf('</section>'));
+      if (/class="crumbs"/.test(heroHtml)) fail(`${p.href}: breadcrumbs sit inside the hero instead of following the facts strip like the Danish reference`);
+      if (!/class="crumbs"/.test(body.slice(heroHtml.length))) fail(`${p.href}: no breadcrumb trail follows the programme hero`);
       for (const m of body.matchAll(/href="(https?:\/\/[^"]+)"/g)) {
         const link = m[1].replace(/&amp;/g, '&');
         if (isHomepage(link, inst.website)) fail(`${p.href} hands the student to a homepage: ${link}`);

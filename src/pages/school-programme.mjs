@@ -1,14 +1,14 @@
 import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, crumbs, glance, topic, note, stamp, pager, close, tags, sources, facts } from '../lib/components.mjs';
+import { hero, crumbs, glance, topic, note, stamp, pager, tags, sources, facts } from '../lib/components.mjs';
 import { buildSubjectIndex, ibTermsPhrase } from '../lib/eligibility.mjs';
 import { ibOption } from '../lib/canonical.mjs';
 import { identityWords } from '../lib/calendar.mjs';
 import { picture } from '../lib/data.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
-import { hostOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
+import { notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { deadlineOf, startsOf } from '../lib/programme-deadline.mjs';
-import { FIELD, FAMILY, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
+import { FIELD, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
 import { campusSentence } from '../lib/paths.mjs';
 
 /**
@@ -451,7 +451,6 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     school.ib ? { title: `IB applicants at ${short}`, url: school.ib.url } : null,
   ].filter((s, i, all) => s && all.findIndex((t) => t && t.url === s.url) === i);
 
-  const handoff = { href: p.url, label: `Open on ${hostOf(p.url)} ↗` };
   const before = beforeYouApply(school, p);
 
   const paths = schoolPathsTable(site, inst, p, {
@@ -462,17 +461,11 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
 
   const body = html`
 ${hero({
-  crumbs: crumbs([
-    { href: `${c.href}#institutions`, label: c.name },
-    { href: inst.href, label: short },
-    { label: title },
-  ]),
-  eyebrow: [short, FIELD[p.field] === 'Other' ? null : FIELD[p.field], p.credential, `${p.years} yrs`].filter(Boolean).join(' · '),
+  eyebrow: [short, p.credential, `${p.years} yrs`, p.city || inst.city].filter(Boolean).join(' · '),
   title,
   lede,
   image,
-  variant: image ? 'compact' : 'panel',
-  mod: image ? null : `hero--fam card--fam-${FAMILY[p.field] || 'general'}`,
+  variant: 'compact',
 })}
 
 <section class="section section--tinted section--glance">
@@ -497,6 +490,11 @@ ${before
   : ''}
 <section class="section">
   <div class="wrap">
+    ${crumbs([
+      { href: `${c.href}#institutions`, label: c.name },
+      { href: inst.href, label: short },
+      { label: title },
+    ])}
     <div class="layout-aside${dates ? ' layout-aside--dates' : ''}">
       ${dates}
       <div class="prose">
@@ -531,6 +529,7 @@ ${before
 
       <aside class="layout-aside__side stack">
         ${stamp(school.retrieved)}
+        <a class="btn btn--solid" href="${p.url}" rel="noopener nofollow" style="width:100%;justify-content:center">The official page</a>
         ${facts([
           /* The name as the institution writes it, where the title shortens it. */
           { label: 'Official name', value: title !== p.name ? p.name : null },
@@ -548,14 +547,6 @@ ${before
     </div>
   </div>
 </section>
-
-${close({
-  // The one link that leaves the site: the programme's own page.
-  eyebrow: 'Next step',
-  title: "The programme's own page",
-  invitation: handoff,
-  also: [{ href: inst.href, label: `Every degree at ${short}` }],
-})}
 ${prev || next
   ? html`<section class="section section--pager">
       <div class="wrap">${pager({ prev, next })}</div>
