@@ -608,9 +608,13 @@ function minimumAverageRule(rule, ctx) {
   // One grade is written as its scale writes it ("02"); an average to one decimal.
   const shown = grades.length === 1 ? gradeLabel(scheme, avg) : avg.toFixed(1);
   const said = grades.map((g) => `${g.name} at ${g.grade}`).join(' and ');
+  /* Several grades: the result leads, which grades they are follows, so the
+     line a phone shows stays short (round 6). */
+  const whose = grades.length === 1 ? `your ${said} converts` : `your ${grades.length} grades convert`;
+  const which = grades.length === 1 ? '' : ` They are your ${said}.`;
   return avg >= terms.min
-    ? met(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}. (${asked}.)`)
-    : unmet(`Needs ${terms.ibText}: your ${said} convert${grades.length === 1 ? 's' : ''} to ${shown}, below ${terms.label}. (${asked}.)`);
+    ? met(`Needs ${terms.ibText}: ${whose} to ${shown}.${which} (${asked}.)`)
+    : unmet(`Needs ${terms.ibText}: ${whose} to ${shown}, below ${terms.label}.${which} (${asked}.)`);
 }
 
 /** An IB total on a Recognition Scheme's grade-average table. */
@@ -1000,6 +1004,27 @@ function firstSentenceOf(text) {
   return (m ? m[0] : String(text)).trim();
 }
 
+/**
+ * A reason as the planner shows it: one short lead line, the rest one tap
+ * down. The lead is the first sentence; nothing is dropped. Works on plain or
+ * HTML-escaped text (`&quot;`), so the planner can split what it has already
+ * escaped and the tests can measure exactly what a phone shows.
+ *
+ * @returns {[string, string]} [lead, more] — `more` is '' when there is none.
+ */
+export function splitLead(text) {
+  const s = String(text);
+  const cut = s.search(/\.(?=\s+(?:[A-Z(]|&quot;|\x22))/);
+  if (cut > 0 && cut < s.length - 2) return [s.slice(0, cut + 1), s.slice(cut + 1).trim()];
+  return [s, ''];
+}
+
+/** The lines a reason is shown as: one per gap it holds (round 5: a "one of"
+    with two missing subjects was a single paragraph). */
+export function reasonParts(entry) {
+  return entry?.parts?.length ? entry.parts : [entry?.message ?? ''];
+}
+
 /** "a, b and c" — a list a person can read aloud. */
 function listOf(parts) {
   if (parts.length <= 1) return parts[0] || '';
@@ -1209,7 +1234,7 @@ function localEquivalencyRule(rule, ctx) {
         return unmet(`This needs ${wanted}. Your ${held[0].name} at ${grade} converts to ${gradeLabel(scheme, converted)}, below the ${terms.localMinGradeLabel} asked for. (${asked}.)`);
       }
     }
-    return met(`Needs ${wanted}: your ${names} meets it under ${whose}. (${asked}.)`);
+    return met(`Needs ${wanted}: your ${names} meets it. That is ${whose}. (${asked}.)`);
   }
 
   if (!have) {
@@ -1237,7 +1262,7 @@ function localEquivalencyRule(rule, ctx) {
 
   if (rule.minGrade != null && terms.waiver && have.rank >= terms.waiver.rank) {
     return metOrAsk(
-      `Needs ${wanted}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level, where no minimum grade applies.${caution} (${asked}.)`,
+      `Needs ${wanted}: your ${have.ibSubject} meets it. It counts as ${rule.subject} at ${have.level} level, where no minimum grade applies.${caution} (${asked}.)`,
       have
     );
   }
@@ -1261,13 +1286,13 @@ function localEquivalencyRule(rule, ctx) {
       );
     }
     return metOrAsk(
-      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}.${caution} (${asked}.)`,
+      `Needs ${wanted || terms.local}: your ${have.ibSubject} at ${have.grade} meets it. It counts as ${rule.subject} at ${have.level} level and the grade converts to ${gradeLabel(scheme, converted)}, at or above ${terms.localMinGradeLabel}.${caution} (${asked}.)`,
       have
     );
   }
 
   return metOrAsk(
-    `Needs ${wanted || terms.local}: your ${have.ibSubject} counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}.${caution} (${asked}.)`,
+    `Needs ${wanted || terms.local}: your ${have.ibSubject} meets it. It counts as ${rule.subject} at ${have.level} level${have.level !== rule.level ? `, which covers ${rule.level}` : ''}.${caution} (${asked}.)`,
     have
   );
 }
@@ -1491,12 +1516,22 @@ function evaluateRule(rule, ctx) {
         ? ` The other option${closedOthers.length > 1 ? 's' : ''}, ${orList(closedOthers.flatMap((o) => o.closed.map((r) => r.local || 'one with no IB subject')))}, ${closedOthers.length > 1 ? 'have' : 'has'} no IB equivalent, so ${closedOthers.length > 1 ? 'they are' : 'it is'} not a way in.`
         : '';
       const consequence = !actionable && rule.consequence ? ` The published rule: "${rule.consequence}"` : '';
+      const tail = `${lead}${closedSaid}${consequence}`;
+      /* Each missing subject is its own line; what the combination is comes
+         after the last (round 6: "This needs Physics … This needs Chemistry
+         … (None of the 3 …)" was one paragraph behind one ✗). */
+      const parts = best.unmet.length > 1
+        ? best.unmet.map((r, i, all) => (i === all.length - 1 ? `${r.message}${tail}` : r.message))
+        : null;
       return unmet(
-        `${best.unmet.map((r) => r.message).join(' ')}${lead}${closedSaid}${consequence}`,
+        `${best.unmet.map((r) => r.message).join(' ')}${tail}`,
         actionable,
-        actionable
-          ? { actions: best.unmet.flatMap((r) => r.actions || []), shared: best.unmet.flatMap((r) => r.shared || []), fromNothing: best.unmet.some((r) => r.fromNothing) }
-          : { shared: best.unmet.flatMap((r) => r.shared || []) }
+        {
+          ...(actionable
+            ? { actions: best.unmet.flatMap((r) => r.actions || []), shared: best.unmet.flatMap((r) => r.shared || []), fromNothing: best.unmet.some((r) => r.fromNothing) }
+            : { shared: best.unmet.flatMap((r) => r.shared || []) }),
+          ...(parts ? { parts } : {}),
+        }
       );
     }
 
@@ -1525,7 +1560,7 @@ function evaluateRule(rule, ctx) {
           /* Where the record says the exemption's reach is an open question
              (SEA exempts "an International Baccalaureate exam"), the question
              is what the student is told. */
-          if (rule.openQuestion) return unsure(`${rule.label || 'A language requirement'} — ${rule.openQuestion}`);
+          if (rule.openQuestion) return unsure(`${String(rule.label || 'A language requirement').replace(/\.?$/, '.')} ${rule.openQuestion}`);
           return unsure(
             `${rule.label || 'A language requirement'} — the exemption is for full IB Diploma holders, so with Course Results you would need to meet it directly. Check the official page.`
           );
@@ -1558,7 +1593,7 @@ function evaluateRule(rule, ctx) {
       /* A rule whose basis the record says it could not quote (Maastricht's
          English exemption "rests on a pattern rather than on a quoted
          sentence") is the question the record asks, never a tick. */
-      if (rule.openQuestion) return unsure(`${rule.label || 'A language requirement'} — ${rule.openQuestion}`);
+      if (rule.openQuestion) return unsure(`${String(rule.label || 'A language requirement').replace(/\.?$/, '.')} ${rule.openQuestion}`);
       return unsure(
         `${rule.label || 'A language requirement'} — this depends on documentation the profile does not hold. Check the official page.`
       );
@@ -1591,7 +1626,7 @@ function evaluateRule(rule, ctx) {
     case 'work-sample':
     case 'activity':
       return unsure(
-        `${rule.label || rule.kind} — this is assessed by the institution and cannot be checked from your subjects alone.`,
+        `${String(rule.label || rule.kind).replace(/\.?$/, '.')} This is assessed by the institution and cannot be checked from your subjects alone.`,
         true
       );
 
@@ -1794,6 +1829,7 @@ export function assess(profile, opportunity, options) {
       actionable: !!result.actionable,
       actions: result.actions || [],
       shared: result.shared || [],
+      parts: result.parts || null,
       fromNothing: !!result.fromNothing,
       evidence: rule.evidence || [],
       officialWording: rule.officialWording?.text || null,
@@ -1834,7 +1870,7 @@ export function assess(profile, opportunity, options) {
     const scheme = schemeForGrade(r.gradeScale, subjectIndex);
     const grades = [...(scheme?.gradeLabels?.keys() || [])].filter((g) => g >= Number(r.minAverage)).sort((a, b) => a - b);
     const lowest = grades.length ? scheme.gradeLabels.get(grades[0]) : null;
-    f.message = `Also needs ${f.terms?.localText || r.label}${lowest ? ` — a ${lowest} or better from your course` : ''}; whether this floor is applied to a course passed after 5 July is not recorded.`;
+    f.message = `Also needs ${f.terms?.localText || r.label}${lowest ? `: a ${lowest} or better from your course` : ''}. Whether this floor is applied to a course passed after 5 July is not recorded.`;
   }
 
   /* The award nobody recorded.
@@ -1933,6 +1969,24 @@ export function assess(profile, opportunity, options) {
   }
 
   let plan = planSteps(gaps);
+  /* A gap another gap's step also closes (CBS: Cambridge C1 185 meets English
+     B at 6.0 and English A) says that step before its own other route, which
+     may not be open to this student (round 5, P5 at CBS: the first ✗ offered
+     "an English test on top of English B at 5" to a student with English B 4,
+     and the step that closes both came one line later). Nothing is dropped. */
+  for (const g of gaps) {
+    for (const a of g.actions || []) {
+      for (const id of a.alsoMeets || []) {
+        const x = gaps.find((y) => y !== g && y.id === id);
+        if (!x || x.closedBy) continue;
+        x.closedBy = a.key;
+        const said = ` One step closes both this and "${g.label}": ${String(a.short || a.text).replace(/\.?$/, '.')}`;
+        const at = x.message.indexOf(' The other published way');
+        x.message = at < 0 ? `${x.message}${said}` : `${x.message.slice(0, at)}${said} Otherwise, t${x.message.slice(at + 2)}`;
+        if (x.parts) x.parts = x.parts.map((p, i, all) => (i === all.length - 1 ? p + said : p));
+      }
+    }
+  }
   /* Below a floor that leaves only the other quota open, a plan that relies
      on finishing a course after the IB results is not joined to that quota by
      any record: AU's quota 2 has "everything documented by 15 March", SDU's

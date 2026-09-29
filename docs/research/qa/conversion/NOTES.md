@@ -477,3 +477,21 @@ The full write-up is in `round-5/fixes.md`, under "Post-round-5 bug fixes".
 53. **The planner's legend and caveat moved under the count.** Both are
     collapsed, "How to close a gap" is collapsed, and each reason is one line
     with the rest one tap down.
+
+## Round 6 — closing issue #42 (the round-5 critique's remaining items)
+
+The write-up is `round-6/progress.md`.
+
+54. **A reason is one line per gap it holds.** A "one of" missing two
+    subjects returns `parts`, and the planner renders each as its own ✗.
+55. **The lead a phone shows is the engine's `splitLead`,** used by the
+    planner and measured by the tests: a ✗ lead is at most 20 words, any
+    other at most 28. Long leads were split into a short first sentence.
+56. **A gap another gap's step also closes names that step first** (CBS:
+    Cambridge before the IELTS route that needs English B at 5).
+57. **A rule that decides a verdict cites the page that holds its sentence.**
+    AU, SDU, CBS and ITU's supplementary-course rules, CBS's Cambridge route
+    and ITU's "only Data Science" sentence now cite Evidence records read
+    from the page source on 29 Sep 2026, with the sentence as the excerpt.
+    A guard checks every levelRaise and alternativeTest cites such an
+    excerpt and that each date it states is in it.
