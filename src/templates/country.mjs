@@ -88,7 +88,7 @@ ${vm.artStyle ? raw(`<div class="art" style="${vm.artStyle}">`) : ''}
 ${hero({
   ...vm.hero,
   // One eyebrow for every country: where it is, and the admission cycle.
-  eyebrow: [vm.hero.region, SITE.cycle.label].filter(Boolean).join(' · '),
+  eyebrow: html`${vm.hero.region || ''}<span class="eyebrow__cycle">${vm.hero.region ? ' · ' : ''}${SITE.cycle.label}</span>`,
   actions: vm.hero.actions?.length
     ? html`${vm.hero.actions.map((a, i) => html`<a class="btn ${i ? 'btn--ghost' : 'btn--primary'}" href="${url(a.href)}">${a.label}</a>`)}`
     : null,

@@ -98,7 +98,12 @@ export function programme(site, p, inst) {
       eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
       title: p.name,
       lede: firstSentence(p.summary, 20),
-      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
+      /* Its own photograph first, the one its card shows (as school-record
+         programme pages do); a field's shared picture is not this programme,
+         so then the institution's. */
+      image: String(p.backdrop?.scope || '').startsWith('programme:')
+        ? { src: p.backdrop.src, alt: truncate(p.backdrop.alt || p.name, 120), credit: p.backdrop.credit || null, focal: p.backdrop.focus || '50% 50%' }
+        : pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
     },
     glance: [
       { label: 'Where', value: [p.campus || inst.city, dest?.name].filter(Boolean).join(', ') || null },

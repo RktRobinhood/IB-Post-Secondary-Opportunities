@@ -133,8 +133,6 @@ const credentialShort = (cred, title) => {
   return rest || cred;
 };
 
-/** The distinct values of a list, in order, joined with "or". */
-const orOf = (list) => [...new Set(list.filter(Boolean))].join(' or ');
 
 /**
  * What differs between the paths of a family, fact by fact, for the card's
@@ -220,7 +218,10 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     title: displayName(fam ? g.family.name : p.name),
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
     // `at`: the school, on a card that stands for another school's programme.
-    line: [credentialShort(orOf(members.map((q) => q.credential)), displayName(fam ? g.family.name : p.name)), years, where].filter(Boolean).join(' · '),
+    // A family whose paths are different degrees (a single degree and a
+    // dual one) leaves the credential to each path's row: joined with "or"
+    // it read "BBA + Bachelor in or Bachelor in Economics + …".
+    line: [same((q) => q.credential) ? credentialShort(p.credential, displayName(fam ? g.family.name : p.name)) : null, years, where].filter(Boolean).join(' · '),
     // School records currently carry their concise IB answer as prose. Put it
     // in the shared requirement slot rather than selecting a different card
     // layout; structured `needs` can deepen this adapter later.

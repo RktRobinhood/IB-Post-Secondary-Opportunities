@@ -3000,6 +3000,26 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .crumbs li + li::before { display: inline-block; }
 /* A page that ends on its close band runs straight into the footer. */
 body:has(main > .close:last-child) .site-foot { margin-top: 0; }
+/* Possibilities before dates (#55 round 3): on a phone the degrees, or what
+   a programme needs, come first; the dates panel follows them, then the rail.
+   On a wide screen the panel is the side column's top, as before. */
+@media (max-width: 61.99rem) {
+  .layout-aside--dates > .dates-panel { order: 1; }
+  .layout-aside--dates > .layout-aside__side { order: 2; }
+}
+/* Cards in a row keep their own height: a short card is not stretched to its
+   neighbour's campus rows. */
+.grid--3 { align-items: start; }
+/* A facts strip never ends on an empty cell: the last fact spans what is left
+   of its row of four. */
+@media (min-width: 62rem) {
+  .section--glance .glance > .glance__item:last-child:nth-child(4n + 3) { grid-column: span 2; }
+  .section--glance .glance > .glance__item:last-child:nth-child(4n + 2) { grid-column: span 3; }
+  .section--glance .glance > .glance__item:last-child:nth-child(4n + 1) { grid-column: span 4; }
+}
+/* The admission cycle in a country's eyebrow is for wide screens; on a phone
+   the region alone keeps it to one line. */
+@media (max-width: 40rem) { .eyebrow__cycle { display: none; } }
 /* A rail action fills its column (institution and programme pages). */
 .btn--block { display: flex; width: 100%; justify-content: center; text-align: center; white-space: normal; }
 /* A grid followed by another section heading keeps its distance (institutions index). */
