@@ -8,7 +8,19 @@ This page says where the work stands, so the next session (human or agent) start
 
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
-- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 38 checks.
+- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+
+## 29 September: parity coverage in every country handoff (#60)
+
+- `npm run coverage -- --handoff <country-code>` now regenerates the durable
+  coverage report and prints a paste-ready country snapshot with research,
+  programme detail, programme photos, institution photos and the remaining
+  queue kept separate.
+- The school research brief, parity contract and parallel-work instructions
+  require that snapshot at the end of every country batch. It is explicitly
+  observability, not a 100% release threshold.
+- A gate check protects the handoff shape and its arithmetic without failing a
+  country for honest missing coverage.
 
 ## 29 September: one programme-card and page system (#63)
 

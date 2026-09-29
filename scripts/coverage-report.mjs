@@ -5,6 +5,9 @@
  *
  *   node scripts/coverage-report.mjs            # writes docs/research/schools/COVERAGE.md
  *   node scripts/coverage-report.mjs --stdout   # prints it instead
+ *   node scripts/coverage-report.mjs --handoff fr
+ *                                               # writes the report and prints
+ *                                               # a paste-ready country summary
  *
  * It reads only files in the repository, so it runs anywhere, and it is a
  * report, not a guard: it never fails.
@@ -16,6 +19,17 @@ import { programmePaths } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
+const arg = (name) => {
+  const i = process.argv.indexOf(name);
+  const value = i === -1 ? null : process.argv[i + 1];
+  return value?.startsWith('--') ? null : value;
+};
+const handoffAsked = process.argv.includes('--handoff');
+const handoffCode = arg('--handoff')?.toLowerCase() || null;
+if (handoffAsked && !handoffCode) {
+  console.error('Missing country code after --handoff. Example: --handoff fr');
+  process.exit(2);
+}
 
 const manifest = read('docs/research/schools/manifest.json');
 const images = read('data/images.json');
@@ -113,8 +127,27 @@ for (const c of countries) {
 out.push('');
 
 const text = out.join('\n');
-if (process.argv.includes('--stdout')) process.stdout.write(text);
+const handoff = handoffCode ? countries.find((c) => c.cc === handoffCode) : null;
+if (handoffCode && !handoff) {
+  console.error(`Unknown country code "${handoffCode}". Use one from docs/research/schools/manifest.json.`);
+  process.exit(2);
+}
+
+const handoffText = handoff
+  ? [
+      `## Parity handoff: ${handoff.name} (\`${handoff.cc}\`)`,
+      '',
+      `- Research coverage: **${handoff.records}/${handoff.institutions} institutions**; ${handoff.institutions - handoff.records} missing record${handoff.institutions - handoff.records === 1 ? '' : 's'}; ${handoff.scopes.listed || 0} listed, ${handoff.scopes.catalogue || 0} catalogue, ${handoff.scopes.none || 0} none.`,
+      `- Programme detail: **${handoff.detailed}/${handoff.degrees} listed paths** have both \`about\` and \`selection\`; ${handoff.degrees - handoff.detailed} missing detail.`,
+      `- Programme photos: **${handoff.ownPhoto}/${handoff.degrees} listed paths** have their own photo; ${handoff.degrees - handoff.ownPhoto} use a fallback.`,
+      `- Institution photos: **${handoff.schoolPhoto}/${handoff.institutions} institutions** publish a photo; ${handoff.institutions - handoff.schoolPhoto} use the designed empty state.`,
+      `- Queue: **${handoff.rows.filter((r) => r.state === 'no record' || r.gaps?.length).length} institutions** still have a recorded parity gap in \`docs/research/schools/COVERAGE.md\`.`,
+    ].join('\n')
+  : null;
+
+if (process.argv.includes('--stdout')) process.stdout.write(handoffText || text);
 else {
   fs.writeFileSync(path.join(ROOT, 'docs/research/schools/COVERAGE.md'), text);
-  console.log(`Wrote docs/research/schools/COVERAGE.md: ${totals.records}/${totals.institutions} records, ${totals.degrees} degrees, ${totals.detailed} to the Danish standard, ${totals.ownPhoto} with their own photo.`);
+  console.log(`Wrote docs/research/schools/COVERAGE.md: ${totals.records}/${totals.institutions} records, ${totals.degrees} degrees, ${totals.detailed} with programme detail, ${totals.ownPhoto} with their own photo.`);
+  if (handoffText) console.log(`\n${handoffText}`);
 }

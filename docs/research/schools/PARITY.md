@@ -94,6 +94,21 @@ Every release should be a small, reviewable commit on `main` (or a short-lived
 branch merged immediately), with focused checks first and the full release gate
 before push.
 
+## Required country-batch handoff
+
+End every school-record, programme-enrichment, or image batch with:
+
+```sh
+npm run coverage -- --handoff <country-code>
+```
+
+This regenerates `COVERAGE.md` and prints a short block for the issue or agent
+handoff. Paste that block without replacing its separate research, programme
+detail, programme-photo, and institution-photo lines with one blended score.
+The numbers are a map of the next gaps, not a release threshold: an honest
+`none` record or designed image fallback may still be the correct finished
+state.
+
 ## First post-Finland photo batch (28 September 2026)
 
 Issue #59 ranks the next candidates this way:

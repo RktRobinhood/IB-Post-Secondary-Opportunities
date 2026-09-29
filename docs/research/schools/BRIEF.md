@@ -23,6 +23,20 @@ it.
 
 The page is built from this file, so what you write is what the student reads.
 
+### End the batch with a parity handoff
+
+After the batch files and report are on disk, run:
+
+```sh
+npm run coverage -- --handoff <country-code>
+```
+
+This updates `COVERAGE.md` and prints the five-line parity snapshot that must
+be included in the coordinator handoff. It keeps missing records, programme
+detail, programme photos, and institution photos visible as separate facts.
+Do not treat any percentage as a pass/fail score, and do not omit a gap merely
+because it was outside this batch's scope.
+
 ### Decide the scope first
 
 - **`listed`**: the institution teaches some bachelor's degrees in English, and you apply to a

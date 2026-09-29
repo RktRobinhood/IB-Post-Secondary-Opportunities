@@ -127,3 +127,20 @@ The most useful thing a research agent produces is the list of what it could
 not establish and what it would take to establish it. Ask for it explicitly, or
 you get a report about what was found and a silent implication that the rest
 does not exist.
+
+## Every country-batch handoff includes the parity snapshot
+
+A country batch is not handed back with “records complete” or “photos done.”
+Those phrases hide the other layers that students see. Before reporting, the
+agent runs:
+
+```sh
+npm run coverage -- --handoff <country-code>
+```
+
+The command updates the durable full report and prints the exact compact block
+to paste into the handoff. The coordinator checks that all four layers remain
+separate: research records, programme detail, programme photos, and institution
+photos. This is observability, not a new acceptance threshold; incomplete
+coverage stays visible and queueable instead of making an otherwise honest
+release fail.

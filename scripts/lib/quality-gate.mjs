@@ -99,6 +99,12 @@ export const CHECKS = [
     title: 'Every Destination has exactly one identity',
   },
   {
+    id: 'coverage-handoff',
+    script: 'scripts/test-coverage-handoff.mjs',
+    stage: 'data',
+    title: 'Every country batch can report each parity layer without turning coverage into a threshold',
+  },
+  {
     id: 'image-records',
     script: 'scripts/test-image-records.mjs',
     stage: 'data',
