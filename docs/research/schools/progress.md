@@ -203,8 +203,8 @@ The rule now on every Swedish card, from University Admissions' IB page: "If you
 - Could not verify: IB-specific rules at Padua, Trento, Bicocca, Ca' Foscari, Turin; Sapienza Medicine/Dentistry/Nursing calls (PDF); per-degree entry test at Ca' Foscari and Turin; Polimi MEDTEC (Humanitas) left out.
 
 ## Spain (es-*, 13 institutions), 2026-09-26 — details in reports/batch-es.md
-- Finished 13 of 13: 11 `listed` (99 programmes), 2 `none` (Navarra, UAM; Spanish). Read in the user's Chrome.
+  - Finished 13 of 13: 11 `listed` (93 programmes), 2 `none` (Navarra, UAM; Spanish). English routes were re-audited after review; partial and unverified bilingual programmes are excluded.
 - Route: IB holders get UNEDasiss accreditation (grade 5–10), then the region's pre-enrolment (Madrid, Catalonia); 2027 regional dates unpublished, so 2026 kept as `lastYear` (Catalonia 2–26 June; Madrid 5–26 June, foreign systems to 6 July). Catalonia ignores IB subject grades on the credential.
 - 2027 dates published: IE rounds (6 Nov 2026, 15 Jan, 5 Mar 2027), Navarra (opens 1 Oct; 9 Dec 2026, 9 Mar 2027; IB grades before 10 July), Deusto (2–30 Nov 2026), ESADE (rolling to June 2027).
-- Contradicts data/countries/es.json: UAM has no English-taught bachelor's; UCM has two "en inglés" degrees plus English Studies (not "very limited"); CEU has 16 English tracks, not two; Deusto asks an external B2 English certificate.
+  - Contradicts data/countries/es.json: UAM has no English-taught bachelor's; UCM has one confirmed complete English route; CEU has 15 confirmed English routes, not two; Deusto asks for an external B2 English certificate.
 - Could not verify: UCM places and cut-offs (script-loaded); UCM European Studies' language; CEU and Comillas 2027 deadlines; UB's study-in-English page (temporarily unavailable; the finder was used).

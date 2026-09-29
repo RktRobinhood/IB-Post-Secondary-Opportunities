@@ -87,7 +87,9 @@ These are examples, not rules by country. Decide from what the institution publi
   - `name`: as the institution writes it.
   - `credential`: a standard abbreviation a student knows (BSc, BA, BBA, BEng, LLB, BMus), or else
     the degree's full English title ("Bachelor of Health Care"). **Never an invented abbreviation**
-    such as "BHealthCare".
+    such as "BHealthCare". When the country awards one undifferentiated national credential rather
+    than BA/BSc, keep its official name with a short English gloss (for example, "Grado (Spanish
+    bachelor's degree)" or "Two Spanish Grado degrees") instead of inventing an award type.
   - `years` and `field`: `field` comes from the enum.
   - `url`: the programme's own page.
   - `city`: whenever it differs from the institution's city. Set it on every programme at a school

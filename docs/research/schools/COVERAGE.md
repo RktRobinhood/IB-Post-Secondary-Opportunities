@@ -7,7 +7,7 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 ## Totals
 
 - Institutions with a record: **195 of 450** (43%); 121 listed, 37 catalogue, 37 none.
-- Degrees listed: **781**; with programme detail (about and selection): **319** (41%).
+- Degrees listed: **775**; with programme detail (about and selection): **313** (40%).
 - Degrees with a photograph of their own (#54): **125** (16%). The rest show their school's photo.
 - Institutions with a school photo: **399 of 450**.
 
@@ -25,7 +25,7 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | Czechia (cz) | 0/13 | 0 / 0 / 0 | 0 | – | – | 13/13 | [yes](leads/cz.md) |
 | Germany (de) | 14/14 | 9 / 0 / 5 | 60 | 0 (0%) | 0 | 14/14 | no |
 | Estonia (ee) | 0/10 | 0 / 0 / 0 | 0 | – | – | 5/10 | [yes](leads/ee.md) |
-| Spain (es) | 13/13 | 11 / 0 / 2 | 99 | 99 (100%) | 0 | 11/13 | [yes](leads/es.md) |
+| Spain (es) | 13/13 | 11 / 0 / 2 | 93 | 93 (100%) | 0 | 11/13 | [yes](leads/es.md) |
 | Finland (fi) | 14/14 | 13 / 0 / 1 | 101 | 100 (99%) | 101 | 13/14 | no |
 | France (fr) | 12/12 | 7 / 1 / 4 | 24 | 23 (96%) | 24 | 11/12 | [yes](leads/fr.md) |
 | United Kingdom (gb) | 22/22 | 0 / 22 / 0 | 0 | – | – | 21/22 | no |
@@ -133,12 +133,12 @@ Only institutions with something missing are listed.
 - `es-uc3m` (listed, 20 degrees): 20 of 20 degrees have no photo of their own
 - `es-upf` (listed, 8 degrees): 8 of 8 degrees have no photo of their own
 - `es-esade` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
-- `es-uab` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
+- `es-uab` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
 - `es-deusto` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
 - `es-comillas` (listed, 4 degrees): 4 of 4 degrees have no photo of their own; no school photo
-- `es-ceu` (listed, 16 degrees): 16 of 16 degrees have no photo of their own; no school photo
-- `es-ub` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
-- `es-ucm` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `es-ceu` (listed, 15 degrees): 15 of 15 degrees have no photo of their own; no school photo
+- `es-ub` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `es-ucm` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
 - `es-upc` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
 
 ### Finland

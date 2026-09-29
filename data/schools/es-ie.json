@@ -68,16 +68,6 @@
       "field": "mathematics",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-applied-mathematics/",
       "about": "A demanding maths degree mixing theory, computation and applied work: modelling real systems and optimising decisions for finance, operations, energy and sustainability.",
-      "ib": "Maths AA HL recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa"
-          ],
-          "level": "HL",
-          "note": "IE's guidance, not a fixed rule."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -96,17 +86,6 @@
       "field": "design-architecture",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-architectural-studies/",
       "about": "Project-based architecture training on the Segovia campus, combining creative, technical, environmental and social design with an internship programme.",
-      "ib": "Maths AA or AI (SL or HL) recommended.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -143,17 +122,6 @@
       "field": "business",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-business-administration/",
       "about": "Core business disciplines from finance to marketing, applied through hands-on projects with companies; start in Segovia or spend all four years in Madrid.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "family": {
         "name": "Business Administration",
         "axis": "campus",
@@ -179,17 +147,6 @@
       "field": "business",
       "url": "https://www.ie.edu/university/studies/academic-programs/global-bachelor-business-administration/",
       "about": "The same BBA degree studied across campuses: Madrid, Singapore and Dubai, with the final year in Madrid or New York City.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "family": {
         "name": "Business Administration",
         "axis": "campus",
@@ -233,17 +190,6 @@
       "field": "computing",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-computer-science-artificial-intelligence/",
       "about": "An engineering-focused computer science degree: programming, algorithms, software engineering and systems, with AI, machine learning and robotics.",
-      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai@HL"
-          ],
-          "level": "SL",
-          "note": "IE's guidance; AI SL is also considered if you take Computer Science."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -262,17 +208,6 @@
       "field": "computing",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-data-business-analytics/",
       "about": "Collecting, managing and analysing data to solve business and institutional problems, taught by IE's School of Science and Technology.",
-      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai@HL"
-          ],
-          "level": "SL",
-          "note": "IE's guidance; AI SL is also considered with Computer Science or Physics."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -309,17 +244,6 @@
       "field": "economics",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-economics/",
       "about": "Econometrics, political science, analytics and behavioural science applied to the digital economy, with a finance or policy-analysis specialisation.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -338,26 +262,6 @@
       "field": "agriculture-environment",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-environmental-sciences-sustainability/",
       "about": "Science first: biology, chemistry, physics, geology, ecology and data science, joined with environmental policy and governance, on the Segovia campus.",
-      "ib": "Maths AA plus ESS, Biology, Chemistry or Physics recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule."
-        },
-        {
-          "anyOf": [
-            "ess",
-            "biology",
-            "chemistry",
-            "physics"
-          ],
-          "level": "SL",
-          "note": "IE's guidance: at least one of these."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -448,17 +352,6 @@
       "field": "interdisciplinary",
       "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-philosophy-politics-law-economics-pple/",
       "about": "Philosophy, politics, law and economics together, with the option to specialise in one or two of them; aimed at governance and public policy.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -495,17 +388,6 @@
       "field": "law",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-bachelor-business-administration-laws/",
       "about": "Two degrees in five years: international business seen from both a management and a legal perspective, taught by IE Business School and IE Law School.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -558,17 +440,6 @@
       "field": "computing",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-computer-science-and-artificial-intelligence/",
       "about": "Two degrees in five years: business administration with computer science and artificial intelligence, for tech-driven leadership roles.",
-      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai@HL"
-          ],
-          "level": "SL",
-          "note": "IE's guidance; AI SL is also considered if you take Computer Science."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -587,17 +458,6 @@
       "field": "computing",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-data-and-business-analytics/",
       "about": "Two degrees in five years: management combined with statistical and data-analysis skills for the corporate world.",
-      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai@HL"
-          ],
-          "level": "SL",
-          "note": "IE's guidance; AI SL is also considered with Computer Science or Physics."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -616,17 +476,6 @@
       "field": "design-architecture",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-design/",
       "about": "Two degrees in five years: business administration and design, for creative students who want to build value inside companies.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -655,17 +504,6 @@
       "field": "design-architecture",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-fashion-design/",
       "about": "Two degrees in five years: business administration and fashion design, from industry trends and supply chains to branding.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -684,17 +522,6 @@
       "field": "humanities",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-bachelor-in-humanities/",
       "about": "Two degrees in five years: the analytical and critical skills of the humanities joined with business and management.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -713,17 +540,6 @@
       "field": "business",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-business-administration-international-relations/",
       "about": "Two degrees in five years: international business and international affairs, with the option of an exchange.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -742,17 +558,6 @@
       "field": "business",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-bachelor-political-science/",
       "about": "Two degrees in five years: business education with political systems and governance, for public- and private-sector careers.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -771,16 +576,6 @@
       "field": "mathematics",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-economics-applied-mathematics/",
       "about": "Two degrees in five years: the modern global economy analysed with the tools of applied mathematics.",
-      "ib": "Maths AA HL recommended. IE's test adds a 60-minute maths assessment.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa"
-          ],
-          "level": "HL",
-          "note": "IE's guidance, not a fixed rule."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
@@ -799,17 +594,6 @@
       "field": "economics",
       "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-economics-international-relations/",
       "about": "Two degrees in five years: economics and international relations, for designing policy between states, companies and international organisations.",
-      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
-      "needs": [
-        {
-          "anyOf": [
-            "mathematics-aa",
-            "mathematics-ai"
-          ],
-          "level": "SL",
-          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
-        }
-      ],
       "selection": [
         "grades",
         "test-score",
