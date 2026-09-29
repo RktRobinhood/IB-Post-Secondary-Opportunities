@@ -6,9 +6,15 @@
  *
  *   - a preset (Right here / Nearby / Explore) sets the distance and moves the
  *     camera;
- *   - choosing a place or a country on the globe narrows the cards;
- *   - every filter re-weights the globe's lights (`setCounts`), counted from
- *     the cards that are left, never filtered a second time.
+ *   - choosing on the globe narrows the cards to what it chose (#62): a place
+ *     to its degrees, a country to its degrees (or, for a country whose
+ *     degrees are not mapped yet, to its own page's tile), and a group dived
+ *     into to the countries it holds (`area`). Looking — a drag, a zoom, a
+ *     spin — narrows nothing and pushes nothing;
+ *   - every filter and the search re-weight the globe's lights (`setCounts`),
+ *     counted from the cards that are left, never filtered a second time: a
+ *     place or a country's bubble with nothing left dims, and its count is
+ *     what is left.
  *
  * Back means back. Every deliberate choice is a history entry, and the entry
  * being left is first stamped with how far down the page the student was, so
@@ -37,7 +43,7 @@ const PLACES = json('place-data') || {};
 /* Counted in cards, as the student sees them (#52): one card may hold several paths. */
 const TOTAL = CARDS.length;
 
-const EMPTY = { q: '', field: '', where: '', place: '', award: '', open: false, nomath: false, scope: '' };
+const EMPTY = { q: '', field: '', where: '', place: '', area: '', award: '', open: false, nomath: false, scope: '' };
 const state = { ...EMPTY };
 
 const $ = (id) => document.getElementById(id);
@@ -96,6 +102,7 @@ function matches(m, st = state) {
   if (st.field && m.f !== st.field) return false;
   if (st.where && !inWhere(m, st.where)) return false;
   if (st.place && m.p !== st.place) return false;
+  if (st.area && !st.area.split(',').includes(m.d)) return false;
   /* "Not established" is an award state of its own, never a fall-through: a
      student filtering for what Course Results reach is never handed a record
      that is simply silent. */
@@ -113,8 +120,22 @@ function matches(m, st = state) {
 /* Cards that match: a card matches when any of its paths does, and it counts once (#52). */
 const hitsFor = (st) => CARDS.filter((c) => c.members.some((m) => matches(m, st))).length;
 
-/** A filter other than the distance: something that narrows by what a degree is. */
-const narrowed = (st = state) => ['q', 'field', 'where', 'place', 'award', 'open', 'nomath'].some((k) => st[k]);
+/** A filter that asks about the degrees themselves, not only where they are. */
+const degreeAsked = (st = state) => ['q', 'field', 'place', 'award', 'open', 'nomath'].some((k) => st[k]) || (!!st.where && !st.where.startsWith('dest:'));
+/** Only where, by distance or by a group chosen on the globe: nothing about the degrees. */
+const geoOnly = (st = state) => (!!st.scope || !!st.area) && !degreeAsked(st) && !st.where;
+const hasCards = (code) => CARDS.some((c) => c.members.some((m) => m.d === code));
+/** A country chosen whose degrees are not mapped one by one: its code. */
+function doorWhere(st = state) {
+  const code = st.where.startsWith('dest:') ? st.where.slice(5) : '';
+  return code && LIGHTS[code] && !hasCards(code) ? code : '';
+}
+/** A Destination's name, for a chip: its light's, or its "Where" option's. */
+function destName(code) {
+  if (LIGHTS[code]?.t) return LIGHTS[code].t;
+  const o = els.where && [...els.where.options].find((x) => x.value === `dest:${code}`);
+  return o ? o.textContent.replace(/\s*\(\d+\)$/, '').replace(/^Anywhere in\s+/, '').trim() : code.toUpperCase();
+}
 
 /* A chip's count is what turning it on would leave, given everything else
    already chosen. A chip that would leave nothing says so, and is dimmed
@@ -139,12 +160,22 @@ function paintMap(near = null) {
   if (!world) return;
   const counts = new Map();
   // The degrees on show: the matches, or the ones near a word that matched none.
-  const lit = near?.size ? [...near.values()].flat() : CARDS.flatMap((c) => c.members.filter((m) => matches(m)));
-  for (const m of lit) if (m.p) counts.set(m.p, (counts.get(m.p) || 0) + 1);
+  // Counted in cards, as the count under the globe is (#52, #62): a card of
+  // several paths at one place is one there.
+  const lit = near?.size ? [...near.values()] : CARDS.map((c) => c.members.filter((m) => matches(m)));
+  for (const hits of lit) for (const p of new Set(hits.map((m) => m.p).filter(Boolean))) counts.set(p, (counts.get(p) || 0) + 1);
   // A Destination with no mapped degree stays lit until a filter asks about
-  // degrees; then it has nothing to match and dims with the rest.
-  if (!narrowed()) {
-    for (const [id, l] of Object.entries(LIGHTS)) if (!state.scope || l.s === state.scope) counts.set(id, l.n || 1);
+  // degrees; then it has nothing to match and dims with the rest. A choice
+  // of where (a distance, a country, a group on the globe) keeps lit the
+  // ones it names.
+  if (!degreeAsked()) {
+    const area = state.area ? state.area.split(',') : null;
+    for (const [id, l] of Object.entries(LIGHTS)) {
+      if (state.scope && l.s !== state.scope) continue;
+      if (state.where && state.where !== `dest:${id}`) continue;
+      if (area && !area.includes(id)) continue;
+      counts.set(id, l.n || 1);
+    }
   }
   world.setCounts(counts, { selected: state.place });
 }
@@ -168,22 +199,48 @@ function frame(scope) {
    entry, so the filter is written into it. A choice made by a preset or by
    Back is not the student's choice on the globe, and is left alone. */
 let driving = false;
-let fromGlobe = { place: false, where: false };
+const NONE = { place: false, where: false, area: false };
+let fromGlobe = { ...NONE };
+/* A choice made on the globe replaces the globe's last one, never the
+   student's own filters. */
+const clearGlobeChoice = () => {
+  for (const k of ['place', 'where', 'area']) if (fromGlobe[k]) state[k] = '';
+  fromGlobe = { ...NONE };
+};
+/* A choice on the globe outside the distance that is on (Denmark chosen
+   under "Nearby · Europe") would leave nothing: the choice is the more
+   precise one, so the distance goes. Countries are compared by their
+   Destination code; no country is named. */
+const scopeOfDest = (code) => LIGHTS[code]?.s || CARDS.flatMap((c) => c.members).find((m) => m.d === code)?.s || '';
+const keepScope = (codes) => {
+  if (state.scope && !codes.some((c) => scopeOfDest(c) === state.scope)) state.scope = '';
+};
 world?.figure.addEventListener('world:choose', (e) => {
   const d = e.detail || {};
   if (driving || d.restored) return;
   if (d.kind === 'place' && PLACES[d.id]) {
+    clearGlobeChoice();
     state.place = d.id;
     fromGlobe.place = true;
-  } else if (d.kind === 'country' && CARDS.some((c) => c.members.some((m) => m.d === d.id))) {
+    keepScope([PLACES[d.id].country]);
+  } else if (d.kind === 'country' && (hasCards(d.id) || LIGHTS[d.id])) {
     if (state.scope === 'here' && CARDS.some((c) => c.members.some((m) => m.d === d.id && m.s === 'here'))) return;
+    clearGlobeChoice();
+    // A country with no degree mapped narrows to its own page's tile (#62).
     state.where = `dest:${d.id}`;
     state.place = '';
-    fromGlobe = { place: false, where: true };
+    fromGlobe.where = true;
+    keepScope([d.id]);
+  } else if (d.kind === 'view' && d.nations?.length) {
+    // A group dived into: the cards of the countries it holds (#62).
+    const known = d.nations.filter((c) => hasCards(c) || LIGHTS[c]);
+    if (!known.length) return;
+    clearGlobeChoice();
+    state.area = known.join(',');
+    fromGlobe.area = true;
+    keepScope(known);
   } else if (!d.kind) {
-    if (fromGlobe.place) state.place = '';
-    if (fromGlobe.where) state.where = '';
-    fromGlobe = { place: false, where: false };
+    clearGlobeChoice();
   } else {
     return;
   }
@@ -203,9 +260,14 @@ world?.figure.addEventListener('world:select', (e) => {
 
 /* --- Rendering ------------------------------------------------------------------- */
 
-const LABELS = { q: 'Search', field: 'Subject', where: 'Where', place: 'Place', award: 'IB award', open: 'Open entry', nomath: 'No Maths HL needed', scope: 'Distance' };
+const LABELS = { q: 'Search', field: 'Subject', where: 'Where', place: 'Place', area: 'On the globe', award: 'IB award', open: 'Open entry', nomath: 'No Maths HL needed', scope: 'Distance' };
 
 function chosenLabel(key, value) {
+  if (key === 'area') {
+    const codes = value.split(',');
+    return `${LABELS.area}: ${codes.length <= 2 ? codes.map(destName).join(', ') : plural(codes.length, 'country', 'countries')}`;
+  }
+  if (key === 'where' && value.startsWith('dest:') && ![...(els.where?.options || [])].some((o) => o.value === value)) return destName(value.slice(5));
   if (key === 'award') return els.award && value === els.award.dataset.value ? 'Accepts Course Results' : `${LABELS.award}: ${value}`;
   if (key === 'scope') {
     const b = els.presets.find((x) => x.dataset.scope === value);
@@ -351,12 +413,23 @@ els.active?.addEventListener('click', (e) => {
    (Nearby ends with the European countries researched so far, not only the
    one whose degrees are mapped), or, for a word with nothing near it, every
    one in reach. Null when none belong. */
+/** A tile's Destination code (discover.mjs stamps it on the tile's link). */
+const codeOf = (li) => li.querySelector('[data-code]')?.dataset.code || '';
+
 function placesFor(shown, near) {
   if (!els.places) return null;
   const all = [...els.places.querySelectorAll('[data-scope]')];
-  const inScope = all.filter((li) => !state.scope || li.dataset.scope === state.scope);
+  /* A country chosen on the globe whose degrees are not mapped yet: its tile,
+     so what is under the globe is what the globe chose (#62). */
+  const door = doorWhere();
+  if (door) {
+    const tiles = all.filter((li) => codeOf(li) === door);
+    return tiles.length ? { tiles, line: 'Its degrees are not mapped one by one yet. Its own page:' } : null;
+  }
+  const area = state.area ? state.area.split(',') : null;
+  const inScope = all.filter((li) => (!state.scope || li.dataset.scope === state.scope) && (!area || area.includes(codeOf(li))));
   if (!inScope.length) return null;
-  if (state.scope && !narrowed()) {
+  if (geoOnly()) {
     return { tiles: inScope, line: shown
       ? `${plural(inScope.length, 'more country', 'more countries')} researched, their degrees not yet mapped one by one:`
       : 'Their degrees are not mapped one by one yet. Each country has its own page:' };
@@ -393,11 +466,14 @@ function render() {
     else if (folded && !any) folded.append(...[...els.results.children].slice(FIRST_SHOWN));
   }
   const places = placesFor(shown, near);
-  const doorOnly = !!state.scope && !narrowed();
+  const door = doorWhere();
+  const doorOnly = (geoOnly() || !!door) && !!places;
   els.count.innerHTML = !any
     ? `<b>${TOTAL}</b> programmes`
     : shown
     ? `<b>${cardsShown}</b> of ${TOTAL} programmes`
+    : door && places
+    ? `<b>${esc(destName(door))}</b> researched, no programme mapped yet`
     : doorOnly && places
     ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
     : near.size
@@ -414,7 +490,7 @@ function render() {
   if (els.empty) els.empty.hidden = shown > 0 || doorOnly;
 
   const badge = els.sheetOpen?.querySelector('[data-n]');
-  const n = ['field', 'where', 'place', 'award', 'open', 'nomath'].filter((k) => state[k]).length;
+  const n = ['field', 'where', 'place', 'area', 'award', 'open', 'nomath'].filter((k) => state[k]).length;
   if (badge) badge.textContent = n ? ` (${n})` : '';
   for (const b of document.querySelectorAll('[data-show]')) {
     b.textContent = shown ? `Show ${plural(cardsShown, 'programme')}` : 'Nothing matches: close';
@@ -455,7 +531,7 @@ function query() {
 function readUrl() {
   Object.assign(state, EMPTY);
   const params = new URLSearchParams(location.search);
-  for (const k of ['q', 'field', 'where', 'place', 'award', 'scope']) {
+  for (const k of ['q', 'field', 'where', 'place', 'area', 'award', 'scope']) {
     const v = params.get(k);
     if (v) state[k] = v;
   }
@@ -521,7 +597,7 @@ addEventListener('popstate', (e) => {
   const scopeBefore = state.scope;
   readUrl();
   if (query() === before) return;
-  fromGlobe = { place: false, where: false };
+  fromGlobe = { ...NONE };
   syncControls();
   render();
   if (state.scope !== scopeBefore) {
@@ -593,7 +669,8 @@ for (const b of els.presets) {
     state.scope = state.scope === b.dataset.scope ? '' : b.dataset.scope;
     // A distance replaces a place picked inside another one.
     state.place = '';
-    fromGlobe = { place: false, where: false };
+    state.area = '';
+    fromGlobe = { ...NONE };
     choose();
     driving = true;
     frame(state.scope);
