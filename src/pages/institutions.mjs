@@ -8,7 +8,7 @@ import { picture } from '../lib/data.mjs';
 import { destinationOf, institutionPicture } from './programme-facts.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
-import { universityTemplate } from '../templates/university.mjs';
+import { universityTemplate, statementShort } from '../templates/university.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -80,13 +80,12 @@ export function university(site, inst, { prev, next }) {
   const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
   const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
   const ibNotes = inst.ibNotes || [];
-  const statementLine = statement?.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : null;
 
   return universityTemplate({
     hero: {
       eyebrow: [inst.city, dest?.name, inst.type].filter(Boolean).join(' · '),
       title: inst.name,
-      lede: firstSentence(inst.about, 22),
+      lede: firstSentence(inst.about, 32),
       image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
       slides: pic ? universitySlides(site, inst) : [],
       variant: pic ? undefined : 'panel',
@@ -113,7 +112,7 @@ export function university(site, inst, { prev, next }) {
     topics: {
       ib: ibNotes.length || statement
         ? {
-            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : statementLine || 'It publishes an IB recognition statement.',
+            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : statementShort(statement),
             body: html`${ibNotes.length ? html`<ul>${ibNotes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
               ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
               ${statement ? html`<p><a href="${statement.url}" rel="noopener nofollow">Its IB recognition statement<span aria-hidden="true"> ↗</span></a></p>` : ''}`,
@@ -206,7 +205,7 @@ ${hero({
                 return card({
                   href: i.href,
                   title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
-                  text: firstSentence(i.about, 24),
+                  text: firstSentence(i.about, 32),
                   image: p ? { src: p.src, alt: p.alt } : null,
                   placeholder: i.shortName || i.name,
                   meta: [i.city, plural(i.programmes.length, 'English-taught programme')],

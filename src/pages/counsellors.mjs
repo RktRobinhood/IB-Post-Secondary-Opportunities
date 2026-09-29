@@ -177,11 +177,15 @@ ${hero({
             ${facts([
               {
                 label: 'Signed off by a person',
-                value: `${ev.verified || 0} of ${ev.total || 0} evidence records. These are the Danish national rules and the records read one at a time.`,
+                value: ev.verified
+                  ? `${ev.verified} of ${ev.total || 0} evidence records. These are the Danish national rules and the records read one at a time.`
+                  : `None of the ${ev.total || 0} evidence records yet. Every claim links to its source, so you can check any of them yourself.`,
               },
               {
                 label: 'Source re-read automatically',
-                value: `${ev.sourceChecked || 0} records. The cited page was fetched again and searched for the claim it supports; ${ev.sourceSupported || 0} still carry the wording, with the supporting sentence quoted onto the record.`,
+                /* Read as "70% failed" when only the exact-wording count was given
+                   (QA 29 Sep): most of the rest are paraphrases found on the page. */
+                value: `${ev.sourceChecked || 0} records. The cited page was fetched again and searched for the claim: the exact wording was found on ${ev.sourceSupported || 0}, most of it on ${ev.sourcePartial || 0} (usually a paraphrase), and it was not found on ${ev.sourceUnsupported || 0}, which wait for a person.`,
               },
               {
                 label: 'What that means for you',

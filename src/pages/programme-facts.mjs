@@ -1,4 +1,4 @@
-import { plural } from '../lib/html.mjs';
+import { html, md, plural } from '../lib/html.mjs';
 import { picture } from '../lib/data.mjs';
 import { note } from '../lib/components.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
@@ -38,12 +38,19 @@ export function awardBlock(opp) {
   const rule = (opp.requirements || [])
     .filter((r) => r.mandatory !== false)
     .find((r) => r.kind === 'ib-diploma' || r.kind === 'ib-course-results');
-  const tail = [rule?.alternativeRoute, rule?.note].filter(Boolean).map((t) => `\n\n${t}`).join('');
+  /* The other way in (a colloquium doctum, a state exam) as the record's own
+     one line, and its full account one tap down: on the Dutch pages it was
+     some 500 words in the note itself (QA 29 Sep). */
+  const long = [rule?.alternativeRoute, rule?.note].filter(Boolean).join('\n\n');
+  const summary = rule?.alternativeRouteSummary?.short || null;
+  const tail = long
+    ? html`${summary ? md(summary) : ''}<details class="topic__more"><summary>${summary ? 'How that route works' : 'The detail'}</summary><div class="topic__body">${md(long)}</div></details>`
+    : '';
 
   if (award === ENTRY_AWARD.DIPLOMA_REQUIRED) {
     return note(
-      `This asks for the **full IB Diploma**. DP Course Results — what the IB awards for individual Diploma
-      Programme subjects where the Diploma itself is not — do not satisfy it on their own.${tail}`,
+      html`${md(`This asks for the **full IB Diploma**. DP Course Results — what the IB awards for individual Diploma
+      Programme subjects where the Diploma itself is not — do not satisfy it on their own.`)}${tail}`,
       { title: 'Which IB award this asks for' }
     );
   }
@@ -61,9 +68,9 @@ export function awardBlock(opp) {
     const open = (opp.requirements || []).filter((r) => r.mandatory !== false && r.openQuestion);
     const questions = open.map((r) => `\n\n**But:** ${r.label ? `${r.label} — ` : ''}${r.openQuestion}`).join('');
     return note(
-      `**DP Course Results** are accepted here — you do not need to have been awarded the full Diploma.${
+      html`${md(`**DP Course Results** are accepted here — you do not need to have been awarded the full Diploma.${
         asks.length ? ` The source asks for ${asks.slice(0, -1).join(', ')}${asks.length > 1 ? ' and ' : ''}${asks.at(-1)}.` : ''
-      }${questions}${tail}`,
+      }${questions}`)}${tail}`,
       { kind: open.length ? 'warn' : 'ok', title: 'Which IB award this asks for' }
     );
   }

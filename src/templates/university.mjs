@@ -1,4 +1,4 @@
-import { html, raw, toString, plural } from '../lib/html.mjs';
+import { html, raw, toString, plural, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
 import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sources } from '../lib/components.mjs';
 
@@ -38,6 +38,20 @@ import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sourc
  * @param {object} [vm.pager]    { prev, next }
  * @param {object} vm.page       { title, description, path, section }
  */
+/**
+ * The short answer an IB recognition statement gives to "What it asks of IB
+ * students": its diploma policy's first sentence, else its one-line text —
+ * never a count of transcripts, which says how many went, not what it asks
+ * (#67). Both adapters use it, so the answer is chosen one way.
+ */
+export function statementShort(statement) {
+  if (!statement) return null;
+  if (statement.diplomaPolicy) return firstSentence(statement.diplomaPolicy, 30);
+  const text = String(statement.text || '').trim();
+  if (text && !/\btranscripts?\b/i.test(text)) return `${text[0].toUpperCase()}${text.slice(1)}.`;
+  return 'It publishes an IB recognition statement.';
+}
+
 /* A short list is one grid. A long one is grouped under its fields
    ("Engineering · 6"), heading only fields with enough programmes to be a
    group; the rest share "Other fields". */

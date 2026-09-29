@@ -99,7 +99,7 @@ export function programme(site, p, inst) {
       // "SDU · BEng · 3½ yrs · Sønderborg" (src/lib/paths.mjs).
       eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
       title: p.name,
-      lede: firstSentence(p.summary, 20),
+      lede: firstSentence(p.summary, 32),
       /* Its own photograph first, the one its card shows (as school-record
          programme pages do); a field's shared picture is not this programme,
          so then the institution's. */

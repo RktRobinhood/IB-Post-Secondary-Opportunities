@@ -156,7 +156,8 @@ if (motionToggle) {
 const today = new Date().toISOString().slice(0, 10);
 let markedNext = false;
 for (const li of document.querySelectorAll('.timeline > li[data-date]')) {
-  if (li.dataset.date < today) {
+  // A window that has opened but not closed is open, not past: read its end.
+  if ((li.dataset.end || li.dataset.date) < today) {
     li.dataset.state = 'past';
   } else if (!markedNext) {
     li.dataset.state = 'now';

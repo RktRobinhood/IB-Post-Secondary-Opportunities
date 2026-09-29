@@ -5,11 +5,54 @@ import {
   stamp, dataTable, emptyState, pager, accordion, requirementLine, tags, contextNotes, sectorLandscape, topic,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
-import { contextFor } from '../lib/canonical.mjs';
+import { contextFor, resolveEvidence } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { countryTemplate } from '../templates/country.mjs';
+
+/**
+ * The questions Denmark's Destination record already answers (why it might
+ * suit you, what to watch for, living there, if you are Danish, sources), in
+ * the same short-answer-then-detail shape every other country uses.
+ */
+function recordTopics(site) {
+  const d = site.graph?.destinations?.get('dk');
+  if (!d) return {};
+  const one = (t) => firstSentence(t);
+  const live = d.livingContext || {};
+  const text = (v) => (typeof v === 'string' ? v : v?.summary || v?.text || null);
+  const evidence = resolveEvidence(site.graph, d.evidence || []);
+  const [citizensFirst, ...citizensRest] = String(d.ownCitizens || '').split(/(?<=\.)\s+/);
+  return {
+    why: d.whyConsider?.length
+      ? { short: one(d.whyConsider[0]), body: html`<ul class="ticks">${d.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>`, more: `All ${plural(d.whyConsider.length, 'reason')}` }
+      : null,
+    watch: d.watchOuts?.length
+      ? { short: one(d.watchOuts[0]), body: html`<ul class="crosses">${d.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>`, more: `All ${plural(d.watchOuts.length, 'thing')} to watch` }
+      : null,
+    living: text(live.housing) || text(live.residency)
+      ? {
+          short: one(text(live.housing) || text(live.residency)),
+          body: facts([
+            { label: 'Residency', value: text(live.residency) },
+            { label: 'Working', value: text(live.workRights) },
+            { label: 'Housing', value: text(live.housing) },
+            { label: 'Healthcare', value: text(live.healthcare) },
+          ]),
+          more: 'Residency, work, housing and healthcare',
+        }
+      : null,
+    citizens: citizensFirst ? { short: citizensFirst, body: citizensRest.length ? html`<p>${citizensRest.join(' ')}</p>` : '', more: 'What else changes' } : null,
+    sources: evidence.length
+      ? {
+          short: `The ${plural(evidence.length, 'page')} this page was written from.`,
+          body: sources(evidence.map((e) => ({ title: e.publisher || e.sourceUrl, url: e.sourceUrl, retrieved: e.retrievedAt }))),
+          more: `All ${plural(evidence.length, 'source')}`,
+        }
+      : null,
+  };
+}
 
 /** A Denmark topic → the country template's question it answers. */
 const DK_SLOT = { points: 'ib', deadline: 'apply', quotas: 'selection', danish: 'language' };
@@ -202,7 +245,7 @@ export function denmarkHub(site) {
             href: i.href,
             name: i.name,
             shortName: i.shortName,
-            text: firstSentence(i.about, 24),
+            text: firstSentence(i.about, 32),
             image: p ? { src: p.src, alt: p.alt } : null,
             meta: [i.city, plural(cardGroups(site, i.programmes).length, 'programme')],
           };
@@ -218,8 +261,9 @@ export function denmarkHub(site) {
     details: {
       lede: `An IB Diploma with 24 points opens every programme in Denmark — if you also meet that programme's subject requirements.`,
       adjective: 'Danish',
-      // Denmark's answers, keyed by the template's questions (TOPICS).
-      topics: Object.fromEntries(topics.map(({ id, title, ...t }) => [DK_SLOT[id] || id, t])),
+      // Denmark's answers, keyed by the template's questions (TOPICS): its
+      // written topics, and the rest from its Destination record.
+      topics: { ...recordTopics(site), ...Object.fromEntries(topics.map(({ id, title, ...t }) => [DK_SLOT[id] || id, t])) },
     },
     rail: {
       checked: site.conversion?.dataAsOf,

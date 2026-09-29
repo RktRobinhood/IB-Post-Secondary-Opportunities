@@ -1189,9 +1189,9 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
     </p>
     ${provisional
       ? html`<p class="freshness__line freshness__line--warn">
-          ${plural(provisional, 'date on this page is', 'dates on this page are')} carried over from the previous
-          cycle because the authority has not yet published this one. Treat ${provisional === 1 ? 'it' : 'them'}
-          as indicative and check before you rely on ${provisional === 1 ? 'it' : 'them'}.
+          ${/* No count: it was counted over the whole route and the page shows
+                only the dates that apply here ("10 dates" above 8; QA 29 Sep). */ ''}Provisional
+          dates repeat last year's: check before relying on them.
         </p>`
       : ''}
     ${reviewBy && reviewBy < new Date().toISOString().slice(0, 10)

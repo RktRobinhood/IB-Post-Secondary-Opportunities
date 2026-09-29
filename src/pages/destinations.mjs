@@ -788,8 +788,7 @@ export function destination(site, c, { prev, next }) {
      rather than from prose: how many places, how many degrees are mapped one
      by one, where you apply, and how often IB students already go there. A
      number nothing supports is left out. */
-  const mapped = institutions.reduce(
-    (n, i) => n + (i.school?.scope === 'listed' ? schoolCardGroups(i.school.programmes).length : 0), 0);
+  const mapped = institutions.reduce((n, i) => n + degreesIn(site, i), 0);
   const transcripts = institutions.reduce((n, i) => n + (i.ibRecognitionStatement?.transcripts5y || 0), 0);
   /* Where you apply, only when the record leaves no doubt: it names one
      central portal without a qualifier ("Norwegian-taught only", "then each
@@ -898,18 +897,26 @@ function groupMore(g) {
       : ''}`;
 }
 
+/** The degree cards an institution shows: its school record's, or its
+    canonical programmes' (the five Dutch universities mapped in depth
+    showed no count at all). */
+function degreesIn(site, i) {
+  if (i.school?.scope === 'listed') return schoolCardGroups(i.school.programmes).length;
+  return i.programmes?.length ? cardGroups(site, i.programmes).length : 0;
+}
+
 /** An institution as the country template's card: photograph, name, one
     sentence, and where it is and how many degrees it teaches in English. */
 function institutionCard(site, i) {
   const pic = picture(site, i.key);
-  const listed = i.school?.scope === 'listed' ? schoolCardGroups(i.school.programmes).length : 0;
+  const listed = degreesIn(site, i);
   return {
     href: i.href,
     name: i.name,
     shortName: i.shortName,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
-    text: i.school?.summary || firstSentence(i.note, 24),
+    text: i.school?.summary || firstSentence(i.note, 32),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     meta: [i.city, listed ? plural(listed, 'programme') : i.school?.scope === 'catalogue' ? 'Nearly all in English' : null],
   };

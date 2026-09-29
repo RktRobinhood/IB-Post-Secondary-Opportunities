@@ -8,6 +8,7 @@ import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf, countryPicture } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
+import { isEnglishStudyOption } from '../lib/schools.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -197,7 +198,10 @@ export function discoverSection(site) {
       lat: pos.lat,
       lon: pos.lon,
       href: c.href,
-      count: c.institutions.length,
+      // Only the places the finder can recommend: a school checked and found
+      // to teach nothing in English is research, not a light (QA 29 Sep:
+      // Austria's light said 15 where its card said 8).
+      count: c.institutions.filter(isEnglishStudyOption).length,
       country: c.code,
       precision: 'region',
       // A door: a country with no degree on this page. Its light counts
@@ -258,7 +262,11 @@ export function discoverSection(site) {
                 data-view="${JSON.stringify(presetView[d.key] || {})}">
               <span class="preset__eyebrow">${d.eyebrow}</span>
               <span class="preset__title">${d.title}</span>
-              <span class="preset__count">${scopeDegrees(d.key) ? plural(scopeDegrees(d.key), 'programme') : plural(tiles.filter((c) => scopeOf(c.code) === d.key).length, 'country', 'countries')}</span>
+              <span class="preset__count">${
+                /* Right here counts its degrees; farther doors count countries.
+                   "Europe · 16 programmes" counted only the degrees mapped one
+                   by one and made 25 researched countries read as tiny. */
+                d.key === 'here' && scopeDegrees(d.key) ? plural(scopeDegrees(d.key), 'programme') : plural(tiles.filter((c) => scopeOf(c.code) === d.key).length, 'country', 'countries')}</span>
             </button>`
           )}
         </div>

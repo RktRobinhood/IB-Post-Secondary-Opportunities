@@ -12,7 +12,7 @@
  * page.
  */
 import { html, raw, md, truncate, plural, slugify } from './html.mjs';
-import { url } from './layout.mjs';
+import { url, SITE } from './layout.mjs';
 import { formatWhen, consequenceOf, isClosed, READER_ACCESS } from './calendar.mjs';
 import { classify, LABELS as EVIDENCE_LABELS } from './evidence-policy.mjs';
 
@@ -797,6 +797,31 @@ const AUDIENCE = {
   'non-eu': 'applicants from outside the EU, EEA and Switzerland',
 };
 
+/**
+ * A route's label as a student reads it. Route records are titled like pages
+ * ("Applying to Maastricht University for autumn 2027", "Applying to a Spanish
+ * public university for autumn 2027: UNEDasiss, then the region's
+ * preinscripción."); the line needs the way in, not the title (QA 29 Sep).
+ */
+export function routeShort(label) {
+  let s = String(label || '').trim();
+  if (!s) return '';
+  if (/:\s/.test(s)) s = s.split(/:\s+/).pop();
+  s = s
+    .replace(/^applying\s+(directly\s+)?to\s+(a|an|the)?\s*/i, '')
+    .replace(/[,\s]+(for\s+)?(autumn|spring|winter|summer)\s+\d{4}\b.*$/i, '')
+    .replace(/^.*?\bthrough\s+/i, '')
+    .replace(/[.\s]+$/, '');
+  return s;
+}
+
+/** An intake id ("2027-autumn") as words, or nothing when it is the site's own. */
+export function intakeWords(id) {
+  const m = String(id || '').match(/^(\d{4})-(\w+)$/);
+  const words = m ? `${m[2][0].toUpperCase()}${m[2].slice(1)} ${m[1]}` : String(id || '');
+  return words && words !== SITE.cycle.intake ? words : '';
+}
+
 export function deadlineList(events, { showDestination = false, emptyText } = {}) {
   if (!events.length) {
     return STATE.empty(
@@ -858,7 +883,7 @@ function deadlineItem(e, { showDestination }) {
   >
     <div class="timeline__when">
       ${whenMarkup}
-      ${e.intake ? html`<br><small>${e.intake}</small>` : ''}
+      ${intakeWords(e.intake) ? html`<br><small>${intakeWords(e.intake)}</small>` : ''}
     </div>
     <div class="timeline__what">
       <h4>${showDestination && e.destinationName ? html`<span class="timeline__where">${e.destinationName}</span> ` : ''}${e.label}</h4>
@@ -870,8 +895,8 @@ function deadlineItem(e, { showDestination }) {
         : ''}
       ${e.consequence && e.consequence !== 'indicative'
         ? html`<p class="timeline__consequence"><span class="timeline__badge" data-consequence="${e.consequence}">${c.label}</span>
-            ${e.routeLabel ? html`<span class="timeline__route">Via ${e.routeLabel}</span>` : ''}</p>`
-        : e.routeLabel ? html`<p class="timeline__route">Via ${e.routeLabel}</p>` : ''}
+            ${routeShort(e.routeLabel) ? html`<span class="timeline__route">Via ${routeShort(e.routeLabel)}</span>` : ''}</p>`
+        : routeShort(e.routeLabel) ? html`<p class="timeline__route">Via ${routeShort(e.routeLabel)}</p>` : ''}
       ${/* The date, what it is and what missing it costs are the line a student
             scans. What the consequence means, the note and the sources are one
             tap beneath it — the calendar was 66,000 words long with every one of

@@ -41,6 +41,7 @@
  * publication floor can tell a country that has been examined and found to be
  * one jurisdiction from one that has never been asked.
  */
+import { routeShort } from './primitives.mjs';
 
 /** How a Destination's institutions divide. Declared, never inferred. */
 export const GROUPINGS = {
@@ -221,7 +222,7 @@ export function routeSentence(group) {
   // A route's label is often a page title ("Applying to a Spanish public
   // university for autumn 2027: UNEDasiss, then the region's preinscripción.").
   // The line needs only the way in, after the colon, without the full stop.
-  const label = r.label ? String(r.label).split(/:\s+/).pop().replace(/[.\s]+$/, '') : '';
+  const label = routeShort(r.label);
   if (r.channel === 'direct') {
     return `${plural(group.institutions.length)} · apply to each directly`;
   }

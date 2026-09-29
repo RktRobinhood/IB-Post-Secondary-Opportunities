@@ -1,3 +1,4 @@
+import { cardGroups } from '../lib/paths.mjs';
 import { html, plural } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { hero } from '../lib/components.mjs';
@@ -53,13 +54,16 @@ export function courseResultsGuide(site) {
         const s = awardRule(p)?.alternativeRouteSummary?.short;
         if (s) routes.set(s, [...(routes.get(s) || []), p]);
       }
-      const accepted = programmes.filter((p) => entryAward(p) === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED).length;
-      return { c, programmes, byInst, routes, accepted };
+      /* Counted in cards, as the home page counts them (a family of paths
+         is one degree to a student), so the two pages give the same total. */
+      const cards = cardGroups(site, programmes);
+      const accepted = cards.filter((g) => g.members.some((p) => entryAward(p) === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED)).length;
+      return { c, programmes, cards: cards.length, byInst, routes, accepted };
     })
     .filter(Boolean)
     .sort((a, b) => b.programmes.length - a.programmes.length);
 
-  const total = sections.reduce((n, s) => n + s.programmes.length, 0);
+  const total = sections.reduce((n, s) => n + s.cards, 0);
   const accepted = sections.reduce((n, s) => n + s.accepted, 0);
 
   /* "Aalborg University (4)", or the degree's own name when it is the only one. */
@@ -92,14 +96,14 @@ ${hero({
               <ul class="cr__route-list">
                 ${[...s.routes.entries()].map(
                   ([short, list]) => html`<li><strong>${who(list)}.</strong> ${short}
-                    <span class="cr__applies">${list.map((p, i) => html`${i ? ', ' : ''}<a href="${url(p.href)}#fine-print">${p.name}</a>`)}</span></li>`
+                    <span class="cr__applies">${list.map((p, i) => html`${i ? ', ' : ''}<a href="${url(p.href)}#selection">${p.name}</a>`)}</span></li>`
                 )}
               </ul>
             </details>`
           : ''}
         <div class="table-scroll">
           <table class="data cr__table">
-            <caption>${s.accepted} of ${s.programmes.length} accept Course Results</caption>
+            <caption>${s.accepted} of ${s.cards} accept Course Results</caption>
             <thead><tr><th scope="col">Degree</th><th scope="col">IB award</th></tr></thead>
             ${[...s.byInst.entries()].map(([name, list]) => html`<tbody>
               <tr class="cr__inst"><th scope="colgroup" colspan="2">${name}</th></tr>

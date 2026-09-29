@@ -1,6 +1,6 @@
 import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
-import { universityTemplate } from '../templates/university.mjs';
+import { universityTemplate, statementShort } from '../templates/university.mjs';
 import { picture } from '../lib/data.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { datesPanel, isBinding } from '../lib/school-dates.mjs';
@@ -348,7 +348,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     topics: {
       ib: (school?.ib && school.scope !== 'none') || statement
         ? {
-            short: (school?.scope !== 'none' && school?.ib?.text) || (statement?.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : null),
+            short: (school?.scope !== 'none' && school?.ib?.text) || statementShort(statement),
             body: html`${school?.ib ? ibLink(school.ib.url, school.scope === 'none' ? 'Its language rules' : 'Where it says so') : ''}
               ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
               ${statement ? ibLink(statement.url, 'Its IB recognition statement') : ''}`,

@@ -71,7 +71,11 @@ export function loadSchools(dir) {
  * visible separately.
  */
 export function isEnglishStudyOption(inst) {
-  return inst?.school?.scope !== 'none';
+  if (inst?.school?.scope === 'none') return false;
+  // A canonical institution whose records list no English-taught programme
+  // (the University of Copenhagen) is not one either; it keeps its page.
+  if (!inst?.school && Array.isArray(inst?.programmes) && !inst.programmes.length) return false;
+  return true;
 }
 
 /**
