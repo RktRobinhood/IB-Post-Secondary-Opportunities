@@ -11,6 +11,9 @@ import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { countryTemplate } from '../templates/country.mjs';
 
+/** A Denmark topic → the country template's question it answers. */
+const DK_SLOT = { points: 'ib', deadline: 'apply', quotas: 'selection', danish: 'language' };
+
 /** The first publishable photograph among these image keys, shaped for a hero. */
 function photo(site, keys) {
   for (const key of keys) {
@@ -166,7 +169,7 @@ export function denmarkHub(site) {
      looks like every other country, with its own answers. */
   return countryTemplate({
     hero: {
-      eyebrow: 'Denmark · ' + SITE.cycle.label,
+      region: site.graph?.destinations?.get('dk')?.region || null,
       title: 'Denmark',
       lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
       image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
@@ -214,7 +217,9 @@ export function denmarkHub(site) {
     },
     details: {
       lede: `An IB Diploma with 24 points opens every programme in Denmark — if you also meet that programme's subject requirements.`,
-      topics,
+      adjective: 'Danish',
+      // Denmark's answers, keyed by the template's questions (TOPICS).
+      topics: Object.fromEntries(topics.map(({ id, title, ...t }) => [DK_SLOT[id] || id, t])),
     },
     rail: {
       checked: site.conversion?.dataAsOf,

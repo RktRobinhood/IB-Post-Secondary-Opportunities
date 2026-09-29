@@ -445,9 +445,9 @@ export function institutionRail({ checked, action, rows = [], links = [], knownF
   return html`<aside class="layout-aside__side stack">
     ${stamp(checked)}
     ${action
-      ? html`<a class="btn btn--solid btn--block" href="${url(action.href)}"${
+      ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${url(action.href)}"${
           /^https?:/.test(action.href) ? raw(' rel="noopener nofollow"') : ''
-        }>${action.label}</a>${action.note ? html`<p class="rail-note">${action.note}</p>` : ''}`
+        }>${action.label}</a>${action.note ? html`<p class="rail-note">${action.note}</p>` : ''}</div>`
       : ''}
     ${facts([
       ...rows,

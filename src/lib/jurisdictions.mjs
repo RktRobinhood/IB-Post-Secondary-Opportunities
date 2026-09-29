@@ -223,7 +223,7 @@ export function routeSentence(group) {
   // The line needs only the way in, after the colon, without the full stop.
   const label = r.label ? String(r.label).split(/:\s+/).pop().replace(/[.\s]+$/, '') : '';
   if (r.channel === 'direct') {
-    return `${plural(group.institutions.length)} · apply to each directly${label ? ` (${label})` : ''}`;
+    return `${plural(group.institutions.length)} · apply to each directly`;
   }
   return `${plural(group.institutions.length)} · apply via ${label || r.applicationSystem || r.id}`;
 }

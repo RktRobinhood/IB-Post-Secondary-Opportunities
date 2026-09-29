@@ -13,6 +13,9 @@ import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdic
 import { cardGroups } from '../lib/paths.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { countryTemplate } from '../templates/country.mjs';
+
+/** A topic's id here → the country template's question it answers. */
+const TOPIC_SLOT = { landscape: 'system', deadlines: 'dates', 'own-citizens': 'citizens' };
 import { isEnglishStudyOption } from '../lib/schools.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
@@ -91,7 +94,9 @@ function researchDepthNote(c, { freshnessNote = '', events = null, researched = 
   const counts = [
     // "Across", not "listed": the count includes places checked and found to
     // teach nothing in English, which the grid below leaves out.
-    `${plural(d.sources, 'source')} recorded across ${plural(researched ?? d.institutions, 'institution')}`,
+    // No institution count: it included places checked and found to teach
+    // nothing in English, and disagreed with the cards beneath it.
+    `${plural(d.sources, 'source')} recorded`,
     undated ? `${undated} of ${plural(total, 'date')} carry no published day` : null,
   ].filter(Boolean);
   const kind = d.tier === 'outline' ? 'warn' : d.tier === 'researched' ? 'ok' : 'accent';
@@ -809,7 +814,7 @@ export function destination(site, c, { prev, next }) {
   return countryTemplate({
     artStyle: art.style,
     hero: {
-      eyebrow: `${c.flag} ${c.region}`,
+      region: c.region,
       title: c.name,
       lede: c.tagline,
       image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
@@ -848,7 +853,13 @@ export function destination(site, c, { prev, next }) {
           })
         : null,
     },
-    details: { lede: summaryLead, more: summaryRest || null, topics },
+    details: {
+      lede: summaryLead,
+      more: summaryRest || null,
+      adjective: c.adjective || null,
+      // The record's answers, keyed by the template's questions (TOPICS).
+      topics: Object.fromEntries(topics.map(({ id, title, ...t }) => [TOPIC_SLOT[id] || id, t])),
+    },
     rail: {
       checked: c.dataAsOf,
       notice: c.researchDepth?.tier === 'researched' ? depthNote : null,

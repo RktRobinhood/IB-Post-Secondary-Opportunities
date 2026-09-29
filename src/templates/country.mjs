@@ -1,5 +1,5 @@
 import { html, raw, md, plural } from '../lib/html.mjs';
-import { page, url } from '../lib/layout.mjs';
+import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, card, stats, crumbs, sectionHead, topic, pager, stamp } from '../lib/components.mjs';
 
 /**
@@ -25,17 +25,40 @@ import { hero, card, stats, crumbs, sectionHead, topic, pager, stamp } from '../
  *
  * @param {object} vm
  * @param {string} [vm.artStyle]  the country's accent (artDirection().style)
- * @param {object} vm.hero        hero() options; `actions` as [{ href, label }]
+ * @param {object} vm.hero        hero() options; `region` (the eyebrow reads "region · cycle"),
+ *                                `actions` as [{ href, label }]
  * @param {Array}  vm.stats       [{ value, label }] — shown when two or more
  * @param {Array}  vm.crumbs      crumbs() trail, without Home
  * @param {any}    [vm.notice]    shown before the cards (a sketch says so first)
  * @param {object} vm.places      { count, lede, groups: [{ name, route, routeHref, more, cards }], footnote, map }
  *                                each card { href, name, shortName, text, image, meta }
- * @param {object} vm.details     { lede, more, topics: [topic() options] }
+ * @param {object} vm.details     { lede, more, adjective, topics } — `topics` is keyed by
+ *                                the slots in TOPICS ({ short, body, more } each); the
+ *                                template owns every heading and the order, so every
+ *                                country asks the same questions
  * @param {object} vm.rail        { checked, notice, deeper: [{ href, label }] }
  * @param {object} [vm.pager]     { prev, next }
  * @param {object} vm.page        { title, description, path, section, scripts }
  */
+/** The questions every country page answers, in order. A country without an
+    answer to one leaves it out; none adds its own. */
+export const TOPICS = [
+  ['why', 'Why it might suit you'],
+  ['watch', 'What to watch for'],
+  ['ib', 'How your IB is read'],
+  ['subjects', 'How your subjects count'],
+  ['apply', 'How and when you apply'],
+  ['dates', 'Deadlines'],
+  ['selection', 'How places are decided'],
+  ['system', 'The shape of the system'],
+  ['money', 'Money'],
+  ['language', 'Language'],
+  ['living', 'Living there'],
+  ['citizens', 'If you are a citizen'],
+  ['context', 'What it is actually like'],
+  ['sources', 'Sources'],
+];
+
 export function countryTemplate(vm) {
   const placeCard = (i) =>
     card({
@@ -48,17 +71,24 @@ export function countryTemplate(vm) {
     });
   const grid = (cards) => html`<div class="grid grid--3 grid--places">${cards.map(placeCard)}</div>`;
   const groups = vm.places.groups.filter((g) => g.cards.length);
-  const topics = vm.details.topics.filter(Boolean);
+  const given = vm.details.topics || {};
+  const topics = TOPICS.filter(([slot]) => given[slot]).map(([slot, title]) => ({
+    ...given[slot],
+    id: slot,
+    title: slot === 'citizens' && vm.details.adjective ? `If you are ${vm.details.adjective}` : title,
+  }));
   const toc = [
     groups.length && ['#institutions', 'Where you can study'],
     ['#how', 'How it works'],
-    ...topics.map((t) => [`#${t.id}`, t.toc || t.title]),
+    ...topics.map((t) => [`#${t.id}`, t.title]),
   ].filter(Boolean);
 
   const body = html`
 ${vm.artStyle ? raw(`<div class="art" style="${vm.artStyle}">`) : ''}
 ${hero({
   ...vm.hero,
+  // One eyebrow for every country: where it is, and the admission cycle.
+  eyebrow: [vm.hero.region, SITE.cycle.label].filter(Boolean).join(' · '),
   actions: vm.hero.actions?.length
     ? html`${vm.hero.actions.map((a, i) => html`<a class="btn ${i ? 'btn--ghost' : 'btn--primary'}" href="${url(a.href)}">${a.label}</a>`)}`
     : null,

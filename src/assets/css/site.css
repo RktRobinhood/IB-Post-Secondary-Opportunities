@@ -3009,4 +3009,13 @@ body:has(main > .close:last-child) .site-foot { margin-top: 0; }
    rather than clipping at phone width; the short facts after it stay whole. */
 .card__fact:first-child { white-space: normal; }
 /* A rail action's note: what the official page is, under its button. */
-.rail-note { margin: calc(-1 * var(--s2)) 0 0; font-size: .8125rem; line-height: 1.4; color: var(--ink-mute); }
+.rail-note { margin: var(--s2) 0 0; font-size: .8125rem; line-height: 1.4; color: var(--ink-mute); text-align: center; }
+/* "On this page" helps beside a long page on a wide screen; at the foot of a
+   phone page it is only more to scroll past. */
+@media (max-width: 47.99rem) { nav[aria-label="On this page"] { display: none; } }
+/* A facts strip is four across on a wide screen, however many facts it has:
+   seven in one row squeezed "Aarhus, Denmark" onto two lines. */
+@media (min-width: 62rem) { .section--glance .glance { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* Three numbers fill the row; no empty fourth cell on a phone. */
+@media (min-width: 40.01rem) { .stats:has(> .stat:nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .stats > .stat:last-child:nth-child(odd) { grid-column: 1 / -1; } }
