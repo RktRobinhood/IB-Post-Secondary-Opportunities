@@ -8,7 +8,7 @@
  * request, no identifying field.
  */
 import {
-  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, cutoffComparison, OUTCOME,
+  applicantGroupsOf, assessAll, buildSubjectIndex, convertAverage, convertProfile, cutoffComparison, OUTCOME, reasonParts, splitLead,
 } from './eligibility.js';
 
 const BASE = document.documentElement.dataset.base === '/' ? '' : document.documentElement.dataset.base;
@@ -234,21 +234,22 @@ let lastProfile = null;
    card that shares it says what it is and points up (round 4: one 90-word
    paragraph was repeated on 46 cards). `common` holds the keys said above. */
 function rule(entry, mark, common = new Map()) {
-  let text = esc(entry.message);
-  for (const s of entry.shared || []) {
-    if (!common.has(s.key)) continue;
-    text = text.replace(esc(s.text), `${esc(s.short)} (<a href="#p-how">how: see above</a>)`);
-  }
-  /* One short lead line per reason, the rest one tap down (round 5: gap
-     lines were paragraphs, about 900 px of them on a phone). The lead is the
-     first sentence; nothing is dropped. */
-  const cut = text.search(/\.(?=\s+(?:[A-Z(]|&quot;))/);
-  if (cut > 0 && cut < text.length - 2) {
-    const lead = text.slice(0, cut + 1);
-    const more = text.slice(cut + 1).trim();
-    return `<li class="why">${mark} <details class="why__more"><summary>${lead}</summary><span>${more}</span></details></li>`;
-  }
-  return `<li class="why">${mark} ${text}</li>`;
+  /* One line per gap a reason holds (round 6: a "one of" missing two
+     subjects was one paragraph behind one ✗), each one short lead line with
+     the rest one tap down (round 5: gap lines were paragraphs, about 900 px
+     of them on a phone). The lead is the first sentence (splitLead, in the
+     engine, where the tests measure it); nothing is dropped. */
+  return reasonParts(entry).map((part) => {
+    let text = esc(part);
+    for (const s of entry.shared || []) {
+      if (!common.has(s.key)) continue;
+      text = text.replace(esc(s.text), `${esc(s.short)} (<a href="#p-how">how: see above</a>)`);
+    }
+    const [lead, more] = splitLead(text);
+    return more
+      ? `<li class="why">${mark} <details class="why__more"><summary>${lead}</summary><span>${more}</span></details></li>`
+      : `<li class="why">${mark} ${text}</li>`;
+  }).join('');
 }
 
 /* "Source read 23 Sep 2026 · not yet reviewed by a person": what was read,

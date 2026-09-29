@@ -17,7 +17,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {
   applicantGroupsOf, assess, buildSubjectIndex, convertAverage, convertGrade, cutoffComparison, entryAward, ENTRY_AWARD, floorTerms, ibPointsFor, ibTermsFor,
-  levelRaiseFor, OUTCOME,
+  levelRaiseFor, OUTCOME, reasonParts, splitLead,
 } from '../src/lib/eligibility.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -1439,7 +1439,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
       const r = assess(asProfile(p), o, opts);
       if (r.outcome !== OUTCOME.POSSIBLE) continue;
       for (const g of r.gaps) {
-        if (!g.actions?.length || !g.actions.every((a) => a.text) || !/To close it:|The other published way|It does not close this one to you/.test(g.message)) {
+        if (!g.actions?.length || !g.actions.every((a) => a.text) || !/To close it:|The other published way|It does not close this one to you|One step closes both/.test(g.message)) {
           actionless.push(`${key} ${o.id}: ${g.message.slice(0, 90)}`);
         }
       }
@@ -1543,7 +1543,7 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
     check(`P1 (34 points, Maths A from a course) at ${id} is not told its way in is quota 2`, !quota2Line(r1), JSON.stringify(r1.floors.map((f) => [f.status, f.message])));
     /* Verification 2: in the published unit, never as an IB HL grade. */
     check(`and the Maths floor says 6.0 in Mathematics A, a 7 or better from the course (${id})`,
-      r1.floors.some((f) => f.status === 'unknown' && /6\.0 in Mathematics A — a 7 or better from your course/.test(f.message) && /after 5 July is not recorded/.test(f.message) && !/HL/.test(f.message)), JSON.stringify(r1.floors.map((f) => f.message)));
+      r1.floors.some((f) => f.status === 'unknown' && /6\.0 in Mathematics A: a 7 or better from your course/.test(f.message) && /after 5 July is not recorded/.test(f.message) && !/HL/.test(f.message)), JSON.stringify(r1.floors.map((f) => f.message)));
   }
   check('P8 (24 points, below the 28 floor) at AU CS is still told its way in is quota 2', quota2Line(run('p8', 'dk-au-computer-science')));
 
@@ -1669,6 +1669,85 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   for (const id of ['dk-sea-computer-science-ap', 'dk-sea-multimedia-design-ap']) {
     const english = rulesOf(opps.get(`${id}-2027-autumn`).requirements).find((r) => r.subject === 'English');
     check(`${id}: English B is required of IB holders (the exemption is from the test)`, !(english?.satisfiedBy || []).includes('ib-diploma'), JSON.stringify(english));
+  }
+
+  /* Round 6 (issue #42, the round-5 critique's remaining items). */
+  {
+    const everyResult = [];
+    for (const [key, p] of Object.entries(P)) for (const o of allOpps) everyResult.push([key, o, assess(asProfile(p), o, opts)]);
+    const words = (t) => String(t).trim().split(/\s+/).length;
+
+    /* One line per block: every reason line a phone shows is one short lead
+       (the engine's splitLead, which the planner uses), and a "one of" with
+       two missing subjects is two lines, not one paragraph. */
+    const LIMIT = { gap: 20, other: 28 };
+    const long = [];
+    const doubled = [];
+    for (const [key, o, r] of everyResult) {
+      const lines = [
+        ...r.gaps.flatMap((g) => reasonParts(g).map((t) => ['gap', t])),
+        ...r.unknowns.flatMap((u) => reasonParts(u).map((t) => ['other', t])),
+        ...r.matched.flatMap((m) => reasonParts(m).map((t) => ['other', t])),
+        ...(r.floors || []).map((f) => ['other', `${f.quota}: ${f.message}`]),
+      ];
+      for (const [kind, t] of lines) {
+        const [lead] = splitLead(t);
+        if (words(lead) > LIMIT[kind]) long.push(`${key} ${o.id} (${words(lead)} words): ${lead}`);
+        if ((t.match(/\bThis needs\b/g) || []).length > 1) doubled.push(`${key} ${o.id}: ${t.slice(0, 120)}`);
+      }
+    }
+    check(`every ✗ lead is at most ${LIMIT.gap} words and every other lead at most ${LIMIT.other}`, long.length === 0, long.slice(0, 4).join(' | '));
+    if (process.env.DEBUG_LEADS) console.log([...new Set(long.map((l) => l.replace(/^\S+ \S+ /, '')))].join('\n'));
+    check('no reason line holds two missing subjects ("This needs … This needs")', doubled.length === 0, doubled.slice(0, 3).join(' | '));
+    const chem = run('p1', 'dk-aau-chemical-engineering-and-biotechnology');
+    const combo = chem.gaps.find((g) => /Physics/.test(g.message) && /Chemistry/.test(g.message));
+    check('P1 at AAU Chemical Engineering shows Physics and Chemistry as two lines', combo?.parts?.length === 2 && /Physics/.test(combo.parts[0]) && /Chemistry/.test(combo.parts[1]), JSON.stringify(combo?.parts || combo?.message));
+    check('and the combination note stays with the last line', /None of the 3 accepted combinations/.test(combo?.parts?.[1] || ''), combo?.parts?.[1]);
+    check('splitLead keeps every word', (() => { const t = 'This needs X. Your Y counts as Z. (Danish requirement.)'; const [a, b] = splitLead(t); return `${a} ${b}` === t; })());
+
+    /* P5 at CBS: the step that closes both English gaps comes before the
+       IELTS route, which asks for English B at 5 this student does not hold. */
+    for (const id of ['dk-cbs-international-business', 'dk-cbs-business-administration-and-sociology', 'dk-cbs-international-shipping-and-trade']) {
+      const r = run('p5', id);
+      const g = r.gaps.find((x) => x.id === 'req-english-language');
+      const closes = (g?.message || '').indexOf('One step closes both');
+      const other = (g?.message || '').indexOf('other published way');
+      check(`P5 at ${id}: the English A gap names the Cambridge step that closes both before the test route`, closes > 0 && /Cambridge C1/.test(g.message.slice(closes)) && (other < 0 || closes < other), g?.message);
+    }
+    check('P1 at CBS (no English B gap) still offers the IELTS route on the English A gap', /other published way in: An English test on top of English B/i.test(run('p1', 'dk-cbs-international-business').gaps.find((x) => x.id === 'req-english-language')?.message || ''));
+
+    /* Provenance: a rule that decides a verdict cites a page that holds its
+       sentence. Every institution's supplementary-course rule and every
+       alternative test cites an Evidence record read by a person, with the
+       sentence as its excerpt — not a landing page matched on a few words —
+       and every date the rule states is in those excerpts (round 5: AU, SDU,
+       CBS and ITU cited landing pages that did not contain the quote). */
+    const evidenceAll = [];
+    for (const f of (await fs.readdir(path.join(ROOT, 'data', 'evidence'))).filter((x) => x.endsWith('.json'))) {
+      evidenceAll.push(...JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'evidence', f), 'utf8')));
+    }
+    const evById = new Map(evidenceAll.map((e) => [e.id, e]));
+    const DATE = /\b\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December)\b/g;
+    const unsourced = [];
+    const cite = (where, ids, strings) => {
+      const recs = (ids || []).map((id) => evById.get(id));
+      if (!recs.length || recs.some((e) => !e)) { unsourced.push(`${where}: cites a missing record (${(ids || []).join(', ')})`); return; }
+      const read = recs.filter((e) => e.excerpt && e.attestation);
+      if (!read.length) { unsourced.push(`${where}: no cited record carries a person-read excerpt (${ids.join(', ')})`); return; }
+      const said = read.map((e) => e.excerpt).join(' ');
+      for (const d of new Set(strings.join(' ').match(DATE) || [])) if (!said.includes(d)) unsourced.push(`${where}: "${d}" is not in the cited excerpt`);
+    };
+    for (const inst of institutions.filter((i) => i.levelRaise)) {
+      const lr = inst.levelRaise;
+      cite(`${inst.id} levelRaise`, lr.evidence, [lr.text, lr.timing, lr.multiple, ...(lr.subjects || []).map((s) => s.text), ...(lr.groups || []).flatMap((g) => [g.timing, g.multiple])].filter(Boolean));
+    }
+    for (const o of allOpps) for (const r of rulesOf(o.requirements)) if (r.alternativeTest) cite(`${o.id} ${r.id} alternativeTest`, r.alternativeTest.evidence, []);
+    check('every supplementary-course rule and alternative test cites a person-read excerpt holding its dates', unsourced.length === 0, unsourced.slice(0, 5).join(' | '));
+    const planted = { ...institutions.find((i) => i.id === 'dk-au') };
+    planted.levelRaise = { ...planted.levelRaise, evidence: ['ev-bachelor-au-dk-sq8b48'] };
+    const before = unsourced.length;
+    cite('planted AU landing page', planted.levelRaise.evidence, [planted.levelRaise.timing]);
+    check('and the guard catches AU\x27s rule cited to its landing page again', unsourced.length > before);
   }
 }
 
