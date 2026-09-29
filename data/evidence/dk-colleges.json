@@ -858,6 +858,33 @@
     }
   },
   {
+    "id": "ev-absalon-biotech-structure",
+    "sourceUrl": "https://www2.phabsalon.dk/fileadmin/user_upload/Diplomingenioer/International_Biotech.pdf",
+    "publisher": "University College Absalon",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-29",
+    "appliesToIntake": "2027-autumn",
+    "verificationState": "needs-review",
+    "claim": "Absalon's Bachelor of Engineering in Biotechnology is a seven-semester, 3½-year programme worth 210 ECTS, including a one-semester internship.",
+    "excerpt": "Duration: 7 semesters (3½ years) [...] ECTS: 210 ECTS [...] Internship: 1 semester",
+    "supports": [
+      {
+        "entity": "dk-absalon-biotechnology-beng",
+        "field": "credential"
+      }
+    ],
+    "attestation": {
+      "by": "issue #46 low-hanging-fix pass (2026-09-29)",
+      "at": "2026-09-29",
+      "method": "read-source"
+    },
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-29"
+    }
+  },
+  {
     "id": "ev-absalon-biotech-admission",
     "sourceUrl": "https://en.phabsalon.dk/full-degree/bachelor-engineering-biotechnology/admission-requirements-bachelor-engineering",
     "publisher": "University College Absalon",

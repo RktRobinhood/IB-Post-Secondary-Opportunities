@@ -958,10 +958,12 @@ export function needsRarity(items) {
  * quota's "below that" all stay on the programme page, one tap down — the
  * whole card links there. Returns '' for an entry with nothing to show.
  */
-export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET, rarity = null, steps = [] } = {}) {
+export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET, rarity = null, steps = [], pointFigures = true } = {}) {
   if (!entry) return '';
   const model = requirementModel(entry);
-  const units = [...needsUnits(model, model.first), ...stepUnits(steps)].map((u, i) => ({ ...u, i, share: rarity?.get(u.key) ?? 0 }));
+  const units = [...needsUnits(model, model.first), ...stepUnits(steps)]
+    .filter((u) => pointFigures || !/\b\d+(?:[.,]\d+)?\+?(?:\s|&nbsp;)+IB points\b/.test(`${u.key} ${cardText(u.html)}`))
+    .map((u, i) => ({ ...u, i, share: rarity?.get(u.key) ?? 0 }));
   if (!units.length) return '';
 
   // What is distinctive, rarest first; if nothing is, what there is, in order.

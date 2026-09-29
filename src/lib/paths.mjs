@@ -366,22 +366,26 @@ export function familyCard(site, group, { campus = true } = {}) {
 
   const lead = group.lead;
   const leadEntry = lead.entryRequirements;
+  const tag = cardTag({
+    cutoff: cutoffDiffer ? null : adm[0].cutoff,
+    open: adm.every((a) => a.open),
+    award: awardDiffer ? null : adm[0].awardKey,
+  });
+  const entryForCard = (floorsDiffer || tag?.mod === TAG_KINDS.cutoff) && leadEntry
+    ? { ...leadEntry, quotaFloors: [] }
+    : leadEntry;
   return {
     title: group.family.name,
     href: lead.href,
     line,
-    req: requirementSummary(floorsDiffer && leadEntry ? { ...leadEntry, quotaFloors: [] } : leadEntry, { rarity: rarityOf(site), steps: stepsOf(lead) }),
+    req: requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(lead), pointFigures: tag?.mod !== TAG_KINDS.cutoff }),
     paths: {
       head: `${members.length} ${AXIS_HEAD[axis] || 'paths'}`,
       rows,
       note: subjectsDiffer ? 'The subject options differ slightly between them.' : null,
     },
     // One tag, and only one every path shares.
-    tag: cardTag({
-      cutoff: cutoffDiffer ? null : adm[0].cutoff,
-      open: adm.every((a) => a.open),
-      award: awardDiffer ? null : adm[0].awardKey,
-    }),
+    tag,
     backdrop: lead.backdrop,
   };
 }
@@ -410,14 +414,18 @@ export function programmeCard(site, group, { meta = [] } = {}) {
   }
   const p = group.lead;
   const adm = admissionOf(site, p);
+  const tag = cardTag({ cutoff: adm.cutoff, open: adm.open, award: adm.awardKey });
+  const entryForCard = tag?.mod === TAG_KINDS.cutoff && p.entryRequirements
+    ? { ...p.entryRequirements, quotaFloors: [] }
+    : p.entryRequirements;
   return {
     href: p.href,
     title: p.name,
     line: credentialLine(facetsOf(site, p, { campus: true })),
     backdrop: p.backdrop,
-    req: p.entryRequirements ? requirementSummary(p.entryRequirements, { rarity: rarityOf(site), steps: stepsOf(p) }) : selectionLine(p),
+    req: entryForCard ? requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(p), pointFigures: tag?.mod !== TAG_KINDS.cutoff }) : selectionLine(p),
     meta,
-    tags: [cardTag({ cutoff: adm.cutoff, open: adm.open, award: adm.awardKey })].filter(Boolean),
+    tags: [tag].filter(Boolean),
   };
 }
 

@@ -22,6 +22,16 @@ This page says where the work stands, so the next session (human or agent) start
 - A gate check protects the handoff shape and its arithmetic without failing a
   country for honest missing coverage.
 
+## 29 September: programme-card clarity follow-up (#46)
+
+- A card whose admission chip already gives last year's IB-points cut-off no
+  longer repeats a second points floor in its Needs line. The page retains the
+  full requirement; the card keeps one actionable number.
+- The programme-card guard now rejects that competing-number regression on
+  every generated card.
+- Absalon Biotechnology now shows its officially published 3½-year length and
+  210 ECTS; the supporting Absalon programme PDF is recorded as evidence.
+
 ## 29 September: one programme-card and page system (#63)
 
 - The visual mismatch was real even though the renderer had no country-code
