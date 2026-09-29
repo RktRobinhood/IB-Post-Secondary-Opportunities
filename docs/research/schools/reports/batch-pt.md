@@ -2,7 +2,7 @@
 
 Researched 2026-09-26 through the user's Chrome (own tab; page text read in the browser, PDFs via WebFetch + pdftotext).
 
-Release status after review (2026-09-29): 9 of 13 institution records are ready — seven `listed` and two `none`. Universidade dos Açores was added after the national catalogue exposed its fully English Ocean Sciences degree. UCP was released after its online Data Science application route and calendar were verified and its alternative exam combinations were removed from the schema's cumulative `needs` model. ULisboa, NOVA, UMinho and Aveiro remain blocked because their English scope is not yet exhaustive. UAlg is `none` because SeaBluE does not admit first-year students through UAlg; it only hosts some students later.
+Release status after review (2026-09-29): 10 of 13 institution records are ready — seven `listed` and three `none`. Universidade dos Açores was added after the national catalogue exposed its fully English Ocean Sciences degree. UCP was released after its online Data Science application route and calendar were verified and its alternative exam combinations were removed from the schema's cumulative `needs` model. Aveiro was released after official UA appendices resolved all eight blank language fields as Portuguese. ULisboa, NOVA and UMinho remain blocked because their English scope is not yet exhaustive. UAlg is `none` because SeaBluE does not admit first-year students through UAlg; it only hosts some students later.
 
 EU route established from DGES before any school: EU/EEA citizens apply through the Concurso Nacional de Acesso (public
 universities) and may replace the Portuguese entrance exams with homologous foreign exams. DGES: "só pode substituir as provas
@@ -85,10 +85,10 @@ AND APROACHES — HL/ SL" and "MATHEMATICS APPLICATIONS AND INTERPRETATIONS — 
 - Hand-off: UC course search filtered to first cycle (50 bachelor's only).
 
 ## pt-ua (none, Portuguese)
-- Scope none: UA's course API (api-portal.ua.pt .../short-info) for all 59 first-cycle/integrated-master courses: 50 "Portuguese", 1 "Portuguese and English (if necessary for foreign students)" (Chemical Engineering), 8 blank. Management page: "although study programmes are taught in portuguese, teaching staff will be able to provide tutorial-type support in english". DGES labels none in English.
+- Scope none: UA's course API (api-portal.ua.pt .../short-info) for all 59 first-cycle/integrated-master courses: 50 "Portuguese", 1 "Portuguese and English (if necessary for foreign students)" (Chemical Engineering), 8 blank. UA's official admissions appendices resolve the eight blanks as Portuguese: Aerospace Engineering, Automation and Manufacturing Systems, Biomedical Engineering, Electrical and Computer Engineering, Engineering Physics, Geology, Mechanical Engineering, and Medical Imaging and Radiotherapy. Management page: "although study programmes are taught in portuguese, teaching staff will be able to provide tutorial-type support in english". DGES labels none in English.
 - Agrees with data/countries/pt.json ("little is taught in English at bachelor level").
 - International call: "Non-European international candidates"; 2026-27 phases "January 5th to 29th, 2026", "March 25th to April 7th, 2026", "July 1st to 9th, 2026" (non-EU, not recorded).
-- Hand-off: UA first-cycle and integrated master's list (59).
+- Hand-off: UA first-cycle and integrated master's list (59). Released after the blank-field check on 2026-09-29.
 
 ## pt-ualg (none; no first-year English programme at UAlg)
 - Scope listed: of 47 UAlg undergraduate pages, 46 say "Language of Teaching Portuguese"; "Sustainable Blue Economy" says "Language of Teaching English" (PT page "Idioma de Lecionação Inglês").
