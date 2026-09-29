@@ -884,15 +884,18 @@ function needsUnits(model, first) {
     // The union already names every IB route: one list of subjects.
     if (union) {
       const items = listItems(union.text);
-      // Named first: a subject taken at either level, the widest way in.
-      const lead = items.find((x) => !/\bHL$/.test(x)) || items[0];
+      // Named first: subjects taken at either level, the widest ways in.
+      const examples = [...items.filter((x) => !/\bHL$/.test(x)), ...items.filter((x) => /\bHL$/.test(x))].slice(0, 2);
       units.push({
         key,
         len: union.text.length + 7,
         html: html`one of <span class="req-ib">${keepTogether(union.text)}</span>`,
         compact: items.length > 2 ? {
-          len: lead.length + 22,
-          html: html`<span class="req-pick">${keepTogether(lead)}</span> <span class="req__others">or ${items.length - 1} other subjects</span>`,
+          /* Two broad named examples make a large subject group intelligible. The
+             old "History or 5 other subjects" hid what kind of choice this
+             was and sounded as though History was preferred (#46 round 4). */
+          len: examples[0].length + examples[1].length + 18,
+          html: html`one of <span class="req-pick">${keepTogether(examples[0])}, ${keepTogether(examples[1])}</span> <span class="req__others">… (+${items.length - 2})</span>`,
         } : null,
       });
       return;
@@ -968,6 +971,11 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
 
   // What is distinctive, rarest first; if nothing is, what there is, in order.
   const distinct = units.filter((u) => u.share < NEAR_UNIVERSAL);
+  /* A card whose only requirement is near-universal says nothing useful by
+     repeating it. The programme page still carries the full rule. This is
+     the Twente case: an English rule was the entire Needs line even though
+     English is already present on more than four fifths of the catalogue. */
+  if (rarity && !distinct.length) return '';
   const candidates = distinct.length ? distinct.sort((a, b) => a.share - b.share || a.i - b.i) : units;
 
   const picked = [];

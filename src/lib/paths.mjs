@@ -418,12 +418,41 @@ export function programmeCard(site, group, { meta = [] } = {}) {
   const entryForCard = tag?.mod === TAG_KINDS.cutoff && p.entryRequirements
     ? { ...p.entryRequirements, quotaFloors: [] }
     : p.entryRequirements;
+  let req = entryForCard
+    ? requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(p), pointFigures: tag?.mod !== TAG_KINDS.cutoff })
+    : selectionLine(p);
+  /* A Needs line copied across most of one school's cards is not a useful
+     distinction. Leave it to the linked programme pages instead of making
+     five CBS cards say the same thing (#46 round 4). Five is deliberate:
+     a smaller cluster of genuinely similar degrees may share a rule without
+     forming a wall. */
+  if (req) {
+    const reqText = String(req);
+    const peers = site.programmes.filter((other) => other.institutionId === p.institutionId);
+    const matches = peers.filter((other) => {
+      if (other === p || other.institutionId !== p.institutionId) return other === p;
+      const otherAdm = admissionOf(site, other);
+      const otherTag = cardTag({ cutoff: otherAdm.cutoff, open: otherAdm.open, award: otherAdm.awardKey });
+      const otherEntry = otherTag?.mod === TAG_KINDS.cutoff && other.entryRequirements
+        ? { ...other.entryRequirements, quotaFloors: [] }
+        : other.entryRequirements;
+      const otherReq = otherEntry
+        ? requirementSummary(otherEntry, { rarity: rarityOf(site), steps: stepsOf(other), pointFigures: otherTag?.mod !== TAG_KINDS.cutoff })
+        : selectionLine(other);
+      return String(otherReq) === reqText;
+    }).length;
+    if (matches >= 5 && peers.length - matches <= 1) {
+      /* Machine-readable reason for the absent visual line: the translation
+         guard can distinguish this deliberate omission from a render bug. */
+      req = html`<span data-req-omitted="repeated-at-school"></span>`;
+    }
+  }
   return {
     href: p.href,
     title: p.name,
     line: credentialLine(facetsOf(site, p, { campus: true })),
     backdrop: p.backdrop,
-    req: entryForCard ? requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(p), pointFigures: tag?.mod !== TAG_KINDS.cutoff }) : selectionLine(p),
+    req,
     meta,
     tags: [tag].filter(Boolean),
   };
@@ -498,8 +527,14 @@ export function pathsTable(site, p, inst) {
   const ects = (m) => recordOf(site, m)?.credential?.ects || m.ects;
   /* The floor's own name ("Quota 1") heads its column, from the record. */
   const quota = requirementModel(p.entryRequirements).floors[0]?.quota;
-  const floorHead = quota ? `${quota} needs` : 'Minimum to apply';
+  /* The table compares paths for an IB student. Name what the figure does,
+     not the Danish application-system label (#46 round 4). */
+  const floorHead = quota ? 'Grade-based admission needs' : 'Minimum to apply';
   const stripLead = (t) => (t && quota ? t.split(`${quota}: `).join('') : t) || null;
+  const explainLocalFloor = (t) => {
+    const bare = stripLead(t);
+    return bare ? `Published as ${bare} on Denmark's 7-point scale` : null;
+  };
   // A figure stays on the line of its words: no "7.0" alone on a phone (round 3, bug 9).
   const keep = (t) => (t ? keepTogether(t) : null);
 
@@ -518,7 +553,7 @@ export function pathsTable(site, p, inst) {
     { head: 'Taught in', cell: (i) => members[i].language || null },
     { head: 'Starts', cell: (i) => members[i].startMonth || null },
     { head: 'Apply by', cell: (i) => applyBy(members[i]) },
-    { head: floorHead, cell: (i) => keep(stripLead(adm[i].floor)), small: (i) => keep(stripLead(adm[i].floorLocal)) },
+    { head: floorHead, cell: (i) => keep(stripLead(adm[i].floor)), small: (i) => keep(explainLocalFloor(adm[i].floorLocal)) },
     { head: 'DP Course Results', cell: (i) => (adm[i].award === AWARD_TEXT[ENTRY_AWARD.COURSE_RESULTS_ACCEPTED] ? 'Accepted' : adm[i].award === AWARD_TEXT[ENTRY_AWARD.DIPLOMA_REQUIRED] ? 'Full Diploma needed' : 'Not recorded') },
     { head: 'Last cut-off', cell: (i) => (adm[i].cutoffValue === 'all qualified' ? 'all qualified got in' : adm[i].cutoffValue) },
   ]

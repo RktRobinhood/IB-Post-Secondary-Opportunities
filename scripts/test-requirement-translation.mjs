@@ -298,7 +298,8 @@ for (const p of programmes) {
     check(`${p.id}: has a card on its institution's page`, !!cardHtml);
     if (cardHtml) {
       const cb = blocks(cardHtml);
-      check(`${p.id}: its card shows requirements in a data-req block`, cb.length === 1);
+      const omitted = /data-req-omitted="repeated-at-school"/.test(cardHtml);
+      check(`${p.id}: its card shows requirements or records why the repeated line is omitted`, cb.length === 1 || omitted);
       for (const b of cb) {
         const f = faults(b, onPaths(expect.card, cardHtml), { card: true });
         check(`${p.id}: institution card`, !f.length, f.join('\n        '));
@@ -314,7 +315,8 @@ for (const p of programmes) {
   check(`${p.id}: has a card on the discovery surface`, !!homeCard);
   if (homeCard) {
     const hb = blocks(homeCard);
-    check(`${p.id}: its discovery card shows requirements in a data-req block`, hb.length === 1);
+    const omitted = /data-req-omitted="repeated-at-school"/.test(homeCard);
+    check(`${p.id}: its discovery card shows requirements or records why the repeated line is omitted`, hb.length === 1 || omitted);
     for (const b of hb) {
       const f = faults(b, onPaths(expect.card, homeCard), { card: true });
       check(`${p.id}: discovery card`, !f.length, f.join('\n        '));
