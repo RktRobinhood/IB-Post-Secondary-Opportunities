@@ -120,6 +120,25 @@ export function patternLayer(pattern) {
  *   for ~4 s on a school network). It is not a second map: it is the same
  *   globe, still. Where the globe cannot run, it stays.
  */
+/**
+ * A country's flag as a small picture (src/assets/img/flags, made by
+ * scripts/make-flags.mjs), and a name the records wrote with an emoji flag in
+ * front ("🇬🇧 United Kingdom") as that picture and the name. Windows has no
+ * flag emoji and draws the two letters instead (the owner, #53: "we need
+ * country flags not 2 letter place holders"). Read from the characters, so
+ * no country is named here.
+ */
+export const flagImg = (code, cls = 'flag-img') =>
+  html`<img class="${cls}" src="${url(`/assets/img/flags/${code}.svg`)}" alt="" width="18" height="12" decoding="async" loading="lazy">`;
+export const flagCode = (pair) => [...pair].map((c) => String.fromCharCode(c.codePointAt(0) - 0x1f1e6 + 97)).join('');
+export function flagged(name) {
+  const s = String(name ?? '');
+  const m = s.match(/^(\p{RI}\p{RI})\s*/u);
+  return m ? html`${flagImg(flagCode(m[1]))}${s.slice(m[0].length)}` : s;
+}
+/** Every emoji flag in a piece of built HTML, as its picture. */
+export const flagsInHtml = (text) => String(text).replace(/\p{RI}\p{RI}/gu, (pair) => String(flagImg(flagCode(pair)).value));
+
 export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '', poster = '' }) {
   const dots = places
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
@@ -198,7 +217,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     ${dots.map(
       (d) => html`<li>
         <a href="${d.href ? url(d.href) : `#${id}`}" data-place="${d.id}"${d.href && d.external ? raw(' rel="noopener nofollow"') : ''}>
-          <span class="world__name">${d.name}</span>
+          <span class="world__name">${flagged(d.name)}</span>
           ${d.count ? html`<span class="world__count">${d.count}</span>` : ''}
           ${d.state ? html`<span class="visually-hidden">. ${d.state}</span>` : ''}
           ${cueFor(d) ? html`<span class="visually-hidden">. ${cueFor(d)}</span>` : ''}

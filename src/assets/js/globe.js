@@ -521,7 +521,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const layer = figure.dataset.layer || 'Map';
   const places = JSON.parse(dataEl.textContent || '[]')
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
-    .map((p) => ({ ...p, xyz: toXYZ(p.lat, p.lon), dim: false, selected: false }));
+    .map((p) => ({ ...p, ...splitFlag(p.name), xyz: toXYZ(p.lat, p.lon), dim: false, selected: false }));
   const byId = new Map(places.map((p) => [p.id, p]));
   /* Country → schools (the owner, #53: zooming into a big country should do
      "what Europe does … show the individual schools … as dots"). A light that
@@ -597,6 +597,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
      places, never named. */
   const countries = new Set(places.map((p) => p.country));
   let home = places.length && countries.size === 1 && !countries.has('') ? geography.byId.get([...countries][0]) || null : null;
+  /* A place's own flag: the one its name carried (a whole country's light),
+     or, on a page of several countries, its country's — so a town reads as
+     that country's town. Schools sit inside their country's light and carry
+     none. A flag the site has no drawing for is dropped when it fails to
+     load, never shown as letters. */
+  const flagSrc = (code) => new URL(`img/flags/${code}.svg`, assets).href;
+  function flagEl(code) {
+    const img = el('img', { class: 'world__flag', src: flagSrc(code), alt: '', width: '18', height: '12', decoding: 'async' });
+    img.addEventListener('error', () => img.remove(), { once: true });
+    return img;
+  }
+  for (const p of places) if (!p.flag && countries.size > 1 && p.country) p.flag = p.country;
 
   const progs = {
     earth: program(gl, SPHERE_VS, EARTH_FS),
@@ -653,7 +665,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
   vehicle.append(vehicleShape);
   routeSvg.append(routeDone, routeLeft, vehicle);
   routeSvg.style.display = 'none';
-  pinLayer.append(routeSvg);
+  /* The outline of the country under the pointer — its land, its bubble, a
+     pin in it, or its entry in the list — drawn over the globe in the pin
+     layer, two strokes wide, so it is clear which country a click will
+     choose (the owner, #53: "hovering shows the boundaries of the nation so
+     it is easier to see what you are clicking"). A GL line is one pixel
+     wide on most machines; this is not. */
+  const outlineSvg = svgEl('svg', { class: 'world__outline', 'aria-hidden': 'true' });
+  const outlineUnder = svgEl('path', { class: 'world__outline-under' });
+  const outlineOver = svgEl('path', { class: 'world__outline-over' });
+  outlineSvg.append(outlineUnder, outlineOver);
+  outlineSvg.style.display = 'none';
+  pinLayer.append(outlineSvg, routeSvg);
   /* The desk globe's furniture: the stand and the graduated meridian ring
      behind the globe (a pivot knob at the pole read as a place, round 5). Drawn
      in globe radii and placed each frame from where the globe is on screen. */
@@ -1289,16 +1312,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (p.cue) node.dataset.approx = 'true';
     if (p.school) node.dataset.school = '';
     const dotEl = el('span', { class: 'world__pin-dot' });
-    const label = el('span', { class: 'world__pin-label' }, p.name);
+    const label = el('span', { class: 'world__pin-label' });
+    if (p.flag && !p.school) label.append(flagEl(p.flag));
+    label.append(document.createTextNode(p.name));
     node.append(dotEl, label);
     pinLayer.append(node);
     p.node = node;
     p.labelEl = label;
-    node.addEventListener('pointerenter', () => light(p.id, { fromMap: true }));
+    node.addEventListener('pointerenter', () => { light(p.id, { fromMap: true }); outlineFor([nationOf(p)]); });
     /* The card's photograph is on its way before the finger lifts. */
     node.addEventListener('pointerdown', () => prefetch(p.image || pages.get(p.country)?.image));
     node.addEventListener('pointerenter', () => prefetch(p.image || pages.get(p.country)?.image), { once: true });
-    node.addEventListener('pointerleave', () => light(null));
+    node.addEventListener('pointerleave', () => { light(null); outlineFor([]); });
   }
 
   let groups = [];
@@ -1345,6 +1370,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function openOnly(list) {
     opened.clear();
     for (const p of list) if (p.subs?.length) opened.add(p.id);
+    nationChosen = '';
+    nationForced = '';
     clusterAt = -1;
   }
   /* A chosen country opens only once the turn has brought it round to face
@@ -1353,7 +1380,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
      is chosen, no other country opens: its neighbours stay single, faded
      lights, so everything numbered on the stage is the chosen country's
      (round 2: a "19" of 11 US and 8 Canadian schools). */
-  const chosenSide = (m) => (opened.has((m.parent || m).id) ? 1 : 0);
+  const chosenSide = (m) => (opened.has((m.parent || m).id) || (!!nationChosen && nationOf(m) === nationChosen) ? 1 : 0);
   function schoolsOpen(p) {
     if (!p.subs.length) return false;
     if (opened.has(p.id)) return project(p.xyz).facing > 0.3 && desk(view.alt) < 0.05;
@@ -1375,6 +1402,45 @@ export async function mountGlobe(figure, { onFail } = {}) {
     return out;
   }
 
+  /* --- Per nation ----------------------------------------------------------
+   *
+   * The owner (#53): "the bubbles are becoming cluttered and yes should be
+   * grouped initially, but then per nation". So the groups have three
+   * levels, and each level is one kind of thing:
+   *
+   *   1. on the desk, everything groups by distance, as it always has (a
+   *      "40" over Europe);
+   *   2. leaned in, a country's places are one bubble — its flag and its
+   *      count — never a slice of it beside a slice of its neighbour. A
+   *      bubble holds two countries only when their bubbles would sit on top
+   *      of each other, and then it shows both flags;
+   *   3. a country opens into its own places once they would come apart on
+   *      the stage (NATION_SPLIT of its shorter side), once the camera is
+   *      down at SCHOOLS_ALT, or when it is chosen; its places then group
+   *      only with each other.
+   *
+   * A click on a country's bubble chooses the country (its outline, its
+   * card, the plane); a click on a mixed bubble dives until it comes apart.
+   * Read from each place's `country`; nothing here names one.
+   */
+  const NATION_SPLIT = 0.2;
+  const nationOf = (m) => (m.parent || m).country || '';
+  let nationChosen = '';  // the country chosen on the globe, whose places are open
+  let nationForced = '';  // the country of a chosen place: open, so the place is a pin
+  const wasOpen = new Map();
+  function nationOpen(code, members) {
+    if (!code || members.length < 2) return true;
+    if ((home && home.id === code) || nationChosen === code || nationForced === code) return true;
+    if (members.some((m) => (m.parent || m).selected)) return true;
+    if (view.alt <= SCHOOLS_ALT) return true;
+    let spread = 0;
+    for (let i = 0; i < members.length; i++) for (let j = i + 1; j < members.length; j++) spread = Math.max(spread, angle(members[i].xyz, members[j].xyz));
+    /* A little hysteresis, so a camera resting on the threshold does not flicker. */
+    return spread / radPerPx() >= NATION_SPLIT * Math.min(W, H) * (wasOpen.get(code) ? 0.85 : 1);
+  }
+  const centreOf = (list) => norm(list.reduce((s, m) => [s[0] + m.xyz[0], s[1] + m.xyz[1], s[2] + m.xyz[2]], [0, 0, 0]));
+  const nationsIn = (members) => [...new Set(members.map(nationOf).filter(Boolean))];
+
   function cluster() {
     /* Facing places are compared where they land on the screen, which is what
        a reader sees — a tilted camera squeezes north and south together. The
@@ -1383,24 +1449,62 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const theta = PIN_GAP * radPerPx() * (1 + Math.sin(cam.pitch));
     const cosT = Math.cos(theta);
     const shown = pinnedNow();
-    for (const p of shown) p._s = project(p.xyz);
-    const near = (a, b) => chosenSide(a) === chosenSide(b) && (a._s.facing > 0.05 && b._s.facing > 0.05
-      ? Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) < PIN_GAP
-      : dot(a.xyz, b.xyz) > cosT);
-    const left = [...shown].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+    const onDesk = desk(view.alt) > 0.5;
+    /* The units: a closed country is one, at its middle — its own light's
+       position when it has one (a country's light sits at its visual
+       centre), else the middle of its places; every other place is one. */
+    const byNation = new Map();
+    for (const p of shown) {
+      const c = nationOf(p);
+      if (c) (byNation.get(c) || byNation.set(c, []).get(c)).push(p);
+    }
+    /* A town's label carries its country's flag only while it stands for its
+       country alone; among its country's other places the flag is noise. */
+    for (const p of shown) p._solo = p.precision === 'region' || (byNation.get(nationOf(p))?.length || 0) <= 1;
+    const closed = new Set();
+    for (const [code, members] of byNation) {
+      const open = nationOpen(code, members);
+      wasOpen.set(code, open);
+      if (!open) closed.add(code);
+    }
+    const units = [];
+    for (const code of closed) {
+      const members = byNation.get(code);
+      const own = members.find((m) => m.precision === 'region' && !m.school);
+      units.push({ members, xyz: own ? own.xyz : centreOf(members), nation: code, count: groupCount(members) });
+    }
+    for (const p of shown) if (!closed.has(nationOf(p))) units.push({ members: [p], xyz: p.xyz, nation: '', count: p.count || 0 });
+    for (const u of units) u._s = project(u.xyz);
+    /* Off the desk, two things group by distance only inside one country:
+       the level below a country is its own places. */
+    const sameNation = (a, b) => nationOf(a.members[0]) === nationOf(b.members[0]);
+    const near = (a, b) => chosenSide(a.members[0]) === chosenSide(b.members[0])
+      && (onDesk || (!a.nation && !b.nation && sameNation(a, b)))
+      && (a._s.facing > 0.05 && b._s.facing > 0.05
+        ? Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) < PIN_GAP
+        : dot(a.xyz, b.xyz) > cosT);
+    const left = [...units].sort((a, b) => b.count - a.count || (a.members[0].name || '').localeCompare(b.members[0].name || ''));
     const out = [];
     while (left.length) {
       const seed = left.shift();
-      const members = [seed];
+      const parts = [seed];
       for (let i = left.length - 1; i >= 0; i--) {
-        if (members.some((m) => near(m, left[i]))) members.push(...left.splice(i, 1));
+        if (parts.some((m) => near(m, left[i]))) parts.push(...left.splice(i, 1));
       }
-      const xyz = norm(members.reduce((s, m) => [s[0] + m.xyz[0], s[1] + m.xyz[1], s[2] + m.xyz[2]], [0, 0, 0]));
-      out.push({ members, xyz, count: groupCount(members) });
+      const members = parts.flatMap((u) => u.members);
+      const xyz = parts.length === 1 ? seed.xyz : centreOf(members);
+      /* A group that is exactly one closed country is that country's bubble. */
+      out.push({ members, xyz, count: groupCount(members), nation: parts.length === 1 ? seed.nation : '' });
     }
     /* Two groups whose circles (and glow) overlap on screen are one group
        (round 4: a "4" drawn over a "36"). Repeated until nothing overlaps. */
     const drawnR = (g) => (g.members.length === 1 ? radius(g.members[0], maxCount()) + 4 : 11 + Math.min(9, Math.sqrt(g.members.length) * 3) + 7);
+    /* Off the desk, two countries' bubbles merge only when the discs
+       themselves would touch, not their glows: neighbours stay apart as long
+       as they can be told apart (round 6: the Low Countries and Germany as
+       one "16"). */
+    const coreR = (g) => (g.members.length === 1 ? radius(g.members[0], maxCount()) + 2 : 11 + Math.min(9, Math.sqrt(g.members.length) * 3) + 2);
+    const gap = (a, b) => (onDesk || nationsIn(a.members).join() === nationsIn(b.members).join() ? drawnR(a) + drawnR(b) : coreR(a) + coreR(b));
     for (let merged = true; merged;) {
       merged = false;
       for (const g of out) g._s = project(g.xyz);
@@ -1409,10 +1513,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
           const a = out[i], b = out[j];
           if (a._s.facing <= 0.05 || b._s.facing <= 0.05) continue;
           if (chosenSide(a.members[0]) !== chosenSide(b.members[0])) continue;
-          if (Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) >= drawnR(a) + drawnR(b)) continue;
+          if (Math.hypot(a._s.x - b._s.x, a._s.y - b._s.y) >= gap(a, b)) continue;
           const members = [...a.members, ...b.members];
           out.splice(j, 1);
-          out[i] = { members, xyz: norm(members.reduce((s2, m) => [s2[0] + m.xyz[0], s2[1] + m.xyz[1], s2[2] + m.xyz[2]], [0, 0, 0])), count: groupCount(members) };
+          out[i] = { members, xyz: centreOf(members), count: groupCount(members), nation: '' };
           merged = true;
           break outer;
         }
@@ -1423,12 +1527,30 @@ export async function mountGlobe(figure, { onFail } = {}) {
     clusterFrom = toXYZ(view.lat, view.lon);
   }
 
+  /** The groups as they will be at another camera (a climb's destination). */
+  function clusterFor(target) {
+    const saved = { lat: view.lat, lon: view.lon, alt: view.alt };
+    Object.assign(view, { lat: target.lat, lon: target.lon, alt: target.alt });
+    solveCamera(view);
+    try { cluster(); } finally {
+      Object.assign(view, saved);
+      solveCamera(view);
+    }
+  }
+
   function clusterNode(i) {
     while (clusterPool.length <= i) {
       const node = el('div', { class: 'world__cluster' });
-      node.append(el('span', { class: 'world__cluster-n' }));
-      node.addEventListener('pointerenter', () => { if (node._members) light(node._members.map((m) => m.id).join(' '), { fromMap: true }); });
-      node.addEventListener('pointerleave', () => light(null));
+      /* The number; under it the flags of the countries it holds (up to
+         four); and, for one country's bubble, its name beside it, placed
+         like a pin's label. */
+      node.append(el('span', { class: 'world__cluster-n' }), el('span', { class: 'world__cluster-flags' }), el('span', { class: 'world__pin-label world__cluster-label' }));
+      node.addEventListener('pointerenter', () => {
+        if (!node._members) return;
+        light(node._members.map((m) => m.id).join(' '), { fromMap: true });
+        outlineFor(nationsIn(node._members));
+      });
+      node.addEventListener('pointerleave', () => { light(null); outlineFor([]); });
       pinLayer.append(node);
       clusterPool.push(node);
     }
@@ -1443,8 +1565,17 @@ export async function mountGlobe(figure, { onFail } = {}) {
        subject is legitimately off-stage. */
     if (cardSubject && !flight && !closeFlying) cardStillAbout();
     /* During a flight the groups hold still and are recomputed on arrival:
-       watching "12" become 10, 9, then 5 and 5 mid-dive is noise. */
-    if (flight && clusterAt > 0) { /* keep */ } else if (clusterAt < 0 || Math.abs(Math.log(view.alt / clusterAt)) > 0.06
+       watching "12" become 10, 9, then 5 and 5 mid-dive is noise. A climb
+       back out (Reset, Back, a sit-back to the desk) regroups for where it
+       is going half way up, so it lands on its own groups rather than on
+       the split ones it left, merging a second after landing (round 5,
+       bug 6: "5", "15", "2" and a pile of rings before "40"). */
+    if (flight && clusterAt > 0) {
+      if (!flight.regrouped && !closeActive && flight.to.alt > flight.from.alt * 1.5 && (flight.move ?? 0) >= 0.45) {
+        flight.regrouped = true;
+        clusterFor(flight.to);
+      }
+    } else if (clusterAt < 0 || Math.abs(Math.log(view.alt / clusterAt)) > 0.06
       || angle(clusterFrom, toXYZ(view.lat, view.lon)) > Math.min(0.35, 0.25 * view.alt + 0.03)) cluster();
     const max = maxCount();
     const labels = view.alt < LABEL_ALT;
@@ -1471,7 +1602,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const onScreen = s.facing > 0 && s.x > -40 && s.x < W + 40 && s.y > -40 && s.y < H + 40;
       const fade = Math.min(1, Math.max(0, (s.facing - 0.02) / 0.2));
       /* A chosen country's neighbours recede. */
-      const aside = opened.size && !chosenSide(g.members[0]) ? 0.45 : 1;
+      const aside = (opened.size || nationChosen) && !chosenSide(g.members[0]) ? 0.45 : 1;
       if (g.members.length === 1) {
         const p = g.members[0];
         seen.add(p.id);
@@ -1487,6 +1618,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node.toggleAttribute('data-dim', dim);
         node.toggleAttribute('data-selected', p.selected);
         node.toggleAttribute('data-on', on);
+        node.toggleAttribute('data-plain', !p._solo);
         obstacles.push({ id: p.id, rect: [s.x - r - 2, s.y - r - 2, s.x + r + 2, s.y + r + 2] });
         if (fade > 0.6 && aside === 1 && (labels || on || p.selected)) {
           wanted.push({ p, node, s, r, rank: (p.selected ? 4 : 0) + (litSet.has(p.id) ? 2 : 0) + (chosenSide(p) ? 1 : 0) });
@@ -1498,13 +1630,42 @@ export async function mountGlobe(figure, { onFail } = {}) {
         for (const m of g.members) { seen.add(m.id); m.node.hidden = true; }
         const node = clusterNode(used++);
         node._members = g.members;
+        node._nation = g.nation;
+        const gid = `g${used}`;
         const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
         if (!onScreen || offDisc(s.x, s.y, r)) { node.hidden = true; continue; }
         node.hidden = false;
+        /* Flags say which countries a bubble holds: one closed country's, or
+           up to four in a mixed one. A group inside one open country (its
+           towns) needs none. */
+        const nations = nationsIn(g.members);
+        const flags = g.nation ? [g.nation] : nations.length >= 2 && nations.length <= 4 ? nations : [];
+        const key = flags.join(' ');
+        if (node._flags !== key) {
+          node._flags = key;
+          node.children[1].replaceChildren(...flags.map(flagEl));
+        }
+        node.toggleAttribute('data-flags', flags.length > 0);
+        const nationName = g.nation ? (pages.get(g.nation)?.name || geography.byId.get(g.nation)?.name || '') : '';
+        const labelEl = node.children[2];
+        if (labelEl._for !== g.nation) {
+          labelEl._for = g.nation;
+          labelEl.replaceChildren(...(g.nation ? [flagEl(g.nation), document.createTextNode(nationName)] : []));
+        }
+        if (nationName && labels && fade > 0.6 && aside === 1) {
+          wanted.push({ p: { id: gid, name: nationName, flag: g.nation, count: g.count }, node, s, r, rank: 1 });
+        } else {
+          node.toggleAttribute('data-label', false);
+          node.toggleAttribute('data-flip', false);
+        }
         /* A group says how much it holds in the page's own unit (degrees on
            the home page), the same number the doors and the count use — not
            how many places it covers (home round 2: "40" against "57 degrees"). */
-        node.firstChild.textContent = String(g.count || g.members.length);
+        /* A bubble whose places a filter has emptied says 0, not how many
+           places it covers (round 6: a grey "16" for Denmark beside a gold
+           "16" programmes). */
+        const emptied = g.members.every((m) => (m.parent || m).dim);
+        node.firstChild.textContent = String(emptied ? 0 : g.count || g.members.length);
         node.toggleAttribute('data-places', placesOnly(g.members));
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
@@ -1512,7 +1673,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node.toggleAttribute('data-dim', g.members.every((m) => (m.parent || m).dim));
         node.toggleAttribute('data-on', g.members.some((m) => litSet.has(m.id) || (!!m.parent && litSet.has(m.parent.id))));
         node.toggleAttribute('data-selected', g.members.some((m) => m.selected));
-        obstacles.push({ id: null, rect: [s.x - r - 3, s.y - r - 3, s.x + r + 3, s.y + r + 3] });
+        /* The flag row under the number is part of the bubble. */
+        obstacles.push({ id: gid, rect: [s.x - r - 3, s.y - r - 3, s.x + r + 3, s.y + r + 3 + (flags.length ? 14 : 0)] });
       }
     }
     /* Labels, most wanted first (the selected place, a lit one, the chosen
@@ -1522,7 +1684,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const hits = (a, b) => a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1];
     wanted.sort((a, b) => b.rank - a.rank || (b.p.count || 0) - (a.p.count || 0) || a.p.name.localeCompare(b.p.name));
     for (const { p, node, s, r } of wanted) {
-      const w = p.name.length * 6.6 + 18;
+      const w = p.name.length * 6.6 + 18 + (p.flag && !p.school && p._solo !== false ? 22 : 0);
       const sides = [
         [s.x + r + 2, s.y - 11, s.x + r + 2 + w, s.y + 11],
         [s.x - r - 2 - w, s.y - 11, s.x - r - 2, s.y + 11],
@@ -1581,7 +1743,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
   }
   /** A new choice: travel to it from the last one, if there was one. */
   function startRoute(to) {
-    const from = lastChosen;
+    /* The first journey sets off from where the camera is looking, so a
+       country chosen from the desk gets its plane too (the owner, #53: "the
+       plane animation is kinda cute when clicking on nation states"). */
+    const from = lastChosen || toXYZ(view.lat, view.lon);
     lastChosen = to;
     if (!from || reducedMotion() || angle(from, to) < 0.003) { route = null; drawRoute(); return; }
     route = { a: from, b: to, done: 0 };
@@ -1616,6 +1781,64 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const flipY = vehicleKind === 'train' && Math.abs(deg) > 90;
     vehicle.style.display = here.facing > 0.02 && fade > 0.25 ? '' : 'none';
     vehicle.setAttribute('transform', `translate(${here.x.toFixed(1)} ${here.y.toFixed(1)}) rotate(${deg.toFixed(1)}) scale(1.15 ${flipY ? -1.15 : 1.15}) translate(-12 -12)`);
+  }
+
+  /* --- The hovered country's outline ------------------------------------- */
+
+  let outlineIds = [];      // countries named by a hovered bubble, pin or list entry
+  let outlineKey = '';
+  const ringCache = { geo: null, byId: new Map() };
+  function outlineFor(codes) {
+    const next = [...new Set(codes.filter(Boolean))];
+    if (next.join(' ') === outlineIds.join(' ')) return;
+    outlineIds = next;
+    camDirty = true;
+    kick();
+  }
+  /** A country's rings as points on the sphere, made once per border set. */
+  function ringsOf(id) {
+    if (ringCache.geo !== geography) { ringCache.geo = geography; ringCache.byId.clear(); }
+    if (!ringCache.byId.has(id)) {
+      const c = geography.byId.get(id);
+      ringCache.byId.set(id, c ? c.rings.map((flat) => {
+        const pts = [];
+        for (let i = 0; i < flat.length; i += 2) pts.push(toXYZ(flat[i + 1], flat[i]));
+        return pts;
+      }) : []);
+    }
+    return ringCache.byId.get(id);
+  }
+  function drawOutline() {
+    const ids = closeActive ? [] : [...new Set([...outlineIds, hoverCountry?.id].filter(Boolean))];
+    if (!ids.length) {
+      if (outlineKey) { outlineKey = ''; outlineSvg.style.display = 'none'; }
+      return;
+    }
+    let d = '';
+    let whole = true;
+    for (const id of ids) {
+      for (const ring of ringsOf(id)) {
+        let pen = false, sub = '', cut = false;
+        for (const q of ring) {
+          const s = project(q);
+          if (s.facing <= 0.01) { pen = false; cut = true; continue; }
+          sub += `${pen ? 'L' : 'M'}${s.x.toFixed(1)} ${s.y.toFixed(1)}`;
+          pen = true;
+        }
+        /* A ring wholly round the back (an overseas territory) is simply not
+           drawn; one the limb cuts is drawn open, and unfilled. */
+        if (!sub) continue;
+        if (cut) whole = false;
+        d += `${sub}${cut ? '' : 'Z'}`;
+      }
+    }
+    outlineKey = ids.join(' ');
+    outlineSvg.style.display = d ? '' : 'none';
+    /* Filled only when every ring faces the camera: a ring cut by the limb
+       would fill across the sea. */
+    outlineSvg.toggleAttribute('data-part', !whole);
+    outlineUnder.setAttribute('d', d);
+    outlineOver.setAttribute('d', d);
   }
 
   /* --- Drawing ------------------------------------------------------------- */
@@ -2092,7 +2315,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
          tile the map has not loaded yet shows Earth, not the style's cream
          (round 3). The seam between the two is ~1.4 px. */
       draw(now);
-      if (camDirty) { layoutPins(); drawRoute(); drawDesk(); }
+      if (camDirty) { layoutPins(); drawRoute(); drawDesk(); drawOutline(); }
       camDirty = false;
       if (first) {
         first = false;
@@ -2211,7 +2434,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         photoIn(img);
         c.append(img);
       }
-      const title = cardTitle(c, p.name);
+      const title = cardTitle(c, p.name, p.precision === 'region' ? p.flag : '');
       const facts = [];
       if (p.door && p.count) facts.push(plural(p.count, 'institution'));
       else if (unit && p.count && !p.school) facts.push(plural(p.count, unit));
@@ -2241,8 +2464,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
      programme's page, opens in a new tab — covers it like any other link. A
      page that wants the choice for itself (the explorer filters on it) says so
      by cancelling `world:select`, and then the link does not navigate. */
-  function cardTitle(c, text) {
+  /* A country's card, and a whole country's light, lead with its flag: a
+     picture beside the name, outside the link, never part of its words. */
+  function cardTitle(c, text, flag = '') {
     const h = el('h3', { class: 'world__card-title', tabindex: '-1' }, text);
+    if (flag) h.prepend(flagEl(flag));
     c.append(h);
     return h;
   }
@@ -2250,7 +2476,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const a = el('a', { class: 'world__card-link', href }, title.textContent);
     a.append(el('span', { class: 'visually-hidden' }, ` — ${label}`), el('span', { class: 'world__card-arrow', 'aria-hidden': 'true' }, '→'));
     if (external) a.rel = 'noopener nofollow';
+    const flag = title.querySelector('.world__flag');
     title.replaceChildren(a);
+    if (flag) title.prepend(flag);
     c.dataset.link = 'true';
     if (select) {
       a.addEventListener('click', (e) => {
@@ -2286,7 +2514,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         photoIn(img);
         c.append(img);
       }
-      const title = cardTitle(c, `${dest?.flag ? `${dest.flag} ` : ''}${dest?.name || country.name}`);
+      const title = cardTitle(c, dest?.name || country.name, dest?.flag ? dest.code : '');
       const line = !here.length
         ? 'Nothing on this map here yet.'
         : only
@@ -2387,7 +2615,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   let restoring = false;
   /**
    * `world:choose` on the figure: { kind: 'place' | 'country' | 'view' | null,
-   * id, name, restored? }. Fired when the reader chooses something on the
+   * id, name, nations? (a view's countries), restored? }. Fired when the reader chooses something on the
    * globe (or through `show()`), when they clear it (close, Escape, the sea,
    * Reset), and on Back/Forward with `restored: true`. A page filters on it;
    * the globe does not know what the page does with it.
@@ -2399,7 +2627,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       : null;
     figure.dispatchEvent(new CustomEvent('world:choose', {
       bubbles: true,
-      detail: sel ? { kind: sel.kind, id: sel.id, name: name ?? null, ...extra } : { kind: null, id: null, name: null, ...extra },
+      detail: sel ? { kind: sel.kind, id: sel.id, name: name ?? null, ...(sel.nations ? { nations: sel.nations } : {}), ...extra } : { kind: null, id: null, name: null, ...extra },
     }));
   }
   function clearChoice() {
@@ -2456,8 +2684,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
    */
   function goToPlace(p, { focus = false, from = null, push = true } = {}) {
     if (push) remember({ kind: 'place', id: p.id });
-    /* A school keeps its country open; anything else opens only itself. */
+    /* A school keeps its country open; anything else opens only itself. A
+       place inside the chosen country keeps the country chosen; any place
+       keeps its own country open, so it is a pin, not inside a bubble. */
+    const keep = nationChosen && nationOf(p) === nationChosen ? nationChosen : '';
     if (!(p.parent && opened.has(p.parent.id))) openOnly([p]);
+    nationChosen = keep;
+    nationForced = nationOf(p);
     light(p.id);
     selectedCountry = null;
     paintMask(home);
@@ -2514,6 +2747,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
        above the street map. */
     const here = places.filter((q) => q.country === country.id);
     openOnly(here);
+    nationChosen = country.id;
     const pts = here.flatMap((q) => (q.subs?.length ? q.subs.map((x) => x.xyz) : [q.xyz]));
     const fit = fitCamera(pts.length ? pts : country.frame, { maxAlt: 2.4, minAlt: here.length > 1 ? HANDOFF_ALT * 1.1 : Math.max(0.2, sphereAlt()), pad: [0.1, 0.14, 0.1] });
     countryCard(country, { focus });
@@ -2577,7 +2811,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
     /* A dive into a group is a choice, and Back undoes it (the owner's rule;
        round 3 found group dives pushed nothing, so Back left the page). */
     const fit = fitAll(Math.max(view.alt * 0.8, floor * 1.01));
-    remember({ kind: 'view', id: members.map((m) => m.id).sort().join(','), cam: { lat: fit.lat, lon: fit.lon, alt: fit.alt } });
+    /* The countries the dive will show — the group's and any other on the
+       stage when it lands — travel with the choice, so a page can narrow to
+       what the globe shows (the home page's cards, #62). */
+    const landed = solveCamera(fit, {});
+    const inView = places.filter((p) => { const q = project(p.xyz, landed); return q.facing > 0.1 && q.x > 0 && q.x < W && q.y > 0 && q.y < H; });
+    remember({ kind: 'view', id: members.map((m) => m.id).sort().join(','), cam: { lat: fit.lat, lon: fit.lon, alt: fit.alt }, nations: nationsIn([...members, ...inView]).sort() });
     if (closeActive) { fitClose(); return; }
     /* Decide the engine before diving: the globe does a frame above the
        handoff alone; only a frame below it dives through to the close map. */
@@ -2773,6 +3012,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const clusterEl = e.target.closest('.world__cluster') || (downOn?.classList.contains('world__cluster') ? downOn : null);
     downOn = null;
     if (pinEl) { const p = byId.get(pinEl.dataset.place); if (p) goToPlace(p); return; }
+    /* One country's bubble chooses the country, as a click on its land does
+       (the outline, its card, the plane there); a mixed one dives. */
+    if (clusterEl?._nation && geography.byId.get(clusterEl._nation)) { goToCountry(geography.byId.get(clusterEl._nation)); return; }
     if (clusterEl?._members) { openGroup(clusterEl._members); return; }
     /* On the close map a bare click only closes the card: at street level a
        click on the ground is exploring, not choosing a country. */
@@ -2905,10 +3147,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /* --- The list, which is the other half of every one of these ------------- */
 
   for (const [id, a] of links) {
-    a.addEventListener('pointerenter', () => light(id));
-    a.addEventListener('pointerleave', () => light(null));
-    a.addEventListener('focus', () => light(id));
-    a.addEventListener('blur', () => light(null));
+    const nation = () => [byId.get(id) ? nationOf(byId.get(id)) : ''];
+    a.addEventListener('pointerenter', () => { light(id); outlineFor(nation()); });
+    a.addEventListener('pointerleave', () => { light(null); outlineFor([]); });
+    a.addEventListener('focus', () => { light(id); outlineFor(nation()); });
+    a.addEventListener('blur', () => { light(null); outlineFor([]); });
     /* Activating an entry flies the globe to it and opens its card, which
        carries the link. A modified click is left to the browser, so "open in
        a new tab" still works on the list. */
@@ -3065,6 +3308,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         draw(now);
         layoutPins();
         drawDesk();
+        drawOutline();
         return true;
       },
     },
@@ -3081,6 +3325,22 @@ export async function mountGlobe(figure, { onFail } = {}) {
 }
 
 /* --- Small helpers --------------------------------------------------------- */
+
+/**
+ * A name the records wrote with an emoji flag in front ("🇬🇧 United Kingdom")
+ * as `{ name, flag }`: the name without it, and the flag's two letters, lower
+ * case. Windows has no flag emoji and draws the letters ("GB United Kingdom";
+ * the owner, #53: "we need country flags not 2 letter place holders"), so the
+ * globe draws its own flag (img/flags, scripts/make-flags.mjs) instead.
+ * Read from the characters; no country is named.
+ */
+function splitFlag(text) {
+  const s = String(text ?? '');
+  const m = s.match(/^(\p{RI})(\p{RI})\s*/u);
+  if (!m) return { name: s, flag: '' };
+  const letter = (c) => String.fromCharCode(c.codePointAt(0) - 0x1f1e6 + 97);
+  return { name: s.slice(m[0].length), flag: letter(m[1]) + letter(m[2]) };
+}
 
 function el(tag, attrs = {}, text) {
   const node = document.createElement(tag);

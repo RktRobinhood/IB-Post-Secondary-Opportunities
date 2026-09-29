@@ -318,7 +318,9 @@ check('a chosen country arrives clean: only its own schools group, labels never 
      at 390×844 by docs/research/qa/globe/owner-notes-53/round-3/shoot.mjs
      (report.json phoneUs.chosen: visibleSum equals count; labelsOverGroups
      empty); here, that the code keeps it so. */
-  assert.match(globeJs, /const near = \(a, b\) => chosenSide\(a\) === chosenSide\(b\) &&/, 'a chosen country\'s schools can group with a neighbour\'s again');
+  /* Round 6 groups units (a closed country, or one place) rather than
+     places, so the test names a unit's first member; the rule is the same. */
+  assert.match(globeJs, /const near = \(a, b\) => chosenSide\(a(?:\.members\[0\])?\) === chosenSide\(b(?:\.members\[0\])?\)\s*&&/, 'a chosen country\'s schools can group with a neighbour\'s again');
   assert.match(globeJs, /if \(chosenSide\(a\.members\[0\]\) !== chosenSide\(b\.members\[0\]\)\) continue;/, 'overlapping groups can merge across the chosen country\'s border again');
   assert.match(globeJs, /if \(opened\.has\(p\.id\)\) return project\(p\.xyz\)\.facing > 0\.3 && desk\(view\.alt\) < 0\.05;/, 'a chosen country opens before it faces the camera, onto the ring');
   assert.match(globeJs, /if \(opened\.size\) return false;/, 'a neighbour opens into schools while another country is chosen');
@@ -712,7 +714,10 @@ check('the globe does not branch on a country', () => {
     }
     assert.match(globeJs, /function schoolsOpen\(p\)/, 'the globe no longer opens a country into its schools');
     assert.match(globeJs, /if \(p\.open\) out\.push\(\.\.\.p\.subs\)/, 'an open country no longer gives way to its schools');
-    assert.match(globeJs, /const left = \[\.\.\.shown\]/, 'the schools no longer group and split with the zoom like other pins');
+    /* Round 6: the pins shown (schools included) become units — a closed
+       country, or one place — and the units group. */
+    assert.match(globeJs, /const left = \[\.\.\.(?:shown|units)\]/, 'the schools no longer group and split with the zoom like other pins');
+    assert.match(globeJs, /for \(const p of shown\) if \(!closed\.has\(nationOf\(p\)\)\) units\.push/, 'the pins shown (schools included) no longer take part in the grouping');
     assert.match(worldWindowSrc, /schools: d\.schools/, 'worldWindow() no longer hands a light\'s schools to the globe');
   });
 }

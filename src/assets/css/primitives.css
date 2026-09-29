@@ -622,7 +622,10 @@
   position: static;
   flex-direction: row;
   justify-content: flex-end;
-  margin-bottom: calc(var(--s2) - var(--s5));
+  /* A row of its own, not tucked into the stage's top: on a stage whose
+     height sets the globe's size (/countries/ on a phone) the ring reaches
+     the top, and "+ − Reset" sat on it (round 5, bug 4). */
+  margin-bottom: var(--s2);
 }
 
 .world__hint {
@@ -1456,3 +1459,61 @@
   .layout-aside--dates > :not(.dates-panel):not(.layout-aside__side) { grid-column: 1; grid-row: 1 / span 2; }
   .layout-aside--dates > .layout-aside__side { grid-column: 2; grid-row: 2; }
 }
+
+/* --- Globe round 6 (#53): flags, per-nation bubbles, the hovered outline ---
+ *
+ * Flags are small SVG pictures (src/assets/img/flags, scripts/make-flags.mjs),
+ * never emoji: Windows draws a flag emoji as two letters ("GB United
+ * Kingdom"). A thin ring keeps a white flag's edge on white paper.
+ */
+.flag-img, .world__flag {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  max-width: none;
+  border-radius: 2px;
+  object-fit: cover;
+  vertical-align: -1px;
+  box-shadow: 0 0 0 1px rgba(26, 22, 19, .22);
+}
+.world__name .flag-img { margin-right: .35em; }
+.world__pin-label .world__flag { margin-right: 5px; vertical-align: -2px; box-shadow: 0 0 0 1px rgba(251, 247, 240, .55); }
+.world__card-title .world__flag { width: 21px; height: 14px; margin-right: .4em; }
+/* A bubble of one country, or of two or three, shows their flags under its
+   number; one country's bubble whose name has room shows it beside it, like
+   a pin's label, with the flag in the label instead. */
+.world__cluster-flags {
+  position: absolute;
+  left: 0;
+  top: calc(var(--r) + 3px);
+  transform: translateX(-50%);
+  display: none;
+  gap: 2px;
+  pointer-events: none;
+}
+.world__cluster[data-flags] .world__cluster-flags { display: flex; }
+.world__cluster[data-label] .world__cluster-flags { display: none; }
+.world__cluster-flags .world__flag { width: 15px; height: 10px; box-shadow: 0 0 0 1px rgba(251, 247, 240, .9), 0 1px 3px rgba(0, 0, 0, .5); }
+.world__cluster[data-label] .world__cluster-label { display: block; }
+.world__cluster[data-flip] .world__cluster-label { left: auto; right: calc(var(--r) + 5px); }
+.world__cluster[data-on] .world__cluster-label { background: rgba(6, 10, 18, .9); box-shadow: 0 0 0 1px var(--pin-hot); }
+.world__cluster[data-on], .world__cluster[data-label] { z-index: 1; }
+/* The hovered country's outline (globe.js drawOutline): an ink under-stroke
+   and a paper line, and a faint wash when the whole country faces the camera,
+   so it reads on pastel land, sea and cloud alike. Decorative, like the pins.
+   Over the bubbles, not under them: a small country is mostly under its own
+   bubble, and the outline is what says which country the bubble is. */
+.world__outline {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.world__outline path { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.world__outline-under { stroke: rgba(26, 22, 19, .6); stroke-width: 4; }
+.world__outline-over { stroke: #FBF7F0; stroke-width: 2; }
+.world__outline:not([data-part]) .world__outline-over { fill: rgba(251, 247, 240, .1); }
+.world__pin[data-plain] .world__pin-label .world__flag { display: none; }

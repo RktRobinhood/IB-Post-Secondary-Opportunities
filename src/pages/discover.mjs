@@ -1,7 +1,7 @@
 import { html, raw, plural, toString, slugify } from '../lib/html.mjs';
 import { url, SITE } from '../lib/layout.mjs';
 import { picture } from '../lib/data.mjs';
-import { worldWindow, filterQuestion } from '../lib/primitives.mjs';
+import { worldWindow, filterQuestion, flagsInHtml } from '../lib/primitives.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
@@ -352,7 +352,7 @@ export function discoverSection(site) {
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
           <p class="discover__places-line" id="discover-places-line">Also researched: countries whose degrees are not mapped one by one yet.</p>
-          <template id="discover-places-tiles"><ul class="tiles" role="list">${noDegreeTiles.map((c) => raw(toString(countryTile(site, c)).replace('<li>', `<li data-scope="${scopeOf(c.code)}">`)))}</ul></template>
+          <template id="discover-places-tiles"><ul class="tiles" role="list">${noDegreeTiles.map((c) => raw(flagsInHtml(toString(countryTile(site, c))).replace('<li>', `<li data-scope="${scopeOf(c.code)}">`).replace('<a ', `<a data-code="${c.code}" `)))}</ul></template>
         </div>`
       : ''}
   </div>
@@ -362,7 +362,8 @@ export function discoverSection(site) {
   cards: cardData,
   // The lights of Destinations with no mapped degree: how far each is, and how
   // many institutions it has, so a scope can light them and a filter dim them.
-  lights: Object.fromEntries(countryLights.map((l) => [l.id, { s: scopeOf(l.id), n: l.count }])),
+  // Its name too, for the chip a choice of it on the globe leaves (#62).
+  lights: Object.fromEntries(countryLights.map((l) => [l.id, { s: scopeOf(l.id), n: l.count, t: l.name.replace(/^\p{RI}{2}\s*/u, '') }])),
   // The site's guides, so a search with no degree can hand over to one.
   guides: (site.topicList || []).map((t) => ({ t: t.navLabel || t.title, h: url(`/guides/${slugify(t.slug || t.title || 'guide')}/`) })).filter((g) => g.t),
 }).replace(/</g, '\\u003c'))}</script>
