@@ -6,8 +6,8 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 
 ## Totals
 
-- Institutions with a record: **205 of 451** (45%); 128 listed, 37 catalogue, 40 none.
-- Degrees listed: **791**; with programme detail (about and selection): **329** (42%).
+- Institutions with a record: **208 of 451** (46%); 130 listed, 37 catalogue, 41 none.
+- Degrees listed: **799**; with programme detail (about and selection): **337** (42%).
 - Degrees with a photograph of their own (#54): **125** (16%). The rest show their school's photo.
 - Institutions with a school photo: **399 of 451**.
 
@@ -45,7 +45,7 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | Norway (no) | 14/14 | 9 / 0 / 5 | 21 | 0 (0%) | 0 | 13/14 | no |
 | New Zealand (nz) | 0/10 | 0 / 0 / 0 | 0 | – | – | 10/10 | [yes](leads/nz.md) |
 | Poland (pl) | 0/14 | 0 / 0 / 0 | 0 | – | – | 14/14 | [yes](leads/pl.md) |
-| Portugal (pt) | 10/13 | 7 / 0 / 3 | 16 | 16 (100%) | 0 | 12/13 | [yes](leads/pt.md) |
+| Portugal (pt) | 13/13 | 9 / 0 / 4 | 24 | 24 (100%) | 0 | 12/13 | [yes](leads/pt.md) |
 | Sweden (se) | 14/14 | 13 / 0 / 1 | 59 | 0 (0%) | 0 | 13/14 | no |
 | Singapore (sg) | 0/13 | 0 / 0 / 0 | 0 | – | – | 11/13 | [yes](leads/sg.md) |
 | Slovenia (si) | 0/7 | 0 / 0 / 0 | 0 | – | – | 5/7 | [yes](leads/si.md) |
@@ -294,10 +294,11 @@ Only institutions with something missing are listed.
 
 ### Portugal
 
-- **No record (3):** `pt-ulisboa`, `pt-nova`, `pt-uminho`
 - `pt-nova-sbe` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
 - `pt-catolica-lisbon` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `pt-ulisboa` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
 - `pt-ist` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `pt-nova` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
 - `pt-iscte-iul` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
 - `pt-u-porto` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
 - `pt-uac` (listed, 1 degrees): 1 of 1 degrees have no photo of their own; no school photo

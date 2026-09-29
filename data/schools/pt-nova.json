@@ -1,0 +1,111 @@
+{
+  "institution": "pt-nova",
+  "name": "Universidade NOVA de Lisboa",
+  "retrieved": "2026-09-29",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Public university in Lisbon; beyond Nova SBE, four bachelor's in English: three data degrees at NOVA IMS and Global Public Health.",
+  "handoff": {
+    "label": "NOVA programme catalogue (bachelor's first)",
+    "url": "https://guia.unl.pt/en/2026/programs"
+  },
+  "ib": {
+    "text": "EU citizens apply through the national contest: IB final grade 50%, IB exams replacing entrance exams 50%. NOVA IMS degrees need Maths AA (SL/HL) or AI HL.",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "lastYear": { "year": 2026, "text": "IB candidates (exam substitution): 20–29 July" },
+  "apply": {
+    "via": "Concurso Nacional de Acesso (DGES)",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Data Science",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/data-science/",
+      "about": "Statistics, machine learning and AI for turning large volumes of data into knowledge, taught in English at NOVA IMS on the Campolide campus; the last semester is electives (180 ECTS).",
+      "ib": "Maths AA (SL or HL) or AI HL for Mathematics A, alone or with one of six second exams (2027 exam sets).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Mathematics A is in every 2027/28 exam set; IB homologue per CNAES table 2026" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall.",
+      "cutoff": { "value": "16.95 of 20 (last placed, 1st phase)", "intake": "2026", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/data-science/" },
+      "places": 45,
+      "tuitionEuEea": "€697 a year (2026/27)"
+    },
+    {
+      "name": "Information Management",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/information-management/",
+      "about": "Data-driven management: collecting, organising and analysing information with statistical and computing tools to support business decisions, taught in English (180 ECTS).",
+      "ib": "Maths AA (SL or HL) or AI HL for Mathematics A, alone or with one of six second exams (2027 exam sets).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Mathematics A is in every 2027/28 exam set; IB homologue per CNAES table 2026" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall.",
+      "cutoff": { "value": "15.83 of 20 (last placed, 1st phase)", "intake": "2026", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/information-management/" },
+      "places": 64,
+      "tuitionEuEea": "€697 a year (2026/27)"
+    },
+    {
+      "name": "Information Systems",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/information-systems/",
+      "about": "Designing and building the digital systems organisations run on: programming, databases, networks, AI and app development, linked to business goals. Taught in English (180 ECTS).",
+      "ib": "Maths AA (SL or HL) or AI HL for Mathematics A, alone or with one of six second exams (2027 exam sets).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Mathematics A is in every 2027/28 exam set; IB homologue per CNAES table 2026" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall.",
+      "cutoff": { "value": "15.00 of 20 (last placed, 1st phase)", "intake": "2026", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/information-systems/" },
+      "places": 45,
+      "tuitionEuEea": "€697 a year (2026/27)"
+    },
+    {
+      "name": "Global Public Health",
+      "credential": "BSc",
+      "years": 3,
+      "field": "health",
+      "url": "https://guia.unl.pt/en/2026/ensp/program/L350",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=L350&code=0908",
+      "about": "Public and global health: policy, programmes, epidemiology, biostatistics and health economics, for work in health bodies in Portugal and international organisations. Taught in English (180 ECTS).",
+      "ib": "No single subject required: Maths AA or AI (SL or HL) alone meets the exam rule; other sets use Biology, Portuguese or Economics (2026 criteria).",
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall and 95 per exam. 2026 criteria.",
+      "places": 42,
+      "tuitionEuEea": "€697 a year"
+    }
+  ],
+  "notes": [
+    "Nova SBE, NOVA's business school, has its own page here with three more English bachelor's.",
+    "NOVA FCT's Computer Science and Engineering is billed as taught in Portuguese and English, but its catalogue lists every course unit in Portuguese, so it is not listed.",
+    "The Bachelor in Portuguese and Business is for non-native speakers with two years of university Portuguese, so it is not listed."
+  ],
+  "sources": [
+    { "title": "NOVA Program Catalog 2026-2027 — Programs (bachelor's list with teaching language per programme)", "url": "https://guia.unl.pt/en/2026/programs", "retrieved": "2026-09-26" },
+    { "title": "DGES — Índice de cursos 2026, public universities (48 NOVA national-contest courses: FCM, FCSH, FCT, Nova SBE, NOVA IMS, ENSP, Law)", "url": "https://www.dges.gov.pt/guias/indest.asp?reg=11", "retrieved": "2026-09-29" },
+    { "title": "NOVA FCT — Bachelor's degrees (22; programme pages name a teaching language only for Ocean Studies, run with Nova SBE, and Computer Science and Engineering)", "url": "https://www.fct.unl.pt/en/education/bachelors-degrees", "retrieved": "2026-09-29" },
+    { "title": "NOVA FCT — Licenciatura em Engenharia Informática ('Curso lecionado em Português e Inglês'; 170 places)", "url": "https://www.fct.unl.pt/ensino/curso/licenciatura-em-engenharia-informatica", "retrieved": "2026-09-29" },
+    { "title": "NOVA Program Catalog — Computer Science and Engineering (all 28 course units: teaching language Português)", "url": "https://guia.unl.pt/en/2026/fct/program/1053", "retrieved": "2026-09-29" },
+    { "title": "NOVA Program Catalog — Bachelor's in Global Public Health (teaching language English; 70-student quota; fees)", "url": "https://guia.unl.pt/en/2026/ensp/program/L350", "retrieved": "2026-09-26" },
+    { "title": "DGES — Saúde Pública Global, ENSP 0908/L350 (exam sets, minimums, 42 places 2026-2027)", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=L350&code=0908", "retrieved": "2026-09-26" },
+    { "title": "NOVA IMS — Bachelor's Degrees (three)", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/", "retrieved": "2026-09-26" },
+    { "title": "NOVA IMS — Data Science (taught in English; 45 places; 2027/28 entry exams; last entry grade 2026-27)", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/data-science/", "retrieved": "2026-09-26" },
+    { "title": "NOVA IMS — Information Management (taught in English; 64 places)", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/information-management/", "retrieved": "2026-09-26" },
+    { "title": "NOVA IMS — Information Systems (taught in English; 45 places)", "url": "https://novaims.unl.pt/en/education/programs/bachelor-s-degrees/information-systems/", "retrieved": "2026-09-26" },
+    { "title": "NOVA Program Catalog — Bachelor in Portuguese and Business (for non-native speakers)", "url": "https://guia.unl.pt/en/2026/novasbe/program/L113", "retrieved": "2026-09-26" },
+    { "title": "DGES — Students with foreign secondary education (equivalence, exam substitution)", "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros", "retrieved": "2026-09-26" },
+    { "title": "DGES — Calendário Concurso Nacional de Acesso 2026", "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0", "retrieved": "2026-09-26" },
+    { "title": "CNAES Deliberação n.º 619/2026 (IB maths for Matemática A and for Matemática Aplicada às Ciências Sociais)", "url": "https://files.diariodarepublica.pt/2s/2026/05/103000000/0015000170.pdf", "retrieved": "2026-09-26" }
+  ]
+}

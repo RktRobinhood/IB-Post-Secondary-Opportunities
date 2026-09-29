@@ -1,0 +1,122 @@
+{
+  "institution": "pt-ulisboa",
+  "name": "Universidade de Lisboa",
+  "retrieved": "2026-09-29",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Public university in Lisbon; besides Técnico's GENI (own page), its English bachelor's are four ISEG economics and business degrees.",
+  "handoff": {
+    "label": "ISEG undergraduate degrees (four in English)",
+    "url": "https://www.iseg.ulisboa.pt/en/to-study-2/degrees/"
+  },
+  "ib": {
+    "text": "EU citizens apply through the national contest: IB final grade (on a 0–200 scale) 50%, IB exams replacing entrance exams 50%. ISEG's English degrees need Maths AA (SL/HL) or AI HL.",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "lastYear": { "year": 2026, "text": "IB candidates (exam substitution): 20–29 July" },
+  "apply": {
+    "via": "Concurso Nacional de Acesso (DGES)",
+    "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Economics",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "economics",
+      "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/economics/",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A006&code=1517",
+      "about": "Economic theory with management, maths, law, sociology and history alongside, and electives in the third year. The first year is shared with Management and Finance.",
+      "ib": "Maths AA (SL or HL) or AI HL in place of Mathematics A, alone or with a second exam such as English (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces Mathematics A (CNAES table 2026); at least 95 of 200" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall. 2026 criteria.",
+      "cutoff": { "value": "169.9 of 200 (last placed, 1st phase)", "intake": "2025", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A006&code=1517" },
+      "places": 30,
+      "tuitionEuEea": "€697 a year"
+    },
+    {
+      "name": "Management",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/management/",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A001&code=1517",
+      "about": "Core management subjects (finance, marketing, accounting, HR, operations and information systems) with economics, maths and social sciences, all taught in English.",
+      "ib": "Maths AA (SL or HL) or AI HL in place of Mathematics A, alone or with a second exam such as English (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces Mathematics A (CNAES table 2026); at least 95 of 200" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall. 2026 criteria.",
+      "cutoff": { "value": "171.0 of 200 (last placed, 1st phase)", "intake": "2025", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A001&code=1517" },
+      "places": 60,
+      "tuitionEuEea": "€697 a year"
+    },
+    {
+      "name": "Finance",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/finance/",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A013&code=1517",
+      "about": "Markets, corporate finance, accounting, tax and audit, plus fintech and sustainable finance, affiliated with the CFA Institute. The five best students can do a dual degree at Kozminski University in Poland.",
+      "ib": "Maths AA (SL or HL) or AI HL in place of Mathematics A, alone or with a second exam such as English (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces Mathematics A (CNAES table 2026); at least 95 of 200" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall. 2026 criteria.",
+      "cutoff": { "value": "162.9 of 200 (last placed, 1st phase)", "intake": "2025", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A013&code=1517" },
+      "places": 32,
+      "tuitionEuEea": "€697 a year"
+    },
+    {
+      "name": "Applied Mathematics for Economics and Management",
+      "credential": "Licenciatura (bachelor's degree)",
+      "years": 3,
+      "field": "mathematics",
+      "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/applied-mathematics-for-economics-and-management/",
+      "requirementsUrl": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A018&code=1517",
+      "about": "Economics and management built on a strong maths core: analysis, algebra, programming, probability, operational research and econometrics, taught in English.",
+      "ib": "Maths AA (SL or HL) or AI HL in place of Mathematics A, alone or with a second exam such as English (2026 criteria; 2027 not yet published).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "note": "Replaces Mathematics A (CNAES table 2026); at least 95 of 200" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "National contest: 50% final school grade, 50% entrance exams; at least 100 of 200 overall. 2026 criteria.",
+      "places": 30,
+      "tuitionEuEea": "€697 a year"
+    }
+  ],
+  "notes": [
+    "ULisboa's 'Full Programmes' page also lists humanities and design degrees, but those are taught in Portuguese with some classes in English.",
+    "Each English degree is a separate national-contest course from its Portuguese twin, with its own places and cut-off.",
+    "Técnico (IST), also part of ULisboa, has its own page here, with its English-taught General Engineering degree."
+  ],
+  "sources": [
+    { "title": "ULisboa — Full Programmes (lists 25 first-cycle entries; per-programme pages give Language EN only for ISEG's four, Técnico's GENI and three Shanghai-based SHU degrees)", "url": "https://www.ulisboa.pt/en/info/full-programmes", "retrieved": "2026-09-29" },
+    { "title": "ULisboa — Licenciatura's Degree (1st Cycle) catalogue (each programme's language field: PT or PT/EN apart from the EN entries above)", "url": "https://www.ulisboa.pt/en/info/licenciaturas-degree-1st-cycle", "retrieved": "2026-09-29" },
+    { "title": "ULisboa — Integrated Masters Degree catalogue (Architecture at FA PT/EN; all others PT)", "url": "https://www.ulisboa.pt/en/info/integrated-masters-degree-1st-and-2nd-cycles", "retrieved": "2026-09-29" },
+    { "title": "School of Arts and Humanities — Bachelor's degree programs ('The language of instruction at the School of Arts and Humanities is Portuguese')", "url": "https://www.letras.ulisboa.pt/pt/ensino/licenciaturas/2123-bachelor-s-degree-programs", "retrieved": "2026-09-29" },
+    { "title": "Lisbon School of Architecture — international applicants, 1st cycle (Portuguese B1 certificate where applicable)", "url": "https://www.fa.ulisboa.pt/index.php/pt/component/sppagebuilder/page/70-candidaturas-estudante-internacional-1-ciclo-pt", "retrieved": "2026-09-29" },
+    { "title": "ULisboa — Civil Engineering (ULisboa and SHU) ('Access takes place in Shanghai, where the selection process takes place')", "url": "https://www.ulisboa.pt/en/curso/licenciatura/civil-engineering-ulisboa-and-shu", "retrieved": "2026-09-29" },
+    { "title": "ISEG — Undergraduate degrees ('In English' tab: Economics, Management, Finance, Applied Mathematics for Economics and Management)", "url": "https://www.iseg.ulisboa.pt/en/to-study-2/degrees/", "retrieved": "2026-09-26" },
+    { "title": "ISEG — Degree in Economics (language English, numerus clausus 30, entrance exams, fees)", "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/economics/", "retrieved": "2026-09-26" },
+    { "title": "ISEG — Degree in Management (language English, numerus clausus 60)", "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/management/", "retrieved": "2026-09-26" },
+    { "title": "ISEG — Degree in Finance (taught in English, numerus clausus 32, Kozminski dual degree)", "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/finance/", "retrieved": "2026-09-26" },
+    { "title": "ISEG — Applied Mathematics for Economics and Management (language English, numerus clausus 30)", "url": "https://www.iseg.ulisboa.pt/en/study/undergraduate/applied-mathematics-for-economics-and-management/", "retrieved": "2026-09-26" },
+    { "title": "DGES — Índice de cursos 2026, public universities (English-taught courses marked 'ensino em inglês')", "url": "https://www.dges.gov.pt/guias/indest.asp?reg=11", "retrieved": "2026-09-26" },
+    { "title": "DGES — Economia (ensino em Inglês), ISEG 1517/A006: exams, minimums, 2023–2025 last-placed grades", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A006&code=1517", "retrieved": "2026-09-26" },
+    { "title": "DGES — Gestão (ensino em Inglês), ISEG 1517/A001", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A001&code=1517", "retrieved": "2026-09-26" },
+    { "title": "DGES — Finanças (ensino em inglês), ISEG 1517/A013", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A013&code=1517", "retrieved": "2026-09-26" },
+    { "title": "DGES — Matemática Aplicada à Economia e à Gestão (ensino em inglês), ISEG 1517/A018", "url": "https://www.dges.gov.pt/guias/detcursopi.asp?codc=A018&code=1517", "retrieved": "2026-09-26" },
+    { "title": "ULisboa — Special Admission Competition for International Students (EU/EEA nationals excluded)", "url": "https://www.ulisboa.pt/en/info/special-admission-contest-international-students", "retrieved": "2026-09-26" },
+    { "title": "DGES — Students with foreign secondary education (equivalence, exam substitution)", "url": "https://www.dges.gov.pt/pt/pagina/substituicao-de-provas-de-ingresso-por-exames-estrangeiros", "retrieved": "2026-09-26" },
+    { "title": "DGES — Calendário Concurso Nacional de Acesso 2026", "url": "https://www.dges.gov.pt/pt/pagina/calendario-concurso-nacional-de-acesso-0", "retrieved": "2026-09-26" },
+    { "title": "CNAES Deliberação n.º 619/2026 (IB maths AA SL/HL, AI HL for Matemática A; IB English for Inglês)", "url": "https://files.diariodarepublica.pt/2s/2026/05/103000000/0015000170.pdf", "retrieved": "2026-09-26" }
+  ]
+}
