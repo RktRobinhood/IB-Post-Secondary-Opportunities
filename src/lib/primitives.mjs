@@ -199,7 +199,8 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       (d) => html`<li>
         <a href="${d.href ? url(d.href) : `#${id}`}" data-place="${d.id}"${d.href && d.external ? raw(' rel="noopener nofollow"') : ''}>
           <span class="world__name">${d.name}</span>
-          ${d.count ? html`<span class="world__count">${d.count}</span>` : ''}
+          ${/* A count only says something when the counts differ: a list of 1s does not. */
+            d.count && dots.some((x) => (x.count || 0) > 1) ? html`<span class="world__count">${d.count}</span>` : ''}
           ${d.state ? html`<span class="visually-hidden">. ${d.state}</span>` : ''}
           ${cueFor(d) ? html`<span class="visually-hidden">. ${cueFor(d)}</span>` : ''}
         </a>

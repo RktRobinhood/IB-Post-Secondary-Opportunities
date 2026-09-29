@@ -327,7 +327,7 @@ export function discoverSection(site) {
 
   <div class="wrap wrap--wide discover__results">
     <div class="shell__bar">
-      <p class="result-count" id="prog-count" role="status" aria-live="polite" style="margin:0">${plural(total, 'programme')}</p>
+      <p class="result-count" id="prog-count" role="status" aria-live="polite">${plural(total, 'programme')}</p>
       <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
     </div>
     <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is listed below.</p></noscript>

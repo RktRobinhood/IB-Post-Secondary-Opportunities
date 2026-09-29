@@ -51,12 +51,12 @@ export const GROUPINGS = {
   },
   jurisdiction: {
     label: 'By jurisdiction',
-    lede: 'Admission is governed at the level below the country, and the route follows the jurisdiction.',
+    lede: 'How you apply depends on the region.',
     keyOf: (inst) => inst.jurisdiction || null,
   },
   sector: {
     label: 'By sector',
-    lede: 'The kind of institution decides how you apply, not where it is.',
+    lede: 'How you apply depends on the kind of institution.',
     keyOf: (inst) => inst.sector || null,
   },
   city: {
@@ -218,11 +218,14 @@ function routeForGroup(routes, key, meta) {
 export function routeSentence(group) {
   const r = group.route;
   if (!r) return null;
-  const name = r.label || r.applicationSystem || r.id;
+  // A route's label is often a page title ("Applying to a Spanish public
+  // university for autumn 2027: UNEDasiss, then the region's preinscripción.").
+  // The line needs only the way in, after the colon, without the full stop.
+  const label = r.label ? String(r.label).split(/:\s+/).pop().replace(/[.\s]+$/, '') : '';
   if (r.channel === 'direct') {
-    return `${plural(group.institutions.length)} you apply to directly${r.label ? ` — ${r.label}` : ''}.`;
+    return `${plural(group.institutions.length)} · apply to each directly${label ? ` (${label})` : ''}`;
   }
-  return `${plural(group.institutions.length)} you apply through ${name}.`;
+  return `${plural(group.institutions.length)} · apply via ${label || r.applicationSystem || r.id}`;
 }
 
 function plural(n) {

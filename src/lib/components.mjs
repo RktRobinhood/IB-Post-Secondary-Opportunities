@@ -428,6 +428,42 @@ export function stamp(dateString, { label = 'Checked' } = {}) {
   return html`<span class="stamp ${stale ? 'stamp--stale' : ''}">${label} ${pretty}</span>`;
 }
 
+/**
+ * The side rail of an institution page, one shape in every country (#55):
+ * when it was checked, the one page to open next, a few facts, the links,
+ * and what it is known for. Danish and school-record pages both call this,
+ * so the rail cannot drift into two designs again.
+ *
+ * @param {object} o
+ * @param {string} [o.checked]  ISO date the record was last checked
+ * @param {object} [o.action]   { href, label, note } — the one page to open next, and what it is
+ * @param {Array}  [o.rows]     facts() rows
+ * @param {Array}  [o.links]    [{ href, label }] quieter outbound links
+ * @param {Array}  [o.knownFor] short field names
+ */
+export function institutionRail({ checked, action, rows = [], links = [], knownFor = [] }) {
+  return html`<aside class="layout-aside__side stack">
+    ${stamp(checked)}
+    ${action
+      ? html`<a class="btn btn--solid btn--block" href="${url(action.href)}"${
+          /^https?:/.test(action.href) ? raw(' rel="noopener nofollow"') : ''
+        }>${action.label}</a>${action.note ? html`<p class="rail-note">${action.note}</p>` : ''}`
+      : ''}
+    ${facts([
+      ...rows,
+      links.length
+        ? {
+            label: 'Links',
+            value: html`<ul class="plain-list">${links.map(
+              (l) => html`<li><a href="${url(l.href)}"${/^https?:/.test(l.href) ? raw(' rel="noopener nofollow"') : ''}>${l.label}</a></li>`
+            )}</ul>`,
+          }
+        : null,
+    ])}
+    ${knownFor.length ? html`<div><p class="eyebrow eyebrow--plain">Known for</p>${tags(knownFor, 'tag--brand')}</div>` : ''}
+  </aside>`;
+}
+
 export function pager({ prev, next }) {
   if (!prev && !next) return '';
   return html`<nav class="pager" aria-label="More pages">

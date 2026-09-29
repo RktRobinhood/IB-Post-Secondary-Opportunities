@@ -2,12 +2,13 @@ import { html, md, plural, raw, toString, truncate, firstSentence } from '../lib
 import { datesPanel } from '../lib/school-dates.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
-  hero, card, note, facts, sources, crumbs, sectionHead, tags, stamp, emptyState, pager, topic, glance,
+  hero, card, note, facts, sources, crumbs, sectionHead, emptyState, pager, topic, glance, institutionRail,
 } from '../lib/components.mjs';
 import { picture } from '../lib/data.mjs';
 import { destinationOf, institutionPicture } from './programme-facts.mjs';
 import { cardGroups, programmeCard } from '../lib/paths.mjs';
 import { renderProgrammeCard } from '../lib/programme-card.mjs';
+import { universityTemplate } from '../templates/university.mjs';
 
 /* Institutions: the index of every institution, and one page per institution. */
 
@@ -54,181 +55,105 @@ function universitySlides(site, inst, max = 4) {
   return out.map(({ rawSrc, ...slide }) => slide);
 }
 
+/**
+ * A canonical institution (Denmark, the Netherlands) as the university
+ * template's view model (src/templates/university.mjs). Only the data differs
+ * from a school record's page; the page is the template's.
+ */
 export function university(site, inst, { prev, next }) {
   const pic = institutionPicture(site, inst);
   const dest = destinationOf(inst);
-  const dates = datesPanel(site, inst);
-  const byField = new Map();
-  for (const p of inst.programmes) {
-    const f = p.field || 'Other';
-    if (!byField.has(f)) byField.set(f, []);
-    byField.get(f).push(p);
-  }
-
-  /* The degrees first, as pictures a student can click; what the institution
-     says about the IB, how it runs its admissions and the notes after them,
-     each as a short answer with the rest one tap beneath. */
   const sorted = [...inst.programmes]
     .sort((a, b) => (a.field || '').localeCompare(b.field || '') || a.name.localeCompare(b.name));
   // One card per programme, or one per family of paths (src/lib/paths.mjs):
-  // a BSc and a BEng of one subject are one card with two short rows, not two
-  // cards that read the same. It is the home page's card (programmeCard):
-  // a photograph of the discipline, what kind of degree it is, how long and
-  // where, what makes it different, and one tag; the field is its footer.
-  const programmeCards = cardGroups(site, sorted).map((g) => renderProgrammeCard(programmeCard(site, g, { meta: [g.lead.field].filter(Boolean) })));
+  // a BSc and a BEng of one subject are one card with two short rows.
+  const programmeCards = cardGroups(site, sorted).map((g) => ({
+    field: g.lead.field,
+    html: renderProgrammeCard(programmeCard(site, g, { meta: [g.lead.field].filter(Boolean) })),
+    // Under its field's heading the card need not say its field again.
+    headedHtml: renderProgrammeCard(programmeCard(site, g, { meta: [] })),
+  }));
 
   const statement = inst.ibRecognitionStatement;
-  const topics = [
-    statement &&
-      topic({
-        id: 'ib-statement',
-        title: 'What it tells IB students',
-        short: statement.text
-          ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.`
-          : 'It publishes an IB recognition statement.',
-        body: html`${statement.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
-          <p><a href="${statement.url}" rel="noopener nofollow">Its full IB recognition statement<span aria-hidden="true"> ↗</span></a>,
-          written by the university and published by the IB.</p>`,
-        more: 'In its own words',
-      }),
-    (inst.ibNotes || []).length &&
-      topic({
-        id: 'ib',
-        title: 'What it asks of IB students',
-        short: firstSentence(inst.ibNotes[0], 30),
-        body: html`<ul>${inst.ibNotes.map((n) => html`<li>${n}</li>`)}</ul>`,
-        more: `All ${plural(inst.ibNotes.length, 'note')}`,
-      }),
-    inst.quotaNotes &&
-      topic({
-        id: 'quota',
-        title: 'How it runs quota 2',
-        short: firstSentence(inst.quotaNotes, 30),
-        body: md(inst.quotaNotes),
-        more: 'In full',
-      }),
-    (inst.notes || []).length &&
-      topic({
-        id: 'notes',
-        title: 'Worth knowing',
-        short: firstSentence(inst.notes[0], 30),
-        body: html`<ul>${inst.notes.map((n) => html`<li>${n}</li>`)}</ul>`,
-        more: `All ${plural(inst.notes.length, 'note')}`,
-      }),
-    (inst.sources || []).length &&
-      topic({
-        id: 'sources',
-        title: 'Sources',
-        short: `The ${plural(inst.sources.length, 'page')} this was written from.`,
-        body: sources(inst.sources, { title: null }),
-        more: 'All sources',
-      }),
-  ].filter(Boolean);
+  /* Where its degrees are applied for: the route of its first programme. */
+  const opp = site.graph?.opportunities?.get(inst.programmes[0]?.opportunityId || inst.programmes[0]?.id);
+  const route = site.graph?.applicationRoutes?.get((opp?.applicationRoutes || [])[0]);
+  const system = site.graph?.applicationSystems?.get(route?.applicationSystem);
+  const ibNotes = inst.ibNotes || [];
+  const statementLine = statement?.text ? `${statement.text[0].toUpperCase()}${statement.text.slice(1)}.` : null;
 
-  const body = html`
-${hero({
-  // The country belongs in the eyebrow now that there is more than one of
-  // them. "Delft · Technical university" was a complete description while
-  // every institution on the site was Danish and is a riddle now.
-  eyebrow: [inst.city, dest?.name, inst.type].filter(Boolean).join(' · '),
-  title: inst.name,
-  lede: firstSentence(inst.about, 22),
-  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
-  slides: pic ? universitySlides(site, inst) : [],
-  variant: pic ? undefined : 'panel',
-})}
-
-<section class="section section--tinted section--glance">
-  <div class="wrap">
-    ${glance([
+  return universityTemplate({
+    hero: {
+      eyebrow: [inst.city, dest?.name, inst.type].filter(Boolean).join(' · '),
+      title: inst.name,
+      lede: firstSentence(inst.about, 22),
+      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
+      slides: pic ? universitySlides(site, inst) : [],
+      variant: pic ? undefined : 'panel',
+    },
+    glance: [
       /* Cards, as the student counts them (#52): a family of paths is one. */
       { label: 'In English', value: plural(cardGroups(site, inst.programmes).length, 'programme') },
       { label: 'City', value: inst.city },
+      { label: 'Apply via', value: system?.name && route?.portalUrl ? html`<a href="${route.portalUrl}" rel="noopener nofollow">${system.name}</a>` : null },
+      { label: 'IB transcripts', value: statement?.transcripts5y ? `${statement.transcripts5y.toLocaleString('en-GB')} in 5 yrs` : null },
       { label: 'Students', value: inst.students ? inst.students.toLocaleString('en-GB') : null },
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
-      { label: 'Tuition, non-EU', value: inst.tuitionNonEu ? truncate(inst.tuitionNonEu, 40) : null },
-    ])}
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    ${crumbs([
-      ...(dest ? [{ href: dest.href, label: dest.name }] : []),
-      { href: '/universities/', label: 'Institutions' },
-      { label: inst.shortName || inst.name },
-    ])}
-
-    ${/* This school's dates, beside its degrees (src/lib/school-dates.mjs):
-          first on a phone, the side column on a wide screen. */ dates ? raw(`<div class="layout-aside layout-aside--dates">${toString(dates)}<div class="layout-aside__main">`) : ''}
-    ${inst.programmes.length
-      ? html`${sectionHead({ title: 'What you could study here', id: 'programmes' })}
-          <div class="grid grid--3">${programmeCards}</div>`
-      : note(
-          // This used to name Danish at A level and the Studieprøven, which
-          // is the right advice at a Danish institution and nonsense at a
-          // Dutch one. The specific language qualification is a fact about
-          // a Destination's own rules and belongs on that Destination's
-          // pages, where it can be sourced. What belongs here is the part
-          // that holds at any institution teaching in its own language —
-          // and the language comes off the record, because two of the Dutch
-          // institutions teach in English and the country does not.
-          `No fully English-taught bachelor programmes are listed here for 2027 entry. That does not
-          mean you cannot study here — it means you would need to meet its
-          ${inst.teachingLanguage ? `${inst.teachingLanguage}-language` : 'local-language'} entry
-          requirements and apply to the programmes it teaches in
-          ${inst.teachingLanguage || 'its own language'} instead.${
-            dest ? ` ${dest.name}'s own section explains what that takes.` : ''
-          }`,
-          { kind: 'warn', title: 'Nothing in English' }
-        )}
-    ${dates ? raw('</div></div>') : ''}
-  </div>
-</section>
-
-<section class="section section--tinted section--rule">
-  <div class="wrap">
-    <div class="layout-aside">
-      <div class="prose">
-        ${topics}
-      </div>
-
-      <aside class="layout-aside__side stack">
-        ${stamp(inst.dataAsOf)}
-        ${facts([
-          { label: 'Campuses', value: (inst.campuses || []).join(', ') || null },
-          { label: 'IB results code', value: inst.ibisCode },
-          {
-            label: 'Links',
-            value: html`<ul style="list-style:none;padding:0;margin:0">
-              ${inst.website ? html`<li><a href="${inst.website}" rel="noopener nofollow">Main site</a></li>` : ''}
-              ${inst.admissionsUrl ? html`<li><a href="${inst.admissionsUrl}" rel="noopener nofollow">Admissions</a></li>` : ''}
-              ${inst.ibPageUrl ? html`<li><a href="${inst.ibPageUrl}" rel="noopener nofollow">Its IB page</a></li>` : ''}
-              ${statement ? html`<li><a href="${statement.url}" rel="noopener nofollow">Its IB statement</a></li>` : ''}
-            </ul>`,
-          },
-        ])}
-        ${(inst.knownFor || []).length ? html`<div><p class="eyebrow eyebrow--plain">Known for</p>${tags(inst.knownFor, 'tag--brand')}</div>` : ''}
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">${pager({ prev, next })}</div>
-</section>`;
-
-  return page({
-    title: inst.name,
-    description: truncate(
-      inst.about ||
-        `${inst.name}${dest ? ` in ${dest.sentenceName}` : ''} — English-taught degrees and entry requirements for IB students.`,
-      155
-    ),
-    path: inst.href,
-    section: dest?.section,
-    body,
-    scripts: dates ? ['dates-panel.js'] : undefined,
+    ],
+    crumbs: [...(dest ? [{ href: `${dest.href}#institutions`, label: dest.name }] : []), { label: inst.shortName || inst.name }],
+    dates: datesPanel(site, inst),
+    study: inst.programmes.length
+      ? { title: 'What you could study here', cards: programmeCards }
+      : {
+          // The language comes off the record: a Danish institution and a
+          // Dutch one teach in different languages.
+          title: inst.teachingLanguage ? `Taught in ${inst.teachingLanguage}` : 'Taught in the local language',
+          handoff: html`<p class="handoff__line">No English-taught bachelor's here for 2027.</p>`,
+        },
+    topics: {
+      ib: ibNotes.length || statement
+        ? {
+            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : statementLine || 'It publishes an IB recognition statement.',
+            body: html`${ibNotes.length ? html`<ul>${ibNotes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
+              ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
+              ${statement ? html`<p><a href="${statement.url}" rel="noopener nofollow">Its IB recognition statement<span aria-hidden="true"> ↗</span></a></p>` : ''}`,
+            more: 'Where it says so',
+          }
+        : null,
+      admissions: inst.quotaNotes ? { short: firstSentence(inst.quotaNotes, 30), body: md(inst.quotaNotes), more: 'In full' } : null,
+      notes: (inst.notes || []).length
+        ? {
+            short: firstSentence(inst.notes[0], 30),
+            body: html`<ul>${inst.notes.map((n) => html`<li>${n}</li>`)}</ul>`,
+            more: `All ${plural(inst.notes.length, 'note')}`,
+          }
+        : null,
+      sources: inst.sources || [],
+    },
+    rail: {
+      checked: inst.dataAsOf,
+      action: inst.admissionsUrl ? { href: inst.admissionsUrl, label: 'The official page ↗', note: 'Its admissions page' } : null,
+      rows: [
+        { label: 'Campuses', value: (inst.campuses || []).join(', ') || null },
+        { label: 'IB results code', value: inst.ibisCode },
+        { label: 'Tuition, non-EU', value: inst.tuitionNonEu ? truncate(inst.tuitionNonEu, 40) : null },
+      ],
+      links: [
+        inst.ibPageUrl ? { href: inst.ibPageUrl, label: 'Its IB page' } : null,
+        statement ? { href: statement.url, label: 'Its IB statement' } : null,
+      ].filter(Boolean),
+      knownFor: inst.knownFor || [],
+    },
+    pager: { prev, next },
+    page: {
+      title: inst.name,
+      description: truncate(
+        inst.about || `${inst.name}${dest ? ` in ${dest.sentenceName}` : ''} — English-taught degrees and entry requirements for IB students.`,
+        155
+      ),
+      path: inst.href,
+      section: dest?.section,
+    },
   });
 }
 
@@ -272,7 +197,7 @@ ${hero({
             title: `In ${d.sentenceName}`,
             lede: `${plural(d.programmes, 'English-taught programme')} on this site.`,
           })}
-          <div class="grid grid--3" style="margin-bottom:var(--s7)">
+          <div class="grid grid--3 grid--spaced">
             ${d.institutions
               .slice()
               .sort((a, b) => b.programmes.length - a.programmes.length || a.name.localeCompare(b.name))

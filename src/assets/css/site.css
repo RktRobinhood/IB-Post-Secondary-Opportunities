@@ -2927,8 +2927,6 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .layout-aside__side .plain-list { font-size: .875rem; }
 .section--pager { padding-bottom: 0; }
 .section--pager + * , main > .section--pager:last-child { margin-bottom: 0; }
-/* The page's way out on a country card: say it as plainly as the IB link. */
-.grid--places .card__foot span:last-child { color: var(--accent); font-weight: 600; }
 .handoff__known .eyebrow { margin: 0 0 var(--s2); }
 .close .btn { white-space: normal; max-width: 100%; text-align: center; justify-content: center; }
 .close:has(+ .section--pager) { padding-bottom: var(--s7); }
@@ -3002,3 +3000,13 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
 .crumbs li + li::before { display: inline-block; }
 /* A page that ends on its close band runs straight into the footer. */
 body:has(main > .close:last-child) .site-foot { margin-top: 0; }
+/* A rail action fills its column (institution and programme pages). */
+.btn--block { display: flex; width: 100%; justify-content: center; text-align: center; white-space: normal; }
+/* A grid followed by another section heading keeps its distance (institutions index). */
+.grid--spaced { margin-bottom: var(--s7); }
+#prog-count { margin: 0; }
+/* A long credential ("Bachelor in Communication and Digital Media") wraps
+   rather than clipping at phone width; the short facts after it stay whole. */
+.card__fact:first-child { white-space: normal; }
+/* A rail action's note: what the official page is, under its button. */
+.rail-note { margin: calc(-1 * var(--s2)) 0 0; font-size: .8125rem; line-height: 1.4; color: var(--ink-mute); }

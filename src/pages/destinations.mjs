@@ -1,7 +1,7 @@
 import { html, raw, md, plural, truncate, listSentence, firstSentence, slugify } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
-  hero, card, note, facts, sources, crumbs, sectionHead, stamp, pager, freshness, sectorLandscape, contextNotes, close, topic,
+  hero, card, note, facts, stats, sources, crumbs, sectionHead, stamp, pager, freshness, sectorLandscape, contextNotes, close, topic,
 } from '../lib/components.mjs';
 import { picture, money, REGION_ORDER, RESEARCH_DEPTH, countryOutline } from '../lib/data.mjs';
 import { worldWindow, evidenceBlock, artDirection, patternLayer, deadlineList } from '../lib/primitives.mjs';
@@ -12,6 +12,7 @@ import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
+import { countryTemplate } from '../templates/country.mjs';
 import { isEnglishStudyOption } from '../lib/schools.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
@@ -79,7 +80,7 @@ export function depthLabel(site, c) {
  * the freshness statement one tap beneath it. It still comes before the first
  * institution; it just no longer costs a screen to get past.
  */
-function researchDepthNote(c, { freshnessNote = '', events = null } = {}) {
+function researchDepthNote(c, { freshnessNote = '', events = null, researched = null } = {}) {
   const d = c.researchDepth;
   // Counted from the same dates the calendar below shows — the profile's own
   // entries and the application routes' milestones together — so the line and
@@ -88,7 +89,9 @@ function researchDepthNote(c, { freshnessNote = '', events = null } = {}) {
   const undated = events ? events.filter((e) => !e.date).length : d.undated;
   const meta = RESEARCH_DEPTH[d.tier];
   const counts = [
-    `${plural(d.sources, 'source')} recorded for ${plural(d.institutions, 'institution')} listed`,
+    // "Across", not "listed": the count includes places checked and found to
+    // teach nothing in English, which the grid below leaves out.
+    `${plural(d.sources, 'source')} recorded across ${plural(researched ?? d.institutions, 'institution')}`,
     undated ? `${undated} of ${plural(total, 'date')} carry no published day` : null,
   ].filter(Boolean);
   const kind = d.tier === 'outline' ? 'warn' : d.tier === 'researched' ? 'ok' : 'accent';
@@ -576,7 +579,7 @@ export function destination(site, c, { prev, next }) {
 
   const topics = [
     c.whyConsider.length &&
-      topic({
+      ({
         id: 'why',
         title: 'Why it might suit you',
         short: one(c.whyConsider[0]),
@@ -585,7 +588,7 @@ export function destination(site, c, { prev, next }) {
       }),
 
     c.watchOuts.length &&
-      topic({
+      ({
         id: 'watch',
         title: 'What to watch for',
         short: one(c.watchOuts[0]),
@@ -594,7 +597,7 @@ export function destination(site, c, { prev, next }) {
       }),
 
     landscape?.routes?.length &&
-      topic({
+      ({
         id: 'landscape',
         title: `The shape of ${c.name}'s system`,
         short: one(landscape.summary),
@@ -603,7 +606,7 @@ export function destination(site, c, { prev, next }) {
       }),
 
     notes.length &&
-      topic({
+      ({
         id: 'context',
         title: 'What it is actually like',
         short: `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`,
@@ -612,7 +615,7 @@ export function destination(site, c, { prev, next }) {
       }),
 
     c.ibRecognition &&
-      topic({
+      ({
         id: 'ib',
         title: 'How your IB is read here',
         short: c.ibRecognition.accepted === false
@@ -641,7 +644,7 @@ export function destination(site, c, { prev, next }) {
       }),
 
     c.application?.steps?.length &&
-      topic({
+      ({
         id: 'apply',
         title: 'How applying actually works',
         // The portal is the one thing a student does next, so it is the short
@@ -675,7 +678,7 @@ export function destination(site, c, { prev, next }) {
       }),
 
     events.length &&
-      topic({
+      ({
         id: 'deadlines',
         title: 'Deadlines',
         short: html`<p>${plural(events.length, 'dated event')} recorded.
@@ -685,7 +688,7 @@ export function destination(site, c, { prev, next }) {
         more: `All ${plural(events.length, 'date')}`,
       }),
 
-    topic({
+    ({
       id: 'money',
       title: 'Money',
       short: lines(
@@ -712,7 +715,7 @@ export function destination(site, c, { prev, next }) {
     c.ownCitizens &&
       (() => {
         const [first, ...rest] = c.ownCitizens.split(/(?<=\.)\s+/);
-        return topic({
+        return ({
           id: 'own-citizens',
           title: `If you are ${c.adjective || 'a citizen'}`,
           short: first,
@@ -722,7 +725,7 @@ export function destination(site, c, { prev, next }) {
       })(),
 
     c.language &&
-      topic({
+      ({
         id: 'language',
         title: 'Language',
         short: lead('English-taught bachelors', c.language.englishTaughtBachelors),
@@ -735,7 +738,7 @@ export function destination(site, c, { prev, next }) {
         more: 'Proving your English, and the rest',
       }),
 
-    topic({
+    ({
       id: 'living',
       title: 'Living there',
       short: lead('Residency', c.residency) || lead('Housing', c.housing),
@@ -751,7 +754,7 @@ export function destination(site, c, { prev, next }) {
     // Last, and closed. The sources are what the short answers stand on, not
     // what a student came for — and they used to sit above the universities.
     c.sources.length &&
-      topic({
+      ({
         id: 'sources',
         title: 'Sources',
         short: `The ${plural(c.sources.length, 'page')} this page was written from.`,
@@ -760,212 +763,143 @@ export function destination(site, c, { prev, next }) {
       }),
   ].filter(Boolean);
 
-  const toc = [
-    institutions.length && ['#institutions', 'Where to study'],
-    ['#overview', 'The short version'],
-    c.whyConsider.length && ['#why', 'Why it might suit you'],
-    c.watchOuts.length && ['#watch', 'What to watch for'],
-    landscape?.routes?.length && ['#landscape', `The shape of ${c.name}'s system`],
-    notes.length && ['#context', 'What it is actually like'],
-    c.ibRecognition && ['#ib', 'How your IB is read'],
-    c.application?.steps?.length && ['#apply', 'How applying works'],
-    events.length && ['#deadlines', 'Deadlines'],
-    ['#money', 'Money'],
-    c.language && ['#language', 'Language'],
-    ['#living', 'Living there'],
-    c.sources.length && ['#sources', 'Sources'],
+  /* How far to trust the page. A sketch says so before the list, because
+     reading a list and only then learning it was a sketch is being misled; a
+     page researched in depth says it in the side rail, so the cards start
+     where Denmark's start. */
+  const depthNote = researchDepthNote(c, {
+    events,
+    researched: (c.institutions || []).length,
+    freshnessNote: freshness({
+      intake: c.targetIntake ? '2027-autumn' : null,
+      checkedAt: c.dataAsOf,
+      level: c.sources.length ? 'needs-review' : 'none',
+      // A provisional date is a field rather than a phrase to grep for.
+      provisional: events.filter((e) => e.provisional).length,
+    }),
+  });
+
+  /* The four numbers under the photograph, from what the records can count
+     rather than from prose: how many places, how many degrees are mapped one
+     by one, where you apply, and how often IB students already go there. A
+     number nothing supports is left out. */
+  const mapped = institutions.reduce(
+    (n, i) => n + (i.school?.scope === 'listed' ? schoolCardGroups(i.school.programmes).length : 0), 0);
+  const transcripts = institutions.reduce((n, i) => n + (i.ibRecognitionStatement?.transcripts5y || 0), 0);
+  /* Where you apply, only when the record leaves no doubt: it names one
+     central portal without a qualifier ("Norwegian-taught only", "then each
+     region's…"), or it says in its own words that there is none. A portal
+     name with a caveat reads as advice it is not, so it is left to the
+     "How applying actually works" topic below. */
+  const portalShort = portalName.split(/ \(| — | - |[.;,]/)[0].trim();
+  const qualified = /\b(only|then|accreditation|information|pre-?enrol)/i.test(portalName);
+  const saysNoPortal = /^(none|no central portal|no shared application)\b/i.test(portalName.trim());
+  const strip = [
+    institutions.length ? { value: String(institutions.length), label: institutions.length === 1 ? 'Institution teaching in English' : 'Institutions teaching in English' } : null,
+    mapped ? { value: String(mapped), label: mapped === 1 ? 'Degree mapped in English' : 'Degrees mapped in English' } : null,
+    saysNoPortal
+      ? { value: 'Direct', label: 'You apply to each university' }
+      : c.application?.centralised === true && !qualified && portalShort && portalShort.split(/\s+/).length <= 3
+        ? { value: portalShort, label: 'National application portal' }
+        : null,
+    transcripts ? { value: transcripts.toLocaleString('en-GB'), label: 'IB transcripts sent here in five years' } : null,
   ].filter(Boolean);
 
-  const body = html`
-${/* `art` is the class the stylesheet resolves `--art` on: the destination's
-     accent in whichever theme the reader is in. Without it the inline hex is
-     still set and nothing can see it, because a `var()` written at `:root`
-     cannot read a custom property declared further down the tree. */
-  raw(`<div class="art" style="${art.style}">`)}
-${hero({
-  eyebrow: `${c.flag} ${c.region}`,
-  title: c.name,
-  lede: c.tagline,
-  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
-  slides: pic ? heroSlides(site, publicCountry) : [],
-  // No publishable photograph of this Destination, so the hero becomes the
-  // designed empty state rather than a hero that lost its picture.
-  variant: pic ? undefined : 'panel',
-  aside: patternLayer(art.pattern),
-})}
-
-${/* What is possible: the institutions, straight after the place itself. The
-     one thing allowed in front of them is the line saying how far to trust
-     the page, because reading a list and only then learning it was a sketch
-     is being misled. */ ''}
-<section class="section section--tight dest-open">
-  <div class="wrap">
-    ${crumbs([
+  /* This country's page, drawn by the one country template (src/templates/country.mjs). */
+  return countryTemplate({
+    artStyle: art.style,
+    hero: {
+      eyebrow: `${c.flag} ${c.region}`,
+      title: c.name,
+      lede: c.tagline,
+      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
+      slides: pic ? heroSlides(site, publicCountry) : [],
+      // No publishable photograph of this Destination, so the hero becomes the
+      // designed empty state rather than a hero that lost its picture.
+      variant: pic ? undefined : 'panel',
+      aside: patternLayer(art.pattern),
+      actions: [
+        mapped ? { href: `/?where=dest:${c.code}#discover`, label: 'See every degree' } : null,
+        events.length ? { href: `/timeline/?destinations=${c.code}`, label: 'See the dates' } : null,
+      ].filter(Boolean),
+    },
+    stats: strip,
+    crumbs: [
       { href: c.scope === 'europe' ? '/countries/#europe' : '/countries/#worldwide', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
       { label: c.name },
-    ])}
-    ${researchDepthNote(c, {
-      events,
-      freshnessNote: freshness({
-        intake: c.targetIntake ? '2027-autumn' : null,
-        checkedAt: c.dataAsOf,
-        level: c.sources.length ? 'needs-review' : 'none',
-        // A provisional date is now a field rather than a phrase to grep for.
-        // The old test read the year and notes for "not yet published",
-        // "indicative" or "re-check", which caught whichever wording a
-        // researcher happened to use and missed the rest.
-        provisional: events.filter((e) => e.provisional).length,
-      }),
-    })}
-
-    ${institutions.length
-      ? html`${sectionHead({
-            eyebrow: plural(institutions.length, 'institution'),
-            title: 'Where to study',
-            lede: grouping.id === 'none'
-              ? `A spread of what ${c.name} offers, not a ranking. Check each one's own pages before you apply.`
-              : `${grouping.lede} A spread of what ${c.name} offers, not a ranking — but which group a place is in changes how you apply to it.`,
-            id: 'institutions',
-          })}
-          ${groups.map((g) => institutionGroup(site, g, groups.length))}`
-      : ''}
-
-    ${mapPlaces.length
-      ? html`<div class="dest-open__map">
-          ${worldWindow({
+    ],
+    notice: c.researchDepth?.tier === 'researched' ? null : depthNote,
+    places: {
+      count: institutions.length,
+      lede: grouping.id === 'none' ? null : grouping.lede,
+      groups: groups.map((g) => ({
+        name: groups.length === 1 ? null : g.name,
+        route: routeSentence(g),
+        routeHref: g.route?.portalUrl || null,
+        more: groupMore(g),
+        cards: g.institutions.map((i) => institutionCard(site, i)),
+      })),
+      map: mapPlaces.length
+        ? worldWindow({
             places: mapPlaces,
             id: `map-${c.code}`,
             activeLayer: `Institutions in ${c.name}`,
             caption: `${plural(mapPlaces.length, 'institution')} with a resolved location.`,
-          })}
-        </div>`
-      : ''}
-  </div>
-</section>
-
-${/* What is required: every question, short answer first. */ ''}
-<section class="section section--tinted section--rule">
-  <div class="wrap">
-    <div class="layout-aside">
-      <div class="prose">
-        <h2 id="overview">The short version</h2>
-        ${/* The short version is one sentence. Summaries run to a hundred words,
-              and the rest of it is one tap down rather than cut. */ ''}
-        <p class="lede">${summaryLead}</p>
-        ${summaryRest
-          ? html`<details class="topic__more"><summary>More on ${c.name}</summary>
-              <div class="topic__body"><p>${summaryRest}</p></div></details>`
-          : ''}
-        ${topics}
-      </div>
-
-      <aside class="layout-aside__side stack">
-        ${stamp(c.dataAsOf)}
-        ${facts([
-          { label: 'Capital', value: c.capital },
-          { label: 'Currency', value: c.currency },
-          { label: 'EU member', value: c.eu === true ? 'Yes' : c.eu === false ? 'No' : null },
-          { label: 'EEA / fee status', value: c.eea === true ? 'EU/EEA — EU/EEA citizens usually pay the home-student rate' : null },
-          { label: 'Target intake', value: c.targetIntake },
-        ])}
-        <nav aria-label="On this page">
-          <p class="eyebrow eyebrow--plain">On this page</p>
-          <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem">
-            ${toc.map(([h, label]) => html`<li style="padding:.3rem 0"><a href="${h}">${label}</a></li>`)}
-          </ul>
-        </nav>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">${pager({ prev, next })}</div>
-</section>
-${raw('</div>')}`;
-
-  return page({
-    title: c.name,
-    description: c.tagline || truncate(c.summary, 155),
-    path: c.href,
-    section: '/countries/',
-    body,
-    scripts: ['map.js'],
+          })
+        : null,
+    },
+    details: { lede: summaryLead, more: summaryRest || null, topics },
+    rail: {
+      checked: c.dataAsOf,
+      notice: c.researchDepth?.tier === 'researched' ? depthNote : null,
+      deeper: [
+        mapped ? { href: `/?where=dest:${c.code}#discover`, label: `Every degree in ${c.name}` } : null,
+        events.length ? { href: `/timeline/?destinations=${c.code}`, label: 'The dates on the calendar' } : null,
+        { href: '/compare/', label: 'Compare countries' },
+        { href: '/countries/', label: 'Every country' },
+      ].filter(Boolean),
+    },
+    pager: { prev, next },
+    page: {
+      title: c.name,
+      description: c.tagline || truncate(c.summary, 155),
+      path: c.href,
+      section: '/countries/',
+      scripts: ['map.js'],
+    },
   });
 }
 
 /**
- * One group of institutions, headed by the route they apply through.
- *
- * A Destination that divides into one group renders without a heading, so a
- * centralised system looks exactly as it did before and only a federal one pays
- * for the structure. That is deliberate: the grouping exists to show a branch,
- * and drawing a branch where there is none would be its own kind of lie.
+ * What varies along one group's route (#37): detail for someone already
+ * choosing, one tap beneath the route line.
  */
-function institutionGroup(site, g, groupCount) {
-  const cards = html`<div class="grid grid--3 grid--places">${g.institutions.map((i) => institutionCard(site, i))}</div>`;
-  if (groupCount === 1) return cards;
-
+function groupMore(g) {
   const rows = variationRows(g);
-  const sentence = routeSentence(g);
-
-  return html`<section class="jgroup" ${g.id ? raw(`id="j-${g.id}"`) : ''}>
-    <header class="jgroup__head">
-      <h3 class="jgroup__name">${g.name}</h3>
-      ${sentence
-        ? html`<p class="jgroup__route">${g.route?.portalUrl
-            ? html`<a href="${g.route.portalUrl}" rel="noopener nofollow">${sentence}</a>`
-            : sentence}</p>`
-        : html`<p class="jgroup__route jgroup__route--none">No application route recorded for ${g.name} yet —
-            check each institution's own admissions page.</p>`}
-    </header>
-    ${/* The route sentence is the branch, so it stays in view. What varies
-          along that branch is detail for someone already choosing, and sits
-          one tap beneath it (#37). */
-      g.summary || rows.length
-        ? html`<details class="jgroup__more">
-            <summary>What is different in ${g.name}</summary>
-            ${g.summary ? html`<p class="jgroup__summary">${g.summary}</p>` : ''}
-            ${rows.length
-              ? html`<dl class="jgroup__vary">
-                  ${rows.map((r) => html`<div><dt>${r.label}</dt><dd>${md(r.value)}${r.source
-                    ? html` <small><a href="${r.source}" rel="noopener nofollow">Source</a></small>`
-                    : ''}</dd></div>`)}
-                </dl>`
-              : ''}
-          </details>`
-        : ''}
-    ${cards}
-  </section>`;
+  if (!g.summary && !rows.length) return null;
+  return html`${g.summary ? html`<p class="jgroup__summary">${g.summary}</p>` : ''}
+    ${rows.length
+      ? html`<dl class="jgroup__vary">
+          ${rows.map((r) => html`<div><dt>${r.label}</dt><dd>${md(r.value)}${r.source
+            ? html` <small><a href="${r.source}" rel="noopener nofollow">Source</a></small>`
+            : ''}</dd></div>`)}
+        </dl>`
+      : ''}`;
 }
 
+/** An institution as the country template's card: photograph, name, one
+    sentence, and where it is and how many degrees it teaches in English. */
 function institutionCard(site, i) {
   const pic = picture(site, i.key);
-  // The last word on the card says where it goes: this site's page on the school.
-  const meta = [i.city, i.type, 'See the school →'].filter(Boolean);
-  return card({
+  const listed = i.school?.scope === 'listed' ? schoolCardGroups(i.school.programmes).length : 0;
+  return {
     href: i.href,
-    title: i.name,
+    name: i.name,
+    shortName: i.shortName,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
     text: i.school?.summary || firstSentence(i.note, 24),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
-    placeholder: i.shortName || i.name,
-    meta,
-    // What is taught in English, from the school's own record once it has one.
-    tags: i.school?.scope === 'listed'
-      ? [plural(schoolCardGroups(i.school.programmes).length, 'programme') + ' in English']
-      : i.school?.scope === 'catalogue'
-      ? ['Nearly all in English']
-      : i.school?.scope === 'none'
-      ? ['Nothing in English']
-      : i.englishBachelors ? [truncate(i.englishBachelors, 34)] : null,
-    // One short line and a link of its own, when the record has one. Kept as
-    // a slot so that #38 — each institution's IB recognition statement, from
-    // the IB's database — is a data change plus this one line, not a redesign
-    // of the card. Nothing renders while the field is absent.
-    aside: i.ibRecognitionStatement?.url
-      ? { label: 'IB statement', href: i.ibRecognitionStatement.url, text: i.ibRecognitionStatement.text }
-      : null,
-  });
+    meta: [i.city, listed ? plural(listed, 'programme') : i.school?.scope === 'catalogue' ? 'Nearly all in English' : null],
+  };
 }

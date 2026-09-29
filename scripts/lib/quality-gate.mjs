@@ -253,6 +253,12 @@ export const CHECKS = [
     title: 'No institution shows two programme cards with one name; every path page says what differs',
   },
   {
+    id: 'templates',
+    script: 'scripts/test-templates.mjs',
+    stage: 'built',
+    title: "Every country, university and programme page comes from its level's one template",
+  },
+  {
     id: 'text-walls',
     script: 'scripts/test-text-walls.mjs',
     stage: 'built',

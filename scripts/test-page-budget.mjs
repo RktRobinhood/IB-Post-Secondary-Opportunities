@@ -99,12 +99,12 @@ for (const code of codes.sort()) {
   } catch {
     continue;
   }
-  const { words, wordsBefore, view } = measure(pageHtml, ['institutions', 'overview']);
+  const { words, wordsBefore, view } = measure(pageHtml, ['institutions', 'how']);
 
   // A Destination with no institutions has nothing to lead with, and the
   // ordering rule has nothing to say about it; the reading budget still holds.
   const hasInstitutions = /\sid="institutions"/.test(pageHtml);
-  const overviewAt = view.search(/\sid="overview"/);
+  const overviewAt = view.search(/\sid="how"/);
   const reading = overviewAt >= 0 ? countWords(view.slice(overviewAt)) : words;
 
   rows.push({ code, words, before: wordsBefore.institutions, reading });
@@ -120,7 +120,7 @@ for (const code of codes.sort()) {
     // Institutions before every question about applying, and before the sources.
     const inst = pageHtml.search(/\sid="institutions"/);
     const firstTopic = pageHtml.search(/<section class="topic"/);
-    const overview = pageHtml.search(/\sid="overview"/);
+    const overview = pageHtml.search(/\sid="how"/);
     if (overview >= 0 && overview < inst) fail(rel, 'the overview comes before the institutions');
     if (firstTopic >= 0 && firstTopic < inst) fail(rel, 'a topic section comes before the institutions');
     const src = pageHtml.search(/<section class="sources"|\sid="sources"/);

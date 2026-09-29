@@ -152,8 +152,8 @@ ${hero({
           it is the same gap almost everywhere.`,
           { kind: 'ok', title: 'Where to start' }
         )}
-        <a class="btn btn--primary" href="${url('/planner/')}" style="width:100%;justify-content:center">Check my subjects</a>
-        <a class="btn btn--quiet" href="${url('/timeline/')}" style="width:100%;justify-content:center">See the calendar</a>
+        <a class="btn btn--primary btn--block" href="${url('/planner/')}">Check my subjects</a>
+        <a class="btn btn--quiet btn--block" href="${url('/timeline/')}">See the calendar</a>
       </aside>
     </div>
   </div>

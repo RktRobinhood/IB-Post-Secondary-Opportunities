@@ -317,10 +317,9 @@ ${hero({
 
       <aside class="layout-aside__side stack">
         ${stamp(cfg.dataAsOf)}
-        <div class="card card--flat">
-          <div class="card__body">
-            <p class="eyebrow eyebrow--plain">On this page</p>
-            <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
+        <nav aria-label="On this page">
+          <p class="eyebrow eyebrow--plain">On this page</p>
+          <ul class="side-links">
               <li><a href="#wrong">Report a mistake</a></li>
               <li><a href="#lifecycle">How a claim gets published</a></li>
               <li><a href="#numbers">Where this stands</a></li>
@@ -331,8 +330,7 @@ ${hero({
               <li><a href="#privacy">What we know about you</a></li>
               <li><a href="#boundaries">What this does not do</a></li>
             </ul>
-          </div>
-        </div>
+        </nav>
         ${note(
           `Everything this page claims about what the site does not collect is checkable. Open your browser's
           network tab and use the site — there are no third-party requests except the font stylesheet, and no

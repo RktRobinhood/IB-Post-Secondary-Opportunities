@@ -4,6 +4,18 @@ Templates keep a large site coherent while leaving room for surprise. They defin
 
 The design references and adopt/adapt/avoid notes behind these templates live in [Dynamic site inspiration](research/DYNAMIC_SITE_INSPIRATION.md).
 
+## Three levels, one template each (29 September 2026)
+
+The owner: every country page, every university page and every programme page is the same template, with its own pictures, universities and answers; a section with no data is left out, never redesigned. After the programme page the site hands the student to the university's own page.
+
+| Level | Template | Adapters (records → view model) |
+|---|---|---|
+| Country | `src/templates/country.mjs` | `src/pages/denmark.mjs` (`denmarkHub`), `src/pages/destinations.mjs` (`destination`) |
+| University | `src/templates/university.mjs` | `src/pages/institutions.mjs` (`university`), `src/pages/schools.mjs` (`schoolPage`) |
+| Programme | `src/templates/programme.mjs` | `src/pages/programme.mjs` (`programme`), `src/pages/school-programme.mjs` (`schoolProgrammePage`) |
+
+Each template's header lists its slots in order. A change to how a level looks is made once, in its template; a new data source gets a new adapter, never a new page function. `scripts/test-templates.mjs` (gate check `templates`) fails the build if any built page at a level was not drawn by its template or its `data-slot`s are out of order, and if anything outside `src/templates/` writes those marks.
+
 ## Shared experience shell
 
 Every exploration surface uses one shared query state for filters, map, list, counts, comparison, and URL. The shell contains:

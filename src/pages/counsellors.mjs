@@ -220,10 +220,9 @@ ${hero({
 
       <aside class="layout-aside__side stack">
         ${stamp(site.config?.dataAsOf)}
-        <div class="card card--flat">
-          <div class="card__body">
-            <p class="eyebrow eyebrow--plain">On this page</p>
-            <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
+        <nav aria-label="On this page">
+          <p class="eyebrow eyebrow--plain">On this page</p>
+          <ul class="side-links">
               <li><a href="#depth">How deep the coverage goes</a></li>
               <li><a href="#conversation">Using it in a conversation</a></li>
               <li><a href="#wrong">What students get wrong</a></li>
@@ -232,8 +231,7 @@ ${hero({
               <li><a href="#not">What it will not do</a></li>
               <li><a href="#report">Reporting a mistake</a></li>
             </ul>
-          </div>
-        </div>
+        </nav>
         ${note(
           `Everything on this site is generated from public data files. If you would rather read the
           underlying records than the pages, they are in the repository, one file per country, institution

@@ -1,6 +1,7 @@
 import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, crumbs, glance, topic, note, stamp, pager, tags, sources, facts } from '../lib/components.mjs';
+import { note, tags } from '../lib/components.mjs';
+import { programmeTemplate } from '../templates/programme.mjs';
 import { buildSubjectIndex, ibTermsPhrase } from '../lib/eligibility.mjs';
 import { ibOption } from '../lib/canonical.mjs';
 import { identityWords } from '../lib/calendar.mjs';
@@ -413,9 +414,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
 
   const selectionLabels = selection.map((s) => SELECTION[s]).filter(Boolean);
   const decided = selectionLabels.length || p.selectionNote || cut
-    ? topic({
-        id: 'selection',
-        title: 'How places are decided',
+    ? ({
         /* One card, like the requirement: the note is often the school's
            and the same on each of its programmes. */
         short: selectionLabels.length || p.selectionNote
@@ -430,7 +429,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
           : '',
         more: 'The last cut-off',
       })
-    : '';
+    : null;
 
   /* A page with little of its own still ends on the way on, in the column. */
   /* Siblings are cards, never the page's own family: its paths are in the
@@ -459,18 +458,15 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     applyByOf: (m) => (m.slug === p.slug ? dl.tile.value : deadlineOf(site, inst, c, m, today).tile.value),
   });
 
-  const body = html`
-${hero({
-  eyebrow: [short, p.credential, `${p.years} yrs`, p.city || inst.city].filter(Boolean).join(' · '),
-  title,
-  lede,
-  image,
-  variant: 'compact',
-})}
-
-<section class="section section--tinted section--glance">
-  <div class="wrap">
-    ${glance([
+  /* Drawn by the one programme template (src/templates/programme.mjs). */
+  return programmeTemplate({
+    hero: {
+      eyebrow: [short, p.credential, `${p.years} yrs`, p.city || inst.city].filter(Boolean).join(' · '),
+      title,
+      lede,
+      image,
+    },
+    glance: [
       { label: 'Where', value: p.city || inst.city || c.name, note: p.city || inst.city ? c.name : null },
       { label: 'Degree', value: p.credential },
       { label: 'Length', value: `${p.years} years` },
@@ -480,88 +476,50 @@ ${hero({
       dl.tile,
       admissionTile,
       { label: 'EU/EEA fee', value: fee.value, note: fee.note },
-    ])}
-  </div>
-</section>
-${before
-  ? html`<section class="section section--before">
-      <div class="wrap">${before}</div>
-    </section>`
-  : ''}
-<section class="section">
-  <div class="wrap">
-    ${crumbs([
-      { href: `${c.href}#institutions`, label: c.name },
-      { href: inst.href, label: short },
-      { label: title },
-    ])}
-    <div class="layout-aside${dates ? ' layout-aside--dates' : ''}">
-      ${dates}
-      <div class="prose">
-        ${/* One programme on several campuses, or as several paths: what
-              differs, in one small table, on every path's page. */ paths}
-        <h2 id="requirements">What you need</h2>
-        ${lead}
-        ${!lead ? html`<p class="need__note">No requirement is recorded here yet.</p>` : ''}
-        ${hasFull
-          ? html`<details class="topic__more"><summary>Requirements in full</summary><div class="topic__body">${fullBody}</div></details>`
-          : ''}
-
-        ${decided}
-
-        ${whatItIs ? topic({ id: 'what', title: 'What it is', short: whatItIs }) : ''}
-
-        ${siblings.length
-          ? html`<section class="topic" aria-labelledby="more-here">
-              <h2 id="more-here">More at ${short}</h2>
-              <div class="prog-siblings">${siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) }))}</div>
-            </section>`
-          : nearby.length
-            ? html`<section class="topic" aria-labelledby="more-here">
-                <h2 id="more-here">More ${FIELD[p.field].toLowerCase()} in ${c.name}</h2>
-                <div class="prog-siblings">${nearby.map(({ school: s, group: g }) => programmeCard(s, g, { tuitionOnCard: false, headed: false, brief: true, at: s.shortName || s.name, statusOf: (q) => statusOf(s, q) }))}</div>
-              </section>`
-            : ''}
-
-        <details class="sources-foot"><summary>Written from ${plural(pageSources.length, 'official page')}</summary>
-          ${sources(pageSources, { title: null })}</details>
-      </div>
-
-      <aside class="layout-aside__side stack">
-        ${stamp(school.retrieved)}
-        <a class="btn btn--solid" href="${p.url}" rel="noopener nofollow" style="width:100%;justify-content:center">The official page</a>
-        ${facts([
-          /* The name as the institution writes it, where the title shortens it. */
-          { label: 'Official name', value: title !== p.name ? p.name : null },
-          { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
-          { label: 'Country', value: html`<a href="${url(c.href)}">${c.name}</a>` },
-          {
-            label: 'Apply via',
-            value: school.apply ? html`<a href="${school.apply.url}" rel="noopener nofollow">${school.apply.via.split(' (')[0]}</a>` : null,
-          },
-          /* The code the application asks for (a CAO code), when it has one. */
-          { label: 'Course code', value: p.code || null },
-        ])}
-        ${note('Requirements change between admission years. Check the official page before you apply.', { kind: 'warn', title: 'Always verify' })}
-      </aside>
-    </div>
-  </div>
-</section>
-${prev || next
-  ? html`<section class="section section--pager">
-      <div class="wrap">${pager({ prev, next })}</div>
-    </section>`
-  : ''}`;
-
-  return page({
-    title: `${p.name} — ${short}`,
-    description: truncate(
-      p.about || `${p.name} (${p.credential}) at ${inst.name}, ${c.name}: what it asks of IB students, and when to apply.`,
-      155
-    ),
-    path: p.href,
-    section: '/countries/',
-    body,
-    scripts: dates ? ['dates-panel.js'] : undefined,
+    ],
+    before,
+    trail: {
+      country: { href: `${c.href}#institutions`, label: c.name },
+      university: { href: inst.href, label: short },
+      title,
+    },
+    dates,
+    // One programme on several campuses, or as several paths: what differs.
+    paths,
+    need: { lead, full: hasFull ? fullBody : null },
+    decided,
+    what: whatItIs ? { short: whatItIs } : null,
+    more: siblings.length
+      ? { title: `More at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
+      : nearby.length
+        ? {
+            title: `More ${FIELD[p.field].toLowerCase()} in ${c.name}`,
+            cards: nearby.map(({ school: s, group: g }) => programmeCard(s, g, { tuitionOnCard: false, headed: false, brief: true, at: s.shortName || s.name, statusOf: (q) => statusOf(s, q) })),
+          }
+        : null,
+    sources: pageSources,
+    rail: {
+      checked: school.retrieved,
+      official: p.url,
+      rows: [
+        /* The name as the institution writes it, where the title shortens it. */
+        { label: 'Official name', value: title !== p.name ? p.name : null },
+        { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
+        { label: 'Country', value: html`<a href="${url(c.href)}">${c.name}</a>` },
+        { label: 'Apply via', value: school.apply ? html`<a href="${school.apply.url}" rel="noopener nofollow">${school.apply.via.split(' (')[0]}</a>` : null },
+        /* The code the application asks for (a CAO code), when it has one. */
+        { label: 'Course code', value: p.code || null },
+      ],
+    },
+    pager: { prev, next },
+    page: {
+      title: `${p.name} — ${short}`,
+      description: truncate(
+        p.about || `${p.name} (${p.credential}) at ${inst.name}, ${c.name}: what it asks of IB students, and when to apply.`,
+        155
+      ),
+      path: p.href,
+      section: '/countries/',
+    },
   });
 }

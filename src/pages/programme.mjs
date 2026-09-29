@@ -10,7 +10,9 @@ import { readerAccessOf } from '../lib/calendar.mjs';
 import { entryAward, ENTRY_AWARD } from '../lib/eligibility.mjs';
 import { awardBlock, destinationOf, cutoffSentence, prettyDate, institutionPicture } from './programme-facts.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
-import { credentialLine, facetsOf, pathsTable } from '../lib/paths.mjs';
+import { credentialLine, facetsOf, pathsTable, cardGroups, programmeCard } from '../lib/paths.mjs';
+import { renderProgrammeCard } from '../lib/programme-card.mjs';
+import { programmeTemplate } from '../templates/programme.mjs';
 
 /* One page per Programme: what it is, at a glance, then what it takes. */
 
@@ -81,20 +83,24 @@ export function programme(site, p, inst) {
           )}</ul>`)}
     ${!req && !p.requirementsText ? emptyState('No entry requirements have been recorded for this programme yet.') : ''}`;
 
-  const body = html`
-${hero({
-  variant: 'compact',
-  // The institution, then what kind of degree, how long and where:
-  // "SDU · BEng · 3½ yrs · Sønderborg" (src/lib/paths.mjs).
-  eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
-  title: p.name,
-  lede: firstSentence(p.summary, 20),
-  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
-})}
+  /* More at this university: its other degrees, as the school pages end. */
+  const siblings = cardGroups(site, inst.programmes.filter((q) => q.id !== p.id))
+    .filter((g) => !g.members?.some?.((q) => q.id === p.id))
+    .slice(0, 3)
+    // Brief, as the school pages' are: its requirement lives on its own page.
+    .map((g) => renderProgrammeCard({ ...programmeCard(site, g, { meta: [] }), req: '' }));
 
-<section class="section section--tinted section--glance">
-  <div class="wrap">
-    ${glance([
+  /* Drawn by the one programme template (src/templates/programme.mjs). */
+  return programmeTemplate({
+    hero: {
+      // The institution, then what kind of degree, how long and where:
+      // "SDU · BEng · 3½ yrs · Sønderborg" (src/lib/paths.mjs).
+      eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
+      title: p.name,
+      lede: firstSentence(p.summary, 20),
+      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
+    },
+    glance: [
       { label: 'Where', value: [p.campus || inst.city, dest?.name].filter(Boolean).join(', ') || null },
       // The kind of degree first, because an academy profession degree is not a
       // bachelor's and a student comparing the two needs to see that at once.
@@ -120,46 +126,34 @@ ${hero({
           ? [p.cutoff.ibPoints || p.cutoff.anyDiploma ? `Danish ${p.cutoff.value}` : null, p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ')
           : [p.cutoff?.intake, quotaFloorText].filter(Boolean).join(' · ') || null,
       },
-    ])}
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    ${crumbs([
-      ...(dest ? [{ href: dest.href, label: dest.name }] : []),
-      { href: '/#discover', label: 'Find a degree' },
-      { href: inst.href, label: inst.shortName || inst.name },
-      { label: p.name },
-    ])}
-
-    <div class="layout-aside${dates ? ' layout-aside--dates' : ''}">
-      ${dates}
-      <div class="prose">
-        ${/* One programme offered as several paths: what differs, in one table,
-              on every member page (src/lib/paths.mjs). */ pathsTable(site, p, inst)}
-        <h2 id="requirements">What you need</h2>
-        ${need}
-        ${/* A question the record leaves open is said where the requirements are
-             read, not only one tap down (verification 2 after round 5: SEA's
-             page led with "DP Course Results are accepted"). */
-          openQuestions.map((r) => html`<p class="need__note req-open"><strong>${(r.satisfiedBy || []).includes('ib-diploma') ? 'With DP Course Results:' : 'Open question:'}</strong> ${r.label ? `${r.label} — ` : ''}${r.openQuestion}</p>`)}
-        ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}
-        <p class="need__cta"><a class="btn btn--primary" href="${url('/planner/')}">Check my subjects against it</a></p>
-
-        ${ev
-          ? freshness({
-              intake: opp?.intake,
-              checkedAt: ev.checkedAt || opp?.meta?.dataAsOf,
-              level: ev.level,
-              provisional: provisionalDates,
-            })
-          : ''}
-
-        ${topic({
-          id: 'fine-print',
-          title: 'The fine print',
-          short: [
+    ],
+    trail: {
+      country: dest ? { href: `${dest.href}#institutions`, label: dest.name } : null,
+      university: { href: inst.href, label: inst.shortName || inst.name },
+      title: p.name,
+    },
+    dates,
+    /* One programme offered as several paths: what differs, in one table,
+       on every member page (src/lib/paths.mjs). */
+    paths: pathsTable(site, p, inst),
+    need: {
+      lead: need,
+      /* A question the record leaves open is said where the requirements are
+         read, not only one tap down (verification 2 after round 5). */
+      extra: html`${openQuestions.map((r) => html`<p class="need__note req-open"><strong>${(r.satisfiedBy || []).includes('ib-diploma') ? 'With DP Course Results:' : 'Open question:'}</strong> ${r.label ? `${r.label} — ` : ''}${r.openQuestion}</p>`)}
+        ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}`,
+      cta: { href: '/planner/', label: 'Check my subjects against it' },
+    },
+    notice: ev
+      ? freshness({
+          intake: opp?.intake,
+          checkedAt: ev.checkedAt || opp?.meta?.dataAsOf,
+          level: ev.level,
+          provisional: provisionalDates,
+        })
+      : null,
+    decided: {
+                    short: [
             award === ENTRY_AWARD.DIPLOMA_REQUIRED ? 'Asks for the full IB Diploma.' : null,
             award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED
               ? openQuestions.some((r) => (r.satisfiedBy || []).includes('ib-diploma')) ? 'DP Course Results are accepted, with an open question: see "What you need".' : 'DP Course Results are accepted.'
@@ -198,70 +192,51 @@ ${hero({
                   { kind: 'ok', title: 'Open entry' }
                 )}`,
           more: 'Requirements in full, and how places are allocated',
-        })}
-
-        ${p.summary
-          ? topic({
-              id: 'what',
-              title: 'What it is',
-              short: p.summary,
-              body: facts([
-                { label: 'Degree', value: p.degree },
-                { label: 'Length', value: p.years ? `${p.years} years${p.ects ? `, ${p.ects} ECTS` : ''}` : p.ects ? `${p.ects} ECTS` : null },
-                { label: 'Field', value: p.field },
-              ]),
-              more: 'Degree and length',
-            })
-          : ''}
-
-        ${evidenceBlock({
-          claim: `Entry requirements and admission rules for ${p.name}.`,
-          records: site.graph ? resolveEvidence(site.graph, opp?.evidence) : [],
-          summary: 'Open this to see the exact page each rule came from, when it was read, and whether a person has checked it.',
-        })}
-
-        ${p.url || p.source
-          ? sources([
-              p.url ? { title: `${p.name} at ${inst.shortName || inst.name}`, url: p.url, retrieved: p.verified } : null,
-              p.source && p.source !== p.url ? { title: 'Entry requirements', url: p.source, retrieved: p.verified } : null,
-            ].filter(Boolean))
-          : ''}
-      </div>
-
-      <aside class="layout-aside__side stack">
-        ${stamp(p.verified || inst.dataAsOf)}
-        ${p.url
-          ? html`<a class="btn btn--solid" href="${p.url}" rel="noopener nofollow" style="width:100%;justify-content:center">The official page</a>`
-          : ''}
-        ${facts([
-          { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
-          { label: 'Country', value: dest ? html`<a href="${url(dest.href)}">${dest.name}</a>` : null },
-          {
-            label: 'Apply at',
-            value: route?.portalUrl
-              ? html`<a href="${route.portalUrl}" rel="noopener nofollow">${system?.name || new URL(route.portalUrl).hostname.replace(/^www\./, '')}</a>`
-              : null,
-          },
-        ])}
-        ${note(
-          `Requirements change between admission years. Check the official page before you apply.`,
-          { kind: 'warn', title: 'Always verify' }
-        )}
-      </aside>
-    </div>
-  </div>
-</section>`;
-
-  return page({
-    title: `${p.name} — ${inst.shortName || inst.name}`,
-    description: truncate(
-      p.summary ||
-        `${p.name} at ${inst.name}${dest ? ` in ${dest.sentenceName}` : ''}: entry requirements for IB students, taught in English.`,
-      155
-    ),
-    path: p.href,
-    section: dest?.section,
-    body,
-    scripts: dates ? ['dates-panel.js'] : undefined,
+        },
+    what: p.summary
+      ? {
+          short: p.summary,
+          body: facts([
+            { label: 'Degree', value: p.degree },
+            { label: 'Length', value: p.years ? `${p.years} years${p.ects ? `, ${p.ects} ECTS` : ''}` : p.ects ? `${p.ects} ECTS` : null },
+            { label: 'Field', value: p.field },
+          ]),
+          more: 'Degree and length',
+        }
+      : null,
+    more: siblings.length ? { title: `More at ${inst.shortName || inst.name}`, cards: siblings } : null,
+    evidence: evidenceBlock({
+      claim: `Entry requirements and admission rules for ${p.name}.`,
+      records: site.graph ? resolveEvidence(site.graph, opp?.evidence) : [],
+      summary: 'Open this to see the exact page each rule came from, when it was read, and whether a person has checked it.',
+    }),
+    sources: [
+      p.url ? { title: `${p.name} at ${inst.shortName || inst.name}`, url: p.url, retrieved: p.verified } : null,
+      p.source && p.source !== p.url ? { title: 'Entry requirements', url: p.source, retrieved: p.verified } : null,
+    ],
+    rail: {
+      checked: p.verified || inst.dataAsOf,
+      official: p.url,
+      rows: [
+        { label: 'Institution', value: html`<a href="${url(inst.href)}">${inst.name}</a>` },
+        { label: 'Country', value: dest ? html`<a href="${url(dest.href)}">${dest.name}</a>` : null },
+        {
+          label: 'Apply at',
+          value: route?.portalUrl
+            ? html`<a href="${route.portalUrl}" rel="noopener nofollow">${system?.name || new URL(route.portalUrl).hostname.replace(/^www\./, '')}</a>`
+            : null,
+        },
+      ],
+    },
+    page: {
+      title: `${p.name} — ${inst.shortName || inst.name}`,
+      description: truncate(
+        p.summary ||
+          `${p.name} at ${inst.name}${dest ? ` in ${dest.sentenceName}` : ''}: entry requirements for IB students, taught in English.`,
+        155
+      ),
+      path: p.href,
+      section: dest?.section,
+    },
   });
 }

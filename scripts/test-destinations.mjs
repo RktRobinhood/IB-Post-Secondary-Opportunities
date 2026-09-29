@@ -82,7 +82,9 @@ const sitePath = (href) => (base && href.startsWith(base) ? href.slice(base.leng
 /** The breadcrumb trail only — the masthead links to every section on every page. */
 const crumbHrefs = (html) => {
   const trail = between(html, /<nav aria-label="Breadcrumb">([\s\S]*?)<\/nav>/);
-  return [...trail.matchAll(/href="([^"]*)"/g)].map((m) => sitePath(m[1]));
+  // A crumb may land on the country page's list of institutions (#institutions);
+  // it still goes through that country.
+  return [...trail.matchAll(/href="([^"]*)"/g)].map((m) => sitePath(m[1]).split('#')[0]);
 };
 /** Which top-level navigation item the page claims to be inside. */
 const sectionOf = (html) => sitePath(between(html, /<a href="([^"]*)" aria-current="page"/));

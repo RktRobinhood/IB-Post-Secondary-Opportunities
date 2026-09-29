@@ -9,6 +9,7 @@ import { contextFor } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
 import { cardGroups } from '../lib/paths.mjs';
+import { countryTemplate } from '../templates/country.mjs';
 
 /** The first publishable photograph among these image keys, shaped for a hero. */
 function photo(site, keys) {
@@ -76,7 +77,7 @@ export function denmarkHub(site) {
   ];
 
   const topics = [
-    topic({
+    ({
       id: 'points',
       title: 'Your points become a grade average',
       short: 'The Agency converts your IB total to the Danish scale: 30 points is 6.9, 36 is 9.3, 40 is 10.7.',
@@ -85,7 +86,7 @@ export function denmarkHub(site) {
         <p><a class="arrow-link" href="${url('/denmark/ib-conversion/')}">The full table</a></p>`,
       more: 'How it is used',
     }),
-    topic({
+    ({
       id: 'subjects',
       title: 'Your subjects become Danish levels',
       short: 'HL generally becomes A level and SL becomes B — but not always, and the exceptions matter.',
@@ -96,7 +97,7 @@ export function denmarkHub(site) {
         <p><a class="arrow-link" href="${url('/planner/')}">Check yours against real programmes</a></p>`,
       more: 'The exceptions',
     }),
-    topic({
+    ({
       id: 'deadline',
       title: 'You apply before you have results',
       short: 'Applications close at **12:00 noon CET on 15 March 2027** — not midnight. Results come out on 6 July.',
@@ -106,7 +107,7 @@ export function denmarkHub(site) {
         <p><a class="arrow-link" href="${url('/denmark/apply/')}">Step by step: how to apply</a></p>`,
       more: 'What happens after',
     }),
-    topic({
+    ({
       id: 'quotas',
       title: 'Quota 1 and quota 2',
       short: 'Quota 1 ranks on your converted average alone; quota 2 weighs other things. You are considered for both.',
@@ -127,7 +128,7 @@ export function denmarkHub(site) {
         )}`,
       more: 'How the quotas work',
     }),
-    topic({
+    ({
       id: 'danish',
       title: 'Most degrees are taught in Danish',
       short: 'The English-taught set is much smaller — and it is the set on this site.',
@@ -140,7 +141,7 @@ export function denmarkHub(site) {
         ${sectorLandscape(site.graph.destinations.get('dk')?.sectorLandscape, { destinationName: 'Denmark' })}`,
       more: 'Where the English-taught degrees are',
     }),
-    topic({
+    ({
       id: 'money',
       title: 'What it costs',
       short: 'Nothing for EU, EEA and Swiss citizens. Everyone else pays roughly €6,000–16,000 a year.',
@@ -152,7 +153,7 @@ export function denmarkHub(site) {
       more: 'SU and living costs',
     }),
     notes.length &&
-      topic({
+      ({
         id: 'context',
         title: 'What it is actually like',
         short: `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`,
@@ -161,100 +162,78 @@ export function denmarkHub(site) {
       }),
   ].filter(Boolean);
 
-  const body = html`
-${hero({
-  eyebrow: 'Denmark · ' + SITE.cycle.label,
-  title: 'Denmark',
-  lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
-  image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
-  // The universities a student could actually go to, each named, in turn.
-  slides: institutions
-    .filter((i) => i.programmes.length)
-    .map((i) => ({ i, p: picture(site, i.id, { prefer: 'commons' }) }))
-    .filter(({ p }) => p?.src && p.src !== pic?.src)
-    .slice(0, 4)
-    .map(({ i, p }) => ({ src: p.external ? p.src : url(p.src), caption: `${i.name} · ${i.city}`, credit: p.credit || null })),
-  actions: html`
-    <a class="btn btn--primary" href="${url('/#discover')}">See every degree</a>
-    <a class="btn btn--ghost" href="${url('/planner/')}">Check my subjects</a>`,
-})}
-
-<section class="section section--tinted section--tight">
-  <div class="wrap">
-    ${stats([
+  /* Drawn by the one country template (src/templates/country.mjs): Denmark
+     looks like every other country, with its own answers. */
+  return countryTemplate({
+    hero: {
+      eyebrow: 'Denmark · ' + SITE.cycle.label,
+      title: 'Denmark',
+      lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
+      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
+      // The universities a student could actually go to, each named, in turn.
+      slides: institutions
+        .filter((i) => i.programmes.length)
+        .map((i) => ({ i, p: picture(site, i.id, { prefer: 'commons' }) }))
+        .filter(({ p }) => p?.src && p.src !== pic?.src)
+        .slice(0, 4)
+        .map(({ i, p }) => ({ src: p.external ? p.src : url(p.src), caption: `${i.name} · ${i.city}`, credit: p.credit || null })),
+      actions: [
+        { href: '/?where=dest:dk#discover', label: 'See every degree' },
+        { href: '/planner/', label: 'Check my subjects' },
+      ],
+    },
+    stats: [
       { value: '15 March', label: 'Deadline, 12:00 noon CET' },
       { value: '24', label: 'IB points for general access' },
       { value: '8', label: 'Programmes you may list' },
       { value: '28 July', label: 'You get an answer' },
-    ])}
-  </div>
-</section>
-
-${institutions.length
-  ? html`<section class="section">
-      <div class="wrap">
-        ${sectionHead({
-          eyebrow: plural(teaching, 'institution'),
-          title: 'Where you can study in English',
-          id: 'institutions',
-        })}
-        <div class="grid grid--3">
-          ${institutions.filter((i) => i.programmes.length).map((i) => {
-            const p = picture(site, i.id);
-            return card({
-              href: i.href,
-              title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
-              text: firstSentence(i.about, 24),
-              image: p ? { src: p.src, alt: p.alt } : null,
-              placeholder: i.shortName || i.name,
-              meta: [i.city, plural(i.programmes.length, 'programme')].filter(Boolean),
-            });
-          })}
-        </div>
-        ${/* A university with nothing in English is worth knowing about, but
-              not as a card in a grid of places to go. */
-          institutions
-            .filter((i) => !i.programmes.length)
-            .map(
-              (i) => html`<p class="small-print">No bachelor's degrees in English at
-                <a href="${url(i.href)}">${i.name}</a> — every one is taught in Danish.</p>`
-            )}
-      </div>
-    </section>`
-  : ''}
-
-<section class="section section--tinted section--rule">
-  <div class="wrap">
-    <div class="layout-aside">
-      <div class="prose">
-        <h2 id="how">How it works</h2>
-        <p class="lede">An IB Diploma with 24 points opens every programme in Denmark — if you also meet that
-        programme's subject requirements.</p>
-        ${topics}
-      </div>
-      <aside class="layout-aside__side stack">
-        ${stamp(site.conversion?.dataAsOf)}
-        <nav aria-label="Denmark guides">
-          <p class="eyebrow eyebrow--plain">Go deeper</p>
-          <ul class="side-links">
-            <li><a href="${url('/denmark/apply/')}">How to apply, step by step</a></li>
-            <li><a href="${url('/denmark/ib-conversion/')}">Conversion tables</a></li>
-            <li><a href="${url('/denmark/money/')}">Money, SU and living costs</a></li>
-            <li><a href="${url('/timeline/')}">The 2027 calendar</a></li>
-          </ul>
-        </nav>
-      </aside>
-    </div>
-  </div>
-</section>`;
-
-  return page({
-    title: 'Denmark',
-    description:
-      'How IB students apply in Denmark: the 15 March deadline, quota 1 and quota 2, the official conversion tables, and every English-taught degree at the universities and colleges.',
-    path: '/denmark/',
-    section: '/denmark/',
-    body,
+    ],
+    crumbs: [{ href: '/countries/#europe', label: 'Europe' }, { label: 'Denmark' }],
+    places: {
+      count: teaching,
+      groups: [{
+        name: null,
+        cards: institutions.filter((i) => i.programmes.length).map((i) => {
+          const p = picture(site, i.id);
+          return {
+            href: i.href,
+            name: i.name,
+            shortName: i.shortName,
+            text: firstSentence(i.about, 24),
+            image: p ? { src: p.src, alt: p.alt } : null,
+            meta: [i.city, plural(cardGroups(site, i.programmes).length, 'programme')],
+          };
+        }),
+      }],
+      /* A university with nothing in English is worth knowing about, but
+         not as a card in a grid of places to go. */
+      footnote: institutions
+        .filter((i) => !i.programmes.length)
+        .map((i) => html`<p class="small-print">No bachelor's degrees in English at
+          <a href="${url(i.href)}">${i.name}</a> — every one is taught in Danish.</p>`),
+    },
+    details: {
+      lede: `An IB Diploma with 24 points opens every programme in Denmark — if you also meet that programme's subject requirements.`,
+      topics,
+    },
+    rail: {
+      checked: site.conversion?.dataAsOf,
+      deeper: [
+        { href: '/?where=dest:dk#discover', label: 'Every degree in Denmark' },
+        { href: '/denmark/apply/', label: 'How to apply, step by step' },
+        { href: '/denmark/ib-conversion/', label: 'Conversion tables' },
+        { href: '/denmark/money/', label: 'Money, SU and living costs' },
+        { href: '/timeline/', label: 'The 2027 calendar' },
+        { href: '/compare/', label: 'Compare countries' },
+      ],
+    },
+    page: {
+      title: 'Denmark',
+      description:
+        'How IB students apply in Denmark: the 15 March deadline, quota 1 and quota 2, the official conversion tables, and every English-taught degree at the universities and colleges.',
+      path: '/denmark/',
+      section: '/denmark/',
+    },
   });
 }
 
@@ -735,7 +714,7 @@ ${hero({
         )}
         <nav aria-label="On this page">
           <p class="eyebrow eyebrow--plain">On this page</p>
-          <ul style="list-style:none;padding:0;margin:0;font-size:.9375rem;line-height:2">
+          <ul class="side-links">
             <li><a href="#calculator">Calculator and subject lookup</a></li>
             <li><a href="#levels">Danish levels in IB terms</a></li>
             <li><a href="#average">Grade average table</a></li>

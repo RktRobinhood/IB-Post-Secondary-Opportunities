@@ -337,7 +337,7 @@ ${FEEDBACK
       </div>
     </aside>`
   : ''}
-<main id="main">
+<main id="main"${o.template ? raw(` data-template="${o.template}"`) : ''}>
 ${o.body}
 </main>
 
