@@ -495,3 +495,61 @@ The write-up is `round-6/progress.md`.
     from the page source on 29 Sep 2026, with the sentence as the excerpt.
     A guard checks every levelRaise and alternativeTest cites such an
     excerpt and that each date it states is in it.
+
+## QA pass, 29 Sep — a language-acquisition course was called "none"
+
+Profile: Maths AA HL, Physics HL, English A SL, Chemistry HL, Danish B SL,
+Economics SL, 36 points. ITU Global Business Informatics said "This needs
+Danish A (SL or HL), and your profile has none. From no Danish to A level…".
+
+58. **A subject the scheme counts as a different one is named, never
+    "none".**
+    - *The mapping, from `data/recognition/dk.json`:* IB Danish B SL counts
+      as Danish as a second language B (HL as Danish as a second language A).
+      That is a different subject from Danish, and B is below A. The row's
+      note says whether IB Danish B can replace Danish A is decided by each
+      institution: ask in writing.
+    - *So the ✗ stands.* Two things were wrong: the line denied a subject the
+      student holds, and it asked the from-nothing question.
+    - *Root cause:* `localEquivalencyRule` looked up only `rule.subject`
+      ("Danish") in the converted profile. The student's course had been
+      converted to a differently named subject, so it fell into the
+      from-nothing branch.
+    - *The fix, with no country in it:* `relatedHolding` finds an IB subject
+      the student holds in the same catalogue `area` as the IB subjects the
+      scheme counts as `rule.subject`, where the scheme counts it as another
+      subject. The gap then leads "Your Danish B SL counts as Danish as a
+      second language B; this needs Danish A (SL or HL)." After that it gives
+      the scheme row's note (the question to ask), the published step (ITU's
+      Danish A course), and "Whether one supplementary course takes you from
+      Danish as a second language B to Danish at A level is not recorded
+      here — ask the institution."
+    - *The same rule at every level:* a different subject is a ✗, never a
+      tick.
+    - *The same wording elsewhere:*
+      - the minimum-average path now names what is held ("counts only as …",
+        or "counts as … , not …");
+      - the IB-terms path adds "Your English B HL is a different IB course"
+        after "You do not have English A: Literature at any level".
+    - *Verdict, from the existing definitions:* the step is marked uncertain,
+      as from-nothing steps are (51). So a plan that fits only if the one
+      course is enough is **Needs review**. The legend's definition covers
+      it: "a permission nobody has recorded, or a rule a person must judge".
+      It is not **Does not currently meet**, because a step is recorded, and
+      not **Possible**, because nothing records that the step closes the gap
+      in one course. Outside the EU/EEA, ITU allows no course after the
+      results, so the plan does not fit and the verdict is Does not currently
+      meet.
+    - *The "To check" line:* ITU's consequence sentence, then the scheme's
+      note.
+    - *Nothing turned greener.* The one stricter case is theoretical: a
+      related subject against a rule at the scale's lowest level. It used to
+      be a certain step and is now uncertain. No record has such a rule.
+    - *Scenarios:* 313 → 334 (README updated). They cover:
+      - the QA profile at SL, HL and with no Danish;
+      - outside the EU/EEA;
+      - a catalogue sweep: no student holding a course in a subject's area is
+        told "none";
+      - a made-up scheme (no country);
+      - the IB-terms sibling.
+      12 of them failed before the fix.

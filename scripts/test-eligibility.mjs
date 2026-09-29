@@ -1751,6 +1751,133 @@ eq('a figure above the table is not converted', ibPointsFor(13, localScheme.grad
   }
 }
 
+/* --- QA pass, 29 Sep: a language-acquisition course is not "none" ----------- *
+ *
+ * Profile: Maths AA HL, Physics HL, English A SL, Chemistry HL, Danish B SL,
+ * Economics SL, 36 points. ITU Global Business Informatics said "This needs
+ * Danish A (SL or HL), and your profile has none. From no Danish to A
+ * level…" — false: the student holds Danish B SL. The Agency's table counts
+ * it as Danish as a second language at B, a different subject from Danish and
+ * a level below A, so the ✗ stands; what was wrong is that the line denied
+ * the subject the student holds and asked a from-nothing question. The same
+ * wording path serves every subject whose acquisition course the scheme
+ * counts as a different subject, so it is fixed and tested without naming one
+ * in the engine (NOTES.md, decision 58).
+ */
+{
+  const readDir = async (d) => {
+    const out = [];
+    for (const f of (await fs.readdir(path.join(ROOT, 'data', d))).filter((x) => x.endsWith('.json'))) {
+      out.push(JSON.parse(await fs.readFile(path.join(ROOT, 'data', d, f), 'utf8')));
+    }
+    return out;
+  };
+  const institutions = await readDir('institutions');
+  const allOpps = await readDir('opportunities');
+  const opps = new Map(allOpps.map((o) => [o.id, o]));
+  const groupsTable = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'applicant-groups.json'), 'utf8')).groups;
+  const index = buildSubjectIndex({ subjects: catalogue.subjects, schemes, institutions, diplomaMinimumPoints: catalogue.diplomaMinimumPoints });
+  const opts = { subjectIndex: index, dataVersion: 'test', evidenceStatus: verified };
+  const qa = (danishLevel, group = 'eu-eea-ch') => profile([
+    { subject: 'mathematics-aa', level: 'HL', grade: 6 },
+    { subject: 'physics', level: 'HL', grade: 6 },
+    { subject: 'english-a-literature', level: 'SL', grade: 6 },
+    { subject: 'chemistry', level: 'HL', grade: 6 },
+    ...(danishLevel ? [{ subject: 'danish-b', level: danishLevel, grade: 6 }] : []),
+    { subject: 'economics', level: 'SL', grade: 6 },
+  ], { totalPoints: 36, applicantGroup: group, applicantGroups: applicantGroupsOf(group, groupsTable) });
+  const GBI = opps.get('dk-itu-global-business-informatics-2027-autumn');
+  const all = (r) => [...r.gaps, ...r.unknowns];
+  const said = (r) => JSON.stringify([r.outcome, r.actionSummary, ...all(r).map((x) => x.message)]);
+  const words = (t) => String(t).trim().split(/\s+/).length;
+
+  const sl = assess(qa('SL'), GBI, opts);
+  const dsl = sl.gaps.find((g) => g.id === 'req-all-3');
+  const [lead] = splitLead(dsl?.message || '');
+  check('QA: Danish B SL at ITU GBI is never told "your profile has none"', !all(sl).some((x) => /has none/.test(x.message)), said(sl));
+  check('QA: nor asked the from-nothing question', !all(sl).some((x) => /From no Danish/.test(x.message)), said(sl));
+  check('QA: the Danish A line is still a ✗ (Danish as a second language B is below Danish A)', !!dsl, said(sl));
+  check('QA: its lead names what the student holds and what it counts as', /Your Danish B SL counts as Danish as a second language B/.test(lead) && /this needs Danish A/.test(lead), lead);
+  check('QA: and fits a phone (a ✗ lead is at most 20 words)', words(lead) <= 20, `${words(lead)} words: ${lead}`);
+  check('QA: it carries the scheme\x27s own note: the institution decides, ask in writing', /decided by each institution/.test(dsl?.message || ''), dsl?.message);
+  check('QA: and names ITU\x27s own step, a supplementary course in Danish A', /supplementary course in Danish level A/.test(dsl?.message || ''), dsl?.message);
+  check('QA: and says that one course from Danish as a second language B is not established', /from Danish as a second language B to Danish at A level/i.test(dsl?.message || ''), dsl?.message);
+  check('QA: the step is marked uncertain', (dsl?.actions || []).length > 0 && dsl.actions.every((a) => a.uncertain), JSON.stringify(dsl?.actions));
+  // A permission nobody has recorded, and a rule a person must judge: the legend's "Needs review".
+  eq('QA: the verdict is Needs review — never greener without a source', sl.outcome, OUTCOME.NEEDS_REVIEW);
+  check('QA: and its "To check" line asks the question', /decided by each institution/.test(sl.actionSummary || ''), sl.actionSummary);
+  eq('QA: from outside the EU/EEA (no course after the results at ITU) it does not currently meet', assess(qa('SL', 'non-eu'), GBI, opts).outcome, OUTCOME.DOES_NOT_MEET);
+
+  const hl = assess(qa('HL'), GBI, opts);
+  const dhl = hl.gaps.find((g) => g.id === 'req-all-3');
+  check('QA: Danish B HL is named as Danish as a second language A, not "none"', /Your Danish B HL counts as Danish as a second language A/.test(dhl?.message || '') && !all(hl).some((x) => /has none/.test(x.message)), said(hl));
+  check('QA: and is not green — the Agency counts it as a different subject', hl.outcome !== OUTCOME.MEETS && hl.outcome !== OUTCOME.POSSIBLE, hl.outcome);
+
+  const none = assess(qa(null), GBI, opts);
+  check('QA: a profile with no Danish at all is still told it has none', none.gaps.some((g) => /has none/.test(g.message) && /From no Danish/.test(g.message)), said(none));
+
+  /* Across the catalogue: a rule is said as "none" only to a student who
+     holds nothing in the area of the IB subjects that count as it. Read from
+     the records, not the engine. */
+  const scheme = schemes.find((s) => s.subjectScale?.id === LOCAL_SCALE);
+  const areaOf = new Map(catalogue.subjects.map((s) => [s.id, s.area || null]));
+  const areasFor = (subject) => new Set(scheme.subjectEquivalence
+    .filter((row) => Object.values(row.maps || {}).some((ts) => ts.some((t) => t.subject === subject)))
+    .map((row) => areaOf.get(row.ibSubject)).filter(Boolean));
+  const rulesOf = (rs) => (rs || []).flatMap((r) => [r, ...rulesOf((r.alternatives || []).flat())]);
+  const denied = [];
+  for (const variant of [['danish-b', 'SL'], ['danish-b', 'HL'], ['english-b', 'SL'], ['language-b-other', 'SL'], ['language-ab-initio', 'SL']]) {
+    const p = profile([{ subject: variant[0], level: variant[1], grade: 5 }, { subject: 'mathematics-aa', level: 'HL', grade: 5 }], { totalPoints: 32 });
+    const heldAreas = new Set([areaOf.get(variant[0])].filter(Boolean));
+    for (const o of allOpps) {
+      const r = assess(p, o, opts);
+      for (const rule of rulesOf(o.requirements)) {
+        if (rule.kind !== 'local-equivalency' || !rule.subject) continue;
+        if (![...areasFor(rule.subject)].some((a) => heldAreas.has(a))) continue;
+        const hit = all(r).find((x) => x.id === rule.id && /has none/.test(x.message));
+        if (hit) denied.push(`${variant.join(' ')} at ${o.id}: ${hit.message.slice(0, 90)}`);
+      }
+    }
+  }
+  check('no student holding a course in a subject\x27s area is told they have none of it', denied.length === 0, denied.slice(0, 3).join(' | '));
+
+  /* The same path with no country in it: a made-up scheme where the
+     acquisition course counts as a different subject, no note, no step. */
+  const toyCatalogue = [
+    { id: 'toy-lit', name: 'Toyish A: Literature', area: 'Toyish', family: 'Toyish A', course: 'Literature', levels: ['HL', 'SL'] },
+    { id: 'toy-acq', name: 'Toyish B', area: 'Toyish', levels: ['HL', 'SL'] },
+  ];
+  const toyScheme = {
+    id: 'toy', destination: 'zz', label: 'the toy table',
+    subjectScale: { id: 'zz-abc', levels: [{ code: 'A', rank: 3 }, { code: 'B', rank: 2 }, { code: 'C', rank: 1 }] },
+    subjectEquivalence: [
+      { ibSubject: 'toy-lit', maps: { HL: [{ subject: 'Toyish', level: 'A' }], SL: [{ subject: 'Toyish', level: 'A' }] } },
+      { ibSubject: 'toy-acq', maps: { HL: [{ subject: 'Toyish second language', level: 'A' }], SL: [{ subject: 'Toyish second language', level: 'B' }] } },
+    ],
+  };
+  const toyIndex = buildSubjectIndex({ subjects: toyCatalogue, schemes: [toyScheme] });
+  const toyOpp = {
+    id: 'opp-test-toy', destination: 'zz', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' }, evidence: ['ev-test'], admission: { restricted: false },
+    requirements: [{ id: 't1', kind: 'local-equivalency', mandatory: true, levelScale: 'zz-abc', subject: 'Toyish', level: 'A', label: 'Toyish A', evidence: ['ev-test'] }],
+  };
+  const toy = assess(profile([{ subject: 'toy-acq', level: 'SL', grade: 5 }]), toyOpp, { subjectIndex: toyIndex, dataVersion: 'test', evidenceStatus: verified });
+  check('toy scheme: the acquisition course is named, not "none"', /Your Toyish B SL counts as Toyish second language B; this needs/.test(toy.gaps[0]?.message || '') && !/has none/.test(toy.gaps[0]?.message || ''), said(toy));
+  eq('toy scheme: with no published step it does not currently meet', toy.outcome, OUTCOME.DOES_NOT_MEET);
+  const toyHl = assess(profile([{ subject: 'toy-acq', level: 'HL', grade: 5 }]), toyOpp, { subjectIndex: toyIndex, dataVersion: 'test', evidenceStatus: verified });
+  check('toy scheme: at the level asked, a different subject is still not a tick', toyHl.outcome !== OUTCOME.MEETS && /counts as Toyish second language A/.test(toyHl.gaps[0]?.message || ''), said(toyHl));
+
+  /* In IB terms nothing is translated, but a student holding another course
+     in the same subject is told which one, not that they have nothing. */
+  const ibOnly = {
+    id: 'opp-test-ib-english', destination: 'zz', intake: '2027-autumn', meta: { dataAsOf: '2026-09-22' }, evidence: ['ev-test'], admission: { restricted: false },
+    requirements: [ibReq('e1', 'english-a-literature', 'SL')],
+  };
+  const eb = assess(profile([{ subject: 'english-b', level: 'HL', grade: 6 }]), ibOnly, { ...ibOnlyOptions, evidenceStatus: verified });
+  check('IB terms: English B HL against English A: Literature names the course held', /Your English B HL is a different IB course/.test(eb.gaps[0]?.message || ''), said(eb));
+  const [ebLead] = splitLead(eb.gaps[0]?.message || '');
+  check('IB terms: and the lead still says what is missing', /You do not have English A: Literature/.test(ebLead), ebLead);
+}
+
 /* --- and the engine may not learn any destination's vocabulary -------------- *
  *
  * The same guard scripts/test-credentials.mjs, test-floor.mjs, test-calendar.mjs

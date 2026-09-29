@@ -449,6 +449,38 @@ export function convertProfile(profile, subjectIndex, scale = null) {
 }
 
 /**
+ * The subject a student does hold where they do not hold the one asked for:
+ * an IB subject in the same catalogue `area` as the IB subjects the scheme
+ * counts as `rule.subject`, which the scheme counts as a different local
+ * subject instead. A language-acquisition course is the case that exists —
+ * the scheme may count it as a second-language subject, not as the language
+ * subject a programme names — but nothing here knows which subject that is:
+ * the area comes from the IB catalogue and the mapping from the scheme.
+ *
+ * Returned so a gap names what the student holds and what it counts as,
+ * rather than saying they hold nothing (QA pass, 29 Sep: "your profile has
+ * none" to a student with the acquisition course). It is never a match: the
+ * scheme says it is a different subject.
+ */
+function relatedHolding(rule, conv, subjectIndex) {
+  const scheme = conv?.scheme;
+  if (!scheme || !rule?.subject) return null;
+  const areas = new Set();
+  for (const [ibId, row] of scheme.equivalence) {
+    const reaches = Object.values(row.maps || {}).some((ts) => (ts || []).some((t) => t.subject === rule.subject));
+    const area = reaches ? lookupSubject(subjectIndex, ibId)?.area : null;
+    if (area) areas.add(area);
+  }
+  if (!areas.size) return null;
+  let best = null;
+  for (const [subject, h] of conv.held) {
+    if (subject === rule.subject || !areas.has(lookupSubject(subjectIndex, h.ibId)?.area)) continue;
+    if (!best || h.rank > best.rank) best = { ...h, subject };
+  }
+  return best;
+}
+
+/**
  * Every applicant group a profile belongs to: its own and every group that
  * contains it, following `within` in data/applicant-groups.json. The engine
  * names no group; the table says that a Nordic citizen is an EU/EEA citizen.
@@ -594,10 +626,19 @@ function minimumAverageRule(rule, ctx) {
 
   const grades = [];
   for (const x of subjects) {
-    const have = ctx.converted(x.levelScale).held.get(x.subject);
-    const rank = x.level ? scheme && ctx.converted(x.levelScale).scheme?.rank.get(x.level) : null;
+    const conv = ctx.converted(x.levelScale);
+    const have = conv.held.get(x.subject);
+    const rank = x.level ? scheme && conv.scheme?.rank.get(x.level) : null;
     if (!have || (rank != null && have.rank < rank)) {
-      return unmet(`Needs ${terms.ibText}, and your profile has no IB subject that counts as ${x.subject}${x.level ? ` ${x.level}` : ''}. (${asked}.)`);
+      const wantSaid = `${x.subject}${x.level ? ` ${x.level}` : ''}`;
+      // What the student holds, where they hold something (QA pass, 29 Sep).
+      const related = have ? null : relatedHolding(x, conv, ctx.subjectIndex);
+      const why = have
+        ? `: your ${have.ibSubject} counts only as ${x.subject} ${have.level}, not ${wantSaid}`
+        : related
+          ? `: your ${related.ibSubject} counts as ${related.subject} ${related.level}, not ${wantSaid}`
+          : `, and your profile has no IB subject that counts as ${wantSaid}`;
+      return unmet(`Needs ${terms.ibText}${why}. (${asked}.)`);
     }
     if (have.grade == null) return unsure(`Needs ${terms.ibText}. Add your grade for ${have.ibSubject} to check. (${asked}.)`, true);
     const c = convertGrade(have.grade, scheme.single);
@@ -1064,7 +1105,13 @@ function ibSubjectRule(rule, ctx) {
     : unmet(message);
 
   if (!have) {
-    return gap(`You do not have ${label} at any level.`);
+    /* Another IB course in the same subject (English B against English A:
+       Literature) is named, so the student is not told they have nothing;
+       in IB terms it is still a different course (QA pass, 29 Sep). */
+    const sibling = found?.area
+      ? [...ctx.ib.held.values()].find((h) => h.id !== found.id && lookupSubject(ctx.subjectIndex, h.id)?.area === found.area) || null
+      : null;
+    return gap(`You do not have ${label} at any level.${sibling ? ` Your ${sibling.name} ${sibling.level} is a different IB course.` : ''}`);
   }
   if (wantLevel !== 'any' && have.rank < (IB_LEVEL_RANK[wantLevel] || 0)) {
     return gap(`${label}: this asks for ${phrase} and your profile records ${have.level}.`);
@@ -1193,6 +1240,31 @@ function localEquivalencyRule(rule, ctx) {
     );
   };
 
+  /* A subject the student does hold that the scheme counts as a different
+     one (a language-acquisition course counted as a second-language
+     subject): named, never "none" (QA pass, 29 Sep). It is a ✗ at any level,
+     because the scheme says it is not the subject asked for; the scheme's own
+     note on that mapping is said with it ("whether it can replace … is
+     decided by each institution"), since it is the question to ask. The
+     course is a step, but that one course reaches the level from a different
+     subject is not recorded, so, as from nothing, a plan that fits only on
+     that count is a question, never "possible". */
+  const related = have ? null : relatedHolding(rule, conv, ctx.subjectIndex);
+  const fromRelated = (h) => {
+    const note = h.note ? ` ${h.note.trim().replace(/\.?$/, '.')}` : '';
+    const lead = `Your ${h.ibSubject} counts as ${h.subject} ${h.level}; this needs ${wanted || terms.local}.${note}`;
+    if (!raise) return unmet(`${lead}${closeIt}${consequence} (${asked}.)`, false);
+    const x = raiseExtra(wanted || terms.local);
+    for (const a of x.actions || []) {
+      a.uncertain = true;
+      a.from = `${h.subject} ${h.level}`;
+      if (h.note) a.question = h.note.trim();
+      if (rule.consequence) a.consequence = rule.consequence;
+    }
+    const question = ctx.quiet ? '' : ` Whether one supplementary course takes you from ${h.subject} ${h.level} to ${rule.subject} at ${rule.level} level is not recorded here — ask the institution.`;
+    return unmet(`${lead}${closeIt}${question}${consequence} (${asked}.)`, true, { actions: x.actions });
+  };
+
   /* A mapping the scheme itself qualifies at this level ("formally counts as
      B … confirm with the university") is a rule a person must judge, not a
      tick — unless the institution's own record confirms it (round 5: P9's
@@ -1222,6 +1294,7 @@ function localEquivalencyRule(rule, ctx) {
     const held = viaInstitution();
     const whose = `${terms.institution.name}'s own rule`;
     if (!held) {
+      if (!have && related) return fromRelated(related);
       if (!have && wantRank > lowest && raise) return fromNothing(`This needs ${wanted} (${whose}), and your profile has none of these.`);
       return unmet(`This needs ${wanted} (${whose}), and your profile has none of these.${closeIt} (${asked}.)`, !!raise, raiseExtra(wanted));
     }
@@ -1247,6 +1320,7 @@ function localEquivalencyRule(rule, ctx) {
        Physics was shown as a Geoscience "?"). */
     if (reason) return unsure(`No IB subject is equivalent to ${terms.local}. ${action || reason} (${asked}.)`, false, action ? {} : { noIbRoute: true, local: terms.local });
     if (!wanted) return unmet(`No IB subject is equivalent to ${terms.local}: ${terms.none} (${asked}.)`, false, { noIbRoute: true, local: terms.local });
+    if (related) return fromRelated(related);
     if (wantRank > lowest && raise) return fromNothing(`This needs ${wanted}, and your profile has none.`);
     return unmet(`This needs ${wanted}, and your profile has none.${closeIt}${consequence} (${asked}.)`, !!raise, raiseExtra(wanted));
   }
@@ -1714,16 +1788,22 @@ function planSteps(gaps) {
     };
   }
   if (n <= allowed) {
-    const fromNothing = raises.filter((a) => a.uncertain).map((a) => a.subject);
+    const fromNothing = raises.filter((a) => a.uncertain && !a.from).map((a) => a.subject);
+    // From a subject the scheme counts as a different one (QA pass, 29 Sep).
+    const fromOther = raises.filter((a) => a.uncertain && a.from).map((a) => `${a.course || a.phrase} from ${a.from}`);
+    // The scheme's own note on that mapping: the question to ask first.
+    const asks = [...new Set(raises.filter((a) => a.uncertain && a.question).map((a) => a.question.replace(/\.?$/, '.')))];
     /* What the institution itself says of a student without the subject
        leads (ITU GBI: "only the programme in Data Science is open to
        international students"), before any course count. */
     const said = [...new Set(raises.filter((a) => a.uncertain && a.consequence).map((a) => a.consequence.trim()))];
     if (said.length) {
-      return { possible: true, uncertain: true, lead: 'To check', summary: said.join(' '), raises };
+      return { possible: true, uncertain: true, lead: 'To check', summary: [...said, ...asks].join(' '), raises };
     }
     const questions = [
       fromNothing.length ? `Whether ${fromNothing.join(' and ')} from nothing can be done in one course is not recorded here.` : '',
+      fromOther.length ? `Whether ${fromOther.join(' and ')} can be done in one course is not recorded here.` : '',
+      ...asks,
       known ? '' : unknownSaid,
     ].filter(Boolean).join(' ');
     return {
