@@ -1,0 +1,866 @@
+{
+  "institution": "es-ie",
+  "name": "IE University",
+  "retrieved": "2026-09-26",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Private university in Segovia and Madrid; 17 English-taught bachelor's and 11 five-year dual degrees, with its own test and interview.",
+  "handoff": {
+    "label": "Undergraduate degrees",
+    "url": "https://www.ie.edu/university/studies/academic-programs/"
+  },
+  "ib": {
+    "text": "Full IB Diploma, first-sitting results only. Most admits score 34–45 (student average 36). IE's own test (or SAT, ACT, LNAT) and an interview.",
+    "url": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+  },
+  "apply": {
+    "via": "IE online application (or Common App)",
+    "url": "https://www.ie.edu/university/admission/admission-process/application-form/"
+  },
+  "starts": "September",
+  "dates": [
+    {
+      "label": "Early Round application deadline",
+      "date": "2026-09-18",
+      "kind": "early",
+      "short": "Early Round",
+      "who": "any",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/"
+    },
+    {
+      "label": "Round 1 application deadline (decision by 11 December 2026)",
+      "date": "2026-11-06",
+      "kind": "early",
+      "short": "Round 1",
+      "who": "any",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/"
+    },
+    {
+      "label": "Round 2 application deadline (decision by 19 February 2027)",
+      "date": "2027-01-15",
+      "kind": "early",
+      "short": "Round 2",
+      "who": "any",
+      "supersedes": "es-private-2027/ms-ie-round2",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/"
+    },
+    {
+      "label": "Round 3 application deadline, the last round; from May 2027 only while places remain",
+      "date": "2027-03-05",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/"
+    },
+    {
+      "label": "Round 3 decisions sent by",
+      "date": "2027-04-23",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Bachelor in Applied Mathematics",
+      "credential": "Bachelor in Applied Mathematics",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "mathematics",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-applied-mathematics/",
+      "about": "A demanding maths degree mixing theory, computation and applied work: modelling real systems and optimising decisions for finance, operations, energy and sustainability.",
+      "ib": "Maths AA HL recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "note": "IE's guidance, not a fixed rule."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Architectural Studies",
+      "credential": "Bachelor in Architectural Studies",
+      "years": 5,
+      "city": "Segovia",
+      "field": "design-architecture",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-architectural-studies/",
+      "about": "Project-based architecture training on the Segovia campus, combining creative, technical, environmental and social design with an internship programme.",
+      "ib": "Maths AA or AI (SL or HL) recommended.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€28,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Behavior and Social Sciences",
+      "credential": "Bachelor in Behavior and Social Sciences",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "social-sciences",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-in-behavior-and-social-sciences/",
+      "about": "Human behaviour studied with business and analytics tools, with elective tracks in human-centred consulting and marketing and talent strategy.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Business Administration",
+      "credential": "BBA",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "business",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-business-administration/",
+      "about": "Core business disciplines from finance to marketing, applied through hands-on projects with companies; start in Segovia or spend all four years in Madrid.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "family": {
+        "name": "Business Administration",
+        "axis": "campus",
+        "path": "Segovia or Madrid",
+        "differs": "Based in Spain: start in Segovia or Madrid, with optional exchanges abroad.",
+        "primary": true
+      },
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€29,880 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Global Bachelor in Business Administration",
+      "credential": "BBA",
+      "years": 4,
+      "city": "Madrid, Singapore, Dubai; year 4 Madrid or New York",
+      "field": "business",
+      "url": "https://www.ie.edu/university/studies/academic-programs/global-bachelor-business-administration/",
+      "about": "The same BBA degree studied across campuses: Madrid, Singapore and Dubai, with the final year in Madrid or New York City.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "family": {
+        "name": "Business Administration",
+        "axis": "campus",
+        "path": "Global BBA",
+        "differs": "Moves each year: Madrid, Singapore and Dubai, then Madrid or New York; higher fee.",
+        "cardLine": "Four cities; €45,120 a year"
+      },
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€45,120 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Communication and Digital Media",
+      "credential": "Bachelor in Communication and Digital Media",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "social-sciences",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-communication/",
+      "about": "Branding and marketing communication with a hands-on, technology-led approach: building messages that work for global audiences.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Computer Science and Artificial Intelligence",
+      "credential": "Bachelor in Computer Science and AI",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "computing",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-computer-science-artificial-intelligence/",
+      "about": "An engineering-focused computer science degree: programming, algorithms, software engineering and systems, with AI, machine learning and robotics.",
+      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "note": "IE's guidance; AI SL is also considered if you take Computer Science."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Data and Business Analytics",
+      "credential": "Bachelor in Data and Business Analytics",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "computing",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-data-business-analytics/",
+      "about": "Collecting, managing and analysing data to solve business and institutional problems, taught by IE's School of Science and Technology.",
+      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "note": "IE's guidance; AI SL is also considered with Computer Science or Physics."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Design",
+      "credential": "Bachelor in Design",
+      "years": 4,
+      "city": "Segovia and Madrid",
+      "field": "design-architecture",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-design/",
+      "about": "Multidisciplinary design with a business perspective, from digital environments to products and services; optional diplomas in interior, graphic or product design.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€28,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Economics",
+      "credential": "Bachelor in Economics",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "economics",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-economics/",
+      "about": "Econometrics, political science, analytics and behavioural science applied to the digital economy, with a finance or policy-analysis specialisation.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Environmental Sciences for Sustainability",
+      "credential": "Bachelor in Environmental Sciences",
+      "years": 4,
+      "city": "Segovia",
+      "field": "agriculture-environment",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-environmental-sciences-sustainability/",
+      "about": "Science first: biology, chemistry, physics, geology, ecology and data science, joined with environmental policy and governance, on the Segovia campus.",
+      "ib": "Maths AA plus ESS, Biology, Chemistry or Physics recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule."
+        },
+        {
+          "anyOf": [
+            "ess",
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "SL",
+          "note": "IE's guidance: at least one of these."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Fashion Design",
+      "credential": "Bachelor in Fashion Design",
+      "years": 4,
+      "city": "Segovia and Madrid",
+      "field": "design-architecture",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-in-fashion-design/",
+      "about": "Fashion design with a focus on sustainability and fashion management, combining traditional craft with new technologies.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€28,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Humanities",
+      "credential": "Bachelor in Humanities",
+      "years": 4,
+      "city": "Segovia and Madrid",
+      "field": "humanities",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-in-humanities/",
+      "about": "A multidisciplinary humanities degree that adds analytical, digital and quantitative tools to critical thinking about complex problems.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in International Relations",
+      "credential": "Bachelor in International Relations",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "social-sciences",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-international-relations/",
+      "about": "International affairs for careers in the public, private and non-profit sectors, drawing on IE's School of Politics and the UN System Staff College.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor of Laws (LL.B.)",
+      "credential": "LLB",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "law",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-laws/",
+      "about": "An English-taught law degree centred on international, European and transnational law, taught comparatively, with professional internships.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Philosophy, Politics, Law and Economics (PPLE)",
+      "credential": "Bachelor in PPLE",
+      "years": 4,
+      "city": "Segovia or Madrid",
+      "field": "interdisciplinary",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-philosophy-politics-law-economics-pple/",
+      "about": "Philosophy, politics, law and economics together, with the option to specialise in one or two of them; aimed at governance and public policy.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Bachelor in Political Science",
+      "credential": "Bachelor in Political Science",
+      "years": 4,
+      "city": "Segovia and Madrid",
+      "field": "social-sciences",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-political-science/",
+      "about": "How power, institutions and public policy shape societies, with public administration and leadership training for designing policy solutions.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€27,300 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree Bachelor in Business Administration and Bachelor of Laws (LL.B.)",
+      "credential": "BBA + LLB",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "law",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-bachelor-business-administration-laws/",
+      "about": "Two degrees in five years: international business seen from both a management and a legal perspective, taught by IE Business School and IE Law School.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/",
+      "separateFrom": [
+        {
+          "name": "Dual Degree in Business Administration & Design",
+          "reason": "A different second degree: each dual combination is its own application, with its own study plan and fee."
+        },
+        {
+          "name": "Dual Degree in Business Administration & Humanities",
+          "reason": "A different second degree: each dual combination is its own application, with its own study plan and fee."
+        }
+      ]
+    },
+    {
+      "name": "Dual Degree Bachelor of Laws (LL.B.) and Bachelor in International Relations",
+      "credential": "LLB + Bachelor in International Relations",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "law",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-bachelor-laws-international-relations/",
+      "about": "Two degrees in five years: global law and international affairs, aimed at international law and public and political careers.",
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€31,800 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/",
+      "separateFrom": [
+        {
+          "name": "Dual Degree in Economics & International Relations",
+          "reason": "A different second degree: each dual combination is its own application, with its own study plan and fee."
+        }
+      ]
+    },
+    {
+      "name": "Dual Degree in Business Administration & Computer Science and Artificial Intelligence",
+      "credential": "BBA + Bachelor in Computer Science and AI",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "computing",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-computer-science-and-artificial-intelligence/",
+      "about": "Two degrees in five years: business administration with computer science and artificial intelligence, for tech-driven leadership roles.",
+      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "note": "IE's guidance; AI SL is also considered if you take Computer Science."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Business Administration & Data and Business Analytics",
+      "credential": "BBA + Bachelor in Data and Business Analytics",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "computing",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-data-and-business-analytics/",
+      "about": "Two degrees in five years: management combined with statistical and data-analysis skills for the corporate world.",
+      "ib": "Maths AA (SL or HL) or AI HL recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "note": "IE's guidance; AI SL is also considered with Computer Science or Physics."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Business Administration & Design",
+      "credential": "BBA + Bachelor in Design",
+      "years": 5,
+      "city": "Segovia (years 1–2), then Madrid",
+      "field": "design-architecture",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-design/",
+      "about": "Two degrees in five years: business administration and design, for creative students who want to build value inside companies.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/",
+      "separateFrom": [
+        {
+          "name": "Dual Degree in Business Administration & Fashion Design",
+          "reason": "A different second degree: each dual combination is its own application, with its own study plan and fee."
+        },
+        {
+          "name": "Dual Degree in Business Administration & Humanities",
+          "reason": "A different second degree: each dual combination is its own application, with its own study plan and fee."
+        }
+      ]
+    },
+    {
+      "name": "Dual Degree in Business Administration & Fashion Design",
+      "credential": "BBA + Bachelor in Fashion Design",
+      "years": 5,
+      "city": "Segovia and Madrid",
+      "field": "design-architecture",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-fashion-design/",
+      "about": "Two degrees in five years: business administration and fashion design, from industry trends and supply chains to branding.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Business Administration & Humanities",
+      "credential": "BBA + Bachelor in Humanities",
+      "years": 5,
+      "city": "Segovia and Madrid",
+      "field": "humanities",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-bachelor-in-humanities/",
+      "about": "Two degrees in five years: the analytical and critical skills of the humanities joined with business and management.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Business Administration & International Relations",
+      "credential": "BBA + Bachelor in International Relations",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "business",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-business-administration-international-relations/",
+      "about": "Two degrees in five years: international business and international affairs, with the option of an exchange.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Business Administration and Political Science",
+      "credential": "BBA + Bachelor in Political Science",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "business",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-business-administration-bachelor-political-science/",
+      "about": "Two degrees in five years: business education with political systems and governance, for public- and private-sector careers.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€34,020 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Economics & Applied Mathematics",
+      "credential": "Bachelor in Economics + Applied Mathematics",
+      "years": 5,
+      "city": "Segovia and Madrid",
+      "field": "mathematics",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-economics-applied-mathematics/",
+      "about": "Two degrees in five years: the modern global economy analysed with the tools of applied mathematics.",
+      "ib": "Maths AA HL recommended. IE's test adds a 60-minute maths assessment.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "note": "IE's guidance, not a fixed rule."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€31,800 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    },
+    {
+      "name": "Dual Degree in Economics & International Relations",
+      "credential": "Bachelor in Economics + International Relations",
+      "years": 5,
+      "city": "Segovia or Madrid",
+      "field": "economics",
+      "url": "https://www.ie.edu/university/studies/academic-programs/dual-degree-in-economics-international-relations/",
+      "about": "Two degrees in five years: economics and international relations, for designing policy between states, companies and international organisations.",
+      "ib": "Ideally Maths AA (AI also considered). IE's test adds a 15-minute maths section.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "IE's guidance, not a fixed rule: ideally AA; AI is also considered."
+        }
+      ],
+      "selection": [
+        "grades",
+        "test-score",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Scored on your grades, IE's own test (or SAT, ACT, LNAT), CV and an online interview; earlier rounds have more places.",
+      "tuitionEuEea": "€31,800 (2027/28, year 1)",
+      "requirementsUrl": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/"
+    }
+  ],
+  "notes": [
+    "To enrol officially you also need UNEDasiss accreditation of your IB Diploma, Spain's legal access step, even though IE admits you itself.",
+    "A No Admission decision is final for the whole cycle: you cannot reapply in a later round for 2027.",
+    "The application fee is a non-refundable €150, and the whole admissions process runs in English."
+  ],
+  "sources": [
+    {
+      "title": "IE University — Admissions Rounds, calendar for 2027-2028",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-rounds/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "IE University — Freshmen students: entry requirements (IB, maths by programme)",
+      "url": "https://www.ie.edu/university/admission/access-to-university/freshmen-students/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "IE University — Application form (fee, documents)",
+      "url": "https://www.ie.edu/university/admission/admission-process/application-form/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "IE University — Admissions Test (SAT/ACT/LNAT minimums, maths assessments)",
+      "url": "https://www.ie.edu/university/admission/admission-process/admissions-test/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "IE University — Dual Degrees",
+      "url": "https://www.ie.edu/university/studies/dual-degrees/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "IE University — Two Paths: BBA and Global BBA",
+      "url": "https://www.ie.edu/university/studies/academic-programs/two-paths-one-powerful-outcome/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "IE University — programme pages and their Admissions & Fees pages (tuition 2027-2028)",
+      "url": "https://www.ie.edu/university/studies/academic-programs/bachelor-economics/admissions-fees/",
+      "retrieved": "2026-09-26"
+    }
+  ]
+}

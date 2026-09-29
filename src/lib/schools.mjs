@@ -167,11 +167,27 @@ export const NO_DEADLINE = 'No deadline';
 export function displayName(name) {
   const n = String(name || '').trim();
   const shorter = n
+    /* The credential line already says that a card is a bachelor or a dual
+       degree. Continental programme catalogues often repeat that type before
+       the subject ("Bachelor's Degree in…", "Dual Degree in…"); carrying it
+       twice made otherwise useful names overflow the shared card treatment. */
+    .replace(/^(?:International\s+)?Undergraduate\s+Program(?:me)?\s+in\s+/i, '')
+    .replace(/^(?:Dual|Double)\s+Degree(?:\s+in)?\s+/i, '')
+    .replace(/^(?:Dual|Double)\s+(?:(?:Bachelor(?:['´’]?s)?\s+)?Degree|Bachelor)(?:\s+Degree)?(?:\s+in\b|\s*:\s*)\s*/i, '')
+    .replace(/^Bachelor(?:['´’]?s)?\s+Degree\s+in\s+/i, '')
     .replace(
       /^(?:International\s+)?(?:Bachelor(?:['´’]?s)?(?:\s+and\s+Master(?:['´’]?s)?)?|BFA|BBA|BSc|BA|BEng|BMus)(?:\s+of\s+(?:Fine\s+Arts|Science|Arts|Business\s+Administration|Engineering))?(?:\s+(?:Degree\s+)?(?:Programme|Program))?\s+(?:in|of)\s+/i,
       ''
     )
     .replace(/^Degree\s+(?:Programme|Program)\s+in\s+/i, '')
+    .replace(/\bBachelor\s+of\s+Business\s+Administration\b/gi, 'Business Administration')
+    .replace(/\bBachelor\s+of\s+Laws?\b/gi, 'Law')
+    .replace(/(\s(?:and|&|\+)\s+)Bachelor\s+in\s+/gi, '$1')
+    .replace(/\s+\((?:joint\s+with\s+European\s+universities|interuniversity\s+[^)]+\s+degree)\)$/i, '')
+    .replace(/\s+\[[A-Z0-9-]+\]\s+\([^)]*English[^)]*\)$/i, '')
+    /* The page and card section already establish English teaching. Keep a
+       mixed-language qualifier, but not a trailing repetition of that fact. */
+    .replace(/\s+(?:-|\()\s*(?:taught\s+in\s+English|English-taught\s+class|English|en\s+inglés)\)?$/i, '')
     .replace(/,?\s+(?:Bachelor(?:['´’]?s)?\s+)?(?:Degree\s+)?(?:Programme|Program)$/i, '')
     .trim();
   return shorter.length >= 3 && shorter !== n ? shorter.charAt(0).toUpperCase() + shorter.slice(1) : n;

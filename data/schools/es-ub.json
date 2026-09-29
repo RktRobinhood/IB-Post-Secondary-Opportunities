@@ -1,0 +1,59 @@
+{
+  "institution": "es-ub",
+  "name": "Universitat de Barcelona",
+  "retrieved": "2026-09-26",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Public university across Barcelona's city campuses; two bachelor's taught in English, International Business and English Studies.",
+  "handoff": {
+    "label": "Bachelor's degrees finder (filter: English)",
+    "url": "https://web.ub.edu/en/web/estudis/bachelors-degrees-finder"
+  },
+  "ib": {
+    "text": "IB via UNEDasiss (grade 5–10), then Catalonia's pre-enrolment. Only PAU specific-phase or UNED PCE exams lift it towards 14; IB subject grades on the credential do not count.",
+    "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/"
+  },
+  "apply": { "via": "Catalonia's university pre-enrolment (after UNEDasiss)", "url": "https://universitats.gencat.cat/ca/preinscripcions/calendari/" },
+  "lastYear": { "year": 2026, "text": "pre-enrolment 2–26 June" },
+  "programmes": [
+    {
+      "name": "Bachelor's degree in International Business",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "business",
+      "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1080",
+      "about": "Managing and directing companies and institutions with a global outlook, taught in English at the Faculty of Economics and Business, with further business languages.",
+      "ib": "English 73.6% of teaching; the other 26.4% is in other (foreign business) languages.",
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your admission grade out of 14 in the Catalan pre-enrolment; 80 places.",
+      "cutoff": { "value": "11.290 out of 14", "intake": "2026", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1080" },
+      "places": 80,
+      "tuitionEuEea": "€17.69/credit (≈€1,061 for 60 ECTS)"
+    },
+    {
+      "name": "Bachelor's degree in English Studies",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "languages",
+      "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008",
+      "about": "An advanced command of English with applied linguistics and literature, analysing cultural, linguistic and literary paradigms; taught 100% in English.",
+      "selection": ["grades"],
+      "selectionNote": "Ranked in the Catalan pre-enrolment; the July 2026 admission grade was 5.000, the lowest possible access grade. 160 places.",
+      "cutoff": { "value": "5.000 out of 14", "intake": "2026", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008" },
+      "places": 160,
+      "tuitionEuEea": "€17.69/credit (≈€1,061 for 60 ECTS)"
+    }
+  ],
+  "notes": [
+    "Business Administration and Management and Biomedical Engineering teach part of their courses in English, but most of the degree is in Catalan and Spanish.",
+    "Bioinformatics is taught in English jointly by UB, UPC, UAB and UPF, and is listed under the Polytechnic University of Catalonia, which coordinates it."
+  ],
+  "sources": [
+    { "title": "UB — Bachelor's degrees finder, teaching language English (44 results, with each degree's language shares)", "url": "https://web.ub.edu/en/web/estudis/bachelors-degrees-finder", "retrieved": "2026-09-26" },
+    { "title": "UB — Bachelor's degree in International Business (G1080)", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1080", "retrieved": "2026-09-26" },
+    { "title": "UB — Bachelor's degree in English Studies (G1008)", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1008", "retrieved": "2026-09-26" },
+    { "title": "UB — Bachelor's degree in Business Administration and Management (G1072), languages of instruction", "url": "https://web.ub.edu/en/web/estudis/w/bachelordegree-g1072", "retrieved": "2026-09-26" },
+    { "title": "Canal Universitats — Calendari, convocatòria de juny 2026", "url": "https://universitats.gencat.cat/ca/preinscripcions/calendari/", "retrieved": "2026-09-26" },
+    { "title": "Canal Universitats — Estudiant d'un sistema educatiu estranger", "url": "https://universitats.gencat.cat/ca/acces-universitat/acces-segons-perfils-estudiants/estudiant-sistema-educatiu-estranger/", "retrieved": "2026-09-26" }
+  ]
+}

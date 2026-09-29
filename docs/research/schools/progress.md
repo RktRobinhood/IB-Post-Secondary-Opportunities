@@ -185,3 +185,26 @@ The rule now on every Swedish card, from University Admissions' IB page: "If you
 - Samordna opptak's 2027 calendar is still unpublished ("Gjeld for opptaket … i 2026"). Samordna-route 15 April dates come from institution pages, and yearless ones are labelled.
 - Contradicts data/countries/no.json: OsloMet's "Unclear" resolved to none (its one "Bachelor's degree" hit is the 7.5-credit ØAADM3820); UiT's "world's northernmost university" and NIH's "top three sport-science schools" were not found on their pages and are not used.
 - Could not verify: whether an IB taken in Denmark counts as "Nordic schooling" at NMBU, NTNU and UiA (INN's wording is now quoted); UiA Classical Music's recorded audition from abroad; NHH's "23:59 CET".
+
+## France (12): 7 listed (24 programmes), 1 catalogue (AUP, 25 majors), 4 none (Sorbonne, Paris-Saclay, UGA, Unistra; all French)
+
+- Detail and quotes: docs/research/schools/reports/batch-fr.md. Read in the user's Chrome on 2026-09-26.
+- Routes: grandes écoles and AUP use their own portals for IB applicants (Sciences Po: "the type of secondary school diploma, not the candidate's nationality"); public universities and PSL's AI bachelor use Parcoursup for EU/EEA nationals. Parcoursup's 2027 calendar is still unpublished (2026 kept as `lastYear` only).
+- 2027 rounds published: Sciences Po (4 Nov, 13 Jan, 1 Mar), Polytechnique (20 Oct, 6 Jan, 8 Feb 14:00), ESSEC Global BBA (28 Oct, 12 Jan, 10 Mar, 22 Apr, noon), EDHEC BBA (3 Nov, 7 Jan, 11 Feb, 1 Apr, 8 Jun), PSL I-BE³ (11 Nov, 10 Jan, 15 Mar), EDHEC–King's BSc via UCAS (13 Jan 2027). Not yet: ESCP (rolling, "will open soon"), emlyon (page still Nov 2025–Jul 2026), ESSEC AI BSc ("TBD").
+- Contradicts data/countries/fr.json: ESSEC fees (page: €15,400 + €2,000 a year, 2026 intake; fr.json €15,900/€18,900); PSL has two English bachelor's, not one; Paris-Saclay's "international bachelor track in the sciences" and UGA's "international bachelor programme" are not English-taught first-year degrees; lead hints for ESSEC (15 Jan–30 Apr) and EDHEC (four sessions) were wrong.
+- Added beyond fr.json: ESCP BSc Management, Science & Technology (new 2027); ESSEC–CentraleSupélec AI BSc; EDHEC–King's BSc; emlyon–Centrale Lyon data-science BSc; Sciences Po's English dual degrees.
+- Could not verify: Sciences Po's final round wording "before March 1" (recorded as 1 March, per its dual-degree line "set on 1 March 2027"); UGA's own EU/Parcoursup page (CAS login); Unistra STAPS/LEA teaching languages one by one; AUP flagships and faculties (not researched; schema not built).
+
+## Italy (it-*, 13 institutions), 2026-09-26 — details in reports/batch-it.md
+- Finished 13 of 13, all `listed` (87 programmes incl. single-cycle Medicine/Pharmacy/Vet/Dentistry where English-taught, as with ie-rcsi).
+- 2027-28 dates published and recorded: Bocconi (Early 29 Sep 2026, Winter 26 Jan 2027), Luiss (test route 10 Feb, direct IB-36 route 24 Mar 2027), Cattolica (17 Feb 2027; later rounds per degree), Padua (EU calls 9 Mar–9 Apr 2027; one degree 15 Mar–7 Apr). Others: 2026 dates as `lastYear` only.
+- Contradicts data/countries/it.json: Trento Economics and Management is Italian-taught; Bicocca's English offer is 2 bachelor's (lead names were master's); Luiss first-year fee €15,000 (not €14,000).
+- Blocked by Cloudflare (not clicked): www.unitn.it, en.unimib.it/www.unimib.it, www.unimi.it — records built from corsi.unitn.it, apply.unimib.it, iple/ims.cdl.unimi.it; UniMi's English bachelor list is unverified.
+- Could not verify: IB-specific rules at Padua, Trento, Bicocca, Ca' Foscari, Turin; Sapienza Medicine/Dentistry/Nursing calls (PDF); per-degree entry test at Ca' Foscari and Turin; Polimi MEDTEC (Humanitas) left out.
+
+## Spain (es-*, 13 institutions), 2026-09-26 — details in reports/batch-es.md
+- Finished 13 of 13: 11 `listed` (99 programmes), 2 `none` (Navarra, UAM; Spanish). Read in the user's Chrome.
+- Route: IB holders get UNEDasiss accreditation (grade 5–10), then the region's pre-enrolment (Madrid, Catalonia); 2027 regional dates unpublished, so 2026 kept as `lastYear` (Catalonia 2–26 June; Madrid 5–26 June, foreign systems to 6 July). Catalonia ignores IB subject grades on the credential.
+- 2027 dates published: IE rounds (6 Nov 2026, 15 Jan, 5 Mar 2027), Navarra (opens 1 Oct; 9 Dec 2026, 9 Mar 2027; IB grades before 10 July), Deusto (2–30 Nov 2026), ESADE (rolling to June 2027).
+- Contradicts data/countries/es.json: UAM has no English-taught bachelor's; UCM has two "en inglés" degrees plus English Studies (not "very limited"); CEU has 16 English tracks, not two; Deusto asks an external B2 English certificate.
+- Could not verify: UCM places and cut-offs (script-loaded); UCM European Studies' language; CEU and Comillas 2027 deadlines; UB's study-in-English page (temporarily unavailable; the finder was used).
