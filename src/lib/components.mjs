@@ -861,8 +861,8 @@ function listItems(phrase) {
 function needsUnits(model, first) {
   const units = [];
   const opt = (o) => ({
-    len: o.parts.reduce((n, x) => n + cardText(x).length + 3, 0) - 3,
-    html: html`${o.parts.map((x, n) => html`${n ? ' + ' : ''}${partHtml(x, { card: true })}`)}`,
+    len: o.parts.reduce((n, x) => n + cardText(x).length + 5, 0) - 5,
+    html: html`${o.parts.map((x, n) => html`${n ? ' and ' : ''}${partHtml(x, { card: true })}`)}`,
   });
   model.all.forEach((x) => {
     units.push({
@@ -878,7 +878,7 @@ function needsUnits(model, first) {
       units.push({ key: text, len: text.length, html: html`<span class="req-none">${text}</span>` });
       return;
     }
-    const key = unitKey(open.flatMap((o) => o.groups.flat()), open.map((o) => o.parts.map((x) => x.text).join(' + ')).join(' / '));
+    const key = unitKey(open.flatMap((o) => o.groups.flat()), open.map((o) => o.parts.map((x) => x.text).join(' and ')).join(' / '));
     // A "one of" with a single option left is just another requirement.
     if (open.length === 1) { units.push({ key, ...opt(open[0]) }); return; }
     // The union already names every IB route: one list of subjects.

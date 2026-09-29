@@ -29,6 +29,9 @@ This page says where the work stands, so the next session (human or agent) start
   full requirement; the card keeps one actionable number.
 - The programme-card guard now rejects that competing-number regression on
   every generated card.
+- Compound requirements now read “Physics and Chemistry” rather than using a
+  symbolic plus sign; the card guard distinguishes that from the useful “+N
+  more” disclosure count.
 - Absalon Biotechnology now shows its officially published 3½-year length and
   210 ECTS; the supporting Absalon programme PDF is recorded as evidence.
 

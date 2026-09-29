@@ -415,6 +415,7 @@ function cardFaults(card) {
   const pointFigures = cardText(card).match(/\b\d+(?:[.,]\d+)?\+? IB points\b/g) || [];
   const cutOffTag = /<li class="tag tag--sand">[^<]*IB points<\/li>/.test(card);
   if (cutOffTag && pointFigures.length > 1) out.push(`it repeats ${pointFigures.length} IB-points figures (${pointFigures.join(', ')})`);
+  if (/<\/span> \+ <span/.test(card)) out.push('it joins requirements with "+" instead of "and"');
   return out;
 }
 
@@ -437,6 +438,8 @@ check('the card guard can see what it is for', () => {
   assert.ok(f.some((x) => /2 tags/.test(x)), 'misses two tags');
   const repeated = cardFaults('<article class="card card--link card--backdrop"><p class="card__cred">BSc · 3 yrs</p><p class="req__ib">Needs 28+ IB points</p><li class="tag tag--sand">Last year: 42 IB points</li></article>');
   assert.ok(repeated.some((x) => /repeats 2 IB-points figures/.test(x)), 'misses two competing point figures');
+  const joined = cardFaults('<article class="card card--link card--backdrop"><p class="card__cred">BSc · 3 yrs</p><p class="req__ib"><span>Physics</span> + <span>Chemistry</span></p></article>');
+  assert.ok(joined.some((x) => /instead of "and"/.test(x)), 'misses a symbolic subject join');
   const good = '<article class="card card--link card--backdrop"><p class="card__cred"><span class="card__facts"><span class="card__fact">BSc or BEng</span><span class="card__fact"><span class="card__sep"> · </span>3–3½ yrs</span></span></p>' +
     '<div class="req" data-req><p class="req__ib"><strong>Needs</strong> X <span class="req__count">+2 more</span></p></div></article>';
   assert.deepEqual(cardFaults(good), []);
