@@ -10,6 +10,16 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
 
+## 29 September: two admissions follow-ups closed (#41)
+
+- LSMU's extra July admission round does not name the programmes it covers, so
+  Medicine applicants are now told to treat 5 July as their last submission
+  day rather than relying on that round.
+- University of Warsaw resolution 315 was checked against resolution 278. It
+  changes only the foreign-qualification recognition clause; the 2 February
+  and 30 September 2027 admissions bounds remain unchanged and the amendment
+  is now recorded as evidence.
+
 ## 29 September: parity coverage in every country handoff (#60)
 
 - `npm run coverage -- --handoff <country-code>` now regenerates the durable
