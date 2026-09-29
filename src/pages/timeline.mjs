@@ -1,7 +1,7 @@
 import { html, raw, plural } from '../lib/html.mjs';
 import { page, SITE } from '../lib/layout.mjs';
 import { hero, note, stats, topic } from '../lib/components.mjs';
-import { deadlineList } from '../lib/primitives.mjs';
+import { deadlineList, flagged } from '../lib/primitives.mjs';
 import { allEvents, isActionable, isClosed, isForEarlierEntry, standing } from '../lib/calendar.mjs';
 
 /* The application calendar. */
@@ -118,7 +118,7 @@ ${hero({
             ${represented.map(
               (c) => html`<label class="chip cal-chip">
                 <input type="checkbox" name="scope" value="${c.code}" data-sentence-name="${c.articleName || c.name}">
-                <span>${c.flag} ${c.name}</span> <span class="chip__count" data-count-for="${c.code}">${upcomingBy.get(c.code) || 0}</span>
+                <span>${flagged(`${c.flag} ${c.name}`)}</span> <span class="chip__count" data-count-for="${c.code}">${upcomingBy.get(c.code) || 0}</span>
               </label>`
             )}
           </div>

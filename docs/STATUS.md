@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 29 September 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 29 September 2026 (evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,28 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+
+## 29 September (evening): one template per level (#55)
+
+- The owner: the site has three levels — country, university, programme —
+  and every page at a level must be the same template with different data;
+  a section with no data is left out, never redesigned; after the programme
+  page the site hands off to the university's own page. The cause of the
+  repeated parity fixes was two renderers per level (Danish records vs
+  country school records).
+- Now: `src/templates/country.mjs`, `university.mjs`, `programme.mjs` draw
+  every page; `src/pages/{denmark,destinations,institutions,schools,programme,school-programme}.mjs`
+  are adapters only. `docs/PAGE_TEMPLATES.md` has the table.
+- Gate check `templates` (`scripts/test-templates.mjs`) reads every built
+  page back: 36 country, 430 university, 872 programme pages carry their
+  template's mark and slots in order. A future change to how a level looks
+  goes into its template once.
+- Country pages now open like Denmark's (two ways on, four numbers counted
+  from records, Denmark-style cards); university pages share one side rail
+  and fixed topic headings; programme pages share "What you need → How places
+  are decided → What it is → More at … → Sources" and the official-page button.
+- Parity critiques: round 1 6/10 (`docs/research/qa/parity/round-1/`);
+  round 2 on the templated state in `round-2/`.
 
 ## 29 September: two admissions follow-ups closed (#41)
 

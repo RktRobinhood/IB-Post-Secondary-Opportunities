@@ -3,6 +3,7 @@ import { url } from './layout.mjs';
 import { ibTermsLine, ibTermsPhrase, routesPhrase } from './eligibility.mjs';
 import { emptyPanel } from './imagery.mjs';
 import { CARD_SIZES, srcsetOf } from './programme-imagery.mjs';
+import { flagged } from './primitives.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
 
@@ -198,7 +199,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
     ${image
       ? html`<div class="card__media">
           <img src="${url(image.src)}" alt="${image.alt || ''}" loading="lazy" decoding="async" width="800" height="500">
-          ${flag ? html`<span class="card__flag" aria-hidden="true">${flag}</span>` : ''}
+          ${flag ? html`<span class="card__flag" aria-hidden="true">${flagged(flag)}</span>` : ''}
         </div>`
       : panel
       ? html`<div class="card__media card__media--empty" aria-hidden="true">
@@ -209,7 +210,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
             panel.initials === panel.label
               ? ''
               : html`<span class="card__panel-label">${panel.label}</span>`}
-          ${flag ? html`<span class="card__flag">${flag}</span>` : ''}
+          ${flag ? html`<span class="card__flag">${flagged(flag)}</span>` : ''}
         </div>`
       : ''}
     <div class="card__body">
@@ -312,7 +313,7 @@ export function reel(items) {
         <img class="tile__img" src="${url(p.image.src)}" alt="${p.image.alt || ''}" loading="lazy" decoding="async" width="600" height="750">
         <span class="tile__text">
           <span class="tile__name">${p.name}</span>
-          <span class="tile__where">${p.flag ? html`<span aria-hidden="true">${p.flag}</span> ` : ''}${p.where}</span>
+          <span class="tile__where">${p.flag ? html`<span aria-hidden="true">${flagged(p.flag)}</span> ` : ''}${p.where}</span>
         </span>
       </a>
     </li>`

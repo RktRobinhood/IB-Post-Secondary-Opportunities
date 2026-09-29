@@ -2959,7 +2959,7 @@ h2:hover > .heading-anchor, h3:hover > .heading-anchor, .heading-anchor:focus-vi
   .glance__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 /* A school programme's siblings, one row each in the reading column. */
-.prog-siblings { display: grid; gap: var(--s3); margin-top: var(--s4); }
+.prog-siblings { display: grid; gap: var(--s3); margin-top: var(--s4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
 /* How places are decided, as one card: the chips, then the school's line. */
 .need__card--plain { background: var(--paper-2); }
 .need__card--plain .tags { margin: 0; flex-basis: 100%; }

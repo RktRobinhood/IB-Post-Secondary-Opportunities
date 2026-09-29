@@ -2,6 +2,7 @@ import { html, raw, truncate } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { hero, sectionHead } from '../lib/components.mjs';
 import { money } from '../lib/data.mjs';
+import { flagged } from '../lib/primitives.mjs';
 import { DIMENSIONS, assessDestination, coverageSummary } from '../lib/dimensions.mjs';
 
 /* The comparison table across every Destination.
@@ -65,7 +66,7 @@ ${hero({
         <label for="cmp-add">Add a destination to compare</label>
         <select id="cmp-add">
           <option value="">Choose…</option>
-          ${assessed.map((a) => html`<option value="${a.code}">${a.flag} ${a.name}</option>`)}
+          ${assessed.map((a) => html`<option value="${a.code}">${a.name}</option>`)}
         </select>
       </div>
       <div class="chips" id="cmp-chosen" aria-label="Chosen destinations"></div>
@@ -100,7 +101,7 @@ ${hero({
         const region = a.scope === 'europe' ? a.region : `${a.region} (worldwide)`;
         return html`<details class="set__row" data-code="${a.code}" data-name="${a.name}" data-region="${region}" data-coverage="${a.coverage.full}">
           <summary>
-            <span class="set__name">${a.flag} ${a.name}</span>
+            <span class="set__name">${flagged(`${a.flag} ${a.name}`)}</span>
             <span class="set__fee">${eu ? firstClause(eu.value) : html`<span class="tray__missing">Not recorded</span>`}</span>
             <span class="set__cov" aria-label="${a.coverage.full} of ${a.coverage.total} dimensions fully recorded">${dots(a.coverage.full, a.coverage.total)}</span>
           </summary>
