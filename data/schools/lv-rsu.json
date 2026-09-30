@@ -1,0 +1,222 @@
+{
+  "institution": "lv-rsu",
+  "name": "Rīga Stradiņš University",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Riga health-sciences university with English-taught Medicine, Dentistry and a business bachelor; places are ranked on secondary-school grades.",
+  "handoff": {
+    "label": "Undergraduate programmes in English",
+    "url": "https://www.rsu.lv/en/undergraduate-programmes"
+  },
+  "ib": {
+    "text": "No IB-specific page: the Diploma counts as secondary education, IB Higher Level grades are given priority, and the minimum grade is 5 of 7 in required subjects. English is shown by a test or by schooling in English.",
+    "url": "https://www.rsu.lv/sites/default/files/imce/SSD/admissions_procedure_2026_2027_eng.pdf"
+  },
+  "apply": {
+    "via": "RSU e-Admissions Portal (admission.rsu.lv)",
+    "url": "https://www.rsu.lv/en/study-here/admissions/undergraduate-programmes"
+  },
+  "dates": [
+    {
+      "label": "Medicine and Dentistry: application period opens (EU/EEA)",
+      "date": "2027-03-01",
+      "kind": "opens",
+      "who": "eu-eea-ch",
+      "programmes": [
+        "medicine",
+        "dentistry"
+      ],
+      "url": "https://www.rsu.lv/en/study-here/admissions/when-apply"
+    },
+    {
+      "label": "Application period closes for September 2027 (EU/EEA)",
+      "date": "2027-07-01",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.rsu.lv/en/study-here/admissions/when-apply"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Medicine",
+      "credential": "Doctor of Medicine (MD)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://www.rsu.lv/en/study-programme/medicine",
+      "about": "Six-year English-taught MD (360 ECTS) built around patient-centred problems and group work, with work with patients from the third year and simulation training at the university's simulation centre.",
+      "ib": "Grades in English, Maths and Biology and/or Chemistry; IB HL grades count first and at least 70% is needed in each.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "English is a programme-specific subject; IB minimum grade 5 of 7"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "Compulsory; IB minimum grade 5 of 7"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "Biology and/or Chemistry; having both is an advantage; 70%+ needed"
+        }
+      ],
+      "tuitionEuEea": "€13,500 a year (2026/27)",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on the average percentage in English, Biology and/or Chemistry and Maths; IB HL grades are prioritised. 2026 criteria; 2027 not yet published.",
+      "places": 374,
+      "requirementsUrl": "https://www.rsu.lv/en/study-here/admissions/general-requirements-studies-english"
+    },
+    {
+      "name": "Dentistry",
+      "credential": "Doctor of Dental Surgery (DDS)",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.rsu.lv/en/study-programme/dentistry",
+      "about": "Five-year English-taught dentistry degree (300 ECTS): diagnosis, restorative treatment, implants and dental public health, practised first on simulation models and then in clinic.",
+      "ib": "Grades in English, Maths, Biology and Chemistry; at least 80% in the required subjects, and applicants with both Biology and Chemistry are prioritised.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "English is a programme-specific subject; IB minimum grade 5 of 7"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "Compulsory; IB minimum grade 5 of 7"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "Both preferred and prioritised; 80%+ needed in required subjects"
+        }
+      ],
+      "tuitionEuEea": "€15,500 a year (2026/27)",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on the average percentage in English, Biology and Chemistry and Maths; applicants with both sciences come first. 2026 criteria; 2027 not yet published.",
+      "places": 32,
+      "requirementsUrl": "https://www.rsu.lv/en/study-here/admissions/general-requirements-studies-english"
+    },
+    {
+      "name": "International Business and Start-up Entrepreneurship",
+      "credential": "Bachelor of Social Sciences",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.rsu.lv/en/study-programme/international-business-and-start-up-entrepreneurship",
+      "about": "A three-year business bachelor on international business and start-up economics, with project semesters, simulations, placements and pitching to investors with the university's business incubator.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "English is a programme-specific subject; IB minimum grade 5 of 7"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "grade": 5,
+          "note": "Compulsory; IB minimum grade 5 of 7"
+        }
+      ],
+      "tuitionEuEea": "€3,300 a year (2026/27)",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on the average percentage in English and Maths; Latvian counts only for diplomas from Latvian schools. 2026 criteria; 2027 not yet published.",
+      "places": 24,
+      "requirementsUrl": "https://www.rsu.lv/en/study-here/admissions/general-requirements-studies-english"
+    }
+  ],
+  "notes": [
+    "Medicine and Dentistry add a one-off 1,800 euro registration fee to tuition, and every applicant pays a 100 euro application fee; tuition is paid per semester.",
+    "Online motivational interviews are set for non-EU/EEA applicants; EU/EEA applicants are ranked on their grades alone.",
+    "IB graduates finishing in summer may send final diploma documents after the deadline if everything else is in by 1 July (rule as published for the 2026 intake)."
+  ],
+  "sources": [
+    {
+      "title": "RSU: undergraduate programmes in English",
+      "url": "https://www.rsu.lv/en/undergraduate-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU: when to apply (September 2027 admission)",
+      "url": "https://www.rsu.lv/en/study-here/admissions/when-apply",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU: tuition fees for studies in English 2026/2027",
+      "url": "https://www.rsu.lv/en/study-here/admissions/tuition-fees-studies-english",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU: general requirements for studies in English",
+      "url": "https://www.rsu.lv/en/study-here/admissions/general-requirements-studies-english",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU: admissions procedure 2026/2027 (English-taught programmes)",
+      "url": "https://www.rsu.lv/sites/default/files/imce/SSD/admissions_procedure_2026_2027_eng.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU: how to apply for undergraduate studies",
+      "url": "https://www.rsu.lv/en/study-here/admissions/undergraduate-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU programme page: Medicine",
+      "url": "https://www.rsu.lv/en/study-programme/medicine",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU programme page: Dentistry",
+      "url": "https://www.rsu.lv/en/study-programme/dentistry",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RSU programme page: International Business and Start-up Entrepreneurship",
+      "url": "https://www.rsu.lv/en/study-programme/international-business-and-start-up-entrepreneurship",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "institution": "lv-lu",
+  "name": "University of Latvia",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Comprehensive university in Riga; 10 English-taught bachelor's plus Medicine and Dentistry, with some state-funded places open to EU citizens.",
+  "handoff": {
+    "label": "English-taught programmes and how to apply",
+    "url": "https://www.lu.lv/en/admissions/degree-studies/"
+  },
+  "ib": {
+    "text": "No IB-specific page: the Diploma counts as a general secondary diploma. Each degree sets minimum grades on Latvia's 10-point scale; English B2 shows on your certificate or via IELTS 6.0.",
+    "url": "https://www.lu.lv/en/admission/for-international-students/degree/language-proficiency/"
+  },
+  "lastYear": {
+    "year": 2026,
+    "text": "EU/EEA by 16 Aug; state-funded places by 5 July"
+  },
+  "apply": {
+    "via": "University of Latvia online application (apply.lu.lv)",
+    "url": "https://www.lu.lv/en/admissions/degree-studies/"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Computer Science",
+      "credential": "BSc in Computer Science",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/computer-science-en/",
+      "about": "Programming, algorithms, databases, web technologies and mathematics, with a 4.5-month internship in an IT organisation after two years and a software-engineering specialisation; carries the Euro-Inf label.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Final maths grade of at least 4 on Latvia's 10-point scale"
+        }
+      ],
+      "tuitionEuEea": "€3,340 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: maths grade 4 of 10 and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 100
+    },
+    {
+      "name": "Biotechnology and Bioengineering",
+      "credential": "Bachelor of Natural Sciences",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/biotechnology-and-bioengineering/",
+      "about": "A joint English-taught degree of the University of Latvia and Riga Technical University, linking biology, chemistry and engineering with practical work; a route into biotechnology and bioengineering master's study.",
+      "ib": "Grades of at least 8 of 10 in Biology and in Maths, Physics or Chemistry, plus an online interview.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "any",
+          "note": "Biology or Natural Sciences, at least 8 on Latvia's 10-point scale"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry"
+          ],
+          "level": "any",
+          "note": "One of Maths, Physics or Chemistry, at least 8 of 10"
+        }
+      ],
+      "tuitionEuEea": "€3,600 a year; 8 state-funded places",
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "State-funded places ranked on English 20%, Biology 30%, Maths/Physics/Chemistry 30%, average 20%; fee places need 8 of 10 in those subjects. 2026 criteria.",
+      "places": 38
+    },
+    {
+      "name": "Business Administration",
+      "credential": "Bachelor of Social Sciences",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/business-administration-en/",
+      "about": "Prepares you to found and run a business or work in public, private and international organisations, with a specialisation in International Business, plus teamwork, presentation and analytical skills.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Final maths grade of at least 4 on Latvia's 10-point scale"
+        }
+      ],
+      "tuitionEuEea": "€3,100 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: maths grade 4 of 10 and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 50
+    },
+    {
+      "name": "Cultural and Social Anthropology",
+      "credential": "Bachelor of Social Sciences in Anthropology",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/cultural-and-social-anthropology-en/",
+      "about": "Human social and cultural diversity studied through migration, global mobility and intercultural contact, taught by the Faculty of Economics and Social Sciences in English.",
+      "tuitionEuEea": "€2,800 a year; 1 state-funded place",
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "State-funded place ranked on English 60%, Maths 20%, average 20% (+10% for social studies); otherwise a fee place and online interview. 2026 criteria.",
+      "places": 21
+    },
+    {
+      "name": "English, European Languages and Business Studies",
+      "credential": "Bachelor of Humanities",
+      "years": 3,
+      "field": "languages",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/english-european-languages-and-business-studies/",
+      "about": "Three tracks, English Language, English-Scandinavian Languages, and European Languages and Business Studies, combining English linguistics and culture with a second European language and, in one track, business.",
+      "ib": "The state-funded places need proof of Latvian proficiency and a Latvian grade in the ranking; fee-paying places do not.",
+      "tuitionEuEea": "€2,600 a year (full-time)",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee places need a passing certificate and English B2, then an online interview; state-funded places are ranked on grades and need Latvian. 2026 criteria.",
+      "places": 123
+    },
+    {
+      "name": "East-West Intercultural Studies",
+      "credential": "Bachelor's degree",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/asian-and-intercultural-studies/",
+      "about": "The English-taught strand of the Asian and Intercultural Studies degree: Eastern and Western civilisations compared, with cultural understanding and language learning for work in public bodies, NGOs and business.",
+      "tuitionEuEea": "€2,600 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: general secondary diploma and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 30
+    },
+    {
+      "name": "Industrial Engineering and Management",
+      "credential": "Professional Bachelor's degree",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/industrial-engineering-and-management-en/",
+      "about": "Engineering, management and natural sciences in one interdisciplinary programme leading to the qualification Industrial Management Engineer.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Final maths grade of at least 4 on Latvia's 10-point scale"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any",
+          "note": "Final physics grade of at least 4 on Latvia's 10-point scale"
+        }
+      ],
+      "tuitionEuEea": "€2,900 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: grades of 4 of 10 in Maths and Physics and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 15
+    },
+    {
+      "name": "International Economics and Commercial Diplomacy",
+      "credential": "Bachelor of Social Sciences in Economics",
+      "years": 4,
+      "field": "economics",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/international-economics-and-commercial-diplomacy-en/",
+      "about": "International economics and business together with law, politics and foreign languages; builds teamwork and presentation skills and macro- and microeconomic analysis.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Final maths grade of at least 4 on Latvia's 10-point scale"
+        }
+      ],
+      "tuitionEuEea": "€3,400 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: maths grade 4 of 10 and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 50
+    },
+    {
+      "name": "Philology (French, German or Russian)",
+      "credential": "Bachelor of Humanities in Philology",
+      "years": 3,
+      "field": "languages",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/philology-en/",
+      "about": "Language, literature and culture studied in English through a French, German or Russian sub-programme, with a second language (Spanish, Italian, Czech or Polish in some strands).",
+      "ib": "German Philology requires German proficiency and Russian Philology Russian proficiency; French is only an advantage.",
+      "tuitionEuEea": "€2,600 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: general secondary diploma and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 20
+    },
+    {
+      "name": "Optometry",
+      "credential": "Bachelor of Health Sciences in Optometry",
+      "years": 3,
+      "field": "health",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/optometry-en/",
+      "about": "Vision science drawn from physics, maths, biology, chemistry and psychology; full qualification as an optometrist needs a master's degree, five years in total.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Final maths grade of at least 4 on Latvia's 10-point scale"
+        }
+      ],
+      "tuitionEuEea": "€6,000 a year",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Fee-paying places only: maths grade 4 of 10 and English B2, then an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 20
+    },
+    {
+      "name": "Medicine",
+      "credential": "Doctor of Medicine (MD)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/medicine-en/",
+      "about": "Six-year English-taught medical degree, 360 ECTS, built on Scandinavian teaching practice with small groups and electives in languages, psychology, economics and law.",
+      "ib": "Biology and Chemistry grades of at least 6 of 10, plus an online interview; fee-paying places only.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "any",
+          "note": "Biology (or Natural Sciences), at least 6 on Latvia's 10-point scale"
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "any",
+          "note": "Chemistry, at least 6 of 10"
+        }
+      ],
+      "tuitionEuEea": "€11,850 a year",
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Ranked on English 20%, Chemistry 40%, Biology 40% (or Natural Sciences 80%); minimum 6 of 10 in Biology and Chemistry; online interview. 2026 criteria.",
+      "places": 35
+    },
+    {
+      "name": "Dentistry",
+      "credential": "Doctor of Dental Surgery (DDS)",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/dentistry-en/",
+      "about": "Five-year English-taught dentistry degree, 300 ECTS, training you to practise general dentistry independently: diagnosis, treatment planning and restoring tooth shape, function and appearance.",
+      "ib": "Biology and Chemistry grades of at least 6 of 10, plus an online interview; fee-paying places only.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "any",
+          "note": "Biology (or Natural Sciences), at least 6 on Latvia's 10-point scale"
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "any",
+          "note": "Chemistry, at least 6 of 10"
+        }
+      ],
+      "tuitionEuEea": "€17,310 a year",
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Ranked on English 20%, Chemistry 40%, Biology 40% (or Natural Sciences 80%); minimum 6 of 10 in Biology and Chemistry; online interview. 2026 criteria.",
+      "places": 15
+    }
+  ],
+  "notes": [
+    "EU/EEA citizens can compete for state-funded places on English-taught programmes that offer them (Biotechnology and Bioengineering 8, Anthropology 1); the other degrees are fee-paying for everyone.",
+    "Fees are lower for EU/EEA/Swiss citizens than for other nationalities on most programmes; the application fee is 170 euro and must be paid before the deadline.",
+    "Business Process Management, Finance Management Information Systems and International Finance are taught at UL FinTech Business School and are listed on that school's page."
+  ],
+  "sources": [
+    {
+      "title": "University of Latvia: degree studies for international applicants (programme list, deadlines, application steps)",
+      "url": "https://www.lu.lv/en/admissions/degree-studies/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia: language proficiency",
+      "url": "https://www.lu.lv/en/admission/for-international-students/degree/language-proficiency/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia: about the university",
+      "url": "https://www.lu.lv/en/about-us/about-university/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Computer Science",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/computer-science-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Biotechnology and Bioengineering",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/biotechnology-and-bioengineering/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Business Administration",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/business-administration-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Cultural and Social Anthropology",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/cultural-and-social-anthropology-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: English, European Languages and Business Studies",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/english-european-languages-and-business-studies/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: East-West Intercultural Studies",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/asian-and-intercultural-studies/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Industrial Engineering and Management",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/industrial-engineering-and-management-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: International Economics and Commercial Diplomacy",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/international-economics-and-commercial-diplomacy-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Philology (French, German or Russian)",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/philology-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Optometry",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/optometry-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Medicine",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/medicine-en/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Latvia programme page: Dentistry",
+      "url": "https://www.lu.lv/en/studies/study-programmes-1/bachelors-study-programmes/dentistry-en/",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}
