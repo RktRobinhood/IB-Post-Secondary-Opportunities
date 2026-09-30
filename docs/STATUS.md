@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 30 September 2026 (day).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 30 September 2026 (afternoon).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,37 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+
+## 30 September (afternoon): paused at the 5-hour ceiling mid-batch
+
+Weekly usage 39% (owner's project ceiling: 50%). Paused at 70% of the
+5-hour window (resets 15:00 UTC). Nothing below is committed yet.
+
+- **Poland:** all 14 `data/schools/pl-*.json` written (listed), every
+  programme has detail. Photos not started (`schools-pl.jsonl` absent).
+  Next: run the photo pass (ENRICH_BRIEF), then check, gate, ship.
+- **Czechia:** 11 of 13 written with detail (missing `cz-vsb-tuo`,
+  `cz-czu`; `cz-uct-prague` and `cz-ctu` were being finished — re-check
+  them). Country-record fixes pending in `data/countries/cz.json`, listed
+  in `docs/research/schools/progress.md` (AMU fees, UPOL IB, UWB fee and
+  A2 language, USB deadline, LF2 2027 dates). Photos not started.
+- **Designed fallback backdrop (#67, owner-approved):** half-built in the
+  working tree — `src/lib/designed-backdrop.mjs` (new), edits in
+  programme-card, components, site.css, data, programme pages and the
+  image guards. Resume the agent brief (in this session's history: seeded
+  SVG pattern per programme, field palette, same veil, unique per page and
+  site-wide, hero too; screenshots to docs/research/qa/designed-backdrops/).
+- **Flagship cards for catalogue schools:** half-built — schema,
+  check-schools, schools.mjs, templates/university.mjs, school-programme,
+  BRIEF; example `data/schools/gb-edinburgh.json`. Catalogue pages say
+  every degree is taught in English, then 2–4 "best known for" cards from
+  the university's own strengths pages, then the course search.
+- `scripts/lib/long-titles.json`: adds "Sustainability in Marketing and
+  Media Communication" (Charles University's official name).
+- Lessons added to COUNTRY_PIPELINE: one browser tab per agent; **an agent
+  that spawns its own helpers multiplies usage** (Czechia's five helpers +
+  six others took the 5-hour window from 0 to 70% in 35 minutes) — tell
+  country agents not to fan out.
 
 ## 30 September (day): nine countries through the pipeline
 
