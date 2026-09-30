@@ -1,0 +1,85 @@
+{
+  "institution": "pl-wum",
+  "name": "Medical University of Warsaw",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Warsaw medical university whose Faculty of Medicine teaches in five hospitals; a six-year MD and a five-year dentistry degree taught in English.",
+  "handoff": {
+    "label": "Studies in English at WUM (MD and dentistry)",
+    "url": "https://www.wum.edu.pl/en/studies-in-english-wum"
+  },
+  "ib": {
+    "text": "IB holders sit WUM's online competency test (80% of the ranking); IB Biology and Chemistry at HL plus Physics or Maths make up the other 20%. The IB Diploma counts as proof of English.",
+    "url": "https://ed.wum.edu.pl/node/1041"
+  },
+  "lastYear": { "year": 2026, "text": "register by 30 June (Dentistry 23 June)" },
+  "apply": {
+    "via": "WUM Online Recruitment System (ORS)",
+    "url": "https://ed.wum.edu.pl/en/admissions-steps"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Medicine",
+      "credential": "Doctor of Medicine (MD)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://ed.wum.edu.pl/medicineprogram",
+      "requirementsUrl": "https://ed.wum.edu.pl/node/1041",
+      "about": "Six-year, 384-ECTS medical degree: anatomy and the scientific basis of medicine, pre-clinical and behavioural subjects, then surgical and non-surgical clinical classes from year four, with 20 weeks of summer clerkships.",
+      "ib": "Biology and Chemistry at HL plus Physics or Maths are required, and you sit WUM's online competency test in biology, chemistry and decision making.",
+      "needs": [
+        { "anyOf": ["biology"], "level": "HL", "note": "IB 7 = 100 points. If missing, WUM's own Biology exam (pass at 30%) can stand in." },
+        { "anyOf": ["chemistry"], "level": "HL", "note": "IB 7 = 100 points. If missing, WUM's own Chemistry exam (pass at 30%) can stand in." },
+        { "anyOf": ["physics", "mathematics-aa", "mathematics-ai"], "level": "SL", "note": "SL is accepted but scored with a lower multiplier than HL." }
+      ],
+      "selection": ["entrance-exam", "grades"],
+      "selectionNote": "Online competency test (80 questions) counts 80%, IB Biology, Chemistry and Physics or Maths 20%; the top of the ranking get offers. 170 places in 2026.",
+      "places": 170,
+      "lastYear": { "year": 2026, "text": "register by 30 June; online tests 28 March–5 July" },
+      "tuitionEuEea": "€18,800 a year (2026/27)"
+    },
+    {
+      "name": "Dentistry",
+      "credential": "Doctor of Dental Medicine (DMD)",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://wls.wum.edu.pl/node/1099",
+      "requirementsUrl": "https://wls.wum.edu.pl/node/1247",
+      "about": "Five-year, 300-ECTS dental degree built to EU standards: basic sciences first, then from year three treating your own patients under supervision at the University Dental Center on the Banacha campus, with four-week summer placements.",
+      "ib": "Biology and Chemistry at HL plus Physics or Maths are required, and you sit WUM's online competency test or submit an accepted UCAT, BMAT, MCAT or DAT score.",
+      "needs": [
+        { "anyOf": ["biology"], "level": "HL", "note": "If missing, WUM's own Biology exam (pass at 30%) can stand in." },
+        { "anyOf": ["chemistry"], "level": "HL", "note": "If missing, WUM's own Chemistry exam (pass at 30%) can stand in." },
+        { "anyOf": ["physics", "mathematics-aa", "mathematics-ai"], "level": "SL", "note": "SL counts with a multiplier: Physics 0.6, Maths AA 0.6, Maths AI 0.5; HL counts in full." }
+      ],
+      "selection": ["entrance-exam", "grades"],
+      "selectionNote": "Competency test (or an accepted admission-test score) counts 80%, IB Biology, Chemistry and Physics or Maths 20%. 2026 criteria; 2027 not yet published.",
+      "lastYear": { "year": 2026, "text": "register by 23 June; online tests 9 May–5 July" },
+      "tuitionEuEea": "€20,900 a year (2026/27)"
+    }
+  ],
+  "notes": [
+    "There is no EU rate: everyone pays tuition in euros, and a €1,000 confirmation fee, part of the first year's tuition, holds your place once you qualify.",
+    "Final-year students apply with predicted grades; the competency test is taken online from home, within set hours on the session weekend you choose.",
+    "UCAT, BMAT, MCAT or a science degree replace the competency test only for some international applicants: email the admissions office to confirm before you apply that way."
+  ],
+  "sources": [
+    { "title": "WUM: Studies in English", "url": "https://www.wum.edu.pl/en/studies-in-english-wum", "retrieved": "2026-09-30" },
+    { "title": "WUM English Division: 6-year Medicine Program (MD)", "url": "https://ed.wum.edu.pl/medicineprogram", "retrieved": "2026-09-30" },
+    { "title": "WUM English Division: Medicine admissions criteria 2026/27", "url": "https://ed.wum.edu.pl/node/1041", "retrieved": "2026-09-30" },
+    { "title": "WUM English Division: Medicine 5 steps admissions in brief", "url": "https://ed.wum.edu.pl/en/admissions-steps", "retrieved": "2026-09-30" },
+    { "title": "WUM English Division: Medicine admission (recruitment 2026/2027)", "url": "https://ed.wum.edu.pl/recruitment", "retrieved": "2026-09-30" },
+    { "title": "WUM English Division: Competency test and additional exams sessions 2026", "url": "https://ed.wum.edu.pl/exam-sessions", "retrieved": "2026-09-30" },
+    { "title": "WUM English Division: Admission and tuition fees", "url": "https://ed.wum.edu.pl/admission-fees", "retrieved": "2026-09-30" },
+    { "title": "WUM Rector's Order 58/2026, Appendix 2: tuition fees for studies in English from 2026/2027", "url": "https://ed.wum.edu.pl/sites/ed.wum.edu.pl/files/2026-03/order_58_2026_of_the_muw_rector_tuition_fee.pdf", "retrieved": "2026-09-30" },
+    { "title": "WUM Recruitment Resolution 2026/2027, Appendix 19 (IB grade conversion)", "url": "https://rekrutacja-info.wum.edu.pl/sites/rekrutacja-info.wum.edu.pl/files/us_nr_41_z_30.06.2025_r._zalacznik_nr_19.pdf", "retrieved": "2026-09-30" },
+    { "title": "WUM Faculty of Medicine: Why study at the Faculty of Medicine (five teaching hospitals)", "url": "https://ed.wum.edu.pl/candidates", "retrieved": "2026-09-30" },
+    { "title": "WUM Dentistry: About the English Dentistry (DMD, 300 ECTS)", "url": "https://wls.wum.edu.pl/node/1099", "retrieved": "2026-09-30" },
+    { "title": "WUM Dentistry: Admissions 2026/2027", "url": "https://wls.wum.edu.pl/node/307", "retrieved": "2026-09-30" },
+    { "title": "WUM Dentistry: Qualification score (IB rules and multipliers)", "url": "https://wls.wum.edu.pl/node/1247", "retrieved": "2026-09-30" },
+    { "title": "WUM Dentistry: Competency test dates 2026", "url": "https://wls.wum.edu.pl/node/993", "retrieved": "2026-09-30" },
+    { "title": "WUM Dentistry: Fees and rules of payment 2026/2027", "url": "https://wls.wum.edu.pl/node/996", "retrieved": "2026-09-30" }
+  ]
+}

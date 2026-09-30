@@ -1,0 +1,414 @@
+{
+  "institution": "pl-amu",
+  "name": "Adam Mickiewicz University in Poznan",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Poznan university founded in 1919 with 21 faculties; nine English-taught bachelor's, from Chemistry to Liberal Arts, one at its Słubice campus.",
+  "handoff": {
+    "label": "AMU bachelor's degrees taught in English",
+    "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs"
+  },
+  "ib": {
+    "text": "IB grades convert to Matura percentages (7 = 100%, 6 = 90%, 5 = 75%; HL counts as extended level). IB holders skip the foreigners' entrance exam, and the Diploma proves English.",
+    "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/international-relations,387"
+  },
+  "lastYear": {
+    "year": 2026,
+    "text": "register 1 June–9 July; results 20 July"
+  },
+  "apply": {
+    "via": "AMU Online Admission System (OAS)",
+    "url": "https://amu.edu.pl/en/admissions/full-study-programs-online-enrollment-system"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Chemistry",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/bachelor-of-science-in-chemistry",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/chemistry-specialty-general-chemistry,555",
+      "about": "General chemistry in English: analytical, inorganic, organic and physical chemistry, chemical technology and instrumental and spectral analysis, with much of the work done in the lab.",
+      "tuitionEuEea": "1,900 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry",
+            "biology",
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "geography"
+          ],
+          "level": "HL",
+          "note": "Best one scores up to 60 of 100 pts; Chemistry weighs most, HL counts double SL"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Up to 20 of 100 pts; HL counts double SL"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB grades as Matura %: native language 20, English 20, best science 60 of 100. 25 places in the 2026 first round. 2026 criteria; 2027 not yet published.",
+      "places": 25
+    },
+    {
+      "name": "European Legal Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "law",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/bachelor-of-arts-in-european-legal-studies",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/european-legal-studies,429",
+      "about": "How European integration shapes law, the economy and daily life: human rights, EU trade and consumer law, data protection and intellectual property, with focus tracks in law, business and society in year three.",
+      "tuitionEuEea": "3,500 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "history",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "Best one scores up to 40 of 100 pts; HL counts double SL"
+        },
+        {
+          "anyOf": [
+            "english-b",
+            "english-a-lang-lit",
+            "english-a-literature",
+            "language-b-other"
+          ],
+          "level": "any",
+          "note": "A modern foreign language scores up to 30 of 100 pts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB grades as Matura %: native language 30, foreign language 30, history or maths 40 of 100; B2 English. 60 places in 2026. 2026 criteria; 2027 not yet published.",
+      "places": 60
+    },
+    {
+      "name": "Central European and Balkan Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/central-european-and-balkan-studies",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/central-european-and-balkan-studies,41",
+      "about": "Literature, languages and cultures of Central Europe and the Balkans, taught through Polish studies, Slavic studies and classical philology, with practical communication for cultural tourism and business.",
+      "ib": "Places go by an English interview testing B2 level (pass mark 11 of 20), not by IB grades.",
+      "tuitionEuEea": "3,000 PLN a semester (2026/27)",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "A competency interview in English decides entry; at least 11 of 20 points. 30 places in the 2026 first round. 2026 criteria; 2027 not yet published.",
+      "places": 30
+    },
+    {
+      "name": "English Linguistics: Theories, Interfaces, Technologies",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/bachelor-of-arts-in-english-linguistics-theories,-interfaces,-technologies",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/english-linguistics-theories-interfaces-technologies,70",
+      "about": "Theoretical and experimental linguistics (phonology, syntax, psycholinguistics, sociolinguistics) combined with language technology: text processing, language databases and speech analysis, plus academic English and internships.",
+      "tuitionEuEea": "3,100 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "HL",
+          "note": "Scores 70 of 100 pts; only an HL grade counts"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "computer-science",
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics"
+          ],
+          "level": "HL",
+          "note": "Best one (or your native language) scores 30 of 100 pts; only HL counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB HL grades as Matura %: English 70, plus native language or a science or maths 30 of 100. 30 places in the 2026 first round. 2026 criteria; 2027 not yet published.",
+      "places": 30
+    },
+    {
+      "name": "International Relations",
+      "credential": "BA",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/bachelor-of-arts-in-international-relations",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/international-relations,387",
+      "about": "War, peace, conflict and cooperation between states: international law, economics, diplomacy, negotiation and foreign policy, with specialties in Geopolitics and Strategic Studies or Global Economy and International Business.",
+      "tuitionEuEea": "4,000 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "history"
+          ],
+          "level": "HL",
+          "note": "Scores up to 40 of 100 pts; civics, or any other subject at a lower weight, can fill this slot"
+        },
+        {
+          "anyOf": [
+            "english-b",
+            "english-a-lang-lit",
+            "english-a-literature",
+            "language-b-other"
+          ],
+          "level": "any",
+          "note": "A modern foreign language scores up to 20 of 100 pts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB grades as Matura %: native language 30, foreign language 20, history or other subject 50 of 100; B2 English. 75 places in 2026. 2026 criteria; 2027 not yet published.",
+      "places": 75
+    },
+    {
+      "name": "Liberal Arts and Sciences",
+      "credential": "BA",
+      "years": 3,
+      "field": "interdisciplinary",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/bachelor-of-arts-in-liberal-arts-and-sciences",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/liberal-arts-and-sciences,491",
+      "about": "A European liberal arts degree: core courses in philosophy, logic, research methods and academic writing, disciplinary courses from biology to history, Greek and Latin, and electives from other AMU faculties.",
+      "ib": "An interview on one of two topics you propose (pass mark 60 of 100) counts alongside your IB grades.",
+      "tuitionEuEea": "2,500 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "english-b",
+            "english-a-lang-lit",
+            "english-a-literature",
+            "language-b-other"
+          ],
+          "level": "any",
+          "note": "A modern foreign language scores up to 30 of 100 grade points"
+        }
+      ],
+      "selection": [
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "Interview (100 pts, at least 60) plus IB grades as Matura % (100: native language 20, foreign language 30, any subject 50); B2 English. 40 places in 2026. 2026 criteria.",
+      "places": 40
+    },
+    {
+      "name": "Global Communication",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/global-communication",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/global-communication,572",
+      "about": "Linguistics, literature and communication studies across the English-speaking and East Slavic worlds: English and Russian to B2+ level, plus an optional third language (Spanish, German, Belarusian or Ukrainian).",
+      "tuitionEuEea": "1,500 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "HL",
+          "note": "Scores 70 of 100 pts; only an HL grade counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB grades as Matura %: English HL 70, native language 30 of 100; B2 English. 30 places in the 2026 first round. 2026 criteria; 2027 not yet published.",
+      "places": 30
+    },
+    {
+      "name": "Applied Linguistics and Intercultural Communication",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/Applied-Linguistics,-specialty-Applied-Linguistics-and-Intercultural-Communication-English-and-German-from-the-start",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/applied-linguistics-specialty-applied-linguistics-and-intercultural-communication-english-and-german-from-the-start,495",
+      "about": "Using languages in multicultural settings: English and German grammar, contrastive linguistics, public speaking and intercultural training, with German from the start and a third language (Spanish or French).",
+      "ib": "Taught in English and German; German starts from zero, and English at B1 or above is required.",
+      "tuitionEuEea": "2,500 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "HL",
+          "note": "Scores 70 of 100 pts; only an HL grade counts"
+        },
+        {
+          "anyOf": [
+            "geography",
+            "history",
+            "mathematics-aa",
+            "mathematics-ai",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Best one scores 30 of 100 pts; only HL counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB HL grades as Matura %: English 70, plus geography, history, maths or another foreign language 30 of 100. 25 places in 2026. 2026 criteria.",
+      "places": 25
+    },
+    {
+      "name": "Governance of Organizations",
+      "credential": "Bachelor's degree (licencjat)",
+      "years": 3,
+      "field": "social-sciences",
+      "city": "Słubice",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs/bachelor-of-organizations",
+      "requirementsUrl": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/governance-of-organizations-slubice,594",
+      "about": "Leading and managing organisations, drawing on political science, law and communication: ESG, compliance, conflict management and AI tools, plus an intensive foreign language (preferably German) to B2.",
+      "tuitionEuEea": "1,000 PLN a semester (2026/27)",
+      "needs": [
+        {
+          "anyOf": [
+            "english-b",
+            "english-a-lang-lit",
+            "english-a-literature",
+            "language-b-other"
+          ],
+          "level": "any",
+          "note": "A modern foreign language scores up to 70 of 100 pts; HL weighs more"
+        },
+        {
+          "anyOf": [
+            "history"
+          ],
+          "level": "HL",
+          "note": "Up to 30 of 100 pts; civics or any other subject can fill this slot at a lower weight"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB grades as Matura %: foreign language 70, history or another subject 30 of 100; B2 English. 25 places in the 2026 first round. 2026 criteria.",
+      "places": 25
+    }
+  ],
+  "notes": [
+    "English-taught fees are the same for every student, EU citizens and Poles included; EU citizens study free only on Polish-taught degrees.",
+    "Where the formula counts Polish, your native language takes its place; an HL grade counts as extended level and weighs up to double an SL grade.",
+    "AMU does not publish past points thresholds; programmes with places left reopen in later rounds over the summer."
+  ],
+  "sources": [
+    {
+      "title": "AMU — Bachelor Degree Programs (nine taught in English)",
+      "url": "https://amu.edu.pl/en/admissions/bachelor-degree-programs",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU Online Admission System 2026/2027 — first-cycle programmes filtered by English / English and German",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-programmes?languageOfInstruction=en&levelOfEducation=L",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — International Relations (fee, places, formula, IB conversion table, foreigners' exam rule)",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/international-relations,387",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — Chemistry, specialty General Chemistry",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/chemistry-specialty-general-chemistry,555",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — European Legal Studies",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/european-legal-studies,429",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — Central European and Balkan Studies (competency interview)",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/central-european-and-balkan-studies,41",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — English Linguistics: Theories, Interfaces, Technologies",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/english-linguistics-theories-interfaces-technologies,70",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — Liberal Arts and Sciences (interview)",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/liberal-arts-and-sciences,491",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — Global Communication",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/global-communication,572",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — Applied Linguistics and Intercultural Communication (English and German from the start)",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/applied-linguistics-specialty-applied-linguistics-and-intercultural-communication-english-and-german-from-the-start,495",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU OAS — Governance of Organizations (Słubice)",
+      "url": "https://rekrutacja.amu.edu.pl/en/studies-cataloge/governance-of-organizations-slubice,594",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU — Tuition Fees (first-year foreign-language study 2026/2027, per semester)",
+      "url": "https://amu.edu.pl/en/admissions/tuition-fees",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU — Financial conditions (EU exemption for Polish-taught study only)",
+      "url": "https://amu.edu.pl/en/admissions/full-study-programs-online-enrollment-system/financial-conditions",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU — Recruitment schedule, bachelor's programmes",
+      "url": "https://amu.edu.pl/en/admissions/recruitment-schedule",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU — Required documents (IB Diploma accepted as proof of language)",
+      "url": "https://amu.edu.pl/en/admissions/full-study-programs-online-enrollment-system/required-documents",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU — Recruitment Q&A (native language replaces Polish in the formula)",
+      "url": "https://amu.edu.pl/en/admissions/recruitment-q-and-a",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU — Facts and figures (founded 1919, 21 faculties)",
+      "url": "https://amu.edu.pl/en/main-page/facts-and-figures",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMU Blog Kandydata — Progi punktowe na UAM (thresholds not published)",
+      "url": "https://blogkandydata.amu.edu.pl/rekrutacja/progi-punktowe-na-uam-2/",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

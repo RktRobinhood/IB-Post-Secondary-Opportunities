@@ -1,0 +1,504 @@
+{
+  "institution": "pl-agh",
+  "name": "AGH University of Krakow",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Kraków technical university of about 21,000 students; seven English bachelor's in computing, physics, geology, mechanics and space.",
+  "handoff": {
+    "label": "English-taught bachelor studies",
+    "url": "https://www.international.agh.edu.pl/en/studies/education-offer-bachelor-studies"
+  },
+  "ib": {
+    "text": "Ranked on IB grades: maths (SL, or HL) x2 plus your best two listed HL subjects x6 and x2, each rescaled to 30-100, out of 1000; 300 needed. With an IB you skip AGH's maths exam.",
+    "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+  },
+  "starts": "1 October",
+  "lastYear": {
+    "year": 2026,
+    "text": "1 June–9 July (10 am CEST); later cycles if places remain"
+  },
+  "apply": {
+    "via": "e-Rekrutacja (AGH's international recruitment)",
+    "url": "https://www.international.agh.edu.pl/en/studies/recruitment/step-by-step-bachelor"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Computer Physics",
+      "credential": "Bachelor of Engineering (inżynier)",
+      "years": 3.5,
+      "field": "natural-sciences",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/17/236",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Physics and mathematics combined with computational methods: modelling, simulation and data analysis of physical and engineering problems, at the Faculty of Physics and Applied Computer Science.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1)"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2)"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "566 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€2,000 a semester (2026/27)"
+    },
+    {
+      "name": "Computer Science",
+      "credential": "Bachelor of Engineering (inżynier)",
+      "years": 3.5,
+      "field": "computing",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/16/104",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Building and using computer systems: maths and physics foundations, programming, PC and mobile systems, administration and data analysis, run by four AGH faculties together.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science",
+            "english-b",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1); a foreign language (e.g. English B) counts"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science",
+            "english-b",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2)"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "685 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€3,000 a semester (2026/27)",
+      "separateFrom": [
+        {
+          "name": "Computer Science for Embedded Systems",
+          "reason": "A different degree at a different faculty: general computing and software, with its own fee, subject list and ranking; you apply to each separately."
+        }
+      ]
+    },
+    {
+      "name": "Computer Science for Embedded Systems",
+      "credential": "Bachelor of Engineering (inżynier)",
+      "years": 3.5,
+      "field": "computing",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/4/56",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Designing embedded systems like those in cars, robots, IoT devices and medical equipment, from hardware to software, with lab work, team projects and simulation and testing tools.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1)"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science",
+            "english-b",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2); a foreign language counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "821 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€2,500 a semester (2026/27)",
+      "separateFrom": [
+        {
+          "name": "Computer Science",
+          "reason": "A different degree at a different faculty: hardware-and-software design of embedded systems, with its own fee, subject list and ranking; you apply to each separately."
+        }
+      ]
+    },
+    {
+      "name": "Geology of Natural Resources",
+      "credential": "Licencjat (bachelor's degree)",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/1/6/335",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Finding and assessing mineral deposits for the energy transition and critical raw materials: geochemistry, geophysics, GIS and data modelling, with lab and field classes.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "computer-science",
+            "biology",
+            "geography"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1)"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "computer-science",
+            "biology",
+            "geography",
+            "english-b",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2); a foreign language counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "880 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€1,725 a semester (2026/27)"
+    },
+    {
+      "name": "Mechanical Engineering",
+      "credential": "Bachelor of Engineering (inżynier)",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/5/253",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Designing mechanical systems: materials, strength, corrosion and manufacturing technology, at the Faculty of Mechanical Engineering and Robotics.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1)"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science",
+            "english-b",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2); a foreign language counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "502 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€1,725 a semester (2026/27)"
+    },
+    {
+      "name": "Mechatronic Engineering",
+      "credential": "Bachelor of Engineering (inżynier)",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/5/55",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Mechanics, control, electronics and computing brought together: computer-aided engineering, virtual prototyping, modern control and the basics of robotics.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1)"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science",
+            "english-b",
+            "language-b-other"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2); a foreign language counts"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "500 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€1,800 a semester (2026/27)"
+    },
+    {
+      "name": "Space Engineering",
+      "credential": "Bachelor of Engineering (inżynier)",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/64/332",
+      "requirementsUrl": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "about": "Designing, integrating and operating space systems: spacecraft and satellites, propulsion, avionics, flight dynamics and ground segment, in design studios and mission projects with an internship.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "Counts twice (M): your SL grade, or HL if you took maths only at HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Best HL grade from this list counts six times (P1)"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Another HL subject from this list counts twice (P2)"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on AGH's 1000-point index: 2 x maths + 6 x best listed HL + 2 x second listed HL, grades rescaled to 30-100; 300 needed. 2027 rules.",
+      "cutoff": {
+        "value": "472 of 1000 (1st cycle)",
+        "intake": "2026",
+        "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor"
+      },
+      "tuitionEuEea": "€1,250 a semester (2026/27)"
+    }
+  ],
+  "notes": [
+    "Without Polish citizenship you apply through AGH's international recruitment and pay the programme fee; EU citizens get no lower rate.",
+    "With an IB diploma you need no apostille or NAWA statement, and as an EU citizen at a school in the EU or OECD no English certificate.",
+    "You apply after your IB exams and type your IB grades into e-Rekrutacja yourself; the diploma scan goes in with them."
+  ],
+  "sources": [
+    {
+      "title": "Education offer - Bachelor studies 2026/27",
+      "url": "https://www.international.agh.edu.pl/en/studies/education-offer-bachelor-studies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Computer Physics - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/17/236",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Computer Science - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/16/104",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Computer Science for Embedded Systems - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/4/56",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Geology of Natural Resources - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/1/6/335",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Mechanical Engineering - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/5/253",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Mechatronic Engineering - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/5/55",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Space Engineering - programme (syllabus) page",
+      "url": "https://sylabusy.agh.edu.pl/en/1/2/22/1/4/64/332",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Recruitment rules - Bachelor (admission rate, IB, maths exam, language, 2023-2026 point thresholds)",
+      "url": "https://www.international.agh.edu.pl/en/studies/recruitment/recruitment-rules-bachelor",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Deadlines - Bachelor studies (2026 summer admission calendar)",
+      "url": "https://www.international.agh.edu.pl/en/studies/recruitment/deadlines-bachelor-studies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Fees 2026/27",
+      "url": "https://www.international.agh.edu.pl/en/studies/fees",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Required documents - Bachelor",
+      "url": "https://www.international.agh.edu.pl/en/studies/recruitment/required-documents-bachelor",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Step by step - Bachelor",
+      "url": "https://www.international.agh.edu.pl/en/studies/recruitment/step-by-step-bachelor",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Warunki rekrutacji (IB grade conversion formula)",
+      "url": "https://rekrutacja.agh.edu.pl/warunki-rekrutacji/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Senate resolution 82/2026: admission 2027/28",
+      "url": "https://rekrutacja.agh.edu.pl/wp-content/uploads/2026/06/uchwala_2027_2028_warunki_rekrutacji.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Table 1 2026/27: subjects P1/P2",
+      "url": "https://rekrutacja.agh.edu.pl/wp-content/uploads/2026/06/tabela1_26_27.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Rector's order 39/2026, annex 3: fees for non-Polish citizens 2026/27",
+      "url": "https://rekrutacja.agh.edu.pl/wp-content/uploads/2026/05/zarzadzenie_rektora_39_2026_oplaty_2026_2027_zalacznik_3.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Admission Centre documents",
+      "url": "https://rekrutacja.agh.edu.pl/dokumenty/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Facts and figures",
+      "url": "https://www.agh.edu.pl/en/o-agh/fakty-i-liczby",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

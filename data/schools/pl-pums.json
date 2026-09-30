@@ -1,0 +1,87 @@
+{
+  "institution": "pl-pums",
+  "name": "Poznan University of Medical Sciences",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Poznan medical university founded in 1919, teaching in English since 1993: a six-year MD and a five-year DDS, entered by science quiz and interview.",
+  "handoff": {
+    "label": "Autumn 2027 application calendar (MD and DDS)",
+    "url": "https://pums.edu.pl/admissions/application-calendar/"
+  },
+  "ib": {
+    "text": "IB holders need HL in Biology, Chemistry or Physics; places go on a 60-question science quiz and an interview. The English-test list does not name the IB, so ask admissions whether yours counts.",
+    "url": "https://pums.edu.pl/admissions/medicine-program/admission-requirements/"
+  },
+  "starts": "September",
+  "apply": {
+    "via": "PUMS applicant portal (applicant.ump.edu.pl)",
+    "url": "https://pums.edu.pl/admissions/application-calendar/"
+  },
+  "dates": [
+    { "label": "Applications open for autumn 2027 entry", "date": "2026-09-01", "kind": "opens", "who": "any", "url": "https://pums.edu.pl/admissions/application-calendar/" },
+    { "label": "Entrance exam and interview session in Poznan", "date": "2027-03-16", "kind": "test", "who": "any", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/" },
+    { "label": "Entrance exam and interview session in Poznan", "date": "2027-04-13", "kind": "test", "who": "any", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/" },
+    { "label": "Entrance exam and interview session in Poznan", "date": "2027-05-18", "kind": "test", "who": "any", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/" },
+    { "label": "Entrance exam and interview session in Poznan", "date": "2027-06-14", "kind": "test", "who": "any", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/" },
+    { "label": "Entrance exam and interview session in Oslo (20–21 June)", "date": "2027-06-20", "kind": "test", "who": "any", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/" },
+    { "label": "Entrance exam and interview session in Poznan", "date": "2027-07-12", "kind": "test", "who": "any", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/" },
+    { "label": "Online application deadline (applicant.ump.edu.pl)", "date": "2027-07-20", "kind": "closes", "who": "any", "url": "https://pums.edu.pl/admissions/application-calendar/" }
+  ],
+  "programmes": [
+    {
+      "name": "Medicine",
+      "credential": "Doctor of Medicine (MD)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://pums.edu.pl/admissions/medicine-program/",
+      "requirementsUrl": "https://pums.edu.pl/admissions/medicine-program/admission-requirements/",
+      "about": "Six-year, 360-ECTS medical degree straight from school: basic sciences first, patient contact from year two, clinical rotations from year four in PUMS's own hospitals, with NBME exams and a Kaplan review course built in.",
+      "ib": "HL in Biology, Chemistry or Physics is required; admission is by a 60-question science quiz and an interview, held in Poznan or abroad.",
+      "needs": [
+        { "anyOf": ["biology", "chemistry", "physics"], "level": "HL", "note": "The IB rule: at least one of these three at HL." },
+        { "anyOf": ["biology"], "level": "any", "note": "Grades in biology plus chemistry or maths/physics are required (at least two, including biology)." }
+      ],
+      "selection": ["entrance-exam", "interview"],
+      "selectionNote": "60-question science quiz and a 20–40 minute interview; MCAT, UCAT, BMAT or GAMSAT scores, healthcare volunteering or research can earn bonus points.",
+      "tuitionEuEea": "71,000 PLN in year 1 (2026/27)"
+    },
+    {
+      "name": "Dentistry",
+      "credential": "Doctor of Dental Surgery (DDS)",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://pums.edu.pl/admissions/dentistry/",
+      "requirementsUrl": "https://pums.edu.pl/admissions/dentistry/dentistry-admission-requirements/",
+      "about": "Five-year, 300-ECTS dental degree straight from school: medical sciences first, then from year three treating patients in the PUMS Dental Clinic, with a dental simulation centre and summer clinical training each year.",
+      "ib": "HL in Biology, Chemistry or Physics is required; admission is by a 60-question science quiz and an interview, and manual dexterity is expected.",
+      "needs": [
+        { "anyOf": ["biology", "chemistry", "physics"], "level": "HL", "note": "The IB rule: at least one of these three at HL." },
+        { "anyOf": ["biology"], "level": "any", "note": "Grades in biology plus chemistry or maths/physics are required (at least two, including biology)." }
+      ],
+      "selection": ["entrance-exam", "interview"],
+      "selectionNote": "Same science quiz and interview as Medicine; bonus points for admission tests or healthcare work. The programme runs only if at least 12 students are admitted.",
+      "tuitionEuEea": "75,250 PLN in year 1 (2026/27)"
+    }
+  ],
+  "notes": [
+    "There is no EU rate: everyone pays the same tuition, which rises after year two (the MD totals 485,000 PLN over six years at 2026/27 prices).",
+    "Exam sessions also run in Bergen, Kristiansand, London and Dublin, plus one more Poznan session after the deadline; paying the 85 PLN processing fee unlocks practice quizzes in the applicant portal.",
+    "Two PUMS pages give different first days of classes for autumn 2027, so confirm the start with admissions before booking travel."
+  ],
+  "sources": [
+    { "title": "PUMS: Medicine Program (English)", "url": "https://pums.edu.pl/admissions/medicine-program/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Medicine introduction (MD, 6 years, 360 ECTS)", "url": "https://pums.edu.pl/admissions/medicine-program/introduction/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Medicine admission requirements, Fall 2027 entry (IB HL rule)", "url": "https://pums.edu.pl/admissions/medicine-program/admission-requirements/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Dentistry Program (English)", "url": "https://pums.edu.pl/admissions/dentistry/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Dentistry introduction (DDS, 5 years, 300 ECTS)", "url": "https://pums.edu.pl/admissions/dentistry/intro-dentistry/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Dentistry admission requirements, Fall 2027 entry", "url": "https://pums.edu.pl/admissions/dentistry/dentistry-admission-requirements/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Application calendar, Fall 2027 entry", "url": "https://pums.edu.pl/admissions/application-calendar/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Entrance examination and interview, 2027 sessions", "url": "https://pums.edu.pl/admissions/entrance-examination-and-interview/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Medicine tuition and costs of living 2026/2027", "url": "https://pums.edu.pl/admissions/medicine-program/tuition-costs-of-living/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Dentistry tuition and costs of living 2026/2027", "url": "https://pums.edu.pl/admissions/dentistry/dentistry-tuition-and-costs-of-living/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Welcome to PUMS (history; English-taught study since 1993)", "url": "https://pums.edu.pl/about-pums/welcome-to-pums/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: Why PUMS (public university founded in 1919)", "url": "https://pums.edu.pl/admissions/why-pums/", "retrieved": "2026-09-30" },
+    { "title": "PUMS: FAQ (recruitment September to 20 July; exam format)", "url": "https://pums.edu.pl/about-pums/faq/", "retrieved": "2026-09-30" }
+  ]
+}

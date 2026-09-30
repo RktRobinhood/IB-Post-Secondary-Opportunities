@@ -1,0 +1,239 @@
+{
+  "institution": "pl-put",
+  "name": "Poznan University of Technology",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Poznan's technical university, over a century old, on a riverside campus by the Warta; ten English-taught BSc degrees, free for EU citizens.",
+  "handoff": {
+    "label": "English-taught BSc programmes",
+    "url": "https://put.poznan.pl/en/first-cycle-bsc-programmes"
+  },
+  "ib": {
+    "text": "Ranked on IB Maths plus the best science, out of 1,000 points; HL scores more (HL 7 = 200, SL 7 = 100) and 200 points are needed. The IB Diploma covers English and needs no NAWA recognition.",
+    "url": "https://put.poznan.pl/rekrutacja/wzory-rankingowe"
+  },
+  "starts": "October",
+  "lastYear": { "year": 2026, "text": "register and upload documents 12 May–9 July" },
+  "apply": {
+    "via": "PUT online recruitment system (international candidates)",
+    "url": "https://put.poznan.pl/en/admission-for-international/procedure"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Architecture",
+      "credential": "BSc",
+      "years": 4,
+      "field": "design-architecture",
+      "url": "https://put.poznan.pl/en/kierunek/architekturaarchitecture",
+      "requirementsUrl": "https://put.poznan.pl/sites/default/files/2026-05/Zarz%C4%85dzenie%20nr%2014%20-%202026%20-%20Za%C5%82%C4%85cznik%20nr%203%20ENG_0.pdf",
+      "about": "Four-year engineering degree in architectural and urban design, taught by practising architects: technical drawing, designing buildings and organising space, with a focus on healthcare design, energy-efficient buildings and heritage.",
+      "ib": "Upload a portfolio of up to eight drawings, including three pencil drawings on set themes (a figure in space, local architecture, a composition), when you apply.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×1.5 in the ranking: HL 7 = 200 points, SL 7 = 100." }
+      ],
+      "selection": ["portfolio", "grades"],
+      "selectionNote": "Portfolio worth up to 500 points plus IB Maths and Language A; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "303.5 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 30,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Artificial Intelligence",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "computing",
+      "url": "https://put.poznan.pl/en/kierunek/sztuczna-inteligencjaartificial-intelligence",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Computer science centred on artificial intelligence: algorithms, machine learning and neural networks, data analysis, optimisation and decision analysis, and AI in robotics, with a four-week internship after the third year.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science", "geography"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science or geography (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "589.25 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 15,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Automatic Control and Robotics",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/automatyka-i-robotykaautomatic-control-and-robotics",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Industrial control and measurement systems, modelling and programming robotic workstations, and designing simple automation systems, much of it in well-equipped labs, with technical English to B2.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "471.5 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 20,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Biomedical Engineering",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/inzynieria-biomedycznabiomedical-engineering",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Engineering applied to the human body: designing medical and rehabilitation equipment, prostheses and implants, and working with doctors and physiotherapists on technology used in hospitals and clinics.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "246.5 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 20,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Chemical Technology",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/technologia-chemicznachemical-technology",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Chemistry joined to process engineering for making chemical products at industrial scale, aimed at the chemical, food and cosmetics industries and taught largely through laboratory and project classes.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["chemistry", "physics", "biology", "computer-science", "geography"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science or geography (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "325 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 30,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Engineering Management",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "business",
+      "url": "https://put.poznan.pl/en/kierunek/inzynieria-zarzadzaniaengineering-management",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Management and economics combined with engineering: linking technical and business problems and running IT systems, for roles such as market analyst, sales manager or manager in a production company.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science", "geography"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science or geography (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "211 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 40,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Mechanical Engineering",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/inzynieria-mechanicznamechanical-engineering",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "A new English-taught programme in machine design and manufacturing: materials, CAD/CAE/CAM tools, simulation and experiments, and how machines, robots and mechatronic systems work, through labs and team projects.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "446 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 20,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Microelectronics and Digital Communication",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/mikroelektronika-i-komunikacja-cyfrowamicroelectronics-and-digital-communication",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Three strands: microelectronics (microcomputers, FPGAs, circuit-board design), programming processors from x86 to ARM, and digital communication from satellites to smartphones, plus XR/VR and sensor networks.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science", "geography"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science or geography (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "279 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 30,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Quantum Technologies",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/technologie-kwantowequantum-technologies",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Quantum physics with classical and quantum computing, AI, photonics and electronics on a materials-engineering core: programming quantum computers, designing quantum sensors and building quantum communication systems.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science", "geography"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science or geography (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "345.5 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 20,
+      "tuitionEuEea": "Free"
+    },
+    {
+      "name": "Sustainable Building Engineering",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://put.poznan.pl/en/kierunek/budownictwo-zrownowazonesustainable-building-engineering",
+      "requirementsUrl": "https://put.poznan.pl/rekrutacja/wzory-rankingowe",
+      "about": "Designing, building and running low-energy buildings and their water, heating, ventilation and air-conditioning systems, using CAD, CAM and BIM tools, with life-cycle cost and environmental assessment.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Scored ×2.5 in the ranking: HL 7 = 200 points, SL 7 = 100." },
+        { "anyOf": ["physics", "chemistry", "biology", "computer-science", "geography"], "level": "any", "note": "Your best one is scored ×2; HL counts 100 points more than SL." }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB Maths (×2.5) and your best science or geography (×2), HL worth more; 200 of 1,000 needed. 2026 criteria and places; 2027 not yet published.",
+      "cutoff": { "value": "227 of 1,000 points", "intake": "2026", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf" },
+      "places": 30,
+      "tuitionEuEea": "Free"
+    }
+  ],
+  "notes": [
+    "EU/EEA/Swiss citizens pay no tuition: upload your EU passport or ID as the fee-waiver document in the application; the €1,850–2,460 first-semester fees on the fees page are the non-EU price.",
+    "A PUT notice exempted IB holders from the online entrance exam, but the current step-by-step page mentions one for everyone except Architecture: ask the International Relations Office which applies to you.",
+    "One application can list up to three programmes in order of preference; you are admitted to the highest one you rank high enough for."
+  ],
+  "sources": [
+    { "title": "PUT: First-cycle (B.Sc.) programmes (English-taught list)", "url": "https://put.poznan.pl/en/first-cycle-bsc-programmes", "retrieved": "2026-09-30" },
+    { "title": "PUT: Architecture programme page", "url": "https://put.poznan.pl/en/kierunek/architekturaarchitecture", "retrieved": "2026-09-30" },
+    { "title": "PUT: Artificial Intelligence programme page", "url": "https://put.poznan.pl/en/kierunek/sztuczna-inteligencjaartificial-intelligence", "retrieved": "2026-09-30" },
+    { "title": "PUT: Automatic Control and Robotics programme page", "url": "https://put.poznan.pl/en/kierunek/automatyka-i-robotykaautomatic-control-and-robotics", "retrieved": "2026-09-30" },
+    { "title": "PUT: Biomedical Engineering programme page", "url": "https://put.poznan.pl/en/kierunek/inzynieria-biomedycznabiomedical-engineering", "retrieved": "2026-09-30" },
+    { "title": "PUT: Chemical Technology programme page", "url": "https://put.poznan.pl/en/kierunek/technologia-chemicznachemical-technology", "retrieved": "2026-09-30" },
+    { "title": "PUT: Engineering Management programme page", "url": "https://put.poznan.pl/en/kierunek/inzynieria-zarzadzaniaengineering-management", "retrieved": "2026-09-30" },
+    { "title": "PUT: Mechanical Engineering programme page", "url": "https://put.poznan.pl/en/kierunek/inzynieria-mechanicznamechanical-engineering", "retrieved": "2026-09-30" },
+    { "title": "PUT: Microelectronics and Digital Communication programme page", "url": "https://put.poznan.pl/en/kierunek/mikroelektronika-i-komunikacja-cyfrowamicroelectronics-and-digital-communication", "retrieved": "2026-09-30" },
+    { "title": "PUT: Quantum Technologies programme page", "url": "https://put.poznan.pl/en/kierunek/technologie-kwantowequantum-technologies", "retrieved": "2026-09-30" },
+    { "title": "PUT: Sustainable Building Engineering programme page", "url": "https://put.poznan.pl/en/kierunek/budownictwo-zrownowazonesustainable-building-engineering", "retrieved": "2026-09-30" },
+    { "title": "PUT: Wzory rankingowe 2026/2027 (ranking formulas and IB conversion table)", "url": "https://put.poznan.pl/rekrutacja/wzory-rankingowe", "retrieved": "2026-09-30" },
+    { "title": "PUT Senate Resolution No. 53/2024-2028 on admission for 2026/2027", "url": "https://put.poznan.pl/sites/default/files/2025-05/Uchwa%C5%82a%20Nr%2053%20-%202024-2028.pdf", "retrieved": "2026-09-30" },
+    { "title": "PUT Rector's Ordinance No. 14/2026 on studies by non-Polish nationals 2026/2027", "url": "https://put.poznan.pl/sites/default/files/2026-05/Ordinance%20No.%2014%20on%20undertaking%20and%20pursuing%20studies%20at%20PUT%20by%20persons%20who%20are%20not%20Polish%20citizens%202026-2027_0_0.pdf", "retrieved": "2026-09-30" },
+    { "title": "PUT: Recruitment schedule for international candidates, first cycle 2026/2027", "url": "https://put.poznan.pl/en/admission-for-international/first-cycle/schedule", "retrieved": "2026-09-30" },
+    { "title": "PUT: First-cycle studies, step-by-step recruitment procedure", "url": "https://put.poznan.pl/en/admission-for-international/procedure", "retrieved": "2026-09-30" },
+    { "title": "PUT: First-cycle studies, documents required from international candidates", "url": "https://put.poznan.pl/en/admission-for-international/first-cycle-studies/documents-required", "retrieved": "2026-09-30" },
+    { "title": "PUT: Admission limits for international candidates 2026/2027", "url": "https://put.poznan.pl/en/admission-for-international/limits-for-foregin-candidates", "retrieved": "2026-09-30" },
+    { "title": "PUT: Admission limits and minimum points of international applicants, first cycle 2024/25–2026/27 (PDF)", "url": "https://put.poznan.pl/sites/default/files/2026-09/Punkty%20rekrutacyjne%20I%20stopie%C5%84%202026_2027%20semestr%20zimowy.pdf", "retrieved": "2026-09-30" },
+    { "title": "PUT: Ordinance No. 14, Attachment 3, Architecture portfolio requirements 2026/2027", "url": "https://put.poznan.pl/sites/default/files/2026-05/Zarz%C4%85dzenie%20nr%2014%20-%202026%20-%20Za%C5%82%C4%85cznik%20nr%203%20ENG_0.pdf", "retrieved": "2026-09-30" },
+    { "title": "PUT: English certificates recognised at B2 or above (IB Diploma listed)", "url": "https://put.poznan.pl/sites/default/files/2026-06/Certyfikaty%20j%C4%99zykowe_2025_2026_sierpie%C5%84%202025_wersja%20angielska.pdf", "retrieved": "2026-09-30" },
+    { "title": "PUT: First-cycle fees for international students 2026/2027 (non-EU price)", "url": "https://put.poznan.pl/en/admission-for-international/first-cycle/fees", "retrieved": "2026-09-30" },
+    { "title": "PUT: Studies free of charge (EU/EEA/Swiss citizens not charged)", "url": "https://put.poznan.pl/en/admission-for-international/studies-free-of-charge", "retrieved": "2026-09-30" },
+    { "title": "PUT Rector's Ordinance No. 18/2026 on fees for 2026/2027 (§1 pt 3, §2(5))", "url": "https://put.poznan.pl/sites/default/files/2026-05/Ordinance%20No.%2018.pdf", "retrieved": "2026-09-30" },
+    { "title": "PUT: Important changes in the admission process (entrance exam exemption for IB holders)", "url": "https://put.poznan.pl/238/rekrutacja-cudzoziemcow-aktualnosci-en-0", "retrieved": "2026-09-30" },
+    { "title": "PUT: Why choose Poznan University of Technology?", "url": "https://put.poznan.pl/238/rekrutacja-cudzoziemcow-aktualnosci-en", "retrieved": "2026-09-30" },
+    { "title": "PUT: Academic calendar 2026/2027", "url": "https://put.poznan.pl/en/academic-calendar", "retrieved": "2026-09-30" }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "institution": "pl-mug",
+  "name": "Medical University of Gdansk",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Gdansk medical university founded in 1945, with over 1,000 foreign students; an MD, a Master of Pharmacy and a Bachelor of Nursing in English.",
+  "handoff": {
+    "label": "Admission for programmes in English",
+    "url": "https://admission.mug.edu.pl/1445.html"
+  },
+  "ib": {
+    "text": "IB scores are converted to points (HL 7 = 30, SL 7 = 18); Medicine and Pharmacy need two science or maths subjects at HL, plus an English interview. The IB covers English; no NAWA recognition needed.",
+    "url": "https://admission.mug.edu.pl/53887.html"
+  },
+  "starts": "Late September",
+  "lastYear": { "year": 2026, "text": "open 18 March; MD closes 15 July, others 31 July" },
+  "apply": {
+    "via": "MUG online candidate database",
+    "url": "https://admission.mug.edu.pl/5750.html"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Doctor of Medicine",
+      "credential": "Doctor of Medicine (MD)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://admission.mug.edu.pl/1447.html",
+      "requirementsUrl": "https://admission.mug.edu.pl/53887.html",
+      "about": "Six-year, 360-ECTS Doctor of Medicine programme of the Faculty of Medicine, taught in English in Gdansk and opening with a compulsory Orientation Week; MUG lists WFME, NCFMEA and MCI recognition for it.",
+      "ib": "Biology HL plus Chemistry, Physics or Maths HL are required, and an interview in English; IB scores stand in for the written entrance exam.",
+      "needs": [
+        { "anyOf": ["biology"], "level": "HL", "note": "Obligatory; HL 7 = 30 points, counted twice (diploma and in place of the written exam)." },
+        { "anyOf": ["chemistry", "physics", "mathematics-aa", "mathematics-ai"], "level": "HL", "note": "One of these at HL, counted the same way." }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Two HL scores, each counted twice, plus a 10-point interview (max 130); MUG's example sets the admission line at 91. About 12 applicants per place in 2025.",
+      "places": 72,
+      "lastYear": { "year": 2026, "text": "applications 18 March–15 July" },
+      "tuitionEuEea": "64,200 PLN a year (2026/27)"
+    },
+    {
+      "name": "Master of Pharmacy",
+      "credential": "Master of Pharmacy",
+      "years": 5,
+      "field": "health",
+      "url": "https://admission.mug.edu.pl/6518.html",
+      "requirementsUrl": "https://admission.mug.edu.pl/61149.html",
+      "about": "The science of how medicines are discovered, developed and delivered and how patients respond to them, ending with six months of pre-registration training in a pharmacy; it leads to registration as a pharmacist in Poland, recognised in other EU states.",
+      "ib": "Chemistry or Biology at HL plus a second HL from Biology, Chemistry, Physics or Maths, and an interview in English on biology, chemistry and motivation.",
+      "needs": [
+        { "anyOf": ["chemistry", "biology"], "level": "HL", "note": "One of these two is obligatory at HL; HL 7 = 30 points." },
+        { "anyOf": ["biology", "chemistry", "physics", "mathematics-aa", "mathematics-ai"], "level": "HL", "note": "A second, different subject at HL." }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Two HL scores (up to 60 points) plus an interview (40 points: biology and chemistry, English and motivation). 2026 criteria and places; 2027 not yet published.",
+      "places": 24,
+      "lastYear": { "year": 2026, "text": "applications 18 March–31 July" },
+      "tuitionEuEea": "41,700 PLN a year (2026/27)"
+    },
+    {
+      "name": "Bachelor of Nursing",
+      "credential": "Bachelor of Nursing",
+      "years": 3,
+      "field": "health",
+      "url": "https://admission.mug.edu.pl/29318.html",
+      "requirementsUrl": "https://admission.mug.edu.pl/61149.html",
+      "about": "Basic and social sciences, then nursing care from primary care to specialist fields such as paediatrics, surgery, psychiatry, geriatrics and palliative care, on a curriculum built to European and US standards.",
+      "needs": [
+        { "anyOf": ["biology"], "level": "any", "note": "Scored: HL 7 = 30 points, SL 7 = 18." },
+        { "anyOf": ["chemistry", "physics", "mathematics-aa", "mathematics-ai"], "level": "any", "note": "One of these, your choice; SL counts." },
+        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "any", "note": "Your English grade is scored too (up to 30 points)." }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Biology, a second science or maths, and English (up to 90 points; SL counts) plus an oral exam (20 points). 2026 criteria and places; 2027 not yet published.",
+      "places": 50,
+      "lastYear": { "year": 2026, "text": "applications close 31 July" },
+      "tuitionEuEea": "27,400 PLN a year (2026/27)"
+    }
+  ],
+  "notes": [
+    "There is no EU rate: tuition is the same for everyone, and only candidates from Poland get the lower Orientation Week fee (2,050 instead of 3,100 PLN).",
+    "Predicted IB grades are converted to points so you can be assessed early; the final decision follows your final results, and the IB diploma needs no apostille.",
+    "Candidates not admitted to the MD can apply for MUG's one-year Premedical Course in English (33,000 PLN) instead."
+  ],
+  "sources": [
+    { "title": "MUG: Admission for Programs in English (programme list)", "url": "https://admission.mug.edu.pl/1445.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: 6-year MD hub", "url": "https://admission.mug.edu.pl/61133.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: 6-year Doctor of Medicine, Fall 2026 enrollment (dates, IB rule, seats, fees)", "url": "https://admission.mug.edu.pl/1447.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: 5-year Pharmacy hub", "url": "https://admission.mug.edu.pl/61134.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: 5-year Master of Pharmacy, Fall 2026 enrollment", "url": "https://admission.mug.edu.pl/6518.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: 3-year Bachelor of Nursing hub", "url": "https://admission.mug.edu.pl/61135.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: 3-year Bachelor of Nursing, Fall 2026 enrollment", "url": "https://admission.mug.edu.pl/29318.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: International Baccalaureate & European Baccalaureate (conversion table, English, NAWA)", "url": "https://admission.mug.edu.pl/53887.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Admissions criteria", "url": "https://admission.mug.edu.pl/61149.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Score calculation, MD", "url": "https://admission.mug.edu.pl/87147.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Score calculation, Pharmacy", "url": "https://admission.mug.edu.pl/87148.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Score calculation, Nursing", "url": "https://admission.mug.edu.pl/87149.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Qualification process (application statuses)", "url": "https://admission.mug.edu.pl/61150.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Registration on-line", "url": "https://admission.mug.edu.pl/5750.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: Fees & terms 2026/2027", "url": "https://admission.mug.edu.pl/1455.html", "retrieved": "2026-09-30" },
+    { "title": "MUG: University (facts and history, founded 8 October 1945)", "url": "https://mug.edu.pl/19439.html", "retrieved": "2026-09-30" }
+  ]
+}
