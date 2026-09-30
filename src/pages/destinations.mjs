@@ -9,7 +9,7 @@ import { representativePoint, visualCentre } from '../lib/geo.mjs';
 import { contextFor, destinationFacet } from '../lib/canonical.mjs';
 import { institutionCount } from './programme-facts.mjs';
 import { eventsForDestination } from '../lib/calendar.mjs';
-import { groupInstitutions, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
+import { groupInstitutions, groupingLede, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { countryTemplate } from '../templates/country.mjs';
@@ -835,7 +835,7 @@ export function destination(site, c, { prev, next }) {
     notice: c.researchDepth?.tier === 'researched' ? null : depthNote,
     places: {
       count: institutions.length,
-      lede: grouping.id === 'none' ? null : grouping.lede,
+      lede: grouping.id === 'none' ? null : groupingLede(canonical),
       groups: groups.map((g) => ({
         name: groups.length === 1 ? null : g.name,
         route: routeSentence(g),

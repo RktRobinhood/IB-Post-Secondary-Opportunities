@@ -179,12 +179,14 @@ export function discoverSection(site) {
       count: 0,
       image: '',
     };
-    placeIndex[p.placeId].count++;
     if (!placeIndex[p.placeId].image) {
       const pic = picture(site, p.id, { prefer: 'commons' }) || institutionPicture(site, instById.get(p.institutionId), { prefer: 'commons' });
       if (pic && !pic.external) placeIndex[p.placeId].image = pic.src;
     }
   }
+  // Counted in cards, as the filter and the count under the globe are (#52,
+  // #67): a card of several paths at one place is one there.
+  for (const id of Object.keys(placeIndex)) placeIndex[id].count = count((p) => p.placeId === id);
   // Every Destination without a mapped degree is a light too, so "Explore"
   // swings out to somewhere rather than to an empty planet. Its light goes to
   // its own page.

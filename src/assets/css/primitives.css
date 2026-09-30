@@ -1517,3 +1517,9 @@
 .world__outline-over { stroke: #FBF7F0; stroke-width: 2; }
 .world__outline:not([data-part]) .world__outline-over { fill: rgba(251, 247, 240, .1); }
 .world__pin[data-plain] .world__pin-label .world__flag { display: none; }
+/* Flags are a detail, not the map (owner, 30 Sep): a label names its place in
+   words, and its country's flag appears only on the one hovered or chosen. */
+.world__pin-label .world__flag { display: none; }
+.world__pin:is(:hover, [data-on], [data-selected]):not([data-plain]) .world__pin-label .world__flag,
+.world__cluster:is(:hover, [data-on], [data-selected]) .world__pin-label .world__flag { display: inline-block; }
+.world__cluster[data-dim] .world__cluster-n { transform: scale(.55); opacity: .7; }

@@ -90,6 +90,26 @@ export function jurisdictionsOf(canonical) {
   return new Map(list.map((j) => [j.id, j]));
 }
 
+/**
+ * The sentence above a grouped list of institutions.
+ *
+ * `jurisdiction` is the general grouping, and its divisions say what kind of
+ * boundary each one is. A Destination whose divisions are all sectors (public
+ * vs private universities, say) must not be told "depends on the region": the
+ * divisions' own `kind` decides the sentence, so the record stays the only
+ * place that knows what kind of split a country has.
+ */
+export function groupingLede(canonical) {
+  const grouping = groupingOf(canonical);
+  if (grouping.id !== 'jurisdiction') return grouping.lede;
+  const kinds = new Set([...jurisdictionsOf(canonical).values()].map((j) => j.kind).filter(Boolean));
+  if (!kinds.size) return grouping.lede;
+  const sectors = kinds.has('sector');
+  if (sectors && kinds.size === 1) return GROUPINGS.sector.lede;
+  if (sectors) return 'How you apply depends on the kind of institution and where it is.';
+  return grouping.lede;
+}
+
 /* --- The join ------------------------------------------------------------- */
 
 /**

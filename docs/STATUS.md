@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 29 September 2026 (evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 30 September 2026 (early).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,30 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+
+## 30 September (early): content over polish
+
+- The owner, looking at the live site: the templates are right, the gap is
+  assets and data. Germany's degree cards have no photos and no detail, so
+  they read as bare text boxes next to Denmark's. Priority now: country by
+  country, collect degree photos and programme detail into the shared
+  templates. Small #67 polish only when it falls out of that work.
+- Coverage on 30 Sep (`npm run coverage`): DE 60 degrees, SE 59, AT 38, BE 38,
+  NO 21, CH 14, NL 215 (school records) — all 0 detail, 0 degree photos.
+  Italy 87 and Portugal 24 have detail but no photos.
+- Enrichment brief for agents: `D:\ibp-tmp\enrich-brief.md` (photos first,
+  then `about`/`selection`; photo proposals go to
+  `docs/research/programme-images/schools-<cc>.jsonl`; the coordinator runs
+  `scripts/import-programme-images.mjs --unsigned`, reviews, then signs).
+- Running/paused at the usage ceiling: DE, SE and PL (#41) running; NL (two
+  batches), NO+CH, AT and BE paused mid-way — their files are written per
+  school, so resume by re-running the brief on the unfinished schools.
+- Globe (#53): flags no longer sit under every bubble; a country's flag shows
+  in its label only while hovered or chosen; a bubble a filter empties is a
+  faded dot, not a grey "0".
+- Small fixes: country pages grouped public/private now say "depends on the
+  kind of institution" (the sentence follows the groups' declared `kind`);
+  home globe place counts are cards, as the filter's are (Sønderborg 7, not 10).
 
 ## 29 September (evening): one template per level (#55)
 

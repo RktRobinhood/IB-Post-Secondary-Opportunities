@@ -1635,11 +1635,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
         const r = 11 + Math.min(9, Math.sqrt(g.members.length) * 3);
         if (!onScreen || offDisc(s.x, s.y, r)) { node.hidden = true; continue; }
         node.hidden = false;
-        /* Flags say which countries a bubble holds: one closed country's, or
-           up to four in a mixed one. A group inside one open country (its
-           towns) needs none. */
-        const nations = nationsIn(g.members);
-        const flags = g.nation ? [g.nation] : nations.length >= 2 && nations.length <= 4 ? nations : [];
+        /* No flag row under a bubble (owner, 30 Sep: flags everywhere at rest
+           read as clutter). A country's flag shows in its name label, and
+           only while it is hovered or chosen (primitives.css); hovering a
+           mixed bubble outlines the countries it holds. */
+        const flags = [];
         const key = flags.join(' ');
         if (node._flags !== key) {
           node._flags = key;
@@ -1665,7 +1665,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
            places it covers (round 6: a grey "16" for Denmark beside a gold
            "16" programmes). */
         const emptied = g.members.every((m) => (m.parent || m).dim);
-        node.firstChild.textContent = String(emptied ? 0 : g.count || g.members.length);
+        // Emptied by a filter: a faded bubble with no number, not a grey "0".
+        node.firstChild.textContent = emptied ? '' : String(g.count || g.members.length);
         node.toggleAttribute('data-places', placesOnly(g.members));
         node.style.setProperty('--r', `${r.toFixed(1)}px`);
         node.style.transform = `translate3d(${s.x.toFixed(1)}px, ${s.y.toFixed(1)}px, 0)`;
