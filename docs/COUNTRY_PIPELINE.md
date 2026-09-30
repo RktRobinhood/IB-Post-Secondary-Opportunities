@@ -71,7 +71,12 @@ node scripts/remove-programme-images.mjs <key> [<key> …]
 It deletes the research line, the manifest record and the stored files, and
 refuses a signed record. The card falls back to its school's photograph,
 which is the honest state until a better picture is found. Re-sheet and send
-the survivors to the same critic for round 2. Round 1 has scored 5–6 for
+the survivors to the same critic for round 2.
+
+Ask the critic in round 1 for "the score with your rejects removed". When the
+batch only lost photos (nothing added or recropped), that score stands as
+round 2: Germany and Sweden's separate round 2s only confirmed it. Any new or
+replacement photo means a real round 2. Round 1 has scored 5–6 for
 every country so far (Germany 10 of 35 rejected, Sweden 18 of 40); removing
 the rejects has reached 8 each time.
 
