@@ -94,6 +94,11 @@ with `git checkout -- . && git clean -fdq -e node_modules && git checkout
 --detach main`, copy in the country's files, then
 `SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs`.
 
+**Commit only what was gated.** When another country's unsigned photos sit
+in the working `data/programme-images.json`, commit the gate copy's manifest
+instead: `git update-index --cacheinfo 100644,$(git hash-object -w
+D:/ibp-tmp/gate/data/programme-images.json),data/programme-images.json`.
+
 **Commit without the repack.** Git's automatic repack runs after a commit
 and stalls for many minutes on OneDrive. Commit and push with
 `git -c gc.auto=0 -c maintenance.auto=false …`.

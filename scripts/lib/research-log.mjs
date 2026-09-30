@@ -109,8 +109,8 @@ export const VOCABULARY = [
 export const RESEARCH_LOG = [...PHRASES, ...VOCABULARY];
 
 // Product and portal names that really are written in camelCase or with an
-// underscore.
-export const NAME_OK = new Set(['uOttawa', 'iSchool', 'eApply', 'iGraduate', 'eResidence', 'ePortal', 'myCampus', 'uSis', 'iPhone', 'eBay']);
+// underscore, and photographers' names in picture credits (iKix).
+export const NAME_OK = new Set(['uOttawa', 'iSchool', 'eApply', 'iGraduate', 'eResidence', 'ePortal', 'myCampus', 'uSis', 'iPhone', 'eBay', 'iKix']);
 
 /*
  * The page's own furniture, removed before matching. The research-depth
