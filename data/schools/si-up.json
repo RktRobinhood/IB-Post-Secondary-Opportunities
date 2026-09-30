@@ -1,0 +1,346 @@
+{
+  "institution": "si-up",
+  "name": "University of Primorska",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Public university on the Adriatic coast, founded 2003, about 5,900 students (a quarter international); ten bachelor's offered in English.",
+  "handoff": {
+    "label": "Study programmes in English (bachelor's and more)",
+    "url": "https://www.upr.si/en/study--enrolment/bachelors-and-unified-masters-degree-study/study-programmes-in-english-language/"
+  },
+  "ib": {
+    "text": "The IB Diploma counts as a Slovenian general matura with no recognition step, and the IB result stands in for school years 3–4 in the ranking. The IB certificate alone needs recognition.",
+    "url": "https://www.upr.si/files/static/5554"
+  },
+  "lastYear": {
+    "year": 2026,
+    "text": "first round 18 February–18 March"
+  },
+  "apply": {
+    "via": "eVŠ national portal (joint call for enrolment)",
+    "url": "https://www.upr.si/en/study--enrolment/application-and-enrolment-deadlines/838-undergraduate-bachelor-degree-study-programmes/"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Anthropology",
+      "credential": "BA",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://fhs.upr.si/en/undergraduate-study/anthropology/",
+      "about": "Double-discipline degree (180 ECTS) in the Faculty of Humanities: fieldwork, participant observation and research methods for understanding societies and cultures, from Slovenia and the Mediterranean to the Americas.",
+      "ib": "Double-discipline: you choose two programmes (or a programme and a module) on the same application; the English version runs alongside a Slovene one.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 70% overall IB result converted to the Slovenian scale, 30% school years 3–4 (the IB result counts for both). 2026/27 rules; 2027 not yet published.",
+      "places": 12,
+      "tuitionEuEea": "Free (full-time, EU citizens)"
+    },
+    {
+      "name": "Cultural Heritage",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://fhs.upr.si/en/undergraduate-study/cultural-heritage/",
+      "about": "Double-discipline degree (180 ECTS) drawing on archaeology, art history, ethnology, architecture and history, with practical and field work on tangible and intangible heritage.",
+      "ib": "Double-discipline: combined with another programme on the same application; places are listed separately for the English and Slovene versions.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 70% overall IB result converted to the Slovenian scale, 30% school years 3–4 (the IB result counts for both). 2026/27 rules; 2027 not yet published.",
+      "places": 12,
+      "tuitionEuEea": "Free (full-time, EU citizens)"
+    },
+    {
+      "name": "Management",
+      "credential": "Academic bachelor (BA equivalent)",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.fm-kp.si/en/study/programmes_in_english/university_degree_programme_in_management",
+      "requirementsUrl": "https://www.fm-kp.si/en/study/programmes_in_english/university_degree_programme_in_management/admission_criteria",
+      "about": "Theory-led degree (180 ECTS, 32 courses) combining business and economics at the Faculty of Management in Koper, delivered in English and aimed at postgraduate study or management roles.",
+      "ib": "B2 English must be proved with a certificate; a school-leaving certificate showing English as a subject also counts.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 60% overall IB result converted to the Slovenian scale, 40% school years 3–4 (the IB result counts for both). 2026/27 rules.",
+      "places": 15,
+      "tuitionEuEea": "Free (full-time, EU citizens)"
+    },
+    {
+      "name": "Bioinformatics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/bioinformatics/",
+      "about": "Biology, chemistry, physics and genetics combined with mathematics and computer science, for analysing data and modelling biological systems. Three years (180 ECTS) in Koper and Izola.",
+      "ib": "B2 English may be asked for; Slovenian or English version chosen when you apply.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 70% overall IB result converted to the Slovenian scale, 30% school years 3–4 (the IB result counts for both). 2026/27 rules; 2027 not yet published.",
+      "places": 15,
+      "tuitionEuEea": "Free (full-time, EU citizens)"
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/computer-science/",
+      "about": "Programming languages, development tools and software-building methods, with analytical thinking for ICT systems. Three years (180 ECTS) in Koper.",
+      "ib": "B2 English may be asked for; Slovenian or English version chosen when you apply.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Scored, not a minimum: maths grades of school years 3–4 are 20% of the points"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 50% overall IB result converted, 30% school years 3–4, 20% maths grades of years 3–4. 2026/27 rules; 2027 not yet published.",
+      "places": 25,
+      "tuitionEuEea": "Free (full-time, EU citizens)",
+      "separateFrom": [
+        {
+          "name": "Mathematics and Computer Science",
+          "reason": "Different degrees with different selection formulas (maths counts 20% against 40%) and their own places."
+        }
+      ]
+    },
+    {
+      "name": "Mathematics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "mathematics",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/mathematics/",
+      "about": "Analysis, algebra, discrete mathematics and numerical computation in year one, then electives in theoretical and applied mathematics. Three years (180 ECTS) in Koper.",
+      "ib": "B2 English may be asked for; Slovenian or English version chosen when you apply.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Scored, not a minimum: maths grades of school years 3–4 are 40% of the points"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 40% overall IB result converted, 20% school years 3–4, 40% maths grades of years 3–4. 2026/27 rules; 2027 not yet published.",
+      "places": 25,
+      "tuitionEuEea": "Free (full-time, EU citizens)",
+      "separateFrom": [
+        {
+          "name": "Mathematics and Computer Science",
+          "reason": "Different degrees with their own programme pages; both weigh maths grades at 40%, but places and content differ."
+        }
+      ]
+    },
+    {
+      "name": "Mathematics and Computer Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "mathematics",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/mathematics-and-computer-science/",
+      "about": "Mathematical foundations (analysis, algebra) combined with computer science, leading into data science, machine learning and information security. Three years (180 ECTS) in Koper.",
+      "ib": "B2 English may be asked for; Slovenian or English version chosen when you apply.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Scored, not a minimum: maths grades of school years 3–4 are 40% of the points"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 40% overall IB result converted, 20% school years 3–4, 40% maths grades of years 3–4. 2026/27 rules; 2027 not yet published.",
+      "places": 15,
+      "tuitionEuEea": "Free (full-time, EU citizens)",
+      "separateFrom": [
+        {
+          "name": "Computer Science",
+          "reason": "Different degrees with different selection formulas (maths counts 20% against 40%) and their own places."
+        },
+        {
+          "name": "Mathematics",
+          "reason": "Different degrees with their own programme pages; both weigh maths grades at 40%, but places and content differ."
+        }
+      ]
+    },
+    {
+      "name": "Wood Innovation for Sustainability",
+      "credential": "Bachelor of Applied Science in Wood Engineering",
+      "years": 3,
+      "field": "engineering",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/wood-innovation-for-sustainability/",
+      "about": "Professional degree (180 ECTS) joining natural science and engineering with wood properties, manufacturing and circular bioeconomy, plus digitalisation, data analytics and AI in the wood sector.",
+      "ib": "B2 English may be asked for; Slovenian or English version chosen when you apply.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "If places run short: 60% overall IB result converted, 40% school years 3–4 (the IB result counts for both). 2026/27 rules; 2027 not yet published.",
+      "places": 10,
+      "tuitionEuEea": "Free (full-time, EU citizens)"
+    },
+    {
+      "name": "Tourism Destination Management",
+      "credential": "Bachelor of Tourism Management",
+      "years": 3,
+      "field": "hospitality-tourism",
+      "city": "Ljubljana",
+      "url": "https://www.turistica.si/en/study/undergraduate-studies/tourism-destination-management",
+      "about": "Professional programme training managers of tourism organisations and complex tourism processes, taught by the Faculty of Tourism Studies Turistica in Ljubljana as part-time study.",
+      "ib": "Business English at B2 is required; the page also recommends a second foreign language (Italian or German) at A1–A2.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Admission needs a general or vocational matura, so the IB Diploma qualifies; the selection formula is in the annual call. 2026/27 places shown.",
+      "places": 20,
+      "tuitionEuEea": "€3,000 a year (2026/27, part-time)",
+      "separateFrom": [
+        {
+          "name": "Tourism Enterprise Management",
+          "reason": "Different programmes at different campuses: destination management in Ljubljana, enterprise management in Portorož."
+        }
+      ]
+    },
+    {
+      "name": "Tourism Enterprise Management",
+      "credential": "Professional bachelor's degree (tourism)",
+      "years": 3,
+      "field": "hospitality-tourism",
+      "city": "Portorož",
+      "url": "https://www.turistica.si/en/study/undergraduate-studies/tourism-enterprise-management",
+      "about": "Tourism markets, marketing, economics, languages and the business and organisation of tourism firms; taught in English in Portorož by the Faculty of Tourism Studies Turistica.",
+      "ib": "The page calls the English programme part-time and fee-paying; the places table also lists 20 full-time English places, so ask the faculty which applies.",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Admission needs a general or vocational matura, so the IB Diploma qualifies; the selection formula is in the annual call. 2026/27 places shown.",
+      "places": 20,
+      "tuitionEuEea": "€3,000 a year (2026/27, part-time)",
+      "separateFrom": [
+        {
+          "name": "Tourism Destination Management",
+          "reason": "Different programmes at different campuses: destination management in Ljubljana, enterprise management in Portorož."
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Full-time study is free for EU citizens at UP; the two tourism degrees are part-time and fee-paying for everyone.",
+    "Anthropology and Cultural Heritage are double-discipline: you pick two programmes (or a programme plus a module) on one application.",
+    "The 2026/27 call lists English and Slovene versions of the same degree as separate rows with their own places; apply to the English row."
+  ],
+  "sources": [
+    {
+      "title": "UP: Study programmes in English, 2026/27 call",
+      "url": "https://www.upr.si/en/study--enrolment/bachelors-and-unified-masters-degree-study/study-programmes-in-english-language/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP: Call for enrolment into bachelor's programmes 2026/27",
+      "url": "https://www.upr.si/en/study--enrolment/bachelors-and-unified-masters-degree-study/call-for-enrolment-into-bachelors-and-unified-masters-degree-study-programmes/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP: Call for enrolment 2026/27, general provisions in English (IB equivalence, scoring)",
+      "url": "https://www.upr.si/files/static/5554",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP: Available enrolment places 2026/27 (language and places per programme)",
+      "url": "https://www.upr.si/files/static/5758",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP: Application periods 2026/27, bachelor's",
+      "url": "https://www.upr.si/en/study--enrolment/application-and-enrolment-deadlines/838-undergraduate-bachelor-degree-study-programmes/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP: Tuition fees (full-time free for EU citizens; 2026/27 fee table)",
+      "url": "https://www.upr.si/en/study--enrolment/529-tuition-fees/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP: UP in numbers 2025/26",
+      "url": "https://www.upr.si/en/about-the-university/39-about/up-in-numbers/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FHŠ: Anthropology",
+      "url": "https://fhs.upr.si/en/undergraduate-study/anthropology/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FHŠ: Cultural Heritage",
+      "url": "https://fhs.upr.si/en/undergraduate-study/cultural-heritage/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FM: Bachelor Degree Programme in Management (English)",
+      "url": "https://www.fm-kp.si/en/study/programmes_in_english/university_degree_programme_in_management",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FM: Admission criteria, academic bachelor in Management",
+      "url": "https://www.fm-kp.si/en/study/programmes_in_english/university_degree_programme_in_management/admission_criteria",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FM: Tuition and fees 2026/27",
+      "url": "https://www.fm-kp.si/en/study/programmes_in_english/tuition_and_fees",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FAMNIT: Bioinformatics",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/bioinformatics/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FAMNIT: Computer Science",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/computer-science/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FAMNIT: Mathematics",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/mathematics/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FAMNIT: Mathematics and Computer Science",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/mathematics-and-computer-science/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP FAMNIT: Wood Innovation for Sustainability",
+      "url": "https://www.famnit.upr.si/en/undergraduate-study/wood-innovation-for-sustainability/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP Turistica: Tourism Destination Management (Ljubljana)",
+      "url": "https://www.turistica.si/en/study/undergraduate-studies/tourism-destination-management",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UP Turistica: Tourism Enterprise Management, part-time in English (Portorož)",
+      "url": "https://www.turistica.si/en/study/undergraduate-studies/tourism-enterprise-management",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "institution": "mt-st-martin-s",
+  "name": "St Martin's Institute of Higher Education",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Private institute in Hamrun teaching in English since 1985; a University of London Recognised Teaching Centre for business and computing degrees.",
+  "handoff": {
+    "label": "SMI application form (programme selection)",
+    "url": "https://www.stmartins.edu/appform/"
+  },
+  "ib": {
+    "text": "SMI states Maltese entry (Matriculation or A/I-level passes). International equivalents such as the IB are judged case by case by SMI and the University of London. Computing also needs Maths at SEC O level or equivalent.",
+    "url": "https://www.stmartins.edu/#admission"
+  },
+  "lastYear": { "year": 2026, "text": "apply by 31 August (later at SMI's discretion)" },
+  "apply": {
+    "via": "SMI online application form",
+    "url": "https://www.stmartins.edu/appform/"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Accounting and Finance",
+      "credential": "BSc (Hons), University of London",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.london.ac.uk/study/courses/undergraduate/bsc-accounting-finance",
+      "about": "University of London degree developed by LSE academics (180 ECTS), covering the major issues of modern finance and accounting in theory and practice; SMI teaches it in person and UoL sets the exams.",
+      "ib": "Ask SMI whether your IB results count; UoL decides international equivalents at its discretion.",
+      "selection": ["grades"],
+      "selectionNote": "Entry on qualifications; SMI also runs an applicant interview. First come, first served while places last.",
+      "tuitionEuEea": "€6,696 a year (2026/27, full-time)"
+    },
+    {
+      "name": "Business Administration",
+      "credential": "BSc (Hons), University of London",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.london.ac.uk/study/courses/undergraduate/bsc-business-administration-study-locally",
+      "about": "University of London degree with academic direction from Royal Holloway: general business administration or a pathway in International Business or Marketing (SMI lists both pathways as degrees), taught in person at a teaching centre.",
+      "ib": "Ask SMI whether your IB results count; UoL decides international equivalents at its discretion.",
+      "selection": ["grades"],
+      "selectionNote": "Entry on qualifications; SMI also runs an applicant interview. First come, first served while places last.",
+      "tuitionEuEea": "€6,696 a year (2026/27, full-time)"
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BSc (Hons), University of London",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.london.ac.uk/study/courses/undergraduate/bsc-computer-science",
+      "about": "University of London degree in programming, mathematics and computing with a specialism such as machine learning and AI, games development or virtual reality; SMI lists these as separate degrees.",
+      "ib": "Maths at SEC O level grade 1–3 or an equivalent is asked; SMI offers free bridging classes. Ask SMI about IB Maths.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "SMI asks for Maths at SEC O level grade 1–3 or equivalent" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Entry on qualifications; SMI also runs an applicant interview. First come, first served while places last.",
+      "tuitionEuEea": "€6,696 a year (2026/27, full-time)"
+    }
+  ],
+  "notes": [
+    "SMI's own site lists more named degrees than these three: its own computing BSc (Hons) specialisms, Banking and Finance, and Business and Management; none has a page of its own, so ask SMI which run in 2027.",
+    "SMI says it confers qualifications at MQF Level 5 and that its Level 6 degrees are awarded by the University of London, which sets and marks the May examinations; the UoL pages show their own intake dates.",
+    "SMI charges a non-refundable €125 application fee; its tuition page says no fee is payable until you finish your degree through the Studies+ loan, and does not say whether University of London fees are included."
+  ],
+  "sources": [
+    { "title": "SMI: Admission and entry requirements (Level 6 University of London degrees)", "url": "https://www.stmartins.edu/#admission", "retrieved": "2026-09-30" },
+    { "title": "SMI: Tuition fees 2026-2027", "url": "https://www.stmartins.edu/#fees", "retrieved": "2026-09-30" },
+    { "title": "SMI: Programme details, Level 6 degrees (Commerce and Computing)", "url": "https://www.stmartins.edu/#progDetails", "retrieved": "2026-09-30" },
+    { "title": "SMI: Application form (deadline, fees)", "url": "https://www.stmartins.edu/appform/", "retrieved": "2026-09-30" },
+    { "title": "University of London: BSc Accounting and Finance (study locally)", "url": "https://www.london.ac.uk/study/courses/undergraduate/bsc-accounting-finance", "retrieved": "2026-09-30" },
+    { "title": "University of London: BSc Business Administration (study locally)", "url": "https://www.london.ac.uk/study/courses/undergraduate/bsc-business-administration-study-locally", "retrieved": "2026-09-30" },
+    { "title": "University of London: BSc Computer Science", "url": "https://www.london.ac.uk/study/courses/undergraduate/bsc-computer-science", "retrieved": "2026-09-30" }
+  ]
+}
