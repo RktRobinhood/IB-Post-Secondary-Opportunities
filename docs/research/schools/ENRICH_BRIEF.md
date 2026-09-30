@@ -1,0 +1,95 @@
+# Enrichment brief: one country's degrees to the Danish standard
+
+Stages 2 and 3 of [the country pipeline](../../COUNTRY_PIPELINE.md). Hand this
+file to an agent together with one paragraph naming **its files** (for
+example every `data/schools/se-*.json`, or a list of Dutch schools) and the
+country's admission quirks. The field rules are in [BRIEF.md](BRIEF.md),
+"Enrichment: the Danish standard"; this file adds how to run the batch.
+
+You are enriching degree records for IB Pathways, a static site that guides IB
+Diploma students (mostly EU/EEA citizens at a school in Denmark) to
+English-taught bachelor's degrees. A Danish degree has a full page: what it
+is, what you need, how places are decided, the cut-off, deadlines, sources.
+The page template is shared by every country; what is missing elsewhere is
+data. Bring your files up to that standard.
+
+## Hard rules
+
+- Run no git commands; the coordinating session commits.
+- Write nothing to C:. Temp files go in `D:\ibp-tmp\<cc>\`.
+- Edit only the files you were given, plus your section of
+  `docs/research/schools/progress.md` and your photo file. Other agents are
+  editing other countries at the same time.
+- Write each school file as soon as it is done. A run can stop at any moment.
+- Keep JSON with LF line endings and the file's existing indentation.
+- **Never rename a programme** (`name`, `credential`, `city`): page and photo
+  slugs are derived from them.
+- Official sources only: the programme's page, its requirements page, the
+  university's admissions pages, the national portal. Open each page
+  yourself. Never build a URL from what it ought to be; never estimate a
+  number. A bot-walled or unpublished page is said to be so in the record's
+  notes.
+- Data only; no code changes.
+
+## Order of work
+
+1. **Degree photos first**, for every programme (below). The owner judges a
+   country by how its cards look.
+2. **Programme detail**, school by school, per BRIEF.md: `about` (1–2
+   sentences, 40–320 characters, your words), `selection[]` with the schema's
+   values and `selectionNote` in the student's terms, `needs[]` in IB terms
+   (strictest case; local-language requirements stay in `ib`), `points` /
+   `cutoff` / `places` only when published, `requirementsUrl` when the
+   requirements live on another page. Unpublished 2027 criteria: record
+   2026's and say "2026 criteria; 2027 not yet published".
+3. Tighten the school `summary` to one or two plain sentences from the
+   university's own about/facts page (not its homepage).
+
+Finished examples of the target density: `data/schools/fi-aalto.json`,
+`data/schools/es-*.json`, `data/schools/de-tum.json`.
+
+## Degree photos
+
+One Wikimedia Commons photograph per programme of **the discipline being
+done**: hands, tools, instruments, a lab, a studio, a field site, ideally at
+that institution.
+
+- Licence CC0, public domain, CC BY or CC BY-SA; at least 1200 px wide at
+  source; confirm both through the Commons API.
+- No file already used: check `data/programme-images.json` and every
+  `docs/research/programme-images/*.jsonl`.
+- The critic rejects, every time: readable text or formulae at card size; logos
+  or brand badges (product shots); event and crowd photography; children in
+  frame; the generic person-at-a-monitor or code-on-screen shot; logos, maps,
+  car parks, skylines. Vary settings: no country needs six lab benches; two
+  degrees at one school must not look alike.
+- If no good photo exists, skip the programme. A card on its school's photo
+  beats a bad picture.
+- Write one line per programme to
+  `docs/research/programme-images/schools-<cc>.jsonl` as you go (format and
+  scope naming in `docs/research/programme-images/README.md`; scope is
+  `school:<institution-key>-<programme-slug>`, slug from `programmePaths` in
+  `src/lib/schools.mjs`). Do not run the import script; the coordinator does.
+
+## Text the gate will reject
+
+- An `ib` line over 180 characters. One sentence; detail goes in
+  `selectionNote`.
+- A date in `ib` or a note earlier than the programme's Apply-by (a
+  scholarship date, "1 Feb in 2026"): the page check reads it as a
+  contradiction. Say "apply early" instead.
+- A source that is a bare homepage. Cite the page that states the fact.
+- Research words in page text ("verified", "critic", "we checked"). Tell the
+  student what to do, not how it was researched.
+
+## Check and hand back
+
+- Every few schools: `node scripts/validate.mjs` and
+  `node scripts/check-schools.mjs`; fix what your files break.
+- At the end: `DIST_DIR=D:/ibp-tmp/<cc>/dist node src/build.mjs`, then
+  `node scripts/coverage-report.mjs`, and report your country's line from
+  `docs/research/schools/COVERAGE.md`.
+- Append a short section to `progress.md`: schools finished, programmes
+  enriched, photos proposed, and every conflict or unverifiable point, one line
+  each. These are read before release.
+- Report: counts, files changed, check results, anything uncertain.

@@ -6,6 +6,9 @@ This brief researches the other institutions in the country profiles,
 `data/countries/<code>.json`. A completed `scope: none` record is retained as internal evidence but
 is excluded from student-facing cards, maps, pagination, and school pages.
 
+This is stage 1 of [the country pipeline](../../COUNTRY_PIPELINE.md); programme
+detail and degree photos (stages 2–3) are run from [ENRICH_BRIEF.md](ENRICH_BRIEF.md).
+
 The finished states and the gaps that must not be mistaken for intentional
 country variation are defined in [the school-page parity contract](PARITY.md).
 Read it before choosing or reviewing a batch.

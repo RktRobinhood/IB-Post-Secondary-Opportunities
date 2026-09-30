@@ -1,0 +1,129 @@
+# Country pipeline
+
+One repeatable path from "a country nobody has researched" to "its pages look
+like Denmark's". Every country goes through the same stages, in order. The
+templates are already shared (`docs/PAGE_TEMPLATES.md`), so a thin country is
+a **data and asset gap**, never a design task. Our job is to be the informed,
+curated middle step: the student reads what the programme is, what it asks and
+how places are decided here, and only then is handed to the university's own
+page.
+
+The benchmark is a Danish page. When in doubt, open `/denmark/`, a Danish
+university and a Danish programme page next to the country you are working on.
+
+## The stages
+
+| # | Stage | Output | Brief | Done when |
+|---|---|---|---|---|
+| 0 | Leads | `docs/research/schools/leads/<cc>.md` | `leads/README.md` | Every institution in `manifest.json` for the country has candidate official URLs |
+| 1 | School records | `data/schools/<key>.json`, scope `listed` / `catalogue` / `none` | [`research/schools/BRIEF.md`](research/schools/BRIEF.md) | Every institution has a record; every `listed` list is exhaustive; every `none` has affirmative evidence |
+| 2 | Programme detail | `about`, `selection`, `selectionNote`, `needs`, `points`, `cutoff`, `places`, `requirementsUrl` on each listed programme | [`research/schools/ENRICH_BRIEF.md`](research/schools/ENRICH_BRIEF.md) | Coverage shows 100% programme detail for the country |
+| 3 | Degree photos | `docs/research/programme-images/schools-<cc>.jsonl` | ENRICH_BRIEF, "Degree photos" | A proposal for every programme a good photo exists for |
+| 4 | Fetch, unsigned | stored crops in `src/assets/img/programmes/school-<cc>-*` | below | `node scripts/import-programme-images.mjs --only=<cc> --unsigned` reports 0 failed |
+| 5 | Photo critic | `docs/research/qa/degree-photos/<cc>/critique-round-N.md` | [`QA_CRITIC_LOOP.md`](QA_CRITIC_LOOP.md) | 8/10 or more; rejects removed, not argued with |
+| 6 | Sign and gate | signed records; all gate checks pass on a clean copy of `main` | below | `All N checks pass.` |
+| 7 | Ship | one commit per country, pushed | [`PARALLEL_WORK.md`](PARALLEL_WORK.md) | Live on the site; STATUS and the issue say so |
+
+Stages 2 and 3 can run in one agent (one country, its own files). The owner
+cares most about how the cards look, so an agent that has to choose does the
+photo proposals first.
+
+Catalogue countries (UK, Ireland, US, …) skip degree-by-degree photos: their
+stage 2 is flagships and faculties (BRIEF.md, "Catalogue schools").
+
+## Running it
+
+**Agents.** One agent per country (or per ~100 programmes). Hand it
+`ENRICH_BRIEF.md` plus one paragraph naming its files and the country's
+admission quirks. It writes only its own files, one school at a time, runs no
+git, and builds into its own folder (`DIST_DIR=D:/ibp-tmp/<cc>/dist`). An
+agent that stops has lost nothing: re-run the brief on the unfinished schools.
+
+**Pace.** On 30 September eight agents used about 3% of the 5-hour window a
+minute, and three used about 1%. Run three or four at once; check
+`get_usage` before starting more, and pause (TaskStop) a few points below the
+owner's ceiling.
+
+**Fetch one country at a time.** `--only=<cc>` reads just that country's
+`schools-<cc>.jsonl`. Without it the importer reads every batch file and would
+re-add, and on a signing run approve, lines another country's critic rejected.
+
+**Contact sheet for the critic.**
+
+```sh
+node scripts/programme-photo-sheet.mjs <cc> docs/research/qa/degree-photos/<cc>/contact-sheet-round-1.jpg
+```
+
+Give the critic the sheet, the `.jsonl` (why each was chosen), the last
+country's critique for calibration, and the brief in ENRICH_BRIEF. Round 1
+scores around 6 are normal.
+
+**Removing a reject** is three deletions: its line in `schools-<cc>.jsonl`,
+its record in `data/programme-images.json`, and its three files
+`src/assets/img/programmes/<key>{,-480,-720}.webp`. The card falls back to its
+school's photograph, which is the honest state until a better picture is
+found. Re-sheet and send the survivors to the same critic for round 2.
+
+**Signing** (only after 8+):
+
+```sh
+REVIEWER="Claude (photo-editor critic, 8/10 round N, docs/research/qa/degree-photos/<cc>/)" \
+  node scripts/import-programme-images.mjs --only=<cc>
+```
+
+**Gate on a clean copy.** Keep one worktree for it (`D:/ibp-tmp/gate`, with
+`node_modules` as a junction: `New-Item -ItemType Junction`). Creating a
+worktree from the OneDrive checkout takes several minutes, so reuse it: reset
+with `git checkout -- . && git clean -fdq -e node_modules && git checkout
+--detach main`, copy in the country's files, then
+`SITE_BASE=/IB-Post-Secondary-Opportunities node scripts/qa.mjs`.
+
+**Commit without the repack.** Git's automatic repack runs after a commit
+and stalls for many minutes on OneDrive. Commit and push with
+`git -c gc.auto=0 -c maintenance.auto=false …`.
+
+## What fails, and how to avoid it
+
+These cost a round-trip on 30 September; the brief now tells agents to avoid
+them.
+
+| Gate check | Cause | Avoid by |
+|---|---|---|
+| `school-pages` | a source or link is a bare homepage | cite the page that states the fact |
+| `school-pages` | an `ib` line names a date earlier than the Apply-by (a scholarship date, "1 Feb in 2026") | keep other dates out of `ib`; say "apply early" |
+| `check-schools` | an `ib` line over 180 characters | one sentence; detail goes in `selectionNote` |
+| `research-log` | page text says "verified", "critic", "we checked" | write what the student should do, not how we researched it |
+
+| Photo critic rejects | Instead |
+|---|---|
+| readable text or formulae at 480 px | a photo with no legible words |
+| a logo or brand badge (product shots) | hands using the tool |
+| event or crowd photography, children in frame | the discipline being done |
+| the generic person-at-a-monitor or code-screen shot | a subject a camera can see |
+| the sixth lab bench in one country | vary the setting: field, studio, workshop, outdoors |
+| two degrees at one school that look alike | a different subject for each |
+
+## Admissions facts that recur
+
+Record them the same way in every country:
+
+- **Unpublished 2027 criteria:** record 2026's and say "2026 criteria; 2027
+  not yet published" in `selectionNote`.
+- **Grade conversions:** only from an official table or formula, cited in
+  `sources`, applied exactly as its rule says (Germany's KMK keeps one decimal
+  and does not round: 38 IB points = 1.6).
+- **Local-language conditions** (German A2, Dutch NT2, Danish B) go in `ib`,
+  never softened; `needs` holds IB subjects only.
+- **EU fees:** "for foreigners" pages are often the non-EU price. Establish
+  which route and fee an EU citizen has (Poland, #41), per university.
+- **Conflicting official pages:** keep the stricter reading, name both in
+  `meta.notes` or the programme's note, and list it in `progress.md` for the
+  release check.
+
+## After a country ships
+
+- `npm run coverage -- --handoff <cc>` and paste the block into the issue.
+- A line in `docs/STATUS.md`; weak-but-kept photos and data questions stay in
+  the critique and `progress.md` for the next pass.
+- Anything this country taught us that the next one needs goes into this file
+  or ENRICH_BRIEF, not into a chat.

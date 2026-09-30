@@ -20,10 +20,10 @@ This page says where the work stands, so the next session (human or agent) start
 - Coverage on 30 Sep (`npm run coverage`): DE 60 degrees, SE 59, AT 38, BE 38,
   NO 21, CH 14, NL 215 (school records) — all 0 detail, 0 degree photos.
   Italy 87 and Portugal 24 have detail but no photos.
-- Enrichment brief for agents: `D:\ibp-tmp\enrich-brief.md` (photos first,
-  then `about`/`selection`; photo proposals go to
-  `docs/research/programme-images/schools-<cc>.jsonl`; the coordinator runs
-  `scripts/import-programme-images.mjs --unsigned`, reviews, then signs).
+- The process is now written down: `docs/COUNTRY_PIPELINE.md` (stages,
+  commands, pace, what fails) and `docs/research/schools/ENRICH_BRIEF.md`
+  (the agent brief). Germany shipped through it (311753e): 60/60 degrees
+  detailed, 25 degree photos (critic 6 → 8).
 - Running/paused at the usage ceiling: DE, SE and PL (#41) running; NL (two
   batches), NO+CH, AT and BE paused mid-way — their files are written per
   school, so resume by re-running the brief on the unfinished schools.

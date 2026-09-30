@@ -285,6 +285,7 @@ Known gaps, all recorded in the data rather than hidden:
 | [`docs/TRUST_AND_GOVERNANCE.md`](docs/TRUST_AND_GOVERNANCE.md) | Corrections, privacy, editorial independence |
 | [`docs/IMAGE_STANDARD.md`](docs/IMAGE_STANDARD.md) | The one shape every hosted photograph takes |
 | [`docs/UPDATING.md`](docs/UPDATING.md) | The yearly update: tested recipes for every kind of change |
+| [`docs/COUNTRY_PIPELINE.md`](docs/COUNTRY_PIPELINE.md) | The stages every country goes through, from leads to degree photos on the live site |
 | [`docs/PARALLEL_WORK.md`](docs/PARALLEL_WORK.md) | Running agents in parallel without losing their work |
 | [`docs/QA_CRITIC_LOOP.md`](docs/QA_CRITIC_LOOP.md) | How a pass is accepted: a critic scores it, 8/10 or it goes round again |
 | [`docs/PREVIEW.md`](docs/PREVIEW.md) | Showing the site to students and counsellors for feedback |
