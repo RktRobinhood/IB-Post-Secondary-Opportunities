@@ -27,6 +27,9 @@ This page says where the work stands, so the next session (human or agent) start
   `docs/research/programme-images/schools-pt.jsonl` (not yet imported).
   Next: `import-programme-images.mjs --only=pt --unsigned`, sheet, critic,
   sign, gate. The Pelamis line must change (Italy holds the MOSE look).
+- **Portugal official-photo pilot:** 1 of 19 (an ISEG class; business-school
+  sites are stock and events). The gap for business/economics/computing cards
+  is a design question — a designed no-photo card (#67) — for the owner.
 - **Next after that:** the official-photo ladder for the business,
   economics and computing degrees every country skipped (Italy 49, NL 156,
   DE 35, SE 37, …), country by country; each critic's

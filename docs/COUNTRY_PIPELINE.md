@@ -32,6 +32,14 @@ Flickr, and uses social media only to find a picture the institution also
 serves itself. Official photos are linked, not copied, and pass the same
 critic (ENRICH_BRIEF, "When Commons is dry").
 
+The Portugal pilot (30 September) found **1 usable official photo for 19
+business, economics and computing degrees**: business-school sites serve stock
+portraits, campaign banners, ceremonies and panels, and computing pages serve
+laptops and code screens — all things the critic rejects. Run the ladder once
+per country, cheaply (programme pages and the news/press index), but do not
+expect it to close the gap. Those cards need a designed no-photo state in the
+programme-card template (issue #67), not more searching.
+
 Stages 2 and 3 can run in one agent (one country, its own files). The owner
 cares most about how the cards look, so an agent that has to choose does the
 photo proposals first.
