@@ -38,7 +38,10 @@ portraits, campaign banners, ceremonies and panels, and computing pages serve
 laptops and code screens — all things the critic rejects. Run the ladder once
 per country, cheaply (programme pages and the news/press index), but do not
 expect it to close the gap. Those cards need a designed no-photo state in the
-programme-card template (issue #67), not more searching.
+programme-card template (issue #67), not more searching. The one official photo the pilot
+found, a real ISEG lecture room, was then rejected by the critic: nothing in
+it says the degree. A generic classroom or campus shot belongs on the school
+page, not a degree card.
 
 Stages 2 and 3 can run in one agent (one country, its own files). The owner
 cares most about how the cards look, so an agent that has to choose does the
