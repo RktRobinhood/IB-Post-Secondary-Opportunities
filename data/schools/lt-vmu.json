@@ -1,0 +1,549 @@
+{
+  "institution": "lt-vmu",
+  "name": "Vytautas Magnus University",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Liberal-arts university in Kaunas with 16 English-taught bachelor's across social sciences, informatics, sciences, business and music.",
+  "handoff": {
+    "label": "Bachelor's programmes (filter Language: English)",
+    "url": "https://www.vdu.lt/en/vdu-studies/vdu-bakalauras-en/?phrase=&studijos_pakopa%5B%5D=First+cycle+studies&studijos_kalba%5B%5D=English"
+  },
+  "ib": {
+    "text": "Upload your IB diploma and results (60% average minimum); English at B2 is shown by test or by a school letter that your education was in English. Motivation letter; a maths test or interview may follow.",
+    "url": "https://www.vdu.lt/en/studies/degree-studies/"
+  },
+  "apply": {
+    "via": "VMU DreamApply (application fee €150)",
+    "url": "https://www.vdu.lt/en/studies/degree-studies/"
+  },
+  "starts": "August",
+  "lastYear": {
+    "year": 2026,
+    "text": "EU/EFTA apply by 1 July"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Economics and Finance",
+      "credential": "Bachelor's Degree in Social Sciences",
+      "years": 3,
+      "field": "economics",
+      "url": "https://www.vdu.lt/studiju-programa/economics-and-finance/",
+      "about": "Three-year business economics degree taught entirely in English: economics and finance with computational thinking, teamwork, an internship and a behavioural economics lab.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is your school-grade average 70% plus motivation letter or interview 30%; at least 60% overall average to apply."
+    },
+    {
+      "name": "Business Administration",
+      "credential": "Bachelor's Degree in Business Management",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.vdu.lt/studiju-programa/business-administration-2/",
+      "about": "Entrepreneurial leadership and management: how businesses and organisations work, for future managers, consultants and business owners.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is your school-grade average 70% plus motivation letter or interview 30%; at least 60% overall average to apply."
+    },
+    {
+      "name": "Logistics and Commerce",
+      "credential": "Bachelor's Degree in Business Management",
+      "years": 3.5,
+      "field": "business",
+      "url": "https://www.vdu.lt/studiju-programa/logistics-and-commerce-2/",
+      "about": "Smart, sustainable logistics operations, sales techniques, IT in commerce and building your own e-business.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is maths 40%, English 40% and motivation letter or interview 20%.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Sustainable Bio-Business Management",
+      "credential": "Bachelor's Degree in Business Management",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.vdu.lt/studiju-programa/sustainable-bio-business-management/",
+      "about": "Management, economics and technology for the bioeconomy: running and developing organisations in a changing labour market.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is maths 40%, English 40% and motivation letter or interview 20%.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Political Studies: World Politics and Economy",
+      "credential": "Bachelor's Degree in Social Sciences",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://www.vdu.lt/studiju-programa/political-studies-world-politics-and-economy-2/",
+      "about": "Global politics, international relations, political economy, economic diplomacy and trade, through topics such as migration, climate change and geopolitics; taught in English.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is a history, geography, economics or IT grade 30%, English 30%, motivation letter 30% and maths 10%.",
+      "needs": [
+        {
+          "anyOf": [
+            "history",
+            "geography",
+            "economics",
+            "computer-science"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 10% of the score"
+        }
+      ],
+      "family": {
+        "name": "Political Studies",
+        "axis": "specialisation",
+        "path": "World Politics and Economy",
+        "differs": "Focus on global politics, international political economy and trade.",
+        "primary": true,
+        "cardLine": "Global politics, political economy and trade"
+      }
+    },
+    {
+      "name": "Political Studies: International Politics and Development Studies",
+      "credential": "Bachelor's Degree in Social Sciences",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://www.vdu.lt/studiju-programa/political-studies-international-politics-and-development-studies-2/",
+      "about": "Developing regions, international processes, human rights, migration and development strategy, preparing political analysts who compare and explain political and economic change.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is a history, geography, economics or IT grade 30%, English 30%, motivation letter 30% and maths 10%.",
+      "needs": [
+        {
+          "anyOf": [
+            "history",
+            "geography",
+            "economics",
+            "computer-science"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 10% of the score"
+        }
+      ],
+      "family": {
+        "name": "Political Studies",
+        "axis": "specialisation",
+        "path": "International Politics and Development",
+        "differs": "Focus on developing regions, human rights and development strategy.",
+        "cardLine": "Developing regions, human rights, development"
+      }
+    },
+    {
+      "name": "Sociology and Anthropology: Society, Culture and Communication",
+      "credential": "Bachelor's Degree in Social Sciences",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://www.vdu.lt/studiju-programa/sociology-and-anthropology-society-culture-and-communication-2/",
+      "about": "Sociology with a communication specialisation: researching and forecasting social processes and communicating them to the public, taught in English.",
+      "tuitionEuEea": "€3,250 a year (2026/27)",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Score is history 40%, maths 40% and English 20%.",
+      "needs": [
+        {
+          "anyOf": [
+            "history"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 20% of the score"
+        }
+      ]
+    },
+    {
+      "name": "English Philology",
+      "credential": "Bachelor's Degree in Humanities",
+      "years": 4,
+      "field": "languages",
+      "url": "https://www.vdu.lt/studiju-programa/english-philology-2/",
+      "about": "English linguistics, discourse and philology for careers in teaching, translation, computational linguistics and media; taught entirely in English.",
+      "tuitionEuEea": "€4,201 a year (2026/27)",
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Score is your average of school exams 80% plus an English grade 20% (B2 minimum).",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "B2 minimum; counts 20% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Biology and Genetics",
+      "credential": "Bachelor's Degree in Life Sciences",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.vdu.lt/studiju-programa/biology-and-genetics-2/",
+      "about": "Biology foundations and genetics, for careers in biotechnology, biopharmaceutics, the food industry and environmental protection.",
+      "tuitionEuEea": "€4,201 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is English 20%, maths 20%, biology or chemistry 30% and motivation letter 30%. Some places are state-funded.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 20% of the score"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 20% of the score"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Biotechnology",
+      "credential": "Bachelor's Degree in Technological Sciences",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.vdu.lt/studiju-programa/biotechnology-2/",
+      "about": "Laboratory work and data analysis with modern methods, plus IT skills to develop biotechnology products for pharmaceutics, environment and industry.",
+      "tuitionEuEea": "€4,201 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is English 20%, maths 20%, biology or chemistry 30% and motivation letter 30%. Some places are state-funded.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 20% of the score"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 20% of the score"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Informatics Systems",
+      "credential": "Bachelor's Degree in Computing",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.vdu.lt/studiju-programa/informatics-systems-2/",
+      "about": "Information systems and networks, programming, data analysis and visualisation, with specialisations in software systems, AI systems or business informatics.",
+      "tuitionEuEea": "€4,201 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is maths 40%, English 30% and motivation letter 30%.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Multimedia and Internet Technologies",
+      "credential": "Bachelor's Degree in Computing",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.vdu.lt/studiju-programa/multimedia-and-internet-technologies-2/",
+      "about": "Images, video and audio together with programming, graphic design and internet technology, for people who like both mathematics and art.",
+      "tuitionEuEea": "€4,201 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is maths 40%, English 30% and motivation letter 30%.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Sustainable Engineering",
+      "credential": "Bachelor's Degree in Engineering Sciences",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.vdu.lt/studiju-programa/sustainable-engineering-2/",
+      "about": "Digital engineering for biological systems: production technologies, robots and drones, combining engineering with computer science and environmental care.",
+      "tuitionEuEea": "€4,201 a year (2026/27)",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Score is maths 40%, English 30% and motivation letter 30%.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Counts 40% of the score"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 30% of the score"
+        }
+      ]
+    },
+    {
+      "name": "Music Production",
+      "credential": "Bachelor's Degree in Arts",
+      "years": 3.5,
+      "field": "arts-music",
+      "url": "https://www.vdu.lt/studiju-programa/music-production-2/",
+      "about": "Sound recording and design, music marketing and music technology, with creative projects of your own and the link between sound and visuals.",
+      "tuitionEuEea": "€9,184 a year (2026/27)",
+      "selection": [
+        "entrance-exam",
+        "portfolio",
+        "interview"
+      ],
+      "selectionNote": "Score is a written test 50%, portfolio 30% and an interview 20%."
+    },
+    {
+      "name": "Performing Arts",
+      "credential": "Bachelor's Degree in Arts",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://www.vdu.lt/studiju-programa/performing-arts/",
+      "about": "Classical and jazz performance as a soloist, ensemble musician or conductor, with music history and theory, pedagogy and research at the VMU Music Academy.",
+      "tuitionEuEea": "€9,184 a year (2026/27)",
+      "selection": [
+        "audition",
+        "interview"
+      ],
+      "selectionNote": "Score is an entrance exam and video recording 70% plus an interview 30%; English at B1 is also asked.",
+      "ib": "Audition by entrance exam and video recording; English at B1."
+    },
+    {
+      "name": "Sports Studies (in Kaunas)",
+      "credential": "Bachelor's Degree in Sports",
+      "years": 4,
+      "field": "sport",
+      "url": "https://www.vdu.lt/studiju-programa/sports-studies-in-kaunas-2/",
+      "about": "Coach education for all sports, based on the American Sport Education Program, with modern training methods and technologies.",
+      "tuitionEuEea": "€5,676 a year (2026/27)",
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Score is sports achievements and motivation interview 40%, your school-grade average 40% and English 20%.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "Counts 20% of the score"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "EU/EFTA citizens pay a lower fee than other students (for example €3,250 against €3,400); it is the standard fee set by the Lithuanian ministry, and you pay the full first year in one instalment after you are accepted.",
+    "Applications for the 2027-28 autumn intake open in the beginning of November 2026, and studies start on 23 August 2027 (preliminary); the 2027 rules are still to be published.",
+    "Accounting and Finance is left out: its first year is taught in Ukrainian or Russian. Biology and Genetics and Biotechnology are marked as having state-funded places."
+  ],
+  "sources": [
+    {
+      "title": "VMU: Admission to degree studies (2027 intake, documents, English proof, fee)",
+      "url": "https://www.vdu.lt/en/studies/degree-studies/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "VMU: Tuition fees 2026-2027 (EU/EFTA and non-EU)",
+      "url": "https://www.vdu.lt/en/studies/degree-studies/tuition-fees/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "VMU: Admission FAQ (deadlines)",
+      "url": "https://www.vdu.lt/en/studies/degree-studies/faq/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "VMU: Bachelor and integrated studies list, filtered to English",
+      "url": "https://www.vdu.lt/en/vdu-studies/vdu-bakalauras-en/?phrase=&studijos_pakopa%5B%5D=First+cycle+studies",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

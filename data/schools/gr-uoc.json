@@ -1,0 +1,53 @@
+{
+  "institution": "gr-uoc",
+  "name": "University of Crete",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Public university on Crete; its one English-taught degree is a fee-paying six-year Medicine programme in Heraklion, taught by the Medical School.",
+  "handoff": {
+    "label": "International Program in Medicine: admissions",
+    "url": "https://imed.med.uoc.gr/admissions/"
+  },
+  "ib": {
+    "text": "The English-taught Medicine takes the IB Diploma directly: three HL subjects, two of them from Physics, Chemistry, Biology or Maths, plus three SL; no points total is stated.",
+    "url": "https://imed.med.uoc.gr/admissions/"
+  },
+  "lastYear": { "year": 2026, "text": "early round in November; regular round in March" },
+  "apply": {
+    "via": "Programme online application form",
+    "url": "https://imed.med.uoc.gr/admissions/"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "International Program in Medicine",
+      "credential": "Medical Degree (6 years)",
+      "years": 6,
+      "field": "medicine",
+      "city": "Heraklion",
+      "url": "https://imed.med.uoc.gr/curriculum/",
+      "requirementsUrl": "https://imed.med.uoc.gr/admissions/",
+      "about": "Six-year medical programme taught and examined in English: basic and pre-clinical cycles, then clinical clerkships from semester 9, with Greek lessons to B2 level so you can talk to patients.",
+      "ib": "IB with three HL subjects, two from Physics, Chemistry, Biology or Maths, and three SL; B2 English (IELTS 6.5 or TOEFL 79); motivation letter, CV and online interview.",
+      "needs": [
+        { "anyOf": ["physics", "chemistry", "biology", "mathematics-aa", "mathematics-ai"], "level": "HL", "note": "Two of these at HL, inside three HL subjects in total" }
+      ],
+      "tuitionEuEea": "€15,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Early round (deadline in November) has a limited number of places; the regular round closes in March. About four times the places are invited to an online interview.",
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "early round in November; regular round in March" }
+    }
+  ],
+  "notes": [
+    "Open only to non-Greek citizens who attended their last two years of secondary school outside Greece; Greek-taught places go through the Ministry of Education instead.",
+    "A €3,000 non-refundable down payment secures an offer, then €6,000 is due by the end of June; scholarships of €2,000 go to the three best students each year.",
+    "All teaching is in English, but the programme gives Greek courses so students reach B2 by the end of the pre-clinical cycle, because clinical training is with Greek-speaking patients."
+  ],
+  "sources": [
+    { "title": "International Program in Medicine — Admissions, requirements, tuition (€15,000) and FAQ", "url": "https://imed.med.uoc.gr/admissions/", "retrieved": "2026-09-30" },
+    { "title": "International Program in Medicine — Curriculum (study cycles, language)", "url": "https://imed.med.uoc.gr/curriculum/", "retrieved": "2026-09-30" },
+    { "title": "International Program in Medicine — Application period for 2026-27 is closed (28 March 2026)", "url": "https://imed.med.uoc.gr/2026/03/28/application-period-for-the-academic-year-2026-27-is-closed/", "retrieved": "2026-09-30" }
+  ]
+}

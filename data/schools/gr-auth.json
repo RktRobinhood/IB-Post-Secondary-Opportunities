@@ -1,0 +1,187 @@
+{
+  "institution": "gr-auth",
+  "name": "Aristotle University of Thessaloniki",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Thessaloniki public university with 41 undergraduate programmes; seven are fee-paying and English-taught, from Medicine and Law to Clean Energy.",
+  "handoff": {
+    "label": "English-taught bachelor's in Greece (Study in Greece)",
+    "url": "https://apply.studyingreece.edu.gr/en/programmes?language=English"
+  },
+  "ib": {
+    "text": "No fixed IB score: most degrees take the IB Diploma and count 28 points in your favour; Sport asks 28 and Medicine adds an admission test. Three sciences need Maths, Physics and Chemistry passed.",
+    "url": "https://msen.auth.gr/admissions"
+  },
+  "lastYear": { "year": 2026, "text": "rolling; each programme sets its own" },
+  "apply": {
+    "via": "Each programme's own online application form",
+    "url": "https://cese.auth.gr/admissions"
+  },
+  "dates": [
+    { "label": "Medicine: first application cycle opens", "date": "2026-11-09", "kind": "opens", "who": "any", "programmes": ["medicine-english-taught-medical-degree"], "url": "https://aristotlemedical.edu.gr/apply-now" },
+    { "label": "Medicine: first application cycle closes", "date": "2027-01-29", "kind": "closes", "who": "any", "programmes": ["medicine-english-taught-medical-degree"], "url": "https://aristotlemedical.edu.gr/apply-now" },
+    { "label": "Medicine: second application cycle opens", "date": "2027-03-22", "kind": "opens", "who": "any", "programmes": ["medicine-english-taught-medical-degree"], "url": "https://aristotlemedical.edu.gr/apply-now" },
+    { "label": "Medicine: second application cycle closes", "date": "2027-05-31", "kind": "closes", "who": "any", "programmes": ["medicine-english-taught-medical-degree"], "url": "https://aristotlemedical.edu.gr/apply-now" },
+    { "label": "Materials Science: final application deadline", "date": "2027-06-30", "kind": "closes", "who": "any", "programmes": ["materials-science-and-engineering"], "url": "https://msen.auth.gr/admissions" },
+    { "label": "Materials Science: confirm your place and pay first semester", "date": "2027-07-31", "kind": "decision", "who": "any", "programmes": ["materials-science-and-engineering"], "url": "https://msen.auth.gr/admissions" },
+    { "label": "Sustainable Agriculture: early application deadline", "date": "2027-04-15", "kind": "early", "short": "Early deadline", "who": "any", "programmes": ["sustainable-agriculture-and-food-science"], "url": "https://safs.auth.gr/admissions" },
+    { "label": "Sustainable Agriculture: final application deadline", "date": "2027-06-15", "kind": "closes", "who": "any", "programmes": ["sustainable-agriculture-and-food-science"], "url": "https://safs.auth.gr/admissions" }
+  ],
+  "programmes": [
+    {
+      "name": "Clean Energy Science and Engineering",
+      "credential": "BSc",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://cese.auth.gr/program/bachelor",
+      "requirementsUrl": "https://cese.auth.gr/admissions",
+      "about": "Clean-energy technologies studied through chemistry, physics, engineering design and sustainability, run jointly by three AUTh schools, with laboratory work and modelling throughout (240 ECTS).",
+      "ib": "No IB minimum; IB 23 points counts in your favour. Maths, Physics and Chemistry must appear on the final-year transcript; B2 English; online interview.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Examined in Mathematics in the final year" },
+        { "anyOf": ["physics"], "level": "any" },
+        { "anyOf": ["chemistry"], "level": "any" }
+      ],
+      "tuitionEuEea": "€8,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "File review (motivation letter, CV, results) then a short online interview on Physics, Chemistry, Maths and English; no entrance exam. Rolling, so apply early.",
+      "places": 40,
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "rolling; call 1 March–30 September" }
+    },
+    {
+      "name": "Materials Science and Engineering",
+      "credential": "Diploma with Integrated Master's (5 years)",
+      "years": 5,
+      "field": "engineering",
+      "url": "https://msen.auth.gr/program/integrated-master",
+      "requirementsUrl": "https://msen.auth.gr/admissions",
+      "about": "Five-year integrated master's (300 ECTS, EQF level 7) in materials science and engineering: core sciences, laboratory training, advanced specialisation and a two-semester research thesis.",
+      "ib": "No IB minimum; IB 28 points counts in your favour. Maths, Physics and Chemistry must appear on the final-year transcript; B2 English; online interview.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Examined in Mathematics in the final year" },
+        { "anyOf": ["physics"], "level": "any" },
+        { "anyOf": ["chemistry"], "level": "any" }
+      ],
+      "tuitionEuEea": "€8,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Applications are reviewed in order of receipt: documents, motivation letter and CV, then an online interview. No separate requirements for EU citizens.",
+      "places": 40,
+      "closes": "2027-06-30"
+    },
+    {
+      "name": "Environmental Sciences and Engineering",
+      "credential": "Diploma with Integrated Master's (5 years)",
+      "years": 5,
+      "field": "agriculture-environment",
+      "url": "https://envsen.auth.gr/program",
+      "requirementsUrl": "https://envsen.auth.gr/admissions/entry-requirements",
+      "about": "Five-year integrated master's (300 ECTS) co-designed by five AUTh schools: physics, chemistry, biology, mechanical engineering and agriculture applied to climate, water, energy and ecosystems, ending in a thesis.",
+      "ib": "No IB minimum; IB 28 points counts in your favour. Maths, Physics and Chemistry must appear on the final-year transcript; B2 English; online interview.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Examined in Mathematics in the final year" },
+        { "anyOf": ["physics"], "level": "any" },
+        { "anyOf": ["chemistry"], "level": "any" }
+      ],
+      "tuitionEuEea": "€6,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "File review then an online interview, sometimes a knowledge test; a €150 file fee is paid when you apply. The cycle takes 24 to 40 students.",
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "rolling; call 1 March–30 September" }
+    },
+    {
+      "name": "Sustainable Agriculture and Food Science",
+      "credential": "Diploma with Integrated Master's (5 years)",
+      "years": 5,
+      "field": "agriculture-environment",
+      "url": "https://safs.auth.gr/program",
+      "requirementsUrl": "https://safs.auth.gr/admissions",
+      "about": "Five-year integrated master's (300 ECTS) from the Agriculture and Chemistry schools: plant and animal production, food chemistry and technology, specialisms in year four and a research thesis. First cohort September 2027.",
+      "ib": "No IB minimum or required subjects; IB 28 points counts in your favour. B2 English, online interview.",
+      "tuitionEuEea": "€7,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "File review (motivation letter, CV, results), then an online interview and possibly an English test; a €150 file fee is paid when you apply. Takes 15 to 40 students.",
+      "closes": "2027-06-15"
+    },
+    {
+      "name": "Sport and Exercise Sciences for Health and Performance",
+      "credential": "BSc",
+      "years": 4,
+      "field": "sport",
+      "url": "https://sportsciences.auth.gr/program",
+      "requirementsUrl": "https://sportsciences.auth.gr/admissions",
+      "about": "Four-year BSc (240 ECTS) in sport and exercise science, with laboratory teaching from the first semester: anatomy, physiology, biomechanics and training science, then one of two pathways in year four.",
+      "ib": "IB Diploma with at least 28 points and grade 5 or higher in two relevant HL subjects; biology, sport science or psychology at HL suit best. 2026 criteria; 2027 not yet published.",
+      "points": 28,
+      "tuitionEuEea": "€6,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Reviewed on a rolling basis on results, a personal statement and possibly an online interview. 2026 criteria; 2027 not yet published.",
+      "places": 40,
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "rolling; place confirmed by 31 July" }
+    },
+    {
+      "name": "Bachelor of Laws (LL.B.)",
+      "credential": "LLB",
+      "years": 4,
+      "field": "law",
+      "url": "https://aristotlelaw.edu.gr/the-programme/",
+      "requirementsUrl": "https://aristotlelaw.edu.gr/admissions-and-finance/",
+      "about": "Four-year LL.B. (240 ECTS) taught in English in the civil-law tradition, with a common-law elective track and courses in European, international, digital and maritime law.",
+      "ib": "No IB minimum; IB 28 points counts in your favour. B2 English (IELTS 6.0 or TOEFL 79); predicted IB grades accepted for final-year applicants; online interview.",
+      "tuitionEuEea": "€7,000 a year (same for all)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Committee file review, an online interview and sometimes a knowledge test; decisions within 15 working days of the interview. Rolling admissions.",
+      "places": 40,
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "rolling admissions, no closing date" }
+    },
+    {
+      "name": "Medicine (English-taught Medical Degree)",
+      "credential": "Medical Degree (Ptychion Iatrikes)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://aristotlemedical.edu.gr/courses-curiculum",
+      "requirementsUrl": "https://aristotlemedical.edu.gr/admission-fees",
+      "about": "Six-year medical degree in English (360 ECTS) for students who did their final school years abroad: clinical skills from the first semester, hospital rotations from year four, full-time clinical training in the last year.",
+      "ib": "IB Diploma accepted with no minimum stated; an online Biology and Chemistry admission test, English proof and an interview, unless you hold MediTest-EU or final A-levels AAB.",
+      "tuitionEuEea": "€12,000 a year (same for all)",
+      "selection": ["entrance-exam", "interview", "motivation"],
+      "selectionNote": "Online application, then an interview and a 60-question multiple-choice test on high-school Biology, Chemistry and reasoning. Two cycles for 2027 entry.",
+      "places": 60,
+      "closes": "2027-01-29",
+      "closesNote": "A second cycle closes 31 May 2027"
+    }
+  ],
+  "notes": [
+    "Every English-taught degree is open to applicants who did their last two school years outside Greece; Greek-taught AUTh places are allocated by the Ministry of Education, not by AUTh.",
+    "Most degrees decide by file review and online interview; IB 28 points (23 for Clean Energy) counts in your favour rather than as a minimum. Three need Maths, Physics and Chemistry on the transcript.",
+    "The deposit on acceptance (€1,000 to €6,000) is non-refundable, and Environmental Sciences and Sustainable Agriculture also charge a €150 file fee at application."
+  ],
+  "sources": [
+    { "title": "AUTh — Undergraduate Studies (41 programmes; admission to Greek-taught degrees set by the Ministry)", "url": "https://www.auth.gr/en/ugrad-en/", "retrieved": "2026-09-30" },
+    { "title": "Study in Greece @SiG — English-taught programmes list", "url": "https://apply.studyingreece.edu.gr/en/programmes?language=English", "retrieved": "2026-09-30" },
+    { "title": "AtSiG — Clean Energy Science and Engineering (8 semesters, call 2026-27, €8,000)", "url": "https://apply.studyingreece.edu.gr/en/programmes/bsc/2245/details/clean-energy-science-and-engineering", "retrieved": "2026-09-30" },
+    { "title": "AtSiG — Materials Science and Engineering (10 semesters, call 2026-27, €8,000)", "url": "https://apply.studyingreece.edu.gr/en/programmes/bsc/2243/details/materials-science-and-engineering", "retrieved": "2026-09-30" },
+    { "title": "AtSiG — Environmental Sciences and Engineering (10 semesters, call 2026-27, €6,000)", "url": "https://apply.studyingreece.edu.gr/en/programmes/bsc/2244/details/environmental-sciences-and-engineering", "retrieved": "2026-09-30" },
+    { "title": "AtSiG — Sustainable Agriculture and Food Science (10 semesters, €7,000)", "url": "https://apply.studyingreece.edu.gr/en/programmes/bsc/2246/details/sustainable-agriculture-and-food-science", "retrieved": "2026-09-30" },
+    { "title": "Clean Energy Science and Engineering — Admissions (September 2027 entry, 40 places, entry requirements, €8,000)", "url": "https://cese.auth.gr/admissions", "retrieved": "2026-09-30" },
+    { "title": "Clean Energy Science and Engineering — Bachelor programme overview", "url": "https://cese.auth.gr/program/bachelor", "retrieved": "2026-09-30" },
+    { "title": "Materials Science and Engineering — Admissions (2027 entry dates, entry requirements, fees)", "url": "https://msen.auth.gr/admissions", "retrieved": "2026-09-30" },
+    { "title": "Materials Science and Engineering — Integrated Master (5 years, 300 ECTS)", "url": "https://msen.auth.gr/program/integrated-master", "retrieved": "2026-09-30" },
+    { "title": "Environmental Sciences and Engineering — programme overview (five-year integrated master's)", "url": "https://envsen.auth.gr/program", "retrieved": "2026-09-30" },
+    { "title": "Environmental Sciences and Engineering — Entry requirements", "url": "https://envsen.auth.gr/admissions/entry-requirements", "retrieved": "2026-09-30" },
+    { "title": "Environmental Sciences and Engineering — How to apply (cycle closes 30 September)", "url": "https://envsen.auth.gr/admissions", "retrieved": "2026-09-30" },
+    { "title": "Environmental Sciences and Engineering — Fees and costs (€6,000 a year)", "url": "https://envsen.auth.gr/admissions/fees-and-costs", "retrieved": "2026-09-30" },
+    { "title": "Sustainable Agriculture and Food Science — Admissions (September 2027, dates, IB 28 optional, €7,000)", "url": "https://safs.auth.gr/admissions", "retrieved": "2026-09-30" },
+    { "title": "Sustainable Agriculture and Food Science — programme (five years, 300 ECTS)", "url": "https://safs.auth.gr/program", "retrieved": "2026-09-30" },
+    { "title": "Sport and Exercise Sciences — Admissions and entry requirements (IB 28 points, €6,000; pages written for 2026 entry)", "url": "https://sportsciences.auth.gr/admissions", "retrieved": "2026-09-30" },
+    { "title": "Sport and Exercise Sciences — programme (240 ECTS, two pathways)", "url": "https://sportsciences.auth.gr/program", "retrieved": "2026-09-30" },
+    { "title": "AUTh Faculty of Law — International LL.B. programme (fact sheet: 240 ECTS, up to 40 students, rolling)", "url": "https://aristotlelaw.edu.gr/the-programme/", "retrieved": "2026-09-30" },
+    { "title": "AUTh Faculty of Law — Admissions and Finance (requirements, €7,000)", "url": "https://aristotlelaw.edu.gr/admissions-and-finance/", "retrieved": "2026-09-30" },
+    { "title": "AUTh School of Medicine English programme — Admission & Fees (60 places, €12,000, admission test)", "url": "https://aristotlemedical.edu.gr/admission-fees", "retrieved": "2026-09-30" },
+    { "title": "AUTh School of Medicine English programme — Apply now (2027-28 application cycles)", "url": "https://aristotlemedical.edu.gr/apply-now", "retrieved": "2026-09-30" },
+    { "title": "AUTh School of Medicine English programme — Courses/Curriculum (6 years, 360 ECTS)", "url": "https://aristotlemedical.edu.gr/courses-curiculum", "retrieved": "2026-09-30" }
+  ]
+}

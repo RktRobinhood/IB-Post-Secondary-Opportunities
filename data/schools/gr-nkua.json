@@ -1,0 +1,97 @@
+{
+  "institution": "gr-nkua",
+  "name": "National and Kapodistrian University of Athens",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Athens university founded in 1837; three fee-paying English-taught degrees: Medicine, Pharmacy and ancient Greece archaeology, history and literature.",
+  "handoff": {
+    "label": "NKUA undergraduate programmes (Greek and English)",
+    "url": "https://en.uoa.gr/studies/undergraduate_programs"
+  },
+  "ib": {
+    "text": "The English-taught degrees take the IB Diploma directly. Medicine and Pharmacy ask 36 points with three HL subjects, two of them Physics, Chemistry or Biology; the BA asks an indicative 70% average.",
+    "url": "https://medicen.uoa.gr/admission-requirements/"
+  },
+  "lastYear": { "year": 2026, "text": "BA 1 Aug; MD 18 Dec–30 Apr; Pharmacy rolling" },
+  "apply": {
+    "via": "Each programme's own online application platform",
+    "url": "https://medicen.uoa.gr/application-process/"
+  },
+  "dates": [],
+  "programmes": [
+    {
+      "name": "Archaeology, History and Literature of Ancient Greece",
+      "credential": "BA",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://baag.uoa.gr/overview/",
+      "requirementsUrl": "https://baag.uoa.gr/admission-fees/",
+      "about": "Greek antiquity through archaeology, ancient history and Greek and Latin literature, taught in English in Athens with classes at museums and archaeological sites and field trips (240 ECTS).",
+      "tuitionEuEea": "€6,000 a year (2026/27)",
+      "selection": ["grades"],
+      "selectionNote": "Open to international applicants with the IB Diploma (indicative 70% average or equivalent); English proof: TOEFL 88, IELTS 6.5 or FCE B2, unless a native speaker.",
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "apply by 1 August" }
+    },
+    {
+      "name": "Medicine (English-taught Medical Degree)",
+      "credential": "Medical Degree (6 years)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://medicen.uoa.gr/overview/",
+      "requirementsUrl": "https://medicen.uoa.gr/admission-requirements/",
+      "about": "Six-year medical degree in English: five pre-clinical semesters, clinical courses, then full-time clinical practice in university departments at 16 Athens hospitals (360 ECTS).",
+      "ib": "IB 36 points with three HL subjects, two from Physics, Chemistry and Biology, or another accepted qualification; English proof; motivation letter; online interview.",
+      "needs": [
+        { "anyOf": ["physics", "chemistry", "biology"], "level": "HL", "note": "Two of the three at HL, inside three HL subjects in total" }
+      ],
+      "points": 36,
+      "tuitionEuEea": "€17,000 a year (2026/27)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Predicted IB grades are accepted for final-year students; an invited applicant has an online interview. A deposit secures the place. 2026 criteria; 2027 not yet published.",
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "platform open 18 December–30 April" }
+    },
+    {
+      "name": "Integrated Master in Pharmacy (MPharm)",
+      "credential": "Integrated Master in Pharmacy (MPharm)",
+      "years": 5,
+      "field": "health",
+      "url": "https://mpharmnkua.uoa.gr/overview/",
+      "requirementsUrl": "https://mpharmnkua.uoa.gr/admission-requirements/",
+      "about": "Five-year integrated master's in Pharmacy taught in English for international students: eight semesters of theory and laboratory courses, then a practice and thesis year (300 ECTS).",
+      "ib": "IB 36 points with three HL subjects, two from Physics, Chemistry and Biology, or another accepted qualification; English proof; motivation letter; interview.",
+      "needs": [
+        { "anyOf": ["physics", "chemistry", "biology"], "level": "HL", "note": "Two of the three at HL, inside three HL subjects in total" }
+      ],
+      "points": 36,
+      "tuitionEuEea": "€9,000 a year (2026/27)",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Applications are processed on a rolling basis, so apply early; predicted IB grades are accepted. An eligible applicant may be interviewed online. 2026 criteria.",
+      "ownDeadline": true,
+      "lastYear": { "year": 2026, "text": "rolling admission, no closing date" }
+    }
+  ],
+  "notes": [
+    "Medicine and Pharmacy are addressed exclusively to foreign nationals who attended their last two school years outside Greece; the BA is open to international applicants.",
+    "Medicine and Pharmacy take a non-refundable deposit on acceptance (€5,000 and €3,000), deducted from the first-year fee; EU and non-EU citizens pay the same fee.",
+    "Greek-taught NKUA degrees are entered through the Ministry of Education's foreign-school graduates category, not through these programme applications."
+  ],
+  "sources": [
+    { "title": "NKUA — Undergraduate Programs (list, including the three English-taught degrees)", "url": "https://en.uoa.gr/studies/undergraduate_programs", "retrieved": "2026-09-30" },
+    { "title": "BA Program in the Archaeology, History, and Literature of Ancient Greece — Program Overview (4 years, taught in English, 1837 founding)", "url": "https://baag.uoa.gr/overview/", "retrieved": "2026-09-30" },
+    { "title": "BAAG — Admission & Fees (IB or school certificate, English proof, €6,000, deadlines)", "url": "https://baag.uoa.gr/admission-fees/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Medical Degree English Program — Overview (6 years, 360 ECTS, €17,000)", "url": "https://medicen.uoa.gr/overview/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Medical Degree English Program — Admission Requirements (IB 36 points, three HL)", "url": "https://medicen.uoa.gr/admission-requirements/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Medical Degree English Program — Application Process (predicted grades, interview)", "url": "https://medicen.uoa.gr/application-process/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Medical Degree English Program — Tuition fees (EU and non-EU €17,000; €5,000 deposit)", "url": "https://medicen.uoa.gr/tuition-fees/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Medical Degree English Program — Important Dates (platform open 18 December 2025–30 April 2026)", "url": "https://medicen.uoa.gr/important-dates/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Integrated Master in Pharmacy — Overview (5 years, 300 ECTS, who may apply, IB 36 points)", "url": "https://mpharmnkua.uoa.gr/overview/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Integrated Master in Pharmacy — Admission requirements", "url": "https://mpharmnkua.uoa.gr/admission-requirements/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Integrated Master in Pharmacy — Application process (interview, €3,000 deposit)", "url": "https://mpharmnkua.uoa.gr/application-process/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Integrated Master in Pharmacy — Tuition fees (EU and non-EU €9,000)", "url": "https://mpharmnkua.uoa.gr/tuition-fees/", "retrieved": "2026-09-30" },
+    { "title": "NKUA Integrated Master in Pharmacy — Important dates (rolling basis)", "url": "https://mpharmnkua.uoa.gr/important-dates/", "retrieved": "2026-09-30" },
+    { "title": "Ministry of Education — foreign-nationals application window 2026-27 (2–9 July 2026; courier postmark 10 July)", "url": "https://www.minedu.gov.gr/news/70243-01-07-26-ypobole-elektronikes-aiteses-mechanographikou-deltiou-gia-ten-eisagoge-allodapon-allogenon-sten-tritobathmia-ekpaideuse-gia-to-akademaiko-etos-2026-2027", "retrieved": "2026-09-30" }
+  ]
+}
