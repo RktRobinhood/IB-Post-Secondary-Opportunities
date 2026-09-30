@@ -1,11 +1,11 @@
 {
   "institution": "se-ltu",
   "name": "Luleå University of Technology",
-  "retrieved": "2026-09-26",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Technical university in Luleå; five English bachelor's: three games and graphics degrees in Skellefteå, music in Piteå, mineral engineering in Luleå.",
+  "summary": "Technical university in northern Sweden, 21,600 students: English bachelor's in games and graphics in Skellefteå, music in Piteå, minerals in Luleå.",
   "handoff": {
     "label": "Bachelor programmes taught in English",
     "url": "https://www.ltu.se/en/education/master-and-bachelor-programmes/bachelor-programmes"
@@ -65,7 +65,23 @@
       "city": "Skellefteå",
       "url": "https://www.ltu.se/en/education/programme/tkdpg-computer-game-development-and-programming",
       "ib": "Maths AI SL at 4, AA SL at 3, or AA/AI HL at 3. 10 places.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Game programming, from AI and physics programming to engines and graphics, alongside creative team projects that build complete games, on LTU's games campus in Skellefteå.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5) or on the SweSAT. No April 2027 round published yet.",
+      "cutoff": {
+        "value": "12.54 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=LTU-87456"
+      }
     },
     {
       "name": "Bachelor Programme in Computer Graphics for Games and Film",
@@ -75,7 +91,22 @@
       "city": "Skellefteå",
       "url": "https://www.ltu.se/en/education/programme/tkdsg-bachelor-programme-in-computer-graphics-for-games-and-film",
       "ib": "Any IB Maths course (AI SL at grade 3 is enough). 10 places.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Traditional art exercises first, then 2D digital compositing for film effects, 3D modelling, animation and rendering, with client-led team projects and a programming course.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5) or on the SweSAT. No April 2027 round published yet.",
+      "cutoff": {
+        "value": "12.74 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=LTU-87455"
+      }
     },
     {
       "name": "Bachelor Programme in Computer Game Design",
@@ -85,7 +116,17 @@
       "city": "Skellefteå",
       "url": "https://www.ltu.se/en/education/programme/tksdg-bachelor-programme-in-computer-game-design",
       "ib": "Any IB Maths course (AI SL at grade 3 is enough). New for 2027; 10 places.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Turn ideas into playable prototypes and finished games through playtesting and iteration, working in teams with the programming and graphics students. New in 2027.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5) or on the SweSAT. New in 2027, so no past cut-off; no April 2027 round published yet."
     },
     {
       "name": "Bachelor Programme in Mineral Resource Engineering",
@@ -95,7 +136,30 @@
       "city": "Luleå",
       "url": "https://www.ltu.se/en/education/programme/tkhmg-bachelor-programme-in-mineral-resource-engineering",
       "ib": "Physics and Chemistry at grade 4 (3 at HL), plus Maths AA SL at 4 or AA/AI HL at 3. 10 places.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "The whole mineral value chain, from finding ore to extraction, processing, recycling and waste, with maths, physics, chemistry and geoscience and projects run with mining companies.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5) or on the SweSAT. No April 2027 round published yet."
     },
     {
       "name": "Bachelor Programme in Music (Classical Musician, Composition, Church Music)",
@@ -105,7 +169,10 @@
       "city": "Piteå",
       "url": "https://www.ltu.se/en/education/programme/kkmug-bachelor-programme-in-music",
       "ib": "An audition with a music theory exam decides; IB grades do not rank you. LTU says these three tracks are taught in English and Swedish. 2027 audition dates not yet published.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["audition"],
+      "about": "Classical performance, composition or church music in Piteå, with concert halls and studios to perform and record in and an artistic research project in the third year.",
+      "selectionNote": "Ranked on the audition, which also tests music theory; applicants compete by instrument. Composition has 6 places, Classical Musician 10."
     }
   ],
   "notes": [
@@ -123,6 +190,9 @@
     { "title": "LTU — Datorgrafik för spel och film, autumn 2026 occasions (LTU-87455, 15 April 2026)", "url": "https://www.ltu.se/utbildning/program/tkdsg-datorgrafik-for-spel-och-film-kandidat?termin=HT%202026", "retrieved": "2026-09-26" },
     { "title": "University Admissions — Autumn semester 2027 key dates", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/", "retrieved": "2026-09-26" },
     { "title": "University Admissions — IB studies: which round, IB Result Service", "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/", "retrieved": "2026-09-26" },
-    { "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-26" }
+    { "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-26" },
+    { "title": "UHR admission statistics HT2026, LTU-87456 Computer Game Development and Programming, EU/EEA April round (BI 12.54 at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=LTU-87456", "retrieved": "2026-09-30" },
+    { "title": "UHR admission statistics HT2026, LTU-87455 Computer Graphics for Games and Film, EU/EEA April round (BI 12.74 at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=LTU-87455", "retrieved": "2026-09-30" },
+    { "title": "Luleå University of Technology: about the university (21,600 students)", "url": "https://www.ltu.se/en/about-the-university", "retrieved": "2026-09-30" }
   ]
 }

@@ -1,11 +1,11 @@
 {
   "institution": "se-kth",
   "name": "KTH Royal Institute of Technology",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Stockholm's technical university; one English bachelor's, Information and Communication Technology, and in 2024 it took 10% of eligible applicants.",
+  "summary": "A technical university in Stockholm, founded in 1827, with around 17,000 students; its one English bachelor's is ICT.",
   "handoff": {
     "label": "Bachelor's studies taught in English",
     "url": "https://www.kth.se/en/studies/bachelor"
@@ -93,7 +93,29 @@
       "field": "computing",
       "url": "https://www.kth.se/en/studies/bachelor/information-communication-technology/bsc-information-and-communication-technology-1.437049",
       "ib": "Maths AA SL at 4, or AA or AI HL at 3, plus Physics (4 at SL, 3 at HL).",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Electronics, programming, computer science and communication technology, joined with economics, leadership and sustainability; much of the work is labs and group projects, all taught in English.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        }
+      ],
+      "selectionNote": "April round: ranked on your IB converted to Sweden's merit scale (max 22.5), with some places on the SweSAT (in Swedish). No predicted grades: final results by 5 July.",
+      "cutoff": {
+        "value": "21.88 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=KTH-32508"
+      }
     }
   ],
   "notes": [
@@ -140,6 +162,16 @@
       "retrieved": "2026-09-25",
       "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt (subject-by-subject table)",
       "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/"
+    },
+    {
+      "title": "UHR admission statistics HT2026, KTH-32508 ICT national round (BI 21.88 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=KTH-32508",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "KTH: facts about KTH (since 1827, largest technical university in Sweden, around 17,000 students)",
+      "url": "https://www.kth.se/en/om/fakta",
+      "retrieved": "2026-09-30"
     }
   ]
 }

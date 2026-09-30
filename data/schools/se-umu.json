@@ -1,7 +1,7 @@
 {
   "institution": "se-umu",
   "name": "Umeå University",
-  "retrieved": "2026-09-26",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -102,7 +102,9 @@
       "url": "https://www.umu.se/en/education/programmes/bachelor-programme-in-industrial-design/",
       "ib": "IB grades do not rank you: work samples and a motivation letter (due 1 Feb 2027), then an interview in Umeå for 20–30 shortlisted. About 15 places.",
       "tuitionEuEea": "Free",
-      "closes": "2027-01-15"
+      "closes": "2027-01-15",
+      "about": "Industrial design from sketching and prototyping to interaction, systems and service design, in industry-like studios with your own workspace and projects run with outside partners.",
+      "selectionNote": "IB grades don't rank you: work samples and a motivation letter (due 1 Feb 2027), then an interview in Umeå for 20–30 shortlisted applicants."
     },
     {
       "name": "Bachelor of Science Programme in Life Science",
@@ -111,7 +113,35 @@
       "field": "natural-sciences",
       "url": "https://www.umu.se/en/education/programmes/bachelor-of-science-programme-in-life-science/",
       "ib": "Biology and Chemistry at grade 4 (3 at HL), plus Maths AI SL at 4, AA SL at 3, or AA/AI HL at 3. No April 2027 round published yet.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Chemistry and molecular biology to understand how life works at the molecular level, with lab work on modern equipment and a specialisation in either chemistry or molecular biology.",
+      "needs": [
+        {
+          "anyOf": ["biology"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Grade 3 is enough at HL."
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. No April 2027 round published yet.",
+      "cutoff": {
+        "value": "19.61 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UMU-P1506"
+      }
     },
     {
       "name": "International Business and Economics Programme",
@@ -120,7 +150,23 @@
       "field": "business",
       "url": "https://www.umu.se/en/education/programmes/international-business-and-economics-programme/",
       "ib": "Maths AI SL at 4, AA SL at 3, or AA/AI HL at 3. Ranked on grades. No April 2027 round published yet (it had one in 2026).",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Business and economics from a global perspective, with data analysis and visualisation, managing innovation and change across borders, and exchange studies or an internship.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. No April 2027 round published yet.",
+      "cutoff": {
+        "value": "16.29 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UMU-P1214"
+      }
     },
     {
       "name": "Architecture Programme",
@@ -131,7 +177,29 @@
       "url": "https://www.umu.se/en/education/programmes/architecture-program/",
       "ib": "Maths as for Business, plus ESS SL or two of Biology, Chemistry, Physics. Up to a third of places by the Arkitektprovet test. 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
-      "closes": "2027-04-15"
+      "closes": "2027-04-15",
+      "selection": ["grades", "test-score", "entrance-exam"],
+      "about": "A five-year, practice-based architecture education at Umeå School of Architecture, combining artistic and scientific work with a steady focus on sustainable, socially just cities and buildings.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        },
+        {
+          "anyOf": ["ess", "biology", "chemistry", "physics"],
+          "level": "SL",
+          "grade": 4,
+          "note": "ESS alone, or two of Biology, Chemistry and Physics (3 enough at HL)."
+        }
+      ],
+      "selectionNote": "April round: most places on your IB converted to Sweden's scale (max 22.5) or the SweSAT; up to a third via the Arkitektprovet test. 2026 criteria.",
+      "cutoff": {
+        "value": "17.66 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UMU-P1592"
+      }
     }
   ],
   "notes": [
@@ -149,6 +217,9 @@
     { "title": "Umeå University — Architecture Programme (autumn 2026 occasion, UMU-P1592)", "url": "https://www.umu.se/en/education/programmes/architecture-program/", "retrieved": "2026-09-26" },
     { "title": "University Admissions — Autumn semester 2027 key dates", "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/", "retrieved": "2026-09-26" },
     { "title": "University Admissions — IB studies: which round, IB Result Service", "url": "https://www.universityadmissions.se/en/apply-to-bachelors/provide-application-documents-bachelors/ib-studies/", "retrieved": "2026-09-26" },
-    { "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-26" }
+    { "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt", "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/", "retrieved": "2026-09-26" },
+    { "title": "UHR admission statistics HT2026, UMU-P1506 Life Science, national round (BI 19.61 at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UMU-P1506", "retrieved": "2026-09-30" },
+    { "title": "UHR admission statistics HT2026, UMU-P1214 International Business and Economics, national round (BI 16.29 at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UMU-P1214", "retrieved": "2026-09-30" },
+    { "title": "UHR admission statistics HT2026, UMU-P1592 Architecture, national round (BI 17.66 at selection 2)", "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UMU-P1592", "retrieved": "2026-09-30" }
   ]
 }

@@ -1,11 +1,11 @@
 {
   "institution": "se-su",
   "name": "Stockholm University",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Seven English bachelor's in Stockholm, from International Business and Politics to Latin American and Middle East studies, plus Earth Science online.",
+  "summary": "Stockholm research university, founded in 1878, over 30,000 full-time students; seven English bachelor's, from business and politics to area studies.",
   "handoff": {
     "label": "Bachelor's programmes at Stockholm University",
     "url": "https://www.su.se/english/education/top-reasons-to-choose-su/our-courses-and-programmes"
@@ -98,7 +98,23 @@
       "years": 3,
       "field": "business",
       "url": "https://www.su.se/english/education/course-catalogue/si/sifpk",
-      "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published."
+      "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
+      "selection": ["grades", "test-score"],
+      "about": "Business administration with political science, economic history and international political economy: a first year at Stockholm Business School, then politics and history, then exchange or electives.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "20.75 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-31138"
+      }
     },
     {
       "name": "Bachelor’s Programme in Business, Ethics and Sustainability",
@@ -106,14 +122,38 @@
       "years": 3,
       "field": "business",
       "url": "https://www.su.se/english/education/course-catalogue/sf/sfehk",
-      "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published."
+      "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
+      "selection": ["grades", "test-score"],
+      "about": "Business studies combined with practical philosophy (including ethics) and sustainability science, for careers in business, the public sector and NGOs.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "19.79 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-31139"
+      }
     },
     {
       "name": "International Bachelor's Programme in Political Science and Regional Studies",
       "credential": "BSc",
       "years": 3,
       "field": "social-sciences",
-      "url": "https://www.su.se/english/education/course-catalogue/sp/spock"
+      "url": "https://www.su.se/english/education/course-catalogue/sp/spock",
+      "selection": ["grades", "test-score"],
+      "about": "A first year of political science, then a regional specialisation in year two, and an internship, economic history or study abroad in year three.",
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "19.80 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-42053"
+      }
     },
     {
       "name": "Bachelor's Programme in Latin American Studies with specialization in Spanish",
@@ -121,7 +161,18 @@
       "years": 3,
       "field": "humanities",
       "url": "https://www.su.se/english/education/course-catalogue/sp/hlask-span",
-      "ib": "Spanish at grade 4 (ab initio is enough). 2026 criteria; 2027 not yet published."
+      "ib": "Spanish at grade 4 (ab initio is enough). 2026 criteria; 2027 not yet published.",
+      "selection": ["grades", "test-score"],
+      "about": "The history, politics, economics and culture of Latin America, the Caribbean and the Hispanic USA, with Spanish, and an optional Latin America-focused internship.",
+      "needs": [
+        {
+          "anyOf": ["language-ab-initio", "language-b-other", "language-a-other"],
+          "level": "SL",
+          "grade": 4,
+          "note": "In Spanish; ab initio is enough."
+        }
+      ],
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
     {
       "name": "Bachelor's Programme in Latin American Studies with specialization in Portuguese",
@@ -130,15 +181,24 @@
       "field": "humanities",
       "url": "https://www.su.se/english/education/course-catalogue/hl/hlask-port",
       "separateFrom": [
-        { "name": "Bachelor's Programme in Latin American Studies with specialization in Spanish", "reason": "Only the Spanish specialisation records a requirement (Spanish at grade 4); what a student must do differs." }
-      ]
+        {
+          "name": "Bachelor's Programme in Latin American Studies with specialization in Spanish",
+          "reason": "Only the Spanish specialisation records a requirement (Spanish at grade 4); what a student must do differs."
+        }
+      ],
+      "selection": ["grades", "test-score"],
+      "about": "The history, politics, economics and culture of Latin America, the Caribbean and the Hispanic USA, with Portuguese, and an optional internship in Latin America.",
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
     {
       "name": "Bachelor's Programme in Middle Eastern and North African Studies",
       "credential": "BA",
       "years": 3,
       "field": "humanities",
-      "url": "https://www.su.se/english/education/course-catalogue/hm/hmesk"
+      "url": "https://www.su.se/english/education/course-catalogue/hm/hmesk",
+      "selection": ["grades", "test-score"],
+      "about": "The early and modern history of the Middle East and North Africa, its religions, literature and culture, and its political and economic development, with a focus on today's societies.",
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
     {
       "name": "Bachelor's Programme in Earth Science, Distance Learning",
@@ -147,7 +207,24 @@
       "field": "natural-sciences",
       "city": "Online (distance learning)",
       "url": "https://www.su.se/english/education/course-catalogue/ng/ngdjk",
-      "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3), plus ESS SL, or two of Biology, Chemistry and Physics. 2026 criteria; 2027 not yet published."
+      "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3), plus ESS SL, or two of Biology, Chemistry and Physics. 2026 criteria; 2027 not yet published.",
+      "selection": ["grades", "test-score"],
+      "about": "Minerals and rocks, plate tectonics, climate, landscapes and natural resources, studied mostly online at your own pace, plus three compulsory intensive lab and field courses.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        },
+        {
+          "anyOf": ["ess", "biology", "chemistry", "physics"],
+          "level": "SL",
+          "grade": 4,
+          "note": "ESS alone, or two of Biology, Chemistry and Physics (3 enough at HL)."
+        }
+      ],
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     }
   ],
   "notes": [
@@ -225,6 +302,31 @@
       "retrieved": "2026-09-25",
       "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt (subject-by-subject table)",
       "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/"
+    },
+    {
+      "title": "UHR admission statistics HT2026, SU-31138 International Business and Politics, national round (BI 20.75 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-31138",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, SU-31139 Business, Ethics and Sustainability, national round (BI 19.79 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-31139",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, SU-42053 Political Science and Regional Studies, national round (BI 19.80 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-42053",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, SU-07322, SU-07323, SU-28043, SU-59006 (Latin American Studies, MENA Studies, Earth Science distance): no numeric BI minimum",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=SU-59006",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Stockholm University in brief (over 30,000 full-time equivalent students)",
+      "url": "https://www.su.se/english/about-the-university/stockholm-university-in-brief",
+      "retrieved": "2026-09-30"
     }
   ]
 }

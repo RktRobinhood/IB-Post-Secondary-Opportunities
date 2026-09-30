@@ -1,11 +1,11 @@
 {
   "institution": "se-ju",
   "name": "Jönköping University",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Seven English bachelor's in business, engineering, design and prosthetics, and its own rolling application, JU Direct, that takes IB predicted grades.",
+  "summary": "16,000 students in Jönköping, 2,700 of them international, with a triple-accredited business school (JIBS); IB students can apply on predicted grades.",
   "handoff": {
     "label": "Bachelor programmes",
     "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes.html"
@@ -48,7 +48,18 @@
       "years": 3,
       "field": "economics",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/international-economics-autumn-2027-ku103.html",
-      "ib": "Maths AA SL at 3 or AI SL at 4."
+      "ib": "Maths AA SL at 3 or AI SL at 4.",
+      "selection": ["first-come"],
+      "about": "A shared first year in business and economics, then international trade, financial markets and econometrics with large datasets and AI-supported analysis; a semester abroad or internship in year three.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     },
     {
       "name": "Bachelor in International Management",
@@ -56,7 +67,18 @@
       "years": 3,
       "field": "business",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/international-management-autumn-2027-ku101.html",
-      "ib": "Maths AA SL at 3 or AI SL at 4."
+      "ib": "Maths AA SL at 3 or AI SL at 4.",
+      "selection": ["first-come"],
+      "about": "A shared first year in business and economics, then international management: entrepreneurship, leadership, strategy, change and supply chains, with a semester abroad or an internship.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     },
     {
       "name": "Bachelor in International Marketing",
@@ -64,7 +86,18 @@
       "years": 3,
       "field": "business",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/international-marketing-autumn-2027-ku102.html",
-      "ib": "Maths AA SL at 3 or AI SL at 4."
+      "ib": "Maths AA SL at 3 or AI SL at 4.",
+      "selection": ["first-come"],
+      "about": "A shared first year in business and economics, then marketing: consumer behaviour, branding, digital marketing, market research and SEO, with data-driven tools and a semester abroad option.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     },
     {
       "name": "Graphic Design and Web Development",
@@ -72,7 +105,17 @@
       "years": 3,
       "field": "design-architecture",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/graphic-design-and-web-development-autumn-2027-ku018.html",
-      "ib": "Maths AI SL at grade 3 or any higher IB Maths."
+      "ib": "Maths AI SL at grade 3 or any higher IB Maths.",
+      "selection": ["first-come"],
+      "about": "Graphic design, programming and web design combined with digital marketing and UX design: you learn to design and code interactive web applications and to make graphics for print and screen.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     },
     {
       "name": "Industrial Engineering and Management: Sustainable Supply Chain Management",
@@ -80,7 +123,18 @@
       "years": 3,
       "field": "engineering",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/industrial-engineering-and-management-sustainable-supply-chain-management-autumn-2027-ku019.html",
-      "ib": "Maths at Swedish Maths 3b level: Maths AA SL at 3 or AI SL at 4."
+      "ib": "Maths at Swedish Maths 3b level: Maths AA SL at 3 or AI SL at 4.",
+      "selection": ["first-come"],
+      "about": "Industrial economics and organisation focused on sustainable supply chains: logistics, purchasing, lean, quality management, transport, warehousing and simulation.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     },
     {
       "name": "Mechanical Engineering (BSc)",
@@ -88,7 +142,28 @@
       "years": 3,
       "field": "engineering",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/mechanical-engineering-bsc-autumn-2027-ku104.html",
-      "ib": "Physics and Chemistry at grade 4, and Maths AA SL at 3 or AI SL at 4."
+      "ib": "Physics and Chemistry at grade 4, and Maths AA SL at 3 or AI SL at 4.",
+      "selection": ["first-come"],
+      "about": "Mechanical engineering, materials and product development, designing complex systems in teams from day one with CAD, simulation and real industry challenges.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     },
     {
       "name": "Prosthetics and Orthotics, BSc",
@@ -96,7 +171,28 @@
       "years": 3,
       "field": "health",
       "url": "https://ju.se/en/study-at-ju/our-programmes/bachelor-programmes/prosthetics-and-orthotics-bsc-autumn-2027-ku013.html",
-      "ib": "Physics and Chemistry at grade 4, and Maths AA SL at 3 or AI SL at 4 (national listing: Physics 2, Chemistry 1, Maths 3c)."
+      "ib": "Physics and Chemistry at grade 4, and Maths AA SL at 3 or AI SL at 4 (national listing: Physics 2, Chemistry 1, Maths 3c).",
+      "selection": ["first-come"],
+      "about": "Train as a prosthetist and orthotist: medical knowledge, technology and patient work combined to design and fit prostheses and orthoses, moving from classroom to clinic.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selectionNote": "JU Direct: rolling admission on IB predicted grades, with a letter of motivation; programmes can fill and close before 2 May 2027, so apply early."
     }
   ],
   "notes": [
@@ -149,6 +245,11 @@
       "retrieved": "2026-09-25",
       "title": "University Admissions — Autumn semester 2027 key dates",
       "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+    },
+    {
+      "title": "Jönköping University: about us (16,000 students, 2,700 international)",
+      "url": "https://ju.se/en/about-us.html",
+      "retrieved": "2026-09-30"
     }
   ]
 }

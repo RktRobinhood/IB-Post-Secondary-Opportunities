@@ -1,7 +1,7 @@
 {
   "institution": "se-sse",
   "name": "Stockholm School of Economics",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -84,7 +84,19 @@
       "years": 3,
       "field": "business",
       "url": "https://www.hhs.se/education/bachelor/business-economics/",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score", "interview"],
+      "about": "Three semesters of shared courses (accounting, law, data analytics, economics, finance, management, marketing, strategy), then your own mix of specialisations, electives and exchange or internship.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "note": "A pass is enough (SSE names AI SL as the minimum)."
+        }
+      ],
+      "points": 31,
+      "selectionNote": "IB grades (predicted is fine) and a SAT/ACT/ITB-Business score are assessed; shortlisted applicants interview online in mid-February. 39+ points is usual.",
+      "places": 300
     },
     {
       "name": "Retail Management",
@@ -92,7 +104,19 @@
       "years": 3,
       "field": "business",
       "url": "https://www.hhs.se/education/bachelor/retail-management/",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score", "interview"],
+      "about": "Business economics applied to retail and consumer business, with an Applied Retail Track of live cases run with companies such as H&M, ICA and Systembolaget, in a class of 60.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "note": "A pass is enough (SSE names AI SL as the minimum)."
+        }
+      ],
+      "points": 31,
+      "selectionNote": "IB grades (predicted is fine) and a SAT/ACT/ITB-Business score are assessed; shortlisted applicants interview online in mid-February. 39+ points is usual.",
+      "places": 60
     }
   ],
   "notes": [

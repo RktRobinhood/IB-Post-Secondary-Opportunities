@@ -44,6 +44,10 @@ minute, and three used about 1%. Run three or four at once; check
 `get_usage` before starting more, and pause (TaskStop) a few points below the
 owner's ceiling.
 
+**One photo file per country.** The importer reads only
+`schools-<two letters>.jsonl`. A country split across agents shares that one
+file, each agent appending lines for its own schools only.
+
 **Fetch one country at a time.** `--only=<cc>` reads just that country's
 `schools-<cc>.jsonl`. Without it the importer reads every batch file and would
 re-add, and on a signing run approve, lines another country's critic rejected.
@@ -58,11 +62,18 @@ Give the critic the sheet, the `.jsonl` (why each was chosen), the last
 country's critique for calibration, and the brief in ENRICH_BRIEF. Round 1
 scores around 6 are normal.
 
-**Removing a reject** is three deletions: its line in `schools-<cc>.jsonl`,
-its record in `data/programme-images.json`, and its three files
-`src/assets/img/programmes/<key>{,-480,-720}.webp`. The card falls back to its
-school's photograph, which is the honest state until a better picture is
-found. Re-sheet and send the survivors to the same critic for round 2.
+**Removing rejects** is one command with the keys the critic names:
+
+```sh
+node scripts/remove-programme-images.mjs <key> [<key> …]
+```
+
+It deletes the research line, the manifest record and the stored files, and
+refuses a signed record. The card falls back to its school's photograph,
+which is the honest state until a better picture is found. Re-sheet and send
+the survivors to the same critic for round 2. Round 1 has scored 5–6 for
+every country so far (Germany 10 of 35 rejected, Sweden 18 of 40); removing
+the rejects has reached 8 each time.
 
 **Signing** (only after 8+):
 
@@ -92,6 +103,7 @@ them.
 | `school-pages` | a source or link is a bare homepage | cite the page that states the fact |
 | `school-pages` | an `ib` line names a date earlier than the Apply-by (a scholarship date, "1 Feb in 2026") | keep other dates out of `ib`; say "apply early" |
 | `check-schools` | an `ib` line over 180 characters | one sentence; detail goes in `selectionNote` |
+| `superlatives` | a summary ranks the place ("Sweden's largest", "the oldest Nordic") | say what makes it worth a look: a founding year, a count, a setting |
 | `research-log` | page text says "verified", "critic", "we checked" | write what the student should do, not how we researched it |
 
 | Photo critic rejects | Instead |
@@ -116,6 +128,11 @@ Record them the same way in every country:
   never softened; `needs` holds IB subjects only.
 - **EU fees:** "for foreigners" pages are often the non-EU price. Establish
   which route and fee an EU citizen has (Poland, #41), per university.
+- **National admission statistics** give cut-offs where universities do
+  not: Sweden's UHR results pages (lowest admitted merit value in the BI
+  grades group, by application code and term), Norway's Samordna opptak
+  poenggrenser. Record the group and year with the number; do not convert
+  to IB points unless an official table does.
 - **Conflicting official pages:** keep the stricter reading, name both in
   `meta.notes` or the programme's note, and list it in `progress.md` for the
   release check.

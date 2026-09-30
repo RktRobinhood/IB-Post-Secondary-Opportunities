@@ -1,11 +1,11 @@
 {
   "institution": "se-uu",
   "name": "Uppsala University",
-  "retrieved": "2026-09-26",
+  "retrieved": "2026-09-30",
   "starts": "Late August or early September",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Eight English bachelor's: six on Campus Gotland in Visby, four of them in game design, plus Egyptology and Holocaust and Genocide Studies in Uppsala.",
+  "summary": "Founded in 1477, with 50,000 students; English bachelor's in Uppsala and on Campus Gotland in Visby, four in game design.",
   "handoff": {
     "label": "English-taught bachelor's programmes",
     "url": "https://www.uu.se/en/study/bachelors-studies/bachelors-programmes"
@@ -99,7 +99,17 @@
       "field": "humanities",
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-egyptology",
       "ib": "IB History at grade 4. 2026 criteria; 2027 not yet published.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "The material culture, archaeology and texts of ancient Egypt, learning to read ancient Egyptian, combined with Assyriology to set Egypt among the cultures of the Near East.",
+      "needs": [
+        {
+          "anyOf": ["history"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
     {
       "name": "Bachelor's Programme in Energy Transition – Sustainability and Leadership",
@@ -109,7 +119,24 @@
       "city": "Visby",
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-energy-transition-sustainability-and-leadership",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3); plus ESS SL, or two of Biology, Chemistry and Physics. 2026 criteria; 2027 not yet published.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Several disciplines brought together to tackle energy transitions, climate and energy security, with training to lead change towards a sustainable energy system, on Campus Gotland.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        },
+        {
+          "anyOf": ["ess", "biology", "chemistry", "physics"],
+          "level": "SL",
+          "grade": 4,
+          "note": "ESS alone, or two of Biology, Chemistry and Physics (3 enough at HL)."
+        }
+      ],
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     },
     {
       "name": "Bachelor's Programme in Game Design and Graphics",
@@ -121,10 +148,34 @@
       "ib": "Any IB Maths course (AI SL at grade 3 is enough). 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
       "separateFrom": [
-        { "name": "Bachelor's Programme in Game Design and Level Design", "reason": "A different programme with its own subject (graphics, not level design) and its own application." },
-        { "name": "Bachelor's Programme in Game Design and Programming", "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs." },
-        { "name": "Bachelor's Programme in Game Design and Project Management", "reason": "A different programme with its own subject (project management, not graphics) and its own application." }
-      ]
+        {
+          "name": "Bachelor's Programme in Game Design and Level Design",
+          "reason": "A different programme with its own subject (graphics, not level design) and its own application."
+        },
+        {
+          "name": "Bachelor's Programme in Game Design and Programming",
+          "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs."
+        },
+        {
+          "name": "Bachelor's Programme in Game Design and Project Management",
+          "reason": "A different programme with its own subject (project management, not graphics) and its own application."
+        }
+      ],
+      "selection": ["grades", "test-score"],
+      "about": "Making art for games, from 2D game graphics on to 3D, with game development for commercial production and the study of how games work and affect players, on Campus Gotland.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "18.76 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5365"
+      }
     },
     {
       "name": "Bachelor's Programme in Game Design and Level Design",
@@ -136,9 +187,30 @@
       "ib": "Any IB Maths course (AI SL at grade 3 is enough). 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
       "separateFrom": [
-        { "name": "Bachelor's Programme in Game Design and Programming", "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs." },
-        { "name": "Bachelor's Programme in Game Design and Project Management", "reason": "A different programme with its own subject (project management, not level design) and its own application." }
-      ]
+        {
+          "name": "Bachelor's Programme in Game Design and Programming",
+          "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs."
+        },
+        {
+          "name": "Bachelor's Programme in Game Design and Project Management",
+          "reason": "A different programme with its own subject (project management, not level design) and its own application."
+        }
+      ],
+      "selection": ["grades", "test-score"],
+      "about": "Building engaging game worlds by combining technology, design and art, to work as a level designer in the professional, international games industry, on Campus Gotland.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "16.67 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5367"
+      }
     },
     {
       "name": "Bachelor's Programme in Game Design and Programming",
@@ -150,8 +222,27 @@
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
       "tuitionEuEea": "Free",
       "separateFrom": [
-        { "name": "Bachelor's Programme in Game Design and Project Management", "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs." }
-      ]
+        {
+          "name": "Bachelor's Programme in Game Design and Project Management",
+          "reason": "A different programme; Programming asks for more maths (AA at 3, or AI at 4), so what a student must do differs."
+        }
+      ],
+      "selection": ["grades", "test-score"],
+      "about": "The technical side of game development, with C++ programming at its core, to build games and new experiences professionally, on Campus Gotland in Visby.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "16.71 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5370"
+      }
     },
     {
       "name": "Bachelor's Programme in Game Design and Project Management",
@@ -161,7 +252,22 @@
       "city": "Visby",
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-game-design-and-project-management",
       "ib": "Any IB Maths course (AI SL at grade 3 is enough). 2026 criteria; 2027 not yet published.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Planning and leading game projects from idea to launch: team leadership and tools to plan and assess productions, alongside hands-on game development, on Campus Gotland.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "14.68 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5375"
+      }
     },
     {
       "name": "Bachelor's Programme in Holocaust and Genocide Studies",
@@ -169,7 +275,15 @@
       "years": 3,
       "field": "humanities",
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-holocaust-and-genocide-studies",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Historical and present-day cases of genocide, mass violence and crimes against humanity, examined in a field taught entirely in English in Uppsala.",
+      "selectionNote": "2026 April round: ranked on your IB converted to Sweden's scale (max 22.5), some places on the SweSAT. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "20.05 of 22.5 (grades group BI)",
+        "intake": "2026",
+        "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5067"
+      }
     },
     {
       "name": "Bachelor's Programme in Leadership – Quality Management – Improvement",
@@ -179,7 +293,18 @@
       "city": "Visby",
       "url": "https://www.uu.se/en/study/programme/bachelors-programme-leadership-quality-management-improvement",
       "ib": "Maths AA at grade 3, or AI at 4 (AI HL at 3). 2026 criteria; 2027 not yet published.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "selection": ["grades", "test-score"],
+      "about": "Leadership, quality management and business development from a long-term social, ecological and economic sustainability perspective, on Campus Gotland in Visby.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 3,
+          "note": "AI SL at grade 4 also counts."
+        }
+      ],
+      "selectionNote": "Ranked on your IB converted to Sweden's scale (max 22.5), some on the SweSAT; UHR gives no 2026 numeric minimum. 2027 criteria not yet published."
     }
   ],
   "notes": [
@@ -292,6 +417,41 @@
       "retrieved": "2026-09-25",
       "title": "Antagning.se — Särskild behörighet, IB-examen 2021 och framåt (subject-by-subject table)",
       "url": "https://www.antagning.se/sv/betyg-och-behorighet/international-baccalaureate/ib-examen-2021-och-framat/sarskild-behorighet/"
+    },
+    {
+      "title": "UHR admission statistics HT2026, UU-P5365 Game Design and Graphics, national round (BI 18.76 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5365",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, UU-P5367 Game Design and Level Design, national round (BI 16.67 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5367",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, UU-P5370 Game Design and Programming, national round (BI 16.71 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5370",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, UU-P5375 Game Design and Project Management, national round (BI 14.68 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5375",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, UU-P5067 Holocaust and Genocide Studies, national round (BI 20.05 at selection 2)",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5067",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UHR admission statistics HT2026, UU-P5010 Egyptology, UU-P1810 Energy Transition, UU-P1460 Leadership–Quality–Improvement: no numeric BI minimum at selection 2",
+      "url": "https://www.uhr.se/studier-och-antagning/antagningsstatistik/resultatsida/?astasearchperiod=HT26&astasearchfor=UU-P5010",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Uppsala University: facts and figures (founded 1477, 50,000 students)",
+      "url": "https://www.uu.se/en/about-uu/facts-and-figures",
+      "retrieved": "2026-09-30"
     }
   ]
 }

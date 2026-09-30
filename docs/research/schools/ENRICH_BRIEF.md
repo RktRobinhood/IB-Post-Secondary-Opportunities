@@ -79,6 +79,8 @@ that institution.
   scholarship date, "1 Feb in 2026"): the page check reads it as a
   contradiction. Say "apply early" instead.
 - A source that is a bare homepage. Cite the page that states the fact.
+- A ranking in a summary ("the largest", "the oldest", "one of the best"). Say
+  what makes the place worth a look: a founding year, a count, a setting.
 - Research words in page text ("verified", "critic", "we checked"). Tell the
   student what to do, not how it was researched.
 
