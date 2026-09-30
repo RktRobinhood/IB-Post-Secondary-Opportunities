@@ -5,6 +5,11 @@
  *   node scripts/import-programme-images.mjs            # upsert, fetch what is missing, sign
  *   node scripts/import-programme-images.mjs --dry-run  # report only
  *   node scripts/import-programme-images.mjs --unsigned # upsert and fetch, but do not sign
+ *   node scripts/import-programme-images.mjs --only=de  # one country batch file only
+ *
+ * `--only` reads just `schools-<cc>.jsonl`, so a batch is fetched and signed
+ * on its own: another country's lines that a critic rejected (and that were
+ * taken out of the manifest) are not re-added or signed by someone else's run.
  *
  * Reads, in this order (a later line for the same key wins):
  *   docs/research/programme-images/proposal.jsonl   one line per scope
@@ -42,7 +47,8 @@ const RESEARCH = path.join(ROOT, 'docs', 'research', 'programme-images');
 const MANIFEST = path.join(ROOT, 'data', 'programme-images.json');
 const DRY = process.argv.includes('--dry-run');
 const UNSIGNED = process.argv.includes('--unsigned');
-const REVIEWER = 'Codex (automated visual review, delegated by the site owner)';
+const ONLY = (process.argv.find((a) => a.startsWith('--only=')) || '').slice(7);
+const REVIEWER = process.env.REVIEWER || 'Codex (automated visual review, delegated by the site owner)';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const readJson = async (f, fallback) => { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return fallback; } };
@@ -73,12 +79,13 @@ for (const f of (await fs.readdir(path.join(ROOT, 'data', 'schools'))).filter((f
 
 const schoolResearch = (await fs.readdir(RESEARCH))
   .filter((f) => /^schools-[a-z]{2}\.jsonl$/.test(f))
+  .filter((f) => !ONLY || f === `schools-${ONLY}.jsonl`)
   .sort();
 
 const wanted = new Map();
 const research = [
-  ...(await lines('proposal.jsonl')),
-  ...(await lines('additions.jsonl')),
+  ...(ONLY ? [] : await lines('proposal.jsonl')),
+  ...(ONLY ? [] : await lines('additions.jsonl')),
   ...(await Promise.all(schoolResearch.map((f) => lines(f)))).flat(),
 ];
 for (const l of research) {

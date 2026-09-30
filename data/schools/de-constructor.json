@@ -1,16 +1,16 @@
 {
   "institution": "de-constructor",
   "name": "Constructor University",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Private English-language university on a residential campus in Bremen; 19 bachelor's in science, engineering, computing and business, one online.",
+  "summary": "Private English-taught university in Bremen, formerly Jacobs University, with an international student body living on one residential campus.",
   "handoff": {
     "label": "Undergraduate programs (also lists foundation years)",
     "url": "https://constructor.university/programs/undergraduate-education"
   },
   "ib": {
-    "text": "Holistic review of grades, a motivation essay and a CV; no SAT needed if your IB meets the KMK rule. IB English A (Literature or Language and Literature) at 6 or 7 proves English.",
+    "text": "Holistic review of grades, a motivation essay and a CV. If your IB does not give direct entry to a German university, admission can be conditional on SAT/ACT. IB English A at 6 or 7 proves your English.",
     "url": "https://constructor.university/admission-aid/application-information-undergraduate"
   },
   "apply": {
@@ -18,188 +18,30 @@
     "url": "https://constructor.university/admission-aid/application-information-undergraduate"
   },
   "dates": [
-    {
-      "label": "Early Action opens",
-      "date": "2026-10-01",
-      "kind": "opens",
-      "who": "any",
-      "url": "https://constructor.university/admission-aid/application-information-undergraduate"
-    },
-    {
-      "label": "Early Action closes",
-      "short": "Early Action",
-      "date": "2027-02-01",
-      "kind": "early",
-      "who": "any",
-      "url": "https://constructor.university/admission-aid/application-information-undergraduate"
-    },
-    {
-      "label": "Rolling admissions close (visa and no-visa applicants)",
-      "date": "2027-07-15",
-      "kind": "closes",
-      "who": "any",
-      "url": "https://constructor.university/admission-aid/application-information-undergraduate"
-    }
+    { "label": "Early Action opens", "date": "2026-10-01", "kind": "opens", "who": "any", "url": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "label": "Early Action closes", "short": "Early Action", "date": "2027-02-01", "kind": "early", "who": "any", "url": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "label": "Rolling admissions close (visa and no-visa applicants)", "date": "2027-07-15", "kind": "closes", "who": "any", "url": "https://constructor.university/admission-aid/application-information-undergraduate" }
   ],
   "programmes": [
-    {
-      "name": "Applied Computer Science",
-      "credential": "BSc",
-      "years": 3,
-      "field": "computing",
-      "url": "https://constructor.university/programs/undergraduate-education/applied-computer-science",
-      "city": "Online",
-      "tuitionEuEea": "€5,000 a year",
-      "separateFrom": [
-        { "name": "Computer Science", "reason": "Taught entirely online, from home; Computer Science is on campus, with its own Cybersecurity specialisation." }
-      ]
-    },
-    {
-      "name": "Artificial Intelligence",
-      "credential": "BSc",
-      "years": 3,
-      "field": "computing",
-      "url": "https://constructor.university/programs/undergraduate-education/artificial-intelligence",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Biochemistry and Cell Biology",
-      "credential": "BSc",
-      "years": 3,
-      "field": "natural-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/biochemistry-cell-biology",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Chemistry and Biotechnology",
-      "credential": "BSc",
-      "years": 3,
-      "field": "natural-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/chemistry-biotechnology",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Computer and Information Technology",
-      "credential": "BSc",
-      "years": 3,
-      "field": "computing",
-      "url": "https://constructor.university/programs/undergraduate-education/computer-information-technology",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Computer Science",
-      "credential": "BSc",
-      "years": 3,
-      "field": "computing",
-      "url": "https://constructor.university/programs/undergraduate-education/computer-science",
-      "ib": "Includes a Cybersecurity specialization with its own page: apply to Computer Science and choose it.",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Earth Sciences and Sustainable Management of Environmental Resources",
-      "credential": "BSc",
-      "years": 3,
-      "field": "natural-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/earth-sciences-and-sustainable-management-of-environmental-resources",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Electrical and Computer Engineering",
-      "credential": "BSc",
-      "years": 3,
-      "field": "engineering",
-      "url": "https://constructor.university/programs/undergraduate-education/electrical-computer-engineering",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Global Economics and Management",
-      "credential": "BA",
-      "years": 3,
-      "field": "economics",
-      "url": "https://constructor.university/programs/undergraduate-education/global-economics-management",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Industrial Engineering and Management",
-      "credential": "BSc",
-      "years": 3,
-      "field": "engineering",
-      "url": "https://constructor.university/programs/undergraduate-education/industrial-engineering-management",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Integrated Social and Cognitive Psychology",
-      "credential": "BSc",
-      "years": 3,
-      "field": "social-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/integrated-social-cognitive-psychology",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "International Business Administration",
-      "credential": "BA",
-      "years": 3,
-      "field": "business",
-      "url": "https://constructor.university/programs/undergraduate-education/international-business-administration",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "International Relations: Politics and History",
-      "credential": "BA",
-      "years": 3,
-      "field": "social-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/international-relations-politics-history",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Management, Decisions and Data Analytics",
-      "credential": "BSc",
-      "years": 3,
-      "field": "business",
-      "url": "https://constructor.university/programs/undergraduate-education/management-decisions-and-data-analytics",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Mathematics, Modeling and Data Analytics",
-      "credential": "BSc",
-      "years": 3,
-      "field": "mathematics",
-      "url": "https://constructor.university/programs/undergraduate-education/mathematics-modeling-data-analytics",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Medicinal Chemistry and Chemical Biology",
-      "credential": "BSc",
-      "years": 3,
-      "field": "natural-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/medicinal-chemistry-chemical-biology",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Physics and Data Science",
-      "credential": "BSc",
-      "years": 3,
-      "field": "natural-sciences",
-      "url": "https://constructor.university/programs/undergraduate-education/physics-and-data-science",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Robotics and Intelligent Systems",
-      "credential": "BSc",
-      "years": 3,
-      "field": "engineering",
-      "url": "https://constructor.university/programs/undergraduate-education/robotics-intelligent-systems",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    },
-    {
-      "name": "Software, Data and Technology",
-      "credential": "BSc",
-      "years": 3,
-      "field": "computing",
-      "url": "https://constructor.university/programs/undergraduate-education/software-data-and-technology",
-      "ib": "For students with prior programming experience, such as olympiads or contests; the JetBrains Foundation offers full scholarships to top students.",
-      "tuitionEuEea": "€23,850 a year (2027/28)"
-    }
+    { "name": "Applied Computer Science", "credential": "BSc", "years": 3, "city": "Online", "field": "computing", "url": "https://constructor.university/programs/undergraduate-education/applied-computer-science", "about": "Computer science taught fully online, mostly through recorded lectures with live tutorials: programming, algorithms, databases, AI and software engineering, plus a compulsory summer internship between years two and three.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€5,000 a year", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate", "separateFrom": [{ "name": "Computer Science", "reason": "Taught entirely online, from home; Computer Science is on campus, with its own Cybersecurity specialisation." }] },
+    { "name": "Artificial Intelligence", "credential": "BSc", "years": 3, "field": "computing", "url": "https://constructor.university/programs/undergraduate-education/artificial-intelligence", "about": "A new degree from 2027 (accreditation expected in spring 2027): a strong maths and computer science base first, then machine learning and AI methods, with a compulsory internship and a study-abroad window in semester 5.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Biochemistry and Cell Biology", "credential": "BSc", "years": 3, "field": "natural-sciences", "url": "https://constructor.university/programs/undergraduate-education/biochemistry-cell-biology", "about": "Life at the level of molecules and cells, with lab courses every year from chromatography to genetic engineering, a two-month summer internship and specialisations such as biomedicine.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Chemistry and Biotechnology", "credential": "BSc", "years": 3, "field": "natural-sciences", "url": "https://constructor.university/programs/undergraduate-education/chemistry-biotechnology", "about": "Inorganic, organic and physical chemistry combined with industrial biotechnology and bioprocess engineering, with labs, a summer internship and specialisations such as organometallic chemistry.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Computer and Information Technology", "credential": "BSc", "years": 3, "field": "computing", "url": "https://constructor.university/programs/undergraduate-education/computer-information-technology", "about": "New from 2027 (accreditation expected in spring 2027): building, integrating and running secure, dependable computing and communication systems, with an internship, a study-abroad window and an optional business or engineering minor.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Computer Science", "credential": "BSc", "years": 3, "field": "computing", "url": "https://constructor.university/programs/undergraduate-education/computer-science", "about": "Classic computer science: C/C++ programming, algorithms and maths first, then databases, operating systems and software engineering, with a summer internship and specialisations including cybersecurity.", "ib": "Includes a Cybersecurity specialization with its own page: apply to Computer Science and choose it.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Earth Sciences and Sustainable Management of Environmental Resources", "credential": "BSc", "years": 3, "field": "natural-sciences", "url": "https://constructor.university/programs/undergraduate-education/earth-sciences-and-sustainable-management-of-environmental-resources", "about": "Processes at the Earth's surface and how natural resources are managed, mixing geoscience and geochemistry with economics, advanced field labs and a two-month internship.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Electrical and Computer Engineering", "credential": "BSc", "years": 3, "field": "engineering", "url": "https://constructor.university/programs/undergraduate-education/electrical-computer-engineering", "about": "Electrical engineering centred on communications, signal processing and embedded systems, from circuits and physics labs to wireless and RF design, with a two-month internship or a start-up option.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Global Economics and Management", "credential": "BA", "years": 3, "field": "economics", "url": "https://constructor.university/programs/undergraduate-education/global-economics-management", "about": "Economics and management for a globalised world: public policy, environmental and international economics alongside marketing, with a two-month internship, an optional semester abroad and specialisations such as econometrics.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Industrial Engineering and Management", "credential": "BSc", "years": 3, "field": "engineering", "url": "https://constructor.university/programs/undergraduate-education/industrial-engineering-management", "about": "Industrial engineering joined with management: logistics, production planning, operations research, lean methods and AI for industry, with a four-month internship in semester 5.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Integrated Social and Cognitive Psychology", "credential": "BSc", "years": 3, "field": "social-sciences", "url": "https://constructor.university/programs/undergraduate-education/integrated-social-cognitive-psychology", "about": "Psychology joining its social and cognitive sides, from memory and learning to neurobiology and culture, with statistics and research methods throughout, a summer internship and options such as social neuroscience.", "ib": "Does not prepare you for psychotherapist licensure in Germany; Constructor says it qualifies for many psychology master's programmes in the US, the UK and elsewhere.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "International Business Administration", "credential": "BA", "years": 3, "field": "business", "url": "https://constructor.university/programs/undergraduate-education/international-business-administration", "about": "International business: finance, accounting and economics first, then marketing, investments, strategy and entrepreneurship, with a two-month internship, an optional semester abroad and specialisations such as lean management.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "International Relations: Politics and History", "credential": "BA", "years": 3, "field": "social-sciences", "url": "https://constructor.university/programs/undergraduate-education/international-relations-politics-history", "about": "International relations taught with modern history: IR theory, political economy and the history of globalisation, then specialisations such as international law or China, with a summer internship.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Management, Decisions and Data Analytics", "credential": "BSc", "years": 3, "field": "business", "url": "https://constructor.university/programs/undergraduate-education/management-decisions-and-data-analytics", "about": "Business management combined with the psychology of decision-making and hands-on data analytics (machine learning, statistics in R, visualisation), with a two-month internship and specialisations such as financial data analytics.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Mathematics, Modeling and Data Analytics", "credential": "BSc", "years": 3, "field": "mathematics", "url": "https://constructor.university/programs/undergraduate-education/mathematics-modeling-data-analytics", "about": "Pure mathematics (analysis, algebra, number theory) paired with modelling real-world problems and data-driven methods in Python, with a summer internship and specialisations from financial maths to topology.", "ib": "A Sparkasse scholarship of up to €4,800 a year goes to selected maths applicants; it closed well before admissions last year, so apply early.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Medicinal Chemistry and Chemical Biology", "credential": "BSc", "years": 3, "field": "natural-sciences", "url": "https://constructor.university/programs/undergraduate-education/medicinal-chemistry-chemical-biology", "about": "How drugs act on the body, from molecules to physiology: organic, medicinal and pharmaceutical chemistry with chemical biology and lab work, a two-month internship and specialisations such as antibiotic discovery.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Physics and Data Science", "credential": "BSc", "years": 3, "field": "natural-sciences", "url": "https://constructor.university/programs/undergraduate-education/physics-and-data-science", "about": "A full physics degree, from mechanics and electrodynamics to quantum and statistical physics, taught with Python programming, modelling and data science, advanced labs and a summer internship.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Robotics and Intelligent Systems", "credential": "BSc", "years": 3, "field": "engineering", "url": "https://constructor.university/programs/undergraduate-education/robotics-intelligent-systems", "about": "Engineering autonomous machines: maths, physics, C/C++ and electronics first, then robotics, AI, machine learning and control, with a summer internship and specialisations such as marine robotics.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" },
+    { "name": "Software, Data and Technology", "credential": "BSc", "years": 3, "field": "computing", "url": "https://constructor.university/programs/undergraduate-education/software-data-and-technology", "about": "An advanced computing degree for students who already program well: software development, data analysis and machine learning (including Kotlin), run with the JetBrains Foundation, and an extended thesis project.", "ib": "For students with prior programming experience, such as olympiads or contests; the JetBrains Foundation offers full scholarships to top students.", "selection": ["grades", "motivation"], "selectionNote": "Holistic review of your grades, motivation essay, CV and any references; no NC, test or interview. Decision in 2–4 weeks; places are not published.", "tuitionEuEea": "€23,850 a year (2027/28)", "requirementsUrl": "https://constructor.university/admission-aid/application-information-undergraduate" }
   ],
   "notes": [
     "Decisions come 2 to 4 weeks after you apply, and every applicant is considered for a grade-based scholarship of up to €10,000 with no separate form.",
@@ -207,35 +49,16 @@
     "Tuition is €11,925 a semester in 2027/28, plus up to €350 in fees and a one-time €640 enrolment fee for EU students; part can be deferred until you work."
   ],
   "sources": [
-    {
-      "title": "Constructor — Application information for undergraduates (2027 Early Action and rolling dates; English proof table)",
-      "url": "https://constructor.university/admission-aid/application-information-undergraduate",
-      "retrieved": "2026-09-25"
-    },
-    {
-      "title": "Constructor — Undergraduate programs (20 bachelor's entries incl. the CS Cybersecurity specialization, plus pre-degree programmes)",
-      "url": "https://constructor.university/programs/undergraduate-education",
-      "retrieved": "2026-09-25"
-    },
-    {
-      "title": "Constructor — Financing information for undergraduates (cost of attendance 2027/2028)",
-      "url": "https://constructor.university/admission-aid/financing-undergraduate",
-      "retrieved": "2026-09-25"
-    },
-    {
-      "title": "Constructor — Applied Computer Science (online BSc, €5,000 a year)",
-      "url": "https://constructor.university/programs/undergraduate-education/applied-computer-science",
-      "retrieved": "2026-09-25"
-    },
-    {
-      "title": "Constructor — Software, Data and Technology BSc (Fall Intake 2027 dates and fees)",
-      "url": "https://constructor.university/programs/undergraduate-education/software-data-and-technology",
-      "retrieved": "2026-09-25"
-    },
-    {
-      "title": "Constructor — Computer Science, Cybersecurity Specialization (\"To apply for the Cybersecurity specialization, please select the Bachelor's program Computer Science\")",
-      "url": "https://constructor.university/programs/undergraduate-education/computer-science/cybersecurity-specialization",
-      "retrieved": "2026-09-26"
-    }
+    { "title": "Constructor — Application information for undergraduates (holistic review; SAT/ACT only if the diploma \"does not grant direct admission to a German university\"; IB English A 6 or 7)", "url": "https://constructor.university/admission-aid/application-information-undergraduate", "retrieved": "2026-09-30" },
+    { "title": "Constructor — Undergraduate programs (20 bachelor's entries incl. the CS Cybersecurity specialization, plus pre-degree programmes)", "url": "https://constructor.university/programs/undergraduate-education", "retrieved": "2026-09-25" },
+    { "title": "Constructor — Financing information for undergraduates (cost of attendance 2027/2028)", "url": "https://constructor.university/admission-aid/financing-undergraduate", "retrieved": "2026-09-25" },
+    { "title": "Constructor — Applied Computer Science (online BSc, €5,000 a year)", "url": "https://constructor.university/programs/undergraduate-education/applied-computer-science", "retrieved": "2026-09-25" },
+    { "title": "Constructor — Software, Data and Technology BSc (Fall Intake 2027 dates and fees)", "url": "https://constructor.university/programs/undergraduate-education/software-data-and-technology", "retrieved": "2026-09-25" },
+    { "title": "Constructor — Computer Science, Cybersecurity Specialization (\"To apply for the Cybersecurity specialization, please select the Bachelor's program Computer Science\")", "url": "https://constructor.university/programs/undergraduate-education/computer-science/cybersecurity-specialization", "retrieved": "2026-09-26" },
+    { "title": "Constructor — History (formerly Jacobs University Bremen, renamed 2022)", "url": "https://constructor.university/history", "retrieved": "2026-09-30" },
+    { "title": "Constructor — Integrated Social and Cognitive Psychology (\"does not prepare for licensure as a Psychotherapist in Germany\")", "url": "https://constructor.university/programs/undergraduate-education/integrated-social-cognitive-psychology", "retrieved": "2026-09-30" },
+    { "title": "Constructor — Artificial Intelligence BSc (new for 2027; accreditation \"expected in Spring 2027\")", "url": "https://constructor.university/programs/undergraduate-education/artificial-intelligence", "retrieved": "2026-09-30" },
+    { "title": "Constructor — Computer and Information Technology BSc (new for 2027; accreditation expected in spring 2027)", "url": "https://constructor.university/programs/undergraduate-education/computer-information-technology", "retrieved": "2026-09-30" },
+    { "title": "Constructor — Sparkasse Mathematics Scholarship (MMDA, up to €4,800 a year)", "url": "https://constructor.university/programs/undergraduate-education/mathematics-modeling-data-analytics/sparkasse-mathematics-scholarship", "retrieved": "2026-09-30" }
   ]
 }
