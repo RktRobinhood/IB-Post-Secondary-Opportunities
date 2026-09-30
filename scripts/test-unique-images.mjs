@@ -26,6 +26,14 @@
  *      the school's photograph heads no page outside its school.
  *   4. **No special cases.** src/lib/families.mjs and the resolver name no
  *      programme, institution or country.
+ *   5. **No designed backdrop twice (#67).** A programme with no photograph
+ *      draws a pattern generated for it (src/lib/designed-backdrop.mjs). Its
+ *      parameter tuple (`data-design`) belongs to one programme page,
+ *      site-wide; on every built page no two designed backdrops share a
+ *      motif in the same tone (round 2: "no two designed cards on one page
+ *      look alike"), no two cards up to LOOK_BACK apart in a grid (every
+ *      look before one repeats) look alike (`alike`: one look of motif, field hues within ten
+ *      degrees; round 3), and each design wears its field's colour.
  *
  * A deliberate repeat goes in scripts/lib/unique-images-allow.json with a
  * reason; nothing else passes. It reads dist/, so it runs in the built stage.
@@ -37,6 +45,9 @@ import path from 'node:path';
 import { load } from '../src/lib/data.mjs';
 import { cardKey, families } from '../src/lib/families.mjs';
 import { entries, publishable } from '../src/lib/imagery.mjs';
+import { TONES, alike, LOOK_BACK } from '../src/lib/designed-backdrop.mjs';
+import { FIELD_TONES } from '../src/lib/canonical.mjs';
+import { schoolCards } from '../src/pages/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -218,7 +229,8 @@ check('on every built page, two different cards never draw one background', () =
       // A programme card links to /programmes/<id>/; a school programme's
       // card (#54) to /universities/<key>/<slug>/, its first link.
       const id = (m[1].match(/\/programmes\/([a-z0-9-]+)\//) || m[1].match(/\/universities\/([a-z0-9-]+\/[a-z0-9-]+)\//) || [])[1];
-      if (!key || !id) continue;
+      // A designed backdrop is no photograph; section 5 holds those.
+      if (!key || key === 'designed' || !id) continue;
       const card = oppCard.get(id) || cardOf.get(id) || id;
       if (!seen.has(key)) seen.set(key, new Set());
       seen.get(key).add(card);
@@ -236,6 +248,12 @@ check("a school's photograph heads only its own page and its own programmes' pag
   for (const c of site.countries || []) {
     for (const inst of c.institutions || []) {
       for (const p of inst.school?.programmes || []) if (p.backdrop?.src) degreeSrc.set(`${inst.key}/${p.slug}`, p.backdrop.src);
+      /* The page a family's card opens heads with the photograph that card
+         shows (#67), which may be another path's. */
+      for (const g of inst.school ? schoolCards(inst.school.programmes) : []) {
+        const shown = g.lead.backdrop?.src || g.members.find((m) => m.backdrop)?.backdrop?.src;
+        if (shown) degreeSrc.set(`${inst.key}/${g.lead.slug}`, shown);
+      }
     }
   }
   const heroOf = (f) => (fs.readFileSync(f, 'utf8').match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || null;
@@ -258,7 +276,7 @@ check("a school's photograph heads only its own page and its own programmes' pag
       pages++;
       children++;
       const own = heroOf(f);
-      // Its own photograph (#54), when one was chosen for it; else its school's or none.
+      // The photograph its card shows (#54, #67), when it has one; else its school's or none.
       const degree = degreeSrc.get(`${key}/${slug}`);
       if (degree) { if (!own || !own.endsWith(degree)) bad.push(`universities/${key}/${slug}/: hero ${own || 'none'} is not its own photograph (${degree})`); }
       else if (own && own !== school) bad.push(`universities/${key}/${slug}/: hero ${own} is not its school's (${school || 'none'})`);
@@ -305,12 +323,148 @@ check('the family rules and the resolver name no programme, institution or count
   for (const d of site.graph.destinations.values()) { if (d.name) names.add(d.name.toLowerCase()); }
   for (const c of site.countries || []) { if (c.name) names.add(String(c.name).toLowerCase()); }
   const bad = [];
-  for (const rel of ['src/lib/families.mjs', 'src/lib/programme-imagery.mjs', 'src/lib/paths.mjs']) {
+  for (const rel of ['src/lib/families.mjs', 'src/lib/programme-imagery.mjs', 'src/lib/paths.mjs', 'src/lib/designed-backdrop.mjs']) {
     const src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
     const literals = [...src.matchAll(/'([^'\n]*)'|"([^"\n]*)"/g)].map((m) => (m[1] ?? m[2]).toLowerCase());
     for (const l of literals) if (names.has(l)) bad.push(`${rel}: "${l}"`);
   }
   assert.deepEqual(bad, []);
+});
+
+/* --- 5. Designed backdrops (#67) --------------------------------------- */
+
+/* Every programme page the site has, with the design resolved for it and
+   the school whose page shows its card. */
+const designs = new Map();
+for (const p of site.programmes) designs.set(p.href, p.design);
+for (const c of site.countries || []) for (const inst of c.institutions || []) for (const p of inst.school?.programmes || []) designs.set(p.href, p.design && { ...p.design, group: inst.key });
+
+/** The designed cards of one built page: `{ href, key }`, the page the card opens and its tuple. */
+function designedCards(text) {
+  const out = [];
+  const re = /<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*<svg class="dz card__backdrop"[^>]*\bdata-design="([^"]+)"[\s\S]*?<h3 class="card__title"><a href="[^"]*?(\/(?:programmes\/[a-z0-9-]+|universities\/[a-z0-9-]+\/[a-z0-9-]+)\/)"/g;
+  for (let m; (m = re.exec(text)); ) out.push({ key: m[1], href: m[2] });
+  return out;
+}
+
+check('the designed-card reader can see what it is for', () => {
+  const card = (key, href) => `<article class="card card--link card--backdrop">\n<svg class="dz card__backdrop" viewBox="0 0 400 250" aria-hidden="true" data-backdrop="designed" data-design="${key}"></svg><div class="card__body"><h3 class="card__title"><a href="/base${href}">T</a></h3></div></article>`;
+  const got = designedCards(card('hatch/lines/5', '/universities/x-y/art/') + card('dots/disc/10', '/programmes/p-1/'));
+  assert.deepEqual(got, [{ key: 'hatch/lines/5', href: '/universities/x-y/art/' }, { key: 'dots/disc/10', href: '/programmes/p-1/' }]);
+});
+
+check('every programme page resolves a designed tuple, and each tuple belongs to one programme page, site-wide', () => {
+  const byKey = new Map();
+  const missing = [];
+  for (const [href, d] of designs) {
+    if (!d?.key) { missing.push(href); continue; }
+    if (!byKey.has(d.key)) byKey.set(d.key, []);
+    byKey.get(d.key).push(href);
+  }
+  assert.deepEqual(missing.slice(0, 12), [], `${missing.length} programme pages resolve no design`);
+  const twice = [...byKey].filter(([, hs]) => hs.length > 1).map(([k, hs]) => `${k}: ${hs.join(', ')}`);
+  assert.deepEqual(twice, []);
+});
+
+check('on every built page no two designed backdrops share a parameter set, and each is the one its programme resolves', () => {
+  const bad = [];
+  const shownAs = new Map();
+  let cardsSeen = 0;
+  for (const f of htmlFiles(DIST)) {
+    const text = fs.readFileSync(f, 'utf8');
+    if (!text.includes('data-backdrop="designed"')) continue;
+    const rel = path.relative(DIST, f);
+    const cardsHere = designedCards(text);
+    const onPage = new Map();
+    for (const { key, href } of cardsHere) {
+      cardsSeen++;
+      if (designs.get(href)?.key !== key) bad.push(`${rel}: the card for ${href} draws ${key}, not ${designs.get(href)?.key || 'no design'}`);
+      if (onPage.has(key) && onPage.get(key) !== href) bad.push(`${rel}: ${key} on ${onPage.get(key)} and ${href}`);
+      onPage.set(key, href);
+      if (!shownAs.has(href)) shownAs.set(href, new Set());
+      shownAs.get(href).add(key);
+    }
+    // Every designed backdrop on the page is a card the reader saw, or the hero.
+    const all = (text.match(/data-backdrop="designed"/g) || []).length;
+    const hero = (text.match(/class="hero__media hero__media--designed"/g) || []).length;
+    if (all !== cardsHere.length + hero) bad.push(`${rel}: ${all} designed backdrops, ${cardsHere.length} read as cards and ${hero} as a hero`);
+  }
+  for (const [href, keys] of shownAs) if (keys.size > 1) bad.push(`${href}: drawn as ${[...keys].join(' and ')} on different pages`);
+  assert.ok(cardsSeen > 100, `only ${cardsSeen} designed cards found`);
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} problems`);
+});
+
+/** A design's look, from its tuple: `motif/tone/…`. */
+const lookOf = (key) => key.split('/').slice(0, 2).join(' in tone ');
+
+/** Each grid of cards on a page, as its cards' tuples in order (null for a photograph card). */
+function gridsOf(text) {
+  return text
+    .split(/<(?:ul|ol|div|section)\b[^>]*\bclass="(?:[^"]*\s)?(?:grid|prog-siblings)(?:\s[^"]*)?"/)
+    .slice(1)
+    .map((chunk) => [...chunk.matchAll(/<article class="card[^"]*">\s*(?:<svg class="dz card__backdrop"[^>]*\bdata-design="([^"]+)"|<)/g)].map((m) => m[1] || null));
+}
+
+check('the grid reader sees cards side by side', () => {
+  const svg = (k) => `<article class="card card--backdrop">
+<svg class="dz card__backdrop" data-design="${k}"></svg></article>`;
+  const got = gridsOf(`<ul class="grid grid--3"><li>${svg('a/1.0/x')}</li><li><article class="card card--backdrop">
+<img></article></li></ul><h2>x</h2><div class="grid">${svg('b/2.0/y')}</div>`);
+  assert.deepEqual(got, [['a/1.0/x', null], ['b/2.0/y']]);
+});
+
+check('on every built page no two designed backdrops look alike: no motif twice in one tone, and no neighbours of one look and one colour', () => {
+  const bad = [];
+  let pages = 0;
+  for (const f of htmlFiles(DIST)) {
+    const text = fs.readFileSync(f, 'utf8');
+    if (!text.includes('data-backdrop="designed"')) continue;
+    pages++;
+    const rel = path.relative(DIST, f);
+    const looks = new Map();
+    for (const [, key] of text.matchAll(/data-backdrop="designed" data-design="([^"]+)"/g)) {
+      const look = lookOf(key);
+      if (looks.has(look) && looks.get(look) !== key) bad.push(`${rel}: two designs are ${look}`);
+      looks.set(look, key);
+    }
+    /* Neighbours: up to LOOK_BACK apart in one grid, so a run of cards uses
+       every look before it repeats one, and nothing alike sits beside,
+       above or two rows from another at any width (rounds 3 and 4). */
+    for (const grid of gridsOf(text)) {
+      const ds = grid.map((k) => k && { motif: k.split('/')[0], tone: k.split('/')[1] });
+      for (let i = 0; i < ds.length; i++) {
+        for (let j = i + 1; j <= i + LOOK_BACK && j < ds.length; j++) {
+          if (alike(ds[i], ds[j])) bad.push(`${rel}: ${ds[i].motif} ${ds[i].tone} and ${ds[j].motif} ${ds[j].tone}, ${j - i} apart, look alike`);
+        }
+      }
+    }
+  }
+  assert.ok(pages > 100, `only ${pages} pages with designed backdrops`);
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} problems`);
+});
+
+check("every design wears its field's colour", () => {
+  const bad = [];
+  for (const c of site.countries || []) {
+    for (const inst of c.institutions || []) {
+      for (const p of inst.school?.programmes || []) {
+        const d = p.design;
+        if (!d) continue;
+        const t = FIELD_TONES[p.field] || FIELD_TONES.other;
+        const [base, v] = d.tone.split('.').map(Number);
+        if (base !== t.hue || !TONES[v]) bad.push(`${p.href}: tone ${d.tone} is not one of its field's (${t.hue})`);
+        else if (d.hue !== (((t.hue + TONES[v].shift) % 360) + 360) % 360) bad.push(`${p.href}: hue ${d.hue} is not its tone's`);
+      }
+    }
+  }
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} problems`);
+});
+
+check('the look test groups what reads alike and parts what does not', () => {
+  assert.ok(alike({ motif: 'rings', tone: '32.0' }, { motif: 'arcs', tone: '32.2' }), 'rings and arcs in one colour');
+  assert.ok(alike({ motif: 'hatch', tone: '212.0' }, { motif: 'weave', tone: '212.1' }), 'hatch and weave in one colour');
+  assert.ok(!alike({ motif: 'rings', tone: '32.0' }, { motif: 'arcs', tone: '212.0' }), 'curves in two colours');
+  assert.ok(!alike({ motif: 'dots', tone: '32.0' }, { motif: 'rays', tone: '32.0' }), 'two looks in one colour');
 });
 
 console.log(failures ? `\n${failures} check(s) failed.\n` : '\nAll unique-image checks passed.\n');

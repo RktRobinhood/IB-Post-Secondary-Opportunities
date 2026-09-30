@@ -387,6 +387,7 @@ export function familyCard(site, group, { campus = true } = {}) {
     // One tag, and only one every path shares.
     tag,
     backdrop: lead.backdrop,
+    design: lead.design || null,
   };
 }
 
@@ -406,6 +407,7 @@ export function programmeCard(site, group, { meta = [] } = {}) {
       title: fam.title,
       line: fam.line,
       backdrop: fam.backdrop,
+      design: fam.design,
       req: fam.req,
       paths: pathsBlock(fam.paths),
       meta,
@@ -452,6 +454,7 @@ export function programmeCard(site, group, { meta = [] } = {}) {
     title: p.name,
     line: credentialLine(facetsOf(site, p, { campus: true })),
     backdrop: p.backdrop,
+    design: p.design || null,
     req,
     meta,
     tags: [tag].filter(Boolean),

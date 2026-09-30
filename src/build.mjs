@@ -289,9 +289,10 @@ async function main() {
     for (const [i, inst] of schools.entries()) {
       const near = (j) => schools[j] && { href: schools[j].href, label: schools[j].name };
       await write(inst.href, schoolPage(site, inst, c, { prev: near(i - 1), next: near(i + 1) }));
-      /* A listed school's programmes: a page each under the school, paged
-         in the order the school's page lists them. */
-      if (inst.school?.scope === 'listed') {
+      /* A school's programmes (a listed school's every degree, a catalogue
+         school's flagships): a page each under the school, paged in the
+         order the school's page lists them. */
+      if (inst.school?.programmes?.length) {
         const progs = schoolCards(inst.school.programmes).flatMap((g) => g.members);
         const step = (j) => progs[j] && { href: progs[j].href, label: displayName(progs[j].name) };
         for (const [j, p] of progs.entries()) {

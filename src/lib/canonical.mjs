@@ -590,6 +590,42 @@ export const FIELD_LABELS = {
   other: 'Other',
 };
 
+/**
+ * Each field's look, for the designed backdrop of a programme with no
+ * photograph (src/lib/designed-backdrop.mjs, #67): a hue in degrees, a
+ * saturation in per cent, and a family of three motifs. A reader should know
+ * the field from the card before reading it (round 2, fix 3), so the hues are
+ * spread round the wheel, about twenty degrees apart, with the catch-alls in
+ * warm greys, and each field keeps to its own motifs: a grid for engineering,
+ * tiles for computing, rays for the sciences, dots for health, arcs for the
+ * humanities, weave for the social sciences, and so on; the second and
+ * third motifs keep neighbouring cards of one field apart. site.css sets the
+ * lightness for each theme.
+ */
+export const FIELD_TONES = {
+  'social-sciences': { hue: 8, sat: 46, motifs: ['weave', 'rings', 'dots'] },
+  'hospitality-tourism': { hue: 20, sat: 54, motifs: ['waves', 'contour', 'rays'] },
+  humanities: { hue: 32, sat: 30, motifs: ['arcs', 'contour', 'hatch'] },
+  business: { hue: 44, sat: 54, motifs: ['chevrons', 'steps', 'grid'] },
+  economics: { hue: 58, sat: 46, motifs: ['steps', 'weave', 'chevrons'] },
+  education: { hue: 74, sat: 40, motifs: ['hatch', 'dots', 'steps'] },
+  'agriculture-environment': { hue: 94, sat: 38, motifs: ['contour', 'waves', 'dots'] },
+  veterinary: { hue: 118, sat: 30, motifs: ['contour', 'dots', 'rings'] },
+  health: { hue: 148, sat: 36, motifs: ['dots', 'waves', 'rings'] },
+  'natural-sciences': { hue: 172, sat: 42, motifs: ['rays', 'rings', 'contour'] },
+  sport: { hue: 190, sat: 52, motifs: ['chevrons', 'rays', 'waves'] },
+  'design-architecture': { hue: 200, sat: 14, motifs: ['grid', 'chevrons', 'tiles'] },
+  engineering: { hue: 212, sat: 48, motifs: ['grid', 'hatch', 'steps'] },
+  mathematics: { hue: 236, sat: 38, motifs: ['arcs', 'rings', 'tiles'] },
+  computing: { hue: 262, sat: 42, motifs: ['tiles', 'steps', 'grid'] },
+  'arts-music': { hue: 290, sat: 34, motifs: ['waves', 'rays', 'arcs'] },
+  languages: { hue: 314, sat: 34, motifs: ['waves', 'arcs', 'weave'] },
+  law: { hue: 336, sat: 34, motifs: ['hatch', 'arcs', 'grid'] },
+  medicine: { hue: 356, sat: 46, motifs: ['rings', 'dots', 'waves'] },
+  interdisciplinary: { hue: 40, sat: 12, motifs: ['rings', 'tiles', 'weave'] },
+  other: { hue: 48, sat: 6, motifs: ['hatch', 'tiles', 'dots'] },
+};
+
 const TYPE_LABELS = {
   'research-university': 'Research university',
   'technical-university': 'Technical university',

@@ -58,6 +58,10 @@ admission quirks. It writes only its own files, one school at a time, runs no
 git, and builds into its own folder (`DIST_DIR=D:/ibp-tmp/<cc>/dist`). An
 agent that stops has lost nothing: re-run the brief on the unfinished schools.
 
+**One browser tab per agent.** Agents that read JavaScript pages in the
+browser pane share it; each opens its own tab (`tabs_create`) and passes its
+`tabId`, or it navigates another agent's page away mid-read.
+
 **Pace.** On 30 September eight agents used about 3% of the 5-hour window a
 minute, and three used about 1%. Run three or four at once; check
 `get_usage` before starting more, and pause (TaskStop) a few points below the

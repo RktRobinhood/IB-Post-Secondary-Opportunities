@@ -20,8 +20,12 @@ import { renderProgrammeCard } from '../lib/programme-card.mjs';
  * (schemas/school.schema.json), never on the country:
  *   - listed: a card per English-taught degree, each linking to its page here
  *     (school-programme.mjs), which hands on to the programme's own page;
- *   - catalogue: nearly everything is taught in English, so one way into the
- *     course search instead of a list nobody could keep true;
+ *   - catalogue: every degree is taught in English, said in one line; then
+ *     the few flagships the university's own pages present as its strengths
+ *     (researched ones: `flagshipSource` on each), drawn by the same card
+ *     and page as a listed degree; then the course search as the action
+ *     ("Search all its degrees"), and its faculties, if recorded, one tap
+ *     down;
  *   - none: nothing in English, said plainly;
  *   - no record yet: the profile's one-line answer, and the admissions page.
  *
@@ -214,6 +218,8 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     /* Its own photograph (#54), when one was chosen for it: a family's card
        shows its lead path's, else the first path's that has one. */
     backdrop: p.backdrop || members.find((q) => q.backdrop)?.backdrop || null,
+    // Without one, the design generated for the page the card opens (#67).
+    design: p.design || null,
     // The name without the degree type the line under it already says.
     title: displayName(fam ? g.family.name : p.name),
     // "BSc · 3 yrs · Vaasa": the degree type straight under the name.
@@ -225,7 +231,8 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // School records currently carry their concise IB answer as prose. Put it
     // in the shared requirement slot rather than selecting a different card
     // layout; structured `needs` can deepen this adapter later.
-    req: requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : '',
+    // A brief card (a sibling on a programme page) has no requirement slot.
+    req: brief ? false : requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : '',
     paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
     /* The Danish reference card uses its single chip for admission, not for
        a deadline or a fee. Those facts remain in the adjacent dates panel,
@@ -239,32 +246,64 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
 
 
 
+/**
+ * A school's programme cards, in card order: one per programme, or one per
+ * family of paths (#52). Each carries its programme page's Apply-by answer.
+ * A listed school's every degree and a catalogue school's flagships are
+ * drawn here alike, so a flagship is a card like any other.
+ */
+function cardsOf(site, inst, c, { tuitionOnCard }) {
+  const statusOf = (q) => deadlineOf(site, inst, c, q).chip;
+  return schoolCards(inst.school.programmes).map((g) => ({
+    field: FIELD[g.lead.field],
+    html: programmeCard(inst, g, { tuitionOnCard, headed: false, statusOf }),
+    headedHtml: programmeCard(inst, g, { tuitionOnCard, headed: true, statusOf }),
+  }));
+}
+
+/**
+ * A catalogue school's faculties, one tap down: each with its one line on
+ * what it looks for, linking to its own admissions page (BRIEF.md,
+ * "Catalogue schools").
+ */
+function facultyList(faculties = []) {
+  if (!faculties.length) return '';
+  return html`<details class="topic__more" data-faculties>
+    <summary>${plural(faculties.length, 'faculty', 'faculties')}: what each looks for</summary>
+    <ul class="plain-list">${faculties.map(
+      (f) => html`<li><a href="${f.url}" rel="noopener nofollow">${f.name}</a>: ${f.line}</li>`
+    )}</ul>
+  </details>`;
+}
+
 /** What you could study here, as the university template's `study` slot. */
 function programmeSection(site, inst, c) {
   const school = inst.school;
-  const where = inst.shortName && inst.shortName.length > 4 ? inst.shortName : inst.name;
 
   if (school?.scope === 'listed') {
-    const progs = inCardOrder(school.programmes);
-    const fee = sharedTuition(progs);
-    /* Each card carries its programme page's Apply-by answer. */
-    const statusOf = (q) => deadlineOf(site, inst, c, q).chip;
-    /* One card per programme, or per family of paths (#52). */
-    const cards = schoolCards(school.programmes).map((g) => ({
-      field: FIELD[g.lead.field],
-      html: programmeCard(inst, g, { tuitionOnCard: !fee, headed: false, statusOf }),
-      headedHtml: programmeCard(inst, g, { tuitionOnCard: !fee, headed: true, statusOf }),
-    }));
+    const fee = sharedTuition(school.programmes);
+    const cards = cardsOf(site, inst, c, { tuitionOnCard: !fee });
     const lede = fee ? (fee === 'Free' ? 'Free for EU/EEA citizens.' : `EU/EEA tuition: ${fee}.`) : null;
     return { title: 'What you could study here', lede, cards };
   }
 
   if (school?.scope === 'catalogue') {
+    /* Said plainly, once: every degree is taught in English. Then what it
+       is known for, from its own pages, when a researcher has recorded it. */
+    const english = school.courses
+      ? `All ${school.courses} of its undergraduate degrees are taught in English.`
+      : 'Every degree here is taught in English.';
+    const cards = school.programmes.length ? cardsOf(site, inst, c, { tuitionOnCard: true }) : [];
+    const search = school.handoff
+      ? html`<p><a class="btn btn--quiet" href="${school.handoff.url}" rel="noopener nofollow" data-search-all>Search all its degrees<span aria-hidden="true"> ↗</span></a></p>`
+      : '';
     return {
       title: 'What you could study here',
-      handoff: html`<p class="handoff__line">${school.courses
-        ? `${school.courses} undergraduate courses, all taught in English.`
-        : `Nearly every course at ${where} is taught in English.`}</p>`,
+      lede: cards.length ? html`<span data-taught="english">${english}</span> What it is known for:` : null,
+      cards,
+      handoff: html`${cards.length ? '' : html`<p class="handoff__line" data-taught="english">${english}</p>`}
+        ${search}
+        ${facultyList(school.faculties)}`,
     };
   }
 
@@ -305,7 +344,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
     school?.scope === 'listed'
       ? plural(schoolCards(school.programmes).length, 'programme')
       : school?.scope === 'catalogue'
-      ? school.courses ? `${school.courses} courses` : 'Nearly everything'
+      ? school.courses ? `All ${school.courses} degrees` : 'Every degree'
       : school?.scope === 'none'
       ? 'Nothing'
       : shortClause(inst.englishBachelors);

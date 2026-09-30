@@ -9,17 +9,19 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { slugify, listSentence } from './html.mjs';
-import { destinationFacet, loadCanonical } from './canonical.mjs';
+import { destinationFacet, loadCanonical, FIELD_TONES } from './canonical.mjs';
 import { reconcileDestinations } from './catalogue.mjs';
 import { summarise as summariseEvidenceRecords } from './evidence-policy.mjs';
 import { publishable as editoriallyPublishable, isApproved } from './imagery.mjs';
 import { backdropResolver, schoolBackdropResolver } from './programme-imagery.mjs';
-import { cardKey } from './families.mjs';
-import { schoolKey, loadSchools, hostOf, programmePaths } from './schools.mjs';
+import { designResolver } from './designed-backdrop.mjs';
+import { cardKey, schoolCardGroups } from './families.mjs';
+import { schoolKey, loadSchools, hostOf, programmePaths, pagedProgrammes } from './schools.mjs';
 
-/* A school record with each listed programme's page address on it (#43). */
+/* A school record with each programme's page address on it (#43): a listed
+   school's every degree, a catalogue school's flagships. */
 const withProgrammePages = (key, rec) =>
-  rec ? { ...rec, programmes: rec.scope === 'listed' ? programmePaths(key, rec.programmes) : rec.programmes || [] } : null;
+  rec ? { ...rec, programmes: programmePaths(key, pagedProgrammes(rec)) } : null;
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const DATA = path.join(ROOT, 'data');
@@ -298,7 +300,60 @@ export async function load() {
       primary: !!p.family?.primary,
     }))
   );
-  for (const p of programmes) p.backdrop = backdropFor(p.programmeId || p.id);
+  /* With what its programme page needs to head with it and credit it, as a
+     school programme's photograph carries (#67: the card's picture opens
+     the page). */
+  for (const p of programmes) {
+    const b = backdropFor(p.programmeId || p.id);
+    const r = b ? programmeImages?.[b.key] : null;
+    p.backdrop = b
+      ? {
+          ...b,
+          alt: r?.description || r?.subject || '',
+          credit: creditOf({ ...b, author: r?.author, licence: r?.licence, page: r?.official ? r?.sourcePage : r?.page }, p.institutionName),
+        }
+      : null;
+  }
+
+  /* A designed backdrop for every programme page, drawn only where there is
+     no photograph (src/lib/designed-backdrop.mjs, #67). Seeded by the page's
+     address, its colour and motifs from the field, and dealt per school in
+     the order the school's page lists its cards (src/pages/schools.mjs
+     inCardOrder: open rounds first, then by field, then by name), so the
+     cards on one page differ and neighbours never share a motif; resolved
+     once, because uniqueness is site-wide. */
+  const schoolProgrammes = countries.flatMap((c) =>
+    c.institutions.flatMap((inst) => {
+      const ordered = [...(inst.school?.programmes || [])].sort(
+        (a, b) =>
+          Number(Boolean(a.closesForDiplomaHolders)) - Number(Boolean(b.closesForDiplomaHolders)) ||
+          String(a.field || '').localeCompare(String(b.field || '')) ||
+          String(a.name || '').localeCompare(String(b.name || ''))
+      );
+      /* What draws each design: a card (a family's lead, when no path of it
+         has a photograph), or only its own page's hero, or nothing. */
+      const drawn = new Map();
+      for (const g of schoolCardGroups(ordered)) {
+        const photo = g.members.some((m) => m.backdrop);
+        for (const m of g.members) drawn.set(m, m.backdrop ? false : m === g.lead && !photo ? 'card' : 'page');
+      }
+      return schoolCardGroups(ordered).flatMap((g) => g.members).map((p, order) => ({ p, group: inst.key, order, shown: drawn.get(p) }));
+    })
+  );
+  const designFor = designResolver(
+    [
+      ...programmes.map((p) => ({
+        seed: p.href,
+        field: canonical.graph.programmes?.get(p.programmeId || p.id)?.field?.primary || null,
+        group: p.institutionId,
+        shown: p.backdrop ? false : 'card',
+      })),
+      ...schoolProgrammes.map(({ p, group, order, shown }) => ({ seed: p.href, field: p.field || null, group, order, shown })),
+    ],
+    FIELD_TONES
+  );
+  for (const p of programmes) p.design = designFor(p.href);
+  for (const { p } of schoolProgrammes) p.design = designFor(p.href);
 
   /* A migrated Destination and an unmigrated country profile describe the same
      thing in different shapes. This projects the canonical form into the
@@ -425,6 +480,7 @@ export async function load() {
     officialImages,
     programmeImages,
     backdropFor,
+    designFor,
     glossary,
     faq,
     sessions: new Map(sessionFiles.map((f) => [f.institution || f.slug, Array.isArray(f.sessions) ? f.sessions : []])),

@@ -27,9 +27,12 @@ import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sourc
  * @param {Array}  vm.crumbs     crumbs() trail, without Home
  * @param {any}    [vm.dates]    the dates panel (src/lib/school-dates.mjs)
  * @param {object} vm.study      { title, lede, cards, handoff } — `cards` [{ html, field }]
- *                               for every degree, or `handoff`, one line when there
- *                               is no list (a catalogue, nothing in English, not yet
- *                               researched). A long list is grouped by field here.
+ *                               for every degree (or a catalogue school's flagships),
+ *                               and `handoff`, the way on when the cards are not the
+ *                               whole list (a catalogue's course search), or the one
+ *                               line when there is no list (nothing in English, not
+ *                               yet researched). The cards come first, the hand-off
+ *                               after them. A long list is grouped by field here.
  * @param {object} vm.topics     { ib, admissions, notes } — each { short, body, more } or
  *                               null — and `sources` [{ title, url, retrieved }]. The
  *                               template owns the headings, so every page asks the
@@ -59,8 +62,10 @@ const GROUP_FROM = 13;
 const GROUP_MIN = 3;
 
 function studyBody({ cards = [], handoff = null }) {
-  if (!cards.length) return handoff ? html`<div class="handoff">${handoff}</div>` : '';
-  if (cards.length < GROUP_FROM) return html`<div class="grid grid--3">${cards.map((c) => c.html)}</div>`;
+  const way = handoff ? html`<div class="handoff">${handoff}</div>` : '';
+  if (!cards.length) return way;
+  const grid = html`<div class="grid grid--3">${cards.map((c) => c.html)}</div>`;
+  if (cards.length < GROUP_FROM) return way ? html`<div class="stack">${grid}${way}</div>` : grid;
   const byField = new Map();
   for (const c of cards) {
     const f = c.field || 'Other';
@@ -76,6 +81,7 @@ function studyBody({ cards = [], handoff = null }) {
   return [
     ...fieldGroups.map(([field, list]) => group(field, list, true)),
     rest.length ? group(fieldGroups.length ? 'Other fields' : 'All fields', rest, false) : '',
+    way,
   ];
 }
 

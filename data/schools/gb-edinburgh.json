@@ -38,9 +38,161 @@
       "kind": "closes",
       "who": "any",
       "url": "https://study.ed.ac.uk/undergraduate/applying/making-application/when-apply"
+    },
+    {
+      "label": "Veterinary Medicine: Work Experience Summary form and transcript due",
+      "date": "2026-10-22",
+      "kind": "documents",
+      "who": "any",
+      "programmes": [
+        "veterinary-medicine-5-year-programme"
+      ],
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Computer Science",
+      "credential": "BSc (Hons)",
+      "years": 4,
+      "field": "computing",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science",
+      "requirementsUrl": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science/entry-requirements",
+      "code": "G400",
+      "about": "How computing systems are designed, built and used, from the maths and logic of what can be computed to programming real problems. No programming is assumed; years 1 and 2 leave room for other subjects before you specialise.",
+      "ib": "Offers in recent years ran from 43 points with 777 at HL to 34 with 665. Maths AA HL 6 is required (AI is not accepted), and English SL 5.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 5
+        }
+      ],
+      "points": 34,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Apply to one Computer Science degree only. Meeting the requirements puts you in selection; the whole UCAS application is read.",
+      "closes": "2027-01-13",
+      "flagshipSource": {
+        "title": "Edinburgh School of Informatics: the largest in the UK, with over 280 academic and research staff",
+        "url": "https://informatics.ed.ac.uk/about/welcome"
+      }
+    },
+    {
+      "name": "Veterinary Medicine (5-year programme)",
+      "credential": "BVM&S",
+      "years": 5,
+      "field": "veterinary",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme",
+      "requirementsUrl": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme/entry-requirements",
+      "code": "D100",
+      "about": "Five years to become a vet at the Royal (Dick) School of Veterinary Studies on the Easter Bush campus: how the animal body works in years 1 and 2, then species, disease and treatment, ending in clinical rotations in its own hospitals.",
+      "ib": "Offers in recent years went to 38 points with 666 at HL, including Chemistry 6 and Biology 6 at HL, and English SL 5. Every grade must be a first attempt.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 5,
+          "note": "GCSE English at B or 6 is also accepted"
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "interview",
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Competitive applicants are interviewed between December and March, around 600 a year; offers go on interview performance. Work experience counts.",
+      "places": 110,
+      "routePlaces": 35,
+      "closes": "2026-10-15",
+      "flagshipSource": {
+        "title": "Veterinary Medicine BVM&S: its campus and three on-site veterinary hospitals (programme benefits)",
+        "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme"
+      }
+    },
+    {
+      "name": "Philosophy",
+      "credential": "MA (Hons)",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy",
+      "requirementsUrl": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy/entry-requirements",
+      "code": "V500",
+      "about": "An undergraduate MA in thinking clearly about the great questions, from mind, language and science to ethics and politics, with more than 40 option courses in years 3 and 4. Philosophy has been taught here since 1583.",
+      "ib": "Offers in recent years ran from 36 points with 665 at HL to 34 with 655. No HL subject is required; English SL 5.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 5
+        }
+      ],
+      "points": 34,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Meeting the requirements puts you in selection; the whole UCAS application is read, personal statement included.",
+      "closes": "2027-01-13",
+      "flagshipSource": {
+        "title": "Philosophy MA (Hons): taught since 1583, at the centre of the Scottish Enlightenment (programme benefits)",
+        "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Arts, Humanities and Social Sciences",
+      "url": "https://cahss.ed.ac.uk/unsuccessful-applications/motivation",
+      "line": "Your personal statement must show commitment to the subject you apply for."
+    },
+    {
+      "name": "College of Science and Engineering",
+      "url": "https://science-engineering.ed.ac.uk/studying/undergraduate/applying/admissionsprocess/application-process",
+      "line": "Two applications at most across the college, and only one in Informatics, Physics or Maths."
+    },
+    {
+      "name": "College of Medicine and Veterinary Medicine",
+      "url": "https://medicine-vet-medicine.ed.ac.uk/edinburgh-medical-school/medicine/applying/assessment-selection-and-statistics/selection",
+      "line": "Medicine closes on 15 October; shortlisted applicants attend a half-day of short interviews."
+    }
+  ],
   "notes": [
     "EU students pay the International/EU rate, for example £31,100 a year for Ancient History in 2027/8, fixed for all four years of the degree.",
     "The IB grades on each degree page are what most successful applicants had in recent years; for highly selective degrees Edinburgh may only consider applicants who exceed them.",
@@ -55,6 +207,17 @@
     { "title": "Edinburgh — Tuition fees, Ancient History (MA Hons), 2027/8", "url": "https://study.ed.ac.uk/programmes/undergraduate-fees?programme_code=UTANHIS&year=2027", "retrieved": "2026-09-25" },
     { "title": "Edinburgh — When to apply (2027 entry)", "url": "https://study.ed.ac.uk/undergraduate/applying/making-application/when-apply", "retrieved": "2026-09-25" },
     { "title": "Edinburgh — Degree structures", "url": "https://study.ed.ac.uk/undergraduate/how-degrees-work/structures", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" }
+    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" },
+    { "title": "Edinburgh School of Informatics — Welcome (largest in the UK, one of the largest in Europe)", "url": "https://informatics.ed.ac.uk/about/welcome", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — Computer Science BSc (Hons), 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — Computer Science BSc (Hons) entry requirements (IB)", "url": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science/entry-requirements", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — Veterinary Medicine (5-year programme) BVM&S, 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — Veterinary Medicine (5-year programme) entry requirements (IB)", "url": "https://study.ed.ac.uk/programmes/undergraduate/356-veterinary-medicine-5-year-programme/entry-requirements", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — Philosophy MA (Hons), 2027 entry", "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — Philosophy MA (Hons) entry requirements (IB)", "url": "https://study.ed.ac.uk/programmes/undergraduate/311-philosophy/entry-requirements", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh — How we select applicants", "url": "https://study.ed.ac.uk/undergraduate/applying/selection/how-select", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh CAHSS — Your personal statement does not show motivation", "url": "https://cahss.ed.ac.uk/unsuccessful-applications/motivation", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh College of Science and Engineering — Application process", "url": "https://science-engineering.ed.ac.uk/studying/undergraduate/applying/admissionsprocess/application-process", "retrieved": "2026-09-30" },
+    { "title": "Edinburgh Medical School — The selection process", "url": "https://medicine-vet-medicine.ed.ac.uk/edinburgh-medical-school/medicine/applying/assessment-selection-and-statistics/selection", "retrieved": "2026-09-30" }
   ]
 }

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "school.schema.json",
   "title": "School",
-  "description": "What one institution in a country profile (data/countries/) offers an IB student, researched from its own pages: a one-line summary, its English-taught bachelor's degrees with a link to each programme's own page, what it asks of IB applicants, and its dates for the next autumn intake. Where nearly every course is taught in English (a UK or US university), the programmes are not listed and the hand-off is the course search. One file per institution, data/schools/<key>.json, where <key> is the institution key the site derives: <country code>-<slug of shortName or name>. See docs/research/schools/BRIEF.md.",
+  "description": "What one institution in a country profile (data/countries/) offers an IB student, researched from its own pages: a one-line summary, its English-taught bachelor's degrees with a link to each programme's own page, what it asks of IB applicants, and its dates for the next autumn intake. Where nearly every course is taught in English (a UK or US university), the degrees are not all listed: the record carries the two to four flagships the university's own pages present as its strengths, each with its `flagshipSource`, optionally its `faculties`, and the hand-off is the course search. One file per institution, data/schools/<key>.json, where <key> is the institution key the site derives: <country code>-<slug of shortName or name>. See docs/research/schools/BRIEF.md.",
   "type": "object",
   "required": ["institution", "name", "retrieved", "scope", "summary", "handoff", "programmes", "sources"],
   "additionalProperties": false,
@@ -13,7 +13,7 @@
     "intake": { "$ref": "common.schema.json#/$defs/intake", "description": "The intake the programmes and dates are for, normally 2027-autumn." },
     "scope": {
       "enum": ["listed", "catalogue", "none"],
-      "description": "listed: every English-taught bachelor's degree open to first-year applicants for the intake is in `programmes`. catalogue: nearly all courses are taught in English, too many to list; `programmes` is empty and `handoff` is the course search. none: no English-taught bachelor's degree for the intake; `programmes` is empty."
+      "description": "listed: every English-taught bachelor's degree open to first-year applicants for the intake is in `programmes`. catalogue: nearly all courses are taught in English, too many to list; `handoff` is the course search, and `programmes` holds only the university's flagships (two to four, each with `flagshipSource`), or is empty until they are researched. none: no English-taught bachelor's degree for the intake; `programmes` is empty."
     },
     "summary": { "type": "string", "minLength": 20, "maxLength": 150, "description": "One line a 17-year-old would read: what the place is and why an IB student might look. Not a slogan, not a ranking claim unless sourced." },
     "handoff": {
@@ -59,6 +59,21 @@
     "programmes": {
       "type": "array",
       "items": { "$ref": "#/$defs/programme" }
+    },
+    "faculties": {
+      "type": "array",
+      "maxItems": 30,
+      "description": "For scope catalogue: the faculties, schools or colleges that admit first-year students, each with one line on what it generally looks for, from its own admissions page. Direction, not a requirement list; the page shows them one tap down.",
+      "items": {
+        "type": "object",
+        "required": ["name", "url", "line"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "maxLength": 80, "description": "As the university names it, e.g. 'College of Science and Engineering'." },
+          "url": { "$ref": "common.schema.json#/$defs/url", "description": "Its own admissions or selection page. Never the homepage." },
+          "line": { "type": "string", "minLength": 10, "maxLength": 140, "description": "One line on what it looks for, in the student's terms: 'Maths HL for every engineering degree; the personal statement weighs heavily'." }
+        }
+      }
     },
     "courses": {
       "type": "integer",
@@ -199,7 +214,17 @@
         },
         "ownDeadline": { "type": "boolean", "description": "The route's general closing date is not this deadline: it runs its own selection, test registration or audition (WU's BBE selection, a university's entrance-test degrees, a ballet audition). Its page never takes the route's date as Apply by, and says 'Not published yet' until its own date is recorded." },
         "lastYear": { "type": "object", "required": ["year", "text"], "additionalProperties": false, "description": "Last year's date, where this year's is not published yet: the page's Apply-by reads 'Not published yet' with it as the note ('2026: register by 19 May'). Only what the record's sources say.", "properties": { "year": { "type": "integer", "minimum": 2024, "maximum": 2027 }, "text": { "type": "string", "maxLength": 60, "description": "The date in a few words, without the year: '15 April', 'register 2 March–19 May; exam 30 June'." } } },
-        "requirementsUrl": { "$ref": "common.schema.json#/$defs/url", "description": "The page that states this programme's entry requirements, when it is not `url`." }
+        "requirementsUrl": { "$ref": "common.schema.json#/$defs/url", "description": "The page that states this programme's entry requirements, when it is not `url`." },
+        "flagshipSource": {
+          "type": "object",
+          "required": ["title", "url"],
+          "additionalProperties": false,
+          "description": "On a catalogue record's programme, and only there: the university's own page that presents this programme or its department as a strength (an 'areas of strength' page, a faculty's own claims, a published figure). Never a league table or a search summary. Listed in the record's `sources` too.",
+          "properties": {
+            "title": { "type": "string", "maxLength": 120, "description": "What the page is and what it says, e.g. 'Edinburgh School of Informatics: the largest in the UK'." },
+            "url": { "$ref": "common.schema.json#/$defs/url" }
+          }
+        }
       }
     }
   }

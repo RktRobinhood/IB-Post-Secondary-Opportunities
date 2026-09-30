@@ -102,9 +102,10 @@
   --veil-foot: .94;
   --veil-dim:  1;
   --veil-warn: #744A10;
-  /* The clear band at the top of a programme card: the photograph shows
-     there, anchored at its own 16:10 (programme-cards round 1, fix 1). */
-  --card-headroom: 8.5rem; /* about 60% of the 16:10 photograph at card width */
+  /* The picture at the top of a programme card: its height, and how far
+     the first line of text reaches back over its faded foot (#67 round 2). */
+  --card-headroom: 10.5rem;
+  --card-overlap: 1.25rem;
 
   color-scheme: light;
 }
@@ -2257,11 +2258,17 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   transition: transform .4s ease;
   pointer-events: none;
 }
-/* On a card the photograph sits at the top at its own 16:10, so its subject
-   shows in the clear band rather than being cropped to a strip (round 1,
-   fix 1). A reviewed `focus` moves the crop (an inline object-position). */
+/* On a card the picture is the top of the card, not a layer behind all of
+   it: --card-headroom tall, the same on every card of a grid. The text
+   starts --card-overlap above the picture's end, where the picture has faded
+   to at most 1 − --veil-text (the mask below), so text meets the same worst
+   case as under the veil. A reviewed `focus` moves the crop (an inline
+   object-position). */
 .card--backdrop .card__backdrop {
-  inset: 0 0 auto 0; height: auto; aspect-ratio: 16 / 10;
+  position: relative; inset: auto; z-index: -2;
+  flex: 0 0 var(--card-headroom); min-height: 0;
+  width: 100%; height: auto;
+  margin-bottom: calc(-1 * var(--card-overlap));
   object-position: 50% 50%;
 }
 .card--backdrop::before,
@@ -2273,6 +2280,12 @@ details.depth .freshness { margin: var(--s4) 0 0; }
     color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent) calc(var(--card-headroom) * .72),
     color-mix(in srgb, var(--paper) calc(var(--veil-text) * 100%), transparent) var(--card-headroom),
     color-mix(in srgb, var(--paper) calc(var(--veil-foot) * 100%), transparent) calc(var(--card-headroom) + 3rem));
+}
+/* On a card only the light band is a layer: the text sits below the picture
+   (above), so the veil tints the picture and nothing more. The finder's row
+   keeps the whole veil (its own rule, further down). */
+.card--backdrop::before {
+  background: color-mix(in srgb, var(--paper) calc(var(--veil-top) * 100%), transparent);
 }
 /* Inside a veiled card the cut-off chip takes the veiled warning colour. */
 .card--backdrop .tag--sand,
@@ -2325,7 +2338,7 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
   color: var(--brand-2);
 }
 .card--backdrop:hover .card__backdrop { transform: scale(1.03); }
-.card--backdrop .card__body { padding-top: var(--card-headroom); }
+.card--backdrop .card__body { padding-top: 0; flex: 1 0 auto; }
 
 /* --- Programme cards, round 2 fixes (#46, #44): one line per block ---------
    A programme card is: photograph, title, credential line, one Needs line
@@ -2335,11 +2348,13 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .card--backdrop .card__foot { padding-top: var(--s2); }
 .card--backdrop .card__title { font-size: 1.1875rem; line-height: 1.25; }
 .card--backdrop .card__cred { margin-top: 0; }
-/* The photograph fades out over its own lower third, so it ends in paper
-   rather than in a step, whatever the card's width (round 2, bug 3). */
+/* The picture fades out over its last few rem, so it ends in paper rather
+   than in a step, and stays at full strength above that (#67 round 2, fix 5:
+   the old fade over its lower third washed the photographs out). Under the
+   first line of text (--card-overlap) it is at most 1 − --veil-text. */
 .card--backdrop .card__backdrop {
-  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--card-overlap) - 1.75rem), rgb(0 0 0 / calc(1 - var(--veil-text))) calc(100% - var(--card-overlap)), transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 calc(100% - var(--card-overlap) - 1.75rem), rgb(0 0 0 / calc(1 - var(--veil-text))) calc(100% - var(--card-overlap)), transparent 100%);
 }
 /* The credential line: each fact unbroken; a separator that starts a wrapped
    line sits in the clipped margin, so no "·" hangs at either end. */
@@ -2360,6 +2375,53 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .card--backdrop .card__path-list { gap: var(--s1); }
 .card--backdrop .card__path { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .5em; font-size: .875rem; }
 .card--backdrop .card__path a { flex: none; }
+
+/* --- Programme cards: one size in any grid (#67) ---------------------------
+   The owner: "a kind of grid and singularity for the cards". Every programme
+   card has the same parts in the same places, photograph or designed
+   backdrop alike: the picture, the title under it (two lines at most), then,
+   pinned to the card's foot, the credential line, one slot for the
+   requirement or a family's paths (six lines at most) and the meta line.
+   A grid of them makes every row as tall as its tallest card, so the titles
+   of a row line up under the pictures and the facts line up at the foot;
+   what a shorter card has spare sits between its title and its facts, not
+   as an empty band under them (#67 round 2, fix 4). Nothing is reserved for
+   text a card does not have. */
+.card--backdrop .card__title {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: auto;
+}
+.card--backdrop .card__cred { height: 1.35em; }
+.card--backdrop .card__slot {
+  display: flex; flex-direction: column; gap: var(--s1);
+  max-height: 6rem; overflow: hidden;
+}
+.card--backdrop .card__slot .req__ib {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.card--backdrop .card__slot:has(.card__paths) .req__ib { -webkit-line-clamp: 1; }
+/* A family's paths: one line each, the difference cut short (its row keeps
+   the whole in its title, and the paths table on the programme page). */
+.card--backdrop .card__path {
+  flex-wrap: nowrap; font-size: .8125rem; line-height: 1.3;
+  white-space: nowrap; overflow: hidden;
+}
+.card--backdrop .card__path-detail { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.card--backdrop .card__paths { padding-top: var(--s1); gap: 0; }
+.card--backdrop .card__path-list { gap: .1rem; }
+.card--backdrop .card__foot { margin-top: auto; }
+.grid:has(> .card--backdrop),
+.grid:has(> li > .card--backdrop),
+.prog-siblings { grid-auto-rows: 1fr; align-items: stretch; }
+/* One card to a row (a phone): each card its own height, since a column
+   of equal rows gave every card the tallest one's spare paper. */
+@media (max-width: 39.99rem) {
+  .grid:has(> .card--backdrop),
+  .grid:has(> li > .card--backdrop),
+  .prog-siblings { grid-auto-rows: auto; }
+}
 
 /* The Paths table on a phone: a block per path — its name, what is
    different, then one line per fact with the column's name before it. No
@@ -2408,6 +2470,77 @@ table.data.paths__table tbody tr:last-child th { border-bottom: 0; }
 .prog--backdrop[data-focus="true"] .prog__backdrop,
 .prog--backdrop[data-focus="true"]::before { display: none; }
 .prog--backdrop[data-focus="true"] { background: var(--accent-tint); }
+
+/* --- A designed backdrop, where a programme has no photograph (#67) --------
+   An inline SVG from src/lib/designed-backdrop.mjs takes the photograph's
+   place on the card (.card__backdrop, the same box, mask, veil and filter)
+   and in a programme page's hero. It carries only the programme's hue
+   (--dh), its field's saturation (--ds) and the accent's hue (--da); the
+   lightness of each colour is set here per theme, so one drawing serves
+   both. The veil's contrast guard holds over it as over any photograph: its
+   worst pixel is still black or white. */
+.dz {
+  display: block;
+  --dz-ground: hsl(var(--dh) var(--ds) calc(84% + var(--dl) * 1%));
+  --dz-line: hsl(var(--dh) calc(var(--ds) + 12%) 32% / .66);
+  --dz-soft: hsl(var(--dh) var(--ds) 34% / .3);
+  --dz-accent: hsl(var(--da) 52% 40% / .8);
+  --dz-fill: hsl(var(--da) 40% 72% / .66);
+  background: var(--dz-ground);
+}
+.dz g { fill: none; }
+.dz__a { stroke: var(--dz-line); }
+.dz__s { stroke: var(--dz-soft); }
+.dz__b { stroke: var(--dz-accent); }
+.dz__f { fill: var(--dz-fill); }
+/* Dark: a deep ground in the field's colour and strokes strong enough that
+   no motif reads as an empty card beside a photograph (round 2, fix 3). */
+:root[data-theme="dark"] .dz {
+  --dz-ground: hsl(var(--dh) calc(var(--ds) * .8) calc(21% + var(--dl) * .5%));
+  --dz-line: hsl(var(--dh) calc(var(--ds) + 14%) 72% / .7);
+  --dz-soft: hsl(var(--dh) calc(var(--ds) + 8%) 66% / .42);
+  --dz-accent: hsl(var(--da) 60% 68% / .8);
+  --dz-fill: hsl(var(--da) 34% 34% / .8);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dz {
+    --dz-ground: hsl(var(--dh) calc(var(--ds) * .8) calc(21% + var(--dl) * .5%));
+    --dz-line: hsl(var(--dh) calc(var(--ds) + 14%) 72% / .7);
+    --dz-soft: hsl(var(--dh) calc(var(--ds) + 8%) 66% / .42);
+    --dz-accent: hsl(var(--da) 60% 68% / .8);
+    --dz-fill: hsl(var(--da) 34% 34% / .8);
+  }
+}
+/* In a hero the white heading sits on it under the hero's dark gradient, as
+   on a photograph, so the ground is deep in either theme: the field's colour
+   fuller and cleaner than on the card, so the page reads as the same design
+   lit for night, not a muddier one (round 2, fix 8). Its disc or band is
+   a lighter glaze of the same colour, not a grey (round 3). */
+.hero__media--designed .dz,
+:root[data-theme="dark"] .hero__media--designed .dz {
+  width: 100%; height: 100%;
+  --dz-ground: hsl(var(--dh) calc(var(--ds) + 26%) calc(50% + var(--dl) * .5%));
+  --dz-line: hsl(var(--dh) calc(var(--ds) + 20%) 82% / .5);
+  --dz-soft: hsl(var(--dh) calc(var(--ds) + 10%) 78% / .28);
+  --dz-accent: hsl(var(--da) 62% 72% / .66);
+  --dz-fill: hsl(var(--dh) calc(var(--ds) + 24%) 66% / .45);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero__media--designed .dz {
+    --dz-ground: hsl(var(--dh) calc(var(--ds) + 26%) calc(50% + var(--dl) * .5%));
+    --dz-line: hsl(var(--dh) calc(var(--ds) + 20%) 82% / .5);
+    --dz-soft: hsl(var(--dh) calc(var(--ds) + 10%) 78% / .28);
+    --dz-accent: hsl(var(--da) 62% 72% / .66);
+    --dz-fill: hsl(var(--dh) calc(var(--ds) + 24%) 66% / .45);
+  }
+}
+/* The hero's veil is a green-black made for photographs; over a field's
+   colour it turned gold to khaki and blue to teal. Over a design it is the
+   same darkness in a neutral black, so the colour stays the card's. */
+.hero:has(.hero__media--designed)::after {
+  background:
+    linear-gradient(to top, rgba(14, 12, 12, .90) 0%, rgba(14, 12, 12, .62) 38%, rgba(14, 12, 12, .28) 70%, rgba(14, 12, 12, .35) 100%);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .card__backdrop { transition: none; }
@@ -2739,6 +2872,10 @@ body.has-sheet { overflow: hidden; }
     display: grid; align-items: start;
     grid-template-columns: minmax(0, 1.15fr) minmax(24rem, 1fr);
     grid-template-areas: "intro globe" "results globe";
+    /* The globe column is a screen tall. When the results are shorter (a
+       narrow filter, or a very tall window) the spare height goes to the
+       results row; shared out, it stretched the search box to 200px. */
+    grid-template-rows: auto 1fr;
   }
   .discover__hero { display: contents; }
   .discover__intro {
@@ -3008,7 +3145,9 @@ body:has(main > .close:last-child) .site-foot { margin-top: 0; }
   .layout-aside--dates > .layout-aside__side { order: 2; }
 }
 /* Cards in a row keep their own height: a short card is not stretched to its
-   neighbour's campus rows. */
+   neighbour's campus rows. Not programme cards: a grid of those is one set
+   of equal cards (#67, "Programme cards: one size in any grid"), their
+   paths held in a slot of bounded height. */
 .grid--3 { align-items: start; }
 /* A facts strip never ends on an empty cell: the last fact spans what is left
    of its row of four. */

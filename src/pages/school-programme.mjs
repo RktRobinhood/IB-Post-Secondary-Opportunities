@@ -1,3 +1,4 @@
+import { alike } from '../lib/designed-backdrop.mjs';
 import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import { note, tags } from '../lib/components.mjs';
@@ -5,7 +6,6 @@ import { programmeTemplate } from '../templates/programme.mjs';
 import { buildSubjectIndex, ibTermsPhrase } from '../lib/eligibility.mjs';
 import { ibOption } from '../lib/canonical.mjs';
 import { identityWords } from '../lib/calendar.mjs';
-import { picture } from '../lib/data.mjs';
 import { datesPanel } from '../lib/school-dates.mjs';
 import { notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { deadlineOf, startsOf } from '../lib/programme-deadline.mjs';
@@ -13,7 +13,8 @@ import { FIELD, programmeCard, schoolCards, yearsText, placesText, feeText } fro
 import { campusSentence } from '../lib/paths.mjs';
 
 /**
- * A page for one programme of a listed school record (issue #43), laid out
+ * A page for one programme of a school record (issue #43): a listed
+ * school's degree, or a catalogue school's flagship. Laid out
  * like a Danish Programme page (programme.mjs): the facts strip, the dates,
  * what you need in IB terms, how places are decided, what it is, then one
  * targeted hand-off to the programme's own page.
@@ -25,11 +26,10 @@ import { campusSentence } from '../lib/paths.mjs';
  * `cutoff`, `places` and `starts` each light up their block once a researcher
  * fills them. Nothing here names a country or a school.
  *
- * Its photograph is its own when one was chosen for it (data/programme-
- * images.json, a `school:` record, #54), as a Danish Programme page has its
- * own; otherwise its school's: the school's hero, its card and its
- * programmes' pages are one image slot (docs/STATUS.md, #43), as a Danish
- * Programme page falls back to its Institution's picture.
+ * It opens on the image its card shows (#67): its own photograph when one
+ * was chosen for it (data/programme-images.json, a `school:` record, #54),
+ * else the design generated for it (src/lib/designed-backdrop.mjs). The
+ * school's photograph heads the school's page.
  *
  * Every sentence written here is under twelve words, because it appears on
  * hundreds of pages (the text-walls guard's repeated-sentence rule), and a
@@ -206,23 +206,53 @@ function sameTown(a, b) {
 }
 
 /**
- * Up to `n` programmes in the same field at the country's other listed
- * schools, one per school, in the country's school order: real records only.
+ * What a card group draws when it has no photograph: its design's motif and
+ * tone (src/lib/designed-backdrop.mjs), else null.
  */
-function sameFieldElsewhere(site, c, inst, p, n, today) {
-  const found = [];
+const lookOf = (g) => (g.members.some((m) => m.backdrop) || !g.lead.design ? null : g.lead.design);
+
+/**
+ * Up to `n` programmes in the same field at the country's other schools
+ * with programme pages (a listed school's degrees, a catalogue school's
+ * flagships), one per school, in the country's school order: real records only.
+ * Every school deals its designs apart, but the same field at two schools
+ * can come out alike, so a card whose design looks like one already on the
+ * page (`looks`: the hero's motif and tone, then each card taken), or looks
+ * like a card already taken (`alike`: three cards in a column or a row sit
+ * side by side), gives way to the school's next card, else to the next
+ * school (#67 round 2: no two designed cards on one page alike).
+ */
+function sameFieldElsewhere(site, c, inst, p, n, today, looks = new Set()) {
+  const schools = [];
   for (const s of c.institutions || []) {
-    if (s.key === inst.key || s.school?.scope !== 'listed') continue;
+    if (s.key === inst.key || !s.school?.programmes?.length) continue;
     /* A card, as the school's own page draws it: a family is one card (#52).
        Per school, one a final-year student can apply to now, if any. */
     const cards = schoolCards(s.school.programmes)
       .filter((x) => x.lead.field === p.field)
       .map((g) => ({ school: s, group: g, open: deadlineOf(site, s, c, g.lead, today).open }));
-    const pick = cards.find((x) => x.open) || cards[0];
-    if (pick) found.push(pick);
+    if (cards.length) schools.push([...cards.filter((x) => x.open), ...cards.filter((x) => !x.open)]);
   }
   /* Somewhere they can apply comes first, then the country's order. */
-  return [...found.filter((x) => x.open), ...found.filter((x) => !x.open)].slice(0, n);
+  const ordered = [...schools.filter((cs) => cs[0].open), ...schools.filter((cs) => !cs[0].open)];
+  const found = [];
+  const picked = [];
+  for (const cards of ordered) {
+    if (found.length >= n) break;
+    const fits = (x) => {
+      const d = lookOf(x.group);
+      return !d || (!looks.has(`${d.motif}/${d.tone}`) && !picked.some((y) => alike(y, d)));
+    };
+    const pick = cards.find(fits);
+    if (!pick) continue;
+    found.push(pick);
+    const d = lookOf(pick.group);
+    if (d) {
+      looks.add(`${d.motif}/${d.tone}`);
+      picked.push(d);
+    }
+  }
+  return found;
 }
 
 /* --- The paths of a family ------------------------------------------------- */
@@ -317,36 +347,22 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
   });
   const statusOf = (owner, q) => deadlineOf(site, owner, c, q, today).chip;
 
-  /* The school's photograph: one slot with its page and its card. Not where
-     the programme is taught in another town: a main-campus photograph over
-     "a design degree in Dals Långed" names the wrong place. The page then
-     opens on paper in the colour of its field. */
-  /* Where the programme is taught in another town, the school's photograph
-     still opens the page, captioned with the campus it shows, so it never
-     names the wrong place (Steneby is not Gothenburg). */
-  const elsewhere = p.city && inst.city && !sameTown(p.city, inst.city);
-  const pic = picture(site, inst.key);
-  const campus = elsewhere ? `${short}'s ${inst.city} campus` : null;
   const title = displayName(p.name);
-  /* Its own photograph first (#54): the one its card shows. */
-  const ownPhoto = p.backdrop
+  /* The page opens on the picture its card shows (#67: the reader clicks a
+     card and the page opens on the same image): its own photograph (#54);
+     on the page a family's card opens, the photograph that card shows;
+     else the design generated for it, which hero() draws when there is no
+     image. The school's photograph heads the school's page, not this one. */
+  const card = schoolCards(school.programmes).find((g) => g.members.some((m) => m.slug === p.slug));
+  const photo = p.backdrop || (card?.lead?.slug === p.slug ? card.members.find((m) => m.backdrop)?.backdrop : null) || null;
+  const image = photo
     ? {
-        src: p.backdrop.src,
-        alt: truncate(p.backdrop.alt || title, 120),
-        credit: p.backdrop.credit ? { ...p.backdrop.credit, text: truncate(p.backdrop.credit.text, 100) } : null,
-        focal: p.backdrop.focus || '50% 50%',
+        src: photo.src,
+        alt: truncate(photo.alt || title, 120),
+        credit: photo.credit ? { ...photo.credit, text: truncate(photo.credit.text, 100) } : null,
+        focal: photo.focus || '50% 50%',
       }
     : null;
-  const image = ownPhoto || (pic && !pic.external
-    ? {
-        src: pic.src,
-        alt: campus ? `${campus}: ${pic.alt || ''}`.replace(/: $/, '') : pic.alt,
-        credit: pic.credit
-          ? { ...pic.credit, text: truncate(campus ? `${campus} · ${pic.credit.text}` : pic.credit.text, 100) }
-          : campus ? { text: campus } : null,
-        focal: '50% 45%',
-      }
-    : null);
 
   /* Said once: the lede is the first sentence of `about` only when "What it
      is" has more to say; otherwise a line from the record's own fields. */
@@ -441,11 +457,15 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     : [];
   /* A school with one programme: the same field at the country's other
      schools, so the column ends on possibilities, not paper. */
-  const nearby = siblings.length ? [] : sameFieldElsewhere(site, c, inst, p, 3, today);
+  const nearby = siblings.length
+    ? []
+    : sameFieldElsewhere(site, c, inst, p, 3, today, new Set(image || !p.design ? [] : [`${p.design.motif}/${p.design.tone}`]));
 
   const pageSources = [
     { title: `${p.name} at ${short}`, url: p.url, retrieved: school.retrieved },
     p.requirementsUrl ? { title: 'Entry requirements', url: p.requirementsUrl } : null,
+    /* A flagship: the university's own page that presents it as a strength. */
+    p.flagshipSource ? { title: p.flagshipSource.title, url: p.flagshipSource.url } : null,
     cut ? { title: `Cut-off, ${cut.intake}`, url: cut.url } : null,
     school.ib ? { title: `IB applicants at ${short}`, url: school.ib.url } : null,
   ].filter((s, i, all) => s && all.findIndex((t) => t && t.url === s.url) === i);
@@ -465,6 +485,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
       title,
       lede,
       image,
+      design: p.design || null,
     },
     glance: [
       { label: 'Where', value: p.city || inst.city || c.name, note: p.city || inst.city ? c.name : null },

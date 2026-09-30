@@ -18,8 +18,9 @@
  *      "at Herning", ", Campus Herning", a bare town the institution teaches
  *      in) are set aside (families.mjs nameStem) — unless the records
  *      declare the two separate (`separateFrom`). The page's "In English"
- *      tile counts exactly the cards it shows, and every row of a family
- *      card says what differs about its path.
+ *      tile counts exactly the cards it shows (a catalogue school's answers
+ *      for every degree instead, and its cards are its flagships), and
+ *      every row of a family card says what differs about its path.
  *   2. **The home page.** No two discovery cards share a name and an
  *      institution, and its counts ("Show all 67 programmes") are cards.
  *   3. **Family pages.** Every path of every family has a page with the
@@ -32,7 +33,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { nameClashes, normalName, nameStem, placeWords } from '../src/lib/families.mjs';
-import { programmePaths, schoolKeys } from '../src/lib/schools.mjs';
+import { programmePaths, pagedProgrammes, schoolKeys } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -102,7 +103,8 @@ const recordsOf = new Map();
     const progs = rec.programmes || [];
     const words = placeWords([instCity.get(key), ...progs.map((p) => p.city)].filter(Boolean));
     const separate = new Set(progs.flatMap((p) => (p.separateFrom || []).flatMap((x) => [p.name, x.name])).map((n) => nameStem(n, words)));
-    recordsOf.set(key, { words, separate });
+    // A catalogue record's cards are its flagships, not every degree it teaches.
+    recordsOf.set(key, { words, separate, flagships: rec.scope === 'catalogue' });
   }
   const pdir = path.join(ROOT, 'data', 'programmes');
   const odir = path.join(ROOT, 'data', 'opportunities');
@@ -135,13 +137,16 @@ for (const key of fs.readdirSync(path.join(DIST, 'universities'))) {
   if (!list.length) continue;
   pages++;
   cards += list.length;
-  const { words = new Set(), separate = new Set() } = recordsOf.get(key) || {};
+  const { words = new Set(), separate = new Set(), flagships = false } = recordsOf.get(key) || {};
   for (const [title, n] of nameClashes(list.map((c) => c.title), (t) => nameStem(t, words), separate)) {
     fail(`/universities/${key}/ shows ${n} programme cards called "${title}" (once campus and degree words are set aside): one programme is one card, its campuses or paths inside — or say separateFrom on the records`);
   }
-  /* The number a student reads is the number of cards they can count. */
+  /* The number a student reads is the number of cards they can count. A
+     catalogue school's tile answers for all its degrees ("Every degree"),
+     so it must not count programmes: its cards are only its flagships. */
   const tile = tileCount(main);
-  if (tile !== null && tile !== list.length) fail(`/universities/${key}/: the "In English" tile says ${Number.isNaN(tile) ? 'something other than "N programmes"' : tile}, but the page shows ${list.length} programme cards`);
+  if (flagships && tile !== null && !Number.isNaN(tile)) fail(`/universities/${key}/: the "In English" tile counts ${tile} programmes, but its cards are only its flagships`);
+  else if (!flagships && tile !== null && tile !== list.length) fail(`/universities/${key}/: the "In English" tile says ${Number.isNaN(tile) ? 'something other than "N programmes"' : tile}, but the page shows ${list.length} programme cards`);
   /* Every family row says what differs about its path. */
   for (const c of list) {
     for (const r of c.rows) {
@@ -189,9 +194,8 @@ const schoolDir = path.join(ROOT, 'data', 'schools');
 for (const f of fs.readdirSync(schoolDir).filter((f) => f.endsWith('.json'))) {
   const key = f.slice(0, -5);
   const rec = readJson(path.join(schoolDir, f));
-  if (rec.scope !== 'listed') continue;
   const byName = new Map();
-  for (const p of programmePaths(key, rec.programmes)) {
+  for (const p of programmePaths(key, pagedProgrammes(rec))) {
     if (!p.family?.name) continue;
     if (!byName.has(p.family.name)) byName.set(p.family.name, { name: p.family.name, axis: p.family.axis, members: [] });
     byName.get(p.family.name).members.push({ href: p.href, place: p.city || '', path: p.family.path });

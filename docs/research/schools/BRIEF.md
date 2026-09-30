@@ -50,8 +50,9 @@ because it was outside this batch's scope.
   applicants can apply to for autumn 2027. Give each one a link to the programme's own page.
 - **`catalogue`**: nearly every course is taught in English and there are too many to list. This is
   typical in the UK, Ireland, the US, Canada, Australia, New Zealand, Singapore and Hong Kong.
-  Leave `programmes` empty. `handoff` is the undergraduate course search. Put the effort into
-  `summary`, `ib`, `apply` and `dates` instead.
+  Don't list every degree. `handoff` is the undergraduate course search. Put the effort into
+  `summary`, `ib`, `apply` and `dates`; `programmes` holds only its two to four flagships, and
+  may stay empty until they are researched (see "Catalogue schools: flagships and faculties").
 - **`none`**: no English-taught bachelor's degree for 2027. This is a researched exclusion, not a
   public empty state. Keep `programmes` empty; `handoff` records the supporting admissions page and
   one note says what language the degrees are taught in. The build must not surface the institution
@@ -194,5 +195,24 @@ owner does not want every course listed ("overkill"). The record gives the stude
 - **Known for and the vibe:** `summary` says what the place is known for and what it is like (size,
   setting, residential or commuter), from the university's own "about" or "facts" pages.
 
-The schema and the page for flagships and faculties are built after the programme pages (#43) land on
-`main`; until then, research notes for them go in `docs/research/schools/leads/<cc>.md`.
+### The fields (built 30 September)
+
+- **Flagships are `programmes`** on the catalogue record: ordinary programme objects, to the Danish
+  standard (`about`, `needs`, `points`, `selection`, `selectionNote`, `closes`, `requirementsUrl`, …),
+  each with **`flagshipSource`** `{ title, url }`: the university's own page that presents it (or its
+  department) as a strength. Put that page in `sources` too. At most four. A flagship gets a card and a
+  page of its own, `/universities/<key>/<slug>/`, exactly like a listed degree, so its photograph is keyed
+  `school-<key>-<slug>` as any other.
+- Where a catalogue school has several application deadlines (Medicine on 15 October, everything else
+  in January), give each flagship its own `closes`, so its page never takes another subject's date.
+- **`faculties`** `[{ name, url, line }]` on the record: every faculty, school or college that admits
+  first-year students; `line` (up to 140 characters) is what it generally looks for; `url` is its own
+  admissions or selection page. Only a catalogue record carries them.
+- The page says, in its study section, that every degree is taught in English; then the flagship cards
+  ("What it is known for"); then "Search all its degrees" (the `handoff`), and the faculties one tap
+  down. `scripts/check-schools.mjs` holds the fields; `scripts/test-school-pages.mjs` (rule 13) holds
+  the page.
+- A catalogue record with no flagships yet is valid, and its page is the English line and the search.
+
+The worked example is `data/schools/gb-edinburgh.json`: Computer Science, Veterinary Medicine and
+Philosophy, with its three colleges.

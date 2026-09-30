@@ -90,7 +90,7 @@ export function programme(site, p, inst) {
     .filter((g) => !g.members?.some?.((q) => q.id === p.id))
     .slice(0, 3)
     // Brief, as the school pages' are: its requirement lives on its own page.
-    .map((g) => renderProgrammeCard({ ...programmeCard(site, g, { meta: [] }), req: '' }));
+    .map((g) => renderProgrammeCard({ ...programmeCard(site, g, { meta: [] }), req: false }));
 
   /* Drawn by the one programme template (src/templates/programme.mjs). */
   return programmeTemplate({
@@ -100,12 +100,13 @@ export function programme(site, p, inst) {
       eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
       title: p.name,
       lede: firstSentence(p.summary, 32),
-      /* Its own photograph first, the one its card shows (as school-record
-         programme pages do); a field's shared picture is not this programme,
-         so then the institution's. */
-      image: String(p.backdrop?.scope || '').startsWith('programme:')
+      /* The picture its card shows, so the page opens on the image the
+         reader clicked (#67): its own photograph or its field's, else the
+         institution's, else the design its card would draw. */
+      image: p.backdrop?.src
         ? { src: p.backdrop.src, alt: truncate(p.backdrop.alt || p.name, 120), credit: p.backdrop.credit || null, focal: p.backdrop.focus || '50% 50%' }
         : pic ? { src: pic.src, alt: pic.alt, credit: pic.credit } : null,
+      design: p.design || null,
     },
     glance: [
       { label: 'Where', value: [p.campus || inst.city, dest?.name].filter(Boolean).join(', ') || null },

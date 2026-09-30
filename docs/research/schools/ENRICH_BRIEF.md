@@ -31,6 +31,10 @@ data. Bring your files up to that standard.
   notes.
 - Data only; no code changes.
 
+- **Do not spawn helper agents.** Work through your schools yourself. On 30
+  September one country agent fanned out to five helpers and, with the other
+  agents running, took the owner's 5-hour window from 0 to 70% in 35 minutes.
+
 ## Order of work
 
 1. **Degree photos first**, for every programme (below). The owner judges a
@@ -42,6 +46,9 @@ data. Bring your files up to that standard.
    `cutoff` / `places` only when published, `requirementsUrl` when the
    requirements live on another page. Unpublished 2027 criteria: record
    2026's and say "2026 criteria; 2027 not yet published".
+   For a `catalogue` school, stage 2 is two to four flagships from the
+   university's own strengths pages (each with `flagshipSource`) plus its
+   `faculties`, per BRIEF.md, "Catalogue schools: flagships and faculties".
 3. Tighten the school `summary` to one or two plain sentences from the
    university's own about/facts page (not its homepage).
 

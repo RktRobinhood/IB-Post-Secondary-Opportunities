@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { picture } from '../src/lib/data.mjs';
-import { programmePaths } from '../src/lib/schools.mjs';
+import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -70,7 +70,8 @@ for (const [cc, entry] of Object.entries(manifest).sort()) {
     if (!r) { rows.push({ key: inst.key, name: inst.name, state: 'no record', photo }); continue; }
     c.records++;
     c.scopes[r.scope] = (c.scopes[r.scope] || 0) + 1;
-    const ps = r.scope === 'listed' ? programmePaths(inst.key, r.programmes || []) : r.programmes || [];
+    // A listed school's every degree, a catalogue school's flagships.
+    const ps = programmePaths(inst.key, pagedProgrammes(r));
     const d = ps.filter(detailed).length;
     const o = ps.filter((p) => ownPhoto(inst.key, p)).length;
     c.degrees += ps.length; c.detailed += d; c.ownPhoto += o;
@@ -78,7 +79,8 @@ for (const [cc, entry] of Object.entries(manifest).sort()) {
     if (r.scope === 'listed' && !ps.length) gaps.push('listed but no degrees');
     if (ps.length && d < ps.length) gaps.push(`${ps.length - d} of ${ps.length} degrees lack about/selection`);
     if (ps.length && o < ps.length) gaps.push(`${ps.length - o} of ${ps.length} degrees have no photo of their own`);
-    if (r.scope === 'catalogue' && !(r.flagships || []).length) gaps.push('no flagships or faculties yet');
+    if (r.scope === 'catalogue' && !ps.length) gaps.push('no flagships yet');
+    if (r.scope === 'catalogue' && !(r.faculties || []).length) gaps.push('no faculties yet');
     if (!photo) gaps.push('no school photo');
     rows.push({ key: inst.key, name: inst.name, state: r.scope, degrees: ps.length, gaps, photo });
   }

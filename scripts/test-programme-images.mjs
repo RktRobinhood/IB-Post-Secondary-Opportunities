@@ -10,6 +10,10 @@
  *      fallback. The built pages carry it: every card in an institution's
  *      "What you could study here", every row of the finder's data and every
  *      opportunity in the planner's data.
+ *      A programme with no photograph draws its designed backdrop instead
+ *      (src/lib/designed-backdrop.mjs, #67), marked and decorative, and so
+ *      does its page's hero when the page has no photograph either: no
+ *      programme card on any built page is bare.
  *   2. **Every picture is accounted for.** Each record in
  *      data/programme-images.json names a Commons file, and its page is for
  *      that file. It has an author and a licence to credit and a signed, dated
@@ -51,6 +55,7 @@ import { backdropData } from '../src/pages/explorer.mjs';
 import { conforms, probeWebp } from './lib/image-standard.mjs';
 import { OFFICIAL_LICENCE, publishedOn, verifyOfficial } from './lib/official-image.mjs';
 import { cardKey } from '../src/lib/families.mjs';
+import { schoolCards } from '../src/pages/schools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -208,6 +213,116 @@ check('every planner result carries a background', () => {
   const opps = jsonIn('planner/index.html', 'planner-opportunities');
   const bad = opps.filter((o) => !o.display?.backdrop?.src).map((o) => o.id);
   assert.deepEqual(bad, []);
+});
+
+/* A programme with no photograph draws a pattern generated for it
+   (src/lib/designed-backdrop.mjs, #67): in the photograph's place on its
+   card, under the same veil, and in its page's hero when that page has no
+   photograph either. No programme card anywhere is a bare text box. */
+/* Every programme page, with its design and the photograph its card shows:
+   its own, or on the page a family's card opens, the one that card shows. */
+const designOf = new Map(site.programmes.map((p) => [p.href, { design: p.design, photo: !!p.backdrop, cardPhoto: p.backdrop?.src || null }]));
+const schoolsSeen = new Set();
+for (const { inst } of schoolProgrammes.values()) {
+  if (schoolsSeen.has(inst.key)) continue;
+  schoolsSeen.add(inst.key);
+  for (const g of schoolCards(inst.school.programmes)) {
+    const family = g.members.find((m) => m.backdrop)?.backdrop?.src || null;
+    for (const m of g.members) {
+      designOf.set(m.href, { design: m.design, photo: !!m.backdrop, cardPhoto: m.backdrop?.src || (m === g.lead ? family : null) });
+    }
+  }
+}
+
+function* builtPages(dir = DIST) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const f = path.join(dir, e.name);
+    if (e.isDirectory()) yield* builtPages(f);
+    else if (e.name === 'index.html') yield f;
+  }
+}
+
+/** A programme card links its title to a programme page: /programmes/<id>/ or /universities/<key>/<slug>/. */
+const PROGRAMME_HREF = /<h3 class="card__title"><a href="[^"]*?(\/(?:programmes\/[a-z0-9-]+|universities\/[a-z0-9-]+\/[a-z0-9-]+)\/)"/;
+
+/** What is wrong with one programme card's background. */
+function backgroundFaults(c) {
+  const out = [];
+  const photo = /^<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*<img class="card__backdrop"/.test(c);
+  const svg = (c.match(/^<article class="card[^"]*\bcard--backdrop\b[^"]*">\s*(<svg class="dz card__backdrop"[\s\S]*?<\/svg>)/) || [])[1];
+  if (!photo && !svg) return ['no photograph and no designed backdrop: a bare card'];
+  if (photo && /data-backdrop="designed"/.test(c)) out.push('draws both a photograph and a designed backdrop');
+  if (svg) {
+    if (!/\baria-hidden="true"/.test(svg)) out.push('its designed backdrop is not aria-hidden');
+    if (!/\bdata-backdrop="designed"/.test(svg) || !/\bdata-design="[^"]+"/.test(svg)) out.push('its designed backdrop is not marked data-backdrop="designed" with its data-design');
+    if (/<(?:text|title|image|use)\b/.test(svg)) out.push('its designed backdrop carries text, an image or a reference');
+    if (/\bid="/.test(svg)) out.push('its designed backdrop has an id, which a page with two of it would repeat');
+    if (svg.length > 4096) out.push(`its designed backdrop is ${svg.length} bytes (over 4 KB)`);
+  }
+  return out;
+}
+
+check('the bare-card guard can see what it is for', () => {
+  const body = '<div class="card__body"><h3 class="card__title"><a href="/b/universities/x-y/art/">Art</a></h3></div></article>';
+  assert.deepEqual(backgroundFaults(`<article class="card card--link">${body}`), ['no photograph and no designed backdrop: a bare card']);
+  assert.deepEqual(backgroundFaults(`<article class="card card--link card--backdrop">\n<svg class="dz card__backdrop" aria-hidden="true" data-backdrop="designed" data-design="a/b/1"><path d="M0 0"/></svg>${body}`), []);
+  assert.ok(backgroundFaults(`<article class="card card--link card--backdrop"><svg class="dz card__backdrop" data-backdrop="designed" data-design="a"><text>BU</text></svg>${body}`).length === 2, 'misses a monogram or a missing aria-hidden');
+});
+
+check('no programme card on any built page is bare: each draws its photograph or its designed backdrop', () => {
+  const bad = [];
+  let photos = 0;
+  let designed = 0;
+  for (const f of builtPages()) {
+    const text = fs.readFileSync(f, 'utf8');
+    for (const m of text.matchAll(/<article class="card card--link[^"]*">[\s\S]*?<\/article>/g)) {
+      const href = (m[0].match(PROGRAMME_HREF) || [])[1];
+      if (!href) continue;
+      const faults = backgroundFaults(m[0]);
+      if (/data-backdrop="designed"/.test(m[0])) {
+        designed++;
+        // A photograph always wins: a card is designed only when its programme has none.
+        const known = designOf.get(href);
+        if (!known) faults.push('opens a page the catalogue does not know');
+        else if (known.photo) faults.push('has a photograph, yet draws a designed backdrop');
+      } else photos++;
+      if (faults.length) bad.push(`${path.relative(DIST, f)} → ${href}: ${faults.join('; ')}`);
+    }
+  }
+  console.log(`          ${photos} photograph cards · ${designed} designed cards`);
+  assert.ok(photos > 150 && designed > 100, `only ${photos} photograph and ${designed} designed cards found`);
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} cards`);
+});
+
+check('every programme page opens on the image its card draws: its photograph, or its designed backdrop', () => {
+  const bad = [];
+  let photos = 0;
+  let designed = 0;
+  const unescape = (u) => u.replace(/&amp;/g, '&');
+  for (const [href, { design, cardPhoto }] of designOf) {
+    const page = built(path.join(href, 'index.html'));
+    if (!page || /http-equiv="refresh"/i.test(page)) continue;
+    const media = (page.match(/<div class="hero__media[^"]*"[^>]*>[\s\S]*?<\/div>/) || [])[0] || '';
+    const img = unescape((media.match(/<img src="([^"]+)"/) || [])[1] || '');
+    if (cardPhoto) {
+      photos++;
+      // An official photograph is an absolute address; a stored one sits under the site's base.
+      if (!img || !(img === cardPhoto || img.endsWith(cardPhoto))) bad.push(`${href}: heads with ${img || 'no photograph'}, its card with ${cardPhoto}`);
+      continue;
+    }
+    // A canonical programme with no card photograph keeps its institution's (none today).
+    if (img && href.startsWith('/programmes/')) continue;
+    designed++;
+    const key = (media.match(/class="hero__media hero__media--designed"><svg class="dz"[^>]*\bdata-design="([^"]+)"/) || [])[1];
+    if (img) bad.push(`${href}: heads with ${img}, a photograph its card does not show`);
+    else if (!key) bad.push(`${href}: no photograph and no designed hero`);
+    else if (key !== design?.key) bad.push(`${href}: heads with ${key}, its card with ${design?.key}`);
+    else if (!/aria-hidden="true"/.test(media)) bad.push(`${href}: its designed hero is not aria-hidden`);
+    else if (/hero__credit/.test(page.slice(page.indexOf('<section class="hero'), page.indexOf('</section>', page.indexOf('<section class="hero'))))) bad.push(`${href}: credits a designed hero`);
+  }
+  console.log(`          ${photos} pages open on their card's photograph · ${designed} on their card's design`);
+  assert.ok(photos > 0 && designed > 0, 'no programme page found of one kind; the check is looking in the wrong place');
+  assert.deepEqual(bad.slice(0, 12), [], `${bad.length} pages`);
 });
 
 check('the planner draws the background the same way the cards do', () => {
@@ -407,8 +522,16 @@ check('the stylesheet veil matches VEIL in src/lib/programme-imagery.mjs, in eve
 
 check('text starts below the light band, and the veil under it is never lighter than --veil-text', () => {
   const rules = css.slice(css.indexOf('.card--backdrop,\n.prog--backdrop {'));
-  assert.match(rules, /\.card--backdrop \.card__body \{ padding-top: var\(--card-headroom\); \}/, 'card text does not start at --card-headroom');
-  assert.match(rules, /calc\(var\(--veil-text\) \* 100%\), transparent\) var\(--card-headroom\)/, 'the card veil does not reach --veil-text at --card-headroom');
+  /* A card (#67 round 2): the picture is the card's top, --card-headroom
+     tall; the text follows it, reaching back --card-overlap
+     over its foot, and there the picture's mask lets through at most
+     1 − --veil-text of it: the same worst case as a --veil-text veil. */
+  assert.match(rules, /\.card--backdrop \.card__backdrop \{[^}]*flex: 0 0 var\(--card-headroom\)[^}]*margin-bottom: calc\(-1 \* var\(--card-overlap\)\)/, 'the card picture is not --card-headroom tall, ending --card-overlap under the text');
+  assert.match(rules, /\.card--backdrop \.card__body \{ padding-top: 0;/, 'card text does not start straight after the picture');
+  const masks = rules.match(/(?<!-webkit-)mask-image: linear-gradient\(to bottom, #000 calc\(100% - var\(--card-overlap\) - [\d.]+rem\), rgb\(0 0 0 \/ calc\(1 - var\(--veil-text\)\)\) calc\(100% - var\(--card-overlap\)\), transparent 100%\)/g) || [];
+  assert.equal(masks.length, 1, 'the card picture does not fade to 1 − --veil-text where the text starts');
+  assert.match(rules, /\.card--backdrop::before \{\s*background: color-mix\(in srgb, var\(--paper\) calc\(var\(--veil-top\) \* 100%\), transparent\);\s*\}/, 'the card veil over the picture is not the light band');
+  assert.match(rules, /calc\(var\(--veil-text\) \* 100%\), transparent\) var\(--card-headroom\)/, 'the shared veil does not reach --veil-text at --card-headroom');
   // The row's own rule, on a line of its own: it comes after the shared one and overrides it.
   const row = /(?<!,\n)^\.prog--backdrop::before \{([\s\S]*?)\}/m.exec(rules)?.[1] || '';
   assert.doesNotMatch(row, /--veil-top/, 'a finder row has text across it and must not use the light band');
@@ -506,8 +629,11 @@ check(`every tag chip reaches ${AA}:1 on its own background, in every theme and 
    programme page keeps the detail. Read from the built pages, so a card any
    page draws is held to it. */
 
-/** A degree named in a credential line: an abbreviation (BSc, BEng, LLB) or a word. */
-const DEGREE_WORD = /\b(?:B[A-Z][A-Za-z]{0,4}|LLB|M[A-Z][A-Za-z]{0,4}|PhD|bachelor|master|degrees?|diploma|certificate|associate)\b/i;
+/** A degree named in a credential line: an abbreviation (BSc, BEng, LLB) or a word.
+    The long professional degrees ("Doctor of Dental Surgery (DDS)", a
+    medical doctor's or a dentist's title) name the profession they qualify
+    for; their cards came into this check with their designed backdrops (#67). */
+const DEGREE_WORD = /\b(?:B[A-Z][A-Za-z]{0,4}|LLB|M[A-Z][A-Za-z]{0,4}|PhD|bachelor|master|degrees?|diploma|certificate|associate|doctor|dentist|DDS)\b/i;
 
 const cardText = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
 
@@ -674,6 +800,7 @@ check('every researched country with no mapped degree is a tile a door can land 
 
 const SOURCES = [
   'src/lib/programme-imagery.mjs',
+  'src/lib/designed-backdrop.mjs',
   'src/lib/components.mjs',
   'src/pages/explorer.mjs',
   'src/pages/discover.mjs',

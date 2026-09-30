@@ -50,7 +50,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { FIELD_LABELS } from '../src/lib/canonical.mjs';
-import { programmePaths } from '../src/lib/schools.mjs';
+import { programmePaths, pagedProgrammes } from '../src/lib/schools.mjs';
 import { OFFICIAL_LICENCE, verifyOfficial } from './lib/official-image.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -83,8 +83,8 @@ for (const f of (await fs.readdir(path.join(ROOT, 'data', 'programmes'))).filter
 const schoolProgrammeNames = new Map();
 for (const f of (await fs.readdir(path.join(ROOT, 'data', 'schools'))).filter((f) => f.endsWith('.json'))) {
   const school = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'schools', f), 'utf8'));
-  if (school.scope !== 'listed') continue;
-  for (const p of programmePaths(school.institution, school.programmes || [])) {
+  // A listed school's degrees and a catalogue school's flagships alike.
+  for (const p of programmePaths(school.institution, pagedProgrammes(school))) {
     schoolProgrammeNames.set(`${school.institution}-${p.slug}`, p.name);
   }
 }

@@ -3,6 +3,7 @@ import { url } from './layout.mjs';
 import { ibTermsLine, ibTermsPhrase, routesPhrase } from './eligibility.mjs';
 import { emptyPanel } from './imagery.mjs';
 import { CARD_SIZES, srcsetOf } from './programme-imagery.mjs';
+import { designedSvg } from './designed-backdrop.mjs';
 import { flagged } from './primitives.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
@@ -94,7 +95,11 @@ export function hero(o) {
         }>
           <img src="${url(o.image.src)}" alt="${o.image.alt || ''}" fetchpriority="high" decoding="async" width="2000" height="1200">
         </div>`
-      : ''}
+      : /* No photograph: the programme's designed backdrop, the one its card
+           draws (src/lib/designed-backdrop.mjs), so card and page match. */
+        o.design
+        ? html`<div class="hero__media hero__media--designed">${designedSvg(o.design, { frame: 'hero' })}</div>`
+        : ''}
     <div class="wrap wrap--wide">
       ${o.crumbs || ''}
       ${o.eyebrow ? html`<p class="eyebrow">${o.eyebrow}</p>` : ''}
@@ -174,8 +179,13 @@ export function close({ eyebrow, title, copy, invitation, also = [] }) {
  * is decorative (`alt=""`), because the card's words already say what the
  * programme is, and it is credited on /credits/. It is positioned absolutely,
  * so it cannot change the card's height, and it loads lazily.
+ *
+ * `design` is what a programme card draws when it has no photograph: a
+ * pattern generated for that programme (src/lib/designed-backdrop.mjs, #67),
+ * in the photograph's place and under the same veil, so no programme card is
+ * a bare box. A photograph always wins.
  */
-export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, line, paths, kicker, sub, mod }) {
+export function card({ href, title, text, image, flag, meta, tags, logo, external, placeholder, aside, req, backdrop, design, line, paths, kicker, sub, mod }) {
   const panel = !image && placeholder ? emptyPanel(typeof placeholder === 'string' ? placeholder : title) : null;
   const tagList = tags?.length
     ? html`<ul class="tags">${tags.map((t) =>
@@ -192,9 +202,10 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
   /* A programme card (a backdrop) carries at most one tag, and it sits on
      the photograph's corner, a pill on its own ground, rather than taking a
      line of the card's text (#46: one line per block). */
-  const photoTag = !!(backdrop && tags?.length === 1);
-  return html`<article class="card card--link${backdrop ? ' card--backdrop' : ''}${mod ? ` ${mod}` : ''}">
-    ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : ''}
+  const designed = !backdrop && design ? design : null;
+  const photoTag = !!((backdrop || designed) && tags?.length === 1);
+  return html`<article class="card card--link${backdrop || designed ? ' card--backdrop' : ''}${mod ? ` ${mod}` : ''}">
+    ${backdrop ? backdropImg(backdrop, CARD_SIZES, 'card__backdrop') : designed ? designedSvg(designed, { className: 'card__backdrop' }) : ''}
     ${photoTag ? html`<div class="card__tag">${tagList}</div>` : ''}
     ${image
       ? html`<div class="card__media">
@@ -227,8 +238,14 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
         line ? credLine(line) : ''}
       ${sub ? html`<p class="card__sub">${sub}</p>` : ''}
       ${text ? html`<p class="card__text">${truncate(text, 150)}</p>` : ''}
-      ${/* A programme's requirements, IB terms first (requirementSummary). */ req || ''}
-      ${/* A programme family's paths, one short row each (src/lib/paths.mjs). */ paths || ''}
+      ${/* A programme's requirements, IB terms first (requirementSummary),
+            and a programme family's paths, one short row each
+            (src/lib/paths.mjs). On a programme card they share one slot of
+            bounded height, kept even when empty, so every card is one size
+            (#67); `req: false` says a card never shows one (a brief card). */
+        backdrop || designed
+          ? req === false && !paths ? '' : html`<div class="card__slot">${req || ''}${paths || ''}</div>`
+          : html`${req || ''}${paths || ''}`}
       ${tags?.length && !photoTag ? tagList : ''}
       ${meta?.length ? html`<div class="card__foot">${meta.map((m) => html`<span>${m}</span>`)}</div>` : ''}
       ${/* One short line with its own link, beside the card's main one — for

@@ -20,6 +20,11 @@
  * A date scoped to some programmes (`programmes`) names real ones, by the slug
  * of their page; a programme's `round` is one its school's dates name; and no
  * name carries an acute accent (´) where an apostrophe belongs.
+ * A catalogue record's programmes are its flagships (BRIEF.md, "Catalogue
+ * schools"): at most four, each with the university's own page that presents
+ * it as a strength (`flagshipSource`, cited in `sources` too); only a
+ * catalogue record carries flagships or `faculties`, and none of their links
+ * is a homepage. A catalogue record with neither is still valid.
  * Exits non-zero on any failure.
  */
 import fs from 'node:fs';
@@ -133,6 +138,59 @@ function scopeProblems(rec, key) {
   return out;
 }
 
+/** What is wrong with a record's flagships and faculties, as sentences. */
+const MAX_FLAGSHIPS = 4;
+function flagshipProblems(rec, website = null) {
+  const out = [];
+  const progs = rec.programmes || [];
+  const cited = new Set((rec.sources || []).map((s) => s.url));
+  if (rec.scope === 'catalogue') {
+    if (progs.length > MAX_FLAGSHIPS) out.push(`a catalogue record carries two to four flagships, not a list (${progs.length})`);
+    for (const [i, p] of progs.entries()) {
+      const src = p.flagshipSource;
+      if (!src) out.push(`programmes[${i}] "${p.name}" is a flagship with no flagshipSource: the university's own page that presents it as a strength`);
+      else {
+        if (isHomepage(src.url, website)) out.push(`programmes[${i}] "${p.name}" flagshipSource is a homepage: ${src.url}`);
+        if (!cited.has(src.url)) out.push(`programmes[${i}] "${p.name}" flagshipSource ${src.url} is not in sources`);
+      }
+    }
+  } else {
+    for (const [i, p] of progs.entries()) {
+      if (p.flagshipSource) out.push(`programmes[${i}] "${p.name}" has a flagshipSource, but only a catalogue record's programmes are flagships`);
+    }
+    if ((rec.faculties || []).length) out.push(`faculties belong to a catalogue record, not a "${rec.scope}" one`);
+  }
+  const names = new Set();
+  for (const [i, f] of (rec.faculties || []).entries()) {
+    if (isHomepage(f.url, website)) out.push(`faculties[${i}] "${f.name}" links to a homepage`);
+    if (names.has(f.name)) out.push(`faculties[${i}] "${f.name}" is listed twice`);
+    names.add(f.name);
+  }
+  return out;
+}
+
+/* Self-test: the flagship rule must refuse a flagship with no source, one
+   whose source is not cited, a fifth flagship, a flagship on a listed record
+   and faculties on one; and pass a sourced flagship and an empty catalogue. */
+{
+  const src = { title: 'Strengths', url: 'https://x.test/strengths' };
+  const fl = (name, extra = {}) => ({ name, credential: 'BSc', years: 3, field: 'computing', url: `https://x.test/${name}`, flagshipSource: src, ...extra });
+  const cat = (programmes, extra = {}) => ({ scope: 'catalogue', programmes, sources: [{ title: 'S', url: src.url }], ...extra });
+  const ok = [
+    flagshipProblems(cat([fl('a', { flagshipSource: undefined })])).length === 1,
+    flagshipProblems({ ...cat([fl('a')]), sources: [] }).length === 1,
+    flagshipProblems(cat(['a', 'b', 'c', 'd', 'e'].map((n) => fl(n)))).length === 1,
+    flagshipProblems({ scope: 'listed', programmes: [fl('a')] }).length === 1,
+    flagshipProblems({ scope: 'listed', programmes: [], faculties: [{ name: 'F', url: 'https://x.test/f', line: 'Maths HL throughout' }] }).length === 1,
+    flagshipProblems(cat([fl('a'), fl('b')], { faculties: [{ name: 'F', url: 'https://x.test/f', line: 'Maths HL throughout' }] })).length === 0,
+    flagshipProblems(cat([])).length === 0,
+  ];
+  if (ok.some((x) => !x)) {
+    console.log('✗ self-test: the flagship rule misjudges a catalogue record');
+    process.exit(1);
+  }
+}
+
 /* Self-test: the scope rule must catch an unknown slug, an unknown round and
    an acute accent, and pass a real slug and round. */
 {
@@ -224,7 +282,7 @@ const files = fs.existsSync(DIR)
   : [];
 
 let failures = 0;
-const counts = { listed: 0, catalogue: 0, none: 0, programmes: 0 };
+const counts = { listed: 0, catalogue: 0, none: 0, programmes: 0, flagships: 0 };
 
 for (const f of files.sort()) {
   const key = f.slice(0, -5);
@@ -244,7 +302,7 @@ for (const f of files.sort()) {
 
     const progs = rec.programmes || [];
     if (rec.scope === 'listed' && !progs.length) problems.push('scope is "listed" but no programmes are listed');
-    if (rec.scope !== 'listed' && progs.length) problems.push(`scope is "${rec.scope}" but programmes are listed`);
+    if (rec.scope === 'none' && progs.length) problems.push(`scope is "${rec.scope}" but programmes are listed`);
 
     const home = inst?.website;
     if (rec.handoff?.url && isHomepage(rec.handoff.url, home)) problems.push(`handoff is a homepage: ${rec.handoff.url}`);
@@ -262,9 +320,11 @@ for (const f of files.sort()) {
     problems.push(...checkSchoolFamilies(progs, 'programmes', [inst?.city].filter(Boolean)));
     problems.push(...scopeProblems(rec, key));
     problems.push(...earlyProblems(rec));
+    problems.push(...flagshipProblems(rec, home));
 
     counts[rec.scope] = (counts[rec.scope] || 0) + 1;
-    counts.programmes += progs.length;
+    if (rec.scope === 'catalogue') counts.flagships += progs.length;
+    else counts.programmes += progs.length;
   }
 
   if (problems.length) {
@@ -276,7 +336,7 @@ for (const f of files.sort()) {
 
 console.log(
   `${files.length} school records · ${counts.listed} listed (${counts.programmes} programmes) · ` +
-    `${counts.catalogue} catalogue · ${counts.none} none · ${failures} failing · ` +
+    `${counts.catalogue} catalogue (${counts.flagships} flagships) · ${counts.none} none · ${failures} failing · ` +
     `${known.size - (only.length ? 0 : files.length)} of ${known.size} institutions without one`
 );
 process.exit(failures ? 1 : 0);

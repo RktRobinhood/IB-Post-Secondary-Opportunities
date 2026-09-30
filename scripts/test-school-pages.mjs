@@ -12,9 +12,11 @@
  *   2. every institution card on a country page links to a page on this site;
  *   3. no link on a school page that leaves the site is a homepage;
  *   4. a school record listing programmes renders one card per programme, or
- *      per family of paths (#52), and links to every programme's page;
- *   5. each listed programme has its own page under its school, the school's
- *      page links to it, and nothing on it that leaves the site is a homepage;
+ *      per family of paths (#52), and links to every programme's page; a
+ *      catalogue record's flagships are such programmes too;
+ *   5. each listed programme and each flagship has its own page under its
+ *      school, the school's page links to it, and nothing on it that leaves
+ *      the site is a homepage;
  *   6. a programme page's "Apply by" is a date from the programme (`closes`),
  *      its school record (`dates`), or a route date tied to that school by id
  *      (`institutions`), never a route's general date for other programmes;
@@ -57,13 +59,16 @@
  *      scripts/lib/own-deadline-allow.json with a reason;
  *  12. school-record programme pages use the same compact programme hero as
  *      the canonical Danish pages, whether or not a programme photo exists;
- *      the retired field-colour panel classes never return.
+ *      the retired field-colour panel classes never return;
+ *  13. a catalogue school's page says, in its study section, that its degrees
+ *      are taught in English (`data-taught="english"`), and hands on to its
+ *      course search from there ("Search all its degrees").
  *
  * Nothing here names a country. Run after a build: node scripts/test-school-pages.mjs
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from '../src/lib/schools.mjs';
+import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, pagedProgrammes, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -258,6 +263,8 @@ let holdersTiles = 0;
 let beforeNotes = 0;
 let ownChecked = 0;
 let cards = 0;
+let catalogues = 0;
+let flagships = 0;
 for (const c of countries) {
   const countryPage = read(`destinations/${c.code}`);
   if (!countryPage) {
@@ -303,7 +310,19 @@ for (const [key, inst] of known) {
     if (isHomepage(link, inst.website)) fail(`/universities/${key}/ hands the student to a homepage: ${link}`);
   }
   const rec = records.get(key);
-  if (rec?.scope === 'listed') {
+  /* Rule 13: a catalogue school says its degrees are taught in English and
+     hands on to its course search, in its study section. */
+  if (rec?.scope === 'catalogue') {
+    const study = (main.split('id="programmes"')[1] || '').split('data-slot="details"')[0];
+    const said = unescape((study.match(/data-taught="english"[^>]*>([^<]*)</)?.[1] || '').trim());
+    if (!/\btaught in English\b/.test(said)) fail(`/universities/${key}/: its study section does not say its degrees are taught in English`);
+    if (rec.handoff && !study.includes(`href="${rec.handoff.url.replace(/&/g, '&amp;')}"`)) {
+      fail(`/universities/${key}/: its study section does not hand on to its course search (${rec.handoff.url})`);
+    }
+    catalogues++;
+    flagships += pagedProgrammes(rec).length;
+  }
+  if (pagedProgrammes(rec).length) {
     const shown = (main.split('id="programmes"')[1] || '').match(/class="card card--link/g)?.length || 0;
     // One card per programme, or per family of paths (#52), which links to every path.
     const want = schoolCardGroups(rec.programmes).length;
@@ -443,5 +462,5 @@ if (!programmePages) {
   process.exit(1);
 }
 console.log(
-  `  ok    ${pages} school pages, ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} say why there is no date; every strip 8 tiles; ${ownChecked} dated tiles no later than their own text; ${beforeNotes} open on the record's notes), ${cards} institution cards on country pages; none hands a student to a homepage`
+  `  ok    ${pages} school pages (${catalogues} catalogue pages say they teach in English, ${flagships} flagships), ${programmePages} programme pages (${applyTiles} with Apply by, each from its programme or school and none only for Diploma holders; ${holdersTiles} say why there is no date; every strip 8 tiles; ${ownChecked} dated tiles no later than their own text; ${beforeNotes} open on the record's notes), ${cards} institution cards on country pages; none hands a student to a homepage`
 );

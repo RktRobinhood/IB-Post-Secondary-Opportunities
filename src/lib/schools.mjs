@@ -19,7 +19,19 @@ export function schoolKey(countryCode, inst) {
 }
 
 /**
- * Where each programme of a listed school record has its own page:
+ * The programmes of a school record that get a card and a page of their own:
+ * every English-taught degree of a `listed` record, and the few flagships a
+ * `catalogue` record picks from the university's own strengths pages
+ * (`flagshipSource` on each). A `none` record has none. The scope decides
+ * what the list means, never whether it gets pages.
+ */
+export const pagedProgrammes = (rec) => (rec && rec.scope !== 'none' ? rec.programmes || [] : []);
+
+/** Whether a record's programmes are a university's flagships, not its whole list. */
+export const isFlagshipList = (rec) => rec?.scope === 'catalogue' && pagedProgrammes(rec).length > 0;
+
+/**
+ * Where each programme of a school record has its own page:
  * /universities/<key>/<slug>/, the slug from the programme's name. Two
  * programmes with one name are told apart by their credential, then their
  * city, then their place in the record, so a slug is unique within its school
