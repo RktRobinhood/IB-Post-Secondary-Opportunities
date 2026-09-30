@@ -30,6 +30,10 @@ This page says where the work stands, so the next session (human or agent) start
 - **Portugal official-photo pilot:** 1 of 19 (an ISEG class; business-school
   sites are stock and events). The gap for business/economics/computing cards
   is a design question — a designed no-photo card (#67) — for the owner.
+- **Owner decision (30 Sep, late):** cards with no photo get a generated,
+  unique designed backdrop (field colour + a pattern seeded per programme,
+  full-bleed under the veil). Generic admissions photos are not used as degree
+  photos. First job after the reset; critic loop to accept (#67).
 - **Next after that:** the official-photo ladder for the business,
   economics and computing degrees every country skipped (Italy 49, NL 156,
   DE 35, SE 37, …), country by country; each critic's
