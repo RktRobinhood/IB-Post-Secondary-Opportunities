@@ -17,7 +17,112 @@
     "via": "CAO",
     "url": "https://www.tudublin.ie/study/undergraduate/cao/entry-routes/eu-applicants/"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Architecture",
+      "credential": "BArch (Hons)",
+      "years": 5,
+      "field": "design-architecture",
+      "url": "https://www.tudublin.ie/study/undergraduate/courses/architecture-tu832/",
+      "code": "TU832",
+      "about": "Studio-based design projects for buildings in urban and rural settings, alongside the history and theory of architecture, environment, construction, digital communication and law. Two years of postgraduate experience lead to the RIAI professional exam.",
+      "ib": "HL 5 in two subjects, with Maths and English at SL 4 (HL 3). A portfolio and an interview are required.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Maths HL 3 is also accepted"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "portfolio",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "Submit 10 to 20 pieces of work; it is assessed in a 20-minute interview in May about your motivation for architecture.",
+      "places": 70,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€3,000 a year, as TU Dublin lists it",
+      "flagshipSource": {
+        "title": "TU Dublin Architecture: a five-year BArch recognised internationally, with a route to RIAI membership",
+        "url": "https://www.tudublin.ie/study/undergraduate/courses/architecture-tu832/"
+      }
+    },
+    {
+      "name": "Drama (Performance)",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://www.tudublin.ie/study/undergraduate/courses/drama-performance-tu962/",
+      "code": "TU962",
+      "about": "Acting technique, voice and language in performance including Shakespeare, physical skills through movement, singing, dance and combat, and drama facilitation, taught at TU Dublin Conservatory. A small intake of 20.",
+      "ib": "English at SL 6 or HL 4, with HL 5 in two subjects. Irish is no longer asked for. Every applicant auditions.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 6,
+          "note": "English HL 4 is also accepted"
+        }
+      ],
+      "selection": [
+        "audition",
+        "grades"
+      ],
+      "selectionNote": "A three-hour audition: group workshop, a memorised 2 to 3 minute monologue, movement and a Q&A. A self-tape is possible if you cannot attend.",
+      "places": 20,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€3,000 a year, as TU Dublin lists it",
+      "flagshipSource": {
+        "title": "TU Dublin Drama (Performance): taught by the Conservatory, which has over 25 years' experience in drama training",
+        "url": "https://www.tudublin.ie/study/undergraduate/courses/drama-performance-tu962/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Humanities",
+      "url": "https://www.tudublin.ie/study/undergraduate/courses/drama-performance-tu962/",
+      "line": "Creative courses select by audition or portfolio; Drama (Performance) asks English SL 6 or HL 4, and Irish is dropped from 2027."
+    },
+    {
+      "name": "Faculty of Business",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/courses/business/",
+      "line": "Business degrees run across several campuses, each listing its own Maths and English grades on its course page."
+    },
+    {
+      "name": "Faculty of Computing, Digital and Data",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/courses/computing-it-data-analytics-mathematics/",
+      "line": "Computing, AI, cyber security, data and maths degrees at levels 6 to 8; Mathematics and Statistics asks Maths SL 6 or HL 4."
+    },
+    {
+      "name": "Faculty of Engineering and Built Environment",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/entry-requirements/maths-competency-test/",
+      "line": "Engineering (General Entry) needs HL Maths 5 or a pass in TU Dublin's Maths Competency Test; Architecture needs a portfolio and interview."
+    },
+    {
+      "name": "Faculty of Sciences and Health",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/courses/sciences-health/",
+      "line": "31 science and health courses across levels 6 to 8 and several campuses; each course page names its own science grade."
+    }
+  ],
   "notes": [
     "Architecture (TU832) selects with a portfolio and an interview, several art and design courses ask for a portfolio, and Music and Drama audition.",
     "From 2027 Drama (Performance) TU962 no longer requires Irish; it asks O2/H6 in English instead, which is IB SL 6 or HL 4."
@@ -62,6 +167,41 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "TU Dublin — Maths Competency Test for TU805",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/entry-requirements/maths-competency-test/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TU Dublin — Minimum entry requirements",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/entry-requirements/minimum-entry-requirements/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TU Dublin — CAO courses: Business",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/courses/business/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TU Dublin — CAO courses: Computing, IT, Data Analytics and Mathematics",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/courses/computing-it-data-analytics-mathematics/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TU Dublin — CAO courses: Sciences and Health",
+      "url": "https://www.tudublin.ie/study/undergraduate/cao/courses/sciences-health/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "TU Dublin — Faculties and Schools",
+      "url": "https://www.tudublin.ie/explore/faculties-and-schools/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

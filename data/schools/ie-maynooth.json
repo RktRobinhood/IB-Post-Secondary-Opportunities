@@ -26,7 +26,171 @@
       "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-music"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Bachelor of Music",
+      "credential": "BMus",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-music",
+      "code": "MH103",
+      "about": "Performance, composition and academic study together, from Irish traditional music and plainchant to popular music and musical theatre, with individual tuition, ensembles and a major in performance, composition or musicology in the final year.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including English and a third language; a video audition at Grade 6 standard is required.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A third language besides English and Irish"
+        }
+      ],
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Restricted course: list it on CAO by 1 February and pass an online video audition at Grade 6 standard; CAO points are not used. Irish is waived if you were not schooled in Ireland.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Maynooth Music: performance, composition and musicology, individual tuition and an entrance scholarship for MH103",
+        "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-music"
+      }
+    },
+    {
+      "name": "Bachelor of Engineering (Electronic Engineering)",
+      "credential": "BE",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-engineering",
+      "code": "MH304",
+      "about": "Electronic engineering with problem-based learning projects every year, accredited by Engineers Ireland, and an optional ME stream in fourth year with six months of industry work, Erasmus or a research internship.",
+      "ib": "HL Maths 5, SL 4 in English and a science or technology subject, and HL 5 in two subjects in all.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "computer-science",
+            "design-technology"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A science or technology subject"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points. Irish is part of the Leaving Certificate rule but is waived if you were not schooled in Ireland.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Maynooth Electronic Engineering: accredited by Engineers Ireland, problem-based projects each year",
+        "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-engineering"
+      }
+    },
+    {
+      "name": "Bachelor of Science",
+      "credential": "BSc",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-science",
+      "code": "MH201",
+      "about": "Start with four subjects from eight, Mathematics among them, across Biology, Chemistry, Computer Science, Physics, Mathematical Physics and more, then narrow to a specialised degree in later years.",
+      "ib": "Maths SL 5 or HL 3 and a lab science at SL 4, with HL 5 in two subjects in all.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 5,
+          "note": "Maths HL 3 is also accepted"
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "computer-science"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A science subject"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points. Some later specialisations need 60% in first-year subjects and have limited transfer places.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Maynooth Science: choose four subjects in first year, with Maths and Computer Science support centres",
+        "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-science"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Humanities",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-arts",
+      "line": "Arts (over 30 subjects) needs English and a third language, plus 2 HL 5 and 4 more passes; Music and Education Studies add steps."
+    },
+    {
+      "name": "Faculty of Science and Engineering",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-science",
+      "line": "Science needs Maths and a lab science; Engineering needs HL Maths 5; the new Computer Science and AI degree starts in 2027."
+    },
+    {
+      "name": "Faculty of Social Sciences",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-social-science",
+      "line": "Social Science (double major with Social Policy) needs English and a third language; the Community and Youth Work degree is restricted."
+    }
+  ],
   "notes": [
     "Irish is part of the NUI entry rule, but if you were not born or schooled in Ireland you qualify for an exemption, and Maynooth says only applicants from the Republic need to apply for one.",
     "Music (MH103) and Community and Youth Work (MH116) are restricted: list them by 1 February (or add them by 1 March), never in Change of Mind.",
@@ -92,6 +256,21 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Maynooth — Bachelor of Social Science MH107",
+      "url": "https://www.maynoothuniversity.ie/study-maynooth/undergraduate-studies/courses/bachelor-social-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Maynooth — Undergraduate fees (2026/27 student contribution)",
+      "url": "https://www.maynoothuniversity.ie/student-fees-grants/undergraduate",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

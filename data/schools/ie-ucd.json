@@ -17,7 +17,170 @@
     "via": "CAO",
     "url": "https://www.ucd.ie/registry/prospectivestudents/admissions/undergraduateapplicants/applyingviacao/"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Engineering",
+      "credential": "BE",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.ucd.ie/courses/bsc-engineering",
+      "code": "DN150",
+      "about": "One common first year across the engineering disciplines, then a free choice of specialisation: Civil, Mechanical, Electrical and Electronic, Chemical and Bioprocess, Biomedical and more. Accredited by Engineers Ireland, IChemE and IoM3.",
+      "ib": "33 points with HL Maths 5 and a lab science (Physics, Chemistry or Biology) at HL 4.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 4
+        }
+      ],
+      "points": 33,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; UCD may share places out by exam system and rank IB applicants among themselves.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + contribution",
+      "flagshipSource": {
+        "title": "UCD Engineering: seven specialisations after a common first year, accredited by Engineers Ireland, IChemE, IoM3",
+        "url": "https://www.ucd.ie/courses/bsc-engineering"
+      }
+    },
+    {
+      "name": "Veterinary Medicine",
+      "credential": "MVB",
+      "years": 5,
+      "field": "veterinary",
+      "url": "https://www.ucd.ie/courses/mvb-veterinary-medicine",
+      "code": "DN300",
+      "about": "Five years to become a vet: animal structure, function and welfare first, then disease, medicine and surgery, ending in clinical rotations in the UCD Veterinary Hospital, with 36 weeks of work placements along the way.",
+      "ib": "40 points with Chemistry HL 5 and Maths SL 4 or HL 3; 60 hours of animal-handling experience is also required.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Maths HL 3 is also accepted"
+        }
+      ],
+      "points": 40,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points after you record 60 hours of animal-handling experience with UCD (2026 rule: 2027 dates not yet published).",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + contribution",
+      "flagshipSource": {
+        "title": "UCD School of Veterinary Medicine: accredited by VCI, EAEVE and AVMA, with its own Veterinary Hospital",
+        "url": "https://www.ucd.ie/courses/mvb-veterinary-medicine"
+      }
+    },
+    {
+      "name": "Actuarial and Financial Studies",
+      "credential": "BAFS",
+      "years": 4,
+      "field": "mathematics",
+      "url": "https://www.ucd.ie/courses/bsc-actuarial-and-financial-studies",
+      "code": "DN230",
+      "about": "Mathematics, statistics, economics and finance for a career managing risk in insurance, pensions and investment; year 3 is a professional work placement of at least six months.",
+      "ib": "42 points with HL Maths 6.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 42,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; UCD may share places out by exam system and rank IB applicants among themselves.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + contribution",
+      "flagshipSource": {
+        "title": "UCD Actuarial & Financial Studies: a four-year degree with a professional work placement of at least six months",
+        "url": "https://www.ucd.ie/courses/bsc-actuarial-and-financial-studies"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Arts and Humanities",
+      "url": "https://www.ucd.ie/myucd/courses/arts-humanities/",
+      "line": "Humanities (DN530) and Joint Honours (DN520) are multi-subject entries: you apply once and choose subjects within them."
+    },
+    {
+      "name": "Business",
+      "url": "https://www.ucd.ie/myucd/courses/business/",
+      "line": "Four business degrees, from Commerce to Business & Law; pick the one that fits your quantitative or language strengths."
+    },
+    {
+      "name": "Engineering",
+      "url": "https://www.ucd.ie/myucd/courses/engineering/",
+      "line": "One common-entry engineering degree, then a free choice of specialisation; HL Maths 5 and a HL lab science 4."
+    },
+    {
+      "name": "Science, Computer Science and Actuarial & Financial Studies",
+      "url": "https://www.ucd.ie/myucd/courses/science/",
+      "line": "Science is common entry with streams; Actuarial & Financial Studies asks IB 42 with HL Maths 6."
+    },
+    {
+      "name": "Health Sciences",
+      "url": "https://www.ucd.ie/myucd/courses/health-sciences/",
+      "line": "Medicine, Radiography, Nursing, Midwifery, Physiotherapy and Sports Science; Medicine adds HPAT-Ireland."
+    },
+    {
+      "name": "Veterinary Medicine",
+      "url": "https://www.ucd.ie/myucd/courses/veterinary-medicine/",
+      "line": "DN300 asks IB 40, Chemistry HL 5 and 60 hours of recorded animal-handling experience."
+    },
+    {
+      "name": "Agriculture, Food and Nutrition",
+      "url": "https://www.ucd.ie/myucd/courses/agriculture-food-nutrition/",
+      "line": "Agricultural Science, Food Science, Forestry, Horticulture and Human Nutrition, taught in one School."
+    },
+    {
+      "name": "Architecture, Planning and Environmental Policy",
+      "url": "https://www.ucd.ie/myucd/courses/architecture/",
+      "line": "Architecture, Landscape Architecture and City Planning are taught together in one School."
+    },
+    {
+      "name": "Law",
+      "url": "https://www.ucd.ie/myucd/courses/law/",
+      "line": "Law (BCL) alone, or paired with Business, History, Irish, Philosophy, Politics, Economics, Social Justice or French."
+    },
+    {
+      "name": "Social Sciences",
+      "url": "https://www.ucd.ie/myucd/courses/social-sciences/",
+      "line": "Degrees on how societies work, from justice and sustainable cities to economics and big data."
+    }
+  ],
   "notes": [
     "Irish is part of UCD's entry rule, but you are exempt automatically if you were born outside the island of Ireland, live abroad and present the IB.",
     "Where one exam system dominates a course's applicants, UCD may share its places out by system and rank IB applicants among themselves.",
@@ -68,6 +231,71 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCD — Free Fees Initiative",
+      "url": "https://www.ucd.ie/students/fees/freefeesinitiative/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Fees and funding for EU undergraduates",
+      "url": "https://www.ucd.ie/myucd/fees-funding/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Arts & Humanities)",
+      "url": "https://www.ucd.ie/myucd/courses/arts-humanities/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Business)",
+      "url": "https://www.ucd.ie/myucd/courses/business/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Engineering)",
+      "url": "https://www.ucd.ie/myucd/courses/engineering/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Science, Computer Science, Actuarial)",
+      "url": "https://www.ucd.ie/myucd/courses/science/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Health Sciences)",
+      "url": "https://www.ucd.ie/myucd/courses/health-sciences/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Veterinary Medicine)",
+      "url": "https://www.ucd.ie/myucd/courses/veterinary-medicine/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Agriculture, Food & Nutrition)",
+      "url": "https://www.ucd.ie/myucd/courses/agriculture-food-nutrition/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Architecture, Planning & Environmental Policy)",
+      "url": "https://www.ucd.ie/myucd/courses/architecture/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Law)",
+      "url": "https://www.ucd.ie/myucd/courses/law/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCD — Courses by discipline (Social Sciences)",
+      "url": "https://www.ucd.ie/myucd/courses/social-sciences/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

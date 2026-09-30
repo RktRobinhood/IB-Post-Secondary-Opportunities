@@ -17,7 +17,254 @@
     "via": "CAO",
     "url": "https://www.ul.ie/academic-registry/prospective-students/applying-ul/eu-applicants"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine (Undergraduate Entry)",
+      "credential": "BMBS",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://www.ul.ie/study/undergraduate/undergraduate-entry-medicine-bmbs",
+      "requirementsUrl": "https://www.ul.ie/study/undergraduate/undergraduate-entry-medicine-bmbs/entry-requirements",
+      "code": "LM301",
+      "about": "An integrated six-year course for school-leavers: early patient contact and case-based learning, moving from a biomedical foundation to clinical placements, with Garda Vetting and fitness to practise checks.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including English, another language, a lab science and Maths. HPAT-Ireland is required.",
+      "needs": [
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "A foundation-level pass is enough"
+        }
+      ],
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "HPAT-Ireland in your year of entry, and at least 480 CAO points from one sitting; points above 550 are moderated.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€8,954 a year, UL EU fee",
+      "flagshipSource": {
+        "title": "UL Medicine: an integrated six-year course with early patient exposure and case-based learning",
+        "url": "https://www.ul.ie/study/undergraduate/undergraduate-entry-medicine-bmbs"
+      }
+    },
+    {
+      "name": "Financial Mathematics",
+      "credential": "BSc",
+      "years": 4,
+      "field": "mathematics",
+      "url": "https://www.ul.ie/study/undergraduate/financial-mathematics-bsc",
+      "requirementsUrl": "https://www.ul.ie/study/undergraduate/financial-mathematics-bsc/entry-requirements",
+      "code": "LM058",
+      "about": "Maths, statistics and computing applied to business, finance and banking, for people who enjoy mathematics and want a career in finance.",
+      "ib": "HL Maths 6, with HL 5 in two subjects and SL 4 in four more, including English and another language.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points. A Special Mathematics Examination is offered after results to students who miss the Maths grade.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€7,366 a year, UL EU fee",
+      "flagshipSource": {
+        "title": "UL Financial Mathematics: maths, statistics and computing for careers in business, finance and banking",
+        "url": "https://www.ul.ie/study/undergraduate/financial-mathematics-bsc"
+      }
+    },
+    {
+      "name": "Architecture",
+      "credential": "BArch",
+      "years": 5,
+      "field": "design-architecture",
+      "url": "https://www.ul.ie/study/undergraduate/architecture-barch",
+      "requirementsUrl": "https://www.ul.ie/study/undergraduate/architecture-barch/entry-requirements",
+      "code": "LM099",
+      "about": "Drawing, model making, CAD and design thinking alongside environmental and structural engineering, in a hands-on course fully accredited by the Royal Institute of the Architects of Ireland, with a cooperative education placement.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including English, Maths and another language. A digital portfolio and statement are required.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "A foundation-level pass is enough"
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        }
+      ],
+      "selection": [
+        "portfolio",
+        "grades"
+      ],
+      "selectionNote": "A digital portfolio and written statement earn up to 200 points on top of your CAO points; the 2027 portfolio guidelines are due in October 2026.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€7,366 a year, UL EU fee",
+      "flagshipSource": {
+        "title": "UL Architecture: fully accredited by the RIAI, with a cooperative education placement",
+        "url": "https://www.ul.ie/study/undergraduate/architecture-barch"
+      }
+    },
+    {
+      "name": "Irish Music",
+      "credential": "BA",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://www.ul.ie/study/undergraduate/irish-music-ba",
+      "requirementsUrl": "https://www.ul.ie/study/undergraduate/irish-music-ba/entry-requirements",
+      "code": "LM131",
+      "about": "Artistic development and the academic study of Irish traditional music, with performance at the heart of it, taught in the Irish World Academy building, plus a period of cooperative education.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including English, Maths and another language. Every applicant auditions.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "A foundation-level pass is enough"
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        }
+      ],
+      "selection": [
+        "audition",
+        "grades"
+      ],
+      "selectionNote": "Audition in April 2027, in person or by video with a remote interview: three sets of tunes or three songs. It earns up to 200 points on top of CAO points.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€7,366 a year, UL EU fee",
+      "flagshipSource": {
+        "title": "UL Irish Music: taught in the Irish World Academy building, with cooperative education",
+        "url": "https://www.ul.ie/study/undergraduate/irish-music-ba"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts, Humanities and Social Sciences",
+      "url": "https://www.ul.ie/study/undergraduate/irish-music-ba/entry-requirements",
+      "line": "Every degree needs English, Maths and another language; Irish Music also auditions everyone for up to 200 extra points."
+    },
+    {
+      "name": "Faculty of Education and Health Sciences",
+      "url": "https://www.ul.ie/study/undergraduate/undergraduate-entry-medicine-bmbs/entry-requirements",
+      "line": "Medicine asks HPAT-Ireland, 480 CAO points from one sitting and a lab science at SL 4."
+    },
+    {
+      "name": "Faculty of Science and Engineering",
+      "url": "https://www.ul.ie/study/undergraduate/financial-mathematics-bsc/entry-requirements",
+      "line": "Financial Mathematics asks HL Maths 6; Architecture grades a portfolio for up to 200 extra points."
+    },
+    {
+      "name": "Kemmy Business School",
+      "url": "https://www.ul.ie/study/undergraduate/business-studies-bbs/entry-requirements",
+      "line": "Business Studies asks Maths at SL 5 or HL 3 with English and another language, and offers a co-op placement."
+    }
+  ],
   "notes": [
     "Medicine (LM301) takes school-leavers for six years: HPAT in your year of entry, at least 480 points from one sitting, and one science subject.",
     "Architecture (BArch) grades a digital portfolio and written statement for up to 200 extra points; the 2027 guidelines are due in October 2026.",
@@ -58,6 +305,36 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB: '2 H5' minimum, Table 1)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UL — Medicine (Undergraduate Entry) LM301",
+      "url": "https://www.ul.ie/study/undergraduate/undergraduate-entry-medicine-bmbs",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UL — Financial Mathematics LM058",
+      "url": "https://www.ul.ie/study/undergraduate/financial-mathematics-bsc",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UL — Architecture BArch LM099",
+      "url": "https://www.ul.ie/study/undergraduate/architecture-barch",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UL — Irish Music BA LM131",
+      "url": "https://www.ul.ie/study/undergraduate/irish-music-ba",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UL — Business Studies LM050 entry requirements",
+      "url": "https://www.ul.ie/study/undergraduate/business-studies-bbs/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

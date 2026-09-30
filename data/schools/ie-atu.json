@@ -17,7 +17,101 @@
     "via": "CAO",
     "url": "https://www.atu.ie/study/undergraduate/undergraduate-entry-routes/eu-applicants"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Mechanical Engineering (Sligo)",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.atu.ie/courses/bachelor-of-engineering-honours-mechanical-engineering-sligo-full-time",
+      "code": "AU943",
+      "about": "Theory, practicals and workshops in mechanical and manufacturing engineering, with CAD/CAM, automation, 3D printing and CNC facilities, ethics and sustainability, and a work placement in year 3, semester 2.",
+      "ib": "HL Maths 5 and SL 4 in English, inside the CAO rule of HL 5 in two subjects and SL 4 in four more.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points. ATU may share places out by exam system and rank IB applicants among themselves.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€2,500 a year, as ATU lists it",
+      "flagshipSource": {
+        "title": "ATU Mechanical Engineering: CAD/CAM and CNC labs; final-year projects have won national competitions",
+        "url": "https://www.atu.ie/courses/bachelor-of-engineering-honours-mechanical-engineering-sligo-full-time"
+      }
+    },
+    {
+      "name": "Fine Art (Sligo)",
+      "credential": "BA (Hons)",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://www.atu.ie/courses/bachelor-of-arts-honours-fine-art",
+      "code": "AU928",
+      "about": "Drawing, painting, digital media, photography and video, ceramics, printmaking and sculpture, building your own artistic practice through research and self-directed work in a new creative teaching hub with dedicated studios.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including English. Maths is not required. An online portfolio is required.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "portfolio",
+        "grades"
+      ],
+      "selectionNote": "An online portfolio of ten finished works plus studies and notebooks earns up to 100 points. 2026 rounds were 20 March, 8 May and 5 July; 2027 dates not yet published.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "€2,500 a year, as ATU lists it",
+      "flagshipSource": {
+        "title": "ATU Fine Art: taught in a new €17 million creative teaching hub with dedicated studios and workshops",
+        "url": "https://www.atu.ie/courses/bachelor-of-arts-honours-fine-art"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering and Computing",
+      "url": "https://www.atu.ie/study/undergraduate/study-engineering",
+      "line": "Common-entry engineering at three campuses, Level 7 or Level 8; Sligo Mechanical Engineering asks HL Maths 5."
+    },
+    {
+      "name": "Faculty of Science and Health",
+      "url": "https://www.atu.ie/study/undergraduate/study-science-and-health",
+      "line": "Science (Common Entry) lets you choose your specialisation later; courses run on six campuses."
+    },
+    {
+      "name": "Faculty of Business",
+      "url": "https://www.atu.ie/study/undergraduate/study-business",
+      "line": "Business courses on five campuses from Level 6 to four-year Level 8 honours, with common entry at Donegal."
+    },
+    {
+      "name": "Faculty of Design, Education and Social Science",
+      "url": "https://www.atu.ie/study/undergraduate/study-design-and-creative-arts",
+      "line": "Over 30 design and creative arts courses on four campuses; Fine Art asks for an online portfolio worth up to 100 points."
+    }
+  ],
   "notes": [
     "Where one exam system dominates a course's applicants, ATU may share its places out by system and rank IB applicants among themselves.",
     "Art, Fine Art and Animation ask for a portfolio as well as points.",
@@ -53,6 +147,36 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB English minimum, Table 1)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "ATU — Study engineering",
+      "url": "https://www.atu.ie/study/undergraduate/study-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ATU — Study science and health",
+      "url": "https://www.atu.ie/study/undergraduate/study-science-and-health",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ATU — Study business",
+      "url": "https://www.atu.ie/study/undergraduate/study-business",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ATU — Study design and creative arts",
+      "url": "https://www.atu.ie/study/undergraduate/study-design-and-creative-arts",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ATU — Faculties",
+      "url": "https://www.atu.ie/faculties",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

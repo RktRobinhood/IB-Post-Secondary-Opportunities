@@ -17,7 +17,204 @@
     "via": "CAO",
     "url": "https://www.ucc.ie/en/study/undergrad/entryreqs/euapply/"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine",
+      "credential": "MB BCh BAO (Hons)",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.ucc.ie/en/ck701/",
+      "code": "CK701",
+      "about": "Five years rooted in anatomy, physiology and biochemistry, with small-group, patient-centred teaching in listening, history-taking and clinical examination from the start, and a research project for every student in the final year.",
+      "ib": "HL 5 in Chemistry and in Physics or Biology; SL 4 in English, Maths and another language. HPAT-Ireland is required in your year of entry.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "physics",
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        }
+      ],
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "HPAT-Ireland counts for up to 150 CAO points from 2027, and points above 550 are no longer moderated. Sit the test in the year you enter.",
+      "places": 120,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "UCC Medicine: small-group, patient-centred teaching, and a research project for every student in final year",
+        "url": "https://www.ucc.ie/en/ck701/"
+      }
+    },
+    {
+      "name": "Engineering",
+      "credential": "BE (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.ucc.ie/en/ck600/",
+      "code": "CK600",
+      "about": "A common first year in maths, physics, chemistry and the four engineering branches, then your pathway: Civil, Structural and Environmental; Electrical and Electronic; Energy; or Process and Chemical. A five-year ME is optional.",
+      "ib": "HL Maths 5, a lab science or technology subject at SL 4 and one more HL 5 subject, plus SL 4 in English and another language.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "design-technology",
+            "computer-science"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A lab science or technology subject"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points: IB totals are converted with the CAO table, plus 25 points for HL Maths 4 or better. You are guaranteed one of your top two pathways after year 1.",
+      "places": 150,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "UCC Engineering: Engineers Ireland and Washington Accord recognition, with paid work placements",
+        "url": "https://www.ucc.ie/en/ck600/"
+      }
+    },
+    {
+      "name": "Commerce",
+      "credential": "BComm (Hons)",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.ucc.ie/en/ck201/",
+      "code": "CK201",
+      "about": "Business economics, law, management, marketing, information systems and statistics, with five majors to choose from in year 4 and a six-month internship or a semester abroad in year 3.",
+      "ib": "HL 5 in two subjects, and SL 4 in English, Maths and another language.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points: your IB total is converted with the CAO table. Two subjects must be at HL 5 or better.",
+      "places": 214,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "UCC Commerce: five majors in year 4, internships for up to 170 students a year",
+        "url": "https://www.ucc.ie/en/ck201/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Arts, Celtic Studies and Social Sciences",
+      "url": "https://www.ucc.ie/en/cacsss/future-undergrads/",
+      "line": "2026 Round 1 points ran from 300 (Arts) to 543 (Applied Psychology); most Arts subjects add a third language."
+    },
+    {
+      "name": "College of Business and Law",
+      "url": "https://www.ucc.ie/en/buslaw/prospective/",
+      "line": "Commerce asks HL 5 in two subjects plus English, Maths and another language; 2026 points ran from 445 to 577."
+    },
+    {
+      "name": "College of Science, Engineering and Food Science",
+      "url": "https://www.ucc.ie/en/sefs/undergraduate/",
+      "line": "Engineering needs HL Maths 5; 2026 Round 1 points ran from 384 to 589."
+    },
+    {
+      "name": "College of Medicine and Health",
+      "url": "https://www.ucc.ie/en/study/undergrad/entryreqs/",
+      "line": "Medicine needs HL 5 in Chemistry and in Physics or Biology, plus HPAT; 2026 points ran from 387 to 735."
+    }
+  ],
   "notes": [
     "Irish is part of UCC's entry rule, but you are exempt automatically if you were born and fully educated outside the Republic of Ireland.",
     "Engineering (CK600) needs H4 in Maths, which is IB HL Maths 5 on CAO's comparison table.",
@@ -63,6 +260,36 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "UCC — Entry requirements and points: places and 2026 Round 1 points by college",
+      "url": "https://www.ucc.ie/en/study/undergrad/entryreqs/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCC — EU undergraduate fees 2026/27 (Free Fees Initiative; student contribution €2,500)",
+      "url": "https://www.ucc.ie/en/financeoffice/fees/schedules/euundergraduatefees202627/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCC College of Arts, Celtic Studies and Social Sciences — future undergraduates",
+      "url": "https://www.ucc.ie/en/cacsss/future-undergrads/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCC College of Business and Law — prospective students",
+      "url": "https://www.ucc.ie/en/buslaw/prospective/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCC College of Science, Engineering and Food Science — undergraduate",
+      "url": "https://www.ucc.ie/en/sefs/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

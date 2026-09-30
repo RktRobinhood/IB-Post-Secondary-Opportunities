@@ -17,7 +17,178 @@
     "via": "CAO",
     "url": "https://www.setu.ie/study/undergraduate-study/cao-courses"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Veterinary Medicine",
+      "credential": "MVB",
+      "years": 5,
+      "field": "veterinary",
+      "url": "https://www.setu.ie/courses/mvb-in-veterinary-medicine",
+      "code": "SE526",
+      "about": "A new five-year veterinary degree in Waterford that moves from animal biology and welfare through disease diagnosis, clinical medicine and surgery to professional practice, with placements in small and large animal clinics and hospitals.",
+      "ib": "HL 5 in two subjects, one of them Chemistry or Biology, and SL 4 in four more, including English and Maths. 60 hours of animal work experience.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry",
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "2026 criteria; 2027 not yet published. Places go on CAO points, after 60 hours of veterinary or animal-husbandry work experience within three years of applying.",
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "SETU prospectus: Veterinary Medicine is one of two new degrees SETU was chosen to offer from 2026-27",
+        "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=59"
+      }
+    },
+    {
+      "name": "Pharmacy",
+      "credential": "MPharm",
+      "years": 5,
+      "field": "health",
+      "url": "https://www.setu.ie/courses/master-of-pharmacy-mpharm",
+      "code": "SE525",
+      "about": "A five-year integrated Master of Pharmacy in Waterford: drug formulation, pharmacology, patient care and professional ethics, with placements in community and hospital pharmacies and a research project in the final year.",
+      "ib": "HL 5 in Chemistry and in Biology or Physics, and SL 4 in four more subjects, including English and Maths.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "biology",
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "2026 criteria; 2027 not yet published. Places go on CAO points, with a medical declaration and screening, and police clearance if you lived abroad over 6 months after age 12.",
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "SETU prospectus: Master of Pharmacy is one of two new degrees SETU was chosen to offer from 2026-27",
+        "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=52"
+      }
+    },
+    {
+      "name": "Engineering (Common Entry, Waterford)",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.setu.ie/courses/bachelor-of-engineering-hons-common-entry",
+      "code": "SE700",
+      "about": "One first year to try Automation, Electrical, Electronic, Sustainable Civil and Sustainable Energy engineering, then you pick the honours degree that fits, with a new engineering building under construction in Waterford.",
+      "ib": "Maths SL 6 or HL 4, with HL 5 in two subjects and SL 4 in four more, including English.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 6,
+          "note": "Maths HL 4 is also accepted"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "2026 criteria; 2027 not yet published. Places go on CAO points; IB totals are converted with the CAO's points table.",
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "SETU prospectus: Engineering Common Entry, five BEng (Hons) degrees from one first year",
+        "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=33"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Engineering",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=33",
+      "line": "Engineering (Common Entry, Waterford) asks Maths SL 6 or HL 4 and two subjects at HL 5 (2026 entry)."
+    },
+    {
+      "name": "Science",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=52",
+      "line": "Science (Common Entry) asks Maths and English at SL 4; Pharmacy asks HL 5 in Chemistry and in Biology or Physics (2026 entry)."
+    },
+    {
+      "name": "Veterinary, Agriculture, Horticulture and Forestry",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=59",
+      "line": "Veterinary Medicine asks HL 5 in Chemistry or Biology and 60 hours of animal work experience (2026 entry)."
+    },
+    {
+      "name": "Computing",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=63",
+      "line": "Computer Science (Common Entry, Waterford) is a four-year degree with streams such as Cloud and Networks."
+    },
+    {
+      "name": "Business",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=10",
+      "line": "Business (Common Entry) asks HL 5 in two subjects, plus English and Maths at SL 4; you pick a stream later (2026 entry)."
+    },
+    {
+      "name": "Media, Design and Music",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=43",
+      "line": "Music (SE206) holds an audition; Art (SE207) combines CAO points with a portfolio (2026 entry)."
+    }
+  ],
   "notes": [
     "The same subject is often taught on more than one campus under different CAO codes, so check the campus before you list a code.",
     "Music (SE206) selects by audition; Art (SE207) and the Sports Management and Coaching degrees ask for a portfolio."
@@ -52,6 +223,51 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (International Baccalaureate, Table 1)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "SETU — Undergraduate prospectus 2026 (2026 entry: Engineering, Science, Pharmacy, Veterinary, Computing, Business, Media and Music)",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU — MVB in Veterinary Medicine SE526",
+      "url": "https://www.setu.ie/courses/mvb-in-veterinary-medicine",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU prospectus 2026, page 43: Media, Design and Music",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=43",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU prospectus 2026, page 10: Business",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=10",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU prospectus 2026, page 63: Computing",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=63",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU prospectus 2026, page 33: Engineering Common Entry SE700",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=33",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU prospectus 2026, page 52: Science and Master of Pharmacy SE525",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=52",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SETU prospectus 2026, page 59: Veterinary Medicine SE526",
+      "url": "https://www.setu.ie/Craft/assets/downloads/SETU-prospectus-2026-compressed.pdf#page=59",
+      "retrieved": "2026-09-30"
     }
   ]
 }

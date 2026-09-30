@@ -17,7 +17,148 @@
     "via": "CAO",
     "url": "https://www.mtu.ie/international/eu-applicants/"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Fine Art",
+      "credential": "BA (Hons)",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://www.mtu.ie/courses/mt821/",
+      "code": "MT821",
+      "about": "A studio-based degree at MTU Crawford College of Art and Design covering painting, drawing, sculpture, print, photography, performance, sound, video and digital media, with your own creative development set in art history and critical thought.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including English. A portfolio is required.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "portfolio",
+        "grades"
+      ],
+      "selectionNote": "Restricted course: list it on CAO by 1 February; shortlisted applicants submit a portfolio in March and offers follow the portfolio results. Maths is not required.",
+      "places": 45,
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "MTU Crawford Fine Art: a studio-based programme in its own college of art and design",
+        "url": "https://www.mtu.ie/courses/mt821/"
+      }
+    },
+    {
+      "name": "Mechanical and Manufacturing Engineering",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.mtu.ie/courses/mt834/",
+      "code": "MT834",
+      "about": "Mechanical and manufacturing engineering taught together: product and process design, with augmented and virtual reality tools, blended classroom and hands-on learning, and a formal work placement across years 3 and 4.",
+      "ib": "HL 5 in two subjects and SL 4 in four more, including Maths and English. Honours-level Maths is not required. A portfolio is required.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Maths HL 3 is also accepted"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "portfolio",
+        "grades"
+      ],
+      "selectionNote": "Your digital portfolio and CAO points count 50/50, up to 600 points each; submit the portfolio by the end of April.",
+      "places": 32,
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "MTU REEdI Engineering: just-in-time learning with cutting-edge technologies and industry partners",
+        "url": "https://www.mtu.ie/courses/mt834/"
+      }
+    },
+    {
+      "name": "Software Development",
+      "credential": "BSc (Hons)",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.mtu.ie/courses/mt800/",
+      "code": "MT800",
+      "about": "A four-year software degree on the Bishopstown campus in Cork, with a work placement from January of year 3 arranged countrywide, with a focus on Cork and Dublin employers.",
+      "ib": "Maths at SL 6 or HL 3, with HL 5 in two subjects and SL 4 in four more, including English.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 6,
+          "note": "Maths HL 3 is also accepted"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; your IB total is converted with the CAO's points table.",
+      "places": 40,
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "MTU Software Development: a work placement from January of year 3, organised countrywide",
+        "url": "https://www.mtu.ie/courses/mt800/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering and Science",
+      "url": "https://www.mtu.ie/courses/mt831/",
+      "line": "Structural Engineering needs HL Maths 5; Mechanical and Manufacturing Engineering does not ask honours Maths but weighs a portfolio."
+    },
+    {
+      "name": "Faculty of Business and Humanities",
+      "url": "https://www.mtu.ie/courses/mt941/",
+      "line": "Business (MT941) asks Maths at SL 4 or HL 3 and English, with 2 HL 5, and includes a work placement in year 3."
+    },
+    {
+      "name": "Crawford College of Art and Design",
+      "url": "https://www.mtu.ie/courses/mt821/",
+      "line": "Fine Art and other art degrees are restricted: list by 1 February and submit a portfolio in March."
+    },
+    {
+      "name": "Cork School of Music",
+      "url": "https://www.mtu.ie/courses/mt936/",
+      "line": "Music (BMus) is restricted access: an entrance test with performance, aural and written parts, and 30 places."
+    },
+    {
+      "name": "National Maritime College of Ireland",
+      "url": "https://www.mtu.ie/courses/mt766/",
+      "line": "Nautical Science is a Level 7 degree with a medical and eyesight test, normally for EU citizens ordinarily resident in Ireland."
+    }
+  ],
   "notes": [
     "Art and design courses at MTU Crawford, such as Fine Art (MT821), are restricted: list them by 1 February, and you are invited to submit a portfolio in March.",
     "Mechanical and Manufacturing Engineering (MT834) weighs a digital portfolio equally with your CAO points."
@@ -62,6 +203,26 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "MTU — Business (Common Entry) (MT941)",
+      "url": "https://www.mtu.ie/courses/mt941/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MTU — BMus (Hons) in Music (MT936)",
+      "url": "https://www.mtu.ie/courses/mt936/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MTU — BSc in Nautical Science (MT766)",
+      "url": "https://www.mtu.ie/courses/mt766/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

@@ -18,7 +18,150 @@
     "via": "CAO",
     "url": "https://www.tcd.ie/study/apply/making-an-application/undergraduate/cao/"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine",
+      "credential": "MB BCh BAO",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.tcd.ie/courses/undergraduate/courses/medicine/",
+      "code": "TR051",
+      "about": "Five years of medicine in Dublin: the biomedical sciences first, clinical training starting early through problem-based learning and small groups, then hospital placements as a member of the care team.",
+      "ib": "HL 5 and 6 in two of Physics, Chemistry and Biology (Maths SL 5 if you have no Physics), inside Trinity's six-subject rule. HPAT-Ireland is required.",
+      "needs": [
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "Two of these sciences: one at 6, the other at 5"
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 5,
+          "note": "Only if you do not present Physics"
+        }
+      ],
+      "selection": [
+        "entrance-exam",
+        "grades"
+      ],
+      "selectionNote": "Every EU applicant sits HPAT-Ireland in the year they enter, and needs at least 480 CAO points; places go on CAO points and the test.",
+      "places": 136,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Trinity School of Medicine: founded in 1711, a central role in Irish medicine (course page)",
+        "url": "https://www.tcd.ie/courses/undergraduate/courses/medicine/"
+      }
+    },
+    {
+      "name": "Engineering",
+      "credential": "BAI (Hons) / MAI",
+      "years": 5,
+      "field": "engineering",
+      "url": "https://www.tcd.ie/courses/undergraduate/courses/engineering/",
+      "code": "TR032",
+      "about": "Two common years of mathematics, physics, chemistry and computing, then a choice of six engineering disciplines; five years lead to a Masters, with a BAI honours degree as an optional exit.",
+      "ib": "HL Mathematics 5 (AA strongly recommended), inside Trinity's rule of 3 HL at 5 and 3 SL at 4, including English and another language.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5,
+          "note": "Analysis and Approaches strongly recommended"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points alone; Trinity converts your IB total with its own table and adds 25 points for HL Maths at grade 4 or better.",
+      "places": 195,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Engineering at Trinity: taught since 1841, accredited by Engineers Ireland, dual Masters with Columbia",
+        "url": "https://www.tcd.ie/courses/undergraduate/courses/engineering/"
+      }
+    },
+    {
+      "name": "Philosophy",
+      "credential": "BA (Hons)",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://www.tcd.ie/courses/undergraduate/courses/philosophy/",
+      "code": "TR005",
+      "about": "Reason and argument applied to existence, value and society: metaphysics, epistemology, ethics, political philosophy and philosophy of mind, with room to specialise in the later years. A small intake of 20.",
+      "ib": "No extra subject: Trinity's rule of 3 HL at 5 and 3 SL at 4, including English, Maths and another language.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points alone; Trinity converts your IB total with its own table (36 IB points is about 496 CAO points).",
+      "places": 20,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Philosophy at Trinity: analytic approach, specialists, graduates winning International Undergraduate Awards prizes",
+        "url": "https://www.tcd.ie/courses/undergraduate/courses/philosophy/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts, Humanities and Social Sciences",
+      "url": "https://www.tcd.ie/ahss/study/ug-and-pg/",
+      "line": "Twelve schools teach its undergraduate courses; each course page states its own extra requirements."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://www.tcd.ie/courses/undergraduate/courses/medicine/",
+      "line": "Medicine needs two HL sciences (5 and 6), at least 480 CAO points and HPAT-Ireland in your year of entry."
+    },
+    {
+      "name": "Faculty of Science, Technology, Engineering and Mathematics",
+      "url": "https://www.tcd.ie/stem/undergraduate/",
+      "line": "Engineering and Computer Science ask HL Maths 5; Mathematics asks HL Maths 6."
+    }
+  ],
   "notes": [
     "Medicine (TR051) is restricted: you sit HPAT-Ireland in your year of entry, and IB applicants need HL 6 and 5 in two of Physics, Chemistry and Biology.",
     "The Bachelor in Acting is not on CAO: you apply through The Lir Academy by early February and audition between November and March.",
@@ -74,6 +217,46 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (International Baccalaureate, pp. 91–92)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Trinity — Philosophy (TR005): places, department claims",
+      "url": "https://www.tcd.ie/courses/undergraduate/courses/philosophy/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Trinity — Computer Science (TR033): IB requirement",
+      "url": "https://www.tcd.ie/courses/undergraduate/courses/computer-science/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Trinity — Undergraduate fees, EU 2026/27 (student contribution €2,500)",
+      "url": "https://www.tcd.ie/courses/undergraduate/fees/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Trinity — Faculty of Arts, Humanities and Social Sciences: study",
+      "url": "https://www.tcd.ie/ahss/study/ug-and-pg/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Trinity — STEM Faculty: undergraduate",
+      "url": "https://www.tcd.ie/stem/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Trinity — Faculties and Schools",
+      "url": "https://www.tcd.ie/structure/faculties-and-schools/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Trinity — What fees do I need to pay (student contribution; HEA tuition funding)",
+      "url": "https://www.tcd.ie/academicregistry/fees-and-payments/what-fees-do-I-need-to-pay/",
+      "retrieved": "2026-09-30"
     }
   ]
 }

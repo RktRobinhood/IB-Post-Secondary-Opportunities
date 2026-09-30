@@ -17,7 +17,127 @@
     "via": "CAO",
     "url": "https://www.dcu.ie/registry/undergraduate-application-procedures-registry"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Computer Science",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-computing/computer-science",
+      "code": "DC121",
+      "about": "Algorithms, software engineering, cloud computing, networks and systems architecture, with machine learning and cybersecurity later on, plus a paid six-month INTRA work placement in year 3.",
+      "ib": "Maths SL 5 or HL 4, inside the CAO's general IB rule of 3 HL at 5 and 3 SL at 4.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 5,
+          "note": "Maths HL 4 is also accepted"
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; your IB total is converted with the CAO's points table.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + contribution",
+      "flagshipSource": {
+        "title": "DCU Computer Science: paid six-month INTRA work placement, graduate employment and further study figures",
+        "url": "https://www.dcu.ie/courses/undergraduate/school-computing/computer-science"
+      }
+    },
+    {
+      "name": "Actuarial Mathematics",
+      "credential": "BSc",
+      "years": 4,
+      "field": "mathematics",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-mathematical-sciences/actuarial-mathematics",
+      "code": "DC126",
+      "about": "Calculus, linear algebra, probability, statistics and computing in years 1 and 2, then applied methods for insurance, finance and banking; year 3 is an eight-month paid INTRA placement.",
+      "ib": "HL Maths 6, inside the CAO's general IB rule of 3 HL at 5 and 3 SL at 4.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; graduates may be exempt from some or all of the Institute and Faculty of Actuaries' Core Principles exams.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + contribution",
+      "flagshipSource": {
+        "title": "DCU Actuarial Mathematics: accredited by the Institute and Faculty of Actuaries, with an eight-month paid placement",
+        "url": "https://www.dcu.ie/courses/undergraduate/school-mathematical-sciences/actuarial-mathematics"
+      }
+    },
+    {
+      "name": "Journalism",
+      "credential": "BA",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-communications/journalism",
+      "code": "DC132",
+      "about": "Reporting and writing for digital, social, print and broadcast, with media law, ethics and the politics and society you report on; radio and television studios, mock news days and a mandatory eight-week media placement.",
+      "ib": "English at HL 5 (the CAO equivalent of Leaving Cert H4), inside the CAO's general IB rule of 3 HL at 5 and 3 SL at 4.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "HL",
+          "grade": 5
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; the eight-week placement is arranged or approved by DCU through its INTRA programme.",
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + contribution",
+      "flagshipSource": {
+        "title": "DCU Journalism: radio and TV studios, mock news days and a mandatory media placement",
+        "url": "https://www.dcu.ie/courses/undergraduate/school-communications/journalism"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "DCU Business School",
+      "url": "https://www.dcu.ie/courses/undergraduate/business-school/global-business-germany",
+      "line": "Global Business (Germany) asks HL German 5 and Maths SL 5 or HL 4, for native speakers too; it adds two internships."
+    },
+    {
+      "name": "Faculty of Engineering and Computing",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-computing/computer-science",
+      "line": "Computer Science asks Maths SL 5 or HL 4 and includes a paid INTRA work placement."
+    },
+    {
+      "name": "Faculty of Science and Health",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-mathematical-sciences/actuarial-mathematics",
+      "line": "Actuarial Mathematics asks HL Maths 6 and includes an eight-month paid INTRA placement."
+    },
+    {
+      "name": "Faculty of Humanities and Social Sciences",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-communications/journalism",
+      "line": "Journalism asks English at HL 5 and includes a mandatory eight-week media placement."
+    },
+    {
+      "name": "DCU Institute of Education",
+      "url": "https://www.dcu.ie/courses/undergraduate/institute-education/bachelor-education-primary-teaching",
+      "line": "Primary Teaching (DC002) asks Irish at H4 (IB HL 5 on the CAO table) as well as English and Maths."
+    }
+  ],
   "notes": [
     "DCU takes an IB through CAO when it was awarded within Europe, so an IB from a school in Denmark is assessed as an EU qualification.",
     "Language requirements bind native speakers too: Global Business (Germany) asks H4 in German, IB HL 5, whatever language your school taught in."
@@ -57,6 +177,26 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "DCU — Journalism BA (DC132)",
+      "url": "https://www.dcu.ie/courses/undergraduate/school-communications/journalism",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "DCU — Bachelor of Education (Primary Teaching) (DC002)",
+      "url": "https://www.dcu.ie/courses/undergraduate/institute-education/bachelor-education-primary-teaching",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "DCU — Undergraduate fees 2026-2027 (Free Fees Initiative, student contribution)",
+      "url": "https://www.dcu.ie/fees/undergraduate-fees-2026-2027",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }

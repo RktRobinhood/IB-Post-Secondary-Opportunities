@@ -17,7 +17,196 @@
     "via": "CAO",
     "url": "https://www.universityofgalway.ie/undergrad-admissions/school-leavers/eu-efta/"
   },
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine",
+      "credential": "MB BCh BAO",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/surgery-obstetrics.html",
+      "code": "GY501",
+      "about": "Six years of medicine, or five with two sciences at HL 5: scientific principles with clinical practice, case-based learning, simulation and placements across hospital and community settings.",
+      "ib": "HL 5 in two subjects and SL 4 in English, Maths, another language and a lab science; the five-year route needs HL 5 in two sciences. HPAT-Ireland required.",
+      "needs": [
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Five-year route: two of these at HL 5"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "language-a-other",
+            "language-b-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A language other than English"
+        }
+      ],
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "Every CAO applicant sits HPAT-Ireland and needs at least 480 CAO points from one sitting, with the subject requirements met in that same sitting.",
+      "places": 157,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Galway Medicine: Erasmus+ study abroad, simulation-based teaching and clinical placements",
+        "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/surgery-obstetrics.html"
+      }
+    },
+    {
+      "name": "Engineering (Undenominated)",
+      "credential": "BE + ME",
+      "years": 5,
+      "field": "engineering",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/engineering-undenominated.html",
+      "code": "GY401",
+      "about": "One shared first year across civil, mechanical, biomedical, electronic and energy engineering, then you transfer into your chosen branch. An integrated five-year BE and ME, with a paid work placement built in.",
+      "ib": "HL Maths 5 (or pass Galway's Engineering Maths exam), SL 4 in English and a lab science or technology subject, and HL 5 in two subjects.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5,
+          "note": "Or pass Galway's Engineering Maths Qualifying Exam"
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "computer-science",
+            "design-technology"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "A lab science or technology subject"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points in strict order of merit; the Maths Qualifying Exam route is for a limited number of places and may not lead to an offer.",
+      "places": 170,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Galway Engineering: accredited by Engineers Ireland, integrated BE+ME, paid work placement for all students",
+        "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/engineering-undenominated.html"
+      }
+    },
+    {
+      "name": "Marine Science",
+      "credential": "BSc (Hons)",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/marine-science.html",
+      "code": "GY310",
+      "about": "Marine biology, earth science, chemistry, physics, oceanography and statistics, with field work from year 2 and dedicated time on the national research vessel in the final year; study abroad in year 3.",
+      "ib": "HL 5 in two subjects and SL 4 in English, Maths and a lab science.",
+      "needs": [
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Places go on CAO points; Galway converts IB results through the CAO's comparison and points tables.",
+      "places": 33,
+      "closes": "2027-02-01",
+      "tuitionEuEea": "Free fees if eligible + €2,500 charge",
+      "flagshipSource": {
+        "title": "Galway Marine Science: field work and time on the national research vessel in the final year",
+        "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/marine-science.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Arts, Social Sciences and Celtic Studies",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/arts.html",
+      "line": "Arts (850 start each year) asks HL 5 in two subjects plus English and another language; Gaeilge as a subject needs HL 5."
+    },
+    {
+      "name": "College of Business, Public Policy and Law",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/commerce.html",
+      "line": "Commerce asks English, Maths and another language at SL 4 and HL 5 in two subjects; Law asks another language, not Maths."
+    },
+    {
+      "name": "College of Medicine and Health",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/surgery-obstetrics.html",
+      "line": "Medicine needs HPAT-Ireland, 480 CAO points from one sitting, another language and a lab science."
+    },
+    {
+      "name": "College of Science and Engineering",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/science-undenominated.html",
+      "line": "Science (300 start each year) and Engineering both ask Maths and a lab science; Engineering wants HL Maths 5."
+    }
+  ],
   "notes": [
     "Irish is part of Galway's entry rule, but you are exempt if you were born outside the Republic of Ireland or lived outside it for the three years before entry.",
     "Medicine (GY501) runs for six years, or five if you hold H4 (IB HL 5) in two sciences; both need HPAT-Ireland and 480 points from one sitting.",
@@ -68,6 +257,31 @@
       "title": "CAO — Entry requirements for EU/EFTA/UK applicants, 2026 entry (IB Table 1: subject grade comparisons)",
       "url": "https://www2.cao.ie/downloads/documents/2026/Guidelines-EU-EFTA-UK-2026.pdf",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Galway — Marine Science (GY310)",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/marine-science.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Galway — Law (GY251)",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/law.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Galway — Science (Undenominated) (GY301)",
+      "url": "https://www.universityofgalway.ie/courses/undergraduate-courses/science-undenominated.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Galway — Colleges and Schools",
+      "url": "https://www.universityofgalway.ie/colleges-and-schools/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "CAO — Important dates for 2027 entry (normal closing 1 February 2027)",
+      "url": "https://www2.cao.ie/downloads/documents/2027/CAO_Important_Dates_2027.pdf",
+      "retrieved": "2026-09-30"
     }
   ]
 }
