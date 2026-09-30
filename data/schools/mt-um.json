@@ -14,28 +14,303 @@
     "url": "https://www.um.edu.mt/study/admissionsadvice/international/comparingib/"
   },
   "starts": "October",
-  "lastYear": { "year": 2026, "text": "apply by 22 July (late until 15 September)" },
+  "lastYear": {
+    "year": 2026,
+    "text": "apply by 22 July (late until 15 September)"
+  },
   "apply": {
     "via": "UM online application (local qualifications)",
     "url": "https://www.um.edu.mt/study/admissionsadvice/local/"
   },
   "dates": [],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Doctor of Medicine and Surgery",
+      "credential": "MD",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.um.edu.mt/courses/overview/umdft-2026-7-o/",
+      "requirementsUrl": "https://www.um.edu.mt/media/um/docs/faculties/ms/facultymswebsite-docsamppdfs/generalfacultydocs/admissionsmdcourse/IBandEB_intake2026.pdf",
+      "about": "Five years in two parts: two pre-clinical years with dissection labs, then three clinical years on hospital wards. After year 2 you can take a year out for a BSc (Hons) in Medical Sciences before year 3.",
+      "ib": "Biology and Chemistry at HL grade 6, plus any other SL subject at 6 (not ESS), all in one sitting. Maltese: a SEC pass or the Medical Maltese course before you start.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 28,
+      "selection": [
+        "entrance-exam",
+        "grades"
+      ],
+      "selectionNote": "Places are limited; no late applications. The Faculty publishes Biology and Chemistry entrance-exam papers and IB criteria (2026 entry); ask which steps apply to you.",
+      "closes": "2027-03-15",
+      "closesNote": "IB applicants without a Maltese SEC pass",
+      "tuitionEuEea": "No fees for EU/EEA students",
+      "flagshipSource": {
+        "title": "Faculty of Medicine & Surgery: 13 departments; two major degrees: the M.D. and Pharmaceutical Science",
+        "url": "https://www.um.edu.mt/ms/aboutus/"
+      }
+    },
+    {
+      "name": "Mechanical Engineering",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.um.edu.mt/courses/overview/ubenghmecft-2026-7-o/",
+      "about": "Four years of mechanics, thermofluids, materials and design, ending in an engineering project. By the end of year 2 you choose a stream: applied materials, applied mechanics and thermofluids, or industrial and manufacturing.",
+      "ib": "Maths AA and Physics at HL grade 5 (UM turns its Advanced Level C into IB 5). The general rule also applies: 28 points, and Maltese, English and Maths.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "grade": 5,
+          "note": "UM asks for Pure Mathematics; ask whether AI is accepted"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 5
+        }
+      ],
+      "points": 28,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "The page lists no cap and no test: meet the requirements and you qualify..",
+      "closes": "2027-07-21",
+      "tuitionEuEea": "No fees for EU/EEA students",
+      "flagshipSource": {
+        "title": "UM prospectus, Faculty of Engineering: B.Eng. recognised by FEANI; Mechanical Engineering accredited by IMechE and RINA",
+        "url": "https://www.um.edu.mt/media/um/docs/study/admissions/UG_Prospectus.pdf"
+      }
+    },
+    {
+      "name": "Information Technology (Artificial Intelligence)",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.um.edu.mt/courses/overview/ubscitharift-2026-7-o/",
+      "about": "Three years of computer science plus intelligent systems: knowledge management, natural language processing, game AI, web intelligence, adaptive and autonomous systems, and advanced user interfaces, with industry skills throughout.",
+      "ib": "Maths AA and Computer Science at grade 5, one at HL and the other at least SL. UM compares IB subjects to its Pure Mathematics and Computing.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "SL",
+          "grade": 5,
+          "note": "One of Maths and Computer Science at HL; UM asks for Pure Mathematics"
+        },
+        {
+          "anyOf": [
+            "computer-science"
+          ],
+          "level": "SL",
+          "grade": 5,
+          "note": "One of Maths and Computer Science at HL"
+        }
+      ],
+      "points": 28,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "The page lists no cap and no test: meet the requirements and you qualify. Part-time study is available on request.",
+      "closes": "2027-07-21",
+      "tuitionEuEea": "No fees for EU/EEA students",
+      "flagshipSource": {
+        "title": "Faculty of ICT: set up in 2007; covers AI, computer engineering, computer science, information systems, microelectronics",
+        "url": "https://www.um.edu.mt/ict/aboutus/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.um.edu.mt/arts/study/",
+      "line": "Most subjects need nothing extra; a language or History needs HL in it, and Fine Arts and Music add a portfolio or audition."
+    },
+    {
+      "name": "Faculty for the Built Environment",
+      "url": "https://www.um.edu.mt/ben/study/",
+      "line": "Built Environment Studies asks for the Diploma in Design Foundation Studies plus HL Physics and Maths; Spatial Planning sets no subjects."
+    },
+    {
+      "name": "Faculty of Dental Surgery",
+      "url": "https://www.um.edu.mt/ds/study/",
+      "line": "Dental Surgery needs HL Biology and Chemistry and SL Physics; hygiene and technology need Biology or Chemistry. Maltese applies."
+    },
+    {
+      "name": "Faculty of Economics, Management & Accountancy",
+      "url": "https://www.um.edu.mt/fema/study/",
+      "line": "Commerce needs Maths; Accountancy also asks for Accounting at Advanced level; Politics and Governance sets no subjects."
+    },
+    {
+      "name": "Faculty of Education",
+      "url": "https://www.um.edu.mt/educ/study/",
+      "line": "Early-years teaching asks for one HL subject at grade 5; Maltese and English are checked, and a Police Certificate of Conduct is required."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.um.edu.mt/eng/study/",
+      "line": "Both B.Eng. degrees need Maths and Physics at HL grade 5; the Certificate in Engineering Sciences is the route in without them."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://www.um.edu.mt/healthsciences/study/",
+      "line": "Applied Biomedical Science needs HL Biology and Chemistry and has 24 places; other health degrees list their own subjects."
+    },
+    {
+      "name": "Faculty of Information & Communication Technology",
+      "url": "https://www.um.edu.mt/ict/study/",
+      "line": "Every degree needs Maths, most at HL grade 5 with a second subject; the AI degree needs Maths and Computer Science, one at HL."
+    },
+    {
+      "name": "Faculty of Laws",
+      "url": "https://www.um.edu.mt/laws/study/",
+      "line": "The LL.B. asks for English and Maltese at HL grade 5 and three SL subjects; Maltese is named,."
+    },
+    {
+      "name": "Faculty of Media & Knowledge Sciences",
+      "url": "https://www.um.edu.mt/maks/study/",
+      "line": "Most areas set no subject; Communication Studies wants English, Fine Arts a portfolio interview, and Music an interview and audition."
+    },
+    {
+      "name": "Faculty of Medicine & Surgery",
+      "url": "https://www.um.edu.mt/ms/study/",
+      "line": "The M.D. needs HL Biology and Chemistry at 6 and Maltese; Pharmaceutical Science and Medical Biochemistry are other degrees."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.um.edu.mt/science/study/",
+      "line": "Each area names its subjects: Maths HL for Computing Science, Biology and Chemistry for Biology, Physics and Maths for Physics."
+    },
+    {
+      "name": "Faculty for Social Wellbeing",
+      "url": "https://www.um.edu.mt/socialwellbeing/study/",
+      "line": "Its degrees, including Criminology, list only the general entry rule; adult-learner routes differ."
+    },
+    {
+      "name": "Faculty of Theology",
+      "url": "https://www.um.edu.mt/theology/prospective/",
+      "line": "Theology, Philosophy and Disability Studies set no subjects; the Mathematics area needs HL Maths."
+    }
+  ],
   "notes": [
     "HL subjects normally meet a MATSEC Advanced Level requirement and SL an Intermediate one; 7, 6, 5, 4 IB points equal grades A, B, C, D, and ab initio subjects never count.",
     "For October 2027 entry, a non-Maltese applicant with under four years of secondary schooling in Malta may offer another language at SEC level 3 or grade 5 in place of Maltese, unless a course names Maltese.",
     "The IB counts as a local qualification: the application fee is €35 (€75 late), course pages show \"No fees apply\" for EU/EEA students, and Medicine and capped courses take no late applications."
   ],
   "sources": [
-    { "title": "University of Malta: Comparing your International Baccalaureate", "url": "https://www.um.edu.mt/study/admissionsadvice/international/comparingib/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: Dates and deadlines", "url": "https://www.um.edu.mt/study/datesdeadlines/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: Admissions FAQs (deadlines, IB as local qualification, Maltese)", "url": "https://www.um.edu.mt/study/admissionsadvice/admissionsfaqs/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: Local applicants", "url": "https://www.um.edu.mt/study/admissionsadvice/local/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: International applicants (English language of instruction)", "url": "https://www.um.edu.mt/study/admissionsadvice/international/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: Fees and funding (application fees)", "url": "https://www.um.edu.mt/study/feesfunding/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: Admissions Regulations 2016 (regulation 13, Maltese requirement from October 2027)", "url": "https://www.um.edu.mt/media/um/docs/about/governance/regulations/general/AdmissionsRegulations.pdf", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: List of courses October 2026", "url": "https://www.um.edu.mt/media/um/docs/study/admissions/october_list.pdf", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: Bachelor of Commerce in Accountancy and Economics (Fees tab: Local/EU/EEA no fees)", "url": "https://www.um.edu.mt/courses/overview/ubcomaccecn-2026-7-o/", "retrieved": "2026-09-30" },
-    { "title": "University of Malta: About (fourteen faculties, four campuses, English)", "url": "https://www.um.edu.mt/about/", "retrieved": "2026-09-30" }
+    {
+      "title": "University of Malta: Comparing your International Baccalaureate",
+      "url": "https://www.um.edu.mt/study/admissionsadvice/international/comparingib/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Dates and deadlines",
+      "url": "https://www.um.edu.mt/study/datesdeadlines/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Admissions FAQs (deadlines, IB as local qualification, Maltese)",
+      "url": "https://www.um.edu.mt/study/admissionsadvice/admissionsfaqs/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Local applicants",
+      "url": "https://www.um.edu.mt/study/admissionsadvice/local/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: International applicants (English language of instruction)",
+      "url": "https://www.um.edu.mt/study/admissionsadvice/international/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Fees and funding (application fees)",
+      "url": "https://www.um.edu.mt/study/feesfunding/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Admissions Regulations 2016 (regulation 13, Maltese requirement from October 2027)",
+      "url": "https://www.um.edu.mt/media/um/docs/about/governance/regulations/general/AdmissionsRegulations.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: List of courses October 2026",
+      "url": "https://www.um.edu.mt/media/um/docs/study/admissions/october_list.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Bachelor of Commerce in Accountancy and Economics (Fees tab: Local/EU/EEA no fees)",
+      "url": "https://www.um.edu.mt/courses/overview/ubcomaccecn-2026-7-o/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: About (fourteen faculties, four campuses, English)",
+      "url": "https://www.um.edu.mt/about/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Undergraduate Prospectus (entry requirements by faculty; October 2027 application deadlines; B.Eng. accreditation)",
+      "url": "https://www.um.edu.mt/media/um/docs/study/admissions/UG_Prospectus.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Faculties",
+      "url": "https://www.um.edu.mt/academicentities/faculties/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine & Surgery: About us (13 departments; M.D. and Pharmaceutical Science)",
+      "url": "https://www.um.edu.mt/ms/aboutus/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Information & Communication Technology: About us (set up in 2007; AI, computing, microelectronics)",
+      "url": "https://www.um.edu.mt/ict/aboutus/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Doctor of Medicine and Surgery (course page)",
+      "url": "https://www.um.edu.mt/courses/overview/umdft-2026-7-o/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine & Surgery: Admissions M.D.",
+      "url": "https://www.um.edu.mt/ms/study/importantinformation/admissionsmd/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine & Surgery: Evaluation criteria for IB and EB applicants, M.D. 2026 entry",
+      "url": "https://www.um.edu.mt/media/um/docs/faculties/ms/facultymswebsite-docsamppdfs/generalfacultydocs/admissionsmdcourse/IBandEB_intake2026.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: Bachelor of Engineering (Honours) in Mechanical Engineering (course page)",
+      "url": "https://www.um.edu.mt/courses/overview/ubenghmecft-2026-7-o/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University of Malta: BSc in Information Technology (Honours) (Artificial Intelligence) (course page)",
+      "url": "https://www.um.edu.mt/courses/overview/ubscitharift-2026-7-o/",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

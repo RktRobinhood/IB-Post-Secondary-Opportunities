@@ -23,7 +23,134 @@
     "url": "https://mcast.edu.mt/application-online-ft-mcast-courses/"
   },
   "dates": [],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Marine Engineering",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "engineering",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/iet/department/centre-for-maritime-studies-department/course/ms6-w01-23/",
+      "about": "Three years on how the engines and machinery of ships and marine installations are built, run and maintained, with emerging technologies, a work placement, and roles such as marine technologist or marine surveyor.",
+      "ib": "MCAST asks for two A-level passes (Physics and Maths compulsory) plus two I-level passes, or its Advanced Diploma. It sets no IB grades; you need an MQRIC statement.",
+      "needs": [
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL",
+          "note": "MCAST says A-level; the MQRIC statement sets the IB equivalent"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "MCAST says A-level; the MQRIC statement sets the IB equivalent"
+        }
+      ],
+      "selectionNote": "The course page states no selection method; entry is set by the qualifications above. Ask MCAST how your IB results are read.",
+      "tuitionEuEea": "Free for EU students",
+      "flagshipSource": {
+        "title": "Institute of Engineering and Transport: 64 courses in 8 departments, including the Centre for Maritime Studies",
+        "url": "https://mcast.edu.mt/full-catalogue/institute/iet/"
+      }
+    },
+    {
+      "name": "Cybersecurity",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ict/course/it6-a07-23/",
+      "about": "Three years on securing software, computer systems and networks: open-source operating systems, network security, digital forensics and offensive security, with work-based learning and an applied dissertation.",
+      "ib": "MCAST asks for Computing at A-level plus Maths or Physics, with two I-level passes, or its Advanced Diploma in IT. It sets no IB grades; you need an MQRIC statement.",
+      "needs": [
+        {
+          "anyOf": [
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "MCAST says A-level; the MQRIC statement sets the IB equivalent"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics"
+          ],
+          "level": "SL",
+          "note": "MCAST says A-level or I-level; the MQRIC statement sets the IB equivalent"
+        }
+      ],
+      "selectionNote": "The course page states no selection method; entry is set by the qualifications above. Ask MCAST how your IB results are read.",
+      "tuitionEuEea": "Free for EU students",
+      "flagshipSource": {
+        "title": "Institute of ICT: 17 courses from certificate to master's level, including six bachelor's degrees",
+        "url": "https://mcast.edu.mt/full-catalogue/institute/ict/"
+      }
+    },
+    {
+      "name": "Game Art",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "design-architecture",
+      "city": "Mosta",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ica/course/ca6-o03-23/",
+      "about": "Three years training digital artists for game production: art and design principles plus game-creation software, ending in a joint game project with Interactive Digital Media students.",
+      "ib": "MCAST asks for two A-levels (Art compulsory) plus two I-levels, or an Advanced Diploma in Digital Design or Art and Design. No IB grades are set; get an MQRIC statement.",
+      "needs": [
+        {
+          "anyOf": [
+            "visual-arts"
+          ],
+          "level": "HL",
+          "note": "MCAST says A-level; the MQRIC statement sets the IB equivalent"
+        }
+      ],
+      "selection": [
+        "portfolio",
+        "interview"
+      ],
+      "selectionNote": "A portfolio and/or an interview may be required; the page does not say which applicants.",
+      "tuitionEuEea": "Free for EU students",
+      "flagshipSource": {
+        "title": "Institute for the Creative Arts: 31 courses across art and design, media, fashion and performing arts",
+        "url": "https://mcast.edu.mt/full-catalogue/institute/ica/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Institute of Applied Sciences",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ias/",
+      "line": "Science, nursing and agriculture degrees: an MCAST Advanced Diploma or A-level and I-level passes; some courses need medical clearance."
+    },
+    {
+      "name": "Institute of Business Management and Commerce",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ibmc/",
+      "line": "Three business degrees; Business Enterprise wants an A-level in Accounts, Marketing or Economics, or an MCAST Advanced Diploma."
+    },
+    {
+      "name": "Institute for the Creative Arts",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ica/",
+      "line": "Art, design, media and performing arts degrees; Art at A-level for Game Art, and a portfolio or interview may be asked for."
+    },
+    {
+      "name": "Institute of Community Services",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ics/",
+      "line": "Early years, inclusive education, social care and sport degrees; work placements need conduct, vaccination and first-aid checks."
+    },
+    {
+      "name": "Institute of Engineering and Transport",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/iet/",
+      "line": "Engineering and construction degrees; Marine Engineering asks for Physics and Maths at A-level, or an MCAST Advanced Diploma."
+    },
+    {
+      "name": "Institute of Information and Communication Technology",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ict/",
+      "line": "Six computing degrees; Cybersecurity asks for Computing at A-level plus Maths or Physics, or an MCAST Advanced Diploma in IT."
+    }
+  ],
   "notes": [
     "MCAST says its courses are free for Maltese and EU candidates; non-EU candidates pay per-level fees.",
     "Applicants with qualifications not awarded by a Maltese institution need an MQRIC statement for each one, plus B2 English (for example IELTS 5.5) unless an English-language qualification covers it.",
@@ -63,6 +190,66 @@
     {
       "title": "MCAST: Bachelor of Arts (Honours) in Performing Arts (example of entry requirements)",
       "url": "https://mcast.edu.mt/full-catalogue/course/ca6-w10-23/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Institute of Engineering and Transport (64 courses, 8 departments)",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/iet/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Centre for Maritime Studies Department (courses)",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/iet/department/centre-for-maritime-studies-department/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: BSc (Hons) in Marine Engineering",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/iet/department/centre-for-maritime-studies-department/course/ms6-w01-23/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Institute of Information and Communication Technology (17 courses)",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ict/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: BSc (Hons) in Cybersecurity",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ict/course/it6-a07-23/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Institute for the Creative Arts (31 courses)",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ica/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: BA (Hons) in Game Art",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ica/course/ca6-o03-23/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Institute of Applied Sciences",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ias/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Institute of Business Management and Commerce",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ibmc/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: BA (Hons) in Business Enterprise",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ibmc/course/bc6-w01-24/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: Institute of Community Services",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ics/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MCAST: BA (Hons) in Early Years",
+      "url": "https://mcast.edu.mt/full-catalogue/institute/ics/course/cs6-w05-23/",
       "retrieved": "2026-09-30"
     }
   ]
