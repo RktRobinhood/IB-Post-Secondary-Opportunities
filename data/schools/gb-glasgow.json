@@ -1,7 +1,7 @@
 {
   "institution": "gb-glasgow",
   "name": "University of Glasgow",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "summary": "A large university in the city of Glasgow, Scotland; honours degrees take four years, and degree pages give IB offers, e.g. 34 (6,5,5) for History.",
@@ -40,20 +40,236 @@
       "url": "https://www.gla.ac.uk/undergraduate/degrees/history/"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Veterinary Medicine & Surgery",
+      "credential": "BVMS",
+      "years": 5,
+      "field": "veterinary",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/veterinarymedicine/",
+      "code": "D100",
+      "about": "Five years to qualify as a vet on the Garscube campus: body systems and disease in years 1 and 2, then clinical training, ending in a final year with no lectures, working in the school's own practices and hospitals.",
+      "ib": "38 points with 6,6,6 at HL, including Chemistry and Biology at HL. English at SL 6 and Physics or Maths at 6. Practical experience and an interview are also required.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 6
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "Candidates considered for a place are interviewed, for overseas applicants by video between December and February. Practical experience is required.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£38,670 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Veterinary Medicine: over 150 years of veterinary teaching, with accredited status from the AVMA (programme page)",
+        "url": "https://www.gla.ac.uk/undergraduate/degrees/veterinarymedicine/"
+      }
+    },
+    {
+      "name": "Computing Science",
+      "credential": "BSc (Hons)",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+      "code": "G400",
+      "about": "Programming and software engineering first (Python in year 1, Java in year 2), plus algorithms, networks, AI and human-computer interaction, with other subjects in years 1 and 2 and team and individual projects at honours.",
+      "ib": "38 points with 6,6,6 at HL, including Maths AA HL 6.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "The IB points are what is normally needed for an offer; a prediction a little below can still be considered. Exceptional grades can take a faster route.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£33,708 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Computing Science: home of the School's Centre for Computing Science Education (programme page)",
+        "url": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/"
+      }
+    },
+    {
+      "name": "Marine & Freshwater Biology",
+      "credential": "BSc (Hons)",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/marinefreshwaterbiology/",
+      "code": "C164",
+      "about": "The study of aquatic environments, with field courses on Loch Lomond and at Millport in the Firth of Clyde, an optional tropical marine field course in the Red Sea, and a research project in the lab or in the field.",
+      "ib": "34 points with 6,5,5 at HL, including Biology or Chemistry at HL.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry"
+          ],
+          "level": "HL"
+        }
+      ],
+      "points": 34,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "The IB points are what is normally needed for an offer; a prediction a little below can still be considered.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£33,708 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Marine & Freshwater Biology: field courses on Loch Lomond and at Millport in the Firth of Clyde (programme page)",
+        "url": "https://www.gla.ac.uk/undergraduate/degrees/marinefreshwaterbiology/"
+      }
+    }
+  ],
   "notes": [
     "EU students pay the international fee: £28,275 a year for arts and social sciences and £33,708 for science and engineering in 2027/28.",
     "International students can apply until 30 June, but Glasgow advises applying by the January deadline if you are unsure of your fee status.",
     "You can apply for year 2 entry (Advanced Entry) and finish an honours degree in three years; if not accepted, you are considered for year 1."
   ],
   "sources": [
-    { "title": "Glasgow — 2027 Degree programmes A–Z", "url": "https://www.gla.ac.uk/undergraduate/degrees/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — History (2027 entry: IB requirements, deadlines, English language, Common App)", "url": "https://www.gla.ac.uk/undergraduate/degrees/history/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — Economics (2027 entry: IB requirements)", "url": "https://www.gla.ac.uk/undergraduate/degrees/economics/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — Tuition fees for international students (2027/28)", "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — How to apply (UCAS and Common App)", "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — Applying on Common App", "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/common-app/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — Applying on UCAS", "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/ucas/", "retrieved": "2026-09-25" },
-    { "title": "Glasgow — 2026 Admissions guidance (for September 2027 entry)", "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/entry-requirements/admissions-guidance/", "retrieved": "2026-09-25" }
+    {
+      "title": "Glasgow — 2027 Degree programmes A–Z",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — History (2027 entry: IB requirements, deadlines, English language, Common App)",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/history/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — Economics (2027 entry: IB requirements)",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/economics/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — Tuition fees for international students (2027/28)",
+      "url": "https://www.gla.ac.uk/undergraduate/fees/intlfees/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — How to apply (UCAS and Common App)",
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — Applying on Common App",
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/common-app/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — Applying on UCAS",
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/ucas/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — 2026 Admissions guidance (for September 2027 entry)",
+      "url": "https://www.gla.ac.uk/undergraduate/how-to-apply-for-an-undergraduate-degree/entry-requirements/admissions-guidance/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Glasgow — Veterinary Medicine & Surgery BVMS, 2027 entry",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/veterinarymedicine/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow — Computing Science, 2027 entry",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/computingscience/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow — Marine & Freshwater Biology, 2027 entry",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/marinefreshwaterbiology/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow — Medicine MBChB, 2027 entry",
+      "url": "https://www.gla.ac.uk/undergraduate/degrees/medicine/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow College of Arts & Humanities — Undergraduate students",
+      "url": "https://www.gla.ac.uk/colleges/arts/students/undergraduatestudents/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow College of Social Sciences — Study",
+      "url": "https://www.gla.ac.uk/colleges/socialsciences/study/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow College of Science & Engineering — Future students",
+      "url": "https://www.gla.ac.uk/colleges/scienceengineering/futurestudents/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Glasgow College of Medical, Veterinary & Life Sciences — Students",
+      "url": "https://www.gla.ac.uk/colleges/mvls/students/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCAS — 2027 entry application deadlines",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Arts & Humanities",
+      "url": "https://www.gla.ac.uk/colleges/arts/students/undergraduatestudents/",
+      "line": "MA (Hons) degrees; each subject sets its own IB points, e.g. History 34 with English HL 6 or a humanities HL 6."
+    },
+    {
+      "name": "College of Social Sciences",
+      "url": "https://www.gla.ac.uk/colleges/socialsciences/study/",
+      "line": "MA (SocSci) degrees; Economics asks 36 (6,6,5) with HL Maths AA, other subjects set their own grades."
+    },
+    {
+      "name": "College of Science & Engineering",
+      "url": "https://www.gla.ac.uk/colleges/scienceengineering/futurestudents/",
+      "line": "Maths HL for Computing Science (38 points); science degrees such as Marine Biology ask HL Biology or Chemistry."
+    },
+    {
+      "name": "College of Medical, Veterinary & Life Sciences",
+      "url": "https://www.gla.ac.uk/colleges/mvls/students/",
+      "line": "Medicine, Dentistry and Vet ask HL Chemistry and Biology plus an interview and close on 15 October; Medicine and Dentistry need UCAT."
+    }
   ]
 }

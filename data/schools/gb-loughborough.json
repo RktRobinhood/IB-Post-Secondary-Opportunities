@@ -1,7 +1,7 @@
 {
   "institution": "gb-loughborough",
   "name": "Loughborough University",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "summary": "A campus university in the Midlands town of Loughborough, with courses from sport science to industrial design, many with a placement year.",
@@ -26,17 +26,225 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Sport and Exercise Science",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "sport",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/sport-and-exercise-science/",
+      "code": "CX63",
+      "about": "Physiology, biochemistry, biomechanics, motor control and psychology behind human performance, in specialist labs on a campus with elite athlete programmes, plus a research project and an optional placement year.",
+      "ib": "37-38 points (6,6,6 to 7,6,6 at HL), including two of Biology, Maths, Physics, Chemistry, Psychology or Sport, Exercise and Health Science at HL.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics",
+            "chemistry",
+            "psychology",
+            "sports-science"
+          ],
+          "level": "HL",
+          "note": "Two of these subjects at HL"
+        }
+      ],
+      "points": 37,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Usually decided on the UCAS application alone; offers come with an invitation to visit. GCSE Maths, English and a science at grade 6 are also required.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£35,000 a year (2027-28)",
+      "flagshipSource": {
+        "title": "Sport and Exercise Science: elite athlete programmes and a Coach and Volunteer Academy on campus (course page)",
+        "url": "https://www.lboro.ac.uk/study/undergraduate/courses/sport-and-exercise-science/"
+      }
+    },
+    {
+      "name": "Industrial Design",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "design-architecture",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/industrial-design/",
+      "code": "H775",
+      "about": "Design products for people: research, ideation, model making and CAD in year 1, design for manufacture in year 2, then a year-long self-directed project, with an optional paid placement year in industry.",
+      "ib": "34 points with 6,5,5 at HL. An electronic portfolio is required with your UCAS application.",
+      "points": 34,
+      "selection": [
+        "grades",
+        "portfolio"
+      ],
+      "selectionNote": "You must submit an electronic portfolio; the School publishes portfolio guidance. GCSE Maths and English at grade 4.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£31,500 a year (2027-28)",
+      "flagshipSource": {
+        "title": "Industrial Design: core design skills, a placement year and a year-long major project (course page)",
+        "url": "https://www.lboro.ac.uk/study/undergraduate/courses/industrial-design/"
+      }
+    },
+    {
+      "name": "Aeronautical Engineering",
+      "credential": "BEng (Hons)",
+      "years": 3,
+      "field": "engineering",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/aeronautical-engineering-beng/",
+      "code": "H410",
+      "about": "Sustainable propulsion, autonomous flight, aircraft systems and computational fluid dynamics, with a flight test module of up to four flights in a flying laboratory and a final-year aircraft design project.",
+      "ib": "35 points with 6,6,5 at HL, including Maths and Physics at HL.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "The page says Maths and does not name AA or AI"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL"
+        }
+      ],
+      "points": 35,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Usually decided on the UCAS application alone; an interview only in exceptional cases. Accredited by the RAeS and IMechE.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£31,500 a year (2027-28)",
+      "flagshipSource": {
+        "title": "Aeronautical Engineering: a flight test module in a flying laboratory, accredited by RAeS and IMechE (course page)",
+        "url": "https://www.lboro.ac.uk/study/undergraduate/courses/aeronautical-engineering-beng/"
+      }
+    }
+  ],
   "notes": [
     "International fees for 2027-28 are £31,500 a year for Industrial Design and £35,000 for Sport and Exercise Science.",
     "Design courses ask for an electronic portfolio alongside your UCAS application.",
     "A placement year after year 2 earns an extra Diploma in Professional Studies; over 90% of Design students on placement are paid."
   ],
   "sources": [
-    { "title": "Loughborough — A–Z of undergraduate courses (2027 entry)", "url": "https://www.lboro.ac.uk/study/undergraduate/courses/", "retrieved": "2026-09-25" },
-    { "title": "Loughborough — Entry requirements (International Baccalaureate)", "url": "https://www.lboro.ac.uk/study/undergraduate/apply/entry-requirements/", "retrieved": "2026-09-25" },
-    { "title": "Loughborough — Industrial Design BA (2027 entry)", "url": "https://www.lboro.ac.uk/study/undergraduate/courses/industrial-design/", "retrieved": "2026-09-25" },
-    { "title": "Loughborough — Sport and Exercise Science BSc (2027 entry)", "url": "https://www.lboro.ac.uk/study/undergraduate/courses/sport-and-exercise-science/", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" }
+    {
+      "title": "Loughborough — A–Z of undergraduate courses (2027 entry)",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Loughborough — Entry requirements (International Baccalaureate)",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/apply/entry-requirements/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Loughborough — Industrial Design BA (2027 entry)",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/industrial-design/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Loughborough — Sport and Exercise Science BSc (2027 entry)",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/sport-and-exercise-science/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Loughborough — Aeronautical Engineering BEng, 2027 entry",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/courses/aeronautical-engineering-beng/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough — Schools and departments",
+      "url": "https://www.lboro.ac.uk/schools/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough — Aeronautical and Automotive Engineering (subject area)",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/subjects/aeronautical-and-automotive-engineering/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough School of Architecture, Building and Civil Engineering — Undergraduate degrees",
+      "url": "https://www.lboro.ac.uk/schools/abce/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough School of Mechanical, Electrical and Manufacturing Engineering — Undergraduate study",
+      "url": "https://www.lboro.ac.uk/schools/meme/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough Business School — Undergraduate",
+      "url": "https://www.lboro.ac.uk/schools/business-school/study/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough School of Design and Creative Arts — Undergraduate",
+      "url": "https://www.lboro.ac.uk/schools/design-creative-arts/study/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough School of Science — Undergraduate",
+      "url": "https://www.lboro.ac.uk/schools/science/study-with-us/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough School of Social Sciences and Humanities — International",
+      "url": "https://www.lboro.ac.uk/schools/social-sciences-humanities/international/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Loughborough School of Sport, Exercise and Health Sciences — Undergraduate study",
+      "url": "https://www.lboro.ac.uk/schools/sport-exercise-health-sciences/undergraduate/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "School of Aeronautical, Automotive, Chemical and Materials Engineering",
+      "url": "https://www.lboro.ac.uk/study/undergraduate/subjects/aeronautical-and-automotive-engineering/",
+      "line": "Aeronautical Engineering asks HL Maths and Physics, 35 points with 6,6,5; courses offer a placement year."
+    },
+    {
+      "name": "School of Architecture, Building and Civil Engineering",
+      "url": "https://www.lboro.ac.uk/schools/abce/undergraduate/",
+      "line": "Built-environment courses from architecture to civil engineering, built with industry; each sets its own IB points."
+    },
+    {
+      "name": "School of Mechanical, Electrical and Manufacturing Engineering",
+      "url": "https://www.lboro.ac.uk/schools/meme/undergraduate/",
+      "line": "Industry-focused engineering courses, each with its own IB points and HL subjects."
+    },
+    {
+      "name": "Loughborough Business School",
+      "url": "https://www.lboro.ac.uk/schools/business-school/study/undergraduate/",
+      "line": "Degrees stress ethical, sustainable business and hands-on experience in real organisations."
+    },
+    {
+      "name": "School of Design and Creative Arts",
+      "url": "https://www.lboro.ac.uk/schools/design-creative-arts/study/undergraduate/",
+      "line": "Practical courses; Industrial Design asks 34 points with 6,5,5 at HL and an electronic portfolio."
+    },
+    {
+      "name": "School of Science",
+      "url": "https://www.lboro.ac.uk/schools/science/study-with-us/undergraduate/",
+      "line": "Every course offers a placement year; Foundation Studies courses exist for those short of subjects or grades."
+    },
+    {
+      "name": "School of Social Sciences and Humanities",
+      "url": "https://www.lboro.ac.uk/schools/social-sciences-humanities/international/",
+      "line": "A single-campus school with over 4,000 international alumni; each course page sets its own IB offer."
+    },
+    {
+      "name": "School of Sport, Exercise and Health Sciences",
+      "url": "https://www.lboro.ac.uk/schools/sport-exercise-health-sciences/undergraduate/",
+      "line": "Biosciences, psychology and sport; Sport and Exercise Science asks 37-38 points with two HL sciences."
+    }
   ]
 }

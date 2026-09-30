@@ -1,7 +1,7 @@
 {
   "institution": "gb-bath",
   "name": "University of Bath",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "summary": "A campus university in Bath, south-west England, with over 190 degrees, many with an optional paid placement year; IB offers often 35–36 points.",
@@ -26,18 +26,203 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Sport and Exercise Science",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "sport",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/sport-exercise-and-health/bsc-sport-and-exercise-science",
+      "about": "The science of sport and health: physiology, biomechanics, nutrition and sport psychology, with labs and a Sports Training Village on campus, then a research project of your own design in the final two years.",
+      "ib": "36 points with 6,6,6 or 7,6,5 at HL, including 6 in one HL science or maths: Biology, Chemistry, Maths, Physics, Psychology or Sports, Exercise and Health Science.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "psychology",
+            "sports-science",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "The personal statement should show enthusiasm for the subject, for example reading, work experience or sport. Geography or PE cannot replace the science.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£32,950 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Sport and Exercise Science: a £35 million Sports Training Village for more than 50 sports (course page)",
+        "url": "https://www.bath.ac.uk/courses/undergraduate-2027/sport-exercise-and-health/bsc-sport-and-exercise-science"
+      }
+    },
+    {
+      "name": "Integrated Design Engineering",
+      "credential": "BEng (Hons)",
+      "years": 3,
+      "field": "engineering",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-integrated-design-engineering",
+      "about": "For creative engineers: mechanical, electrical and software skills combined to design products, machines and systems, with core engineering in years 1 and 2 and creative design and innovation after that.",
+      "ib": "36 points with 7,7,6 at HL, including 6 in Physics and 7 in HL Maths (AA or AI). Maths is required at HL.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 7
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Your UCAS personal statement alone is assessed, so make it about engineering. Decisions wait until after the January deadline.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£32,950 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Integrated Design Engineering: mechanical, electrical and software skills in one design degree (course page)",
+        "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-integrated-design-engineering"
+      }
+    },
+    {
+      "name": "Modern Languages (with study or work abroad)",
+      "credential": "BA (Hons)",
+      "years": 4,
+      "field": "languages",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/modern-languages/ba-modern-languages-with-study-or-work-abroad",
+      "about": "Reach fluency in two languages, choosing two advanced ones or one with a beginner language, and learn the culture, history and politics of the countries involved, with a year studying or working abroad.",
+      "ib": "35 points with 6,5,5 at HL. An advanced language needs HL 5 (or SL 7) in it, or B2 shown another way.",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "The personal statement should show interest in the social, political or cultural side of the languages. An interview may test a language qualification not covered.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£26,150 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Modern Languages: fluency in two languages plus a year of study or work abroad (course page)",
+        "url": "https://www.bath.ac.uk/courses/undergraduate-2027/modern-languages/ba-modern-languages-with-study-or-work-abroad"
+      }
+    }
+  ],
   "notes": [
     "Overseas fees for 2027 entry are £26,150 (humanities and social sciences), £29,500 (economics and management) or £32,950 (science and engineering) a year.",
     "Placement years are usually paid, but Bath does not guarantee you a placement; its Placements Team helps you apply."
   ],
   "sources": [
-    { "title": "Bath — Undergraduate subjects 2027", "url": "https://www.bath.ac.uk/corporate-information/undergraduate-subjects-2027", "retrieved": "2026-09-25" },
-    { "title": "Bath — UK qualification guidance (International Baccalaureate)", "url": "https://www.bath.ac.uk/guides/uk-qualification-guidance/", "retrieved": "2026-09-25" },
-    { "title": "Bath — Accounting and Finance BSc with work placement (2027)", "url": "https://www.bath.ac.uk/courses/undergraduate-2027/accounting-and-finance/bsc-accounting-and-finance-with-work-placement/", "retrieved": "2026-09-25" },
-    { "title": "Bath — Modern Languages BA with study or work abroad (2027)", "url": "https://www.bath.ac.uk/courses/undergraduate-2027/modern-languages/ba-modern-languages-with-study-or-work-abroad/", "retrieved": "2026-09-25" },
-    { "title": "Bath — Tuition fees for undergraduate students starting in 2027", "url": "https://www.bath.ac.uk/corporate-information/tuition-fees-for-undergraduate-students-starting-in-2027/", "retrieved": "2026-09-25" },
-    { "title": "Bath — Applying for an undergraduate course", "url": "https://www.bath.ac.uk/guides/applying-for-an-undergraduate-course/", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" }
+    {
+      "title": "Bath — Undergraduate subjects 2027",
+      "url": "https://www.bath.ac.uk/corporate-information/undergraduate-subjects-2027",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bath — UK qualification guidance (International Baccalaureate)",
+      "url": "https://www.bath.ac.uk/guides/uk-qualification-guidance/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bath — Accounting and Finance BSc with work placement (2027)",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/accounting-and-finance/bsc-accounting-and-finance-with-work-placement/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bath — Modern Languages BA with study or work abroad (2027)",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/modern-languages/ba-modern-languages-with-study-or-work-abroad/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bath — Tuition fees for undergraduate students starting in 2027",
+      "url": "https://www.bath.ac.uk/corporate-information/tuition-fees-for-undergraduate-students-starting-in-2027/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bath — Applying for an undergraduate course",
+      "url": "https://www.bath.ac.uk/guides/applying-for-an-undergraduate-course/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bath — Sport and Exercise Science BSc (Hons), 2027 entry",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/sport-exercise-and-health/bsc-sport-and-exercise-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Integrated Design Engineering BEng (Hons), 2027 entry",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/mechanical-engineering/beng-integrated-design-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Modern Languages BA (Hons) with study or work abroad, 2027 entry",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/modern-languages/ba-modern-languages-with-study-or-work-abroad",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Faculties and School of Management",
+      "url": "https://www.bath.ac.uk/departments/faculties-and-school/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Faculty of Engineering & Design undergraduate courses",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-engineering-design-undergraduate-courses/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Faculty of Humanities & Social Sciences undergraduate courses",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-humanities-social-sciences-undergraduate-courses/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Faculty of Science undergraduate courses",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-science-undergraduate-courses/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bath — Business and management courses, 2027 entry",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/business-and-management/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering & Design",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-engineering-design-undergraduate-courses/",
+      "line": "Four departments with an optional placement; Integrated Design Engineering asks 36 points with 7,7,6 incl. HL Maths 7 and Physics 6."
+    },
+    {
+      "name": "Faculty of Humanities & Social Sciences",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-humanities-social-sciences-undergraduate-courses/",
+      "line": "Six departments; Modern Languages asks 35 points with 6,5,5 at HL; Sport and Exercise Science needs a HL science."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.bath.ac.uk/courses/undergraduate/faculty-of-science-undergraduate-courses/",
+      "line": "Six departments, from Chemistry to Physics; most courses include a placement option, and many can be taken as an integrated master's."
+    },
+    {
+      "name": "School of Management",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/business-and-management/",
+      "line": "Business, Management and International Management with languages; most are four years with a work placement or study abroad."
+    }
   ]
 }

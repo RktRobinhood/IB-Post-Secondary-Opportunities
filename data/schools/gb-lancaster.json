@@ -1,7 +1,7 @@
 {
   "institution": "gb-lancaster",
   "name": "Lancaster University",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "courses": 474,
@@ -41,7 +41,103 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine and Surgery",
+      "credential": "MBChB",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/medicine-and-surgery-mbchb-a100/2027/",
+      "code": "A100",
+      "about": "Learn the body's systems together, meet simulated patients in year 1, then train on placements across Lancashire, Cumbria and Yorkshire with more than 70 healthcare providers, with a chance to intercalate between years 4 and 5.",
+      "ib": "36 points with at least 6 in three HL subjects, including any two of Biology, Chemistry and Psychology.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "psychology"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "Any two of Biology, Chemistry and Psychology at HL"
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "grades",
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "UCAT is required; nobody is offered a place without an in-person multiple mini interview. GCSEs are scored too: 13 points from 8 subjects.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£50,100 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Medicine and Surgery MBChB: placements with more than 70 healthcare providers across three regions (course page)",
+        "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/medicine-and-surgery-mbchb-a100/2027/"
+      }
+    },
+    {
+      "name": "Environmental Science",
+      "credential": "BSc Hons",
+      "years": 3,
+      "field": "agriculture-environment",
+      "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/environmental-science-bsc-hons-f750/2027/",
+      "code": "F750",
+      "about": "Weather, climate, hydrology and flood risk in year 1, biogeochemistry, ecology and soil science in year 2, and a dissertation in year 3 by fieldwork, lab work or modelling, with field trips in the Lake District and Yorkshire Dales.",
+      "ib": "30 points with 15 from the best three HL subjects, including one HL science at grade 6.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "geography",
+            "computer-science",
+            "mathematics-aa",
+            "mathematics-ai",
+            "psychology",
+            "ess"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "One HL science from the A-level list, incl. Biology, Chemistry, Geography, Maths, Physics or Psychology"
+        }
+      ],
+      "points": 30,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers follow the IB points and HL grades; GCSE Maths and English at grade 4 are also needed.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£31,700 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Environmental Science: taught in the Lancaster Environment Centre, accredited by the CEDHE (course page)",
+        "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/environmental-science-bsc-hons-f750/2027/"
+      }
+    },
+    {
+      "name": "Linguistics",
+      "credential": "BA Hons",
+      "years": 3,
+      "field": "languages",
+      "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/linguistics-ba-hons-q100/2027/",
+      "code": "Q100",
+      "about": "How language works and is used: phonetics, phonology, grammar and pragmatics, and language in politics, health, business and law, with access to phonetics, eye-tracking, perception and EEG labs.",
+      "ib": "35 points with 16 from the best three HL subjects. No particular subject is named.",
+      "points": 35,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers follow the IB points and HL grades.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£26,300 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Linguistics: phonetics, eye-tracking, perception and learning, and EEG labs (course page)",
+        "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/linguistics-ba-hons-q100/2027/"
+      }
+    }
+  ],
   "notes": [
     "The international fee for International Relations is £26,300 a year in 2027/28.",
     "Every student belongs to a college and pays a £40 college membership fee.",
@@ -82,6 +178,63 @@
       "title": "Lancaster Medical School — How to apply, Medicine and Surgery",
       "url": "https://www.lancaster.ac.uk/lms/medicine-and-surgery/how-to-apply/medicine-and-surgery/",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Lancaster — Medicine and Surgery MBChB (A100), 2027 entry",
+      "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/medicine-and-surgery-mbchb-a100/2027/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Lancaster — Environmental Science BSc Hons (F750), 2027 entry",
+      "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/environmental-science-bsc-hons-f750/2027/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Lancaster — Linguistics BA Hons (Q100), 2027 entry",
+      "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/linguistics-ba-hons-q100/2027/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Lancaster — Faculty of Humanities, Arts and Social Sciences: undergraduate courses",
+      "url": "https://www.lancaster.ac.uk/humanities-arts-and-social-sciences/courses/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Lancaster University Management School — Undergraduate study",
+      "url": "https://www.lancaster.ac.uk/lums/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Lancaster Faculty of Science and Technology — Undergraduate degrees",
+      "url": "https://www.lancaster.ac.uk/sci-tech/study/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Lancaster Faculty of Health and Medicine — Undergraduate degrees",
+      "url": "https://www.lancaster.ac.uk/health-and-medicine/study/undergraduate/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Humanities, Arts and Social Sciences",
+      "url": "https://www.lancaster.ac.uk/humanities-arts-and-social-sciences/courses/undergraduate/",
+      "line": "Most programmes include Discovery modules with other subjects; Linguistics asks 35 points with 16 at HL."
+    },
+    {
+      "name": "Lancaster University Management School",
+      "url": "https://www.lancaster.ac.uk/lums/undergraduate/",
+      "line": "Degrees in management, marketing, economics and finance, many accredited by industry bodies."
+    },
+    {
+      "name": "Faculty of Science and Technology",
+      "url": "https://www.lancaster.ac.uk/sci-tech/study/undergraduate/",
+      "line": "Ten subject areas in seven departments; Environmental Science asks 30 points with 15 at HL and an HL science at 6."
+    },
+    {
+      "name": "Faculty of Health and Medicine",
+      "url": "https://www.lancaster.ac.uk/health-and-medicine/study/undergraduate/",
+      "line": "Medicine and Surgery needs UCAT and an interview, 36 points with 6,6,6 at HL, and closes on 15 October."
     }
   ]
 }

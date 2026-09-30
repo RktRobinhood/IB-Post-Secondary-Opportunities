@@ -1,7 +1,7 @@
 {
   "institution": "gb-leeds",
   "name": "University of Leeds",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "summary": "A research university in the city of Leeds, northern England; offers start at 31 IB points, and the international fee stays fixed for the degree.",
@@ -47,7 +47,106 @@
       "url": "https://www.leeds.ac.uk/undergraduate-how-to-apply/doc/application-timetable"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine and Surgery",
+      "credential": "MBChB",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://courses.leeds.ac.uk/5580/medicine-and-surgery-mbchb",
+      "code": "A100",
+      "about": "A five-year route to becoming a doctor, with clinical placements from year one, teaching by practising clinicians, and a course built to prepare you for clinical practice as a holistic doctor.",
+      "ib": "36 points with 6 in three HL subjects, including Chemistry and Biology. Maths and English at SL 5 if not taken at GCSE.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "grades",
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "UCAT is required and ranks with GCSEs and predicted grades for interview. Offers follow the interview (multiple mini-interviews; overseas ones online).",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£50,500 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Medicine and Surgery MBChB: clinical placements from year one, taught by practising clinicians (course overview)",
+        "url": "https://courses.leeds.ac.uk/5580/medicine-and-surgery-mbchb"
+      }
+    },
+    {
+      "name": "Environmental Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "agriculture-environment",
+      "url": "https://courses.leeds.ac.uk/3314/environmental-science-bsc",
+      "code": "F851",
+      "about": "The biosphere, hydrosphere, atmosphere and geosphere and how society interacts with them, with fieldwork in every year, training in data and coding, and an independent research project in your final year.",
+      "ib": "6,5,5 at HL, including two relevant subjects (the A-level list names Biology, Chemistry, Geography, Maths and Physics among others).",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "geography",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai",
+            "computer-science",
+            "ess"
+          ],
+          "level": "HL",
+          "note": "Two relevant subjects at HL; the A-level list includes Biology, Chemistry, Geography, Maths, Physics"
+        }
+      ],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Judged on the whole UCAS form; the personal statement and reference can separate applicants with similar predicted grades.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£33,700 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Environmental Science BSc: accredited by the Institution of Environmental Sciences; fieldwork every year",
+        "url": "https://courses.leeds.ac.uk/3314/environmental-science-bsc"
+      }
+    },
+    {
+      "name": "Ancient History",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://courses.leeds.ac.uk/i988/ancient-history-ba",
+      "code": "V111",
+      "about": "The civilisations of ancient Greece, Rome and Persia: their politics, culture and society, the lives of ordinary people as well as great figures, and how to weigh the evidence, with archaeology and literary analysis.",
+      "ib": "34 points with 16 at HL. No HL subject is named; English language proof is required.",
+      "points": 34,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Judged on the whole UCAS form; the personal statement and reference can separate applicants with similar predicted grades.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£27,300 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Ancient History BA: taught alongside the Brotherton Library's manuscripts, coins and artefacts (course page)",
+        "url": "https://courses.leeds.ac.uk/i988/ancient-history-ba"
+      }
+    }
+  ],
   "notes": [
     "Leeds keeps the international fee the same for each year of the course, for example £27,300 a year for Ancient History.",
     "Business School courses ask more than the general rule: 35 points with 16–17 at HL.",
@@ -93,6 +192,63 @@
       "title": "Leeds — Medicine and Surgery MBChB",
       "url": "https://courses.leeds.ac.uk/5580/medicine-and-surgery-mbchb",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Leeds — Environmental Science BSc, 2027 entry",
+      "url": "https://courses.leeds.ac.uk/3314/environmental-science-bsc",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Leeds — Faculty of Arts, Humanities and Cultures undergraduate admissions guidance 2027/28",
+      "url": "https://ahc.leeds.ac.uk/arts-humanities-cultures/doc/faculty-arts-humanities-cultures-undergraduate-admissions-guidance-202728",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Leeds — Admissions to courses in the Faculty of Engineering and Physical Sciences (2027/28)",
+      "url": "https://eps.leeds.ac.uk/faculty-engineering-physical-sciences/doc/admissions-courses-faculty-engineering-physical-sciences-4",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Leeds — Admissions guidance, Faculty of Environment and Social Sciences 2027/28",
+      "url": "https://essl.leeds.ac.uk/education-social-sciences-law/doc/admissions-guidance-courses-faculty-social-sciences-202728",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Leeds — Faculty of Health and Life Sciences undergraduate admissions guidance 2027/28",
+      "url": "https://biologicalsciences.leeds.ac.uk/biological-sciences/doc/faculty-biological-sciences-undergraduate-admissions-guidance-202728",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Leeds — Faculty contacts (the five faculties)",
+      "url": "https://www.leeds.ac.uk/faculties",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts, Humanities and Cultures",
+      "url": "https://ahc.leeds.ac.uk/arts-humanities-cultures/doc/faculty-arts-humanities-cultures-undergraduate-admissions-guidance-202728",
+      "line": "Interviews only for some Music and Performance applicants; the personal statement can separate similar grades."
+    },
+    {
+      "name": "Leeds University Business School",
+      "url": "https://business.leeds.ac.uk/undergraduate/doc/entry-requirements",
+      "line": "35 points with 16–17 at HL; Maths SL 5 or HL 4; a personal statement showing motivation for business."
+    },
+    {
+      "name": "Faculty of Engineering and Physical Sciences",
+      "url": "https://eps.leeds.ac.uk/faculty-engineering-physical-sciences/doc/admissions-courses-faculty-engineering-physical-sciences-4",
+      "line": "Sometimes an interview or a Maths, Mechanics or Physics test; the personal statement can separate similar grades."
+    },
+    {
+      "name": "Faculty of Environment and Social Sciences",
+      "url": "https://essl.leeds.ac.uk/education-social-sciences-law/doc/admissions-guidance-courses-faculty-social-sciences-202728",
+      "line": "Offers weigh predicted grades, breadth of subjects and the personal statement; interviews only for Primary Education."
+    },
+    {
+      "name": "Faculty of Health and Life Sciences",
+      "url": "https://biologicalsciences.leeds.ac.uk/biological-sciences/doc/faculty-biological-sciences-undergraduate-admissions-guidance-202728",
+      "line": "Biological sciences have no standard interview; Medicine and Dentistry need UCAT and close on 15 October."
     }
   ]
 }

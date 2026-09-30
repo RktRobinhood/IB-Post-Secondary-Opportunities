@@ -1,7 +1,7 @@
 {
   "institution": "gb-city-st-george-s",
   "name": "City St George's, University of London",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "summary": "About 80 bachelor’s degrees on two London campuses: Clerkenwell for subjects such as journalism, Tooting for medicine and medical training.",
@@ -47,9 +47,156 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine MBBS",
+      "credential": "MBBS",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/medicine",
+      "code": "A100",
+      "about": "A five-year clinically focused degree on the Tooting campus, taught with students of other healthcare professions, with practicals in pathology labs and an anatomy suite, and placements from GP to psychiatry and radiology.",
+      "ib": "36 points with 18 at HL, including 6 in Biology and Chemistry; at SL, 5 in Maths and English.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 5
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "UCAT needs at least 500 in every section plus a yearly overall cut-off; the SJT band counts. Shortlisted applicants sit multiple mini interviews.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£47,380 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Medicine MBBS: taught alongside other healthcare students, beside St George's Hospital (course page)",
+        "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/medicine"
+      }
+    },
+    {
+      "name": "Journalism",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/journalism/2027",
+      "code": "P500",
+      "about": "Multimedia journalism with a real-world emphasis: small workshops in reporting and writing, shorthand and photography, electives in English, Sociology, Politics or Creative Writing, and professional work experience.",
+      "ib": "31 points, with at least 5 in SL English and 4 in SL Maths.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 31,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers follow the IB points; applicants predicted lower but with journalism experience may be considered for interview.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£23,010 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Journalism: real-world workshops, with work experience at outlets such as Sky News and The Times (course page)",
+        "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/journalism/2027"
+      }
+    },
+    {
+      "name": "Optometry",
+      "credential": "MOptom (Hons)",
+      "years": 4,
+      "field": "health",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/optometry",
+      "code": "B510",
+      "about": "Four years to train as a registered optometrist: optics, biology, eye disease and lenses, with clinical practice in the University's own eye clinic, City Sight, and 44 weeks of clinical placements, including one at Moorfields.",
+      "ib": "33 points including 6 in two HL sciences, and at SL 5 in English and 4 in Maths.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "Two HL sciences at grade 6"
+        },
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "SL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 33,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers follow the IB points and subject grades; the course page lists no interview or test.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£20,190 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Optometry MOptom: its own eye clinic, City Sight, and 44 weeks of clinical placements (course page)",
+        "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/optometry"
+      }
+    }
+  ],
   "notes": [
-    "The international fee for Journalism BA was £22,560 a year in 2026/27; 2027/28 fees were not on the page.",
+    "EU students pay the international fee for 2027/28: £47,380 for Medicine, £23,010 for Journalism and £20,190 for Optometry.",
     "Medicine ranks overseas applicants separately from home applicants and asks for at least 500 in every UCAT section.",
     "Where you study depends on the course: check whether its page says Clerkenwell or Tooting campus before you apply."
   ],
@@ -78,6 +225,68 @@
       "title": "UCAS — When to apply (2027 entry)",
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "City St George's — Journalism BA (Hons), 2027/28 entry",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/journalism/2027",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "City St George's — Optometry MOptom (Hons), 2027/28 entry",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/optometry",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "City St George's — Schools and departments",
+      "url": "https://www.citystgeorges.ac.uk/about/schools",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "City St George's — School of Health & Medical Sciences selection process",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/health-sciences/about/selection-process",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "City St George's — Law LLB, 2027/28 entry",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/law/2027",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "City St George's — Computer Science BSc, 2027/28 entry",
+      "url": "https://www.citystgeorges.ac.uk/prospective-students/courses/undergraduate/computer-science/2027",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "School of Policy & Global Affairs",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/policy-global-affairs/about-the-school",
+      "line": "Economics, international politics, sociology and criminology; each course sets its own IB points."
+    },
+    {
+      "name": "School of Communication & Creativity",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/communication-creativity/about-the-school",
+      "line": "Journalism, media, performing arts and languages; Journalism asks 31 points with SL English 5 and SL Maths 4."
+    },
+    {
+      "name": "Bayes Business School",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/business-school",
+      "line": "Business degrees; the course page gives the IB points and any SL Maths or English grade."
+    },
+    {
+      "name": "School of Health & Medical Sciences",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/health-sciences/about/selection-process",
+      "line": "Health courses have a selection stage after the entry criteria; Medicine uses UCAT, then multiple mini interviews."
+    },
+    {
+      "name": "School of Science & Technology",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/science-technology",
+      "line": "Computer Science asks 31 points with 5 in Maths at HL or SL and SL English 5."
+    },
+    {
+      "name": "The City Law School",
+      "url": "https://www.citystgeorges.ac.uk/about/schools/law",
+      "line": "Law asks 31 points with English HL 4 or SL 5 and SL Maths 4."
     }
   ]
 }

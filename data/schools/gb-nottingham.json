@@ -1,7 +1,7 @@
 {
   "institution": "gb-nottingham",
   "name": "University of Nottingham",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "courses": 416,
@@ -41,19 +41,219 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine BMBS",
+      "credential": "BMBS",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS.html",
+      "code": "A100",
+      "about": "Five years to become a doctor, with clinical experience built in throughout, placements with NHS trusts across the East Midlands, and competence milestones tracked as you go towards working as a foundation doctor.",
+      "ib": "34 points with HL 6 in Biology and Chemistry, or 6,6,6 in three HL subjects including HL 6 in Biology and Chemistry. English A SL 5 or English B SL 6.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 34,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "GCSEs and UCAT decide who is interviewed; offers follow the interview alone (online for international applicants). SJT Band 4 is not considered.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£48,900 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Medicine BMBS: placements with NHS trust partners across the East Midlands (course page)",
+        "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS.html"
+      }
+    },
+    {
+      "name": "Veterinary Medicine and Surgery",
+      "credential": "BVM BVS with BVMedSci",
+      "years": 5,
+      "field": "veterinary",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Veterinary-Medicine-and-Surgery-BVM-BVS-with-BVMedSci-BVMBVS.html",
+      "code": "D100",
+      "about": "A five-year vet degree with hands-on animal handling from day one in a purpose-built school, small animal, farm and equine practice, and a third-year research project that adds the BVMedSci. Two intakes: September and April.",
+      "ib": "32 points, or 6,6,5 in three HL subjects, with HL 6 in Biology and Chemistry. GCSE-level Maths grade 6 and English grade 4 also needed.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 32,
+      "selection": [
+        "grades",
+        "interview"
+      ],
+      "selectionNote": "A 30-minute interview and at least five weeks of work experience, three of them animal handling, completed by the 15 October deadline.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£43,100 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Veterinary Medicine and Surgery: purpose-built vet school, two intakes a year (course page)",
+        "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Veterinary-Medicine-and-Surgery-BVM-BVS-with-BVMedSci-BVMBVS.html"
+      }
+    },
+    {
+      "name": "History",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/History-BA-Hons.html",
+      "code": "V100",
+      "about": "History from the early medieval era to today across the Americas, Europe, Africa and Asia, taught through curiosity, critique and curation, with access to the University's manuscripts and special collections.",
+      "ib": "32 points, or 6,6,5 in three HL subjects. English at grade 4 (GCSE level) is also needed.",
+      "points": 32,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Exam grades come first; the personal statement is read for motivation. An A in the Extended Essay reduces your offer by one grade.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£26,200 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "History: the Nottingham Approach of curiosity, critique and curation, with its own manuscripts collections (course page)",
+        "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/History-BA-Hons.html"
+      }
+    }
+  ],
   "notes": [
     "International fees for 2027 entry are £27,600 a year for Economics and International Economics and £48,900 for Medicine.",
     "Because offers can be met through three HL subjects alone, strong HL grades can carry you even if your total points fall short.",
     "Medicine interviews for 2027 entry run from 15 December 2026 to 29 January 2027, online for international applicants."
   ],
   "sources": [
-    { "title": "Nottingham — See all courses", "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/See_all_courses.html", "retrieved": "2026-09-25" },
-    { "title": "Nottingham — Entry requirements (IB equivalencies)", "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/articles/applying/entry-requirements.html", "retrieved": "2026-09-25" },
-    { "title": "Nottingham — Undergraduate entry requirements", "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/applying/entry-requirements.html", "retrieved": "2026-09-25" },
-    { "title": "Nottingham — Economics and International Economics BSc (2027 entry)", "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Economics-and-International-Economics-BSc-Hons.html", "retrieved": "2026-09-25" },
-    { "title": "Nottingham — Medicine BMBS (2027 entry)", "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS.html", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" }
+    {
+      "title": "Nottingham — See all courses",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/See_all_courses.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Nottingham — Entry requirements (IB equivalencies)",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/articles/applying/entry-requirements.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Nottingham — Undergraduate entry requirements",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/applying/entry-requirements.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Nottingham — Economics and International Economics BSc (2027 entry)",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Economics-and-International-Economics-BSc-Hons.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Nottingham — Medicine BMBS (2027 entry)",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Medicine-BMBS.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAT — Test dates",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Nottingham — Veterinary Medicine and Surgery BVM BVS with BVMedSci, 2027 entry",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Veterinary-Medicine-and-Surgery-BVM-BVS-with-BVMedSci-BVMBVS.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham — History BA (Hons), 2027 entry",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/History-BA-Hons.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham — Mathematics BSc (Hons), 2027 entry",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/courses/UG/Mathematics-BSc-Hons.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham — How we assess undergraduate applications",
+      "url": "https://www.nottingham.ac.uk/studywithus/ugstudy/applying/how-we-assess-applications.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham Faculty of Arts — Study with us",
+      "url": "https://www.nottingham.ac.uk/arts/teaching/index.aspx",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham Faculty of Engineering — Undergraduate courses",
+      "url": "https://www.nottingham.ac.uk/engineering/courses/undergraduate-courses.aspx",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham Medical School — Undergraduate selection process",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/undergraduate-selection-process.aspx",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham Faculty of Science — Study with us",
+      "url": "https://www.nottingham.ac.uk/science/study-with-us/index.aspx",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nottingham Faculty of Social Sciences — Study with us",
+      "url": "https://www.nottingham.ac.uk/social-sciences/study/index.aspx",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.nottingham.ac.uk/arts/teaching/index.aspx",
+      "line": "History asks 32 points or 6,6,5 at HL; exam grades rank applicants and the personal statement is read for motivation."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.nottingham.ac.uk/engineering/courses/undergraduate-courses.aspx",
+      "line": "Fifteen degree specialisms, BEng or MEng; a foundation route exists for home students, the International College for others."
+    },
+    {
+      "name": "Faculty of Medicine and Health Sciences",
+      "url": "https://www.nottingham.ac.uk/medicine/study-with-us/undergraduate/undergraduate-medicine/undergraduate-selection-process.aspx",
+      "line": "Medicine: GCSEs and UCAT pick who is interviewed, and the interview alone decides offers; apply by 15 October."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.nottingham.ac.uk/science/study-with-us/index.aspx",
+      "line": "Mathematics asks 34 points with HL Maths AA 6; many courses are professionally accredited, with links to industry."
+    },
+    {
+      "name": "Faculty of Social Sciences",
+      "url": "https://www.nottingham.ac.uk/social-sciences/study/index.aspx",
+      "line": "Over 30 undergraduate courses across seven schools; Economics asks 36 points or 7,6,6 at HL."
+    }
   ]
 }

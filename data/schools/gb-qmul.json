@@ -1,7 +1,7 @@
 {
   "institution": "gb-qmul",
   "name": "Queen Mary University of London",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "courses": 122,
@@ -41,20 +41,193 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine (5 Year Programme)",
+      "credential": "MBBS",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/medicine-5-year-programme/",
+      "requirementsUrl": "https://www.qmul.ac.uk/fmd/study/undergraduate/courses/a100/selection-criteria/",
+      "code": "A100",
+      "about": "Five years to become a doctor, seeing patients from your first week in community and hospital settings, with modules you choose yourself, from the fundamental and clinical sciences to psychological and social ones.",
+      "ib": "37 points with 6,6,6 at HL, including Chemistry or Biology plus one more science at HL (Chemistry, Biology, Physics or Maths).",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry",
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry",
+            "biology",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 37,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "UCAT in the fourth decile or above and SJT band 1-3 to be shortlisted, then an online interview in January-February. Up to 24 places go to overseas applicants.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£56,650 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Medicine: seeing patients from the first week, in community and hospital settings (course page)",
+        "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/medicine-5-year-programme/"
+      }
+    },
+    {
+      "name": "Applied Artificial Intelligence",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/applied-artificial-intelligence/",
+      "code": "I401",
+      "about": "Practical AI projects set by researchers and industry from year 1, teaching from academics involved in the ATLAS experiment at CERN, and a 60-credit Applied AI in Industry project in your final year.",
+      "ib": "34 points with 6,6,5 at HL, including HL Maths, Computer Science or Physics.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "computer-science",
+            "physics"
+          ],
+          "level": "HL"
+        }
+      ],
+      "points": 34,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers follow the IB points and HL grades. No admissions test or interview is listed on the course page.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£34,750 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Applied AI: projects set by researchers and industry, and a 60-credit industry project (course page)",
+        "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/applied-artificial-intelligence/"
+      }
+    },
+    {
+      "name": "Theatre and Performance",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/theatre-and-performance/",
+      "code": "W42H",
+      "about": "Theatre and performance studied in practice and in theory, working with the BLOC Arts Centre and partners such as the V&A, the Barbican, the Live Art Development Agency and Shakespeare's Globe, with an optional year abroad.",
+      "ib": "30 points with 5,5,5 at HL. No HL subject is named.",
+      "points": 30,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers follow the IB points and HL grades; no audition or portfolio is listed on the course page.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£28,300 a year (2027 entry)",
+      "flagshipSource": {
+        "title": "Theatre and Performance: the BLOC Arts Centre; partners include the V&A, Barbican and Shakespeare's Globe (course page)",
+        "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/theatre-and-performance/"
+      }
+    }
+  ],
   "notes": [
     "Overseas fees for 2027 entry are £30,950 a year for Accounting and Finance, £34,750 for Applied AI and £56,650 for Medicine.",
     "Queen Mary also teaches a five-year MBBS in Malta, applied for directly (not via UCAS) by 1 March 2027.",
     "Medicine in London asks for a UCAT score in the fourth decile or above and an SJT band of 1–3."
   ],
   "sources": [
-    { "title": "Queen Mary — Undergraduate course finder", "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/", "retrieved": "2026-09-25" },
-    { "title": "Queen Mary — Accounting and Finance BSc (2027 entry)", "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/accounting-and-finance/", "retrieved": "2026-09-25" },
-    { "title": "Queen Mary — Applied Artificial Intelligence BSc (2027 entry)", "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/applied-artificial-intelligence/", "retrieved": "2026-09-25" },
-    { "title": "Queen Mary School of Economics and Finance — Entry requirements", "url": "https://www.qmul.ac.uk/sef/undergraduate/entry-requirements/", "retrieved": "2026-09-25" },
-    { "title": "Queen Mary — Medicine (5 Year Programme), 2027 entry", "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/medicine-5-year-programme/", "retrieved": "2026-09-25" },
-    { "title": "Queen Mary — Medicine (Malta, 5 Year Programme), 2027 entry", "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/medicine-malta-5-year-programme/", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" }
+    {
+      "title": "Queen Mary — Undergraduate course finder",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Queen Mary — Accounting and Finance BSc (2027 entry)",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/accounting-and-finance/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Queen Mary — Applied Artificial Intelligence BSc (2027 entry)",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/applied-artificial-intelligence/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Queen Mary School of Economics and Finance — Entry requirements",
+      "url": "https://www.qmul.ac.uk/sef/undergraduate/entry-requirements/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Queen Mary — Medicine (5 Year Programme), 2027 entry",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/medicine-5-year-programme/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Queen Mary — Medicine (Malta, 5 Year Programme), 2027 entry",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/medicine-malta-5-year-programme/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAT — Test dates",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Queen Mary — Medicine A100 selection criteria",
+      "url": "https://www.qmul.ac.uk/fmd/study/undergraduate/courses/a100/selection-criteria/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Queen Mary — Theatre and Performance BA, 2027 entry",
+      "url": "https://www.qmul.ac.uk/undergraduate/coursefinder/courses/2027/theatre-and-performance/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Queen Mary — IB Diploma entry requirements",
+      "url": "https://www.qmul.ac.uk/undergraduate/apply/entry/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Queen Mary — Humanities and Social Sciences International Foundation Year",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/ify/humanities-and-social-sciences/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Queen Mary — Science and Engineering International Foundation Year",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/ify/science-and-engineering/",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Humanities and Social Sciences",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/ify/humanities-and-social-sciences/",
+      "line": "Law, business, economics, politics, languages, film, history, geography; e.g. 30 points for Theatre, 36 for Economics."
+    },
+    {
+      "name": "Faculty of Science and Engineering",
+      "url": "https://www.qmul.ac.uk/international-students/pathway-programmes/ify/science-and-engineering/",
+      "line": "AI, chemistry, engineering, maths and physics; Applied AI asks 34 points with 6,6,5 and HL Maths, Computer Science or Physics."
+    },
+    {
+      "name": "Faculty of Medicine and Dentistry",
+      "url": "https://www.qmul.ac.uk/fmd/study/undergraduate/courses/a100/selection-criteria/",
+      "line": "Medicine: UCAT fourth decile or above and SJT band 1-3, then an online interview; apply by 15 October."
+    }
   ]
 }

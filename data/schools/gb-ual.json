@@ -1,7 +1,7 @@
 {
   "institution": "gb-ual",
   "name": "University of the Arts London",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "courses": 102,
@@ -27,20 +27,189 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Fine Art",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://www.arts.ac.uk/subjects/fine-art/undergraduate/ba-hons-fine-art-chelsea",
+      "code": "W104",
+      "about": "At Chelsea College of Arts: an experimental course built around exhibitions, projects, publications and performances, where you develop your own independent art practice and set it in a wider social context.",
+      "ib": "25 points minimum, plus three GCSE passes at grade 4 or above. Entry also depends on your portfolio and an interview.",
+      "points": 25,
+      "selection": [
+        "portfolio",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "After your UCAS application you send a digital portfolio, then are interviewed. Places stay open after the January date until filled.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£30,890 a year (2026/27 fee)",
+      "flagshipSource": {
+        "title": "Fine Art at Chelsea: alumni include many Turner Prize winners and nominees (course page)",
+        "url": "https://www.arts.ac.uk/subjects/fine-art/undergraduate/ba-hons-fine-art-chelsea"
+      }
+    },
+    {
+      "name": "Graphic Communication Design",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "design-architecture",
+      "url": "https://www.arts.ac.uk/subjects/communication-and-graphic-design/undergraduate/ba-hons-graphic-communication-design-csm",
+      "code": "W215",
+      "about": "At Central Saint Martins: creative, conceptual, technical and critical skills for 21st-century designers, across a range of graphic communication practices that cross traditional boundaries, used to tackle environmental and social questions.",
+      "ib": "24 points, plus three GCSE passes at grade 4 or above. Entry is also decided by your portfolio.",
+      "points": 24,
+      "selection": [
+        "portfolio",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "After your UCAS application you send a digital portfolio, then are interviewed. A very high share of successful applicants have an art foundation diploma.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£30,890 a year (2026/27 fee)",
+      "flagshipSource": {
+        "title": "Graphic Communication Design at Central Saint Martins: a breadth of graphic practices and platforms (course page)",
+        "url": "https://www.arts.ac.uk/subjects/communication-and-graphic-design/undergraduate/ba-hons-graphic-communication-design-csm"
+      }
+    },
+    {
+      "name": "Fashion Design Technology: Womenswear",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "design-architecture",
+      "url": "https://www.arts.ac.uk/subjects/fashion-design/undergraduate/ba-hons-fashion-design-technology-womenswear-lcf",
+      "code": "W291",
+      "about": "At London College of Fashion: an in-depth study of womenswear design, technology and production, with brand links and a short industry placement, plus sustainable production and inclusive design.",
+      "ib": "25 points minimum, plus three GCSE passes at grade 4 or above. Entry is also decided by your portfolio.",
+      "points": 25,
+      "selection": [
+        "portfolio",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "After your UCAS application you send a digital portfolio, then are interviewed.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£30,890 a year (2026/27 fee)",
+      "flagshipSource": {
+        "title": "Fashion Design Technology: Womenswear: links with brands such as Marc Jacobs and Simone Rocha (course page)",
+        "url": "https://www.arts.ac.uk/subjects/fashion-design/undergraduate/ba-hons-fashion-design-technology-womenswear-lcf"
+      }
+    }
+  ],
   "notes": [
     "After UAL checks your UCAS application it asks for a digital portfolio through PebblePad; Fine Art, for example, allows at most 30 pages.",
     "International fees for 2027 entry were not yet published; for 2026 entry a BA cost £30,890 a year, and fees can rise up to 5% a year during the course.",
     "Central Saint Martins no longer runs a standalone architecture BA; for 2027 entry, UAL points you to its Integrated MArch, which combines BA and MA study."
   ],
   "sources": [
-    { "title": "UAL — Course finder, Undergraduate (107 results)", "url": "https://www.arts.ac.uk/search/course-finder?f.Course_level%7Clevel=Undergraduate", "retrieved": "2026-09-25" },
-    { "title": "UAL — Apply: undergraduate", "url": "https://www.arts.ac.uk/study-at-ual/apply/undergraduate", "retrieved": "2026-09-25" },
-    { "title": "UAL — BA (Hons) Fine Art, Chelsea College of Arts", "url": "https://www.arts.ac.uk/subjects/fine-art/undergraduate/ba-hons-fine-art-chelsea", "retrieved": "2026-09-25" },
-    { "title": "UAL — BA (Hons) Architecture, Central Saint Martins", "url": "https://www.arts.ac.uk/subjects/architecture-spatial-and-interior-design/undergraduate/ba-hons-architecture-csm", "retrieved": "2026-09-25" },
-    { "title": "UAL — MArch Architecture (Integrated), Central Saint Martins", "url": "https://www.arts.ac.uk/subjects/architecture-spatial-and-interior-design/postgraduate/march-architecture-integrated-csm", "retrieved": "2026-09-25" },
-    { "title": "UAL — BA (Hons) Graphic Communication Design, Central Saint Martins", "url": "https://www.arts.ac.uk/subjects/communication-and-graphic-design/undergraduate/ba-hons-graphic-communication-design-csm", "retrieved": "2026-09-25" },
-    { "title": "UAL — English language requirements", "url": "https://www.arts.ac.uk/study-at-ual/language-centre/english-language-requirements", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" }
+    {
+      "title": "UAL — Course finder, Undergraduate (107 results)",
+      "url": "https://www.arts.ac.uk/search/course-finder?f.Course_level%7Clevel=Undergraduate",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — Apply: undergraduate",
+      "url": "https://www.arts.ac.uk/study-at-ual/apply/undergraduate",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — BA (Hons) Fine Art, Chelsea College of Arts",
+      "url": "https://www.arts.ac.uk/subjects/fine-art/undergraduate/ba-hons-fine-art-chelsea",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — BA (Hons) Architecture, Central Saint Martins",
+      "url": "https://www.arts.ac.uk/subjects/architecture-spatial-and-interior-design/undergraduate/ba-hons-architecture-csm",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — MArch Architecture (Integrated), Central Saint Martins",
+      "url": "https://www.arts.ac.uk/subjects/architecture-spatial-and-interior-design/postgraduate/march-architecture-integrated-csm",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — BA (Hons) Graphic Communication Design, Central Saint Martins",
+      "url": "https://www.arts.ac.uk/subjects/communication-and-graphic-design/undergraduate/ba-hons-graphic-communication-design-csm",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — English language requirements",
+      "url": "https://www.arts.ac.uk/study-at-ual/language-centre/english-language-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAL — BA (Hons) Fashion Design Technology: Womenswear at London College of Fashion",
+      "url": "https://www.arts.ac.uk/subjects/fashion-design/undergraduate/ba-hons-fashion-design-technology-womenswear-lcf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UAL — Camberwell College of Arts undergraduate courses",
+      "url": "https://www.arts.ac.uk/colleges/camberwell-college-of-arts/courses/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UAL — Central Saint Martins undergraduate courses",
+      "url": "https://www.arts.ac.uk/colleges/central-saint-martins/courses/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UAL — Chelsea College of Arts undergraduate courses",
+      "url": "https://www.arts.ac.uk/colleges/chelsea-college-of-arts/courses/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UAL — London College of Communication undergraduate courses",
+      "url": "https://www.arts.ac.uk/colleges/london-college-of-communication/courses/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UAL — London College of Fashion undergraduate courses",
+      "url": "https://www.arts.ac.uk/colleges/london-college-of-fashion/courses/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UAL — Wimbledon College of Arts undergraduate courses",
+      "url": "https://www.arts.ac.uk/colleges/wimbledon-college-of-arts/courses/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Camberwell College of Arts",
+      "url": "https://www.arts.ac.uk/colleges/camberwell-college-of-arts/courses/undergraduate-courses",
+      "line": "Nine BAs: fine art in four media, graphic design, illustration, interior architecture, landscape design."
+    },
+    {
+      "name": "Central Saint Martins",
+      "url": "https://www.arts.ac.uk/colleges/central-saint-martins/courses/undergraduate-courses",
+      "line": "Sixteen BAs, fashion to fine art to product design; most applicants have an art foundation diploma; portfolio decides."
+    },
+    {
+      "name": "Chelsea College of Arts",
+      "url": "https://www.arts.ac.uk/colleges/chelsea-college-of-arts/courses/undergraduate-courses",
+      "line": "Fine Art, graphic design, interior, product and furniture design, textiles; Fine Art asks 25 points and a portfolio."
+    },
+    {
+      "name": "London College of Communication",
+      "url": "https://www.arts.ac.uk/colleges/london-college-of-communication/courses/undergraduate-courses",
+      "line": "Media, film, animation, games, photography, journalism and sound; each course sets its own IB points."
+    },
+    {
+      "name": "London College of Fashion",
+      "url": "https://www.arts.ac.uk/colleges/london-college-of-fashion/courses/undergraduate-courses",
+      "line": "Fashion design, business, communication, styling and costume; Womenswear asks 25 points and a portfolio."
+    },
+    {
+      "name": "Wimbledon College of Arts",
+      "url": "https://www.arts.ac.uk/colleges/wimbledon-college-of-arts/courses/undergraduate-courses",
+      "line": "Acting, costume, technical arts and design for theatre and screen, and art direction with visual effects."
+    }
   ]
 }

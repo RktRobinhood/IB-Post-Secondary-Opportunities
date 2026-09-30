@@ -1,7 +1,7 @@
 {
   "institution": "gb-birmingham",
   "name": "University of Birmingham",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "catalogue",
   "summary": "A green campus university at Edgbaston, near central Birmingham; IB offers are set mainly in HL grades, 6,5,5 to 7,6,6, with 32 points overall.",
@@ -40,19 +40,218 @@
       "url": "https://www.birmingham.ac.uk/study/undergraduate/apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Medicine and Surgery",
+      "credential": "MBChB",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/medicine-courses/medicine-and-surgery-mbchb",
+      "code": "A100",
+      "about": "Five years to become a doctor: campus teaching with a weekly clinical-skills day from year 1, including real General Practice, then hospital and community placements in one of the UK's large healthcare regions.",
+      "ib": "6,6,6 at HL with Chemistry and a second science (Biology, Physics or Maths); 32 points minimum. SL must include English, Biology and Maths if not taken at HL.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "biology",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 32,
+      "selection": [
+        "grades",
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "UCAT must be sat in the year you apply; interviews go to those invited. The Applying to Medicine site explains the scoring.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£33,750 a year, yrs 1-2 (course page)",
+      "flagshipSource": {
+        "title": "Medicine and Surgery MBChB: a new Centre for Anatomy, Surgical and Clinical Skills opening in 2027 (course page)",
+        "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/medicine-courses/medicine-and-surgery-mbchb"
+      }
+    },
+    {
+      "name": "Physics and Astrophysics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/physics-and-astronomy-courses/physics-astrophysics-bsc",
+      "code": "FF35",
+      "about": "Core physics from entropy to mechanics, plus observational astronomy, in a degree that mixes theory, mathematics, computing and experimental work; accredited by the Institute of Physics.",
+      "ib": "7,6,6 at HL including Maths and Physics, with the 7 in Maths or Physics; 32 points minimum.",
+      "needs": [
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "The page says Mathematics and does not name AA or AI"
+        }
+      ],
+      "points": 32,
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Offers rest on the three HL grades; 32 points is only the floor.",
+      "closes": "2027-01-13",
+      "flagshipSource": {
+        "title": "Physics and Astronomy: Institute of Physics accredited, in a School with dedicated academic staff (course page)",
+        "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/physics-and-astronomy-courses/physics-astrophysics-bsc"
+      }
+    },
+    {
+      "name": "Sport, Exercise and Health Sciences",
+      "credential": "BSc",
+      "years": 3,
+      "field": "sport",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/sport-sciences-courses/sport-exercise-and-health-sciences-bsc",
+      "code": "BC17",
+      "about": "How the body responds to exercise and how to raise performance and health: physiology, anatomy, psychology and biochemistry in labs, a first-year Lake District residential, and advanced options such as extreme environments.",
+      "ib": "6,6,6 to 6,5,5 at HL plus 32 points overall, depending on how many preferred science subjects you take (Biology, Chemistry, Maths, PE, Psychology and others).",
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Some ABB-equivalent offers go to applicants with several preferred sciences and an exceptional supporting statement.",
+      "closes": "2027-01-13",
+      "flagshipSource": {
+        "title": "Sport, Exercise and Health Sciences: custom-built sport sciences building; Lake District residential",
+        "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/sport-sciences-courses/sport-exercise-and-health-sciences-bsc"
+      }
+    }
+  ],
   "notes": [
     "Your HL grades carry the offer: 32 points overall is only the floor, so three strong HL subjects matter more than a high total.",
-    "International fees for 2027 were still marked 'to be confirmed' on course pages in September 2026.",
+    "Medicine's 2027 course page shows international fees of £33,750 a year for years 1-2 and £53,880 for years 3-5; other course pages still say 'to be confirmed'.",
     "Birmingham also runs a campus in Dubai with its own entry requirements, so check which campus a course page belongs to."
   ],
   "sources": [
-    { "title": "Birmingham — Undergraduate study", "url": "https://www.birmingham.ac.uk/study/undergraduate", "retrieved": "2026-09-25" },
-    { "title": "Birmingham — Undergraduate subject areas", "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects", "retrieved": "2026-09-25" },
-    { "title": "Birmingham — Undergraduate entry requirements (IB policy)", "url": "https://www.birmingham.ac.uk/study/undergraduate/apply/entry-requirements", "retrieved": "2026-09-25" },
-    { "title": "Birmingham — How to apply (September 2027 deadlines)", "url": "https://www.birmingham.ac.uk/study/undergraduate/apply", "retrieved": "2026-09-25" },
-    { "title": "Birmingham — International Business BSc (fees to be confirmed for 2027)", "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/international-business-bsc", "retrieved": "2026-09-25" },
-    { "title": "Birmingham Dubai — Entry requirements", "url": "https://www.birmingham.ac.uk/dubai/study/apply/entry-requirements", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" }
+    {
+      "title": "Birmingham — Undergraduate study",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Birmingham — Undergraduate subject areas",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Birmingham — Undergraduate entry requirements (IB policy)",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/apply/entry-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Birmingham — How to apply (September 2027 deadlines)",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Birmingham — International Business BSc (fees to be confirmed for 2027)",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/business-and-management-courses/international-business-bsc",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Birmingham Dubai — Entry requirements",
+      "url": "https://www.birmingham.ac.uk/dubai/study/apply/entry-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAT — Test dates",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Birmingham — Medicine and Surgery MBChB, 2027 entry",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/medicine-courses/medicine-and-surgery-mbchb",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — Physics and Astrophysics BSc, 2027 entry",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/physics-and-astronomy-courses/physics-astrophysics-bsc",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — Sport, Exercise and Health Sciences BSc, 2027 entry",
+      "url": "https://www.birmingham.ac.uk/study/undergraduate/subjects/sport-sciences-courses/sport-exercise-and-health-sciences-bsc",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — Our Colleges",
+      "url": "https://www.birmingham.ac.uk/about/our-colleges",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — Undergraduate courses in the College of Arts and Law",
+      "url": "https://www.birmingham.ac.uk/about/college-of-arts-and-law/undergraduate-courses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — Engineering and Physical Sciences undergraduate degree courses",
+      "url": "https://www.birmingham.ac.uk/about/college-of-engineering-and-physical-sciences/undergraduate",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — College of Life and Environmental Sciences",
+      "url": "https://www.birmingham.ac.uk/about/college-of-life-and-environmental-sciences",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — College of Medicine and Health",
+      "url": "https://www.birmingham.ac.uk/about/college-of-medicine-and-health",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Birmingham — College of Social Sciences",
+      "url": "https://www.birmingham.ac.uk/about/college-of-social-sciences",
+      "retrieved": "2026-09-30"
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Arts and Law",
+      "url": "https://www.birmingham.ac.uk/about/college-of-arts-and-law/undergraduate-courses",
+      "line": "Offers rest on three HL grades, from 6,5,5 to 7,6,6, with at least 32 points; subjects required are named per course."
+    },
+    {
+      "name": "College of Engineering and Physical Sciences",
+      "url": "https://www.birmingham.ac.uk/about/college-of-engineering-and-physical-sciences/undergraduate",
+      "line": "Maths and Physics at HL for physics; Foundation Year programmes exist for those without suitable qualifications."
+    },
+    {
+      "name": "College of Life and Environmental Sciences",
+      "url": "https://www.birmingham.ac.uk/about/college-of-life-and-environmental-sciences",
+      "line": "Sport Sciences asks 6,6,6 to 6,5,5 at HL with 32 points, depending on how many preferred sciences you take."
+    },
+    {
+      "name": "College of Medicine and Health",
+      "url": "https://www.birmingham.ac.uk/about/college-of-medicine-and-health",
+      "line": "Medicine and Dentistry need UCAT and an interview, 6,6,6 at HL with Chemistry, and close on 15 October."
+    },
+    {
+      "name": "College of Social Sciences",
+      "url": "https://www.birmingham.ac.uk/about/college-of-social-sciences",
+      "line": "Offers rest on three HL grades with at least 32 points, e.g. 6,6,5 for International Business."
+    }
   ]
 }
