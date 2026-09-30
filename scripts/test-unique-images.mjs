@@ -13,7 +13,10 @@
  *   2. **Site-wide.** Every hosted photograph a page shows — country heroes,
  *      institution photographs, gallery slides and card backgrounds — has
  *      bytes no other slot has. Hot-linked institution share images are
- *      compared by URL, and may only repeat within one programme family.
+ *      compared by URL, and may only repeat within one programme family. An
+ *      official degree photo (data/programme-images.json, `official: true`)
+ *      is hot-linked too: it is compared by URL, and no other record, degree
+ *      or institution, may name the same address.
  *   3. **Built pages.** On every built page, no two programme cards that are
  *      different cards draw the same background, and the finder and planner
  *      data agree with the cards. A school's photograph is one slot with its
@@ -66,6 +69,8 @@ function hashOf(src) {
   }
   return hashCache.get(src);
 }
+/** What a slot shows: a hosted file by its bytes, a hot-linked one by its address. */
+const idOf = (src) => hashOf(src) || (/^https:\/\//.test(src || '') ? src : null);
 const allowed = (value, slots) =>
   ALLOW.some((a) => (a.hash === value || a.url === value) && a.reason && slots.every((s) => (a.slots || []).includes(s)));
 
@@ -87,7 +92,7 @@ check('no two programme cards show the same photograph (by content)', () => {
   const byHash = new Map();
   for (const [k, s] of cards) {
     const src = [...s][0];
-    const h = hashOf(src);
+    const h = idOf(src);
     if (!h) continue;
     if (!byHash.has(h)) byHash.set(h, []);
     byHash.get(h).push(`${k} (${src.split('/').pop()})`);
@@ -127,11 +132,11 @@ check('no hosted photograph fills two slots anywhere on the site', () => {
     if (!e.pick?.src || e.pick.review?.state === 'rejected') continue;
     add(hashOf(e.pick.src), `place:${e.key}`);
   }
-  for (const [k, s] of cards) add(hashOf([...s][0]), `card:${k}`);
+  for (const [k, s] of cards) add(idOf([...s][0]), `card:${k}`);
   // A school programme's own photograph (#54) is a slot of its own.
   for (const c of site.countries || []) {
     for (const inst of c.institutions || []) {
-      for (const p of inst.school?.programmes || []) if (p.backdrop?.src) add(hashOf(p.backdrop.src), `degree:${inst.key}/${p.slug}`);
+      for (const p of inst.school?.programmes || []) if (p.backdrop?.src) add(idOf(p.backdrop.src), `degree:${inst.key}/${p.slug}`);
     }
   }
   const bad = [...slots]
@@ -167,6 +172,24 @@ check('an institution share image repeats only within one programme family', () 
     const slots = [...m.keys()].map((k) => `card:${k}`);
     if (!allowed(u, slots)) bad.push(`${u.slice(0, 90)}: ${[...m.values()].join(', ')}`);
   }
+  assert.deepEqual(bad, []);
+});
+
+check("an official degree photo's address is its own: no other record names it", () => {
+  // Every address a record links, by the records that link it: degree photos
+  // and institution share images alike.
+  const byUrl = new Map();
+  const add = (u, who) => {
+    if (!u) return;
+    if (!byUrl.has(u)) byUrl.set(u, []);
+    byUrl.get(u).push(who);
+  };
+  for (const [k, r] of Object.entries(site.programmeImages || {})) add(r.url, `programme-images ${k}`);
+  for (const [k, r] of Object.entries(site.officialImages || {})) add(r.url, `official-images ${k}`);
+  const degree = new Set(Object.values(site.programmeImages || {}).filter((r) => r.official).map((r) => r.url));
+  const bad = [...byUrl]
+    .filter(([u, who]) => degree.has(u) && who.length > 1)
+    .map(([u, who]) => `${u.slice(0, 90)}: ${who.join(', ')}`);
   assert.deepEqual(bad, []);
 });
 

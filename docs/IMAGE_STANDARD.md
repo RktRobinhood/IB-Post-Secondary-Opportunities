@@ -176,6 +176,15 @@ prefers it. Those bytes are not ours, their dimensions are not ours, and we
 cannot normalise them. That is an accepted trade: a university's own Open
 Graph image is the picture it publishes of itself for exactly this purpose.
 
+The same holds for **degree photos** (owner, 30 September 2026): where
+Commons has nothing that shows a discipline, a programme page's own image, or
+one from the institution's press bank, is linked from the institution's server
+and credited to it (`official: true` in `data/programme-images.json`). The
+importer records it only when the image actually appears on the named page.
+Social media is where to look, not where to link: an image is used only when
+the institution also serves it itself or has published it under an open
+licence.
+
 The subject-matter rules below *do* reach them, with one carve-out: the score
 floor does not, because an official image was never scored. It was not chosen
 from a pool of candidates by a heuristic — it is the picture the institution

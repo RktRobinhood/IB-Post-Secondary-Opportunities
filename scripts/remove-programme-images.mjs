@@ -8,6 +8,9 @@
  * Keys are as the critic names them (`school-se-lu-biomedicine`). A key that
  * is already signed is refused: an approved photo is removed deliberately,
  * by hand, not as part of a reject list.
+ *
+ * An official record (the institution's own photograph, linked and never
+ * stored; docs/IMAGE_STANDARD.md) has no files: its line and record go.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -36,7 +39,9 @@ for (const f of fs.readdirSync(RESEARCH).filter((f) => f.endsWith('.jsonl'))) {
 
 let records = 0, files = 0;
 for (const k of keys) {
+  const linked = manifest[k]?.official;
   if (manifest[k]) { delete manifest[k]; records++; }
+  if (linked) continue;
   for (const f of fs.readdirSync(IMG).filter((f) => f === `${k}.webp` || f.startsWith(`${k}-`) && /^\d+\.webp$/.test(f.slice(k.length + 1)))) {
     fs.rmSync(path.join(IMG, f));
     files++;

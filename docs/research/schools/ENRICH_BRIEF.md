@@ -74,6 +74,28 @@ that institution.
   date stamp "falls outside the crop" or "under the veil" has been wrong four
   times (Sweden, Norway, Switzerland): the critic sees the stored 16:10 file.
   Open the stored crop's region at 480 px before claiming it.
+- **When Commons is dry** (business, economics, computing and data degrees
+  so far, in every country), go down this ladder before skipping:
+  1. **The programme's own page**: its share image (`og:image`) or a
+     photograph on the page, served by the institution. Write it as an
+     official line (below). It is the university showing that degree, and
+     linking to it is what it is published for.
+  2. **The institution's press or media bank**, and its official Flickr
+     account (often CC BY: then it is an open-licence photo like any other).
+  3. **The institution's social media** (Instagram, LinkedIn, YouTube,
+     Facebook) to *find* the right picture: a lab, a studio, a class at work.
+     Use it only where the institution also serves it from its own site
+     (step 1 or 2) or has published it under an open licence. Never link or
+     copy from a social-media CDN: those links expire and are not licensed
+     for reuse.
+  An official photo is judged by the same critic rules: the discipline being
+  done, no legible text or logos, no stock "students with laptops" — a
+  university's marketing picture often is exactly that, so it has to earn
+  its place like any other.
+  Official line format: `{"scope": "school:<key>-<slug>", "officialUrl":
+  "https://…", "sourcePage": "https://<the institution's page that shows
+  it>", "why": "…", "cropNote": "…"}`. The importer checks the image is
+  served, at least 960 px wide, and actually appears on `sourcePage`.
 - If no good photo exists, skip the programme. A card on its school's photo
   beats a bad picture.
 - Write one line per programme to

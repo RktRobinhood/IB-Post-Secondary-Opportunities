@@ -205,13 +205,20 @@ export async function load() {
   /* A school programme's own photograph (#54), when one was chosen for it:
      its card and its page use it; without one they show what they did. */
   const schoolBackdrop = schoolBackdropResolver(programmeImages);
-  const withBackdrops = (key, rec) =>
+  /* A Commons photograph is credited to its photographer and licence; the
+     institution's own (official, hot-linked) to the institution, linking to
+     the page that publishes it, as picture() credits a share image. */
+  const creditOf = (b, institution) =>
+    b.external
+      ? { text: `Image: ${institution || 'the institution'}`, url: b.page }
+      : { text: `${creditName(b.author)} · ${b.licence || 'Wikimedia Commons'}`, url: b.page };
+  const withBackdrops = (key, rec, institution) =>
     rec
       ? {
           ...rec,
           programmes: rec.programmes.map((p) => {
             const b = schoolBackdrop(key, p.slug);
-            return b ? { ...p, backdrop: { ...b, credit: { text: `${creditName(b.author)} · ${b.licence || 'Wikimedia Commons'}`, url: b.page } } } : p;
+            return b ? { ...p, backdrop: { ...b, credit: creditOf(b, institution) } } : p;
           }),
         }
       : null;
@@ -230,7 +237,7 @@ export async function load() {
         key,
         countryCode: c.code,
         canonicalId: canonicalTwin?.id || null,
-        school: canonicalTwin ? null : withBackdrops(key, withProgrammePages(key, schools.get(key))),
+        school: canonicalTwin ? null : withBackdrops(key, withProgrammePages(key, schools.get(key)), i.name),
         href: canonicalTwin ? canonicalTwin.href || `/universities/${canonicalTwin.id}/` : `/universities/${key}/`,
       };
     });

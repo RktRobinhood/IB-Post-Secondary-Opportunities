@@ -86,11 +86,15 @@ const MANIFESTS = {
     maxWidth: 960,
     variants: [480, 720],
     // Every record is its own target and is always pinned. `scope` is what the
-    // site resolves by, so the rebuilt record keeps it.
+    // site resolves by, so the rebuilt record keeps it. An official record is
+    // the institution's own photograph, linked and never stored
+    // (scripts/import-programme-images.mjs), so it is nobody's target here.
     targets: (picks) =>
       // `focus` (an object-position chosen by the reviewer for the card crop)
       // is an editorial judgement about this file, so it survives a re-fetch too.
-      Object.entries(picks).map(([key, r]) => ({ key, kind: r.kind, label: r.subject || key, keep: { scope: r.scope, ...(r.focus ? { focus: r.focus } : {}) } })),
+      Object.entries(picks)
+        .filter(([, r]) => !r.official)
+        .map(([key, r]) => ({ key, kind: r.kind, label: r.subject || key, keep: { scope: r.scope, ...(r.focus ? { focus: r.focus } : {}) } })),
     // Several programmes can share one photograph; they share one file on disk.
     shareFiles: true,
   },

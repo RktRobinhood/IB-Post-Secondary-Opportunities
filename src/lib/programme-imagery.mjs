@@ -58,12 +58,15 @@ export const VEIL = {
 function byScope(records) {
   const out = new Map();
   for (const [key, r] of Object.entries(records || {}).sort(([a], [b]) => a.localeCompare(b))) {
-    if (!r?.scope || !r.src || !publishable(r)) continue;
+    if (!r?.scope || !(r.official ? r.url : r.src) || !publishable(r)) continue;
     if (!out.has(r.scope)) out.set(r.scope, []);
     out.get(r.scope).push({ key, ...r });
   }
   return out;
 }
+
+/** Which picture a record is: its Commons file, or for an official record its address. */
+const picture = (r) => (r.official ? r.url : r.file) || r.key;
 
 /**
  * Build a resolver for a catalogue.
@@ -87,8 +90,9 @@ function byScope(records) {
  *   2. Every other card draws from its field's pool, `field:<field>` — every
  *      publishable record with that scope, in key order. Cards are served in
  *      card-key order and each takes the first picture in the pool that no
- *      card has taken yet. Pictures are compared by Commons file, so two
- *      records naming one file count as one picture.
+ *      card has taken yet. Pictures are compared by Commons file (or by
+ *      address, for an official one), so two records naming one file count as
+ *      one picture.
  *   3. A card whose field has no pool, or whose pool is spent, draws from the
  *      interdisciplinary pool the same way.
  *   4. Only when every pool it may use is spent does a card repeat a picture:
@@ -98,7 +102,7 @@ function byScope(records) {
  *
  * Returns `(programmeId) => backdrop | null`. A backdrop is
  * `{ key, scope, src, width, height, srcset: [{ src, width }] }`, and its
- * paths are site-relative.
+ * paths are site-relative, except an official record's (below).
  */
 export function backdropResolver(records, programmes) {
   const scopes = byScope(records);
@@ -123,15 +127,15 @@ export function backdropResolver(records, programmes) {
   for (const k of cardKeys) {
     for (const m of cards.get(k)) {
       const r = scopes.get(`programme:${m.id}`)?.[0];
-      if (r) { chosen.set(k, r); taken.add(r.file || r.key); break; }
+      if (r) { chosen.set(k, r); taken.add(picture(r)); break; }
     }
   }
 
   /* 2–4. Pools, in card order. Every card is served from its own field's
      pool before any card borrows from the fallback pool, so a field that has
      run short cannot take the picture meant for a card of the fallback field. */
-  const fromPool = (scope) => (scopes.get(scope) || []).find((r) => !taken.has(r.file || r.key)) || null;
-  const take = (k, r) => { chosen.set(k, r); taken.add(r.file || r.key); };
+  const fromPool = (scope) => (scopes.get(scope) || []).find((r) => !taken.has(picture(r))) || null;
+  const take = (k, r) => { chosen.set(k, r); taken.add(picture(r)); };
   const poolOf = (k) => fieldScope(cards.get(k)[0].field);
   for (const k of cardKeys) {
     if (chosen.has(k)) continue;
@@ -161,22 +165,32 @@ export function backdropResolver(records, programmes) {
   };
 }
 
-/** A record as a backdrop: `{ key, scope, src, width, height, focus?, srcset }`. */
+/**
+ * A record as a backdrop: `{ key, scope, src, width, height, focus?, srcset }`.
+ *
+ * An official record (`official: true`) is the institution's own photograph,
+ * linked from its server and not stored (docs/IMAGE_STANDARD.md): `src` is its
+ * absolute address, `external` is true, and there are no variants of ours to
+ * offer, so `srcset` is empty.
+ */
 function shape(r) {
   return {
     key: r.key,
     scope: r.scope,
-    src: r.src,
+    src: r.official ? r.url : r.src,
+    ...(r.official ? { external: true } : {}),
     width: r.width,
     height: r.height,
     /* Where the crop should sit (a CSS object-position), chosen by the
        reviewer for this file; the card box is 16:10, so only a record whose
        subject is off-centre needs one. */
     ...(r.focus ? { focus: r.focus } : {}),
-    srcset: [...(r.variants || []), { src: r.src, width: r.width }]
-      .filter((v) => v.src && v.width)
-      .sort((a, b) => a.width - b.width)
-      .map((v) => ({ src: v.src, width: v.width })),
+    srcset: r.official
+      ? []
+      : [...(r.variants || []), { src: r.src, width: r.width }]
+          .filter((v) => v.src && v.width)
+          .sort((a, b) => a.width - b.width)
+          .map((v) => ({ src: v.src, width: v.width })),
   };
 }
 
@@ -190,7 +204,8 @@ export const schoolScope = (schoolKey, slug) => `school:${schoolKey}-${slug}`;
  * Returns `(schoolKey, slug) => backdrop | null`, the slug being the one its
  * page lives at (`programmePaths` in src/lib/schools.mjs). The backdrop also
  * carries what a page needs to show and credit it: `alt`, `author`, `licence`
- * and `page`. A programme with no publishable record resolves null, and every
+ * and `page` (for an official record, the institution's page that publishes
+ * it). A programme with no publishable record resolves null, and every
  * caller falls back to what it showed before: no card photograph, and the
  * school's own photograph on the programme's page. Which programmes have a
  * picture is decided by the records alone; nothing here names a school, a
@@ -201,7 +216,7 @@ export function schoolBackdropResolver(records) {
   return (schoolKey, slug) => {
     const r = schoolKey && slug ? scopes.get(schoolScope(schoolKey, slug))?.[0] : null;
     return r
-      ? { ...shape(r), alt: r.description || r.subject || '', author: r.author || null, licence: r.licence || null, page: r.page || null }
+      ? { ...shape(r), alt: r.description || r.subject || '', author: r.author || null, licence: r.licence || null, page: (r.official ? r.sourcePage : r.page) || null }
       : null;
   };
 }

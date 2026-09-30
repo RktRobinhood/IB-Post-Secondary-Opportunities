@@ -15,7 +15,11 @@
  *      that file. It has an author and a licence to credit and a signed, dated
  *      approval for that file. Its WebP and every srcset variant are on disk at
  *      the size the record says, and in the image standard's shape. Every
- *      published picture appears on /credits/.
+ *      published picture appears on /credits/. An official record (the
+ *      institution's own photograph, linked and not stored) has instead an
+ *      https address, the page that publishes it, its size and an approval
+ *      for that address; the path that verifies and draws one is exercised
+ *      here against fixtures.
  *   3. **No text fails contrast.** Worst-case contrast is computed from the
  *      overlay itself: the paper colour at the minimum veil under any text,
  *      over a pure black pixel (light mode) or a white one dimmed as the
@@ -36,10 +40,16 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { load } from '../src/lib/data.mjs';
+import sharp from 'sharp';
+import { load, OFFICIAL_MAX_BYTES } from '../src/lib/data.mjs';
 import { review, publishable } from '../src/lib/imagery.mjs';
-import { VEIL, FALLBACK_SCOPE, contrast, hex, worstBackground } from '../src/lib/programme-imagery.mjs';
+import { VEIL, FALLBACK_SCOPE, CARD_SIZES, contrast, hex, schoolBackdropResolver, worstBackground } from '../src/lib/programme-imagery.mjs';
+import { backdropImg, hero } from '../src/lib/components.mjs';
+import { toString } from '../src/lib/html.mjs';
+import { url } from '../src/lib/layout.mjs';
+import { backdropData } from '../src/pages/explorer.mjs';
 import { conforms, probeWebp } from './lib/image-standard.mjs';
+import { OFFICIAL_LICENCE, publishedOn, verifyOfficial } from './lib/official-image.mjs';
 import { cardKey } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -118,11 +128,13 @@ check('every school programme with a publishable record shows it on its card and
     if (!hit) continue;
     const { inst, p } = hit;
     seen++;
-    if (p.backdrop?.src !== r.src) { bad.push(`${key}: the programme resolves ${p.backdrop?.src || 'no photograph'}`); continue; }
+    const src = r.official ? r.url : r.src;
+    if (p.backdrop?.src !== src) { bad.push(`${key}: the programme resolves ${p.backdrop?.src || 'no photograph'}`); continue; }
     const pageHtml = built(path.join(p.href, 'index.html'));
     if (!pageHtml) { bad.push(`${p.href}: not built`); continue; }
     const hero = (pageHtml.match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || '';
-    if (!hero.endsWith(r.src)) bad.push(`${p.href}: heads with ${hero || 'no photograph'}, not ${r.src}`);
+    // An official address is absolute: drawn as it is, never under the site's base.
+    if (r.official ? hero.replace(/&amp;/g, '&') !== src : !hero.endsWith(src)) bad.push(`${p.href}: heads with ${hero || 'no photograph'}, not ${src}`);
     const schoolHtml = built(path.join(inst.href, 'index.html'));
     if (!schoolHtml) { bad.push(`${inst.href}: not built`); continue; }
     // The card that links to this programme (its own, or its family's, whose
@@ -213,6 +225,7 @@ const title = (page) => decodeURIComponent(String(page || '').replace(/^.*\/File
 check('every record is credited, signed for its own file, and names its Commons page', () => {
   const bad = [];
   for (const [key, r] of Object.entries(records)) {
+    if (r.official) continue; // the next check
     if (!r.file) { bad.push(`${key}: no Commons file`); continue; }
     if (title(r.page) !== r.file) bad.push(`${key}: names "${r.file}" but its page is for "${title(r.page)}"`);
     if (!r.author || !r.licence) bad.push(`${key}: no ${!r.author ? 'author' : 'licence'} to credit`);
@@ -225,9 +238,111 @@ check('every record is credited, signed for its own file, and names its Commons 
   assert.deepEqual(bad, []);
 });
 
+/** What is wrong with an official record: the institution's own photograph, linked from the page that publishes it. */
+function officialFaults(key, r) {
+  const out = [];
+  if (!/^https:\/\/[^/\s]+\/\S*$/.test(r.url || '')) out.push(`${key}: its url "${r.url || ''}" is not an https address`);
+  if (!/^https:\/\/[^/\s]+/.test(r.sourcePage || '')) out.push(`${key}: no https sourcePage that publishes it`);
+  if (!(r.width > 0 && r.height > 0)) out.push(`${key}: no width and height`);
+  if (typeof r.bytes === 'number' && r.bytes > OFFICIAL_MAX_BYTES) out.push(`${key}: ${r.bytes} bytes, over OFFICIAL_MAX_BYTES`);
+  if (!/^school:[a-z0-9-]+$/.test(r.scope || '')) out.push(`${key}: an official photograph is one school programme's own; its scope is "${r.scope}"`);
+  if (r.src || r.variants || r.file) out.push(`${key}: an official record links; it names no stored file or Commons file`);
+  const rv = review(r);
+  if (rv?.state !== 'approved' || rv.url !== r.url) out.push(`${key}: no approval signed for ${r.url}`);
+  else if (!rv.note) out.push(`${key}: approved with no note saying why`);
+  return out;
+}
+
+check('every official record links an https image, names the page that publishes it, and is approved for that address', () => {
+  const bad = Object.entries(records).filter(([, r]) => r.official).flatMap(([key, r]) => officialFaults(key, r));
+  assert.deepEqual(bad, []);
+});
+
+/* The official path end to end, against fixtures and without the network: the
+   importer's verification (scripts/lib/official-image.mjs), the resolver, and
+   the markup of a card, a finder or planner row, and a programme page's hero.
+   No real record is needed for any of it to be held. */
+const FIX = { url: 'https://www.example.edu/media/lab.jpg?w=1600&h=1000', page: 'https://www.example.edu/study/lab-science' };
+const verified = await (async () => {
+  const jpeg = (width) => sharp({ create: { width, height: Math.round(width * 0.625), channels: 3, background: '#808080' } }).jpeg().toBuffer();
+  const [wide, narrow] = await Promise.all([jpeg(1200), jpeg(800)]);
+  const og = `<meta content="${FIX.url.replace(/&/g, '&amp;')}" property="og:image">`;
+  const serve = (routes) => async (u) => {
+    const r = routes[u];
+    if (!r) return new Response('', { status: 404 });
+    return typeof r === 'string'
+      ? new Response(r, { status: 200, headers: { 'content-type': 'text/html' } })
+      : new Response(r.body, { status: 200, headers: { 'content-type': r.type || 'image/jpeg' } });
+  };
+  const run = (routes, opts = {}) => verifyOfficial({ officialUrl: FIX.url, sourcePage: FIX.page }, { fetch: serve(routes), ...opts });
+  return {
+    good: await run({ [FIX.url]: { body: wide }, [FIX.page]: og }),
+    unpublished: await run({ [FIX.url]: { body: wide }, [FIX.page]: '<img src="/media/other.jpg">' }),
+    narrow: await run({ [FIX.url]: { body: narrow }, [FIX.page]: og }),
+    heavy: await run({ [FIX.url]: { body: wide }, [FIX.page]: og }, { maxBytes: 100 }),
+    notImage: await run({ [FIX.url]: { body: wide, type: 'text/html' }, [FIX.page]: og }),
+    gone: await run({ [FIX.page]: og }),
+  };
+})();
+
+check('the official-photo verification can see what it is for', () => {
+  assert.deepEqual(verified.good.problems, [], 'rejects a wide image its page publishes');
+  assert.equal(verified.good.width, 1200);
+  assert.equal(verified.good.type, 'image/jpeg');
+  for (const [name, re] of [['unpublished', /does not show/], ['narrow', /800 px wide/], ['heavy', /ceiling/], ['notImage', /served as "text\/html"/], ['gone', /answers 404/]]) {
+    assert.ok(verified[name].problems.some((p) => re.test(p)), `misses ${name}: ${verified[name].problems.join('; ') || 'no problem found'}`);
+    assert.equal(verified[name].width, undefined, `${name} still returns a size to record`);
+  }
+  // The same path under a CDN host and another query, a srcset, a lazy data-srcset, a twitter:image: each is the page publishing it.
+  const path = '/media/lab.jpg';
+  for (const page of [
+    `<img src="https://cdn.example.edu${path}?w=800" alt="">`,
+    `<picture><source srcset="${path}?w=480 480w, ${path}?w=1600&amp;h=1000 1600w"></picture>`,
+    `<img class="lazy" data-srcset="https://cdn.example.edu${path}?tr=w-400,h-250 400w" alt="">`,
+    `<meta name="twitter:image" content="${FIX.url}">`,
+  ]) assert.ok(publishedOn(page, FIX.page, FIX.url), `misses ${page}`);
+  assert.equal(publishedOn('<a href="/media/lab.jpg">download</a>', FIX.page, FIX.url), null, 'counts a link as publishing it');
+});
+
+check('an official record resolves and draws as a linked address: no base path, no srcset, credited to its page', () => {
+  const record = {
+    kind: 'school', scope: 'school:fixture-lab-science', subject: 'Lab Science', official: true, url: FIX.url, sourcePage: FIX.page,
+    width: 1600, height: 1000, bytes: 250000, type: 'image/jpeg', licence: OFFICIAL_LICENCE, fetched: '2026-09-30',
+    review: { state: 'approved', by: 'fixture', at: '2026-09-30', url: FIX.url, note: 'Fixture.' },
+  };
+  assert.deepEqual(officialFaults('school-fixture-lab-science', record), []);
+  assert.ok(officialFaults('k', { ...record, sourcePage: undefined, review: { ...record.review, url: 'https://other.example/x.jpg' } }).length === 2, 'misses a missing page and an approval for another address');
+  const b = schoolBackdropResolver({ 'school-fixture-lab-science': record })('fixture', 'lab-science');
+  assert.ok(b, 'an approved official record does not resolve');
+  assert.equal(b.src, FIX.url);
+  assert.equal(b.external, true);
+  assert.deepEqual(b.srcset, []);
+  assert.equal(b.page, FIX.page);
+  assert.equal(schoolBackdropResolver({ k: { ...record, review: undefined } })('fixture', 'lab-science'), null, 'an unsigned official record resolves');
+  const escaped = FIX.url.replace(/&/g, '&amp;');
+  const cardImg = toString(backdropImg(b, CARD_SIZES, 'card__backdrop'));
+  assert.ok(cardImg.includes(`src="${escaped}"`), `the card draws ${cardImg}`);
+  assert.doesNotMatch(cardImg, /srcset=|sizes=/, 'the card writes an empty srcset');
+  const row = backdropData(b);
+  assert.equal(row.src, FIX.url);
+  assert.equal(row.srcset, '');
+  // planner.js's own backdrop(), run as the browser runs it.
+  const planner = read('src/assets/js/planner.js');
+  const fn = new Function(`${/const esc = [\s\S]*?\);\n/.exec(planner)[0]}${/function backdrop\(b\) \{[\s\S]*?\n\}/.exec(planner)[0]}\nreturn backdrop;`)();
+  const plannerImg = fn(row);
+  assert.ok(plannerImg.includes(`src="${escaped}"`) && !/srcset=/.test(plannerImg), `the planner draws ${plannerImg}`);
+  const top = toString(hero({ title: 'Lab Science', image: { src: b.src, alt: '', credit: { text: 'Image: Fixture University', url: b.page } } }));
+  assert.ok(top.includes(`<img src="${escaped}"`), 'the programme page hero prefixes or changes the address');
+  // A Commons record is unchanged: its srcset, under the site's base.
+  const commons = schoolBackdropResolver({ c: { scope: 'school:fixture-lab-science', src: '/assets/img/programmes/c.webp', width: 960, height: 600, variants: [{ src: '/assets/img/programmes/c-480.webp', width: 480, height: 300 }], review: { state: 'approved', by: 'fixture', at: '2026-09-30' } } })('fixture', 'lab-science');
+  const commonsImg = toString(backdropImg(commons, CARD_SIZES, 'card__backdrop'));
+  assert.ok(commonsImg.includes(`src="${url('/assets/img/programmes/c.webp')}"`) && commonsImg.includes(`srcset="${url('/assets/img/programmes/c-480.webp')} 480w`), `a Commons card draws ${commonsImg}`);
+});
+
 check('every stored file and srcset variant is on disk, as recorded, in the image standard', () => {
   const bad = [];
   for (const [key, r] of Object.entries(records)) {
+    if (r.official) continue; // linked from the institution's server; nothing of ours to measure
     for (const v of [{ src: r.src, width: r.width, height: r.height, bytes: r.bytes }, ...(r.variants || [])]) {
       if (!v.src) { bad.push(`${key}: no src`); continue; }
       const disk = path.join(ROOT, 'src', ...v.src.split('/').filter(Boolean));
@@ -247,7 +362,8 @@ check('every published background is credited on /credits/', () => {
   const credits = built('credits/index.html');
   assert.ok(credits, 'credits/index.html is not built');
   const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  const missing = [...new Set(Object.values(records).filter((r) => publishable(r)).map((r) => r.page))]
+  // An official photograph is credited by the page it was published on.
+  const missing = [...new Set(Object.values(records).filter((r) => publishable(r)).map((r) => (r.official ? r.sourcePage : r.page)))]
     .filter((page) => !credits.includes(esc(page)) && !credits.includes(page));
   assert.deepEqual(missing, [], `not credited: ${missing.join(', ')}`);
 });

@@ -15,6 +15,15 @@ Only signed records with a landed local asset are published by the site.
   `scripts/import-programme-images.mjs` derives the manifest key and subject
   from that scope. Keep one country per file so a stopped or rejected batch is
   isolated from every other release.
+- A `schools-<country>.jsonl` line may name, instead of `commonsFile`, the
+  institution's own photograph: `officialUrl` (the image) and `sourcePage`
+  (the institution's page that publishes it, normally the programme page,
+  else its press or media bank), with the usual `scope`, `why` and
+  `cropNote`. It is linked, not copied (docs/IMAGE_STANDARD.md). The importer
+  records it only when the image answers 200 as an image, is at least 960 px
+  wide and within `OFFICIAL_MAX_BYTES`, and the page names it as its
+  og:image, twitter:image or in an img/srcset; otherwise it says why and
+  records nothing.
 
 For a new batch, run `node scripts/import-programme-images.mjs --unsigned`
 first. This writes and fetches the proposed records without manufacturing an

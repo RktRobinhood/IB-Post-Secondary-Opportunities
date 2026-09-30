@@ -464,9 +464,13 @@ export function credits(site) {
     else disciplines.push({ ...r, subjects: used.length ? used : [`${r.subject} (not on a card at present)`] });
   }
   disciplines.sort((a, b) => a.subjects[0].localeCompare(b.subjects[0]));
-  const official = Object.entries(site.officialImages || {}).sort((a, b) =>
-    (a[1].subject || a[0]).localeCompare(b[1].subject || b[0])
-  );
+  /* A degree photo the institution publishes itself (`official: true` in
+     data/programme-images.json) is linked the same way and credited the same
+     way: by the page it was published on. */
+  const official = [
+    ...Object.entries(site.officialImages || {}),
+    ...Object.entries(site.programmeImages || {}).filter(([, r]) => r.official && r.url),
+  ].sort((a, b) => (a[1].subject || a[0]).localeCompare(b[1].subject || b[0]));
 
   const commonsTable = (rows, caption) =>
     dataTable({
@@ -511,13 +515,14 @@ ${hero({
 
       <section class="topic" aria-labelledby="official" data-filter-group>
         <h2 id="official">Institutional photographs</h2>
-        <div class="topic__short"><p>Each university's own share image, linked from its own server and nothing copied.</p></div>
+        <div class="topic__short"><p>Each university's own share images and degree photos, linked from its own server and nothing copied.</p></div>
         ${official.length
           ? html`<details class="topic__more">
               <summary>All ${official.length}, with the page each was published on</summary>
               <div class="topic__body">
                 <p>Where a university publishes an Open Graph image — the picture it attaches to its own pages so they
-                look right when shared — that image is linked directly from the institution's own server. Nothing is
+                look right when shared — that image is linked directly from the institution's own server. So is a
+                degree's photograph where the university's own programme page is the best picture of it. Nothing is
                 copied into this repository, and each one links back to the page it was published on.</p>
                 ${dataTable({
                   caption: `${plural(official.length, 'institutional image')}, linked from the institution's own server`,

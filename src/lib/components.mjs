@@ -262,10 +262,12 @@ function credLine(line) {
  * The <img> behind a card or a finder row. `explorer.js` and `planner.js`
  * write the same markup on the client from the same fields, so there are three
  * places that must agree. scripts/test-programme-images.mjs checks the built
- * pages.
+ * pages. An official photograph is an absolute address (url() leaves it as
+ * it is) with no variants of ours, so it has no srcset.
  */
 export function backdropImg(b, sizes, className) {
-  return html`<img class="${className}" src="${url(b.src)}" srcset="${srcsetOf(b, url)}" sizes="${sizes}" alt="" loading="lazy" decoding="async" width="${b.width}" height="${b.height}" data-backdrop="${b.key}"${
+  const set = srcsetOf(b, url);
+  return html`<img class="${className}" src="${url(b.src)}"${set ? html` srcset="${set}" sizes="${sizes}"` : ''} alt="" loading="lazy" decoding="async" width="${b.width}" height="${b.height}" data-backdrop="${b.key}"${
     /* A reviewed crop position for this photograph (data/programme-images.json `focus`). */
     b.focus && /^\d+(\.\d+)?% \d+(\.\d+)?%$/.test(b.focus) ? raw(` style="object-position: ${b.focus}"`) : ''
   }>`;

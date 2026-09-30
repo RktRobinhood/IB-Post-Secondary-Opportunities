@@ -24,6 +24,14 @@ university and a Danish programme page next to the country you are working on.
 | 6 | Sign and gate | signed records; all gate checks pass on a clean copy of `main` | below | `All N checks pass.` |
 | 7 | Ship | one commit per country, pushed | [`PARALLEL_WORK.md`](PARALLEL_WORK.md) | Live on the site; STATUS and the issue say so |
 
+**Degree photos come from Commons first, then the university itself.** Where
+Commons has nothing honest for a subject (business, economics, computing and
+data in every country so far: Portugal found 5 photos for 24 degrees), the
+brief's ladder goes to the programme's own page, the press bank and official
+Flickr, and uses social media only to find a picture the institution also
+serves itself. Official photos are linked, not copied, and pass the same
+critic (ENRICH_BRIEF, "When Commons is dry").
+
 Stages 2 and 3 can run in one agent (one country, its own files). The owner
 cares most about how the cards look, so an agent that has to choose does the
 photo proposals first.

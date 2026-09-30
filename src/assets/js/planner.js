@@ -292,10 +292,11 @@ function renderHow(common) {
 
 /* The faded photograph of the discipline behind a result. The same markup as
    backdropImg() in src/lib/components.mjs and backdrop() in explorer.js, from
-   fields built by src/pages/planner.mjs. */
+   fields built by src/pages/planner.mjs. An institution's own photograph is
+   one linked address with no srcset. */
 function backdrop(b) {
   return b
-    ? `<img class="prog__backdrop" src="${esc(b.src)}" srcset="${esc(b.srcset)}" sizes="${esc(b.sizes)}" alt="" loading="lazy" decoding="async" width="${esc(b.width)}" height="${esc(b.height)}" data-backdrop="${esc(b.key)}">`
+    ? `<img class="prog__backdrop" src="${esc(b.src)}"${b.srcset ? ' srcset="' + esc(b.srcset) + '" sizes="' + esc(b.sizes) + '"' : ''} alt="" loading="lazy" decoding="async" width="${esc(b.width)}" height="${esc(b.height)}" data-backdrop="${esc(b.key)}">`
     : '';
 }
 
