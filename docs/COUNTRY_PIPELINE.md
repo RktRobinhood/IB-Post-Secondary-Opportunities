@@ -58,6 +58,21 @@ admission quirks. It writes only its own files, one school at a time, runs no
 git, and builds into its own folder (`DIST_DIR=D:/ibp-tmp/<cc>/dist`). An
 agent that stops has lost nothing: re-run the brief on the unfinished schools.
 
+**Cloudflare walls.** Several Baltic and Latvian university sites return 403
+to curl and WebFetch; an agent's own browser tab usually passes the challenge
+by itself after 10–15 seconds. Say so in the brief.
+
+**Country calendar dates tied to a whole school.** A `data/countries/<cc>.json`
+deadline with `institutions: [key]` reaches every programme of that school. If
+it is really one faculty's date (Semmelweis's medicine deadline), label it so;
+a programme with its own `closes` now ignores it (`programme-deadline.mjs`).
+
+**Model and pace (30 Sep, late).** Research agents on Sonnet with a
+country-neutral brief (`D:/ibp-tmp/eu2/AGENT_BRIEF.md`, the Poland brief
+generalised) took Estonia, Hungary, Lithuania, Latvia, Greece and Czechia's
+last two schools from nothing to shipped at about 1% of weekly usage per
+country, four agents at a time.
+
 **One browser tab per agent.** Agents that read JavaScript pages in the
 browser pane share it; each opens its own tab (`tabs_create`) and passes its
 `tabId`, or it navigates another agent's page away mid-read.
@@ -147,6 +162,12 @@ them.
 | `check-schools` | an `ib` line over 180 characters | one sentence; detail goes in `selectionNote` |
 | `superlatives` | a summary ranks the place ("Sweden's largest", "the oldest Nordic") | say what makes it worth a look: a founding year, a count, a setting |
 | `research-log` | page text says "verified", "critic", "we checked" | write what the student should do, not how we researched it |
+| `research-log` | "the page gives no grade" | "no minimum grade is published; ask the admissions office" |
+| `school-pages` | a school-wide date whose label says "arts programmes" (or "earlier") on a programme that auditions | label it by the degrees it covers ("music, design, painting and sculpture degrees") and scope it with `programmes` |
+| `school-pages` | a programme's `closesNote` names earlier rounds ("Earlier rounds close 15 Nov, 15 Jan") and the tile shows the last round | no dates in the note: "Last of several rounds; applying early is safer." |
+| `school-pages` | a programme name over 48 characters | the university's own name, added to `scripts/lib/long-titles.json` |
+| `card-names` | a family path row with no `cardLine` | `cardLine` (≤60) on every family member: "Main subject: piano" |
+| `text-walls` | one `about` sentence repeated on 11+ family pages | make each path's `about` name its path |
 
 | Photo critic rejects | Instead |
 |---|---|

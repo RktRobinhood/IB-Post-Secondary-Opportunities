@@ -10,6 +10,28 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
 
+## 30 September (late evening): ceiling raised to 65% weekly; finishing Europe
+
+The owner raised this project's weekly ceiling to 65% (from 50%) and asked
+for the "Next" checklist below to be worked in order. Started at 48%.
+Shipped, each gated 40/40 on a clean copy of main:
+- **Estonia** (ffeac24): 10 institutions, 22 degrees (2 none).
+- **Hungary** (ad5bb9d): 14 institutions, 212 degrees (MOME none). Fix: a
+  programme's own `closes` beats a country calendar date tied to its school.
+- **Lithuania and Greece** (c94e44b): 184 and 14 degrees; Greece's public
+  universities without English degrees explain the Ministry B.1 route.
+- **Czechia complete** (258d272): CZU 10, VŠB 13.
+- **Latvia** (f883445): 11 institutions, 52 degrees.
+In flight: Slovenia + Malta (agent si-mt); flagships and faculties for the
+catalogue schools — UK batch A (Oxford … Bristol), UK batch B (Manchester …
+UAL), Ireland — brief `D:/ibp-tmp/eu2/FLAGSHIP_BRIEF.md`. Each agent edits
+only its own school files; a stopped run resumes on schools whose record
+still has no `flagshipSource`.
+Not yet: flagships for ch-franklin, ch-webster-geneva, fr-aup, gr-acg-deree;
+degree photos for PL, CZ and the new countries (cards use the designed
+backdrop meanwhile). Data questions from these agents are in their
+`docs/research/schools/reports/findings-2026-09-30-<agent>.md`.
+
 ## 30 September (evening): Europe nearly complete; stopped at the weekly ceiling
 
 Stopped at ~49% of weekly usage (owner's cap for this project: 50%).
