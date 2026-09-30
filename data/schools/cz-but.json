@@ -1,0 +1,125 @@
+{
+  "institution": "cz-but",
+  "name": "Brno University of Technology",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Technical university in Brno with five English-taught bachelor's: civil, electrical and mechanical engineering, architecture and entrepreneurship.",
+  "handoff": {
+    "label": "English-taught programmes by faculty and level",
+    "url": "https://www.vut.cz/en/study-options/degree-studies-en/study-programmes"
+  },
+  "ib": {
+    "text": "BUT publishes no IB rule; its faculties ask foreign applicants to request an assessment of their diploma (about EUR 30). Czech law has accepted the IB Diploma without nostrification since March 2025.",
+    "url": "https://www.vut.cz/en/study-options/recognition"
+  },
+  "apply": {
+    "via": "BUT e-application, one per programme",
+    "url": "https://www.vut.cz/eprihlaska/en"
+  },
+  "dates": [
+    {"label": "Civil Engineering applications open for 2027/28", "date": "2026-09-01", "kind": "opens", "who": "any", "programmes": ["civil-engineering"], "url": "https://www.fce.vutbr.cz/en/applicants/programmes-in-en/how-to-apply"},
+    {"label": "Electrical Engineering applications open for 2027/28", "date": "2026-11-01", "kind": "opens", "who": "any", "programmes": ["electrical-engineering"], "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/timeline"},
+    {"label": "Electrical Engineering: school-leaving certificate due", "date": "2027-02-15", "kind": "documents", "who": "any", "programmes": ["electrical-engineering"], "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/timeline"},
+    {"label": "Electrical Engineering entrance exam week (22–26 March)", "date": "2027-03-22", "kind": "test", "who": "any", "programmes": ["electrical-engineering"], "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/timeline"}
+  ],
+  "programmes": [
+    {"name": "Architecture and Urban Design", "credential": "Bc. (Czech bachelor's degree)", "years": 4, "field": "design-architecture", "url": "https://www.fa.vutbr.cz/studyarchitecture/bachelor", "about": "A four-year, studio-based bachelor's in architecture and urban design covering theory, technical and professional practice, with themes such as sustainability, climate resilience and housing.", "ib": "Three-day design homework and an online interview; B2 English certificate unless your secondary school taught in English.", "selection": ["assignment", "interview"], "selectionNote": "Ranked on the admission exam: a three-day homework task, then an online interview. Up to 30 admitted. 2026 criteria; 2027 not yet published.", "places": 30, "tuitionEuEea": "€4,200 a year (2026/27)", "lastYear": {"year": 2026, "text": "1 Oct–2 February"}, "requirementsUrl": "https://www.vut.cz/en/board/internal-legislation-fa/d302881"},
+    {"name": "Civil Engineering", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "engineering", "url": "https://www.vut.cz/en/study-options/degree-studies-en/study-programmes/programme/10052", "about": "A three-year civil engineering bachelor's specialised in building construction, taught at a faculty with its own materials and structures research centre (AdMaS) and close links to the construction industry.", "ib": "No written exam: documents, then a 15-minute online interview. B2 English certificate needed; school GPA at least 2.5 of 4.", "selection": ["motivation", "grades", "interview"], "selectionNote": "Documents screened (motivation letter, transcript, English certificate), then an interview on English, motivation and basic maths and physics; 10 of 20 recommends you.", "places": 48, "closes": "2027-05-31", "tuitionEuEea": "€3,950 a year (2027/28)", "requirementsUrl": "https://www.fce.vutbr.cz/en/applicants/programmes-in-en/how-to-apply"},
+    {"name": "Electrical Engineering", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "engineering", "url": "https://www.vut.cz/en/study-options/degree-studies-en/study-programmes/programme/9849", "about": "Electrical engineering with a choice of two specialisations: Electronics and Communication Technologies, or Power Systems and Automation, built on mathematics, physics and electronics.", "ib": "Written entrance test in maths, physics and informatics at school level, plus an English assessment.", "selection": ["entrance-exam"], "selectionNote": "Entrance exam in Brno in late March after the January deadline. Your school certificate is due soon after applying; as an IB student, ask FEEC for an extension.", "closes": "2027-01-31", "tuitionEuEea": "€1,000 a year (2026/27)", "requirementsUrl": "https://www.fekt.vut.cz/en/applicants/studies_in_english/timeline"},
+    {"name": "Entrepreneurship and Small Business Development", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "business", "url": "https://www.fbm.vutbr.cz/en/study-at-fbm/study-programmes/entrepreneurship-and-small-business-development", "about": "A practice-led business bachelor's: marketing, management and finance in year one, then you build and run a company with a team through entrepreneurial practice courses.", "ib": "Oral group interview in English on motivation, problem solving, teamwork and presentation.", "selection": ["interview"], "selectionNote": "Group interview scored out of 100; 30 to pass, then ranked for up to 80 places. 2026 criteria; 2027 not yet published.", "places": 80, "tuitionEuEea": "€2,500 a year (2026/27)", "lastYear": {"year": 2026, "text": "1 Nov–31 March"}, "requirementsUrl": "https://www.vut.cz/en/board/internal-legislation-fbm/-d305666/rules-of-admissions-and-conditions-for-admission-to-study-in-bachelor-and-master-programmes-taught-in-english-for-the-academick-year-2026-2027-p317353"},
+    {"name": "Fundamentals of Mechanical Engineering", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "engineering", "url": "https://www.fme.vutbr.cz/en/studuj/studia-en/programy/17953", "about": "A broad engineering bachelor's: mathematics, physics, materials, CAD and machine design first, then mechanics and manufacturing, before choosing a specialised master's.", "ib": "Maths and physics entrance exam, waived for a top-50% Scio result; English B1 (a school letter that you were taught in English is enough).", "selection": ["entrance-exam", "test-score"], "selectionNote": "Written maths and physics exam; ask for a waiver if you placed in the top half of Scio's General Study Prerequisites or Mathematics test. 2026 criteria; 2027 not yet published.", "tuitionEuEea": "€3,000 a year (2026/27)", "lastYear": {"year": 2026, "text": "1 Nov–31 March; exam 28 April"}, "requirementsUrl": "https://www.fme.vutbr.cz/en/studuj/studia-en/informace"}
+  ],
+  "notes": [
+    "Each faculty runs its own admission, dates and fees (EUR 28–30 per application); apply to each programme in the BUT e-application.",
+    "Czech law accepts an IB Diploma as proof of secondary education without nostrification; ask your faculty whether its assessment fee still applies to you.",
+    "Civil Engineering wants a B2 English certificate even from IB students; Architecture and Mechanical Engineering accept English-medium schooling."
+  ],
+  "sources": [
+    {
+      "title": "Study programmes in English (select 2026/2027 or 2027/2028)",
+      "url": "https://www.vut.cz/en/study-options/degree-studies-en/study-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Degree studies in English: admission procedure by faculty",
+      "url": "https://www.vut.cz/en/study-options/degree-studies-en/study-info",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Recognition and assessment of foreign education",
+      "url": "https://www.vut.cz/en/study-options/recognition",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Admission Office FAQ",
+      "url": "https://www.vut.cz/en/students/admission-office/faq",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FA: Bachelor studies in English",
+      "url": "https://www.fa.vutbr.cz/studyarchitecture/bachelor",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FA: Dean's Decision 5/2025, bachelor admission rules 2026/2027",
+      "url": "https://www.vut.cz/en/board/internal-legislation-fa/d302881",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FCE: How to apply, Civil Engineering 2027/28",
+      "url": "https://www.fce.vutbr.cz/en/applicants/programmes-in-en/how-to-apply",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FCE: Full degree programmes in English",
+      "url": "https://www.fce.vutbr.cz/en/applicants/programmes-in-en/programmes/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FEEC: Timeline, admission to 2027/28",
+      "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/timeline",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FEEC: Entrance exam",
+      "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/entrance_exam",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FEEC: Study fees",
+      "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/fees",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FEEC: Documents",
+      "url": "https://www.fekt.vut.cz/en/applicants/studies_in_english/documents",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FBM: Study programmes for 2027/2028",
+      "url": "https://www.fbm.vutbr.cz/en/study-at-fbm/study-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FBM: Rules of admissions for programmes taught in English, 2026/2027",
+      "url": "https://www.vut.cz/en/board/internal-legislation-fbm/-d305666/rules-of-admissions-and-conditions-for-admission-to-study-in-bachelor-and-master-programmes-taught-in-english-for-the-academick-year-2026-2027-p317353",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FBM: Admission procedure",
+      "url": "https://www.fbm.vutbr.cz/en/study-at-fbm/admission-procedure",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FME: Degree studies in English, study information",
+      "url": "https://www.fme.vutbr.cz/en/studuj/studia-en/informace",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FME: Study programmes in English",
+      "url": "https://www.fme.vutbr.cz/en/studuj/studia-en/programy",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

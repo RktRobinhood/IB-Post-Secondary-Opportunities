@@ -1,0 +1,361 @@
+{
+  "institution": "cz-cu",
+  "name": "Charles University",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Prague university where each faculty admits its own: English bachelor's in social sciences, CS, psychology and sport; medicine in three cities.",
+  "handoff": {
+    "label": "English-taught undergraduate programmes",
+    "url": "https://studycharles.cz/catalogue?typ-programu=BM&jazyk-studia=ENG&lang=en"
+  },
+  "ib": {
+    "text": "Charles accepts an IB Diploma automatically, with no assessment fee. Each faculty runs its own selection; a few faculty pages still list a recognition fee for foreign diplomas, so ask.",
+    "url": "https://cuni.cz/UKEN-593.html"
+  },
+  "apply": {
+    "via": "Charles's online application (SIS), one per programme",
+    "url": "https://is.cuni.cz/studium/eng/prijimacky/index.php"
+  },
+  "dates": [
+    {
+      "label": "Psychology: applications open",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "programmes": [
+        "psychology"
+      ],
+      "url": "https://psychology.ff.cuni.cz/admissions/"
+    },
+    {
+      "label": "Faculty of Social Sciences: applications for 2027/28 open",
+      "date": "2026-11-01",
+      "kind": "opens",
+      "who": "any",
+      "programmes": [
+        "economics-and-finance",
+        "history-and-area-studies",
+        "politics-philosophy-and-economics",
+        "social-sciences",
+        "sustainability-in-marketing-and-media-communication"
+      ],
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/bef"
+    },
+    {
+      "label": "Second Faculty of Medicine: applications open",
+      "date": "2026-11-01",
+      "kind": "opens",
+      "who": "any",
+      "programmes": [
+        "general-medicine-second-faculty-of-medicine"
+      ],
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-admission-dates"
+    },
+    {
+      "label": "Faculty of Social Sciences: early-bird deadline (regular deadline 30 April 2027)",
+      "date": "2027-02-28",
+      "kind": "early",
+      "short": "Early-bird deadline",
+      "who": "any",
+      "programmes": [
+        "economics-and-finance",
+        "history-and-area-studies",
+        "politics-philosophy-and-economics",
+        "social-sciences",
+        "sustainability-in-marketing-and-media-communication"
+      ],
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/bef"
+    },
+    {
+      "label": "Second Faculty of Medicine: entrance exam in Prague (regular date)",
+      "date": "2027-06-03",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "general-medicine-second-faculty-of-medicine"
+      ],
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-admission-dates"
+    },
+    {
+      "label": "Second Faculty of Medicine: entrance exam in London",
+      "date": "2027-07-02",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "general-medicine-second-faculty-of-medicine"
+      ],
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-admission-dates"
+    },
+    {
+      "label": "Second Faculty of Medicine: entrance exam in Berlin",
+      "date": "2027-07-13",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "general-medicine-second-faculty-of-medicine"
+      ],
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-admission-dates"
+    },
+    {
+      "label": "Second Faculty of Medicine: entrance exam in Prague (alternative date)",
+      "date": "2027-07-22",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "general-medicine-second-faculty-of-medicine"
+      ],
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-admission-dates"
+    }
+  ],
+  "programmes": [
+    {"name": "Computer Science", "credential": "BSc", "years": 3, "field": "computing", "url": "https://www.mff.cuni.cz/en/admissions/programmes", "about": "Applied and theoretical computer science on a strong maths base: a common first year, then General Computer Science, Databases and Web, or Artificial Intelligence.", "ib": "Grade 6 in Maths AA HL or AI HL; your IB total does not count. IB English at grade 6 proves your English. No entrance exam.", "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL", "grade": 6}], "selection": ["grades"], "selectionNote": "No exam or ranking test: meet the maths bar (IB Maths HL 6, or the SAT, AP or A-level routes) and prove your English. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "30 April"}, "tuitionEuEea": "€4,200 a year (2026/27)", "requirementsUrl": "https://www.mff.cuni.cz/en/admissions/admission-requirements-for-bachelor-s-programmes-in-english/2026-2027"},
+    {"name": "Economics and Finance", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "economics", "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/bef", "about": "Theoretical and applied economics and finance with serious maths and statistics, taught partly by central-bank and banking professionals; electives in finance, economic policy, trade and European integration.", "ib": "No entrance exam. Your IB Maths result (AA or AI, SL or HL) earns up to 45 of 100 points and your English up to 45.", "selection": ["grades", "motivation"], "selectionNote": "Ranked out of 100: maths 45, English 45, CV and motivation letter 10; the dean sets the cut-off. 2026 criteria; 2027 not yet published.", "closes": "2027-04-30", "closesNote": "An early-bird round closes in February", "tuitionEuEea": "€7,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34307&fakulta=11230"},
+    {"name": "History and Area Studies", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "humanities", "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/has", "about": "Modern history, culture and politics of Central Europe, taught in English alongside Czech-language courses that take you to B2 Czech by graduation.", "ib": "No entrance exam: ranked on your record, a motivation letter, a recommendation letter and activities. No Czech needed to apply; it is taught from scratch.", "selection": ["grades", "motivation"], "selectionNote": "Scored out of 100: academic record 40, motivation and recommendation letters 40, extracurricular activities 20. 2026 criteria; 2027 not yet published.", "closes": "2027-04-30", "closesNote": "An early-bird round closes in February", "tuitionEuEea": "€5,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34306&fakulta=11230"},
+    {"name": "Politics, Philosophy and Economics", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "social-sciences", "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/ppe", "about": "Modelled on Oxford's PPE: three semesters of core courses, then a Politics & Philosophy, Economics & Politics or Philosophy & Economics track.", "ib": "No entrance exam: ranked on your academic record (65 points) and motivation and activities (35). Strong school maths matters for the economics tracks.", "selection": ["grades", "motivation", "interview"], "selectionNote": "Applicants within 5 points of the cut-off have an online interview worth up to 6 points either way. 2026 criteria; 2027 not yet published.", "closes": "2027-04-30", "closesNote": "An early-bird round closes in February", "tuitionEuEea": "€7,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34590&fakulta=11230"},
+    {"name": "Social Sciences", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "social-sciences", "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/sosci", "about": "Interdisciplinary social science built on research methods, drawing on sociology, public policy, media studies, political science, anthropology, economics and environmental studies.", "ib": "Two rounds: your record and motivation letter shortlist you, then you write a supervised online essay (350–500 words) on a social issue.", "selection": ["grades", "motivation", "assignment"], "selectionNote": "Round 1: record 30 and letter 20 points; round 2: the essay, 50 of 100. 2026 criteria; 2027 not yet published.", "closes": "2027-04-30", "closesNote": "An early-bird round closes in February", "tuitionEuEea": "€6,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34313&fakulta=11230"},
+    {"name": "Sustainability in Marketing and Media Communication", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "business", "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/sumac", "about": "Communication, media studies and marketing combined with sustainable development: you create media content and learn to judge the environmental impact of campaigns.", "ib": "No entrance exam: ranked on a motivation letter, CV, a portfolio (or an essay) and a written reflection on a media-and-sustainability example.", "selection": ["portfolio", "motivation"], "selectionNote": "Scored out of 100: motivation letter 30, CV 10, portfolio 30, media reflection 30. 2026 criteria; 2027 not yet published.", "closes": "2027-04-30", "closesNote": "An early-bird round closes in February", "tuitionEuEea": "€7,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34314&fakulta=11230"},
+    {"name": "Liberal Arts and Humanities", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "humanities", "url": "https://fhs.cuni.cz/FHSENG-524.html", "about": "An open curriculum centred on philosophy, history and cultural and social anthropology, with few compulsory courses, so you build your own path through the humanities.", "ib": "Admission rests on the online Scio GAP reasoning test; the faculty pays for one sitting. The IB counts as proof of schooling with no assessment.", "selection": ["test-score"], "selectionNote": "You need the percentile the dean sets on the Scio General Academic Prerequisites test, sat online between January and April. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "31 March; online test by 25 April"}, "tuitionEuEea": "€5,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34312&fakulta=11240"},
+    {"name": "Psychology", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "social-sciences", "url": "https://psychology.ff.cuni.cz/about-the-program/", "about": "Scientific psychology built on the European EuroPsy standard: cognitive, developmental, social and personality psychology, plus clinical, educational and organisational applications.", "ib": "No tests or interviews: a portfolio of your grades, motivation letter and CV. English at B2 is shown after admission; an English-taught diploma counts.", "selection": ["grades", "motivation", "portfolio"], "selectionNote": "Scored out of 100: penultimate-year grade average 40, motivation letter (max. 650 words) 30, CV and activities 30. Decisions in mid-February.", "closes": "2027-01-31", "closesNote": "Applications open 1 October 2026", "tuitionEuEea": "CZK 250,000 a year (2026/27)", "requirementsUrl": "https://psychology.ff.cuni.cz/admissions/"},
+    {"name": "Science", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "natural-sciences", "url": "https://natur.cuni.cz/en/admissions/study-programmes/science", "about": "Biology, chemistry and physics studied side by side for two years with maths and programming, then a third year specialising in one of the three.", "ib": "Online interview in biology, chemistry and physics plus CV, motivation letter and science grades. Your school sends IB results through IBIS; no paper copies.", "selection": ["entrance-exam", "motivation", "grades"], "selectionNote": "Scored out of 100: online interview 55, motivation letter 25, CV 10, science and maths grades 10. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "28 February"}, "tuitionEuEea": "€3,000 a year (2026/27)", "requirementsUrl": "https://natur.cuni.cz/en/admissions/bachelor-study/admission-requirements/programmes-taught-in-english"},
+    {"name": "Protestant Theology", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "humanities", "url": "https://web.etf.cuni.cz/ETFENG-152.html", "about": "Biblical studies in the original Hebrew and Greek, Christian traditions, world religions, philosophy and ethics, taught in small groups in central Prague.", "ib": "An oral exam: discuss your motivation and two books you choose from the reading list; 45 of 70 points admits you.", "selection": ["entrance-exam"], "selectionNote": "One oral round with a faculty committee, in late June. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "10 June"}, "tuitionEuEea": "CZK 25,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34251&fakulta=11270"},
+    {"name": "English Language for Teacher Education", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "education", "url": "https://pedf.cuni.cz/PEDFEN-371.html", "about": "Linguistics, literature in English and language practice for future English teachers, studied as a major with Music Education or Playing Instrument as your second subject.", "ib": "Written English test (grammar, vocabulary, reading) set at B2; a C1 certificate can exempt you. Your second subject has its own exam.", "selection": ["entrance-exam", "audition"], "selectionNote": "Two exams worth 40 points each: English, and a music talent test or instrument performance for your second subject. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "28 February"}, "tuitionEuEea": "CZK 150,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34914&fakulta=11410", "family": {"name": "Teacher Education in English and Music", "axis": "specialisation", "path": "English major", "differs": "English major, combined with Music Education or Playing Instrument; written English test.", "primary": true}},
+    {"name": "Music Education for Teacher Education", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "education", "url": "https://pedf.cuni.cz/PEDFEN-374.html", "about": "Music pedagogy in theory and practice for future music teachers, combined with English, Choral Singing or Playing Instrument as your second subject.", "ib": "Talent exam in singing, musicality and piano or violin, each with a pass mark. Your second subject has its own exam.", "selection": ["audition", "entrance-exam"], "selectionNote": "Two exams worth 40 points each; missing the pass mark in any part of the talent exam scores it zero. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "28 February"}, "tuitionEuEea": "CZK 150,000–180,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34916&fakulta=11410", "family": {"name": "Teacher Education in English and Music", "axis": "specialisation", "path": "Music Education major", "differs": "Music Education major, combined with English, Choral Singing or Playing Instrument; talent exam."}},
+    {"name": "Choral Singing for Teacher Education", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "education", "url": "https://pedf.cuni.cz/PEDFEN-373.html", "about": "Conducting technique, reading vocal scores, choir voice training, aural analysis and choral literature, studied as a major with Music Education.", "ib": "Practical exam in choral singing and conducting skills, plus the Music Education talent exam.", "selection": ["audition"], "selectionNote": "Two exams worth 40 points each, one per subject. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "28 February"}, "tuitionEuEea": "CZK 180,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34919&fakulta=11410", "family": {"name": "Teacher Education in English and Music", "axis": "specialisation", "path": "Choral Singing major", "differs": "Choral Singing major, combined with Music Education; conducting and choir training."}},
+    {"name": "Playing Instrument for Teacher Education", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "education", "url": "https://pedf.cuni.cz/PEDFEN-372.html", "about": "Piano or violin for musicians aiming to teach rather than perform: individual lessons, chamber music, improvisation and orchestra, with English or Music Education as second subject.", "ib": "Perform a memorised piano or violin programme: etudes plus Baroque, Classical, Romantic and 20th-century pieces. Your second subject has its own exam.", "selection": ["audition"], "selectionNote": "Two exams worth 40 points each, one per subject. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "28 February"}, "tuitionEuEea": "CZK 150,000–180,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34920&fakulta=11410", "family": {"name": "Teacher Education in English and Music", "axis": "specialisation", "path": "Playing Instrument major", "differs": "Piano or violin major, combined with English or Music Education; performance exam."}},
+    {"name": "Coach", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "sport", "url": "https://www.ftvs.cuni.cz/en/international-admissions/full-degree-programmes/study-programmes/coach", "about": "Sports coaching grounded in sport science, pedagogy and psychology, specialising in one sport: athletics, gymnastics, swimming, football, ice hockey, volleyball, basketball, tennis, handball or combat sports.", "ib": "Online interview in English on your motivation letter and a short text; send a CV, recommendation, English certificate and sports doctor's note.", "selection": ["interview", "motivation"], "selectionNote": "Scored 0–30: motivation letter, spoken English and discussion of an English text, 10 each; 15 needed. A later second round also ran in 2026. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "31 March; second round 1 August"}, "tuitionEuEea": "CZK 160,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34985&fakulta=11510", "family": {"name": "Coaching", "axis": "specialisation", "path": "Coach (one sport)", "differs": "Coaching in one chosen sport, from athletics and swimming to ice hockey and combat sports.", "cardLine": "Coaching in one sport you choose", "primary": true}},
+    {"name": "Fitness Coach", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "sport", "url": "https://www.ftvs.cuni.cz/en/international-admissions/full-degree-programmes/study-programmes/fitness-coach", "about": "Designing exercise programmes for different groups: exercise physiology, biomechanics, nutrition and training theory, applied in strength training, athletics and gymnastics.", "ib": "Online interview in English on your motivation letter and a short text; send a CV, recommendation, English certificate and sports doctor's note.", "selection": ["interview", "motivation"], "selectionNote": "Scored 0–30: motivation letter, spoken English and discussion of an English text, 10 each; 15 needed. A later second round also ran in 2026. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "31 March; second round 1 August"}, "tuitionEuEea": "CZK 160,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34986&fakulta=11510", "family": {"name": "Coaching", "axis": "specialisation", "path": "Fitness Coach", "differs": "Fitness and exercise programmes for the general public and athletes, with nutrition and strength training.", "cardLine": "Exercise programmes, nutrition and strength training"}},
+    {"name": "Physiotherapy", "credential": "Bc. (Czech bachelor's degree)", "years": 3, "field": "health", "url": "https://www.ftvs.cuni.cz/en/international-admissions/full-degree-programmes/study-programmes/physiotherapy", "about": "Diagnosis and movement therapy for disorders of the musculoskeletal system, qualifying you as a physiotherapist to WCPT standards, with practice in hospitals, rehabilitation and sport.", "ib": "Online interview in English on your motivation letter, spoken English and a physiotherapy text; send a CV, recommendation and English certificate.", "selection": ["interview", "motivation"], "selectionNote": "Scored 0–25: motivation letter 5, spoken English 10, understanding a professional text 10. A later second round also ran in 2026. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "31 March; second round 1 August"}, "tuitionEuEea": "CZK 220,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34987&fakulta=11510"},
+    {"name": "General Medicine (First Faculty of Medicine)", "credential": "MUDr. (six-year Czech medical degree)", "years": 6, "field": "medicine", "url": "https://studycharles.cz/catalogue?program=35026", "about": "Six-year MUDr. degree at the First Faculty in central Prague; entry is a science test followed by online multiple mini-interviews.", "ib": "Test in biology, chemistry and physics, then five online mini-interviews. IB 36+ with HL Biology, HL Chemistry and a third science or maths HL, each 6+, adds a 10% bonus.", "selection": ["entrance-exam", "interview"], "selectionNote": "The test (with any bonus, final IB results only) decides who reaches the interviews; places go on interview score alone. 2026 criteria; 2027 not yet published.", "ownDeadline": true, "lastYear": {"year": 2026, "text": "5 September; tests from late May"}, "tuitionEuEea": "€24,250 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=35026&fakulta=11110", "family": {"name": "General Medicine", "axis": "campus", "path": "First Faculty, Prague", "differs": "Test plus online mini-interviews; IB bonus points, no waiver; fee in euros."}},
+    {"name": "General Medicine (Second Faculty of Medicine)", "credential": "MUDr. (six-year Czech medical degree)", "years": 6, "field": "medicine", "url": "https://www.lf2.cuni.cz/en/applicants/md-programme", "about": "Six-year MD in English since 1992, taught at the Plzeňská campus and the Motol and Homolka university hospitals; accredited by the Medical Board of California.", "ib": "Written test (biology, chemistry, physics, logic) and interview. IB waiver: 35+ points with 19 from HL Biology, HL Chemistry and Maths or Physics; predicted grades count.", "selection": ["entrance-exam", "interview"], "selectionNote": "Up to 25 waivers go to the best IB, EB and BS applicants; ask for one with your application. Otherwise sit the test in Prague (3 June or 22 July) or abroad.", "closes": "2027-04-30", "closesNote": "Exam registration and waiver requests too", "tuitionEuEea": "CZK 420,000 a year (2026/27)", "requirementsUrl": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/exemptions", "family": {"name": "General Medicine", "axis": "campus", "path": "Second Faculty, Prague", "differs": "Test and interview, or an IB waiver at 35 points; 2027 dates are out: apply by 30 April 2027.", "primary": true}},
+    {"name": "General Medicine (Third Faculty of Medicine)", "credential": "MUDr. (six-year Czech medical degree)", "years": 6, "field": "medicine", "url": "https://www.lf3.cuni.cz/3LFEN-11.html", "about": "Six-year MUDr. degree taught through an integrated curriculum: theory and preclinical subjects are linked, and common clinical problems are taught through problem-based learning.", "ib": "Tests in biology and chemistry, then an interview. Up to 25 enter without the exam: HL Chemistry, HL Biology and HL English summing to 19 or more.", "selection": ["entrance-exam", "interview"], "selectionNote": "Send the waiver form with your application. Main exam in Prague in late May, or at agency sittings abroad. 2026 criteria; 2027 not yet published.", "places": 90, "lastYear": {"year": 2026, "text": "15 April"}, "tuitionEuEea": "CZK 420,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=35173&fakulta=11120", "family": {"name": "General Medicine", "axis": "campus", "path": "Third Faculty, Prague", "differs": "Biology and chemistry tests plus interview, or a waiver with HL Chemistry, Biology and English at 19; 90 places."}},
+    {"name": "General Medicine (Plzeň)", "credential": "MUDr. (six-year Czech medical degree)", "years": 6, "city": "Plzeň", "field": "medicine", "url": "https://studycharles.cz/catalogue?program=34121", "about": "Six-year MUDr. degree in Plzeň: two theoretical years, two preclinical years with bedside teaching from year three, then two clinical years.", "ib": "Written test in biology, chemistry and physics (75 questions), in Plzeň or at agency sittings abroad. No IB waiver; the IB needs no assessment fee.", "selection": ["entrance-exam"], "selectionNote": "The dean sets the pass mark from the number of places; one attempt per year. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "30 April"}, "tuitionEuEea": "CZK 390,000 a year (2026/27)", "requirementsUrl": "https://lfp.cuni.cz/en/faculty-of-medicine-in-pilsen/admission-procedure/", "family": {"name": "General Medicine", "axis": "campus", "path": "Plzeň", "differs": "Written test in biology, chemistry and physics, no interview; CZK 390,000 a year."}},
+    {"name": "General Medicine (Hradec Králové)", "credential": "MUDr. (six-year Czech medical degree)", "years": 6, "city": "Hradec Králové", "field": "medicine", "url": "https://www.lfhk.cuni.cz/LFHKEN-179.html", "about": "Six-year MUDr. degree with clinical teaching in groups of five to seven at the university hospital, an adaptation programme before you start, and compulsory Czech classes in years 1–2.", "ib": "Test in biology, chemistry and physics or maths (60 points) plus an interview (40). Sit it with partner agencies abroad or online through Scio.", "selection": ["entrance-exam", "interview"], "selectionNote": "The top 105 applicants, ties included, are admitted. 2026 criteria; 2027 not yet published.", "places": 105, "lastYear": {"year": 2026, "text": "30 April"}, "tuitionEuEea": "CZK 400,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34123&fakulta=11150", "family": {"name": "General Medicine", "axis": "campus", "path": "Hradec Králové", "differs": "Test (maths can replace physics) and interview; online sitting via Scio; 105 places."}},
+    {"name": "Dentistry (First Faculty of Medicine)", "credential": "MDDr. (five-year Czech dental degree)", "years": 5, "field": "medicine", "url": "https://studycharles.cz/catalogue?program=35025", "about": "Five-year MDDr. degree in dentistry, including its theoretical fields, at the First Faculty in Prague; entry is a science test followed by online multiple mini-interviews.", "ib": "Test in biology, chemistry and physics, then five online mini-interviews. IB 36+ with HL Biology, HL Chemistry and a third science or maths HL, each 6+, adds a 10% bonus.", "selection": ["entrance-exam", "interview"], "selectionNote": "The test decides who reaches the interviews; places go on interview score. 30 places in 2026/27. 2026 criteria; 2027 not yet published.", "places": 30, "ownDeadline": true, "lastYear": {"year": 2026, "text": "5 September; tests from late May"}, "tuitionEuEea": "€24,250 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=35025&fakulta=11110", "family": {"name": "Dentistry", "axis": "campus", "path": "First Faculty, Prague", "differs": "Test plus online mini-interviews, IB bonus points; 30 places; fee in euros.", "primary": true}},
+    {"name": "Dentistry (Plzeň)", "credential": "MDDr. (five-year Czech dental degree)", "years": 5, "city": "Plzeň", "field": "medicine", "url": "https://studycharles.cz/catalogue?program=34120", "about": "Five-year MDDr. degree in Plzeň; years three to five are devoted to clinical dentistry, preparing you for general practice or specialisation.", "ib": "Written test in biology, chemistry and physics (75 questions), in Plzeň or at agency sittings abroad. No IB waiver; the IB needs no assessment fee.", "selection": ["entrance-exam"], "selectionNote": "The dean sets the pass mark from the number of places; one attempt per year. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "30 April"}, "tuitionEuEea": "CZK 390,000 a year (2026/27)", "requirementsUrl": "https://lfp.cuni.cz/en/faculty-of-medicine-in-pilsen/admission-procedure/", "family": {"name": "Dentistry", "axis": "campus", "path": "Plzeň", "differs": "Written test in biology, chemistry and physics, no interview; CZK 390,000 a year."}},
+    {"name": "Dentistry (Hradec Králové)", "credential": "MDDr. (five-year Czech dental degree)", "years": 5, "city": "Hradec Králové", "field": "medicine", "url": "https://www.lfhk.cuni.cz/LFHKEN-180.html", "about": "Five-year MDDr. degree with two students per chair in clinical lessons and training in digital methods such as intraoral scanning, CAD/CAM and 3D printing.", "ib": "Test in biology, chemistry and physics or maths (60 points) plus an interview (40). Sit it with partner agencies abroad or online through Scio.", "selection": ["entrance-exam", "interview"], "selectionNote": "The top 25 applicants, ties included, are admitted. 2026 criteria; 2027 not yet published.", "places": 25, "lastYear": {"year": 2026, "text": "30 April"}, "tuitionEuEea": "CZK 410,000 a year (2026/27)", "requirementsUrl": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34122&fakulta=11150", "family": {"name": "Dentistry", "axis": "campus", "path": "Hradec Králové", "differs": "Test (maths can replace physics) and interview; 25 places; digital dentistry."}},
+    {"name": "Pharmacy", "credential": "PharmDr./Mgr. (five-year Czech pharmacy degree)", "years": 5, "city": "Hradec Králové", "field": "health", "url": "https://www.faf.cuni.cz/en/admission/undergraduate/pharmacy/", "about": "Five-year pharmacy degree that meets the EU directive for pharmacists, with elective subjects letting you specialise; taught at the Faculty of Pharmacy in Hradec Králové.", "ib": "Test in chemistry, biology, botany and English grammar. IB waiver: 32+ points with Biology (HL 5 or SL 6) and Chemistry, Maths or Physics (HL 5 or SL 6).", "selection": ["entrance-exam"], "selectionNote": "Sit the test online through Scio or in person; the dean sets the pass mark. 2026 criteria; 2027 not yet published.", "lastYear": {"year": 2026, "text": "30 April"}, "tuitionEuEea": "€7,900 a year (2026/27)", "requirementsUrl": "https://www.faf.cuni.cz/en/admission/undergraduate/pharmacy/admission-requirements/"}
+  ],
+  "notes": [
+    "Each faculty runs its own admission, fee and timetable, and each programme is a separate online application with its own fee; Charles has no rolling admission and grants no individual extensions.",
+    "For medicine the faculty matters: fees run from CZK 390,000 a year in Plzeň to €24,250 at the First Faculty, and IB-based exam waivers exist at the Second and Third Faculties and in Pharmacy.",
+    "Charles publishes each programme's conditions at least four months before its deadline; until a faculty posts its 2027 rules, these pages show the 2026 ones."
+  ],
+  "sources": [
+    {
+      "title": "Diploma Recognition (IB automatically accepted, no assessment fee)",
+      "url": "https://cuni.cz/UKEN-593.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tuition Fees",
+      "url": "https://cuni.cz/UKEN-372.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Application Deadlines",
+      "url": "https://cuni.cz/UKEN-1632.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Find your programme: English-taught undergraduate programmes",
+      "url": "https://studycharles.cz/catalogue?typ-programu=BM&jazyk-studia=ENG&lang=en",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SIS Admission: programme search and publication rule",
+      "url": "https://is.cuni.cz/studium/eng/prijimacky/index.php",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MFF: Admission Requirements for Bachelor's Programmes in English (2026/2027)",
+      "url": "https://www.mff.cuni.cz/en/admissions/admission-requirements-for-bachelor-s-programmes-in-english/2026-2027",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "MFF: Programmes",
+      "url": "https://www.mff.cuni.cz/en/admissions/programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SIS: Computer Science admission conditions and EU fee",
+      "url": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=34738&fakulta=11320",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FSV: Economics and Finance (BEF), 2027/28 deadlines",
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/bef",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FSV: History and Area Studies (HAS)",
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/has",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FSV: Politics, Philosophy and Economics (PPE)",
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/ppe",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FSV: Social Sciences (SOSCI)",
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/sosci",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FSV: Sustainability in Marketing and Media Communication (SUMAC)",
+      "url": "https://study.fsv.cuni.cz/study-programs/bachelor-programs/sumac",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FHS: Bachelor's Programme (Liberal Arts and Humanities)",
+      "url": "https://fhs.cuni.cz/FHSENG-524.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FF: Psychology admissions (2027 application window, fees)",
+      "url": "https://psychology.ff.cuni.cz/admissions/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FF: About the Psychology Program",
+      "url": "https://psychology.ff.cuni.cz/about-the-program/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Science: Science programme",
+      "url": "https://natur.cuni.cz/en/admissions/study-programmes/science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Science: Programmes taught in English, admission requirements 2026/2027",
+      "url": "https://natur.cuni.cz/en/admissions/bachelor-study/admission-requirements/programmes-taught-in-english",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Science: Tuition fees for studying in a foreign language",
+      "url": "https://natur.cuni.cz/en/students/tuition-fees-for-studying-in-a-foreign-language",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Science: Recognition of foreign secondary education (IB via IBIS)",
+      "url": "https://natur.cuni.cz/en/admissions/recognition-of-foreign-education/secondary-education",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ETF: Bachelor's Programme in Protestant Theology",
+      "url": "https://web.etf.cuni.cz/ETFENG-152.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "PedF: Study in English (Bc., Mgr.)",
+      "url": "https://pedf.cuni.cz/pedfen-179.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "PedF: English Language for Teacher Education",
+      "url": "https://pedf.cuni.cz/PEDFEN-371.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "PedF: Playing Instrument for Teacher Education",
+      "url": "https://pedf.cuni.cz/PEDFEN-372.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "PedF: Choral Singing for Teacher Education",
+      "url": "https://pedf.cuni.cz/PEDFEN-373.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "PedF: Music Education for Teacher Education",
+      "url": "https://pedf.cuni.cz/PEDFEN-374.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "FTVS: Bachelor's and Master's Degree Programmes",
+      "url": "https://www.ftvs.cuni.cz/en/international-admissions/full-degree-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "First Faculty of Medicine: Study Programmes (fee)",
+      "url": "https://en.lf1.cuni.cz/all-study-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "First Faculty of Medicine: Tuition fee 2026/2027",
+      "url": "https://en.lf1.cuni.cz/the-tuition-fee-for-the-academic-year-20252026",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "First Faculty of Medicine: Eligibility to apply (IB routed to faculty assessment)",
+      "url": "https://en.lf1.cuni.cz/eligibility-to-apply",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "SIS: General Medicine, First Faculty (2026/27 conditions)",
+      "url": "https://is.cuni.cz/studium/eng/prijimacky/index.php?do=detail_obor&id_obor=35026&fakulta=11110",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Second Faculty of Medicine: Key Admission Dates (2027)",
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/key-admission-dates",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Second Faculty of Medicine: Entrance Exam Exemptions (2027)",
+      "url": "https://www.lf2.cuni.cz/en/applicants/how-to-apply/exemptions",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Second Faculty of Medicine: MD programme",
+      "url": "https://www.lf2.cuni.cz/en/applicants/md-programme",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Second Faculty of Medicine: Fees and funding",
+      "url": "https://www.lf2.cuni.cz/en/applicants/fees-and-Funding",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Second Faculty of Medicine: Recognition of your education (IB: no fees)",
+      "url": "https://www.lf2.cuni.cz/en/applicants/after-your-admission/recognition-of-your-education",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Third Faculty of Medicine: How to apply (waiver, 2026 deadline)",
+      "url": "https://www.lf3.cuni.cz/3LFEN-11.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine in Pilsen: Admission procedure",
+      "url": "https://lfp.cuni.cz/en/faculty-of-medicine-in-pilsen/admission-procedure/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine in Pilsen: High school documents (IB free of charge)",
+      "url": "https://lfp.cuni.cz/en/high-school-documents/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine in Hradec Králové: General Medicine",
+      "url": "https://www.lfhk.cuni.cz/LFHKEN-179.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Medicine in Hradec Králové: Dentistry",
+      "url": "https://www.lfhk.cuni.cz/LFHKEN-180.html",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Pharmacy: Pharmacy",
+      "url": "https://www.faf.cuni.cz/en/admission/undergraduate/pharmacy/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Faculty of Pharmacy: Pharmacy admission requirements (IB waiver)",
+      "url": "https://www.faf.cuni.cz/en/admission/undergraduate/pharmacy/admission-requirements/",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

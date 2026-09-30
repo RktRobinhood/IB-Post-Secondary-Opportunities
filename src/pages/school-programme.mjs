@@ -299,7 +299,7 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
     onlyCampus ? where : `${short} offers this as ${members.length} paths.`,
     onlyCampus ? null : where,
     admissionDiffers
-      ? 'What it takes to get in differs between them, so check each one.'
+      ? `Getting into each ${displayName(group.family.name)} path works differently, so check the one you want.`
       : `The entry requirements are the same on each${heads.has('Last cut-off') ? ', but last year’s cut-offs were not' : ''}.`,
   ].filter(Boolean).join(' ');
   return html`<section class="paths" aria-labelledby="paths-title">
