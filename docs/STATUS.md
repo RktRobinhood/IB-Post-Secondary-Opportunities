@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 30 September 2026 (early).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 30 September 2026 (day).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,30 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+
+## 30 September (day): nine countries through the pipeline
+
+- Degrees with programme detail: 337 → **781 of 799**; with their own photo:
+  179 → **353**. Shipped country by country through `docs/COUNTRY_PIPELINE.md`
+  (detail + photos → critic → sign → 40-check gate on a clean copy → push):
+  DE (60 detail / 25 photos), SE (59 / 22), BE (38 / 13), AT (38 / 14),
+  NO (21 / 8), CH (14 / 2), NL (215 / 59), IT (photos only, 31).
+  Critic round 1 scored 5–7 each time; removing its rejects reached 8.
+- **Official degree photos** (1e34d11): where Commons has nothing, a
+  programme page's own image is linked from the institution's server and
+  credited to it; the importer checks it appears on that page. The ladder
+  is in ENRICH_BRIEF, "When Commons is dry".
+- **In flight at the usage ceiling (64%):** Portugal. Its 5 Commons lines
+  plus an official-photo pass for its 19 business/computing degrees are in
+  `docs/research/programme-images/schools-pt.jsonl` (not yet imported).
+  Next: `import-programme-images.mjs --only=pt --unsigned`, sheet, critic,
+  sign, gate. The Pelamis line must change (Italy holds the MOSE look).
+- **Next after that:** the official-photo ladder for the business,
+  economics and computing degrees every country skipped (Italy 49, NL 156,
+  DE 35, SE 37, …), country by country; each critic's
+  `critique-round-1.md` names the replacements it wants for its rejects.
+- Open data questions per country are in `docs/research/schools/progress.md`
+  (e.g. RUG Information Science Dutch B2, AMSIB 1 May vs 31 Aug, UiA places).
 
 ## 30 September (early): content over polish
 
