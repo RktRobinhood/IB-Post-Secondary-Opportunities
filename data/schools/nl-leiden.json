@@ -1,7 +1,7 @@
 {
   "institution": "nl-leiden",
   "name": "Leiden University",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "Research university in Leiden with a second campus in The Hague; 17 English-taught bachelor's, from Security Studies to Data Science and AI.",
@@ -18,29 +18,344 @@
     "url": "https://www.studielink.nl/"
   },
   "dates": [
-    { "label": "Applications open for September 2027 (Studielink)", "date": "2026-10-01", "kind": "opens", "who": "any", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/application-deadlines" },
-    { "label": "Numerus fixus programmes (IRO, Psychology): apply by 23:59 CET", "date": "2027-01-15", "kind": "closes", "who": "any", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/application-deadline" },
-    { "label": "If you need a visa or residence permit: apply by (programmes without numerus fixus)", "date": "2027-04-01", "kind": "closes", "who": "non-eu", "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/application-deadlines" },
-    { "label": "Programmes without numerus fixus (with matching): apply by", "date": "2027-05-01", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies/admission-and-application/compulsory-matching" }
+    {
+      "label": "Applications open for September 2027 (Studielink)",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/application-deadlines"
+    },
+    {
+      "label": "Numerus fixus programmes (IRO, Psychology): apply by 23:59 CET",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/application-deadline"
+    },
+    {
+      "label": "If you need a visa or residence permit: apply by (programmes without numerus fixus)",
+      "date": "2027-04-01",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/application-deadlines"
+    },
+    {
+      "label": "Programmes without numerus fixus (with matching): apply by",
+      "date": "2027-05-01",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies/admission-and-application/compulsory-matching"
+    }
   ],
   "programmes": [
-    { "name": "African Studies", "credential": "BA", "years": 3, "field": "humanities", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/african-studies", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Archaeology", "credential": "BA", "years": 3, "field": "humanities", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/archaeology", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Arts, Media and Society", "credential": "BA", "years": 3, "field": "humanities", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/arts-media-and-society", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Cultural Anthropology and Development Sociology", "credential": "BSc", "years": 3, "field": "social-sciences", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/cultural-anthropology-and-development-sociology", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Data Science and Artificial Intelligence", "credential": "BSc", "years": 3, "field": "computing", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/data-science-and-artificial-intelligence", "ib": "Maths AA HL.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Dutch Studies", "credential": "BA", "years": 3, "field": "languages", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/dutch-studies", "ib": "Taught in English and Dutch, for international students; open from absolute beginner in Dutch to advanced.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "English Language and Culture", "credential": "BA", "years": 3, "field": "languages", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/english-language-and-culture", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "International Studies", "credential": "BA", "years": 3, "field": "humanities", "city": "The Hague", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/international-studies", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Liberal Arts and Sciences: Global Challenges (Leiden University College)", "credential": "BA or BSc", "years": 3, "field": "interdisciplinary", "city": "The Hague", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college", "ib": "Selective: 35 IB points incl. bonus to enter selection, any maths at 4 advised (2026-27 list). Early bird 1 Dec 2026; final 15 Mar 2027. Six majors.", "tuitionEuEea": "€5,841 incl. LUC fee (2027/28, est.)", "closes": "2027-03-15" },
-    { "name": "Linguistics", "credential": "BA", "years": 3, "field": "languages", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/linguistics", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Philosophy: Global and Comparative Perspectives", "credential": "BA", "years": 3, "field": "humanities", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/philosophy-global-and-comparative-perspectives", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Political Science: International Relations and Organisations", "credential": "BSc", "years": 3, "field": "social-sciences", "city": "The Hague", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations", "ib": "Numerus fixus: apply by 15 Jan 2027, grade average by 31 Jan, online assessment 18-19 Feb. Maths to graduation, including probability and statistics.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-01-15" },
-    { "name": "Psychology (International Bachelor in Psychology)", "credential": "BSc", "years": 3, "field": "social-sciences", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/psychology", "ib": "Numerus fixus, 600 places: apply by 15 Jan 2027; ranked on grade average and an online assessment (2026-27 criteria; 2027 not yet published). Maths to graduation.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-01-15" },
-    { "name": "Science for Sustainable Societies", "credential": "BSc", "years": 3, "field": "agriculture-environment", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/science-for-sustainable-societies", "ib": "Maths AA SL/HL or AI HL, plus one HL and one SL from Biology, Chemistry, Physics, Economics, Geography or ESS.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Security Studies", "credential": "BSc", "years": 3, "field": "social-sciences", "city": "The Hague", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "South and Southeast Asian Studies", "credential": "BA", "years": 3, "field": "humanities", "city": "Leiden", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/south-and-southeast-asian-studies", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Urban Studies", "credential": "BA", "years": 3, "field": "interdisciplinary", "city": "The Hague", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/urban-studies", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" }
+    {
+      "name": "African Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/african-studies",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Africa's history, languages, literature and societies studied across the humanities; you learn Swahili and spend a semester of year two studying in an African country.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Archaeology",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/archaeology",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "How past societies lived, reconstructed from material remains, with theory in class and hands-on fieldwork; Leiden's large archaeology faculty lets you specialise by region and period.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Arts, Media and Society",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/arts-media-and-society",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Contemporary visual art, from painting and photography to installation, performance and digital media, and how art connects with society, media and issues such as climate and conflict.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Cultural Anthropology and Development Sociology",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/cultural-anthropology-and-development-sociology",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Why people live and think differently across the world, studied through theory plus your own fieldwork, internships and ethnographic film-making, with themes like inequality and climate justice.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Data Science and Artificial Intelligence",
+      "credential": "BSc",
+      "years": 3,
+      "field": "computing",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/data-science-and-artificial-intelligence",
+      "ib": "Maths AA HL.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Computer science, maths, statistics and machine learning combined, building strong programming foundations and AI skills, taught at Leiden's computer science institute (LIACS).",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        }
+      ],
+      "requirementsUrl": "https://www.universiteitleiden.nl/binaries/content/assets/studentenwerving/scm/admission-and-application/specific-diploma-requirements-science-programmes.pdf",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Dutch Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/dutch-studies",
+      "ib": "Taught in English and Dutch, for international students; open from absolute beginner in Dutch to advanced.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Dutch language, literature, history and society for international students, starting from any level of Dutch; classes are taught partly in Dutch from the first semester.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "English Language and Culture",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/english-language-and-culture",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "English in all its forms, from medieval texts to contemporary literature, film and linguistics, alongside advanced training in your own written and spoken English.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "International Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "city": "The Hague",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/international-studies",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "One of eight world regions studied through its history, politics, economics and culture, while you learn a major language of that region; taught in The Hague.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Liberal Arts and Sciences: Global Challenges (Leiden University College)",
+      "credential": "BA or BSc",
+      "years": 3,
+      "field": "interdisciplinary",
+      "city": "The Hague",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college",
+      "ib": "Selective: 35 IB points incl. bonus to enter selection, any maths at 4 advised (2026-27 list). Early bird 1 Dec 2026; final 15 Mar 2027. Five majors.",
+      "tuitionEuEea": "€5,841 incl. LUC fee (2027/28, est.)",
+      "closes": "2027-03-15",
+      "about": "Global challenges such as peace, justice, sustainability and development, studied in small interdisciplinary classes on a residential campus in The Hague before you pick a major.",
+      "selection": [
+        "grades",
+        "assignment",
+        "motivation"
+      ],
+      "selectionNote": "Holistic review, in order: academics, English, motivation, activities, maths; plus an online pre-admission class and written reflection. Early bird 1 Dec, final 15 Mar.",
+      "requirementsUrl": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/how-to-apply"
+    },
+    {
+      "name": "Linguistics",
+      "credential": "BA",
+      "years": 3,
+      "field": "languages",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/linguistics",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "How languages are built, compared and change, including endangered languages, with specialisations such as descriptive and comparative Indo-European linguistics. No other languages needed.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Philosophy: Global and Comparative Perspectives",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/philosophy-global-and-comparative-perspectives",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Philosophy's big questions studied by comparing Western thought with Indian, East Asian, African and Arabic traditions side by side, rather than as separate options.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Political Science: International Relations and Organisations",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "city": "The Hague",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations",
+      "ib": "Numerus fixus: apply by 15 Jan 2027, grade average by 31 Jan, online assessment 18-19 Feb. Maths to graduation, including probability and statistics.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-01-15",
+      "about": "Diplomacy, conflict, international institutions and transnational problems studied as political science, in The Hague among UN bodies, embassies and NGOs.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths taken to graduation, with probability and statistics."
+        }
+      ],
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "Numerus fixus: ranked on your school grade average (due 31 Jan) and an online assessment on 18-19 Feb 2027; ranking number by 15 April.",
+      "requirementsUrl": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/admission-requirements"
+    },
+    {
+      "name": "Psychology (International Bachelor in Psychology)",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/psychology",
+      "ib": "Numerus fixus, 600 places (Dutch and English tracks): apply by 15 Jan 2027; ranked on grade average, an online assessment and a draw (2027-28 criteria). Maths to graduation.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-01-15",
+      "about": "Psychology as a science, from brain and cognition to social, clinical and developmental psychology, with research methods and statistics throughout; the English track of Leiden's psychology bachelor.",
+      "selection": [
+        "grades",
+        "entrance-exam",
+        "lottery"
+      ],
+      "selectionNote": "Numerus fixus: four groups by grade average (7.5 line) and a pass on the online assessment; a draw ranks you within your group. 600 places shared with the Dutch track.",
+      "places": 600,
+      "requirementsUrl": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/psychology/admission-and-application/selection-and-placement"
+    },
+    {
+      "name": "Science for Sustainable Societies",
+      "credential": "BSc",
+      "years": 3,
+      "field": "agriculture-environment",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/science-for-sustainable-societies",
+      "ib": "Maths AA SL/HL or AI HL, plus one HL and one SL from Biology, Chemistry, Physics, Economics, Geography or ESS.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Sustainability problems tackled across natural science, social science and governance, with practical skills such as coding, GIS and working with stakeholders.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "economics",
+            "geography",
+            "ess"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "economics",
+            "geography",
+            "ess"
+          ],
+          "level": "SL",
+          "note": "A second, different subject from the same list."
+        }
+      ],
+      "requirementsUrl": "https://www.universiteitleiden.nl/binaries/content/assets/studentenwerving/scm/admission-and-application/specific-diploma-requirements-science-programmes.pdf",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Security Studies",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "city": "The Hague",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Terrorism, cybercrime, crises and conflict studied in their political, historical and social context, with a practical focus on how governments and organisations respond; taught in The Hague.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "South and Southeast Asian Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "city": "Leiden",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/south-and-southeast-asian-studies",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "The history, cultures and politics of South and Southeast Asia, studied alongside a language of the region: Hindi, Sanskrit, Tibetan or Indonesian.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    },
+    {
+      "name": "Urban Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "interdisciplinary",
+      "city": "The Hague",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/urban-studies",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Cities and their problems, such as sustainability, diversity, safety and health, studied across the humanities, social sciences, science and law, using The Hague as the case.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; online matching is compulsory, its advice not binding."
+    }
   ],
   "notes": [
     "Every programme without a numerus fixus has compulsory matching; for Security Studies it opens in February 2027 and must be finished before 1 August 2027.",
@@ -48,20 +363,90 @@
     "Binding study advice: you must earn at least 45 of the 60 first-year credits to continue into year 2 (as Security Studies states it)."
   ],
   "sources": [
-    { "title": "Leiden: study programmes, filtered to English-taught bachelor's (23 results over 2 pages)", "url": "https://www.universiteitleiden.nl/en/education/study-programmes?type=bachelor&language=english", "retrieved": "2026-09-25" },
-    { "title": "Leiden: bachelor's admission requirements (numerus fixus list and procedure)", "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/admission-requirements", "retrieved": "2026-09-25" },
-    { "title": "Leiden: bachelor's application deadlines (no year printed)", "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/application-deadlines", "retrieved": "2026-09-25" },
-    { "title": "Leiden: bachelor's tuition fee, academic year 2027-2028", "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/tuition-fee", "retrieved": "2026-09-25" },
-    { "title": "Leiden: General admission diploma requirements 2027/2028 (PDF, IB section)", "url": "https://www.universiteitleiden.nl/binaries/content/assets/algemeen/onderwijs/general-admission-diploma-requirements.pdf", "retrieved": "2026-09-25" },
-    { "title": "Leiden: Specific diploma requirements for science and medical programmes 2027-2028 (PDF, IB section)", "url": "https://www.universiteitleiden.nl/binaries/content/assets/studentenwerving/scm/admission-and-application/specific-diploma-requirements-science-programmes.pdf", "retrieved": "2026-09-25" },
-    { "title": "LUC: additional selection requirements 2026-2027 (PDF, IB row)", "url": "https://www.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/admissions-office/luc-admission-requirements-2026-2027.pdf", "retrieved": "2026-09-25" },
-    { "title": "LUC: application deadlines (September 2027 intake)", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/application-deadlines", "retrieved": "2026-09-25" },
-    { "title": "LUC: fees and finances 2027-2028, and campus housing", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/fees-and-finances", "retrieved": "2026-09-25" },
-    { "title": "IRO: application deadline and 2027-2028 overview of deadlines", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/application-deadline", "retrieved": "2026-09-25" },
-    { "title": "IRO: entry requirements (mathematics)", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/admission-requirements", "retrieved": "2026-09-25" },
-    { "title": "Psychology: selection and placement (2026-2027 criteria)", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/psychology/admission-and-application/selection-and-placement", "retrieved": "2026-09-25" },
-    { "title": "Studiekeuze123: Psychologie, Universiteit Leiden (numerus fixus, deadline 15 januari 2027, 600 places)", "url": "https://www.studiekeuze123.nl/opleidingen/1323-psychologie-universiteit-leiden-wo-bachelor", "retrieved": "2026-09-25" },
-    { "title": "Security Studies: compulsory matching (academic year 2027-28)", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies/admission-and-application/compulsory-matching", "retrieved": "2026-09-25" },
-    { "title": "Security Studies: programme structure (binding study advice)", "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies/about-the-programme/programme-structure", "retrieved": "2026-09-25" }
+    {
+      "title": "Leiden: study programmes, filtered to English-taught bachelor's (23 results over 2 pages)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes?type=bachelor&language=english",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Leiden: bachelor's admission requirements (numerus fixus list and procedure)",
+      "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/admission-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Leiden: bachelor's application deadlines (no year printed)",
+      "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/application-deadlines",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Leiden: bachelor's tuition fee, academic year 2027-2028",
+      "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/bachelors/tuition-fee",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Leiden: General admission diploma requirements 2027/2028 (PDF, IB section)",
+      "url": "https://www.universiteitleiden.nl/binaries/content/assets/algemeen/onderwijs/general-admission-diploma-requirements.pdf",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Leiden: Specific diploma requirements for science and medical programmes 2027-2028 (PDF, IB section)",
+      "url": "https://www.universiteitleiden.nl/binaries/content/assets/studentenwerving/scm/admission-and-application/specific-diploma-requirements-science-programmes.pdf",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LUC: additional selection requirements 2026-2027 (PDF, IB row)",
+      "url": "https://www.universiteitleiden.nl/binaries/content/assets/governance-and-global-affairs/luc/admissions-office/luc-admission-requirements-2026-2027.pdf",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LUC: application deadlines (September 2027 intake)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/application-deadlines",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LUC: fees and finances 2027-2028, and campus housing",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/fees-and-finances",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "IRO: application deadline and 2027-2028 overview of deadlines",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/application-deadline",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "IRO: entry requirements (mathematics)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/political-science/international-relations-and-organisations/admission-and-application/admission-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Studiekeuze123: Psychologie, Universiteit Leiden (numerus fixus, deadline 15 januari 2027, 600 places)",
+      "url": "https://www.studiekeuze123.nl/opleidingen/1323-psychologie-universiteit-leiden-wo-bachelor",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Security Studies: compulsory matching (academic year 2027-28)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies/admission-and-application/compulsory-matching",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Security Studies: programme structure (binding study advice)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/security-studies/about-the-programme/programme-structure",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Psychology: selection and placement (2027-2028 criteria, 600 places)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/psychology/admission-and-application/selection-and-placement",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "LUC: application and selection process (2027 intake)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/liberal-arts-and-sciences-global-challenges-leiden-university-college/admission-and-application/how-to-apply",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Archaeology: matching (compulsory, non-binding advice)",
+      "url": "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/archaeology/toelating-en-aanmelding/matching",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

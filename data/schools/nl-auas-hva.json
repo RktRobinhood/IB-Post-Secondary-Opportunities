@@ -1,7 +1,7 @@
 {
   "institution": "nl-auas-hva",
   "name": "Amsterdam University of Applied Sciences",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "Amsterdam hogeschool with four English bachelor's: International Business (with a 3-year fast track), fashion at AMFI, physiotherapy and sport.",
@@ -18,15 +18,109 @@
     "url": "https://www.studielink.nl/"
   },
   "dates": [
-    { "label": "Studielink opens for 2027-2028 applications", "date": "2026-10-01", "kind": "opens", "who": "any", "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international" },
-    { "label": "Deadline for numerus fixus (selection) programmes", "date": "2027-01-15", "kind": "closes", "who": "any", "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international" },
-    { "label": "Deadline for international students who need a study visa", "date": "2027-05-01", "kind": "closes", "who": "non-eu", "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international" }
+    {
+      "label": "Studielink opens for 2027-2028 applications",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international"
+    },
+    {
+      "label": "Deadline for numerus fixus (selection) programmes",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international"
+    },
+    {
+      "label": "Deadline for international students who need a study visa",
+      "date": "2027-05-01",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international"
+    }
   ],
   "programmes": [
-    { "name": "AMFI - Amsterdam Fashion Institute (English programme)", "credential": "BSc", "years": 4, "field": "design-architecture", "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en", "ib": "Numerus fixus: apply by 15 January 2027; selection by an assignment and a motivation interview.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-01-15" },
-    { "name": "AMSIB - International Business", "credential": "BBA", "years": 4, "field": "business", "url": "https://www.amsterdamuas.com/programmes/international-business", "ib": "Programme page: apply by 1 May 2027; AUAS's general page gives EU/EEA full-time applicants until 31 Aug 2027. A 3-year fast track (also a BBA) accepts the IB Diploma.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-05-01" },
-    { "name": "European School of Physiotherapy", "credential": "BSc", "years": 3, "field": "health", "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy", "ib": "Numerus fixus (100 places): apply by 15 January 2027; written exam and interview. VWO-level diploma; English at IELTS 6.5 or equivalent.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-01-15" },
-    { "name": "Sport Studies (track ISMB)", "credential": "BA", "years": 4, "field": "sport", "url": "https://www.amsterdamuas.com/programmes/sport-studies", "ib": "Numerus fixus (96 places): apply by 15 January 2027; selection by a video and an online interview with an oral exam. Sport medical exam (€130) before you start.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-01-15" }
+    {
+      "name": "AMFI - Amsterdam Fashion Institute (English programme)",
+      "credential": "BSc",
+      "years": 4,
+      "field": "design-architecture",
+      "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en",
+      "ib": "Numerus fixus: apply by 15 January 2027; places go by a ranked assignment, video and form. Any IB Diploma subjects; English at B2.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-01-15",
+      "about": "Fashion from designing and making garments to branding and selling them, with a specialisation in Fashion & Design, Fashion & Branding or Fashion & Management and hands-on industry projects.",
+      "selection": [
+        "assignment",
+        "motivation"
+      ],
+      "selectionNote": "Numerus fixus, 440 places: a 5-10 page assignment, a video answering set questions and a form, due about two weeks after you apply; ranked, results 15 April.",
+      "places": 440,
+      "requirementsUrl": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/enrolment/selection"
+    },
+    {
+      "name": "AMSIB - International Business",
+      "credential": "BBA",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.amsterdamuas.com/programmes/international-business",
+      "ib": "One of Maths AA or AI, Business Management or Economics (SL or HL). A 3-year fast track, also a BBA, takes VWO-level diplomas such as the IB.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-05-01",
+      "about": "A broad international business degree with five majors, such as International Marketing and Sales or Global Business Communication, plus a compulsory exchange, internship and thesis.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "business-management",
+            "economics"
+          ],
+          "level": "SL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027.",
+      "requirementsUrl": "https://www.amsterdamuas.com/programmes/international-business/admission"
+    },
+    {
+      "name": "European School of Physiotherapy",
+      "credential": "BSc",
+      "years": 3,
+      "field": "health",
+      "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy",
+      "ib": "Numerus fixus (100 places): apply by 15 January 2027; written exam and interview. VWO-level diploma; English at IELTS 6.5 or equivalent.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-01-15",
+      "about": "An intensive three-year physiotherapy degree in English that mixes science, practical skills and clinical internships in varied healthcare settings, taught in small international groups.",
+      "selection": [
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "Numerus fixus, 100 places: a written exam and an interview with an ESP lecturer rank you. Biology and chemistry are recommended, not required.",
+      "places": 100,
+      "requirementsUrl": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy/admission"
+    },
+    {
+      "name": "Sport Studies (track ISMB)",
+      "credential": "BA",
+      "years": 4,
+      "field": "sport",
+      "url": "https://www.amsterdamuas.com/programmes/sport-studies",
+      "ib": "Numerus fixus (96 places): apply by 15 January 2027; selection by a video and an online interview with an oral exam. Sport medical exam (€130) before you start.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-01-15",
+      "about": "Management and business applied to sport, with entrepreneurial projects and three internships at international sport organisations over the four years.",
+      "selection": [
+        "assignment",
+        "interview"
+      ],
+      "selectionNote": "Numerus fixus: a video showing your motor skills and motivation, then an online interview with an oral exam, set your ranking number. Sport medical exam before you start.",
+      "requirementsUrl": "https://www.amsterdamuas.com/programmes/sport-studies/admission"
+    }
   ],
   "notes": [
     "Applicants with a non-Dutch diploma pay a €100 application fee; EU/EEA students who are accepted and enrol get it back in November 2027.",
@@ -34,21 +128,105 @@
     "The International Business fast track awards the same BBA in three years, with a more academic, faster-paced delivery."
   ],
   "sources": [
-    { "title": "AUAS — All programmes and courses, filtered to bachelor (English-taught)", "url": "https://www.amsterdamuas.com/study/education/all-programmes-and-courses?level=bachelor", "retrieved": "2026-09-25" },
-    { "title": "AUAS — How to apply: EU and international students (2027-2028 deadlines, €100 fee)", "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international", "retrieved": "2026-09-25" },
-    { "title": "AUAS — Documents you need to apply (credential evaluation)", "url": "https://www.amsterdamuas.com/study/international-admissions/credential-evaluation", "retrieved": "2026-09-25" },
-    { "title": "AUAS — International Business: admission", "url": "https://www.amsterdamuas.com/programmes/international-business/admission", "retrieved": "2026-09-25" },
-    { "title": "AUAS — International Business: enrolment (deadline 1 May 2027)", "url": "https://www.amsterdamuas.com/programmes/international-business/enrolment", "retrieved": "2026-09-25" },
-    { "title": "AUAS — How to apply (\"Fulltime programmes and Associate degrees: Deadline: 31 August 2027\"; disagrees with the IB programme page's 1 May)", "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international", "retrieved": "2026-09-26" },
-    { "title": "AUAS — International Business fast track: admission", "url": "https://www.amsterdamuas.com/programmes/international-business-fast-track/admission", "retrieved": "2026-09-25" },
-    { "title": "AUAS — International Business fast track: programme structure (BBA)", "url": "https://www.amsterdamuas.com/programmes/international-business-fast-track/programme-structure", "retrieved": "2026-09-25" },
-    { "title": "AUAS — AMFI: admission", "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/admission", "retrieved": "2026-09-25" },
-    { "title": "AUAS — AMFI: enrolment (2027-2028, until 15 January)", "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/enrolment", "retrieved": "2026-09-25" },
-    { "title": "AUAS — AMFI: why this programme (Bachelor of Science)", "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/why-this-programme", "retrieved": "2026-09-25" },
-    { "title": "AUAS — European School of Physiotherapy: admission", "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy/admission", "retrieved": "2026-09-25" },
-    { "title": "AUAS — European School of Physiotherapy: programme structure (BSc)", "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy/programme-structure", "retrieved": "2026-09-25" },
-    { "title": "AUAS — Sport Studies: admission", "url": "https://www.amsterdamuas.com/programmes/sport-studies/admission", "retrieved": "2026-09-25" },
-    { "title": "AUAS — Sport Studies: enrolment", "url": "https://www.amsterdamuas.com/programmes/sport-studies/enrolment", "retrieved": "2026-09-25" },
-    { "title": "AUAS — Sport Studies: programme structure (Bachelor of Arts)", "url": "https://www.amsterdamuas.com/programmes/sport-studies/programme-structure", "retrieved": "2026-09-25" }
+    {
+      "title": "AUAS — All programmes and courses, filtered to bachelor (English-taught)",
+      "url": "https://www.amsterdamuas.com/study/education/all-programmes-and-courses?level=bachelor",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — How to apply: EU and international students (2027-2028 deadlines, €100 fee)",
+      "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — Documents you need to apply (credential evaluation)",
+      "url": "https://www.amsterdamuas.com/study/international-admissions/credential-evaluation",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — International Business: admission",
+      "url": "https://www.amsterdamuas.com/programmes/international-business/admission",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — International Business: enrolment (deadline 1 May 2027)",
+      "url": "https://www.amsterdamuas.com/programmes/international-business/enrolment",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — How to apply (\"Fulltime programmes and Associate degrees: Deadline: 31 August 2027\"; disagrees with the IB programme page's 1 May)",
+      "url": "https://www.amsterdamuas.com/study/international-admissions/how-to-apply/eu-and-international",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "AUAS — International Business fast track: admission",
+      "url": "https://www.amsterdamuas.com/programmes/international-business-fast-track/admission",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — International Business fast track: programme structure (BBA)",
+      "url": "https://www.amsterdamuas.com/programmes/international-business-fast-track/programme-structure",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — AMFI: admission",
+      "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/admission",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — AMFI: enrolment (2027-2028, until 15 January)",
+      "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/enrolment",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — AMFI: why this programme (Bachelor of Science)",
+      "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/why-this-programme",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — European School of Physiotherapy: admission",
+      "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy/admission",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — European School of Physiotherapy: programme structure (BSc)",
+      "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy/programme-structure",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — Sport Studies: admission",
+      "url": "https://www.amsterdamuas.com/programmes/sport-studies/admission",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — Sport Studies: enrolment",
+      "url": "https://www.amsterdamuas.com/programmes/sport-studies/enrolment",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUAS — Sport Studies: programme structure (Bachelor of Arts)",
+      "url": "https://www.amsterdamuas.com/programmes/sport-studies/programme-structure",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AMFI: selection procedure 2027 (440 places, results 15 April 2027)",
+      "url": "https://www.amsterdamuas.com/programmes/amfi-amsterdam-fashion-institute-en/enrolment/selection",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "AMSIB: programme page (majors, exchange, internship)",
+      "url": "https://www.amsterdamuas.com/programmes/international-business",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "ESP: programme page",
+      "url": "https://www.amsterdamuas.com/programmes/european-school-of-physiotherapy",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Sport Studies: programme page (ISMB track)",
+      "url": "https://www.amsterdamuas.com/programmes/sport-studies",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

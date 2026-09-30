@@ -1,7 +1,7 @@
 {
   "institution": "nl-auc",
   "name": "Amsterdam University College",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "starts": "September",
   "intake": "2027-autumn",
   "scope": "listed",
@@ -19,15 +19,77 @@
     "url": "https://www.studielink.nl/"
   },
   "dates": [
-    { "label": "Applications for September 2027 open", "date": "2026-10-01", "kind": "opens", "who": "any", "url": "https://www.auc.nl/admissions-aid/how-to-apply/how-to-apply.html" },
-    { "label": "Early-bird deadline, 23:59 CET", "short": "Early bird", "date": "2026-12-01", "kind": "early", "who": "any", "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html" },
-    { "label": "Regular deadline, 23:59 CET", "date": "2027-02-01", "kind": "closes", "who": "any", "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html" },
-    { "label": "Early-bird decisions, before this date", "date": "2027-02-10", "kind": "decision", "who": "any", "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html" },
-    { "label": "Regular-round decisions, before this date", "date": "2027-04-10", "kind": "decision", "who": "any", "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html" },
-    { "label": "Late deadline, only if AUC announces one in March 2027", "date": "2027-05-01", "kind": "closes", "who": "any", "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html" }
+    {
+      "label": "Applications for September 2027 open",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.auc.nl/admissions-aid/how-to-apply/how-to-apply.html"
+    },
+    {
+      "label": "Early-bird deadline, 23:59 CET",
+      "short": "Early bird",
+      "date": "2026-12-01",
+      "kind": "early",
+      "who": "any",
+      "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html"
+    },
+    {
+      "label": "Regular deadline, 23:59 CET",
+      "date": "2027-02-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html"
+    },
+    {
+      "label": "Early-bird decisions, before this date",
+      "date": "2027-02-10",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html"
+    },
+    {
+      "label": "Regular-round decisions, before this date",
+      "date": "2027-04-10",
+      "kind": "decision",
+      "who": "any",
+      "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html"
+    },
+    {
+      "label": "Late deadline, only if AUC announces one in March 2027",
+      "date": "2027-05-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html"
+    }
   ],
   "programmes": [
-    { "name": "Liberal Arts and Sciences", "credential": "BA or BSc", "years": 3, "field": "interdisciplinary", "url": "https://www.auc.nl/academic-programme/liberal-arts-and-sciences/liberal-arts--sciences.html", "ib": "Maths by major: Sciences AA HL 5, AA SL 6 or AI HL 6 (lower with a science subject); Social Sciences AA HL 4, AA SL 5 or AI HL 6; Humanities AA SL 4, AI HL 4 or AI SL 7.", "tuitionEuEea": "€5,580 (2026/27 AUC fee)" }
+    {
+      "name": "Liberal Arts and Sciences",
+      "credential": "BA or BSc",
+      "years": 3,
+      "field": "interdisciplinary",
+      "url": "https://www.auc.nl/academic-programme/liberal-arts-and-sciences/liberal-arts--sciences.html",
+      "ib": "Maths by major: Sciences AA HL 5, AA SL 6 or AI HL 6 (lower with a science subject); Social Sciences AA HL 4, AA SL 5 or AI HL 6; Humanities AA SL 4, AI HL 4 or AI SL 7.",
+      "tuitionEuEea": "€5,580 (2026/27 AUC fee)",
+      "about": "Broad interdisciplinary study across the sciences, social sciences and humanities with a major in one of the three, in classes of at most 25, on a residential campus at Amsterdam Science Park.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Grade set by your major: Sciences AA HL 5, AA SL 6 or AI HL 6; Humanities from AA SL 4."
+        }
+      ],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Two tutors review your grades, personal study plan and motivation answers; about 300 start each year. Apply early: early-bird offers are not capped.",
+      "requirementsUrl": "https://www.auc.nl/admissions-aid/admission-requirements/mathematics-requirement/mathematics-requirement.html"
+    }
   ],
   "notes": [
     "AUC guarantees on-campus housing at Science Park for all three years; you pay a one-time €675 campus fee plus rent to DUWO.",
@@ -35,14 +97,50 @@
     "Early-bird applications are reviewed first with no cap on offers, so they stand a better chance than those sent by the regular deadline."
   ],
   "sources": [
-    { "title": "AUC — How to apply (applications for September 2027 open 1 October 2026)", "url": "https://www.auc.nl/admissions-aid/how-to-apply/how-to-apply.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Application deadlines to start in September 2027", "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Admission requirements", "url": "https://www.auc.nl/admissions-aid/admission-requirements/admission-requirements.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Mathematics requirements per major", "url": "https://www.auc.nl/admissions-aid/admission-requirements/mathematics-requirement/mathematics-requirement.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — English proficiency requirements", "url": "https://www.auc.nl/admissions-aid/admission-requirements/english-proficiency/english-proficiency.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Policy on admissions", "url": "https://www.auc.nl/admissions-aid/policy-on-admissions/policy-on-admissions.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Fees & costs (2026-2027 tuition, campus fee, housing)", "url": "https://www.auc.nl/admissions-aid/fees-costs/fees-costs.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Programme structure (BSc for Sciences, BA for Social Sciences and Humanities)", "url": "https://www.auc.nl/academic-programme/programme-structure/programme-structure.html", "retrieved": "2026-09-25" },
-    { "title": "AUC — Liberal Arts and Sciences", "url": "https://www.auc.nl/academic-programme/liberal-arts-and-sciences/liberal-arts--sciences.html", "retrieved": "2026-09-25" }
+    {
+      "title": "AUC — How to apply (applications for September 2027 open 1 October 2026)",
+      "url": "https://www.auc.nl/admissions-aid/how-to-apply/how-to-apply.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Application deadlines to start in September 2027",
+      "url": "https://www.auc.nl/admissions-aid/application-deadlines/application-deadlines.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Admission requirements",
+      "url": "https://www.auc.nl/admissions-aid/admission-requirements/admission-requirements.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Mathematics requirements per major",
+      "url": "https://www.auc.nl/admissions-aid/admission-requirements/mathematics-requirement/mathematics-requirement.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — English proficiency requirements",
+      "url": "https://www.auc.nl/admissions-aid/admission-requirements/english-proficiency/english-proficiency.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Policy on admissions",
+      "url": "https://www.auc.nl/admissions-aid/policy-on-admissions/policy-on-admissions.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Fees & costs (2026-2027 tuition, campus fee, housing)",
+      "url": "https://www.auc.nl/admissions-aid/fees-costs/fees-costs.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Programme structure (BSc for Sciences, BA for Social Sciences and Humanities)",
+      "url": "https://www.auc.nl/academic-programme/programme-structure/programme-structure.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "AUC — Liberal Arts and Sciences",
+      "url": "https://www.auc.nl/academic-programme/liberal-arts-and-sciences/liberal-arts--sciences.html",
+      "retrieved": "2026-09-25"
+    }
   ]
 }

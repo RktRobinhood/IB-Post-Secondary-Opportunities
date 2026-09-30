@@ -62,7 +62,12 @@
       "city": "Kjeller",
       "url": "https://www.uio.no/english/studies/programmes/technology-systems/",
       "ib": "R1 maths plus one science at 1+2: Maths AA SL/HL or AI HL covers both; or AI SL plus HL Physics, Chemistry, Biology, Computer Science or Design Technology.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "about": "How to design and build complex technology systems, in renewable energy, space, robotics, cybersecurity or health technology, through labs and projects that link engineering with social science, law and the humanities; 30 credits are yours to choose.",
+      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 3, "note": "Norwegian R1 level; Samordna opptak accepts AI SL through S1+S2."}, {"anyOf": ["physics@HL", "chemistry@HL", "biology@HL", "computer-science@HL", "design-technology@HL", "mathematics-aa", "mathematics-ai@HL"], "level": "SL", "grade": 3, "note": "A science at Norwegian 1+2 level (HL), or maths at R2 level (AA, or AI HL)."}],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your school grades on both routes. Still at school? Only Samordna opptak takes you, with Danish, Norwegian or Swedish A. UiO publishes no places or cut-off.",
+      "requirementsUrl": "https://www.uio.no/english/studies/programmes/technology-systems/admission/"
     }
   ],
   "notes": [
@@ -110,6 +115,16 @@
       "title": "Samordna opptak — Søk med utdanning fra IB (Danish A covers the Norwegian requirement)",
       "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UiO — Technology Systems: why choose this programme (specialisations, 30 free credits)",
+      "url": "https://www.uio.no/english/studies/programmes/technology-systems/why-choose/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Samordna opptak — IB: poengberegning (IB total to Norwegian points table)",
+      "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/poengberegning.html",
+      "retrieved": "2026-09-30"
     }
   ]
 }

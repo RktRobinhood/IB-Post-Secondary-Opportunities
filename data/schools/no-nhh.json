@@ -32,7 +32,19 @@
       "years": 3,
       "field": "business",
       "url": "https://www.nhh.no/en/study-programmes/bsc-in-business-economics-and-data-science/",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "about": "Business administration and economics with more maths, applied statistics, programming, automation and AI than a standard business degree; each semester is built around a theme such as consumers, the firm, markets or sustainability.",
+      "ib": "Any IB maths (AA or AI, SL or HL); English A at 3 or English B at 5. With Danish, Norwegian or Swedish A you must apply through Samordna opptak.",
+      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 3, "note": "Grade 3 is Samordna opptak's floor; the OMPT-F maths test also counts on the Søknadsweb route."}],
+      "selection": ["grades"],
+      "selectionNote": "Samordna opptak ranks you on your IB total, converted with its table (41 points = 58.6, 42 = 59.3), plus science points. NHH does not say how it ranks Søknadsweb.",
+      "cutoff": {
+        "value": "58.7 first-timers, 63.8 ordinary",
+        "intake": "2026",
+        "url": "https://www.nhh.no/studier/soknad-og-opptak/opptak-bachelor/"
+      },
+      "places": 100,
+      "requirementsUrl": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/admission-requirements-bsc/"
     }
   ],
   "notes": [
@@ -46,6 +58,10 @@
     { "title": "NHH — Application process Bachelor (2027 dates)", "url": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/application-process-bsc/", "retrieved": "2026-09-25" },
     { "title": "NHH — Admission requirements Bachelor (International Baccalaureate)", "url": "https://www.nhh.no/en/study-programmes/application-and-admission/admission-bsc-in-business-economics-and-data-science/admission-requirements-bsc/", "retrieved": "2026-09-25" },
     { "title": "NHH — Bachelor in Business, Economics and Data Science", "url": "https://www.nhh.no/en/study-programmes/bsc-in-business-economics-and-data-science/", "retrieved": "2026-09-25" },
-    { "title": "Samordna opptak — Søk med utdanning fra IB (Danish A covers the Norwegian requirement)", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/", "retrieved": "2026-09-25" }
+    { "title": "Samordna opptak — Søk med utdanning fra IB (Danish A covers the Norwegian requirement)", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/", "retrieved": "2026-09-25" },
+    { "title": "NHH — Opptak til bachelorprogramma (poenggrenser 2024–2026, studiekode 191 340)", "url": "https://www.nhh.no/studier/soknad-og-opptak/opptak-bachelor/", "retrieved": "2026-09-30" },
+    { "title": "Utdanning.no (HK-dir) — Bachelor in Business, Economics and Data Science (100 places; R1 or S1+S2)", "url": "https://utdanning.no/utdanning/nhh.no/bachelor_business_economics_and_data_science", "retrieved": "2026-09-30" },
+    { "title": "Samordna opptak — IB: poengberegning (IB total to Norwegian points table)", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/poengberegning.html", "retrieved": "2026-09-30" },
+    { "title": "Samordna opptak — IB: covering special admission requirements (any IB maths at 3 covers R1)", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/dekke-spesielle-opptakskrav.html", "retrieved": "2026-09-30" }
   ]
 }

@@ -4,7 +4,7 @@
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Applied-sciences university in Groningen with 16 English-taught programmes, from business and engineering to its conservatoire and art academy.",
+  "summary": "Applied-sciences university in Groningen with project-based degrees for clients, from business and engineering to a conservatoire and art academy.",
   "handoff": {
     "label": "English-taught bachelor's programmes",
     "url": "https://www.hanze.nl/en/programmes?facet_level=bachelor&facet_languages=en"
@@ -18,29 +18,365 @@
     "url": "https://www.studielink.nl/"
   },
   "dates": [
-    { "label": "On-campus Open Day", "date": "2026-11-21", "kind": "open-day", "who": "any", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science" },
-    { "label": "On-campus Open Day", "date": "2027-02-13", "kind": "open-day", "who": "any", "url": "https://www.hanze.nl/en/events/study/events/2027/02/on-campus-open-day" },
-    { "label": "General application deadline, non-EU students (September 2027 start)", "date": "2027-06-01", "kind": "closes", "who": "non-eu", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science" },
-    { "label": "General application deadline, EU students (September 2027 start)", "date": "2027-08-15", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science" }
+    {
+      "label": "On-campus Open Day",
+      "date": "2026-11-21",
+      "kind": "open-day",
+      "who": "any",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science"
+    },
+    {
+      "label": "On-campus Open Day",
+      "date": "2027-02-13",
+      "kind": "open-day",
+      "who": "any",
+      "url": "https://www.hanze.nl/en/events/study/events/2027/02/on-campus-open-day"
+    },
+    {
+      "label": "General application deadline, non-EU students (September 2027 start)",
+      "date": "2027-06-01",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science"
+    },
+    {
+      "label": "General application deadline, EU students (September 2027 start)",
+      "date": "2027-08-15",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science"
+    }
   ],
   "programmes": [
-    { "name": "Applied Computer Science", "credential": "BSc", "years": 4, "field": "computing", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Classical Music", "lastYear": {"year": 2026, "text": "1 March (audition)"}, "ownDeadline": true, "credential": "BMus", "years": 4, "field": "arts-music", "city": "Groningen", "url": "https://www.prinsclausconservatorium.nl/en/programmes/classical-music-bachelor", "ib": "Prince Claus Conservatoire; taught in Dutch and English. Audition (video pre-selection for violin, voice, piano); apply by 1 March in 2026, 2027 date not yet published.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Creative Media & Game Technologies", "credential": "BSc", "years": 4, "field": "computing", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/creative-media-and-game-technologies", "ib": "Maths required (any passing grade; Hanze sets no IB level).", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Design", "lastYear": {"year": 2026, "text": "portfolio 1 June"}, "ownDeadline": true, "credential": "BA", "years": 4, "field": "design-architecture", "city": "Groningen", "url": "https://www.academieminerva.nl/en/programmes/design", "ib": "Minerva Art Academy; taught in Dutch and English. Portfolio, then home assignment and interview; portfolio due 1 June in 2026, 2027 date not yet published.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Electrical and Electronic Engineering", "credential": "BSc", "years": 4, "field": "engineering", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/electrical-and-electronic-engineering", "ib": "Maths required (Hanze sets no IB level). Majors from year 3: Mechatronics, Sensors & Smart Systems, Energy & Power Electronics.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Fine Art", "credential": "BA", "years": 4, "field": "arts-music", "city": "Groningen", "url": "https://www.academieminerva.nl/en/programmes/fine-art", "ib": "Minerva Art Academy; taught in Dutch and English. Portfolio, motivation letter and CV uploaded in Hanze Apply by 1 June 2027, then an admission interview.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-06-01" },
-    { "name": "International Business", "credential": "BBA", "years": 4, "field": "business", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-4-year", "ib": "IB Diploma holders may take the 3-year version instead. Applying after 1 May means a compulsory Study Choice Check.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "family": { "name": "International Business", "axis": "credential", "path": "4 years", "differs": "The four-year BBA. Hanze says IB Diploma holders may take the 3-year version instead.", "cardLine": "Also open to you; a year longer", "primary": true } },
-    { "name": "International Business (3-year)", "credential": "BBA", "years": 3, "field": "business", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-3-year", "ib": "For VWO-level diplomas such as the IB Diploma. Applying after 1 May means a compulsory Study Choice Check.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "family": { "name": "International Business", "axis": "credential", "path": "3 years", "differs": "The three-year BBA, for VWO-level diplomas such as the IB Diploma.", "cardLine": "Open to you with the IB Diploma" } },
-    { "name": "International Communication", "credential": "BA", "years": 4, "field": "social-sciences", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-communication", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "International Facility Management", "credential": "BSc", "years": 4, "field": "business", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-facility-management", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "International Finance & Control", "credential": "BSc", "years": 4, "field": "business", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-finance-and-control", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Jazz", "lastYear": {"year": 2026, "text": "1 March (audition)"}, "ownDeadline": true, "credential": "BMus", "years": 4, "field": "arts-music", "city": "Groningen", "url": "https://www.prinsclausconservatorium.nl/en/programmes/jazz", "ib": "Prince Claus Conservatoire; taught in Dutch and English. Video pre-selection, then audition; apply by 1 March in 2026, 2027 date not yet published.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Marketing Management", "credential": "BSc", "years": 4, "field": "business", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/marketing-management", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Mechanical Engineering", "closes": "2027-07-01", "credential": "BSc", "years": 3, "field": "engineering", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/mechanical-engineering", "ib": "VWO-level entry: Maths and Physics \"at advanced level\" (Hanze gives no HL/SL rule). EU applicants apply by 1 July.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Physiotherapy", "closes": "2027-01-15", "credential": "BSc", "years": 4, "field": "health", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/physiotherapy", "ib": "International Physiotherapy Programme, selective: apply by 15 January, then a registration form, tests and an online selection day in February.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Popular Culture", "ownDeadline": true, "credential": "BA", "years": 4, "field": "arts-music", "city": "Leeuwarden", "url": "https://www.academieminerva.nl/en/programmes/popular-culture", "ib": "Minerva Art Academy; taught in Dutch and English. Portfolio with a one-minute video, then an admission assessment; 2027 admission dates not yet published.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Sport Studies", "closes": "2027-06-15", "credential": "BA", "years": 3, "field": "sport", "city": "Groningen", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/sport-studies", "ib": "VWO-level entry (IB Diploma). Apply by 15 June; online matching day and a sports medical fitness test.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" }
+    {
+      "name": "Applied Computer Science",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Software that runs on devices, machines and systems rather than only on screens: the programme combines software and hardware over four years, moving from foundations to a specialisation and professional practice.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August."
+    },
+    {
+      "name": "Classical Music",
+      "lastYear": {
+        "year": 2026,
+        "text": "1 March (audition)"
+      },
+      "ownDeadline": true,
+      "credential": "BMus",
+      "years": 4,
+      "field": "arts-music",
+      "city": "Groningen",
+      "url": "https://www.prinsclausconservatorium.nl/en/programmes/classical-music-bachelor",
+      "ib": "Prince Claus Conservatoire; taught in Dutch and English. Audition (video pre-selection for violin, voice, piano); apply by 1 March in 2026, 2027 date not yet published.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Train as a versatile classical performer and teacher on one of some two dozen instruments or voice, with orchestra and chamber-music stage experience, pedagogy, entrepreneurship and work placements.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Motivation letter; video pre-selection for violin, voice and piano; then a live audition in Groningen with a theory test. 2026 deadline 1 March; 2027 not yet published."
+    },
+    {
+      "name": "Creative Media & Game Technologies",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/creative-media-and-game-technologies",
+      "ib": "Maths required with a pass (Hanze sets no IB level). An online personality survey (MPT) within 10 working days of applying is compulsory.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Design and build games and interactive experiences with Unity, Unreal Engine, AR/VR and virtual production, learning through projects for real clients rather than exams.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "A pass on your final results; Hanze sets no IB level. The OMPT-A maths test (55%) can make up for it."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August. An online Multicultural Personality Test is compulsory."
+    },
+    {
+      "name": "Design",
+      "lastYear": {
+        "year": 2026,
+        "text": "portfolio 1 June"
+      },
+      "ownDeadline": true,
+      "credential": "BA",
+      "years": 4,
+      "field": "design-architecture",
+      "city": "Groningen",
+      "url": "https://www.academieminerva.nl/en/programmes/design",
+      "ib": "Minerva Art Academy; taught in Dutch and English. Portfolio, then home assignment and interview; portfolio due 1 June in 2026, 2027 date not yet published.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "A broad design degree: in the first year you try all six majors (graphic & interaction, illustration & animation, spatial, time-based, product, OffRoad) before choosing one, working through studio, lab and theory classes.",
+      "selection": [
+        "portfolio",
+        "assignment",
+        "interview"
+      ],
+      "selectionNote": "Round 1: portfolio with motivation and CV (1 June in 2026). Round 2: home assignment and a 10-minute online interview. 2027 date not yet published."
+    },
+    {
+      "name": "Electrical and Electronic Engineering",
+      "credential": "BSc",
+      "years": 4,
+      "field": "engineering",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/electrical-and-electronic-engineering",
+      "ib": "Maths required (Hanze sets no IB level).",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Design, build and programme electronic solutions in hands-on projects for real clients, specialising from year 3 in Mechatronics, Sensors & Smart Systems or Energy & Power Electronics.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Hanze sets no IB level."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August. Applying from May on, a non-binding Study Choice Check is compulsory."
+    },
+    {
+      "name": "Fine Art",
+      "credential": "BA",
+      "years": 4,
+      "field": "arts-music",
+      "city": "Groningen",
+      "url": "https://www.academieminerva.nl/en/programmes/fine-art",
+      "ib": "Minerva Art Academy; taught in Dutch and English. Portfolio, motivation letter and CV uploaded in Hanze Apply by 1 June 2027, then an admission interview.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-06-01",
+      "about": "A studio-based route to becoming an independent visual artist, where making and thinking go together across media, with tutors who are practising artists and options for exchange, minors and research projects.",
+      "selection": [
+        "portfolio",
+        "assignment",
+        "interview"
+      ],
+      "selectionNote": "Round 1: one PDF with portfolio, motivation letter and CV by 1 June 2027. Round 2: home assignment and a 10-minute online interview with two tutors and a student."
+    },
+    {
+      "name": "International Business",
+      "credential": "BBA",
+      "years": 4,
+      "field": "business",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-4-year",
+      "ib": "IB Diploma holders may take the 3-year version instead. Applying from May on means a compulsory Study Choice Check.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "family": {
+        "name": "International Business",
+        "axis": "credential",
+        "path": "4 years",
+        "differs": "The four-year BBA. Hanze says IB Diploma holders may take the 3-year version instead.",
+        "cardLine": "Also open to you; a year longer",
+        "primary": true
+      },
+      "about": "Business fundamentals (marketing, finance, supply chain, HR) with a compulsory year abroad: a semester at one of 120+ partner universities plus an international placement, and a foreign language from five.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August. Applying from May on, a non-binding Study Choice Check is compulsory."
+    },
+    {
+      "name": "International Business (3-year)",
+      "credential": "BBA",
+      "years": 3,
+      "field": "business",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-3-year",
+      "ib": "For VWO-level diplomas such as the IB Diploma. Applying from May on means a compulsory Study Choice Check.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "family": {
+        "name": "International Business",
+        "axis": "credential",
+        "path": "3 years",
+        "differs": "The three-year BBA, for VWO-level diplomas such as the IB Diploma.",
+        "cardLine": "Open to you with the IB Diploma"
+      },
+      "about": "The same International Business degree compressed into three years for pre-university diplomas, with a compulsory year abroad (partner-university semester and international internship) and a heavier self-study load.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August. Applying from May on, a non-binding Study Choice Check is compulsory."
+    },
+    {
+      "name": "International Communication",
+      "credential": "BA",
+      "years": 4,
+      "field": "social-sciences",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-communication",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "How stories, news and campaigns shape opinion: PR and marketing, crisis communication and public affairs, consultancy and media writing, with a second year spent as a consultant on real client briefs.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August."
+    },
+    {
+      "name": "International Facility Management",
+      "credential": "BSc",
+      "years": 4,
+      "field": "business",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-facility-management",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "How organisations run their services and spaces: semesters alternate between services and (work)space management, with hospitality, health and sustainability in view. One of two English-taught FM degrees in the Netherlands.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August. A February start is also possible, with an earlier deadline."
+    },
+    {
+      "name": "International Finance & Control",
+      "credential": "BSc",
+      "years": 4,
+      "field": "business",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-finance-and-control",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Business finance for international organisations: a first year of financial and economic basics, then business economics and information provision, practised in projects for real clients.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August."
+    },
+    {
+      "name": "Jazz",
+      "lastYear": {
+        "year": 2026,
+        "text": "1 March (audition)"
+      },
+      "ownDeadline": true,
+      "credential": "BMus",
+      "years": 4,
+      "field": "arts-music",
+      "city": "Groningen",
+      "url": "https://www.prinsclausconservatorium.nl/en/programmes/jazz",
+      "ib": "Prince Claus Conservatoire; taught in Dutch and English. Video pre-selection, then audition; apply by 1 March in 2026, 2027 date not yet published.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Become a professional jazz musician through weekly lessons with Dutch and international jazz players, with performance on stage from the first year alongside theory.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Motivation letter and three pre-selection videos, then a live audition in Groningen with a group theory test. 2026 deadline 1 March; 2027 not yet published."
+    },
+    {
+      "name": "Marketing Management",
+      "credential": "BSc",
+      "years": 4,
+      "field": "business",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/marketing-management",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Find out what customers need and want and how to win them for a brand, through theory and project work for real companies in an international classroom.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. EU/EEA: apply in Studielink by 15 August. From May on a selection check is compulsory; its advice is not binding."
+    },
+    {
+      "name": "Mechanical Engineering",
+      "closes": "2027-07-01",
+      "credential": "BSc",
+      "years": 3,
+      "field": "engineering",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/mechanical-engineering",
+      "ib": "VWO-level entry: Maths and Physics \"at advanced level\" (Hanze gives no HL/SL rule). EU applicants apply by 1 July.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "A three-year engineering bachelor built on real projects from day one, which gives direct entry to Hanze's European Master in Renewable Energy or Smart Systems Engineering: an MSc in four and a half years.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Hanze asks for maths \"at advanced level\" (VWO) and gives no IB HL/SL rule."
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any",
+          "note": "Hanze asks for physics \"at advanced level\" (VWO) and gives no IB HL/SL rule."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the VWO-level entry with maths and physics and you are admitted. EU/EEA applicants must meet the requirements by 1 July."
+    },
+    {
+      "name": "Physiotherapy",
+      "closes": "2027-01-15",
+      "credential": "BSc",
+      "years": 4,
+      "field": "health",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/physiotherapy",
+      "ib": "Selective: apply by 15 January 2027, then a registration form, online tests and an online selection day (10 February). HAVO-level entry; no subjects required.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Help people with movement problems move well again, combining medical-biological knowledge, treatment methods, behavioural psychology, communication and entrepreneurship, with much practice on peers and in clinics.",
+      "selection": [
+        "motivation",
+        "entrance-exam"
+      ],
+      "selectionNote": "Selective: registration form and online motivation and learning-styles test by 10 Feb, then a test on lecture material at an online selection day. Ranking in mid-April."
+    },
+    {
+      "name": "Popular Culture",
+      "ownDeadline": true,
+      "credential": "BA",
+      "years": 4,
+      "field": "arts-music",
+      "city": "Leeuwarden",
+      "url": "https://www.academieminerva.nl/en/programmes/popular-culture",
+      "ib": "Minerva Art Academy; taught in Dutch and English. Portfolio with a one-minute video, then an admission assessment; 2027 admission dates not yet published.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Make interdisciplinary performance work for audiences as a performer, writer/composer or visualiser/designer, learning in a production-house model with cultural institutions in Leeuwarden.",
+      "selection": [
+        "portfolio",
+        "assignment"
+      ],
+      "selectionNote": "Portfolio showing some cultural experience plus a one-minute video, then an admission assessment day. 2026 had monthly rounds March to August; 2027 not yet published."
+    },
+    {
+      "name": "Sport Studies",
+      "closes": "2027-06-15",
+      "credential": "BA",
+      "years": 3,
+      "field": "sport",
+      "city": "Groningen",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/sport-studies",
+      "ib": "VWO-level entry (IB Diploma). Apply by 15 June; online matching day and a sports medical fitness test.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "A three-year degree on the role of sport in health, the economy and society, working on real challenges with professional sports organisations throughout.",
+      "selection": [
+        "motivation"
+      ],
+      "selectionNote": "Binding: a motivation letter and online matching day, then a sports medical fitness test (about €190); both must be positive. Apply by 15 June.",
+      "requirementsUrl": "https://www.hanze.nl/en/programmes/full-time/bachelor/sport-studies/admission--application/internationaal-additional-requirements"
+    }
   ],
   "notes": [
     "The Prince Claus Conservatoire and Minerva Art Academy are part of Hanze: you apply through Studielink, but an audition or portfolio decides, with earlier deadlines.",
@@ -48,16 +384,110 @@
     "Popular Culture is taught in Leeuwarden, not Groningen."
   ],
   "sources": [
-    { "title": "Hanze — Programmes, filtered to English-taught bachelor's (17 results)", "url": "https://www.hanze.nl/en/programmes?facet_level=bachelor&facet_languages=en", "retrieved": "2026-09-25" },
-    { "title": "Hanze — Language requirements (IB exempts from English test)", "url": "https://www.hanze.nl/en/studychoice/application-and-entry-requirements/language-requirements", "retrieved": "2026-09-25" },
-    { "title": "Hanze — Application and enrolment (deadlines)", "url": "https://www.hanze.nl/en/studychoice/application-and-entry-requirements/application-and-enrolment", "retrieved": "2026-09-25" },
-    { "title": "Hanze — Applied Computer Science (start 1 September 2027; general deadlines 15 August EU, 1 June non-EU)", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science", "retrieved": "2026-09-25" },
-    { "title": "Hanze — On-campus Open Day, 13 February 2027, 09:30–16:00", "url": "https://www.hanze.nl/en/events/study/events/2027/02/on-campus-open-day", "retrieved": "2026-09-26" },
-    { "title": "Hanze — International Business (3-year): for IB and VWO-level diplomas", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-3-year", "retrieved": "2026-09-25" },
-    { "title": "Hanze — Mechanical Engineering: VWO maths and physics", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/mechanical-engineering", "retrieved": "2026-09-25" },
-    { "title": "Hanze — International Physiotherapy Programme: selection", "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/physiotherapy", "retrieved": "2026-09-25" },
-    { "title": "Minerva Art Academy — Fine Art (portfolio before 1 June 2027)", "url": "https://www.academieminerva.nl/en/programmes/fine-art", "retrieved": "2026-09-25" },
-    { "title": "Prince Claus Conservatoire — Composition & Music Production (Dutch-taught, excluded)", "url": "https://www.prinsclausconservatorium.nl/en/programmes/composition-and-music-production", "retrieved": "2026-09-25" },
-    { "title": "Study in NL — Hanze International Business: start 1 Sep 2027, deadlines 15 Aug '27 (EU/EEA), 1 Jun '27 (non-EU)", "url": "https://www.studyinnl.org/dutch-education/studies/international-business-1957-hanze-university-of-applied-sciences", "retrieved": "2026-09-25" }
+    {
+      "title": "Hanze — Programmes, filtered to English-taught bachelor's (17 results)",
+      "url": "https://www.hanze.nl/en/programmes?facet_level=bachelor&facet_languages=en",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — Language requirements (IB exempts from English test)",
+      "url": "https://www.hanze.nl/en/studychoice/application-and-entry-requirements/language-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — Application and enrolment (deadlines)",
+      "url": "https://www.hanze.nl/en/studychoice/application-and-entry-requirements/application-and-enrolment",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — Applied Computer Science (start 1 September 2027; general deadlines 15 August EU, 1 June non-EU)",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/applied-computer-science",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — On-campus Open Day, 13 February 2027, 09:30–16:00",
+      "url": "https://www.hanze.nl/en/events/study/events/2027/02/on-campus-open-day",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Hanze — International Business (3-year): for IB and VWO-level diplomas",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-3-year",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — Mechanical Engineering: VWO maths and physics",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/mechanical-engineering",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — International Physiotherapy Programme: selection",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/physiotherapy",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Minerva Art Academy — Fine Art (portfolio before 1 June 2027)",
+      "url": "https://www.academieminerva.nl/en/programmes/fine-art",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Prince Claus Conservatoire — Composition & Music Production (Dutch-taught, excluded)",
+      "url": "https://www.prinsclausconservatorium.nl/en/programmes/composition-and-music-production",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Study in NL — Hanze International Business: start 1 Sep 2027, deadlines 15 Aug '27 (EU/EEA), 1 Jun '27 (non-EU)",
+      "url": "https://www.studyinnl.org/dutch-education/studies/international-business-1957-hanze-university-of-applied-sciences",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hanze — Creative Media & Game Technologies: maths with a pass (OMPT-A alternative), MPT survey",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/creative-media-and-game-technologies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Hanze — Electrical and Electronic Engineering: maths required; non-binding Study Choice Check after 1 May",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/electrical-and-electronic-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Hanze — International Business (4-year): non-binding matching after 1 May",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-business-4-year",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Hanze — Marketing Management: programme selection check compulsory after 1 May",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/marketing-management",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Hanze — International Facility Management: HAVO-level entry; February start",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/international-facility-management",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Hanze — Sport Studies: additional requirements (matching day, sports medical fitness test)",
+      "url": "https://www.hanze.nl/en/programmes/full-time/bachelor/sport-studies/admission--application/internationaal-additional-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Prince Claus Conservatoire — Classical Music: audition procedure (2026 deadline 1 March)",
+      "url": "https://www.prinsclausconservatorium.nl/en/programmes/classical-music-bachelor",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Prince Claus Conservatoire — Jazz: pre-selection videos and audition (2026 deadline 1 March)",
+      "url": "https://www.prinsclausconservatorium.nl/en/programmes/jazz",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Minerva Art Academy — Design: two admission rounds (portfolio by 1 June 2026)",
+      "url": "https://www.academieminerva.nl/en/programmes/design",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Minerva Art Academy — Popular Culture: portfolio, one-minute video, admission days 2026",
+      "url": "https://www.academieminerva.nl/en/programmes/popular-culture",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

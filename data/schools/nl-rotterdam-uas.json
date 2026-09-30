@@ -1,7 +1,7 @@
 {
   "institution": "nl-rotterdam-uas",
   "name": "Rotterdam University of Applied Sciences",
-  "retrieved": "2026-09-25",
+  "retrieved": "2026-09-30",
   "intake": "2027-autumn",
   "scope": "listed",
   "summary": "Rotterdam hogeschool with three English bachelor's: International Business (3-year fast track for IB holders) and WdKA's Fine Art and Graphic Design.",
@@ -18,14 +18,114 @@
     "url": "https://www.studielink.nl/"
   },
   "dates": [
-    { "label": "Applications open for 2027/28", "date": "2026-10-01", "kind": "opens", "who": "any", "url": "https://www.wdka.nl/admissions/admission-in-english-ba" },
-    { "label": "International Business: application deadline, non-EU/EEA", "date": "2027-04-01", "kind": "closes", "who": "non-eu", "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/" },
-    { "label": "International Business: application deadline, EU/EEA", "date": "2027-07-31", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/" }
+    {
+      "label": "Applications open for 2027/28",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.wdka.nl/admissions/admission-in-english-ba"
+    },
+    {
+      "label": "WdKA Round 1 (Fine Art: non-EU applicants only)",
+      "date": "2027-01-17",
+      "kind": "closes",
+      "who": "non-eu",
+      "programmes": [
+        "fine-art"
+      ],
+      "url": "https://www.wdka.nl/admissions/admission-in-english-ba"
+    },
+    {
+      "label": "WdKA Round 1 (Graphic Design)",
+      "date": "2027-01-17",
+      "kind": "early",
+      "short": "Round 1",
+      "who": "any",
+      "programmes": [
+        "graphic-design"
+      ],
+      "url": "https://www.wdka.nl/admissions/admission-in-english-ba"
+    },
+    {
+      "label": "WdKA Round 2 (Graphic Design, EU applicants)",
+      "date": "2027-03-14",
+      "kind": "early",
+      "short": "Round 2",
+      "who": "eu-eea-ch",
+      "programmes": [
+        "graphic-design"
+      ],
+      "url": "https://www.wdka.nl/admissions/admission-in-english-ba"
+    },
+    {
+      "label": "International Business: application deadline, non-EU/EEA",
+      "date": "2027-04-01",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/"
+    },
+    {
+      "label": "International Business: application deadline, EU/EEA",
+      "date": "2027-07-31",
+      "kind": "closes",
+      "who": "eu-eea-ch",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/"
+    }
   ],
   "programmes": [
-    { "name": "International Business", "credential": "BBA", "years": 4, "field": "business", "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/", "ib": "IB Diploma holders can take the 3-year Fast Track (VWO-level entry) after an intake interview with the Fast Track coordinator.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)", "closes": "2027-07-31" },
-    { "name": "Fine Art", "ownDeadline": true, "credential": "BA", "years": 4, "field": "arts-music", "url": "https://www.rotterdamuas.com/programmes/bachelor/fine-art/", "ib": "WdKA remote entrance exam (portfolio, home assignments, questionnaire, short video); limited places. 2027 round deadlines not yet published.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" },
-    { "name": "Graphic Design", "ownDeadline": true, "credential": "BA", "years": 4, "field": "design-architecture", "url": "https://www.rotterdamuas.com/programmes/bachelor/graphic-design/", "ib": "WdKA remote entrance exam (portfolio, home assignments, questionnaire, short video). 2027 round deadlines not yet published.", "tuitionEuEea": "€2,771 (2027/28 statutory fee)" }
+    {
+      "name": "International Business",
+      "credential": "BBA",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/",
+      "ib": "IB Diploma holders can take the 3-year Fast Track (VWO-level entry) after an intake interview with the Fast Track coordinator.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closes": "2027-07-31",
+      "about": "Business, languages and professional skills in three learning lines, a specialisation in Marketing, Commerce, Supply Chain or Organisation & Change, and exchange and internships in years 3-4.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. The 3-year Fast Track adds a study check and an intake interview you must pass.",
+      "requirementsUrl": "https://www.rotterdamuas.com/study-information/enrolment/admission-requirements/default-content/bachelors-rbs-fasttrack/"
+    },
+    {
+      "name": "Fine Art",
+      "ownDeadline": true,
+      "credential": "BA",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/fine-art/",
+      "ib": "WdKA remote entrance exam (portfolio, home assignments, questionnaire, short video); limited places. EU applicants apply in the March round.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Your own art practice developed through artistic research and concept work across autonomous, social and commercial settings, with a focus on digital technology and public space.",
+      "selection": [
+        "portfolio",
+        "assignment"
+      ],
+      "selectionNote": "Remote entrance exam with four assignments; places are limited, so Fine Art has its own rounds. A June round fills a waiting list only.",
+      "closes": "2027-03-14",
+      "requirementsUrl": "https://www.wdka.nl/admissions/admission-in-english-ba"
+    },
+    {
+      "name": "Graphic Design",
+      "ownDeadline": true,
+      "credential": "BA",
+      "years": 4,
+      "field": "design-architecture",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/graphic-design/",
+      "ib": "WdKA remote entrance exam (portfolio, home assignments, questionnaire, short video). Three rounds for 2027; apply early.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "about": "Shaping information into visual communication with traditional and cross-media techniques, building your own design approach through creative research and critical thinking.",
+      "selection": [
+        "portfolio",
+        "assignment"
+      ],
+      "selectionNote": "Remote entrance exam with four assignments. Three rounds; earlier rounds come first, so apply early.",
+      "closes": "2027-06-06",
+      "closesNote": "Earlier rounds in January and March",
+      "requirementsUrl": "https://www.wdka.nl/admissions/admission-in-english-ba"
+    }
   ],
   "notes": [
     "WdKA's other majors (Illustration, Animation, Photography, Fashion and more) are officially Dutch-taught but admit international students, with teaching in English whenever they are in class.",
@@ -33,19 +133,75 @@
     "Before you start, certified copies of your diploma and transcript must reach the university by post or in person by 31 August."
   ],
   "sources": [
-    { "title": "Rotterdam UAS — Bachelor programmes (3 programmes)", "url": "https://www.rotterdamuas.com/programmes/bachelor/", "retrieved": "2026-09-25" },
-    { "title": "Rotterdam UAS — Bachelor admission requirements", "url": "https://www.rotterdamuas.com/study-information/enrolment/admission-requirements/", "retrieved": "2026-09-25" },
-    { "title": "Rotterdam UAS — International Business: admission requirements", "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/admission-requirements/", "retrieved": "2026-09-25" },
-    { "title": "Rotterdam UAS — International Business: application procedure", "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/", "retrieved": "2026-09-25" },
-    { "title": "Rotterdam UAS — Bachelors RBS fast track", "url": "https://www.rotterdamuas.com/study-information/enrolment/admission-requirements/default-content/bachelors-rbs-fasttrack/", "retrieved": "2026-09-25" },
-    { "title": "Rotterdam UAS — International Business: application procedure (EU/EEA \"31 Jul\", non-EEA \"1 April\"; no year printed)", "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/", "retrieved": "2026-09-26" },
-    { "title": "Study in NL — International Business, Rotterdam UAS (deadlines for 1 Sep '27)", "url": "https://www.studyinnl.org/dutch-education/studies/international-business-1606-rotterdam-university-of-applied-sciences", "retrieved": "2026-09-25" },
-    { "title": "Study in NL — Fine Art, Rotterdam UAS", "url": "https://www.studyinnl.org/dutch-education/studies/fine-art-1659-rotterdam-university-of-applied-sciences", "retrieved": "2026-09-25" },
-    { "title": "Study in NL — Design, Rotterdam UAS", "url": "https://www.studyinnl.org/dutch-education/studies/design-1660-rotterdam-university-of-applied-sciences", "retrieved": "2026-09-25" },
-    { "title": "WdKA — Admission in English, BA", "url": "https://www.wdka.nl/admissions/admission-in-english-ba", "retrieved": "2026-09-25" },
-    { "title": "WdKA — Admission questions FAQ", "url": "https://www.wdka.nl/admission-questions-faq", "retrieved": "2026-09-25" },
-    { "title": "Hogeschool Rotterdam — Vormgeving voltijd (language: Dutch and English)", "url": "https://www.hogeschoolrotterdam.nl/opleidingen/bachelor/vormgeving/voltijd/", "retrieved": "2026-09-25" },
-    { "title": "Hogeschool Rotterdam — Autonome Beeldende Kunst voltijd", "url": "https://www.hogeschoolrotterdam.nl/opleidingen/bachelor/autonome-beeldende-kunst/voltijd/", "retrieved": "2026-09-25" },
-    { "title": "Hogeschool Rotterdam — Logistics Engineering voltijd (Dutch years 1-2)", "url": "https://www.hogeschoolrotterdam.nl/opleidingen/bachelor/logistics-engineering/voltijd/", "retrieved": "2026-09-25" }
+    {
+      "title": "Rotterdam UAS — Bachelor programmes (3 programmes)",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Rotterdam UAS — Bachelor admission requirements",
+      "url": "https://www.rotterdamuas.com/study-information/enrolment/admission-requirements/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Rotterdam UAS — International Business: admission requirements",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/admission-requirements/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Rotterdam UAS — International Business: application procedure",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Rotterdam UAS — Bachelors RBS fast track",
+      "url": "https://www.rotterdamuas.com/study-information/enrolment/admission-requirements/default-content/bachelors-rbs-fasttrack/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Rotterdam UAS — International Business: application procedure (EU/EEA \"31 Jul\", non-EEA \"1 April\"; no year printed)",
+      "url": "https://www.rotterdamuas.com/programmes/bachelor/international-business/application-procedure/",
+      "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Study in NL — International Business, Rotterdam UAS (deadlines for 1 Sep '27)",
+      "url": "https://www.studyinnl.org/dutch-education/studies/international-business-1606-rotterdam-university-of-applied-sciences",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Study in NL — Fine Art, Rotterdam UAS",
+      "url": "https://www.studyinnl.org/dutch-education/studies/fine-art-1659-rotterdam-university-of-applied-sciences",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Study in NL — Design, Rotterdam UAS",
+      "url": "https://www.studyinnl.org/dutch-education/studies/design-1660-rotterdam-university-of-applied-sciences",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "WdKA — Admission in English, BA",
+      "url": "https://www.wdka.nl/admissions/admission-in-english-ba",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "WdKA — Admission questions FAQ",
+      "url": "https://www.wdka.nl/admission-questions-faq",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hogeschool Rotterdam — Vormgeving voltijd (language: Dutch and English)",
+      "url": "https://www.hogeschoolrotterdam.nl/opleidingen/bachelor/vormgeving/voltijd/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hogeschool Rotterdam — Autonome Beeldende Kunst voltijd",
+      "url": "https://www.hogeschoolrotterdam.nl/opleidingen/bachelor/autonome-beeldende-kunst/voltijd/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Hogeschool Rotterdam — Logistics Engineering voltijd (Dutch years 1-2)",
+      "url": "https://www.hogeschoolrotterdam.nl/opleidingen/bachelor/logistics-engineering/voltijd/",
+      "retrieved": "2026-09-25"
+    }
   ]
 }

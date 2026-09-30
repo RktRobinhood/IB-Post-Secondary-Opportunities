@@ -56,6 +56,11 @@ that institution.
 
 - Licence CC0, public domain, CC BY or CC BY-SA; at least 1200 px wide at
   source; confirm both through the Commons API.
+- **No subject already used.** Before picking, look at the accepted sets:
+  the newest `docs/research/qa/degree-photos/*/contact-sheet-round-*.jpg` of
+  every country and each `critique-round-*.md`. By Austria (the fifth
+  country) most round-1 rejects were repeats of another country's subject
+  (film crew, bioreactor, EEG cap, podcast microphone), not bad photos.
 - No file already used: check `data/programme-images.json` and every
   `docs/research/programme-images/*.jsonl`.
 - The critic rejects, every time: readable text or formulae at card size; logos
@@ -65,6 +70,10 @@ that institution.
   degrees at one school must not look alike.
 - Commons answers HTTP 429 to a generic user agent. Send one that names the
   project, e.g. `IB-Pathways/1.0 (https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities)`.
+- **Check the crop, not the description.** A crop note that says a label or
+  date stamp "falls outside the crop" or "under the veil" has been wrong four
+  times (Sweden, Norway, Switzerland): the critic sees the stored 16:10 file.
+  Open the stored crop's region at 480 px before claiming it.
 - If no good photo exists, skip the programme. A card on its school's photo
   beats a bad picture.
 - Write one line per programme to

@@ -4,7 +4,7 @@
   "retrieved": "2026-09-25",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "Research university in Groningen with a branch campus in Leeuwarden; 34 English-taught bachelor's, from AI and physics to history and law.",
+  "summary": "Founded in 1614, a large research university (32,500 students, 26% international) in the student city of Groningen, with a campus in Leeuwarden.",
   "handoff": {
     "label": "Bachelor's degree programmes in English",
     "url": "https://www.rug.nl/bachelors/in-english?lang=en"
@@ -33,8 +33,11 @@
       "url": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/non-dutch-qualification/fixus-non-dutch-qualification?lang=en"
     },
     {
-      "label": "Numerus fixus: personal details verified in Studielink",
-      "programmes": ["international-business", "psychology"],
+      "label": "Numerus fixus: personal details confirmed in Studielink",
+      "programmes": [
+        "international-business",
+        "psychology"
+      ],
       "date": "2027-02-15",
       "kind": "documents",
       "who": "any",
@@ -42,7 +45,10 @@
     },
     {
       "label": "Numerus fixus: ranking numbers announced",
-      "programmes": ["international-business", "psychology"],
+      "programmes": [
+        "international-business",
+        "psychology"
+      ],
       "date": "2027-04-15",
       "kind": "decision",
       "who": "any",
@@ -57,7 +63,10 @@
     },
     {
       "label": "Numerus fixus: final IB results proving entry requirements due",
-      "programmes": ["international-business", "psychology"],
+      "programmes": [
+        "international-business",
+        "psychology"
+      ],
       "date": "2027-07-15",
       "kind": "documents",
       "who": "eu-eea-ch",
@@ -72,6 +81,11 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/american-studies/?lang=en",
       "city": "Groningen",
+      "about": "The United States from many angles at once: its politics, history, literature, popular culture, race relations and religions, and its ties with the rest of the Americas. Taught in small seminars.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -81,8 +95,22 @@
       "field": "mathematics",
       "url": "https://www.rug.nl/bachelors/applied-mathematics/?lang=en",
       "city": "Groningen",
+      "about": "Using mathematics to model and simulate real systems, from vehicle dynamics to energy networks, combining proofs with programming and simulation. The first year is shared with Mathematics, so you can still switch after it.",
       "ib": "Maths AA HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Applied Physics",
@@ -91,8 +119,28 @@
       "field": "engineering",
       "url": "https://www.rug.nl/bachelors/applied-physics/?lang=en",
       "city": "Groningen",
+      "about": "Physics aimed at technology: the fundamentals plus design, nanotechnology, new materials and control engineering, for work in energy, medical technology and materials. Taught next to Physics, so you need not choose between them straight away.",
       "ib": "Maths AA HL and Physics HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Art History",
@@ -101,6 +149,11 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/art-history/?lang=en",
       "city": "Groningen",
+      "about": "Visual art, architecture, cities and landscapes studied together and in their environmental context, mixing historical, theoretical and practice-based courses, with an excursion abroad to a city such as Berlin, London or Florence.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -110,8 +163,23 @@
       "field": "computing",
       "url": "https://www.rug.nl/bachelors/artificial-intelligence/?lang=en",
       "city": "Groningen",
+      "about": "How intelligence works in people and machines, combining machine learning, programming, cognitive psychology, neuroscience, linguistics and philosophy. Specialise in computational neuroscience, hybrid intelligence, language and AI, machine learning or robotics.",
       "ib": "Maths AA SL or HL, or Maths AI HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; in Studielink pick the option without the \"Numerus fixus\" label.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Arts, Culture and Media",
@@ -120,7 +188,12 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/arts-culture-and-media/?lang=en",
       "city": "Groningen",
+      "about": "Film, music or theatre (with literature or visual arts as a possible second art form) studied in depth, with how art is made, funded and received; choose a framework in arts policy and cultural entrepreneurship or in analysis and criticism.",
       "ib": "Apply for the English track; a Dutch track also exists.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -130,8 +203,28 @@
       "field": "natural-sciences",
       "url": "https://www.rug.nl/bachelors/astronomy/?lang=en",
       "city": "Groningen",
+      "about": "Stars, galaxies, planetary systems and cosmology on a solid base of physics and mathematics, with the university's own observatory and links to the SRON and ASTRON space and radio astronomy institutes. You can switch to Physics or Mathematics in year one.",
       "ib": "Maths AA HL and Physics HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Biology",
@@ -140,8 +233,41 @@
       "field": "natural-sciences",
       "url": "https://www.rug.nl/bachelors/biology/?lang=en",
       "city": "Groningen",
+      "about": "Living systems from molecules to ecosystems, combined with maths, physics and chemistry. A broad first semester, then a major in ecology and evolution, molecular life sciences, behaviour and neurosciences, or biomedical sciences (partly at the UMCG hospital).",
       "ib": "Biology HL, plus Physics, Chemistry and Maths (AA SL/HL or AI HL); all four subjects are required.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "SL"
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "SL"
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Biomedical Engineering",
@@ -150,8 +276,36 @@
       "field": "engineering",
       "url": "https://www.rug.nl/bachelors/biomedical-engineering/?lang=en",
       "city": "Groningen",
+      "about": "Engineering for healthcare: medical imaging, robotics, biomaterials and tissue engineering, on problems such as longer-lasting heart valves or automated MRI analysis. Run with the University Medical Center Groningen, where some courses are taught.",
       "ib": "Maths AA HL, plus Physics and Chemistry with at least one of the two at HL. Biology recommended.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Chemical Engineering",
@@ -160,8 +314,36 @@
       "field": "engineering",
       "url": "https://www.rug.nl/bachelors/chemical-engineering/?lang=en",
       "city": "Groningen",
+      "about": "Designing and optimising large-scale processes for fuels, food, medicines and materials, through thermodynamics, transport phenomena and reactor engineering. Most of year one is shared with Chemistry, and you can switch between the two during that year.",
       "ib": "Maths AA HL, plus Physics and Chemistry with at least one of the two at HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Chemistry",
@@ -170,8 +352,36 @@
       "field": "natural-sciences",
       "url": "https://www.rug.nl/bachelors/chemistry/?lang=en",
       "city": "Groningen",
+      "about": "Organic, inorganic and physical chemistry with a lot of lab research, then a specialisation in smart materials, chemistry of life, or sustainable chemistry and energy. You can switch to Chemical Engineering during the first year.",
       "ib": "Maths AA HL, plus Physics and Chemistry with at least one of the two at HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Communication and Information Studies",
@@ -180,7 +390,12 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/communication-and-information-studies/?lang=en",
       "city": "Groningen",
+      "about": "Why communication succeeds or fails, across text, talk, images, digital media and generative AI, drawing on linguistics, psychology, media studies and marketing. You design and test improvements for real cases in corporate, health and intercultural communication.",
       "ib": "Apply for the English track; a Dutch track also exists.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -190,8 +405,22 @@
       "field": "computing",
       "url": "https://www.rug.nl/bachelors/computing-science/?lang=en",
       "city": "Groningen",
+      "about": "The theory and practice of computing: programming in several languages, algorithms, mathematical foundations, software and systems design and data analysis, with room for creative projects and research in fields such as bioinformatics and astronomy.",
       "ib": "Maths AA HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; in Studielink pick the option without the \"Numerus fixus\" label.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Data Science and Society",
@@ -200,8 +429,25 @@
       "field": "computing",
       "url": "https://www.rug.nl/bachelors/data-science-society/?lang=en",
       "city": "Leeuwarden",
+      "about": "Programming, data analysis and machine learning taught together with the law, ethics and politics of data, with projects for real organisations on the small Leeuwarden campus. In year two you specialise in AI and Society or in Cognitive Technology.",
       "ib": "Maths AA or AI, SL or HL, with a pass.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "With a passing grade."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027 for September; a February 2027 start has an earlier deadline.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "closesNote": "A February start has an earlier deadline",
+      "requirementsUrl": "https://www.rug.nl/cf/studeren-bij-cf/programmas/bsc-data-science-society-admissions-requirements"
     },
     {
       "name": "Econometrics and Operations Research",
@@ -210,8 +456,22 @@
       "field": "economics",
       "url": "https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en",
       "city": "Groningen",
+      "about": "Mathematical modelling of economic and business problems, combining econometrics, operations research, actuarial science and mathematical economics, with a simulation game in which you run a company in all three years.",
       "ib": "Maths AA HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Economics and Business Economics",
@@ -220,8 +480,23 @@
       "field": "economics",
       "url": "https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en",
       "city": "Groningen",
+      "about": "Economic tools for questions such as inequality, growth and climate impact, with strong data skills. Specialise in Economics, Business Economics, or International Economics and Sustainable Development; year three leaves room for a minor, internship or exchange.",
       "ib": "Maths AA SL or HL, or Maths AI HL. Tracks: Economics, Business Economics, or International Economics and Sustainable Development.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "English Language and Culture",
@@ -230,6 +505,11 @@
       "field": "languages",
       "url": "https://www.rug.nl/bachelors/english-language-and-culture/?lang=en",
       "city": "Groningen",
+      "about": "English literature, culture and linguistics from medieval origins to today, across Britain, North America and the wider English-speaking world, taught in small classes; the oldest English programme in the Netherlands.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -239,7 +519,12 @@
       "field": "languages",
       "url": "https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en",
       "city": "Groningen",
+      "about": "Europe's politics, cultures and languages, with intensive study of one major language (German, English, French, Italian, Dutch, Russian, Spanish or Swedish) towards near-native level, and a profile in language, culture or politics from year two.",
       "ib": "German major needs B1–B2 (school-leaving German, EU, under 2 years old); French needs A2 proof; Spanish Plus A2, else Spanish basic; Italian, Russian, Swedish, Dutch from zero.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -249,8 +534,25 @@
       "field": "social-sciences",
       "url": "https://www.rug.nl/bachelors/global-politics-sustainability/?lang=en",
       "city": "Leeuwarden",
+      "about": "Climate, biodiversity and energy transitions seen through politics, economics and society, with a specialisation in Planet or Politics and a Living Lab project for outside partners, in a small programme in Leeuwarden. Formerly Global Responsibility & Leadership.",
       "ib": "Maths AA or AI, SL or HL, with a pass. Selective: a CV and a motivation letter or video, in English.",
-      "tuitionEuEea": "€5,343 (2026/27 institutional fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "note": "With a passing grade."
+        }
+      ],
+      "selection": [
+        "motivation"
+      ],
+      "selectionNote": "Selective: once found eligible, you upload a CV and a motivation letter (max. 500 words) or video (max. 3 min), in English. Apply early: an Early Bird round closes first.",
+      "tuitionEuEea": "€5,343 (2026/27 institutional fee)",
+      "closesNote": "Early Bird 15 Jan; February start: 1 Nov 2026",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "History",
@@ -259,7 +561,12 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/history/?lang=en",
       "city": "Groningen",
+      "about": "The international track of History: a survey from Antiquity to the present, then political, cultural, economic and social history centred on a world region you choose, ending in your own research and thesis. All classes are in English.",
       "ib": "Apply for the English track; a Dutch track also exists.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -269,6 +576,12 @@
       "field": "social-sciences",
       "url": "https://www.rug.nl/bachelors/human-geography-and-planning/?lang=en",
       "city": "Groningen",
+      "about": "Why cities and regions develop differently and how to plan better places, combining economic, cultural and population geography, real estate studies and planning, with statistics taking a large share of the programme.",
+      "ib": "No subject requirements, but statistics is a big part: a maths level like Dutch VWO Maths A, B or C is expected.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -278,8 +591,22 @@
       "field": "engineering",
       "url": "https://www.rug.nl/bachelors/industrial-engineering-and-management/?lang=en",
       "city": "Groningen",
+      "about": "An engineering degree with management: about two-thirds technical courses (maths, physics, chemistry, programming) and one-third business, applied to production, supply chains, logistics and energy systems.",
       "ib": "Maths AA HL. Physics is not required but strongly advised.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Information Science",
@@ -288,8 +615,24 @@
       "field": "computing",
       "url": "https://www.rug.nl/bachelors/information-science/?lang=en",
       "city": "Groningen",
-      "ib": "Maths at the level of Dutch VWO Maths A or B, judged from course descriptions; an entrance exam may be set.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "about": "Applied AI, data science and language technology: building and evaluating software that processes large amounts of text and data, with attention to human and societal needs. Taught in English at the Faculty of Arts.",
+      "ib": "Maths at Dutch VWO A/B level, judged from course descriptions (else an entrance exam). The page also asks internationals for Dutch at B2 (NT2).",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL",
+          "note": "Judged from your course descriptions; if short, you sit an entrance exam."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "International and European Law",
@@ -298,8 +641,14 @@
       "field": "law",
       "url": "https://www.rug.nl/bachelors/international-and-european-law/?lang=en",
       "city": "Groningen",
-      "ib": "A compulsory online matching activity is part of the application.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "about": "International, European and comparative law rather than one national legal system, with an optional Technology Law track from year two and a semester abroad for every student. It does not qualify you to practise law in the Netherlands.",
+      "ib": "Compulsory online matching. English test can be waived if your IB school teaches only in English, or with English A or English B HL (B SL: a 5 and 35 points).",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective, but the online matching activity is compulsory (its advice is not binding); skip it and your registration is blocked. Apply and upload by 1 May 2027.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/rechten/education/international-programmes/llb/application/admission-requirements"
     },
     {
       "name": "International Business",
@@ -308,9 +657,25 @@
       "field": "business",
       "url": "https://www.rug.nl/bachelors/international-business/?lang=en",
       "city": "Groningen",
-      "ib": "Numerus fixus, 550 places: apply by 15 January 2027; selection tests rank applicants. Maths AA SL or HL, or Maths AI HL.",
+      "about": "International business seen through management, finance, marketing, ethics, sociology, psychology and economics, with real company cases and a third year for exchange, an internship or a minor. About 40% of students come from abroad.",
+      "ib": "Numerus fixus, 550 places: apply by 15 January 2027; an online Fit & Benchmark activity ranks applicants. Maths AA SL/HL or AI HL.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL"
+        }
+      ],
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "2026 criteria; 2027 not yet published: an online Fit & Benchmark activity (videos, readings, questions) ranks everyone; CV and grades do not count.",
+      "places": 550,
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
-      "closes": "2027-01-15"
+      "closes": "2027-01-15",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "International Relations and International Organization",
@@ -319,6 +684,12 @@
       "field": "social-sciences",
       "url": "https://www.rug.nl/bachelors/international-relations-and-international-organization/?lang=en",
       "city": "Groningen",
+      "about": "International politics studied through history, economics, law and international organisations, plus training in a modern foreign language and a minor of your choice, in a programme running for three decades.",
+      "points": 24,
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -328,8 +699,15 @@
       "field": "interdisciplinary",
       "url": "https://www.rug.nl/bachelors/liberal-arts-and-sciences/?lang=en",
       "city": "Groningen",
+      "about": "University College Groningen's small liberal arts programme: explore several disciplines, then major in Humanities, Sciences or Social Sciences, with team projects for outside partners and much class discussion. Starts in September or February.",
       "ib": "Selective (University College Groningen): an eligibility check, then a motivation video decides.",
-      "tuitionEuEea": "€5,343 (2026/27 institutional fee)"
+      "selection": [
+        "motivation"
+      ],
+      "selectionNote": "Selective, not numerus fixus: an eligibility check first, then your motivation video decides. Apply early: an Early Bird round closes before the final deadline.",
+      "tuitionEuEea": "€5,343 (2026/27 institutional fee)",
+      "closesNote": "Early Bird 15 Jan; February start: 1 Nov 2026",
+      "requirementsUrl": "https://www.rug.nl/ucg/application/"
     },
     {
       "name": "Life Science and Technology",
@@ -338,8 +716,36 @@
       "field": "natural-sciences",
       "url": "https://www.rug.nl/bachelors/life-science-and-technology/?lang=en",
       "city": "Groningen",
+      "about": "Life at the molecular scale, combining biology, chemistry, physics and pharmacology: drug design, cellular imaging and bioinformatics, with lab work from year one. Two broad years come before you specialise.",
       "ib": "Maths AA HL, plus Physics and Chemistry with at least one of the two at HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "SL",
+          "note": "Physics or Chemistry must be HL (at least one of the two)."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Mathematics",
@@ -348,8 +754,22 @@
       "field": "mathematics",
       "url": "https://www.rug.nl/bachelors/mathematics/?lang=en",
       "city": "Groningen",
+      "about": "Pure mathematics in depth: algebra, topology, analysis, probability, number theory and dynamical systems, with a focus on rigorous proof. The first year is shared with Applied Mathematics, so you can switch without delay.",
       "ib": "Maths AA HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Media Studies",
@@ -358,6 +778,11 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/media-studies/?lang=en",
       "city": "Groningen",
+      "about": "The social and informative role of media, from print and television to platforms and search engines, studied comparatively in their political, economic and cultural contexts with social-science methods, plus professional skills for media work.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -367,8 +792,28 @@
       "field": "natural-sciences",
       "url": "https://www.rug.nl/bachelors/physics/?lang=en",
       "city": "Groningen",
+      "about": "Mechanics, electromagnetism and quantum physics with plenty of lab work, then a specialisation in biophysics and medical physics, energy and environmental physics, nanophysics, particle physics, or physics education.",
       "ib": "Maths AA HL and Physics HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; no matching needed if you apply by then.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     },
     {
       "name": "Psychology",
@@ -377,9 +822,17 @@
       "field": "social-sciences",
       "url": "https://www.rug.nl/bachelors/psychology-en/?lang=en",
       "city": "Groningen",
-      "ib": "Numerus fixus, 250 places (English track): apply by 15 January 2027; places go by a selection test.",
+      "about": "All core areas of psychology, from the brain to society, with a strong grounding in statistics and research methods and skills training in small mentor-led groups. The English track has the same content as the Dutch one.",
+      "ib": "Numerus fixus, 250 places (English track): apply by 15 January 2027; a selection test plus a lottery rank applicants. No subject requirements; maths strongly advised.",
+      "selection": [
+        "entrance-exam",
+        "lottery"
+      ],
+      "selectionNote": "Online selection test on 6 Mar 2027 (set reading and a lecture, three multiple-choice tests) counts 50%, a lottery 50%. Ranking numbers 15 Apr.",
+      "places": 250,
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
-      "closes": "2027-01-15"
+      "closes": "2027-01-15",
+      "requirementsUrl": "https://www.rug.nl/gmw/bachelors/psychology/selectieprocedure-bachelor-psychology-en?lang=en"
     },
     {
       "name": "Religious Studies",
@@ -388,6 +841,11 @@
       "field": "humanities",
       "url": "https://www.rug.nl/bachelors/religious-studies/?lang=en",
       "city": "Groningen",
+      "about": "How religion shapes lives and societies, studied through history, anthropology, sociology, psychology, political science and philosophy, on topics such as migration, radicalisation and climate, at a non-denominational faculty.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
       "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
     },
     {
@@ -397,8 +855,23 @@
       "field": "design-architecture",
       "url": "https://www.rug.nl/bachelors/spatial-planning-and-design/?lang=en",
       "city": "Groningen",
+      "about": "Planning and designing living environments: physical and institutional design, water management, infrastructure, environmental planning and spatial software, with excursions to see real projects and a closing research project.",
       "ib": "Maths AA SL or HL, or Maths AI HL.",
-      "tuitionEuEea": "€2,771 (2027/28 statutory fee)"
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai@HL"
+          ],
+          "level": "SL"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply by 1 May 2027; matching is optional and its advice is not binding.",
+      "tuitionEuEea": "€2,771 (2027/28 statutory fee)",
+      "requirementsUrl": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en"
     }
   ],
   "notes": [
@@ -420,7 +893,7 @@
     {
       "title": "RUG: International Baccalaureate diploma, bachelor entry requirements",
       "url": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/procedures/application-informatie/with-non-dutch-diploma/bachelor/bachelor-entry-requirements/bachelorlinksinternational/international-baccalaureate-diploma?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Bachelor's language requirements and exemptions",
@@ -460,92 +933,92 @@
     {
       "title": "RUG: American Studies (programme page)",
       "url": "https://www.rug.nl/bachelors/american-studies/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Applied Mathematics (programme page)",
       "url": "https://www.rug.nl/bachelors/applied-mathematics/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Applied Physics (programme page)",
       "url": "https://www.rug.nl/bachelors/applied-physics/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Art History (programme page)",
       "url": "https://www.rug.nl/bachelors/art-history/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Artificial Intelligence (programme page)",
       "url": "https://www.rug.nl/bachelors/artificial-intelligence/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Arts, Culture and Media (programme page)",
       "url": "https://www.rug.nl/bachelors/arts-culture-and-media/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Astronomy (programme page)",
       "url": "https://www.rug.nl/bachelors/astronomy/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Biology (programme page)",
       "url": "https://www.rug.nl/bachelors/biology/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Biomedical Engineering (programme page)",
       "url": "https://www.rug.nl/bachelors/biomedical-engineering/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Chemical Engineering (programme page)",
       "url": "https://www.rug.nl/bachelors/chemical-engineering/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Chemistry (programme page)",
       "url": "https://www.rug.nl/bachelors/chemistry/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Communication and Information Studies (programme page)",
       "url": "https://www.rug.nl/bachelors/communication-and-information-studies/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Computing Science (programme page)",
       "url": "https://www.rug.nl/bachelors/computing-science/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Data Science and Society (programme page)",
       "url": "https://www.rug.nl/bachelors/data-science-society/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Econometrics and Operations Research (programme page)",
       "url": "https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Economics and Business Economics (programme page)",
       "url": "https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: English Language and Culture (programme page)",
       "url": "https://www.rug.nl/bachelors/english-language-and-culture/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: European Languages, Cultures and Politics (programme page)",
       "url": "https://www.rug.nl/bachelors/european-languages-cultures-and-politics/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: German major B1/B2 flowchart (entry documents for the German major)",
@@ -560,82 +1033,132 @@
     {
       "title": "RUG: Global Politics and Sustainability (programme page)",
       "url": "https://www.rug.nl/bachelors/global-politics-sustainability/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: History (programme page)",
       "url": "https://www.rug.nl/bachelors/history/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Human Geography and Planning (programme page)",
       "url": "https://www.rug.nl/bachelors/human-geography-and-planning/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Industrial Engineering and Management (programme page)",
       "url": "https://www.rug.nl/bachelors/industrial-engineering-and-management/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Information Science (programme page)",
       "url": "https://www.rug.nl/bachelors/information-science/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: International and European Law (programme page)",
       "url": "https://www.rug.nl/bachelors/international-and-european-law/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: International Business (programme page)",
       "url": "https://www.rug.nl/bachelors/international-business/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: International Relations and International Organization (programme page)",
       "url": "https://www.rug.nl/bachelors/international-relations-and-international-organization/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Liberal Arts and Sciences (programme page)",
       "url": "https://www.rug.nl/bachelors/liberal-arts-and-sciences/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Life Science and Technology (programme page)",
       "url": "https://www.rug.nl/bachelors/life-science-and-technology/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Mathematics (programme page)",
       "url": "https://www.rug.nl/bachelors/mathematics/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Media Studies (programme page)",
       "url": "https://www.rug.nl/bachelors/media-studies/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Physics (programme page)",
       "url": "https://www.rug.nl/bachelors/physics/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Psychology (programme page)",
       "url": "https://www.rug.nl/bachelors/psychology-en/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Religious Studies (programme page)",
       "url": "https://www.rug.nl/bachelors/religious-studies/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "RUG: Spatial Planning and Design (programme page)",
       "url": "https://www.rug.nl/bachelors/spatial-planning-and-design/?lang=en",
-      "retrieved": "2026-09-25"
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG: Facts and figures (key figures 2025)",
+      "url": "https://www.rug.nl/about-ug/profile/facts-and-figures/?lang=en",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG FEB: BSc International Business numerus fixus, Fit & Benchmark procedure (2026 intake)",
+      "url": "https://www.rug.nl/feb/education/study-programmes/numerus-fixus-bsc-ib/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG: Selection procedure Bachelor Psychology (English track) 2027/2028",
+      "url": "https://www.rug.nl/gmw/bachelors/psychology/selectieprocedure-bachelor-psychology-en?lang=en",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG FSE: Matching at the Faculty of Science and Engineering (not required if you apply by 1 May)",
+      "url": "https://www.rug.nl/fse/education/matching/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG FEB: Matching (not compulsory)",
+      "url": "https://www.rug.nl/feb/education/admission-application/matching/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG Campus Fryslân: Global Politics & Sustainability selection procedure",
+      "url": "https://www.rug.nl/selection-gps",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG Campus Fryslân: Applying for Global Politics & Sustainability",
+      "url": "https://www.rug.nl/gps-application",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG Campus Fryslân: BSc Data Science & Society admissions requirements (IB maths)",
+      "url": "https://www.rug.nl/cf/studeren-bij-cf/programmas/bsc-data-science-society-admissions-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "University College Groningen: Application process (selection by motivation video, deadlines)",
+      "url": "https://www.rug.nl/ucg/application/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "RUG Law: LLB International and European Law admission requirements (English exemptions, compulsory matching)",
+      "url": "https://www.rug.nl/rechten/education/international-programmes/llb/application/admission-requirements",
+      "retrieved": "2026-09-30"
     }
   ]
 }

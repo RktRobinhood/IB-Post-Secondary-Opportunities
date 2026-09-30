@@ -29,8 +29,18 @@
       "field": "design-architecture",
       "city": "Hamar",
       "url": "https://www.inn.no/english/study-options/our-studies/game-art-and-animation/",
-      "ib": "Entrance exam, plus an interview if needed. In 2026 the exam was due 15 May, or 1 May if you want student housing; 2027 dates not yet published.",
-      "tuitionEuEea": "Free"
+      "ib": "Pass INN's entrance exam, plus an interview if the committee asks. 2026 criteria; 2027 exam dates not yet published.",
+      "tuitionEuEea": "Free",
+      "about": "Art for games made with studio tools, specialising from the second semester as a game animator, 3D artist, 2D concept artist or technical artist, and building real games every semester with the game technology students.",
+      "selection": ["entrance-exam", "interview"],
+      "selectionNote": "The entrance exam decides who is qualified; in 2026 every qualified Samordna opptak applicant got an offer. 2026 criteria; 2027 not yet published.",
+      "cutoff": {
+        "value": "All qualified admitted",
+        "intake": "2026",
+        "url": "https://utdanning.no/utdanning/inn.no/bachelor_i_spillkunst_og_animasjon_0"
+      },
+      "places": 50,
+      "requirementsUrl": "https://www.inn.no/english/study-options/our-studies/game-art-and-animation/entrance-exam/"
     },
     {
       "name": "Bachelor in Game Technology",
@@ -40,7 +50,11 @@
       "city": "Hamar",
       "url": "https://www.inn.no/english/study-options/our-studies/game-technology/",
       "ib": "Maths at Norwegian R1 level: any IB maths (AA or AI, SL or HL) at grade 3 or better covers it.",
-      "tuitionEuEea": "Free"
+      "tuitionEuEea": "Free",
+      "about": "Programming for games and interactive media, in teams with artists and designers from the first semester; from year two you specialise in game programming (engines, mechanics, networking) or computer graphics (3D, shaders, simulation).",
+      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 3, "note": "Norwegian R1 level; Samordna opptak accepts AI SL through S1+S2."}],
+      "selection": ["grades"],
+      "selectionNote": "Samordna opptak ranks qualified applicants on school grades; INN does not say how it ranks its own EU/EEA route, and publishes no places or cut-off."
     }
   ],
   "notes": [
@@ -56,6 +70,8 @@
     { "title": "INN — Entrance exam for Bachelor in Game Art and Animation, 2026", "url": "https://www.inn.no/english/study-options/our-studies/game-art-and-animation/entrance-exam/", "retrieved": "2026-09-25" },
     { "title": "INN — Bachelor in Game Technology (deadline 15 April 2027)", "url": "https://www.inn.no/english/study-options/our-studies/game-technology/", "retrieved": "2026-09-25" },
     { "title": "INN — Filosofi, politikk og økonomi (undervisningsspråk: NO)", "url": "https://www.inn.no/studier/vare-studier/bachelor-i-filosofi-politikk-og-okonomi/index.html", "retrieved": "2026-09-25" },
-    { "title": "Samordna opptak — IB: covering special admission requirements", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/dekke-spesielle-opptakskrav.html", "retrieved": "2026-09-25" }
+    { "title": "Samordna opptak — IB: covering special admission requirements", "url": "https://www.samordnaopptak.no/universitet-og-hogskole/utdanning-fra-utlandet/land/ib/dekke-spesielle-opptakskrav.html", "retrieved": "2026-09-25" },
+    { "title": "Utdanning.no (HK-dir) — Bachelor i spillkunst og animasjon (søknadskode 209183; 50 places; 2026: all qualified admitted)", "url": "https://utdanning.no/utdanning/inn.no/bachelor_i_spillkunst_og_animasjon_0", "retrieved": "2026-09-30" },
+    { "title": "INN — Bachelor i spillteknologi (undervisningsspråk EN; Matematikk R1 eller S1+S2)", "url": "https://www.inn.no/studier/vare-studier/bachelor-i-spillteknologi-og-simulering/", "retrieved": "2026-09-30" }
   ]
 }

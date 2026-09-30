@@ -4,7 +4,7 @@
   "retrieved": "2026-09-26",
   "intake": "2027-autumn",
   "scope": "listed",
-  "summary": "University of applied sciences in Eindhoven, Venlo and Tilburg; 23 English-taught bachelor's in engineering, ICT, business, health and the arts.",
+  "summary": "Hands-on university of applied sciences in Eindhoven, Tilburg and Venlo: small classes, company projects and internships.",
   "handoff": {
     "label": "English-taught bachelor's programmes",
     "url": "https://www.fontys.nl/en/Programmes.htm?educatietype=01&page=all&taal=English"
@@ -19,11 +19,11 @@
   },
   "dates": [
     {
-      "label": "Apply by 1 June for a September 2027 start; arts programmes are earlier",
-      "date": "2027-06-01",
+      "label": "Apply by 1 May for a September 2027 start; arts programmes differ",
+      "date": "2027-05-01",
       "kind": "closes",
       "who": "eu-eea-ch",
-      "url": "https://www.fontys.nl/en/Programmes/Mechatronics-bachelor-full-time.htm"
+      "url": "https://www.fontys.nl/en/Study-at-Fontys/Practical-information/Application-deadlines/Deadlines-for-applicants-with-an-EEA-nationality.htm"
     },
     {
       "label": "Fontys housing application due, September 2027 start",
@@ -41,7 +41,22 @@
       "field": "mathematics",
       "url": "https://www.fontys.nl/en/Programmes/Applied-MathematicsData-Science-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths; Fontys sets no IB grade.",
+      "about": "Mathematical modelling, programming and data science applied to real problems from companies, with AI used as a tool; two internships, and a data science specialisation from year 3.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Applied-MathematicsData-Science-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Applied Physics",
@@ -50,7 +65,28 @@
       "field": "natural-sciences",
       "url": "https://www.fontys.nl/en/Programmes/Applied-Physics-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade.",
+      "about": "Physics theory, lab experiments and projects on problems such as energy, hospital equipment and sound, in a small programme on the TU/e campus in Eindhoven.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Applied-Physics-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Applied Science - Chemistry and Chemical Engineering",
@@ -59,7 +95,28 @@
       "field": "natural-sciences",
       "url": "https://www.fontys.nl/en/Programmes/Applied-Science-Chemistry-Chemical-Engineering-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths and chemistry; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths and chemistry; Fontys sets no IB grade.",
+      "about": "Chemistry, chemical engineering and biology taught together as one toolkit for work on medicines, sustainable materials, clean water or diagnostics, in a small programme on the TU/e campus.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Applied-Science-Chemistry-Chemical-Engineering-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Automotive Engineering",
@@ -68,18 +125,45 @@
       "field": "engineering",
       "url": "https://www.fontys.nl/en/Programmes/Automotive-Engineering-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade.",
+      "about": "Mechanics, electronics and software applied to vehicles: you design, build and test them, with half a day a week in the workshop in year 1 before you choose a direction.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Automotive-Engineering-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Circus and Performance Art",
-      "closesNote": "Videos by 5 April; the page still shows 2026",
+      "closesNote": "Two audition videos due by 5 April 2027",
       "closes": "2027-04-01",
       "credential": "BA",
       "years": 4,
       "field": "arts-music",
       "url": "https://www.fontys.nl/en/Programmes/Circus-and-Performance-Art-bachelor-full-time.htm",
       "city": "Tilburg",
-      "ib": "Audition: two videos by 5 April 2027, then a live audition in Tilburg on 18–20 May 2027. The page's Studielink deadline still reads 1 April 2026, so check it."
+      "ib": "Audition: Studielink by 1 April 2027, two videos by 5 April, then a live audition in Tilburg on 18–20 May 2027.",
+      "about": "Professional circus training with a flexible curriculum built around your own artistic goals, in a dedicated training hall in Tilburg with internationally qualified teachers.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Two videos by 5 April 2027 (online preselection); if selected, a live audition in Tilburg on 18–20 May 2027, and you must be there all three days.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Circus-and-Performance-Art-bachelor-full-time/Requirements-and-application.htm"
     },
     {
       "name": "Communication - International Communication Management",
@@ -87,7 +171,14 @@
       "years": 4,
       "field": "social-sciences",
       "url": "https://www.fontys.nl/en/Programmes/Communication-International-Communication-Management-bachelor-full-time.htm",
-      "city": "Eindhoven"
+      "city": "Eindhoven",
+      "about": "How organisations plan and manage communication across cultures and borders: communication strategy, intercultural understanding and working with people in diverse contexts.",
+      "ib": "No subjects required beyond the IB Diploma.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Communication-International-Communication-Management-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Dance - Dance Arts in Context",
@@ -97,7 +188,14 @@
       "url": "https://www.fontys.nl/en/Programmes/Dance-bachelor-full-time.htm",
       "city": "Tilburg",
       "ib": "Audition for one profile: Studielink by 1 March, material by 4 March, live audition in Tilburg 19–22 April 2027, plus a medical test.",
-      "closes": "2027-03-01"
+      "closes": "2027-03-01",
+      "about": "Contemporary, contemporary urban or choreography: you develop your own dance style and choreographic skills and explore current trends, in an international setting in Tilburg.",
+      "closesNote": "Audition material due by 4 March 2027",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Online preselection (material by 4 Mar 2027) for one profile; if selected, a live audition in Tilburg on 19–22 Apr 2027 and a medical test. No online option.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Dance-bachelor-full-time/Requirements-and-application.htm"
     },
     {
       "name": "Electrical and Electronic Engineering",
@@ -106,7 +204,22 @@
       "field": "engineering",
       "url": "https://www.fontys.nl/en/Programmes/Electrical-Electronic-Engineering-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths; Fontys sets no IB grade.",
+      "about": "Designing the electronics inside devices, from patient monitors to electric cars and energy systems, with a focus on sustainable solutions.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Electrical-Electronic-Engineering-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Finance & Control",
@@ -115,7 +228,29 @@
       "field": "business",
       "url": "https://www.fontys.nl/en/Programmes/Finance-Control.htm",
       "city": "Venlo",
-      "ib": "Satisfactory grades in maths and economics; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths and economics (Fontys also names business economics); no IB grade is set.",
+      "about": "Finance, accounting, risk management and strategic decision-making for businesses, with company projects and classes of at most 30 in Venlo. Formerly International Finance & Control.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "economics"
+          ],
+          "level": "any",
+          "note": "Fontys also names business economics."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Finance-Control/Application-admission.htm"
     },
     {
       "name": "ICT: Information & Communication Technology",
@@ -123,7 +258,14 @@
       "years": 4,
       "field": "computing",
       "url": "https://www.fontys.nl/en/Programmes/Information-Communication-Technology-bachelor-full-time.htm",
-      "city": "Eindhoven"
+      "city": "Eindhoven",
+      "about": "A broad ICT bachelor's: a common start, then one of 13 specialisations such as AI, cyber security or software development, built on real-life projects.",
+      "ib": "No subjects required beyond the IB Diploma.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Information-Communication-Technology-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Industrial Design Engineering",
@@ -132,7 +274,22 @@
       "field": "design-architecture",
       "url": "https://www.fontys.nl/en/Programmes/Industrial-Design-Engineering-bachelor-full-time.htm",
       "city": "Venlo",
-      "ib": "Satisfactory grades in maths; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths; Fontys sets no IB grade.",
+      "about": "Product design covering form, use, function, production and market value, with sustainability and social impact built in, through design assignments with companies in Venlo.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Industrial-Design-Engineering-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Industrial Engineering and Management",
@@ -143,8 +300,26 @@
       "city": "Eindhoven",
       "ib": "Satisfactory grades in maths; Fontys sets no IB grade.",
       "separateFrom": [
-        { "name": "Industrial Design Engineering", "reason": "A different subject (engineering management, not product design), taught in Eindhoven, not Venlo." }
-      ]
+        {
+          "name": "Industrial Design Engineering",
+          "reason": "A different subject (engineering management, not product design), taught in Eindhoven, not Venlo."
+        }
+      ],
+      "about": "Improving and managing the processes of technical organisations, with projects for Brainport companies such as ASML and Philips and a personal coach throughout.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Industrial-Engineering-and-Management-bachelor-full-time/Application-and-admission.htm"
     },
     {
       "name": "Information Technology",
@@ -152,7 +327,14 @@
       "years": 4,
       "field": "computing",
       "url": "https://www.fontys.nl/en/Programmes/Information-Technology-Venlo-bachelor-full-time.htm",
-      "city": "Venlo"
+      "city": "Venlo",
+      "about": "Software and AI development in teams for real clients: you analyse complex problems and build digital solutions, with attention to people and society, in Venlo.",
+      "ib": "No subjects required beyond the IB Diploma.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Information-Technology-Venlo-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "International Business",
@@ -161,7 +343,24 @@
       "field": "business",
       "url": "https://www.fontys.nl/en/Programmes/International-Business-bachelor-full-time.htm",
       "city": "Eindhoven and Venlo",
-      "ib": "Satisfactory grades in \"mathematics / economics\", as Fontys puts it; no IB grade is set."
+      "ib": "Satisfactory grades in one of maths, economics or business economics; no IB grade is set.",
+      "about": "A BBA covering international business, culture, marketing, finance, supply chain and HR, with classmates from across the world, in Eindhoven or Venlo.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai",
+            "economics"
+          ],
+          "level": "any",
+          "note": "Any one of these; Fontys also names business economics."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/International-Business-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Logistics Engineering",
@@ -170,7 +369,22 @@
       "field": "engineering",
       "url": "https://www.fontys.nl/en/Programmes/Logistics-Engineering-bachelor-full-time.htm",
       "city": "Venlo",
-      "ib": "Satisfactory grades in maths; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths; Fontys sets no IB grade.",
+      "about": "Logistics processes, data analysis and teamwork, with internships and company projects from the start in Venlo; prepares you for engineer or analyst roles.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Logistics-Engineering-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Logistics Management",
@@ -178,7 +392,14 @@
       "years": 4,
       "field": "business",
       "url": "https://www.fontys.nl/en/Programmes/Logistics-Management-bachelor-full-time.htm",
-      "city": "Venlo"
+      "city": "Venlo",
+      "about": "Preparation for management roles in logistics, with a focus on sustainability and data, internships and projects, and a personal mentor, in Venlo.",
+      "ib": "No subjects required beyond the IB Diploma.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Logistics-Management-bachelor-full-time/Application-Admission.htm"
     },
     {
       "name": "Marketing Management",
@@ -192,7 +413,14 @@
           "name": "Marketing Management - Digital Business Concepts",
           "reason": "Venlo, without the Digital Business Concepts specialisation; the Tilburg version records an intake conversation on your economics background."
         }
-      ]
+      ],
+      "about": "Market analysis, consumer behaviour, online channels, sales and product development, with two six-month internships worldwide and classes of at most 30 in Venlo.",
+      "ib": "No subjects required beyond the IB Diploma.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Marketing-Management-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Marketing Management - Digital Business Concepts",
@@ -201,13 +429,29 @@
       "field": "business",
       "url": "https://www.fontys.nl/en/Programmes/Marketing-Management-Digital-Business-Concepts-bachelor-full-time.htm",
       "city": "Tilburg",
-      "ib": "An intake conversation checks whether your economics background is enough.",
+      "ib": "Economics, business or management courses required; if yours fall short, an intake conversation looks at catching up before you enrol.",
       "separateFrom": [
         {
           "name": "Marketing Management",
           "reason": "A different specialisation (Digital Business Concepts) in Tilburg, not Venlo, and only this one records an intake conversation that checks your economics background."
         }
-      ]
+      ],
+      "about": "A mix of digital, marketing and business: you learn to design, develop and market digital products and business models with data, on assignments from companies, in Tilburg.",
+      "needs": [
+        {
+          "anyOf": [
+            "economics",
+            "business-management"
+          ],
+          "level": "any",
+          "note": "Fontys asks for courses in economics, business and/or management."
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; an intake talk follows if your economics is short.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Marketing-Management-Digital-Business-Concepts-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Mechanical Engineering",
@@ -216,7 +460,28 @@
       "field": "engineering",
       "url": "https://www.fontys.nl/en/Programmes/Mechanical-Engineering-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade.",
+      "about": "Applying physics to design and build mechanical systems, structures and machines, with in-depth study of materials, lab work and industry projects.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Mechanical-Engineering-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Mechatronics",
@@ -225,7 +490,28 @@
       "field": "engineering",
       "url": "https://www.fontys.nl/en/Programmes/Mechatronics-bachelor-full-time.htm",
       "city": "Eindhoven and Venlo",
-      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths and physics; Fontys sets no IB grade.",
+      "about": "Designing control systems for robot-controlled products and machines, mixing mechanical, electrical and software engineering in projects, in Eindhoven or Venlo.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Mechatronics-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Medical Imaging and Radiation Therapy",
@@ -234,7 +520,22 @@
       "field": "health",
       "url": "https://www.fontys.nl/en/Programmes/Medical-Imaging-and-Radiation-Therapy-MIRT-bachelor-full-time.htm",
       "city": "Eindhoven",
-      "ib": "Satisfactory grades in maths; Fontys sets no IB grade."
+      "ib": "Satisfactory grades in maths (Fontys checks your level); physics recommended; no IB grade is set.",
+      "about": "Training to work with medical imaging and radiation therapy equipment: anatomy, imaging studies, radiation safety and patient care, in small classes in Eindhoven.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any"
+        }
+      ],
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Medical-Imaging-and-Radiation-Therapy-MIRT-bachelor-full-time/Application-admission.htm"
     },
     {
       "name": "Music - Conservatory of Music Tilburg",
@@ -245,7 +546,15 @@
       "field": "arts-music",
       "url": "https://www.fontys.nl/en/Programmes/Conservatory-of-Music-bachelor-full-time.htm",
       "city": "Tilburg",
-      "ib": "Audition and theory test: upload by 1 March 2027 (auditions 15–19 March) or 1 May 2027 (24–28 May); online interview if you live outside NL or Belgium."
+      "ib": "Audition and theory test: upload by 1 March 2027 (auditions 15–19 March) or 1 May 2027 (24–28 May); online interview if you live outside NL or Belgium.",
+      "about": "Classical or jazz music in a broad musical context, with teachers active on the music scene and ensemble projects that connect you with professionals, in Tilburg.",
+      "selection": [
+        "audition",
+        "interview",
+        "entrance-exam"
+      ],
+      "selectionNote": "Upload audition material by 1 Mar or 1 May 2027; if selected, an online interview (outside NL/Belgium) or live audition, plus an online theory test.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Conservatory-of-Music-bachelor-full-time/Requirements-application.htm"
     },
     {
       "name": "Physiotherapy",
@@ -253,11 +562,18 @@
       "years": 4,
       "field": "health",
       "url": "https://www.fontys.nl/en/Programmes/Physiotherapy-bachelor-full-time.htm",
-      "city": "Eindhoven"
+      "city": "Eindhoven",
+      "about": "All aspects of physiotherapy, from treating injuries to preventing them, with anatomy, neurology and physiology, hands-on practice and real patients, in small classes.",
+      "ib": "No required subjects; Fontys recommends biology, English and maths.",
+      "selection": [
+        "open"
+      ],
+      "selectionNote": "Not selective: meet the requirements and you are admitted. Apply in Studielink by 1 May 2027; a study choice check talk is optional.",
+      "requirementsUrl": "https://www.fontys.nl/en/Programmes/Physiotherapy-bachelor-full-time/Application-admission.htm"
     }
   ],
   "notes": [
-    "If you miss 1 June, most programmes still take EEA applicants until 15 August, but you lose the chance of Fontys housing.",
+    "If you miss 1 May, most programmes still take EEA applicants until the final deadline (1 or 15 August), but with fewer housing options.",
     "Eleven of these bachelor's, including Automotive, Mechanical Engineering, ICT and Finance & Control, can also start in February; apply before 15 November for that.",
     "Circus, Dance and Music in Tilburg select by audition, with deadlines months before 1 June."
   ],
@@ -268,9 +584,9 @@
       "retrieved": "2026-09-26"
     },
     {
-      "title": "Fontys — Deadlines for applicants with an EEA nationality (apply before 1 June; final deadline 15 August; February start 15 November)",
+      "title": "Fontys — Deadlines for applicants with an EEA nationality (September start: apply by 1 May; final deadline 1 or 15 August; February start 15 November)",
       "url": "https://www.fontys.nl/en/Study-at-Fontys/Practical-information/Application-deadlines/Deadlines-for-applicants-with-an-EEA-nationality.htm",
-      "retrieved": "2026-09-26"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "Fontys — Application deadlines (overview)",
@@ -278,9 +594,9 @@
       "retrieved": "2026-09-26"
     },
     {
-      "title": "Fontys — Mechatronics (admission timeline for the September 2027 start: deadline 1 June, housing 15 June, start 6 September 2027)",
+      "title": "Fontys — Mechatronics (admission timeline for the September 2027 start: apply by 1 May 2027, housing 15 June, start 6 September 2027)",
       "url": "https://www.fontys.nl/en/Programmes/Mechatronics-bachelor-full-time.htm",
-      "retrieved": "2026-09-26"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "Fontys — Mechatronics: application and admission (IB Diploma named; maths and physics)",
@@ -293,9 +609,9 @@
       "retrieved": "2026-09-26"
     },
     {
-      "title": "Fontys — Circus and Performance Art: requirements and application (audition 2027)",
+      "title": "Fontys — Circus and Performance Art: requirements and application (Studielink by 1 April 2027, videos by 5 April, audition 18–20 May 2027)",
       "url": "https://www.fontys.nl/en/Programmes/Circus-and-Performance-Art-bachelor-full-time/Requirements-and-application.htm",
-      "retrieved": "2026-09-26"
+      "retrieved": "2026-09-30"
     },
     {
       "title": "Fontys — Dance: requirements and application (Studielink by 1 March 2027)",
@@ -311,6 +627,21 @@
       "title": "DUO — Overzicht Erkenningen ho (degree titles: Bachelor of Science, Business Administration, Arts, Music)",
       "url": "https://onderwijsdata.duo.nl/datasets/overzicht-erkenningen-ho",
       "retrieved": "2026-09-26"
+    },
+    {
+      "title": "Fontys — Study choice check (an optional, non-binding talk you can request after applying)",
+      "url": "https://www.fontys.nl/en/Study-at-Fontys/Practical-information/Study-Choice-Check.htm",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Fontys — Application and enrolment (four steps via Studielink)",
+      "url": "https://www.fontys.nl/en/Study-at-Fontys/Practical-information/Application-and-enrolment.htm",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Fontys — each programme's Application & admission page (subject requirements for non-Dutch diplomas; linked from each programme as its requirements page)",
+      "url": "https://www.fontys.nl/en/Programmes/Applied-MathematicsData-Science-bachelor-full-time/Application-admission.htm",
+      "retrieved": "2026-09-30"
     }
   ]
 }
