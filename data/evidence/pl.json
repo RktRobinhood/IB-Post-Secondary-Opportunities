@@ -283,5 +283,229 @@
       "at": "2026-09-23",
       "method": "read-source"
     }
+  },
+  {
+    "id": "ev-sejm-pl-foreign-language-fee",
+    "sourceUrl": "https://api.sejm.gov.pl/eli/acts/DU/2018/1668/text/U/D20181668Lj.pdf",
+    "sourcePage": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20180001668",
+    "publisher": "Sejm of the Republic of Poland - Law on Higher Education and Science (Dz.U. 2018 poz. 1668, consolidated text)",
+    "publisherType": "other",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "A Polish public university may charge for study in a foreign language, and the statutory fee exemption for EU/EEA/Swiss citizens covers only full-time study in Polish.",
+    "excerpt": "Art. 79. 1. Uczelnia publiczna może pobierać opłaty za usługi edukacyjne związane z: […] 3) kształceniem na studiach w języku obcym; […] 5) kształceniem cudzoziemców na studiach stacjonarnych w języku polskim. […] Art. 324. […] 2. Opłat, o których mowa w art. 79 ust. 1 pkt 5, nie pobiera się od: 1) cudzoziemca – obywatela państwa członkowskiego Unii Europejskiej, Konfederacji Szwajcarskiej lub państwa członkowskiego Europejskiego Porozumienia o Wolnym Handlu (EFTA) – strony umowy o Europejskim Obszarze Gospodarczym i członków ich rodzin, mieszkających na terytorium Rzeczypospolitej Polskiej",
+    "interpretation": "Art. 79(1) pt 3 (foreign-language study) is a fee a public university may charge anyone, Polish citizens included. Art. 324(2) exempts EU/EEA/Swiss citizens from the pt 5 fee only, which is the foreigner fee on full-time Polish-language study. So the statute neither charges nor exempts an EU citizen on an English-taught programme: each university decides in its own fee rules (art. 80(2)). Whether 'mieszkających na terytorium Rzeczypospolitej Polskiej' (living in Poland) binds the citizen or only the family members is not settled by the text; universities paraphrase it both ways.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28",
+      "notes": [
+        "Consolidated text dated 2026-08-03 in its page footers, built on t.j. Dz.U. 2024 poz. 1571 with amendments to 2026 poz. 912. An amendment to art. 79 takes effect on 1 January 2027 (see the country profile); the text seen does not change points 3 and 5."
+      ]
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-pdf",
+      "note": "isap.sejm.gov.pl serves an Incapsula bot wall to plain HTTP clients; the record page was opened in a browser and its linked 'tekst ujednolicony' PDF (D20181668Lj.pdf) was read from the Sejm's own ELI API, which the ISAP page links as 'API'. Articles 69-70, 79-80 and 323-324 read in full."
+    }
+  },
+  {
+    "id": "ev-studygovpl-eu-choose-terms",
+    "sourceUrl": "https://study.gov.pl/define-your-status",
+    "publisher": "Study in Poland (NAWA)",
+    "publisherType": "national-agency",
+    "sourceClass": "promotion-agency",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2027-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "An EU/EEA citizen may choose to study in Poland on the terms applicable to Polish citizens or on the terms applicable to foreigners; free tuition on Polish terms requires sound Polish and taking part in the ordinary recruitment.",
+    "excerpt": "If you study on terms applicable to Polish citizens doing full-time programmes at public higher education institutions, you do it free of charge. This, however, requires a sound knowledge of Polish and participation in the recruitment procedure. […] EU/EEA citizens can also choose if they want to study like Polish students or as foreigners.",
+    "interpretation": "The national portal ties 'free, on Polish terms' to Polish-language study, and treats the foreigners' (fee-paying) terms as an option an EU citizen may choose, not the only route. It says nothing about English-taught study specifically, which is set by each university.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28"
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-pwr-zw115-eu-not-charged",
+    "sourceUrl": "https://rekrutacja.pwr.edu.pl/wp-content/uploads/2025/10/ZW_115_2025-z-Zasady-pobierania-oplat-na-studiach-wyzszych-na-PWr-4.pdf",
+    "sourcePage": "https://rekrutacja.pwr.edu.pl/en/for-foreigners/free-of-charge-studies/",
+    "publisher": "Wroclaw University of Science and Technology - Rector's ordinance ZW 115/2025",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2026-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "Wroclaw Tech charges the foreign-language tuition fee only to 'cudzoziemcy', a term its fee rules define to exclude EU, EEA, Swiss and UK citizens, so full-time English-taught study is free for EU citizens.",
+    "excerpt": "8) cudzoziemiec- osoba fizyczna nieposiadająca obywatelstwa polskiego i niebędąca obywatelem państwa członkowskiego Unii Europejskiej, Konfederacji Szwajcarskiej, Zjednoczonego Królestwa Wielkiej Brytanii i Irlandii Północnej, państw członkowskich Europejskiego Stowarzyszenia Wolnego Handlu (EFTA) […] § 2. 1. Uczelnia pobiera opłaty za usługi edukacyjne na studiach związane z: […] 3) kształceniem cudzoziemców na studiach w języku obcym",
+    "interpretation": "The university's English page says the same in plain words: English-taught programmes are charged to all foreign nationals, with a footnote that this 'does not apply' to EU/EEA/Swiss/UK citizens 'in accordance with ZW115/2025'. Its 2026/27 price list (ZW 72/2026, annex 'od cudzoziemców') is therefore the non-EU price. EU applicants use the 'Free of charge studies' route, which shares the IRK system and timetable with the fee-paying route. The definition, like the statute, ends 'i członków ich rodzin mieszkających na terytorium Rzeczypospolitej Polskiej'; the English footnote attaches the residence condition to family members, and the scholarship page states the EU exemption with no residence condition.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28",
+      "notes": [
+        "ZW 115/2025 of 25 September 2025 is listed as the fee rules in force for 2026/27 on https://rekrutacja.pwr.edu.pl/dla-cudzoziemcow-akty-prawne/. No 2027/28 acts were published by 30 September 2026."
+      ]
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-pdf",
+      "note": "Read the annex PDF with pdftotext (§ 1 definitions, § 2 fee catalogue, chapter III for non-foreigners, chapter IV for cudzoziemcy) and the English free-of-charge, scholarship, bachelor's and payments pages."
+    }
+  },
+  {
+    "id": "ev-put-ordinance18-eu-as-polish",
+    "sourceUrl": "https://put.poznan.pl/sites/default/files/2026-05/Ordinance%20No.%2018.pdf",
+    "sourcePage": "https://put.poznan.pl/en/admission-for-international/studies-free-of-charge",
+    "publisher": "Poznan University of Technology - Rector's Ordinance No. 18 of 11 May 2026",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2026-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "Poznan University of Technology charges no fee for foreign-language study to Polish citizens or to the foreigners in article 324(2), which includes EU, EEA and Swiss citizens, so full-time English-taught study is free for EU citizens.",
+    "excerpt": "3) education in degree programmes conducted in a foreign language, excluding Polish citizens and foreigners referred to in Article 324(2) of the Act; […] 5. Foreigners referred to in Article 324(2) of the Act […] shall pay fees on the same basis as Polish citizens",
+    "interpretation": "The university's free-of-charge page puts it directly: tuition for international students 'in full-time studies conducted in Polish and English' is not charged to EU/EEA/Swiss citizens 'and their family members residing in the territory of the Republic of Poland'. The EUR prices on its international fees page are the non-EU price. Applies to students starting in 2026/27; the 2027/28 ordinance was not yet published.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28"
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-pdf",
+      "note": "English translation of the ordinance published by the university; § 1 and § 2 read."
+    }
+  },
+  {
+    "id": "ev-agh-ordinance39-fees-by-citizenship",
+    "sourceUrl": "https://rekrutacja.agh.edu.pl/wp-content/uploads/2026/05/zarzadzenie_rektora_39_2026_oplaty_2026_2027.pdf",
+    "sourcePage": "https://rekrutacja.agh.edu.pl/oplaty/",
+    "publisher": "AGH University of Krakow - Rector's ordinance 39/2026",
+    "publisherType": "institution",
+    "sourceClass": "official-rule-owner",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2026-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "AGH sets English-taught fees by citizenship: one annex for Polish citizens and another for all students without Polish citizenship, EU citizens included, so an EU citizen pays the same English-taught fee as a non-EU student.",
+    "excerpt": "§ 1. WYSOKOŚĆ OPŁAT POBIERANYCH OD STUDENTÓW POSIADAJĄCYCH OBYWATELSTWO POLSKIE […] § 2. WYSOKOŚĆ OPŁAT POBIERANYCH OD STUDENTÓW ZAGRANICZNYCH NIEPOSIADAJĄCYCH OBYWATELSTWA POLSKIEGO […] 3) za kształcenie na studiach stacjonarnych pierwszego i drugiego stopnia oraz jednolitych magisterskich w języku polskim oraz w języku angielskim – semestralne opłaty […] określa załącznik nr 3",
+    "interpretation": "Annex 2 (Polish citizens, English-taught) lists a first-cycle fee only for Computer Science, 3,000 EUR a semester. Annex 3 (non-Polish citizens) charges every English-taught programme, e.g. Space Engineering 1,250 EUR a semester. So on English-taught bachelor's other than Computer Science, a Polish citizen appears to pay nothing while an EU citizen pays the annex 3 fee; that is read from which programmes the annexes list, not from a sentence. The EU exemption on AGH's international fees page is for full-time study in Polish only.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28"
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-pdf",
+      "note": "Main ordinance and annexes 2 and 3 read with pdftotext, alongside https://www.international.agh.edu.pl/en/studies/fees."
+    }
+  },
+  {
+    "id": "ev-uj-foreign-language-no-exemption",
+    "sourceUrl": "https://welcome.uj.edu.pl/en_GB/admission/fees",
+    "publisher": "Jagiellonian University",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2026-autumn",
+    "appliesToApplicantGroup": "eu-eea-ch",
+    "verificationState": "needs-review",
+    "claim": "At the Jagiellonian every candidate without Polish citizenship applies through admission for foreigners, and the EU citizens' fee exemption does not extend to full-time study in a foreign language.",
+    "excerpt": "Foreigners who meet at least one of the conditions listed below may be exempted from tuition fees for full-time studies in Polish. […] Exemption does not apply to: part-time studies in Polish or in foreign languages, full-time studies in foreign languages (except for NAWA scholarship holders).",
+    "interpretation": "The first listed exempt group is EU/EEA/Swiss citizens 'and their family members residing in Poland'. The international students page adds that all candidates without Polish citizenship take part in admission 'according to the same rules as foreigners'. For Polish citizens the Polish fees page says only that 'some' foreign-language programmes are paid.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28"
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-source"
+    }
+  },
+  {
+    "id": "ev-sgh-fees-2026-27",
+    "sourceUrl": "https://www.sgh.waw.pl/en/table-fees-undergraduate-studies",
+    "publisher": "SGH Warsaw School of Economics",
+    "publisherType": "institution",
+    "sourceClass": "institutional-guidance",
+    "retrievedAt": "2026-09-30",
+    "appliesToIntake": "2026-autumn",
+    "appliesToApplicantGroup": "any",
+    "verificationState": "needs-review",
+    "claim": "SGH charges one fee for full-time study in English in 2026/27, 2,500 EUR a semester, with no difference between Polish, EU and non-EU students.",
+    "excerpt": "full-time studies in English EUR 2,500 (one-time fee per semester) or EUR 2,550 (five instalments per semester, one instalment is EUR 510).",
+    "interpretation": "Only the Polish-language row splits by citizenship (free for Polish citizens and the article 324(2) groups, 2,350 EUR a semester for other international students). All international candidates, EU citizens included, sit SGH's online entrance exam.",
+    "supports": [
+      {
+        "entity": "pl",
+        "field": "feeContext"
+      }
+    ],
+    "meta": {
+      "schemaVersion": "1.0",
+      "dataAsOf": "2026-09-30",
+      "reviewBy": "2027-02-28"
+    },
+    "attestation": {
+      "by": "the issue #41 research pass (Poland EU route)",
+      "at": "2026-09-30",
+      "method": "read-source"
+    }
   }
 ]

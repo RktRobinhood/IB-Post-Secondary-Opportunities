@@ -16,14 +16,15 @@
   "targetIntake": "2027-autumn",
   "tagline": "Cheap, big, and more free English-taught places than you think",
   "ownCitizens": "If you hold Polish citizenship, article 324 of the Higher Education Act — the source of this page's rules for foreigners — does not apply to you: Polish-taught study is free, and the maintenance grant and student loan are open to you on the ordinary terms. Your IB is still a foreign qualification, so the IB entry rules here still apply, and whether you count as a foreign candidate at universities with a separate foreigners' recruitment, such as Wroclaw Tech, is not established here: ask them.",
-  "summary": "Poland recognises an IB Diploma automatically — no recognition statement needed — and has a large, affordable English-taught offer, from engineering in Kraków and Wrocław to medicine in Gdańsk and Poznań. You apply directly to each university on its own system and calendar. Polish-taught study is free for EU citizens; English-taught fees vary by programme, and some are free for EU citizens too.",
+  "summary": "Poland recognises an IB Diploma automatically — no recognition statement needed — and has a large, affordable English-taught offer, from engineering in Kraków and Wrocław to medicine in Gdańsk and Poznań. You apply directly to each university on its own system and calendar. Polish-taught study is free for EU citizens by law. English-taught fees are each university's own choice: some charge EU citizens nothing, others charge them the same as any student from abroad.",
   "whyConsider": [
     "Your IB Diploma is automatically recognised for applying to university.",
     "A large English-taught offer at modest fees, including six-year medicine.",
-    "Some English-taught programmes cost EU citizens nothing — check each programme's fee line."
+    "Some universities charge EU citizens nothing for English-taught study, among them Wrocław Tech and Poznań Tech."
   ],
   "watchOuts": [
     "No central portal and no national deadline. Each university sets its own, and most had not published 2027 dates by September 2026.",
+    "A 'for foreigners' fee page is often the non-EU price. As an EU citizen, look for the university's EU price or free route before you apply.",
     "HL versus SL matters more than your total. Universities convert them very differently, and some programmes require a science at HL.",
     "If you plan to practise in Denmark, studying medicine here involves more than the diploma — read the medicine-abroad page before committing. Wherever you plan to practise, check how that country recognises the degree."
   ],
@@ -44,12 +45,18 @@
   "feeContext": [
     {
       "applicantGroup": "eu-eea-ch",
-      "feeStatus": "no-fee",
-      "summary": "Full-time Polish-taught study at a state university is free for EU/EEA citizens. English-taught programmes vary: at the University of Warsaw some are free for EU citizens and others charge several thousand euros a year.",
+      "summary": "Full-time Polish-taught study at a state university is free for EU/EEA/Swiss citizens by law. The law lets universities charge anyone for English-taught study, so the EU fee is each university's decision. Wrocław Tech and Poznań Tech charge EU citizens nothing, and the University of Warsaw and Warsaw Tech waive the fee on some programmes. AGH, the Jagiellonian and SGH charge EU citizens the same as any student from abroad.",
       "priceYear": "2026/27",
       "evidence": [
         "ev-studygovpl-polish-taught-free",
-        "ev-uw-tuition-2026-27"
+        "ev-uw-tuition-2026-27",
+        "ev-sejm-pl-foreign-language-fee",
+        "ev-studygovpl-eu-choose-terms",
+        "ev-pwr-zw115-eu-not-charged",
+        "ev-put-ordinance18-eu-as-polish",
+        "ev-agh-ordinance39-fees-by-citizenship",
+        "ev-uj-foreign-language-no-exemption",
+        "ev-sgh-fees-2026-27"
       ]
     }
   ],
@@ -110,7 +117,14 @@
     "ev-studygovpl-polish-taught-free",
     "ev-uw-tuition-2026-27",
     "ev-pums-calendar-2027-deadline",
-    "ev-eurydice-pl-institution-types"
+    "ev-eurydice-pl-institution-types",
+    "ev-sejm-pl-foreign-language-fee",
+    "ev-studygovpl-eu-choose-terms",
+    "ev-pwr-zw115-eu-not-charged",
+    "ev-put-ordinance18-eu-as-polish",
+    "ev-agh-ordinance39-fees-by-citizenship",
+    "ev-uj-foreign-language-no-exemption",
+    "ev-sgh-fees-2026-27"
   ],
   "meta": {
     "schemaVersion": "1.0",
@@ -120,7 +134,8 @@
       "Most 2027 university calendars were not published by September 2026; the country profile carries 2026 dates as provisional.",
       "Not established: which uczelnie zawodowe teach in English.",
       "'uczelnia medyczna' and 'uczelnia artystyczna' are ordinary Polish descriptive terms; the Eurydice page read names these categories in English ('a medical HEI', 'an HEI of art studies').",
-      "The PUMS class-start contradiction (country profile, ev-pums-calendar-class-start) is still open."
+      "The PUMS class-start contradiction (country profile, ev-pums-calendar-class-start) is still open.",
+      "feeContext eu-eea-ch carries no feeStatus since issue #41 (2026-09-30): for English-taught study the EU fee runs from none to the international rate depending on the university, and the enum has no value for that. Research: docs/research/qa/schools/pl/issue-41-eu-route.md."
     ]
   }
 }
