@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 30 September 2026 (evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 30 September 2026 (late evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -8,7 +8,7 @@ This page says where the work stands, so the next session (human or agent) start
 
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
-- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+- Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
 
 ## 30 September (late evening): ceiling raised to 65% weekly; finishing Europe
 
@@ -22,15 +22,26 @@ Shipped, each gated 40/40 on a clean copy of main:
   universities without English degrees explain the Ministry B.1 route.
 - **Czechia complete** (258d272): CZU 10, VŠB 13.
 - **Latvia** (f883445): 11 institutions, 52 degrees.
-In flight: Slovenia + Malta (agent si-mt); flagships and faculties for the
-catalogue schools — UK batch A (Oxford … Bristol), UK batch B (Manchester …
-UAL), Ireland — brief `D:/ibp-tmp/eu2/FLAGSHIP_BRIEF.md`. Each agent edits
-only its own school files; a stopped run resumes on schools whose record
-still has no `flagshipSource`.
-Not yet: flagships for ch-franklin, ch-webster-geneva, fr-aup, gr-acg-deree;
-degree photos for PL, CZ and the new countries (cards use the designed
-backdrop meanwhile). Data questions from these agents are in their
-`docs/research/schools/reports/findings-2026-09-30-<agent>.md`.
+- **Slovenia and Malta** (28f588e): 23 and 22 degrees; UM and MCAST catalogue.
+  Every European country in scope now has school records.
+- **Flagships and faculties** for every UK catalogue school (02b84d3,
+  2c5191c: 21 universities × 3), eleven Irish (fa0a857; DkIT blocked by
+  Cloudflare and a form-gated prospectus), and UM, MCAST, Deree, AUP,
+  Franklin, Webster Geneva (041af23). UCAS 2027 dates (15 Oct 2026,
+  13 Jan 2027) and CAO's 1 Feb 2027 are recorded per flagship.
+- **Poland degree photos** (0369175): 5 accepted (critic 3 → 7 → 8).
+- **Czechia degree photos**: 11 accepted of 29 (critic 3 → 8 with 18 rejects removed).
+
+**Next, when the owner resumes:**
+1. Degree photos for the new countries (HU, LT, LV, EE, GR, SI, MT) and a
+   second, targeted pass for PL/CZ (the critiques list replacement ideas
+   per rejected key); official-photo ladder not yet tried for them.
+2. Human checks the agents flagged (findings logs): Ljubljana's English
+   fee, TU Dublin's €3,000 vs €2,500 contribution, SETU vet accreditation,
+   Franklin's divisions (403), AMEU's English offer beyond Physiotherapy,
+   St Martin's Level 6 awarding body, DkIT.
+3. Consolidate the pipeline, then scope Africa and South America (leads
+   per candidate country) before the worldwide phase.
 
 ## 30 September (evening): Europe nearly complete; stopped at the weekly ceiling
 
