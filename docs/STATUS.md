@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 30 September 2026 (afternoon).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 30 September 2026 (evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,38 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 39 checks.
+
+## 30 September (evening): Europe nearly complete; stopped at the weekly ceiling
+
+Stopped at ~49% of weekly usage (owner's cap for this project: 50%).
+Shipped since the afternoon pause, each gated on a clean copy (40/40):
+- **Every programme card has an image, one size per grid** (a60bf29): a
+  generated designed backdrop for degrees with no subject-true photo
+  (field colour, 12 motifs in 8 look families, no look-alikes within a
+  field section), carried into the programme page header; art-director
+  critic 6 → 7 → 7 → 8. Designed cards: ~2,100; photo cards: ~1,670.
+- **Flagship cards for catalogue (fully English) universities** (same
+  commit): "Every degree here is taught in English. What it is known for:"
+  + 2–4 sourced flagship cards + "Search all its degrees". Only Edinburgh
+  has flagships so far; the other 36 catalogue records (UK, Ireland, …)
+  need the research (BRIEF, "Catalogue schools").
+- **Czechia** (f968b83): 11 of 13 universities, 88 programme entries; country
+  record corrected. Not yet: VŠB Ostrava, Czech University of Life
+  Sciences; degree photos.
+- **Poland** (68a7e6e): all 14 universities, 100 programmes. Degree photos
+  not yet (partial research was stopped; start `schools-pl.jsonl` fresh).
+- Portugal photos (5884825), 5 accepted.
+
+**Next, when the owner resumes:**
+1. Remaining Europe: Hungary, Greece, Lithuania, Latvia, Estonia,
+   Slovenia, Malta (leads exist) through the pipeline; VŠB and CZU.
+2. UK and Ireland flagships (catalogue schools).
+3. Degree photos for Poland and Czechia; replacements the critiques ask
+   for (docs/research/qa/degree-photos/*/critique-round-1.md).
+4. Then consolidate the pipeline and scope Africa and South America
+   (leads per candidate country) before the worldwide phase.
+Not blocking, from the art director: cards without a note leave a gap
+under the title; a few photo-less family pages repeat a look 8+ cards apart.
 
 ## 30 September (afternoon): paused at the 5-hour ceiling mid-batch
 

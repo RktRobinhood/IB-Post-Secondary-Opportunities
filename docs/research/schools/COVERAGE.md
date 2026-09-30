@@ -6,9 +6,9 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 
 ## Totals
 
-- Institutions with a record: **208 of 451** (46%); 130 listed, 37 catalogue, 41 none.
-- Degrees listed: **799**; with programme detail (about and selection): **781** (98%).
-- Degrees with a photograph of their own (#54): **353** (44%). The rest show their school's photo.
+- Institutions with a record: **233 of 451** (52%); 155 listed, 37 catalogue, 41 none.
+- Degrees listed: **990**; with programme detail (about and selection): **972** (98%).
+- Degrees with a photograph of their own (#54): **358** (36%). The rest show their school's photo.
 - Institutions with a school photo: **399 of 451**.
 
 ## By country
@@ -22,13 +22,13 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | Canada (ca) | 0/20 | 0 / 0 / 0 | 0 | – | – | 19/20 | [yes](leads/ca.md) |
 | Switzerland (ch) | 15/15 | 4 / 2 / 9 | 14 | 14 (100%) | 2 | 13/15 | no |
 | China (cn) | 0/14 | 0 / 0 / 0 | 0 | – | – | 12/14 | [yes](leads/cn.md) |
-| Czechia (cz) | 0/13 | 0 / 0 / 0 | 0 | – | – | 13/13 | [yes](leads/cz.md) |
+| Czechia (cz) | 11/13 | 11 / 0 / 0 | 88 | 88 (100%) | 0 | 13/13 | [yes](leads/cz.md) |
 | Germany (de) | 14/14 | 9 / 0 / 5 | 60 | 60 (100%) | 25 | 14/14 | no |
 | Estonia (ee) | 0/10 | 0 / 0 / 0 | 0 | – | – | 5/10 | [yes](leads/ee.md) |
 | Spain (es) | 13/13 | 11 / 0 / 2 | 93 | 93 (100%) | 54 | 11/13 | [yes](leads/es.md) |
 | Finland (fi) | 14/14 | 13 / 0 / 1 | 101 | 100 (99%) | 101 | 13/14 | no |
 | France (fr) | 12/12 | 7 / 1 / 4 | 24 | 23 (96%) | 24 | 11/12 | [yes](leads/fr.md) |
-| United Kingdom (gb) | 22/22 | 0 / 22 / 0 | 0 | – | – | 21/22 | no |
+| United Kingdom (gb) | 22/22 | 0 / 22 / 0 | 3 | 3 (100%) | 0 | 21/22 | no |
 | Greece (gr) | 0/12 | 0 / 0 / 0 | 0 | – | – | 10/12 | [yes](leads/gr.md) |
 | Hong Kong (hk) | 0/13 | 0 / 0 / 0 | 0 | – | – | 12/13 | [yes](leads/hk.md) |
 | Hungary (hu) | 0/14 | 0 / 0 / 0 | 0 | – | – | 13/14 | [yes](leads/hu.md) |
@@ -44,8 +44,8 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | Netherlands (nl) | 17/17 | 17 / 0 / 0 | 215 | 215 (100%) | 59 | 17/17 | no |
 | Norway (no) | 14/14 | 9 / 0 / 5 | 21 | 21 (100%) | 8 | 13/14 | no |
 | New Zealand (nz) | 0/10 | 0 / 0 / 0 | 0 | – | – | 10/10 | [yes](leads/nz.md) |
-| Poland (pl) | 0/14 | 0 / 0 / 0 | 0 | – | – | 14/14 | [yes](leads/pl.md) |
-| Portugal (pt) | 13/13 | 9 / 0 / 4 | 24 | 24 (100%) | 0 | 12/13 | [yes](leads/pt.md) |
+| Poland (pl) | 14/14 | 14 / 0 / 0 | 100 | 100 (100%) | 0 | 14/14 | [yes](leads/pl.md) |
+| Portugal (pt) | 13/13 | 9 / 0 / 4 | 24 | 24 (100%) | 5 | 12/13 | [yes](leads/pt.md) |
 | Sweden (se) | 14/14 | 13 / 0 / 1 | 59 | 59 (100%) | 22 | 13/14 | no |
 | Singapore (sg) | 0/13 | 0 / 0 / 0 | 0 | – | – | 11/13 | [yes](leads/sg.md) |
 | Slovenia (si) | 0/7 | 0 / 0 / 0 | 0 | – | – | 5/7 | [yes](leads/si.md) |
@@ -97,9 +97,9 @@ Only institutions with something missing are listed.
 
 - `ch-hsg` (listed, 3 degrees): 2 of 3 degrees have no photo of their own
 - `ch-usi` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
-- `ch-franklin` (catalogue, 0 degrees): no flagships or faculties yet
+- `ch-franklin` (catalogue, 0 degrees): no flagships yet; no faculties yet
 - `ch-unilu` (none, 0 degrees): no school photo
-- `ch-webster-geneva` (catalogue, 0 degrees): no flagships or faculties yet
+- `ch-webster-geneva` (catalogue, 0 degrees): no flagships yet; no faculties yet
 - `ch-eu-business-school` (listed, 7 degrees): 7 of 7 degrees have no photo of their own; no school photo
 
 ### China
@@ -108,7 +108,18 @@ Only institutions with something missing are listed.
 
 ### Czechia
 
-- **No record (13):** `cz-cu`, `cz-muni`, `cz-ctu`, `cz-vse`, `cz-upol`, `cz-czu`, `cz-but`, `cz-uct-prague`, `cz-aau`, `cz-vsb-tuo`, `cz-uwb`, `cz-amu`, `cz-usb`
+- **No record (2):** `cz-czu`, `cz-vsb-tuo`
+- `cz-cu` (listed, 26 degrees): 26 of 26 degrees have no photo of their own
+- `cz-muni` (listed, 14 degrees): 14 of 14 degrees have no photo of their own
+- `cz-ctu` (listed, 11 degrees): 11 of 11 degrees have no photo of their own
+- `cz-vse` (listed, 8 degrees): 8 of 8 degrees have no photo of their own
+- `cz-upol` (listed, 7 degrees): 7 of 7 degrees have no photo of their own
+- `cz-but` (listed, 5 degrees): 5 of 5 degrees have no photo of their own
+- `cz-uct-prague` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `cz-aau` (listed, 7 degrees): 7 of 7 degrees have no photo of their own
+- `cz-uwb` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `cz-amu` (listed, 5 degrees): 5 of 5 degrees have no photo of their own
+- `cz-usb` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
 
 ### Germany
 
@@ -146,32 +157,32 @@ Only institutions with something missing are listed.
 
 - `fr-escp` (listed, 3 degrees): no school photo
 - `fr-edhec` (listed, 3 degrees): 1 of 3 degrees lack about/selection
-- `fr-aup` (catalogue, 0 degrees): no flagships or faculties yet
+- `fr-aup` (catalogue, 0 degrees): no flagships yet; no faculties yet
 
 ### United Kingdom
 
-- `gb-oxford` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-cambridge` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-imperial` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-ucl` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-lse` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-kcl` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-edinburgh` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-glasgow` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-st-andrews` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-durham` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-manchester` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-warwick` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-bristol` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-bath` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-loughborough` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-lancaster` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-qmul` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-birmingham` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-leeds` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-city-st-george-s` (catalogue, 0 degrees): no flagships or faculties yet; no school photo
-- `gb-nottingham` (catalogue, 0 degrees): no flagships or faculties yet
-- `gb-ual` (catalogue, 0 degrees): no flagships or faculties yet
+- `gb-oxford` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-cambridge` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-imperial` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-ucl` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-lse` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-kcl` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-edinburgh` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `gb-glasgow` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-st-andrews` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-durham` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-manchester` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-warwick` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-bristol` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-bath` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-loughborough` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-lancaster` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-qmul` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-birmingham` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-leeds` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-city-st-george-s` (catalogue, 0 degrees): no flagships yet; no faculties yet; no school photo
+- `gb-nottingham` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `gb-ual` (catalogue, 0 degrees): no flagships yet; no faculties yet
 
 ### Greece
 
@@ -187,20 +198,20 @@ Only institutions with something missing are listed.
 
 ### Ireland
 
-- `ie-tcd` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-ucd` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-galway` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-ucc` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-ul` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-dcu` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-maynooth` (catalogue, 0 degrees): no flagships or faculties yet
+- `ie-tcd` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-ucd` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-galway` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-ucc` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-ul` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-dcu` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-maynooth` (catalogue, 0 degrees): no flagships yet; no faculties yet
 - `ie-rcsi` (listed, 5 degrees): 5 of 5 degrees lack about/selection; 5 of 5 degrees have no photo of their own
-- `ie-tu-dublin` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-mtu` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-atu` (catalogue, 0 degrees): no flagships or faculties yet
-- `ie-setu` (catalogue, 0 degrees): no flagships or faculties yet
+- `ie-tu-dublin` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-mtu` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-atu` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `ie-setu` (catalogue, 0 degrees): no flagships yet; no faculties yet
 - `ie-ncad` (listed, 10 degrees): 10 of 10 degrees have no photo of their own
-- `ie-dkit` (catalogue, 0 degrees): no flagships or faculties yet; no school photo
+- `ie-dkit` (catalogue, 0 degrees): no flagships yet; no faculties yet; no school photo
 
 ### Iceland
 
@@ -283,19 +294,31 @@ Only institutions with something missing are listed.
 
 ### Poland
 
-- **No record (14):** `pl-uw`, `pl-uj`, `pl-pw`, `pl-agh`, `pl-kozminski`, `pl-sgh`, `pl-wroclaw-tech`, `pl-pums`, `pl-mug`, `pl-wum`, `pl-amu`, `pl-uwr`, `pl-put`, `pl-swps`
+- `pl-uw` (listed, 11 degrees): 11 of 11 degrees have no photo of their own
+- `pl-uj` (listed, 10 degrees): 10 of 10 degrees have no photo of their own
+- `pl-pw` (listed, 11 degrees): 11 of 11 degrees have no photo of their own
+- `pl-agh` (listed, 7 degrees): 7 of 7 degrees have no photo of their own
+- `pl-kozminski` (listed, 5 degrees): 5 of 5 degrees have no photo of their own
+- `pl-sgh` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
+- `pl-wroclaw-tech` (listed, 5 degrees): 5 of 5 degrees have no photo of their own
+- `pl-pums` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `pl-mug` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `pl-wum` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `pl-amu` (listed, 9 degrees): 9 of 9 degrees have no photo of their own
+- `pl-uwr` (listed, 12 degrees): 12 of 12 degrees have no photo of their own
+- `pl-put` (listed, 10 degrees): 10 of 10 degrees have no photo of their own
+- `pl-swps` (listed, 9 degrees): 9 of 9 degrees have no photo of their own
 
 ### Portugal
 
-- `pt-nova-sbe` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `pt-nova-sbe` (listed, 3 degrees): 2 of 3 degrees have no photo of their own
 - `pt-catolica-lisbon` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
 - `pt-ulisboa` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
-- `pt-ist` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
-- `pt-nova` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
+- `pt-nova` (listed, 4 degrees): 3 of 4 degrees have no photo of their own
 - `pt-iscte-iul` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
 - `pt-u-porto` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
-- `pt-uac` (listed, 1 degrees): 1 of 1 degrees have no photo of their own; no school photo
-- `pt-ucp` (listed, 4 degrees): 4 of 4 degrees have no photo of their own
+- `pt-uac` (listed, 1 degrees): no school photo
+- `pt-ucp` (listed, 4 degrees): 3 of 4 degrees have no photo of their own
 
 ### Sweden
 

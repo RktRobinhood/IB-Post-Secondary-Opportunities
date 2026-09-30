@@ -103,6 +103,15 @@ replacement photo means a real round 2. Round 1 has scored 5–6 for
 every country so far (Germany 10 of 35 rejected, Sweden 18 of 40); removing
 the rejects has reached 8 each time.
 
+**Rescue before rejecting** (owner, 30 September: "if some images we were far
+too critical of, maybe upscale or do something to get them over the edge").
+When a critic's only objection is technical — the subject is small, a label
+or date stamp sits at an edge, the frame is soft at full width — try a
+tighter crop of the same file at its native resolution (set `focus`/crop in
+the record) before removing it. Do not upscale: the image standard never
+enlarges, and an upscaled photo reads as waxy at card size. A degree with no
+photo that survives gets the designed backdrop, which is a finished state.
+
 **Signing** (only after 8+):
 
 ```sh
