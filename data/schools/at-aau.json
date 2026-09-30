@@ -13,7 +13,10 @@
     "text": "Austria accepts the IB Diploma without an equivalence check (ministry); AAU adds no IB rule. English-taught degrees need English B2, which an EU/EEA school-leaving English pass proves; no German needed.",
     "url": "https://www.aau.at/wp-content/uploads/2019/05/proof-of-required-language-skills-for-admission.pdf"
   },
-  "dates": [],
+  "dates": [
+    { "label": "EU/EEA: general admission period for the winter semester ends (5 September each year)", "date": "2027-09-05", "kind": "closes", "who": "eu-eea-ch", "url": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/" },
+    { "label": "Non-EU: winter-semester applications accepted 1 April to 30 June each year", "date": "2027-06-30", "kind": "closes", "who": "non-eu", "url": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/" }
+  ],
   "programmes": [
     {
       "name": "Digital Media, Culture, and Communication",
@@ -21,7 +24,11 @@
       "years": 3,
       "field": "social-sciences",
       "url": "https://www.aau.at/en/studien/bachelor-digital-media-culture-and-communication/",
-      "tuitionEuEea": "Free (ÖH fee only)"
+      "about": "How platforms such as Instagram, TikTok and YouTube work, how organisations communicate strategically online, and how to read the data trails we leave; a 120-credit major plus minors you choose.",
+      "selection": ["open"],
+      "selectionNote": "No selection: with the IB Diploma and English B2 you are admitted. Enrol in the general admission period (6 July to 5 September in 2026).",
+      "tuitionEuEea": "Free (ÖH fee only)",
+      "requirementsUrl": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/"
     },
     {
       "name": "Information and Communications Engineering",
@@ -29,7 +36,11 @@
       "years": 3,
       "field": "engineering",
       "url": "https://www.aau.at/en/studien/bachelor-information-and-communications-engineering/",
-      "tuitionEuEea": "Free (ÖH fee only)"
+      "about": "Computer science, electrical engineering, physics and maths applied to how technical systems capture, transmit, process and secure information: circuits, sensors, networks and signal processing, with lab and project work.",
+      "selection": ["open"],
+      "selectionNote": "No selection: with the IB Diploma and English B2 you are admitted. Enrol in the general admission period (6 July to 5 September in 2026).",
+      "tuitionEuEea": "Free (ÖH fee only)",
+      "requirementsUrl": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/"
     },
     {
       "name": "International Business and Economics",
@@ -39,8 +50,13 @@
       "years": 3,
       "field": "business",
       "url": "https://www.aau.at/en/studien/bachelor-international-business-and-economics/",
-      "ib": "Special admission procedure: 50 places in 2026/27, a motivation letter and an online exam in English; 2026 registration ran 12 January to 23 February. 2027 dates not yet published.",
-      "tuitionEuEea": "Free (ÖH fee only)"
+      "about": "Accounting, controlling, marketing, HR, logistics, data analytics and economics, taught in English throughout, with an optional double degree spending part of your studies at the University of Ljubljana.",
+      "ib": "Own selection before the general admission: an English motivation letter and an online exam in English. Register early in the year; 2027 dates not yet published.",
+      "selection": ["entrance-exam"],
+      "selectionNote": "2026: an eight-sentence motivation letter (must be complete), then a one-hour open-book online multiple-choice exam on set readings; ranked on exam points. 2027 not yet published.",
+      "places": 50,
+      "tuitionEuEea": "Free (ÖH fee only)",
+      "requirementsUrl": "https://www.aau.at/en/study/studying-at-aau/applying/entrance-examination/bachelor-ibe/"
     },
     {
       "name": "Robotics and Artificial Intelligence",
@@ -48,7 +64,11 @@
       "years": 3,
       "field": "engineering",
       "url": "https://www.aau.at/en/studien/bachelor-robotics-artificial-intelligence/",
-      "tuitionEuEea": "Free (ÖH fee only)"
+      "about": "Robotics, maths, physics, software development and artificial intelligence, with hands-on seminars flying drones and programming robots, including in the university's indoor drone flight hall.",
+      "selection": ["open"],
+      "selectionNote": "No selection: with the IB Diploma and English B2 you are admitted. Enrol in the general admission period (6 July to 5 September in 2026).",
+      "tuitionEuEea": "Free (ÖH fee only)",
+      "requirementsUrl": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/"
     },
     {
       "name": "Social Sciences",
@@ -56,7 +76,11 @@
       "years": 3,
       "field": "social-sciences",
       "url": "https://www.aau.at/en/studien/bachelor-social-sciences/",
-      "tuitionEuEea": "Free (ÖH fee only)"
+      "about": "Sociology, geography, psychology, science and technology studies, political science and media studies combined to analyse the challenges societies face; a 120-credit major plus minors you choose.",
+      "selection": ["open"],
+      "selectionNote": "No selection: with the IB Diploma and English B2 you are admitted. Enrol in the general admission period (6 July to 5 September in 2026).",
+      "tuitionEuEea": "Free (ÖH fee only)",
+      "requirementsUrl": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/"
     },
     {
       "name": "Worlds of English",
@@ -64,11 +88,16 @@
       "years": 3,
       "field": "languages",
       "url": "https://www.aau.at/en/studien/bachelor-english-and-american-studies/",
-      "tuitionEuEea": "Free (ÖH fee only)"
+      "about": "The English language, linguistics, literatures and the cultures of the anglophone countries, with strong encouragement to spend part of your studies in an English-speaking country.",
+      "ib": "English B2. A Latin exam is due before your last bachelor's exam, unless your school Latin totalled at least 10 weekly hours.",
+      "selection": ["open"],
+      "selectionNote": "No selection: with the IB Diploma and English B2 you are admitted. Enrol in the general admission period (6 July to 5 September in 2026).",
+      "tuitionEuEea": "Free (ÖH fee only)",
+      "requirementsUrl": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/"
     }
   ],
   "notes": [
-    "Only International Business and Economics has a selection; the other five admit everyone who meets the requirements.",
+    "Only International Business and Economics has a selection; the other five admit everyone who holds the Diploma and English B2.",
     "In International Business and Economics you can add a year in Ljubljana from the third semester and earn a Slovenian degree as well, if nominated."
   ],
   "sources": [
@@ -82,6 +111,7 @@
     { "title": "University of Klagenfurt — Robotics and Artificial Intelligence (BSc)", "url": "https://www.aau.at/en/studien/bachelor-robotics-artificial-intelligence/", "retrieved": "2026-09-26" },
     { "title": "University of Klagenfurt — Social Sciences (BA)", "url": "https://www.aau.at/en/studien/bachelor-social-sciences/", "retrieved": "2026-09-26" },
     { "title": "University of Klagenfurt — Worlds of English (BA)", "url": "https://www.aau.at/en/studien/bachelor-english-and-american-studies/", "retrieved": "2026-09-26" },
-    { "title": "Ministry of Education (ENIC NARIC Austria), hosted by OeAD — IB-Information (\"Die Gleichwertigkeit mit einem österreichischen Reifezeugnis ist nicht zu überprüfen\"; applies to public universities, private universities, FHs and PHs)", "url": "https://oead.at/fileadmin/Dokumente/oead.at/OeAD_Hauptmenueseiten/Studieren_Forschen_Lehren/ENIC_NARIC_PDFs/Internationales_Bakkalaureat__IB-Information_.pdf", "retrieved": "2026-09-26" }
+    { "title": "Ministry of Education (ENIC NARIC Austria), hosted by OeAD — IB-Information (\"Die Gleichwertigkeit mit einem österreichischen Reifezeugnis ist nicht zu überprüfen\"; applies to public universities, private universities, FHs and PHs)", "url": "https://oead.at/fileadmin/Dokumente/oead.at/OeAD_Hauptmenueseiten/Studieren_Forschen_Lehren/ENIC_NARIC_PDFs/Internationales_Bakkalaureat__IB-Information_.pdf", "retrieved": "2026-09-26" },
+    { "title": "University of Klagenfurt — Admission without an Austrian school-leaving certificate (EU/EEA any time; general admission period ends 5 September; supplementary exams; Latin for Worlds of English)", "url": "https://www.aau.at/en/study/studying-at-aau/applying/admission-bachelor-programme/admission-bachelor-non-at-de/", "retrieved": "2026-09-30" }
   ]
 }

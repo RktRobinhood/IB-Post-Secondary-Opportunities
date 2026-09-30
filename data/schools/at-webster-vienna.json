@@ -22,8 +22,11 @@
       "years": 4,
       "field": "business",
       "url": "https://webster.ac.at/academics/bsc-business-administration.php",
-      "about": "Austrian BSc and a US degree from Webster University; emphases in entrepreneurship, HR, international business or marketing.",
-      "tuitionEuEea": "€24,068 a year (2026-27)"
+      "about": "A structured business core (accounting, law, economics, finance, management, information systems) ending in a market-simulation capstone, with an emphasis in entrepreneurship, HR, international business or marketing.",
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
+      "tuitionEuEea": "€24,068 a year (2026-27)",
+      "requirementsUrl": "https://webster.ac.at/admissions/index.php"
     },
     {
       "name": "Computer Science with an Emphasis in Artificial Intelligence",
@@ -31,8 +34,13 @@
       "years": 4,
       "field": "computing",
       "url": "https://webster.ac.at/academics/bsc-computer-science-artificial-intelligence.php",
+      "about": "A computer science core (software, algorithms, hardware, data management) with machine learning and data analysis, applied to fields such as healthcare, economics and life sciences in hands-on projects.",
       "ib": "Needs IB Maths HL (AA or AI) at 5 or SL at 6, a recommendation letter on your tech skills, and evidence of activities such as coding or robotics.",
-      "tuitionEuEea": "€24,068 a year (2026-27)"
+      "needs": [{"anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "grade": 6, "note": "HL at grade 5 also counts."}],
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Rolling admission on your school record, essay and English, plus a teacher's letter on your IT skills and a summary of activities such as coding or robotics.",
+      "tuitionEuEea": "€24,068 a year (2026-27)",
+      "requirementsUrl": "https://webster.ac.at/academics/bsc-computer-science-artificial-intelligence.php"
     },
     {
       "name": "International Relations",
@@ -40,7 +48,11 @@
       "years": 4,
       "field": "social-sciences",
       "url": "https://webster.ac.at/academics/ba-international-relations.php",
-      "tuitionEuEea": "€24,068 a year (2026-27)"
+      "about": "Research-led international relations: analysing global issues from perspectives beyond your own, with methods training, real-world cases and a thesis.",
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
+      "tuitionEuEea": "€24,068 a year (2026-27)",
+      "requirementsUrl": "https://webster.ac.at/admissions/index.php"
     },
     {
       "name": "Psychology",
@@ -48,7 +60,11 @@
       "years": 4,
       "field": "social-sciences",
       "url": "https://webster.ac.at/academics/bsc-psychology.php",
-      "tuitionEuEea": "€24,068 a year (2026-27)"
+      "about": "The main concepts and findings across psychology plus research methods: you form a hypothesis from current science, then collect, analyse and present your own data.",
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
+      "tuitionEuEea": "€24,068 a year (2026-27)",
+      "requirementsUrl": "https://webster.ac.at/admissions/index.php"
     },
     {
       "name": "Strategic Communication",
@@ -56,7 +72,11 @@
       "years": 4,
       "field": "social-sciences",
       "url": "https://webster.ac.at/academics/ba-strategic-communication.php",
-      "tuitionEuEea": "€24,068 a year (2026-27)"
+      "about": "Public relations, persuasion, media literacy, corporate and crisis communication and campaigns, with strategic writing, audience research and practical exercises.",
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
+      "tuitionEuEea": "€24,068 a year (2026-27)",
+      "requirementsUrl": "https://webster.ac.at/admissions/index.php"
     },
     {
       "name": "Comparative International Business Law",
@@ -64,8 +84,12 @@
       "years": 4,
       "field": "law",
       "url": "https://webster.ac.at/academics/llb-comparative-international-business-law.php",
+      "about": "Public and private law compared across civil and common law traditions, with a specialisation chosen by semester 4 and a senior thesis; it does not qualify you for the bar anywhere.",
       "ib": "Pending AQ Austria and Higher Learning Commission approval; not accredited by the American or Austrian Bar Association.",
-      "tuitionEuEea": "€24,068 a year (2026-27)"
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Rolling admission: your school record (GPA 2.5 of 4 or equivalent), a 300-word essay, a recommendation letter and your English decide; an interview may be asked for.",
+      "tuitionEuEea": "€24,068 a year (2026-27)",
+      "requirementsUrl": "https://webster.ac.at/admissions/index.php"
     }
   ],
   "notes": [

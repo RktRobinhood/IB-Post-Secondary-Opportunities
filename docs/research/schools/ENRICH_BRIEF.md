@@ -63,6 +63,8 @@ that institution.
   frame; the generic person-at-a-monitor or code-on-screen shot; logos, maps,
   car parks, skylines. Vary settings: no country needs six lab benches; two
   degrees at one school must not look alike.
+- Commons answers HTTP 429 to a generic user agent. Send one that names the
+  project, e.g. `IB-Pathways/1.0 (https://github.com/RktRobinhood/IB-Post-Secondary-Opportunities)`.
 - If no good photo exists, skip the programme. A card on its school's photo
   beats a bad picture.
 - Write one line per programme to
