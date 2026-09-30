@@ -1,0 +1,630 @@
+{
+  "institution": "hu-szte",
+  "name": "University of Szeged",
+  "retrieved": "2026-09-30",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Szeged university with 12 faculties and up to 25,000 students; English-taught medicine, dentistry, pharmacy, business, IT, psychology and music.",
+  "handoff": {
+    "label": "Find programmes (English-taught)",
+    "url": "https://apply.u-szeged.hu/courses/search"
+  },
+  "ib": {
+    "text": "IB Diploma can exempt you from the entrance exam: grade 5 in two HL sciences for medicine and dentistry, 4 for pharmacy, nursing, physio; Maths SL 4 or HL 3 for business. Predicted grades give conditional offers.",
+    "url": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md"
+  },
+  "lastYear": {
+    "year": 2026,
+    "text": "most programmes 15 June (some earlier)"
+  },
+  "apply": {
+    "via": "SZTE online application (DreamApply)",
+    "url": "https://u-szeged.hu/how-to-apply/szte-programmes"
+  },
+  "dates": [
+    {
+      "label": "First 2027 entrance-exam session, online (medicine); register by 19 January",
+      "date": "2027-01-26",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "general-medicine"
+      ],
+      "url": "https://www.med.u-szeged.hu/entrance-examination-calendar"
+    },
+    {
+      "label": "Last 2027 entrance-exam session, online (medicine); register by 15 June",
+      "date": "2027-06-22",
+      "kind": "test",
+      "who": "any",
+      "programmes": [
+        "general-medicine"
+      ],
+      "url": "https://www.med.u-szeged.hu/entrance-examination-calendar"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "General Medicine",
+      "credential": "Doctor of Medicine (MD)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/218-md-general-medicine",
+      "about": "Twelve-semester medical degree in English (360 ECTS): two basic-science years, then regular clinical practice in teaching hospitals and a final internship year of clinical rotations.",
+      "ib": "IB Diploma with grade 5 in two HL sciences (biology, chemistry, physics) exempts you from the entrance exam; otherwise a biology, chemistry and English exam decides.",
+      "selection": [
+        "entrance-exam",
+        "interview"
+      ],
+      "selectionNote": "Online exam (written test, then oral interviews). IB Diploma with 5 in two HL sciences is exempt; predicted grades give a conditional offer. About 250 places a year.",
+      "tuitionEuEea": "€7,900 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 5,
+          "note": "Two of the three at HL; only for the exemption from the entrance exam"
+        }
+      ],
+      "requirementsUrl": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md",
+      "ownDeadline": true
+    },
+    {
+      "name": "Dental Medicine",
+      "credential": "Doctor of Dental Medicine (DMD)",
+      "years": 5,
+      "field": "medicine",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/263-dmd-dental-medicine",
+      "about": "Ten-semester dental degree in English (300 ECTS) from the Faculty of Dentistry, ending in the DMD title.",
+      "ib": "IB Diploma with grade 5 in two HL sciences (biology, chemistry, physics) exempts you from the entrance exam; otherwise a biology, chemistry and English exam decides.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Online exam of 20-30 minutes (two biology and two chemistry topics, plus English). IB Diploma with 5 in two HL sciences is exempt; predicted grades give a conditional offer.",
+      "tuitionEuEea": "€8,000 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 5,
+          "note": "Two of the three at HL; only for the exemption from the entrance exam"
+        }
+      ]
+    },
+    {
+      "name": "Pharmacy",
+      "credential": "Long-cycle master's (5 years)",
+      "years": 5,
+      "field": "health",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/260-dpharm-pharmacy",
+      "about": "Ten-semester pharmacy degree in English (300 ECTS) from the Faculty of Pharmacy, ending in the title Doctor Pharmaciae.",
+      "ib": "IB Diploma with grade 4 in two HL sciences or HL maths exempts you from the entrance exam; otherwise a biology, chemistry and English exam decides.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Exam in biology, chemistry (or physics) and English. IB Diploma with 4 in two HL of biology, chemistry, physics, maths is exempt; predicted grades give a conditional offer.",
+      "tuitionEuEea": "€5,420 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 4,
+          "note": "Two of these at HL; only for the exemption from the entrance exam"
+        }
+      ]
+    },
+    {
+      "name": "Nurse",
+      "credential": "BScN (Bachelor of Science in Nursing)",
+      "years": 4,
+      "field": "health",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/266-bscn-nurse",
+      "about": "Eight-semester nursing degree in English (240 ECTS) from the Faculty of Health Sciences and Social Studies.",
+      "ib": "IB Diploma with grade 4 in two natural sciences or maths at SL or above exempts you from the entrance exam; otherwise the exam tests English only.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Applying to Nurse only, the entrance exam covers just English. IB Diploma with 4 in two of biology, chemistry, physics, maths is exempt; a motivational interview may follow.",
+      "tuitionEuEea": "€3,500 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Two of these; only for the exemption from the entrance exam"
+        }
+      ]
+    },
+    {
+      "name": "Physiotherapist",
+      "credential": "BScPhysio (Bachelor of Science in Physiotherapy)",
+      "years": 4,
+      "field": "health",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/269-bscphysio-physiotherapist",
+      "about": "Eight-semester physiotherapy degree in English (240 ECTS) from the Faculty of Health Sciences and Social Studies.",
+      "ib": "IB Diploma with grade 4 in two of biology, chemistry, physics, maths or sports science at SL or above exempts you from the entrance exam.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Entrance exam, with English tested. IB Diploma with 4 in two of biology, chemistry, physics, maths, sports science is exempt; a motivational interview may follow.",
+      "tuitionEuEea": "€3,500 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai",
+            "sports-science"
+          ],
+          "level": "SL",
+          "grade": 4,
+          "note": "Two of these; only for the exemption from the entrance exam"
+        }
+      ]
+    },
+    {
+      "name": "Psychology",
+      "credential": "BA (Human Behavior Analyst)",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/489-ba-psychology",
+      "about": "Six-semester psychology degree in English (180 ECTS) from the Faculty of Humanities and Social Sciences, with an online written entrance test based on an introductory psychology textbook.",
+      "ib": "No IB rule: B2 English proof (IB in English counts via a school statement), a motivation letter and an online written entrance test, which mainly decides.",
+      "selection": [
+        "entrance-exam",
+        "motivation"
+      ],
+      "selectionNote": "Mainly the online written test, which draws on chapters of Atkinson & Hilgard's Introduction to Psychology; motivation letter (no AI help) and B2 English proof also required.",
+      "tuitionEuEea": "€3,500 a semester"
+    },
+    {
+      "name": "Business Administration and Management",
+      "credential": "BSc (Business Administration and Management)",
+      "years": 3.5,
+      "field": "business",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/230-bsc-business-administration-and-management",
+      "about": "Seven-semester business degree in English (210 ECTS) that ends in an internship semester; the EFMD-accredited programme trains managers across industries.",
+      "ib": "IB Maths at SL 4 or HL 3 exempts you from the maths entrance exam; other parts of the exam, in the university's study system, and B2 English remain.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Written and oral entrance exam in the university's electronic system, with a maths part; IB Maths SL 4 or HL 3 skips the maths exam. Solid maths is advised.",
+      "tuitionEuEea": "€2,700 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "SL grade 4 or HL grade 3; only for the exemption from the maths exam"
+        }
+      ]
+    },
+    {
+      "name": "Tourism and Catering",
+      "credential": "BSc (Economist in Tourism and Catering)",
+      "years": 4,
+      "field": "hospitality-tourism",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/418-bsc-tourism-and-catering",
+      "about": "Eight-semester tourism and hospitality degree in English (240 ECTS) on current industry trends, digital tourism tools, leadership, and regional marketing.",
+      "ib": "IB Maths at SL 4 or HL 3 exempts you from the maths entrance exam; other parts of the exam and B2 English remain.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Written and oral entrance exam in the university's electronic system, with a maths part; IB Maths SL 4 or HL 3 skips the maths exam. Solid maths is advised.",
+      "tuitionEuEea": "€2,700 a semester",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "SL grade 4 or HL grade 3; only for the exemption from the maths exam"
+        }
+      ]
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "computing",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/474-bsc-computer-science",
+      "about": "Six-semester computer science degree in English (180 ECTS): building, developing, operating and servicing IT systems, alone and in teams.",
+      "ib": "No IB rule: B2 English proof and an online interview as the entrance exam.",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Entrance exam is an online interview; B2 English proof, a motivation letter and a medical certificate are also required.",
+      "tuitionEuEea": "€3,200 a semester"
+    },
+    {
+      "name": "Biochemical Engineer",
+      "credential": "BSc",
+      "years": 3.5,
+      "field": "engineering",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/469-bsc-biochemical-engineer",
+      "about": "Seven-semester degree in English (210 ECTS) training bioengineers to apply biology in industry and applied science, with an internship at a company or non-profit.",
+      "ib": "IB Diploma is accepted as the compulsory English proof; no other IB rule is published.",
+      "selection": [
+        "interview"
+      ],
+      "selectionNote": "Entry on a secondary diploma, English proof (the IB Diploma counts) and a general health certificate; no separate entrance exam is described.",
+      "tuitionEuEea": "€3,200 a semester"
+    },
+    {
+      "name": "Agricultural Engineering",
+      "credential": "BSc (Agricultural Engineer)",
+      "years": 3.5,
+      "field": "agriculture-environment",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/227-bsc-agricultural-engineering",
+      "city": "Hódmezővásárhely",
+      "about": "Seven-semester agricultural engineering degree in English (210 ECTS) on crop and animal production, horticulture and farm management, taught at the Faculty of Agriculture.",
+      "ib": "No IB rule: an online English written and oral entrance exam; science results from previous studies are considered.",
+      "selection": [
+        "entrance-exam"
+      ],
+      "selectionNote": "Online entrance exam testing English (written plus oral, often at a consulate site); science results from earlier studies are considered.",
+      "tuitionEuEea": "€2,500 a semester"
+    },
+    {
+      "name": "English and American Studies",
+      "credential": "BA (Philologist in English and American Studies)",
+      "years": 3,
+      "field": "languages",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/236-ba-english-and-american-studies",
+      "about": "Six-semester BA (180 ECTS) in the cultures, history, language and literatures of the UK and US, with English and American tracks and a required minor.",
+      "ib": "No IB rule: B2+ English certificate (IELTS 6.5 or TOEFL 87), or a school statement if you studied at an international school, plus a motivation letter.",
+      "selection": [
+        "motivation"
+      ],
+      "selectionNote": "Decided on documents: advanced English certificate (or an international-school statement), secondary certificate and a motivation letter written without AI help.",
+      "tuitionEuEea": "€1,800 a semester"
+    },
+    {
+      "name": "Performance - Cello",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/509-ba-performance---cello",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Cello",
+        "differs": "Cello as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Cello performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Clarinet",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/496-ba-performance---clarinet",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Clarinet",
+        "differs": "Clarinet as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Clarinet performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Classical Singing",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/412-ba-performance---classical-singing",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Classical Singing",
+        "differs": "Classical Singing as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Classical Singing performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Flute",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/396-ba-performance---flute",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Flute",
+        "differs": "Flute as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Flute performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Guitar",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/407-ba-performance---guitar",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Guitar",
+        "differs": "Guitar as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Guitar performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Harp",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/495-ba-performance---harp",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Harp",
+        "differs": "Harp as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Harp performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Piano",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/410-ba-performance---piano",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Piano",
+        "differs": "Piano as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Piano performance",
+        "primary": true
+      }
+    },
+    {
+      "name": "Performance - Trombone",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/411-ba-performance---trombone",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Trombone",
+        "differs": "Trombone as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Trombone performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Trumpet",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/510-ba-performance---trumpet",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Trumpet",
+        "differs": "Trumpet as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Trumpet performance",
+        "primary": false
+      }
+    },
+    {
+      "name": "Performance - Violin",
+      "credential": "BA",
+      "years": 3,
+      "field": "arts-music",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/251-ba-performance---violin",
+      "about": "Six-semester BA (180 ECTS) in instrumental performance and classical singing at the Béla Bartók Faculty of Arts, with theory, chamber music and orchestral playing.",
+      "ib": "An audition recording and B2 English proof (IELTS 5.5 or equivalent) are required; no IB subject is asked.",
+      "selection": [
+        "audition"
+      ],
+      "selectionNote": "Admission follows a demo recording of the faculty's audition requirements, plus B2 English and your secondary certificate.",
+      "tuitionEuEea": "€2,500 a semester",
+      "family": {
+        "name": "Music Performance (BA)",
+        "axis": "specialisation",
+        "path": "Violin",
+        "differs": "Violin as the main instrument; same audition-recording entry and fee as the other instruments.",
+        "cardLine": "Violin performance",
+        "primary": false
+      }
+    }
+  ],
+  "notes": [
+    "Every English programme has one published euro price per semester, the same for all applicants; medicine is €7,900, dentistry €8,000 and pharmacy €5,420, with a first-semester deposit in medicine and dentistry.",
+    "One €300 fee covers up to three health programmes (medicine, dentistry, pharmacy, nursing, physio) and two exam tries; other programmes charge €79 each, and some add a €100-250 exam fee.",
+    "The portal shows the 2026/27 application period as ended and gives no 2027/28 deadlines yet; medicine's 2027 exam calendar is published, with nine online sessions from January to June."
+  ],
+  "sources": [
+    {
+      "title": "Find programmes (English-taught)",
+      "url": "https://apply.u-szeged.hu/courses/search",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "How to apply: SZTE programmes",
+      "url": "https://u-szeged.hu/how-to-apply/szte-programmes",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Medical Programme (MD) and entry requirements",
+      "url": "https://www.med.u-szeged.hu/english/prospective-students/medical-programme-md",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Entrance examination calendar 2027 (medicine)",
+      "url": "https://www.med.u-szeged.hu/entrance-examination-calendar",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "How to apply, step by step (medicine)",
+      "url": "https://www.med.u-szeged.hu/fs/degree-programmes-first/degree-programmes-first",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "About the University",
+      "url": "https://u-szeged.hu/about-us",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "General Medicine",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/218-md-general-medicine",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Dental Medicine",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/263-dmd-dental-medicine",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Pharmacy",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/260-dpharm-pharmacy",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Nurse",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/266-bscn-nurse",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Physiotherapist",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/269-bscphysio-physiotherapist",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Psychology",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/489-ba-psychology",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Business Administration and Management",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/230-bsc-business-administration-and-management",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Tourism and Catering",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/418-bsc-tourism-and-catering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Computer Science",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/474-bsc-computer-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Biochemical Engineer",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/469-bsc-biochemical-engineer",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Agricultural Engineering",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/227-bsc-agricultural-engineering",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "English and American Studies",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/236-ba-english-and-american-studies",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Performance - Piano",
+      "url": "https://apply.u-szeged.hu/en_GB/courses/course/410-ba-performance---piano",
+      "retrieved": "2026-09-30"
+    }
+  ]
+}

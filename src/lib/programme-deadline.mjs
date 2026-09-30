@@ -192,7 +192,10 @@ function deadlineUncached(site, inst, c, p, today) {
         (x.everySchool && !scope.ownDeadline)) &&
       /* A programme with its own selection reads only its own dates: its
          `closes`, or a date the record scopes to it. */
-      (!p.ownDeadline || (p.closes && x.date === p.closes) || (x.programmes || []).includes(p.slug))
+      (!p.ownDeadline || (p.closes && x.date === p.closes) || (x.programmes || []).includes(p.slug)) &&
+      /* A programme's own `closes` is its deadline: a school-wide date that
+         another programme's round set (Semmelweis's medicine date) is not. */
+      (!p.closes || (x.endDate || x.date) === p.closes || (x.programmes || []).includes(p.slug))
   );
   /* A school that sets no deadline for this reader ("with an IB you skip the
      admission application") decides before any date meant for others. */
