@@ -55,7 +55,113 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Economics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "economics",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/bsc-economics",
+      "code": "L100",
+      "about": "Micro, macro and econometrics taught through research, from abstract models to empirical tests of markets, institutions and public policy. A flexible structure lets you take options inside or outside the department, including Business School, Politics, Philosophy and Computer Science modules.",
+      "ib": "38 points including 6 in HL Maths, either AA or AI.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "grades",
+        "test-score",
+        "motivation"
+      ],
+      "selectionNote": "The TMUA is optional; top scorers can get a reduced offer and applicants without it are still considered. No interview; the personal statement and reference are read.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£35,530 a year (2026-27, Band 2)",
+      "flagshipSource": {
+        "title": "Economics BSc: research-led teaching in micro, macro and econometrics, with options across the university",
+        "url": "https://warwick.ac.uk/study/undergraduate/courses/bsc-economics"
+      }
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "computing",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/bsc-computer-science",
+      "code": "G400",
+      "about": "An accredited degree built on principles rather than fashions: software engineering, algorithm analysis and system design, taught from first principles with no programming assumed. You complete an individual project in year three and can add a year in industry, research or abroad.",
+      "ib": "39 points with 7, 6, 6 at HL, including 7 in HL Maths Analysis and Approaches only.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "grade": 7,
+          "note": "Analysis and Approaches only"
+        }
+      ],
+      "points": 39,
+      "selection": [
+        "test-score",
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "The TMUA is required unless you qualify for a contextual offer; without it you may not be considered. No interview; the UCAS application is read.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£35,530 a year (2026-27, Band 2)",
+      "flagshipSource": {
+        "title": "Computer Science BSc: BCS-accredited, taught from first principles, with a year in industry or abroad option",
+        "url": "https://warwick.ac.uk/study/undergraduate/courses/bsc-computer-science"
+      }
+    },
+    {
+      "name": "Ancient History and Classical Archaeology",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-ancient-history-classical-archaeology",
+      "code": "VV14",
+      "about": "The history, art and archaeology of the ancient Mediterranean through texts, images and material remains. You handle real artefacts, can join fieldwork in Greece, visit sites and museums, and take part in an annual classical play staged at a professional theatre. An ancient language is optional.",
+      "ib": "34 points. No HL subject is named.",
+      "points": 34,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Warwick does not typically interview. Offers come from the UCAS application: predicted and achieved grades, personal statement and school reference.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£27,870 a year (2026-27, Band 1)",
+      "flagshipSource": {
+        "title": "Ancient History and Classical Archaeology BA: hands-on artefacts, fieldwork and an annual classical play",
+        "url": "https://warwick.ac.uk/study/undergraduate/courses/ba-ancient-history-classical-archaeology"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://warwick.ac.uk/fac/arts/applyingtostudy/",
+      "line": "Humanities degrees ask from 34 points (Ancient History and Classical Archaeology); no interview, and the personal statement is read."
+    },
+    {
+      "name": "Faculty of Science, Engineering and Medicine",
+      "url": "https://warwick.ac.uk/fac/sci/study/",
+      "line": "Computer Science asks 39 with 7,6,6 and HL Maths AA 7, plus the TMUA; maths-heavy courses use the TMUA or STEP."
+    },
+    {
+      "name": "Faculty of Social Sciences",
+      "url": "https://warwick.ac.uk/fac/soc/applyingtostudy/",
+      "line": "Economics asks 38 with 6 in HL Maths (AA or AI); the TMUA is optional but can earn a reduced offer."
+    }
+  ],
   "notes": [
     "Overseas fees are set in bands; 2027-28 fees were not yet set, and Economics (Band 2) cost £35,530 in 2026-27.",
     "Computer Science needs the TMUA and Mathematics the TMUA or STEP; for Economics the TMUA is optional, and top scorers can get a reduced offer.",
@@ -106,6 +212,26 @@
       "title": "Warwick Mathematics — Our offer (2027 entry)",
       "url": "https://warwick.ac.uk/fac/sci/maths/studywithus/ug/our-offer/",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Warwick — Computer Science BSc (G400), 2027 entry",
+      "url": "https://warwick.ac.uk/study/undergraduate/courses/bsc-computer-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Warwick Faculty of Arts — Study",
+      "url": "https://warwick.ac.uk/fac/arts/applyingtostudy/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Warwick Faculty of Science, Engineering and Medicine — Study",
+      "url": "https://warwick.ac.uk/fac/sci/study/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Warwick Faculty of Social Sciences — Study",
+      "url": "https://warwick.ac.uk/fac/soc/applyingtostudy/",
+      "retrieved": "2026-09-30"
     }
   ]
 }

@@ -68,19 +68,229 @@
       "url": "https://www.undergraduate.study.cam.ac.uk/apply/application-dates-deadlines"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Natural Sciences",
+      "credential": "BA (Hons) and MSci",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences",
+      "about": "One broad science degree across 14 departments. You choose three sciences plus a maths course in year one, stay flexible through year two, then specialise in year three, or keep both biological and physical strands. An optional fourth year gives an MSci.",
+      "ib": "41-42 points with 776 at HL, including HL Maths and two other HL from Biology, Chemistry and Physics. Physical stream expects Maths AA.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "note": "Physical stream expects AA; Biological recommends AA, accepts AI"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "physics"
+          ],
+          "level": "HL",
+          "note": "Two different subjects from this list"
+        }
+      ],
+      "points": 41,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "ESAT (Maths 1 plus two modules) on 12-16 Oct 2026 before shortlisting; interviews 7-18 Dec. You apply through a college and declare Biological or Physical.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£46,872 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Natural Sciences: physical and biological sciences from 14 departments in one flexible course",
+        "url": "https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences"
+      }
+    },
+    {
+      "name": "Classics",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/classics",
+      "about": "Ancient Greece and Rome through their languages, literature, philosophy, history, art and archaeology, working from original texts and objects. With Latin you take three years; with little or no Latin or Greek there is a four-year route that teaches the languages.",
+      "ib": "41-42 points with 776 at HL; HL Latin is required for the 3-year course. The 4-year course asks for no subject.",
+      "needs": [
+        {
+          "anyOf": [
+            "latin"
+          ],
+          "level": "HL",
+          "note": "3-year course only; the 4-year course asks for no subject"
+        }
+      ],
+      "points": 41,
+      "selection": [
+        "assignment",
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "Two pieces of written work, a College assessment arranged if you are shortlisted (no registration), and interviews 7-18 Dec. You apply through a college.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£30,798 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Classics: a 3-year course with Latin and a 4-year route for students with no Latin or Greek",
+        "url": "https://www.undergraduate.study.cam.ac.uk/courses/classics"
+      }
+    },
+    {
+      "name": "Economics",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "economics",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/economics",
+      "about": "Core, pure and applied economics in depth, drawing on mathematics, statistics, history, sociology and politics. Past members of the Faculty include Alfred Marshall and John Maynard Keynes, and its staff advise bodies such as the Bank of England and the World Bank.",
+      "ib": "41-42 points with 776 at HL, including HL Maths AA. If your school does not offer AA, contact your shortlisted college. Some colleges also ask for Further Maths.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa"
+          ],
+          "level": "HL",
+          "note": "If AA is not offered at your school, ask your shortlisted college"
+        }
+      ],
+      "points": 41,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "TMUA (12-16 Oct 2026) before shortlisting, no written work; interviews 7-18 Dec. You apply through a college.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£30,798 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Economics: a Faculty whose past members include Marshall and Keynes, with several Nobel laureates",
+        "url": "https://www.undergraduate.study.cam.ac.uk/courses/economics"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "School of the Arts and Humanities",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/after/college-assessments",
+      "line": "Often two pieces of written work and a College assessment after shortlisting; Latin HL for 3-year Classics, a language for language courses."
+    },
+    {
+      "name": "School of the Biological Sciences",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences",
+      "line": "Natural Sciences (Biological): HL Maths plus two sciences, and the ESAT. Maths AA is recommended but AI is considered."
+    },
+    {
+      "name": "School of Clinical Medicine",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/medicine-admission-test",
+      "line": "Medicine and Graduate Medicine: the UCAT by 24 September 2026, then interview."
+    },
+    {
+      "name": "School of the Humanities and Social Sciences",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/admission-tests",
+      "line": "Economics sits the TMUA and expects HL Maths AA; Law sits the LNAT; many courses use a College assessment after shortlisting."
+    },
+    {
+      "name": "School of the Physical Sciences",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/maths-admission-test",
+      "line": "Mathematics sits the TMUA; Natural Sciences (Physical) expects Maths AA HL, with two other sciences or maths, and the ESAT."
+    },
+    {
+      "name": "School of Technology",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/science-engineering-admission-test",
+      "line": "Engineering and Chemical Engineering and Biotechnology sit the ESAT; Computer Science sits the TMUA."
+    }
+  ],
   "notes": [
     "You cannot apply to Cambridge and Oxford in the same year.",
     "International fees for 2027 entry are £30,798 to £70,554 a year, plus an annual college fee.",
     "You choose one college on the UCAS form or make an open application; Churchill, Corpus Christi and Selwyn usually make IB offers above the minimum."
   ],
   "sources": [
-    { "title": "Cambridge — Undergraduate courses", "url": "https://www.undergraduate.study.cam.ac.uk/courses", "retrieved": "2026-09-25" },
-    { "title": "Cambridge — Check which qualifications we accept", "url": "https://www.undergraduate.study.cam.ac.uk/apply/before/accepted-qualifications", "retrieved": "2026-09-25" },
-    { "title": "Cambridge — Application dates and deadlines (2027 entry)", "url": "https://www.undergraduate.study.cam.ac.uk/apply/application-dates-deadlines", "retrieved": "2026-09-25" },
-    { "title": "Cambridge — Completing your UCAS application", "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/ucas-application", "retrieved": "2026-09-25" },
-    { "title": "Cambridge — International fees and costs (2027 entry)", "url": "https://www.undergraduate.study.cam.ac.uk/international-students/international-fees-and-costs", "retrieved": "2026-09-25" },
-    { "title": "Cambridge — International entry requirements", "url": "https://www.undergraduate.study.cam.ac.uk/international-students/international-entry-requirements", "retrieved": "2026-09-25" },
-    { "title": "UAT-UK — Deadlines (ESAT, TMUA, TARA)", "url": "https://esat-tmua.ac.uk/deadlines/", "retrieved": "2026-09-25" }
+    {
+      "title": "Cambridge — Undergraduate courses",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Cambridge — Check which qualifications we accept",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/before/accepted-qualifications",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Cambridge — Application dates and deadlines (2027 entry)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/application-dates-deadlines",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Cambridge — Completing your UCAS application",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/ucas-application",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Cambridge — International fees and costs (2027 entry)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/international-students/international-fees-and-costs",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Cambridge — International entry requirements",
+      "url": "https://www.undergraduate.study.cam.ac.uk/international-students/international-entry-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAT-UK — Deadlines (ESAT, TMUA, TARA)",
+      "url": "https://esat-tmua.ac.uk/deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Cambridge — Natural Sciences BA (Hons) and MSci (2027 entry)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/natural-sciences",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — Classics BA (Hons) (2027 entry)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/classics",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — Economics BA (Hons) (2027 entry)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/courses/economics",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — What to expect at your interview",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/after/cambridge-interviews",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — College admission assessments",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/after/college-assessments",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — Admission tests and assessments",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/admission-tests",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — UCAT (Medicine)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/medicine-admission-test",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — TMUA (Computer Science, Economics, Mathematics)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/maths-admission-test",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Cambridge — ESAT (Engineering, Natural Sciences, Veterinary Medicine)",
+      "url": "https://www.undergraduate.study.cam.ac.uk/apply/how/science-engineering-admission-test",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

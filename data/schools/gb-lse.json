@@ -62,18 +62,169 @@
       "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Economics",
+      "credential": "BSc",
+      "years": 3,
+      "field": "economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics",
+      "code": "L101",
+      "about": "Economic theory and practice applied to questions such as inequality, pay gaps and climate change. A core in microeconomics, macroeconomics and econometrics, then specialist economics courses and outside options from other departments; a year abroad is open by application.",
+      "ib": "39 points with 766 at HL, including a 7 in Mathematics. Maths AA is preferred, but both Maths courses are considered.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 7,
+          "note": "AA preferred; both courses considered"
+        }
+      ],
+      "points": 39,
+      "selection": [
+        "entrance-exam",
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "The TMUA is mandatory (Oct or Jan sitting). Your personal statement, teacher reference and circumstances are read with your grades; about 13 applicants per place in 2025.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£41,900 a year (overseas fee, 2027/28)",
+      "flagshipSource": {
+        "title": "Economics BSc: a core in micro, macro and econometrics, with outside options and a year abroad",
+        "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics"
+      }
+    },
+    {
+      "name": "International Relations",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations",
+      "code": "L250",
+      "about": "Why states go to war, cooperate or obey international law, and how institutions such as the UN and EU work. It covers the history, theory and politics of the international system, with an option to add a language specialism to your degree certificate.",
+      "ib": "38 points with 766 at HL. No HL subject is required.",
+      "points": 38,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No admissions test is listed. Standard offers are a guide: LSE says they can change with the strength of the applicant pool.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£33,800 a year (overseas fee, 2027/28)",
+      "flagshipSource": {
+        "title": "International Relations BSc: the history, theory and politics of the international system, with a language option",
+        "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations"
+      }
+    },
+    {
+      "name": "LLB Bachelor of Laws",
+      "credential": "LLB",
+      "years": 3,
+      "field": "law",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/llb-bachelor-of-laws",
+      "code": "M100",
+      "about": "Law studied from a social science perspective, covering the knowledge needed for the first stage of the Solicitors Qualifying Exam and qualifying as a law degree for the Bar. Mooting competitions and events with the Inns of Court sit alongside the course.",
+      "ib": "39 points with 766 at HL. No HL subject is required.",
+      "points": 39,
+      "selection": [
+        "entrance-exam",
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Every applicant sits the LNAT between 1 Sep and 31 Dec 2026, choosing LSE when registering; the essay part is marked by LSE alongside the UCAS application.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£37,500 a year (overseas fee, 2027/28)",
+      "flagshipSource": {
+        "title": "LLB: law from a social science perspective, with mooting and Inns of Court events",
+        "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/llb-bachelor-of-laws"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Department of Economics",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics",
+      "line": "TMUA is mandatory; 39 points with 766 at HL and a 7 in Maths. The personal statement and teacher reference are read too."
+    },
+    {
+      "name": "LSE Law School",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/llb-bachelor-of-laws",
+      "line": "LNAT for every LLB applicant, sat by 31 December 2026; 39 points with 766 at HL; no subject is required."
+    },
+    {
+      "name": "Department of International Relations",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations",
+      "line": "No test is listed; 38 points with 766 at HL, and no HL subject is required."
+    },
+    {
+      "name": "Mathematics, Statistics and the maths-heavy degrees",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/entry-requirements",
+      "line": "HL Maths AA is required for eight degrees, including Actuarial Science and Data Science."
+    },
+    {
+      "name": "All other departments (Government, Geography, Management, Sociology and more)",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/entry-requirements",
+      "line": "37 to 39 IB points with 666 to 766 at HL; the LNAT is needed only for Law, and each degree page lists its own subjects."
+    }
+  ],
   "notes": [
     "The Overseas fee for BSc Economics is £41,900 a year in 2027/28.",
     "The TMUA is compulsory for BSc Economics and BSc Econometrics and Mathematical Economics and recommended for nine other maths-heavy degrees; either sitting counts the same.",
     "Published offers are a guide only: LSE says they can change from year to year with the strength of the applicant pool."
   ],
   "sources": [
-    { "title": "LSE — Find a programme (Undergraduate ticked: 43 results)", "url": "https://www.lse.ac.uk/programmes/search-courses?f.Study+Type%7Ctype=undergraduate&studyType=b6732bf8-36e3-4461-b325-c925ad870cb4", "retrieved": "2026-09-25" },
-    { "title": "LSE — Entry requirements (IB Mathematics: AA required, preferred or either, by programme)", "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Entry-requirements", "retrieved": "2026-09-25" },
-    { "title": "LSE — Test of Mathematics for University Admission (TMUA)", "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Test-of-Mathematics-for-University-Admission-TMUA", "retrieved": "2026-09-25" },
-    { "title": "LSE — English language requirements", "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/English-language-requirements", "retrieved": "2026-09-25" },
-    { "title": "LSE — BSc Economics (2027/28 fee, IB offer, deadline)", "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics", "retrieved": "2026-09-25" },
-    { "title": "LNAT — Dates and deadlines", "url": "https://lnat.ac.uk/registration/dates-and-deadlines/", "retrieved": "2026-09-25" }
+    {
+      "title": "LSE — Find a programme (Undergraduate ticked: 43 results)",
+      "url": "https://www.lse.ac.uk/programmes/search-courses?f.Study+Type%7Ctype=undergraduate&studyType=b6732bf8-36e3-4461-b325-c925ad870cb4",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LSE — Entry requirements (IB Mathematics: AA required, preferred or either, by programme)",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Entry-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LSE — Test of Mathematics for University Admission (TMUA)",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Test-of-Mathematics-for-University-Admission-TMUA",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LSE — English language requirements",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/English-language-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LSE — BSc Economics (2027/28 fee, IB offer, deadline)",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LNAT — Dates and deadlines",
+      "url": "https://lnat.ac.uk/registration/dates-and-deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LSE — BSc International Relations (2027 entry)",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-international-relations",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "LSE — LLB Bachelor of Laws (2027 entry)",
+      "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/llb-bachelor-of-laws",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "LSE — Entry requirements (IB, Maths courses, LNAT)",
+      "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

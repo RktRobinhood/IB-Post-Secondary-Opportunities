@@ -76,7 +76,120 @@
       "url": "https://www.ox.ac.uk/admissions/undergraduate/applying/admissions-timeline"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Philosophy, Politics and Economics (PPE)",
+      "credential": "BA",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/philosophy-politics-and-economics",
+      "code": "L0V0",
+      "about": "Three subjects in one degree: philosophy for clear argument, politics for how institutions shape societies, economics for how choices allocate resources. After year one you can keep all three or drop to two, and choose options such as sociology or international relations.",
+      "ib": "39 points including core, with 766 at HL. No HL subject is required; Maths is recommended, for the economics and the logic course.",
+      "points": 39,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "Everyone sits the TARA test (12-16 Oct 2026); shortlisted applicants have online interviews in December. You also name a college on the UCAS form or apply openly.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£46,210 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "PPE: all three branches supported by more than 200 scholars, with a flexible path after year one",
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/philosophy-politics-and-economics"
+      }
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BA or MCompSci",
+      "years": 3,
+      "field": "computing",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/computer-science",
+      "code": "G400",
+      "about": "Computer systems understood through mathematical reasoning: you prove how programs and networks behave, not only build them. Core topics fill year one and part of year two, then options; in year two a group design practical may be sponsored by industry.",
+      "ib": "39 points including core, with 766 at HL, the 7 in HL Maths. The course page says HL Mathematics without naming AA or AI.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 7,
+          "note": "The page says HL Mathematics; it does not name AA or AI"
+        }
+      ],
+      "points": 39,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "All applicants sit the TMUA (12-16 Oct 2026); about a fifth are interviewed. You also name a college on the UCAS form or apply openly.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£66,580 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Computer Science: a mathematical grounding with a group design practical in year two, sometimes industry-sponsored",
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/computer-science"
+      }
+    },
+    {
+      "name": "English Language and Literature",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/english-language-and-literature",
+      "code": "Q300",
+      "about": "Writing in English from Anglo-Saxon England to today, including work from outside Britain and in translation. One-to-one tutorials, a Shakespeare portfolio, an 8,000-word dissertation and a special option chosen from around 25.",
+      "ib": "38 points including core, with 666 at HL. English Literature, or English Language and Literature, at HL is expected. Creative writing courses do not count.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit"
+          ],
+          "level": "HL",
+          "note": "The page expects HL English Literature or Language and Literature"
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "assignment",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "No test. Send one analytical essay of up to 2,000 words by 10 Nov 2026; about two thirds are interviewed. You also name a college or apply openly.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£46,210 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "English Language and Literature: a course running from Anglo-Saxon England to the present, with about 25 special options",
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/english-language-and-literature"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Humanities Division",
+      "url": "https://www.humanities.ox.ac.uk/study-here",
+      "line": "30 degrees, most at AAA; you send written work rather than sit a test, and a modern language where the degree is language-based."
+    },
+    {
+      "name": "Social Sciences Division",
+      "url": "https://www.socsci.ox.ac.uk/education",
+      "line": "Law, PPE, Economics and more: LNAT for Law, TARA for PPE and Economics and Management; Maths needed for Economics and Management."
+    },
+    {
+      "name": "Mathematical, Physical and Life Sciences Division",
+      "url": "https://www.mpls.ox.ac.uk/divisional-support-and-services/applicants/undergraduatecourses",
+      "line": "Maths or a science is required almost everywhere; ESAT or TMUA for Physics, Engineering, Maths and Computer Science."
+    },
+    {
+      "name": "Medical Sciences Division",
+      "url": "https://www.medsci.ox.ac.uk/study/medicine/pre-clinical/requirements",
+      "line": "Medicine: UCAT, then interview, and Chemistry plus another science or Maths. Biomedical Sciences takes the ESAT."
+    }
+  ],
   "notes": [
     "Overseas fees for 2027/28 are £39,620 to £66,580 a year, and more for clinical medicine.",
     "You name a college on the UCAS form or make an open application, but a different college may shortlist you or make the offer.",
@@ -95,7 +208,7 @@
     },
     {
       "title": "Oxford — Summary table of admissions requirements (2027 entry)",
-      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/admission-requirements/admission-requirements-table",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/admissions-requirements/summary-table-of-admissions-requirements",
       "retrieved": "2026-09-25"
     },
     {
@@ -142,6 +255,41 @@
       "title": "Oxford — Interviews (2027 entry)",
       "url": "https://www.ox.ac.uk/admissions/undergraduate/applying/guide-for-applicants/interviews",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Oxford — Philosophy, Politics and Economics BA (2027 entry)",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/philosophy-politics-and-economics",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Oxford — Computer Science BA or MCompSci (2027 entry)",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/computer-science",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Oxford — English Language and Literature BA (2027 entry)",
+      "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/english-language-and-literature",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Oxford Humanities Division — Study here",
+      "url": "https://www.humanities.ox.ac.uk/study-here",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Oxford Social Sciences Division — Education",
+      "url": "https://www.socsci.ox.ac.uk/education",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Oxford MPLS Division — Undergraduate applicants",
+      "url": "https://www.mpls.ox.ac.uk/divisional-support-and-services/applicants/undergraduatecourses",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Oxford Medical Sciences Division — Medicine requirements",
+      "url": "https://www.medsci.ox.ac.uk/study/medicine/pre-clinical/requirements",
+      "retrieved": "2026-09-30"
     }
   ]
 }

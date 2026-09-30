@@ -48,20 +48,213 @@
       "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Natural Sciences",
+      "credential": "BSc (Hons)",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.durham.ac.uk/study/courses/natural-sciences-cfg0/september-2027/",
+      "code": "CFG0",
+      "about": "A flexible science degree for interests that span several subjects, including at least one science. You combine Biology, Chemistry, Physics, Maths, Computer Science and more, with optional Anthropology, Business, Geography or Philosophy. A year abroad or placement can extend it to four years.",
+      "ib": "37 points with 766 at HL, one of them in a science. Named HL grades apply: Maths 7 for Mathematics; 6 or 7 in Maths and Physics for Physics; 6 in Maths for Computer Science.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology",
+            "chemistry",
+            "mathematics-aa",
+            "physics"
+          ],
+          "level": "HL",
+          "note": "One HL science; some subject choices name grades and subjects"
+        }
+      ],
+      "points": 37,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Offers depend on the subjects you combine; your whole UCAS application is read. Most Durham courses use no admissions test. You also join a college.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£34,500 a year (2026 entry)",
+      "flagshipSource": {
+        "title": "Natural Sciences BSc: combine at least one science with subjects from three groups, with year abroad or placement",
+        "url": "https://www.durham.ac.uk/study/courses/natural-sciences-cfg0/september-2027/"
+      }
+    },
+    {
+      "name": "Archaeology",
+      "credential": "BA (Hons)",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://www.durham.ac.uk/study/courses/archaeology-f400/september-2027/",
+      "code": "F400",
+      "about": "World archaeology from earliest prehistory to the modern day, with training in social and scientific methods. Excavation, fieldwork, osteology, 3D modelling and museum and heritage skills are covered, and you can follow a route accredited by the Chartered Institute for Archaeologists.",
+      "ib": "35 points with 665 at HL. No HL subject is required.",
+      "points": 35,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No admissions test is listed. Your whole UCAS application, including the personal statement, is read. You also join a college.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£29,250 a year (2026 entry)",
+      "flagshipSource": {
+        "title": "Archaeology BA: world archaeology with fieldwork, lab skills and a CIfA-accredited route",
+        "url": "https://www.durham.ac.uk/study/courses/archaeology-f400/september-2027/"
+      }
+    },
+    {
+      "name": "Law",
+      "credential": "LLB (Hons)",
+      "years": 3,
+      "field": "law",
+      "url": "https://www.durham.ac.uk/study/courses/law-m101/september-2027/",
+      "code": "M101",
+      "about": "A research-led LLB in the law of England and Wales that forms the first stage of training as a solicitor or barrister. Optional modules let you specialise in public or private law, including international law, and there is a moot court and a pro bono room.",
+      "ib": "37 points with 766 at HL. No HL subject is required.",
+      "points": 37,
+      "selection": [
+        "entrance-exam",
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "The LNAT is essential: register, book and sit it in the year you apply, linking Durham to your LNAT account. The multiple-choice score and essay are read with your UCAS form.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£29,250 a year (2026 entry)",
+      "flagshipSource": {
+        "title": "Law LLB: research-led teaching with a moot court, a pro bono room and a choice of specialist pathways",
+        "url": "https://www.durham.ac.uk/study/courses/law-m101/september-2027/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Humanities",
+      "url": "https://www.durham.ac.uk/departments/academic/arts-humanities/study/undergraduate/",
+      "line": "English, History, Classics, Music, Philosophy, Theology and languages, alone or combined; an AAA degree asks 36 points with 666 at HL."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.durham.ac.uk/departments/academic/science/",
+      "line": "Natural Sciences asks 37 with 766 at HL, one in a science, with named grades by subject; Mathematics asks HL Maths 7."
+    },
+    {
+      "name": "Faculty of Social Sciences and Health",
+      "url": "https://www.durham.ac.uk/departments/academic/social-sciences-health/",
+      "line": "Entry varies by department: Law asks 37 with 766 and the LNAT; Archaeology 35 with 665 and no set subject."
+    },
+    {
+      "name": "Durham University Business School",
+      "url": "https://www.durham.ac.uk/business/courses/economics-l100/",
+      "line": "Economics: 37 points with 766 at HL, including Maths; SL Maths at 7 is accepted if you do not take it at HL."
+    }
+  ],
   "notes": [
     "Every student is a member of a college, and Durham guarantees an offer of accommodation to first-years who apply for it.",
     "Most courses need no admissions test, but Law and Mathematics applicants are strongly encouraged to sit the LNAT or a maths test (TMUA or STEP)."
   ],
   "sources": [
-    { "title": "Durham — Course search (undergraduate)", "url": "https://www.durham.ac.uk/search/?searchstax[query]=*&searchstax[page]=1&searchstax[facets][0]=tabs:sectiontype_ss:course&searchstax[facets][1]=and:DegreeCourseLevel_ss:Undergraduate&searchstax[model]=main%20site", "retrieved": "2026-09-25" },
-    { "title": "Durham — Grade requirements for UK qualifications (International Baccalaureate)", "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/uk-students/", "retrieved": "2026-09-25" },
-    { "title": "Durham — Entry requirements (additional selection criteria)", "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/", "retrieved": "2026-09-25" },
-    { "title": "Durham — Mathematics tests", "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/mathematics/", "retrieved": "2026-09-25" },
-    { "title": "Durham — Colleges and your application", "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/durhams-colleges-and-your-application/", "retrieved": "2026-09-25" },
-    { "title": "Durham — Tuition fees (EU applicants)", "url": "https://www.durham.ac.uk/study/undergraduate/fees-and-funding/tuition-fees/", "retrieved": "2026-09-25" },
-    { "title": "LNAT — Dates and deadlines", "url": "https://lnat.ac.uk/registration/dates-and-deadlines/", "retrieved": "2026-09-25" },
-    { "title": "UAT-UK — Deadlines (ESAT, TMUA, TARA)", "url": "https://esat-tmua.ac.uk/deadlines/", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" }
+    {
+      "title": "Durham — Course search (undergraduate)",
+      "url": "https://www.durham.ac.uk/search/?searchstax[query]=*&searchstax[page]=1&searchstax[facets][0]=tabs:sectiontype_ss:course&searchstax[facets][1]=and:DegreeCourseLevel_ss:Undergraduate&searchstax[model]=main%20site",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Durham — Grade requirements for UK qualifications (International Baccalaureate)",
+      "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/uk-students/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Durham — Entry requirements (additional selection criteria)",
+      "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Durham — Mathematics tests",
+      "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/mathematics/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Durham — Colleges and your application",
+      "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/durhams-colleges-and-your-application/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Durham — Tuition fees (EU applicants)",
+      "url": "https://www.durham.ac.uk/study/undergraduate/fees-and-funding/tuition-fees/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LNAT — Dates and deadlines",
+      "url": "https://lnat.ac.uk/registration/dates-and-deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UAT-UK — Deadlines (ESAT, TMUA, TARA)",
+      "url": "https://esat-tmua.ac.uk/deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Durham — Natural Sciences CFG0, September 2027",
+      "url": "https://www.durham.ac.uk/study/courses/natural-sciences-cfg0/september-2027/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham — Natural Sciences CFG0, September 2026 (fees)",
+      "url": "https://www.durham.ac.uk/study/courses/natural-sciences-cfg0/september-2026/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham — Archaeology F400, September 2027",
+      "url": "https://www.durham.ac.uk/study/courses/archaeology-f400/september-2027/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham — Archaeology F400, September 2026 (fees)",
+      "url": "https://www.durham.ac.uk/study/courses/archaeology-f400/september-2026/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham — Law M101, September 2027",
+      "url": "https://www.durham.ac.uk/study/courses/law-m101/september-2027/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham — Law M101, September 2026 (fees)",
+      "url": "https://www.durham.ac.uk/study/courses/law-m101/september-2026/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham — Law National Aptitude Test (LNAT)",
+      "url": "https://www.durham.ac.uk/study/undergraduate/how-to-apply/entry-requirements/law-national-aptitude-test-lnat/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham Faculty of Arts and Humanities — Undergraduate study",
+      "url": "https://www.durham.ac.uk/departments/academic/arts-humanities/study/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham Faculty of Science",
+      "url": "https://www.durham.ac.uk/departments/academic/science/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham Faculty of Social Sciences and Health",
+      "url": "https://www.durham.ac.uk/departments/academic/social-sciences-health/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Durham Business School — Economics L100",
+      "url": "https://www.durham.ac.uk/business/courses/economics-l100/",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

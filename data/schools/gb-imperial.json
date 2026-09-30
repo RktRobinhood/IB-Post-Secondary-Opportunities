@@ -69,19 +69,241 @@
       "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/deadlines/"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "Aeronautical Engineering",
+      "credential": "MEng",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/",
+      "code": "H401",
+      "about": "An integrated master's on how vehicles and structures interact with air: aerodynamics, structures, flight mechanics, propulsion and control. Year two includes a flight-testing course at Cranfield; a year abroad or a year in industry can be added.",
+      "ib": "40 points with 7 in HL Maths and 7 in HL Physics; Maths AA is preferred over AI. Typical offers ran from 43 to 44 points.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 7,
+          "note": "AA is preferred; AI is accepted"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 7
+        }
+      ],
+      "points": 40,
+      "selection": [
+        "entrance-exam",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "ESAT with Maths 1, Maths 2 and Physics (Oct or Jan sitting); selected applicants have a 25-30 minute interview with academic staff.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£47,800 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Aeronautical Engineering MEng: flight testing at Cranfield, with year abroad and year in industry options",
+        "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/"
+      }
+    },
+    {
+      "name": "Medicine",
+      "credential": "MBBS/BSc",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/medicine/",
+      "code": "A100",
+      "about": "A six-year integrated course that ends in both an MBBS and a BSc. You meet patients and clinical skills early, do research in phase two, and can follow specialist pathways such as neuroscience or mental health. Teaching is across north and west London campuses and NHS partners.",
+      "ib": "38 points with 6 in HL Biology and 6 in HL Chemistry; typical offers are 39 points with 6 or 7 in those two. Both Maths courses are accepted.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "test-score",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "UCAT sat by 24 Sep 2026; scores help shortlist for Multiple Mini Interviews, from December. About a third of applicants are interviewed.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£61,550 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Medicine MBBS/BSc: early clinical skills, specialist pathways and London NHS partners across several campuses",
+        "url": "https://www.imperial.ac.uk/study/courses/undergraduate/medicine/"
+      }
+    },
+    {
+      "name": "Chemistry",
+      "credential": "MSci",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/chemistry-msci/",
+      "code": "F103",
+      "about": "Core and applied chemistry to master's level: inorganic, organic, physical, analytical, synthetic and computational, with an extensive laboratory programme. It ends in a six-month research project in an academic group; year-in-industry and year-abroad versions exist.",
+      "ib": "38 points with 6 in HL Chemistry, 6 in HL Maths and 6 in a third HL subject (Biology, Economics or Physics preferred). Typical offers are 39 to 40 points.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "No preference between AA and AI"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "economics",
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "Third HL at 6; these three are preferred"
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "interview",
+        "motivation",
+        "grades"
+      ],
+      "selectionNote": "No admissions test. Predicted grades, personal statement and reference are read; shortlisted applicants have an academic interview, with decisions by early March.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£47,800 a year (overseas fee, 2027)",
+      "flagshipSource": {
+        "title": "Chemistry MSci: a laboratory programme and a six-month research project in an academic group",
+        "url": "https://www.imperial.ac.uk/study/courses/undergraduate/chemistry-msci/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.imperial.ac.uk/engineering/study/undergraduate/undergraduate-admissions/",
+      "line": "Most departments set the ESAT, Computing the TMUA; Bioengineering, Earth Science, Materials none. Aeronautics: 7s in HL Maths, Physics."
+    },
+    {
+      "name": "Faculty of Natural Sciences",
+      "url": "https://www.imperial.ac.uk/natural-sciences/education-and-teaching/undergraduate/",
+      "line": "Chemistry has no test; Mathematics takes the TMUA, Physics and Life Sciences the ESAT. Chemistry asks HL 6s in Chemistry and Maths."
+    },
+    {
+      "name": "Faculty of Medicine",
+      "url": "https://www.imperial.ac.uk/medicine/study/undergraduate/",
+      "line": "Medicine closes 15 October: UCAT, then interviews; HL Biology and Chemistry at 6. BSc Medical Biosciences uses no test."
+    },
+    {
+      "name": "Imperial College Business School",
+      "url": "https://www.imperial.ac.uk/business-school/undergraduate/economics-finance-data-science/how-to-apply/",
+      "line": "Economics, Finance and Data Science: TMUA compulsory; 39 points with 7 in HL Maths and 6 in two more HL subjects."
+    }
+  ],
   "notes": [
     "ESAT is needed for engineering, physics and life sciences, TMUA for computing, maths and the Business School, and UCAT for Medicine.",
     "You may sit ESAT in October or January, but only your first score counts.",
     "Overseas fees are set per course: Mathematics BSc cost £42,700 in 2026-27, and 2027 figures were not yet out."
   ],
   "sources": [
-    { "title": "Imperial — Undergraduate course search", "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate", "retrieved": "2026-09-25" },
-    { "title": "Imperial — Accepted qualifications", "url": "https://www.imperial.ac.uk/study/apply/undergraduate/entry-requirements/accepted-qualifications/", "retrieved": "2026-09-25" },
-    { "title": "Imperial — English language requirements", "url": "https://www.imperial.ac.uk/study/apply/english-language/", "retrieved": "2026-09-25" },
-    { "title": "Imperial — Deadlines (2027 entry)", "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/deadlines/", "retrieved": "2026-09-25" },
-    { "title": "Imperial — Admissions tests", "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/admissions-tests/", "retrieved": "2026-09-25" },
-    { "title": "Imperial — Engineering and Science Admissions Test (ESAT)", "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/admissions-tests/esat/", "retrieved": "2026-09-25" },
-    { "title": "Imperial — Mathematics BSc (fees, IB requirement)", "url": "https://www.imperial.ac.uk/study/courses/undergraduate/mathematics-bsc/", "retrieved": "2026-09-25" }
+    {
+      "title": "Imperial — Undergraduate course search",
+      "url": "https://www.imperial.ac.uk/study/courses/?courseType=undergraduate",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — Accepted qualifications",
+      "url": "https://www.imperial.ac.uk/study/apply/undergraduate/entry-requirements/accepted-qualifications/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — English language requirements",
+      "url": "https://www.imperial.ac.uk/study/apply/english-language/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — Deadlines (2027 entry)",
+      "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — Admissions tests",
+      "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/admissions-tests/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — Engineering and Science Admissions Test (ESAT)",
+      "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/admissions-tests/esat/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — Mathematics BSc (fees, IB requirement)",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/mathematics-bsc/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Imperial — Aeronautical Engineering MEng (2027 entry)",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/aeronautical-engineering/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Imperial — Medicine MBBS/BSc (2027 entry)",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/medicine/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Imperial — Chemistry MSci (2027 entry)",
+      "url": "https://www.imperial.ac.uk/study/courses/undergraduate/chemistry-msci/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Imperial Faculty of Engineering — Undergraduate admissions",
+      "url": "https://www.imperial.ac.uk/engineering/study/undergraduate/undergraduate-admissions/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Imperial Faculty of Natural Sciences — Undergraduate",
+      "url": "https://www.imperial.ac.uk/natural-sciences/education-and-teaching/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Imperial Faculty of Medicine — Undergraduate study",
+      "url": "https://www.imperial.ac.uk/medicine/study/undergraduate/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Imperial Business School — BSc Economics, Finance and Data Science: how to apply",
+      "url": "https://www.imperial.ac.uk/business-school/undergraduate/economics-finance-data-science/how-to-apply/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

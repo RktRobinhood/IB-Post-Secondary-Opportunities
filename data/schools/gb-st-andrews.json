@@ -41,7 +41,135 @@
       "url": "https://www.st-andrews.ac.uk/study/undergraduate/apply/direct/"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "International Relations",
+      "credential": "MA (Hons)",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://www.st-andrews.ac.uk/subjects/international-relations/international-relations-ma/",
+      "code": "L250",
+      "about": "The origins of war and peace, foreign policy, trade, terrorism, human rights and international law. You take two other subjects alongside it in year one, then specialise in years three and four, ending in a 12,000-word dissertation. The MA here is the equivalent of a BA.",
+      "ib": "38 points with HL 6,6,6 is the standard offer; the minimum is 36 with HL 6,5,5. No subject is required.",
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Offers can be higher or lower than the published grades; your personal statement and reference are read as well. No test or interview is listed.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£34,910 a year (EU and overseas)",
+      "flagshipSource": {
+        "title": "International Relations MA (Hons): run by the School of International Relations, from war and peace to international law",
+        "url": "https://www.st-andrews.ac.uk/subjects/international-relations/international-relations-ma/"
+      }
+    },
+    {
+      "name": "Astrophysics",
+      "credential": "BSc (Hons)",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.st-andrews.ac.uk/subjects/physics/astrophysics-bsc/",
+      "code": "F511",
+      "about": "The Universe from extrasolar planets and black holes to galaxy clusters, about half core physics and maths and half astrophysics. You model systems and analyse large data sets, can use telescopes at the University Observatory, and finish with a major project.",
+      "ib": "38 points with HL 6,6,6, including HL 6 in Maths and Physics; the minimum is 36 with HL 6,5,5 and HL 5 in both.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "Standard offer; the minimum is 5"
+        },
+        {
+          "anyOf": [
+            "physics"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "Standard offer; the minimum is 5"
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No test or interview is listed. Offers can be higher or lower than the published grades; the personal statement and reference are read too.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£34,910 a year (EU and overseas)",
+      "flagshipSource": {
+        "title": "Astrophysics BSc (Hons): half physics and maths, half astrophysics, with University Observatory telescopes",
+        "url": "https://www.st-andrews.ac.uk/subjects/physics/astrophysics-bsc/"
+      }
+    },
+    {
+      "name": "Medicine BSc (Hons) A100",
+      "credential": "BSc (Hons)",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://www.st-andrews.ac.uk/subjects/medicine/medicine-bsc-a100/",
+      "requirementsUrl": "https://www.st-andrews.ac.uk/subjects/medicine/entry-requirements/academic-requirements/international-qualifications/",
+      "code": "A100",
+      "about": "A six-year route: three years in St Andrews building science and clinical skills for a BSc, then three years at a partner medical school for an MBChB or MBBS. Students classed as overseas for fees complete their training at the University of Manchester.",
+      "ib": "38 points with HL 6,6,6 plus SL 6,6,6, including HL Chemistry and one of HL Biology, Maths or Physics.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL"
+        },
+        {
+          "anyOf": [
+            "biology",
+            "mathematics-aa",
+            "mathematics-ai",
+            "physics"
+          ],
+          "level": "HL",
+          "note": "Any one of these"
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "test-score",
+        "interview",
+        "grades"
+      ],
+      "selectionNote": "Academic record, reference and medical work experience first; the UCAT ranks applicants for about 650 interviews (four mini interviews, online for most non-UK applicants in 2026).",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£41,600 a year (rest of the world)",
+      "flagshipSource": {
+        "title": "Medicine A100: three years at St Andrews for a BSc, then three at a partner medical school",
+        "url": "https://www.st-andrews.ac.uk/subjects/medicine/medicine-bsc-a100/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.st-andrews.ac.uk/subjects/international-relations/international-relations-ma/",
+      "line": "MA degrees: 38 points (HL 6,6,6) is the standard offer, 36 (HL 6,5,5) the minimum; each degree page names any subjects."
+    },
+    {
+      "name": "Faculty of Divinity",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/",
+      "line": "Offers the BD, an MA or an MTheol; you apply to a degree, and St Andrews offers run from 36 (HL 6,5,5) to 38 (HL 6,6,6)."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.st-andrews.ac.uk/subjects/physics/astrophysics-bsc/",
+      "line": "BSc and integrated master's degrees; physical sciences want HL 6 in Maths and Physics, e.g. Astrophysics. Some subjects also run in Arts."
+    },
+    {
+      "name": "Faculty of Medicine",
+      "url": "https://www.st-andrews.ac.uk/subjects/medicine/selection/",
+      "line": "Medicine closes 15 October: UCAT ranks applicants for interviews; 38 points with HL Chemistry and one more science."
+    }
+  ],
   "notes": [
     "An EU citizen living in the EU usually has Overseas fee status: £33,250 a year in Arts, Divinity or Science for 2026-27, and 2027-28 fees were not yet out.",
     "Overseas-fee students may apply direct (£50 fee) or through the Common App instead of UCAS, but it still counts as one of your five UK choices.",
@@ -87,6 +215,41 @@
       "title": "St Andrews — Medicine BSc (A100), international qualifications",
       "url": "https://www.st-andrews.ac.uk/subjects/medicine/medicine-bsc-a100/entry-requirements/academic-requirements/international-qualifications/",
       "retrieved": "2026-09-25"
+    },
+    {
+      "title": "St Andrews — International Relations MA (Hons), 2027 entry",
+      "url": "https://www.st-andrews.ac.uk/subjects/international-relations/international-relations-ma/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "St Andrews — Astrophysics BSc (Honours), 2027 entry",
+      "url": "https://www.st-andrews.ac.uk/subjects/physics/astrophysics-bsc/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "St Andrews — Medicine BSc (Hons) A100, 2027 entry",
+      "url": "https://www.st-andrews.ac.uk/subjects/medicine/medicine-bsc-a100/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "St Andrews — Medicine: international qualifications (IB)",
+      "url": "https://www.st-andrews.ac.uk/subjects/medicine/entry-requirements/academic-requirements/international-qualifications/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "St Andrews — Medicine: how students are selected",
+      "url": "https://www.st-andrews.ac.uk/subjects/medicine/selection/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "St Andrews — Faculties",
+      "url": "https://www.st-andrews.ac.uk/study/undergraduate/faculties/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-30"
     }
   ]
 }

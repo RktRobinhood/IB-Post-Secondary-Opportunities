@@ -47,21 +47,261 @@
       "url": "https://www.kcl.ac.uk/study/undergraduate/courses/international-relations-ba"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "War Studies",
+      "credential": "BA",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/war-studies-ba",
+      "requirementsUrl": "https://www.kcl.ac.uk/study/undergraduate/courses/war-studies-ba/entry-requirements",
+      "code": "L252",
+      "about": "War, conflict and security studied through history, politics, international relations, philosophy and sociology. Year one gives the causes and consequences of war; later years add specialist options, a Cold War module and a dissertation. One language module is free, and a year abroad is optional.",
+      "ib": "36 points including core, or an aggregate of 18 from three HL subjects. No subject is required; History is not asked for.",
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No test or interview is listed. The personal statement is one factor among several and should show commitment to the subject; a military reference is accepted.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£34,000 a year (intl fee, 2027-28)",
+      "flagshipSource": {
+        "title": "War Studies BA: a Department of War Studies degree drawing on history, politics, philosophy and sociology",
+        "url": "https://www.kcl.ac.uk/study/undergraduate/courses/war-studies-ba"
+      }
+    },
+    {
+      "name": "Law LLB",
+      "credential": "LLB",
+      "years": 3,
+      "field": "law",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/law-llb",
+      "requirementsUrl": "https://www.kcl.ac.uk/study/undergraduate/courses/law-llb/entry-requirements",
+      "code": "M100",
+      "about": "Law studied as an intellectual discipline at the Dickson Poon School of Law in Somerset House, near the Royal Courts of Justice and Inns of Court. It has a professional skills portfolio with a legal clinic and mooting, and dual-degree and study-abroad options after year one.",
+      "ib": "38 points including core, or an aggregate of 19 from three HL subjects. No subject is required.",
+      "points": 38,
+      "selection": [
+        "entrance-exam",
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "All applicants take the LNAT by 31 December 2026 (choose King's when registering). Apply before the UCAS January deadline; the personal statement is read too.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£35,900 a year (intl fee, 2027-28)",
+      "flagshipSource": {
+        "title": "Law LLB: the Dickson Poon School of Law, with a legal clinic, mooting and a Somerset House setting",
+        "url": "https://www.kcl.ac.uk/study/undergraduate/courses/law-llb"
+      }
+    },
+    {
+      "name": "Neuroscience",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/neuroscience-bsc",
+      "requirementsUrl": "https://www.kcl.ac.uk/study/undergraduate/courses/neuroscience-bsc/entry-requirements",
+      "code": "B140",
+      "about": "The nervous system from cells and development to physiology and pharmacology, linked to psychology and philosophy. It stresses developmental neuroscience, disorders of the nervous system and clinical aspects, with a substantial research project and optional placement or year abroad.",
+      "ib": "36 points including core, or an aggregate of 18 from three HL subjects, with 6 in HL Biology and 6 in HL Chemistry.",
+      "needs": [
+        {
+          "anyOf": [
+            "biology"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No test or interview is listed. The personal statement and reference are read alongside your grades.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£42,900 a year (intl fee, 2027-28)",
+      "flagshipSource": {
+        "title": "Neuroscience BSc: cell biology to psychology, with a substantial research project",
+        "url": "https://www.kcl.ac.uk/study/undergraduate/courses/neuroscience-bsc"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts & Humanities",
+      "url": "https://www.kcl.ac.uk/artshums/study-with-us/undergraduate",
+      "line": "History BA: 36 points or an HL aggregate of 18; History is generally expected but not required."
+    },
+    {
+      "name": "King's Business School",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/business-management-bsc/entry-requirements",
+      "line": "Business Management BSc: 38 points, with HL 6 in a humanities or social science subject (not a modern language)."
+    },
+    {
+      "name": "Faculty of Dentistry, Oral & Craniofacial Sciences",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/dentistry-bds/entry-requirements",
+      "line": "Dentistry BDS: UCAT, then interviews from December to March; 38 points, HL 6 in Chemistry or Biology plus one more science subject."
+    },
+    {
+      "name": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/nursing-with-registration-as-an-adult-nurse-bsc/entry-requirements",
+      "line": "Adult Nursing BSc: 31 points, no subject required; no offer is made without an interview (November to May)."
+    },
+    {
+      "name": "Faculty of Life Sciences & Medicine",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/medicine-mbbs/entry-requirements",
+      "line": "Medicine MBBS: UCAT for everyone; 38 points with HL 6 in both Biology and Chemistry. Neuroscience BSc asks the same two HL 6s."
+    },
+    {
+      "name": "Institute of Psychiatry, Psychology & Neuroscience",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/psychology-bsc/entry-requirements",
+      "line": "Psychology BSc: 38 points, with HL 6 in one of Biology, Chemistry, Maths, Physics or Psychology."
+    },
+    {
+      "name": "Faculty of Natural, Mathematical & Engineering Sciences",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/computer-science-bsc/entry-requirements",
+      "line": "Computer Science BSc: 39 points or an HL aggregate of 20, with HL 6 in Maths Analysis and Approaches."
+    },
+    {
+      "name": "The Dickson Poon School of Law",
+      "url": "https://www.kcl.ac.uk/law/undergraduate",
+      "line": "Every LLB applicant takes the LNAT by 31 December 2026; 38 points or an HL aggregate of 19; no subject is required."
+    },
+    {
+      "name": "Faculty of Social Science & Public Policy",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/war-studies-ba/entry-requirements",
+      "line": "War Studies BA: 36 points or an HL aggregate of 18; no required subject, and a military reference is accepted."
+    }
+  ],
   "notes": [
     "The international fee for International Relations BA is £35,900 a year in 2027-28.",
     "International applicants pay a £2,000 deposit against the first year's fee when they firmly accept an unconditional offer.",
     "The IB rule is either/or: you can meet an offer with the points total or with the HL aggregate, though any named subject grades still apply."
   ],
   "sources": [
-    { "title": "King's — Undergraduate course search", "url": "https://www.kcl.ac.uk/study/undergraduate/courses", "retrieved": "2026-09-25" },
-    { "title": "King's — Undergraduate entry requirements (IB equivalencies; UCAT for Medicine A100/A101/A102 and Dentistry A205/A206/A202)", "url": "https://www.kcl.ac.uk/study/undergraduate/how-to-apply/entry-requirements", "retrieved": "2026-09-25" },
-    { "title": "King's — Undergraduate English language entry requirements", "url": "https://www.kcl.ac.uk/study/undergraduate/how-to-apply/english-language-requirements", "retrieved": "2026-09-25" },
-    { "title": "King's — International Relations BA (2027 entry)", "url": "https://www.kcl.ac.uk/study/undergraduate/courses/international-relations-ba", "retrieved": "2026-09-25" },
-    { "title": "King's — International Relations BA fees (2027-28)", "url": "https://www.kcl.ac.uk/study/undergraduate/courses/international-relations-ba/fees", "retrieved": "2026-09-25" },
-    { "title": "King's — Medicine MBBS (2027 entry)", "url": "https://www.kcl.ac.uk/study/undergraduate/courses/medicine-mbbs", "retrieved": "2026-09-25" },
-    { "title": "UCAS — When to apply (2027 entry)", "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply", "retrieved": "2026-09-25" },
-    { "title": "LNAT — Dates and deadlines", "url": "https://lnat.ac.uk/registration/dates-and-deadlines/", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" }
+    {
+      "title": "King's — Undergraduate course search",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "King's — Undergraduate entry requirements (IB equivalencies; UCAT for Medicine A100/A101/A102 and Dentistry A205/A206/A202)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/how-to-apply/entry-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "King's — Undergraduate English language entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/how-to-apply/english-language-requirements",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "King's — International Relations BA (2027 entry)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/international-relations-ba",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "King's — International Relations BA fees (2027-28)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/international-relations-ba/fees",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "King's — Medicine MBBS (2027 entry)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/medicine-mbbs",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LNAT — Dates and deadlines",
+      "url": "https://lnat.ac.uk/registration/dates-and-deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAT — Test dates",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "King's — War Studies BA (2027 entry)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/war-studies-ba",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — War Studies BA entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/war-studies-ba/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Law LLB (2027 entry)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/law-llb",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Law LLB entry requirements (LNAT)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/law-llb/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Neuroscience BSc (2027 entry)",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/neuroscience-bsc",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Neuroscience BSc entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/neuroscience-bsc/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Faculty of Arts & Humanities: undergraduate study",
+      "url": "https://www.kcl.ac.uk/artshums/study-with-us/undergraduate",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Business Management BSc entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/business-management-bsc/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Dentistry BDS entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/dentistry-bds/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Nursing with Registration as an Adult Nurse BSc entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/nursing-with-registration-as-an-adult-nurse-bsc/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Medicine MBBS entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/medicine-mbbs/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Psychology BSc entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/psychology-bsc/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — Computer Science BSc entry requirements",
+      "url": "https://www.kcl.ac.uk/study/undergraduate/courses/computer-science-bsc/entry-requirements",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "King's — The Dickson Poon School of Law: undergraduate",
+      "url": "https://www.kcl.ac.uk/law/undergraduate",
+      "retrieved": "2026-09-30"
+    }
   ]
 }

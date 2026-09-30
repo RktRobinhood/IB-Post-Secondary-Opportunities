@@ -55,19 +55,202 @@
       "url": "https://www.bristol.ac.uk/study/undergraduate/apply/international/"
     }
   ],
-  "programmes": [],
+  "programmes": [
+    {
+      "name": "BVSc Veterinary Science",
+      "credential": "BVSc",
+      "years": 5,
+      "field": "veterinary",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/vet-science/bvsc-veterinary-science/",
+      "requirementsUrl": "https://www.bristol.ac.uk/study/media/undergraduate/admissions-statements/2027/veterinary-science.pdf",
+      "code": "D100",
+      "about": "A five-year vet degree on two campuses: the Clifton city campus and the rural Langford campus, with a small animal referral hospital, dairy farm, anatomy and post-mortem facilities and a clinical skills lab. Case-based learning and placements with many species, ending in supervised core rotations.",
+      "ib": "36 points with 18 at HL, including 6 and 6 at HL in Chemistry and one of Biology, Physics or Maths.",
+      "needs": [
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "biology",
+            "physics",
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6,
+          "note": "One of these"
+        }
+      ],
+      "points": 36,
+      "selection": [
+        "assignment",
+        "grades"
+      ],
+      "selectionNote": "Academic record (GCSE 10%, A-level 20%) and a scored questionnaire (70%); no routine interview and no fixed work-experience rule, per the 2027 admissions statement.",
+      "closes": "2026-10-15",
+      "tuitionEuEea": "£43,500 first year (intl fee, 2027)",
+      "flagshipSource": {
+        "title": "BVSc Veterinary Science: dual campuses, a referral hospital, dairy farm and clinical skills lab",
+        "url": "https://www.bristol.ac.uk/study/undergraduate/2027/vet-science/bvsc-veterinary-science/"
+      }
+    },
+    {
+      "name": "BEng Aerospace Engineering",
+      "credential": "BEng",
+      "years": 3,
+      "field": "engineering",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/aerospace/beng-aerospace-engineering/",
+      "code": "H405",
+      "about": "Aerodynamics, structures and materials, dynamics and control, and systems and design, applied to aircraft, spacecraft and space missions. It is RAeS-accredited, with company contact through the Industrial Liaison Office and a third-year research project such as landing a UAV automatically.",
+      "ib": "38 points with 18 at HL, including 6 at HL in Maths (AA or AI). Two of HL Physics, Chemistry, Biology or Computer Science are preferred.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": [
+            "physics",
+            "chemistry",
+            "biology",
+            "computer-science"
+          ],
+          "level": "HL",
+          "note": "Preference for two of these"
+        }
+      ],
+      "points": 38,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No test or interview is listed. Your UCAS application, predicted grades and personal statement are read. Four-year year-in-industry versions also exist.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£34,700 first year (intl fee, 2027)",
+      "flagshipSource": {
+        "title": "Aerospace Engineering BEng: RAeS-accredited, with industry liaison and a third-year research project",
+        "url": "https://www.bristol.ac.uk/study/undergraduate/2027/aerospace/beng-aerospace-engineering/"
+      }
+    },
+    {
+      "name": "BA Liberal Arts",
+      "credential": "BA",
+      "years": 3,
+      "field": "humanities",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/liberal-arts/ba-liberal-arts/",
+      "code": "2ZB7",
+      "about": "An arts and humanities degree with one subject in depth, your pathway, and freedom to range across the rest. Bespoke units put current global issues in historical context and look at how data shapes stories, and you finish with an interdisciplinary project and a capstone on the public role of the humanities.",
+      "ib": "36 points with 18 at HL. No subject is required; the Music pathway has its own extra requirements.",
+      "points": 36,
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "No test or interview is listed. Choose a pathway such as English, Film, Classics, Philosophy or a language; a four-year MLibArts adds a year abroad.",
+      "closes": "2027-01-13",
+      "tuitionEuEea": "£26,500 first year (intl fee, 2027)",
+      "flagshipSource": {
+        "title": "BA Liberal Arts: one pathway subject in depth with breadth across arts, humanities and languages",
+        "url": "https://www.bristol.ac.uk/study/undergraduate/2027/liberal-arts/ba-liberal-arts/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts, Law and Social Sciences",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/liberal-arts/ba-liberal-arts/",
+      "line": "Liberal Arts: 36 points with 18 at HL, no set subject. LLB Law: 38 with 18 at HL and the LNAT."
+    },
+    {
+      "name": "Faculty of Health and Life Sciences",
+      "url": "https://www.bristol.ac.uk/study/media/undergraduate/admissions-statements/2027/veterinary-science.pdf",
+      "line": "Veterinary Science closes 15 October: 36 points, HL Chemistry and one more science at 6; a questionnaire scores 70%, no routine interview."
+    },
+    {
+      "name": "Faculty of Science and Engineering",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/computer-science/bsc-computer-science/",
+      "line": "Computer Science: 38 with 18 at HL and a 7 in HL Maths (AA or AI). Aerospace Engineering: 38 with HL Maths 6."
+    }
+  ],
   "notes": [
     "The international fee for the first year of BSc Computer Science in 2027 is £34,700.",
     "Applying after 13 January is allowed for international students, but you are no longer guaranteed equal consideration.",
     "Law applicants must register, book and sit the LNAT by 13 January 2027, earlier than most other LNAT universities."
   ],
   "sources": [
-    { "title": "Bristol — Undergraduate course search", "url": "https://www.bristol.ac.uk/study/undergraduate/search/", "retrieved": "2026-09-25" },
-    { "title": "Bristol — European and International Baccalaureates", "url": "https://www.bristol.ac.uk/international/countries/baccalaureates.html", "retrieved": "2026-09-25" },
-    { "title": "Bristol — English language Profile E", "url": "https://www.bristol.ac.uk/study/language-requirements/profile-e/", "retrieved": "2026-09-25" },
-    { "title": "Bristol — International applications (2027 entry deadlines)", "url": "https://www.bristol.ac.uk/study/undergraduate/apply/international/", "retrieved": "2026-09-25" },
-    { "title": "Bristol — BSc Computer Science (2027 entry)", "url": "https://www.bristol.ac.uk/study/undergraduate/2027/computer-science/bsc-computer-science/", "retrieved": "2026-09-25" },
-    { "title": "LNAT — Dates and deadlines", "url": "https://lnat.ac.uk/registration/dates-and-deadlines/", "retrieved": "2026-09-25" },
-    { "title": "UCAT — Test dates", "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/", "retrieved": "2026-09-25" }
+    {
+      "title": "Bristol — Undergraduate course search",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/search/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bristol — European and International Baccalaureates",
+      "url": "https://www.bristol.ac.uk/international/countries/baccalaureates.html",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bristol — English language Profile E",
+      "url": "https://www.bristol.ac.uk/study/language-requirements/profile-e/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bristol — International applications (2027 entry deadlines)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/apply/international/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bristol — BSc Computer Science (2027 entry)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/computer-science/bsc-computer-science/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "LNAT — Dates and deadlines",
+      "url": "https://lnat.ac.uk/registration/dates-and-deadlines/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "UCAT — Test dates",
+      "url": "https://www.ucat.ac.uk/about-ucat/ucat-test-dates/",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "title": "Bristol — BVSc Veterinary Science (2027 entry)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/vet-science/bvsc-veterinary-science/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bristol — Veterinary Science admissions statement (2027 entry)",
+      "url": "https://www.bristol.ac.uk/study/media/undergraduate/admissions-statements/2027/veterinary-science.pdf",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bristol — BEng Aerospace Engineering (2027 entry)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/aerospace/beng-aerospace-engineering/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bristol — BA Liberal Arts (2027 entry)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/liberal-arts/ba-liberal-arts/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "Bristol — LLB Law (2027 entry)",
+      "url": "https://www.bristol.ac.uk/study/undergraduate/2027/law/llb-law/",
+      "retrieved": "2026-09-30"
+    },
+    {
+      "title": "UCAS — When to apply (2027 entry)",
+      "url": "https://www.ucas.com/undergraduate/applying-university/ucas-undergraduate-when-apply",
+      "retrieved": "2026-09-30"
+    }
   ]
 }
