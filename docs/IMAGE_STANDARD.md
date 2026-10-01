@@ -425,9 +425,11 @@ between two Destinations is a difference in their records.
 
 ## The one dependency
 
-`sharp` is a **devDependency**, used only by the local image scripts. The
-build, the validator and the checker all run on Node's standard library alone,
-which is why CI has no `npm ci` step and no lockfile is required for it.
+`sharp` is a **devDependency**, used by the local image scripts and by the
+official-photo importer (`scripts/lib/official-image.mjs`). The build, the
+validator and the checker all run on Node's standard library alone. CI installs
+`sharp` only because the programme-images guard drives that importer against
+fixtures; there is still no lockfile.
 
-Do not import `sharp` from anything under `src/`. If CI ever needs to install
-a dependency to build the site, this constraint has been broken.
+Do not import `sharp` from anything under `src/`. If the site *build* ever
+needs a dependency, this constraint has been broken.

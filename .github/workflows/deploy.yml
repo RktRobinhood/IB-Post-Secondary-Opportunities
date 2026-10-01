@@ -29,8 +29,14 @@ jobs:
         with:
           node-version: 22
 
-      # No dependencies to install. The whole toolchain is Node's standard
-      # library, which is why there is no lockfile and no npm ci step.
+      # The site build is still Node's standard library alone, but the gate is
+      # not: the programme-images guard drives the official-photo importer
+      # (scripts/lib/official-image.mjs), which reads real image metadata with
+      # sharp. Without this step that guard died on ERR_MODULE_NOT_FOUND and
+      # every push from 30 Sep 07:14 on failed before deploying. There is still
+      # no lockfile, so nothing is written back to the checkout.
+      - name: Install devDependencies
+        run: npm install --no-package-lock --no-audit --no-fund
 
       # One gate, and the same one `npm test` runs.
       #

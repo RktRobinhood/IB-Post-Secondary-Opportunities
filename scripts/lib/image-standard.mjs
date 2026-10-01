@@ -5,7 +5,8 @@
  * Deliberately split in two halves:
  *
  *   - the constants and `probeWebp` are dependency-free, so scripts/check.mjs
- *     can gate CI on them without an npm install;
+ *     can use them without sharp (CI does install it now, for the
+ *     official-photo importer's guard, but local checks need not);
  *   - `normalise` imports sharp lazily, so importing this module from a
  *     CI-side script never reaches for a devDependency that is not there.
  *
