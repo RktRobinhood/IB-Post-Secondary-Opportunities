@@ -216,7 +216,10 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
   if (!first) continue;
 
   // The picture already in the HTML is slide zero, so the cycle returns to it.
-  const all = [{ src: first.getAttribute('src'), alt: first.getAttribute('alt') || '', caption: null, credit: null }, ...slides];
+  // Its caption and credit are the ones already in the HTML, so returning to it restores them.
+  const all = [{ src: first.getAttribute('src'), alt: first.getAttribute('alt') || '', caption: caption?.hidden ? null : caption?.textContent || null, creditNode: credit?.cloneNode(true) || null }, ...slides];
+  const pause = hero?.querySelector('[data-hero-pause]');
+  let paused = false;
   const loaded = new Map([[0, first]]);
   let index = 0;
   let timer = null;
@@ -247,7 +250,8 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
       caption.textContent = slide.caption || '';
       caption.hidden = !slide.caption;
     }
-    if (credit && slide.credit) {
+    if (credit && slide.creditNode) credit.replaceChildren(...slide.creditNode.cloneNode(true).childNodes);
+    else if (credit && slide.credit) {
       credit.textContent = slide.credit.text || '';
       if (slide.credit.url) {
         const a = document.createElement('a');
@@ -261,15 +265,22 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
   }
 
   function tick() {
-    if (stopped() || document.hidden) return;
+    if (paused || stopped() || document.hidden) return;
     show((index + 1) % all.length);
   }
 
   function start() {
     clearInterval(timer);
-    if (stopped()) return;
+    if (pause) pause.hidden = stopped();
+    if (paused || stopped()) return;
     timer = setInterval(tick, 6000);
   }
+  pause?.addEventListener('click', () => {
+    paused = !paused;
+    pause.setAttribute('aria-pressed', String(paused));
+    pause.querySelector('.visually-hidden').textContent = paused ? 'Play the photographs' : 'Pause the photographs';
+    start();
+  });
 
   // Never compete with the first paint: wait for load, then a beat to read.
   if (document.readyState === 'complete') setTimeout(start, 3000);
@@ -277,6 +288,67 @@ for (const media of document.querySelectorAll('.hero__media[data-slides]')) {
 
   document.addEventListener('visibilitychange', () => (document.hidden ? clearInterval(timer) : start()));
   new MutationObserver(start).observe(root, { attributes: true, attributeFilter: ['data-motion'] });
+}
+
+/* --- Country tiles cycle their photographs -------------------------------
+
+   A country card carries the country's further photographs as data, as the
+   hero does (src/pages/destinations.mjs countrySlides), so no single picture
+   stands for a whole country. A grid of tiles flipping together is a flicker,
+   not a gallery (art director, round 1), so the page turns ONE tile at a
+   time, every TILE_BEAT, taking the tiles on screen in turn. A tile turns
+   only while on screen, loads each photograph only when it is about to be
+   shown, and reduced motion stops all of it, as it stops the hero. Its dots
+   say there is more than one photograph and which one is showing. */
+const TILE_BEAT = 2600;
+const tileStopped = () =>
+  root.getAttribute('data-motion') === 'reduced' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const onScreen = new Set();
+const seen = 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries) => entries.forEach((e) => (e.isIntersecting ? onScreen.add(e.target) : onScreen.delete(e.target))), { threshold: 0.5 })
+  : null;
+const cyclers = [];
+for (const tile of document.querySelectorAll('.tile[data-slides]')) {
+  let slides;
+  try { slides = JSON.parse(tile.dataset.slides); } catch { continue; }
+  const first = tile.querySelector('.tile__img');
+  if (!first || !Array.isArray(slides) || !slides.length) continue;
+  const all = [first, ...slides.map((s) => s.src)];
+  const dots = document.createElement('span');
+  dots.className = 'tile__dots';
+  dots.setAttribute('aria-hidden', 'true');
+  dots.append(...all.map((_, i) => Object.assign(document.createElement('i'), { className: i ? '' : 'is-on' })));
+  tile.append(dots);
+  let index = 0;
+  seen?.observe(tile);
+  cyclers.push({
+    tile,
+    async step() {
+      const next = (index + 1) % all.length;
+      if (typeof all[next] === 'string') {
+        const img = new Image();
+        img.src = all[next];
+        img.alt = '';
+        img.decoding = 'async';
+        img.className = 'tile__img tile__slide';
+        try { await img.decode(); } catch { all.splice(next, 1); dots.children[next]?.remove(); return; }   // a 404 drops out of the cycle
+        first.after(img);
+        all[next] = img;
+      }
+      all.forEach((el, i) => typeof el !== 'string' && el.classList.toggle('is-shown', i === next));
+      first.classList.toggle('is-hidden', next !== 0);
+      [...dots.children].forEach((d, i) => d.classList.toggle('is-on', i === next));
+      index = next;
+    },
+  });
+}
+if (cyclers.length) {
+  let turn = 0;
+  setInterval(() => {
+    if (tileStopped() || document.hidden) return;
+    const visible = cyclers.filter((c) => !seen || onScreen.has(c.tile));
+    if (visible.length) visible[turn++ % visible.length].step();
+  }, TILE_BEAT);
 }
 
 /* --- Leaving the site opens a new tab ------------------------------------ */

@@ -117,8 +117,12 @@ export function hero(o) {
           ? html`<div class="hero__actions">${o.actions}</div>`
           : ''}
     </div>
-    ${o.slides?.length
-      ? html`<p class="hero__caption" data-hero-caption hidden></p>`
+    ${o.slides?.length || o.image?.caption
+      ? html`<p class="hero__caption" data-hero-caption${o.image?.caption ? '' : raw(' hidden')}>${o.image?.caption || ''}</p>`
+      : ''}
+    ${/* Motion a reader can stop where it is (WCAG 2.2.2), not only from the settings. */
+      o.slides?.length
+      ? html`<button class="hero__pause" type="button" data-hero-pause aria-pressed="false" hidden><span class="visually-hidden">Pause the photographs</span></button>`
       : ''}
     ${o.image?.credit
       ? html`<p class="hero__credit" data-hero-credit>${

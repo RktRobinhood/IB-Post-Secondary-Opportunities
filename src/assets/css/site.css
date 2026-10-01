@@ -676,7 +676,8 @@ section { scroll-margin-top: 5.5rem; }
 
 /* What the current picture is of. Sits with the credit, quieter than it. */
 .hero__caption {
-  position: absolute; left: var(--s5); bottom: var(--s4);
+  /* On the page's own left edge, under the title, not off it. */
+  position: absolute; left: max(var(--gutter), (100% - var(--page-wide)) / 2); bottom: var(--s4);
   margin: 0; max-width: 46ch;
   font-size: .8125rem; font-weight: 600; letter-spacing: .01em;
   color: rgba(255,255,255,.92);
@@ -704,8 +705,27 @@ section { scroll-margin-top: 5.5rem; }
 @media (max-width: 40rem) { .hero .eyebrow::after { display: none; } }
 .hero__credit {
   position: absolute; right: var(--s3); bottom: var(--s2); z-index: 1;
-  font-size: var(--type-floor); color: rgba(255,255,255,.62);
+  font-size: var(--type-floor); color: rgba(255,255,255,.82);
+  text-shadow: 0 1px 3px rgba(0,0,0,.7);
 }
+/* Holds the photograph where it is (WCAG 2.2.2). Beside the credit, quiet
+   until it is wanted: two bars, or a triangle once paused. */
+.hero__pause {
+  /* Stacked above the credit, clear of a credit that wraps to two lines. */
+  position: absolute; right: var(--s3); bottom: calc(var(--s2) + 3.5rem); z-index: 2;
+  width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.5); background: rgba(8, 20, 18, .62);
+  cursor: pointer;
+}
+.hero__pause::before {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 12px; height: 14px;
+  background: linear-gradient(to right, #fff 0 4px, transparent 4px 8px, #fff 8px 12px);
+}
+.hero__pause[aria-pressed="true"]::before {
+  width: 0; height: 0; background: none; margin-left: calc(50% - 4px);
+  border-style: solid; border-width: 7px 0 7px 12px; border-color: transparent transparent transparent #fff;
+}
+.hero__pause:hover, .hero__pause:focus-visible { background: rgba(8, 20, 18, .7); }
 .hero__credit a { color: inherit; text-decoration-color: rgba(255,255,255,.35); }
 
 .hero--compact { min-height: 20rem; padding-block: var(--s8) var(--s6); }
@@ -2035,6 +2055,11 @@ details.depth .freshness { margin: var(--s4) 0 0; }
   background: linear-gradient(to top, rgba(8, 20, 18, .88) 0%, rgba(8, 20, 18, .2) 50%, transparent 70%);
 }
 .tile:hover .tile__img, .tile:focus-visible .tile__img { transform: scale(1.05); }
+/* A country tile's further photographs (site.js), crossfaded over the first. */
+.tile[data-slides] .tile__img { transition: transform .6s ease, opacity 1.2s ease-in-out; }
+.tile__slide { opacity: 0; }
+.tile__slide.is-shown { opacity: 1; }
+.tile__img.is-hidden { opacity: 0; }
 .tile:hover, .tile:focus-visible { color: #fff; }
 .tile__text { display: grid; gap: var(--s1); padding: var(--s4); }
 .tile__name { font: 600 1.125rem/1.2 var(--display); }
@@ -2096,6 +2121,26 @@ details.depth .freshness { margin: var(--s4) 0 0; }
 .tile--place::after {
   background: linear-gradient(to top, rgba(8, 20, 18, .92) 0%, rgba(8, 20, 18, .5) 45%, rgba(8, 20, 18, .05) 75%);
 }
+/* A tile that turns may land on a bright sky or a pale wall, so its words
+   get a deeper floor than one picture that was chosen for them. */
+.tile--place[data-slides]::after {
+  background: linear-gradient(to top, rgba(8, 20, 18, .95) 0%, rgba(8, 20, 18, .78) 34%, rgba(8, 20, 18, .5) 52%, rgba(8, 20, 18, .12) 80%);
+}
+/* Names at one height across a row: the line and the count each hold two
+   lines, whatever their length, and the line stops at two. */
+.tile--place .tile__line {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  min-height: calc(2 * 1.35em);
+}
+.tile--place .tile__where { min-height: calc(2 * 1.3em); }
+/* How many photographs, and which: small, top right, out of the words' way. */
+.tile__dots {
+  position: absolute; top: var(--s3); right: var(--s3);
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 7px; border-radius: 999px; background: rgba(8, 20, 18, .55);
+}
+.tile__dots i { width: 7px; height: 7px; border-radius: 999px; background: rgba(255,255,255,.55); transition: width .3s ease; }
+.tile__dots i.is-on { width: 16px; background: #fff; }
 .tile--bare { background: var(--brand-2); }
 .tile__line { font: 400 .9375rem/1.35 var(--sans); color: rgba(255,255,255,.9); }
 

@@ -10,6 +10,7 @@ import { institutionCount } from './programme-facts.mjs';
 import { buildSubjectIndex, ibTermsFor } from '../lib/eligibility.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { countryTemplate } from '../templates/country.mjs';
+import { countrySlides } from './destinations.mjs';
 
 /**
  * The questions Denmark's Destination record already answers (why it might
@@ -97,7 +98,11 @@ function grantSummary(grant) {
 
 export function denmarkHub(site) {
   const grant = stateGrant(site);
+  // Denmark's own photographs, as every country's hero has (countrySlides);
+  // a university's stands in only until Denmark has one.
+  const own = countrySlides(site, { code: 'dk' });
   const pic =
+    picture(site, 'dk', { prefer: 'commons' }) ||
     picture(site, 'ucph', { prefer: 'commons' }) ||
     picture(site, 'dk-au', { prefer: 'commons' }) ||
     picture(site, 'dtu', { prefer: 'commons' });
@@ -215,9 +220,11 @@ export function denmarkHub(site) {
       region: site.graph?.destinations?.get('dk')?.region || null,
       title: 'Denmark',
       lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
-      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%' } : null,
-      // The universities a student could actually go to, each named, in turn.
-      slides: institutions
+      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%', caption: own[0]?.caption || null } : null,
+      // The country's further photographs: student life, nature, culture.
+      // Universities have their own pages; until Denmark has a gallery, the
+      // ones a student could actually go to stand in, each named, in turn.
+      slides: own.length > 1 ? own.slice(1).map(({ raw: _, ...s }) => s) : institutions
         .filter((i) => i.programmes.length)
         .map((i) => ({ i, p: picture(site, i.id, { prefer: 'commons' }) }))
         .filter(({ p }) => p?.src && p.src !== pic?.src)

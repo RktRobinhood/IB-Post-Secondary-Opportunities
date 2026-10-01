@@ -1,4 +1,4 @@
-import { html, raw, md, plural, truncate, listSentence, firstSentence, slugify } from '../lib/html.mjs';
+import { html, raw, md, plural, truncate, listSentence, firstSentence, slugify, escape } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
   hero, card, note, facts, stats, sources, crumbs, sectionHead, stamp, pager, freshness, sectorLandscape, contextNotes, close, topic,
@@ -45,6 +45,9 @@ const publicInstitutions = (c) => (c.institutions || []).filter(isEnglishStudyOp
  */
 export function countryTile(site, c) {
   const pic = countryPicture(site, c);
+  // The rest of the country's photographs, as data: site.js creates each one
+  // only when it is about to be shown, as the hero gallery does.
+  const more = pic ? countrySlides(site, c).filter((s) => s.raw !== pic.src).slice(0, COUNTRY_SLIDES - 1).map((s) => ({ src: s.src })) : [];
   const institutions = publicInstitutions(c);
 
   // Coverage here is uneven and looks uniform, which is the worst combination,
@@ -52,7 +55,9 @@ export function countryTile(site, c) {
   // line, where it costs four words rather than a pill.
   const depth = depthLabel(site, c);
 
-  return html`<li><a class="tile tile--place${pic ? '' : ' tile--bare'}" href="${url(c.href)}">
+  return html`<li><a class="tile tile--place${pic ? '' : ' tile--bare'}" href="${url(c.href)}"${
+    more.length ? raw(` data-slides="${escape(JSON.stringify(more))}"`) : ''
+  }>
     ${pic ? html`<img class="tile__img" src="${url(pic.src)}" alt="${pic.alt || ''}" loading="lazy" decoding="async" width="800" height="600">` : ''}
     <span class="tile__text">
       <span class="tile__name">${c.name}</span>
@@ -120,21 +125,39 @@ function researchDepthNote(c, { freshnessNote = '', events = null, researched = 
  * Capped at four. Beyond that nobody is still watching, and every slide is a
  * download somebody pays for.
  */
-function heroSlides(site, c, max = 4) {
-  const out = [];
-  for (const i of publicInstitutions(c)) {
+/**
+ * The photographs that stand for a country: its own, then its gallery — other
+ * cities, regions and student life, never a university (owner, 1 October
+ * 2026: one photograph chosen for a whole country is a bias; a few, changing,
+ * promote the country for study, and do not advertise an institution). The
+ * card on /countries/ and the country page's hero cycle through the same list.
+ */
+export const COUNTRY_SLIDES = 5;
+export function countrySlides(site, c, max = COUNTRY_SLIDES) {
+  const own = picture(site, c.code, { prefer: 'commons' });
+  if (!own?.src) return [];
+  const record = site.images?.[c.code];
+  const out = [{ raw: own.src, src: own.external ? own.src : url(own.src), alt: own.alt || '', caption: record?.caption || null, credit: own.credit || null }];
+  for (const g of record?.gallery || []) {
     if (out.length >= max) break;
-    const p = picture(site, i.key);
-    if (!p?.src) continue;
-    // Not the same picture the hero is already showing.
-    if (out.some((s) => s.src === p.src)) continue;
+    if (!g.src || g.review?.state !== 'approved' || out.some((s) => s.raw === g.src)) continue;
     out.push({
-      src: p.external ? p.src : url(p.src),
-      caption: `${i.shortName || i.name}${i.city ? ` · ${i.city}` : ''}`,
-      credit: p.credit || null,
+      raw: g.src,
+      src: url(g.src),
+      alt: g.caption || '',
+      caption: g.caption || null,
+      credit: { text: `${g.author || 'Unknown'} · ${g.licence || 'Wikimedia Commons'}`, url: g.page },
     });
   }
   return out;
+}
+
+/** The hero's further slides: the country's list, less the picture the hero already shows. */
+function heroSlides(site, c, shown) {
+  return countrySlides(site, c)
+    .filter((s) => s.raw !== shown)
+    .slice(0, COUNTRY_SLIDES - 1)
+    .map(({ raw: _, ...slide }) => slide);
 }
 
 /** A country's position on the map: the middle of its own outline, as the
@@ -816,8 +839,8 @@ export function destination(site, c, { prev, next }) {
       region: c.region,
       title: c.name,
       lede: c.tagline,
-      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal } : null,
-      slides: pic ? heroSlides(site, publicCountry) : [],
+      image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: art.focal, caption: site.images?.[c.code]?.caption || null } : null,
+      slides: pic ? heroSlides(site, publicCountry, pic.src) : [],
       // No publishable photograph of this Destination, so the hero becomes the
       // designed empty state rather than a hero that lost its picture.
       variant: pic ? undefined : 'panel',

@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 30 September 2026 (late evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 1 October 2026 (morning).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,41 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
+
+## 1 October (morning): university photos beat placeholders; country carousels
+
+Owner, looking at Poland: placeholder cards are "clearly the worst option";
+the programme pages had images, and how a university pictures its degree is
+its choice. New rule (docs/COUNTRY_PIPELINE.md, ENRICH_BRIEF, IMAGE_STANDARD):
+an official photo needs only the quality floor (a photograph, ≥ 720 px,
+landscape, not the site template, unused); the critic picks among candidates
+and removes hard failures only (text slabs, logos, broken, duplicates,
+children). Also: country cards and country page heroes cycle 5 photos of the
+country (student life, nature, culture; never a university).
+- **Poland degree photos: 5 → 48 of 100** (43 official, critic 7.5 → 8).
+  `scripts/harvest-official-photos.mjs pl` read every degree page plus the
+  faculty pages an agent found (`official-pages-pl.jsonl`); 67 degrees had
+  candidates, 44 picked, one dropped (a children's event). The other 52 have
+  only text slabs (AMU's eight), banners, graphics or nothing: they keep the
+  designed backdrop.
+- **Country galleries:** 4 more Commons photos per country (5 for Denmark,
+  which now has its own hero): photo editor 7 → 8.5 (18 rejects replaced)
+  → 7.5 → 8.5 (3 more removed). Eight countries now lead with a stronger
+  photo; the US, Canada, Netherlands and Belgium heroes were university
+  buildings and are gone. 29 countries show 5 photos, six show 4, the UAE 3.
+  `scripts/import-country-gallery.mjs` stores, prunes and signs them from
+  `docs/research/country-gallery/picks.jsonl`; first-slide captions in
+  `hero-captions.json`.
+- **Carousel** (art director 6 → 7.5 → 8): `countrySlides()` in
+  src/pages/destinations.mjs feeds the tile and the country template's hero
+  (Denmark's hub too). Tiles turn one at a time while on screen, with dots;
+  the hero has a pause button and a caption from the first paint; reduced
+  motion stops both. Frames: docs/research/qa/country-gallery/carousel/.
+  Leftovers (non-blocking): count lines wrap on some tiles; no prev/next.
+
+**Next:** run the same official-photo recheck for every other country's
+photo-less degrees (~2,000 designed cards: harvest → page finder for
+admission-system links → critic picks → sign → gate), country by country.
 
 ## 30 September (late evening): ceiling raised to 65% weekly; finishing Europe
 
