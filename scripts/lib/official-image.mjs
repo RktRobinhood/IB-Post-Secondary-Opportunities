@@ -23,8 +23,13 @@
 import sharp from 'sharp';
 import { OFFICIAL_MAX_BYTES } from '../../src/lib/data.mjs';
 
-/** The narrowest official photograph accepted: a card is ~400 CSS px wide, so 960 px covers it at 2x, as a Commons master does. */
-export const MIN_WIDTH = 960;
+/**
+ * The narrowest official photograph accepted. A card is ~400 CSS px wide, so
+ * 720 px covers it at 1.8x. It was 960 (2x, as a Commons master); the owner
+ * decided on 1 October 2026 that the university's own picture beats the
+ * designed placeholder, and many programme pages publish theirs at 720-900 px.
+ */
+export const MIN_WIDTH = 720;
 
 /** Names the project; Commons and some institution servers answer a generic agent with 429. */
 export const UA = { 'User-Agent': 'ib-pathways/1.0 (IB Pathways Europe, school guidance site; degree-photo check) contact-via-github' };
@@ -43,7 +48,7 @@ function unescape(value) {
   return out;
 }
 
-/** Every image a page names as its share image or draws in an <img> or <source>, as absolute URLs. */
+/** Every image a page names as its share image or draws in an <img>, a <source> or a CSS background, as absolute URLs. */
 export function imagesOn(html, pageUrl) {
   const out = new Set();
   const add = (v) => { try { out.add(new URL(unescape(v), pageUrl).href); } catch {} };
@@ -62,6 +67,10 @@ export function imagesOn(html, pageUrl) {
       for (const part of [...list.split(/,\s+/), ...list.split(',')]) add(part.trim().split(/\s+/)[0]);
     }
   }
+  // A hero drawn as a CSS background, inline or through a lazy loader's
+  // data-bg, is the page showing that picture as much as an <img> is.
+  for (const [, value] of String(html).matchAll(/background(?:-image)?\s*:\s*url\(\s*(?:&quot;|["'])?([^"')&]+(?:&amp;[^"')&]+)*)(?:&quot;|["'])?\s*\)/gi)) add(value);
+  for (const [, value] of String(html).matchAll(/\sdata-(?:bg|background|background-image)\s*=\s*["']([^"']+)["']/gi)) add(value.replace(/^url\(\s*["']?|["']?\s*\)$/g, ''));
   return [...out];
 }
 

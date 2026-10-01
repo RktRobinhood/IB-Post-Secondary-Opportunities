@@ -95,10 +95,15 @@ that institution.
      (step 1 or 2) or has published it under an open licence. Never link or
      copy from a social-media CDN: those links expire and are not licensed
      for reuse.
-  An official photo is judged by the same critic rules: the discipline being
-  done, no legible text or logos, no stock "students with laptops" — a
-  university's marketing picture often is exactly that, so it has to earn
-  its place like any other.
+  An official photo is **not** held to the Commons taste rules (owner,
+  1 October 2026): how a university pictures its own degree is its choice,
+  and its picture, even a weak one, beats the designed placeholder. It must
+  pass the quality floor only: a real photograph (not a logo, a text slab
+  or a graphic), at least 720 px wide, landscape enough for 16:10, not the
+  school's site template, not used elsewhere. Where a page offers several,
+  the critic picks the most fitting; it does not veto the university's
+  choice. `node scripts/harvest-official-photos.mjs <cc>` collects the
+  candidates and a numbered sheet for every photo-less degree.
   Official line format: `{"scope": "school:<key>-<slug>", "officialUrl":
   "https://…", "sourcePage": "https://<the institution's page that shows
   it>", "why": "…", "cropNote": "…"}`. The importer checks the image is

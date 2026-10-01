@@ -256,7 +256,8 @@ check("a school's photograph heads only its own page and its own programmes' pag
       }
     }
   }
-  const heroOf = (f) => (fs.readFileSync(f, 'utf8').match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || null;
+  // The address as the browser reads it: an attribute escapes its `&`.
+  const heroOf = (f) => ((fs.readFileSync(f, 'utf8').match(/<div class="hero__media"[^>]*>\s*<img src="([^"]+)"/) || [])[1] || '').replace(/&amp;/g, '&') || null;
   // Every hero on the site, by the page it heads.
   const heroes = new Map();
   for (const f of htmlFiles(DIST)) {

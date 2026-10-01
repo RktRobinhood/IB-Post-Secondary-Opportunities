@@ -380,7 +380,7 @@ check('every official record links an https image, names the page that publishes
 const FIX = { url: 'https://www.example.edu/media/lab.jpg?w=1600&h=1000', page: 'https://www.example.edu/study/lab-science' };
 const verified = await (async () => {
   const jpeg = (width) => sharp({ create: { width, height: Math.round(width * 0.625), channels: 3, background: '#808080' } }).jpeg().toBuffer();
-  const [wide, narrow] = await Promise.all([jpeg(1200), jpeg(800)]);
+  const [wide, narrow] = await Promise.all([jpeg(1200), jpeg(640)]);
   const og = `<meta content="${FIX.url.replace(/&/g, '&amp;')}" property="og:image">`;
   const serve = (routes) => async (u) => {
     const r = routes[u];
@@ -404,7 +404,7 @@ check('the official-photo verification can see what it is for', () => {
   assert.deepEqual(verified.good.problems, [], 'rejects a wide image its page publishes');
   assert.equal(verified.good.width, 1200);
   assert.equal(verified.good.type, 'image/jpeg');
-  for (const [name, re] of [['unpublished', /does not show/], ['narrow', /800 px wide/], ['heavy', /ceiling/], ['notImage', /served as "text\/html"/], ['gone', /answers 404/]]) {
+  for (const [name, re] of [['unpublished', /does not show/], ['narrow', /640 px wide/], ['heavy', /ceiling/], ['notImage', /served as "text\/html"/], ['gone', /answers 404/]]) {
     assert.ok(verified[name].problems.some((p) => re.test(p)), `misses ${name}: ${verified[name].problems.join('; ') || 'no problem found'}`);
     assert.equal(verified[name].width, undefined, `${name} still returns a size to record`);
   }
@@ -415,6 +415,8 @@ check('the official-photo verification can see what it is for', () => {
     `<picture><source srcset="${path}?w=480 480w, ${path}?w=1600&amp;h=1000 1600w"></picture>`,
     `<img class="lazy" data-srcset="https://cdn.example.edu${path}?tr=w-400,h-250 400w" alt="">`,
     `<meta name="twitter:image" content="${FIX.url}">`,
+    `<div class="hero" style="background-image: url('${path}?w=1600')"></div>`,
+    `<section data-bg="${path}"></section>`,
   ]) assert.ok(publishedOn(page, FIX.page, FIX.url), `misses ${page}`);
   assert.equal(publishedOn('<a href="/media/lab.jpg">download</a>', FIX.page, FIX.url), null, 'counts a link as publishing it');
 });

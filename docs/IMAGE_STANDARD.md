@@ -183,7 +183,19 @@ and credited to it (`official: true` in `data/programme-images.json`). The
 importer records it only when the image actually appears on the named page.
 Social media is where to look, not where to link: an image is used only when
 the institution also serves it itself or has published it under an open
-licence.
+licence. Since 1 October 2026 (owner) an official degree photo needs only to
+pass the quality floor — a photograph, at least 720 px wide
+(`MIN_WIDTH` in `scripts/lib/official-image.mjs`), landscape, not the site
+template — because the university's own picture, even a weak one, beats the
+designed placeholder (docs/COUNTRY_PIPELINE.md).
+
+**Country galleries** (owner, 1 October 2026). A country's card and its
+page's hero cycle through up to five photographs: its hero, then the
+`gallery` on its `data/images.json` record — student life, nature, culture
+and the country's character, never a university (institutions have their
+own pages). `scripts/import-country-gallery.mjs` stores them from
+`docs/research/country-gallery/picks.jsonl` in this standard; a gallery
+photograph publishes only once approved.
 
 The subject-matter rules below *do* reach them, with one carve-out: the score
 floor does not, because an official image was never scored. It was not chosen

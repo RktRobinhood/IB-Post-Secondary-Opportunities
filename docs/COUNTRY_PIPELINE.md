@@ -32,16 +32,28 @@ Flickr, and uses social media only to find a picture the institution also
 serves itself. Official photos are linked, not copied, and pass the same
 critic (ENRICH_BRIEF, "When Commons is dry").
 
-The Portugal pilot (30 September) found **1 usable official photo for 19
-business, economics and computing degrees**: business-school sites serve stock
-portraits, campaign banners, ceremonies and panels, and computing pages serve
-laptops and code screens — all things the critic rejects. Run the ladder once
-per country, cheaply (programme pages and the news/press index), but do not
-expect it to close the gap. Those cards need a designed no-photo state in the
-programme-card template (issue #67), not more searching. The one official photo the pilot
-found, a real ISEG lecture room, was then rejected by the critic: nothing in
-it says the degree. A generic classroom or campus shot belongs on the school
-page, not a degree card.
+**The university's own picture beats the placeholder** (owner, 1 October
+2026, after Poland showed placeholder cards where the programme pages had
+photos: "it is the universities' choice how they picture it"). For every
+degree still without a photo:
+
+1. `node scripts/harvest-official-photos.mjs <cc>` reads each degree's page
+   (and any extra pages in `docs/research/programme-images/official-pages-<cc>.jsonl`),
+   keeps the photographs that pass the quality floor (a photo, ≥ 720 px,
+   landscape, not the school's template, not used elsewhere, one copy per
+   picture by perceptual hash) and writes `official-candidates-<cc>.json`
+   plus a numbered contact sheet. `--why=<key part>` says why each image
+   on a page was dropped.
+2. Where the linked page is an admission system with no pictures, a
+   researcher lists the degree's faculty or programme page on the
+   university's own site in `official-pages-<cc>.jsonl`; re-run step 1.
+3. The photo critic **picks** one candidate per degree, or none only on a
+   hard failure (text slab, logo, graphic, broken, a duplicate). It does not
+   reject the university's taste. Picks become official lines in
+   `schools-<cc>.jsonl`; import, sign, gate as usual.
+
+The designed backdrop (#67) is the last resort, for degrees whose
+university publishes no usable photograph at all.
 
 Stages 2 and 3 can run in one agent (one country, its own files). The owner
 cares most about how the cards look, so an agent that has to choose does the
