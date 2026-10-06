@@ -10,6 +10,19 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
 
+## 6 October (evening): the globe in levels — in progress on branch `globe-levels`
+
+Owner: the home globe "has too many granular zoom settings"; wants world →
+continent → country → university, lined up with the templates, no street
+level, an aesthetic pass, and both critics (art + functionality) at 8+.
+Built on branch `globe-levels` (not on main yet). Round 1: art 6/10,
+functionality 5/10; the fixes since are listed in
+`docs/research/qa/globe-levels/notes.md` (e.g. pin clicks 0/233 wrong, was
+~50%). 52 universities given sourced places (`places-log.md`).
+**Next:** shoot round 2 (`docs/research/qa/globe-levels/shoot.mjs`), both
+critics again, iterate to 8+, then gate, merge to main, push, check deploy.
+Paused at 71% of the 5-hour window.
+
 ## 1 October (morning): university photos beat placeholders; country carousels
 
 Owner, looking at Poland: placeholder cards are "clearly the worst option";
