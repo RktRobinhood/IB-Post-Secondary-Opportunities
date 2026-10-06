@@ -189,6 +189,9 @@ export function schoolsOf(site, c) {
            does; the card names it. */
         name: globeName(i),
         lat: at.lat, lon: at.lon, href: i.href, city: typeof i.city === 'string' ? i.city : '',
+        // The catalogue's id, which a degree's institutionId names: the home
+        // page's filters light a university by its degrees (globe levels).
+        inst: i.canonicalId || i.id || i.key || '',
         image: pic && !pic.external ? pic.src : '',
       };
     })
@@ -471,7 +474,7 @@ ${mapPlaces.length
           unit: 'institution',
           poster: '/assets/img/globe/poster-index-countries.webp',
           activeLayer: 'Destinations covered',
-          caption: 'Each light is a country. Follow one, or read the list above.',
+          caption: 'Choose a continent, then a country, then a university.',
         })}
       </div>
     </section>`

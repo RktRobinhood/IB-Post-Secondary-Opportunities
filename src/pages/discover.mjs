@@ -9,6 +9,7 @@ import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf, countryPicture } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
 import { isEnglishStudyOption } from '../lib/schools.mjs';
+import { continentOf } from '../lib/continents.mjs';
 
 /**
  * The discovery surface: the home page's globe, the three distances, a few
@@ -190,8 +191,12 @@ export function discoverSection(site) {
   // Every Destination without a mapped degree is a light too, so "Explore"
   // swings out to somewhere rather than to an empty planet. Its light goes to
   // its own page.
-  const countryLights = tiles
-    .filter((c) => !withDegrees.has(c.code))
+  /* The globe's levels (the owner, 6 October 2026): every Destination is one
+     light, holding its universities, whether its degrees are mapped one by
+     one or not — continent, then country, then university, as the templates
+     go. The ones with no mapped degree are also the "doors" the filters
+     light by country. */
+  const allLights = tiles
     .map((c) => ({ c, pos: centroid(c) }))
     .filter((x) => x.pos)
     .map(({ c, pos }) => ({
@@ -209,11 +214,12 @@ export function discoverSection(site) {
       // A door: a country with no degree on this page. Its light counts
       // institutions, never degrees, and a group of doors says how many
       // countries it holds (#53 round 1).
-      door: true,
+      door: !withDegrees.has(c.code),
       schools: schoolsOf(site, c),
       state: depthLabel(site, c),
       image: (() => { const p = countryPicture(site, c); return p && !p.external ? p.src : ''; })(),
     }));
+  const countryLights = allLights.filter((l) => l.door);
 
   /* The three distances, as ways to move the globe. Each frames what it names:
      the school's country, the rest of Europe's Destinations, or everything. */
@@ -228,7 +234,15 @@ export function discoverSection(site) {
   };
   const presetView = {
     here: hereCode ? { country: hereCode } : null,
-    nearby: (() => { const b = boundsOf(tiles.filter((c) => c.scope === 'europe' && c.code !== hereCode)); return b ? { bounds: b, label: 'Europe' } : null; })(),
+    /* Nearby is the continent the nearby countries share, when they share
+       one (the globe opens it into its countries); else their bounds. */
+    nearby: (() => {
+      const near = tiles.filter((c) => c.scope === 'europe' && c.code !== hereCode);
+      const continents = [...new Set(near.map((c) => continentOf(c)?.id || ''))];
+      if (near.length && continents.length === 1 && continents[0]) return { region: continents[0], label: continentOf(near[0]).name };
+      const b = boundsOf(near);
+      return b ? { bounds: b, label: 'Europe' } : null;
+    })(),
     /* Worldwide turns the desk globe to where the faraway lights weigh most:
        the mean of the far Destinations on the sphere, each weighted by the
        institutions its light stands for. Turning to the single biggest one
@@ -324,11 +338,11 @@ export function discoverSection(site) {
 
     <div class="discover__globe" id="prog-map">
       ${worldWindow({
-        places: [...Object.values(placeIndex), ...countryLights],
+        places: allLights,
         id: 'discover-map',
-        unit: 'degree',
-        activeLayer: 'Where the degrees are',
-        caption: 'Choose a place to see its degrees.',
+        unit: 'programme',
+        activeLayer: 'Where the universities are',
+        caption: 'Choose a continent, then a country, then a university.',
         foldList: 'All places',
         poster: DISCOVER_POSTER,
       })}
@@ -374,6 +388,9 @@ export function discoverSection(site) {
   // many institutions it has, so a scope can light them and a filter dim them.
   // Its name too, for the chip a choice of it on the globe leaves (#62).
   lights: Object.fromEntries(countryLights.map((l) => [l.id, { s: scopeOf(l.id), n: l.count, t: l.name.replace(/^\p{RI}{2}\s*/u, '') }])),
+  // Every Destination on the globe and how far it is, so a distance or a
+  // country chosen lights all its universities until a filter asks about degrees.
+  scopes: Object.fromEntries(allLights.map((l) => [l.id, scopeOf(l.id)])),
   // The site's guides, so a search with no degree can hand over to one.
   guides: (site.topicList || []).map((t) => ({ t: t.navLabel || t.title, h: url(`/guides/${slugify(t.slug || t.title || 'guide')}/`) })).filter((g) => g.t),
 }).replace(/</g, '\\u003c'))}</script>

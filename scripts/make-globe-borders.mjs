@@ -26,10 +26,13 @@ const URL50 = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ma
 const CACHE = path.join(ROOT, '.cache', 'geo', 'ne50m.geojson');
 const OUT = path.join(ROOT, 'src', 'assets', 'geo', 'borders-50m.json');
 
-/** Degrees, ~5 km. Finer than the day texture resolves (~20 km a texel). */
-const TOLERANCE = 0.05;
+/** Degrees, ~1.5 km. A country level frames a small country (Denmark) at a
+    few kilometres a pixel, and at 0.05° its islands were triangles (globe
+    levels round 1, 6 October 2026): 742 KB raw, 259 KB gzip, fetched only
+    once the camera comes down to a country. */
+const TOLERANCE = 0.015;
 /** Square degrees. Islands smaller than this are dropped. */
-const MIN_AREA = 0.02;
+const MIN_AREA = 0.006;
 
 function simplifyRing(ring, tolerance) {
   const open = ring.slice(0, -1);

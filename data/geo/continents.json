@@ -1,0 +1,11 @@
+{
+  "$comment": "The globe's top level (the owner, 6 October 2026): one bubble per continent, which opens into one node per country. A Destination's continent is read from its own record: the first entry whose `regions` names the record's `region`, else the first whose `scopes` names its `scope`. A vocabulary of words the records already use, so a new Destination needs no code. src/lib/continents.mjs reads it.",
+  "continents": [
+    { "id": "north-america", "name": "North America", "regions": ["North America", "Central America", "Caribbean"] },
+    { "id": "south-america", "name": "South America", "regions": ["South America", "Latin America"] },
+    { "id": "africa", "name": "Africa", "regions": ["Africa", "North Africa", "West Africa", "East Africa", "Southern Africa", "Sub-Saharan Africa"] },
+    { "id": "asia", "name": "Asia", "regions": ["East Asia", "Southeast Asia", "South Asia", "Central Asia", "Gulf", "Middle East", "Asia-Pacific"] },
+    { "id": "oceania", "name": "Oceania", "regions": ["Oceania"] },
+    { "id": "europe", "name": "Europe", "scopes": ["europe"] }
+  ]
+}

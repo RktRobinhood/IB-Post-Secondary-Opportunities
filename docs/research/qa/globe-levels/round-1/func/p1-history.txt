@@ -1,0 +1,35 @@
+on levels
+world              world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=2 | /?map=globe | count=67 programmes
+click europe       region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=3 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+click dk           country/europe/dk | trail="WorldEuropeDenmark" | card=Denmark — Open the Denmark page→ [14 universities · 51 programmes] /denmark/ | pins=14 dim=0 | nodes=2 | alt=0.15 close=failed/false reset=true +false -true | hlen=4 | /?where=dest%3Adk#country=dk | count=51 of 67 programmes Anywhere in Denmark ×
+click pin dk-aau   country/europe/dk | trail="WorldEuropeDenmark" | card=Aalborg University — Open Aalborg University→ [4 programmes · Aalborg] /universities/dk-aau/ | pins=14 dim=0 | nodes=2 | alt=0.15 close=failed/false reset=true +false -true | hlen=5 | /?where=inst%3Adk-aau#place=dk-aau | count=4 of 67 programmes Aalborg University ×
+back 1             country/europe/dk | trail="WorldEuropeDenmark" | card=Denmark — Open the Denmark page→ [14 universities · 51 programmes] /denmark/ | pins=14 dim=0 | nodes=2 | alt=0.15 close=failed/false reset=true +false -true | hlen=5 | /?where=dest%3Adk#country=dk | count=51 of 67 programmes Anywhere in Denmark ×
+back 2             region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=5 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+back 3             world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=5 | /?map=globe | count=67 programmes
+fwd 1              region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=5 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+fwd 2              country/europe/dk | trail="WorldEuropeDenmark" | card=Denmark — Open the Denmark page→ [14 universities · 51 programmes] /denmark/ | pins=14 dim=0 | nodes=2 | alt=0.15 close=failed/false reset=true +false -true | hlen=5 | /?where=dest%3Adk#country=dk | count=51 of 67 programmes Anywhere in Denmark ×
+fwd 3              country/europe/dk | trail="WorldEuropeDenmark" | card=Aalborg University — Open Aalborg University→ [4 programmes · Aalborg] /universities/dk-aau/ | pins=14 dim=0 | nodes=2 | alt=0.15 close=failed/false reset=true +false -true | hlen=5 | /?where=inst%3Adk-aau#place=dk-aau | count=4 of 67 programmes Aalborg University ×
+logs []
+on levels
+deeplink #country=jp country/asia/jp | trail="WorldAsiaJapan" | card=Japan — Open the Japan page→ [14 universities] /destinations/jp/ | pins=14 dim=0 | nodes=1 | alt=0.347 close=failed/false reset=true +false -true | hlen=6 | /?map=globe#country=jp | count=67 programmes
+on levels
+deeplink #region=asia world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=7 | /?map=globe#region=asia | count=67 programmes
+on levels
+deeplink #place=dk-baaa world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=8 | /?map=globe#place=dk-baaa | count=67 programmes
+on levels
+deeplink #country=sg world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=9 | /?map=globe#country=sg | count=67 programmes
+on levels
+deeplink #country=hk world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=10 | /?map=globe#country=hk | count=67 programmes
+on levels
+deeplink #country=mt world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=11 | /?map=globe#country=mt | count=67 programmes
+on levels
+deeplink #country=lu world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=12 | /?map=globe#country=lu | count=67 programmes
+on levels
+deeplink #region=north-america world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=13 | /?map=globe#region=north-america | count=67 programmes
+on levels
+deeplink #country=ru world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=14 | /?map=globe#country=ru | count=67 programmes
+on levels
+deeplink #region=oceania world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=15 | /?map=globe#region=oceania | count=67 programmes
+on levels
+deeplink #country=au world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=16 | /?map=globe#country=au | count=67 programmes
+logs []

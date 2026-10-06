@@ -722,5 +722,52 @@ check('the globe does not branch on a country', () => {
   });
 }
 
+/* --- Levels (the owner, 6 October 2026) ------------------------------------
+ *
+ * "The globe has too many granular zoom settings and gets quite confused."
+ * A page of whole countries reads the globe in levels — continent, country,
+ * university — lined up with the templates, and stops at the country. */
+{
+  console.log('\nLevels\n');
+  const { continentOf } = await import('../src/lib/continents.mjs');
+  const continentsSrc = fsSync.readFileSync(path.join(ROOT, 'src', 'lib', 'continents.mjs'), 'utf8');
+  const discoverSrc = fsSync.readFileSync(path.join(ROOT, 'src', 'pages', 'discover.mjs'), 'utf8');
+  const levelsSrc = (globeJs.match(/\/\* --- Levels \(the owner[\s\S]*?const lv = /) || [''])[0]
+    + (globeJs.match(/\/\* --- Levels: choosing and stepping[\s\S]*?\n  function layoutLevels\(\)[\s\S]*?\n  \}\n/) || [''])[0];
+  check('every Destination record names a continent the vocabulary knows', () => {
+    const missing = [];
+    for (const dir of ['destinations']) {
+      for (const f of fsSync.readdirSync(path.join(ROOT, 'data', dir)).filter((x) => x.endsWith('.json'))) {
+        const d = JSON.parse(fsSync.readFileSync(path.join(ROOT, 'data', dir, f), 'utf8'));
+        if (!continentOf(d)) missing.push(`${dir}/${f} (region ${JSON.stringify(d.region)}, scope ${JSON.stringify(d.scope)})`);
+      }
+    }
+    assert.deepEqual(missing, [], 'these records name no continent the globe can open: add their region to data/geo/continents.json');
+  });
+  check('the levels read continents from the records and name none (nor any country)', () => {
+    assert.ok(levelsSrc.length > 2000, 'the levels code was not found in globe.js');
+    const named = /['"`](europe|asia|africa|oceania|north-america|south-america|Europe|Asia|Africa|Oceania)['"`]/.exec(levelsSrc + continentsSrc);
+    assert.equal(named, null, `a continent is named in code: ${named?.[0]}`);
+    assert.match(globeJs, /const continentOfCode = \(code\) => pages\.get\(code\)\?\.continent/, "a light's continent no longer comes from the Destination records");
+  });
+  check('a levels page stops at the country: no close map, no street level', () => {
+    assert.match(globeJs, /function ensureClose\(\) \{[\s\S]{0,160}if \(levels\) \{ closeState = 'failed'; return Promise\.resolve\(null\); \}/, 'a levels page can load the close map');
+  });
+  check('a continent opens into one node per country, and a country into one pin per university', () => {
+    assert.match(globeJs, /kind: 'country', key: `c:\$\{p\.country\}`/, 'countries no longer get a node each at the continent level');
+    assert.match(globeJs, /for \(const q of p\.subs\) out\.push\(\{ kind: 'school'/, 'a chosen country no longer opens into its universities');
+    assert.match(globeJs, /function relax\(items/, 'overlapping nodes are no longer nudged apart (they would have to group)');
+  });
+  check('the wheel, a pinch and + / − step a level, one per gesture', () => {
+    assert.match(globeJs, /if \(levels\) \{ wheelStep\(e\); return; \}/, 'the wheel slides through altitudes on a levels page');
+    assert.match(globeJs, /if \(levels\) \{ levelStep\(f < 1 \? 1 : -1\); return; \}/, '+ and − slide through altitudes on a levels page');
+    assert.match(globeJs, /held < 900/, 'one swipe of the wheel can take two steps');
+  });
+  check('the home page gives the globe one light per Destination, holding its universities by catalogue id', () => {
+    assert.match(discoverSrc, /places: allLights,/, 'the home globe is no longer one light per Destination');
+    assert.match(worldWindowSrc, /inst: s\.inst/, "a university's catalogue id no longer reaches the globe, so filters cannot light it");
+  });
+}
+
 console.log(failures ? `\n${failures} failing\n` : '\nAll map guards pass\n');
 process.exit(failures ? 1 : 0);

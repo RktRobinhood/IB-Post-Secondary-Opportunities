@@ -31,6 +31,7 @@ import { motionCss } from './lib/motion.mjs';
 import { execFileSync } from 'node:child_process';
 import { summarise as summariseEvidence } from './lib/evidence-policy.mjs';
 import { destinationFacet } from './lib/canonical.mjs';
+import { continentOf } from './lib/continents.mjs';
 
 const SCHEMA_VERSION = '1.0';
 
@@ -363,6 +364,11 @@ async function main() {
         const p = tile ? countryPicture(site, tile) : null;
         return p && !p.external ? url(p.src) : '';
       })(),
+      /* Its one-line hook, for its postcard on the globe. */
+      tagline: d.tagline || placeTiles(site).find((t) => t.code === d.code)?.tagline || '',
+      /* The globe's top level: the continent its record puts it in. */
+      continent: continentOf(d)?.id || '',
+      continentName: continentOf(d)?.name || '',
     })))
   );
 

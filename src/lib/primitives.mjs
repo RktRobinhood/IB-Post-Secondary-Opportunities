@@ -144,6 +144,10 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
     // The list's order: the biggest first, as the lights were always drawn.
     .sort((a, b) => (b.count || 0) - (a.count || 0));
+  /* Whole countries, more than one, each holding its universities: the globe
+     reads it in levels (globe.js "Levels"), and the help says so. */
+  const levelsPage = dots.length > 1 && dots.every((d) => d.precision === 'region' && d.schools?.length)
+    && new Set(dots.map((d) => d.country)).size > 1;
 
   // How exactly this light is placed, in one phrase, written once. The pin
   // carries it and so does the list entry, because the reader who cannot hover
@@ -185,6 +189,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
                 lon: +s.lon.toFixed(4),
                 href: s.href ? url(s.href) : '',
                 city: s.city || '',
+                ...(s.inst && s.inst !== s.id ? { inst: s.inst } : {}),
                 ...(s.image ? { image: url(s.image) } : {}),
               })),
           }
@@ -239,9 +244,19 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       ${/* A page with doors counts two things — degrees at a place, institutions
             at a country's own light — so its legend names neither (#53 round
             2: "more degrees" under a card saying "14 institutions"). */
-        dots.some((d) => d.door) ? 'Bigger light, more to study there' : `Bigger light, more ${unit ? `${unit}s` : 'opportunities'}`}
+        levelsPage ? 'Each number counts universities' : dots.some((d) => d.door) ? 'Bigger light, more to study there' : `Bigger light, more ${unit ? `${unit}s` : 'opportunities'}`}
     </span>
     ${(() => {
+      /* A page of whole countries is read in levels (globe.js): continent,
+         country, university. Its help says how to move between them. */
+      if (levelsPage) {
+        const more = [
+          caption || 'Choose a continent, then a country, then a university.',
+          "A university's card opens its page; a country's card, the country's.",
+          '+ and − step a level in or out; drag to spin the globe.',
+        ];
+        return html`<details class="world__how"><summary>How to use the globe</summary>${more.map((t) => html`<span class="world__legend">${t}</span>`)}</details>`;
+      }
       /* One line for every hollow marker, however many kinds of place it
          stands for (round 4: two "Hollow markers" lines that disagreed). */
       const kinds = [...new Set(dots.filter((d) => cueFor(d)).map((d) => (d.precision === 'region' ? 'country' : 'city')))].sort();

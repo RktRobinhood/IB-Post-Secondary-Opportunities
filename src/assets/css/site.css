@@ -2896,6 +2896,11 @@ body.has-sheet { overflow: hidden; }
   .discover__presets .preset { flex: 1 1 0; min-width: 0; padding: .5rem .65rem; }
   .discover__presets .preset__title { font-size: 1rem; }
   .discover__globe .world__stage { height: min(34vh, 21rem); min-height: 16rem; }
+  /* Below the world level (a continent, a country) the stage grows nearly
+     square, so 26 countries or a country's universities have room (globe
+     levels round 1: a 250px letterbox). The world level keeps the first
+     photograph on the first screen. */
+  .discover__globe .world__stage[data-level]:not([data-level="world"]) { height: min(calc(100vw - 2rem), 62vh, 32rem); }
   .discover__results { padding-top: 0; }
   .discover__results .shell__bar { padding-block: var(--s2); }
   .discover__cards { margin-top: var(--s2); }
@@ -2978,6 +2983,11 @@ body.has-sheet { overflow: hidden; }
 }
 .discover__pill--low { top: auto; bottom: calc(var(--s4) + env(safe-area-inset-bottom, 0px)); }
 .discover__pill[hidden] { display: none; }
+/* While the globe's card is open on a phone, the card is the next step: the
+   count pill does not cover it (globe levels round 1). */
+@media (max-width: 43.99rem) {
+  body:has(.discover__globe .world > .world__card:not([hidden])) .discover__pill { display: none; }
+}
 .discover__card > .card { height: 100%; }
 .discover__empty, .discover__noscript { margin: var(--s4) 0; color: var(--ink-soft); }
 .discover__places-line { margin: var(--s6) 0 var(--s4); color: var(--ink-soft); font-weight: 600; }

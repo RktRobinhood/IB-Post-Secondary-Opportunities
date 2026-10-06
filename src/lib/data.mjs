@@ -640,7 +640,10 @@ export function countryOutline(code) {
 
 function degreesOutside(lat, lon, code) {
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
-  const country = basemap().countries.find((c) => c.id === code);
+  /* The finer outline when there is one: the 110m basemap has no Azores,
+     Madeira or Canaries, so a real island campus read as 16° adrift. */
+  const fine = countryOutline(code);
+  const country = fine.length ? { rings: fine } : basemap().countries.find((c) => c.id === code);
   if (!country) return null;
 
   let best = Infinity;

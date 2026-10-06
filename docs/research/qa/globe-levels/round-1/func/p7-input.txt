@@ -1,0 +1,60 @@
+A load                             world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+A first click on land (Russia?)    country//ru | trail="WorldRussia" | card=Russia [Nothing on this map here yet.]  | pins=0 dim=0 | nodes=2 | alt=2.187 close=failed/false reset=true +false -true | hlen=50 | /?map=globe#country=ru | count=67 programmes
+A second click same spot           country//ru | trail="WorldRussia" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=2.187 close=failed/false reset=true +false -true | hlen=50 | /?map=globe#country=ru | count=67 programmes
+B wheel-in, not engaged (scrollY 1->0) world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+B ctrl+wheel (trackpad pinch) in   region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+B long pinch-in gesture (1.5 s)    country/europe/de | trail="WorldEuropeGermany" | card=Germany — Open the Germany page→ [8 universities] /destinations/de/ | pins=8 dim=0 | nodes=9 | alt=0.201 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Ade#country=de | count=Germany researched, no programme mapped yet Germany ×
+B two swipes out 0.5 s apart       world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | / | count=67 programmes
+B wheel out at world               world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | / | count=67 programmes
+B hint                             (none)
+C dblclick Europe bubble           region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+C dblclick bare land (India-ish)   region/asia/ | trail="WorldAsia" | card=null [null]  | pins=0 dim=0 | nodes=7 | alt=2.341 close=failed/false reset=true +true -true | hlen=50 | /?area=ae%2Ccn%2Chk%2Cjp%2Ckr%2Csg#region=asia | count=6 countries researched On the globe: 6 countries ×
+C two clicks 280ms apart on land   world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+D Europe then Asia 250ms later     country/asia/cn | trail="WorldAsiaChina" | card=China — Open the China page→ [9 universities] /destinations/cn/ | pins=9 dim=0 | nodes=3 | alt=1.481 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Acn#country=cn | count=China researched, no programme mapped yet China ×
+D history len                      50
+D back                             region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+E click a country node mid-flight  region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=2.756 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F Tab presses to reach the stage: 14 world__stage Where the universities are, on a globe. Arrow keys turn it, plus and minus zoom, zero returns to the whole view. Every place is also in the list below.
+F key +                            region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F key +                            country/europe/de | trail="WorldEuropeGermany" | card=Germany — Open the Germany page→ [8 universities] /destinations/de/ | pins=8 dim=0 | nodes=9 | alt=0.201 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Ade#country=de | count=Germany researched, no programme mapped yet Germany ×
+F key +                            country/europe/de | trail="WorldEuropeGermany" | card=Germany — Open the Germany page→ [8 universities] /destinations/de/ | pins=8 dim=0 | nodes=9 | alt=0.201 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Ade#country=de | count=Germany researched, no programme mapped yet Germany ×
+F key Escape                       country/europe/de | trail="WorldEuropeGermany" | card=null [null]  | pins=8 dim=0 | nodes=9 | alt=0.201 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Ade#country=de | count=Germany researched, no programme mapped yet Germany ×
+F key Escape                       region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F key Escape                       world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | / | count=67 programmes
+F key Escape                       world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | / | count=67 programmes
+F key +                            region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F key ArrowRight                   region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=25 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F key ArrowRight                   region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=23 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F key -                            world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | / | count=67 programmes
+F key +                            region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: 26 countries ×
+F key +                            country/europe/de | trail="WorldEuropeGermany" | card=Germany — Open the Germany page→ [8 universities] /destinations/de/ | pins=8 dim=0 | nodes=9 | alt=0.201 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Ade#country=de | count=Germany researched, no programme mapped yet Germany ×
+F key 0                            world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=2 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | / | count=67 programmes
+F focus after                      world__stage
+G pin tabindex/role sample         -1: -1: -1: -1: -1:
+G focusables in the figure         43 focusables: World | Europe | + | − | × | Denmark — Open the Denmark pag | Imagery: NASA | United Kingdom
+          16
+   | Netherlands
+          15
+      | Canada
+          14
+           | Australia
+          14
+        | Japan
+          14
+          . | United Arab Emirates
+          | China
+          9
+          .  | Ireland
+          14
+          | South Korea
+          14
+      | Poland
+          13
+           | United States
+          14
+    | Denmark
+          14
+          | Czechia
+          13
+         
+logs []

@@ -159,22 +159,37 @@ const world = enhanceWorld(els.map?.querySelector('.world'));
 function paintMap(near = null) {
   if (!world) return;
   const counts = new Map();
+  /* The globe's own choice (a country, a university, a continent) narrows
+     the cards, not the globe: its neighbours keep their numbers, so the next
+     choice is still in view. Filters and distances re-weight it. */
+  const st = { ...state };
+  for (const k of ['place', 'where', 'area']) if (fromGlobe[k]) st[k] = '';
   // The degrees on show: the matches, or the ones near a word that matched none.
   // Counted in cards, as the count under the globe is (#52, #62): a card of
   // several paths at one place is one there.
-  const lit = near?.size ? [...near.values()] : CARDS.map((c) => c.members.filter((m) => matches(m)));
-  for (const hits of lit) for (const p of new Set(hits.map((m) => m.p).filter(Boolean))) counts.set(p, (counts.get(p) || 0) + 1);
+  const lit = near?.size ? [...near.values()] : CARDS.map((c) => c.members.filter((m) => matches(m, st)));
+  // By place, and by university: the globe's levels light a university by
+  // its degrees (its catalogue id, `i`).
+  for (const hits of lit) {
+    for (const p of new Set(hits.map((m) => m.p).filter(Boolean))) counts.set(p, (counts.get(p) || 0) + 1);
+    for (const i of new Set(hits.map((m) => m.i).filter(Boolean))) counts.set(i, (counts.get(i) || 0) + 1);
+    // And by country, a card once (#52): the globe's country card says what the list says.
+    for (const d of new Set(hits.map((m) => m.d).filter(Boolean))) counts.set(`deg:${d}`, (counts.get(`deg:${d}`) || 0) + 1);
+  }
   // A Destination with no mapped degree stays lit until a filter asks about
   // degrees; then it has nothing to match and dims with the rest. A choice
   // of where (a distance, a country, a group on the globe) keeps lit the
   // ones it names.
-  if (!degreeAsked()) {
-    const area = state.area ? state.area.split(',') : null;
-    for (const [id, l] of Object.entries(LIGHTS)) {
-      if (state.scope && l.s !== state.scope) continue;
-      if (state.where && state.where !== `dest:${id}`) continue;
+  if (!degreeAsked(st)) {
+    const area = st.area ? st.area.split(',') : null;
+    // Every Destination on the globe, mapped degrees or not: its universities
+    // are all there to look at until a filter asks about degrees.
+    const scopes = DATA.scopes || Object.fromEntries(Object.entries(LIGHTS).map(([id, l]) => [id, l.s]));
+    for (const [id, s] of Object.entries(scopes)) {
+      if (st.scope && s !== st.scope) continue;
+      if (st.where && st.where !== `dest:${id}`) continue;
       if (area && !area.includes(id)) continue;
-      counts.set(id, l.n || 1);
+      counts.set(id, LIGHTS[id]?.n || 1);
     }
   }
   world.setCounts(counts, { selected: state.place });
@@ -190,6 +205,8 @@ function frame(scope) {
   try { view = JSON.parse(btn?.dataset.view || '{}'); } catch { /* none */ }
   if (!scope || view.reset) { g.reset(); return; }
   if (view.country) g.show({ country: view.country }, { push: false });
+  // Nearby: the continent, opened into its countries.
+  else if (view.region && g.show({ region: view.region, label: view.label }, { push: false })) { /* shown */ }
   else if (view.bounds) g.show({ bounds: view.bounds, label: view.label }, { push: false });
   // Worldwide: a camera turned to the faraway door with the most institutions.
   else if (view.camera) g.show({ camera: view.camera, label: view.label }, { push: false });
@@ -223,6 +240,12 @@ world?.figure.addEventListener('world:choose', (e) => {
     state.place = d.id;
     fromGlobe.place = true;
     keepScope([PLACES[d.id].country]);
+  } else if (d.kind === 'place' && d.inst && CARDS.some((c) => c.members.some((m) => m.i === d.inst))) {
+    // A university chosen on the globe: its degrees.
+    clearGlobeChoice();
+    state.where = `inst:${d.inst}`;
+    fromGlobe.where = true;
+    keepScope([d.country]);
   } else if (d.kind === 'country' && (hasCards(d.id) || LIGHTS[d.id])) {
     if (state.scope === 'here' && CARDS.some((c) => c.members.some((m) => m.d === d.id && m.s === 'here'))) return;
     clearGlobeChoice();
@@ -231,16 +254,19 @@ world?.figure.addEventListener('world:choose', (e) => {
     state.place = '';
     fromGlobe.where = true;
     keepScope([d.id]);
-  } else if (d.kind === 'view' && d.nations?.length) {
-    // A group dived into: the cards of the countries it holds (#62).
+  } else if ((d.kind === 'view' || d.kind === 'region') && d.nations?.length) {
+    // A group dived into, or a continent opened: the cards of the countries it holds (#62).
     const known = d.nations.filter((c) => hasCards(c) || LIGHTS[c]);
     if (!known.length) return;
+    if (d.kind === 'region' && d.name) AREA_NAMES.set(known.join(','), d.name);
     clearGlobeChoice();
     state.area = known.join(',');
     fromGlobe.area = true;
     keepScope(known);
   } else if (!d.kind) {
     clearGlobeChoice();
+    // The globe's "World": the whole view, so no distance either.
+    if (d.reset && state.scope) state.scope = '';
   } else {
     return;
   }
@@ -262,7 +288,11 @@ world?.figure.addEventListener('world:select', (e) => {
 
 const LABELS = { q: 'Search', field: 'Subject', where: 'Where', place: 'Place', area: 'On the globe', award: 'IB award', open: 'Open entry', nomath: 'No Maths HL needed', scope: 'Distance' };
 
+/* A continent chosen on the globe is named by its name, not counted (globe
+   levels round 1: "26 countries" beside a door saying 25). */
+const AREA_NAMES = new Map();
 function chosenLabel(key, value) {
+  if (key === 'area' && AREA_NAMES.has(value)) return `${LABELS.area}: ${AREA_NAMES.get(value)}`;
   if (key === 'area') {
     const codes = value.split(',');
     return `${LABELS.area}: ${codes.length <= 2 ? codes.map(destName).join(', ') : plural(codes.length, 'country', 'countries')}`;
@@ -597,7 +627,11 @@ addEventListener('popstate', (e) => {
   const scopeBefore = state.scope;
   readUrl();
   if (query() === before) return;
-  fromGlobe = { ...NONE };
+  /* An entry the globe made (#country=…, #place=…, #region=…) narrowed the
+     cards by its choice: that narrowing is the globe's again, not a filter
+     that re-weights the globe. */
+  const globeEntry = /^#(place|country|region|view)=/.test(location.hash);
+  fromGlobe = { ...NONE, where: globeEntry && !!state.where, area: globeEntry && !!state.area };
   syncControls();
   render();
   if (state.scope !== scopeBefore) {
