@@ -1,0 +1,250 @@
+{
+  "institution": "hk-hku",
+  "name": "The University of Hong Kong",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Pokfulam university incorporated in 1911 with 152 listed undergraduate programmes taught in English; 17 residential halls and colleges.",
+  "courses": 152,
+  "handoff": {
+    "label": "Undergraduate programmes",
+    "url": "https://admissions.hku.hk/programmes/undergraduate-programmes"
+  },
+  "ib": {
+    "text": "Set per programme: an expected IB total from 34 (most arts, science, engineering) to 43 (MBBS), plus subject grades; English A 5 or English B 6. Many programmes interview shortlisted applicants.",
+    "url": "https://admissions.hku.hk/apply/international-qualifications"
+  },
+  "apply": {
+    "via": "HKU application system (direct)",
+    "url": "https://admissions.hku.hk/apply/international-qualifications"
+  },
+  "dates": [
+    {
+      "label": "Applications open (2027 entry)",
+      "date": "2026-09-23",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admissions.hku.hk/apply/international-qualifications"
+    },
+    {
+      "label": "First round: application in by noon Hong Kong time",
+      "date": "2026-11-25",
+      "kind": "early",
+      "short": "First round",
+      "who": "any",
+      "url": "https://admissions.hku.hk/apply/international-qualifications"
+    },
+    {
+      "label": "First round: predicted grades typed in and documents uploaded",
+      "date": "2026-12-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://admissions.hku.hk/apply/international-qualifications"
+    },
+    {
+      "label": "Applications close at noon Hong Kong time",
+      "date": "2027-08-25",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admissions.hku.hk/apply/international-qualifications"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Bachelor of Dental Surgery",
+      "credential": "Bachelor of Dental Surgery",
+      "years": 6,
+      "field": "health",
+      "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-dental-surgery",
+      "requirementsUrl": "https://admissions.hku.hk/apply/international-qualifications",
+      "code": "6107",
+      "about": "Six years to become a dentist, mostly in clinics and the dental teaching hospital in Hong Kong, with hands-on training in medical and surgical settings across the city. The degree is registrable with the Dental Council of Hong Kong.",
+      "ib": "Two of HL Biology, HL Chemistry and HL Maths (AA or AI) at grade 6; personal statement and interview. The faculty limits non-local places.",
+      "needs": [
+        {
+          "anyOf": ["biology", "chemistry", "mathematics-aa", "mathematics-ai"],
+          "level": "HL",
+          "grade": 6,
+          "note": "Two of these HL subjects at 6; Maths AA and AI count once"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "SL",
+          "grade": 5,
+          "note": "English B needs grade 6, at SL or HL"
+        }
+      ],
+      "points": 41,
+      "selection": ["grades", "interview", "motivation"],
+      "selectionNote": "41 is the expected lower boundary. Interviews for international applicants run in late January 2027; non-local places are restricted, so apply early.",
+      "places": 90,
+      "tuitionEuEea": "HK$590,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Bachelor of Dental Surgery: taught in the city's dental teaching hospital (programme page)",
+        "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-dental-surgery"
+      }
+    },
+    {
+      "name": "Bachelor of Medicine and Bachelor of Surgery",
+      "credential": "Bachelor of Medicine and Bachelor of Surgery",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-medicine-and-bachelor-of-surgery",
+      "requirementsUrl": "https://admissions.hku.hk/apply/international-qualifications",
+      "code": "6456",
+      "about": "Six years of medicine built on small-group problem-based tutorials, early clinical exposure and community placements in clinics, hospices and maternal and child health services, ending in an assistant internship.",
+      "ib": "HL Biology or HL Chemistry at grade 4 and a good working knowledge of Chinese; interview. English A 5 or English B 6.",
+      "needs": [
+        {
+          "anyOf": ["biology", "chemistry"],
+          "level": "HL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "SL",
+          "grade": 5,
+          "note": "English B needs grade 6, at SL or HL"
+        }
+      ],
+      "points": 43,
+      "selection": ["grades", "interview"],
+      "selectionNote": "43 is the expected lower boundary. Interviews for shortlisted international applicants are tentatively set from December 2026 to August 2027; first-choice candidates are favoured.",
+      "places": 300,
+      "tuitionEuEea": "HK$590,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "MBBS: problem-based small-group tutorials and early clinical exposure (programme page)",
+        "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-medicine-and-bachelor-of-surgery"
+      }
+    },
+    {
+      "name": "Bachelor of Science in Surveying",
+      "credential": "BSc",
+      "years": 4,
+      "field": "design-architecture",
+      "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-science-surveying",
+      "requirementsUrl": "https://admissions.hku.hk/apply/international-qualifications",
+      "code": "6016",
+      "about": "Four years across land development: land administration, property development, construction management, real estate finance, facility management and conservation, with studio work and the chance of an internship or a semester of exchange.",
+      "ib": "No set subjects; English A 5 or English B 6 and an interview.",
+      "needs": [
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "SL",
+          "grade": 5,
+          "note": "English B needs grade 6, at SL or HL"
+        }
+      ],
+      "points": 34,
+      "selection": ["grades", "interview"],
+      "selectionNote": "34 is the expected lower boundary. Interviews for international applicants are in December 2026 and mid-April 2027; IB Diploma holders get 24 credits of advanced standing.",
+      "places": 42,
+      "tuitionEuEea": "HK$250,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "BSc(Surveying): integrated across six surveying divisions, accredited by HKIS and RICS (programme page)",
+        "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-science-surveying"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Architecture",
+      "url": "https://www.arch.hku.hk/admissions/admission-by-programmes/",
+      "line": "34 IB points and no set subjects; Architectural Studies and Landscape Studies add a portfolio or creative work by early December."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://arts.hku.hk/admissions/undergraduate-admissions/",
+      "line": "34 IB points and no set subjects for the BA (40 for the Elite Programme); shortlisted applicants are interviewed."
+    },
+    {
+      "name": "HKU Business School",
+      "url": "https://ug.hkubs.hku.hk/admission-key-date/non-jupas",
+      "line": "36 to 41 IB points; Maths and English grades are required, and Quantitative Finance asks Maths HL 7."
+    },
+    {
+      "name": "Faculty of Dentistry",
+      "url": "https://facdent.hku.hk/learning/undergraduate.php",
+      "line": "41 IB points with two HL subjects at 6 from Biology, Chemistry and Maths; the faculty limits non-local places."
+    },
+    {
+      "name": "Faculty of Education",
+      "url": "https://web.edu.hku.hk/programme/undergraduate",
+      "line": "34 to 37 IB points; the BEd-with-Science route needs Maths and a science at grade 4, speech therapy needs fluent Chinese."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://ugadmissions.engg.hku.hk/apply-overview/",
+      "line": "34 to 40 IB points; Maths at HL 5 (or AA SL 6) and an HL science at 5 (or SL at 6) for most degrees."
+    },
+    {
+      "name": "Faculty of Law",
+      "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-laws",
+      "line": "40 to 41 IB points; LLB wants 6 in every subject and 19 points from three HL subjects, with an interview."
+    },
+    {
+      "name": "Li Ka Shing Faculty of Medicine",
+      "url": "https://www.med.hku.hk/en/teaching-and-learning/undergraduate-studies",
+      "line": "MBBS 43 points with Biology or Chemistry HL 4 and working Chinese; nursing and pharmacy ask for working Cantonese."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.scifac.hku.hk/prospective",
+      "line": "34 IB points with Maths and one science each at grade 4; the Science Master Class asks 42 and grade 6 in Maths and an HL science."
+    },
+    {
+      "name": "Faculty of Social Sciences",
+      "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-social-sciences",
+      "line": "34 to 38 IB points and no set subjects for most degrees; Social Work adds an interview and a written test."
+    },
+    {
+      "name": "School of Computing and Data Science",
+      "url": "https://www.cds.hku.hk/prospective-students/undergraduate/",
+      "line": "37 to 39 IB points; Maths HL 6 (or SL 7) and a science, economics or computer science subject for most degrees."
+    },
+    {
+      "name": "School of Innovation",
+      "url": "https://i-school.hku.hk/programmes/undergraduate/",
+      "line": "34 IB points; Maths and a science or Design Technology subject at grade 4 (HL) or 5 (SL); shortlisted applicants are interviewed."
+    },
+    {
+      "name": "School of Future Media",
+      "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-journalism-media-and-artificial-intelligence",
+      "line": "34 IB points and no set subjects; Journalism, Media and AI asks for a personal statement, predicted scores and an interview."
+    },
+    {
+      "name": "School of Biomedical Engineering",
+      "url": "https://sbme.hku.hk/admissions/nonjupas",
+      "line": "36 IB points; Maths at HL 5 (or AA SL 6) and Biology, Chemistry or Physics at 5 (HL) or 6 (SL), with an interview."
+    }
+  ],
+  "notes": [
+    "Hong Kong has no EU rate: non-local tuition for 2027/28 is HK$250,000 for non-STEM faculties, HK$280,000 for STEM and HK$590,000 for MBBS and dentistry.",
+    "Type your predicted and final IB grades into HKU's own application system; an upload alone is not enough, so ask your IB coordinator in good time.",
+    "IB Diploma holders with seven years of secondary education can get advanced standing credits, set per programme (24 for Surveying, up to 30 for Computing and Data Science)."
+  ],
+  "sources": [
+    { "title": "HKU: International qualifications (admissions standards, important dates)", "url": "https://admissions.hku.hk/apply/international-qualifications", "retrieved": "2026-10-07" },
+    { "title": "HKU: Tuition and living expenses (2027/28)", "url": "https://admissions.hku.hk/fees-and-scholarships/tuition-and-living-expenses", "retrieved": "2026-10-07" },
+    { "title": "HKU: Undergraduate programmes (152 programmes)", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes", "retrieved": "2026-10-07" },
+    { "title": "HKU: Bachelor of Dental Surgery", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-dental-surgery", "retrieved": "2026-10-07" },
+    { "title": "HKU: Bachelor of Medicine and Bachelor of Surgery", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-medicine-and-bachelor-of-surgery", "retrieved": "2026-10-07" },
+    { "title": "HKU: Bachelor of Science in Surveying", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-science-surveying", "retrieved": "2026-10-07" },
+    { "title": "HKU: Computing and Data Science", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/computing-and-data-science", "retrieved": "2026-10-07" },
+    { "title": "HKU Faculty of Dentistry: Bachelor of Dental Surgery admissions", "url": "https://facdent.hku.hk/learning/undergraduate.php", "retrieved": "2026-10-07" },
+    { "title": "HKU Faculty of Architecture: Admission by programmes", "url": "https://www.arch.hku.hk/admissions/admission-by-programmes/", "retrieved": "2026-10-07" },
+    { "title": "HKU Faculty of Arts: Undergraduate admissions", "url": "https://arts.hku.hk/admissions/undergraduate-admissions/", "retrieved": "2026-10-07" },
+    { "title": "HKU Business School: Non-JUPAS applicants", "url": "https://ug.hkubs.hku.hk/admission-key-date/non-jupas", "retrieved": "2026-10-07" },
+    { "title": "HKU Faculty of Education: Undergraduate programmes", "url": "https://web.edu.hku.hk/programme/undergraduate", "retrieved": "2026-10-07" },
+    { "title": "HKU Faculty of Engineering: Apply overview", "url": "https://ugadmissions.engg.hku.hk/apply-overview/", "retrieved": "2026-10-07" },
+    { "title": "HKU: Bachelor of Laws", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-laws", "retrieved": "2026-10-07" },
+    { "title": "HKU Li Ka Shing Faculty of Medicine: Undergraduate studies", "url": "https://www.med.hku.hk/en/teaching-and-learning/undergraduate-studies", "retrieved": "2026-10-07" },
+    { "title": "HKU Faculty of Science: Prospective students", "url": "https://www.scifac.hku.hk/prospective", "retrieved": "2026-10-07" },
+    { "title": "HKU: Bachelor of Social Sciences", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-social-sciences", "retrieved": "2026-10-07" },
+    { "title": "HKU School of Computing and Data Science: Undergraduate", "url": "https://www.cds.hku.hk/prospective-students/undergraduate/", "retrieved": "2026-10-07" },
+    { "title": "HKU School of Innovation: Undergraduate programmes", "url": "https://i-school.hku.hk/programmes/undergraduate/", "retrieved": "2026-10-07" },
+    { "title": "HKU: Bachelor of Journalism, Media and Artificial Intelligence", "url": "https://admissions.hku.hk/programmes/undergraduate-programmes/bachelor-of-journalism-media-and-artificial-intelligence", "retrieved": "2026-10-07" },
+    { "title": "HKU School of Biomedical Engineering: Non-JUPAS admissions", "url": "https://sbme.hku.hk/admissions/nonjupas", "retrieved": "2026-10-07" },
+    { "title": "HKU: History", "url": "https://www.hku.hk/en/about-hku/history", "retrieved": "2026-10-07" }
+  ]
+}

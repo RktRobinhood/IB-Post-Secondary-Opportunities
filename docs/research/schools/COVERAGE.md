@@ -6,9 +6,9 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 
 ## Totals
 
-- Institutions with a record: **328 of 451** (73%); 215 listed, 61 catalogue, 52 none.
-- Degrees listed: **1686**; with programme detail (about and selection): **1686** (100%).
-- Degrees with a photograph of their own (#54): **417** (25%). The rest show their school's photo.
+- Institutions with a record: **409 of 451** (91%); 240 listed, 117 catalogue, 52 none.
+- Degrees listed: **1942**; with programme detail (about and selection): **1942** (100%).
+- Degrees with a photograph of their own (#54): **417** (21%). The rest show their school's photo.
 - Institutions with a school photo: **399 of 451**.
 
 ## By country
@@ -17,9 +17,9 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 |---|---|---|---|---|---|---|---|
 | United Arab Emirates (ae) | 0/14 | 0 / 0 / 0 | 0 | – | – | 8/14 | [yes](leads/ae.md) |
 | Austria (at) | 15/15 | 8 / 0 / 7 | 38 | 38 (100%) | 14 | 14/15 | no |
-| Australia (au) | 3/17 | 0 / 3 / 0 | 5 | 5 (100%) | 0 | 16/17 | [yes](leads/au.md) |
+| Australia (au) | 17/17 | 0 / 17 / 0 | 23 | 23 (100%) | 0 | 16/17 | [yes](leads/au.md) |
 | Belgium (be) | 14/14 | 11 / 0 / 3 | 38 | 38 (100%) | 13 | 10/14 | no |
-| Canada (ca) | 5/20 | 0 / 5 / 0 | 10 | 10 (100%) | 0 | 19/20 | [yes](leads/ca.md) |
+| Canada (ca) | 20/20 | 0 / 20 / 0 | 43 | 43 (100%) | 0 | 19/20 | [yes](leads/ca.md) |
 | Switzerland (ch) | 15/15 | 4 / 2 / 9 | 20 | 20 (100%) | 2 | 13/15 | no |
 | China (cn) | 0/14 | 0 / 0 / 0 | 0 | – | – | 12/14 | [yes](leads/cn.md) |
 | Czechia (cz) | 13/13 | 13 / 0 / 0 | 111 | 111 (100%) | 11 | 13/13 | [yes](leads/cz.md) |
@@ -30,12 +30,12 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | France (fr) | 12/12 | 7 / 1 / 4 | 27 | 27 (100%) | 24 | 11/12 | [yes](leads/fr.md) |
 | United Kingdom (gb) | 22/22 | 0 / 22 / 0 | 66 | 66 (100%) | 0 | 21/22 | no |
 | Greece (gr) | 12/12 | 6 / 1 / 5 | 17 | 17 (100%) | 0 | 10/12 | [yes](leads/gr.md) |
-| Hong Kong (hk) | 0/13 | 0 / 0 / 0 | 0 | – | – | 12/13 | [yes](leads/hk.md) |
+| Hong Kong (hk) | 13/13 | 1 / 12 / 0 | 25 | 25 (100%) | 0 | 12/13 | [yes](leads/hk.md) |
 | Hungary (hu) | 14/14 | 13 / 0 / 1 | 212 | 212 (100%) | 0 | 13/14 | [yes](leads/hu.md) |
 | Ireland (ie) | 14/14 | 2 / 12 / 0 | 47 | 47 (100%) | 0 | 13/14 | no |
 | Iceland (is) | 2/2 | 2 / 0 / 0 | 3 | 3 (100%) | 0 | 1/2 | no |
 | Italy (it) | 13/13 | 13 / 0 / 0 | 87 | 87 (100%) | 31 | 13/13 | [yes](leads/it.md) |
-| Japan (jp) | 0/15 | 0 / 0 / 0 | 0 | – | – | 14/15 | [yes](leads/jp.md) |
+| Japan (jp) | 15/15 | 14 / 1 / 0 | 44 | 44 (100%) | 0 | 14/15 | [yes](leads/jp.md) |
 | South Korea (kr) | 0/14 | 0 / 0 / 0 | 0 | – | – | 12/14 | [yes](leads/kr.md) |
 | Lithuania (lt) | 12/12 | 12 / 0 / 0 | 184 | 184 (100%) | 0 | 11/12 | [yes](leads/lt.md) |
 | Luxembourg (lu) | 2/2 | 2 / 0 / 0 | 7 | 7 (100%) | 0 | 1/2 | no |
@@ -43,13 +43,13 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | Malta (mt) | 6/6 | 4 / 2 / 0 | 28 | 28 (100%) | 0 | 4/6 | [yes](leads/mt.md) |
 | Netherlands (nl) | 17/17 | 17 / 0 / 0 | 215 | 215 (100%) | 59 | 17/17 | no |
 | Norway (no) | 14/14 | 9 / 0 / 5 | 21 | 21 (100%) | 8 | 13/14 | no |
-| New Zealand (nz) | 0/10 | 0 / 0 / 0 | 0 | – | – | 10/10 | [yes](leads/nz.md) |
+| New Zealand (nz) | 10/10 | 2 / 8 / 0 | 57 | 57 (100%) | 0 | 10/10 | [yes](leads/nz.md) |
 | Poland (pl) | 14/14 | 14 / 0 / 0 | 100 | 100 (100%) | 48 | 14/14 | [yes](leads/pl.md) |
 | Portugal (pt) | 13/13 | 9 / 0 / 4 | 24 | 24 (100%) | 5 | 12/13 | [yes](leads/pt.md) |
 | Sweden (se) | 14/14 | 13 / 0 / 1 | 59 | 59 (100%) | 22 | 13/14 | no |
-| Singapore (sg) | 0/13 | 0 / 0 / 0 | 0 | – | – | 11/13 | [yes](leads/sg.md) |
+| Singapore (sg) | 13/13 | 8 / 5 / 0 | 78 | 78 (100%) | 0 | 11/13 | [yes](leads/sg.md) |
 | Slovenia (si) | 7/7 | 6 / 0 / 1 | 23 | 23 (100%) | 0 | 5/7 | [yes](leads/si.md) |
-| United States (us) | 13/14 | 0 / 13 / 0 | 12 | 12 (100%) | 0 | 14/14 | [yes](leads/us.md) |
+| United States (us) | 14/14 | 0 / 14 / 0 | 13 | 13 (100%) | 0 | 14/14 | [yes](leads/us.md) |
 
 ## By institution
 
@@ -72,10 +72,23 @@ Only institutions with something missing are listed.
 
 ### Australia
 
-- **No record (14):** `au-uq`, `au-monash`, `au-unsw`, `au-uwa`, `au-adelaide`, `au-uts`, `au-rmit`, `au-qut`, `au-uow`, `au-macquarie`, `au-deakin`, `au-utas`, `au-griffith` (no photo), `au-curtin`
 - `au-melbourne` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `au-sydney` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `au-anu` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
+- `au-uq` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `au-monash` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `au-unsw` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `au-uwa` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `au-adelaide` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
+- `au-uts` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
+- `au-rmit` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `au-qut` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own; no faculties yet
+- `au-uow` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `au-macquarie` (catalogue, 0 degrees): no flagships yet; no faculties yet
+- `au-deakin` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
+- `au-utas` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own; no faculties yet
+- `au-griffith` (catalogue, 0 degrees): no flagships yet; no faculties yet; no school photo
+- `au-curtin` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
 
 ### Belgium
 
@@ -94,12 +107,26 @@ Only institutions with something missing are listed.
 
 ### Canada
 
-- **No record (15):** `ca-mcmaster`, `ca-western`, `ca-ualberta`, `ca-ucalgary`, `ca-sfu`, `ca-uvic`, `ca-dal`, `ca-uottawa`, `ca-concordia`, `ca-york`, `ca-tmu` (no photo), `ca-carleton`, `ca-manitoba`, `ca-guelph`, `ca-usask`
 - `ca-u-of-t` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `ca-ubc` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `ca-mcgill` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `ca-waterloo` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `ca-queen-s` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-mcmaster` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-western` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-ualberta` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-ucalgary` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-sfu` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-uvic` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-dal` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-uottawa` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-concordia` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-york` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `ca-tmu` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no school photo
+- `ca-carleton` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `ca-manitoba` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `ca-guelph` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `ca-usask` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 
 ### Switzerland
 
@@ -214,7 +241,19 @@ Only institutions with something missing are listed.
 
 ### Hong Kong
 
-- **No record (13):** `hk-hku`, `hk-cuhk`, `hk-hkust`, `hk-polyu`, `hk-cityu`, `hk-hkbu`, `hk-lingnan`, `hk-eduhk`, `hk-hkapa`, `hk-hsuhk`, `hk-hkmu`, `hk-hksyu`, `hk-thei` (no photo)
+- `hk-hku` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-cuhk` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-hkust` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-polyu` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-cityu` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-hkbu` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-lingnan` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
+- `hk-eduhk` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `hk-hkapa` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `hk-hsuhk` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
+- `hk-hkmu` (catalogue, 0 degrees): no flagships yet
+- `hk-hksyu` (catalogue, 0 degrees): no flagships yet
+- `hk-thei` (catalogue, 0 degrees): no flagships yet; no school photo
 
 ### Hungary
 
@@ -272,7 +311,21 @@ Only institutions with something missing are listed.
 
 ### Japan
 
-- **No record (15):** `jp-utokyo`, `jp-kyoto-u`, `jp-waseda`, `jp-keio`, `jp-sophia`, `jp-tohoku`, `jp-icu`, `jp-apu`, `jp-aiu`, `jp-kyudai`, `jp-tsukuba`, `jp-tuj` (no photo), `jp-hokudai`, `jp-meidai`, `jp-handai`
+- `jp-utokyo` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `jp-kyoto-u` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `jp-waseda` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
+- `jp-keio` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `jp-sophia` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `jp-tohoku` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `jp-icu` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `jp-apu` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `jp-aiu` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `jp-kyudai` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
+- `jp-tsukuba` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
+- `jp-tuj` (catalogue, 0 degrees): no flagships yet; no faculties yet; no school photo
+- `jp-hokudai` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `jp-meidai` (listed, 10 degrees): 10 of 10 degrees have no photo of their own
+- `jp-handai` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
 
 ### South Korea
 
@@ -351,7 +404,16 @@ Only institutions with something missing are listed.
 
 ### New Zealand
 
-- **No record (10):** `nz-auckland`, `nz-otago`, `nz-victoria-wellington`, `nz-canterbury`, `nz-massey`, `nz-waikato`, `nz-aut`, `nz-lincoln`, `nz-unitec`, `nz-otago-polytechnic`
+- `nz-auckland` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `nz-otago` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `nz-victoria-wellington` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `nz-canterbury` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `nz-massey` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
+- `nz-waikato` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
+- `nz-aut` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
+- `nz-lincoln` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `nz-unitec` (listed, 22 degrees): 22 of 22 degrees have no photo of their own
+- `nz-otago-polytechnic` (listed, 17 degrees): 17 of 17 degrees have no photo of their own
 
 ### Poland
 
@@ -394,7 +456,19 @@ Only institutions with something missing are listed.
 
 ### Singapore
 
-- **No record (13):** `sg-nus`, `sg-ntu`, `sg-smu`, `sg-sutd`, `sg-sit`, `sg-suss`, `sg-lasalle`, `sg-nafa`, `sg-jcu-singapore` (no photo), `sg-curtin-singapore`, `sg-digipen-singapore`, `sg-sim-ge`, `sg-essec-asia-pacific` (no photo)
+- `sg-nus` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
+- `sg-ntu` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `sg-smu` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
+- `sg-sutd` (listed, 5 degrees): 5 of 5 degrees have no photo of their own
+- `sg-sit` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `sg-suss` (listed, 11 degrees): 11 of 11 degrees have no photo of their own
+- `sg-lasalle` (listed, 16 degrees): 16 of 16 degrees have no photo of their own
+- `sg-nafa` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
+- `sg-jcu-singapore` (listed, 23 degrees): 23 of 23 degrees have no photo of their own; no school photo
+- `sg-curtin-singapore` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `sg-digipen-singapore` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `sg-sim-ge` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `sg-essec-asia-pacific` (listed, 1 degrees): 1 of 1 degrees have no photo of their own; no school photo
 
 ### Slovenia
 
@@ -408,7 +482,6 @@ Only institutions with something missing are listed.
 
 ### United States
 
-- **No record (1):** `us-asu`
 - `us-harvard` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
 - `us-yale` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
 - `us-mit` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own; no faculties yet
@@ -422,3 +495,4 @@ Only institutions with something missing are listed.
 - `us-michigan` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
 - `us-uc-berkeley` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
 - `us-illinois` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own; no faculties yet
+- `us-asu` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own; no faculties yet

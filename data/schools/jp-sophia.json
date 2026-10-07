@@ -1,0 +1,101 @@
+{
+  "institution": "jp-sophia",
+  "name": "Sophia University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Jesuit university in central Tokyo with three English-taught bachelor's routes: Liberal Arts, Sustainable Futures and Digital Green Technology.",
+  "handoff": {
+    "label": "English-taught undergraduate programs",
+    "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/"
+  },
+  "ib": {
+    "text": "An IB Diploma, final or predicted, replaces SAT/ACT; no minimum points or GPA is set. TOEFL iBT or IELTS Academic is required. Digital Green Technology asks Maths AA/AI HL plus a science HL.",
+    "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/qual/"
+  },
+  "apply": {
+    "via": "Sophia online application, documents-based screening",
+    "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/"
+  },
+  "starts": "September",
+  "dates": [
+    { "label": "Autumn 2027 applications open, 10:00 JST", "date": "2026-11-11", "kind": "opens", "who": "any", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/" },
+    { "label": "First period closes, 23:59 JST", "date": "2026-12-04", "kind": "early", "short": "First period", "who": "any", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/" },
+    { "label": "First period: documents due, 23:59 JST", "date": "2026-12-11", "kind": "documents", "who": "any", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/" },
+    { "label": "Second period closes, 23:59 JST (last period)", "date": "2027-03-31", "kind": "closes", "who": "any", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/" },
+    { "label": "Second period: documents due, 23:59 JST", "date": "2027-04-07", "kind": "documents", "who": "any", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/" },
+    { "label": "Sustainable Futures first-period results", "date": "2027-02-05", "kind": "decision", "who": "any", "programmes": ["sophia-program-for-sustainable-futures-spsf"], "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/w_h/" },
+    { "label": "Sustainable Futures second-period results", "date": "2027-06-04", "kind": "decision", "who": "any", "programmes": ["sophia-program-for-sustainable-futures-spsf"], "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/w_h/" }
+  ],
+  "programmes": [
+    {
+      "name": "Liberal Arts",
+      "credential": "BA",
+      "years": 4,
+      "field": "interdisciplinary",
+      "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/",
+      "about": "The Faculty of Liberal Arts (FLA) teaches in English and awards a BA in Liberal Arts, with first-year entry in spring and autumn.",
+      "selection": ["grades"],
+      "selectionNote": "Screening of submitted documents only; no minimum score or GPA. Autumn quota is 80 first-year students across both periods.",
+      "places": 80,
+      "closes": "2027-03-31",
+      "closesNote": "Last of two autumn periods; documents follow a week later.",
+      "requirementsUrl": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/qual/"
+    },
+    {
+      "name": "Sophia Program for Sustainable Futures (SPSF)",
+      "credential": "BA",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/",
+      "about": "English-taught BAs in seven fields: Journalism, Education, Sociology, Economics, Management, International Relations and Area Studies. You name your field when applying; Global Studies has no third-year transfer.",
+      "ib": "You apply to one field of study; the places for each of the six departments are limited, so choose carefully.",
+      "selection": ["grades"],
+      "selectionNote": "Screening of submitted documents only; autumn entry only, with a limited number of places per department. No minimum score or GPA is set.",
+      "closes": "2027-03-31",
+      "closesNote": "Last of two autumn periods; documents follow a week later.",
+      "requirementsUrl": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/qual/"
+    },
+    {
+      "name": "Digital Green Technology",
+      "credential": "Bachelor of Engineering",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/dgtech/",
+      "about": "A Bachelor of Engineering in Digital Green Technology in the Faculty of Science and Technology, taught in English, replacing the Green Science and Green Engineering programmes. About half of admitted students are expected to be international.",
+      "ib": "Maths AA or AI at HL plus at least one of Physics, Chemistry or Biology at HL.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL" },
+        { "anyOf": ["physics", "chemistry", "biology"], "level": "HL", "note": "At least one of the three at HL." }
+      ],
+      "tuitionEuEea": "¥1,266,000 tuition (AY2026 rate)",
+      "selection": ["grades"],
+      "selectionNote": "Screening of submitted documents only; no minimum score or GPA. Autumn quota is 25 first-year students across both periods.",
+      "places": 25,
+      "closes": "2027-03-31",
+      "closesNote": "Last of two autumn periods; documents follow a week later.",
+      "requirementsUrl": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/dgtech/qual/"
+    }
+  ],
+  "notes": [
+    "Sophia sets the fees for each year in September of the year before entry, so the tuition shown is the AY2026 rate; a first-year also pays a one-off ¥200,000 entrance fee.",
+    "April entry also exists, but its application periods end in 2026; an IB student finishing in May 2027 uses the September 2027 intake.",
+    "The Green Science and Green Engineering programmes took their last first-year students for autumn 2026 and are not open for 2027."
+  ],
+  "sources": [
+    { "title": "Sophia — Admissions for English-taught undergraduate degree programs", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/", "retrieved": "2026-10-07" },
+    { "title": "Sophia FLA — Overview", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/", "retrieved": "2026-10-07" },
+    { "title": "Sophia FLA — When and how to apply (2027 intake)", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/w_h/", "retrieved": "2026-10-07" },
+    { "title": "Sophia FLA — Application eligibility", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/qual/", "retrieved": "2026-10-07" },
+    { "title": "Sophia FLA — Admission figures (autumn quota 80)", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/fla/number/", "retrieved": "2026-10-07" },
+    { "title": "Sophia SPSF — Overview", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/", "retrieved": "2026-10-07" },
+    { "title": "Sophia SPSF — When and how to apply (2027 intake)", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/w_h/", "retrieved": "2026-10-07" },
+    { "title": "Sophia SPSF — Application eligibility", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/qual/", "retrieved": "2026-10-07" },
+    { "title": "Sophia SPSF — Fields of study", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/spsf/field/", "retrieved": "2026-10-07" },
+    { "title": "Sophia DGTech — Overview", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/dgtech/", "retrieved": "2026-10-07" },
+    { "title": "Sophia DGTech — When and how to apply (2027 intake)", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/dgtech/w_h/", "retrieved": "2026-10-07" },
+    { "title": "Sophia DGTech — Application eligibility (IB HL subjects)", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/dgtech/qual/", "retrieved": "2026-10-07" },
+    { "title": "Sophia DGTech — Admission quota (autumn 25)", "url": "https://adm.sophia.ac.jp/eng/admissions/ug_p/en_ug/dgtech/number/", "retrieved": "2026-10-07" },
+    { "title": "Sophia — Undergraduate tuition and fees, academic year 2026", "url": "https://piloti.sophia.ac.jp/assets/uploads/2025/12/undergraduate_2026.pdf", "retrieved": "2026-10-07" }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "institution": "ca-guelph",
+  "name": "University of Guelph",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Founded 1964 on veterinary and agricultural roots; 75+ majors in eight colleges on a campus an hour from Toronto.",
+  "handoff": {
+    "label": "Explore all programs",
+    "url": "https://www.uoguelph.ca/programs/undergraduate"
+  },
+  "ib": {
+    "text": "IB Diploma with 3 HL and 3 SL and a minimum score of 28 (many programs need more); program prerequisites must be taken in the final IB year; TOK and EE bonus marks are considered.",
+    "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements"
+  },
+  "apply": {
+    "via": "Direct application via OUAC, or the Common App",
+    "url": "https://www.uoguelph.ca/admission/undergraduate/international/apply"
+  },
+  "dates": [
+    {
+      "label": "Documents due to be considered for early admission (students outside Canada)",
+      "date": "2027-02-01",
+      "kind": "early",
+      "short": "Early admission documents",
+      "who": "any",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/"
+    },
+    {
+      "label": "Apply for fall 2027 (high school students studying outside Canada)",
+      "date": "2027-05-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/"
+    },
+    {
+      "label": "Documents due for fall 2027 applications (students outside Canada)",
+      "date": "2027-05-22",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/"
+    },
+    {
+      "label": "Residence application and CAD 750 deposit for fall 2027",
+      "date": "2027-06-01",
+      "kind": "housing",
+      "who": "any",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/"
+    }
+  ],
+  "courses": 75,
+  "programmes": [
+    {
+      "name": "Bio-Medical Science",
+      "credential": "Bachelor of Science",
+      "years": 4,
+      "field": "health",
+      "url": "https://www.uoguelph.ca/programs/biomedical-science",
+      "requirementsUrl": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "about": "A broad foundation in human and animal health, from physiology and anatomy to immunology and pathology, with hands-on dissection courses. It meets the entry requirements of Ontario medical and veterinary schools.",
+      "ib": "English, Maths (AA, or AI HL) and two of Biology, Chemistry and Physics, all taken in the final IB year, with a total of at least 28.",
+      "tuitionEuEea": "CAD 46,780 a year (2025/26 estimate)",
+      "needs": [
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["biology", "chemistry", "physics"],
+          "level": "SL",
+          "note": "Two of the three are required"
+        }
+      ],
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Admission rests on your predicted IB score, at least 28, with TOK and EE bonus marks considered; meeting the minimum does not guarantee an offer.",
+      "flagshipSource": {
+        "title": "Bio-Medical Science: hands-on human and animal anatomy, including human donor dissection",
+        "url": "https://www.uoguelph.ca/programs/biomedical-science"
+      }
+    },
+    {
+      "name": "Honours Agriculture",
+      "credential": "Bachelor of Science in Agriculture",
+      "years": 4,
+      "field": "agriculture-environment",
+      "url": "https://www.uoguelph.ca/programs/honours-agriculture",
+      "requirementsUrl": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "about": "A core of agriculture and food science combined with courses in business, animals, plants and the environment, chosen with a faculty advisor. The co-op route takes five years with four paid work terms.",
+      "ib": "English, Maths (AA, or AI HL) and two of Biology, Chemistry and Physics, all taken in the final IB year, with a total of at least 28.",
+      "tuitionEuEea": "CAD 46,780 a year (2025/26 estimate)",
+      "needs": [
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["biology", "chemistry", "physics"],
+          "level": "SL",
+          "note": "Two of the three are required"
+        }
+      ],
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Admission rests on your predicted IB score, at least 28, with TOK and EE bonus marks considered; meeting the minimum does not guarantee an offer.",
+      "flagshipSource": {
+        "title": "Rankings page: QS subject results for agriculture and hospitality",
+        "url": "https://www.uoguelph.ca/admission/undergraduate/rankings"
+      }
+    },
+    {
+      "name": "Hospitality and Tourism Management",
+      "credential": "Bachelor of Commerce",
+      "years": 4,
+      "field": "hospitality-tourism",
+      "url": "https://www.uoguelph.ca/programs/hospitality-and-tourism-management",
+      "requirementsUrl": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "about": "A business degree for hotels, events, resorts, restaurants and tourism, with a food lab, case competitions and an optional 12-month co-op. In second year you pick an emphasis such as marketing or beverage management.",
+      "ib": "English and Maths (AA, or AI HL) taken in the final IB year, with a total of at least 28.",
+      "tuitionEuEea": "CAD 57,112 a year (2025/26 estimate)",
+      "needs": [
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        }
+      ],
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Admission rests on your predicted IB score, at least 28, with TOK and EE bonus marks considered; meeting the minimum does not guarantee an offer.",
+      "flagshipSource": {
+        "title": "Rankings page: QS subject results for agriculture and hospitality",
+        "url": "https://www.uoguelph.ca/admission/undergraduate/rankings"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Arts",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "BA majors need English; Economics adds Maths (AA, or AI HL). Minimum IB score of 28."
+    },
+    {
+      "name": "College of Biological Science",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "English, Maths (AA, or AI HL) and two of Biology, Chemistry and Physics for the Biological Sciences majors."
+    },
+    {
+      "name": "Gordon S. Lang School of Business and Economics",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "Commerce majors need English and Maths (AA, or AI HL); most majors have a co-op option."
+    },
+    {
+      "name": "College of Computational, Mathematical and Physical Sciences",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "Computing and Mathematics need English and calculus-level Maths; Physical Sciences add two of Biology, Chemistry, Physics."
+    },
+    {
+      "name": "College of Engineering",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "English, calculus-level Maths, Chemistry and Physics for every engineering major."
+    },
+    {
+      "name": "College of Social and Applied Human Sciences",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "Applied Human Nutrition needs English, Maths, Biology and Chemistry; Child Studies and Family Studies need English and Maths."
+    },
+    {
+      "name": "Ontario Agricultural College",
+      "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements",
+      "line": "Agriculture and Environmental Sciences: English, Maths (AA, or AI HL) and two of Biology, Chemistry, Physics."
+    }
+  ],
+  "notes": [
+    "EU students are not Canadian citizens, so they apply directly or through the Common App; OUAC is for Canadian citizens and permanent residents.",
+    "Maths AI SL is not accepted for any program that needs Advanced Math or calculus; take Maths AA (SL or HL) or Maths AI HL.",
+    "The university guarantees that tuition rises by no more than 5% a year after you start."
+  ],
+  "sources": [
+    { "title": "Guelph: IB and AP admission", "url": "https://www.uoguelph.ca/admission/undergraduate/requirements/ib-ap/", "retrieved": "2026-10-07" },
+    { "title": "Guelph: admission requirements for international students, by degree", "url": "https://www.uoguelph.ca/admission/undergraduate/international/requirements", "retrieved": "2026-10-07" },
+    { "title": "Guelph: apply from outside Canada", "url": "https://www.uoguelph.ca/admission/undergraduate/international/apply", "retrieved": "2026-10-07" },
+    { "title": "Guelph: undergraduate dates and deadlines, 2026-27", "url": "https://www.uoguelph.ca/admission/undergraduate/apply/deadlines/", "retrieved": "2026-10-07" },
+    { "title": "Guelph: funding for international students and estimated costs", "url": "https://www.uoguelph.ca/admission/undergraduate/international/funding", "retrieved": "2026-10-07" },
+    { "title": "Guelph: about the University of Guelph", "url": "https://www.uoguelph.ca/about", "retrieved": "2026-10-07" },
+    { "title": "Guelph: undergraduate admission", "url": "https://www.uoguelph.ca/admission/undergraduate", "retrieved": "2026-10-07" },
+    { "title": "Guelph: colleges, departments and schools", "url": "https://www.uoguelph.ca/academics/colleges", "retrieved": "2026-10-07" },
+    { "title": "Guelph: rankings", "url": "https://www.uoguelph.ca/admission/undergraduate/rankings", "retrieved": "2026-10-07" },
+    { "title": "Guelph: Bio-Medical Science", "url": "https://www.uoguelph.ca/programs/biomedical-science", "retrieved": "2026-10-07" },
+    { "title": "Guelph: Honours Agriculture", "url": "https://www.uoguelph.ca/programs/honours-agriculture", "retrieved": "2026-10-07" },
+    { "title": "Guelph: Hospitality and Tourism Management", "url": "https://www.uoguelph.ca/programs/hospitality-and-tourism-management", "retrieved": "2026-10-07" }
+  ]
+}

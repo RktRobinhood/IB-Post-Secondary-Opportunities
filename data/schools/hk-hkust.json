@@ -1,0 +1,163 @@
+{
+  "institution": "hk-hkust",
+  "name": "The Hong Kong University of Science and Technology",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Clear Water Bay science, engineering and business university; the middle half of 2026 entrants had 35 to 41 IB points, bonus points included.",
+  "handoff": {
+    "label": "Undergraduate programs by school",
+    "url": "https://join.hkust.edu.hk/our-programs"
+  },
+  "ib": {
+    "text": "No minimum total is set; the middle half of 2026 entrants had 35-41 points. Subjects are set per programme; IB English A needs grade 4 (English B: 4 at HL, 5 at SL). Your coordinator sends predicted grades.",
+    "url": "https://join.hkust.edu.hk/admissions/international-qualifications"
+  },
+  "apply": {
+    "via": "HKUST online application (direct)",
+    "url": "https://join.hkust.edu.hk/admissions/international-qualifications/application-procedures"
+  },
+  "dates": [
+    {
+      "label": "Online application system opens",
+      "date": "2026-10-02",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://join.hkust.edu.hk/admissions/international-qualifications"
+    },
+    {
+      "label": "First round: application deadline",
+      "date": "2026-11-25",
+      "kind": "early",
+      "short": "First round",
+      "who": "any",
+      "url": "https://join.hkust.edu.hk/admissions/international-qualifications"
+    },
+    {
+      "label": "Applications close",
+      "date": "2027-06-30",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://join.hkust.edu.hk/admissions/international-qualifications"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computer Science",
+      "credential": "BEng or BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-engineering/computer-science",
+      "requirementsUrl": "https://join.hkust.edu.hk/admissions/international-qualifications",
+      "about": "Computer science taught by the Department of Computer Science and Engineering: programming, algorithms, operating systems and software engineering, then electives in AI, security, big data and more. A BEng in Artificial Intelligence is the sister major.",
+      "ib": "Maths plus one of Physics, Chemistry, Biology or Computer Science; Physics or Computer Science preferred. Entry through the school-based route is competitive.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "any",
+          "note": "HKUST's wording: senior level Mathematics"
+        },
+        {
+          "anyOf": ["physics", "chemistry", "biology", "computer-science"],
+          "level": "any",
+          "note": "Physics or Computer Science preferred"
+        }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Apply to the department directly if sure of the major; joining it later through major selection has a tight quota. Interviews are held for some programmes.",
+      "tuitionEuEea": "HK$260,000 a year",
+      "flagshipSource": {
+        "title": "Computer Science (BEng/BSc): department of Computer Science and Engineering, big data, security and AI (programme page)",
+        "url": "https://join.hkust.edu.hk/our-programs/school-of-engineering/computer-science"
+      }
+    },
+    {
+      "name": "Quantitative Finance",
+      "credential": "BSc",
+      "years": 4,
+      "field": "business",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management/quantitative-finance",
+      "requirementsUrl": "https://join.hkust.edu.hk/admissions/international-qualifications",
+      "about": "A finance degree built on maths and statistics: derivative securities, investment analysis, portfolio management, quantitative trading and risk management, with one or two semesters of full-time internships at financial firms common.",
+      "ib": "Maths is the subject asked for (HKUST's wording: senior level Mathematics).",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "any",
+          "note": "HKUST's wording: senior level Mathematics"
+        }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Apply directly to the programme, or enter the business school without a major and apply after the first two or three terms. Interviews are held for some programmes.",
+      "tuitionEuEea": "HK$260,000 a year",
+      "flagshipSource": {
+        "title": "BSc in Quantitative Finance: an integrated curriculum from several schools with finance internships (programme page)",
+        "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management/quantitative-finance"
+      }
+    },
+    {
+      "name": "Business and Management",
+      "credential": "BBA",
+      "years": 4,
+      "field": "business",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management",
+      "requirementsUrl": "https://join.hkust.edu.hk/admissions/international-qualifications",
+      "about": "Enter the business school without a major: three terms of broad business foundations, then a choice from nine BBA majors and more. Around 70% of students add a second major or minor, and extended majors in AI, arts or sustainability exist.",
+      "ib": "No specific subjects for school-based entry; majors such as Economics, Finance and Quantitative Finance ask for Maths.",
+      "selection": ["grades", "interview"],
+      "selectionNote": "Apply to the school without a major, or to a major directly. Interviews are held for some programmes.",
+      "tuitionEuEea": "HK$260,000 a year",
+      "flagshipSource": {
+        "title": "HKUST Business School: AACSB and EQUIS accredited, exchange agreements with 165+ institutions (school page)",
+        "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "School of Science",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-science",
+      "line": "Science Group A needs Maths and Physics or Chemistry; Group B Maths and Chemistry or Biology; Biomedical and Health Sciences interviews."
+    },
+    {
+      "name": "School of Engineering",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-engineering",
+      "line": "Maths plus Physics, Chemistry, Biology or Computer Science; apply to the school or straight to a department."
+    },
+    {
+      "name": "School of Business and Management",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management",
+      "line": "No set subjects for school-based entry; Economics, Finance and Quantitative Finance majors ask for Maths."
+    },
+    {
+      "name": "School of Humanities and Social Science",
+      "url": "https://join.hkust.edu.hk/our-programs/school-of-humanities-and-social-science",
+      "line": "BSc in Global China Studies and in Quantitative Social Analysis; check each major's subject line in the IB admissions table."
+    },
+    {
+      "name": "Academy of Interdisciplinary Studies",
+      "url": "https://join.hkust.edu.hk/our-programs/academy-of-interdisciplinary-studies",
+      "line": "Technology and Management, Environmental Management, Design and Technology; Maths and a science or Design Technology are often named."
+    }
+  ],
+  "notes": [
+    "Hong Kong sets no EU rate: non-local tuition is HK$260,000 a year, and non-local students are given university accommodation in their first year.",
+    "After you submit, the application system emails your IB coordinator a form for predicted grades, so name them in the Academic Reference section.",
+    "HKUST lists the middle half of admitted students: 35 to 41 IB points for 2026 entry and 35 to 40 for 2025 and 2024, bonus points included."
+  ],
+  "sources": [
+    { "title": "HKUST: International qualifications (dates and IB requirements)", "url": "https://join.hkust.edu.hk/admissions/international-qualifications", "retrieved": "2026-10-07" },
+    { "title": "HKUST: Application procedures for international qualifications", "url": "https://join.hkust.edu.hk/admissions/international-qualifications/application-procedures", "retrieved": "2026-10-07" },
+    { "title": "HKUST: Admissions grades and scores for GCE-AL and IB", "url": "https://join.hkust.edu.hk/docs/adm_figures/GCE_IB_3Yr_admission_standard.pdf", "retrieved": "2026-10-07" },
+    { "title": "HKUST: English language admissions requirements", "url": "https://join.hkust.edu.hk/oas/elar.pdf", "retrieved": "2026-10-07" },
+    { "title": "HKUST: Fees and scholarships", "url": "https://join.hkust.edu.hk/fees-and-scholarships", "retrieved": "2026-10-07" },
+    { "title": "HKUST: Our programs", "url": "https://join.hkust.edu.hk/our-programs", "retrieved": "2026-10-07" },
+    { "title": "HKUST School of Science", "url": "https://join.hkust.edu.hk/our-programs/school-of-science", "retrieved": "2026-10-07" },
+    { "title": "HKUST School of Engineering", "url": "https://join.hkust.edu.hk/our-programs/school-of-engineering", "retrieved": "2026-10-07" },
+    { "title": "HKUST School of Business and Management", "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management", "retrieved": "2026-10-07" },
+    { "title": "HKUST School of Humanities and Social Science", "url": "https://join.hkust.edu.hk/our-programs/school-of-humanities-and-social-science", "retrieved": "2026-10-07" },
+    { "title": "HKUST Academy of Interdisciplinary Studies", "url": "https://join.hkust.edu.hk/our-programs/academy-of-interdisciplinary-studies", "retrieved": "2026-10-07" },
+    { "title": "HKUST: Computer Science (BEng/BSc)", "url": "https://join.hkust.edu.hk/our-programs/school-of-engineering/computer-science", "retrieved": "2026-10-07" },
+    { "title": "HKUST: Quantitative Finance (BSc)", "url": "https://join.hkust.edu.hk/our-programs/school-of-business-and-management/quantitative-finance", "retrieved": "2026-10-07" }
+  ]
+}

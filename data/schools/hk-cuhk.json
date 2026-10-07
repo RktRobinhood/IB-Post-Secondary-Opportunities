@@ -1,0 +1,172 @@
+{
+  "institution": "hk-cuhk",
+  "name": "The Chinese University of Hong Kong",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Sha Tin university with eight faculties and a collegiate system; the stated IB minimum is 30 of 45 points.",
+  "handoff": {
+    "label": "Programme list",
+    "url": "https://admission.cuhk.edu.hk/programmes/list/"
+  },
+  "ib": {
+    "text": "Minimum 30 of 45 points and IB English grade 4. IB Chinese grade 4 is asked unless the faculty Dean exempts you. The 2027 IB sheet lists subject preferences per programme, not requirements.",
+    "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/"
+  },
+  "apply": {
+    "via": "CUHK online application (direct)",
+    "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/"
+  },
+  "dates": [
+    {
+      "label": "Applications open (2027 admissions exercise)",
+      "date": "2026-10-02",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/"
+    },
+    {
+      "label": "Advance Offer Round: application deadline",
+      "date": "2026-11-12",
+      "kind": "early",
+      "short": "Advance Offer Round",
+      "who": "any",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/"
+    },
+    {
+      "label": "Regular Round: application deadline",
+      "date": "2027-01-07",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Medicine (MBChB)",
+      "credential": "Bachelor of Medicine and Bachelor of Surgery",
+      "years": 6,
+      "field": "medicine",
+      "url": "https://admission.cuhk.edu.hk/programme/medun/",
+      "requirementsUrl": "https://www.med.cuhk.edu.hk/study/prospective-students/undergraduate-study/programme-and-admission/mbchb-and-gps/admissions/non-jupas",
+      "about": "Six years in a personalised medical curriculum with mentoring, early clinical teaching and a choice of enrichment tracks; a one-year hospital internship in Hong Kong follows before you register as a doctor.",
+      "ib": "Six IB subjects with three at HL, and Chemistry or Biology at HL (both recommended). After IB results, top-ranked applicants are interviewed in late July.",
+      "needs": [
+        {
+          "anyOf": ["biology", "chemistry"],
+          "level": "HL",
+          "note": "Six subjects including three HL; taking both Biology and Chemistry is recommended"
+        }
+      ],
+      "points": 30,
+      "selection": ["grades", "interview"],
+      "selectionNote": "30 is the university-wide IB minimum. The faculty ranks applicants on IB results and interviews the top-ranked after results are released.",
+      "tuitionEuEea": "HK$230,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Medicine (MBChB): SMART personalised curriculum and CU Medicine Plus enrichment scheme (programme page)",
+        "url": "https://admission.cuhk.edu.hk/programme/medun/"
+      }
+    },
+    {
+      "name": "Computer Science and Engineering",
+      "credential": "BSc or BEng",
+      "years": 4,
+      "field": "computing",
+      "url": "https://admission.cuhk.edu.hk/programme/bcsen/",
+      "about": "One department-based entry into the Department of Computer Science and Engineering; after year one you declare Computer Science (BSc, software and AI) or Computer Engineering (BEng, hardware and embedded systems).",
+      "ib": "The IB sheet prefers Maths and one of Biology, Chemistry, Computer Science or Physics, preferably at HL; these are preferences, not requirements.",
+      "points": 30,
+      "selection": ["grades"],
+      "selectionNote": "30 is the university-wide IB minimum. Review is holistic: results, non-academic record and any interview.",
+      "tuitionEuEea": "HK$230,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Computer Science and Engineering: Computer Science launched over 40 years ago; both majors HKIE-accredited",
+        "url": "https://admission.cuhk.edu.hk/programme/bcsen/"
+      }
+    },
+    {
+      "name": "Integrated BBA Programme",
+      "credential": "Bachelor of Business Administration",
+      "years": 4,
+      "field": "business",
+      "url": "https://admission.cuhk.edu.hk/programme/ibbac/",
+      "about": "A broad business degree where you build your own path from nine concentrations such as finance, marketing and business analytics, with exchange, mentoring and internship options and double-degree routes.",
+      "ib": "No subject preference is listed for the IBBA itself; the IB sheet prefers Maths for its finance, actuarial and analytics majors.",
+      "points": 30,
+      "selection": ["grades"],
+      "selectionNote": "30 is the university-wide IB minimum. Review is holistic: results, non-academic record and any interview.",
+      "tuitionEuEea": "HK$230,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Integrated BBA: a flagship business programme with nine concentration areas (programme page)",
+        "url": "https://admission.cuhk.edu.hk/programme/ibbac/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.arts.cuhk.edu.hk/web/undergraduate-curriculum",
+      "line": "HL in the matching subject is preferred for Chinese, English, Fine Arts, Music and Translation; other majors name no subject."
+    },
+    {
+      "name": "Faculty of Business Administration",
+      "url": "https://www.bschool.cuhk.edu.hk/admissions-portals/",
+      "line": "Maths is preferred for finance, actuarial and analytics majors; English A (or English B at HL) for the BBA and Juris Doctor double degree."
+    },
+    {
+      "name": "Faculty of Education",
+      "url": "https://www.fed.cuhk.edu.hk/en/teaching_learning/programmes/",
+      "line": "HL Chinese or English is preferred for the language-education degrees, and HL Maths for Mathematics Education."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.erg.cuhk.edu.hk/erg/UndergraduateProgrammes",
+      "line": "Maths plus a science is preferred, mostly at HL for AI, Computer Science and Engineering, and Computational Data Science."
+    },
+    {
+      "name": "Faculty of Law",
+      "url": "https://admission.cuhk.edu.hk/programme/lawsn/",
+      "line": "The LLB prefers English A at SL or HL, or English B at HL; admission is holistic."
+    },
+    {
+      "name": "Faculty of Medicine",
+      "url": "https://www.med.cuhk.edu.hk/study/prospective-students/undergraduate-study/programme-and-admission/mbchb-and-gps/admissions/non-jupas",
+      "line": "MBChB wants Chemistry or Biology at HL; Pharmacy prefers Chinese and HL Chemistry; Biomedical Sciences prefers a science or Maths."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "http://www.sci.cuhk.edu.hk/en-gb/academic/undergraduate-studies/programmes-offered/",
+      "line": "Two of Maths, Biology, Chemistry, Physics, Economics or Geography, preferably at HL, for the broad-based science entry."
+    },
+    {
+      "name": "Faculty of Social Science",
+      "url": "https://admission.cuhk.edu.hk/programme/bsscn/",
+      "line": "Economics prefers Maths or Physics, Psychology prefers Maths, Architectural Studies prefers English; other majors name no subject."
+    }
+  ],
+  "notes": [
+    "Hong Kong sets no EU rate: non-local tuition is HK$230,000 for 2027/28, and any yearly adjustment for the 2027 cohort is capped at 3%.",
+    "You submit one application; if you are not picked in the Advance Offer Round you compete on equal footing in the Regular Round.",
+    "CUHK describes itself as bilingual, so check the medium of instruction of the courses in your programme."
+  ],
+  "sources": [
+    { "title": "CUHK: Requirements for overseas and other qualifications (non-local)", "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Important dates, 2027 admissions exercise", "url": "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/important-dates/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Admission information for IB candidates (2027 entry)", "url": "https://www.cuhk.edu.hk/adm/intl/adm_guide/IB.pdf", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Fees (2027-2028)", "url": "https://admission.cuhk.edu.hk/fees-financing-your-studies/fees/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Programme list", "url": "https://admission.cuhk.edu.hk/programmes/list/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Faculties and programmes", "url": "https://admission.cuhk.edu.hk/introducing-cuhk/faculties-and-programmes/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Unique college system", "url": "https://admission.cuhk.edu.hk/introducing-cuhk/unique-college-system/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Medicine (MBChB)", "url": "https://admission.cuhk.edu.hk/programme/medun/", "retrieved": "2026-10-07" },
+    { "title": "CUHK Faculty of Medicine: MBChB admissions for non-JUPAS applicants", "url": "https://www.med.cuhk.edu.hk/study/prospective-students/undergraduate-study/programme-and-admission/mbchb-and-gps/admissions/non-jupas", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Computer Science and Engineering", "url": "https://admission.cuhk.edu.hk/programme/bcsen/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Integrated Bachelor of Business Administration Programme", "url": "https://admission.cuhk.edu.hk/programme/ibbac/", "retrieved": "2026-10-07" },
+    { "title": "CUHK Faculty of Arts: Undergraduate curriculum", "url": "https://www.arts.cuhk.edu.hk/web/undergraduate-curriculum", "retrieved": "2026-10-07" },
+    { "title": "CUHK Business School: Admissions", "url": "https://www.bschool.cuhk.edu.hk/admissions-portals/", "retrieved": "2026-10-07" },
+    { "title": "CUHK Faculty of Education: Programmes", "url": "https://www.fed.cuhk.edu.hk/en/teaching_learning/programmes/", "retrieved": "2026-10-07" },
+    { "title": "CUHK Faculty of Engineering: Undergraduate programmes", "url": "https://www.erg.cuhk.edu.hk/erg/UndergraduateProgrammes", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Bachelor of Laws", "url": "https://admission.cuhk.edu.hk/programme/lawsn/", "retrieved": "2026-10-07" },
+    { "title": "CUHK Faculty of Science: Programmes offered", "url": "http://www.sci.cuhk.edu.hk/en-gb/academic/undergraduate-studies/programmes-offered/", "retrieved": "2026-10-07" },
+    { "title": "CUHK: Social Science (Broad-based)", "url": "https://admission.cuhk.edu.hk/programme/bsscn/", "retrieved": "2026-10-07" }
+  ]
+}

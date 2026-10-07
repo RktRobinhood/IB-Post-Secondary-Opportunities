@@ -1,0 +1,150 @@
+{
+  "institution": "jp-kyudai",
+  "name": "Kyushu University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "National university in Fukuoka, founded 1911: English-taught engineering and agriculture programmes, plus a bilingual interdisciplinary school.",
+  "handoff": {
+    "label": "Undergraduate school, language of instruction: English",
+    "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/"
+  },
+  "ib": {
+    "text": "Predicted IB grades are accepted with a school seal (conditional offer); finals due by 20 or 31 August 2027, by programme. Each programme scores set IB subjects, and IB taken in another language needs an English test.",
+    "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/"
+  },
+  "apply": {
+    "via": "Kyushu online system, then documents by post",
+    "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/"
+  },
+  "starts": "October",
+  "dates": [
+    { "label": "Online application system opens, 10:00 JST", "date": "2026-12-07", "kind": "opens", "who": "any", "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" },
+    { "label": "Online application system closes, 17:00 JST", "date": "2026-12-11", "kind": "closes", "who": "any", "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" },
+    { "label": "Required documents must be received by post, 17:00 JST", "date": "2026-12-17", "kind": "documents", "who": "any", "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" },
+    { "label": "Preliminary screening results, 11:00 JST", "date": "2027-02-15", "kind": "decision", "who": "any", "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" },
+    { "label": "Admission decisions announced, 11:00 JST", "date": "2027-03-23", "kind": "decision", "who": "any", "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" },
+    { "label": "Final IB grades due by email (engineering and interdisciplinary school)", "date": "2027-08-31", "kind": "documents", "who": "any", "programmes": ["electrical-engineering-and-computer-science", "applied-chemistry", "mechanical-and-aerospace-engineering", "civil-engineering", "interdisciplinary-science-and-innovation"], "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" },
+    { "label": "Final IB grades due by email (agriculture)", "date": "2027-08-20", "kind": "documents", "who": "any", "programmes": ["bioresource-and-bioenvironment"], "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/" }
+  ],
+  "programmes": [
+    {
+      "name": "Electrical Engineering and Computer Science",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/electrical-engineering-and-computer-science/",
+      "about": "Electricity, electronics, communication, data science and computers in one programme, from power systems and sensing to AI, networks and security; taught wholly in English apart from Japanese classes.",
+      "ib": "IB scored on Maths AA HL and Physics HL and/or Computer Science HL; the published combination is 5-5.",
+      "needs": [
+        { "anyOf": ["mathematics-aa"], "level": "HL", "grade": 5 },
+        { "anyOf": ["physics", "computer-science"], "level": "HL", "grade": 5 }
+      ],
+      "tuitionEuEea": "¥535,800 a year (¥267,900 a term)",
+      "selection": ["grades", "interview"],
+      "selectionNote": "Preliminary screening on documents and test results, then an online interview between 24 February and 4 March 2027. Limited places; one programme per applicant.",
+      "closes": "2026-12-11",
+      "requirementsUrl": "https://www.kyushu-u.ac.jp/f/66827/ENG_2027_Application%20Instruction.pdf"
+    },
+    {
+      "name": "Applied Chemistry",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/applied-chemistry/",
+      "about": "Materials with structure and function controlled at atomic and molecular level, covering organic, inorganic and biomolecular chemistry for IT, environmental, nano and biotechnology; taught in English.",
+      "ib": "IB scored on Maths HL and Chemistry HL; the published combination is 6-6.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL", "grade": 6 },
+        { "anyOf": ["chemistry"], "level": "HL", "grade": 6 }
+      ],
+      "tuitionEuEea": "¥535,800 a year (¥267,900 a term)",
+      "selection": ["grades", "interview"],
+      "selectionNote": "Preliminary screening on documents and test results, then an online interview between 24 February and 4 March 2027. Limited places; one programme per applicant.",
+      "closes": "2026-12-11",
+      "requirementsUrl": "https://www.kyushu-u.ac.jp/f/66827/ENG_2027_Application%20Instruction.pdf"
+    },
+    {
+      "name": "Mechanical and Aerospace Engineering",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/mechanical-and-aerospace-engineering/",
+      "about": "Mechanical engineering across precision instruments, robots, automobiles, rockets and energy technology, in the monozukuri tradition of making things; taught in English apart from Japanese classes.",
+      "ib": "The IB is not among the accepted tests listed for this programme: only EJU Maths Course 2 or SAT Maths 740. Ask the admissions office.",
+      "tuitionEuEea": "¥535,800 a year (¥267,900 a term)",
+      "selection": ["grades", "test-score", "interview"],
+      "selectionNote": "The instructions list only EJU Maths and SAT Maths (minimum 740) for this programme, then an online interview between 24 February and 4 March 2027.",
+      "closes": "2026-12-11",
+      "requirementsUrl": "https://www.kyushu-u.ac.jp/f/66827/ENG_2027_Application%20Instruction.pdf"
+    },
+    {
+      "name": "Civil Engineering",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/civil-engineering/",
+      "about": "Social infrastructure such as water and sewage, roads and ports, plus restoring damaged natural environments, with hardware and software for building design, urban planning and soil and water environment; taught in English.",
+      "ib": "IB scored on Maths HL and Chemistry HL and/or Physics HL; the published combination is 5-5.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL", "grade": 5 },
+        { "anyOf": ["chemistry", "physics"], "level": "HL", "grade": 5 }
+      ],
+      "tuitionEuEea": "¥535,800 a year (¥267,900 a term)",
+      "selection": ["grades", "interview"],
+      "selectionNote": "Preliminary screening on documents and test results, then an online interview between 24 February and 4 March 2027. Limited places; one programme per applicant.",
+      "closes": "2026-12-11",
+      "requirementsUrl": "https://www.kyushu-u.ac.jp/f/66827/ENG_2027_Application%20Instruction.pdf"
+    },
+    {
+      "name": "Bioresource and Bioenvironment",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "agriculture-environment",
+      "url": "https://www.agr.kyushu-u.ac.jp/english/course/iup/",
+      "about": "School of Agriculture's International Undergraduate Program, taught entirely in English: basic and applied sciences, natural and social, behind bio-production, bio-function and bio-environment. Apply under Type B if you studied outside Japan.",
+      "ib": "Your IB Group 4 (sciences) and Group 5 (mathematics) grades are used for screening; no minimum grades are published.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any" },
+        { "anyOf": ["biology", "chemistry", "physics"], "level": "any" }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Type B route for applicants educated outside Japan: documents and test results, then a second screening in late February or early March 2027.",
+      "closes": "2026-12-11",
+      "requirementsUrl": "https://www.kyushu-u.ac.jp/f/66828/2027_Type%20B.pdf"
+    },
+    {
+      "name": "Interdisciplinary Science and Innovation",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "interdisciplinary",
+      "url": "https://kyoso.kyushu-u.ac.jp/en/pages/admission/from-abroad",
+      "about": "A school without humanities-science boundaries, stressing communication, design thinking, data analysis and project management. The programme is bilingual: classes run in English and Japanese, not English alone.",
+      "ib": "Bilingual, not English-only. IB scored on Group 5 maths plus either Group 3 or Group 4 subjects.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any" }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Documents and test results first; second screening on 25 and 26 February 2027. Limited places.",
+      "closes": "2026-12-11",
+      "requirementsUrl": "https://www.kyushu-u.ac.jp/f/66826/%28ISI%29%202027_Application%20Instruction.pdf"
+    }
+  ],
+  "notes": [
+    "Applicants living outside Japan get half of first-year tuition off (¥133,950 a term instead of ¥267,900), and a one-off ¥282,000 enrolment fee applies.",
+    "A few high-scoring successful applicants may be put forward by Kyushu for a MEXT scholarship (¥117,000 a month for four years, fees waived), if the ministry approves.",
+    "You may apply to only one Kyushu undergraduate programme for October 2027, across engineering, agriculture and the interdisciplinary school."
+  ],
+  "sources": [
+    { "title": "Kyushu — Enrolling in undergraduate school (language of instruction: English), October 2027", "url": "https://www.kyushu-u.ac.jp/en/admission/faculty/foreign/foreign10/", "retrieved": "2026-10-07" },
+    { "title": "Kyushu — Engineering International Undergraduate Program: application instructions 2027 (PDF)", "url": "https://www.kyushu-u.ac.jp/f/66827/ENG_2027_Application%20Instruction.pdf", "retrieved": "2026-10-07" },
+    { "title": "Kyushu — Bioresource and Bioenvironment application instructions, Type B 2027 (PDF)", "url": "https://www.kyushu-u.ac.jp/f/66828/2027_Type%20B.pdf", "retrieved": "2026-10-07" },
+    { "title": "Kyushu — ISI application instructions 2027 (PDF)", "url": "https://www.kyushu-u.ac.jp/f/66826/%28ISI%29%202027_Application%20Instruction.pdf", "retrieved": "2026-10-07" },
+    { "title": "Kyushu Engineering — Electrical Engineering and Computer Science (International Undergraduate Program)", "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/electrical-engineering-and-computer-science/", "retrieved": "2026-10-07" },
+    { "title": "Kyushu Engineering — Applied Chemistry (International Undergraduate Program)", "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/applied-chemistry/", "retrieved": "2026-10-07" },
+    { "title": "Kyushu Engineering — Mechanical and Aerospace Engineering (International Undergraduate Program)", "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/mechanical-and-aerospace-engineering/", "retrieved": "2026-10-07" },
+    { "title": "Kyushu Engineering — Civil Engineering (International Undergraduate Program)", "url": "https://www.eng.kyushu-u.ac.jp/en/undergraduate/undergraduate-international-programs/civil-engineering/", "retrieved": "2026-10-07" },
+    { "title": "Kyushu Agriculture — International Undergraduate Program", "url": "https://www.agr.kyushu-u.ac.jp/english/course/iup/", "retrieved": "2026-10-07" },
+    { "title": "Kyushu ISI — Admission from abroad", "url": "https://kyoso.kyushu-u.ac.jp/en/pages/admission/from-abroad", "retrieved": "2026-10-07" }
+  ]
+}

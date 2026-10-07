@@ -1,0 +1,79 @@
+{
+  "institution": "jp-hokudai",
+  "name": "Hokkaido University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "National university in Sapporo, founded 1876, with two English-taught bachelor's degrees: Integrated Science and Modern Japanese Studies.",
+  "handoff": {
+    "label": "Undergraduate admissions overview",
+    "url": "https://www.global.hokudai.ac.jp/admissions/undergraduate-admissions-overview/"
+  },
+  "ib": {
+    "text": "An IB Diploma held or expected by 30 September 2027 qualifies, with predicted grades accepted on the school's certificate. English proof is TOEFL iBT 79, IELTS 6.0 (ISP) or 6.5 (MJSP), unless you studied in English.",
+    "url": "https://www.oia.hokudai.ac.jp/isp/wp-content/uploads/2026/09/ISP-Application-Guidelines-for-2027-Enrollment.pdf"
+  },
+  "apply": {
+    "via": "Hokkaido online registration, then recommendation letter",
+    "url": "https://www.oia.hokudai.ac.jp/isp/prospective-students/how-to-apply/"
+  },
+  "starts": "October",
+  "dates": [
+    { "label": "ISP online registration opens, 10:00 JST", "date": "2026-11-12", "kind": "opens", "who": "any", "programmes": ["integrated-science-program-isp"], "url": "https://www.oia.hokudai.ac.jp/isp/prospective-students/how-to-apply/" },
+    { "label": "ISP online registration closes, 17:00 JST", "date": "2026-11-20", "kind": "closes", "who": "any", "programmes": ["integrated-science-program-isp"], "url": "https://www.oia.hokudai.ac.jp/isp/prospective-students/how-to-apply/" },
+    { "label": "ISP recommendation letter must arrive, 17:00 JST", "date": "2026-12-04", "kind": "documents", "who": "any", "programmes": ["integrated-science-program-isp"], "url": "https://www.oia.hokudai.ac.jp/isp/prospective-students/how-to-apply/" },
+    { "label": "ISP final notification, 15:00 JST (expected)", "date": "2027-03-23", "kind": "decision", "who": "any", "programmes": ["integrated-science-program-isp"], "url": "https://www.oia.hokudai.ac.jp/isp/prospective-students/how-to-apply/" },
+    { "label": "MJSP first call: online registration opens, 10:00 JST", "date": "2026-10-27", "kind": "opens", "who": "any", "programmes": ["modern-japanese-studies-program-mjsp"], "url": "https://www.oia.hokudai.ac.jp/mjsp/for-prospective-students/how-to-apply/" },
+    { "label": "MJSP first call closes, 17:00 JST", "date": "2026-11-04", "kind": "early", "short": "MJSP first call", "who": "any", "programmes": ["modern-japanese-studies-program-mjsp"], "url": "https://www.oia.hokudai.ac.jp/mjsp/for-prospective-students/how-to-apply/" },
+    { "label": "MJSP second call closes, 17:00 JST (last call)", "date": "2027-02-09", "kind": "closes", "who": "any", "programmes": ["modern-japanese-studies-program-mjsp"], "url": "https://www.oia.hokudai.ac.jp/mjsp/for-prospective-students/how-to-apply/" },
+    { "label": "MJSP second call results, 15:00 JST (expected)", "date": "2027-05-13", "kind": "decision", "who": "any", "programmes": ["modern-japanese-studies-program-mjsp"], "url": "https://www.oia.hokudai.ac.jp/mjsp/for-prospective-students/how-to-apply/" }
+  ],
+  "programmes": [
+    {
+      "name": "Integrated Science Program (ISP)",
+      "credential": "Bachelor of Science",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.global.hokudai.ac.jp/admissions/integrated-science/",
+      "about": "A science programme for international students: everyone studies maths, physics, chemistry and biology at university level for six months, then joins Physics, Chemistry or Biological Sciences in the School of Science. A 3.5-year fast track is possible.",
+      "ib": "Expects school-level physics, chemistry and biology as well as maths; the interview centres on your physics, chemistry or biology orientation.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any" },
+        { "anyOf": ["physics", "chemistry", "biology"], "level": "any", "note": "Basic knowledge of all three sciences is expected." }
+      ],
+      "tuitionEuEea": "¥535,800 a year (first term waived)",
+      "selection": ["grades", "interview"],
+      "selectionNote": "Documents and a recommendation letter first, then an online interview from 16 February to 2 March 2027 on natural sciences and maths with a physics, chemistry or biology focus.",
+      "closes": "2026-11-20",
+      "requirementsUrl": "https://www.oia.hokudai.ac.jp/isp/wp-content/uploads/2026/09/ISP-Application-Guidelines-for-2027-Enrollment.pdf"
+    },
+    {
+      "name": "Modern Japanese Studies Program (MJSP)",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://www.global.hokudai.ac.jp/admissions/modern-japanese-studies/",
+      "about": "A four-year bachelor's on contemporary Japanese society and culture, taught in English. You start in October 2027 with a six-month beginners' Japanese course; the bachelor's itself starts in April 2028.",
+      "ib": "Starts with a six-month beginners' Japanese course; the bachelor's begins in April 2028. Needs IELTS 6.5 or TOEFL iBT 79.",
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "Documents, a recommendation letter and an online interview (5 to 14 January 2027 for the first call). Applicants at JLPT N2 or higher may skip the Japanese course.",
+      "closes": "2027-02-09",
+      "closesNote": "Last of two calls; the first call closes sooner.",
+      "requirementsUrl": "https://www.oia.hokudai.ac.jp/mjsp/wp-content/uploads/2026/07/MJSP-Application-Guidelines-2028-Enrollment.pdf"
+    }
+  ],
+  "notes": [
+    "The first semester's tuition and the enrolment fee are waived for every ISP student starting in October 2027; later waivers are decided yearly and are not given to everyone.",
+    "The MJSP guidelines are titled for 2028 enrolment because the bachelor's starts in April 2028, but students join the Japanese course in October 2027.",
+    "Hokkaido lists only these two programmes as taught in English on its undergraduate overview page."
+  ],
+  "sources": [
+    { "title": "Hokkaido University — Undergraduate admissions overview", "url": "https://www.global.hokudai.ac.jp/admissions/undergraduate-admissions-overview/", "retrieved": "2026-10-07" },
+    { "title": "Hokkaido ISP — How to apply (2027 enrolment)", "url": "https://www.oia.hokudai.ac.jp/isp/prospective-students/how-to-apply/", "retrieved": "2026-10-07" },
+    { "title": "Hokkaido ISP — Application guidelines for 2027 enrollment (PDF)", "url": "https://www.oia.hokudai.ac.jp/isp/wp-content/uploads/2026/09/ISP-Application-Guidelines-for-2027-Enrollment.pdf", "retrieved": "2026-10-07" },
+    { "title": "Hokkaido ISP — Integrated Science Program", "url": "https://www.global.hokudai.ac.jp/admissions/integrated-science/", "retrieved": "2026-10-07" },
+    { "title": "Hokkaido MJSP — How to apply", "url": "https://www.oia.hokudai.ac.jp/mjsp/for-prospective-students/how-to-apply/", "retrieved": "2026-10-07" },
+    { "title": "Hokkaido MJSP — Application guidelines, 2028 enrollment (PDF)", "url": "https://www.oia.hokudai.ac.jp/mjsp/wp-content/uploads/2026/07/MJSP-Application-Guidelines-2028-Enrollment.pdf", "retrieved": "2026-10-07" },
+    { "title": "Hokkaido MJSP — Modern Japanese Studies Program", "url": "https://www.global.hokudai.ac.jp/admissions/modern-japanese-studies/", "retrieved": "2026-10-07" }
+  ]
+}

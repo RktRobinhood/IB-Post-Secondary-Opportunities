@@ -1,0 +1,195 @@
+{
+  "institution": "ca-usask",
+  "name": "University of Saskatchewan",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Saskatoon university with 120+ programs, a green campus of greystone buildings and a synchrotron among its research facilities.",
+  "handoff": {
+    "label": "Find a program",
+    "url": "https://admissions.usask.ca/programs/find-a-program.php"
+  },
+  "ib": {
+    "text": "Your Diploma total out of 45 (TOK and EE bonus points count) is converted to a percentage; each college sets a minimum total, 24 to 25, plus subject prerequisites, and some rank competitively.",
+    "url": "https://admissions.usask.ca/requirements/ib.php"
+  },
+  "apply": {
+    "via": "USask online application (apply.usask.ca)",
+    "url": "https://admissions.usask.ca/requirements/apply.php"
+  },
+  "dates": [
+    {
+      "label": "Engineering, fall 2027: early admission deadline",
+      "date": "2026-12-01",
+      "kind": "early",
+      "short": "Early admission",
+      "who": "any",
+      "programmes": ["engineering"],
+      "url": "https://admissions.usask.ca/requirements/deadlines.php"
+    },
+    {
+      "label": "Engineering, fall 2027: application deadline",
+      "date": "2027-02-15",
+      "kind": "closes",
+      "who": "any",
+      "programmes": ["engineering"],
+      "url": "https://admissions.usask.ca/requirements/deadlines.php"
+    },
+    {
+      "label": "Engineering, fall 2027: documents due",
+      "date": "2027-03-01",
+      "kind": "documents",
+      "who": "any",
+      "programmes": ["engineering"],
+      "url": "https://admissions.usask.ca/requirements/deadlines.php"
+    },
+    {
+      "label": "Agriculture, Arts and Science, Business: fall 2027 international deadline",
+      "date": "2027-05-01",
+      "kind": "closes",
+      "who": "any",
+      "programmes": ["agriculture-and-bioresources"],
+      "url": "https://admissions.usask.ca/requirements/deadlines.php"
+    },
+    {
+      "label": "Agriculture, Arts and Science, Business: fall 2027 documents due",
+      "date": "2027-06-01",
+      "kind": "documents",
+      "who": "any",
+      "programmes": ["agriculture-and-bioresources"],
+      "url": "https://admissions.usask.ca/requirements/deadlines.php"
+    }
+  ],
+  "courses": 120,
+  "programmes": [
+    {
+      "name": "Engineering",
+      "closes": "2027-02-15",
+      "credential": "Bachelor of Science in Engineering",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://admissions.usask.ca/colleges/engineering.php",
+      "requirementsUrl": "https://admissions.usask.ca/requirements/deadlines.php",
+      "about": "A redesigned first year with hands-on courses and tutorials in place of final exams, then one of eight accredited majors from chemical and civil to engineering physics. An optional co-op adds 4 to 20 months of paid work.",
+      "ib": "Maths, Physics and Chemistry, each at grade 4 or above; entry is competitive and early admission asks for a higher total.",
+      "tuitionEuEea": "CAD 59,383 first year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Further Mathematics SL is also accepted"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 25,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on admission average. The stated minimum is 25; early admission asks for 33, and the 2026-27 target was 87% (30 points on USask's IB table).",
+      "flagshipSource": {
+        "title": "Engineering: a redesigned first year, eight accredited majors and an optional co-op internship",
+        "url": "https://admissions.usask.ca/colleges/engineering.php"
+      }
+    },
+    {
+      "name": "Agriculture and Bioresources",
+      "closes": "2027-05-01",
+      "credential": "Bachelor of Science in Agriculture",
+      "years": 4,
+      "field": "agriculture-environment",
+      "url": "https://admissions.usask.ca/colleges/agbio.php",
+      "requirementsUrl": "https://admissions.usask.ca/requirements/deadlines.php",
+      "about": "Degrees in agriculture, agribusiness, animal bioscience and food, with majors from crop science and agronomy to horticulture. The college has taught since 1912 and also offers two years of pre-veterinary study.",
+      "ib": "Maths, Biology and Chemistry (Agribusiness: Maths and one science); one missing subject can be cleared before second year.",
+      "tuitionEuEea": "CAD 41,964 first year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["biology"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL"
+        }
+      ],
+      "points": 24,
+      "selection": ["grades"],
+      "selectionNote": "A minimum Diploma total of 24; applications are read until the deadline and offers go out on a rolling basis until the seats are full.",
+      "flagshipSource": {
+        "title": "College of Agriculture and Bioresources: degrees in agriculture, agribusiness, animal bioscience and food",
+        "url": "https://admissions.usask.ca/colleges/agbio.php"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Agriculture and Bioresources",
+      "url": "https://admissions.usask.ca/colleges/agbio.php",
+      "line": "Maths, Biology and Chemistry (Agribusiness: Maths and one science); a Diploma total of at least 24."
+    },
+    {
+      "name": "Arts and Science",
+      "url": "https://admissions.usask.ca/colleges/arts-and-science.php",
+      "line": "Maths and a Diploma total of at least 24; Biomedical Sciences adds Biology, Chemistry and Physics, each at 4 or above."
+    },
+    {
+      "name": "Education",
+      "url": "https://admissions.usask.ca/colleges/education.php",
+      "line": "Maths, a science, History, English A and an extra language or fine art; two gaps can be cleared by second year. Total of 24."
+    },
+    {
+      "name": "Edwards School of Business",
+      "url": "https://admissions.usask.ca/colleges/edwards.php",
+      "line": "Maths and a Diploma total of at least 25; applications are read until the deadline and offered on a rolling basis."
+    },
+    {
+      "name": "Engineering",
+      "url": "https://admissions.usask.ca/colleges/engineering.php",
+      "line": "Maths, Physics and Chemistry, each at 4 or above; competitive entry with a separate early-admission round."
+    },
+    {
+      "name": "Kinesiology",
+      "url": "https://admissions.usask.ca/colleges/kinesiology.php",
+      "line": "Maths, Biology, and Chemistry or Physics; stated totals of 25 for regular and 33 for early admission."
+    },
+    {
+      "name": "St. Thomas More College",
+      "url": "https://admissions.usask.ca/colleges/st-thomas-more.php",
+      "line": "Catholic college federated with USask, with about 240 liberal arts courses and BA programs in Philosophy and in Religion and Culture."
+    }
+  ],
+  "notes": [
+    "USask converts your Diploma total to a percentage: 28 points is 85%, 33 is 90%, 24 is 79%; ask the admissions office how TOK and EE bonus points are added.",
+    "Deadlines differ by college: Engineering, Education and Kinesiology close in February, while Agriculture, Business and international Arts and Science applicants have until May.",
+    "Tuition is charged per class, so the published first-year figures are estimates for a full course load."
+  ],
+  "sources": [
+    { "title": "USask: International Baccalaureate admission", "url": "https://admissions.usask.ca/requirements/ib.php", "retrieved": "2026-10-07" },
+    { "title": "USask: requirements and deadlines by program (IB school route)", "url": "https://admissions.usask.ca/requirements/deadlines.php", "retrieved": "2026-10-07" },
+    { "title": "USask: how to apply", "url": "https://admissions.usask.ca/requirements/apply.php", "retrieved": "2026-10-07" },
+    { "title": "USask: tuition and costs, 2026-27 estimates", "url": "https://admissions.usask.ca/money/tuition.php", "retrieved": "2026-10-07" },
+    { "title": "USask: find a program", "url": "https://admissions.usask.ca/programs/find-a-program.php", "retrieved": "2026-10-07" },
+    { "title": "USask: colleges and schools", "url": "https://admissions.usask.ca/programs/colleges-and-schools.php", "retrieved": "2026-10-07" },
+    { "title": "USask: why choose USask", "url": "https://admissions.usask.ca/campus-life/why-usask.php", "retrieved": "2026-10-07" },
+    { "title": "USask: about USask", "url": "https://www.usask.ca/about/index.php", "retrieved": "2026-10-07" },
+    { "title": "USask: Engineering admissions", "url": "https://admissions.usask.ca/colleges/engineering.php", "retrieved": "2026-10-07" },
+    { "title": "USask: Agriculture and Bioresources admissions", "url": "https://admissions.usask.ca/colleges/agbio.php", "retrieved": "2026-10-07" },
+    { "title": "USask: Arts and Science admissions", "url": "https://admissions.usask.ca/colleges/arts-and-science.php", "retrieved": "2026-10-07" },
+    { "title": "USask: Education admissions", "url": "https://admissions.usask.ca/colleges/education.php", "retrieved": "2026-10-07" },
+    { "title": "USask: Edwards School of Business admissions", "url": "https://admissions.usask.ca/colleges/edwards.php", "retrieved": "2026-10-07" },
+    { "title": "USask: Kinesiology admissions", "url": "https://admissions.usask.ca/colleges/kinesiology.php", "retrieved": "2026-10-07" },
+    { "title": "USask: St. Thomas More College admissions", "url": "https://admissions.usask.ca/colleges/st-thomas-more.php", "retrieved": "2026-10-07" }
+  ]
+}

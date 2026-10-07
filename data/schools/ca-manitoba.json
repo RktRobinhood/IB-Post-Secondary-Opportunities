@@ -1,0 +1,174 @@
+{
+  "institution": "ca-manitoba",
+  "name": "University of Manitoba",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Winnipeg university founded in 1877 with 27,000+ undergraduates, 100+ undergraduate programs and co-op or internship options.",
+  "handoff": {
+    "label": "Undergraduate programs of study",
+    "url": "https://umanitoba.ca/explore/programs-of-study"
+  },
+  "ib": {
+    "text": "Three HL and three SL courses with an overall minimum of 24 points; the program then asks an average over four courses, from 4 (70%) for Arts to 6 (85%) for Commerce, Health Sciences and Kinesiology.",
+    "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements"
+  },
+  "apply": {
+    "via": "University of Manitoba online application",
+    "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements"
+  },
+  "dates": [
+    {
+      "label": "Apply by this date to enter the draw for a CAD 5,000 tuition credit",
+      "date": "2026-12-01",
+      "kind": "early",
+      "short": "Tuition prize draw",
+      "who": "any",
+      "url": "https://umanitoba.ca/explore/early-application-tuition-prize"
+    }
+  ],
+  "lastYear": {
+    "year": 2026,
+    "text": "1 March (University 1 international: 1 May)"
+  },
+  "courses": 100,
+  "programmes": [
+    {
+      "name": "Engineering",
+      "credential": "Bachelor of Science in Engineering",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://umanitoba.ca/explore/programs-of-study/engineering-bsc",
+      "requirementsUrl": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "about": "A common first year in maths and science, then Biosystems, Civil, Computer, Electrical or Mechanical Engineering, with smaller classes and an optional paid Co-op and Industrial Internship Program.",
+      "ib": "English, Maths (AA, or AI HL), Chemistry and Physics; an average of 6 (80%), no grade below 4. Canadians are preferred.",
+      "tuitionEuEea": "About CAD 28,000 first-year average",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 24,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on a 6 (80%) average over English, Maths, Chemistry and Physics, two at HL; Canadians are preferred, with at least 10% of places for international students.",
+      "flagshipSource": {
+        "title": "Engineering (BSc): smaller classes, common first year and a Co-op/Industrial Internship Program",
+        "url": "https://umanitoba.ca/explore/programs-of-study/engineering-bsc"
+      }
+    },
+    {
+      "name": "Computer Science",
+      "credential": "Bachelor of Science (Major)",
+      "years": 4,
+      "field": "computing",
+      "url": "https://umanitoba.ca/explore/programs-of-study/computer-science-bsc",
+      "requirementsUrl": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "about": "A mathematically rich, theory-based degree in how computers work and carry out tasks in software, with research labs from robotics to bioinformatics and an optional Science Co-op.",
+      "ib": "Enter through Science: English, Maths (AA, or AI HL), one of Biology, Chemistry, Physics or Computer Science, and a fourth course; an average of 6 (80%).",
+      "tuitionEuEea": "About CAD 28,000 first-year average",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 3
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 3
+        },
+        {
+          "anyOf": ["biology", "chemistry", "physics", "computer-science"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "points": 24,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on a 6 (80%) average over four courses, two at HL, with no grade below 3; higher averages are needed when applicants outnumber places.",
+      "flagshipSource": {
+        "title": "Computer Science (BSc): research labs from robotics to bioinformatics, with a Co-op option",
+        "url": "https://umanitoba.ca/explore/programs-of-study/computer-science-bsc"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Price Faculty of Engineering",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "English, Maths, Chemistry and Physics; an average of 6 (80%), no grade below 4; Canadians preferred."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "English, Maths and a lab science or Computer Science; an average of 6 (80%) over four courses, no grade below 3."
+    },
+    {
+      "name": "Business (Commerce)",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "Commerce: English and Maths (AA, or AI HL) plus two more; an average of 6 (85%) with no grade below 4."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "English, Maths and two more academic courses; an average of 4 (70%), no grade below 3."
+    },
+    {
+      "name": "Faculty of Agricultural and Food Sciences",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "English, Maths and two more academic courses; an average of 4 (70%), no grade below 3."
+    },
+    {
+      "name": "Clayton H. Riddell Faculty of Environment, Earth, and Resources",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "Environmental Science and Earth Sciences need English, Maths, Physics and a science; Geography needs English and Maths; 4 (70%)."
+    },
+    {
+      "name": "Faculty of Kinesiology and Recreation Management",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "Kinesiology needs English, Maths, and Biology, Chemistry or Physics; an average of 6 (85%) over four courses."
+    },
+    {
+      "name": "Interdisciplinary Health (Health Sciences, Health Studies)",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "Health Sciences needs English, Maths, Biology and Chemistry at an average of 6 (85%), no grade below 3."
+    },
+    {
+      "name": "Fine Arts and Music",
+      "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements",
+      "line": "Fine Arts needs a portfolio and statement; Music an audition, theory test and recommendations, with a January deadline."
+    }
+  ],
+  "notes": [
+    "Not sure of your degree? University 1 takes an average of 4 (70%) over English, Maths and two more courses, and you choose your faculty after the first year.",
+    "The university publishes CAD 28,000 as the average first-year international tuition and fees; Engineering gives preference to Canadian citizens and permanent residents."
+  ],
+  "sources": [
+    { "title": "University of Manitoba: IB requirements", "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/ib-requirements", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Undergraduate admission requirements", "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Direct Entry programs applicant information (2026-2027)", "url": "https://umanitoba.ca/explore/undergraduate-admissions/requirements/direct-entry", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Early application tuition prize", "url": "https://umanitoba.ca/explore/early-application-tuition-prize", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Facts and figures", "url": "https://umanitoba.ca/about-um/facts-figures", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Tuition and financial supports for international students", "url": "https://umanitoba.ca/explore/student-experience/tuition-and-financial-supports/international", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Undergraduate programs of study", "url": "https://umanitoba.ca/explore/programs-of-study", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Engineering (BSc)", "url": "https://umanitoba.ca/explore/programs-of-study/engineering-bsc", "retrieved": "2026-10-07" },
+    { "title": "University of Manitoba: Computer Science (BSc)", "url": "https://umanitoba.ca/explore/programs-of-study/computer-science-bsc", "retrieved": "2026-10-07" }
+  ]
+}

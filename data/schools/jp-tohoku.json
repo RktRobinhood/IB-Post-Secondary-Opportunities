@@ -1,0 +1,59 @@
+{
+  "institution": "jp-tohoku",
+  "name": "Tohoku University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "National university in Sendai, founded 1907; its new Gateway College teaches in English from October 2027, with a STEM and a humanities track.",
+  "handoff": {
+    "label": "Gateway College admissions",
+    "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/"
+  },
+  "ib": {
+    "text": "IB Diploma with predicted grades accepted (conditional offer; finals due by 31 August 2027). 36 of 42 points with 2 for TOK and EE is the recommended score. IELTS 6.0, TOEFL iBT 80 or similar English proof.",
+    "url": "https://admissions.tohoku.ac.jp/en/adcms/wp-content/uploads/2026/08/ApplicationGuideGWC2027Fall.pdf"
+  },
+  "apply": {
+    "via": "TAO online application system",
+    "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/"
+  },
+  "starts": "October",
+  "dates": [
+    { "label": "Applications open, noon JST", "date": "2026-12-15", "kind": "opens", "who": "any", "url": "https://admissions.tohoku.ac.jp/en/adcms/wp-content/uploads/2026/08/ApplicationGuideGWC2027Fall.pdf" },
+    { "label": "Applications close, noon JST", "date": "2027-01-14", "kind": "closes", "who": "any", "url": "https://admissions.tohoku.ac.jp/en/adcms/wp-content/uploads/2026/08/ApplicationGuideGWC2027Fall.pdf" },
+    { "label": "First-stage (documents) screening results", "date": "2027-02-05", "kind": "decision", "who": "any", "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/" },
+    { "label": "Second-stage written exam and interview (21 and 22 February)", "date": "2027-02-21", "kind": "test", "who": "any", "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/" },
+    { "label": "Final results announced", "date": "2027-03-24", "kind": "decision", "who": "any", "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/" },
+    { "label": "Final IB grades and diploma due for predicted-grade applicants", "date": "2027-08-31", "kind": "documents", "who": "any", "url": "https://admissions.tohoku.ac.jp/en/adcms/wp-content/uploads/2026/08/ApplicationGuideGWC2027Fall.pdf" }
+  ],
+  "programmes": [
+    {
+      "name": "Gateway College",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "interdisciplinary",
+      "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/",
+      "about": "An English-taught undergraduate college with a Humanities and Social Sciences track and a STEM track. You study interdisciplinary courses first and declare a major from the third year; with a few exceptions all classes are in English.",
+      "ib": "STEM: Maths AA HL plus two sciences, one at HL. Humanities track: Maths AA or AI plus a Group 3 subject at HL, and expects Japanese at CEFR B1.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL", "note": "STEM track: Maths AA at HL, plus two sciences with one at HL." }
+      ],
+      "tuitionEuEea": "¥535,800 a year (current rate)",
+      "selection": ["grades", "entrance-exam", "interview"],
+      "selectionNote": "Documents, then a written exam and interview; apply to one track. Autumn 2027 intake is 90 places: 73 STEM, 17 Humanities and Social Sciences.",
+      "places": 90,
+      "closes": "2027-01-14",
+      "requirementsUrl": "https://admissions.tohoku.ac.jp/en/adcms/wp-content/uploads/2026/08/ApplicationGuideGWC2027Fall.pdf"
+    }
+  ],
+  "notes": [
+    "The Health Sciences Department of the School of Medicine and the Department of Pharmacy are not open to Gateway College students, and transfer into Medicine or Dentistry is generally not possible.",
+    "Tohoku's older Future Global Leadership English programmes took their last students in 2026; Gateway College replaces them.",
+    "April entry is a separate intake; an IB student finishing in May 2027 uses the October 2027 one."
+  ],
+  "sources": [
+    { "title": "Tohoku University — Gateway College admissions", "url": "https://admissions.tohoku.ac.jp/en/admissions/undergraduate/gateway_college/", "retrieved": "2026-10-07" },
+    { "title": "Tohoku University — Application guide for Gateway College, 2027 fall enrollment (PDF)", "url": "https://admissions.tohoku.ac.jp/en/adcms/wp-content/uploads/2026/08/ApplicationGuideGWC2027Fall.pdf", "retrieved": "2026-10-07" },
+    { "title": "Tohoku University — Tuition and fees", "url": "https://www.tohoku.ac.jp/en/admissions/tuition_fees.html", "retrieved": "2026-10-07" }
+  ]
+}
