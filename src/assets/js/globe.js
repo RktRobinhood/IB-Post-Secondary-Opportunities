@@ -127,7 +127,7 @@ const EARTH_FS = `${MED}
 uniform sampler2D uDay; uniform sampler2D uMask; uniform sampler2D uDetail;
 uniform vec3 uEye; uniform vec3 uSun; uniform vec3 uTint; uniform float uMaskOn; uniform float uSharp;
 uniform vec2 uTexel; uniform vec4 uDetailRect; uniform vec2 uDetailTexel; uniform float uDetailOn; uniform float uPunch; uniform float uToon;
-uniform sampler2D uPol; uniform float uPolOn; uniform float uInk;
+uniform sampler2D uPol; uniform float uPolOn; uniform float uInk; uniform float uRasterWater;
 varying vec3 vN; varying vec2 vUv; varying vec3 vW;
 float wet(vec3 c) { return smoothstep(0.015, 0.09, c.b - max(c.r, c.g)); }
 /* An unsharp mask that works under magnification: the pixel against the mean
@@ -170,8 +170,16 @@ void main() {
      (round 4: a black Caspian, black bands along coasts). The ink line is
      where that raster's coverage changes, one of its texels away. */
   vec4 pol = texture2D(uPol, vUv);
-  float onDesk = clamp(uPolOn * 2.0, 0.0, 1.0);
-  float water = mix(wet(cs), 1.0 - pol.a, onDesk);
+  /* Where land and water come from: the country raster on the desk and at a
+     continent; the photograph's own coastline at a country, where the raster
+     is too coarse (globe levels round 3). */
+  float onDesk = uRasterWater;
+  /* A photograph's very dark sea does not read as water by its colour; where
+     the country raster says sea too, it is (globe levels round 3: a black
+     North Sea round the toy-coloured land). */
+  float lumS = dot(cs, vec3(0.299, 0.587, 0.114));
+  float darkSea = (1.0 - pol.a) * (1.0 - smoothstep(0.06, 0.24, lumS));
+  float water = mix(max(wet(cs), darkSea), 1.0 - pol.a, onDesk);
   /* Water takes the smoothed photograph; land keeps its sharp one. */
   c = mix(c, cs, water);
   float px = texture2D(uPol, vUv + vec2(1.0 / 2048.0, 0.0)).a;
@@ -1141,7 +1149,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
        universities: Europe and Asia both on the desk at rest, the rest a turn
        away (round 1: weighted by the square, Asia went round the back). */
     if (levels && regions.size) {
-      const w = [...regions.values()].map((r) => [r.xyz, r.members.reduce((n, m) => n + (m.count || 0), 0)]);
+      const w = [...regions.values()].map((r) => [r.xyz, r.members.reduce((n, m) => n + (m.count || 0), 0) ** 1.5]);
       heart = norm(w.reduce((acc, [q, k]) => [acc[0] + q[0] * k, acc[1] + q[1] * k, acc[2] + q[2] * k], [0, 0, 0]));
     }
     const [hLat, hLon] = toLatLon(heart);
@@ -1280,6 +1288,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
       Object.assign(view, f.to);
       rush = 0;
       flight = null;
+      /* On a levels page the plane lands and is gone (round 3: a dotted trail
+         at rest). */
+      if (levels && route) { route = null; routeSvg.style.display = 'none'; }
       clusterAt = -1;
       if (f.announce) say(arrivalMessage(f.announce));
       f.onArrive?.();
@@ -2077,7 +2088,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform2f(pr.u.uDetailTexel, 1 / detailTex.w, 1 / detailTex.h);
     gl.uniform1f(pr.u.uDetailOn, detailOn);
     gl.uniform1f(pr.u.uPunch, closeState === 'failed' ? 0 : 0.5 * smooth(0.24, HANDOFF_ALT, view.alt));
-    gl.uniform1f(pr.u.uToon, 0.3 + 0.7 * smooth(0.13, 0.5, view.alt));
+    /* A levels page is the toy globe all the way down (round 3). */
+    gl.uniform1f(pr.u.uToon, levels ? 0.92 : 0.3 + 0.7 * smooth(0.13, 0.5, view.alt));
     /* A levels page keeps the desk globe's pastel countries and ink coasts at
        a continent's height, so the level still reads as the toy globe and
        every country is its own colour under its coin; the satellite comes in
@@ -2089,8 +2101,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
        coarse at a country's height, so it fades out there and the vector
        borders draw the coast instead. */
     const continentH = smooth(0.55, 0.9, view.alt);
-    const pol = levels ? Math.max(dk, 0.92 * continentH, 0.5) : dk;
+    /* At a country the same pastel and toy-blue sea, nearly as strong (round 3:
+       "a dark satellite swamp"), over the photograph's own coastline. */
+    const pol = levels ? Math.max(dk, 0.92 * continentH, 0.82) : dk;
     gl.uniform1f(pr.u.uPolOn, pol);
+    gl.uniform1f(pr.u.uRasterWater, levels ? Math.max(dk, continentH) : Math.min(1, pol * 2));
     gl.uniform1f(pr.u.uInk, levels ? 0.5 * Math.max(dk, 0.92 * continentH) : 0.5 * pol);
     gl.activeTexture(gl.TEXTURE3);
     gl.bindTexture(gl.TEXTURE_2D, polTex);
@@ -3067,7 +3082,29 @@ export async function mountGlobe(figure, { onFail } = {}) {
     setLevel({ level: 'region', region: id, country: '' });
     lvCam = regionFrame(r);
     flyTo(lvCam, { announce: r.name, travel: true });
+    if (narrowMQ.matches) regionCard(r);
     return true;
+  }
+
+  /** A continent's countries as a rail of chips under a phone's stage: flag,
+      name and number, the most universities first; each one its country. */
+  function regionCard(r) {
+    cardSubject = null;
+    openCard((c) => {
+      c.dataset.rail = '';
+      const total = r.members.reduce((n, m) => n + (m.count || 0), 0);
+      c.append(el('h3', { class: 'world__card-title', tabindex: '-1' }, r.name));
+      c.append(el('p', { class: 'world__card-meta' }, `${r.members.length} countries · ${total} universities`));
+      const ul = el('ul', { class: 'world__card-list world__card-rail' });
+      for (const m of [...r.members].sort((a, b) => (b.count || 0) - (a.count || 0) || a.name.localeCompare(b.name))) {
+        const b = el('button', { type: 'button' });
+        b.append(flagEl(m.country), el('span', {}, pages.get(m.country)?.name || m.name), el('span', { class: 'world__rail-n' }, String(m.count || 0)));
+        b.toggleAttribute('data-dim', !!m.dim);
+        b.addEventListener('click', () => { const cc = countryFor(m.country); if (cc) goToCountry(cc, { focus: true }); });
+        const li = el('li'); li.append(b); ul.append(li);
+      }
+      c.append(ul);
+    });
   }
 
   /** A university: its country's level, then its card, which is its page. */
@@ -3447,6 +3484,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
           /* A continent's name is part of its coin: under it, always. */
           node.toggleAttribute('data-label', fade > 0.4);
           if (fade > 0.4) taken.push(A);
+        } else if (fade > 0.4 && narrowMQ.matches && lv.level === 'region') {
+          /* On a phone a continent's countries are named in the rail under the
+             stage, not crammed between the coins (round 3: 11 names on coins). */
+          node.toggleAttribute('data-label', false);
         } else if (fade > 0.4) {
           wanted.push({ id: g.key, name, node, x, y, r, country: true, rank: (g.nation === lv.country ? 8 : 0) + (on ? 4 : 0) + (g.aside ? 0 : 2), n: g.count });
         } else {
@@ -3856,7 +3897,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
        centre is (round 2, M1: a country's name opened its neighbour). */
     /* By where the names are drawn, not by which element is on top: a
        neighbour's fingertip-sized target can lie over a name (round 2b). */
-    const label = [...pinLayer.querySelectorAll('.world__pin[data-label]:not([hidden]) .world__pin-label, .world__cluster[data-label]:not([hidden]) .world__pin-label')]
+    /* A press right on a dot or a coin is that node, name or no name over it. */
+    const sr0 = stage.getBoundingClientRect();
+    const onDot = lvHit.filter((h) => Math.hypot(h.x - (e.clientX - sr0.left), h.y - (e.clientY - sr0.top)) <= h.r + 3)
+      .sort((a, b) => Math.hypot(a.x - (e.clientX - sr0.left), a.y - (e.clientY - sr0.top)) - Math.hypot(b.x - (e.clientX - sr0.left), b.y - (e.clientY - sr0.top)))[0];
+    const label = onDot ? null : [...pinLayer.querySelectorAll('.world__pin[data-label]:not([hidden]) .world__pin-label, .world__cluster[data-label]:not([hidden]) .world__pin-label')]
       .map((l) => ({ l, r: l.getBoundingClientRect() }))
       .filter(({ r }) => e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
       .sort((a, b) => Math.hypot(a.r.left + a.r.width / 2 - e.clientX, a.r.top + a.r.height / 2 - e.clientY) - Math.hypot(b.r.left + b.r.width / 2 - e.clientX, b.r.top + b.r.height / 2 - e.clientY))[0]?.l;

@@ -1725,3 +1725,10 @@
    it, is pointing at or choosing its node (round 2, M1). */
 .world[data-levels] .world__pin[data-label] .world__pin-label,
 .world[data-levels] .world__cluster[data-label] .world__pin-label { pointer-events: auto; cursor: pointer; }
+/* A continent's countries on a phone (globe.js regionCard): a rail of chips,
+   flag, name and number, scrolled sideways. */
+.world__card[data-rail] { padding-bottom: var(--s3); }
+.world__card-rail { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; padding-bottom: var(--s1); }
+.world__card-rail button { display: inline-flex; align-items: center; gap: .4em; white-space: nowrap; }
+.world__card-rail button[data-dim] { opacity: .5; }
+.world__rail-n { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }

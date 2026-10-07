@@ -337,7 +337,7 @@ check('a chosen country arrives clean: only its own schools group, labels never 
 check('a country\'s lean-in lands on a sphere: the limb on top and both sides, no clouds, no blocky sea', () => {
   assert.match(globeJs, /\[\[0, 0\], \[W \/ 2, 0\], \[W, 0\], \[0, H \/ 2\], \[W, H \/ 2\]\]\.every/, 'a country\'s arrival can come down until its sides are cut off');
   assert.match(globeJs, /const cloudAlpha = \(\) => 0\.82 \* smooth\(1\.3, /, 'clouds cover a country\'s schools on arrival again (round 2: a third of the United States)');
-  assert.match(globeJs, /float water = mix\(wet\(cs\), 1\.0 - pol\.a, onDesk\);\s*\/\*[^*]*\*\/\s*c = mix\(c, cs, water\);/, 'the sea takes the photograph\'s compression blocks again');
+  assert.match(globeJs, /float water = mix\((?:max\(wet\(cs\), darkSea\)|wet\(cs\)), 1\.0 - pol\.a, onDesk\);\s*\/\*[^*]*\*\/\s*c = mix\(c, cs, water\);/, 'the sea takes the photograph\'s compression blocks again');
 });
 
 check('the card\'s photograph fades into its box, and is fetched on touch-down', () => {
