@@ -139,7 +139,7 @@ export function flagged(name) {
 /** Every emoji flag in a piece of built HTML, as its picture. */
 export const flagsInHtml = (text) => String(text).replace(/\p{RI}\p{RI}/gu, (pair) => String(flagImg(flagCode(pair)).value));
 
-export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '', poster = '' }) {
+export function worldWindow({ places = [], bounds, caption, activeLayer = 'Opportunities in view', id = 'world', unit = '', foldList = '', poster = '', here = '' }) {
   const dots = places
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
     // The list's order: the biggest first, as the lights were always drawn.
@@ -199,7 +199,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
 
   const listName = foldList ? `“${foldList}” below` : 'the list below';
 
-  return html`<figure class="world" id="${id}" data-world data-layer="${activeLayer}"${unit ? html` data-unit="${unit}"` : ''}${
+  return html`<figure class="world" id="${id}" data-world data-layer="${activeLayer}"${unit ? html` data-unit="${unit}"` : ''}${here ? html` data-here="${here}"` : ''}${
     bounds ? html` data-frame="${[bounds.north, bounds.south, bounds.west, bounds.east].join(',')}"` : ''}${poster ? raw(' data-poster') : ''}>
   <div class="world__stage">
     ${poster

@@ -1,0 +1,31 @@
+== desk
+A nearby                           region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1.026 close=failed/false reset=true +true -true | hlen=50 | /?scope=nearby | count=16 of 67 programmes Nearby · Europe ×
+A far                              world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?scope=far | count=10 countries researched Explore · Worldwide ×
+A Back                             region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1.021 close=failed/false reset=true +true -true | hlen=50 | /?scope=nearby | count=16 of 67 programmes Nearby · Europe ×
+B here                             country/europe/dk | trail="WorldEuropeDenmark" | card=Denmark — Open the Denmark page→ [14 universities · 51 programmes] /denmark/ | pins=14 dim=0 | nodes=0 | alt=0.152 close=failed/false reset=true +false -true | hlen=50 | /?scope=here | count=51 of 67 programmes Right here · Denmark ×
+B nearby                           region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1.021 close=failed/false reset=true +true -true | hlen=50 | /?scope=nearby | count=16 of 67 programmes Nearby · Europe ×
+B Back                             country/europe/dk | trail="WorldEuropeDenmark" | card=null [null]  | pins=14 dim=0 | nodes=0 | alt=0.151 close=failed/false reset=true +false -true | hlen=50 | /?scope=here | count=51 of 67 programmes Right here · Denmark ×
+C nl                               country/europe/nl | trail="WorldEuropeNetherlands" | card=Netherlands — Open the Netherlands page→ [22 universities · 16 programmes] /destinations/nl/ | pins=22 dim=0 | nodes=2 | alt=0.135 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Anl&scope=nearby#country=nl | count=16 of 67 programmes Anywhere in the Netherlands ×Nearby · Europe ×
+C Back                             region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1.021 close=failed/false reset=true +true -true | hlen=50 | /?scope=nearby | count=16 of 67 programmes Nearby · Europe ×
+D nearby, Back                     world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+E far, Back                        world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+E Forward                          world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=4.322 close=failed/false reset=true +true -false | hlen=50 | /?scope=far | count=10 countries researched Explore · Worldwide ×
+== phone
+A nearby                           world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+A far                              world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /?scope=far | count=10 countries researched Explore · Worldwide ×
+A Back                             world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+B here                             world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+B nearby                           region/europe/ | trail="WorldEurope" | card=Europe [26 countries · 260 universities]  | pins=0 dim=0 | nodes=26 | alt=1.026 close=failed/false reset=true +true -true | hlen=50 | /?scope=nearby | count=16 of 67 programmes Nearby · Europe ×
+B Back                             world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /?map=globe | count=67 programmes
+C: no nl node visible
+file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/lib.mjs:6
+export const ev = async (expr) => { const r = await post('/eval', { expr }); if (r && r.error) throw new Error(r.error); return r; };
+                                                                                                     ^
+
+Error: TypeError: Cannot read properties of null (reading 'globe')
+    at <anonymous>:1:108
+    at ev (file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/lib.mjs:6:102)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/q1-door-back-trace.mjs:33:54
+
+Node.js v24.14.0

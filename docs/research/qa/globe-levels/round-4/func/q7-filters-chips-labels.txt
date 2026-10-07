@@ -1,0 +1,27 @@
+A medicine → Denmark                         country/europe/dk | trail="WorldEuropeDenmark" | card=Denmark — Open the Denmark page→ [1 university · 1 programme] /denmark/ | pins=14 dim=13 | nodes=0 | alt=0.151 close=failed/false reset=true +false -true | hlen=50 | /?q=medicine&where=dest%3Adk#country=dk | count=1 programme near “medicine” “medicine” ×Anywhere in Denmark ×
+A click dimmed dk-aau                        country/europe/dk | trail="WorldEuropeDenmark" | card=Aalborg University — Open Aalborg University→ [Aalborg] /universities/dk-aau/ | pins=14 dim=14 | nodes=0 | alt=0.151 close=failed/false reset=true +false -true | hlen=50 | /?q=medicine&where=inst%3Adk-aau#place=dk-aau | count=No degrees “medicine” ×Aalborg University ×
+A click lit dk-absalon                       country/europe/dk | trail="WorldEuropeDenmark" | card=University College Absalon — Open University College Absalon→ [1 programme · Kalundborg] /universities/dk-absalon/ | pins=14 dim=13 | nodes=0 | alt=0.151 close=failed/false reset=true +false -true | hlen=50 | /?q=medicine&where=inst%3Adk-absalon#place=dk-absalon | count=1 programme near “medicine” “medicine” ×University College Absalon ×
+B UK card controls                           × | United Kingdom — Open the United Kingdom page→ | City St George's, University of London | Durham University | Imperial College London
+B click chip "City St George's, University of London" country/europe/gb | trail="WorldEuropeUnited Kingdom" | card=City St George's, University of London — Open City St George's, University of London→ [London] /universities/gb-city-st-george-s/ | pins=22 dim=0 | nodes=6 | alt=0.383 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Agb#place=gb-city-st-george-s | count=United Kingdom researched, no programme mapped yet United Kingdom ×
+B Back                                       country/europe/gb | trail="WorldEuropeUnited Kingdom" | card=United Kingdom — Open the United Kingdom page→ [22 universities] /destinations/gb/ | pins=22 dim=0 | nodes=6 | alt=0.39 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Agb#country=gb | count=United Kingdom researched, no programme mapped yet United Kingdom ×
+B Tab presses from the stage to a chip: 6    City St George's, University of London
+B Enter on chip                              country/europe/gb | trail="WorldEuropeUnited Kingdom" | card=United Kingdom — Open the United Kingdom page→ [22 universities] /destinations/gb/ | pins=22 dim=0 | nodes=6 | alt=0.39 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Agb#country=gb | count=United Kingdom researched, no programme mapped yet United Kingdom ×
+B focus after                                 City St George's, University of London
+C desk world: name "Europe" → region/europe
+C desk world: name "North America" → region/north-america
+C desk world: name "Oceania" → region/oceania
+C desk world: name "Asia" → region/asia
+C desk Europe: country names clicked 26, right 23; wrong: DKDenmark → region/europe | ATAustria → country/si card Slovenia — Open the Slovenia p | EEEstonia → region/europe
+C phone world: name "Europe" → region/europe
+C phone world: name "North America" → region/north-america
+C phone world: name "Oceania" → region/oceania
+C phone world: name "Asia" → region/asia
+C phone Europe: country names clicked 0, right 0; wrong: 
+D countries world                            world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /countries/?map=globe | count=null
+D Europe                                     region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1.026 close=failed/false reset=true +true -true | hlen=50 | /countries/?map=globe#region=europe | count=null
+D France                                     country/europe/fr | trail="WorldEuropeFrance" | card=France — Open the France page→ [8 universities] /destinations/fr/ | pins=8 dim=0 | nodes=6 | alt=0.277 close=failed/false reset=true +false -true | hlen=50 | /countries/?map=globe#country=fr | count=null
+D pin fr-sciences-po                         country/europe/fr | trail="WorldEuropeFrance" | card=Sciences Po — Open Sciences Po→ [Paris, plus campuses in Dijon, Le Havre, Menton, Nancy, Poitiers and Reims] /universities/fr-sciences-po/ | pins=8 dim=0 | nodes=6 | alt=0.277 close=failed/false reset=true +false -true | hlen=50 | /countries/?map=globe#place=fr-sciences-po | count=null
+D back                                       country/europe/fr | trail="WorldEuropeFrance" | card=France — Open the France page→ [8 universities] /destinations/fr/ | pins=8 dim=0 | nodes=6 | alt=0.284 close=failed/false reset=true +false -true | hlen=50 | /countries/?map=globe#country=fr | count=null
+D back 2                                     region/europe/ | trail="WorldEurope" | card=null [null]  | pins=0 dim=0 | nodes=26 | alt=1.021 close=failed/false reset=true +true -true | hlen=50 | /countries/?map=globe#region=europe | count=null
+D back 3                                     world// | trail="" | card=null [null]  | pins=0 dim=0 | nodes=4 | alt=3.594 close=failed/false reset=true +true -false | hlen=50 | /countries/?map=globe | count=null
+logs []

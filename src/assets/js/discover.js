@@ -192,7 +192,15 @@ function paintMap(near = null) {
       counts.set(id, LIGHTS[id]?.n || 1);
     }
   }
-  world.setCounts(counts, { selected: state.place });
+  // What each university teaches, subject areas most taught first, for its card.
+  const byInst = new Map();
+  for (const c of CARDS) for (const m of c.members) {
+    if (!m.i || !m.f) continue;
+    const f = byInst.get(m.i) || byInst.set(m.i, new Map()).get(m.i);
+    f.set(m.f, (f.get(m.f) || 0) + 1);
+  }
+  const fields = new Map([...byInst].map(([i, f]) => [i, [...f].sort((a, b) => b[1] - a[1]).map(([k]) => k)]));
+  world.setCounts(counts, { selected: state.place, fields });
 }
 
 /* Move the camera to what a distance names. `show` pushes nothing here: the
@@ -504,7 +512,7 @@ function render() {
     : shown
     ? `<b>${cardsShown}</b> of ${TOTAL} programmes`
     : door && places
-    ? `<b>${esc(destName(door))}</b> researched, no programme mapped yet`
+    ? `<b>${esc(destName(door))}</b> — its universities and how to apply are on its own page`
     : doorOnly && places
     ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
     : near.size

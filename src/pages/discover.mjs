@@ -340,6 +340,7 @@ export function discoverSection(site) {
       ${worldWindow({
         places: allLights,
         id: 'discover-map',
+        here: hereCode || '',
         unit: 'programme',
         activeLayer: 'Where the universities are',
         caption: 'Choose a continent, then a country, then a university.',

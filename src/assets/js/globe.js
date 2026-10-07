@@ -2103,7 +2103,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const continentH = smooth(0.55, 0.9, view.alt);
     /* At a country the same pastel and toy-blue sea, nearly as strong (round 3:
        "a dark satellite swamp"), over the photograph's own coastline. */
-    const pol = levels ? Math.max(dk, 0.92 * continentH, 0.82) : dk;
+    const pol = levels ? Math.max(dk, 0.92 * continentH, 0.95) : dk;
     gl.uniform1f(pr.u.uPolOn, pol);
     gl.uniform1f(pr.u.uRasterWater, levels ? Math.max(dk, continentH) : Math.min(1, pol * 2));
     gl.uniform1f(pr.u.uInk, levels ? 0.5 * Math.max(dk, 0.92 * continentH) : 0.5 * pol);
@@ -2143,7 +2143,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
         gl.drawArrays(gl.LINES, hoverCountry.start, hoverCountry.count);
       }
       if (outline) {
-        gl.uniform4f(pr.u.uColor, 1.0, 0.78, 0.6, selectedCountry ? 1.0 : 0.8);
+        /* At a country the photograph's own coast is drawn; its outline is a
+           soft glow, not a second coast beside it (round 4). */
+        gl.uniform4f(pr.u.uColor, 1.0, 0.78, 0.6, levels && lv.level === 'country' ? 0.45 : selectedCountry ? 1.0 : 0.8);
         gl.drawArrays(gl.LINES, outline.start, outline.count);
       }
       gl.depthMask(true);
@@ -2594,6 +2596,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
       if (p.door && p.count && !levels) facts.push(plural(p.count, 'institution'));
       else if (unit && p.count && !p.school && !levels) facts.push(plural(p.count, unit));
       if (p.school && unit && p.n) facts.push(plural(p.n, unit));
+      /* What you can study there, when the page knows (round 4). */
+      if (p.school && p.fields?.length) facts.unshift(p.fields.slice(0, 3).join(', '));
       if (p.state) facts.push(p.state);
       if (facts.length) c.append(el('p', { class: 'world__card-meta' }, facts.join(' · ')));
       /* "Placed at the country, not at a campus" meant nothing to a student
@@ -2876,9 +2880,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
       } else if (levels && (shownAt === popAt || lastShowAt >= e.timeStamp)) {
         /* The page has already moved the globe for this entry (a door's
            frame, discover.js): that is where Back goes (round 1: Nearby →
-           Explore → Back left the globe on the world under Europe's cards). */
+           Explore → Back left the globe on the world under Europe's cards),
+           card and all (round 4: a phone's continent lost its rail). */
         currentSel = null;
-        closeCard();
       } else {
         currentSel = null;
         announceChoice(null, { restored: true });
@@ -3096,7 +3100,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
       c.append(el('h3', { class: 'world__card-title', tabindex: '-1' }, r.name));
       c.append(el('p', { class: 'world__card-meta' }, `${r.members.length} countries · ${total} universities`));
       const ul = el('ul', { class: 'world__card-list world__card-rail' });
-      for (const m of [...r.members].sort((a, b) => (b.count || 0) - (a.count || 0) || a.name.localeCompare(b.name))) {
+      const first = figure.dataset.here || '';
+      for (const m of [...r.members].sort((a, b) => (b.country === first) - (a.country === first) || (b.count || 0) - (a.count || 0) || a.name.localeCompare(b.name))) {
         const b = el('button', { type: 'button' });
         b.append(flagEl(m.country), el('span', {}, pages.get(m.country)?.name || m.name), el('span', { class: 'world__rail-n' }, String(m.count || 0)));
         b.toggleAttribute('data-dim', !!m.dim);
@@ -3297,8 +3302,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
       the two move as one (round 1: names beside their coins paired with the
       wrong coin). A university's name is placed beside it afterwards, if
       there is room. `compact`: a crowded stage names a country by its flag. */
-  function lvBox(g, r) {
-    if (g.kind !== 'region') return [-r - 2, -r - 2, r + 2, r + 2];
+  /* A coin on a phone's continent, whose name is in the rail: its flag under it. */
+  const flagged = (g) => g.kind === 'country' && lv.level === 'region' && narrowMQ.matches;
+  function lvBox(g, r, withFlag = false) {
+    if (g.kind !== 'region') return [-r - 2, -r - 2, r + 2, r + 2 + (withFlag ? 13 : 0)];
     const half = Math.max(r, (lvName(g).length * 7.4 + 22) / 2);
     return [-half, -r, half, r + 30];
   }
@@ -3331,6 +3338,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
        finger a moment later, and every visit draws the same picture. */
     const fresh = items.some((it) => it.fresh);
     for (let cycle = 0; cycle < (fresh ? 10 : 1); cycle++) relaxOnce(items, disc, furniture);
+    for (const it of items) lvOff.set(it.g.key, [it.x - it.s.x, it.y - it.s.y]);
   }
   function relaxOnce(items, disc, furniture) {
     for (const it of items) { it.x += (it.s.x - it.x) * 0.25; it.y += (it.s.y - it.y) * 0.25; }
@@ -3359,6 +3367,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
         }
       }
       for (const it of items) {
+        if (disc) {
+          const dx = it.x - disc.cx, dy = it.y - disc.cy, d = Math.hypot(dx, dy), room = disc.r - it.r - 4;
+          if (d > room && room > 0) { it.x = disc.cx + (dx / d) * room; it.y = disc.cy + (dy / d) * room; }
+        }
         for (const f of furniture) {
           const A = abs(it);
           const ox = Math.min(A[2], f[2]) - Math.max(A[0], f[0]);
@@ -3413,8 +3425,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
         s = { x: disc.cx + (dx / l) * disc.r * 0.82, y: disc.cy + (dy / l) * disc.r * 0.82, facing: 0.25, behind: true };
       }
       if (!(s.facing > (disc ? 0.08 : 0.02) && s.x > -r && s.x < W + r && s.y > -r && s.y < H + r)) continue;
-      const off = lvOff.get(g.key);
-      items.push({ g, s, r, box: lvBox(g, r), x: s.x + (off?.[0] || 0), y: s.y + (off?.[1] || 0), fresh: !off });
+      /* Laid out from the places themselves every frame — the same camera
+         always gives the same picture, however it was reached (round 4: the
+         way back up swapped two coins). */
+      items.push({ g, s, r, box: lvBox(g, r, flagged(g)), x: s.x, y: s.y, fresh: true });
     }
     relax(items, disc, furniture);
 
@@ -3468,7 +3482,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node.toggleAttribute('data-on', on);
         node.toggleAttribute('data-selected', g.kind === 'country' && g.nation === lv.country);
         node.toggleAttribute('data-places', false);
-        node.toggleAttribute('data-flags', false);
+        if (!flagged(g)) node.toggleAttribute('data-flags', false);
         node.toggleAttribute('data-flip', false);
         node.toggleAttribute('data-behind', !!s.behind);
         const labelEl = node.children[2];
@@ -3486,8 +3500,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
           if (fade > 0.4) taken.push(A);
         } else if (fade > 0.4 && narrowMQ.matches && lv.level === 'region') {
           /* On a phone a continent's countries are named in the rail under the
-             stage, not crammed between the coins (round 3: 11 names on coins). */
+             stage, not crammed between the coins (round 3: 11 names on coins);
+             each coin carries its flag (round 4). */
           node.toggleAttribute('data-label', false);
+          if (node._flags !== g.nation) { node._flags = g.nation; node.children[1].replaceChildren(flagEl(g.nation)); }
+          node.toggleAttribute('data-flags', true);
         } else if (fade > 0.4) {
           wanted.push({ id: g.key, name, node, x, y, r, country: true, rank: (g.nation === lv.country ? 8 : 0) + (on ? 4 : 0) + (g.aside ? 0 : 2), n: g.count });
         } else {
@@ -3527,9 +3544,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
         }
         if (spot) break;
       }
-      /* Nowhere free: its flag under it all the same — a coin is never
-         nameless (it may touch a neighbour's name). */
-      if (!spot) spot = { pos: 'below', short: true, rect: labelRect('below', w.x, w.y, w.r, 50) };
+      /* Nowhere free: its flag and code under it, if that covers no other
+         coin or dot; else none (it is named on hover, in its card and in the
+         list). */
+      if (!spot) {
+        const rect = labelRect('below', w.x, w.y, w.r, 50);
+        if (!obstacles.some((o) => o.id !== w.id && hits(rect, o.rect))) spot = { pos: 'below', short: true, rect };
+      }
+      if (!spot) { w.node.toggleAttribute('data-label', false); continue; }
       taken.push(spot.rect);
       w.node.toggleAttribute('data-label', true);
       w.node.dataset.pos = spot.pos;
@@ -3553,8 +3575,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
         placed = i;
         taken.push(rect);
       }
-      /* The chosen university is named whatever else is there. */
-      if (placed < 0 && w.rank >= 8) placed = w.x + w.r + 3 + width > W - 4 ? 1 : 0;
+      /* The chosen university is named if any side is clear of other dots. */
+      if (placed < 0 && w.rank >= 8) {
+        const side = w.x + w.r + 3 + width > W - 4 ? 1 : 0;
+        if (!obstacles.some((o) => o.id !== w.id && hits(sides[side], o.rect))) placed = side;
+      }
       w.node.toggleAttribute('data-label', placed >= 0);
       w.node.toggleAttribute('data-flip', placed === 1);
     }
@@ -3744,7 +3769,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
     if (!moved && Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 5) {
       moved = true;
-      if (levels && flight) { flight = null; rush = 0; clusterAt = -1; }
+      if (levels && flight) { flight = null; rush = 0; clusterAt = -1; lvInterrupted = true; }
       /* Captured only once it is a drag: capturing on the press would retarget
          the click to the stage and a pin could never be clicked. */
       try { stage.setPointerCapture(e.pointerId); } catch {}
@@ -3778,9 +3803,17 @@ export async function mountGlobe(figure, { onFail } = {}) {
     return [dLat, dLon];
   }
 
+  /* A drag that stopped a level's flight half way: on letting go, the camera
+     finishes the journey to the level's frame (round 4: a swipe mid-flight
+     left 28 coins piled on the desk). */
+  let lvInterrupted = false;
   const endPointer = (e) => {
     if (!pointers.has(e.pointerId)) return;
     pointers.delete(e.pointerId);
+    if (levels && lvInterrupted && !pointers.size) {
+      lvInterrupted = false;
+      setTimeout(() => flyTo(lvCam && lv.level !== 'world' ? lvCam : { ...rest }), 0);
+    }
     try { stage.releasePointerCapture(e.pointerId); } catch {}
     if (pinch && pointers.size < 2) {
       /* On a levels page a pinch that let go far enough in or out is a step;
@@ -3892,16 +3925,17 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function levelsClick(e) {
     if (!e.target.isConnected) return true;
     const node = e.target.closest('.world__pin, .world__cluster') || downOn;
-    if (performance.now() - lvChoseAt < 450) { downOn = null; return !!node; }
+    /* For a moment after a level change, presses land on what is leaving or
+       on what has just appeared: they are let go (round 4: a double tap on a
+       country opened one of its universities). */
+    if (performance.now() - lvChoseAt < 700) { downOn = null; return true; }
     /* A press on a name is a press on its own node, wherever the nearest
        centre is (round 2, M1: a country's name opened its neighbour). */
     /* By where the names are drawn, not by which element is on top: a
        neighbour's fingertip-sized target can lie over a name (round 2b). */
-    /* A press right on a dot or a coin is that node, name or no name over it. */
-    const sr0 = stage.getBoundingClientRect();
-    const onDot = lvHit.filter((h) => Math.hypot(h.x - (e.clientX - sr0.left), h.y - (e.clientY - sr0.top)) <= h.r + 3)
-      .sort((a, b) => Math.hypot(a.x - (e.clientX - sr0.left), a.y - (e.clientY - sr0.top)) - Math.hypot(b.x - (e.clientX - sr0.left), b.y - (e.clientY - sr0.top)))[0];
-    const label = onDot ? null : [...pinLayer.querySelectorAll('.world__pin[data-label]:not([hidden]) .world__pin-label, .world__cluster[data-label]:not([hidden]) .world__pin-label')]
+    /* Names are never drawn over another node's dot, so a press on a name is
+       its owner's (round 4: a name read over a neighbour's dot). */
+    const label = [...pinLayer.querySelectorAll('.world__pin[data-label]:not([hidden]) .world__pin-label, .world__cluster[data-label]:not([hidden]) .world__pin-label')]
       .map((l) => ({ l, r: l.getBoundingClientRect() }))
       .filter(({ r }) => e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
       .sort((a, b) => Math.hypot(a.r.left + a.r.width / 2 - e.clientX, a.r.top + a.r.height / 2 - e.clientY) - Math.hypot(b.r.left + b.r.width / 2 - e.clientX, b.r.top + b.r.height / 2 - e.clientY))[0]?.l;
@@ -4051,6 +4085,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       _: () => zoomBy(1 / 0.55),
       0: () => (levels ? goWorld() : goHome()),
       Escape: () => {
+        if (levels && !card.hidden && cardFor.startsWith('p:') && lv.level === 'country') { const c = countryFor(lv.country); if (c) goToCountry(c); return; }
         if (levels) { if (card.hidden) levelStep(-1); else { closeCard({ restore: true }); if (!figure.contains(document.activeElement) || document.activeElement === document.body) stage.focus({ preventScroll: true }); } return; }
         if (card.hidden) goHome(); else { closeCard({ restore: true }); clearChoice(); }
       },
@@ -4174,7 +4209,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     figure,
     /** Re-weight the pins from a filtered set: size means how much is here,
         never how good it is. The list badges follow. */
-    setCounts(counts, { selected = '' } = {}) {
+    setCounts(counts, { selected = '', fields = null } = {}) {
       /* On a levels page the numbers are universities. A university is lit
          when its country is lit as a whole (a distance or a country chosen,
          no question asked about degrees), or when any of its degrees matches
@@ -4186,6 +4221,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
           let lit = 0, degrees = 0;
           for (const q of p.subs) {
             q.n = counts.get(q.inst) || 0;
+            q.fields = fields?.get(q.inst) || q.fields || [];
             q.dim = !(whole || q.n > 0);
             if (!q.dim) lit++;
             degrees += q.n;
@@ -4202,6 +4238,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         /* A country's card opened before the page counted (a link that opens
            on it) is redrawn with the numbers. */
         if (!card.hidden && cardFor === `c:${lv.country}`) countryCard(countryFor(lv.country));
+        else if (!card.hidden && cardFor.startsWith('p:') && byId.get(cardFor.slice(2))?.school) placeCard(byId.get(cardFor.slice(2)));
         clusterAt = -1;
         camDirty = true;
         kick();

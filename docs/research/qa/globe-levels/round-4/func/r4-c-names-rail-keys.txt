@@ -1,0 +1,26 @@
+A dk label {"lab":true,"x":1126,"y":380,"w":92,"pe":"auto","top":"world__cluster-name dk","coin":[1061,380]} -> country/dk
+A at label {"lab":true,"x":1123,"y":547,"w":50,"pe":"auto","top":"world__cluster si","coin":[1123,518]} -> country/si
+A ee label {"lab":true,"x":1188,"y":358,"w":49,"pe":"auto","top":"world__pin-label world__cluster-label ee","coin":[1188,329]} -> country/lv
+A de label {"lab":true,"x":1074,"y":492,"w":50,"pe":"auto","top":"world__pin-label world__cluster-label de","coin":[1074,462]} -> country/de
+A si label {"lab":true,"x":1198,"y":552,"w":88,"pe":"auto","top":"world__cluster-name si","coin":[1136,552]} -> country/si
+A lt label {"lab":true,"x":1272,"y":393,"w":92,"pe":"auto","top":"world__cluster-name lt","coin":[1207,393]} -> country/lt
+B rail buttons 26 Netherland 22 | United Kingdom22 | Denmark14 | Ireland14 | Poland14 | Czechia13 | Finland13 | Hungary13 | Italy13 | Sweden13 | Lithuania12 | Belgium11 | Spain11 | Germany9 | Latvia9 | Norway9 | Portugal9 | Au tria8 | E tonia8 | France8 | Greece7 | Malta6 | Slovenia6 | Switzerland6 | Iceland2 | Luxembourg2
+B phone rail taps 26, right 24; wrong: Au tria8 -> country/at card=Austria — Open the Austria pag | E tonia8 -> country/ee card=Estonia — Open the Estonia pag
+B rail Denmark                                 country/europe/dk | trail="WorldEuropeDenmark" | card=Denmark — Open the Denmark page→ [14 universities · 51 programmes] /denmark/ | pins=14 dim=0 | nodes=0 | alt=0.125 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Adk#country=dk | count=51 of 67 programmes Anywhere in Denmark ×
+B Back                                         region/europe/ | trail="WorldEurope" | card=Europe [26 countries · 274 universities]  | pins=0 dim=0 | nodes=26 | alt=1.021 close=failed/false reset=true +true -true | hlen=50 | /?area=at%2Cbe%2Cch%2Ccz%2Cde%2Cdk%2Cee%2Ces%2Cfi%2Cfr%2Cgb%2Cgr%2Chu%2Cie%2Cis%2Cit%2Clt%2Clu%2Clv%2Cmt%2Cnl%2Cno%2Cpl%2Cpt%2Cse%2Csi#region=europe | count=67 of 67 programmes On the globe: Europe ×
+C fresh UK, 6 Tabs, Enter on "City St George's, University of London" country/europe/gb | trail="WorldEuropeUnited Kingdom" | card=United Kingdom — Open the United Kingdom page→ [22 universities] /destinations/gb/ | pins=22 dim=0 | nodes=6 | alt=0.383 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Agb#country=gb | count=United Kingdom researched, no programme mapped yet United Kingdom ×
+C Escape                                       country/europe/gb | trail="WorldEuropeUnited Kingdom" | card=null [null]  | pins=22 dim=0 | nodes=6 | alt=0.383 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Agb#country=gb | count=United Kingdom researched, no programme mapped yet United Kingdom ×
+C focus                                        world__stage
+C Space on chip                                country/europe/gb | trail="WorldEuropeUnited Kingdom" | card=null [null]  | pins=22 dim=0 | nodes=6 | alt=0.383 close=failed/false reset=true +false -true | hlen=50 | /?where=dest%3Agb#country=gb | count=United Kingdom researched, no programme mapped yet United Kingdom ×
+file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/lib.mjs:6
+export const ev = async (expr) => { const r = await post('/eval', { expr }); if (r && r.error) throw new Error(r.error); return r; };
+                                                                                                     ^
+
+Error: TypeError: Cannot read properties of null (reading 'globe')
+    at <anonymous>:1:108
+    at ev (file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/lib.mjs:6:102)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async settle (file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/r4-c-names-rail-keys.mjs:7:48)
+    at async file:///D:/OneDrive%20-%20Ikast/OneDrive%20-%20Ikast-Brande%20Gymnasium/AI%20Projects/DK%20Uni%20Requirments/ib-pathways-europe/docs/research/qa/globe-levels/round-4/func/r4-c-names-rail-keys.mjs:63:21
+
+Node.js v24.14.0
