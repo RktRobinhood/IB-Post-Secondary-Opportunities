@@ -750,6 +750,10 @@ check('the globe does not branch on a country', () => {
     assert.equal(named, null, `a continent is named in code: ${named?.[0]}`);
     assert.match(globeJs, /const continentOfCode = \(code\) => pages\.get\(code\)\?\.continent/, "a light's continent no longer comes from the Destination records");
   });
+  check('the finer borders load: a stray edge pixel never names a country past the list', () => {
+    assert.match(globeJs, /pixels\[k\] <= ranges\.length/, 'an anti-aliased pixel can decode to a country that does not exist, and the finer borders fail to load');
+    assert.match(globeJs, /console\.warn\('\[world\] the finer borders could not load/, 'a failed load of the finer borders is silent again');
+  });
   check('a levels page stops at the country: no close map, no street level', () => {
     assert.match(globeJs, /function ensureClose\(\) \{[\s\S]{0,160}if \(levels\) \{ closeState = 'failed'; return Promise\.resolve\(null\); \}/, 'a levels page can load the close map');
   });

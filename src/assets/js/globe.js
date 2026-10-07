@@ -478,7 +478,10 @@ function buildGeography(geo) {
   /* The desk globe's political colours: neighbours (countries whose pixels
      touch in the picking raster) never share one of six pastels, so every
      border reads without a legend. Greedy, largest country first. */
-  const idAt = (k) => (pixels[k + 1] === 255 && pixels[k] && pixels[k + 2] === ((pixels[k] * 53) & 255) ? pixels[k] : 0);
+  /* An anti-aliased edge pixel can pass the check digit by chance and name a
+     country past the end of the list (the finer borders, 6 October: the whole
+     layer failed to load on it): such a pixel is nobody's. */
+  const idAt = (k) => (pixels[k + 1] === 255 && pixels[k] && pixels[k] <= ranges.length && pixels[k + 2] === ((pixels[k] * 53) & 255) ? pixels[k] : 0);
   const near = ranges.map(() => new Set());
   for (let y = 0; y < PH; y++) {
     for (let x = 0; x < PW; x++) {
@@ -1389,7 +1392,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         camDirty = true;
         kick();
       })
-      .catch(() => {})
+      .catch((err) => console.warn('[world] the finer borders could not load; the coarse ones stay.', err?.message || err))
       .finally(() => { fine = 'done'; });
   }
 
