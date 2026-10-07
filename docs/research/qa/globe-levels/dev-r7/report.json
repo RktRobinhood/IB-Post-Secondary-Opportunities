@@ -1,0 +1,50 @@
+{
+  "console": [],
+  "runs": {
+    "regress": {
+      "desk": {
+        "doubleClickEurope": {
+          "lv": "region",
+          "alt": 1.03
+        },
+        "names": "25/26",
+        "wrongs": [
+          "lu->fr"
+        ],
+        "nearbyFarBack": {
+          "lv": "region:europe",
+          "scope": "nearby"
+        },
+        "hereNearbyBack": {
+          "lv": "country:dk",
+          "scope": "here"
+        },
+        "deepLink": {
+          "count": "51 of 67 programmes",
+          "card": "14 universities · 51 programmes"
+        }
+      },
+      "phone": {
+        "doubleClickEurope": {
+          "lv": "region",
+          "alt": 1.03
+        },
+        "names": "0/0",
+        "wrongs": [],
+        "nearbyFarBack": {
+          "lv": "region:europe",
+          "scope": "nearby"
+        },
+        "hereNearbyBack": {
+          "lv": "country:dk",
+          "scope": "here"
+        },
+        "deepLink": {
+          "count": "51 of 67 programmes",
+          "card": "14 universities · 51 programmes"
+        }
+      }
+    }
+  },
+  "shots": []
+}

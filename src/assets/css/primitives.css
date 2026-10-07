@@ -1774,3 +1774,5 @@
 .world__key button { display: flex; align-items: center; width: 100%; padding: 4px 6px; border: 1px solid var(--rule); border-radius: var(--radius-lg); background: var(--paper); color: var(--ink); font: 600 .8125rem/1.25 var(--sans); text-align: left; cursor: pointer; }
 .world__key button:hover { border-color: var(--accent); }
 .world__key .world__key-n { border-radius: 5px; flex: none; }
+.world__key button[aria-current] { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 12%, var(--paper)); }
+.world__key button[aria-current] .world__key-n { background: #F4935F; }

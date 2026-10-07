@@ -2841,6 +2841,8 @@ body.has-sheet { overflow: hidden; }
 .discover__globe .world > .world__controls { grid-area: controls; margin: 0 var(--s4, 16px) var(--s2); }
 .discover__globe .world > .world__card { grid-area: card; margin: var(--s2) var(--s4, 16px) 0; }
 .discover__globe .world > .world__key { grid-area: key; }
+/* A university chosen on a phone: its card first, then the key. */
+.discover__globe .world[data-card-first] { grid-template-areas: "controls controls" "stage stage" "card card" "key key" "caption fold"; }
 /* The list is the map's source of truth for a screen reader and a keyboard;
    here the Where filter and the cards say the same, so it is kept for them
    and not drawn. */

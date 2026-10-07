@@ -140,3 +140,16 @@ issue (see STATUS.md) and the work stays live, being better than before.
 Round-5 functional leftovers fixed straight after: the NASA credit moved to
 the top of the stage (a phone's pin lay under the link); Escape on a
 university's card returns focus to the globe.
+
+## Rounds 6–8 (the owner allowed up to three more)
+
+| Round | Art | What changed |
+|---|---|---|
+| 6 | 7 | a sharp local colour map at a country (flat pastel, toy sea, ink coast); card waits for the landing; "Zealand Academy" |
+| 7 | 7 (desk ~8, phone ~6.5) | map looked up by each pixel's own lat/lon; flat fill; numbered phone pins |
+| 8 | 7 (desk ~8, phone ~7) | ink from the map's own edges (one coast); flat below the world; phone key under the stage; brass knobs, no Reset |
+
+Functionality held at its accepted 8 throughout (pin clicks 0 wrong on desk
+and phone, regression scenario clean every round). After round 8: a phone's
+university card opens right under the stage, above the key, and its row is
+marked. Art stays at 7; what it still asks for is in issue #68.

@@ -22,7 +22,7 @@ pinch and +/− step a level; trail and Back step up; clicks resolve to what
 is drawn (0 wrong of 233 dots). 52 universities got sourced places, so the
 globe and the lists count the same.
 Critics (docs/research/qa/globe-levels/): functionality 5 → 5 → 7 → **8
-accepted**; art 6 → 6 → 6 → 7 → 7, stopped at the five-round limit, its
+accepted**; art 6 → 6 → 6 → 7 → 7, then three more rounds the owner allowed (7, 7, 7; desktop ~8, phone ~7); stopped there, its
 remaining fixes in a GitHub issue (country level as flat pastel, every pin
 named on a phone, list copy, phone frame, the card arriving mid-flight).
 

@@ -2632,6 +2632,12 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function placeCard(p, opts) {
     cardFor = `p:${p.id}`;
+    /* On a phone a university's card opens right under the stage, above the
+       key, and its row in the key is marked (round 8: the card landed 400 px
+       down, under the key, and the tap seemed to do nothing). */
+    if (levels && narrowMQ.matches && keyList.isConnected) keyList.before(card);
+    figure.toggleAttribute('data-card-first', !!(levels && narrowMQ.matches));
+    for (const b of keyList.querySelectorAll('button')) b.toggleAttribute('aria-current', b.dataset.id === p.id);
     cardSubject = { xyz: p.xyz, alt: null };
     openCard((c) => {
       if (p.image) {
@@ -2710,6 +2716,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
   let cardFor = '';
   function countryCard(country, opts) {
     cardFor = `c:${country.id}`;
+    if (levels && narrowMQ.matches && keyList.isConnected) card.before(keyList);
+    figure.toggleAttribute('data-card-first', false);
     cardSubject = { xyz: norm(country.frame.reduce((s, q) => [s[0] + q[0], s[1] + q[1], s[2] + q[2]], [0, 0, 0])), alt: null };
     const here = places.filter((p) => p.country === country.id);
     const total = here.reduce((n, p) => n + (p.count || 0), 0);
@@ -2748,7 +2756,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
           if (narrowMQ.matches) {
             keyList.replaceChildren(...ranked.map((q) => {
               const li = el('li');
-              const b = el('button', { type: 'button' });
+              const b = el('button', { type: 'button', 'data-id': q.id });
               b.append(el('span', { class: 'world__key-n' }, String(keyOf.get(q.id))), document.createTextNode(q.name));
               b.addEventListener('click', () => goToSchool(q, { focus: true }));
               li.append(b);
