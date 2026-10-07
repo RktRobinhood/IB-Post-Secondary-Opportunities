@@ -10,18 +10,21 @@ This page says where the work stands, so the next session (human or agent) start
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
 
-## 6 October (evening): the globe in levels — in progress on branch `globe-levels`
+## 7 October: the globe in levels — live
 
-Owner: the home globe "has too many granular zoom settings"; wants world →
+Owner: the home globe "has too many granular zoom settings"; wanted world →
 continent → country → university, lined up with the templates, no street
-level, an aesthetic pass, and both critics (art + functionality) at 8+.
-Built on branch `globe-levels` (not on main yet). Round 1: art 6/10,
-functionality 5/10; the fixes since are listed in
-`docs/research/qa/globe-levels/notes.md` (e.g. pin clicks 0/233 wrong, was
-~50%). 52 universities given sourced places (`places-log.md`).
-**Next:** shoot round 2 (`docs/research/qa/globe-levels/shoot.mjs`), both
-critics again, iterate to 8+, then gate, merge to main, push, check deploy.
-Paused at 71% of the 5-hour window.
+level, an aesthetic pass, both critics at 8+. Live on main: continent coins
+on the desk globe; a continent opens into one named coin per country (a
+rail of chips on a phone); a country is the toy globe with its universities
+and a postcard card; a university's card says what you can study. Wheel,
+pinch and +/− step a level; trail and Back step up; clicks resolve to what
+is drawn (0 wrong of 233 dots). 52 universities got sourced places, so the
+globe and the lists count the same.
+Critics (docs/research/qa/globe-levels/): functionality 5 → 5 → 7 → **8
+accepted**; art 6 → 6 → 6 → 7 → 7, stopped at the five-round limit, its
+remaining fixes in a GitHub issue (country level as flat pastel, every pin
+named on a phone, list copy, phone frame, the card arriving mid-flight).
 
 ## 1 October (morning): university photos beat placeholders; country carousels
 

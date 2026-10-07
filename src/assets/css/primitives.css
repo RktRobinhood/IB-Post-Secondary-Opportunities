@@ -1683,7 +1683,11 @@
   -webkit-mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);
   mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);
 }
-.world[data-levels] .world__credit { right: var(--s3); bottom: var(--s2); }
+/* The credit sits at the top, out of the pins' way and clear of the docked
+   card: left of the camera buttons on a wide stage, in the corner on a phone
+   (round 5: a phone's Rome pin lay under it, and a tap followed the link). */
+.world[data-levels] .world__credit { top: var(--s3); bottom: auto; right: calc(var(--s3) + 2.75rem); }
+@media (max-width: 44rem) { .world[data-levels] .world__credit { right: var(--s3); } }
 .world__trail-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .world__trail-here { display: inline-flex; align-items: center; gap: .4em; padding: 0 .55rem; min-height: 2rem; color: var(--ink); font: 700 .8125rem/1 var(--sans); }
 /* On a wide stage the card docks along the bottom, photograph beside the

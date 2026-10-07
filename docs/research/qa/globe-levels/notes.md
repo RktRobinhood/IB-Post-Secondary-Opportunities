@@ -123,3 +123,20 @@ round-1 critiques plus the new frames; iterate to 8+ (max 5 rounds). Then the
 full gate on D:/ibp-tmp clean copy, merge to main, push, check the deploy.
 Open from round 1 not yet addressed: keyboard reach to the stage (m2), deep
 links narrowing the cards (m7), a brass bezel round the satellite stage.
+
+## Rounds 2–5
+
+| Round | Art | Functionality | Folder |
+|---|---|---|---|
+| 1 | 6 | 5 | round-1/ |
+| 2 | 6 | 5 | round-2/ |
+| 3 | 6 | — (fixes first) | round-3/ |
+| 4 | 7 | 7 | round-4/ |
+| 5 | 7 (desk ~8, phone ~6.5) | **8 — accepted** | round-5/ |
+
+Functionality accepted at round 5. Art stopped at the five-round limit
+(docs/QA_CRITIC_LOOP.md) at 7/10; its remaining fixes are filed as a GitHub
+issue (see STATUS.md) and the work stays live, being better than before.
+Round-5 functional leftovers fixed straight after: the NASA credit moved to
+the top of the stage (a phone's pin lay under the link); Escape on a
+university's card returns focus to the globe.

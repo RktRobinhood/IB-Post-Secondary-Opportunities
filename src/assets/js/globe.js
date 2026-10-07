@@ -4085,7 +4085,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       _: () => zoomBy(1 / 0.55),
       0: () => (levels ? goWorld() : goHome()),
       Escape: () => {
-        if (levels && !card.hidden && cardFor.startsWith('p:') && lv.level === 'country') { const c = countryFor(lv.country); if (c) goToCountry(c); return; }
+        if (levels && !card.hidden && cardFor.startsWith('p:') && lv.level === 'country') { const c = countryFor(lv.country); if (c) goToCountry(c); stage.focus({ preventScroll: true }); return; }
         if (levels) { if (card.hidden) levelStep(-1); else { closeCard({ restore: true }); if (!figure.contains(document.activeElement) || document.activeElement === document.body) stage.focus({ preventScroll: true }); } return; }
         if (card.hidden) goHome(); else { closeCard({ restore: true }); clearChoice(); }
       },
