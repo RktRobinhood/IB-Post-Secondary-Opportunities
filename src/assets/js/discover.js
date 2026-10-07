@@ -463,15 +463,15 @@ function placesFor(shown, near) {
   const door = doorWhere();
   if (door) {
     const tiles = all.filter((li) => codeOf(li) === door);
-    return tiles.length ? { tiles, line: 'Its degrees are not mapped one by one yet. Its own page:' } : null;
+    return tiles.length ? { tiles, line: 'Its universities, and how to apply:' } : null;
   }
   const area = state.area ? state.area.split(',') : null;
   const inScope = all.filter((li) => (!state.scope || li.dataset.scope === state.scope) && (!area || area.includes(codeOf(li))));
   if (!inScope.length) return null;
   if (geoOnly()) {
     return { tiles: inScope, line: shown
-      ? `${plural(inScope.length, 'more country', 'more countries')} researched, their degrees not yet mapped one by one:`
-      : 'Their degrees are not mapped one by one yet. Each country has its own page:' };
+      ? `${plural(inScope.length, 'more country', 'more countries')} to explore, each with its own page:`
+      : `${plural(inScope.length, 'country', 'countries')} to explore · each has its own page:` };
   }
   if (!shown && !near.size && state.q && inScope.length) {
     return { tiles: inScope, line: `${plural(inScope.length, 'researched country', 'researched countries')} to explore instead:` };
@@ -512,7 +512,7 @@ function render() {
     : shown
     ? `<b>${cardsShown}</b> of ${TOTAL} programmes`
     : door && places
-    ? `<b>${esc(destName(door))}</b> — its universities and how to apply are on its own page`
+    ? `<b>${esc(destName(door))}</b> · its universities and how to apply →`
     : doorOnly && places
     ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
     : near.size

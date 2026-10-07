@@ -1736,3 +1736,5 @@
 .world__card-rail button { display: inline-flex; align-items: center; gap: .4em; white-space: nowrap; }
 .world__card-rail button[data-dim] { opacity: .5; }
 .world__rail-n { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
+/* A country's card waits, unseen, for the camera to land (globe.js goToCountry). */
+.world__card[data-waiting] { visibility: hidden; }

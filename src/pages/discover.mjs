@@ -376,7 +376,7 @@ export function discoverSection(site) {
       : ''}
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
-          <p class="discover__places-line" id="discover-places-line">Also researched: countries whose degrees are not mapped one by one yet.</p>
+          <p class="discover__places-line" id="discover-places-line">More countries to explore, each with its own page.</p>
           <template id="discover-places-tiles"><ul class="tiles" role="list">${noDegreeTiles.map((c) => raw(flagsInHtml(toString(countryTile(site, c))).replace('<li>', `<li data-scope="${scopeOf(c.code)}">`).replace('<a ', `<a data-code="${c.code}" `)))}</ul></template>
         </div>`
       : ''}

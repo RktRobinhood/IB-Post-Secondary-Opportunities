@@ -365,7 +365,14 @@ export function globeName(i) {
   const code = (w) => w.length < 3 || (w.match(/\p{Lu}/gu) || []).length >= 2;
   /* "Illinois" for the University of Illinois is a state, not a school. */
   const ofPlace = new RegExp(`\\bof\\s+${s.split(/\s+/)[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'iu').test(name);
-  return !ofPlace && s.split(/\s+/).every((w) => words.has(w.toLowerCase()) && !code(w)) ? s : name;
+  if (ofPlace || !s.split(/\s+/).every((w) => words.has(w.toLowerCase()) && !code(w))) return name;
+  /* A one-word short name is also a place ("Zealand" is an island): it takes
+     the full name's next word with it ("Zealand Academy", globe levels round 5). */
+  if (!/\s/.test(s)) {
+    const after = name.slice(name.toLowerCase().indexOf(s.toLowerCase()) + s.length).match(/\p{L}[\p{L}'’-]*/u);
+    if (after) return `${s} ${after[0]}`;
+  }
+  return s;
 }
 
 const regionSlug = (region) => `region-${slugify(region)}`;

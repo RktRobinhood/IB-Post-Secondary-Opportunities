@@ -123,7 +123,9 @@ const tap = async (x, y) => {
   await send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
 };
 /** Wait until no flight is under way (the camera stops changing). */
-const still = () => evaluate(`(async () => { const g = ${G}.debug; let last = ''; for (let i = 0; i < 100; i++) { await new Promise(r => setTimeout(r, 140)); const k = [g.view.lat, g.view.lon, g.view.alt].map(v => v.toFixed(4)).join(); if (k === last) return true; last = k; } return false; })()`);
+/* Still for 0.6 s on end: a flight's first half second can turn the globe
+   almost in place before it leans in, which a single repeat mistook for rest. */
+const still = () => evaluate(`(async () => { const g = ${G}.debug; let last = '', same = 0; for (let i = 0; i < 120; i++) { await new Promise(r => setTimeout(r, 140)); const k = [g.view.lat, g.view.lon, g.view.alt].map(v => v.toFixed(4)).join(); same = k === last ? same + 1 : 0; if (same >= 4) return true; last = k; } return false; })()`);
 const stageClip = () => evaluate(`(() => { const f = document.querySelector('.world'); const r = f.getBoundingClientRect(); return { x: Math.max(0, r.left - 8), y: Math.max(0, r.top - 8), width: Math.min(innerWidth, r.width + 16), height: Math.min(innerHeight - Math.max(0, r.top - 8), r.height + 16) }; })()`);
 
 /* What is on the stage: the level, each node (kind, number, label), the pins,
@@ -331,6 +333,20 @@ try {
     }
     log('regress', out);
     console.log(JSON.stringify(out, null, 1));
+  }
+  /* A double click on Europe, five times over, with the camera sampled. */
+  if (want('dbl')) {
+    await setup(DESK, false);
+    for (let k = 0; k < 5; k++) {
+      await open('/?map=globe');
+      await globeReady();
+      const eu = await nodeAt(`(c) => c.dataset.kind === 'region' && /Europe/.test(c.textContent)`);
+      await evaluate(`window.__trace = []; (async () => { const g = ${G}.debug; const t0 = performance.now(); for (let i = 0; i < 40; i++) { await new Promise(r => setTimeout(r, 100)); window.__trace.push([Math.round(performance.now() - t0), +g.view.alt.toFixed(2), g.lv.level]); } })(); true`);
+      await click(eu.x, eu.y); await sleep(120); await mouse('mousePressed', eu.x, eu.y, { clickCount: 2 }); await mouse('mouseReleased', eu.x, eu.y, { clickCount: 2 });
+      await sleep(4300);
+      const tr = await evaluate(`window.__trace`);
+      console.log(k, tr.filter((_, i) => i % 3 === 0).map((x) => x.join(':')).join(' '));
+    }
   }
   if (want('walk')) {
     await walk('desk', DESK, false);

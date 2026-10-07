@@ -128,6 +128,7 @@ uniform sampler2D uDay; uniform sampler2D uMask; uniform sampler2D uDetail;
 uniform vec3 uEye; uniform vec3 uSun; uniform vec3 uTint; uniform float uMaskOn; uniform float uSharp;
 uniform vec2 uTexel; uniform vec4 uDetailRect; uniform vec2 uDetailTexel; uniform float uDetailOn; uniform float uPunch; uniform float uToon;
 uniform sampler2D uPol; uniform float uPolOn; uniform float uInk; uniform float uRasterWater;
+uniform sampler2D uPolL; uniform vec4 uPolRect; uniform float uPolLOn;
 varying vec3 vN; varying vec2 vUv; varying vec3 vW;
 float wet(vec3 c) { return smoothstep(0.015, 0.09, c.b - max(c.r, c.g)); }
 /* An unsharp mask that works under magnification: the pixel against the mean
@@ -169,7 +170,12 @@ void main() {
      photograph's colour: a dark or shallow sea read as land by colour
      (round 4: a black Caspian, black bands along coasts). The ink line is
      where that raster's coverage changes, one of its texels away. */
-  vec4 pol = texture2D(uPol, vUv);
+  /* Round a chosen country, a sharp local colour map (globe levels round 6):
+     the world raster is ~20 km a texel, the local one ~1 km. */
+  vec2 pu = (vUv - uPolRect.xy) / (uPolRect.zw - uPolRect.xy);
+  float inL = uPolLOn * step(0.0, pu.x) * step(pu.x, 1.0) * step(0.0, pu.y) * step(pu.y, 1.0);
+  vec2 puc = clamp(pu, 0.0, 1.0);
+  vec4 pol = mix(texture2D(uPol, vUv), texture2D(uPolL, puc), inL);
   /* Where land and water come from: the country raster on the desk and at a
      continent; the photograph's own coastline at a country, where the raster
      is too coarse (globe levels round 3). */
@@ -182,8 +188,8 @@ void main() {
   float water = mix(max(wet(cs), darkSea), 1.0 - pol.a, onDesk);
   /* Water takes the smoothed photograph; land keeps its sharp one. */
   c = mix(c, cs, water);
-  float px = texture2D(uPol, vUv + vec2(1.0 / 2048.0, 0.0)).a;
-  float py = texture2D(uPol, vUv + vec2(0.0, 1.0 / 1024.0)).a;
+  float px = mix(texture2D(uPol, vUv + vec2(1.0 / 2048.0, 0.0)).a, texture2D(uPolL, clamp(puc + vec2(1.0 / 2048.0, 0.0), 0.0, 1.0)).a, inL);
+  float py = mix(texture2D(uPol, vUv + vec2(0.0, 1.0 / 1024.0)).a, texture2D(uPolL, clamp(puc + vec2(0.0, 1.0 / 2048.0), 0.0, 1.0)).a, inL);
   float coast = clamp((abs(pol.a - px) + abs(pol.a - py)) * 1.6, 0.0, 1.0);
   /* A little cartoony (the owner, round 4) — still recognisably Earth: a
      friendlier ocean, warmer and more saturated land, gently posterised, and
@@ -511,6 +517,7 @@ function buildGeography(geo) {
   }
   /* Twice the picking raster's size: a continent's height magnifies it
      (globe levels), and its edge is the ink coastline. */
+  ranges.forEach((r, i) => { r.colour = PASTEL[hue[i]]; });
   const political = document.createElement('canvas');
   political.width = PW * 2; political.height = PH * 2;
   const pol = political.getContext('2d');
@@ -711,6 +718,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const maskCtx = maskCanvas.getContext('2d');
   let maskTex = texture(gl, maskCanvas, { mip: false, luminance: true });
   let polTex = texture(gl, geography.political, { alpha: true }); // alpha is the land: the seas are where no country is
+  /* The chosen country's surroundings, painted sharp (paintLocal). */
+  const localCanvas = document.createElement('canvas');
+  localCanvas.width = localCanvas.height = 2048;
+  const localCtx = localCanvas.getContext('2d');
+  let localTex = texture(gl, blank, { mip: false });
+  let localRect = [0, 0, 0, 0];
+  let localFor = '';
 
   /* --- Furniture ---------------------------------------------------------- */
 
@@ -1399,6 +1413,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         gl.bindBuffer(gl.ARRAY_BUFFER, lineBuf);
         gl.bufferData(gl.ARRAY_BUFFER, g.lines, gl.STATIC_DRAW);
         if (selectedCountry) selectedCountry = g.byId.get(selectedCountry.id) || (selectedCountry.count ? null : selectedCountry);
+        if (levels && lv.level === 'country' && selectedCountry) paintLocal(selectedCountry);
         if (home) home = g.byId.get(home.id) || home;
         paintMask(selectedCountry || home);
         hoverCountry = null;
@@ -2081,7 +2096,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform3fv(pr.u.uEye, cam.eye);
     gl.uniform3fv(pr.u.uSun, sun);
     gl.uniform3f(pr.u.uTint, 1.0, 0.62, 0.36);
-    gl.uniform1f(pr.u.uMaskOn, selectedCountry ? 1 : home ? 0.45 : 0);
+    /* A levels page marks the chosen country in its sharp map, not with the
+       coarse mask's blurred glow (round 5). */
+    gl.uniform1f(pr.u.uMaskOn, levels && lv.level === 'country' ? 0 : selectedCountry ? 1 : home ? 0.45 : 0);
     gl.uniform1f(pr.u.uSharp, 0.7 * smooth(1.3, 0.35, view.alt));
     gl.uniform2f(pr.u.uTexel, 1 / dayTex.w, 1 / dayTex.h);
     gl.uniform4f(pr.u.uDetailRect, ...detailRect);
@@ -2103,10 +2120,19 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const continentH = smooth(0.55, 0.9, view.alt);
     /* At a country the same pastel and toy-blue sea, nearly as strong (round 3:
        "a dark satellite swamp"), over the photograph's own coastline. */
-    const pol = levels ? Math.max(dk, 0.92 * continentH, 0.95) : dk;
+    /* At a country the sharp local map carries land, sea and coast: the
+       desk globe's flat pastels and ink line, no photograph under the land
+       (round 5). */
+    const localOn = levels && lv.level === 'country' && localRect[2] > localRect[0] ? 1 : 0;
+    const pol = levels ? Math.max(dk, 0.92 * continentH, localOn ? 1 : 0.95) : dk;
     gl.uniform1f(pr.u.uPolOn, pol);
-    gl.uniform1f(pr.u.uRasterWater, levels ? Math.max(dk, continentH) : Math.min(1, pol * 2));
-    gl.uniform1f(pr.u.uInk, levels ? 0.5 * Math.max(dk, 0.92 * continentH) : 0.5 * pol);
+    gl.uniform1f(pr.u.uRasterWater, levels ? Math.max(dk, continentH, localOn) : Math.min(1, pol * 2));
+    gl.uniform1f(pr.u.uInk, levels ? 0.5 * Math.max(dk, 0.92 * continentH, localOn) : 0.5 * pol);
+    gl.uniform1f(pr.u.uPolLOn, localOn);
+    gl.uniform4f(pr.u.uPolRect, ...localRect);
+    gl.activeTexture(gl.TEXTURE4);
+    gl.bindTexture(gl.TEXTURE_2D, localTex);
+    gl.uniform1i(pr.u.uPolL, 4);
     gl.activeTexture(gl.TEXTURE3);
     gl.bindTexture(gl.TEXTURE_2D, polTex);
     gl.uniform1i(pr.u.uPol, 3);
@@ -2145,7 +2171,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
       if (outline) {
         /* At a country the photograph's own coast is drawn; its outline is a
            soft glow, not a second coast beside it (round 4). */
-        gl.uniform4f(pr.u.uColor, 1.0, 0.78, 0.6, levels && lv.level === 'country' ? 0.45 : selectedCountry ? 1.0 : 0.8);
+        /* On a levels page the chosen country's coast is a warm ink stroke,
+           drawn from the same borders its colour map is painted from. */
+        if (levels && lv.level === 'country') gl.uniform4f(pr.u.uColor, 0.62, 0.3, 0.12, 0.95);
+        else gl.uniform4f(pr.u.uColor, 1.0, 0.78, 0.6, selectedCountry ? 1.0 : 0.8);
         gl.drawArrays(gl.LINES, outline.start, outline.count);
       }
       gl.depthMask(true);
@@ -2535,6 +2564,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   function openCard(build, { focus = false, from = null } = {}) {
     card.replaceChildren();
+    delete card.dataset.waiting;
     const close = el('button', { type: 'button', class: 'world__card-close', 'aria-label': 'Close' }, '×');
     close.addEventListener('click', () => { closeCard({ restore: true }); if (!levels) clearChoice(); });
     card.append(close);
@@ -2692,13 +2722,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
            own card (round 1: one name among Denmark's fourteen pins). */
         if (light.subs.length > 1) {
           const ranked = light.subs.filter((q) => !q.dim).sort((a, b) => (b.n || 0) - (a.n || 0) || a.name.localeCompare(b.name));
-          const ul = el('ul', { class: 'world__card-list' });
-          for (const q of ranked.slice(0, narrowMQ.matches ? 6 : 3)) {
+          /* A phone names every one, in a rail (round 5: 3 of 14 named). */
+          const ul = el('ul', { class: `world__card-list${narrowMQ.matches ? ' world__card-rail' : ''}` });
+          for (const q of ranked.slice(0, narrowMQ.matches ? ranked.length : 3)) {
             const b = el('button', { type: 'button' }, q.name);
             b.addEventListener('click', () => goToSchool(q, { focus: true }));
             const li = el('li'); li.append(b); ul.append(li);
           }
-          const shown = narrowMQ.matches ? 6 : 3;
+          const shown = narrowMQ.matches ? ranked.length : 3;
           if (ranked.length > shown) ul.append(el('li', { class: 'world__card-more' }, `+${ranked.length - shown} on the map`));
           c.append(ul);
         }
@@ -2997,6 +3028,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       pts.length = 0;
       pts.push(...(near.length ? near : here.map((q) => q.xyz)));
       setLevel({ level: 'country', region: here[0]?.region || continentOfCode(country.id) || lv.region, country: country.id });
+      paintLocal(country);
       light(null);
       /* The country and its universities, framed whole, clear of the card:
          its outline and every pin, never lower than a country reads. */
@@ -3015,6 +3047,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const fit = fitCamera([...pts, ...(whole ? outline : [])], { maxAlt: Math.min(2.4, deskIn() * 0.92), minAlt: 0.12, pad: [0.08, 0.13, 0.04], below: cardBelow() });
       startRoute(cardSubject.xyz);
       lvCam = { lat: fit.lat, lon: fit.lon, alt: fit.alt };
+      /* The card waits for the camera to land (round 5: it arrived mid-flight). */
+      if (!reducedMotion()) {
+        card.dataset.waiting = '';
+        const show = () => { delete card.dataset.waiting; };
+        setTimeout(show, 4000);
+        flyTo(frameAbove(lvCam, cardSubject.xyz), { announce: pages.get(country.id)?.name || country.name, travel: true, onArrive: show });
+        return;
+      }
       flyTo(frameAbove(lvCam, cardSubject.xyz), { announce: pages.get(country.id)?.name || country.name, travel: true });
       return;
     }
@@ -3057,6 +3097,53 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const r = card.getBoundingClientRect();
     const s = stage.getBoundingClientRect();
     return Math.max(0, s.bottom - r.top + 6);
+  }
+
+  /**
+   * A country's surroundings as a sharp colour map: every country within a
+   * window round it, filled in its own pastel from the finer borders, the
+   * chosen one a little warmer. The world raster is too coarse at a country's
+   * height (round 5: "a tinted photograph"); this one is ~1 km a texel.
+   */
+  function paintLocal(country) {
+    const key = `${country.id}|${geography.ranges.length}`;
+    if (localFor === key) return;
+    localFor = key;
+    const pts = (country.rings || []).flatMap((ring) => { const u = unwrap(ring); const out = []; for (let i = 0; i < u.length; i += 2) out.push([u[i], u[i + 1]]); return out; });
+    if (!pts.length) { localRect = [0, 0, 0, 0]; return; }
+    const lons = pts.map((q) => q[0]), lats = pts.map((q) => q[1]);
+    const cx = (Math.min(...lons) + Math.max(...lons)) / 2, cy = (Math.min(...lats) + Math.max(...lats)) / 2;
+    const half = Math.min(60, Math.max(6, (Math.max(...lons) - Math.min(...lons)) * 0.9, (Math.max(...lats) - Math.min(...lats)) * 1.3));
+    const west = cx - half, east = cx + half;
+    const north = Math.min(89, cy + half * 0.75), south = Math.max(-89, cy - half * 0.75);
+    const Wc = localCanvas.width, Hc = localCanvas.height;
+    localCtx.clearRect(0, 0, Wc, Hc);
+    const fill = (rings, colour) => {
+      localCtx.fillStyle = colour;
+      for (const flat of rings) {
+        const ring = unwrap(flat);
+        for (const shift of [-360, 0, 360]) {
+          localCtx.beginPath();
+          for (let i = 0; i < ring.length; i += 2) {
+            const x = ((ring[i] + shift - west) / (east - west)) * Wc;
+            const y = ((north - ring[i + 1]) / (north - south)) * Hc;
+            if (i) localCtx.lineTo(x, y); else localCtx.moveTo(x, y);
+          }
+          localCtx.closePath();
+          localCtx.fill();
+        }
+      }
+    };
+    for (const r of geography.ranges) if (r.id !== country.id) fill(r.rings, r.colour || '#f3d98b');
+    fill(country.rings, country.colour || '#f3d98b');
+    /* The chosen one warmer: a wash of the accent over its own pastel. */
+    fill(country.rings, 'rgba(244, 147, 95, 0.22)');
+    gl.deleteTexture(localTex);
+    localTex = texture(gl, localCanvas, { mip: false, alpha: true });
+    /* As the world raster's uv: x from the antimeridian, y from the pole. */
+    localRect = [(west + 180) / 360, (90 - north) / 180, (east + 180) / 360, (90 - south) / 180];
+    camDirty = true;
+    kick();
   }
 
   /** A continent, framed on its countries — their middles and mainland
@@ -3419,6 +3506,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       /* On the desk, a continent round the back waits at the rim on the side
          you would turn the globe to reach it (round 1: North America and
          Oceania were nowhere to be seen). */
+      if (disc && g.kind === 'region' && s.facing <= 0.08 && g.members.every((m) => m.dim)) continue;
       if (disc && g.kind === 'region' && s.facing <= 0.08) {
         const dx = dot(g.xyz, cam.right), dy = -dot(g.xyz, cam.up);
         const l = Math.hypot(dx, dy) || 1;
@@ -3812,7 +3900,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     pointers.delete(e.pointerId);
     if (levels && lvInterrupted && !pointers.size) {
       lvInterrupted = false;
-      setTimeout(() => flyTo(lvCam && lv.level !== 'world' ? lvCam : { ...rest }), 0);
+      setTimeout(() => flyTo(lvCam && lv.level !== 'world' ? lvCam : { ...rest }, { onArrive: () => { delete card.dataset.waiting; } }), 0);
     }
     try { stage.releasePointerCapture(e.pointerId); } catch {}
     if (pinch && pointers.size < 2) {
