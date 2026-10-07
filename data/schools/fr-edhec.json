@@ -144,9 +144,26 @@
       "field": "business",
       "url": "https://www.edhec.edu/en/international-business-analytics-and-management-bsc",
       "about": "A double degree with King's Business School, taught entirely in English: business analytics and international management, studied in London and in Lille.",
-      "ib": "Apply through UCAS by 13 January 2027, 19:00 (UTC+1), not EDHEC's own rounds.",
+      "ib": "38 IB points with Maths HL 6 (AA or AI), or 35 on a contextual offer. Apply through UCAS by 13 January 2027, 19:00 (UTC+1), not EDHEC's own rounds.",
       "closes": "2027-01-13",
-      "tuitionEuEea": "£40,900 (yrs 1–2), €20,150 (yrs 3–4)"
+      "tuitionEuEea": "£40,900 (yrs 1–2), €20,150 (yrs 3–4)",
+      "points": 38,
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 6
+        }
+      ],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "Offers on predicted IB results plus your UCAS personal statement; contextual offers at 35 points. No test or interview is listed.",
+      "requirementsUrl": "https://www.kcl.ac.uk/study/undergraduate/courses/international-business-analytics-and-management-bsc/entry-requirements"
     }
   ],
   "notes": [
@@ -179,6 +196,7 @@
       "title": "EDHEC – International Business Analytics and Management BSc (UCAS, fees)",
       "url": "https://www.edhec.edu/en/international-business-analytics-and-management-bsc",
       "retrieved": "2026-09-26"
-    }
+    },
+    { "title":"King's College London — International Business Analytics & Management BSc, entry requirements (IB 38 points, Maths HL 6; contextual 35)", "url":"https://www.kcl.ac.uk/study/undergraduate/courses/international-business-analytics-and-management-bsc/entry-requirements", "retrieved":"2026-10-07" }
   ]
 }

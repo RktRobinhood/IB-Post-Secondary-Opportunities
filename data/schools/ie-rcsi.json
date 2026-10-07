@@ -25,7 +25,62 @@
       "years": 6,
       "field": "medicine",
       "url": "https://www.rcsi.com/dublin/undergraduate/medicine",
-      "ib": "HPAT-Ireland in your year of entry and at least 480 points. HL 5 in Chemistry and in Physics or Biology puts you on the five-year track; otherwise six years with a lab science."
+      "ib": "HPAT-Ireland in your year of entry and at least 480 points. HL 5 in Chemistry and in Physics or Biology puts you on the five-year track; otherwise six years with a lab science.",
+      "about": "Direct-entry medical degree in Dublin city centre, five or six years: clinical and communication skills from week one, cadaveric anatomy, simulation, then hospital rotations. Six-year entry adds a foundation year.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "English A: HL 3 or SL 4. English B: 4 (HL 4 or SL 6 if your IB is not in English)."
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths HL grade 4+ adds 25 bonus points."
+        },
+        {
+          "anyOf": [
+            "chemistry",
+            "biology",
+            "physics"
+          ],
+          "level": "any",
+          "note": "Five-year track needs HL Chemistry 5 plus HL Physics or Biology."
+        },
+        {
+          "anyOf": [
+            "language-b-other",
+            "language-a-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "any",
+          "note": "A second language; 3 HL at 5 and 3 SL at 4 overall."
+        }
+      ],
+      "points": 35,
+      "selection": [
+        "grades",
+        "entrance-exam"
+      ],
+      "selectionNote": "IB points converted to CAO points (min 480) plus HPAT-Ireland, sat in 2027; ranked on the total. 2027 changes the formula (HPAT to 150, points unmoderated).",
+      "cutoff": {
+        "value": "734 combined points with HPAT",
+        "intake": "2026",
+        "url": "https://www.rcsi.com/dublin/undergraduate/medicine/entry-requirements"
+      },
+      "places": 90,
+      "tuitionEuEea": "€3,490 a year (Free Fees, 2025/26)",
+      "requirementsUrl": "https://www.rcsi.com/dublin/undergraduate/medicine/entry-requirements"
     },
     {
       "name": "Dentistry",
@@ -33,21 +88,184 @@
       "years": 5,
       "field": "medicine",
       "url": "https://www.rcsi.com/dublin/undergraduate/dentistry",
-      "ib": "HL 5 in Chemistry and HL 5 in Biology or Physics, plus English, Maths and a second language."
+      "ib": "HL 5 in Chemistry and HL 5 in Biology or Physics, plus English, Maths and a second language.",
+      "about": "Five-year Bachelor of Dental Surgery with supervised patient contact from Year 1, a simulated dental learning environment and community-based clinical teaching in RCSI's Dental Education Centres.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "English A: HL 3 or SL 4. English B: 4 (HL 4 or SL 6 if your IB is not in English)."
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths HL grade 4+ adds 25 bonus points."
+        },
+        {
+          "anyOf": [
+            "chemistry"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "biology@HL",
+            "physics@HL"
+          ],
+          "level": "HL",
+          "grade": 5
+        },
+        {
+          "anyOf": [
+            "language-b-other",
+            "language-a-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "any",
+          "note": "A second language; 3 HL at 5 and 3 SL at 4 overall."
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB points converted to CAO points, highest first; a random draw settles ties at the cut-off.",
+      "cutoff": {
+        "value": "613 points (about 43 IB points)",
+        "intake": "2026",
+        "url": "https://www.rcsi.com/dublin/undergraduate/dentistry/entry-requirements"
+      },
+      "places": 35,
+      "tuitionEuEea": "€3,490 a year (Free Fees, 2025/26)",
+      "requirementsUrl": "https://www.rcsi.com/dublin/undergraduate/dentistry/entry-requirements"
     },
     {
       "name": "Pharmacy",
       "credential": "BSc Pharmacy (Hons) and MPharm",
       "years": 5,
       "field": "health",
-      "url": "https://www.rcsi.com/dublin/undergraduate/pharmacy"
+      "url": "https://www.rcsi.com/dublin/undergraduate/pharmacy",
+      "about": "Five-year integrated programme awarding a BSc (Hons) and an MPharm, with clinical skills from Year 1, prescribing built into the curriculum and teaching alongside future doctors and dentists.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "English A: HL 3 or SL 4. English B: 4 (HL 4 or SL 6 if your IB is not in English)."
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths HL grade 4+ adds 25 bonus points."
+        },
+        {
+          "anyOf": [
+            "chemistry",
+            "biology",
+            "physics"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "language-b-other",
+            "language-a-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "any",
+          "note": "A second language; 3 HL at 5 and 3 SL at 4 overall."
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB points converted to CAO points, highest first; a random draw settles ties at the cut-off.",
+      "cutoff": {
+        "value": "578 points (about 40–43 IB points)",
+        "intake": "2026",
+        "url": "https://www.rcsi.com/dublin/undergraduate/pharmacy/entry-requirements"
+      },
+      "places": 90,
+      "tuitionEuEea": "€3,490 a year (Free Fees, 2025/26)",
+      "requirementsUrl": "https://www.rcsi.com/dublin/undergraduate/pharmacy/entry-requirements"
     },
     {
       "name": "Physiotherapy",
       "credential": "BSc",
       "years": 4,
       "field": "health",
-      "url": "https://www.rcsi.com/dublin/undergraduate/physiotherapy"
+      "url": "https://www.rcsi.com/dublin/undergraduate/physiotherapy",
+      "about": "Four-year BSc combining lectures, practical workshops and clinical simulation with over 1,000 hours of placement in hospitals and rehabilitation settings; you study alongside future doctors, dentists and pharmacists.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "English A: HL 3 or SL 4. English B: 4 (HL 4 or SL 6 if your IB is not in English)."
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Maths HL grade 4+ adds 25 bonus points."
+        },
+        {
+          "anyOf": [
+            "chemistry",
+            "biology",
+            "physics"
+          ],
+          "level": "any"
+        },
+        {
+          "anyOf": [
+            "language-b-other",
+            "language-a-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "any",
+          "note": "A second language; 3 HL at 5 and 3 SL at 4 overall."
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB points converted to CAO points, highest first; a random draw settles ties at the cut-off.",
+      "cutoff": {
+        "value": "555 points (about 39–41 IB points)",
+        "intake": "2026",
+        "url": "https://www.rcsi.com/dublin/undergraduate/physiotherapy/entry-requirements"
+      },
+      "places": 68,
+      "tuitionEuEea": "€3,490 a year (Free Fees, 2025/26)",
+      "requirementsUrl": "https://www.rcsi.com/dublin/undergraduate/physiotherapy/entry-requirements"
     },
     {
       "name": "Advanced Therapeutic Technologies",
@@ -55,7 +273,52 @@
       "years": 4,
       "field": "natural-sciences",
       "url": "https://www.rcsi.com/dublin/undergraduate/advanced-therapeutic-technologies",
-      "ib": "HL Maths 5; a lab science is not required in the IB version of the rule."
+      "ib": "HL Maths 5; a lab science is not required in the IB version of the rule.",
+      "about": "Four-year science degree designed with biopharma companies: the drug lifecycle, advanced therapeutics, AI and data analytics, lab practicals and an eight-month work placement.",
+      "needs": [
+        {
+          "anyOf": [
+            "english-a-literature",
+            "english-a-lang-lit",
+            "english-b"
+          ],
+          "level": "any",
+          "note": "English A: HL 3 or SL 4. English B: 4 (HL 4 or SL 6 if your IB is not in English)."
+        },
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "HL",
+          "grade": 5,
+          "note": "Maths HL grade 4+ adds 25 bonus points."
+        },
+        {
+          "anyOf": [
+            "language-b-other",
+            "language-a-other",
+            "language-ab-initio",
+            "danish-a-literature",
+            "danish-a-lang-lit",
+            "danish-b"
+          ],
+          "level": "any",
+          "note": "A second language; 3 HL at 5 and 3 SL at 4 overall."
+        }
+      ],
+      "selection": [
+        "grades"
+      ],
+      "selectionNote": "Ranked on IB points converted to CAO points, highest first; a random draw settles ties at the cut-off.",
+      "cutoff": {
+        "value": "498 points (about 35–37 IB points)",
+        "intake": "2026",
+        "url": "https://www.rcsi.com/dublin/undergraduate/advanced-therapeutic-technologies/entry-requirements"
+      },
+      "places": 60,
+      "tuitionEuEea": "€3,110 a year (Free Fees, 2025/26)",
+      "requirementsUrl": "https://www.rcsi.com/dublin/undergraduate/advanced-therapeutic-technologies/entry-requirements"
     }
   ],
   "notes": [
@@ -113,6 +376,11 @@
       "title": "Irish Universities Association — Changes to CAO entry to undergraduate medicine programmes in 2027",
       "url": "https://www.iua.ie/press-releases/changes-to-cao-entry-to-undergraduate-medicine-programmes-in-2027/",
       "retrieved": "2026-09-26"
-    }
+    },
+    { "title":"RCSI — Medicine, fees and funding (90 EU places; Free Fees; 2025/26 guideline fees)", "url":"https://www.rcsi.com/dublin/undergraduate/medicine/fees-and-funding", "retrieved":"2026-10-07" },
+    { "title":"RCSI — Dentistry, fees and funding (35 EU places)", "url":"https://www.rcsi.com/dublin/undergraduate/dentistry/fees-and-funding", "retrieved":"2026-10-07" },
+    { "title":"RCSI — Pharmacy, fees and funding (90 EU places)", "url":"https://www.rcsi.com/dublin/undergraduate/pharmacy/fees-and-funding", "retrieved":"2026-10-07" },
+    { "title":"RCSI — Physiotherapy, fees and funding (68 EU places)", "url":"https://www.rcsi.com/dublin/undergraduate/physiotherapy/fees-and-funding", "retrieved":"2026-10-07" },
+    { "title":"RCSI — Advanced Therapeutic Technologies, fees and funding (60 EU places)", "url":"https://www.rcsi.com/dublin/undergraduate/advanced-therapeutic-technologies/fees-and-funding", "retrieved":"2026-10-07" }
   ]
 }

@@ -19,13 +19,34 @@
   "programmes": [
     {
       "name": "Bachelor in Computer Science",
-      "lastYear": {"year": 2026, "text": "1 February–15 July (EU)"},
+      "lastYear": {
+        "year": 2026,
+        "text": "1 February–15 July (EU)"
+      },
       "credential": "Bachelor in Computer Science",
       "years": 3,
       "field": "computing",
       "url": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/",
       "ib": "English B2 required. A small part of the course uses French or German (B1 recommended, no certificate). 90 places, selected on maths, science and overall grades and a cover letter.",
-      "tuitionEuEea": "€400 a semester"
+      "tuitionEuEea": "€400 a semester",
+      "about": "Programming, theory and mathematics built on international ACM/IEEE curriculum standards, with practice through research and development projects. English-led, with a little French or German; leads on to a master's.",
+      "needs": [
+        {
+          "anyOf": [
+            "mathematics-aa",
+            "mathematics-ai"
+          ],
+          "level": "any",
+          "note": "Your maths grade is scored in the ranking; no minimum is stated."
+        }
+      ],
+      "selection": [
+        "grades",
+        "motivation"
+      ],
+      "selectionNote": "90 places, applications scored: cover letter, maths and science grades, overall grade, diploma type, English level, CV. 2026 criteria; 2027 not yet published.",
+      "places": 90,
+      "requirementsUrl": "https://www.uni.lu/fstm-en/study-programs/bachelor-in-computer-science/admissions/"
     },
     {
       "name": "Bachelor en Enseignement musical (Bachelor in Music Education)",
@@ -34,7 +55,15 @@
       "field": "arts-music",
       "url": "https://www.uni.lu/fhse-en/study-programs/bachelor-en-enseignement-musical/",
       "ib": "English C1. You need an advanced music diploma for your specialisation, or you sit an audition, a written solfège test and an interview in July.",
-      "tuitionEuEea": "€400 a semester"
+      "tuitionEuEea": "€400 a semester",
+      "about": "A teacher-training and artistic degree for advanced musicians, taught in English: you specialise in instrument or voice, solfège, or early-childhood music education.",
+      "selection": [
+        "audition",
+        "interview",
+        "motivation"
+      ],
+      "selectionNote": "Application file with motivation letter, CV and a 2–4 minute music video; without the music diplomas you audition and sit a solfège test, then an interview in July.",
+      "requirementsUrl": "https://www.uni.lu/fhse-en/study-programs/bachelor-en-enseignement-musical/admissions/"
     }
   ],
   "notes": [
