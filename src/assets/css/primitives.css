@@ -1683,11 +1683,12 @@
   -webkit-mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);
   mask-image: linear-gradient(to right, transparent, #000 20px, #000 calc(100% - 20px), transparent), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);
 }
-/* The credit sits at the top, out of the pins' way and clear of the docked
-   card: left of the camera buttons on a wide stage, in the corner on a phone
-   (round 5: a phone's Rome pin lay under it, and a tap followed the link). */
-.world[data-levels] .world__credit { top: var(--s3); bottom: auto; right: calc(var(--s3) + 2.75rem); }
-@media (max-width: 44rem) { .world[data-levels] .world__credit { right: var(--s3); } }
+/* The credit on a paper pill, readable on any map in either theme: in the
+   bottom corner on a wide stage, above the docked card; at the top on a
+   phone, out of the pins' way (round 5: a Rome pin lay under it; round 6:
+   it met the + button and vanished on a dark sea). */
+.world[data-levels] .world__credit { z-index: 4; right: var(--s3); bottom: var(--s2); padding: 0 .45em; border-radius: 999px; background: color-mix(in oklab, var(--paper) 82%, transparent); color: var(--ink-soft); }
+@media (max-width: 44rem) { .world[data-levels] .world__credit { top: var(--s2); bottom: auto; } }
 .world__trail-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .world__trail-here { display: inline-flex; align-items: center; gap: .4em; padding: 0 .55rem; min-height: 2rem; color: var(--ink); font: 700 .8125rem/1 var(--sans); }
 /* On a wide stage the card docks along the bottom, photograph beside the
@@ -1738,3 +1739,11 @@
 .world__rail-n { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
 /* A country's card waits, unseen, for the camera to land (globe.js goToCountry). */
 .world__card[data-waiting] { visibility: hidden; }
+/* Corner spots for a country's name (globe.js LABEL_SPOTS). */
+.world[data-levels] .world__cluster[data-kind="country"][data-pos="below-right"] .world__cluster-label { top: calc(var(--r) * .7); left: calc(var(--r) * .4); transform: none; }
+.world[data-levels] .world__cluster[data-kind="country"][data-pos="below-left"] .world__cluster-label { top: calc(var(--r) * .7); left: auto; right: calc(var(--r) * .4); transform: none; }
+.world[data-levels] .world__cluster[data-kind="country"][data-pos="above-right"] .world__cluster-label { top: auto; bottom: calc(var(--r) * .7); left: calc(var(--r) * .4); transform: none; }
+.world[data-levels] .world__cluster[data-kind="country"][data-pos="above-left"] .world__cluster-label { top: auto; bottom: calc(var(--r) * .7); left: auto; right: calc(var(--r) * .4); transform: none; }
+/* A phone's numbered university pins and their key in the rail. */
+.world[data-levels] .world__pin[data-num] .world__pin-dot { display: grid; place-items: center; color: #1A1613; font: 700 12px/1 var(--sans); }
+.world__key-n { display: inline-grid; place-items: center; min-width: 1.4em; height: 1.4em; margin-right: .4em; border-radius: 999px; background: #E3B863; color: #1A1613; font-weight: 700; font-size: .75rem; }

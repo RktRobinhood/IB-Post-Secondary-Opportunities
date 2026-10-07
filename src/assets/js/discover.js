@@ -512,7 +512,7 @@ function render() {
     : shown
     ? `<b>${cardsShown}</b> of ${TOTAL} programmes`
     : door && places
-    ? `<b>${esc(destName(door))}</b> · its universities and how to apply →`
+    ? `<b>${esc(destName(door))}</b>${LIGHTS[door]?.n ? ` · ${plural(LIGHTS[door].n, 'university', 'universities')}` : ''}`
     : doorOnly && places
     ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
     : near.size

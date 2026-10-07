@@ -172,7 +172,13 @@ void main() {
      where that raster's coverage changes, one of its texels away. */
   /* Round a chosen country, a sharp local colour map (globe levels round 6):
      the world raster is ~20 km a texel, the local one ~1 km. */
-  vec2 pu = (vUv - uPolRect.xy) / (uPolRect.zw - uPolRect.xy);
+  /* Looked up from the point's own latitude and longitude, not from the
+     mesh's interpolated uv, which drifts a few kilometres inside each 2.25°
+     cell: the fill and the ink coast (drawn from the same borders as lines)
+     were two coasts (round 6). */
+  vec3 gp = normalize(vN);
+  vec2 uvE = vec2(atan(gp.x, gp.z) / 6.2831853 + 0.5, acos(clamp(gp.y, -1.0, 1.0)) / 3.1415927);
+  vec2 pu = (uvE - uPolRect.xy) / (uPolRect.zw - uPolRect.xy);
   float inL = uPolLOn * step(0.0, pu.x) * step(pu.x, 1.0) * step(0.0, pu.y) * step(pu.y, 1.0);
   vec2 puc = clamp(pu, 0.0, 1.0);
   vec4 pol = mix(texture2D(uPol, vUv), texture2D(uPolL, puc), inL);
@@ -202,7 +208,8 @@ void main() {
   vec3 ocean = mix(vec3(0.13, 0.40, 0.70), vec3(0.28, 0.62, 0.86), smoothstep(0.02, 0.22, cs.b));
   /* On the desk the land wears a classroom globe's pastel political colours,
      each country its own, with a little of the relief left in. */
-  land = mix(land, pol.rgb * (0.8 + 0.4 * lum), uPolOn * 0.85 * pol.a);
+  float relief = mix(0.4, 0.08, inL);
+  land = mix(land, pol.rgb * (1.0 - relief * 0.5 + relief * lum), uPolOn * mix(0.85, 1.0, inL) * pol.a);
   /* A flat classroom ocean: the photograph's blue ramp amplified its JPEG
      blocks into squares (round 4). */
   ocean = mix(ocean, vec3(0.45, 0.72, 0.89), uPolOn);
@@ -2722,10 +2729,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
            own card (round 1: one name among Denmark's fourteen pins). */
         if (light.subs.length > 1) {
           const ranked = light.subs.filter((q) => !q.dim).sort((a, b) => (b.n || 0) - (a.n || 0) || a.name.localeCompare(b.name));
+          keyOf.clear();
+          ranked.forEach((q, i) => keyOf.set(q.id, i + 1));
           /* A phone names every one, in a rail (round 5: 3 of 14 named). */
           const ul = el('ul', { class: `world__card-list${narrowMQ.matches ? ' world__card-rail' : ''}` });
           for (const q of ranked.slice(0, narrowMQ.matches ? ranked.length : 3)) {
-            const b = el('button', { type: 'button' }, q.name);
+            const b = el('button', { type: 'button' });
+            if (narrowMQ.matches) b.append(el('span', { class: 'world__key-n' }, String(keyOf.get(q.id))));
+            b.append(document.createTextNode(q.name));
             b.addEventListener('click', () => goToSchool(q, { focus: true }));
             const li = el('li'); li.append(b); ul.append(li);
           }
@@ -3135,9 +3146,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
       }
     };
     for (const r of geography.ranges) if (r.id !== country.id) fill(r.rings, r.colour || '#f3d98b');
-    fill(country.rings, country.colour || '#f3d98b');
-    /* The chosen one warmer: a wash of the accent over its own pastel. */
-    fill(country.rings, 'rgba(244, 147, 95, 0.22)');
+    /* The chosen one a light apricot of its own, against its neighbours'
+       pastels (round 6: "a heavy rust"). */
+    fill(country.rings, '#f8d2a8');
     gl.deleteTexture(localTex);
     localTex = texture(gl, localCanvas, { mip: false, alpha: true });
     /* As the world raster's uv: x from the antimeridian, y from the pole. */
@@ -3379,7 +3390,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
   const lvScale = () => (Math.min(W, H) < 420 ? 0.86 : 1);
   const lvRadius = (g) => (g.kind === 'region' ? (17 + Math.min(10, Math.sqrt(g.count || 0) * 0.65)) * lvScale()
     : g.kind === 'country' ? (10 + Math.min(6, Math.sqrt(g.count || 0) * 1.1)) * lvScale()
-      : 5.5);
+      : narrowMQ.matches ? 9 : 5.5);
+  /* A university's number in its country's key: most to study first, as the rail lists them. */
+  const keyOf = new Map();
   /** What a node is called on the stage. */
   const lvName = (g) => (g.kind === 'region' ? g.region.name
     : g.kind === 'country' ? (pages.get(g.nation)?.name || geography.byId.get(g.nation)?.name || g.members[0].name)
@@ -3400,10 +3413,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
      and the same again as its flag alone: a coin stays near its country and
      its name finds the room (round 1b: big name pills pushed Switzerland's
      coin to Hamburg). */
-  const LABEL_SPOTS = ['below', 'right', 'left', 'above'];
+  const LABEL_SPOTS = ['below', 'right', 'left', 'above', 'below-right', 'below-left', 'above-right', 'above-left'];
   const labelW = new Map();   // a name's drawn width, measured the first time it shows
   function labelRect(pos, x, y, r, w) {
     const h = 22;
+    if (pos === 'below-right') return [x + r * 0.4, y + r * 0.7, x + r * 0.4 + w, y + r * 0.7 + h];
+    if (pos === 'below-left') return [x - r * 0.4 - w, y + r * 0.7, x - r * 0.4, y + r * 0.7 + h];
+    if (pos === 'above-right') return [x + r * 0.4, y - r * 0.7 - h, x + r * 0.4 + w, y - r * 0.7];
+    if (pos === 'above-left') return [x - r * 0.4 - w, y - r * 0.7 - h, x - r * 0.4, y - r * 0.7];
     if (pos === 'below') return [x - w / 2, y + r + 3, x + w / 2, y + r + 3 + h];
     if (pos === 'above') return [x - w / 2, y - r - 3 - h, x + w / 2, y - r - 3];
     if (pos === 'right') return [x + r + 3, y - h / 2, x + r + 3 + w, y + h / 2];
@@ -3551,6 +3568,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
         node.toggleAttribute('data-selected', p.selected);
         node.toggleAttribute('data-on', on);
         node.toggleAttribute('data-plain', true);
+        /* On a phone, where most names cannot fit, a pin carries its number
+           in the rail under the stage — a key, nothing grouped (round 6). */
+        const num = narrowMQ.matches ? String(keyOf.get(p.id) || '') : '';
+        if (node.firstChild.textContent !== num) node.firstChild.textContent = num;
+        node.toggleAttribute('data-num', !!num);
         obstacles.push({ id: p.id, rect: [x - r - 2, y - r - 2, x + r + 2, y + r + 2] });
         /* The chosen, the lit, then the ones with the most to study first. */
         if (fade > 0.6) wanted.push({ id: p.id, name: p.name, node, x, y, r, rank: (p.selected ? 8 : 0) + (on ? 4 : 0) + (p.dim ? 0 : 1), n: p.n || 0 });
