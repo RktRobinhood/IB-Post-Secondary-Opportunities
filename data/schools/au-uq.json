@@ -1,0 +1,108 @@
+{
+  "institution": "au-uq",
+  "name": "University of Queensland",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Brisbane's St Lucia campus; three-year science and commerce degrees and four-year engineering, with intakes in February and July.",
+  "handoff": {
+    "label": "Find a program (undergraduate)",
+    "url": "https://study.uq.edu.au/study-options/undergraduate"
+  },
+  "ib": {
+    "text": "Each program lists an IB score from last year's lowest offer: Science 30.25, Commerce 31, Engineering 32. Prerequisites are Queensland subjects (English, Maths Methods, Chemistry or Physics) with IB equivalents.",
+    "url": "https://study.uq.edu.au/admissions/undergraduate/review-entry-requirements"
+  },
+  "starts": "February or July",
+  "apply": {
+    "via": "Direct to UQ (QTAC is for Australian schooling)",
+    "url": "https://study.uq.edu.au/admissions/undergraduate/submit-your-application"
+  },
+  "programmes": [
+    {
+      "name": "Bachelor of Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-science-2461",
+      "about": "A three-year science degree with 16 extended majors, 26 majors and 35 minors; you can mix science and non-science courses in first year and combine it with 13 other programs.",
+      "ib": "IB 30.25 was the lowest adjusted offer for Semester 1, 2026. Prerequisites are Queensland subjects; ask UQ which IB courses count.",
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB score; the published score is last year's lowest adjusted offer and does not guarantee entry. Updated each April.",
+      "cutoff": {
+        "value": "IB 30.25 (lowest adjusted offer)",
+        "intake": "2026",
+        "url": "https://study.uq.edu.au/study-options/programs/bachelor-science-2461"
+      },
+      "tuitionEuEea": "A$56,800 a year (2027)",
+      "flagshipSource": {
+        "title": "Bachelor of Science: 16 extended majors, 26 majors and 35 minors, one of the broadest selections of science disciplines",
+        "url": "https://study.uq.edu.au/study-options/programs/bachelor-science-2461"
+      }
+    },
+    {
+      "name": "Bachelor of Engineering (Honours)",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-engineering-honours-2455",
+      "about": "A four-year engineering degree with a flexible first year, then 6 core specialisations and 12 majors; programs can be combined with Science, Computer Science, Design, Arts and others.",
+      "ib": "IB 32 was the lowest adjusted offer for Semester 1, 2026. Prerequisites: English, Maths Methods and one of Chemistry or Physics (Queensland subjects).",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "any", "note": "Equivalent of Queensland Mathematical Methods" },
+        { "anyOf": ["chemistry", "physics"], "level": "any" },
+        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "any" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB score; the published score is last year's lowest adjusted offer and does not guarantee entry. Updated each April.",
+      "cutoff": {
+        "value": "IB 32 (lowest adjusted offer)",
+        "intake": "2026",
+        "url": "https://study.uq.edu.au/study-options/programs/bachelor-engineering-honours-2455"
+      },
+      "tuitionEuEea": "A$60,952 a year (2027)",
+      "flagshipSource": {
+        "title": "Bachelor of Engineering (Honours): the largest number of engineering study options in Queensland",
+        "url": "https://study.uq.edu.au/study-options/programs/bachelor-engineering-honours-2455"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Business, Economics and Law",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-commerce-2336",
+      "line": "Commerce: IB 31 last year; Business Management 26.75. Both start in February or July."
+    },
+    {
+      "name": "Engineering, Architecture and Information Technology",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-engineering-honours-2455",
+      "line": "Engineering (Honours): IB 32 last year; English, Maths Methods and Chemistry or Physics are prerequisites."
+    },
+    {
+      "name": "Humanities, Arts and Social Sciences",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-international-studies-2316",
+      "line": "International Studies: IB 31 last year; the program starts in February only."
+    },
+    {
+      "name": "Science",
+      "url": "https://study.uq.edu.au/study-options/programs/bachelor-science-2461",
+      "line": "Bachelor of Science: IB 30.25 last year; starts in February or July."
+    }
+  ],
+  "notes": [
+    "IB students outside Australia apply directly to UQ; QTAC is for students completing Australian Year 12 or an IB in Australia.",
+    "UQ accepts applications up to two years ahead and recommends applying early, because some programs have limited places and your visa takes time.",
+    "Published entry scores are last year's lowest adjusted offers and are updated each April; meeting one does not guarantee a place."
+  ],
+  "sources": [
+    { "title": "UQ: Submit your application (undergraduate)", "url": "https://study.uq.edu.au/admissions/undergraduate/submit-your-application", "retrieved": "2026-10-07" },
+    { "title": "UQ: Review entry requirements (undergraduate)", "url": "https://study.uq.edu.au/admissions/undergraduate/review-entry-requirements", "retrieved": "2026-10-07" },
+    { "title": "UQ: Subject prerequisite equivalents", "url": "https://study.uq.edu.au/admissions/undergraduate/review-entry-requirements/subject-prerequisite-equivalents", "retrieved": "2026-10-07" },
+    { "title": "UQ: Undergraduate study options", "url": "https://study.uq.edu.au/study-options/undergraduate", "retrieved": "2026-10-07" },
+    { "title": "UQ: Bachelor of Science", "url": "https://study.uq.edu.au/study-options/programs/bachelor-science-2461", "retrieved": "2026-10-07" },
+    { "title": "UQ: Bachelor of Engineering (Honours)", "url": "https://study.uq.edu.au/study-options/programs/bachelor-engineering-honours-2455", "retrieved": "2026-10-07" },
+    { "title": "UQ: Bachelor of Commerce", "url": "https://study.uq.edu.au/study-options/programs/bachelor-commerce-2336", "retrieved": "2026-10-07" },
+    { "title": "UQ: Bachelor of Business Management", "url": "https://study.uq.edu.au/study-options/programs/bachelor-business-management-2171", "retrieved": "2026-10-07" },
+    { "title": "UQ: Bachelor of International Studies", "url": "https://study.uq.edu.au/study-options/programs/bachelor-international-studies-2316", "retrieved": "2026-10-07" }
+  ]
+}

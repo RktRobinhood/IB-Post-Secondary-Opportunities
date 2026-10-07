@@ -1,0 +1,183 @@
+{
+  "institution": "ca-ucalgary",
+  "name": "University of Calgary",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Founded 1966: about 38,000 students on four campuses in Calgary, with Schulich engineering, Haskayne business and co-op or internship options.",
+  "handoff": {
+    "label": "Explore UCalgary undergraduate programs",
+    "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs"
+  },
+  "ib": {
+    "text": "Full IB Diploma with three HL and no grade below 3; TOK, EE and CAS count in the total. Five program courses required; estimated competitive scores run 24-25 for Arts to 33-34 for Engineering.",
+    "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf"
+  },
+  "apply": {
+    "via": "UCalgary online undergraduate application",
+    "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines"
+  },
+  "dates": [
+    {
+      "label": "International application opens: students requiring a study permit",
+      "date": "2026-08-15",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines"
+    },
+    {
+      "label": "Application deadline, fall undergraduate admission",
+      "date": "2027-03-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines"
+    },
+    {
+      "label": "Unofficial transcripts and supporting documents due",
+      "date": "2027-03-15",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines"
+    },
+    {
+      "label": "Residence Guarantee: high school applicants' application deadline",
+      "date": "2027-05-01",
+      "kind": "housing",
+      "who": "any",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Engineering (common first year)",
+      "credential": "BSc in Engineering",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs/common-core-engineering",
+      "requirementsUrl": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "about": "Everyone starts with the same 10 design, maths, science and engineering courses in Schulich School of Engineering, then ranks majors in winter term; first choice of program is guaranteed if you complete all ten. Paid career practicum and internship options.",
+      "ib": "English, Mathematics (also counts as Calculus), Chemistry and Physics or Biology; Maths AI is accepted. Estimated competitive diploma score 33-34.",
+      "tuitionEuEea": "CAD 41,487 for 10 courses (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["physics", "biology"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b@HL"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on the diploma score from predicted, then final, IB results; 33-34 is last year's estimated competitive range, not a published minimum for 2027.",
+      "flagshipSource": {
+        "title": "Engineering (common first year): ten common-core courses, guaranteed program choice and paid placements",
+        "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs/common-core-engineering"
+      }
+    },
+    {
+      "name": "Commerce (Haskayne School of Business)",
+      "credential": "BComm",
+      "years": 4,
+      "field": "business",
+      "url": "https://haskayne.ucalgary.ca/future-students/bcomm",
+      "requirementsUrl": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "about": "A four-year business degree entered directly from school, with an optional Co-operative Education stream, an Honours research option and more than 30 exchange partners. Haskayne has held AACSB accreditation since 1985.",
+      "ib": "English, Mathematics, two approved courses (not PE, fine arts or non-calculus maths) and one more approved course; Maths AI is accepted. Estimated competitive score 27-30.",
+      "tuitionEuEea": "CAD 36,104 for 10 courses (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b@HL"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Places are capped by a quota and ranked on the diploma score; meeting the minimum does not guarantee admission, and the competitive range moves each year.",
+      "flagshipSource": {
+        "title": "Haskayne BComm: Co-operative Education, over 30 exchange partners, AACSB accredited since 1985",
+        "url": "https://haskayne.ucalgary.ca/future-students/bcomm"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Schulich School of Engineering",
+      "url": "https://schulich.ucalgary.ca/future-students/undergraduate/admissions",
+      "line": "English, Maths, Calculus, Chemistry and Physics or Biology; estimated competitive diploma score 33-34; common first year."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "English, Maths and one or two sciences; competitive 27-30 for most programs, 33-42 for biology, neuroscience and biochemistry."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "English and four approved courses; competitive 24-25 for most, 33-34 for Psychology; Dance, Music, Visual Studies add auditions."
+    },
+    {
+      "name": "Haskayne School of Business",
+      "url": "https://calendar.ucalgary.ca/pages/13af94b9dc8d46abb5202e568cf304e7",
+      "line": "A quota limits places; admission is competitive and the minimum does not guarantee a place. Estimated competitive IB score 27-30."
+    },
+    {
+      "name": "Cumming School of Medicine (Health Sciences)",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "Health Sciences: English, Maths (minimum 4), Chemistry, Biology; competitive 33-34 and an online supplementary application."
+    },
+    {
+      "name": "Faculty of Kinesiology",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "English, Maths, Chemistry and Biology; estimated competitive score 30-33; Physics is recommended."
+    },
+    {
+      "name": "Faculty of Nursing",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "English, Maths, Chemistry and Biology; estimated competitive score 29; admission uses a lottery."
+    },
+    {
+      "name": "Werklund School of Education",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "Estimated competitive scores of 27-34 depending on the program and teachable subject area."
+    },
+    {
+      "name": "School of Architecture, Planning and Landscape",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "English, Maths, one of Physics, Chemistry or Biology and two approved courses; estimated competitive score 27-30."
+    },
+    {
+      "name": "Faculty of Social Work",
+      "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf",
+      "line": "English and four approved courses; estimated competitive score 27-30."
+    }
+  ],
+  "notes": [
+    "Completing the IB Diploma can earn up to a full year (30 units) of first-year credit.",
+    "UCalgary assesses the initial application on predicted IB grades; official final IB transcripts are required to finalize an offer.",
+    "International tuition is charged per 3-unit course (CAD 3,078 in most faculties, 3,610 in Haskayne, 4,149 in Schulich), so a 10-course year costs ten times that."
+  ],
+  "sources": [
+    { "title": "UCalgary — Guide for IB applicants (one-pager)", "url": "https://www.ucalgary.ca/live-uc-ucalgary-site/sites/default/files/teams/15/ib-onepager.pdf", "retrieved": "2026-10-07" },
+    { "title": "UCalgary Calendar — A.5.2.3 International Baccalaureate (IB)", "url": "https://calendar.ucalgary.ca/pages/nsfMYMG6AuknRgGAbSr1", "retrieved": "2026-10-07" },
+    { "title": "UCalgary — Dates and deadlines", "url": "https://www.ucalgary.ca/future-students/undergraduate/how-apply/dates-and-deadlines", "retrieved": "2026-10-07" },
+    { "title": "UCalgary Calendar — P.1.1 Undergraduate Tuition", "url": "https://calendar.ucalgary.ca/pages/b15b7e973a234197aded0daf61f34b9a", "retrieved": "2026-10-07" },
+    { "title": "UCalgary — Facts and figures", "url": "https://www.ucalgary.ca/about/our-organization/facts-and-figures", "retrieved": "2026-10-07" },
+    { "title": "UCalgary — Explore programs", "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs", "retrieved": "2026-10-07" },
+    { "title": "UCalgary — Engineering (common first year)", "url": "https://www.ucalgary.ca/future-students/undergraduate/explore-programs/common-core-engineering", "retrieved": "2026-10-07" },
+    { "title": "Haskayne School of Business — Bachelor of Commerce", "url": "https://haskayne.ucalgary.ca/future-students/bcomm", "retrieved": "2026-10-07" },
+    { "title": "Schulich School of Engineering — Undergraduate admissions", "url": "https://schulich.ucalgary.ca/future-students/undergraduate/admissions", "retrieved": "2026-10-07" },
+    { "title": "UCalgary Calendar — Haskayne School of Business admissions", "url": "https://calendar.ucalgary.ca/pages/13af94b9dc8d46abb5202e568cf304e7", "retrieved": "2026-10-07" }
+  ]
+}

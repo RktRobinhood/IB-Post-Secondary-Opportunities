@@ -1,0 +1,128 @@
+{
+  "institution": "sg-ntu",
+  "name": "Nanyang Technological University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Singapore university with colleges of Engineering, Business, Science, Humanities and a medical school; one intake a year, from late July.",
+  "handoff": {
+    "label": "Undergraduate programme and prerequisite listing (IB)",
+    "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf"
+  },
+  "ib": {
+    "text": "You can apply before IB results are out but must give NTU direct IBO transcript access. Engineering asks HL Maths plus an HL science; business SL Maths; humanities good SL English. AA and AI both count.",
+    "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma"
+  },
+  "starts": "Late July",
+  "apply": {
+    "via": "NTU undergraduate admissions portal (direct)",
+    "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma"
+  },
+  "dates": [
+    {
+      "label": "IB Diploma applications open",
+      "date": "2026-10-15",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma"
+    },
+    {
+      "label": "IB applications close; May sitters send final results within 3 days of release",
+      "date": "2027-03-19",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma"
+    },
+    {
+      "label": "Latest day to give NTU access to your IBO transcript (May 2027 session: end of June)",
+      "date": "2027-06-30",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Materials Engineering",
+      "credential": "Bachelor of Engineering",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-materials-engineering",
+      "requirementsUrl": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "about": "A four-year engineering degree that combines the fundamental sciences with engineering; strong students can be offered an accelerated 3.5-year route after first year.",
+      "ib": "HL Mathematics and HL Physics, Chemistry or Biology; SL Physics (or equivalent) if you did not take HL Physics. Maths AA and AI are both accepted.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL" },
+        { "anyOf": ["physics", "chemistry", "biology"], "level": "HL" },
+        { "anyOf": ["physics"], "level": "SL", "note": "Only if you did not take HL Physics" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on predicted IB results, then final results in July; NTU publishes no IB grade profile.",
+      "tuitionEuEea": "S$21,400 a year with grant (2026/27)",
+      "flagshipSource": {
+        "title": "Materials Engineering (School of Materials Science and Engineering): sciences plus engineering",
+        "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-materials-engineering"
+      }
+    },
+    {
+      "name": "Business",
+      "credential": "Bachelor of Business",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-business",
+      "requirementsUrl": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "about": "A four-year business degree at Nanyang Business School designed for depth, breadth, flexibility and global exposure, with minors and second majors such as Entrepreneurship.",
+      "ib": "SL Mathematics (Maths AA or AI); admission is on a selective basis. NTU's prerequisite list shows 3 years where the programme page says four.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "SL" }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on predicted IB results, then final results in July; some applicants may be called for a test or interview.",
+      "tuitionEuEea": "S$21,800 a year with grant (2026/27)",
+      "flagshipSource": {
+        "title": "Bachelor of Business at Nanyang Business School: depth, breadth, flexibility and global exposure",
+        "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-business"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Engineering",
+      "url": "https://www.ntu.edu.sg/engineering/programmes/undergraduate/minimum-subject-requirements",
+      "line": "HL Mathematics and an HL science (Physics, Chemistry, Biology or Computer Science) for most degrees."
+    },
+    {
+      "name": "College of Science",
+      "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "line": "Chemistry and Biological Chemistry needs HL Chemistry and HL Maths or Physics; Biological Sciences also lists HL science."
+    },
+    {
+      "name": "College of Business",
+      "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "line": "SL Mathematics for Accountancy and Business; admission is on a selective basis."
+    },
+    {
+      "name": "College of Humanities, Arts and Social Sciences",
+      "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "line": "A good grade in SL English for most degrees; Art, Design and Media needs a portfolio and creative project."
+    },
+    {
+      "name": "Lee Kong Chian School of Medicine",
+      "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf",
+      "line": "HL Chemistry and HL Biology or Physics, a BMAT result and referee reports; May 2027 sitters cannot use the July-results route."
+    }
+  ],
+  "notes": [
+    "EU students can get the MOE Tuition Grant, which cuts the fee but requires you to work for a Singapore entity for three years after graduating.",
+    "NTU offers one intake a year and expects direct IBO access to your transcript; it will not process an application without it.",
+    "May 2027 sitters can send final IB results within three days of release in July, except for Medicine, Arts (Academic Discipline and Education) and Science (Academic Disciplines and Education)."
+  ],
+  "sources": [
+    { "title": "NTU: International Baccalaureate (IB) Diploma admission guide", "url": "https://www.ntu.edu.sg/admissions/undergraduate/admission-guide/international-baccalaureate-diploma", "retrieved": "2026-10-07" },
+    { "title": "NTU: Undergraduate programme and prerequisite listing for IB", "url": "https://www3.ntu.edu.sg/oad2/website_files/IBDiploma/MinimumSubject.pdf", "retrieved": "2026-10-07" },
+    { "title": "NTU: Tuition fees and MOE tuition grant", "url": "https://www.ntu.edu.sg/admissions/undergraduate/financial-matters/tuition-fees", "retrieved": "2026-10-07" },
+    { "title": "NTU: Engineering minimum subject requirements", "url": "https://www.ntu.edu.sg/engineering/programmes/undergraduate/minimum-subject-requirements", "retrieved": "2026-10-07" },
+    { "title": "NTU: Bachelor of Engineering in Materials Engineering", "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-engineering-in-materials-engineering", "retrieved": "2026-10-07" },
+    { "title": "NTU: Bachelor of Business", "url": "https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-business", "retrieved": "2026-10-07" }
+  ]
+}

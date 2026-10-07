@@ -1,0 +1,174 @@
+{
+  "institution": "ca-york",
+  "name": "York University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Toronto university on the Keele, Glendon and Markham campuses, with Lassonde engineering, Schulich business and the bilingual Glendon College.",
+  "handoff": {
+    "label": "York programs: requirements by curriculum",
+    "url": "https://futurestudents.yorku.ca/your-application/how-apply/international-student"
+  },
+  "ib": {
+    "text": "IB Diploma with six passes (three SL and three HL, or two SL and four HL); most programs consider 28 to 30 points, Schulich 36, plus program subjects. Maths AI SL counts only for some programs.",
+    "url": "https://futurestudents.yorku.ca/your-application/how-apply/international-student"
+  },
+  "apply": {
+    "via": "OUAC (Ontario Universities' Application Centre)",
+    "url": "https://registrar.yorku.ca/requirements/deadlines"
+  },
+  "dates": [
+    {
+      "label": "Application deadline for international students, fall 2027 (most programs)",
+      "date": "2027-03-24",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://registrar.yorku.ca/requirements/deadlines"
+    },
+    {
+      "label": "Schulich BBA: application deadline, no later applications accepted",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "programmes": ["business-administration-bba"],
+      "url": "https://registrar.yorku.ca/requirements/deadlines"
+    },
+    {
+      "label": "Schulich BBA: supplementary application (leadership profile, video, writing)",
+      "date": "2027-02-01",
+      "kind": "documents",
+      "who": "any",
+      "programmes": ["business-administration-bba"],
+      "url": "https://registrar.yorku.ca/requirements/deadlines"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Engineering",
+      "credential": "BEng",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://futurestudents.yorku.ca/program/engineering",
+      "about": "A common first year in applied maths, physical sciences, programming and engineering, then civil, computer, electrical, mechanical, mechatronics, software or space engineering. Co-op and project-based learning; first year can be at the Markham campus.",
+      "ib": "Chemistry and Physics at SL or HL, and Maths AA (SL or HL) or AI HL; a minimum 30 points is needed to be considered and to keep the offer.",
+      "tuitionEuEea": "About CAD 47,000 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL"
+        }
+      ],
+      "points": 30,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on the IB total; 30 is the minimum to be considered, and the required average is set each year, so competitive offers may need more.",
+      "flagshipSource": {
+        "title": "Lassonde Engineering: common first year, seven disciplines, co-op and project-based learning",
+        "url": "https://futurestudents.yorku.ca/program/engineering"
+      }
+    },
+    {
+      "name": "Business Administration (BBA)",
+      "credential": "BBA",
+      "years": 4,
+      "field": "business",
+      "url": "https://futurestudents.yorku.ca/program/business-administration",
+      "about": "The four-year Bachelor of Business Administration at the Schulich School of Business, with direct entry from school, small tutorials, case-competition preparation and exchanges at 60+ partner schools.",
+      "ib": "Maths AA (SL or HL) or AI HL with a 5, and a minimum 36 points; a supplementary application with a leadership profile, video interview and timed writing is required.",
+      "tuitionEuEea": "CAD 40,000-44,000 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 5
+        }
+      ],
+      "points": 36,
+      "selection": ["grades", "motivation", "interview"],
+      "selectionNote": "36 is the minimum to be considered; the supplementary application (leadership profile, video interview, timed writing) is weighed alongside your grades.",
+      "closes": "2027-01-15",
+      "flagshipSource": {
+        "title": "Schulich BBA: direct entry, small tutorials, 60+ exchange partners and case competitions",
+        "url": "https://futurestudents.yorku.ca/program/business-administration"
+      }
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BSc or BA",
+      "years": 4,
+      "field": "computing",
+      "url": "https://futurestudents.yorku.ca/program/computer-science",
+      "about": "Programming, algorithms, data structures and systems taught through hands-on labs, team projects and supervised work experience at the Lassonde School of Engineering, with AI reshaping the field.",
+      "ib": "Maths AA (SL or HL) or AI HL with a 5, and a minimum of 30 points to be considered and to keep the offer.",
+      "tuitionEuEea": "About CAD 38,000 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 5
+        }
+      ],
+      "points": 30,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on the IB total; 30 is the minimum to be considered and the required average is set each year.",
+      "flagshipSource": {
+        "title": "Lassonde Computer Science: hands-on labs, team projects and supervised work experience",
+        "url": "https://futurestudents.yorku.ca/program/computer-science"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Lassonde School of Engineering",
+      "url": "https://futurestudents.yorku.ca/program/engineering",
+      "line": "Chemistry, Physics and Maths (not AI SL); a minimum 30 points; Computer Science needs a 5 in Maths."
+    },
+    {
+      "name": "Schulich School of Business",
+      "url": "https://futurestudents.yorku.ca/program/business-administration",
+      "line": "A minimum 36 points, Maths at 5, and a supplementary application with a video interview; closes earlier than most programs."
+    },
+    {
+      "name": "Faculty of Health",
+      "url": "https://futurestudents.yorku.ca/program/kinesiology-health-science",
+      "line": "Kinesiology: Maths (AI SL accepted) and a science, minimum 28 points; Global Health: Diploma at 28, Biology recommended."
+    },
+    {
+      "name": "School of the Arts, Media, Performance & Design",
+      "url": "https://registrar.yorku.ca/requirements/deadlines",
+      "line": "Cinema, Dance, Design, Music, Visual Arts and Theatre need a supplementary application, such as a portfolio or audition."
+    },
+    {
+      "name": "Faculty of Education",
+      "url": "https://registrar.yorku.ca/requirements/deadlines",
+      "line": "Concurrent Education needs a supplementary application; Educational Studies asks for a minimum 28 points."
+    },
+    {
+      "name": "Glendon College",
+      "url": "https://futurestudents.yorku.ca/your-application/how-apply/international-student",
+      "line": "A bilingual campus; some programs run in French, and Glendon's International Studies & Business dual degree has a supplementary application."
+    }
+  ],
+  "notes": [
+    "York's tuition figures are its own approximate annual costs for 2026-27 and are based on 30 credits (36 for Engineering first year).",
+    "IB courses graded 5 or better at Higher Level earn transfer credit, up to 30 credits.",
+    "York assesses applications until each program is full, so apply early, which also helps with study permit timing."
+  ],
+  "sources": [
+    { "title": "York — International high school student: admission requirements", "url": "https://futurestudents.yorku.ca/your-application/how-apply/international-student", "retrieved": "2026-10-07" },
+    { "title": "York — Deadlines for undergraduate study", "url": "https://registrar.yorku.ca/requirements/deadlines", "retrieved": "2026-10-07" },
+    { "title": "York — Tuition and fees", "url": "https://futurestudents.yorku.ca/financing-your-degree/tuition-fees", "retrieved": "2026-10-07" },
+    { "title": "York — Engineering (BEng)", "url": "https://futurestudents.yorku.ca/program/engineering", "retrieved": "2026-10-07" },
+    { "title": "York — Business Administration (BBA)", "url": "https://futurestudents.yorku.ca/program/business-administration", "retrieved": "2026-10-07" },
+    { "title": "York — Computer Science", "url": "https://futurestudents.yorku.ca/program/computer-science", "retrieved": "2026-10-07" },
+    { "title": "York — Kinesiology & Health Science", "url": "https://futurestudents.yorku.ca/program/kinesiology-health-science", "retrieved": "2026-10-07" },
+    { "title": "York — Global Health", "url": "https://futurestudents.yorku.ca/program/global-health", "retrieved": "2026-10-07" }
+  ]
+}

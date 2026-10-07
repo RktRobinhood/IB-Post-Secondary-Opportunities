@@ -1,0 +1,162 @@
+{
+  "institution": "ca-western",
+  "name": "Western University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Gothic-style campus in London, Ontario, with 42,000+ students from 134 countries and 450 majors, minors and specializations across 11 faculties.",
+  "handoff": {
+    "label": "Western undergraduate programs",
+    "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/index.html"
+  },
+  "ib": {
+    "text": "Complete IB Diploma with TOK and EE, at least six subjects (three HL), a total of 27 or more including EE and TOK, no mark below 4, and the required courses for your program.",
+    "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html"
+  },
+  "apply": {
+    "via": "OUAC (Ontario Universities' Application Centre)",
+    "url": "https://welcome.uwo.ca/next-steps/apply/apply-on-the-ouac.html"
+  },
+  "dates": [
+    {
+      "label": "OUAC deadline for equal consideration, full-time undergraduate studies",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://welcome.uwo.ca/next-steps/apply/admission-deadlines.html"
+    },
+    {
+      "label": "Engineering: last Casper test date",
+      "date": "2027-03-02",
+      "kind": "test",
+      "who": "any",
+      "programmes": ["engineering"],
+      "url": "https://welcome.uwo.ca/next-steps/apply/admission-deadlines.html"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Medical Sciences",
+      "credential": "BMSc",
+      "years": 4,
+      "field": "health",
+      "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/medical-sciences.html",
+      "requirementsUrl": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "about": "A first-entry science route through the Faculty of Science into the Bachelor of Medical Sciences, taught with the Schulich School of Medicine & Dentistry. Complete Medical Sciences 1 and 2 and Year 3 BMSc is assured.",
+      "ib": "Biology, Chemistry and Maths (any) at HL or SL are required; Physics is recommended. About 1,000 first-year places.",
+      "needs": [
+        {
+          "anyOf": ["biology"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 27,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on grades; Ontario applicants' guideline is a mid-to-high 80s average, which Western does not give in IB points. 27 is the Diploma floor.",
+      "places": 1000,
+      "flagshipSource": {
+        "title": "Medical Sciences first entry: about 1,000 first-year places and assured Year 3 entry to the BMSc",
+        "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/medical-sciences.html"
+      }
+    },
+    {
+      "name": "Engineering",
+      "credential": "BESc",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://welcome.uwo.ca/programs/first-entry/eng.html",
+      "requirementsUrl": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "about": "A common first year for all engineering students, then you rank your choice of discipline, from Civil and Mechanical to Software and Mechatronic Systems. Co-op and internship options, plus combined degrees with business or law.",
+      "ib": "Chemistry and Physics at HL or SL, and Maths AA (HL or SL) or AI HL; the Casper test is required before any offer.",
+      "needs": [
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 27,
+      "selection": ["grades", "test-score"],
+      "selectionNote": "Grades plus the mandatory Casper situational-judgment test; Ontario applicants' guideline is a high-80s to low-90s average, not given in IB points.",
+      "places": 850,
+      "flagshipSource": {
+        "title": "Engineering first entry: common first year, about 850 first-year places, co-op and internship available",
+        "url": "https://welcome.uwo.ca/programs/first-entry/eng.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://welcome.uwo.ca/programs/first-entry/eng.html",
+      "line": "Chemistry, Physics and Maths required; the Casper test is mandatory and an offer cannot come without a result."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "line": "Maths and a science at HL or SL; Biology and Chemistry needed for first-year Bio/Chem; Medical Sciences adds Biology, Chemistry, Maths."
+    },
+    {
+      "name": "Faculty of Social Science",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "line": "No required courses; Economics modules need Maths AA, or AI HL, and Psychology benefits from Maths."
+    },
+    {
+      "name": "Faculty of Arts & Humanities",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "line": "No required courses; Studio Fine Arts needs a portfolio and the School for Advanced Studies a statement of interest."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "line": "Health Sciences needs Biology and Maths; Nursing needs Biology, Chemistry, English and Maths; Kinesiology needs Biology."
+    },
+    {
+      "name": "Management & Organizational Studies",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "line": "Maths (any) at HL or SL; Commercial Aviation Management adds a supplementary form. Ivey HBA is entered after first or second year."
+    },
+    {
+      "name": "Music",
+      "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html",
+      "line": "An audition and/or interview is required for all Music programs; registration closes 1 February."
+    }
+  ],
+  "courses": 450,
+  "notes": [
+    "Western estimates year-1 international tuition and fees at CAD 48,000 to 64,400 (2025-26 rates); international rates rise by no more than 4% a year after year 1.",
+    "The IB total of 27 includes the Extended Essay and TOK bonus points, unlike Toronto and Queen's.",
+    "Ivey's Honours Business Administration is not a first-year entry; apply to Western first and enter it after first or second year."
+  ],
+  "sources": [
+    { "title": "Western — International Baccalaureate requirements", "url": "https://welcome.uwo.ca/next-steps/requirements/international-baccalaureate.html", "retrieved": "2026-10-07" },
+    { "title": "Western — Note your deadlines", "url": "https://welcome.uwo.ca/next-steps/apply/admission-deadlines.html", "retrieved": "2026-10-07" },
+    { "title": "Western — Apply on the OUAC", "url": "https://welcome.uwo.ca/next-steps/apply/apply-on-the-ouac.html", "retrieved": "2026-10-07" },
+    { "title": "Western — Review costs and financial support", "url": "https://welcome.uwo.ca/next-steps/finances/index.html", "retrieved": "2026-10-07" },
+    { "title": "Western — What is Western like?", "url": "https://welcome.uwo.ca/what-is-western-like/index.html", "retrieved": "2026-10-07" },
+    { "title": "Western — Undergraduate programs", "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/index.html", "retrieved": "2026-10-07" },
+    { "title": "Western — Medical Sciences", "url": "https://welcome.uwo.ca/what-can-i-study/undergraduate-programs/medical-sciences.html", "retrieved": "2026-10-07" },
+    { "title": "Western — Engineering", "url": "https://welcome.uwo.ca/programs/first-entry/eng.html", "retrieved": "2026-10-07" }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "institution": "ca-mcgill",
+  "name": "McGill University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "English-language university in Montreal, founded 1821: about 28,000 undergraduates, 11 faculties, downtown campus plus Macdonald campus.",
+  "handoff": {
+    "label": "McGill undergraduate programs",
+    "url": "https://www.mcgill.ca/undergraduate-admissions/programs"
+  },
+  "ib": {
+    "text": "Diploma with 5+ in every HL and SL subject is the minimum for most programs; admitted ranges run from 28 to 42 subject points by faculty. Maths AI SL does not count as a prerequisite.",
+    "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib"
+  },
+  "apply": {
+    "via": "McGill Applicant Portal",
+    "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib"
+  },
+  "dates": [
+    {
+      "label": "Application deadline, overseas and US high school applicants",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820"
+    },
+    {
+      "label": "Supporting documents deadline (Social Work: 7 March)",
+      "date": "2027-03-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Mechanical Engineering",
+      "credential": "BEng",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/program/mechanical-engineering",
+      "requirementsUrl": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "about": "Design, build and operate mechanical systems, from bicycles to spacecraft, with three areas of specialization: Design, Aeronautics and Mechatronics. Prepares for aerospace, energy, manufacturing and robotics work.",
+      "ib": "Maths, Chemistry and Physics, each at HL or SL with at least one at HL; Maths AI SL not accepted. Admitted: 38 to 42 subject points, 6 in each math and science.",
+      "tuitionEuEea": "CAD 65,167.50 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 6
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 6,
+          "note": "At least one of Maths, Chemistry, Physics must be HL"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 6
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on predicted IB results, then final results; the 38 to 42 range is a guideline from recent years, not a rule for 2027, and minimums shift every year.",
+      "flagshipSource": {
+        "title": "Engineering faculty statistics: ten undergraduate degrees; Mechanical had 187 graduates in 2022-23",
+        "url": "https://www.mcgill.ca/engineering/about-us/faculty-statistics"
+      }
+    },
+    {
+      "name": "Bachelor of Commerce (Desautels Faculty of Management)",
+      "credential": "BCom",
+      "years": 3,
+      "field": "business",
+      "url": "https://www.mcgill.ca/desautels/programs/bcom/prospective-students",
+      "requirementsUrl": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "about": "A management degree that pairs a disciplinary foundation with room to personalise your courses, taught by an international faculty. The 120-credit programme shortens when IB advanced standing is granted.",
+      "ib": "Maths AA or AI at HL, or AA at SL with a 6 or 7; Maths AI SL not accepted. Admitted range 35 to 38 subject points, with a 5 in HL Maths or a 6 in SL Maths.",
+      "tuitionEuEea": "CAD 71,687.40 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 5,
+          "note": "SL Maths AA needs a 6 or 7; HL Maths AA or AI needs a 5"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on predicted IB results, then final results; the 35 to 38 range is a guideline from recent years, not a rule for 2027. Up to 30 advanced-standing credits for the Diploma.",
+      "flagshipSource": {
+        "title": "Desautels BCom: international and interdisciplinary programme with a flexible, personalised structure",
+        "url": "https://www.mcgill.ca/desautels/programs/bcom/prospective-students"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "No set subject prerequisites; admitted range 33 to 36 subject points. Psychology and Population & Global Health apply separately."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Maths and two lab sciences, one at HL; admitted ranges 35 to 39 subject points depending on the group of programs."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Maths, Chemistry and Physics with one at HL; 32 to 42 subject points by discipline, highest for Bioengineering and Mechanical."
+    },
+    {
+      "name": "Desautels Faculty of Management",
+      "url": "https://www.mcgill.ca/desautels/programs/bcom/prospective-students",
+      "line": "Maths HL (AA or AI), or SL AA with a 6 or 7; admitted range 35 to 38 subject points."
+    },
+    {
+      "name": "School of Architecture",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Maths and Physics with one at HL; the highest range of any faculty, 39 to 42 subject points with 6 or 7 in maths and science."
+    },
+    {
+      "name": "Faculty of Agricultural and Environmental Sciences",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Maths and two lab sciences; admitted range 28 to 30 subject points. Taught on the Macdonald campus."
+    },
+    {
+      "name": "Faculty of Education",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Around 30 subject points; some programs add a language test, and TESL placements may be in French-speaking schools."
+    },
+    {
+      "name": "School of Nursing",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Maths and two lab sciences, 30 subject points; proof of French proficiency is required."
+    },
+    {
+      "name": "Schulich School of Music",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib",
+      "line": "Admission follows the Music faculty's own audition-based requirements; the application deadline is the same 15 January."
+    }
+  ],
+  "notes": [
+    "McGill teaches in English and does not ask for French in most programs; Nursing asks for proof of French proficiency, and Education placements may be in French-speaking schools.",
+    "IB English A at grade 5 or better waives the English proficiency test.",
+    "International tuition at McGill is set per program and guaranteed per credit for the length of the programme; student fees and health insurance are charged on top."
+  ],
+  "sources": [
+    { "title": "McGill — International Baccalaureate Diploma (requirements, deadlines)", "url": "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/international/ib", "retrieved": "2026-10-07" },
+    { "title": "McGill — Application deadline, Fall 2027, overseas and US high schools", "url": "https://www.mcgill.ca/importantdates/channels/event/application-deadline-fall-2027-admission-undergraduate-programs-applicants-studying-or-who-last-370820", "retrieved": "2026-10-07" },
+    { "title": "McGill — English language proficiency", "url": "https://www.mcgill.ca/undergraduate-admissions/apply/english-proficiency", "retrieved": "2026-10-07" },
+    { "title": "McGill — Quick facts", "url": "https://www.mcgill.ca/about/quickfacts", "retrieved": "2026-10-07" },
+    { "title": "McGill — Tuition rates 2026-27, international undergraduate students (PDF)", "url": "https://www.mcgill.ca/student-accounts/files/student-accounts/new_intl_ugrad_degree_students_admitted_2026-27_0.pdf", "retrieved": "2026-10-07" },
+    { "title": "McGill — Mechanical Engineering", "url": "https://www.mcgill.ca/undergraduate-admissions/program/mechanical-engineering", "retrieved": "2026-10-07" },
+    { "title": "McGill Engineering — Faculty statistics", "url": "https://www.mcgill.ca/engineering/about-us/faculty-statistics", "retrieved": "2026-10-07" },
+    { "title": "McGill Desautels — Prospective BCom students", "url": "https://www.mcgill.ca/desautels/programs/bcom/prospective-students", "retrieved": "2026-10-07" }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "institution": "ca-ubc",
+  "name": "University of British Columbia",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "About 72,100 students on two campuses, Vancouver and Okanagan; Arts, Science, Applied Science, Commerce and more on the Pacific coast.",
+  "handoff": {
+    "label": "UBC programs search",
+    "url": "https://you.ubc.ca/programs/"
+  },
+  "ib": {
+    "text": "Full IB Diploma, at least 24 points including bonus points, though most programs ask more; English A at least grade 3. Maths AI SL is not accepted. Science and engineering list further subjects.",
+    "url": "https://vancouver.calendar.ubc.ca/admissions/applicants-international-baccalaureate-and-advanced-placement-courses"
+  },
+  "apply": {
+    "via": "EducationPlannerBC",
+    "url": "https://you.ubc.ca/applying-ubc/how-to-apply/application/"
+  },
+  "dates": [
+    {
+      "label": "Apply and submit award application: International Scholars Program",
+      "date": "2026-11-15",
+      "kind": "early",
+      "short": "International Scholars",
+      "who": "any",
+      "url": "https://you.ubc.ca/applying-ubc/dates-deadlines/"
+    },
+    {
+      "label": "Application deadline, Winter Session 2027/28, 11:59 p.m. PST",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://you.ubc.ca/applying-ubc/dates-deadlines/"
+    },
+    {
+      "label": "Documents due from high school applicants outside Canada",
+      "date": "2027-03-15",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://you.ubc.ca/applying-ubc/dates-deadlines/"
+    },
+    {
+      "label": "Final transcript due to confirm the offer (out-of-country applicants)",
+      "date": "2027-07-25",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://you.ubc.ca/applying-ubc/dates-deadlines/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computer Science (BSc, Vancouver)",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://you.ubc.ca/ubc_programs/computer-science-vancouver-bsc/",
+      "about": "A four-year Science degree covering databases, operating systems, software engineering, security and web development, with honours and optional paid co-op. Majors can now take an Artificial Intelligence option.",
+      "ib": "Maths AI SL is not accepted; Chemistry and Physics prerequisites can be waived with a 5 in IB Chemistry and a 5 in your Maths course.",
+      "tuitionEuEea": "CAD 53,082 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["biology", "chemistry", "physics"],
+          "level": "any",
+          "note": "One of the three; Chemistry and Physics also needed, waived with 5s"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "any",
+          "grade": 3
+        }
+      ],
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Competitive on interim IB grades in relevant subjects, plus the personal profile. 24 points with bonus is only the floor; offers are confirmed on final results.",
+      "flagshipSource": {
+        "title": "Computer Science at UBC Vancouver: BSc with honours, co-op and a new Artificial Intelligence option",
+        "url": "https://you.ubc.ca/ubc_programs/computer-science-vancouver-bsc/"
+      }
+    },
+    {
+      "name": "Commerce (Sauder School of Business)",
+      "credential": "BCom",
+      "years": 4,
+      "field": "business",
+      "url": "https://you.ubc.ca/programs/commerce/",
+      "about": "A four-year business degree on the Vancouver campus with ten specializations, from accounting and finance to marketing and real estate, and an optional co-op that alternates study with paid work terms.",
+      "ib": "Complete IB Diploma with at least three HL courses; Maths AA SL or HL, or AI HL (AI SL not accepted). A personal profile is part of the application.",
+      "tuitionEuEea": "CAD 66,678 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "any",
+          "grade": 3
+        }
+      ],
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Ranked on IB grades and the personal profile written for your application. 24 points with bonus is only the floor; competition for Commerce is stiff.",
+      "flagshipSource": {
+        "title": "Commerce at UBC: ten specializations, study abroad at 61 partner business schools and an optional co-op",
+        "url": "https://you.ubc.ca/programs/commerce/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Applied Science (Engineering)",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-applied-science/bachelor-applied-science/admission",
+      "line": "Maths, Physics and Chemistry required; technical experience and the personal profile count; first-year places are limited."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/admission-and-transfer",
+      "line": "No set prerequisites; academic performance, personal initiative and the breadth and rigor of your studies decide."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-science/bachelor-science/admission-and-transfer",
+      "line": "Maths AA SL or HL, or AI HL, and one lab science; marks in relevant courses, rigor and out-of-school achievements count."
+    },
+    {
+      "name": "Sauder School of Business (Commerce)",
+      "url": "https://you.ubc.ca/programs/commerce/",
+      "line": "Full Diploma with three HL; Maths AA or AI HL; the personal profile is read alongside your grades."
+    }
+  ],
+  "notes": [
+    "Tuition is the 2026/27 rate for a full course load; students starting in 2026/27 have increases capped at 3% a year for four years or until graduation.",
+    "Most UBC applicants write a personal profile (500 to 2,100 characters per answer); Music and the Design in Architecture degrees are exceptions.",
+    "Application fee is CAD 173.25 for international students needing a study permit."
+  ],
+  "sources": [
+    { "title": "UBC — Dates and deadlines", "url": "https://you.ubc.ca/applying-ubc/dates-deadlines/", "retrieved": "2026-10-07" },
+    { "title": "UBC Vancouver calendar — Applicants with IB and AP courses", "url": "https://vancouver.calendar.ubc.ca/admissions/applicants-international-baccalaureate-and-advanced-placement-courses", "retrieved": "2026-10-07" },
+    { "title": "UBC — International Baccalaureate students", "url": "https://you.ubc.ca/applying-ubc/requirements/international-baccalaureate/", "retrieved": "2026-10-07" },
+    { "title": "UBC — Overview and facts", "url": "https://www.ubc.ca/about/facts.html", "retrieved": "2026-10-07" },
+    { "title": "UBC — Undergraduate tuition fees 2026/27", "url": "https://students.ubc.ca/finances/tuition-fees/undergraduate-tuition-fees/", "retrieved": "2026-10-07" },
+    { "title": "UBC — Complete the application (EducationPlannerBC, fees)", "url": "https://you.ubc.ca/applying-ubc/how-to-apply/application/", "retrieved": "2026-10-07" },
+    { "title": "UBC — Write your personal profile", "url": "https://you.ubc.ca/applying-ubc/how-to-apply/personal-profile/", "retrieved": "2026-10-07" },
+    { "title": "UBC — What we look for", "url": "https://you.ubc.ca/applying-ubc/application-evaluation/", "retrieved": "2026-10-07" },
+    { "title": "UBC — Programs search", "url": "https://you.ubc.ca/programs/", "retrieved": "2026-10-07" },
+    { "title": "UBC — Computer Science, Vancouver (BSc)", "url": "https://you.ubc.ca/ubc_programs/computer-science-vancouver-bsc/", "retrieved": "2026-10-07" },
+    { "title": "UBC — Commerce", "url": "https://you.ubc.ca/programs/commerce/", "retrieved": "2026-10-07" },
+    { "title": "UBC Vancouver calendar — BASc admission", "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-applied-science/bachelor-applied-science/admission", "retrieved": "2026-10-07" },
+    { "title": "UBC Vancouver calendar — BA admission", "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-arts/bachelor-arts/admission-and-transfer", "retrieved": "2026-10-07" },
+    { "title": "UBC Vancouver calendar — BSc admission", "url": "https://vancouver.calendar.ubc.ca/faculties-colleges-and-schools/faculty-science/bachelor-science/admission-and-transfer", "retrieved": "2026-10-07" }
+  ]
+}

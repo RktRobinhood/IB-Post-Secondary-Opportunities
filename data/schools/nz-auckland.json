@@ -1,0 +1,141 @@
+{
+  "institution": "nz-auckland",
+  "name": "University of Auckland",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "A city campus in Auckland, six faculties from Arts and Education to Engineering and Medicine; your IB total is your rank score for each degree.",
+  "starts": "February or July",
+  "handoff": {
+    "label": "Find a study option",
+    "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html"
+  },
+  "ib": {
+    "text": "Full IB Diploma with 24+ points, English A (SL or HL) or English B HL 5, and any maths. Your IB total is your rank score: 26 for Arts and most Science, 27 Commerce, 32 Engineering.",
+    "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html"
+  },
+  "apply": {
+    "via": "University of Auckland online application",
+    "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html"
+  },
+  "dates": [
+    {
+      "label": "Semester One 2027 (February start): most degrees close",
+      "date": "2026-12-08",
+      "kind": "early",
+      "short": "February 2027 start",
+      "who": "any",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html"
+    },
+    {
+      "label": "International applications close for a Semester Two 2027 (July start)",
+      "date": "2027-06-08",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Bachelor of Engineering (Honours)",
+      "credential": "BE(Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-engineering-honours-behons.html",
+      "about": "A four-year, 480-point honours degree. You study a broad engineering base in Part I, then specialise in one of ten fields, from civil, mechanical and software to biomedical and mechatronics engineering.",
+      "tuitionEuEea": "NZ$60,910 a year (2027 estimate)",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai"], "level": "HL", "note": "SL Maths AA may be accepted by grade; SL Maths AI is not" },
+        { "anyOf": ["physics"], "level": "HL", "note": "SL Physics may be accepted by grade" }
+      ],
+      "points": 32,
+      "selection": ["grades"],
+      "selectionNote": "Guaranteed entry at a rank score of 32 (your IB total) with HL Maths and Physics; if you are slightly below, you are considered while places remain.",
+      "flagshipSource": {
+        "title": "University of Auckland news: Civil and Structural Engineering in the QS global top 50",
+        "url": "https://www.auckland.ac.nz/en/news/2026/03/26/university-shines-in-global-subject-rankings.html"
+      }
+    },
+    {
+      "name": "Bachelor of Science, Psychology major",
+      "credential": "BSc",
+      "years": 3,
+      "field": "social-sciences",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/psychology/undergraduate/bsc-psychology-from-2019.html",
+      "requirementsUrl": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "about": "A 360-point Bachelor of Science with a Psychology major: quantitative and qualitative approaches with laboratory or field work, and a capstone course communicating psychology through grant proposals, podcasts and print.",
+      "tuitionEuEea": "NZ$49,582 a year (2027 estimate)",
+      "points": 26,
+      "selection": ["grades"],
+      "selectionNote": "Your IB total is your rank score; 26 guarantees entry to most BSc majors. A separate four-year Bachelor of Psychology starts in 2027.",
+      "flagshipSource": {
+        "title": "University of Auckland news: Psychology up 23 places to 28th in the QS subject rankings",
+        "url": "https://www.auckland.ac.nz/en/news/2026/03/26/university-shines-in-global-subject-rankings.html"
+      }
+    },
+    {
+      "name": "Bachelor of Education (Teaching)",
+      "credential": "BEd (Teaching)",
+      "years": 3,
+      "field": "education",
+      "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-education-teaching-bedtchg.html",
+      "ib": "IB 26 plus IELTS Academic 6.0 with no band below 6.0; an interview, police and safety checks and referees' reports.",
+      "about": "A full-time, 360-point degree to become a certificated teacher in New Zealand, specialising in early childhood, primary or Maori-medium teaching, with 80 days of teaching experience in year three.",
+      "tuitionEuEea": "NZ$42,521 a year (2027 estimate)",
+      "points": 26,
+      "selection": ["grades", "interview"],
+      "selectionNote": "Rank score 26 (your IB total) for entry, then admission is subject to a satisfactory interview, police and safety checks and referee reports.",
+      "flagshipSource": {
+        "title": "University of Auckland news: Education back in the QS global top 30, in the top 50 for 14 years",
+        "url": "https://www.auckland.ac.nz/en/news/2026/03/26/university-shines-in-global-subject-rankings.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Education",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "line": "Rank score 26 for Arts, Fine Arts, Music, Dance and Education (Teaching); Music, Dance and Education add an audition or interview."
+    },
+    {
+      "name": "Business School",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "line": "Rank score 27 for Commerce and Property; conjoint degrees need 28."
+    },
+    {
+      "name": "Faculty of Engineering and Design",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "line": "Engineering (Honours) 32 with HL Maths and Physics; Architectural Studies 31; Design and Urban Planning 27."
+    },
+    {
+      "name": "Faculty of Law",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "line": "Law Part I needs an offer in another bachelor's degree; Part II places are limited and ranked on Part I grades."
+    },
+    {
+      "name": "Faculty of Medical and Health Sciences",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "line": "Health Sciences and Biomedical Science 28, Nursing 31; Medicine, Pharmacy and Optometry follow a first year elsewhere."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html",
+      "line": "Rank score 26 for most Science majors and Psychology; 28 for Cell and Molecular Bioscience, Exercise Science and similar."
+    }
+  ],
+  "notes": [
+    "EU citizens pay the international fee: for 2027 the university estimates NZ$42,236 for a Bachelor of Arts, NZ$51,020 for Commerce and NZ$60,910 for Engineering (Honours), plus a student services fee.",
+    "Your IB total is used as the rank score (a 27 gives 27 out of 45); 24 points with the full Diploma meets the University Entrance standard, but each degree needs its own higher rank score.",
+    "Medicine, Pharmacy, Optometry and Medical Imaging are entered after a first year in another degree, with their own earlier closing dates."
+  ],
+  "sources": [
+    { "title": "Auckland: IB entry requirements and rank scores for 2027", "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/entry-requirements/undergraduate-entry-requirements/new-zealand-secondary-school-applicants/international-baccalaureate.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland: undergraduate application closing dates", "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/how-to-apply/undergraduate-application-closing-dates.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland: undergraduate fees for international students (2026 and 2027)", "url": "https://www.auckland.ac.nz/en/study/fees-and-money-matters/tuition-fees/international-student-fees/undergraduate-international-fees.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland: find a study option", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland: Bachelor of Engineering (Honours)", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-engineering-honours-behons.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland: Bachelor of Science majoring in Psychology", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/psychology/undergraduate/bsc-psychology-from-2019.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland: Bachelor of Education (Teaching)", "url": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/bachelor-of-education-teaching-bedtchg.html", "retrieved": "2026-10-07" },
+    { "title": "Auckland news: University shines in global subject rankings (26 March 2026)", "url": "https://www.auckland.ac.nz/en/news/2026/03/26/university-shines-in-global-subject-rankings.html", "retrieved": "2026-10-07" }
+  ]
+}

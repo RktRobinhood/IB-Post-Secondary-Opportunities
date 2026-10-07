@@ -1,0 +1,167 @@
+{
+  "institution": "ca-sfu",
+  "name": "Simon Fraser University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Opened in 1965; campuses in Burnaby, Surrey and downtown Vancouver, with optional co-op across its academic disciplines.",
+  "handoff": {
+    "label": "SFU A-Z undergraduate programs",
+    "url": "https://www.sfu.ca/students/admission/programs/a-z.html"
+  },
+  "ib": {
+    "text": "Full IB Diploma with at least three HL; program requirements may be met at HL or SL; predicted bonus points are not used. Maths AI SL does not meet a maths requirement. A full year of credit for the Diploma.",
+    "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html"
+  },
+  "apply": {
+    "via": "EducationPlannerBC",
+    "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html"
+  },
+  "dates": [
+    {
+      "label": "Applications open on EducationPlannerBC",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html"
+    },
+    {
+      "label": "Undergraduate Scholars Entrance Scholarship applications close",
+      "date": "2026-12-15",
+      "kind": "early",
+      "short": "Entrance scholarship",
+      "who": "any",
+      "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html"
+    },
+    {
+      "label": "Deadline to apply for Fall 2027 on Education Planner BC",
+      "date": "2027-01-31",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html"
+    },
+    {
+      "label": "Admission document submission deadline for all high school applicants",
+      "date": "2027-02-28",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html"
+    },
+    {
+      "label": "Deadline to apply for Residence and Housing; most students must accept offers",
+      "date": "2027-05-01",
+      "kind": "housing",
+      "who": "any",
+      "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computing Science",
+      "credential": "BSc or BA",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.sfu.ca/students/admission/programs/a-z/c/computing-science.html",
+      "requirementsUrl": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "about": "Computing problems from networks to artificial intelligence to complexity theory, with flexibility in how you build the degree. An optional co-op lets you graduate with a Co-op designation after three work terms.",
+      "ib": "Maths AA (HL or SL) or AI HL, plus one of Biology, Chemistry or Physics at HL or SL; Maths AI SL is not accepted.",
+      "tuitionEuEea": "CAD 38,944 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["biology", "chemistry", "physics"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Admission is competitive and decided on grades, with rolling decisions from January to late April; SFU publishes past admission grade ranges. Apply early.",
+      "flagshipSource": {
+        "title": "Computing Science co-op: three work terms for a co-op designation, placements from Canada to Japan and Silicon Valley",
+        "url": "https://www.sfu.ca/coop/programs/cmpt.html"
+      }
+    },
+    {
+      "name": "Interactive Arts and Technology",
+      "credential": "BA or BSc",
+      "years": 4,
+      "field": "interdisciplinary",
+      "city": "Surrey",
+      "url": "https://www.sfu.ca/students/admission/programs/a-z/i/interactivearts-technology.html",
+      "requirementsUrl": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "about": "An interdisciplinary Surrey-campus program where technologists, artists, designers and theorists work together, with three areas of focus: Design, Interactive Systems and Media Arts.",
+      "ib": "Maths AA (HL or SL) or AI HL is required; Maths AI SL is not accepted.",
+      "tuitionEuEea": "CAD 38,944 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Admission is competitive and decided on grades, with rolling decisions from January to late April. Apply early.",
+      "flagshipSource": {
+        "title": "Interactive Arts and Technology: an interdisciplinary program of technologists, artists, designers and theorists",
+        "url": "https://www.sfu.ca/students/admission/programs/a-z/i/interactivearts-technology.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Applied Sciences",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "Computing and Engineering: Maths AA or AI HL; Engineering Science needs Chemistry and Physics, Computing one of Biology, Chemistry, Physics."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "Maths AA or AI HL plus two of Biology, Chemistry, Physics or Geography at HL or SL."
+    },
+    {
+      "name": "Beedie School of Business",
+      "url": "https://www.sfu.ca/students/admission/programs/a-z/b/business.html",
+      "line": "Maths AA or AI HL, and a broad-based supplemental application weighed with your grades; all To-Do List items are due early."
+    },
+    {
+      "name": "Faculty of Arts and Social Sciences",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "No faculty-specific course prerequisites beyond the general requirements."
+    },
+    {
+      "name": "Faculty of Communication, Art and Technology",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "Communication has no extra prerequisites; Interactive Arts needs Maths; Contemporary Arts adds an audition, interview or portfolio."
+    },
+    {
+      "name": "Faculty of Environment",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "Environmental Science and Physical Geography need Maths and two sciences or Geography; Human Geography has no extra prerequisites."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "The BSc needs Maths AA or AI HL; the BA has no extra course prerequisites."
+    },
+    {
+      "name": "Faculty of Education",
+      "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html",
+      "line": "The Bachelor of General Studies has no extra prerequisites beyond the general requirements."
+    }
+  ],
+  "notes": [
+    "Tuition shown is SFU's estimate of tuition and fees, including a public transit pass, for 10 courses (30 units) in Arts and Social Sciences or Science in 2026/27; it can rise up to 6% a year.",
+    "SFU grants one full year of transfer credit (30 units) for a completed IB Diploma; credit is for HL and SL courses graded 4 or higher.",
+    "Undergraduate Scholars Entrance Scholarships of CAD 20,000 to 140,000 are open to international high school applicants."
+  ],
+  "sources": [
+    { "title": "SFU — International Baccalaureate admission requirements", "url": "https://www.sfu.ca/students/admission/admission-requirements/international-baccalaureate.html", "retrieved": "2026-10-07" },
+    { "title": "SFU — Fall 2027 term dates and deadlines, high school applicants", "url": "https://www.sfu.ca/students/admission/apply/dates-deadlines/high-school/fall-term.html", "retrieved": "2026-10-07" },
+    { "title": "SFU — Fees and scholarships", "url": "https://www.sfu.ca/students/admission/fees-scholarships.html", "retrieved": "2026-10-07" },
+    { "title": "SFU — Computing Science (admission)", "url": "https://www.sfu.ca/students/admission/programs/a-z/c/computing-science.html", "retrieved": "2026-10-07" },
+    { "title": "SFU Co-operative Education — Computing Science", "url": "https://www.sfu.ca/coop/programs/cmpt.html", "retrieved": "2026-10-07" },
+    { "title": "SFU — Interactive Arts and Technology (admission)", "url": "https://www.sfu.ca/students/admission/programs/a-z/i/interactivearts-technology.html", "retrieved": "2026-10-07" },
+    { "title": "SFU — Business (admission)", "url": "https://www.sfu.ca/students/admission/programs/a-z/b/business.html", "retrieved": "2026-10-07" }
+  ]
+}

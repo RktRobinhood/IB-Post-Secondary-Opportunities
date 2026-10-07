@@ -1,0 +1,176 @@
+{
+  "institution": "ca-queen-s",
+  "name": "Queen's University at Kingston",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Royal Charter of 1841; a campus in Kingston, Ontario, with a first-year residence guarantee and Arts, Commerce, Engineering and Computing degrees.",
+  "handoff": {
+    "label": "Check admission requirements by program",
+    "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat"
+  },
+  "ib": {
+    "text": "Full IB Diploma: six subjects, three at HL, no mark below 3, total at least 28 excluding bonus points, plus program prerequisites. Maths AI SL is not accepted where Maths is a prerequisite.",
+    "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat"
+  },
+  "apply": {
+    "via": "OUAC (Ontario Universities' Application Centre)",
+    "url": "https://www.queensu.ca/admission/applying/dates-deadlines"
+  },
+  "dates": [
+    {
+      "label": "Applications open (OUAC)",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.queensu.ca/admission/applying/dates-deadlines"
+    },
+    {
+      "label": "Recommended OUAC application date if you want a Major Admission Award",
+      "date": "2026-11-20",
+      "kind": "early",
+      "short": "Major Admission Award",
+      "who": "any",
+      "url": "https://www.queensu.ca/admission/applying/dates-deadlines"
+    },
+    {
+      "label": "Application deadline, all programs except Commerce, Health Sciences and Nursing",
+      "date": "2027-03-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.queensu.ca/admission/applying/dates-deadlines"
+    },
+    {
+      "label": "All documents due, including transcripts and English test scores",
+      "date": "2027-03-31",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.queensu.ca/admission/applying/dates-deadlines"
+    },
+    {
+      "label": "Commerce: application deadline",
+      "date": "2027-02-01",
+      "kind": "closes",
+      "who": "any",
+      "programmes": ["commerce"],
+      "url": "https://smith.queensu.ca/bcom/program-details/admission.php"
+    },
+    {
+      "label": "Commerce: mandatory Supplementary Application due",
+      "date": "2027-02-15",
+      "kind": "documents",
+      "who": "any",
+      "programmes": ["commerce"],
+      "url": "https://smith.queensu.ca/bcom/program-details/admission.php"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Commerce",
+      "credential": "BCom",
+      "years": 4,
+      "field": "business",
+      "url": "https://smith.queensu.ca/bcom/index.php",
+      "requirementsUrl": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
+      "about": "A four-year honours business degree at the Smith School of Business with eleven fields of study, from accounting and finance to digital technology, plus exchange options in 120+ locations and structured career support.",
+      "ib": "Maths and English at 5 or better (predicted or final); Maths AI SL not accepted. A mandatory Supplementary Application is part of the file.",
+      "tuitionEuEea": "CAD 60,839 a year, years 1-2 (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 5
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 5
+        }
+      ],
+      "points": 28,
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Required courses and marks, plus a mandatory Supplementary Application read for academic aptitude, self-awareness, leadership and teamwork. 28 is the floor, not the typical score.",
+      "closes": "2027-02-01",
+      "flagshipSource": {
+        "title": "Smith Commerce: eleven fields of study, 120+ exchange locations and a four-year honours degree",
+        "url": "https://smith.queensu.ca/bcom/index.php"
+      }
+    },
+    {
+      "name": "Engineering",
+      "credential": "BASc",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.queensu.ca/admission/study-engineering",
+      "requirementsUrl": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
+      "about": "Start in a shared General First Year with a guaranteed choice among 10 disciplines, or apply Direct Entry to a program such as Civil, Electrical or Mechatronics and Robotics. Optional 12 to 16 month paid internships.",
+      "ib": "Maths, Chemistry, Physics and English; the admission average uses only these four prerequisite subjects. Maths AI SL is not accepted.",
+      "tuitionEuEea": "CAD 59,284 a year, years 1-5 (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        }
+      ],
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your marks in the four prerequisite subjects; international applicants with a 90% average or higher get automatic scholarships and awards. 28 is the floor.",
+      "flagshipSource": {
+        "title": "Smith Engineering: General First Year or Direct Entry, 96% of graduates employed within two years",
+        "url": "https://www.queensu.ca/admission/study-engineering"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Science",
+      "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
+      "line": "Arts and Economics need English only; Computing needs English and Maths (not AI SL); Science programs add lab sciences."
+    },
+    {
+      "name": "Smith School of Business (Commerce)",
+      "url": "https://smith.queensu.ca/bcom/program-details/admission.php",
+      "line": "Maths and English at 5+, plus a mandatory Supplementary Application read alongside your grades."
+    },
+    {
+      "name": "Smith Engineering",
+      "url": "https://www.queensu.ca/admission/study-engineering",
+      "line": "Maths, Chemistry, Physics and English; the admission average counts only these four; General First Year or Direct Entry."
+    },
+    {
+      "name": "Health Sciences and Nursing",
+      "url": "https://www.queensu.ca/admission/applying/dates-deadlines",
+      "line": "Earlier deadline than most programs and a mandatory Supplementary Application, as for Commerce."
+    },
+    {
+      "name": "Concurrent Education",
+      "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat",
+      "line": "Combined education degrees need English, plus Maths and sciences for the Science stream; Music adds an audition and theory test."
+    }
+  ],
+  "notes": [
+    "Queen's offers a first-year residence guarantee and early move-in for international students.",
+    "International applicants with a 90% average or higher receive automatic scholarships and awards; Major Admission Awards need a separate online application.",
+    "The IB score is read excluding bonus points, and the engineering average uses only the prerequisite subjects."
+  ],
+  "sources": [
+    { "title": "Queen's — High School Student: International Baccalaureate (IB)", "url": "https://www.queensu.ca/admission/applying/admission-requirements/international-baccalaureat", "retrieved": "2026-10-07" },
+    { "title": "Queen's — Undergraduate Admission Deadlines", "url": "https://www.queensu.ca/admission/applying/dates-deadlines", "retrieved": "2026-10-07" },
+    { "title": "Queen's — Undergraduate Tuition and Fees 2026-2027", "url": "https://www.queensu.ca/registrar/tuition-fees/undergraduate", "retrieved": "2026-10-07" },
+    { "title": "Smith School of Business — Bachelor of Commerce admission", "url": "https://smith.queensu.ca/bcom/program-details/admission.php", "retrieved": "2026-10-07" },
+    { "title": "Smith School of Business — Bachelor of Commerce", "url": "https://smith.queensu.ca/bcom/index.php", "retrieved": "2026-10-07" },
+    { "title": "Queen's — Study Engineering", "url": "https://www.queensu.ca/admission/study-engineering", "retrieved": "2026-10-07" }
+  ]
+}

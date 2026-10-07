@@ -1,0 +1,179 @@
+{
+  "institution": "ca-waterloo",
+  "name": "University of Waterloo",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Opened in 1957 with co-op at its core: 77% of students do it, with 8,000+ employers; six faculties on a 1,000-acre campus in Waterloo.",
+  "handoff": {
+    "label": "Waterloo programs for 2027 entry",
+    "url": "https://uwaterloo.ca/future-students/programs"
+  },
+  "ib": {
+    "text": "IB Diploma with six courses, three at HL; totals exclude diploma points. Totals run from 27 (Arts) to 32 (Computer Science); HL Analysis & Approaches 6 for Computer Science and Mathematics.",
+    "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/computer-science/high-school/international-system/ib"
+  },
+  "apply": {
+    "via": "OUAC (Ontario Universities' Application Centre)",
+    "url": "https://uwaterloo.ca/future-students/admissions/how-to-apply"
+  },
+  "dates": [
+    {
+      "label": "Application deadline, programs other than Engineering",
+      "date": "2027-02-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://uwaterloo.ca/future-students/admissions/deadlines"
+    },
+    {
+      "label": "Documents and Admission Information Form due, programs other than Engineering",
+      "date": "2027-02-15",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://uwaterloo.ca/future-students/admissions/deadlines"
+    },
+    {
+      "label": "Engineering: application deadline",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "programmes": ["software-engineering"],
+      "url": "https://uwaterloo.ca/future-students/admissions/deadlines"
+    },
+    {
+      "label": "Engineering: documents, supplementary forms and online interview due",
+      "date": "2027-02-01",
+      "kind": "documents",
+      "who": "any",
+      "programmes": ["software-engineering"],
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-information-form"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computer Science",
+      "closes": "2027-02-01",
+      "credential": "BCS or BMath",
+      "years": 4,
+      "field": "computing",
+      "url": "https://uwaterloo.ca/future-students/programs/computer-science",
+      "requirementsUrl": "https://uwaterloo.ca/future-students/admissions/admission-requirements/computer-science/high-school/international-system/ib",
+      "about": "Learn how software is designed and built, with more than 70 courses from AI and data science to cybersecurity. No programming background is assumed, and co-op can add up to two years of paid work.",
+      "ib": "HL Maths AA with a 6 and English A are required, with a total of 32 (diploma points excluded); the Admission Information Form is required.",
+      "tuitionEuEea": "CAD 73,000 for two terms (2026 est.)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa"],
+          "level": "HL",
+          "grade": 6
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "SL",
+          "note": "HL English B with a 5 is also accepted"
+        }
+      ],
+      "points": 32,
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Predicted IB total plus the Admission Information Form on your interests and experience. Apply early; programs fill, and 32 is the floor, not a guarantee.",
+      "flagshipSource": {
+        "title": "Computer Science at Waterloo: 70+ courses, co-op available, in the Faculty of Mathematics",
+        "url": "https://uwaterloo.ca/future-students/programs/computer-science"
+      }
+    },
+    {
+      "name": "Software Engineering",
+      "credential": "Bachelor of Software Engineering",
+      "years": 5,
+      "field": "engineering",
+      "url": "https://uwaterloo.ca/future-students/programs/software-engineering",
+      "requirementsUrl": "https://uwaterloo.ca/future-students/admissions/admission-requirements/software-eng/international-system/ib",
+      "about": "An engineering degree in software design, algorithms, digital hardware and human-computer interfaces, offered with the Faculty of Mathematics. It is co-op only, alternating study with paid work terms.",
+      "ib": "Maths AA, Physics, Chemistry and English A at 4+, one more course at 4+, total 31. Admission Information Form, online interview and programming experience required.",
+      "tuitionEuEea": "CAD 75,000 for two terms (2026 est.)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa"],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL is recommended"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL is recommended"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "SL",
+          "grade": 4,
+          "note": "HL English B with a 5 is also accepted"
+        }
+      ],
+      "points": 31,
+      "selection": ["grades", "interview", "motivation"],
+      "selectionNote": "Selected individually: predicted IB total, the Admission Information Form and a required online software engineering interview. 6s and 7s are recommended.",
+      "closes": "2027-01-15",
+      "flagshipSource": {
+        "title": "Software Engineering at Waterloo: co-op only, in a region with more than 1,500 technology companies",
+        "url": "https://uwaterloo.ca/future-students/programs/software-engineering"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Mathematics",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/mathematics/international-system/ib",
+      "line": "HL Maths AA with a 6 and English A, total 30; every program needs the Admission Information Form."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://uwaterloo.ca/engineering/future-students/applying/admission-requirements",
+      "line": "Maths, Physics, Chemistry and English at 4+, total about 31; AIF and an online interview are required; earlier deadline."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/physical-sciences/international-system/ib",
+      "line": "Maths AA at 4+, English and two of Biology, Chemistry or Physics; totals around 27 for physical sciences."
+    },
+    {
+      "name": "Faculty of Health",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/kinesiology/international-system/ib",
+      "line": "Kinesiology: Maths and two lab sciences at 4+, English at 4+, total 27."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/honours-arts-business/international-system/ib",
+      "line": "Honours Arts and Business: English A at 4 or HL English B at 5, total 27; no other subject required."
+    }
+  ],
+  "courses": 100,
+  "notes": [
+    "Computer Science and every Mathematics and Engineering program need the Admission Information Form; Engineering also needs an online interview.",
+    "Waterloo admits first-year students for September only, and international applicants have the same deadlines as everyone else.",
+    "Tuition figures are Waterloo's estimates of tuition and incidental fees for two terms (eight months, full course load) for students starting September 2026."
+  ],
+  "sources": [
+    { "title": "Waterloo — Application and document deadlines", "url": "https://uwaterloo.ca/future-students/admissions/deadlines", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Computer Science: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/computer-science/high-school/international-system/ib", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Software Engineering: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/software-eng/international-system/ib", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Mathematics: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/mathematics/international-system/ib", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Physical Sciences: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/physical-sciences/international-system/ib", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Kinesiology: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/kinesiology/international-system/ib", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Honours Arts and Business: IB admission requirements", "url": "https://uwaterloo.ca/future-students/admissions/admission-requirements/honours-arts-business/international-system/ib", "retrieved": "2026-10-07" },
+    { "title": "Waterloo Engineering — Admission requirements", "url": "https://uwaterloo.ca/engineering/future-students/applying/admission-requirements", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — How to apply (OUAC)", "url": "https://uwaterloo.ca/future-students/admissions/how-to-apply", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Admission Information Form and supplementary forms", "url": "https://uwaterloo.ca/future-students/admissions/admission-information-form", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — First-year tuition fees", "url": "https://uwaterloo.ca/future-students/financing/tuition", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Quick facts", "url": "https://uwaterloo.ca/about/facts", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Co-op programs", "url": "https://uwaterloo.ca/future-students/co-op", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Computer Science degree", "url": "https://uwaterloo.ca/future-students/programs/computer-science", "retrieved": "2026-10-07" },
+    { "title": "Waterloo — Software Engineering degree", "url": "https://uwaterloo.ca/future-students/programs/software-engineering", "retrieved": "2026-10-07" }
+  ]
+}

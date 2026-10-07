@@ -1,0 +1,134 @@
+{
+  "institution": "ca-tmu",
+  "name": "Toronto Metropolitan University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Downtown Toronto university with 60+ undergraduate programs, 4,450+ international students and co-op or internships in many degrees.",
+  "handoff": {
+    "label": "TMU undergraduate programs",
+    "url": "https://www.torontomu.ca/programs/undergraduate/"
+  },
+  "ib": {
+    "text": "IB Diploma with 4 or higher in 3 HL and 3 SL subjects, prerequisites included, and a total of 28 or more; bonus points count only on final results, not predicted ones. Competitive programs may ask for more.",
+    "url": "https://www.torontomu.ca/admissions/undergraduate/requirements/international/"
+  },
+  "apply": {
+    "via": "TMU International Application or OUAC",
+    "url": "https://www.torontomu.ca/international/admissions/how-to-apply/"
+  },
+  "dates": [
+    {
+      "label": "Guaranteed consideration date: fall 2027 applications and amendments",
+      "date": "2027-02-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.torontomu.ca/international/admissions/how-to-apply/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Mechatronics Engineering",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.torontomu.ca/programs/undergraduate/mechatronics-engineering/",
+      "about": "Combine mechanical, electronic and computer engineering to design intelligent, automated systems: robotics, programming, circuits and microcontrollers, finishing with a team capstone project presented to industry experts.",
+      "ib": "English, Maths with calculus, Physics and Chemistry at the Ontario Grade 12 level; TMU decides the IB equivalents. Co-op is available, as a 5-year route.",
+      "tuitionEuEea": "CAD 44,375-44,675 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Ontario Advanced Functions and Calculus; TMU sets the IB equivalents"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Grades-only: previous years' Ontario range was 85-90%, with no IB conversion published, so ask TMU what total it expects. 28 is the Diploma minimum.",
+      "flagshipSource": {
+        "title": "Mechatronics Engineering: robotics, programming and an industry-facing capstone project",
+        "url": "https://www.torontomu.ca/programs/undergraduate/mechatronics-engineering/"
+      }
+    },
+    {
+      "name": "Journalism",
+      "credential": "Bachelor of Journalism",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://www.torontomu.ca/programs/undergraduate/journalism/",
+      "about": "Build journalistic techniques from the first day in industry-grade newsrooms, with multimedia reporting, tools for spotting misinformation and an internship available, in one of North America's large media hubs.",
+      "ib": "English is a prerequisite and TMU decides the IB equivalent; Grades-Only admission, previous years' Ontario range 70-75%.",
+      "tuitionEuEea": "CAD 38,733-39,209 a year (2026/27)",
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Grades-only: previous years' Ontario range was 70-75%, with no IB conversion published, so ask TMU what total it expects. 28 is the Diploma minimum.",
+      "flagshipSource": {
+        "title": "Journalism at The Creative School: industry-grade newsrooms, internships and a Toronto media-hub setting",
+        "url": "https://www.torontomu.ca/programs/undergraduate/journalism/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering and Architectural Science",
+      "url": "https://www.torontomu.ca/programs/undergraduate/mechatronics-engineering/",
+      "line": "Calculus is required for all engineering programs; English, Maths, Physics and Chemistry at Grade 12 level."
+    },
+    {
+      "name": "Ted Rogers School of Management",
+      "url": "https://www.torontomu.ca/admissions/undergraduate/requirements/international/",
+      "line": "Calculus is required for Accounting & Finance; every program has required subjects and grades, set by TMU."
+    },
+    {
+      "name": "The Creative School",
+      "url": "https://www.torontomu.ca/programs/undergraduate/journalism/",
+      "line": "Journalism is grades-only; some Creative School programs add a portfolio, interview or audition by program."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.torontomu.ca/admissions/undergraduate/requirements/international/",
+      "line": "Calculus is required for selected science programs; every program has required subjects and grades."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.torontomu.ca/admissions/undergraduate/requirements/international/",
+      "line": "English is required for every program; admission is on competitive overall averages and subject grades."
+    },
+    {
+      "name": "Faculty of Community Services",
+      "url": "https://www.torontomu.ca/admissions/undergraduate/requirements/international/",
+      "line": "Prerequisite subjects and grades vary by program; some add non-academic requirements such as an interview."
+    }
+  ],
+  "courses": 60,
+  "notes": [
+    "TMU offers two ways in: its own International Application (CAD 150) or the OUAC; students at Ontario secondary schools must use the OUAC for September entry.",
+    "International fees for 2026-27 range from CAD 38,693 to 44,675 depending on faculty, including ancillary fees.",
+    "IB Higher Level courses graded 5 or higher may earn transfer credit, except for core engineering courses."
+  ],
+  "sources": [
+    { "title": "TMU — Admission requirements: international students (IB)", "url": "https://www.torontomu.ca/admissions/undergraduate/requirements/international/", "retrieved": "2026-10-07" },
+    { "title": "TMU Global — How to apply (September 2027)", "url": "https://www.torontomu.ca/international/admissions/how-to-apply/", "retrieved": "2026-10-07" },
+    { "title": "TMU — Tuition and fees", "url": "https://www.torontomu.ca/admissions/tuition-fees/", "retrieved": "2026-10-07" },
+    { "title": "TMU — Undergraduate programs", "url": "https://www.torontomu.ca/programs/undergraduate/", "retrieved": "2026-10-07" },
+    { "title": "TMU — Mechatronics Engineering (BEng)", "url": "https://www.torontomu.ca/programs/undergraduate/mechatronics-engineering/", "retrieved": "2026-10-07" },
+    { "title": "TMU — Journalism (BJourn)", "url": "https://www.torontomu.ca/programs/undergraduate/journalism/", "retrieved": "2026-10-07" }
+  ]
+}

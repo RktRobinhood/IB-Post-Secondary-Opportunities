@@ -1,0 +1,164 @@
+{
+  "institution": "ca-ualberta",
+  "name": "University of Alberta",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Edmonton university opened in 1908: 37,735 undergraduates, 17 faculties on five campuses and more than 200 undergraduate program options.",
+  "handoff": {
+    "label": "Undergraduate programs",
+    "url": "https://www.ualberta.ca/en/undergraduate-programs/index.html"
+  },
+  "ib": {
+    "text": "Six IB courses, five of them the subjects your program requires, no grade below 4. Past competitive diplomas ran from 30 to 37 points depending on program; IB grades are converted to percentages.",
+    "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/index.html"
+  },
+  "apply": {
+    "via": "University of Alberta online application",
+    "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html"
+  },
+  "dates": [
+    {
+      "label": "Applications open for Fall 2027",
+      "date": "2026-10-01",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html"
+    },
+    {
+      "label": "Application deadline for most programs",
+      "date": "2027-03-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html"
+    },
+    {
+      "label": "Apply for North Campus residence by this date for a guaranteed spot",
+      "date": "2027-04-30",
+      "kind": "housing",
+      "who": "any",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html"
+    },
+    {
+      "label": "Deadline for high school students to submit outstanding documents",
+      "date": "2027-08-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computing Science",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.ualberta.ca/en/undergraduate-programs/bachelor-of-science-with-major-computing-science.html",
+      "requirementsUrl": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "about": "A customizable Science degree with strengths in artificial intelligence, machine learning, robotics, games and databases, as a major or honors, with a minor or double major from more than 60 subjects.",
+      "ib": "English, Maths and two sciences; Maths AA (HL or SL) gives the Calculus the first-year courses need, AI HL counts as Maths 30-1 only.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "note": "Calculus is needed to register; only Maths AA gives it"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on the five required subjects converted to percentages; no grade below 4. Competitive diplomas have run 30 to 37 points by program. Apply early.",
+      "flagshipSource": {
+        "title": "U of A's AI strength: Amii partnership, 24 Canada CIFAR AI Chairs including Turing Award winner Richard Sutton",
+        "url": "https://www.ualberta.ca/en/folio/2025/06/u-of-a-canadas-top-ai-university.html"
+      }
+    },
+    {
+      "name": "Engineering",
+      "credential": "BSc in Engineering",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.ualberta.ca/en/engineering/programs/undergraduate/admissions/index.html",
+      "requirementsUrl": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "about": "Direct entry from school into a general first-year program, after which you apply to your specialization. Five departments: Biomedical, Mechanical, Electrical and Computer, Chemical and Materials, Civil and Environmental; co-op is available.",
+      "ib": "English, Chemistry, Physics, Calculus (so Maths AA) and Maths are required; Maths AI HL counts as Maths 30-1 only, AI SL as Maths 30-2.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa"],
+          "level": "SL",
+          "note": "Calculus is a separate requirement; AA gives it"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on the five required subjects converted to percentages; meeting the minimum does not guarantee admission, and engineering is competitive.",
+      "flagshipSource": {
+        "title": "Faculty of Engineering: general first year, five departments, co-op and accredited programs",
+        "url": "https://www.ualberta.ca/en/engineering/programs/undergraduate/admissions/index.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "line": "English, Chemistry, Physics, Calculus and Maths; one general first year, then you apply to a specialization."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "line": "English, Maths, two of Biology, Calculus, Chemistry or Physics and one more subject; specializations may add prerequisites."
+    },
+    {
+      "name": "Faculty of Arts",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "line": "English plus four subjects across humanities, fine arts and sciences (one fine art); a broad range is encouraged."
+    },
+    {
+      "name": "Faculty of Agricultural, Life & Environmental Sciences",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "line": "English, Biology, Chemistry and Maths for most direct-entry degrees, plus one more subject."
+    },
+    {
+      "name": "Faculty of Nursing",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "line": "English, Biology, Chemistry, Maths or Calculus and one more subject; spoken English proficiency is also required."
+    },
+    {
+      "name": "Faculty of Kinesiology, Sport, and Recreation",
+      "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf",
+      "line": "English plus humanities, science and maths subjects; Biology is recommended for the recreation, sport and tourism degree."
+    }
+  ],
+  "courses": 200,
+  "notes": [
+    "Alberta's international tuition rises 5.5% for new students in Fall 2027 (approved March 2026), and 26% for Computing Science; the guarantee then fixes it for the program.",
+    "Applications are made to a faculty and program; the application fee is CAD 150 for new applicants.",
+    "Final IB results transcript must reach the university by 1 August."
+  ],
+  "sources": [
+    { "title": "U of A — IB students", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/index.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — IB course equivalents for Alberta high school admission", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/ib-students/ib-high-school-course-equivalencies.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — Dates and deadlines for admissions", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/dates-deadlines/index.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — International admission requirements", "url": "https://www.ualberta.ca/en/admissions/how-to-apply/international-admission-requirements/index.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — Undergraduate program subject requirements by faculty (PDF)", "url": "https://www.ualberta.ca/en/admissions/media-library/uai-assets/docs/undergraduateprogramsubjectrequirements.pdf", "retrieved": "2026-10-07" },
+    { "title": "U of A — Tuition increases", "url": "https://www.ualberta.ca/en/registrar/costs-tuition-fees/tuition-increases.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — University overview", "url": "https://www.ualberta.ca/en/toolkit/communications/overview.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — Computing Science (BSc major)", "url": "https://www.ualberta.ca/en/undergraduate-programs/bachelor-of-science-with-major-computing-science.html", "retrieved": "2026-10-07" },
+    { "title": "U of A — How the U of A became Canada's top AI university", "url": "https://www.ualberta.ca/en/folio/2025/06/u-of-a-canadas-top-ai-university.html", "retrieved": "2026-10-07" },
+    { "title": "U of A Engineering — Undergraduate admissions", "url": "https://www.ualberta.ca/en/engineering/programs/undergraduate/admissions/index.html", "retrieved": "2026-10-07" }
+  ]
+}

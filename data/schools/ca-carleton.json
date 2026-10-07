@@ -1,0 +1,174 @@
+{
+  "institution": "ca-carleton",
+  "name": "Carleton University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "University in Canada's capital with engineering, journalism and public affairs degrees; apply directly or via the OUAC.",
+  "handoff": {
+    "label": "Programs A-Z",
+    "url": "https://admissions.carleton.ca/programs/"
+  },
+  "ib": {
+    "text": "Full IB: three SL and three HL, at least 28 points; one grade of 3 is allowed if offset by a 5. Prerequisite subjects need a 4, and some degrees ask 5 or higher overall points, such as 32 for Aerospace Engineering.",
+    "url": "https://admissions.carleton.ca/applicant-type/international-baccalaureate-students/"
+  },
+  "apply": {
+    "via": "Carleton International Application or OUAC",
+    "url": "https://admissions.carleton.ca/applicant-type/international-baccalaureate-students/"
+  },
+  "dates": [
+    {
+      "label": "Prestige Scholarship application deadline",
+      "date": "2027-03-01",
+      "kind": "early",
+      "short": "Prestige Scholarship",
+      "who": "any",
+      "url": "https://admissions.carleton.ca/deadlines/"
+    },
+    {
+      "label": "Main deadline for international students (transcripts from outside Canada and the US)",
+      "date": "2027-04-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://admissions.carleton.ca/deadlines/"
+    },
+    {
+      "label": "Final IB grades must reach Carleton to confirm a conditional offer",
+      "date": "2027-08-15",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Engineering",
+      "credential": "BEng",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://admissions.carleton.ca/programs/engineering/",
+      "requirementsUrl": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "about": "A wide range of engineering programs, from aerospace and mechanical to software, electrical and civil, with hands-on design of aircraft, vehicles, machinery, software and medical systems, and an optional co-op.",
+      "ib": "Maths (AA, or AI HL), Physics and Chemistry at HL or SL; 26 to 32 points by discipline, and a 5 in each for Aerospace and Mechanical.",
+      "tuitionEuEea": "CAD 55,000 a year (fixed to 2028/29)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 5,
+          "note": "A 4 for most disciplines; a 5 for Aerospace, Biomedical and Mechanical"
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 5,
+          "note": "A 4 for most disciplines; a 5 for Aerospace, Biomedical and Mechanical"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 5,
+          "note": "A 4 for most disciplines; a 5 for Aerospace, Biomedical and Mechanical"
+        }
+      ],
+      "points": 26,
+      "selection": ["grades"],
+      "selectionNote": "Offers are conditional on the total: 26 for most disciplines up to 32 for Aerospace and Mechanical. Overall averages are set each year and limited places mean more may be needed.",
+      "flagshipSource": {
+        "title": "Carleton Engineering: a Bachelor of Engineering with a comprehensive range of programs and hands-on projects",
+        "url": "https://admissions.carleton.ca/programs/engineering/"
+      }
+    },
+    {
+      "name": "Journalism",
+      "credential": "BJ",
+      "years": 4,
+      "field": "humanities",
+      "url": "https://admissions.carleton.ca/programs/journalism/",
+      "requirementsUrl": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "about": "A Bachelor of Journalism program whose storytelling skills lead into news careers and other fields, with a Health Sciences concentration option. Carleton describes it as internationally renowned and as having produced many top journalists.",
+      "ib": "HL or SL English with a 4; the Health Sciences concentration adds Maths and Chemistry or Biology at 4.",
+      "tuitionEuEea": "CAD 39,000 a year (fixed to 2028/29)",
+      "needs": [
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 26,
+      "selection": ["grades"],
+      "selectionNote": "Offers are conditional on at least 26 points and a 4 in English; the overall average required is set each year, so more may be needed.",
+      "flagshipSource": {
+        "title": "Bachelor of Journalism: an internationally renowned program that has produced many of Canada's top journalists",
+        "url": "https://admissions.carleton.ca/programs/journalism/"
+      }
+    },
+    {
+      "name": "Public Affairs and Policy Management",
+      "credential": "BPAPM",
+      "years": 4,
+      "field": "social-sciences",
+      "url": "https://admissions.carleton.ca/programs/public-affairs-and-policy-management/",
+      "requirementsUrl": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "about": "Combines public policy with political science, economics, law and history to understand what governments do, why they do it and how policy can be improved, in the national capital.",
+      "ib": "No specific subject prerequisites; at least 28 points.",
+      "tuitionEuEea": "CAD 39,000 a year (fixed to 2028/29)",
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "No subject prerequisites beyond the Diploma: offers are conditional on 28 points, and the overall average required is set each year.",
+      "flagshipSource": {
+        "title": "Public Affairs and Policy Management (BPAPM): public policy with political science, economics, law and history",
+        "url": "https://admissions.carleton.ca/programs/public-affairs-and-policy-management/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering and Design",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "line": "Engineering: Maths, Physics, Chemistry, 26 to 32 points by discipline; Architecture and Industrial Design need Maths and Physics, 26."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "line": "Science degrees need Maths and two sciences with 26 points; Computer Science, Data Science and Cybersecurity need Maths and 28."
+    },
+    {
+      "name": "Sprott School of Business",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "line": "Commerce, Accounting and International Business need English and Maths at 4 and 26 points; Entrepreneurship needs English."
+    },
+    {
+      "name": "Faculty of Arts and Social Sciences",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "line": "Arts needs English and 24 points; Economics adds Maths; Social Work 26 and Public Affairs 28, neither with prerequisites."
+    },
+    {
+      "name": "Faculty of Public Affairs",
+      "url": "https://admissions.carleton.ca/programs/public-affairs-and-policy-management/",
+      "line": "Journalism, Communication and Media, Global and International Studies and Public Affairs: 24 to 28 points, English at 4 for most."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://admissions.carleton.ca/conditional-offer-105ib/",
+      "line": "Health Sciences needs Maths and two sciences with 28 points; Nursing needs English, Maths, Biology and Chemistry with 28."
+    }
+  ],
+  "notes": [
+    "Carleton has frozen international undergraduate tuition for 2026/27, 2027/28 and 2028/29, at CAD 39,000 for Arts, 45,000 for Commerce and 55,000 for Engineering and Computer Science, plus about 2,500 in fees.",
+    "A conditional offer is based on mid-term or predicted IB results and is confirmed only if the required overall points and subject grades are met in the final results.",
+    "HL subjects graded 5 or better may earn up to 3.0 credits of advanced standing at the faculty's discretion."
+  ],
+  "sources": [
+    { "title": "Carleton — International Baccalaureate admission requirements", "url": "https://admissions.carleton.ca/applicant-type/international-baccalaureate-students/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — Maintaining your conditional offer of admission, 2027-2028 (IB)", "url": "https://admissions.carleton.ca/conditional-offer-105ib/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — Dates and deadlines", "url": "https://admissions.carleton.ca/deadlines/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — USA and international costs", "url": "https://admissions.carleton.ca/scholarships/usa-and-international-costs/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — Programs A-Z", "url": "https://admissions.carleton.ca/programs/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — Engineering", "url": "https://admissions.carleton.ca/programs/engineering/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — Journalism", "url": "https://admissions.carleton.ca/programs/journalism/", "retrieved": "2026-10-07" },
+    { "title": "Carleton — Public Affairs and Policy Management", "url": "https://admissions.carleton.ca/programs/public-affairs-and-policy-management/", "retrieved": "2026-10-07" }
+  ]
+}

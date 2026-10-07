@@ -1,0 +1,100 @@
+{
+  "institution": "au-monash",
+  "name": "Monash University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Melbourne university with Clayton and Caulfield campuses; Arts, Business, Science and Engineering degrees starting in February or July.",
+  "handoff": {
+    "label": "Find a course",
+    "url": "https://www.monash.edu/study/courses/find-a-course"
+  },
+  "ib": {
+    "text": "Each course sets an IB total for 2027 entry: Arts 26, Business 27, Science 28, Engineering 30. English at SL 4 or HL 3 is required, and some courses list maths or science prerequisites.",
+    "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000?international=true"
+  },
+  "starts": "February or July",
+  "apply": {
+    "via": "Direct to Monash (VTAC only for IB in Australia/NZ)",
+    "url": "https://www.monash.edu/admissions/apply/international-ug"
+  },
+  "programmes": [
+    {
+      "name": "Bachelor of Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000",
+      "requirementsUrl": "https://www.monash.edu/study/courses/find-a-course/science-s2000?international=true",
+      "about": "A flexible three-year science degree with majors in biological, biomedical, earth and environmental, mathematical and computational, and physical and chemical sciences, taught at Clayton.",
+      "ib": "2027 entry needs 28 IB points, with English at SL 4 or HL 3.",
+      "needs": [
+        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "SL", "grade": 4, "note": "Grade 3 at HL" }
+      ],
+      "points": 28,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB total against the 2027 entry score for the course.",
+      "tuitionEuEea": "A$60,040 a year (2027)",
+      "flagshipSource": {
+        "title": "Bachelor of Science: majors across five science areas, drawing on the University's depth of expertise",
+        "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000"
+      }
+    },
+    {
+      "name": "Bachelor of Engineering (Honours)",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001",
+      "requirementsUrl": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001?international=true",
+      "about": "A four-year honours engineering degree with specialisations that include aerospace, biomedical, chemical and civil; the whole academic record is considered in selection.",
+      "ib": "2027 entry needs 30 IB points. Prerequisite subjects differ by engineering specialisation; check the course page.",
+      "points": 30,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB total against the 2027 entry score; the course uses the entire academic record.",
+      "tuitionEuEea": "A$63,040 a year (2027)",
+      "flagshipSource": {
+        "title": "Monash Engineering: course page presents the degree as study with world-class research facilities and academics",
+        "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Arts",
+      "url": "https://www.monash.edu/study/courses/find-a-course/arts-a2000",
+      "line": "Bachelor of Arts: 2027 entry needs IB 26 plus English."
+    },
+    {
+      "name": "Business and Economics",
+      "url": "https://www.monash.edu/study/courses/find-a-course/business-b2000",
+      "line": "Bachelor of Business (Caulfield): 2027 entry needs IB 27; starts February or July."
+    },
+    {
+      "name": "Engineering",
+      "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001",
+      "line": "Engineering (Honours): IB 30 for 2027; prerequisites vary by specialisation."
+    },
+    {
+      "name": "Science",
+      "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000",
+      "line": "Bachelor of Science: IB 28 for 2027, with English at SL 4 or HL 3."
+    }
+  ],
+  "notes": [
+    "IB students outside Australia and New Zealand apply directly to Monash for both the February and July intakes; VTAC is for IB students in Australia or NZ.",
+    "No closing date is published for international applicants; some courses close months to a year before they start, so apply early.",
+    "Entry scores are shown per course for the 2027 intake; the whole record is read for Engineering."
+  ],
+  "sources": [
+    { "title": "Monash: Apply for an undergraduate course, international students", "url": "https://www.monash.edu/admissions/apply/international-ug", "retrieved": "2026-10-07" },
+    { "title": "Monash: Application steps for international students", "url": "https://www.monash.edu/study/how-to-apply/application-process/international-students", "retrieved": "2026-10-07" },
+    { "title": "Monash: Find a course", "url": "https://www.monash.edu/study/courses/find-a-course", "retrieved": "2026-10-07" },
+    { "title": "Monash: Bachelor of Science", "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000", "retrieved": "2026-10-07" },
+    { "title": "Monash: Bachelor of Engineering (Honours)", "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001", "retrieved": "2026-10-07" },
+    { "title": "Monash: Bachelor of Science, 2027 international entry and fees", "url": "https://www.monash.edu/study/courses/find-a-course/science-s2000?international=true", "retrieved": "2026-10-07" },
+    { "title": "Monash: Bachelor of Engineering (Honours), 2027 international entry and fees", "url": "https://www.monash.edu/study/courses/find-a-course/engineering-e3001?international=true", "retrieved": "2026-10-07" },
+    { "title": "Monash: Bachelor of Business", "url": "https://www.monash.edu/study/courses/find-a-course/business-b2000", "retrieved": "2026-10-07" },
+    { "title": "Monash: Bachelor of Arts", "url": "https://www.monash.edu/study/courses/find-a-course/arts-a2000", "retrieved": "2026-10-07" }
+  ]
+}

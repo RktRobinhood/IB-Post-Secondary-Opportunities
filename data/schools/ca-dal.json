@@ -1,0 +1,137 @@
+{
+  "institution": "ca-dal",
+  "name": "Dalhousie University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Halifax, Nova Scotia university with about 20,000 students from 120+ countries, 13 faculties and 300+ degree programs, plus a Truro campus.",
+  "handoff": {
+    "label": "Dalhousie undergraduate programs",
+    "url": "https://www.dal.ca/study.html"
+  },
+  "ib": {
+    "text": "IB Diploma with at least 26 points including bonus points, plus your program's courses: English, and Maths, Chemistry, Physics or Biology at SL or HL. Maths AI SL is accepted for Maths.",
+    "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html"
+  },
+  "apply": {
+    "via": "Dalhousie application portal",
+    "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/international-applicants.html"
+  },
+  "noDeadline": "Most programs: where space is available; apply early",
+  "dates": [
+    {
+      "label": "Entrance scholarship application deadline",
+      "date": "2027-02-15",
+      "kind": "early",
+      "short": "Entrance awards",
+      "who": "any",
+      "url": "https://www.dal.ca/admissions/dates-and-deadlines.html"
+    },
+    {
+      "label": "Guaranteed residence application deadline",
+      "date": "2027-05-15",
+      "kind": "housing",
+      "who": "any",
+      "url": "https://www.dal.ca/admissions/dates-and-deadlines.html"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Marine Biology",
+      "credential": "BSc or BA",
+      "years": 4,
+      "field": "natural-sciences",
+      "url": "https://www.dal.ca/study/programs/undergraduate/marine-biology-bsc-ba.html",
+      "about": "Study marine animals and plants from the shore and the water, with a Blue Planet course in year 2, marine ecology and mammalogy later, and a new on-campus marine biodiversity centre. Optional Science Co-op with three work terms.",
+      "ib": "English and Maths (AA or AI, SL or HL) plus a minimum 75% overall average in Dalhousie's terms; you enter the Faculty of Science undeclared and declare Marine Biology after year 1.",
+      "tuitionEuEea": "CAD 37,992 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL"
+        }
+      ],
+      "points": 26,
+      "selection": ["grades"],
+      "selectionNote": "English, pre-calculus-level Maths and three more academic subjects, with a 75% minimum average; the minimum does not guarantee a place. 26 points is the Diploma floor.",
+      "flagshipSource": {
+        "title": "Marine Biology (BSc or BA): the ocean as a classroom, with fieldwork and a marine biodiversity centre",
+        "url": "https://www.dal.ca/study/programs/undergraduate/marine-biology-bsc-ba.html"
+      }
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BCS",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.dal.ca/study/programs/undergraduate/computer-science-bcs.html",
+      "about": "Software development, algorithms, networking and graphics, with six customizable majors from Cybersecurity and AI to Human-Computer Interaction, and optional paid co-op of up to 12 months.",
+      "ib": "Maths (AA or AI, SL or HL; AI SL accepted) and English; Dalhousie asks Ontario-style minimums of 65% in Pre-calculus, 70% in Maths and 65% in English.",
+      "tuitionEuEea": "CAD 41,688 a year (2026/27)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        }
+      ],
+      "points": 26,
+      "selection": ["grades"],
+      "selectionNote": "Maths, English and three more university-prep subjects with a 70% overall average; the minimum does not guarantee a place. 26 points is the Diploma floor.",
+      "flagshipSource": {
+        "title": "Bachelor of Computer Science: six majors, optional paid co-op and a link to ShiftKey Labs",
+        "url": "https://www.dal.ca/study/programs/undergraduate/computer-science-bcs.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.dal.ca/study/programs/undergraduate/marine-biology-bsc-ba.html",
+      "line": "You enter undeclared and declare a major after year 1; Pre-calculus-level Maths and a 75% average are the entry bar."
+    },
+    {
+      "name": "Faculty of Computer Science",
+      "url": "https://www.dal.ca/study/programs/undergraduate/computer-science-bcs.html",
+      "line": "Maths and English at 65 to 70% minimums and a 70% overall average; optional co-op."
+    },
+    {
+      "name": "Health programs (Nursing, Health Sciences, Medical Sciences, Social Work)",
+      "url": "https://www.dal.ca/admissions/dates-and-deadlines.html",
+      "line": "These close earlier than the rest, on 15 February; most other programs accept applications while space remains."
+    },
+    {
+      "name": "Faculty of Architecture and Planning (Environmental Design Studies)",
+      "url": "https://www.dal.ca/admissions/dates-and-deadlines.html",
+      "line": "Environmental Design Studies (Architecture) has its own deadline of 1 March."
+    },
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html",
+      "line": "Engineering allows at most 12 credit hours of IB transfer credit; entry needs the Maths and science courses on the IB page."
+    }
+  ],
+  "courses": 300,
+  "notes": [
+    "Dalhousie's international tuition is a guaranteed annual amount for the standard program length plus one year; the 2026/27 amounts are CAD 37,992 for Science and 48,594 for Engineering.",
+    "From September 2027 some Standard Level IB courses graded 5 to 7 are eligible for transfer credit, as well as Higher Level ones.",
+    "International students on a study permit need a Provincial Attestation Letter; Dalhousie's page explains the steps."
+  ],
+  "sources": [
+    { "title": "Dalhousie — IB applicants", "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/ib-applicants.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — Dates and deadlines for undergraduate studies", "url": "https://www.dal.ca/admissions/dates-and-deadlines.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — International applicants", "url": "https://www.dal.ca/admissions/how-to-apply/undergraduate-admissions/international-applicants.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — International tuition guarantee", "url": "https://www.dal.ca/admissions/cost-and-payment/tuition/international-tuition-guarantee.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — Facts, figures and rankings", "url": "https://www.dal.ca/about/mission-vision-values/facts-figures-rankings.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — Study", "url": "https://www.dal.ca/study.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — Marine Biology (BSc or BA)", "url": "https://www.dal.ca/study/programs/undergraduate/marine-biology-bsc-ba.html", "retrieved": "2026-10-07" },
+    { "title": "Dalhousie — Computer Science (BCS)", "url": "https://www.dal.ca/study/programs/undergraduate/computer-science-bcs.html", "retrieved": "2026-10-07" }
+  ]
+}

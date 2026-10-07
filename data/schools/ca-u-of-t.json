@@ -1,0 +1,162 @@
+{
+  "institution": "ca-u-of-t",
+  "name": "University of Toronto",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Founded 1827, with about 81,000 undergraduates across three campuses in the Toronto area and more than 700 programs.",
+  "handoff": {
+    "label": "Undergraduate programs (2027 entry)",
+    "url": "https://future.utoronto.ca/undergraduate-programs"
+  },
+  "ib": {
+    "text": "IB Diploma with English HL or SL; prerequisites at SL or HL; bonus points are not counted. Engineering asks a predicted 30 with 4+ in prerequisites; UTM a predicted 27+ for a provisional offer.",
+    "url": "https://future.utoronto.ca/requirements-international-high-schools"
+  },
+  "apply": {
+    "via": "OUAC (Ontario Universities' Application Centre)",
+    "url": "https://future.utoronto.ca/timeline-international-student"
+  },
+  "dates": [
+    {
+      "label": "Recommended early application date",
+      "date": "2026-11-07",
+      "kind": "early",
+      "short": "Early application",
+      "who": "any",
+      "url": "https://future.utoronto.ca/deadlines"
+    },
+    {
+      "label": "Documents, to be considered with the first offers",
+      "date": "2026-12-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://future.utoronto.ca/deadlines"
+    },
+    {
+      "label": "Application deadline (all full-time programs except Medical Radiation Sciences)",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://future.utoronto.ca/deadlines"
+    },
+    {
+      "label": "Supporting documents (Engineering and Music: 15 January)",
+      "date": "2027-02-01",
+      "kind": "documents",
+      "who": "any",
+      "url": "https://future.utoronto.ca/deadlines"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Computer Science (St. George)",
+      "credential": "BCS",
+      "years": 4,
+      "field": "computing",
+      "url": "https://future.utoronto.ca/undergraduate-programs/computer-science/",
+      "about": "Computer Science in the Faculty of Arts & Science at the downtown St. George campus, as a Major or Specialist (BCS) or a Minor within an HBSc, with work-integrated learning available.",
+      "ib": "A supplemental application is required; calculus-level maths (Maths AA SL or HL, or AI HL) and English are prerequisites.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "note": "Calculus and Advanced Functions; AI SL covers only Advanced Functions"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Admission is on predicted or final IB results without bonus points, plus a supplemental application. Apply early; competitive programs ask for more than the minimum.",
+      "flagshipSource": {
+        "title": "Department of Computer Science: research areas, from machine learning and AI to graphics and theory",
+        "url": "https://web.cs.toronto.edu/research/areas"
+      }
+    },
+    {
+      "name": "Engineering Science",
+      "credential": "BASc",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://future.utoronto.ca/undergraduate-programs/engineering-science/",
+      "requirementsUrl": "https://discover.engineering.utoronto.ca/how-to-apply/outofcanada/",
+      "about": "Two foundation years in engineering, maths, science, computing and design, then eight majors for the last two years. Research runs through the degree, in contrast to the eight direct-entry engineering disciplines.",
+      "ib": "Predicted 30 minimum (excluding ToK and EE), 4+ in each prerequisite; Maths AA HL strongly recommended. No advanced standing for IB.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4,
+          "note": "Maths AA HL is strongly recommended"
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 4
+        }
+      ],
+      "points": 30,
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Marks and subjects are weighed with the mandatory Online Student Profile and an engineering supplemental application (fee CAD 69). Apply early.",
+      "flagshipSource": {
+        "title": "A little EngSci history: the program's origins and development in the Faculty of Applied Science & Engineering",
+        "url": "https://engsci.utoronto.ca/who/history/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts & Science (St. George)",
+      "url": "https://future.utoronto.ca/requirements-international-high-schools",
+      "line": "Calculus is required for most math, science, computer science and commerce programs; Maths AI SL meets only Advanced Functions."
+    },
+    {
+      "name": "Faculty of Applied Science & Engineering",
+      "url": "https://discover.engineering.utoronto.ca/how-to-apply/outofcanada/",
+      "line": "Predicted 30 minimum; Maths, Physics, Chemistry and English at 4+; an Online Student Profile; no advanced standing for IB."
+    },
+    {
+      "name": "University of Toronto Mississauga",
+      "url": "https://www.utm.utoronto.ca/future-students/admissions/international-baccalaureate",
+      "line": "A predicted 27 or more for a provisional offer; HL 5+ earns up to 3.0 transfer credits, SL none."
+    },
+    {
+      "name": "University of Toronto Scarborough",
+      "url": "https://utsc.utoronto.ca/admissions/international-baccalaureate-ib",
+      "line": "HL grades of 5 or more earn transfer credit, up to 3.0 credits in all; SL earns none."
+    }
+  ],
+  "courses": 700,
+  "notes": [
+    "International tuition for 2027/28 is set in the spring of the year; the international figure is not published yet.",
+    "Bonus points (ToK and EE) are excluded when U of T reads predicted or final IB results.",
+    "Final IB results must be sent to U of T electronically by the IBO."
+  ],
+  "sources": [
+    { "title": "U of T — Admission requirements, international high school students (IB)", "url": "https://future.utoronto.ca/requirements-international-high-schools", "retrieved": "2026-10-07" },
+    { "title": "U of T — 2027 entry application deadlines", "url": "https://future.utoronto.ca/deadlines", "retrieved": "2026-10-07" },
+    { "title": "U of T — Quick facts", "url": "https://www.utoronto.ca/about-u-of-t/quick-facts", "retrieved": "2026-10-07" },
+    { "title": "U of T — Fees", "url": "https://future.utoronto.ca/fees", "retrieved": "2026-10-07" },
+    { "title": "U of T — Undergraduate programs", "url": "https://future.utoronto.ca/undergraduate-programs", "retrieved": "2026-10-07" },
+    { "title": "U of T — International student application timeline", "url": "https://future.utoronto.ca/timeline-international-student", "retrieved": "2026-10-07" },
+    { "title": "U of T — Computer Science (St. George)", "url": "https://future.utoronto.ca/undergraduate-programs/computer-science/", "retrieved": "2026-10-07" },
+    { "title": "U of T — Engineering Science", "url": "https://future.utoronto.ca/undergraduate-programs/engineering-science/", "retrieved": "2026-10-07" },
+    { "title": "U of T Engineering — Out of Canada high school applicants", "url": "https://discover.engineering.utoronto.ca/how-to-apply/outofcanada/", "retrieved": "2026-10-07" },
+    { "title": "U of T Mississauga — International Baccalaureate", "url": "https://www.utm.utoronto.ca/future-students/admissions/international-baccalaureate", "retrieved": "2026-10-07" },
+    { "title": "U of T Scarborough — IB credit and admissions", "url": "https://utsc.utoronto.ca/admissions/international-baccalaureate-ib", "retrieved": "2026-10-07" },
+    { "title": "Department of Computer Science — Research areas", "url": "https://web.cs.toronto.edu/research/areas", "retrieved": "2026-10-07" },
+    { "title": "Engineering Science — A little EngSci history", "url": "https://engsci.utoronto.ca/who/history/", "retrieved": "2026-10-07" }
+  ]
+}

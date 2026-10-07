@@ -1,0 +1,153 @@
+{
+  "institution": "ca-uvic",
+  "name": "University of Victoria",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Victoria, BC campus with 22,000+ students and 280+ programs; engineering and other degrees offer paid co-op work terms.",
+  "handoff": {
+    "label": "UVic undergraduate programs",
+    "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/index.php"
+  },
+  "ib": {
+    "text": "Full IB Diploma with three HL subjects and English at 3 or better; program pages give an estimated score of 26 to 30 points excluding bonus points. Maths AI SL is not accepted where Maths is required.",
+    "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/engineering.php"
+  },
+  "apply": {
+    "via": "EducationPlannerBC",
+    "url": "https://www.uvic.ca/undergraduate/admissions/application-deadlines/index.php"
+  },
+  "dates": [
+    {
+      "label": "Application deadline, most degree programs, September entry",
+      "date": "2027-01-31",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.uvic.ca/undergraduate/admissions/application-deadlines/index.php"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Engineering",
+      "credential": "BEng",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/engineering.php",
+      "about": "A general first year of engineering courses, then you declare biomedical, civil, computer, electrical, mechanical or software engineering. Paid four-month co-op terms with employers are part of UVic's engineering offer.",
+      "ib": "Three or more HL; English 3+, Maths (AA, or AI HL) 4+, Chemistry and Physics 4+; AI SL is not accepted. Estimated 30 points excluding bonus points.",
+      "tuitionEuEea": "CAD 47,225 a year (2026/27 estimate)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["physics"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "points": 30,
+      "selection": ["grades"],
+      "selectionNote": "Academic performance decides. 30 points is an estimate from recent cycles and the score needed may be higher; meeting the minimum does not guarantee admission.",
+      "flagshipSource": {
+        "title": "UVic Engineering and Computer Science guide: paid four-month co-op terms with named employers",
+        "url": "https://www.uvic.ca/undergraduate/_assets/docs/uvic_engineering_guide.pdf"
+      }
+    },
+    {
+      "name": "Computer Science",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science.php",
+      "about": "A hands-on, collaborative degree in how systems work and software is built, with combined options such as Data Science, Mathematics, Music or Health Information Science, and co-op work terms.",
+      "ib": "Three or more HL; English 3+, Maths (AA, or AI HL) 4+, one science at HL or SL; AI SL is not accepted. Estimated 27 points excluding bonus points.",
+      "tuitionEuEea": "CAD 40,841 a year (2026/27 estimate)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["biology", "chemistry", "physics"],
+          "level": "SL"
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"],
+          "level": "SL",
+          "grade": 3
+        }
+      ],
+      "points": 27,
+      "selection": ["grades"],
+      "selectionNote": "Academic performance decides. 27 points is an estimate from recent cycles and the score needed may be higher; meeting the minimum does not guarantee admission.",
+      "flagshipSource": {
+        "title": "UVic Engineering and Computer Science guide: paid four-month co-op terms with named employers",
+        "url": "https://www.uvic.ca/undergraduate/_assets/docs/uvic_engineering_guide.pdf"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering and Computer Science",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/engineering.php",
+      "line": "Maths, Chemistry and Physics at 4+ for engineering; Computer Science needs Maths and one science; estimated 27 to 30 points."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology.php",
+      "line": "Biology: Maths 4+ (AI SL not accepted) and two lab sciences; estimated 30 points excluding bonus points."
+    },
+    {
+      "name": "Faculty of Social Sciences",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/economics.php",
+      "line": "Economics needs no subject beyond English 3+; estimated 28 points; Psychology likewise at 28."
+    },
+    {
+      "name": "Faculty of Humanities",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/english.php",
+      "line": "English and History need only English 3+ and three HL subjects; estimated 27 points excluding bonus points."
+    },
+    {
+      "name": "Faculty of Fine Arts",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/visual-arts.php",
+      "line": "Visual Arts: English 3+, estimated 26 points, and a digital portfolio is required."
+    },
+    {
+      "name": "Gustavson School of Business",
+      "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/commerce.php",
+      "line": "Maths (AA, or AI HL) at 4+, English 3+ and three HL; estimated 30 points; four-year degree with work terms."
+    }
+  ],
+  "notes": [
+    "Estimated IB scores on UVic's program pages come from recent admission cycles and exclude bonus points; the score needed may be higher in future.",
+    "UVic gives up to one year of transfer credit for a full IB Diploma with minimum subject scores, and entrance scholarships based on IB scores.",
+    "UVic sets its September-entry deadline per program: most degree programs close 31 January, and some programs keep accepting applications after it."
+  ],
+  "sources": [
+    { "title": "UVic — Engineering (admission requirements by curriculum)", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/engineering.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Computer Science", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Biology", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Economics", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/economics.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — English", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/english.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Visual Arts", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/visual-arts.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Commerce", "url": "https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/commerce.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Application deadlines", "url": "https://www.uvic.ca/undergraduate/admissions/application-deadlines/index.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — International Baccalaureate students", "url": "https://www.uvic.ca/undergraduate/info-for/international-baccalaureate-ib-students/index.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Facts and figures", "url": "https://www.uvic.ca/about-uvic/facts-figures/index.php", "retrieved": "2026-10-07" },
+    { "title": "UVic — Engineering and Computer Science programs guide (PDF, sample first-year fees)", "url": "https://www.uvic.ca/undergraduate/_assets/docs/uvic_engineering_guide.pdf", "retrieved": "2026-10-07" }
+  ]
+}

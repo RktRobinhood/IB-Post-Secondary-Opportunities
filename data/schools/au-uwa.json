@@ -1,0 +1,95 @@
+{
+  "institution": "au-uwa",
+  "name": "University of Western Australia",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Perth university with Science, Commerce, Arts and Engineering degrees; Science and Biomedical Science start in February or July.",
+  "handoff": {
+    "label": "Undergraduate courses",
+    "url": "https://www.uwa.edu.au/study/explore-courses/undergraduate"
+  },
+  "ib": {
+    "text": "UWA converts IB totals to an ATAR equivalent: 24 points is 70, 27 is 80, 30 is 85, 32 is 90, 35 is 94. English A needs SL 4 or HL 3; prerequisites are WA courses with published IB equivalents.",
+    "url": "https://www.uwa.edu.au/study/how-to-apply/pathways-and-eligibility/international-baccalaureate"
+  },
+  "starts": "February (July for some courses)",
+  "apply": {
+    "via": "UWA applicant portal (direct or via agent)",
+    "url": "https://www.uwa.edu.au/study/how-to-apply/international-applicants"
+  },
+  "programmes": [
+    {
+      "name": "Bachelor of Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-science",
+      "about": "A three-year science degree with 29 majors, from agricultural science and anatomy to computer science, cybersecurity and data science, taught by UWA researchers.",
+      "ib": "Minimum ATAR 70, which is 24 IB points on UWA's table; English A at SL 4 or HL 3 plus any prerequisites for your major.",
+      "needs": [
+        { "anyOf": ["english-a-literature", "english-a-lang-lit"], "level": "SL", "grade": 4, "note": "Grade 3 at HL; English B needs HL 5" }
+      ],
+      "points": 24,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB total converted to an ATAR equivalent; the course page lists a minimum ATAR of 70.",
+      "flagshipSource": {
+        "title": "Bachelor of Science: 29 majors across the traditional sciences and applied fields, intakes in February and July",
+        "url": "https://www.uwa.edu.au/study/courses/bachelor-of-science"
+      }
+    },
+    {
+      "name": "Bachelor of Engineering (Honours)",
+      "credential": "BEng (Hons)",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-engineering-honours",
+      "about": "An industry-developed engineering degree at UWA built on three core principles, leading to the Honours qualification.",
+      "ib": "Minimum ATAR 80, which is 27 IB points on UWA's table; check the course page for maths and science prerequisites.",
+      "points": 27,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB total converted to an ATAR equivalent; the course page lists a minimum ATAR of 80.",
+      "flagshipSource": {
+        "title": "Engineering at UWA: a program developed with industry, built on three core principles",
+        "url": "https://www.uwa.edu.au/study/courses/bachelor-of-engineering-honours"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Science",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-science",
+      "line": "Science and Biomedical Science: minimum ATAR 70, 24 IB points; both start in February or July."
+    },
+    {
+      "name": "Business School",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-commerce",
+      "line": "Bachelor of Commerce: minimum ATAR 80, which is 27 IB points."
+    },
+    {
+      "name": "Arts",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-arts",
+      "line": "Bachelor of Arts: minimum ATAR 70, 24 IB points; 32 majors including languages and music."
+    },
+    {
+      "name": "Engineering",
+      "url": "https://www.uwa.edu.au/study/courses/bachelor-of-engineering-honours",
+      "line": "Engineering (Honours): minimum ATAR 80, which is 27 IB points."
+    }
+  ],
+  "notes": [
+    "UWA maps its WA prerequisites to the IB: Maths Methods is Analysis and approaches SL 4 or Applications HL 3; Specialist Maths is Analysis and approaches HL 3; sciences are SL 4 or HL 3.",
+    "Some courses close earlier than others; the closing date is listed on the course page. UWA publishes no general international closing date.",
+    "The Bachelor of Science page body says minimum ATAR 70, but its search-result text says 80; ask UWA which applies."
+  ],
+  "sources": [
+    { "title": "UWA: International applicants, how to apply", "url": "https://www.uwa.edu.au/study/how-to-apply/international-applicants", "retrieved": "2026-10-07" },
+    { "title": "UWA: International Baccalaureate (entry scores and equivalents)", "url": "https://www.uwa.edu.au/study/how-to-apply/pathways-and-eligibility/international-baccalaureate", "retrieved": "2026-10-07" },
+    { "title": "UWA: Undergraduate courses", "url": "https://www.uwa.edu.au/study/explore-courses/undergraduate", "retrieved": "2026-10-07" },
+    { "title": "UWA: Bachelor of Science", "url": "https://www.uwa.edu.au/study/courses/bachelor-of-science", "retrieved": "2026-10-07" },
+    { "title": "UWA: Bachelor of Engineering (Honours)", "url": "https://www.uwa.edu.au/study/courses/bachelor-of-engineering-honours", "retrieved": "2026-10-07" },
+    { "title": "UWA: Bachelor of Commerce", "url": "https://www.uwa.edu.au/study/courses/bachelor-of-commerce", "retrieved": "2026-10-07" },
+    { "title": "UWA: Bachelor of Arts", "url": "https://www.uwa.edu.au/study/courses/bachelor-of-arts", "retrieved": "2026-10-07" },
+    { "title": "UWA: International student fees", "url": "https://www.uwa.edu.au/study/scholarships-and-fees/international-student-fees", "retrieved": "2026-10-07" }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "institution": "au-melbourne",
+  "name": "University of Melbourne",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Parkville campus close to Melbourne's centre; a broad degree of Arts, Science, Commerce or Biomedicine with over 100 study areas to choose from.",
+  "handoff": {
+    "label": "Undergraduate courses (find a course)",
+    "url": "https://study.unimelb.edu.au/study-with-us/undergraduate-courses"
+  },
+  "ib": {
+    "text": "Each degree sets an IB total: 27 for Arts, 31 Science, 34 Commerce and Biomedicine, 37 Oral Health, plus English and maths or science at a grade 4. Predicted grades are accepted for a conditional offer.",
+    "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/recognised-vce-equivalent-qualifications/qualifications/general-international-qualifications-international-baccalaureate-ib-diploma"
+  },
+  "starts": "February or July",
+  "apply": {
+    "via": "Direct to Melbourne (IB outside Australia/NZ)",
+    "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/international-applications/applications"
+  },
+  "dates": [
+    {
+      "label": "Mid-year intake 2027 (Semester 2, July): direct applications close",
+      "date": "2027-03-31",
+      "kind": "closes",
+      "who": "non-eu",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Bachelor of Science",
+      "credential": "BSc",
+      "years": 3,
+      "field": "natural-sciences",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/",
+      "requirementsUrl": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/recognised-vce-equivalent-qualifications/qualifications/general-international-qualifications-international-baccalaureate-ib-diploma",
+      "about": "A flexible first year lets you sample science, biomedicine, maths, engineering and IT subjects before you choose one of more than 40 majors; electives in business, languages and communication sit alongside.",
+      "ib": "Indicative entry score of 31 IB points; maths grade 4 (AA SL/HL or AI HL) and one of Biology, Chemistry or Physics at grade 4, plus English.",
+      "needs": [
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "grade": 4 },
+        { "anyOf": ["biology", "chemistry", "physics"], "level": "SL", "grade": 4 },
+        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "SL", "grade": 4 }
+      ],
+      "points": 31,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB total against the published entry score; predicted grades give a conditional offer.",
+      "tuitionEuEea": "A$55,556â€“65,344 first year (2027)",
+      "flagshipSource": {
+        "title": "Bachelor of Science: flexible first year and more than 40 majors across science, engineering, IT and maths",
+        "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/"
+      }
+    },
+    {
+      "name": "Bachelor of Biomedicine",
+      "credential": "Bachelor of Biomedicine",
+      "years": 3,
+      "field": "health",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-biomedicine/",
+      "requirementsUrl": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/recognised-vce-equivalent-qualifications/qualifications/general-international-qualifications-international-baccalaureate-ib-diploma",
+      "about": "A health-science degree taught beside the Melbourne Biomedical Precinct, with 40+ hospitals and research institutes nearby; the usual route to graduate medicine, dentistry, physiotherapy or research.",
+      "ib": "Indicative entry score of 34 IB points; Chemistry required, maths grade 4 (AA SL/HL or AI HL), plus English.",
+      "needs": [
+        { "anyOf": ["chemistry"], "level": "any" },
+        { "anyOf": ["mathematics-aa", "mathematics-ai@HL"], "level": "SL", "grade": 4 },
+        { "anyOf": ["english-a-literature", "english-a-lang-lit", "english-b"], "level": "SL" }
+      ],
+      "points": 34,
+      "selection": ["grades"],
+      "selectionNote": "Ranked on your IB total against the published entry score; predicted grades give a conditional offer.",
+      "tuitionEuEea": "A$54,780â€“61,460 first year (2026)",
+      "flagshipSource": {
+        "title": "Bachelor of Biomedicine: in the biomedical precinct with more than 40 hospitals, institutes and organisations",
+        "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-biomedicine/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-arts/",
+      "line": "Bachelor of Arts: IB 27 and English; maths at grade 4 is advised if you want to major in Economics."
+    },
+    {
+      "name": "Faculty of Business and Economics",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-commerce/",
+      "line": "Bachelor of Commerce: IB 34, English and maths at grade 4 (AA SL/HL or AI HL)."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/",
+      "line": "Bachelor of Science: IB 31, maths and a science at grade 4. Agriculture: IB 25 with maths at grade 4."
+    },
+    {
+      "name": "Faculty of Medicine, Dentistry and Health Sciences",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-biomedicine/",
+      "line": "Biomedicine: IB 34 with Chemistry and maths. Oral Health: IB 37 with Biology or Chemistry."
+    },
+    {
+      "name": "Faculty of Architecture, Building and Planning",
+      "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-design/",
+      "line": "Bachelor of Design: IB 29 and English; no specific subject beyond English is listed."
+    }
+  ],
+  "notes": [
+    "The IB entry-score page lists nine undergraduate degrees; careers such as medicine, dentistry and physiotherapy are reached after a degree like Biomedicine or Science.",
+    "The applications page says mid-year 2027 direct applications close 31 May 2027, but each course page says 31 March 2027; apply by the earlier date.",
+    "IB students outside Australia and New Zealand apply direct to the university for either intake; VTAC is only for IB students in Australia or New Zealand."
+  ],
+  "sources": [
+    { "title": "Melbourne: Undergraduate courses", "url": "https://study.unimelb.edu.au/study-with-us/undergraduate-courses", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Undergraduate applications (international), how to apply and closing dates", "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/international-applications/applications", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: International Baccalaureate (IB) diploma, entry scores by course", "url": "https://study.unimelb.edu.au/how-to-apply/undergraduate-study/recognised-vce-equivalent-qualifications/qualifications/general-international-qualifications-international-baccalaureate-ib-diploma", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Guaranteed and minimum entry scores for international students", "url": "https://study.unimelb.edu.au/how-to-apply/guaranteed-and-minimum-entry-scores-for-international-students", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Bachelor of Science (overview, intake, fees, key dates)", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-science/", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Bachelor of Biomedicine", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-biomedicine/", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Bachelor of Arts", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-arts/", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Bachelor of Commerce", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-commerce/", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Bachelor of Design", "url": "https://study.unimelb.edu.au/find/courses/undergraduate/bachelor-of-design/", "retrieved": "2026-10-07" },
+    { "title": "Melbourne: Faculties, schools and other academic units", "url": "https://about.unimelb.edu.au/strategy/our-structure/faculties-and-graduate-schools", "retrieved": "2026-10-07" }
+  ]
+}

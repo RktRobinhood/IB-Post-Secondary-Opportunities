@@ -1,0 +1,120 @@
+{
+  "institution": "ca-mcmaster",
+  "name": "McMaster University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Hamilton, Ontario university with 45 direct-entry undergraduate programs, known for problem-based, self-directed learning in health and science.",
+  "handoff": {
+    "label": "McMaster undergraduate programs",
+    "url": "https://future.mcmaster.ca/programs/"
+  },
+  "ib": {
+    "text": "IB Diploma with six subjects, three HL and three SL, plus TOK and EE; bonus points count in a total out of 45. A minimum 80% average is needed to apply; each program sets its own minimum.",
+    "url": "https://future.mcmaster.ca/apply/curriculum-requirements/"
+  },
+  "apply": {
+    "via": "OUAC (Ontario Universities' Application Centre)",
+    "url": "https://future.mcmaster.ca/apply/how-to-apply/"
+  },
+  "dates": [
+    {
+      "label": "Engineering: recommended date for the supplementary application",
+      "date": "2026-11-26",
+      "kind": "early",
+      "short": "Engineering supplementary",
+      "who": "any",
+      "programmes": ["engineering"],
+      "url": "https://www.eng.mcmaster.ca/supplementary-application/"
+    },
+    {
+      "label": "Engineering: supplementary application deadline, 11:59 p.m. ET",
+      "date": "2027-01-28",
+      "kind": "documents",
+      "who": "any",
+      "programmes": ["engineering"],
+      "url": "https://www.eng.mcmaster.ca/supplementary-application/"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Engineering",
+      "credential": "BEng",
+      "years": 4,
+      "field": "engineering",
+      "url": "https://future.mcmaster.ca/programs/engineering/",
+      "requirementsUrl": "https://future.mcmaster.ca/apply/curriculum-requirements/",
+      "about": "A shared Level 1 Engineering year of project-based, hands-on classes, then 11 disciplines from Chemical to Software, with flexible co-op terms. Start in the Discovery Track to explore, or apply straight to a discipline.",
+      "ib": "A required Supplementary Application of three video answers and one written answer. Use the Admission Requirements tool to see which IB subjects each discipline asks for.",
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Marks plus a required video-based Supplementary Application assessing engagement, collaboration, creativity and resilience. Discovery Track places are decided later on Level 1 GPA.",
+      "flagshipSource": {
+        "title": "McMaster Engineering: project-based first year, flexible co-op and a Discovery Track across 11 disciplines",
+        "url": "https://future.mcmaster.ca/programs/engineering/"
+      }
+    },
+    {
+      "name": "Honours Health Sciences",
+      "credential": "BHSc",
+      "years": 4,
+      "field": "health",
+      "url": "https://future.mcmaster.ca/programs/health-sciences/",
+      "requirementsUrl": "https://future.mcmaster.ca/apply/curriculum-requirements/",
+      "about": "An interdisciplinary study of health and illness from biological, behavioural and population perspectives, built around Inquiry courses in small groups, with a research project or thesis in the final year.",
+      "ib": "A required Supplementary Application, read with your grades. Level I also asks for English, Biology and Chemistry plus one course outside math, science and technology.",
+      "selection": ["grades", "motivation"],
+      "selectionNote": "Marks and a mandatory Supplementary Application, due in February. Enrolment is limited, so apply as early as you can.",
+      "flagshipSource": {
+        "title": "Honours Health Sciences: unique Inquiry courses and problem-based, self-directed learning",
+        "url": "https://future.mcmaster.ca/programs/health-sciences/"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Engineering",
+      "url": "https://www.eng.mcmaster.ca/supplementary-application/",
+      "line": "A video-based Supplementary Application is required for Engineering, Computer Science, iBioMed and Technology."
+    },
+    {
+      "name": "Faculty of Health Sciences",
+      "url": "https://future.mcmaster.ca/programs/health-sciences/",
+      "line": "Honours Health Sciences and Nursing add a supplementary application or CASPer test to your grades."
+    },
+    {
+      "name": "Faculty of Science",
+      "url": "https://future.mcmaster.ca/supplementary-applications/",
+      "line": "Most programs are grade-based; Arts & Science and Honours Integrated Science add a supplementary application."
+    },
+    {
+      "name": "DeGroote School of Business",
+      "url": "https://future.mcmaster.ca/supplementary-applications/",
+      "line": "Business takes an optional supplementary submission alongside your grades."
+    },
+    {
+      "name": "Faculty of Humanities",
+      "url": "https://future.mcmaster.ca/supplementary-applications/",
+      "line": "Mostly grade-based; Integrated Business and Humanities and Wilson College add a supplementary application."
+    },
+    {
+      "name": "Faculty of Social Sciences",
+      "url": "https://future.mcmaster.ca/supplementary-applications/",
+      "line": "No supplementary application is listed for Social Sciences entry programs; check each program's requirements."
+    }
+  ],
+  "courses": 45,
+  "notes": [
+    "McMaster publishes IB requirements through an Admission Requirements tool you filter by program, not as a page of IB scores; its dates are a Dates and Deadlines tool.",
+    "IB Maths AI SL is treated as Pre-Calculus plus Statistics, with no Calculus credit; Maths AA SL and AI HL count as Pre-Calculus and Calculus.",
+    "HL courses with a final 5 or higher may earn advanced credit at the faculty's discretion."
+  ],
+  "sources": [
+    { "title": "McMaster — Common international admission requirements (IB)", "url": "https://future.mcmaster.ca/apply/curriculum-requirements/", "retrieved": "2026-10-07" },
+    { "title": "McMaster — How to apply", "url": "https://future.mcmaster.ca/apply/how-to-apply/", "retrieved": "2026-10-07" },
+    { "title": "McMaster — Supplementary applications", "url": "https://future.mcmaster.ca/supplementary-applications/", "retrieved": "2026-10-07" },
+    { "title": "McMaster — Programs", "url": "https://future.mcmaster.ca/programs/", "retrieved": "2026-10-07" },
+    { "title": "McMaster Engineering — Supplementary application", "url": "https://www.eng.mcmaster.ca/supplementary-application/", "retrieved": "2026-10-07" },
+    { "title": "McMaster — Engineering", "url": "https://future.mcmaster.ca/programs/engineering/", "retrieved": "2026-10-07" },
+    { "title": "McMaster — Honours Health Sciences", "url": "https://future.mcmaster.ca/programs/health-sciences/", "retrieved": "2026-10-07" }
+  ]
+}

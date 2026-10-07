@@ -1,0 +1,121 @@
+{
+  "institution": "ca-concordia",
+  "name": "Concordia University",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "English-language university in Montreal, formed in 1974: about 35,600 undergraduates in four faculties on a downtown and a west-end campus.",
+  "handoff": {
+    "label": "Undergraduate programs A-Z",
+    "url": "https://www.concordia.ca/academics/undergraduate.html"
+  },
+  "ib": {
+    "text": "IB Diploma holders are admitted to the 120-credit Extended Credit Program, with transfer credit for HL courses graded 4+. Maths is required for BComm, BCompSc, BSc and BEng; business wants a predicted 29.",
+    "url": "https://www.concordia.ca/admissions/undergraduate/requirements/international.html"
+  },
+  "apply": {
+    "via": "Concordia online application",
+    "url": "https://www.concordia.ca/admissions/undergraduate/apply.html"
+  },
+  "dates": [
+    {
+      "label": "Apply by: U.S. and international applicants, fall entry (immigration processing)",
+      "date": "2027-02-01",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.concordia.ca/admissions/undergraduate/apply.html"
+    },
+    {
+      "label": "Film Production: application and portfolio deadline, fall 2027",
+      "date": "2027-03-01",
+      "kind": "closes",
+      "who": "any",
+      "programmes": ["film-production"],
+      "url": "https://www.concordia.ca/finearts/cinema/programs/apply.html"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Commerce (John Molson School of Business)",
+      "credential": "BComm",
+      "years": 4,
+      "field": "business",
+      "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor.html",
+      "requirementsUrl": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor/admissions.html",
+      "about": "A business degree at the AACSB-accredited John Molson School with options from accountancy and finance to business analytics and supply chain, co-op options, and international exchanges, in downtown Montreal.",
+      "ib": "A predicted 29 points and a predicted 5 in SL or 4 in HL Maths (AA or AI, either level). An English proficiency test may also be needed.",
+      "tuitionEuEea": "CAD 1,400 per credit (Fall 2026)",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 4,
+          "note": "A predicted 5 at SL or 4 at HL"
+        }
+      ],
+      "points": 29,
+      "selection": ["grades"],
+      "selectionNote": "Predicted IB total of 29 or more and the Maths grade; the offer comes with the 120-credit Extended Credit Program.",
+      "flagshipSource": {
+        "title": "John Molson bachelor program: AACSB accredited, co-op options, international exchanges and ten BComm options",
+        "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor.html"
+      }
+    },
+    {
+      "name": "Film Production",
+      "credential": "BFA",
+      "years": 4,
+      "field": "arts-music",
+      "url": "https://www.concordia.ca/academics/undergraduate/film-production.html",
+      "requirementsUrl": "https://www.concordia.ca/finearts/cinema/programs/apply.html",
+      "about": "A competitive program in which you work on the making of a film every year, with hands-on technical training and film history and theory, studios from analog to digital, and Montreal's film industry on the doorstep.",
+      "ib": "A portfolio of moving-image work and a letter of intent are required, submitted through SlideRoom after the online application. There is no winter entry.",
+      "selection": ["portfolio", "motivation"],
+      "selectionNote": "Competitive: the portfolio and letter of intent are judged by the Mel Hoppenheim School of Cinema, in addition to Concordia's minimum admission requirements.",
+      "closes": "2027-03-01",
+      "ownDeadline": true,
+      "flagshipSource": {
+        "title": "Film Production (BFA): you work on the making of a film every year, in a competitive program",
+        "url": "https://www.concordia.ca/academics/undergraduate/film-production.html"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "Faculty of Arts and Science",
+      "url": "https://www.concordia.ca/admissions/undergraduate/requirements/international.html",
+      "line": "BA has no subject prerequisites; BSc needs Maths and one science with one at HL; BA mathematics programs need Maths."
+    },
+    {
+      "name": "John Molson School of Business",
+      "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor/admissions.html",
+      "line": "Predicted 29 points and Maths at 5 (SL) or 4 (HL); an English proficiency test may be required."
+    },
+    {
+      "name": "Gina Cody School of Engineering and Computer Science",
+      "url": "https://www.concordia.ca/admissions/undergraduate/requirements/international.html",
+      "line": "BEng needs Maths and Physics, one at HL; BCompSc needs Maths; Health and Life Sciences stream adds a science."
+    },
+    {
+      "name": "Faculty of Fine Arts",
+      "url": "https://www.concordia.ca/finearts/cinema/programs/apply.html",
+      "line": "BFA programs add a portfolio, audition or letter of intent set by the department; Film Production closes on 1 March."
+    }
+  ],
+  "notes": [
+    "Concordia teaches in English and sets no French admission requirement; Montreal life and Quebec immigration paperwork are partly in French.",
+    "IB English A or Literature and Performance at SL or HL satisfies the English proficiency requirement.",
+    "Concordia's application page prints its deadlines without a year; the 1 February date for international applicants is for fall entry."
+  ],
+  "sources": [
+    { "title": "Concordia — International high school requirements (IB)", "url": "https://www.concordia.ca/admissions/undergraduate/requirements/international.html", "retrieved": "2026-10-07" },
+    { "title": "Concordia — Apply: official application deadlines", "url": "https://www.concordia.ca/admissions/undergraduate/apply.html", "retrieved": "2026-10-07" },
+    { "title": "Concordia — English language proficiency", "url": "https://www.concordia.ca/admissions/undergraduate/requirements/english-language-proficiency.html", "retrieved": "2026-10-07" },
+    { "title": "Concordia — Fast facts", "url": "https://www.concordia.ca/about/fast-facts.html", "retrieved": "2026-10-07" },
+    { "title": "Concordia — Undergraduate tuition fees", "url": "https://www.concordia.ca/students/financial/tuition-fees/rates/undergrad.html", "retrieved": "2026-10-07" },
+    { "title": "John Molson — Bachelor programs", "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor.html", "retrieved": "2026-10-07" },
+    { "title": "John Molson — Undergraduate admissions", "url": "https://www.concordia.ca/jmsb/programs/undergraduate/bachelor/admissions.html", "retrieved": "2026-10-07" },
+    { "title": "Concordia — Film Production (BFA)", "url": "https://www.concordia.ca/academics/undergraduate/film-production.html", "retrieved": "2026-10-07" },
+    { "title": "Mel Hoppenheim School of Cinema — How to apply", "url": "https://www.concordia.ca/finearts/cinema/programs/apply.html", "retrieved": "2026-10-07" }
+  ]
+}
