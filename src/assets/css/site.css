@@ -2828,7 +2828,7 @@ body.has-sheet { overflow: hidden; }
 .discover__globe .world {
   gap: 0; display: grid; align-items: center;
   grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto auto;
-  grid-template-areas: "controls controls" "stage stage" "card card" "caption fold";
+  grid-template-areas: "controls controls" "stage stage" "key key" "card card" "caption fold";
 }
 .discover__globe .world__stage {
   grid-area: stage;
@@ -2840,6 +2840,7 @@ body.has-sheet { overflow: hidden; }
 }
 .discover__globe .world > .world__controls { grid-area: controls; margin: 0 var(--s4, 16px) var(--s2); }
 .discover__globe .world > .world__card { grid-area: card; margin: var(--s2) var(--s4, 16px) 0; }
+.discover__globe .world > .world__key { grid-area: key; }
 /* The list is the map's source of truth for a screen reader and a keyboard;
    here the Where filter and the cards say the same, so it is kept for them
    and not drawn. */

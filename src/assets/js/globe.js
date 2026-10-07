@@ -128,7 +128,7 @@ uniform sampler2D uDay; uniform sampler2D uMask; uniform sampler2D uDetail;
 uniform vec3 uEye; uniform vec3 uSun; uniform vec3 uTint; uniform float uMaskOn; uniform float uSharp;
 uniform vec2 uTexel; uniform vec4 uDetailRect; uniform vec2 uDetailTexel; uniform float uDetailOn; uniform float uPunch; uniform float uToon;
 uniform sampler2D uPol; uniform float uPolOn; uniform float uInk; uniform float uRasterWater;
-uniform sampler2D uPolL; uniform vec4 uPolRect; uniform float uPolLOn;
+uniform sampler2D uPolL; uniform vec4 uPolRect; uniform float uPolLOn; uniform float uFlat;
 varying vec3 vN; varying vec2 vUv; varying vec3 vW;
 float wet(vec3 c) { return smoothstep(0.015, 0.09, c.b - max(c.r, c.g)); }
 /* An unsharp mask that works under magnification: the pixel against the mean
@@ -194,9 +194,14 @@ void main() {
   float water = mix(max(wet(cs), darkSea), 1.0 - pol.a, onDesk);
   /* Water takes the smoothed photograph; land keeps its sharp one. */
   c = mix(c, cs, water);
-  float px = mix(texture2D(uPol, vUv + vec2(1.0 / 2048.0, 0.0)).a, texture2D(uPolL, clamp(puc + vec2(1.0 / 2048.0, 0.0), 0.0, 1.0)).a, inL);
-  float py = mix(texture2D(uPol, vUv + vec2(0.0, 1.0 / 1024.0)).a, texture2D(uPolL, clamp(puc + vec2(0.0, 1.0 / 2048.0), 0.0, 1.0)).a, inL);
-  float coast = clamp((abs(pol.a - px) + abs(pol.a - py)) * 1.6, 0.0, 1.0);
+  vec4 nx = mix(texture2D(uPol, vUv + vec2(1.0 / 2048.0, 0.0)), texture2D(uPolL, clamp(puc + vec2(1.0 / 2048.0, 0.0), 0.0, 1.0)), inL);
+  vec4 ny = mix(texture2D(uPol, vUv + vec2(0.0, 1.0 / 1024.0)), texture2D(uPolL, clamp(puc + vec2(0.0, 1.0 / 2048.0), 0.0, 1.0)), inL);
+  float px = nx.a;
+  float py = ny.a;
+  /* In the sharp map the ink is its own edges — coasts and borders both —
+     so fill and line are one drawing (round 7: "two coasts"). */
+  float border = inL * pol.a * nx.a * ny.a * clamp((length(pol.rgb - nx.rgb) + length(pol.rgb - ny.rgb)) * 4.0, 0.0, 1.0);
+  float coast = clamp((abs(pol.a - px) + abs(pol.a - py)) * 1.6 + border, 0.0, 1.0);
   /* A little cartoony (the owner, round 4) — still recognisably Earth: a
      friendlier ocean, warmer and more saturated land, gently posterised, and
      flatter light. uToon eases off towards the handoff so the close map's
@@ -208,7 +213,7 @@ void main() {
   vec3 ocean = mix(vec3(0.13, 0.40, 0.70), vec3(0.28, 0.62, 0.86), smoothstep(0.02, 0.22, cs.b));
   /* On the desk the land wears a classroom globe's pastel political colours,
      each country its own, with a little of the relief left in. */
-  float relief = mix(0.4, 0.08, inL);
+  float relief = mix(0.4, 0.06, max(inL, uFlat));
   land = mix(land, pol.rgb * (1.0 - relief * 0.5 + relief * lum), uPolOn * mix(0.85, 1.0, inL) * pol.a);
   /* A flat classroom ocean: the photograph's blue ramp amplified its JPEG
      blocks into squares (round 4). */
@@ -837,6 +842,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
   /* Where the globe is, on a levels page: "World › Europe › Denmark", each
      step above the current one a button back up to it. */
   const trail = el('nav', { class: 'world__trail', 'aria-label': 'Where the globe is', hidden: '' });
+  /* A phone's key to a country's numbered pins, right under the stage. */
+  const keyList = el('ol', { class: 'world__key', hidden: '' });
   const controls = el('div', { class: 'world__controls' });
   const zoomIn = button('Zoom in', '+');
   const zoomOut = button('Zoom out', '−');
@@ -861,11 +868,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (narrowMQ.matches) {
       stage.before(controls);
       stage.after(card);
-      if (levels) controls.prepend(trail);
+      if (levels) { controls.prepend(trail); stage.after(keyList); }
     } else {
       pinLayer.after(controls);
       controls.after(card);
-      if (levels) controls.before(trail);
+      if (levels) { controls.before(trail); keyList.hidden = true; keyList.remove(); }
     }
     stage.toggleAttribute('data-trail', levels && !trail.hidden && trail.parentNode === stage);
     figure.dataset.furniture = narrowMQ.matches ? 'outside' : 'inside';
@@ -2136,6 +2143,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     gl.uniform1f(pr.u.uRasterWater, levels ? Math.max(dk, continentH, localOn) : Math.min(1, pol * 2));
     gl.uniform1f(pr.u.uInk, levels ? 0.5 * Math.max(dk, 0.92 * continentH, localOn) : 0.5 * pol);
     gl.uniform1f(pr.u.uPolLOn, localOn);
+    /* Below the world, flat colour: no photograph's relief in the pastel (round 7). */
+    gl.uniform1f(pr.u.uFlat, levels ? 1 - dk : 0);
     gl.uniform4f(pr.u.uPolRect, ...localRect);
     gl.activeTexture(gl.TEXTURE4);
     gl.bindTexture(gl.TEXTURE_2D, localTex);
@@ -2169,13 +2178,16 @@ export async function mountGlobe(figure, { onFail } = {}) {
       gl.uniformMatrix4fv(pr.u.uVP, false, cam.vp);
       /* Crisp, warm outlines — the cartoon's ink line — over the stylised globe. */
       gl.uniform4f(pr.u.uColor, 0.24, 0.18, 0.12, 0.42 + 0.15 * smooth(1.2, 0.2, view.alt));
-      gl.drawArrays(gl.LINES, 0, geography.lines.length / 3);
+      /* At a country on a levels page the sharp map draws its own ink: no
+         second set of lines beside it. */
+      const ownInk = levels && lv.level === 'country' && localRect[2] > localRect[0];
+      if (!ownInk) gl.drawArrays(gl.LINES, 0, geography.lines.length / 3);
       const outline = selectedCountry || home;
-      if (hoverCountry && hoverCountry !== outline) {
+      if (hoverCountry && hoverCountry !== outline && !ownInk) {
         gl.uniform4f(pr.u.uColor, 0.16, 0.11, 0.07, 0.9);
         gl.drawArrays(gl.LINES, hoverCountry.start, hoverCountry.count);
       }
-      if (outline) {
+      if (outline && !ownInk) {
         /* At a country the photograph's own coast is drawn; its outline is a
            soft glow, not a second coast beside it (round 4). */
         /* On a levels page the chosen country's coast is a warm ink stroke,
@@ -2731,9 +2743,21 @@ export async function mountGlobe(figure, { onFail } = {}) {
           const ranked = light.subs.filter((q) => !q.dim).sort((a, b) => (b.n || 0) - (a.n || 0) || a.name.localeCompare(b.name));
           keyOf.clear();
           ranked.forEach((q, i) => keyOf.set(q.id, i + 1));
-          /* A phone names every one, in a rail (round 5: 3 of 14 named). */
-          const ul = el('ul', { class: `world__card-list${narrowMQ.matches ? ' world__card-rail' : ''}` });
-          for (const q of ranked.slice(0, narrowMQ.matches ? ranked.length : 3)) {
+          /* On a phone the key is a list of its own under the stage, every
+             university by its pin's number (round 7: the rail was off screen). */
+          if (narrowMQ.matches) {
+            keyList.replaceChildren(...ranked.map((q) => {
+              const li = el('li');
+              const b = el('button', { type: 'button' });
+              b.append(el('span', { class: 'world__key-n' }, String(keyOf.get(q.id))), document.createTextNode(q.name));
+              b.addEventListener('click', () => goToSchool(q, { focus: true }));
+              li.append(b);
+              return li;
+            }));
+            keyList.hidden = false;
+          }
+          const ul = el('ul', { class: 'world__card-list' });
+          for (const q of ranked.slice(0, narrowMQ.matches ? 0 : 3)) {
             const b = el('button', { type: 'button' });
             if (narrowMQ.matches) b.append(el('span', { class: 'world__key-n' }, String(keyOf.get(q.id))));
             b.append(document.createTextNode(q.name));
@@ -2742,7 +2766,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
           }
           const shown = narrowMQ.matches ? ranked.length : 3;
           if (ranked.length > shown) ul.append(el('li', { class: 'world__card-more' }, `+${ranked.length - shown} on the map`));
-          c.append(ul);
+          if (ul.children.length) c.append(ul);
         }
         if (dest && !sameHref(dest.href, location.pathname)) cardLink(c, title, dest.href, `Open the ${dest.name} page`);
         return;
@@ -3080,6 +3104,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
 
   let lvCam = null;        // the frame of the level the camera is at, for a pinch that lets go between levels
   function setLevel(next) {
+    if (next.level !== 'country' || next.country !== lv.country) { keyList.hidden = true; keyOf.clear(); }
     const changed = ['level', 'region', 'country'].some((k) => k in next && next[k] !== lv[k]);
     Object.assign(lv, next);
     if (changed && !reducedMotion()) lvLeaving = true;
@@ -3194,9 +3219,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
     cardSubject = null;
     openCard((c) => {
       c.dataset.rail = '';
-      const total = r.members.reduce((n, m) => n + (m.count || 0), 0);
+      const lit = r.members.filter((m) => !m.dim);
+      const total = lit.reduce((n, m) => n + (m.count || 0), 0);
       c.append(el('h3', { class: 'world__card-title', tabindex: '-1' }, r.name));
-      c.append(el('p', { class: 'world__card-meta' }, `${r.members.length} countries · ${total} universities`));
+      c.append(el('p', { class: 'world__card-meta' }, `${lit.length} countries · ${total} universities`));
       const ul = el('ul', { class: 'world__card-list world__card-rail' });
       const first = figure.dataset.here || '';
       for (const m of [...r.members].sort((a, b) => (b.country === first) - (a.country === first) || (b.count || 0) - (a.count || 0) || a.name.localeCompare(b.name))) {
@@ -3413,14 +3439,21 @@ export async function mountGlobe(figure, { onFail } = {}) {
      and the same again as its flag alone: a coin stays near its country and
      its name finds the room (round 1b: big name pills pushed Switzerland's
      coin to Hamburg). */
-  const LABEL_SPOTS = ['below', 'right', 'left', 'above', 'below-right', 'below-left', 'above-right', 'above-left'];
+  const LABEL_SPOTS = ['below', 'right', 'left', 'above', 'below-right', 'below-left', 'above-right', 'above-left',
+    'far-right', 'far-left', 'far-below', 'far-above'];
   const labelW = new Map();   // a name's drawn width, measured the first time it shows
   function labelRect(pos, x, y, r, w) {
     const h = 22;
-    if (pos === 'below-right') return [x + r * 0.4, y + r * 0.7, x + r * 0.4 + w, y + r * 0.7 + h];
-    if (pos === 'below-left') return [x - r * 0.4 - w, y + r * 0.7, x - r * 0.4, y + r * 0.7 + h];
-    if (pos === 'above-right') return [x + r * 0.4, y - r * 0.7 - h, x + r * 0.4 + w, y - r * 0.7];
-    if (pos === 'above-left') return [x - r * 0.4 - w, y - r * 0.7 - h, x - r * 0.4, y - r * 0.7];
+    const k = r * 0.8 + 2;
+    if (pos === 'below-right') return [x + k, y + k, x + k + w, y + k + h];
+    if (pos === 'below-left') return [x - k - w, y + k, x - k, y + k + h];
+    if (pos === 'above-right') return [x + k, y - k - h, x + k + w, y - k];
+    if (pos === 'above-left') return [x - k - w, y - k - h, x - k, y - k];
+    const f = r + 20;
+    if (pos === 'far-right') return [x + f, y - h / 2, x + f + w, y + h / 2];
+    if (pos === 'far-left') return [x - f - w, y - h / 2, x - f, y + h / 2];
+    if (pos === 'far-below') return [x - w / 2, y + f, x + w / 2, y + f + h];
+    if (pos === 'far-above') return [x - w / 2, y - f - h, x + w / 2, y - f];
     if (pos === 'below') return [x - w / 2, y + r + 3, x + w / 2, y + r + 3 + h];
     if (pos === 'above') return [x - w / 2, y - r - 3 - h, x + w / 2, y - r - 3];
     if (pos === 'right') return [x + r + 3, y - h / 2, x + r + 3 + w, y + h / 2];
@@ -3663,6 +3696,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
       }
       if (!spot) { w.node.toggleAttribute('data-label', false); continue; }
       taken.push(spot.rect);
+      /* A name on the far ring has a short leader back to its coin. */
+      if (spot.pos.startsWith('far-')) {
+        const [x0, y0, x1, y1] = spot.rect;
+        const tx = Math.max(x0, Math.min(x1, w.x)), ty = Math.max(y0, Math.min(y1, w.y));
+        const dx = tx - w.x, dy = ty - w.y, d = Math.hypot(dx, dy) || 1;
+        threads += `M${(w.x + (dx / d) * w.r).toFixed(1)} ${(w.y + (dy / d) * w.r).toFixed(1)}L${tx.toFixed(1)} ${ty.toFixed(1)}`;
+      }
       w.node.toggleAttribute('data-label', true);
       w.node.dataset.pos = spot.pos;
       w.node.toggleAttribute('data-short', spot.short);
