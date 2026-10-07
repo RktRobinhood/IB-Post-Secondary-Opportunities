@@ -1,0 +1,198 @@
+{
+  "institution": "hk-cityu",
+  "name": "City University of Hong Kong",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "catalogue",
+  "summary": "Hong Kong university taught in English, with ten colleges and schools, a Cornell-linked veterinary degree and a School of Creative Media.",
+  "handoff": {
+    "label": "International admission",
+    "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions"
+  },
+  "ib": {
+    "text": "The IB Diploma is accepted for first-year entry; English A grade 4 (HL or SL), or English B grade 4 at HL or 5 at SL. Some programmes add subjects. Middle half of 2025 entrants: 32 to 38 points.",
+    "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions"
+  },
+  "apply": {
+    "via": "CityUHK online application system (direct)",
+    "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions"
+  },
+  "dates": [
+    {
+      "label": "Applications open (2027 entry)",
+      "date": "2026-09-24",
+      "kind": "opens",
+      "who": "any",
+      "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions"
+    },
+    {
+      "label": "Early round: application deadline",
+      "date": "2026-11-15",
+      "kind": "early",
+      "short": "Early round",
+      "who": "any",
+      "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions"
+    },
+    {
+      "label": "Main round: application deadline",
+      "date": "2027-01-15",
+      "kind": "closes",
+      "who": "any",
+      "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions"
+    }
+  ],
+  "programmes": [
+    {
+      "name": "Bachelor of Veterinary Medicine",
+      "credential": "Bachelor of Veterinary Medicine",
+      "years": 6,
+      "field": "veterinary",
+      "url": "https://www.cityu.edu.hk/admo/programmes/bachelor-veterinary-medicine",
+      "code": "JS1801",
+      "about": "A six-year veterinary degree developed with Cornell University's College of Veterinary Medicine, accredited by both the RCVS and the Australasian Veterinary Boards Council, so graduates can register in Hong Kong, the UK, Australia and New Zealand.",
+      "ib": "English A 6 (HL or SL) or English B HL 7; Maths HL 4 or SL 5; Biology and Chemistry at HL 4. Also 70 hours of animal work experience and the CASPer test.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai"],
+          "level": "SL",
+          "grade": 5,
+          "note": "Grade 4 is enough at HL; AA and AI both accepted"
+        },
+        {
+          "anyOf": ["biology"],
+          "level": "HL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["chemistry"],
+          "level": "HL",
+          "grade": 4
+        },
+        {
+          "anyOf": ["english-a-literature", "english-a-lang-lit"],
+          "level": "SL",
+          "grade": 6,
+          "note": "English B at HL with grade 7 is also accepted"
+        }
+      ],
+      "selection": ["grades", "interview"],
+      "selectionNote": "Shortlisting weighs the four subject grades 70% and CASPer 30%, then a multiple mini interview. Indicative IB total in past years: 37 or more.",
+      "tuitionEuEea": "HK$400,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "Bachelor of Veterinary Medicine: dual accreditation (RCVS and AVBC), developed with Cornell (programme page)",
+        "url": "https://www.cityu.edu.hk/admo/programmes/bachelor-veterinary-medicine"
+      }
+    },
+    {
+      "name": "BSc Data Science",
+      "credential": "BSc",
+      "years": 4,
+      "field": "computing",
+      "url": "https://www.cityu.edu.hk/admo/programmes/bsc-data-science",
+      "requirementsUrl": "https://www.cityu.edu.hk/admo/aims/direct/IB_mathematics.pdf",
+      "code": "JS1072",
+      "about": "A four-year degree in data science covering statistics, data mining, machine learning and computing tools, with advanced study in artificial intelligence, social media analytics or statistical learning.",
+      "ib": "Maths AA at HL or SL, or Maths AI at HL only; Maths AI at SL is not accepted for this programme.",
+      "needs": [
+        {
+          "anyOf": ["mathematics-aa", "mathematics-ai@HL"],
+          "level": "SL",
+          "note": "AA at SL or HL; AI at HL only. No grade is stated"
+        }
+      ],
+      "selection": ["grades"],
+      "selectionNote": "Ranked on IB results. No grade minimum is stated; the middle half of all 2025 non-JUPAS IB entrants held 32 to 38 points.",
+      "tuitionEuEea": "HK$240,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "BSc Data Science: statistics, data mining, machine learning, AI and social media analytics (programme page)",
+        "url": "https://www.cityu.edu.hk/admo/programmes/bsc-data-science"
+      }
+    },
+    {
+      "name": "BA Creative Media",
+      "credential": "BA",
+      "years": 4,
+      "field": "design-architecture",
+      "url": "https://www.cityu.edu.hk/admo/programmes/ba-creative-media",
+      "requirementsUrl": "https://www.scm.cityu.edu.hk/admissions/undergraduate/international",
+      "code": "JS1042",
+      "about": "A School of Creative Media major that joins critical study and creative practice across photography, computational art, games and interactive media, sound, animation and film.",
+      "ib": "International applicants submit a portfolio of creative work within 10 days of applying, and may be invited to an interview.",
+      "selection": ["portfolio", "interview", "grades"],
+      "selectionNote": "The School gauges creative potential from the portfolio and any interview, alongside your IB results.",
+      "tuitionEuEea": "HK$240,000 a year (2027/28)",
+      "flagshipSource": {
+        "title": "BA Creative Media: photography, computational art, games, sound, animation and film (programme page)",
+        "url": "https://www.cityu.edu.hk/admo/programmes/ba-creative-media"
+      }
+    }
+  ],
+  "faculties": [
+    {
+      "name": "College of Biomedicine",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/500",
+      "line": "Biomedical Engineering, Biological Sciences and Biomedical Sciences; Biomedical Engineering needs Maths AA or AI at HL."
+    },
+    {
+      "name": "College of Business",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/1",
+      "line": "BBA degrees in accountancy, management, marketing, economics, finance and business systems, plus Computational Finance."
+    },
+    {
+      "name": "College of Computing",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/427",
+      "line": "Computer Science, Cybersecurity and Data Science; Data Science takes Maths AA at HL or SL, or AI at HL."
+    },
+    {
+      "name": "College of Engineering",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/2",
+      "line": "Civil, electrical, mechanical, materials and intelligent manufacturing engineering, plus the PRIME research pathway."
+    },
+    {
+      "name": "College of Liberal Arts and Social Sciences",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/3",
+      "line": "International relations, Chinese and history, English, media, public affairs, linguistics, crime science, psychology and social work."
+    },
+    {
+      "name": "College of Science",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/4",
+      "line": "Chemistry, Computing Mathematics and Physics, plus the GREAT research route; Computing Mathematics needs Maths AA or AI at HL."
+    },
+    {
+      "name": "Jockey Club College of Veterinary Medicine and Life Sciences",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/5",
+      "line": "Veterinary Medicine: English, Maths, Biology and Chemistry grades, 70 hours of animal work experience, CASPer and an interview."
+    },
+    {
+      "name": "School of Creative Media",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/6",
+      "line": "BA and BSc Creative Media, New Media and the CREATE route; international applicants submit a portfolio."
+    },
+    {
+      "name": "School of Energy and Environment",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/8",
+      "line": "Energy and Environment majors, an international sustainability programme and environmental science degrees."
+    },
+    {
+      "name": "School of Law",
+      "url": "https://www.cityu.edu.hk/admo/taxonomy/term/9",
+      "line": "Bachelor of Laws, plus double degrees with Computer Science and with Accountancy."
+    }
+  ],
+  "notes": [
+    "Hong Kong sets no EU rate: CityUHK's non-local tuition for 2027/28 is HK$240,000 a year (HK$400,000 for veterinary medicine); the HK$20,000 acceptance fee is credited to tuition.",
+    "A few programmes set Maths levels for IB students, listed in a table on CityUHK's own site; check it before you choose Maths AI at SL.",
+    "Applications close 15 January 2027, but offers run from December to July, so apply in the early round if your predicted grades are ready."
+  ],
+  "sources": [
+    { "title": "CityUHK: International admission (dates and IB requirements)", "url": "https://www.cityu.edu.hk/admo/admissions/international-admissions", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: Fees and scholarships (non-local students)", "url": "https://www.cityu.edu.hk/admo/fees-and-scholarships?kind=nonlocal", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: Programmes by college and school", "url": "https://www.cityu.edu.hk/admo/programmes?kind=college", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: Admissions score reference (IB and GCE)", "url": "https://www.cityu.edu.hk/admo/admissions-score-reference", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: IB Mathematics, programme specific requirements", "url": "https://www.cityu.edu.hk/admo/aims/direct/IB_mathematics.pdf", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: Bachelor of Veterinary Medicine", "url": "https://www.cityu.edu.hk/admo/programmes/bachelor-veterinary-medicine", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: BSc Data Science", "url": "https://www.cityu.edu.hk/admo/programmes/bsc-data-science", "retrieved": "2026-10-07" },
+    { "title": "CityUHK: BA Creative Media", "url": "https://www.cityu.edu.hk/admo/programmes/ba-creative-media", "retrieved": "2026-10-07" },
+    { "title": "CityUHK School of Creative Media: International applicants", "url": "https://www.scm.cityu.edu.hk/admissions/undergraduate/international", "retrieved": "2026-10-07" }
+  ]
+}

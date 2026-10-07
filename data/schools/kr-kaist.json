@@ -1,0 +1,57 @@
+{
+  "institution": "kr-kaist",
+  "name": "Korea Advanced Institute of Science and Technology",
+  "retrieved": "2026-10-07",
+  "intake": "2027-autumn",
+  "scope": "listed",
+  "summary": "Daejeon science and engineering university where freshmen enter without a major and choose one in year two; most courses are taught in English.",
+  "handoff": {
+    "label": "International undergraduate admissions guide",
+    "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/guide"
+  },
+  "ib": {
+    "text": "No minimum IB score is published. Send IB results (predicted grades give a conditional place until finals); strong maths and science is encouraged. An English test or exemption is needed.",
+    "url": "https://admission.kaist.ac.kr/wz/api/common/files/download/intl-undergraduate/pdf/Admissions_Guide_for_2027_admission.pdf"
+  },
+  "apply": {
+    "via": "KAIST international application portal",
+    "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/guide"
+  },
+  "starts": "September",
+  "dates": [
+    { "label": "Round 1 (October): applications close, 18:00 KST", "date": "2026-10-22", "kind": "early", "short": "Round 1 (October)", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
+    { "label": "Round 1 (October): results announced, 10:00 KST", "date": "2027-01-07", "kind": "decision", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
+    { "label": "Round 2 (January): applications open", "date": "2026-11-10", "kind": "opens", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
+    { "label": "Round 2 (January): applications close, 18:00 KST", "date": "2027-01-14", "kind": "closes", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
+    { "label": "Round 2 (January): recommendation letters due, 18:00 KST", "date": "2027-01-21", "kind": "documents", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
+    { "label": "Round 2 (January): online interview, if required", "date": "2027-03-03", "kind": "test", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" },
+    { "label": "Round 2 (January): results announced, 10:00 KST", "date": "2027-03-25", "kind": "decision", "who": "any", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline" }
+  ],
+  "programmes": [
+    {
+      "name": "Undergraduate entry (major chosen in year two)",
+      "credential": "Bachelor's degree",
+      "years": 4,
+      "field": "interdisciplinary",
+      "url": "https://kaist.ac.kr/en/html/edu/03.html",
+      "about": "You enter KAIST without declaring a major and explore STEM fields in year one, then choose a department from the natural sciences, life science, engineering, AI and business colleges with no extra admission step.",
+      "ib": "Maths and science results are weighed most; the guide does not set a minimum IB score or required subjects.",
+      "tuitionEuEea": "KRW 6,866,000 a year; scholarship waives",
+      "selection": ["grades", "interview"],
+      "selectionNote": "Holistic document review led by maths and science results; an online interview only if KAIST asks. Criteria are not published. Round 2 gives a September 2027 start.",
+      "requirementsUrl": "https://admission.kaist.ac.kr/wz/api/common/files/download/intl-undergraduate/pdf/Admissions_Guide_for_2027_admission.pdf"
+    }
+  ],
+  "notes": [
+    "The guide says all international students receive full financial support covering tuition and living expenses; the cost page shows the tuition that is waived, without a price year.",
+    "Round 1 (October) applicants can choose a Fall 2027 start as well as a Spring 2027 one, provided they graduate high school by 31 August 2027; Round 2 is September 2027 only.",
+    "Admitted students cannot defer enrolment, the USD 80 application fee cannot be waived except through the fee-waiver programme, and the round cannot be changed once the fee is paid."
+  ],
+  "sources": [
+    { "title": "KAIST — Application timeline (2027 admissions)", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/ApplicationTimeline", "retrieved": "2026-10-07" },
+    { "title": "KAIST — Admissions guide for international applicants, Spring and Fall 2027 (PDF)", "url": "https://admission.kaist.ac.kr/wz/api/common/files/download/intl-undergraduate/pdf/Admissions_Guide_for_2027_admission.pdf", "retrieved": "2026-10-07" },
+    { "title": "KAIST — International undergraduate application guidelines", "url": "https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/guide", "retrieved": "2026-10-07" },
+    { "title": "KAIST — Cost of attendance", "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/coa", "retrieved": "2026-10-07" },
+    { "title": "KAIST — Colleges and departments (English as teaching language from 2008)", "url": "https://kaist.ac.kr/en/html/edu/03.html", "retrieved": "2026-10-07" }
+  ]
+}

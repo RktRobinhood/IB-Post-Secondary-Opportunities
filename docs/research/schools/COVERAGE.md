@@ -6,8 +6,8 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 
 ## Totals
 
-- Institutions with a record: **409 of 451** (91%); 240 listed, 117 catalogue, 52 none.
-- Degrees listed: **1942**; with programme detail (about and selection): **1942** (100%).
+- Institutions with a record: **416 of 451** (92%); 248 listed, 115 catalogue, 53 none.
+- Degrees listed: **1961**; with programme detail (about and selection): **1961** (100%).
 - Degrees with a photograph of their own (#54): **417** (21%). The rest show their school's photo.
 - Institutions with a school photo: **399 of 451**.
 
@@ -30,13 +30,13 @@ Denmark and the Netherlands' first five institutions are built from the canonica
 | France (fr) | 12/12 | 7 / 1 / 4 | 27 | 27 (100%) | 24 | 11/12 | [yes](leads/fr.md) |
 | United Kingdom (gb) | 22/22 | 0 / 22 / 0 | 66 | 66 (100%) | 0 | 21/22 | no |
 | Greece (gr) | 12/12 | 6 / 1 / 5 | 17 | 17 (100%) | 0 | 10/12 | [yes](leads/gr.md) |
-| Hong Kong (hk) | 13/13 | 1 / 12 / 0 | 25 | 25 (100%) | 0 | 12/13 | [yes](leads/hk.md) |
+| Hong Kong (hk) | 13/13 | 3 / 10 / 0 | 30 | 30 (100%) | 0 | 12/13 | [yes](leads/hk.md) |
 | Hungary (hu) | 14/14 | 13 / 0 / 1 | 212 | 212 (100%) | 0 | 13/14 | [yes](leads/hu.md) |
 | Ireland (ie) | 14/14 | 2 / 12 / 0 | 47 | 47 (100%) | 0 | 13/14 | no |
 | Iceland (is) | 2/2 | 2 / 0 / 0 | 3 | 3 (100%) | 0 | 1/2 | no |
 | Italy (it) | 13/13 | 13 / 0 / 0 | 87 | 87 (100%) | 31 | 13/13 | [yes](leads/it.md) |
 | Japan (jp) | 15/15 | 14 / 1 / 0 | 44 | 44 (100%) | 0 | 14/15 | [yes](leads/jp.md) |
-| South Korea (kr) | 0/14 | 0 / 0 / 0 | 0 | – | – | 12/14 | [yes](leads/kr.md) |
+| South Korea (kr) | 7/14 | 6 / 0 / 1 | 14 | 14 (100%) | 0 | 12/14 | [yes](leads/kr.md) |
 | Lithuania (lt) | 12/12 | 12 / 0 / 0 | 184 | 184 (100%) | 0 | 11/12 | [yes](leads/lt.md) |
 | Luxembourg (lu) | 2/2 | 2 / 0 / 0 | 7 | 7 (100%) | 0 | 1/2 | no |
 | Latvia (lv) | 11/11 | 9 / 0 / 2 | 52 | 52 (100%) | 0 | 6/11 | [yes](leads/lv.md) |
@@ -248,10 +248,10 @@ Only institutions with something missing are listed.
 - `hk-cityu` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
 - `hk-hkbu` (catalogue, 3 degrees): 3 of 3 degrees have no photo of their own
 - `hk-lingnan` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
-- `hk-eduhk` (catalogue, 2 degrees): 2 of 2 degrees have no photo of their own
+- `hk-eduhk` (listed, 5 degrees): 5 of 5 degrees have no photo of their own
 - `hk-hkapa` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
 - `hk-hsuhk` (catalogue, 1 degrees): 1 of 1 degrees have no photo of their own
-- `hk-hkmu` (catalogue, 0 degrees): no flagships yet
+- `hk-hkmu` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
 - `hk-hksyu` (catalogue, 0 degrees): no flagships yet
 - `hk-thei` (catalogue, 0 degrees): no flagships yet; no school photo
 
@@ -329,7 +329,13 @@ Only institutions with something missing are listed.
 
 ### South Korea
 
-- **No record (14):** `kr-yonsei-uic`, `kr-kaist`, `kr-snu`, `kr-ku`, `kr-skku`, `kr-ewha`, `kr-hanyang` (no photo), `kr-postech`, `kr-sogang` (no photo), `kr-khu`, `kr-unist`, `kr-gist`, `kr-handong`, `kr-cau`
+- **No record (7):** `kr-hanyang` (no photo), `kr-sogang` (no photo), `kr-khu`, `kr-unist`, `kr-gist`, `kr-handong`, `kr-cau`
+- `kr-yonsei-uic` (listed, 3 degrees): 3 of 3 degrees have no photo of their own
+- `kr-kaist` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `kr-ku` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
+- `kr-skku` (listed, 6 degrees): 6 of 6 degrees have no photo of their own
+- `kr-ewha` (listed, 2 degrees): 2 of 2 degrees have no photo of their own
+- `kr-postech` (listed, 1 degrees): 1 of 1 degrees have no photo of their own
 
 ### Lithuania
 

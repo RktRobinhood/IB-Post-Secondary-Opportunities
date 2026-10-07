@@ -180,6 +180,10 @@ them.
 | `school-pages` | a programme name over 48 characters | the university's own name, added to `scripts/lib/long-titles.json` |
 | `card-names` | a family path row with no `cardLine` | `cardLine` (≤60) on every family member: "Main subject: piano" |
 | `text-walls` | one `about` sentence repeated on 11+ family pages | make each path's `about` name its path |
+| `text-walls` | one long credential ("Bachelor of Arts with Honours") on 16 cards of one school | the short standard form: "BA (Hons)" |
+| `school-pages` | a date label with "early" or "priority" (MIT "Early Action", U of T "early consideration") leads a programme panel | label rounds by date ("1 November round"), or give the flagship its own `closes` |
+| `research-log` | a real camelCase product name (iBioMed, eVision) | add it to `NAME_OK` in `scripts/lib/research-log.mjs` |
+| `programme-images` | a credential with no degree word ("BCompSc", "One-year first-year programme") | "Bachelor of Computer Science"; "First year towards a health degree" |
 
 | Photo critic rejects | Instead |
 |---|---|

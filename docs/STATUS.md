@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 1 October 2026 (morning).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 7 October 2026 (evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,42 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
+
+## 7 October (evening): universities outside Europe — wave 3
+
+Owner: "be more lean"; get every university to a good place with courses
+and cards, and find what we missed. Weekly ceiling 50% (started at 36%).
+Sonnet researchers, four at a time, brief `D:/ibp-tmp/w3/AGENT_BRIEF.md`
+(overrides on top of `D:/ibp-tmp/eu2/AGENT_BRIEF.md`); no critic rounds,
+since records are text and the 40-check gate holds the rules. Shipped,
+each gated 40/40 on a clean copy of main:
+- **Europe complete** (26bd975): every European degree has programme
+  detail (Iceland, Luxembourg, Ireland, Latvia, Malta and stragglers);
+  UMinho committed. DkIT still behind an interactive Cloudflare wall.
+- **US 14, Australia 17, Canada 20, New Zealand 10, Singapore 13,
+  Japan 15, Hong Kong 7** (e3c9d97, 6faba84): catalogue records with
+  2–3 flagships and faculties; Japan listed (44 degrees).
+- Records now 409+/451, every listed degree with detail.
+- **Discovery:** `docs/research/schools/leads/DISCOVERY-2026-10.md` lists
+  countries and institutions outside the manifest (Bard Berlin, John
+  Cabot, Dutch UAS, US Ivy+ and liberal-arts colleges, UK Russell Group
+  gaps, Hanken, AUBG, RIT Croatia, BISLA, Qatar and Malaysia branch
+  campuses). Some URLs there are unverified. New countries wait for the
+  owner's choice.
+
+Gate traps this wave added to the brief: date labels with "early" lead
+a panel as if they were the deadline (label rounds by date); camelCase
+product names need `NAME_OK` in `scripts/lib/research-log.mjs`; one
+long credential repeated on 16 cards is a text wall (use "BA (Hons)").
+
+**Next:** Korea's last 8 (Hanyang's guide is an 11.7 MB scanned PDF;
+Sogang, KHU, UNIST, GIST, Handong, CAU untouched), HKSYU and THEi (held:
+teaching language per degree), HKMU's other English-coded degrees,
+China 14 and UAE 14; settle KAIST: data/countries/kr.json says Round 1
+leads only to a February start, the 2027 guide lets Round 1 choose Spring
+or Fall 2027; then the owner's
+pick from DISCOVERY; then degree photos for the new countries (official
+photo harvest, `docs/COUNTRY_PIPELINE.md`).
 
 ## 7 October: the globe in levels — live
 

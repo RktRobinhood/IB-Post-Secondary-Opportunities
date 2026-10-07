@@ -75,3 +75,35 @@ All `catalogue` unless stated. Dates and fees are for the 2027 intake as the uni
 
 ## Gate state
 - validate and check-schools: 0 failing for hk-* (7 Oct 2026). Long display names remaining: none over 48 characters.
+## Re-read (7 Oct)
+
+Read in a real Chrome session (the automated tab cleared CityU but Lingnan's Cloudflare check only passed in Chrome). Run stopped at the usage ceiling after HKMU; HKSYU and THEI were not re-read.
+
+### hk-cityu (catalogue) - rewritten from CityU's own pages
+- Dates confirmed on the international-admissions page: opens 24 Sep 2026, Early Round 15 Nov 2026, Main Round 15 Jan 2027. IB Diploma for first-year entry; English A 4, English B HL 4 / SL 5; Advanced Standing I 30 of 45.
+- Corrections: non-local tuition is HK$240,000 (2027/28), HK$400,000 for veterinary (fees page, non-local tab). The earlier HK$190,000 / HK$392,000 were wrong. Acceptance fee HK$20,000, application HK$600.
+- Veterinary page is now the 2027/28 one: English A 6 or English B HL 7, Maths HL 4 / SL 5, Biology HL 4 and Chemistry HL 4 (was "Chemistry 4"), 70 hours animal work, CASPer 30% + subjects 70%, MMI; indicative IB 37 or more. Removed the "2026 criteria" caveat.
+- BA Creative Media: old url (ba-creative-media-0) was the 3-year Advanced Standing page (1456A). Now the 4-year first-year page (JS1042). SCM's own page says international applicants are required to submit a portfolio within 10 days of applying (CityU's general page says strongly encouraged).
+- Data Science: IB Maths table (IB_mathematics.pdf, read with pdf.js): AA HL or SL, AI HL only. The School of Data Science sits inside the College of Computing; faculty list is now the ten colleges/schools that run first-year programmes (Biomedicine, Business, Computing, Engineering, LASS, Science, JCC Vet, Creative Media, Energy and Environment, Law), each linked to its admo college page.
+- Middle half of 2025 IB entrants: 32 to 38 (admissions-score-reference, includes TOK/EE points).
+
+### hk-lingnan (catalogue) - rewritten
+- Dates confirmed: opens 8 Oct 2026, Early Round 30 Nov 2026, Main Round 28 Feb 2027, Final Round 30 Jun 2027 (non-local).
+- IB: the admission-information PDF lists "IB Diploma" with no points minimum. The earlier "6.0" was the IELTS requirement. English: A 4, B HL 4 / SL 5.
+- Tuition HK$205,000 (UGC-funded, 2027-28); self-financed Animation and Digital Arts HK$165,000 (table year not labelled).
+- The ADA application-interview page (portfolio, 3-minute presentation, 20 MB) now returns 404; those claims were removed. 34 programmes (was 33); faculties now five (Arts, Business, Social Sciences, Wu Jieh Yee School of Interdisciplinary Studies, School of Data Science).
+
+### hk-eduhk (converted catalogue -> listed, 5 degrees)
+- Non-local applicants need Chinese IB grade 4 unless the programme is English-medium (waiver case by case); that is why the medium matters.
+- English stated on the department/faculty page: Psychology (all major courses), AI and Educational Technology (mainly English), Integrated Environmental Management (all major courses), Personal Finance (English), Special Education (mainly English).
+- Left out: Digital Chinese Culture and Heritage Education (Chinese), Speech Pathology (English but needs fluent Cantonese), English Studies and Digital Communication, Creative and Digital Arts, Sports Science (no medium stated on pages opened), teacher-education double degrees (not checked).
+- Fee HK$210,000 (2027/28); dates re-confirmed (5 Oct, 16 Nov, 6 Jan, 7 May).
+
+### hk-hkmu (converted catalogue -> listed, 2 degrees)
+- IB confirmed on the direct-admission selector: overall 24, IB English grade 4 or above; interview normally required. Dates still show the 2025/26 cycle (`lastYear` kept).
+- HKMU documents course-code suffixes (C Chinese, B bilingual, others English) only for distance learning (dl/faq). Explicit "Language of instruction: English": Cyber and Computer Security, Electronic and Computer Engineering (listed). Also explicit English but not listed: English Language Teaching and English Language Studies (teacher education). Language Studies and Translation: "English and Chinese".
+- By course-code letters (inference, not listed): the 14 business degrees, Computer Science, Data Science and AI, English Language and Culture, Psychology, Social Sciences are mostly English-coded. A later pass could list them.
+- Not direct non-local: Nursing, Physiotherapy, Diagnostic Radiography, Medical Laboratory Science. Tuition 2026/27 from the non-local fee PDF: Cyber HK$111,490, Electronic and Computer Engineering HK$118,370.
+
+### hk-hksyu, hk-thei: not re-read
+- Still `catalogue` (so the site still says every degree is taught in English). Hold back.
