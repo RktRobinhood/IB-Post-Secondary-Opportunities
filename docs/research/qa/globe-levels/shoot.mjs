@@ -276,6 +276,62 @@ try {
       console.log(`  pinclicks ${dev}: ${wrong}/${total} wrong`, misses.slice(0, 12).join(' | '));
     }
   }
+  /* The round-2 blockers: a double click mid-flight, a click on a name, and
+     Back after one door then another. */
+  if (want('regress')) {
+    const out = {};
+    for (const [dev, D] of [['desk', DESK], ['phone', PHONE]]) {
+      await setup(D, false);
+      await open('/?map=globe');
+      await globeReady();
+      const eu = await nodeAt(`(c) => c.dataset.kind === 'region' && /Europe/.test(c.textContent)`);
+      if (dev === 'phone') { await tap(eu.x, eu.y); await sleep(120); await tap(eu.x, eu.y); }
+      else { await click(eu.x, eu.y); await sleep(120); await mouse('mousePressed', eu.x, eu.y, { clickCount: 2 }); await mouse('mouseReleased', eu.x, eu.y, { clickCount: 2 }); }
+      await still();
+      const r1 = await g(`return { lv: g.lv.level, alt: +g.view.alt.toFixed(2) };`);
+      /* names: press each country's name at the continent level */
+      const names = await evaluate(`[...document.querySelectorAll('.world__cluster[data-kind="country"][data-label] .world__cluster-label')].filter((l) => l.offsetParent).map((l) => { const r = l.getBoundingClientRect(); return { code: l.closest('.world__cluster')._nation, x: r.left + r.width - 6, y: r.top + r.height / 2 }; })`);
+      let right = 0; const wrongs = [];
+      for (const n of names.slice(0, 26)) {
+        await g(`g.goToRegion('europe', { push: false }); return true;`);
+        await still();
+        const now = await evaluate(`(() => { const c = [...document.querySelectorAll('.world__cluster')].find((c) => c._nation === '${n.code}' && !c.hidden); const l = c?.querySelector('.world__cluster-label'); if (!l || !l.offsetParent) return null; const r = l.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; })()`);
+        if (!now) continue;
+        if (dev === 'phone') await tap(now.x, now.y); else await click(now.x, now.y);
+        await sleep(400);
+        const got = await g(`return g.lv.country;`);
+        if (got === n.code) right++; else wrongs.push(`${n.code}->${got}`);
+      }
+      out[dev] = { doubleClickEurope: r1, names: `${right}/${names.slice(0, 26).length}`, wrongs };
+      /* door then door then Back */
+      await open('/?map=globe');
+      await globeReady();
+      await evaluate(`document.querySelector('.preset[data-scope="nearby"]').click()`);
+      await still();
+      await evaluate(`document.querySelector('.preset[data-scope="far"]').click()`);
+      await still();
+      await evaluate(`history.back()`);
+      await sleep(400);
+      await still();
+      out[dev].nearbyFarBack = await g(`return { lv: g.lv.level + ':' + g.lv.region, scope: new URLSearchParams(location.search).get('scope') };`);
+      await open('/?map=globe');
+      await globeReady();
+      await evaluate(`document.querySelector('.preset[data-scope="here"]').click()`);
+      await still();
+      await evaluate(`document.querySelector('.preset[data-scope="nearby"]').click()`);
+      await still();
+      await evaluate(`history.back()`);
+      await sleep(400);
+      await still();
+      out[dev].hereNearbyBack = await g(`return { lv: g.lv.level + ':' + (g.lv.country || g.lv.region), scope: new URLSearchParams(location.search).get('scope') };`);
+      await open('/?map=globe#country=dk');
+      await globeReady();
+      await still();
+      out[dev].deepLink = await evaluate(`({ count: document.getElementById('prog-count')?.textContent.trim(), card: document.querySelector('.world__card:not([hidden]) .world__card-meta')?.textContent })`);
+    }
+    log('regress', out);
+    console.log(JSON.stringify(out, null, 1));
+  }
   if (want('walk')) {
     await walk('desk', DESK, false);
     await walk('desk', DESK, true);

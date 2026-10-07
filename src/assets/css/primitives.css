@@ -1659,7 +1659,11 @@
 .world[data-levels] .world__cluster[data-kind="country"][data-pos="above"] .world__cluster-label { top: auto; bottom: calc(var(--r) + 5px); }
 .world[data-levels] .world__cluster[data-kind="country"][data-pos="right"] .world__cluster-label { left: calc(var(--r) + 5px); top: 0; transform: translateY(-50%); }
 .world[data-levels] .world__cluster[data-kind="country"][data-pos="left"] .world__cluster-label { left: auto; right: calc(var(--r) + 5px); top: 0; transform: translateY(-50%); }
+/* A short label is the flag and the country's code; a full one, the flag
+   and its name. */
+.world__cluster-code { display: none; font-weight: 700; letter-spacing: .04em; }
 .world[data-levels] .world__cluster[data-kind="country"][data-short]:not(:hover, [data-on], [data-selected]) .world__cluster-name { display: none; }
+.world[data-levels] .world__cluster[data-kind="country"][data-short]:not(:hover, [data-on], [data-selected]) .world__cluster-code { display: inline; }
 .world[data-levels] .world__cluster[data-kind="country"][data-short] .world__cluster-label { padding: 3px 5px; }
 /* A continent round the back, waiting at the rim: a smaller coin. */
 .world[data-levels] .world__cluster[data-behind] .world__cluster-n { transform: scale(.78); box-shadow: 0 0 0 2px #FBF7F0, 0 0 0 3.5px rgba(58, 42, 24, .55), 0 3px 10px rgba(0, 0, 0, .3); }
@@ -1717,3 +1721,7 @@
 /* In the docked card the universities are one line each: a postcard, not a list. */
 .world[data-levels] .world__stage > .world__card .world__card-list button { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .world[data-levels] .world__stage > .world__card .world__card-list li { max-width: 100%; }
+/* On a levels page a name is part of its node: pointing at it, or pressing
+   it, is pointing at or choosing its node (round 2, M1). */
+.world[data-levels] .world__pin[data-label] .world__pin-label,
+.world[data-levels] .world__cluster[data-label] .world__pin-label { pointer-events: auto; cursor: pointer; }

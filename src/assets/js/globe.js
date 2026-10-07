@@ -911,7 +911,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const la = s.lat * D2R, lo = s.lon * D2R;
     const north = [-Math.sin(la) * Math.sin(lo), Math.cos(la), -Math.sin(la) * Math.cos(lo)];
     const dk = desk(s.alt);
-    const p = pitchFor(s.alt) * (1 - dk);
+    /* A levels page tips the camera less: the continent fills the stage,
+       not a band of sky over a horizon (round 2: "a cream fog band"). */
+    const p = pitchFor(s.alt) * (1 - dk) * (levels ? 0.55 : 1);
     const cp = Math.cos(p), sp = Math.sin(p);
     const back = [cp * T[0] - sp * north[0], cp * T[1] - sp * north[1], cp * T[2] - sp * north[2]];
     out.eye = [T[0] + s.alt * back[0], T[1] + s.alt * back[1], T[2] + s.alt * back[2]];
@@ -1859,7 +1861,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (!route) { routeSvg.style.display = 'none'; return; }
     const t = flight ? (flight.move ?? 0) : 1;
     if (!flight && !route.done) route.done = performance.now();
-    const fade = route.done ? Math.max(0, 1 - (performance.now() - route.done) / (levels ? 650 : 1400)) : 1;
+    const fade = route.done ? Math.max(0, 1 - (performance.now() - route.done) / (levels ? 420 : 1400)) : 1;
     if (fade <= 0) { route = null; routeSvg.style.display = 'none'; return; }
     routeSvg.style.display = '';
     routeSvg.style.opacity = String(fade);
@@ -2081,9 +2083,15 @@ export async function mountGlobe(figure, { onFail } = {}) {
        every country is its own colour under its coin; the satellite comes in
        as the camera comes down to a country (round 1: "a generic satellite
        map" below the world level). */
-    const pol = levels ? Math.max(dk, 0.92 * smooth(0.55, 0.9, view.alt)) : dk;
+    /* …and at a country, a lighter wash of the same colours over the
+       photograph, so every level is the same toy globe (round 2: "the style
+       switches by altitude"); the ink coast comes from the colour raster, too
+       coarse at a country's height, so it fades out there and the vector
+       borders draw the coast instead. */
+    const continentH = smooth(0.55, 0.9, view.alt);
+    const pol = levels ? Math.max(dk, 0.92 * continentH, 0.5) : dk;
     gl.uniform1f(pr.u.uPolOn, pol);
-    gl.uniform1f(pr.u.uInk, 0.5 * pol);
+    gl.uniform1f(pr.u.uInk, levels ? 0.5 * Math.max(dk, 0.92 * continentH) : 0.5 * pol);
     gl.activeTexture(gl.TEXTURE3);
     gl.bindTexture(gl.TEXTURE_2D, polTex);
     gl.uniform1i(pr.u.uPol, 3);
@@ -2557,6 +2565,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   }
 
   function placeCard(p, opts) {
+    cardFor = `p:${p.id}`;
     cardSubject = { xyz: p.xyz, alt: null };
     openCard((c) => {
       if (p.image) {
@@ -2630,7 +2639,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
       : p.external ? 'Visit their website' : `Open ${p.name.replace(/^\p{RI}{2}\s*/u, '')}`;
   }
 
+  let cardFor = '';
   function countryCard(country, opts) {
+    cardFor = `c:${country.id}`;
     cardSubject = { xyz: norm(country.frame.reduce((s, q) => [s[0] + q[0], s[1] + q[1], s[2] + q[2]], [0, 0, 0])), alt: null };
     const here = places.filter((p) => p.country === country.id);
     const total = here.reduce((n, p) => n + (p.count || 0), 0);
@@ -2818,12 +2829,18 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (sel.kind === 'region') return levels && regions.has(sel.id) ? (goToRegion(sel.id, { push: false }), true) : false;
     if (sel.kind === 'place') { const p = byId.get(sel.id); if (p) goToPlace(p, { push: false }); return !!p; }
     const c = levels ? countryFor(sel.id) : geography.byId.get(sel.id);
+    if (c && levels && !places.some((p) => p.country === c.id)) { showHint(`No universities from ${c.name} on this map yet`); return false; }
     if (c) goToCountry(c, { push: false });
     return !!c;
   }
   /* Which popstate a page's show() ran in: a listener registered before the
      globe's (discover.js) reframes first, and the globe then leaves it be. */
   let popAt = 0, shownAt = -1, popSeq = 0;
+  /* When a page last moved the globe (show()). Chrome runs a window's
+     popstate listeners in the order they were added, capture or not (round
+     2, M2), so the page's reframe is recognised by time: a show() at or after
+     this popstate was created is the page answering it. */
+  let lastShowAt = -1;
   window.addEventListener('popstate', () => { popAt = ++popSeq; }, { capture: true });
   const linkedSel = () => {
     const m = location.hash.match(/^#(place|country|region)=(.+)$/);
@@ -2841,7 +2858,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         /* A choice typed into the address bar (#region=asia). */
         const sel = linkedSel();
         if (select(sel)) { currentSel = sel; announceChoice(sel, { restored: true }); }
-      } else if (levels && shownAt === popAt) {
+      } else if (levels && (shownAt === popAt || lastShowAt >= e.timeStamp)) {
         /* The page has already moved the globe for this entry (a door's
            frame, discover.js): that is where Back goes (round 1: Nearby →
            Explore → Back left the globe on the world under Europe's cards). */
@@ -2854,6 +2871,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
         const cam = st?.cam;
         /* On a levels page, the level the entry was left at. */
         const was = levels ? st?.lv : null;
+        if (levels && !was) {
+          /* Nothing stamped: the page may still be about to reframe (a door);
+             give it this task, then go home only if it did not. */
+          const t = e.timeStamp;
+          setTimeout(() => { if (lastShowAt < t && !currentSel) goHome(); }, 0);
+          return;
+        }
         if (was?.level === 'region' && regions.has(was.region)) goToRegion(was.region, { push: false });
         else if (was?.level === 'country' && countryFor(was.country)) goToCountry(countryFor(was.country), { push: false });
         else if (cam && !levels) climbOut(() => flyTo(cam, { travel: true }));
@@ -3069,9 +3093,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
     let best = null, bestD = Infinity;
     /* Mid-flight the stage still shows the level being left: a quick second
        step looks at the level it is stepping from (round 1: "+ + +" was one). */
+    const toward = flight ? solveCamera(flight.to, {}) : cam;
     for (const g of lvLeaving ? levelGroups() : groups) {
       if (g.kind !== kind) continue;
-      const s = project(g.xyz);
+      const s = project(g.xyz, toward);
       if (s.facing < 0.1) continue;
       const off = lvOff.get(g.key) || [0, 0];
       const d = Math.hypot(s.x + off[0] - px, s.y + off[1] - py);
@@ -3181,6 +3206,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
   function clusterLevels() {
     const out = levelGroups();
     const keys = new Set(out.map((g) => g.key));
+    /* A level is laid out from its own places each time it is entered, so
+       light, dark and the way back up give the same picture (round 2). */
+    if ([...keys].some((k) => !lvKeys.has(k))) lvOff.clear();
     lvFresh = lvKeys.size ? new Set([...keys].filter((k) => !lvKeys.has(k))) : new Set();
     lvKeys = keys;
     lvLeaving = false;
@@ -3199,7 +3227,14 @@ export async function mountGlobe(figure, { onFail } = {}) {
         out.push({ kind: 'region', key: `r:${r.id}`, region: r, members: r.members, xyz: r.xyz, count, nation: '', aside: lv.level !== 'world' });
         continue;
       }
+      /* At a country, its nearest neighbours only, faded: a way across the
+         border, not the whole continent again (round 2: 25 coins and a
+         starburst of threads mid-flight). */
+      const chosen = lv.level === 'country' ? r.members.find((m) => m.country === lv.country) : null;
+      const nearest = chosen ? new Set(r.members.filter((m) => m !== chosen)
+        .sort((a, b) => angle(a.xyz, chosen.xyz) - angle(b.xyz, chosen.xyz)).slice(0, 6)) : null;
       for (const p of r.members) {
+        if (nearest && p !== chosen && !nearest.has(p)) continue;
         if (lv.level === 'country' && p.country === lv.country && p.subs.length) {
           for (const q of p.subs) out.push({ kind: 'school', key: `s:${q.id}`, members: [q], xyz: q.xyz, count: 1, nation: '', aside: false });
         } else {
@@ -3235,6 +3270,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
      its name finds the room (round 1b: big name pills pushed Switzerland's
      coin to Hamburg). */
   const LABEL_SPOTS = ['below', 'right', 'left', 'above'];
+  const labelW = new Map();   // a name's drawn width, measured the first time it shows
   function labelRect(pos, x, y, r, w) {
     const h = 22;
     if (pos === 'below') return [x - w / 2, y + r + 3, x + w / 2, y + r + 3 + h];
@@ -3253,6 +3289,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
    * show them apart.
    */
   function relax(items, disc = null, furniture = []) {
+    /* A level just entered settles in its first frame — the pull home and the
+       push apart run to rest at once — so nothing moves under a reader's
+       finger a moment later, and every visit draws the same picture. */
+    const fresh = items.some((it) => it.fresh);
+    for (let cycle = 0; cycle < (fresh ? 10 : 1); cycle++) relaxOnce(items, disc, furniture);
+  }
+  function relaxOnce(items, disc, furniture) {
     for (const it of items) { it.x += (it.s.x - it.x) * 0.25; it.y += (it.s.y - it.y) * 0.25; }
     const mass = (it) => it.r * (it.g.aside ? 0.35 : 1);
     const abs = (it) => [it.x + it.box[0], it.y + it.box[1], it.x + it.box[2], it.y + it.box[3]];
@@ -3301,8 +3344,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
         if (d > room && room > 0) { it.x = disc.cx + (dx / d) * room; it.y = disc.cy + (dy / d) * room; }
       }
       /* Inside the stage, box and all (round 1: neighbours cut off at the top). */
-      it.x = Math.min(W - it.box[2] - 2, Math.max(-it.box[0] + 2, it.x));
-      it.y = Math.min(H - it.box[3] - 2, Math.max(-it.box[1] + 2, it.y));
+      it.x = Math.min(W - it.box[2] - 14, Math.max(-it.box[0] + 14, it.x));
+      it.y = Math.min(H - it.box[3] - 14, Math.max(-it.box[1] + 14, it.y));
       lvOff.set(it.g.key, [it.x - it.s.x, it.y - it.s.y]);
     }
   }
@@ -3333,8 +3376,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
         s = { x: disc.cx + (dx / l) * disc.r * 0.82, y: disc.cy + (dy / l) * disc.r * 0.82, facing: 0.25, behind: true };
       }
       if (!(s.facing > (disc ? 0.08 : 0.02) && s.x > -r && s.x < W + r && s.y > -r && s.y < H + r)) continue;
-      const off = lvOff.get(g.key) || [0, 0];
-      items.push({ g, s, r, box: lvBox(g, r), x: s.x + off[0], y: s.y + off[1] });
+      const off = lvOff.get(g.key);
+      items.push({ g, s, r, box: lvBox(g, r), x: s.x + (off?.[0] || 0), y: s.y + (off?.[1] || 0), fresh: !off });
     }
     relax(items, disc, furniture);
 
@@ -3352,7 +3395,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       const dim = g.members.every((m) => m.dim);
       const on = g.members.some((m) => litSet.has(m.id) || (!!m.parent && litSet.has(m.parent.id)));
       const dx = x - s.x, dy = y - s.y, d = Math.hypot(dx, dy);
-      if (d > 3 && fade > 0.3) {
+      if (d > 3 && fade > 0.3 && !g.aside) {
         threads += `M${s.x.toFixed(1)} ${s.y.toFixed(1)}L${(x - (dx / d) * r).toFixed(1)} ${(y - (dy / d) * r).toFixed(1)}`;
         dots += `M${(s.x - 2).toFixed(1)} ${s.y.toFixed(1)}a2 2 0 1 0 4 0a2 2 0 1 0-4 0`;
       }
@@ -3396,7 +3439,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
         const labelKey = `${g.key}|${name}`;
         if (labelEl._for !== labelKey) {
           labelEl._for = labelKey;
-          labelEl.replaceChildren(...(g.kind === 'country' ? [flagEl(g.nation)] : []), el('span', { class: 'world__cluster-name' }, name));
+          labelEl.replaceChildren(...(g.kind === 'country' ? [flagEl(g.nation), el('span', { class: 'world__cluster-code' }, g.nation.toUpperCase())] : []), el('span', { class: 'world__cluster-name' }, name));
         }
         const A = [x + it.box[0], y + it.box[1], x + it.box[2], y + it.box[3]];
         obstacles.push({ id: g.key, rect: A });
@@ -3434,7 +3477,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
     for (const w of wanted.filter((v) => v.country)) {
       let spot = null;
       for (const short of [false, true]) {
-        const width = short ? 32 : w.name.length * 6.6 + 44;
+        /* Its real width once it has been drawn; an estimate until then
+           (round 2b: a long name ran past the stage's edge). */
+        const width = labelW.get(`${w.name}|${short}`) || (short ? 50 : w.name.length * 6.6 + 44);
         for (const pos of LABEL_SPOTS) {
           const rect = labelRect(pos, w.x, w.y, w.r, width);
           if (fits(rect, w.id)) { spot = { pos, short, rect }; break; }
@@ -3443,11 +3488,13 @@ export async function mountGlobe(figure, { onFail } = {}) {
       }
       /* Nowhere free: its flag under it all the same — a coin is never
          nameless (it may touch a neighbour's name). */
-      if (!spot) spot = { pos: 'below', short: true, rect: labelRect('below', w.x, w.y, w.r, 32) };
+      if (!spot) spot = { pos: 'below', short: true, rect: labelRect('below', w.x, w.y, w.r, 50) };
       taken.push(spot.rect);
       w.node.toggleAttribute('data-label', true);
       w.node.dataset.pos = spot.pos;
       w.node.toggleAttribute('data-short', spot.short);
+      const wk = `${w.name}|${spot.short}`;
+      if (!labelW.has(wk)) { const lw = w.node.children[2].offsetWidth; if (lw) labelW.set(wk, lw + 2); }
     }
     for (const w of wanted.filter((v) => !v.country)) {
       const width = w.name.length * 6.6 + 18;
@@ -3465,6 +3512,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
         placed = i;
         taken.push(rect);
       }
+      /* The chosen university is named whatever else is there. */
+      if (placed < 0 && w.rank >= 8) placed = w.x + w.r + 3 + width > W - 4 ? 1 : 0;
       w.node.toggleAttribute('data-label', placed >= 0);
       w.node.toggleAttribute('data-flip', placed === 1);
     }
@@ -3608,8 +3657,10 @@ export async function mountGlobe(figure, { onFail } = {}) {
     downOn = e.target.closest('.world__pin, .world__cluster');
     if (closeActive) { moved = false; return; } // the close map drags itself
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    flight = null;
-    rush = 0;
+    /* On a levels page a press does not stop a flight — only a drag does: a
+       second click that is then let go (a double click) stranded the camera
+       between two levels (round 2, B1). */
+    if (!levels) { flight = null; rush = 0; }
     spin = null;
     if (pointers.size === 1) {
       moved = false;
@@ -3652,6 +3703,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
     if (!moved && Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 5) {
       moved = true;
+      if (levels && flight) { flight = null; rush = 0; clusterAt = -1; }
       /* Captured only once it is a drag: capturing on the press would retarget
          the click to the stage and a pin could never be clicked. */
       try { stage.setPointerCapture(e.pointerId); } catch {}
@@ -3800,6 +3852,30 @@ export async function mountGlobe(figure, { onFail } = {}) {
     if (!e.target.isConnected) return true;
     const node = e.target.closest('.world__pin, .world__cluster') || downOn;
     if (performance.now() - lvChoseAt < 450) { downOn = null; return !!node; }
+    /* A press on a name is a press on its own node, wherever the nearest
+       centre is (round 2, M1: a country's name opened its neighbour). */
+    /* By where the names are drawn, not by which element is on top: a
+       neighbour's fingertip-sized target can lie over a name (round 2b). */
+    const label = [...pinLayer.querySelectorAll('.world__pin[data-label]:not([hidden]) .world__pin-label, .world__cluster[data-label]:not([hidden]) .world__pin-label')]
+      .map((l) => ({ l, r: l.getBoundingClientRect() }))
+      .filter(({ r }) => e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
+      .sort((a, b) => Math.hypot(a.r.left + a.r.width / 2 - e.clientX, a.r.top + a.r.height / 2 - e.clientY) - Math.hypot(b.r.left + b.r.width / 2 - e.clientX, b.r.top + b.r.height / 2 - e.clientY))[0]?.l;
+    const owner = label?.closest('.world__pin, .world__cluster');
+    if (owner) {
+      const key = owner.classList.contains('world__pin') ? `s:${owner.dataset.place}`
+        : owner._region ? `r:${owner._region}` : owner._nation ? `c:${owner._nation}` : '';
+      const hit = lvHit.find((h) => h.g.key === key);
+      if (hit) {
+        downOn = null;
+        if (e.detail > 1 && key === lvChoseKey) return true;
+        lvChoseKey = key;
+        if (hit.g.kind !== 'school') lvChoseAt = performance.now();
+        if (hit.g.kind === 'school') goToPlace(hit.g.members[0]);
+        else if (hit.g.kind === 'region') goToRegion(hit.g.region.id);
+        else { const c = countryFor(hit.g.nation); if (c) goToCountry(c); }
+        return true;
+      }
+    }
     const sr = stage.getBoundingClientRect();
     const x = e.clientX - sr.left, y = e.clientY - sr.top;
     let best = null, bestD = Infinity;
@@ -3930,7 +4006,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
       _: () => zoomBy(1 / 0.55),
       0: () => (levels ? goWorld() : goHome()),
       Escape: () => {
-        if (levels) { if (card.hidden) levelStep(-1); else closeCard({ restore: true }); return; }
+        if (levels) { if (card.hidden) levelStep(-1); else { closeCard({ restore: true }); if (!figure.contains(document.activeElement) || document.activeElement === document.body) stage.focus({ preventScroll: true }); } return; }
         if (card.hidden) goHome(); else { closeCard({ restore: true }); clearChoice(); }
       },
     };
@@ -4078,6 +4154,9 @@ export async function mountGlobe(figure, { onFail } = {}) {
           a?.toggleAttribute('data-dim', p.dim);
         }
         void selected;
+        /* A country's card opened before the page counted (a link that opens
+           on it) is redrawn with the numbers. */
+        if (!card.hidden && cardFor === `c:${lv.country}`) countryCard(countryFor(lv.country));
         clusterAt = -1;
         camDirty = true;
         kick();
@@ -4115,6 +4194,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
     show(spec, { push = true } = {}) {
       if (!spec) return false;
       shownAt = popAt;
+      lastShowAt = performance.now();
       setTimeout(() => { if (shownAt === popAt) shownAt = -1; }, 0);
       if (spec.place) { const p = byId.get(spec.place); if (!p) return false; goToPlace(p, { push }); return true; }
       if (spec.country) { const c = levels ? countryFor(spec.country) : geography.byId.get(spec.country); if (!c) return false; goToCountry(c, { push }); return true; }
@@ -4180,7 +4260,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   if (linked) {
     const sel = { kind: linked[1], id: decodeURIComponent(linked[2]) };
     restoring = true;
-    try { if (select(sel)) { currentSel = sel; announceChoice(sel, { restored: true }); } } finally { restoring = false; }
+    try { if (select(sel)) { currentSel = sel; announceChoice(sel, { restored: true, initial: true }); } } finally { restoring = false; }
   }
   return controller;
 }

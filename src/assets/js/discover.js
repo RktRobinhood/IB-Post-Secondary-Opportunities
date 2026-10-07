@@ -234,7 +234,8 @@ const keepScope = (codes) => {
 };
 world?.figure.addEventListener('world:choose', (e) => {
   const d = e.detail || {};
-  if (driving || d.restored) return;
+  // A link that opens on a choice (#country=dk) narrows the cards as the click would.
+  if (driving || (d.restored && !d.initial)) return;
   if (d.kind === 'place' && PLACES[d.id]) {
     clearGlobeChoice();
     state.place = d.id;

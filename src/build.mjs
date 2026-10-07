@@ -365,7 +365,8 @@ async function main() {
         return p && !p.external ? url(p.src) : '';
       })(),
       /* Its one-line hook, for its postcard on the globe. */
-      tagline: d.tagline || placeTiles(site).find((t) => t.code === d.code)?.tagline || '',
+      /* The same words as its tile in the lists beside it. */
+      tagline: placeTiles(site).find((t) => t.code === d.code)?.tagline || d.tagline || '',
       /* The globe's top level: the continent its record puts it in. */
       continent: continentOf(d)?.id || '',
       continentName: continentOf(d)?.name || '',
