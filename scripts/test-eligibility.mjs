@@ -61,14 +61,18 @@ function* identifiers(source) {
       const start = i + 1;
       let j = start;
       while (j < source.length && source[j] !== c) j += source[j] === '\\' ? 2 : 1;
-      yield { text: source.slice(start, j), index: start, raw: `the literal ${JSON.stringify(source.slice(start, j).slice(0, 60))}` };
+      // A template literal's ${…} is code, not part of the string.
+      const text = c === '`' ? source.slice(start, j).replace(/\$\{[^}]*\}/g, ' ') : source.slice(start, j);
+      yield { text, index: start, raw: `the literal ${JSON.stringify(source.slice(start, j).slice(0, 60))}` };
       i = j;
       continue;
     }
     if (c === '.' && /[A-Za-z_$]/.test(source[i + 1] || '')) {
       let j = i + 1;
       while (j < source.length && /[\w$]/.test(source[j])) j++;
-      yield { text: source.slice(i + 1, j), index: i + 1, raw: `the property ".${source.slice(i + 1, j)}"` };
+      // `.id` is every record's identity field before it is Indonesia (9
+      // October 2026, when Indonesia became a country here).
+      if (source.slice(i + 1, j) !== 'id') yield { text: source.slice(i + 1, j), index: i + 1, raw: `the property ".${source.slice(i + 1, j)}"` };
       i = j - 1;
     }
   }

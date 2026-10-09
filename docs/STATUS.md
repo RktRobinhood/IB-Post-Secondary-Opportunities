@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 7 October 2026 (evening).** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 9 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,36 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
+
+## 9 October: the rest of the world, as outlines
+
+Owner: no pins in Africa, South America or the Caribbean; "superficial,
+quick… base basics… pins on maps", fleshing out in a couple of weeks.
+Weekly usage was already 89%; the owner allowed up to 93%.
+
+- Re-read the whole IB Recognition Statements index in the app's browser
+  (2,168 statements today): **198 universities in 47 countries** the site
+  did not list. Raw rows: `data/harvests/ib-world-2026-10-09.tsv`; cities
+  from OpenStreetMap (`scripts/geocode-ib-world.mjs`, cached).
+- `scripts/import-ib-world.mjs` writes each as an **outline** country
+  (`data/countries/<cc>.json` with `"outline": "ib-world-2026-10"`, no
+  Destination record, so not held to the publication floor), a place per
+  city, and the statement + Evidence per university. Re-running rewrites
+  only outline countries; a country researched by hand is skipped.
+- Every country and university has its own page and a pin; /countries/
+  shows outline countries as chips under their region ("Basics only, so
+  far"). Latin American universities that teach only in Spanish or
+  Portuguese are included and say so.
+- Guard changes: the globe's 80% photo floor counts only non-outline
+  countries; the eligibility code guard ignores `.id` and template `${}`
+  (Indonesia is `id`).
+- Known gaps: pins share their city's point; Boğaziçi's statement links
+  to a Romanian university's site (we use bogazici.edu.tr); 16 positions
+  set by hand at city level (`POSITION_FIX`).
+
+**Next for these:** pick the countries worth depth (by transcripts: India,
+Egypt, Lebanon, South Africa, Cyprus, Malaysia, Philippines, Türkiye,
+Qatar), then the usual pipeline (`docs/COUNTRY_PIPELINE.md`).
 
 ## 7 October (evening): universities outside Europe — wave 3
 

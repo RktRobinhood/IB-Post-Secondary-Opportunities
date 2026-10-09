@@ -81,8 +81,10 @@ ${hero({
             outline.length
               ? [
                   html`<strong>Orientation</strong>`,
-                  `The remaining ${plural(outline.length, 'country', 'countries')}: ${outline.map((c) => c.name).join(', ')}`,
-                  `A researched profile with what to watch out for. Treat as a starting point for a conversation, not as an answer.`,
+                  outline.length > 8
+                    ? html`The remaining ${plural(outline.length, 'country', 'countries')}, under "Basics only" on <a href="${url('/countries/')}">Countries</a>`
+                    : `The remaining ${plural(outline.length, 'country', 'countries')}: ${outline.map((c) => c.name).join(', ')}`,
+                  `Its universities, where they are and their IB statements. A starting point for a conversation, not an answer.`,
                 ]
               : null,
           ].filter(Boolean),

@@ -681,8 +681,13 @@ check('the globe does not branch on a country', () => {
   let schoolCount = 0, withPhoto = 0;
   for (const c of site.countries) {
     const list = schoolsOf(site, c);
-    schoolCount += list.length;
-    withPhoto += list.filter((x) => x.image).length;
+    /* An outline country (owner, 9 October 2026: pins first, "the full
+       fleshing out will come later") has no photographs yet by design; the
+       floor holds for every country that has been profiled. */
+    if (c.researchDepth?.tier !== 'outline') {
+      schoolCount += list.length;
+      withPhoto += list.filter((x) => x.image).length;
+    }
     /* Initials where the record has a full name (ESADE's full name is ESADE). */
     const fullName = new Map((c.institutions || []).map((i) => [i.key || i.id, i.name]));
     /* Round 2: "U of T", "Dal", "Unistra", "Nord" and "Michigan". A school's

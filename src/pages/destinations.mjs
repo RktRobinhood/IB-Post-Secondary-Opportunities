@@ -463,7 +463,13 @@ ${hero({
         ${h.regions.map(
           (g) => html`<div class="region" id="${regionSlug(g.region)}">
             <h3 class="region__name">${regionHeadline(g.region)}</h3>
-            <ul class="tiles" role="list">${g.list.map((c) => countryTile(site, c))}</ul>
+            ${g.list.some((c) => c.researchDepth?.tier !== 'outline')
+              ? html`<ul class="tiles" role="list">${g.list.filter((c) => c.researchDepth?.tier !== 'outline').map((c) => countryTile(site, c))}</ul>`
+              : ''}
+            ${g.list.some((c) => c.researchDepth?.tier === 'outline')
+              ? html`<p class="region__outline">Basics only, so far:</p>
+                <ul class="chips" role="list">${g.list.filter((c) => c.researchDepth?.tier === 'outline').map((c) => html`<li><a class="chip" href="${url(c.href)}">${c.flag ? `${c.flag} ` : ''}${c.name}</a></li>`)}</ul>`
+              : ''}
           </div>`
         )}
       </div>`
@@ -479,6 +485,8 @@ ${mapPlaces.length
           places: mapPlaces,
           id: 'index-countries',
           unit: 'institution',
+          // The page above already names every country, so the list folds.
+          foldList: 'Every country',
           poster: '/assets/img/globe/poster-index-countries.webp',
           activeLayer: 'Destinations covered',
           caption: 'Choose a continent, then a country, then a university.',
