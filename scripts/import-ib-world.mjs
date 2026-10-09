@@ -167,6 +167,7 @@ let evidence = JSON.parse(fs.readFileSync(evidenceFile, 'utf8'));
 
 const byCountry = Map.groupBy(rows, (r) => r.country);
 let nInst = 0, nPlaces = 0;
+const otherLanguage = [];
 for (const [country, list] of byCountry) {
   const meta = COUNTRIES[country];
   if (!meta) throw new Error(`no country metadata for ${country}`);
@@ -179,12 +180,28 @@ for (const [country, list] of byCountry) {
   /* Drop earlier generated statements and evidence for this country. */
   for (const k of Object.keys(statements.statements)) if (k.startsWith(`${cc}-`) && statements.statements[k].retrievedAt === ASOF) delete statements.statements[k];
   evidence = evidence.filter((e) => !(e.id.startsWith(`ev-ibrs-${cc}-`) && e.retrievedAt === ASOF));
+  for (const f of fs.readdirSync('data/places').filter((f) => f.startsWith(`${cc}-`))) {
+    const p = JSON.parse(fs.readFileSync(`data/places/${f}`, 'utf8'));
+    if (p.destination === cc && p.meta?.dataAsOf === ASOF) fs.unlinkSync(`data/places/${f}`);
+  }
+
+  /* English is the site's default language of instruction (owner, 9 October
+     2026). A university that teaches in no English is recorded, not shown,
+     until the front page can filter by language. */
+  list.sort((a, b) => (b.transcripts ?? 0) - (a.transcripts ?? 0) || a.ibName.localeCompare(b.ibName));
+  for (const r of list.filter((x) => !x.langs.includes('English'))) {
+    otherLanguage.push({ country: cc, name: cleanName(r.ibName), languages: r.langs, city: CITY_NAME[cities[r.id]?.city] || cities[r.id]?.city || capital, lat: r.lat ?? null, lon: r.lon ?? null, website: WEBSITE_FIX[r.ibName] || r.website, statementUrl: `https://recognition.ibo.org/en-US/university-statements/?id=${r.id}`, transcripts5y: r.transcripts });
+  }
+  const englishList = list.filter((x) => x.langs.includes('English'));
+  if (!englishList.length) {
+    if (fs.existsSync(file)) fs.unlinkSync(file);
+    continue;
+  }
 
   const places = new Map();
   const institutions = [];
   const seen = new Set();
-  list.sort((a, b) => (b.transcripts ?? 0) - (a.transcripts ?? 0) || a.ibName.localeCompare(b.ibName));
-  for (const r of list) {
+  for (const r of englishList) {
     const name = cleanName(r.ibName);
     let key = `${cc}-${slugify(name)}`;
     if (seen.has(key)) continue;
@@ -203,6 +220,7 @@ for (const [country, list] of byCountry) {
       admissionsUrl: admissions,
       ibPageUrl: null,
       englishBachelors: taught(r.langs),
+      languages: r.langs,
       place: placeId,
     });
     statements.statements[key] = {
@@ -230,7 +248,7 @@ for (const [country, list] of byCountry) {
   for (const p of places.values()) { fs.writeFileSync(`data/places/${p.id}.json`, JSON.stringify(p, null, 2) + '\n'); nPlaces++; }
 
   const n = institutions.length;
-  const english = list.filter((r) => r.langs.includes('English')).length;
+  const english = englishList.length;
   const profile = {
     code: cc, name: country === 'Virgin Islands (U.S.)' ? 'US Virgin Islands' : country, adjective, region,
     ...(EUROPE.has(cc) ? {} : { scope: 'worldwide' }),
@@ -250,6 +268,11 @@ for (const [country, list] of byCountry) {
   };
   fs.writeFileSync(file, JSON.stringify(profile, null, 2) + '\n');
 }
+fs.writeFileSync('data/other-language-institutions.json', JSON.stringify({
+  $comment: 'Universities with an IB statement that teach in no English, from scripts/import-ib-world.mjs. Recorded, not shown: English is the default language of instruction until the front page filters by language.',
+  retrievedAt: ASOF,
+  institutions: otherLanguage,
+}, null, 2) + '\n');
 fs.writeFileSync(statementsFile, JSON.stringify(statements, null, 2) + '\n');
 fs.writeFileSync(evidenceFile, JSON.stringify(evidence, null, 2) + '\n');
-console.log(`${byCountry.size} countries, ${nInst} institutions, ${nPlaces} places`);
+console.log(`${nInst} institutions shown, ${nPlaces} places; ${otherLanguage.length} recorded in other languages`);

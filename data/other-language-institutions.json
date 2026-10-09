@@ -1,0 +1,864 @@
+{
+  "$comment": "Universities with an IB statement that teach in no English, from scripts/import-ib-world.mjs. Recorded, not shown: English is the default language of instruction until the front page filters by language.",
+  "retrievedAt": "2026-10-09",
+  "institutions": [
+    {
+      "country": "br",
+      "name": "Fundação Getulio Vargas",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Rio de Janeiro",
+      "lat": -22.9416613,
+      "lon": -43.1800529,
+      "website": "https://portal.fgv.br/en",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=c1f02b5d-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 231
+    },
+    {
+      "country": "br",
+      "name": "Insper",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5986013,
+      "lon": -46.6859858,
+      "website": "https://www.insper.edu.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=eb0a5ad0-bade-ed11-a7c7-002248ebf6a1",
+      "transcripts5y": 166
+    },
+    {
+      "country": "br",
+      "name": "Faculdade Israelita de Ciências da Saúde Albert Einstein",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.6,
+      "lon": -46.71,
+      "website": "https://ensino.einstein.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=d4a87893-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 67
+    },
+    {
+      "country": "br",
+      "name": "PUC-SP - Pontifícia Universidade Católica de São Paulo",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5380974,
+      "lon": -46.6710023,
+      "website": "https://www.pucsp.br",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=cc509d6f-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 67
+    },
+    {
+      "country": "br",
+      "name": "Escola Superior de Propaganda e Marketing",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5898948,
+      "lon": -46.6399589,
+      "website": "https://www.espm.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=f84a1022-f2a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 37
+    },
+    {
+      "country": "br",
+      "name": "Instituto IBMEC",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5576762,
+      "lon": -46.6622687,
+      "website": "https://estude.ibmec.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=cd3d8ff0-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 37
+    },
+    {
+      "country": "br",
+      "name": "Faculdade São Leopoldo Mandic",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Itatiba",
+      "lat": -23.0116344,
+      "lon": -46.8375899,
+      "website": "https://slmandic.edu.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=56fa7d8d-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 21
+    },
+    {
+      "country": "br",
+      "name": "Faculdade Santa Marcelina",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5362385,
+      "lon": -46.6651698,
+      "website": "https://www.santamarcelina.edu.br/faculdade/saopaulo/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=00a77893-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 17
+    },
+    {
+      "country": "br",
+      "name": "Faculdade Sírio-Libanês",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.56,
+      "lon": -46.65,
+      "website": "https://www.faculdadesiriolibanes.org.br/fsl/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ae67e823-9328-ef11-840b-002248ebe682",
+      "transcripts5y": 15
+    },
+    {
+      "country": "br",
+      "name": "Centro Universitário São Camilo",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Cachoeiro de Itapemirim",
+      "lat": -20.8602409,
+      "lon": -41.1210479,
+      "website": "https://saocamilo-sp.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=374c0cbd-9828-ef11-840b-002248ebe682",
+      "transcripts5y": 11
+    },
+    {
+      "country": "br",
+      "name": "Fundação Armando Alvares Penteado",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5450358,
+      "lon": -46.6629439,
+      "website": "https://www.faap.br",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=fb5537fe-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 10
+    },
+    {
+      "country": "br",
+      "name": "PUC-PR - Pontifícia Universidade Católica do Paraná",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Curitiba",
+      "lat": -25.4515693,
+      "lon": -49.2527472,
+      "website": "https://www.pucpr.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=3f512a0a-f2a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 9
+    },
+    {
+      "country": "br",
+      "name": "Link School of Business",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5840579,
+      "lon": -46.669732,
+      "website": "https://lsb.edu.br/en/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=05519d6f-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 7
+    },
+    {
+      "country": "br",
+      "name": "FIA Business School",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.57,
+      "lon": -46.69,
+      "website": "https://fia.com.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=bf762869-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 6
+    },
+    {
+      "country": "br",
+      "name": "Instituto de Tecnologia e Liderança",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5558659,
+      "lon": -46.7338681,
+      "website": "https://www.inteli.edu.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=18f13476-ba28-ef11-840b-002248ebe682",
+      "transcripts5y": 2
+    },
+    {
+      "country": "br",
+      "name": "FAE Centro Universitário",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Curitiba",
+      "lat": -25.4378712,
+      "lon": -49.2739405,
+      "website": "https://www.fae.edu",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=c7c95c68-1c11-ef11-9f8a-000d3a80dfc2",
+      "transcripts5y": 1
+    },
+    {
+      "country": "br",
+      "name": "Instituto de Educação Médica",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Rio de Janeiro",
+      "lat": -22.9,
+      "lon": -43.2,
+      "website": "https://www.idomed.com.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=65a49e8b-cc19-f011-998a-002248ee599c",
+      "transcripts5y": 1
+    },
+    {
+      "country": "br",
+      "name": "Centro Universitário Barão de Mauá",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Ribeirão Preto",
+      "lat": -21.1828115,
+      "lon": -47.7970976,
+      "website": "https://www.baraodemaua.br",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=fa0c6d83-a00f-ee11-8f6e-6045bd55e414",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Cesar School",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Recife",
+      "lat": -8.0596986,
+      "lon": -34.8724827,
+      "website": "https://www.cesar.school/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=87f882d5-02a6-f111-aaad-70a8a50379fd",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Escola de Negócios Saint Paul",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5514374,
+      "lon": -46.6557393,
+      "website": "https://www.saintpaul.com.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=f7d66e17-a4c3-f011-bbd3-00224817eaeb",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Faculdade Belavista",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.555757,
+      "lon": -46.6784019,
+      "website": "https://faculdadebelavista.edu.br",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=8fefb6e9-dcd7-ef11-8ee9-000d3a818591",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Faculdade ESEG - Grupo ETAPA",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5758368,
+      "lon": -46.6404893,
+      "website": "https://lp.eseg.edu.br/vestibular/exame-internacional",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=fd2a8f56-d96d-f011-b4cb-6045bd5a1521",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Faculdade Presbiteriana Mackenzie Rio",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Rio de Janeiro",
+      "lat": -22.9433098,
+      "lon": -43.1842789,
+      "website": "https://www.mackenzie.br/faculdades/rio",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=cc7961c9-0601-f111-8406-7ced8dfee0ff",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "INATEL - Instituto Nacional de Telecomunicações",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Santa Rita do Sapucaí",
+      "lat": -22.26,
+      "lon": -45.7,
+      "website": "https://inatel.br/home/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ab438132-70ae-f011-bbd2-000d3a813a46",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Instituto Brasileiro de Ensino, Desenvolvimento e Pesquisa",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Brasília",
+      "lat": -15.83,
+      "lon": -47.92,
+      "website": "https://www.idp.edu.br",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ead87ffc-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Istituto Europeo di Design (IED) - Brazil",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Paulo",
+      "lat": -23.5439985,
+      "lon": -46.6584718,
+      "website": "https://www.ied.edu/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=872d0edd-a2d9-f011-8544-002248ed75a0",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Unisinos - Universidade do Vale do Rio dos Sinos",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "São Leopoldo",
+      "lat": -29.79,
+      "lon": -51.15,
+      "website": "https://www.unisinos.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=2eff0179-9a97-f011-b41c-00224819794a",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Universidade Católica de Pernambuco",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Recife",
+      "lat": -8.0544962,
+      "lon": -34.886449,
+      "website": "https://portal.unicap.br",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=702279ff-bbb5-f111-aaae-70a8a50379fd",
+      "transcripts5y": 0
+    },
+    {
+      "country": "br",
+      "name": "Universidade Veiga de Almeida",
+      "languages": [
+        "Portuguese"
+      ],
+      "city": "Rio de Janeiro",
+      "lat": -22.9545265,
+      "lon": -43.1851833,
+      "website": "https://uva.br/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=6b618cc7-4848-f011-877a-6045bd572ca9",
+      "transcripts5y": 0
+    },
+    {
+      "country": "mx",
+      "name": "Instituto Tecnológico Autónomo de México",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Mexico City",
+      "lat": 19.345143,
+      "lon": -99.1998346,
+      "website": "https://www.itam.mx/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=144f1d16-f2a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 33
+    },
+    {
+      "country": "mx",
+      "name": "Universidad de las Américas Puebla",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Puebla",
+      "lat": 19.0548945,
+      "lon": -98.2845204,
+      "website": "https://www.udlap.mx",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=820bdf9a-f2a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 28
+    },
+    {
+      "country": "mx",
+      "name": "Centro de Enseñanza Técnica y Superior",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Mexicali",
+      "lat": 32.6547625,
+      "lon": -115.4084339,
+      "website": "https://www.cetys.mx/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=47fc5239-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 20
+    },
+    {
+      "country": "mx",
+      "name": "Universidad Popular Autónoma del Estado de Puebla",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Puebla",
+      "lat": 19.0479853,
+      "lon": -98.2161428,
+      "website": "https://upaep.mx/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=52bf680e-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 11
+    },
+    {
+      "country": "co",
+      "name": "Universidad de los Andes - Colombia",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Bogotá",
+      "lat": 4.6019995,
+      "lon": -74.0660674,
+      "website": "https://uniandes.edu.co/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=1aff2878-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 257
+    },
+    {
+      "country": "co",
+      "name": "Pontificia Universidad Javeriana",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Bogota, Capital District",
+      "lat": 4.6284875,
+      "lon": -74.0646645,
+      "website": "https://www.javeriana.edu.co",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ea08f5a7-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 137
+    },
+    {
+      "country": "co",
+      "name": "Universidad del Norte de Barranquilla",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Puerto Colombia",
+      "lat": 11.0190513,
+      "lon": -74.8511425,
+      "website": "https://www.uninorte.edu.co/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=3c083ff8-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 102
+    },
+    {
+      "country": "co",
+      "name": "Universidad de la Sabana",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Chía",
+      "lat": 4.8609012,
+      "lon": -74.0332416,
+      "website": "https://www.unisabana.edu.co/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=0fff2878-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 60
+    },
+    {
+      "country": "co",
+      "name": "Universidad ICESI",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Cali",
+      "lat": 3.3408806,
+      "lon": -76.5291786,
+      "website": "https://www.icesi.edu.co/es/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=2c083ff8-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 40
+    },
+    {
+      "country": "co",
+      "name": "Pontificia Universidad Javeriana Cali",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Cali",
+      "lat": 3.3471455,
+      "lon": -76.5330245,
+      "website": "https://www.javerianacali.edu.co/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=71bf4a45-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 38
+    },
+    {
+      "country": "co",
+      "name": "Universidad CES de Medellin",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Medellín",
+      "lat": 6.2079648,
+      "lon": -75.5524533,
+      "website": "https://www.ces.edu.co",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ec293063-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 4
+    },
+    {
+      "country": "ec",
+      "name": "Pontificia Universidad Católica del Ecuador",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Quito",
+      "lat": -0.2100419,
+      "lon": -78.4917316,
+      "website": "https://www.puce.edu.ec/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=6bff2878-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 44
+    },
+    {
+      "country": "ec",
+      "name": "Escuela Superior Politecnica del Litoral",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Guayaquil",
+      "lat": -2.147712,
+      "lon": -79.9647289,
+      "website": "http://www.admision.espol.edu.ec/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=028a87f6-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 19
+    },
+    {
+      "country": "il",
+      "name": "Hebrew University of Jerusalem",
+      "languages": [
+        "Hebrew"
+      ],
+      "city": "Jerusalem",
+      "lat": 31.7945578,
+      "lon": 35.2414009,
+      "website": "http://en.huji.ac.il",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ab002978-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 46
+    },
+    {
+      "country": "ar",
+      "name": "Universidad de San Andrés",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Victoria",
+      "lat": -34.4461878,
+      "lon": -58.5302426,
+      "website": "https://udesa.edu.ar/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=46b13072-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 29
+    },
+    {
+      "country": "ar",
+      "name": "Universidad Austral",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Pilar",
+      "lat": -34.45,
+      "lon": -58.91,
+      "website": "https://www.austral.edu.ar/internacionales/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=23b13072-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 19
+    },
+    {
+      "country": "ar",
+      "name": "Universidad Argentina de la Empresa",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Buenos Aires",
+      "lat": -34.617,
+      "lon": -58.383,
+      "website": "https://www.uade.edu.ar/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=69aa49ec-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 17
+    },
+    {
+      "country": "ar",
+      "name": "Instituto Tecnológico de Buenos Aires",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Buenos Aires",
+      "lat": -34.6036105,
+      "lon": -58.3677499,
+      "website": "https://www.itba.edu.ar/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ffaf2773-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 16
+    },
+    {
+      "country": "ar",
+      "name": "Pontificia Universidad Católica Argentina",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Buenos Aires",
+      "lat": -34.61,
+      "lon": -58.36,
+      "website": "https://uca.edu.ar/es/home",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=03b02773-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 10
+    },
+    {
+      "country": "pe",
+      "name": "Pontificia Universidad Católica del Perú",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Lima",
+      "lat": -12.0687255,
+      "lon": -77.0781351,
+      "website": "https://www.pucp.edu.pe",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=9d981984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 90
+    },
+    {
+      "country": "pe",
+      "name": "Universidad de Lima",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Lima",
+      "lat": -12.0855294,
+      "lon": -76.9707007,
+      "website": "https://www.ulima.edu.pe/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=dc981984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 54
+    },
+    {
+      "country": "pe",
+      "name": "Universidad Peruana de Ciencias Aplicadas",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Lima",
+      "lat": -12.1042236,
+      "lon": -76.9634146,
+      "website": "https://www.upc.edu.pe/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=c5981984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 33
+    },
+    {
+      "country": "pe",
+      "name": "Universidad del Pacífico",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Lima",
+      "lat": -12.0838826,
+      "lon": -77.0483187,
+      "website": "https://www.up.edu.pe/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=f6981984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 28
+    },
+    {
+      "country": "pe",
+      "name": "Universidad de Ingeniería y Tecnología",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Lima",
+      "lat": -12.1351351,
+      "lon": -77.0221296,
+      "website": "https://utec.edu.pe/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=f1be4a45-f3a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 13
+    },
+    {
+      "country": "pe",
+      "name": "Universidad San Ignacio de Loyola",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Lima",
+      "lat": -12.0734444,
+      "lon": -76.9521089,
+      "website": "https://usil.edu.pe/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=d5981984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 7
+    },
+    {
+      "country": "pe",
+      "name": "Universidad de Piura",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Piura",
+      "lat": -5.1729903,
+      "lon": -80.6394912,
+      "website": "https://www.udep.edu.pe/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=df981984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 6
+    },
+    {
+      "country": "cl",
+      "name": "Universidad del Desarrollo",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Santiago",
+      "lat": -33.39,
+      "lon": -70.5,
+      "website": "https://www.udd.cl/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=d4991984-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 170
+    },
+    {
+      "country": "cl",
+      "name": "Universidad de los Andes - Chile",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Santiago",
+      "lat": -33.4055479,
+      "lon": -70.5061571,
+      "website": "https://www.uandes.cl/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=c7212779-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 155
+    },
+    {
+      "country": "cl",
+      "name": "Universidad Adolfo Ibañez",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Santiago",
+      "lat": -33.4214361,
+      "lon": -70.5916782,
+      "website": "https://www.uai.cl/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=96fe2878-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 154
+    },
+    {
+      "country": "cl",
+      "name": "Universidad Diego Portales",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Santiago",
+      "lat": -33.4500049,
+      "lon": -70.6602964,
+      "website": "https://admision.udp.cl/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=2efe171c-f2a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 33
+    },
+    {
+      "country": "cl",
+      "name": "Universidad Mayor",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Santiago",
+      "lat": -33.3775319,
+      "lon": -70.6135266,
+      "website": "https://www.umayor.cl",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=b5fe2878-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 13
+    },
+    {
+      "country": "cl",
+      "name": "Universidad Central de Chile",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Santiago",
+      "lat": -33.4529674,
+      "lon": -70.6600272,
+      "website": "https://www.ucentral.cl/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=52f841f2-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 4
+    },
+    {
+      "country": "ve",
+      "name": "Universidad Católica Andrés Bello",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Caracas",
+      "lat": 10.4633254,
+      "lon": -66.9773018,
+      "website": "https://www.ucab.edu.ve/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=ac4f9d6f-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 27
+    },
+    {
+      "country": "ve",
+      "name": "Universidad Metropolitana",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "Caracas",
+      "lat": 10.498188,
+      "lon": -66.7845614,
+      "website": "https://www.unimet.edu.ve/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=05a77893-f4a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 27
+    },
+    {
+      "country": "cr",
+      "name": "Universidad de Costa Rica",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "San José",
+      "lat": 9.9372049,
+      "lon": -84.0508641,
+      "website": "https://www.ucr.ac.cr/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=2dff2878-f0a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 24
+    },
+    {
+      "country": "cr",
+      "name": "Universidad de Ciencias Médicas",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "San José",
+      "lat": 9.9340551,
+      "lon": -84.1144886,
+      "website": "https://ucimed.com/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=7f8dceb2-f2a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 17
+    },
+    {
+      "country": "cr",
+      "name": "Universidad Latinoamericana de Ciencia y Tecnología",
+      "languages": [
+        "Spanish"
+      ],
+      "city": "San José",
+      "lat": 9.9411749,
+      "lon": -84.0776008,
+      "website": "https://www.ulacit.ac.cr/",
+      "statementUrl": "https://recognition.ibo.org/en-US/university-statements/?id=dd073ff8-f1a1-ed11-aad1-000d3a85c377",
+      "transcripts5y": 9
+    }
+  ]
+}

@@ -27,8 +27,12 @@ Weekly usage was already 89%; the owner allowed up to 93%.
   only outline countries; a country researched by hand is skipped.
 - Every country and university has its own page and a pin; /countries/
   shows outline countries as chips under their region ("Basics only, so
-  far"). Latin American universities that teach only in Spanish or
-  Portuguese are included and say so.
+  far").
+- **English is the default language of instruction** (owner, same day):
+  the 66 universities that teach in no English are recorded in
+  `data/other-language-institutions.json`, not shown; Argentina, Chile,
+  Peru, Venezuela and Costa Rica wait for them. Shown institutions carry
+  `languages`. The front-page language filter is the next step (issue).
 - Guard changes: the globe's 80% photo floor counts only non-outline
   countries; the eligibility code guard ignores `.id` and template `${}`
   (Indonesia is `id`).
