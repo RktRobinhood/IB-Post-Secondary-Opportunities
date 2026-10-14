@@ -455,7 +455,7 @@ check('there are programmes with local-scale requirements to check', translatedP
   check('no test is written out twice in one requirement card', doubled.length === 0, doubled.slice(0, 5).join(' | '));
   const cbs = await read('programmes', 'dk-cbs-international-business-2027-autumn', 'index.html');
   if (cbs) {
-    const detail = text(cbs.match(/<div class="req-detail"[\s\S]*?<p class="need__how">/)?.[0] || '');
+    const detail = text(cbs.match(/<div class="req-detail"[\s\S]*?(?=<p class="need__cta">|<h2)/)?.[0] || '');
     check('CBS International Business names the Cambridge route beside the English grade', /Cambridge C1 185\+/.test(detail), detail.slice(0, 200));
     check('and writes the IELTS scores out once', (detail.match(/IELTS Academic 7\.0 overall/g) || []).length <= 1, detail.slice(0, 300));
   }

@@ -1099,7 +1099,7 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
   const hidden = units.length - picked.length;
 
   return html`<div class="req" data-req>
-    <p class="req__ib"><strong>${lead}</strong> ${prefix ? html`${prefix}${picked.length ? ' · ' : ''}` : ''}${picked.map((p, i) => html`${i ? ' · ' : ''}${raw(cardForm(toString(p.html)))}`)}${
+    <p class="req__ib"><strong>${lead}</strong> ${picked.map((p, i) => html`${i ? ' · ' : ''}${raw(cardForm(toString(p.html)))}`)}${prefix ? html`${picked.length ? ' · ' : ''}${prefix}` : ''}${
       hidden ? html` <span class="req__count">+${hidden} more</span>` : ''
     }</p>
   </div>`;
@@ -1232,9 +1232,8 @@ export function requirementDetail(entry) {
           ${((other, pts) => html`<details class="need__below"><summary>${other && pts ? `Under ${pts}? ${other[0].toUpperCase()}${other.slice(1)}` : other ? `Otherwise: ${other}` : 'Below this'}</summary><span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span></details>`)(((f.belowFull || '').match(/your way in is ([^:]+):/) || [])[1], (String(f.ib).match(/(\d+) IB points/) || [])[1])}
         </li></ul>`
     )}
-    ${first?.explainedAt
-      ? html`<p class="need__how"><a class="arrow-link" href="${url(first.explainedAt)}">How these requirements read in IB terms</a></p>`
-      : ''}
+    ${/* How a requirement reads in IB terms is the conversion guide's to say;
+          the items above already say it in IB terms (round 14: meta). */ ''}
   </div>`;
 }
 
