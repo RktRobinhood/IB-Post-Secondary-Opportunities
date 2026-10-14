@@ -336,7 +336,7 @@ function programmeSection(site, inst, c) {
             href: o.href,
             title: o.name,
             text: o.school?.summary || firstSentence(o.note, 24) || null,
-            image: pic && !pic.external ? { src: pic.src, alt: pic.alt } : null,
+            image: pic ? { src: pic.src, alt: pic.alt } : null,
             placeholder: o.shortName || o.name,
             meta: [o.city].filter(Boolean),
           }),
@@ -399,10 +399,11 @@ export function schoolPage(site, inst, c, { prev, next }) {
       lede,
       // Some Commons authors wrote a paragraph where their name goes; the line
       // under the photo keeps the name, and /credits/ keeps the rest.
-      image: pic && !pic.external
-        ? { src: pic.src, alt: pic.alt, credit: pic.credit && { ...pic.credit, text: truncate(pic.credit.text, 80) }, focal: '50% 45%' }
+      // Its own share image, hot-linked, where no approved photograph is ours (photo pass, Oct 2026).
+      image: pic
+        ? { src: pic.src, alt: pic.alt, credit: pic.credit && { ...pic.credit, text: truncate(pic.credit.text, 80), url: pic.credit.url && !isHomepage(pic.credit.url, inst.website) ? pic.credit.url : null }, focal: '50% 45%' }
         : null,
-      variant: pic && !pic.external ? undefined : 'panel',
+      variant: pic ? undefined : 'panel',
     },
     glance: [
       { label: 'In English', value: inEnglish },
@@ -446,7 +447,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
     rail: {
       checked: school?.retrieved,
       // Where nothing is taught in English the next step is another school here.
-      action: school?.scope === 'none' || !go
+      action: !go && !school
+        ? null
+        : school?.scope === 'none' || !go
         ? { href: `${c.href}#institutions`, label: `Other schools in ${c.name}` }
         : { href: go.url, label: 'The official page ↗', note: go.label },
       links: [

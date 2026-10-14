@@ -112,7 +112,7 @@ export function university(site, inst, { prev, next }) {
     topics: {
       ib: ibNotes.length || statement
         ? {
-            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : statementShort(statement),
+            short: ibNotes.length ? firstSentence(ibNotes[0], 30) : cutoffRange(inst) || statementShort(statement),
             body: html`${ibNotes.length ? html`<ul>${ibNotes.map((n) => html`<li>${n}</li>`)}</ul>` : ''}
               ${statement?.diplomaPolicy ? html`<blockquote><p>${statement.diplomaPolicy}</p></blockquote>` : ''}
               ${statement ? html`<p><a href="${statement.url}" rel="noopener nofollow">Its IB recognition statement<span aria-hidden="true"> ↗</span></a></p>` : ''}`,
@@ -225,4 +225,13 @@ ${hero({
     // the navigation is the same claim the old heading made.
     body,
   });
+}
+
+/** "Last year's cut-offs: 30–43 IB points, by degree", from its programmes' records. */
+function cutoffRange(inst) {
+  const pts = (inst.programmes || []).map((p) => Number(p.cutoff?.ibPoints)).filter((n) => Number.isFinite(n) && n > 0);
+  if (pts.length < 2) return null;
+  const lo = Math.min(...pts);
+  const hi = Math.max(...pts);
+  return lo === hi ? `Last year's cut-off: ${lo} IB points.` : `Last year's cut-offs: ${lo}–${hi} IB points, by degree.`;
 }

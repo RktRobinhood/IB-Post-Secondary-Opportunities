@@ -207,7 +207,7 @@ export function denmarkHub(site) {
       ({
         id: 'context',
         title: 'What it is actually like',
-        short: `${plural(notes.length, 'observation')} from people who have watched students go through this — observations, not rules.`,
+        short: null,
         body: contextNotes(notes, { heading: false }),
         more: 'Read them',
       }),
@@ -219,7 +219,7 @@ export function denmarkHub(site) {
     hero: {
       region: site.graph?.destinations?.get('dk')?.region || null,
       title: 'Denmark',
-      lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))} — each mapped subject by subject.`,
+      lede: `${plural(totalProgrammes, 'programme')} taught in English, at ${institutionCount(institutions.filter((i) => i.programmes.length))}.`,
       image: pic ? { src: pic.src, alt: pic.alt, credit: pic.credit, focal: '50% 45%', caption: own[0]?.caption || null } : null,
       // The country's further photographs: student life, nature, culture.
       // Universities have their own pages; until Denmark has a gallery, the

@@ -104,7 +104,10 @@ ${/* Other degrees: a band of its own after this programme ends, so it never
         <h2 class="more__title" id="more-here">${vm.more?.cards?.length ? vm.more.title : `More at ${vm.trail.university.label}`}</h2>
         ${vm.more?.cards?.length
           ? html`<div class="prog-siblings">${vm.more.cards}</div>`
-          : html`<p class="more__way"><a class="btn btn--primary" href="${url(vm.trail.university.href)}">${vm.trail.university.label}</a>${vm.trail.country ? html` <a class="btn btn--ghost" href="${url(vm.trail.country.href)}">${vm.trail.country.label}</a>` : ''}</p>`}
+          : html`<div class="more__way">
+              <a class="more__card" href="${url(vm.trail.university.href)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong><span>Every degree here</span></a>
+              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}"><strong>${vm.trail.country.label}</strong><span>Every university</span></a>` : ''}
+            </div>`}
       </div>
     </section>`
   : ''}

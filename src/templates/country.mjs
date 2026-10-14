@@ -88,7 +88,7 @@ export function countryTemplate(vm) {
     : ''}${topic(t)}`);
   const toc = [
     groups.length && ['#institutions', 'Where you can study'],
-    ['#how', 'How it works'],
+    (vm.details.lede || topics.some((t) => t.id !== 'sources')) && ['#how', 'How it works'],
     ...topics.map((t) => [`#${t.id}`, t.title]),
   ].filter(Boolean);
 

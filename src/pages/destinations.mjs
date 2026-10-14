@@ -844,18 +844,22 @@ export function destination(site, c, { prev, next }) {
   const portalShort = portalName.split(/ \(| — | - |[.;,]/)[0].trim();
   const qualified = /\b(only|then|accreditation|information|pre-?enrol)/i.test(portalName);
   const saysNoPortal = /^(none|no central portal|no shared application)\b/i.test(portalName.trim());
+  /* What a student plans with, in a fixed order: when, how much, where,
+     how many. A slot with nothing to say is left out (template review). */
+  const todayIso = new Date().toISOString().slice(0, 10);
+  const upcoming = events.filter((e) => e.date && e.date >= todayIso).sort((a, b) => a.date.localeCompare(b.date));
+  const nextClose = upcoming.find((e) => /\b(clos|deadline)/i.test(e.label || ''));
+  const shortDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
   const strip = [
-    institutions.length ? { value: String(institutions.length), label: institutions.length === 1 ? 'Institution teaching in English' : 'Institutions teaching in English' } : null,
-    mapped ? { value: String(mapped), label: mapped === 1 ? 'Degree mapped in English' : 'Degrees mapped in English' } : null,
+    nextClose ? { value: shortDay(nextClose.date), label: 'Next deadline' } : null,
+    eu && eu.value.length <= 14 ? { value: eu.value, label: 'Tuition a year, EU/EEA' } : null,
+    institutions.length ? { value: String(institutions.length), label: institutions.length === 1 ? 'University teaching in English' : 'Universities teaching in English' } : null,
+    mapped ? { value: String(mapped), label: mapped === 1 ? 'Degree in English' : 'Degrees in English' } : null,
     saysNoPortal
       ? { value: 'Direct', label: 'You apply to each university' }
       : c.application?.centralised === true && !qualified && portalShort && portalShort.split(/\s+/).length <= 3
         ? { value: portalShort, label: 'National application portal' }
         : null,
-    /* The fee when it is a figure, not a paragraph; else how often IB students go. */
-    eu && eu.value.length <= 14
-      ? { value: eu.value, label: 'Tuition a year, EU/EEA' }
-      : transcripts ? { value: transcripts.toLocaleString('en-GB'), label: 'IB transcripts sent here in five years' } : null,
   ].filter(Boolean);
 
   /* This country's page, drawn by the one country template (src/templates/country.mjs). */

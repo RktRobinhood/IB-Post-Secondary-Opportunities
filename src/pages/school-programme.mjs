@@ -496,7 +496,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     before,
     trail: {
       country: { href: `${c.href}#institutions`, label: c.name },
-      university: { href: inst.href, label: short },
+      university: { href: inst.href, label: short, name: inst.name },
       title,
     },
     dates,

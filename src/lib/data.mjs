@@ -824,7 +824,7 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
       external: true,
       alt: `${official.subject || ''}`.trim(),
       credit: {
-        text: `Image: ${official.subject || 'the institution'}`,
+        text: official.creditText || `Image: ${official.subject || 'the institution'}`,
         url: official.sourcePage,
       },
     };
@@ -847,7 +847,7 @@ export function picture(site, key, { prefer = 'official', also = [] } = {}) {
       src: official.url,
       external: true,
       alt: `${official.subject || ''}`.trim(),
-      credit: { text: `Image: ${official.subject || 'the institution'}`, url: official.sourcePage },
+      credit: { text: official.creditText || `Image: ${official.subject || 'the institution'}`, url: official.sourcePage },
     };
   }
   return null;

@@ -124,7 +124,7 @@ ${hero(vm.hero)}
   <div class="wrap">
     <div class="layout-aside">
       <div class="prose">${topics}</div>
-      ${institutionRail(vm.rail)}
+      ${institutionRail({ ...vm.rail, knownFor: (vm.study.cards?.length || 0) >= 3 ? [] : vm.rail.knownFor })}
     </div>
   </div>
 </section>

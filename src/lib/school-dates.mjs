@@ -626,6 +626,16 @@ const endOf = (e) => e.endDate || e.date;
  * missing it costs, the note behind a disclosure and the source. On a phone
  * that is three short lines, about 90 px, where it was five.
  */
+/* Two steps due the same day with the same weight are one row with two
+   lines ("Applications close", "Sign the application"), not two rows. */
+function sameDay(out, e) {
+  const prev = out.at(-1);
+  if (prev && prev.date === e.date && (prev.endDate || '') === (e.endDate || '') && prev.consequence === e.consequence && !!prev.provisional === !!e.provisional) {
+    prev.also = [...(prev.also || []), e];
+  } else out.push({ ...e });
+  return out;
+}
+
 function dateItem(site, e) {
   const c = consequenceOf(e);
   const src = sourceOf(site, e);
@@ -645,14 +655,14 @@ function dateItem(site, e) {
     ${/* A line of the panel, not prose: the same school date is on each of
           its programmes' pages (the text-walls guard reads <p> as prose).
           "(yearly date)" is the record's reason for "provisional", which the
-          line already says. */ ''}<div class="dates-panel__what">${String(e.label).replace(/\s*\(yearly date\)/i, '')}</div>
+          line already says. */ ''}<div class="dates-panel__what">${String(e.label).replace(/\s*\(yearly date\)/i, '')}</div>${(e.also || []).map((x) => html`<div class="dates-panel__what">${String(x.label).replace(/\s*\(yearly date\)/i, '')}</div>`)}
     ${badge || paras.length || src
       ? html`<div class="dates-panel__foot">${badge}${
           /* The note is the same on every school in a country, so it waits
              behind a disclosure rather than repeating as prose on every page. */
-          paras.length
-            ? html`<details class="dates-panel__why"><summary>Note</summary>${paras.map((p) => html`<p class="dates-panel__note">${p}</p>`)}</details>`
-            : ''}${src ? html`<a class="dates-panel__src" href="${src}" rel="noopener nofollow" aria-label="Source for ${e.label}">Source</a>` : ''}</div>`
+          paras.length || src
+            ? html`<details class="dates-panel__why"><summary>Details</summary>${paras.map((p) => html`<p class="dates-panel__note">${p}</p>`)}${src ? html`<a class="dates-panel__src" href="${src}" rel="noopener nofollow" aria-label="Source for ${e.label}">Source</a>` : ''}</details>`
+            : ''}</div>`
       : ''}
   </li>`;
 }
@@ -732,11 +742,11 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
       ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>`
       : ''}
     ${events.length
-      ? html`${first.length || !status ? html`<ol class="dates-panel__list" data-dates-head>${[...first].sort((a, b) => sortKey(a).localeCompare(sortKey(b))).map((e) => dateItem(site, e))}</ol>` : ''}
+      ? html`${first.length || !status ? html`<ol class="dates-panel__list" data-dates-head>${[...first].sort((a, b) => sortKey(a).localeCompare(sortKey(b))).reduce(sameDay, []).map((e) => dateItem(site, e))}</ol>` : ''}
           ${rest.length
             ? html`<details class="dates-panel__all">
                 <summary>All dates for ${whose} <span data-dates-rest-n>(${rest.length} more)</span></summary>
-                <ol class="dates-panel__list" data-dates-rest>${rest.map((e) => dateItem(site, e))}</ol>
+                <ol class="dates-panel__list" data-dates-rest>${rest.reduce(sameDay, []).map((e) => dateItem(site, e))}</ol>
               </details>`
             : ''}`
       : html`<p class="dates-panel__empty">No upcoming deadlines recorded for ${whose}.</p>`}

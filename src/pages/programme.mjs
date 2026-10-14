@@ -139,7 +139,7 @@ export function programme(site, p, inst) {
     ],
     trail: {
       country: dest ? { href: `${dest.href}#institutions`, label: dest.name } : null,
-      university: { href: inst.href, label: inst.shortName || inst.name },
+      university: { href: inst.href, label: inst.shortName || inst.name, name: inst.name },
       title: p.name,
     },
     dates,

@@ -1216,12 +1216,19 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
   const pretty = (d) =>
     d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : null;
 
+  /* Checked or read is said by the rail's date; only a warning, or dates
+     carried over from last year, earns a line here (no meta, Oct 2026). */
+  const quiet = level === 'verified' || level === 'needs-review';
+  const overdue = reviewBy && reviewBy < new Date().toISOString().slice(0, 10);
+  if (quiet && !provisional && !overdue) return '';
   return html`<aside class="freshness freshness--${kind || 'plain'}">
-    <p class="freshness__line">
-      <strong>${label}.</strong>
-      ${checkedAt ? html` Last read ${pretty(checkedAt)}.` : ''}
-      ${intake ? html` Describes the ${intake.replace('-', ' ')} intake.` : ''}
-    </p>
+    ${quiet
+      ? ''
+      : html`<p class="freshness__line">
+          <strong>${label}.</strong>
+          ${checkedAt ? html` Last read ${pretty(checkedAt)}.` : ''}
+          ${intake ? html` Describes the ${intake.replace('-', ' ')} intake.` : ''}
+        </p>`}
     ${provisional
       ? html`<p class="freshness__line freshness__line--warn">
           ${/* No count: it was counted over the whole route and the page shows
