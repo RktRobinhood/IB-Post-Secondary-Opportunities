@@ -347,6 +347,9 @@ function initials(text) {
     .split(/[\s-]+/)
     .filter(Boolean)
     .filter((w) => !SKIP.has(w.toLowerCase()));
+  const GENERIC = /^(university|college|institute|school|academy|polytechnic)$/i;
+  /* "Ashesi University" is Ashesi: its monogram is not the AU of Aarhus. */
+  if (words.length === 2 && GENERIC.test(words[1]) && !GENERIC.test(words[0])) return words[0].slice(0, 2).toUpperCase();
   const kept = words.length ? words : [text];
   if (kept.length === 1) {
     const only = kept[0];

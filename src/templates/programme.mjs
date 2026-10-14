@@ -80,7 +80,7 @@ ${vm.before
         ${vm.what ? topic({ id: 'what', title: 'What it is', ...vm.what }) : ''}
         ${vm.evidence || ''}
         ${sourceList.length
-          ? html`<details class="sources-foot"><summary>Sources for this programme: ${plural(sourceList.length, 'official page')}</summary>
+          ? html`<details class="sources-foot"><summary>Sources <span>(${sourceList.length})</span></summary>
               ${sources(sourceList, { title: null })}</details>`
           : ''}
       </div>
@@ -98,11 +98,13 @@ ${vm.before
 </section>
 ${/* Other degrees: a band of its own after this programme ends, so it never
      reads as more about this one. */
-  vm.more?.cards?.length
+  vm.more?.cards?.length || vm.trail.university
   ? html`<section class="section section--more" data-slot="more" aria-labelledby="more-here">
       <div class="wrap">
-        <h2 class="more__title" id="more-here">${vm.more.title}</h2>
-        <div class="prog-siblings">${vm.more.cards}</div>
+        <h2 class="more__title" id="more-here">${vm.more?.cards?.length ? vm.more.title : `More at ${vm.trail.university.label}`}</h2>
+        ${vm.more?.cards?.length
+          ? html`<div class="prog-siblings">${vm.more.cards}</div>`
+          : html`<p class="more__way"><a class="btn btn--primary" href="${url(vm.trail.university.href)}">${vm.trail.university.label}</a>${vm.trail.country ? html` <a class="btn btn--ghost" href="${url(vm.trail.country.href)}">${vm.trail.country.label}</a>` : ''}</p>`}
       </div>
     </section>`
   : ''}

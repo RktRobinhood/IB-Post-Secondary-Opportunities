@@ -586,7 +586,7 @@ export function pathsTable(site, p, inst) {
         const f = recs[i]?.family || {};
         return html`<tr${here ? html` aria-current="page" class="paths__here"` : ''}>
           <th scope="row">${here
-            ? html`<strong>${f.path}</strong> <span class="paths__you">You are here</span>`
+            ? html`<strong>${f.path}</strong>`
             : html`<a href="${url(m.href)}">${f.path}</a>`}</th>
           ${cols.map((c) => html`<td data-label="${c.head}">${c.cell(i) || '—'}${c.small?.(i) ? html`<small class="req-local">${c.small(i)}</small>` : ''}</td>`)}
           <td class="paths__diff" data-label="What is different">${f.differs}</td>

@@ -97,7 +97,7 @@ ${vm.artStyle ? raw(`<div class="art" style="${vm.artStyle}">`) : ''}
 ${hero({
   ...vm.hero,
   // One eyebrow for every country: where it is, and the admission cycle.
-  eyebrow: html`${vm.hero.region || ''}<span class="eyebrow__cycle">${vm.hero.region ? ' · ' : ''}${SITE.cycle.label}</span>`,
+  eyebrow: html`<span>${vm.hero.region || ''}<span class="eyebrow__cycle">${vm.hero.region ? ' · ' : ''}${SITE.cycle.label}</span></span>`,
   actions: vm.hero.actions?.length
     ? html`${vm.hero.actions.map((a, i) => html`<a class="btn ${i ? 'btn--ghost' : 'btn--primary'}" href="${url(a.href)}">${a.label}</a>`)}`
     : null,
@@ -143,7 +143,7 @@ ${vm.stats.length >= 2
   <div class="wrap">
     <div class="layout-aside">
       <div class="prose">
-        <h2 id="how">How it works</h2>
+        ${vm.details.lede || topics.some((t) => t.id !== 'sources') ? html`<h2 id="how">How it works</h2>` : ''}
         ${vm.details.lede ? html`<p class="lede">${vm.details.lede}</p>` : ''}
         ${vm.details.more
           ? html`<details class="topic__more"><summary>More on ${vm.hero.title}</summary>

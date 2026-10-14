@@ -306,7 +306,7 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
         const here = m.slug === p.slug;
         return html`<tr${here ? html` aria-current="page" class="paths__here"` : ''}>
           <th scope="row">${here
-            ? html`<strong>${m.family.path}</strong> <span class="paths__you">You are here</span>`
+            ? html`<strong>${m.family.path}</strong>`
             : html`<a href="${url(m.href)}">${m.family.path}</a>`}</th>
           ${cols.map((c) => html`<td data-label="${c.head}">${c.cell(m) || '—'}</td>`)}
           <td class="paths__diff" data-label="What is different">${m.family.differs}</td>

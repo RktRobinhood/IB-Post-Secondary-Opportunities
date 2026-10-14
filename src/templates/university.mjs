@@ -96,7 +96,7 @@ export function universityTemplate(vm) {
       topic({
         id: 'sources',
         title: 'Sources',
-        short: `The ${plural(t.sources.length, 'official page')} this was written from.`,
+        short: null,
         body: sources(t.sources, { title: null }),
         more: 'All sources',
       }),

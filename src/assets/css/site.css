@@ -3284,3 +3284,13 @@ body:has(main > .close:last-child) .site-foot { margin-top: 0; }
 .topic-gap .tags { margin: 0; padding: 0; }
 .topic-gap__label { font-weight: 600; color: var(--ink); }
 .tag--gap { background: var(--paper); border: 1px dashed var(--rule-strong); color: var(--ink); }
+/* The band closes the page: it meets the footer, no cream strip between. */
+.section--more { padding-bottom: var(--s8); }
+.section--more + .section--pager { padding-bottom: var(--s8); }
+body:has(main > .section--more:last-child) .site-foot,
+body:has(main > .section--more + .section--pager:last-child) .site-foot { margin-top: 0; }
+.more__way { display: flex; flex-wrap: wrap; gap: var(--s3); margin: 0; }
+/* One sources treatment on every programme page: a quiet line, as the
+   school programmes' is, not a boxed accordion. */
+.prose .evidence { border: 0; background: none; padding: 0; margin-top: var(--s5); font-size: .875rem; color: var(--ink-mute); }
+.prose .evidence > summary { padding: 0; font: inherit; color: inherit; }

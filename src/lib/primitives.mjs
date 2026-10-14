@@ -606,7 +606,7 @@ export function evidenceBlock({ claim, records = [], summary }) {
       : `${records.length > 1 ? 'All of these sources' : 'This source'}: ${stateLabel(s).toLowerCase()}.`;
 
   return html`<details class="evidence${conflicted ? ' evidence--conflict' : ''}">
-    <summary>Where this comes from${records.length > 1 ? html` <span>(${records.length} sources)</span>` : ''}</summary>
+    <summary>Sources${records.length > 1 ? html` <span>(${records.length})</span>` : ''}</summary>
     ${claim ? html`<p class="evidence__claim">${claim}</p>` : ''}
     ${summary ? html`<p>${summary}</p>` : ''}
     ${conflicted

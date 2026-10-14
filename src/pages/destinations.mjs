@@ -12,6 +12,8 @@ import { eventsForDestination } from '../lib/calendar.mjs';
 import { groupInstitutions, groupingLede, routeSentence, variationRows } from '../lib/jurisdictions.mjs';
 import { cardGroups } from '../lib/paths.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
+
+const prettyDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 import { countryTemplate } from '../templates/country.mjs';
 
 /** A topic's id here → the country template's question it answers. */
@@ -729,9 +731,10 @@ export function destination(site, c, { prev, next }) {
       ({
         id: 'deadlines',
         title: 'Deadlines',
-        short: html`<p>${plural(events.length, 'dated event')} recorded.
-          <a href="${url('/timeline/')}?destinations=${c.code}">See them on the calendar</a>,
-          alongside anywhere else you are looking at.</p>`,
+        /* The next date, said as a date; all of them one tap down. */
+        short: ((n) => (n ? `**${prettyDay(n.date)}:** ${n.label}` : null))(
+          events.filter((e) => e.date && e.date >= new Date().toISOString().slice(0, 10)).sort((a, b) => a.date.localeCompare(b.date))[0]
+        ),
         body: deadlineList(events),
         more: `All ${plural(events.length, 'date')}`,
       }),
@@ -805,7 +808,7 @@ export function destination(site, c, { prev, next }) {
       ({
         id: 'sources',
         title: 'Sources',
-        short: c.sources.length === 1 ? `[${c.sources[0].title}](${c.sources[0].url})` : `The ${plural(c.sources.length, 'page')} this page was written from.`,
+        short: c.sources.length === 1 ? `[${c.sources[0].title}](${c.sources[0].url})` : null,
         body: c.sources.length === 1 ? '' : sources(c.sources, { title: null }),
         more: `All ${plural(c.sources.length, 'source')}`,
       }),

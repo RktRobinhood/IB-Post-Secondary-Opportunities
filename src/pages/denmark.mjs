@@ -47,7 +47,7 @@ function recordTopics(site) {
     citizens: citizensFirst ? { short: citizensFirst, body: citizensRest.length ? html`<p>${citizensRest.join(' ')}</p>` : '', more: 'What else changes' } : null,
     sources: evidence.length
       ? {
-          short: `The ${plural(evidence.length, 'page')} this page was written from.`,
+          short: null,
           body: sources(evidence.map((e) => ({ title: e.publisher || e.sourceUrl, url: e.sourceUrl, retrieved: e.retrievedAt }))),
           more: `All ${plural(evidence.length, 'source')}`,
         }
@@ -182,7 +182,7 @@ export function denmarkHub(site) {
     ({
       id: 'danish',
       title: 'Most degrees are taught in Danish',
-      short: 'The English-taught set is much smaller — and it is the set on this site.',
+      short: 'The English-taught set is much smaller.',
       body: html`<p>This is the single biggest constraint on studying in Denmark with an IB. The University of
         Copenhagen puts it plainly on its own bachelor page: 78 programmes, <em>all</em> taught in Danish. Aalborg
         has historically taught four in English. Most of the English-taught provision sits at Copenhagen Business

@@ -154,7 +154,7 @@ export function programme(site, p, inst) {
         ${award === ENTRY_AWARD.NOT_ESTABLISHED ? awardBlock(opp) : ''}`,
       cta: { href: '/planner/', label: 'Check my subjects against it' },
     },
-    notice: ev
+    notice: ev && (provisionalDates || !['verified', 'needs-review'].includes(ev.level))
       ? freshness({
           intake: opp?.intake,
           checkedAt: ev.checkedAt || opp?.meta?.dataAsOf,

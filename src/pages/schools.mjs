@@ -2,6 +2,7 @@ import { html, plural, truncate, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
 import { universityTemplate, statementShort } from '../templates/university.mjs';
 import { picture } from '../lib/data.mjs';
+import { card } from '../lib/components.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { datesPanel, isBinding } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
@@ -322,6 +323,27 @@ function programmeSection(site, inst, c) {
   const answer = wholeAnswer(inst.englishBachelors);
   // A targeted page only, never a homepage (test-school-pages).
   const own = inst.admissionsUrl && !isHomepage(inst.admissionsUrl, inst.website) ? inst.admissionsUrl : null;
+  /* With no list and no page to hand off to, the column shows the other
+     places in the country rather than standing empty. */
+  if (!own) {
+    const others = (c.institutions || []).filter((o) => o.key !== inst.key && o.href).slice(0, 6);
+    return {
+      title: `Also in ${c.name}`,
+      cards: others.map((o) => {
+        const pic = picture(site, o.key);
+        return {
+          html: card({
+            href: o.href,
+            title: o.name,
+            text: o.school?.summary || firstSentence(o.note, 24) || null,
+            image: pic && !pic.external ? { src: pic.src, alt: pic.alt } : null,
+            placeholder: o.shortName || o.name,
+            meta: [o.city].filter(Boolean),
+          }),
+        };
+      }),
+    };
+  }
   return {
     title: 'What you could study here',
     handoff: own
