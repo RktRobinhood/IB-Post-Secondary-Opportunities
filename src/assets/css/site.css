@@ -3318,7 +3318,7 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
 .prog-group__head { font-size: clamp(1.35rem, 1.1rem + .8vw, 1.75rem); }
 /* A university's deadlines stay in view beside a long list of degrees. */
 @media (min-width: 62rem) {
-  .layout-aside--dates > .dates-panel { position: sticky; top: 5.5rem; align-self: start; }
+  [data-template="university"] .layout-aside--dates > .dates-panel { position: sticky; top: 5.5rem; align-self: start; }
 }
 /* Country: a place card is a way in, two lines of text at most. */
 .grid--places .card__text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
@@ -3342,3 +3342,51 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
 .prose .evidence > summary::-webkit-details-marker, .sources-foot > summary::-webkit-details-marker { display: none; }
 .prose .evidence > summary::before, .sources-foot > summary::before { content: "▸ "; }
 .prose .evidence[open] > summary::before, .sources-foot[open] > summary::before { content: "▾ "; }
+
+/* --- Template review, round 6 (Oct 2026) -------------------------------- */
+/* Programme column: every section heading one size, one rhythm above it —
+   "What you need" no longer shouts over "What it is". */
+[data-template="programme"] [data-slot="detail"] .prose > h2,
+[data-template="programme"] [data-slot="detail"] .prose > .topic > h2,
+[data-template="programme"] [data-slot="detail"] .prose > .topic--fold summary h2,
+[data-template="programme"] [data-slot="detail"] .paths h2 {
+  font-size: clamp(1.4rem, 1.15rem + .8vw, 1.85rem);
+  margin-top: 0;
+}
+[data-template="programme"] [data-slot="detail"] .prose > h2,
+[data-template="programme"] [data-slot="detail"] .prose > .topic,
+[data-template="programme"] [data-slot="detail"] .prose > .paths { margin-top: var(--s8); }
+[data-template="programme"] [data-slot="detail"] .prose > :first-child { margin-top: 0; }
+
+/* --- Template review, round 7 (Oct 2026) -------------------------------- */
+/* Beside a dates panel the rail scrolls with the page: a sticky rail rode up
+   over the panel above it and the two printed over each other. */
+.layout-aside--dates > .layout-aside__side { position: static; max-height: none; overflow: visible; }
+/* Sources is a footnote, not a section: one quiet row wherever it folds. */
+.topic--fold:has(#sources) summary h2 { font: 600 .9375rem/1.4 var(--sans); color: var(--ink-mute); }
+.topic--fold:has(#sources) { margin-top: var(--s7); }
+/* Rail links read as a list, not as a wall of underlines. */
+.side-links a { text-decoration: none; }
+.side-links a:hover, .side-links a:focus-visible { text-decoration: underline; }
+/* On a country page the cards above already name every place: once the globe
+   is drawn, its list of names is not repeated beneath it. */
+.dest-open__map .world[data-globe="on"] .world__list { display: none; }
+/* Place cards in a row share a height; the city line sits at the foot. */
+@media (min-width: 40rem) {
+  .grid--places { align-items: stretch; }
+  .grid--places .card__foot { margin-top: auto; }
+}
+/* A trail that wraps keeps whole crumbs together. */
+.crumbs li { white-space: nowrap; }
+.crumbs li:last-child { white-space: normal; }
+/* The footer on a phone: two columns, not a scroll of its own. */
+@media (max-width: 40rem) {
+  .site-foot__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s4); }
+}
+/* A field's remaining cards, one tap away. */
+.prog-group__more { margin-top: var(--s4); }
+.prog-group__more > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.prog-group__more[open] > summary { margin-bottom: var(--s4); }
+/* Home: a card on its way holds its place, so the list does not jump. */
+.discover__card--loading { min-height: 22rem; border-radius: var(--radius-lg); background: var(--paper-2); }
+.discover__next { display: flex; justify-content: center; padding-block: var(--s6); }

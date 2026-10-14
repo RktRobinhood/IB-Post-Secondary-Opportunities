@@ -43,6 +43,15 @@ export const FIELD = {
   'design-architecture': 'Design', 'arts-music': 'Arts', sport: 'Sport', 'hospitality-tourism': 'Hospitality',
   interdisciplinary: 'Interdisciplinary', other: 'Other',
 };
+/** A school record's field, in the canonical records' words, so one filter reads both. */
+export const FIELD_CANON = {
+  engineering: 'Engineering', computing: 'Computing and IT', 'natural-sciences': 'Natural sciences', mathematics: 'Natural sciences',
+  business: 'Business', economics: 'Economics', 'social-sciences': 'Social sciences', law: 'Law',
+  humanities: 'Humanities', languages: 'Humanities', education: 'Education', health: 'Health',
+  medicine: 'Medicine', veterinary: 'Veterinary', 'agriculture-environment': 'Environment',
+  'design-architecture': 'Design and architecture', 'arts-music': 'Arts and music', sport: 'Sport',
+  'hospitality-tourism': 'Hospitality and tourism', interdisciplinary: 'Interdisciplinary', other: 'Other',
+};
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const shortDate = (iso) => {
   const [y, m, d] = iso.split('-').map(Number);

@@ -28,6 +28,7 @@ const MAX_SLICES = Number(process.env.MAX_SLICES || 6);
 
 /** Rich and sparse examples at each level. */
 export const PAGES = (process.env.PAGES || [
+  'home',
   'denmark',
   'destinations/es',
   'destinations/gh',
@@ -64,7 +65,7 @@ await fs.mkdir(root, { recursive: true });
 const profile = await fs.mkdtemp(path.join(root, 'tpl-shoot-'));
 const chrome = spawn(CHROME, [
   '--headless=new', `--remote-debugging-port=${DEVTOOLS}`, `--user-data-dir=${profile}`,
-  '--hide-scrollbars', '--no-first-run', 'about:blank',
+  '--hide-scrollbars', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-first-run', 'about:blank',
 ], { stdio: 'ignore' });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -108,11 +109,18 @@ async function open(route, { width, height, mobile }) {
   const loaded = new Promise((r) => listeners.push(function once(m) {
     if (m.method === 'Page.loadEventFired') { listeners.splice(listeners.indexOf(once), 1); r(); }
   }));
-  await send('Page.navigate', { url: `${BASE}/${route}/` });
+  await send('Page.navigate', { url: route === 'home' ? `${BASE}/` : `${BASE}/${route}/` });
   await loaded;
   // Lazy images: walk the page once so they load.
   await evaluate(`(async () => { for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } scrollTo(0, 0); })()`);
-  await sleep(600);
+  // The globe draws over WebGL (swiftshader): give it time to arrive.
+  if (route.startsWith('destinations')) {
+    // A country's globe starts when it is in view: bring it there, let it draw.
+    await evaluate("document.querySelector('.dest-open__map')?.scrollIntoView({ block: 'center' })");
+    await sleep(5000);
+    await evaluate('scrollTo(0, 0)');
+  }
+  await sleep(route === 'home' ? 4000 : 600);
 }
 
 const VIEWS = { desktop: { width: 1366, height: 900, mobile: false }, phone: { width: 390, height: 844, mobile: true } };
@@ -126,8 +134,13 @@ try {
       if (view === 'desktop') text[route] = await evaluate('document.querySelector("main")?.innerText || ""');
       const n = Math.min(MAX_SLICES, Math.ceil(h / size.height));
       for (let i = 0; i < n; i++) {
-        const clip = { x: 0, y: i * size.height, width: size.width, height: Math.min(size.height, h - i * size.height), scale: 1 };
-        const r = await send('Page.captureScreenshot', { format: 'jpeg', quality: 70, clip, captureBeyondViewport: true });
+        /* Scroll to the slice and shoot the screen, as a reader sees it: a
+           WebGL globe only paints while it is on screen. */
+        const y = Math.min(i * size.height, Math.max(0, h - size.height));
+        await evaluate(`scrollTo(0, ${y})`);
+        const globe = await evaluate(`(() => { const c = document.querySelector('.world canvas'); if (!c) return false; const r = c.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; })()`);
+        await sleep(globe ? 2500 : 250);
+        const r = await send('Page.captureScreenshot', { format: 'jpeg', quality: 70 });
         await fs.writeFile(path.join(OUT, `${slug}--${view}-${i + 1}.jpg`), Buffer.from(r.data, 'base64'));
       }
       console.log(`  ${slug} ${view}: ${n} of ${Math.ceil(h / size.height)} slices (${h}px)`);

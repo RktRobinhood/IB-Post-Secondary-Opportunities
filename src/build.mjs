@@ -239,6 +239,14 @@ async function main() {
 
   /* Core */
   await write('/', home(site));
+  /* The home page's other cards and every card's facts, fetched as the
+     student explores (src/pages/discover.mjs, discover.js). */
+  if (site.discoverFiles) {
+    const dir = path.join(DIST, 'discover');
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(path.join(dir, 'index.json'), JSON.stringify(site.discoverFiles.index));
+    for (const [k, list] of site.discoverFiles.chunks.entries()) await fs.writeFile(path.join(dir, `cards-${k}.json`), JSON.stringify(list));
+  }
   await write('/countries/', countriesIndex(site));
   /* Europe and Worldwide were two pages from one template; they are the two
      halves of /countries/ now. The old addresses keep working (redirectPage:

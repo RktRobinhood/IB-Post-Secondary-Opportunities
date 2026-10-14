@@ -61,6 +61,8 @@ export function statementShort(statement) {
    group; the rest share "Other fields". */
 const GROUP_FROM = 13;
 const GROUP_MIN = 2;
+/** Cards a field shows before "Show all". */
+const GROUP_SHOWN = 6;
 
 function studyBody({ cards = [], handoff = null }) {
   const way = handoff ? html`<div class="handoff">${handoff}</div>` : '';
@@ -77,9 +79,16 @@ function studyBody({ cards = [], handoff = null }) {
   const rest = [...byField].filter(([, list]) => list.length < GROUP_MIN).flatMap(([, list]) => list);
   /* Groups only help when they hold most of the list. */
   if (!fieldGroups.length || rest.length >= Math.max(...fieldGroups.map(([, list]) => list.length))) return way ? html`<div class="stack">${grid}${way}</div>` : grid;
+  /* A field shows its first cards; the rest are one tap away (Studyportals,
+     UvA: template-references.md), so a long list is not a wall of cards. */
+  const cardOf = (c, headed) => (headed && c.headedHtml) || c.html;
   const group = (head, list, headed) => html`<div class="prog-group">
       <h3 class="prog-group__head">${head} <span>· ${list.length}</span></h3>
-      <div class="grid grid--3">${list.map((c) => (headed && c.headedHtml) || c.html)}</div>
+      <div class="grid grid--3">${list.slice(0, GROUP_SHOWN).map((c) => cardOf(c, headed))}</div>
+      ${list.length > GROUP_SHOWN + 1
+        ? html`<details class="prog-group__more"><summary>Show all ${list.length}</summary>
+            <div class="grid grid--3">${list.slice(GROUP_SHOWN).map((c) => cardOf(c, headed))}</div></details>`
+        : list.length === GROUP_SHOWN + 1 ? html`<div class="grid grid--3">${cardOf(list[GROUP_SHOWN], headed)}</div>` : ''}
     </div>`;
   return [
     ...fieldGroups.map(([field, list]) => group(field, list, true)),

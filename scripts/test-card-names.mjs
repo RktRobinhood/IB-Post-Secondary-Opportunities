@@ -31,6 +31,7 @@
  * change of markup cannot make it pass by finding nothing. Built stage.
  */
 import fs from 'node:fs';
+import { homeChunkCards } from './lib/home-cards.mjs';
 import path from 'node:path';
 import { nameClashes, normalName, nameStem, placeWords } from '../src/lib/families.mjs';
 import { programmePaths, pagedProgrammes, schoolKeys } from '../src/lib/schools.mjs';
@@ -159,7 +160,8 @@ if (!pages) fail('no programme cards found on any institution page — has the c
 
 /* --- 2. The home page ---------------------------------------------------------- */
 const home = read('');
-const homeCards = home ? programmeCards(mainOf(home)) : [];
+// Every card: the page carries its first ones, the rest are files beside it.
+const homeCards = home ? programmeCards(homeChunkCards(DIST) || mainOf(home)) : [];
 if (!homeCards.length) fail('no programme cards found on the home page — has the card markup changed?');
 {
   const main = home ? mainOf(home) : '';

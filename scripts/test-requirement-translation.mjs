@@ -34,6 +34,7 @@
  * to translate and nothing to check.
  */
 import fs from 'node:fs/promises';
+import { homeChunkCards, homeIndex } from './lib/home-cards.mjs';
 import path from 'node:path';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mjs';
@@ -246,8 +247,12 @@ const read = async (...parts) => {
 
 /* The finder is the home page's discovery surface (docs/research/ia/plan.md,
    Batch D). Its cards are drawn at build time, one per programme or family. */
-const finder = await read('index.html');
+/* Since 14 Oct 2026 the page carries its first cards and the rest are files
+   beside it (scripts/lib/home-cards.mjs): every card, and every card's facts. */
+const finder = ((await read('index.html')) || '') + homeChunkCards(DIST);
 const finderIds = (() => {
+  const index = homeIndex(DIST);
+  if (index) return new Set(index.cards.flatMap((c) => c.members.map((x) => x.id)));
   const m = finder?.match(/<script type="application\/json" id="discover-data">([\s\S]*?)<\/script>/);
   return m ? new Set(JSON.parse(m[1]).cards.flatMap((c) => c.members.map((x) => x.id))) : new Set();
 })();

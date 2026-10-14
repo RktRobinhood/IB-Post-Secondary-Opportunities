@@ -27,6 +27,10 @@ The same template draws a page with everything and a page with almost nothing. A
 - **No dates:** the dates panel says so in one line, and links to the country's calendar only when the country has dates.
 - **A disclosure with one item is not a disclosure.** A one-reason list is its short answer alone.
 
+### Load what can be seen (14 October 2026)
+
+The owner: "the load is just what you can see, and then as you explore, it may load more." The home page carries its first twelve cards; every other degree on the site (canonical and school records alike, 1,904 cards) is in `dist/discover/cards-<k>.json`, 48 to a file, and every card's facts in `dist/discover/index.json`. `discover.js` fetches the index once the page is idle (or at the first choice), shows the matching cards twelve at a time and 24 more as the reader nears the end, fetching only the files those cards are in. Back restores both the list's length and the scroll. Guards read every card through `scripts/lib/home-cards.mjs`. Long university lists show six cards a field, then "Show all N".
+
 ### Where one subject ends
 
 A programme page ends visibly: an "End of <programme>" rule, then other degrees in their own full-width band (`more` slot, "Not this programme"), so siblings never read as more about the programme above. Country details fall into three labelled bands: *Is it for you?*, *Getting in*, *Money and life*.

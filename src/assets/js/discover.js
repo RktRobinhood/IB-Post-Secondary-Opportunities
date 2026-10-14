@@ -37,11 +37,45 @@ const json = (id) => {
 };
 
 const DATA = json('discover-data') || { cards: [], lights: {} };
-const CARDS = DATA.cards;
+/* The page carries the first cards' facts; every card's arrive with
+   discover/index.json, fetched once the page is idle or a choice needs them
+   (owner, 14 Oct: load what can be seen, then more as the student explores). */
+let CARDS = DATA.cards;
+/* Universities by id, for the chip a choice on the globe leaves. */
+let NAMES = {};
 const LIGHTS = DATA.lights || {};
 const PLACES = json('place-data') || {};
 /* Counted in cards, as the student sees them (#52): one card may hold several paths. */
-const TOTAL = CARDS.length;
+const TOTAL = DATA.total || CARDS.length;
+const CHUNK = DATA.chunk || 48;
+const fileUrl = (name) => new URL(`../../discover/${name}`, import.meta.url);
+let indexLoaded = CARDS.length >= TOTAL;
+let indexPromise = null;
+function loadIndex() {
+  if (indexLoaded) return Promise.resolve();
+  indexPromise ||= fetch(fileUrl('index.json'))
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
+    .then((data) => {
+      CARDS = data.cards;
+      NAMES = data.names || {};
+      indexLoaded = true;
+      // The answer on show grows; it is not a new one, so its length stays.
+      restoring = true;
+      render();
+      restoring = false;
+      // Back from a degree: the page is long enough again to return to the place.
+      if (typeof pendingY === 'number') { scrollTo(0, pendingY); pendingY = null; }
+    })
+    .catch(() => { indexPromise = null; });
+  return indexPromise;
+}
+/* Card markup, a file of CHUNK cards at a time, fetched when one is about to show. */
+const chunkFiles = new Map();
+const chunkOf = (n) => {
+  const k = Math.floor(n / CHUNK);
+  if (!chunkFiles.has(k)) chunkFiles.set(k, fetch(fileUrl(`cards-${k}.json`)).then((r) => r.json()).catch(() => { chunkFiles.delete(k); return []; }));
+  return chunkFiles.get(k);
+};
 
 const EMPTY = { q: '', field: '', where: '', place: '', area: '', award: '', open: false, nomath: false, scope: '' };
 const state = { ...EMPTY };
@@ -78,6 +112,61 @@ const els = {
 }
 const FIRST_SHOWN = els.results?.children.length || 0;
 const cardEls = new Map([...document.querySelectorAll('[data-card]')].map((el) => [Number(el.dataset.card), el]));
+/** A card's element: the page's own, or one filled from its chunk as it arrives. */
+function cardEl(n) {
+  let el = cardEls.get(n);
+  if (el) return el;
+  el = document.createElement('li');
+  el.className = 'discover__card discover__card--loading';
+  el.dataset.card = String(n);
+  cardEls.set(n, el);
+  chunkOf(n).then((list) => {
+    const markup = list[n % CHUNK];
+    if (!markup) return;
+    const tpl = document.createElement('template');
+    tpl.innerHTML = markup;
+    el.replaceChildren(tpl.content);
+    el.classList.remove('discover__card--loading');
+  });
+  return el;
+}
+/* How many of the matching cards are on the page: the first screen, then
+   STEP more each time the reader nears the end (or presses the button). */
+const STEP = 24;
+let limit = Math.max(FIRST_SHOWN, 12);
+let matching = [];
+/* True while Back puts a page back: its list keeps the length it had. */
+let restoring = false;
+/* Where Back should land, once the list is long enough to land there. */
+let pendingY = typeof history.state?.y === 'number' ? history.state.y : null;
+addEventListener('wheel', () => { pendingY = null; }, { once: true, passive: true });
+addEventListener('touchstart', () => { pendingY = null; }, { once: true, passive: true });
+const next = $('discover-next');
+const moreBtn = $('discover-more-btn');
+function paintList() {
+  if (!els.results) return;
+  const ids = matching.slice(0, limit);
+  const want = ids.map(cardEl);
+  // Only touch the list when it changes, so a card being read never jumps.
+  const have = [...els.results.children];
+  if (want.length !== have.length || want.some((el, k) => el !== have[k])) els.results.replaceChildren(...want);
+  const more = matching.length > limit;
+  if (next) next.hidden = !more;
+  if (moreBtn) moreBtn.hidden = !more;
+  // Observed afresh, so a reader already at the end gets the next ones too.
+  if (nearEnd && more) { nearEnd.unobserve(next); nearEnd.observe(next); }
+}
+function showMore() {
+  limit += STEP;
+  paintList();
+}
+moreBtn?.addEventListener('click', showMore);
+const nearEnd = next && 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting) && matching.length > limit) showMore();
+    }, { rootMargin: '800px 0px' })
+  : null;
+nearEnd?.observe(next);
 
 const esc = (s) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -109,7 +198,8 @@ function matches(m, st = state) {
   if (st.award && m.a !== st.award) return false;
   if (st.open && !m.o) return false;
   // Worked out at build time from the IB courses that satisfy each requirement.
-  if (st.nomath && m.m) return false;
+  // Only where it was worked out: a school record's unknown is not a yes.
+  if (st.nomath && m.m !== 0) return false;
   if (st.q) {
     const terms = st.q.toLowerCase().split(/\s+/).filter(Boolean);
     if (!terms.every((t) => m.q.includes(t))) return false;
@@ -307,6 +397,8 @@ function chosenLabel(key, value) {
     return `${LABELS.area}: ${codes.length <= 2 ? codes.map(destName).join(', ') : plural(codes.length, 'country', 'countries')}`;
   }
   if (key === 'where' && value.startsWith('dest:') && ![...(els.where?.options || [])].some((o) => o.value === value)) return destName(value.slice(5));
+  if (key === 'where' && value.startsWith('inst:')) return NAMES[value.slice(5)] || 'A university';
+  if (key === 'where' && value.startsWith('city:')) return value.slice(5);
   if (key === 'award') return els.award && value === els.award.dataset.value ? 'Accepts Course Results' : `${LABELS.award}: ${value}`;
   if (key === 'scope') {
     const b = els.presets.find((x) => x.dataset.scope === value);
@@ -484,25 +576,22 @@ function render() {
   let cardsShown = 0;
   // Nothing matches a word: the degrees near it stand in (nearest).
   const near = shown === 0 && state.q ? nearest() : new Map();
+  const before = matching.join();
+  matching = [];
   for (const [n, c] of CARDS.entries()) {
     const hit = shown ? c.members.filter((m) => matches(m)).length : near.get(n)?.length || 0;
-    const el = cardEls.get(n);
-    if (el) el.hidden = hit === 0;
-    if (hit) cardsShown++;
+    if (hit) { cardsShown++; matching.push(n); }
   }
+  // A new answer starts at its first screen; the same one keeps what was loaded.
+  if (matching.join() !== before && !restoring) limit = Math.max(FIRST_SHOWN, 12);
+  paintList();
   const any = Object.values(state).some(Boolean);
-  /* Any filter opens the folded cards, so no result waits behind "Show all";
-     clearing them folds the cards again only if this opened them. */
-  if (els.more) {
-    if (any && !els.more.open) { els.more.open = true; els.more.dataset.auto = ''; }
-    else if (!any && 'auto' in els.more.dataset) { els.more.open = false; delete els.more.dataset.auto; }
-    els.more.toggleAttribute('data-filtering', any);
-    /* Filtered, the results are one grid: the folded cards join the first
-       ones, so two matches sit side by side rather than one above the fold
-       line and one below it; unfiltered, they go back behind "Show all". */
-    const folded = els.more.querySelector('.discover__cards');
-    if (folded && any) els.results.append(...folded.children);
-    else if (folded && !any) folded.append(...[...els.results.children].slice(FIRST_SHOWN));
+  // A choice needs every card's facts: fetch them, and show this answer again.
+  if (any && !indexLoaded) {
+    loadIndex();
+    els.count.innerHTML = '<b>…</b>';
+    if (els.empty) els.empty.hidden = true;
+    return 0;
   }
   const places = placesFor(shown, near);
   const door = doorWhere();
@@ -597,7 +686,7 @@ try { history.scrollRestoration = 'manual'; } catch { /* its own restoration sta
 
 /** Write how far down the page this entry was, so Back can return to it. */
 function stamp() {
-  try { history.replaceState({ ...(history.state || {}), discover: true, y: Math.round(scrollY) }, ''); } catch { /* sandboxed */ }
+  try { history.replaceState({ ...(history.state || {}), discover: true, y: Math.round(scrollY), limit }, ''); } catch { /* sandboxed */ }
 }
 
 let sheetIsOpen = false;
@@ -642,7 +731,10 @@ addEventListener('popstate', (e) => {
   const globeEntry = /^#(place|country|region|view)=/.test(location.hash);
   fromGlobe = { ...NONE, where: globeEntry && !!state.where, area: globeEntry && !!state.area };
   syncControls();
+  if (typeof e.state?.limit === 'number') limit = e.state.limit;
+  restoring = true;
   render();
+  restoring = false;
   if (state.scope !== scopeBefore) {
     driving = true;
     frame(state.scope);
@@ -756,7 +848,14 @@ els.form?.addEventListener('submit', (e) => e.preventDefault());
 
 readUrl();
 syncControls();
+if (typeof history.state?.limit === 'number') limit = history.state.limit;
+restoring = true;
 render();
+restoring = false;
+/* Every card's facts once the page is idle: the list can then go on as the
+   reader scrolls, and a first choice answers at once. */
+if ('requestIdleCallback' in window) requestIdleCallback(() => loadIndex(), { timeout: 3000 });
+else setTimeout(loadIndex, 1500);
 if (state.scope) {
   // The globe loads when it is near the screen; frame it once it is there.
   const wait = setInterval(() => {

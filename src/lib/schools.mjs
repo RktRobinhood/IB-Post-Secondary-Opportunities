@@ -186,7 +186,7 @@ export function displayName(name) {
   const n = String(name || '').trim();
   const shorter = n
     .replace(
-      /^(?:International\s+)?(?:Bachelor(?:['´’]?s)?(?:\s+and\s+Master(?:['´’]?s)?)?|BFA|BBA|BSc|BA|BEng|BMus)(?:\s+of\s+(?:Fine\s+Arts|Science|Arts|Business\s+Administration|Engineering))?(?:\s+(?:Degree\s+)?(?:Programme|Program))?\s+(?:in|of)\s+/i,
+      /^(?:International\s+)?(?:Bachelor(?:['´’]?s)?(?:\s+and\s+Master(?:['´’]?s)?)?|BFA|BBA|BSc|BA|BEng|BMus)(?:\s+of\s+(?:Fine\s+Arts|Science|Arts|Business\s+Administration|Engineering))?(?:\s+(?:Degree\s+)?(?:Programme|Program))?(?:\s+degree)?\s+(?:in|of)\s+/i,
       ''
     )
     .replace(/^Degree\s+(?:Programme|Program)\s+in\s+/i, '')

@@ -8,7 +8,9 @@ import { renderProgrammeCard } from '../lib/programme-card.mjs';
 import { institutionPicture } from './programme-facts.mjs';
 import { distanceDoors, placeTiles, countryTile, centroid, readableName, depthLabel, schoolsOf, countryPicture } from './destinations.mjs';
 import { requiresMathsHL } from './explorer.mjs';
-import { isEnglishStudyOption } from '../lib/schools.mjs';
+import { isEnglishStudyOption, displayName } from '../lib/schools.mjs';
+import { schoolCards, programmeCard as schoolProgrammeCard, FIELD_CANON } from './schools.mjs';
+import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { continentOf } from '../lib/continents.mjs';
 
 /**
@@ -30,6 +32,8 @@ import { continentOf } from '../lib/continents.mjs';
 
 /* Cards open on the page before the rest fold behind "Show all" (#44: no text walls). */
 const FIRST_CARDS = 12;
+/** Cards to a file of card markup that discover.js fetches as it needs them. */
+const CHUNK = 48;
 
 /* Words too common in English to say what a degree is about. */
 const STOP = new Set(('the and for you are but not its with from that this into your than then they them what when who how all any can has have '
@@ -42,7 +46,8 @@ export const DISCOVER_POSTER = '/assets/img/globe/poster-discover-map.webp';
 
 export function wordsOf(text) {
   const words = String(text || '').toLowerCase().normalize('NFC').match(/\p{L}{3,}/gu) || [];
-  return [...new Set(words)].filter((w) => !STOP.has(w)).join(' ');
+  // Forty words say what a degree is about; more only weigh down the index.
+  return [...new Set(words)].filter((w) => !STOP.has(w)).slice(0, 40).join(' ');
 }
 
 /**
@@ -111,59 +116,112 @@ export function discoverSection(site) {
   });
 
   /* --- The cards ------------------------------------------------------------ */
+  /* Every degree on the site: the canonical records' and every school
+     record's, one card list in one order. The page carries the first
+     FIRST_CARDS; the rest, and every card's facts, load as the student
+     explores (discover.js; owner, 14 Oct: "the load is just what you can see"). */
   const sorted = [...site.programmes].sort((a, b) => a.name.localeCompare(b.name));
-  const alpha = cardGroups(site, sorted);
-  const order = variedOrder(alpha.map((g) => ({
-    title: g.family?.name || g.lead.name,
-    inst: g.lead.institutionId,
-    field: g.lead.field || 'Other',
-    dest: destCode(g.lead),
-  })));
-  const groups = order.map((i) => alpha[i]);
-  const cardData = [];
-  const cards = groups.map((g, n) => {
-    const lead = g.lead;
-    const inst = instById.get(lead.institutionId);
-    const where = inst ? readableName(inst) : lead.institutionName;
-    cardData.push({ members: g.members.map(facts) });
-    // The same card an institution's page draws (paths.mjs programmeCard).
-    return html`<li class="discover__card" data-card="${n}">${renderProgrammeCard(programmeCard(site, g, { meta: [where] }))}</li>`;
+  const canon = cardGroups(site, sorted).map((g) => {
+    const inst = instById.get(g.lead.institutionId);
+    return {
+      title: g.family?.name || g.lead.name,
+      inst: g.lead.institutionId,
+      field: g.lead.field || 'Other',
+      dest: destCode(g.lead),
+      members: () => g.members.map(facts),
+      html: () => renderProgrammeCard(programmeCard(site, g, { meta: [inst ? readableName(inst) : g.lead.institutionName] })),
+    };
   });
+  const schoolFacts = (q, inst, c) => ({
+    id: q.href,
+    f: FIELD_CANON[q.field] || 'Other',
+    d: c.code,
+    s: scopeOf(c.code),
+    c: q.city || inst.city || '',
+    i: inst.key,
+    p: '',
+    a: '',
+    // Not worked out for school records: no "No Maths HL" claim either way.
+    m: null,
+    o: (q.selection || []).includes('open') ? 1 : 0,
+    q: [displayName(q.name), q.name, inst.name, inst.shortName, FIELD_CANON[q.field], q.city || inst.city, q.credential, c.name]
+      .filter(Boolean).join(' ').toLowerCase(),
+    w: wordsOf(q.about),
+  });
+  const school = [];
+  for (const c of site.countries || []) {
+    for (const inst of c.institutions || []) {
+      const sc = inst.school;
+      if (inst.canonicalId || !sc?.programmes?.length || !['listed', 'catalogue'].includes(sc.scope)) continue;
+      const statusOf = (q) => deadlineOf(site, inst, c, q).chip;
+      for (const g of schoolCards(sc.programmes)) {
+        const members = g.members || [g];
+        const lead = g.lead || g;
+        school.push({
+          title: displayName(g.family?.name || lead.name),
+          inst: inst.key,
+          field: FIELD_CANON[lead.field] || 'Other',
+          dest: c.code,
+          members: () => members.map((q) => schoolFacts(q, inst, c)),
+          html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: true, at: inst.shortName || inst.name, statusOf }),
+        });
+      }
+    }
+  }
+  const all = [...canon, ...school];
+  const order = variedOrder(all.map(({ title, inst, field, dest }) => ({ title, inst, field, dest })));
+  const entries = order.map((i) => all[i]);
+  const cardData = entries.map((e) => ({ members: e.members() }));
+  const cardHtml = entries.map((e) => toString(e.html()));
+  const cards = cardHtml.slice(0, FIRST_CARDS).map((h, n) => html`<li class="discover__card" data-card="${n}">${raw(h)}</li>`);
+  /* The rest, for discover.js: chunks of card markup, and the facts of all.
+     src/build.mjs writes them beside the page. */
+  const chunks = [];
+  for (let k = 0; k * CHUNK < cardHtml.length; k++) chunks.push(cardHtml.slice(k * CHUNK, (k + 1) * CHUNK));
+  site.discoverFiles = { chunks, index: { cards: cardData } };
 
   /* --- The filters' options, from the records ------------------------------ */
   /* Every number counts cards, what a student sees and can count (#52): a
      card matches when any of its paths does, as the filters do. */
-  const count = (pred) => groups.filter((g) => g.members.some(pred)).length;
-  const fields = [...new Set(site.programmes.map((p) => p.field).filter(Boolean))].sort();
-  const dests = [...new Map(site.programmes.map((p) => [destCode(p), destOf(p)])).entries()]
-    .filter(([c]) => c)
-    .sort((a, b) => (a[1]?.name || a[0]).localeCompare(b[1]?.name || b[0]));
-  const whereGroups = dests.flatMap(([code, d]) => {
-    const name = d?.name || code;
-    const inDest = site.programmes.filter((p) => destCode(p) === code);
-    const cities = [...new Set(inDest.map((p) => p.campus).filter(Boolean))].sort();
-    const insts = [...new Set(inDest.map((p) => p.institutionId))].map((id) => instById.get(id)).filter(Boolean)
-      .sort((a, b) => a.name.localeCompare(b.name));
-    return [
-      { label: `${name}: places`, options: [
-        { value: `dest:${code}`, label: `Anywhere in ${d?.sentenceName || name}`, count: count((p) => destCode(p) === code) },
-        ...cities.map((c) => ({ value: `city:${c}`, label: c, count: count((p) => destCode(p) === code && p.campus === c) })),
-      ] },
-      { label: `${name}: universities and colleges`, options: insts.map((i) => ({ value: `inst:${i.id}`, label: i.name, count: count((p) => p.institutionId === i.id) })) },
-    ];
-  });
-  const total = groups.length;
-  const accepted = count((p) => entryAward(p) === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED);
-  const unknown = count((p) => entryAward(p) === ENTRY_AWARD.NOT_ESTABLISHED);
-  const noMaths = count((p) => !requiresMathsHL(p.entryRequirements));
-  const open = count((p) => p.restrictedAdmission === false);
+  const count = (pred) => cardData.filter((c) => c.members.some(pred)).length;
+  const membersAll = cardData.flatMap((c) => c.members);
+  const fields = [...new Set(membersAll.map((m) => m.f).filter(Boolean))].sort();
+  const destName = new Map([
+    ...(site.countries || []).map((c) => [c.code, c.name]),
+    ...site.programmes.map((p) => [destCode(p), destOf(p)?.name]).filter(([, n]) => n),
+  ]);
+  const instName = new Map([
+    ...(site.countries || []).flatMap((c) => (c.institutions || []).map((i) => [i.key, i.name])),
+    ...site.institutionCatalogue.all.map((i) => [i.id, i.name]),
+  ]);
+  // A university chosen on the globe is named on its chip (discover.js).
+  site.discoverFiles.index.names = Object.fromEntries([...new Set(membersAll.map((m) => m.i))].filter((id) => instName.get(id)).map((id) => [id, instName.get(id)]));
+  const dests = [...new Set(membersAll.map((m) => m.d).filter(Boolean))]
+    .sort((x, y) => (destName.get(x) || x).localeCompare(destName.get(y) || y));
+  /* Where: one choice per country, by distance. A city or a university is a
+     word in the search, or a light on the globe (round 7: a list of every
+     campus on the site was a thousand options and a wall of words). */
+  const DISTANCE = [['here', 'Right here'], ['nearby', 'Nearby'], ['far', 'Explore']];
+  const whereGroups = DISTANCE.map(([key, label]) => ({
+    label,
+    options: dests.filter((code) => scopeOf(code) === key).map((code) => ({
+      value: `dest:${code}`,
+      label: destName.get(code) || code,
+      count: count((m) => m.d === code),
+    })),
+  }));
+  const total = cardData.length;
+  const accepted = count((m) => m.a === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED);
+  const unknown = count((m) => m.a === ENTRY_AWARD.NOT_ESTABLISHED);
+  const noMaths = count((m) => m.m === 0);
+  const open = count((m) => m.o === 1);
   const awardNote = [
     `${accepted} of ${total} accept DP Course Results (the IB's award for separate subjects) in place of the Diploma, on points, grade and HL conditions that differ by country.`,
     unknown ? `${unknown} say nothing either way: ask them in writing.` : '',
   ].filter(Boolean).join(' ');
 
   /* --- The globe ------------------------------------------------------------ */
-  const withDegrees = new Set(site.programmes.map(destCode));
+  const withDegrees = new Set(membersAll.map((m) => m.d));
   const placeIndex = {};
   for (const p of site.programmes) {
     if (!p.placeId) continue;
@@ -261,7 +319,6 @@ export function discoverSection(site) {
       return { camera: { lat: Math.round(Math.max(-20, Math.min(40, lat)) * 10) / 10, lon: Math.round(lon * 10) / 10, alt: 99 }, label: 'the world' };
     })(),
   };
-  const scopeDegrees = (key) => count((p) => scopeOf(destCode(p)) === key);
 
   const noDegreeTiles = tiles.filter((c) => !withDegrees.has(c.code));
 
@@ -282,7 +339,9 @@ export function discoverSection(site) {
                 /* Right here counts its degrees; farther doors count countries.
                    "Europe · 16 programmes" counted only the degrees mapped one
                    by one and made 25 researched countries read as tiny. */
-                d.key === 'here' && scopeDegrees(d.key) ? plural(scopeDegrees(d.key), 'programme') : plural(tiles.filter((c) => scopeOf(c.code) === d.key).length, 'country', 'countries')}</span>
+                /* One unit on every door (round 7): universities, which every
+                   country has, where degrees are mapped only in some. */
+                plural(tiles.filter((c) => scopeOf(c.code) === d.key).reduce((n, c) => n + c.institutions.filter(isEnglishStudyOption).length, 0), 'university', 'universities')}</span>
             </button>`
           )}
         </div>
@@ -355,7 +414,7 @@ export function discoverSection(site) {
       <p class="result-count" id="prog-count" role="status" aria-live="polite">${plural(total, 'programme')}</p>
       <ul class="shell__active" id="prog-active" aria-label="Active filters"></ul>
     </div>
-    <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is listed below.</p></noscript>
+    <noscript><p class="discover__noscript">The filters and the globe need JavaScript. Every degree is on its university's page, by country.</p></noscript>
     ${/* Above the cards: when nothing matches, the degrees nearest a search
           show beneath this line (discover.js nearest). */ ''}
     <div class="discover__empty" id="discover-empty" hidden>
@@ -365,14 +424,13 @@ export function discoverSection(site) {
     <ul class="grid grid--3 discover__cards" id="discover-results" role="list">
       ${cards.slice(0, FIRST_CARDS)}
     </ul>
-    ${/* The first dozen cards, then the rest one tap away — and opened by
-          discover.js the moment any filter is on, so a result is never
-          folded away. */
-      cards.length > FIRST_CARDS
-      ? html`<details class="discover__more" id="discover-more">
-          <summary>Show all ${plural(cards.length, 'programme')}</summary>
-          <ul class="grid grid--3 discover__cards" role="list">${cards.slice(FIRST_CARDS)}</ul>
-        </details>`
+    ${/* The rest arrive as the student scrolls (discover.js): this line is where
+          the next ones are fetched, and a button for a reader who prefers one. */
+      total > FIRST_CARDS
+      ? html`<div class="discover__next" id="discover-next">
+          <button type="button" class="btn btn--ghost" id="discover-more-btn" hidden>Show more programmes</button>
+          <noscript><a class="btn btn--ghost" href="${url('/countries/')}">Every country and its universities</a></noscript>
+        </div>`
       : ''}
     ${noDegreeTiles.length
       ? html`<div class="discover__places" id="discover-places" hidden>
@@ -384,7 +442,10 @@ export function discoverSection(site) {
 </section>
 
 <script type="application/json" id="discover-data">${raw(JSON.stringify({
-  cards: cardData,
+  // The first cards' facts; discover.js loads the rest (discover/index.json).
+  cards: cardData.slice(0, FIRST_CARDS),
+  total,
+  chunk: CHUNK,
   // The lights of Destinations with no mapped degree: how far each is, and how
   // many institutions it has, so a scope can light them and a filter dim them.
   // Its name too, for the chip a choice of it on the globe leaves (#62).

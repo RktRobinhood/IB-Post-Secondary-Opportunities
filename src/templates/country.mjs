@@ -84,12 +84,13 @@ export function countryTemplate(vm) {
   }));
   const inBand = (b) => topics.filter((t) => t.band === b).length;
   const banded = topics.map((t, i) => html`${t.band !== topics[i - 1]?.band && BANDS[t.band] && inBand(t.band) > 1
-    ? html`<h2 class="topic-band">${BANDS[t.band]}</h2>`
+    ? html`<h2 class="topic-band" id="band-${t.band}">${BANDS[t.band]}</h2>`
     : ''}${topic(t)}`);
   const toc = [
     groups.length && ['#institutions', 'Where you can study'],
     (vm.details.lede || topics.some((t) => t.id !== 'sources')) && ['#how', 'How it works'],
-    ...topics.map((t) => [`#${t.id}`, t.title]),
+    // The bands, not every question: a rail of fourteen links is a wall.
+    ...Object.keys(BANDS).filter((b) => inBand(b) > 1).map((b) => [`#band-${b}`, BANDS[b]]),
   ].filter(Boolean);
 
   const body = html`
@@ -161,7 +162,7 @@ ${vm.stats.length >= 2
             </nav>`
           : ''}
         ${/* A short page needs no contents list. */
-          toc.length >= 4
+          toc.length >= 3
           ? html`<nav aria-label="On this page">
               <p class="eyebrow eyebrow--plain">On this page</p>
               <ul class="side-links">${toc.map(([h, label]) => html`<li><a href="${h}">${label}</a></li>`)}</ul>

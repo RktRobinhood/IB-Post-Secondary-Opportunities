@@ -164,11 +164,15 @@ export function programme(site, p, inst) {
       : null,
     decided: {
                     short: [
+            /* The rule that ranks applicants leads, where the record has one;
+               the boilerplate below is for a programme that has none. */
+            (p.selectionFactors || [])[0] ? firstSentence(p.selectionFactors[0], 30) : null,
+            p.cutoff?.ibPoints ? `Places are ranked; last year's cut-off was ${p.cutoff.ibPoints} IB points.` : null,
             award === ENTRY_AWARD.DIPLOMA_REQUIRED ? 'Asks for the full IB Diploma.' : null,
             award === ENTRY_AWARD.COURSE_RESULTS_ACCEPTED
               ? openQuestions.some((r) => (r.satisfiedBy || []).includes('ib-diploma')) ? 'DP Course Results are accepted, with an open question: see "What you need".' : 'DP Course Results are accepted.'
               : null,
-            p.restrictedAdmission ? 'Meeting the requirements does not guarantee a place.' : null,
+            p.restrictedAdmission && !(p.selectionFactors || []).length && !p.cutoff?.ibPoints ? 'Meeting the requirements does not guarantee a place.' : null,
           ].filter(Boolean).join(' ') || null,
           body: html`
             ${p.requirementsText ? note(p.requirementsText, { title: 'In the institution\'s own words' }) : ''}

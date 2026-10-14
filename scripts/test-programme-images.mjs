@@ -42,6 +42,7 @@
  * It reads dist/, so it runs in the built stage.
  */
 import assert from 'node:assert/strict';
+import { homeChunkCards, homeIndex } from './lib/home-cards.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
@@ -201,12 +202,16 @@ const jsonIn = (page, id) => {
 check('every card on the discovery surface carries a background', () => {
   const page = built('index.html');
   if (!page) throw new Error('index.html is not built');
-  const cards = [...page.matchAll(/<li class="discover__card"[^>]*>([\s\S]*?)<\/li>\s*(?=<li class="discover__card"|<\/ul>)/g)].map((m) => m[1]);
+  // Every card: the page carries its first ones, the rest are files beside it.
+  const all = `${homeChunkCards(DIST) || page}</ul>`;
+  const cards = [...all.matchAll(/<li class="discover__card"[^>]*>([\s\S]*?)<\/li>\s*(?=<li class="discover__card"|<\/ul>)/g)].map((m) => m[1]);
   assert.ok(cards.length > 0, 'no discovery cards on the home page');
-  const bare = cards.filter((c) => !/class="card__backdrop"/.test(c)).map((c) => (c.match(/\/programmes\/([a-z0-9-]+)\//) || [])[1]);
+  // A photograph (class="card__backdrop") or a designed one (class="dz card__backdrop").
+  const bare = cards.filter((c) => !/class="(?:dz )?card__backdrop"/.test(c)).map((c) => (c.match(/\/(?:programmes|universities)\/([a-z0-9-]+(?:\/[a-z0-9-]+)?)\//) || [])[1]);
   assert.deepEqual(bare, []);
-  const members = jsonIn('index.html', 'discover-data').cards.reduce((n, c) => n + c.members.length, 0);
-  assert.equal(members, site.programmes.length);
+  // Every canonical programme is a member of a card (school records join them).
+  const ids = new Set((homeIndex(DIST)?.cards || jsonIn('index.html', 'discover-data').cards).flatMap((c) => c.members.map((m) => m.id)));
+  assert.deepEqual(site.programmes.filter((p) => !ids.has(p.id)).map((p) => p.id), []);
 });
 
 check('every planner result carries a background', () => {
@@ -792,11 +797,12 @@ check('every researched country with no mapped degree is a tile a door can land 
   const tpl = (page.match(/<template id="discover-places-tiles">([\s\S]*?)<\/template>/) || [])[1] || '';
   const scopes = [...tpl.matchAll(/<li data-scope="([a-z]+)">/g)].map((m) => m[1]);
   const code = (p) => (typeof p.destination === 'object' ? p.destination?.code : p.destination);
-  const withDegrees = new Set(site.programmes.map(code));
+  const index = homeIndex(DIST);
+  const withDegrees = new Set(index ? index.cards.flatMap((c) => c.members.map((m) => m.d)) : site.programmes.map(code));
   const researched = [...(site.destinations || []), ...(site.countries || [])].map((d) => d.code).filter((c) => c && !withDegrees.has(c));
   assert.equal(scopes.length, new Set(researched).size, `${scopes.length} tiles for ${new Set(researched).size} countries`);
   const data = JSON.parse((page.match(/<script type="application\/json" id="discover-data">([\s\S]*?)<\/script>/) || [])[1] || '{}');
-  const bare = data.cards.flatMap((c) => c.members).filter((m) => typeof m.w !== 'string');
+  const bare = (index || data).cards.flatMap((c) => c.members).filter((m) => typeof m.w !== 'string');
   assert.deepEqual(bare.map((m) => m.id), []);
 });
 

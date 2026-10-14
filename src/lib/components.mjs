@@ -975,7 +975,7 @@ function needsUnits(model, first) {
              old "History or 5 other subjects" hid what kind of choice this
              was and sounded as though History was preferred (#46 round 4). */
           len: examples[0].length + examples[1].length + 18,
-          html: html`one of <span class="req-pick">${keepTogether(examples[0])}, ${keepTogether(examples[1])}</span> <span class="req__others">… (+${items.length - 2})</span>`,
+          html: html`one of <span class="req-pick">${keepTogether(examples[0])}, ${keepTogether(examples[1])}</span> <span class="req__others">or ${items.length - 2} other${items.length - 2 === 1 ? '' : 's'}</span>`,
         } : null,
       });
       return;

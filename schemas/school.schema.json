@@ -178,6 +178,7 @@
           "properties": {
             "value": { "type": "string", "maxLength": 40, "description": "As published, e.g. '34 IB points', '8.9 (Swedish BI scale)'." },
             "ibPoints": { "type": "number", "minimum": 24, "maximum": 45, "description": "The same cut-off in IB points, only when an official table converts it." },
+            "everyoneIn": { "type": "boolean", "description": "The cut-off is the lowest grade that grants access at all: last year every eligible applicant was admitted. Set only where the publisher says so." },
             "intake": { "type": "string", "pattern": "^20[0-9]{2}$" },
             "url": { "$ref": "common.schema.json#/$defs/url" }
           }

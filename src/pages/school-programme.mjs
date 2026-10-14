@@ -119,6 +119,8 @@ function valueAndNote(text) {
  * ("143.7 of 172.1"), else the value as published when it is short.
  */
 function cutoffTile(cut) {
+  /* The scale's floor: what a student needs to know is that everyone got in. */
+  if (cut.everyoneIn) return { value: 'Everyone eligible', local: cut.value };
   if (cut.ibPoints) return { value: `${cut.ibPoints} IB points`, local: cut.value };
   const first = cut.value.match(/\d+(?:[.,]\d+)?/)?.[0];
   const top = cut.value.match(/(?:\/|\bof\b|\bout of\b)\s*(\d+(?:[.,]\d+)?)\s*$/)?.[1];
@@ -377,7 +379,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
      places are decided, the tile points to it rather than calling it a gap. */
   const saysSelection = !selection.length && SAYS_SELECTION.test(`${p.ib || ''} ${school.ib?.text || ''}`);
   const admissionTile = cut
-    ? { label: 'Last cut-off', value: cutShown.value, note: [cut.intake, 'not a prediction', placesNote].filter(Boolean).join(' · ') }
+    ? { label: cut.everyoneIn ? 'Last year' : 'Last cut-off', value: cutShown.value, note: [cut.intake, 'not a prediction', placesNote].filter(Boolean).join(' · ') }
     : {
         label: 'Admission',
         value: saysSelection ? 'See what you need' : admissionValue(selection),
@@ -484,7 +486,8 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     },
     glance: [
       { label: 'Where', value: p.city || inst.city || c.name, note: p.city || inst.city ? c.name : null },
-      { label: 'Degree', value: p.credential },
+      // "Grado (Spanish bachelor's degree)": the name, with its gloss as the note.
+      { label: 'Degree', ...valueAndNote(p.credential) },
       { label: 'Length', value: `${p.years} years` },
       { label: 'Taught in', value: 'English' },
       { label: 'Starts', value: starts },
