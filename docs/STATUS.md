@@ -37,6 +37,24 @@ crashed with nine).
   `import-country-gallery.mjs`. Batch c not started.
 - University photos: photo-pass round 2 (`batch-7.txt`, 62 keys).
 
+Shipped the same day: 2913960 (globe, overview template, 1,070
+overviews), 5bb7502 (~420 degree photos; study-city carousels),
+2d5db17 (**same sections on every page of a level**, owner: "the same
+program template for every single program"). `test-templates.mjs` now
+names each level's required sections; `scripts/lib/template-gaps.json`
+lists pages still waiting for content and may only shrink.
+
+**Next, in order** (≤ 6 agents; pause at 70% of the 5-hour window):
+1. Overview batches 12–21 (`docs/research/overviews/batches.txt`), then
+   a second pass on thin/null lines in NOTES.md; merge, gate, ship.
+2. University gaps in template-gaps.json: programme lists for 47
+   outline universities; IB section + sources for 14.
+3. Country guides for the 43 outline countries — owner to confirm the
+   weekly budget (~1% weekly per country).
+4. Commons subject photos for the ~557 degrees with no official candidate;
+   carousel batch c (and batch a's at, ch); university photo round 2.
+5. Merge conservatoire instrument degrees into one card (task chip).
+
 ## 9 October: the rest of the world, as outlines
 
 Owner: no pins in Africa, South America or the Caribbean; "superficial,
