@@ -133,7 +133,7 @@ export function programme(site, p, inst) {
             : p.cutoff?.value ? String(p.cutoff.value) : 'Limited places'
           : p.restrictedAdmission === false ? 'Open to all who qualify' : 'Not recorded',
         note: p.restrictedAdmission && numericCutoff
-          ? [p.cutoff.ibPoints || p.cutoff.anyDiploma ? `Danish ${p.cutoff.value}` : null, p.cutoff.intake, 'not a prediction'].filter(Boolean).join(' · ')
+          ? [p.cutoff.ibPoints || p.cutoff.anyDiploma ? `Danish ${p.cutoff.value}` : null, p.cutoff.intake].filter(Boolean).join(' · ')
           : [p.cutoff?.intake, quotaFloorText].filter(Boolean).join(' · ') || null,
       },
     ],

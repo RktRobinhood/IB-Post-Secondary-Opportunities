@@ -1,4 +1,4 @@
-import { html, raw, md, plural } from '../lib/html.mjs';
+import { html, raw, md, plural, firstSentence } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
 import { hero, card, stats, crumbs, sectionHead, topic, topicHasContent, pager, stamp } from '../lib/components.mjs';
 
@@ -67,7 +67,7 @@ export function countryTemplate(vm) {
     card({
       href: i.href,
       title: i.shortName && !i.name.startsWith(i.shortName) ? `${i.shortName} — ${i.name}` : i.name,
-      text: i.text,
+      text: i.text ? firstSentence(i.text, 20) : null,
       image: i.image || null,
       placeholder: i.shortName || i.name,
       meta: (i.meta || []).filter(Boolean),
@@ -125,7 +125,7 @@ ${vm.stats.length >= 2
           ? grid(groups[0].cards)
           : groups.map((g) => html`<section class="jgroup">
               <header class="jgroup__head">
-                <h3 class="jgroup__name">${g.name}</h3>
+                <h3 class="jgroup__name">${String(g.name).split(/\s+[—–-]\s+/)[0]}</h3>
                 <p class="jgroup__route">${plural(g.cards.length, 'university', 'universities')}</p>
               </header>
               ${/* The route, and what differs, one tap down: the heading already

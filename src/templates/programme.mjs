@@ -1,6 +1,6 @@
 import { html, plural, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sources, sectionNav } from '../lib/components.mjs';
+import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sources, sectionNav, panelHue } from '../lib/components.mjs';
 
 /**
  * The programme page: one template for every degree in every country.
@@ -52,7 +52,8 @@ export function programmeTemplate(vm) {
   const whatText = typeof vm.what?.short === 'string' ? vm.what.short.trim() : '';
   const opening = whatText ? firstSentence(whatText, 26) : '';
   const usable = opening && !opening.endsWith('…') && opening.length < whatText.length + 1;
-  const lede = usable ? opening : vm.hero.lede;
+  const clause = !usable && whatText ? (whatText.match(/^[^—;:(]{20,140}?(?=\s*[—;:(])/) || [])[0] : null;
+  const lede = usable ? opening : clause ? `${clause.trim()}.` : null;
   const what = usable && vm.what ? { ...vm.what, short: whatText.slice(opening.length).trim() || null } : vm.what;
   const showWhat = topicHasContent(what);
   const eyebrow = [vm.trail.university?.name || vm.trail.university?.label, vm.trail.country?.label].filter(Boolean).join(' · ') || vm.hero.eyebrow;
@@ -122,13 +123,13 @@ ${/* Other degrees: a band of its own after this programme ends, so it never
         ${vm.more?.cards?.length
           ? html`<div class="prog-siblings">${vm.more.cards}</div>`
           : html`<div class="more__way">
-              <a class="more__card" href="${url(vm.trail.university.href)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong></a>
-              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}"><strong>${vm.trail.country.label}</strong><span>Universities</span></a>` : ''}
+              <a class="more__card" href="${url(vm.trail.university.href)}" style="--ph:${panelHue(vm.trail.university.name || vm.trail.university.label)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong></a>
+              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}" style="--ph:${panelHue(vm.trail.country.label)}"><strong>${vm.trail.country.label}</strong><span>Universities</span></a>` : ''}
             </div>`}
       </div>
     </section>`
   : ''}
-${vm.pager?.prev || vm.pager?.next
+${(vm.pager?.prev || vm.pager?.next) && !vm.more?.cards?.length
   ? html`<section class="section section--pager" data-slot="pager">
       <div class="wrap">${pager(vm.pager)}</div>
     </section>`

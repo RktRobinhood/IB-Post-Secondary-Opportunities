@@ -319,7 +319,7 @@ export function familyCard(site, group, { campus = true } = {}) {
   const line = credentialLine({
     degree: orList(facets.map((f) => f.degree)),
     years: same('years', facets) ? facets[0].years : yearsRange(facets.map((f) => f.rawYears)),
-    campus: campuses.size > 1 ? `${campuses.size} campuses` : orList(facets.map((f) => f.campus)),
+    campus: campuses.size > 1 ? `${[...campuses][0]} +${campuses.size - 1}` : orList(facets.map((f) => f.campus)),
   });
   const axis = group.family.axis;
   const floorsDiffer = !same('floor', adm);

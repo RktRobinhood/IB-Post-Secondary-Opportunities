@@ -3453,3 +3453,26 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
 [data-slot="details"]:not(:has(.topic:not(.topic--fold))):not(:has(.topic-band)) { padding-block: var(--s6); }
 .dates-panel__prov { color: var(--warn); font-weight: 700; margin-left: .15em; }
 .dates-panel__provnote { margin: var(--s3) 0 0; font-size: .8125rem; color: var(--ink-mute); }
+
+/* --- Template review, round 10 (Oct 2026) -------------------------------- */
+/* The sticky deadlines panel sits under the section bar, not beneath it. */
+@media (min-width: 62rem) {
+  [data-template="university"] .layout-aside--dates > .dates-panel { top: calc(var(--masthead-h, 4.05rem) + 3.25rem + var(--s4)); }
+}
+/* The section bar's one button is the official page: the rail does not
+   repeat it beside the bar. */
+body:has(.section-nav__action) .layout-aside__side .rail-action { display: none; }
+/* On a phone the bar shows it scrolls: its last labels fade at the edge. */
+@media (max-width: 40rem) {
+  .section-nav__list { mask-image: linear-gradient(to right, #000 85%, transparent); -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); padding-right: var(--s5); }
+}
+/* A card's credential line may take two lines rather than drop the place. */
+.card--backdrop .card__cred { height: auto; min-height: 1.35em; }
+/* The programme column starts closer under the bar. */
+[data-template="programme"] [data-slot="detail"] { padding-top: var(--s6); }
+/* "More at": two cards with a ground of their own, as a missing photo has. */
+.more__card {
+  background:
+    radial-gradient(ellipse at 90% 10%, color-mix(in oklab, hsl(var(--ph, 30) 55% 55%) 30%, var(--paper)), transparent 65%),
+    var(--paper);
+}

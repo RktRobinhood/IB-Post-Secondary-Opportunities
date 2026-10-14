@@ -134,7 +134,7 @@ ${sectionNav([
   t.notes && { href: '#notes', label: 'Worth knowing' },
 ], vm.rail.action && /^https?:/.test(vm.rail.action.href) ? { href: vm.rail.action.href, label: 'Official page ↗' } : null)}
 
-<section class="section" data-slot="study">
+${vm.study.cards?.length || vm.study.handoff || vm.dates ? html`<section class="section" data-slot="study">
   <div class="wrap">
     ${crumbs(vm.crumbs)}
     ${vm.dates ? raw(`<div class="layout-aside layout-aside--dates">${toString(vm.dates)}<div class="layout-aside__main">`) : ''}
@@ -142,10 +142,11 @@ ${sectionNav([
     ${studyBody(vm.study)}` : ''}
     ${vm.dates ? raw('</div></div>') : ''}
   </div>
-</section>
+</section>` : ''}
 
 <section class="section section--tinted section--rule" data-slot="details">
   <div class="wrap">
+    ${vm.study.cards?.length || vm.study.handoff || vm.dates ? '' : crumbs(vm.crumbs)}
     <div class="layout-aside">
       <div class="prose">${topics}</div>
       ${institutionRail({ ...vm.rail, knownFor: (vm.study.cards?.length || 0) >= 3 ? [] : vm.rail.knownFor })}

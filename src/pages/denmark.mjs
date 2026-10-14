@@ -207,7 +207,7 @@ export function denmarkHub(site) {
       ({
         id: 'context',
         title: 'What it is actually like',
-        short: null,
+        short: notes[0]?.text ? firstSentence(notes[0].text, 26) : null,
         body: contextNotes(notes, { heading: false }),
         more: 'Read them',
       }),

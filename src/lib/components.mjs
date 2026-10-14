@@ -1209,8 +1209,8 @@ export function requirementDetail(entry) {
     ${model.floors.map(
       (f) => html`<ul class="need need--ib"><li class="need__card need__card--floor">
           <strong class="req-ib">${f.ib}</strong>
-          <details class="need__below"><summary>Below this</summary><span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span></details>
-          ${first ? html`<small class="req-local">${first.requirementLabel}: ${f.local}</small>` : ''}
+          <details class="need__below"><summary>${((f.belowFull || '').match(/your way in is ([^:]+):/) || [])[1] ? `Below this: ${(f.belowFull.match(/your way in is ([^:]+):/) || [])[1]}` : 'Below this'}</summary><span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span></details>
+          ${first ? html`<small class="req-local">${first.requirementLabel}: ${String(f.local).replace(/^Quota \d+:\s*/i, '')}</small>` : ''}
         </li></ul>`
     )}
     ${first?.explainedAt

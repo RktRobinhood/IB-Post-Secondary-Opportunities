@@ -380,7 +380,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
      places are decided, the tile points to it rather than calling it a gap. */
   const saysSelection = !selection.length && SAYS_SELECTION.test(`${p.ib || ''} ${school.ib?.text || ''}`);
   const admissionTile = cut
-    ? { label: cut.everyoneIn ? 'Last year' : 'Last cut-off', value: cutShown.value, note: [cut.intake, 'not a prediction', placesNote].filter(Boolean).join(' · ') }
+    ? { label: cut.everyoneIn ? 'Last year' : 'Last cut-off', value: cutShown.value, note: [cut.intake, placesNote].filter(Boolean).join(' · ') }
     : {
         label: 'Admission',
         value: saysSelection ? 'See what you need' : admissionValue(selection),

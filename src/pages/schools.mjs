@@ -218,7 +218,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const cities = [...new Set(members.map((q) => q.city || inst.city || ''))];
   /* On its school's page a card names only a campus that is not the school's
      own city; away from it (the home page, with `country`) it always says where. */
-  const where = cities.length > 1 ? `${cities.length} campuses` : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
+  const where = cities.length > 1 ? `${cities.filter(Boolean)[0]} +${cities.length - 1}` : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
   const years = same((q) => q.years)
     ? yrs(p.years)
     : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;
@@ -251,7 +251,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
     // layout; structured `needs` can deepen this adapter later.
     // A brief card (a sibling on a programme page) has no requirement slot.
     req: brief ? false : requirement ? html`<div class="req" data-req><p class="req__ib">${firstSentence(requirement, 22)}</p></div>` : '',
-    paths: fam ? pathsBlock({ head: `${members.length} ${cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
+    paths: fam ? pathsBlock({ head: `${members.length} ${g.family?.axis === 'campus' && cities.length > 1 ? 'campuses' : 'paths'}`, rows: pathRows(inst, members, chipOf) }) : '',
     /* The Danish reference card uses its single chip for admission, not for
        a deadline or a fee. Those facts remain in the adjacent dates panel,
        the section lede and the programme page. Only claim open entry when
@@ -444,10 +444,10 @@ export function schoolPage(site, inst, c, { prev, next }) {
       sources: school?.sources?.length ? school.sources : statement ? [{ title: `${inst.name}: IB recognition statement`, url: statement.url }] : [],
     },
     rail: {
-      checked: school?.retrieved,
+      checked: school?.retrieved || c.dataAsOf,
       // Where nothing is taught in English the next step is another school here.
       action: !go && !school
-        ? null
+        ? { href: c.href, label: `Universities in ${c.name}` }
         : school?.scope === 'none' || !go
         ? { href: `${c.href}#institutions`, label: `Other schools in ${c.name}` }
         : { href: go.url, label: 'The official page ↗', note: go.label },

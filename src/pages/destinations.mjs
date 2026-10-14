@@ -640,6 +640,23 @@ export function destination(site, c, { prev, next }) {
 
   /* A line about this page's own coverage is not a thing to watch for. */
   const watch = c.watchOuts.filter((x) => !/^outline only\b/i.test(x));
+  /* The next deadline anywhere in the country: the calendar's, and each
+     school's own (IE's 6 November round is in its record, not the
+     country's calendar; round 8). */
+  const fromCalendar = nextOf(events);
+  const fromSchools = institutions
+    .map((i) => ({ i, due: nextDeadline(site, { ...i, id: i.key, destination: c.code }, { keep: i.school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null }) }))
+    .filter((x) => x.due)
+    .sort((a, b) => a.due.localeCompare(b.due))[0];
+  const nextClose = fromSchools && (!fromCalendar || fromSchools.due < fromCalendar.due)
+    ? { due: fromSchools.due, institutions: [fromSchools.i.key] }
+    : fromCalendar;
+  /* A school by the name a student knows it by: "Deusto", not "UD". */
+  const schoolShort = (id) => {
+    const i = (c.institutions || []).find((x) => x.key === id || x.canonicalId === id);
+    if (!i) return id;
+    return i.shortName && i.shortName.length > 4 ? i.shortName : i.name.replace(/^Universi(?:dad|tat|ty of|té|tà degli Studi di)\s+(?:de\s+)?/i, '');
+  };
   const topics = [
     c.whyConsider.length &&
       ({
@@ -745,7 +762,8 @@ export function destination(site, c, { prev, next }) {
         id: 'deadlines',
         title: 'Deadlines',
         /* The next date, said as a date; all of them one tap down. */
-        short: ((n) => (n ? `${n.label}, by ${prettyDay(n.due)}.` : null))(nextOf(events)),
+        // The strip's next deadline, in a sentence: the same date, the same school.
+        short: nextClose ? `${nextClose.institutions?.length === 1 ? schoolShort(nextClose.institutions[0]) : nextClose.label || 'Next'}: by ${prettyDay(nextClose.due)}.` : null,
         body: deadlineList(events),
         more: `All ${plural(events.length, 'date')}`,
       }),
@@ -857,23 +875,6 @@ export function destination(site, c, { prev, next }) {
   const saysNoPortal = /^(none|no central portal|no shared application)\b/i.test(portalName.trim());
   /* What a student plans with, in a fixed order: when, how much, where,
      how many. A slot with nothing to say is left out (template review). */
-  /* The next deadline anywhere in the country: the calendar's, and each
-     school's own (IE's 6 November round is in its record, not the
-     country's calendar; round 8). */
-  const fromCalendar = nextOf(events);
-  const fromSchools = institutions
-    .map((i) => ({ i, due: nextDeadline(site, { ...i, id: i.key, destination: c.code }, { keep: i.school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null }) }))
-    .filter((x) => x.due)
-    .sort((a, b) => a.due.localeCompare(b.due))[0];
-  const nextClose = fromSchools && (!fromCalendar || fromSchools.due < fromCalendar.due)
-    ? { due: fromSchools.due, institutions: [fromSchools.i.key] }
-    : fromCalendar;
-  /* A school by the name a student knows it by: "Deusto", not "UD". */
-  const schoolShort = (id) => {
-    const i = (c.institutions || []).find((x) => x.key === id || x.canonicalId === id);
-    if (!i) return id;
-    return i.shortName && i.shortName.length > 4 ? i.shortName : i.name.replace(/^Universi(?:dad|tat|ty of|té|tà degli Studi di)\s+(?:de\s+)?/i, '');
-  };
   const shortDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
   const strip = [
     // Whose deadline it is, when it is one school's: public applicants apply in June.
@@ -913,7 +914,7 @@ export function destination(site, c, { prev, next }) {
     ],
     places: {
       count: institutions.length,
-      lede: grouping.id === 'none' ? null : groupingLede(canonical),
+      lede: null,
       groups: groups.map((g) => ({
         name: groups.length === 1 ? null : g.name,
         route: routeSentence(g),
