@@ -30,7 +30,7 @@
  * Nothing here names a country, a school or a programme.
  */
 import { datesFor, isBinding, leadsFor, forReader } from './school-dates.mjs';
-import { roundOf, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from './schools.mjs';
+import { roundOf, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from './schools.mjs';
 import { FIELD } from '../pages/schools.mjs';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -226,7 +226,16 @@ function deadlineUncached(site, inst, c, p, today) {
     } else if (lastYear || scope.ownDeadline) {
       status = { value: NOT_PUBLISHED, note: lastYear ? `${lastYear.year}: ${lastYear.text}` : `No ${year ? `${year} ` : ''}date out yet` };
     } else {
-      status = { value: NOT_RECORDED, note: null };
+      /* A closing date that was this reader's and has passed is said as
+         closed, never as unknown (#39). */
+      const passed = all
+        .filter((x) => keep(x) && READER.has(x.audience || 'any') && !ahead(x) && isBinding(x) && !x.forDiplomaHolders &&
+          (x.kind ? x.kind === 'closes' : /b(clos|deadline)/i.test(x.label)))
+        .map((x) => x.endDate || x.date)
+        .sort();
+      status = passed.length
+        ? { value: CLOSED, note: `Closed ${shortDay(passed.at(-1))}${year ? ` for ${year}` : ''}; ask about later rounds` }
+        : { value: NOT_RECORDED, note: null };
     }
   }
   const earlyNote = early ? `${early.short || 'Earlier round'} by ${shortDay(early.date)}` : null;

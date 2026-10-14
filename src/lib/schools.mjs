@@ -168,6 +168,8 @@ export const AFTER_DIPLOMA = 'After your Diploma';
 export const NOT_PUBLISHED = 'Not published yet';
 /** No date is recorded for it at all. */
 export const NOT_RECORDED = 'Not recorded yet';
+/** Its closing date for this intake has passed (#39: a passed date is not a missing one). */
+export const CLOSED = 'Closed';
 /** The school sets no application deadline for the reader. */
 export const NO_DEADLINE = 'No deadline';
 
@@ -228,7 +230,8 @@ export function notesFor(school, p) {
     mine: namesProgramme(text, p, schoolWords),
     theirs: others.some((q) => namesProgramme(text, q, schoolWords)) || aboutOtherUnit(text, school, p) || UNLISTED.test(text),
   }));
-  return [...notes.filter((n) => n.mine), ...notes.filter((n) => !n.mine && !n.theirs)];
+  const unlisted = (n) => UNLISTED.test(n.text);
+  return [...notes.filter((n) => n.mine && !unlisted(n)), ...notes.filter((n) => !n.mine && !n.theirs)];
 }
 
 /* A note about degrees the school's list leaves out — taught mostly in

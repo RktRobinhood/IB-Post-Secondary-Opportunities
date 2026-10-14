@@ -623,6 +623,8 @@ export function destination(site, c, { prev, next }) {
   const lead = (label, t) => (t ? `**${label}:** ${one(t)}` : null);
   const lines = (...xs) => xs.filter(Boolean).join('\n\n') || null;
 
+  /* A line about this page's own coverage is not a thing to watch for. */
+  const watch = c.watchOuts.filter((x) => !/^outline onlyb/i.test(x));
   const topics = [
     c.whyConsider.length &&
       ({
@@ -633,13 +635,13 @@ export function destination(site, c, { prev, next }) {
         more: `All ${plural(c.whyConsider.length, 'reason')}`,
       }),
 
-    c.watchOuts.length &&
+    watch.length &&
       ({
         id: 'watch',
         title: 'What to watch for',
-        short: one(c.watchOuts[0]),
-        body: c.watchOuts.length > 1 ? html`<ul class="crosses">${c.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>` : '',
-        more: `All ${plural(c.watchOuts.length, 'thing')} to watch`,
+        short: one(watch[0]),
+        body: watch.length > 1 ? html`<ul class="crosses">${watch.map((x) => html`<li>${x}</li>`)}</ul>` : '',
+        more: `All ${plural(watch.length, 'thing')} to watch`,
       }),
 
     landscape?.routes?.length &&
@@ -803,8 +805,8 @@ export function destination(site, c, { prev, next }) {
       ({
         id: 'sources',
         title: 'Sources',
-        short: `The ${plural(c.sources.length, 'page')} this page was written from.`,
-        body: sources(c.sources, { title: null }),
+        short: c.sources.length === 1 ? `[${c.sources[0].title}](${c.sources[0].url})` : `The ${plural(c.sources.length, 'page')} this page was written from.`,
+        body: c.sources.length === 1 ? '' : sources(c.sources, { title: null }),
         more: `All ${plural(c.sources.length, 'source')}`,
       }),
   ].filter(Boolean);
@@ -847,7 +849,10 @@ export function destination(site, c, { prev, next }) {
       : c.application?.centralised === true && !qualified && portalShort && portalShort.split(/\s+/).length <= 3
         ? { value: portalShort, label: 'National application portal' }
         : null,
-    transcripts ? { value: transcripts.toLocaleString('en-GB'), label: 'IB transcripts sent here in five years' } : null,
+    /* The fee when it is a figure, not a paragraph; else how often IB students go. */
+    eu && eu.value.length <= 14
+      ? { value: eu.value, label: 'Tuition a year, EU/EEA' }
+      : transcripts ? { value: transcripts.toLocaleString('en-GB'), label: 'IB transcripts sent here in five years' } : null,
   ].filter(Boolean);
 
   /* This country's page, drawn by the one country template (src/templates/country.mjs). */
@@ -873,7 +878,6 @@ export function destination(site, c, { prev, next }) {
       { href: c.scope === 'europe' ? '/countries/#europe' : '/countries/#worldwide', label: c.scope === 'europe' ? 'Europe' : 'Worldwide' },
       { label: c.name },
     ],
-    notice: c.researchDepth?.tier === 'researched' ? null : depthNote,
     places: {
       count: institutions.length,
       lede: grouping.id === 'none' ? null : groupingLede(canonical),
@@ -902,7 +906,7 @@ export function destination(site, c, { prev, next }) {
     },
     rail: {
       checked: c.dataAsOf,
-      notice: c.researchDepth?.tier === 'researched' ? depthNote : null,
+      notice: depthNote,
       deeper: [
         mapped ? { href: `/?where=dest:${c.code}#discover`, label: `Every degree in ${c.name}` } : null,
         events.length ? { href: `/timeline/?destinations=${c.code}`, label: 'The dates on the calendar' } : null,

@@ -114,8 +114,8 @@ ${hero(vm.hero)}
   <div class="wrap">
     ${crumbs(vm.crumbs)}
     ${vm.dates ? raw(`<div class="layout-aside layout-aside--dates">${toString(vm.dates)}<div class="layout-aside__main">`) : ''}
-    ${sectionHead({ title: vm.study.title, lede: vm.study.lede, id: 'programmes' })}
-    ${studyBody(vm.study)}
+    ${vm.study.cards?.length || vm.study.handoff ? html`${sectionHead({ title: vm.study.title, lede: vm.study.lede, id: 'programmes' })}
+    ${studyBody(vm.study)}` : ''}
     ${vm.dates ? raw('</div></div>') : ''}
   </div>
 </section>

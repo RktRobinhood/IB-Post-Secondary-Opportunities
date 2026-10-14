@@ -58,10 +58,9 @@ export const TOPICS = [
   ['citizens', 'If you are a citizen', 'life'],
   ['sources', 'Sources', 'end'],
 ];
+/** Fewer places than this and the cards say it all. */
+const MAP_FROM = 4;
 const BANDS = { choose: 'Is it for you?', in: 'Getting in', life: 'Money and life' };
-/** The questions a student cannot plan without: when one has no answer,
-    the page says so in one line rather than leaving it out silently. */
-const CORE = ['ib', 'apply', 'money', 'living'];
 
 export function countryTemplate(vm) {
   const placeCard = (i) =>
@@ -83,10 +82,9 @@ export function countryTemplate(vm) {
     band,
     title: titleOf(slot, title),
   }));
-  /* What is not known yet, in one line, never as a bare heading. */
-  const gaps = TOPICS.filter(([slot]) => CORE.includes(slot) && !topicHasContent(given[slot])).map(([, title]) => title);
-  const banded = topics.map((t, i) => html`${t.band !== topics[i - 1]?.band && BANDS[t.band]
-    ? html`<p class="topic-band">${BANDS[t.band]}</p>`
+  const inBand = (b) => topics.filter((t) => t.band === b).length;
+  const banded = topics.map((t, i) => html`${t.band !== topics[i - 1]?.band && BANDS[t.band] && inBand(t.band) > 1
+    ? html`<h2 class="topic-band">${BANDS[t.band]}</h2>`
     : ''}${topic(t)}`);
   const toc = [
     groups.length && ['#institutions', 'Where you can study'],
@@ -136,7 +134,8 @@ ${vm.stats.length >= 2
             </section>`)}`
       : ''}
     ${vm.places.footnote || ''}
-    ${vm.places.map ? html`<div class="dest-open__map">${vm.places.map}</div>` : ''}
+    ${/* A globe for two pins is an empty screen: the cards are the map. */
+      vm.places.map && vm.places.count >= MAP_FROM ? html`<div class="dest-open__map">${vm.places.map}</div>` : ''}
   </div>
 </section>
 
@@ -149,10 +148,6 @@ ${vm.stats.length >= 2
         ${vm.details.more
           ? html`<details class="topic__more"><summary>More on ${vm.hero.title}</summary>
               <div class="topic__body"><p>${vm.details.more}</p></div></details>`
-          : ''}
-        ${gaps.length
-          ? html`<div class="topic-gap"><span class="topic-gap__label">Ask each university about</span>
-              <ul class="tags">${gaps.map((g) => html`<li class="tag tag--gap">${g}</li>`)}</ul></div>`
           : ''}
         ${banded}
       </div>

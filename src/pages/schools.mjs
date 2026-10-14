@@ -324,10 +324,10 @@ function programmeSection(site, inst, c) {
   const own = inst.admissionsUrl && !isHomepage(inst.admissionsUrl, inst.website) ? inst.admissionsUrl : null;
   return {
     title: 'What you could study here',
-    handoff: html`<div class="handoff__gap">
-      <p class="handoff__todo"><strong>Its degrees are not listed here yet.</strong>${answer && !TAUTOLOGY.test(answer) ? html` In English: ${answer}.` : ''}</p>
-      ${own ? html`<p><a class="btn btn--quiet" href="${own}" rel="noopener nofollow">See its degrees on ${hostOf(own)}<span aria-hidden="true"> ↗</span></a></p>` : ''}
-    </div>`,
+    handoff: own
+      ? html`${answer && !TAUTOLOGY.test(answer) ? html`<p class="handoff__line">In English: ${answer}.</p>` : ''}
+          <p><a class="btn btn--primary" href="${own}" rel="noopener nofollow">Its degrees on ${hostOf(own)}<span aria-hidden="true"> ↗</span></a></p>`
+      : null,
   };
 }
 

@@ -1,6 +1,6 @@
 import { html, plural } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, glance, crumbs, topic, pager, stamp, facts, sources, sectionHead } from '../lib/components.mjs';
+import { hero, glance, crumbs, topic, pager, stamp, facts, sources } from '../lib/components.mjs';
 
 /**
  * The programme page: one template for every degree in every country.
@@ -99,10 +99,9 @@ ${vm.before
 ${/* Other degrees: a band of its own after this programme ends, so it never
      reads as more about this one. */
   vm.more?.cards?.length
-  ? html`<section class="section section--more" data-slot="more" aria-label="${vm.more.title}">
+  ? html`<section class="section section--more" data-slot="more" aria-labelledby="more-here">
       <div class="wrap">
-        <p class="more-end">End of ${vm.trail.title}</p>
-        ${sectionHead({ eyebrow: 'Not this programme', title: vm.more.title, lede: 'Each has its own requirements and deadlines.', id: 'more-here' })}
+        <h2 class="more__title" id="more-here">${vm.more.title}</h2>
         <div class="prog-siblings">${vm.more.cards}</div>
       </div>
     </section>`

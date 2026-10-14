@@ -572,16 +572,12 @@ export function pathsTable(site, p, inst) {
   const cities = [...new Set(facets.map((f) => f.campus).filter(Boolean))];
   const onlyCampus = rec.family.axis === 'campus' && cities.length > 1;
   /* Whatever the axis, paths on different campuses say so in plain words. */
-  const where = campusSentence(members.map((m, i) => ({ label: recs[i]?.family?.path, city: facets[i].campus })), rec.family.axis);
-  const opening = onlyCampus
-    ? where
-    : [`${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}.`, where].filter(Boolean).join(' ');
   return html`<section class="paths" aria-labelledby="paths-title">
     <h2 id="paths-title">${((w) => (onlyCampus ? `Taught on ${w} campuses` : `${w[0].toUpperCase()}${w.slice(1)} ways to take it`))(String(NUMBER_WORDS[members.length] || members.length))}</h2>
-    <p class="paths__lede">${opening} ${
+    <p class="paths__lede">${
       differsAdmission
-        ? 'What it takes to get in differs between them, so check each one.'
-        : `The entry requirements are the same on each${cutoffsDiffer ? ', but last year’s cut-offs were not' : ''}.`
+        ? 'Entry requirements differ between them.'
+        : `Same entry requirements on each${cutoffsDiffer ? '; last year’s cut-offs differed' : ''}.`
     }</p>
     <div class="table-scroll paths__scroll"><table class="data paths__table">
       <thead><tr><th scope="col">Path</th>${cols.map((c) => html`<th scope="col">${c.head}</th>`)}<th scope="col">What is different</th></tr></thead>

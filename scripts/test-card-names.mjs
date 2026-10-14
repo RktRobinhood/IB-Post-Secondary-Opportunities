@@ -25,7 +25,7 @@
  *      institution, and its counts ("Show all 67 programmes") are cards.
  *   3. **Family pages.** Every path of every family has a page with the
  *      Paths table, one row per path, linking to every other path; a family
- *      taught on several campuses says "The same programme is offered at …".
+ *      taught on several campuses says "Taught on two campuses" in its heading.
  *
  * It self-tests its reader on a page with two cards of one name first, so a
  * change of markup cannot make it pass by finding nothing. Built stage.
@@ -224,7 +224,7 @@ for (const fam of families) {
       if (other === m) continue;
       if (!table.includes(`href="${BASE}${other.href}"`)) fail(`${m.href}: the Paths table does not link to ${other.href}`);
     }
-    if (fam.axis === 'campus' && campuses && !/The same programme is offered at /.test(text(table))) {
+    if (fam.axis === 'campus' && campuses && !/Taught on \w+ campuses/.test(text(table))) {
       fail(`${m.href}: "${fam.name}" is one programme on several campuses and its page does not say so plainly`);
     }
   }

@@ -10,7 +10,7 @@ import { datesPanel } from '../lib/school-dates.mjs';
 import { notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA } from '../lib/schools.mjs';
 import { deadlineOf, startsOf } from '../lib/programme-deadline.mjs';
 import { FIELD, programmeCard, schoolCards, yearsText, placesText, feeText } from './schools.mjs';
-import { campusSentence } from '../lib/paths.mjs';
+const NUMBER_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
 
 /**
  * A page for one programme of a school record (issue #43): a listed
@@ -294,16 +294,11 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
   const admissionDiffers = ['Minimum', 'Subjects', 'Places decided by'].some((h) => heads.has(h));
   const onlyCampus = cities.length > 1 && group.family.axis === 'campus';
   /* Whatever the axis, paths on different campuses say so in plain words (#52). */
-  const where = campusSentence(members.map((m) => ({ label: m.family.path, city: m.city || inst.city })), group.family.axis);
-  const lede = [
-    onlyCampus ? where : `${short} offers this as ${members.length} paths.`,
-    onlyCampus ? null : where,
-    admissionDiffers
-      ? `Getting into each ${displayName(group.family.name)} path works differently, so check the one you want.`
-      : `The entry requirements are the same on each${heads.has('Last cut-off') ? ', but last year’s cut-offs were not' : ''}.`,
-  ].filter(Boolean).join(' ');
+  const lede = admissionDiffers
+    ? 'Entry requirements differ between them.'
+    : `Same entry requirements on each${heads.has('Last cut-off') ? '; last year’s cut-offs differed' : ''}.`;
   return html`<section class="paths" aria-labelledby="paths-title">
-    <h2 id="paths-title">${onlyCampus ? `${displayName(group.family.name)} on ${members.length} campuses` : `${members.length} ways to study ${displayName(group.family.name)}`}</h2>
+    <h2 id="paths-title">${((w) => (onlyCampus ? `Taught on ${w} campuses` : `${w[0].toUpperCase()}${w.slice(1)} ways to take it`))(String(NUMBER_WORDS[members.length] || members.length))}</h2>
     <p class="paths__lede">${lede}</p>
     <div class="table-scroll paths__scroll"><table class="data paths__table">
       <thead><tr><th scope="col">Path</th>${cols.map((c) => html`<th scope="col">${c.head}</th>`)}<th scope="col">What is different</th></tr></thead>

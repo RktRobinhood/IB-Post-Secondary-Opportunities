@@ -68,11 +68,12 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, pagedProgrammes, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE } from '../src/lib/schools.mjs';
+import { schoolKey, schoolKeys, loadSchools, isHomepage, programmePaths, pagedProgrammes, saysForDiplomaHolders, roundOf, notesFor, displayName, NOT_OPEN_YET, AFTER_DIPLOMA, NOT_PUBLISHED, NOT_RECORDED, NO_DEADLINE, CLOSED } from '../src/lib/schools.mjs';
 import { schoolCardGroups } from '../src/lib/families.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
+const TODAY = new Date().toISOString().slice(0, 10);
 const BASE = (process.env.SITE_BASE || '').replace(/\/$/, '');
 
 const failures = [];
@@ -357,6 +358,8 @@ for (const [key, inst] of known) {
         [NO_DEADLINE]: Boolean(rec.noDeadline),
         /* No reader's closing date that could be this programme's: none
            scoped or named to another programme. */
+        /* Closed: a reader's closing date is recorded, and every one has passed. */
+        [CLOSED]: ((d) => d.length > 0 && d.every((x) => x.date < TODAY))((rec.dates || []).filter((d) => d.kind === 'closes' && d.who !== 'non-eu' && !d.forDiplomaHolders)),
         [NOT_RECORDED]: !p.closes && !(rec.dates || []).some((d) =>
           d.kind === 'closes' && d.who !== 'non-eu' && !d.forDiplomaHolders &&
           (!(d.programmes || []).length || d.programmes.includes(p.slug)) &&

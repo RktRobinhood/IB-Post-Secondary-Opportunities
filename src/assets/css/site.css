@@ -3244,27 +3244,27 @@ body:has(main > .close:last-child) .site-foot { margin-top: 0; }
 @media (max-width: 40rem) { .stats > .stat:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 
 /* --- Other degrees, after a programme ends (template review, Oct 2026) ----
-   Its own band: a contrasting ground, a hard rule and an "End of …" marker,
-   so the siblings never read as more about the programme above. */
-.section--more { background: var(--paper-2); border-top: 3px solid var(--rule); padding-block: var(--s7); }
-.art .section--more, .section--more { box-shadow: inset 0 1px 0 var(--paper); }
-.more-end {
-  display: flex; align-items: center; gap: var(--s3); margin: 0 0 var(--s6);
-  font-size: .8125rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-mute);
+   Its own band, set apart by design alone: a deeper ground, a hard rule and
+   a heading of its own, so the siblings never read as more about the
+   programme above. No label says so. */
+.section--more {
+  background: var(--paper-3); border-top: 4px solid var(--accent);
+  padding-block: var(--s8);
 }
-.more-end::before, .more-end::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
-.section--more .section-head { margin-bottom: 0; }
-.section--more .prog-siblings { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
-.section--more + .section--pager { background: var(--paper-2); }
-
+.more__title { margin: 0 0 var(--s5); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
+.section--more .prog-siblings { margin-top: 0; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.section--more + .section--pager { background: var(--paper-3); padding-top: 0; }
+.section--more + .section--pager .pager a { background: var(--paper); }
 /* Country details in three bands (template review, Oct 2026): a small label
    where the questions change from "is it for you" to "getting in" to life. */
 .topic-band {
-  margin: var(--s8) 0 0; padding-top: var(--s3);
+  margin: var(--s9) 0 0; padding-top: var(--s4);
   border-top: 2px solid var(--rule-strong);
-  font: 600 .75rem/1.2 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
 }
-.topic-band + .topic { margin-top: var(--s3); }
+.prose > .topic-band:first-of-type { margin-top: var(--s7); }
+.topic-band + .topic { margin-top: var(--s4); }
+.topic-band ~ .topic h2 { font-size: 1.25rem; }
 /* What a country page does not know yet, in one line instead of bare headings. */
 .topic-gap {
   margin: var(--s5) 0 0; padding: var(--s3) var(--s4);

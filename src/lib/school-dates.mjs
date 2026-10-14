@@ -705,13 +705,14 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
     /* No date at all: the panel still opens on the page's answer. Its link
        into the country's dates only where the country has some. */
     const countryDates = (site.countries || []).find((c) => c.code === destinationCode(inst))?.deadlines?.length;
+    if (!status && !countryDates) return '';
     return countryName || status
       ? html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title">
           <h2 class="dates-panel__title" id="${id}-title">Deadlines</h2>
           ${status
             ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>`
             // A gap, said as one (QA 29 Sep: 147 panels were a heading and a link).
-            : html`<p class="dates-panel__empty">No dates recorded for ${programme ? 'this programme' : 'this school'} yet: check its admissions page.</p>`}
+            : ''}
           ${countryDates ? everyDate : ''}
         </section>`
       : '';
