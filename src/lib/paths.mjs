@@ -180,9 +180,9 @@ const AWARD_TEXT = {
  */
 export const TAG_KINDS = {
   cutoff: 'sand',                      // "Last year: 38 IB points"
-  open: 'ok',                          // "Open entry"
+  open: 'plain',                        // "Open entry"
   [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'plain',          // "Full Diploma"
-  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'ok',      // "Diploma or Course Results"
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'plain',    // "Diploma or Course Results"
 };
 const AWARD_TAG = {
   [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'Full Diploma',

@@ -302,10 +302,15 @@ async function main() {
          school's flagships): a page each under the school, paged in the
          order the school's page lists them. */
       if (inst.school?.programmes?.length) {
-        const progs = schoolCards(inst.school.programmes).flatMap((g) => g.members);
-        const step = (j) => progs[j] && { href: progs[j].href, label: displayName(progs[j].name) };
-        for (const [j, p] of progs.entries()) {
-          await write(p.href, schoolProgrammePage(site, inst, c, p, { prev: step(j - 1), next: step(j + 1) }));
+        /* Paged card by card: a programme's own paths (the Global BBA of a
+           BBA family) are its paths table's, never its "Next" (round 7). */
+        const groups = schoolCards(inst.school.programmes);
+        const leadOf = (g) => g && (g.lead || g.members?.[0] || g);
+        const step = (k) => { const q = leadOf(groups[k]); return q && { href: q.href, label: displayName(groups[k].family?.name || q.name) }; };
+        for (const [k, g] of groups.entries()) {
+          for (const p of g.members || [g]) {
+            await write(p.href, schoolProgrammePage(site, inst, c, p, { prev: step(k - 1), next: step(k + 1) }));
+          }
         }
       }
     }

@@ -163,7 +163,7 @@ export function discoverSection(site) {
           field: FIELD_CANON[lead.field] || 'Other',
           dest: c.code,
           members: () => members.map((q) => schoolFacts(q, inst, c)),
-          html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: true, at: inst.shortName || inst.name, statusOf }),
+          html: () => schoolProgrammeCard(inst, g, { tuitionOnCard: true, headed: false, brief: true, at: inst.name, statusOf, country: c.name }),
         });
       }
     }

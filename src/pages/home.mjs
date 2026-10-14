@@ -29,8 +29,6 @@ ${discoverSection(site)}
       { href: '/prepare/', title: 'What counts', line: 'CAS, the EE, tests: required, weighed, or neither.' },
       { href: '/compare/', title: 'Compare countries', line: 'Fees, language and dates side by side.' },
     ])}
-    <p class="small-print">Every figure carries its date and source. Confirm anything that matters at the source.
-      <a href="${url('/about/')}">How this is built</a> · <a href="${url('/trust/')}">Something wrong?</a></p>
   </div>
 </section>`;
 

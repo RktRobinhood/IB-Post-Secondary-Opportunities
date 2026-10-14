@@ -470,7 +470,7 @@ export function stamp(dateString, { label = 'Checked' } = {}) {
  * @param {Array}  [o.links]    [{ href, label }] quieter outbound links
  * @param {Array}  [o.knownFor] short field names
  */
-export function institutionRail({ checked, action, rows = [], links = [], knownFor = [] }) {
+export function institutionRail({ checked, action, rows = [], links = [], knownFor = [], also = null }) {
   return html`<aside class="layout-aside__side stack">
     ${stamp(checked)}
     ${action
@@ -486,6 +486,13 @@ export function institutionRail({ checked, action, rows = [], links = [], knownF
             value: html`<ul class="plain-list">${links.map(
               (l) => html`<li><a href="${url(l.href)}"${/^https?:/.test(l.href) ? raw(' rel="noopener nofollow"') : ''}>${l.label}</a></li>`
             )}</ul>`,
+          }
+        : null,
+      // Other places in the country, for a school with no list of its own.
+      also?.links?.length
+        ? {
+            label: also.title,
+            value: html`<ul class="plain-list">${also.links.map((l) => html`<li><a href="${url(l.href)}">${l.label}</a></li>`)}</ul>`,
           }
         : null,
     ])}
@@ -1280,7 +1287,6 @@ export function contextNote(n) {
     contested: 'Sources disagree, and the disagreement is the useful part',
   };
   return html`<aside class="context" aria-label="Context, not a requirement">
-    <p class="context__kind">Context, not a rule</p>
     <h3 class="context__topic">${n.topic}</h3>
     <div class="context__body">${md(n.text)}</div>
     ${n.counterpoint
@@ -1303,8 +1309,6 @@ export function contextNotes(list, { title = 'What it is actually like', heading
   if (!notes.length) return '';
   return html`<div class="context-set">
     ${heading ? html`<h2 class="context-set__title">${title}</h2>` : ''}
-    <p class="context-set__lede">These are observations rather than rules — the things people who have
-    watched students go through this tend to say. Nothing here decides whether you can apply.</p>
     ${notes.map(contextNote)}
   </div>`;
 }

@@ -78,7 +78,13 @@ function studyBody({ cards = [], handoff = null }) {
   const fieldGroups = [...byField].filter(([, list]) => list.length >= GROUP_MIN);
   const rest = [...byField].filter(([, list]) => list.length < GROUP_MIN).flatMap(([, list]) => list);
   /* Groups only help when they hold most of the list. */
-  if (!fieldGroups.length || rest.length >= Math.max(...fieldGroups.map(([, list]) => list.length))) return way ? html`<div class="stack">${grid}${way}</div>` : grid;
+  if (!fieldGroups.length || rest.length >= Math.max(...fieldGroups.map(([, list]) => list.length))) {
+    // Ungrouped but long: the first nine, the rest one tap away.
+    const shortGrid = html`<div class="grid grid--3">${cards.slice(0, 9).map((c) => c.html)}</div>
+      <details class="prog-group__more"><summary>Show all ${cards.length}</summary>
+        <div class="grid grid--3">${cards.slice(9).map((c) => c.html)}</div></details>`;
+    return way ? html`<div class="stack">${shortGrid}${way}</div>` : shortGrid;
+  }
   /* A field shows its first cards; the rest are one tap away (Studyportals,
      UvA: template-references.md), so a long list is not a wall of cards. */
   const cardOf = (c, headed) => (headed && c.headedHtml) || c.html;

@@ -130,7 +130,7 @@ ${vm.stats.length >= 2
                   ? html`<p class="jgroup__route">${g.routeHref ? html`<a href="${g.routeHref}" rel="noopener nofollow">${g.route}</a>` : g.route}</p>`
                   : html`<p class="jgroup__route jgroup__route--none">No application route recorded for ${g.name} yet — check each institution's own admissions page.</p>`}
               </header>
-              ${g.more ? html`<details class="jgroup__more"><summary>How applying differs</summary>${g.more}</details>` : ''}
+              ${g.more ? html`<details class="jgroup__more"><summary>Applying to ${g.name.toLowerCase()}</summary>${g.more}</details>` : ''}
               ${grid(g.cards)}
             </section>`)}`
       : ''}

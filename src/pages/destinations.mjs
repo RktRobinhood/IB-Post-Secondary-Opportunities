@@ -17,8 +17,14 @@ const prettyDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'num
 /** The country's next deadline: the stats strip and the Deadlines answer say the same date. */
 const nextOf = (events) => {
   const today = new Date().toISOString().slice(0, 10);
-  const ahead = events.filter((e) => e.date && e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
-  return ahead.find((e) => /\b(clos|deadline|apply|application)/i.test(e.label || '')) || null;
+  /* A window's deadline is its last day ("2–30 November": 30 November), and
+     a step that closes nothing (an opening) is not a deadline (round 8). */
+  const due = (e) => e.endDate || e.date;
+  const ahead = events
+    .filter((e) => e.date && due(e) >= today && (e.type === 'submit' || /\b(clos|deadline)/i.test(e.label || '')))
+    .sort((a, b) => due(a).localeCompare(due(b)));
+  const e = ahead[0];
+  return e ? { ...e, due: due(e) } : null;
 };
 import { countryTemplate } from '../templates/country.mjs';
 
@@ -738,7 +744,7 @@ export function destination(site, c, { prev, next }) {
         id: 'deadlines',
         title: 'Deadlines',
         /* The next date, said as a date; all of them one tap down. */
-        short: ((n) => (n ? `**${prettyDay(n.date)}:** ${n.label}` : null))(nextOf(events)),
+        short: ((n) => (n ? `${n.label}, by ${prettyDay(n.due)}.` : null))(nextOf(events)),
         body: deadlineList(events),
         more: `All ${plural(events.length, 'date')}`,
       }),
@@ -811,8 +817,9 @@ export function destination(site, c, { prev, next }) {
       ({
         id: 'sources',
         title: 'Sources',
-        short: c.sources.length === 1 ? `[${c.sources[0].title}](${c.sources[0].url})` : null,
-        body: c.sources.length === 1 ? '' : sources(c.sources, { title: null }),
+        // Always one quiet row, the list one tap down (round 8).
+        short: null,
+        body: sources(c.sources, { title: null }),
         more: `All ${plural(c.sources.length, 'source')}`,
       }),
   ].filter(Boolean);
@@ -850,9 +857,16 @@ export function destination(site, c, { prev, next }) {
   /* What a student plans with, in a fixed order: when, how much, where,
      how many. A slot with nothing to say is left out (template review). */
   const nextClose = nextOf(events);
+  /* A school by the name a student knows it by: "Deusto", not "UD". */
+  const schoolShort = (id) => {
+    const i = (c.institutions || []).find((x) => x.key === id || x.canonicalId === id);
+    if (!i) return id;
+    return i.shortName && i.shortName.length > 4 ? i.shortName : i.name.replace(/^Universi(?:dad|tat|ty of|té|tà degli Studi di)\s+(?:de\s+)?/i, '');
+  };
   const shortDay = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
   const strip = [
-    nextClose ? { value: shortDay(nextClose.date), label: 'Next deadline' } : null,
+    // Whose deadline it is, when it is one school's: public applicants apply in June.
+    nextClose ? { value: shortDay(nextClose.due), label: nextClose.institutions?.length === 1 ? `Next deadline · ${schoolShort(nextClose.institutions[0])}` : 'Next deadline' } : null,
     eu && eu.value.length <= 14 ? { value: eu.value, label: 'Tuition a year, EU/EEA' } : null,
     institutions.length ? { value: String(institutions.length), label: institutions.length === 1 ? 'University teaching in English' : 'Universities teaching in English' } : null,
     mapped ? { value: String(mapped), label: mapped === 1 ? 'Degree in English' : 'Degrees in English' } : null,

@@ -346,7 +346,7 @@ check('the card\'s photograph fades into its box, and is fetched on touch-down',
 });
 
 check('home\'s legend does not call an institution a degree', () => {
-  assert.match(worldWindowSrc, /dots\.some\(\(d\) => d\.door\) \? 'Bigger light, more to study there'/, 'a page whose lights count two things says they all count degrees again');
+  assert.match(worldWindowSrc, /dots\.some\(\(d\) => d\.door\) \? 'Coins count universities'/, 'a page whose lights count two things says they all count degrees again');
 });
 
 check('the globe fades in only once it has drawn, and its stand with it', () => {

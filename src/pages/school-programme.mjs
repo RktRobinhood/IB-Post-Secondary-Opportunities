@@ -412,7 +412,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     : '';
   const rule = school.ib ? generalRule(school.ib.text, p, school.programmes) : null;
   const said = (text, label) => html`<ul class="need need--ib"><li class="need__card">${label ? html`<span class="need__why">${label}</span>` : ''}<span class="need__said">${text}</span></li></ul>`;
-  const lead = own ? chips : p.ib ? said(p.ib) : rule ? said(rule, `Every IB applicant at ${where}`) : '';
+  const lead = own ? chips : p.ib ? said(p.ib) : rule ? said(rule) : '';
   const generalShown = !own && !p.ib && !!rule;
   const fullBody = html`
     ${own && p.ib ? note(p.ib, { title: 'In its own words' }) : ''}

@@ -244,7 +244,7 @@ export function worldWindow({ places = [], bounds, caption, activeLayer = 'Oppor
       ${/* A page with doors counts two things — degrees at a place, institutions
             at a country's own light — so its legend names neither (#53 round
             2: "more degrees" under a card saying "14 institutions"). */
-        levelsPage ? 'Coins count universities' : dots.some((d) => d.door) ? 'Bigger light, more to study there' : `Bigger light, more ${unit ? `${unit}s` : 'opportunities'}`}
+        levelsPage || !unit ? 'Coins count universities' : dots.some((d) => d.door) ? 'Coins count universities' : `Coins count ${unit === 'institution' ? 'universities' : `${unit}s`}`}
     </span>
     ${(() => {
       /* A page of whole countries is read in levels (globe.js): continent,

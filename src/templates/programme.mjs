@@ -89,7 +89,7 @@ ${vm.before
         ${/* The hand-off, as on a university page: the button, and where it goes. */
           vm.rail.official
           ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${vm.rail.official}" rel="noopener nofollow">The official page ↗</a>
-              <p class="rail-note">This programme on ${hostName(vm.rail.official)}. Requirements change each year: confirm them there before you apply.</p></div>`
+              <p class="rail-note">On ${hostName(vm.rail.official)}. Check it before you apply.</p></div>`
           : ''}
         ${facts(vm.rail.rows || [])}
       </aside>
@@ -105,8 +105,8 @@ ${/* Other degrees: a band of its own after this programme ends, so it never
         ${vm.more?.cards?.length
           ? html`<div class="prog-siblings">${vm.more.cards}</div>`
           : html`<div class="more__way">
-              <a class="more__card" href="${url(vm.trail.university.href)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong><span>Every degree here</span></a>
-              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}"><strong>${vm.trail.country.label}</strong><span>Every university</span></a>` : ''}
+              <a class="more__card" href="${url(vm.trail.university.href)}"><strong>${vm.trail.university.name || vm.trail.university.label}</strong></a>
+              ${vm.trail.country ? html`<a class="more__card" href="${url(vm.trail.country.href)}"><strong>${vm.trail.country.label}</strong><span>Universities</span></a>` : ''}
             </div>`}
       </div>
     </section>`

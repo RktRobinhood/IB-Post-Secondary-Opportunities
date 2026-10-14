@@ -3,7 +3,7 @@ import { page } from '../lib/layout.mjs';
 import { universityTemplate, statementShort } from '../templates/university.mjs';
 import { picture } from '../lib/data.mjs';
 import { card } from '../lib/components.mjs';
-import { hostOf, isHomepage, displayName, AFTER_DIPLOMA } from '../lib/schools.mjs';
+import { hostOf, isHomepage, displayName, AFTER_DIPLOMA, isEnglishStudyOption } from '../lib/schools.mjs';
 import { datesPanel, isBinding, nextDeadline } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
@@ -147,7 +147,10 @@ const credentialShort = (cred, title) => {
   if (at < 0) return cred;
   const rest = (cred.slice(0, at) + cred.slice(at + title.length))
     .replace(/\s+(in|of|en)\s*$/i, '').replace(/[\s,(]+$/, '').trim();
-  return rest || cred;
+  /* "BSc (Economist in )", "Bachelor of (Honours)": a hole inside brackets
+     reads as a fault, so the credential stays whole (round 7). */
+  const broken = /\(\s*\)|\(\s*$|^\s*\)|\b(?:in|of|en)\s*\)|\b(?:of|in)\s*\(/i.test(rest) || (rest.match(/\(/g) || []).length !== (rest.match(/\)/g) || []).length;
+  return broken ? cred : rest || cred;
 };
 
 
@@ -206,14 +209,16 @@ function sharedSentences(members) {
  * where every path shares them ("BSc (Tech) · 3 yrs · 2 campuses"), and a
  * short row per path linking to its page, with what differs about it.
  */
-export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null, statusOf = null }) {
+export function programmeCard(inst, group, { tuitionOnCard, headed, brief = false, at = null, statusOf = null, country = null }) {
   const g = group.members ? group : { family: null, members: [group], lead: group };
   const p = g.lead;
   const members = g.members;
   const fam = g.family && members.length > 1;
   const same = (f) => new Set(members.map((q) => f(q) ?? '')).size === 1;
   const cities = [...new Set(members.map((q) => q.city || inst.city || ''))];
-  const where = cities.length > 1 ? `${cities.length} campuses` : p.city && p.city !== inst.city ? p.city : null;
+  /* On its school's page a card names only a campus that is not the school's
+     own city; away from it (the home page, with `country`) it always says where. */
+  const where = cities.length > 1 ? `${cities.length} campuses` : country ? [p.city || inst.city, country].filter(Boolean).join(', ') : p.city && p.city !== inst.city ? p.city : null;
   const years = same((q) => q.years)
     ? yrs(p.years)
     : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;
@@ -334,25 +339,9 @@ function programmeSection(site, inst, c) {
   const own = inst.admissionsUrl && !isHomepage(inst.admissionsUrl, inst.website) ? inst.admissionsUrl : null;
   /* With no list and no page to hand off to, the column shows the other
      places in the country rather than standing empty. */
-  if (!own) {
-    const others = (c.institutions || []).filter((o) => o.key !== inst.key && o.href).slice(0, 6);
-    return {
-      title: `Also in ${c.name}`,
-      cards: others.map((o) => {
-        const pic = picture(site, o.key);
-        return {
-          html: card({
-            href: o.href,
-            title: o.name,
-            text: o.school?.summary || firstSentence(o.note, 24) || null,
-            image: pic ? { src: pic.src, alt: pic.alt } : null,
-            placeholder: o.shortName || o.name,
-            meta: [o.city].filter(Boolean),
-          }),
-        };
-      }),
-    };
-  }
+  /* With no list and no page to hand off to, the school's own answers lead;
+     the other places in its country are in the rail (round 8). */
+  if (!own) return { title: 'What you could study here' };
   return {
     title: 'What you could study here',
     handoff: own
@@ -451,7 +440,8 @@ export function schoolPage(site, inst, c, { prev, next }) {
               more: 'In full',
             }
           : null,
-      sources: school?.sources || [],
+      // Its IB recognition statement is a source like any other.
+      sources: school?.sources?.length ? school.sources : statement ? [{ title: `${inst.name}: IB recognition statement`, url: statement.url }] : [],
     },
     rail: {
       checked: school?.retrieved,
@@ -467,6 +457,9 @@ export function schoolPage(site, inst, c, { prev, next }) {
         ...(statement ? [{ href: statement.url, label: 'Its IB statement' }] : []),
       ],
       knownFor: inst.notableFields || [],
+      also: school?.programmes?.length
+        ? null
+        : { title: `Also in ${c.name}`, links: (c.institutions || []).filter((o) => o.key !== inst.key && o.href && isEnglishStudyOption(o) && o.href !== next?.href && o.href !== prev?.href).slice(0, 5).map((o) => ({ href: o.href, label: o.name })) },
     },
     pager: { prev, next },
     page: {

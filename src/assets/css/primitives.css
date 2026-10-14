@@ -1636,15 +1636,15 @@
 /* On a levels page the trail's "World" is the way home: no Reset. */
 .world[data-levels] .world__btn--wide { display: none; }
 /* +/− as brass knobs, of a piece with the desk globe's ring (round 7). */
-.world[data-levels] .world__btn:not(.world__btn--wide) {
+.world .world__btn:not(.world__btn--wide) {
   width: 2.25rem; height: 2.25rem; padding: 0; border-radius: 50%;
   border: 1.5px solid #3A2A18;
   background: radial-gradient(circle at 35% 30%, #F7DC8E, #D3A13C 60%, #9A6A22);
   color: #2A1C0E; font: 800 1.05rem/1 var(--sans);
   box-shadow: 0 2px 5px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .45);
 }
-.world[data-levels] .world__btn:not(.world__btn--wide):hover:not(:disabled) { color: #000; border-color: #3A2A18; filter: brightness(1.06); }
-.world[data-levels] .world__btn:not(.world__btn--wide):disabled { filter: grayscale(.8) brightness(.95); opacity: 1; color: #6b5b48; }
+.world .world__btn:not(.world__btn--wide):hover:not(:disabled) { color: #000; border-color: #3A2A18; filter: brightness(1.06); }
+.world .world__btn:not(.world__btn--wide):disabled { filter: grayscale(.8) brightness(.95); opacity: 1; color: #6b5b48; }
 @media (max-width: 44rem) {
   .world__trail-btn, .world__trail-here { padding: 0 .4rem; }
   .world__trail-list li + li::before { margin: 0; }
@@ -1776,3 +1776,11 @@
 .world__key .world__key-n { border-radius: 5px; flex: none; }
 .world__key button[aria-current] { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 12%, var(--paper)); }
 .world__key button[aria-current] .world__key-n { background: #F4935F; }
+/* A country's map: its Reset is a brass pill, of a piece with the knobs (round 8). */
+.world:not([data-levels]) .world__btn--wide {
+  border-radius: 999px; padding: 0 .8rem; height: 2.25rem;
+  border: 1.5px solid #3A2A18;
+  background: radial-gradient(circle at 35% 30%, #F7DC8E, #D3A13C 60%, #9A6A22);
+  color: #2A1C0E; font: 800 .75rem/1 var(--sans); letter-spacing: .06em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .45);
+}

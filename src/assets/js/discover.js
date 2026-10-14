@@ -603,7 +603,7 @@ function render() {
     : door && places
     ? `<b>${esc(destName(door))}</b>${LIGHTS[door]?.n ? ` · ${plural(LIGHTS[door].n, 'university', 'universities')}` : ''}`
     : doorOnly && places
-    ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b> researched`
+    ? `<b>${plural(places.tiles.length, 'country', 'countries')}</b>`
     : near.size
     ? `${plural(near.size, 'programme').replace(/^(\d+)/, '<b>$1</b>')} near “${esc(state.q.trim())}”`
     : '<b>No degrees</b>';
