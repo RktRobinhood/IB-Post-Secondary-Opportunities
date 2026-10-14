@@ -624,7 +624,7 @@ export function destination(site, c, { prev, next }) {
   const lines = (...xs) => xs.filter(Boolean).join('\n\n') || null;
 
   /* A line about this page's own coverage is not a thing to watch for. */
-  const watch = c.watchOuts.filter((x) => !/^outline onlyb/i.test(x));
+  const watch = c.watchOuts.filter((x) => !/^outline only\b/i.test(x));
   const topics = [
     c.whyConsider.length &&
       ({
@@ -906,7 +906,7 @@ export function destination(site, c, { prev, next }) {
     },
     rail: {
       checked: c.dataAsOf,
-      notice: depthNote,
+      notice: null,
       deeper: [
         mapped ? { href: `/?where=dest:${c.code}#discover`, label: `Every degree in ${c.name}` } : null,
         events.length ? { href: `/timeline/?destinations=${c.code}`, label: 'The dates on the calendar' } : null,

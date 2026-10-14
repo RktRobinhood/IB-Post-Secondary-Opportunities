@@ -230,7 +230,7 @@ function deadlineUncached(site, inst, c, p, today) {
          closed, never as unknown (#39). */
       const passed = all
         .filter((x) => keep(x) && READER.has(x.audience || 'any') && !ahead(x) && isBinding(x) && !x.forDiplomaHolders &&
-          (x.kind ? x.kind === 'closes' : /b(clos|deadline)/i.test(x.label)))
+          (x.kind ? x.kind === 'closes' : /\b(clos|deadline)/i.test(x.label)))
         .map((x) => x.endDate || x.date)
         .sort();
       status = passed.length
