@@ -298,10 +298,10 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
   /* Whatever the axis, paths on different campuses say so in plain words (#52). */
   const lede = admissionDiffers
     ? 'Entry requirements differ between them.'
-    : `Same entry requirements on each${heads.has('Last cut-off') ? '; last year’s cut-offs differed' : ''}.`;
+    : heads.has('Last cut-off') ? 'Last year’s cut-offs differed.' : '';
   return html`<section class="paths" aria-labelledby="paths-title">
     <h2 id="paths-title">${((w) => (onlyCampus ? `Taught on ${w} campuses` : `${w[0].toUpperCase()}${w.slice(1)} ways to take it`))(String(NUMBER_WORDS[members.length] || members.length))}</h2>
-    <p class="paths__lede">${lede}</p>
+    ${lede ? html`<p class="paths__lede">${lede}</p>` : ''}
     <div class="table-scroll paths__scroll"><table class="data paths__table">
       <thead><tr><th scope="col">Path</th>${cols.map((c) => html`<th scope="col">${c.head}</th>`)}<th scope="col">What is different</th></tr></thead>
       <tbody>${members.map((m) => {
@@ -310,7 +310,8 @@ function schoolPathsTable(site, inst, p, { starts: startsOfPath, applyByOf }) {
           <th scope="row">${here
             ? html`<strong>${m.family.path}</strong>`
             : html`<a href="${url(m.href)}">${m.family.path}</a>`}</th>
-          ${cols.map((c) => html`<td data-label="${c.head}">${c.cell(m) || '—'}</td>`)}
+          ${/* A cell that repeats the path's own name says nothing more (round 8). */
+            cols.map((c) => html`<td data-label="${c.head}">${c.cell(m) && String(c.cell(m)) !== String(m.family.path) ? c.cell(m) : '—'}</td>`)}
           <td class="paths__diff" data-label="What is different">${m.family.differs}</td>
         </tr>`;
       })}</tbody>

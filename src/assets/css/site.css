@@ -3413,3 +3413,43 @@ body:has(main > .section--more + .section--pager:last-child) .site-foot { margin
 /* A family card's requirement gets two lines, so "+1 more" is read, not cut. */
 .card--backdrop .card__slot:has(.card__paths) .req__ib { -webkit-line-clamp: 2; }
 .card--backdrop .card__slot:has(.card__paths) { max-height: 7.5rem; }
+
+/* --- Section nav (round 9) ----------------------------------------------- *
+   Under the masthead, the page's own sections and its one way off the site. */
+.section-nav {
+  position: sticky; top: var(--masthead-h, 4.05rem); z-index: 90;
+  background: color-mix(in oklab, var(--paper) 92%, transparent);
+  backdrop-filter: saturate(160%) blur(10px); -webkit-backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.section-nav__inner { display: flex; align-items: center; gap: var(--s4); min-height: 3rem; }
+.section-nav__list {
+  display: flex; gap: var(--s5); margin: 0; padding: 0; list-style: none;
+  overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0;
+}
+.section-nav__list::-webkit-scrollbar { display: none; }
+.section-nav__list a {
+  display: inline-flex; align-items: center; min-height: 3rem; white-space: nowrap;
+  font: 600 .875rem/1 var(--sans); color: var(--ink-soft); text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.section-nav__list a:hover, .section-nav__list a:focus-visible { color: var(--ink); border-bottom-color: var(--accent); }
+.section-nav__action {
+  flex: none; font: 700 .875rem/1 var(--sans); color: var(--paper); background: var(--brand);
+  padding: .65rem 1rem; border-radius: var(--radius); text-decoration: none; white-space: nowrap;
+}
+.section-nav__action:hover, .section-nav__action:focus-visible { filter: brightness(1.1); }
+/* Sections land below the masthead and the bar. */
+[data-template="programme"] :is(#what, #requirements, #selection, #dates, #more-here),
+[data-template="university"] :is(#programmes, #dates, #ib, #admissions, #notes) { scroll-margin-top: 8rem; }
+@media (max-width: 40rem) { .section-nav__action { padding: .55rem .75rem; } .section-nav__list { gap: var(--s4); } }
+.paths__lede:empty { display: none; }
+/* The rest of a quota rule, one tap down inside its card. */
+.need__below { margin-top: var(--s2); font-size: .875rem; }
+.need__below > summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+/* Sibling cards share a height only where they share a row. */
+@media (max-width: 40rem) { .section--more .prog-siblings { grid-auto-rows: auto; } }
+/* A details band that holds only a folded row keeps to its size. */
+[data-slot="details"]:not(:has(.topic:not(.topic--fold))):not(:has(.topic-band)) { padding-block: var(--s6); }
+.dates-panel__prov { color: var(--warn); font-weight: 700; margin-left: .15em; }
+.dates-panel__provnote { margin: var(--s3) 0 0; font-size: .8125rem; color: var(--ink-mute); }

@@ -31,6 +31,7 @@ import { countryTemplate } from '../templates/country.mjs';
 /** A topic's id here → the country template's question it answers. */
 const TOPIC_SLOT = { landscape: 'system', deadlines: 'dates', 'own-citizens': 'citizens' };
 import { isEnglishStudyOption } from '../lib/schools.mjs';
+import { nextDeadline, isBinding } from '../lib/school-dates.mjs';
 
 /* Destinations: the Countries page (every Destination, by region) and one page per country. */
 
@@ -682,7 +683,7 @@ export function destination(site, c, { prev, next }) {
         title: 'How your IB is read here',
         short: c.ibRecognition.accepted === false
           ? 'Not straightforwardly — see the notes.'
-          : lead('Minimum', c.ibRecognition.minimumPoints) || 'Yes, an IB Diploma is accepted.',
+          : (c.ibRecognition.minimumPoints ? one(c.ibRecognition.minimumPoints) : null) || 'Yes, an IB Diploma is accepted.',
         body: html`${facts([
             { label: 'Accepted', value: c.ibRecognition.accepted === false ? 'Not straightforwardly — see the notes' : 'Yes' },
             { label: 'Minimum', value: c.ibRecognition.minimumPoints },
@@ -715,9 +716,9 @@ export function destination(site, c, { prev, next }) {
         // to each university…"); that reads as advice, not as a portal called
         // "None".
         short: noPortal
-          ? html`<p><strong>Where to apply:</strong> directly to each university — there is no central portal.</p>`
+          ? html`<p>Apply directly to each university.</p>`
           : c.application.portal?.name
-          ? html`<p><strong>Where to apply:</strong> ${c.application.portal.url
+          ? html`<p>Through ${c.application.portal.url
               ? html`<a href="${c.application.portal.url}" rel="noopener nofollow">${one(c.application.portal.name)}</a>`
               : one(c.application.portal.name)}</p>`
           : one(c.application.steps[0]),
@@ -856,7 +857,17 @@ export function destination(site, c, { prev, next }) {
   const saysNoPortal = /^(none|no central portal|no shared application)\b/i.test(portalName.trim());
   /* What a student plans with, in a fixed order: when, how much, where,
      how many. A slot with nothing to say is left out (template review). */
-  const nextClose = nextOf(events);
+  /* The next deadline anywhere in the country: the calendar's, and each
+     school's own (IE's 6 November round is in its record, not the
+     country's calendar; round 8). */
+  const fromCalendar = nextOf(events);
+  const fromSchools = institutions
+    .map((i) => ({ i, due: nextDeadline(site, { ...i, id: i.key, destination: c.code }, { keep: i.school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null }) }))
+    .filter((x) => x.due)
+    .sort((a, b) => a.due.localeCompare(b.due))[0];
+  const nextClose = fromSchools && (!fromCalendar || fromSchools.due < fromCalendar.due)
+    ? { due: fromSchools.due, institutions: [fromSchools.i.key] }
+    : fromCalendar;
   /* A school by the name a student knows it by: "Deusto", not "UD". */
   const schoolShort = (id) => {
     const i = (c.institutions || []).find((x) => x.key === id || x.canonicalId === id);

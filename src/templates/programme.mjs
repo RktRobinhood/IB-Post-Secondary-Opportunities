@@ -1,6 +1,6 @@
-import { html, plural } from '../lib/html.mjs';
+import { html, plural, firstSentence } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, glance, crumbs, topic, pager, stamp, facts, sources } from '../lib/components.mjs';
+import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sources, sectionNav } from '../lib/components.mjs';
 
 /**
  * The programme page: one template for every degree in every country.
@@ -46,12 +46,29 @@ const hostName = (u) => {
 
 export function programmeTemplate(vm) {
   const sourceList = (vm.sources || []).filter((s, i, all) => s && s.url && all.findIndex((t) => t && t.url === s.url) === i);
+  /* The hero says what the degree is in its own first sentence, once; the
+     facts are the strip's, and the eyebrow says only whose and where
+     (round 8: the facts were said three times over the fold). */
+  const whatText = typeof vm.what?.short === 'string' ? vm.what.short.trim() : '';
+  const opening = whatText ? firstSentence(whatText, 26) : '';
+  const usable = opening && !opening.endsWith('…') && opening.length < whatText.length + 1;
+  const lede = usable ? opening : vm.hero.lede;
+  const what = usable && vm.what ? { ...vm.what, short: whatText.slice(opening.length).trim() || null } : vm.what;
+  const showWhat = topicHasContent(what);
+  const eyebrow = [vm.trail.university?.name || vm.trail.university?.label, vm.trail.country?.label].filter(Boolean).join(' · ') || vm.hero.eyebrow;
   const body = html`
-${hero({ ...vm.hero, variant: 'compact' })}
+${hero({ ...vm.hero, eyebrow, lede, variant: 'compact' })}
 
 <section class="section section--tinted section--glance" data-slot="glance">
   <div class="wrap">${glance(vm.glance.filter(Boolean))}</div>
 </section>
+${sectionNav([
+  showWhat && { href: '#what', label: 'What it is' },
+  { href: '#requirements', label: 'What you need' },
+  vm.decided && { href: '#selection', label: 'How places are decided' },
+  vm.dates && { href: '#dates', label: 'Deadlines' },
+  (vm.more?.cards?.length || vm.trail.university) && { href: '#more-here', label: vm.more?.cards?.length ? 'Other degrees' : 'More' },
+], vm.rail.official ? { href: vm.rail.official, label: 'Official page ↗' } : null)}
 ${vm.before
   ? html`<section class="section section--before" data-slot="before">
       <div class="wrap">${vm.before}</div>
@@ -63,7 +80,7 @@ ${vm.before
     <div class="layout-aside${vm.dates ? ' layout-aside--dates' : ''}">
       ${vm.dates || ''}
       <div class="prose">
-        ${vm.what ? topic({ id: 'what', title: 'What it is', ...vm.what }) : ''}
+        ${showWhat ? topic({ id: 'what', title: 'What it is', ...what }) : ''}
         ${vm.paths || ''}
         <h2 id="requirements">What you need</h2>
         ${vm.need.lead || html`<p class="need__note">No requirement is recorded here yet.</p>`}
@@ -89,7 +106,7 @@ ${vm.before
         ${/* The hand-off, as on a university page: the button, and where it goes. */
           vm.rail.official
           ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${vm.rail.official}" rel="noopener nofollow">The official page ↗</a>
-              <p class="rail-note">On ${hostName(vm.rail.official)}. Check it before you apply.</p></div>`
+              <p class="rail-note">On ${hostName(vm.rail.official)}</p></div>`
           : ''}
         ${facts(vm.rail.rows || [])}
       </aside>

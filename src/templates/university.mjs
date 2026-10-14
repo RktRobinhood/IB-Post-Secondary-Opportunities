@@ -1,6 +1,6 @@
 import { html, raw, toString, plural, firstSentence } from '../lib/html.mjs';
 import { page } from '../lib/layout.mjs';
-import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sources } from '../lib/components.mjs';
+import { hero, glance, crumbs, sectionHead, topic, pager, institutionRail, sources, sectionNav } from '../lib/components.mjs';
 
 /**
  * The university page: one template for every institution in every country.
@@ -126,6 +126,13 @@ ${hero(vm.hero)}
     ${glance(vm.glance.filter((g) => g && g.value).slice(0, 4))}
   </div>
 </section>
+${sectionNav([
+  (vm.study.cards?.length || vm.study.handoff) && { href: '#programmes', label: vm.study.cards?.length ? 'Degrees' : vm.study.title },
+  vm.dates && { href: '#dates', label: 'Deadlines' },
+  t.ib && { href: '#ib', label: 'What it asks' },
+  t.admissions && { href: '#admissions', label: 'How places are decided' },
+  t.notes && { href: '#notes', label: 'Worth knowing' },
+], vm.rail.action && /^https?:/.test(vm.rail.action.href) ? { href: vm.rail.action.href, label: 'Official page ↗' } : null)}
 
 <section class="section" data-slot="study">
   <div class="wrap">

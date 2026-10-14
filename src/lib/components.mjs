@@ -500,6 +500,23 @@ export function institutionRail({ checked, action, rows = [], links = [], knownF
   </aside>`;
 }
 
+/**
+ * The page's sections as a bar that stays under the masthead (UCL, UvA,
+ * Melbourne: docs/research/template-references.md), with the one way off the
+ * site at its end. Only sections the page drew are listed; on a phone the bar
+ * scrolls sideways. `items` [{ href: '#id', label }], `action` { href, label }.
+ */
+export function sectionNav(items, action = null) {
+  const list = (items || []).filter(Boolean);
+  if (list.length < 2) return '';
+  return html`<nav class="section-nav" aria-label="Sections">
+    <div class="wrap section-nav__inner">
+      <ul class="section-nav__list">${list.map((i) => html`<li><a href="${i.href}">${i.label}</a></li>`)}</ul>
+      ${action ? html`<a class="section-nav__action" href="${action.href}" rel="noopener nofollow">${action.label}</a>` : ''}
+    </div>
+  </nav>`;
+}
+
 export function pager({ prev, next }) {
   if (!prev && !next) return '';
   return html`<nav class="pager" aria-label="More pages">
@@ -1147,12 +1164,8 @@ export function requirementDetail(entry) {
   </li>`;
 
   return html`<div class="req-detail" data-req>
-    <p class="need__note">${model.floors.length
-      ? 'Subjects carry no minimum grade unless one is shown. The averages at the end decide your quota.'
-      : graded
-      ? 'Where no grade is shown, no minimum grade is recorded for that subject.'
-      : 'No minimum grade is recorded for any of these subjects.'}</p>
-    ${model.all.length || single.length
+    ${/* A grade shows where there is one; a note explaining the cards was
+          copy about the page (round 8). */ ''}    ${model.all.length || single.length
       ? html`<ul class="need need--ib" aria-label="Required subjects">${model.all.map(
           (x) => x.fold
             ? html`<li class="need__card">
@@ -1194,10 +1207,9 @@ export function requirementDetail(entry) {
           ]}</ul>`;
     })}
     ${model.floors.map(
-      (f) => html`<p class="need__or">To be ranked in ${f.quota.toLowerCase()}:</p>
-        <ul class="need need--ib"><li class="need__card need__card--floor">
+      (f) => html`<ul class="need need--ib"><li class="need__card need__card--floor">
           <strong class="req-ib">${f.ib}</strong>
-          <span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span>
+          <details class="need__below"><summary>Below this</summary><span class="need__why req-why">${f.belowFull || 'Below this, you can still be admitted in the other quota.'}</span></details>
           ${first ? html`<small class="req-local">${first.requirementLabel}: ${f.local}</small>` : ''}
         </li></ul>`
     )}
@@ -1235,7 +1247,8 @@ export function freshness({ intake, checkedAt, level = 'verified', reviewBy, pro
      carried over from last year, earns a line here (no meta, Oct 2026). */
   const quiet = level === 'verified' || level === 'needs-review';
   const overdue = reviewBy && reviewBy < new Date().toISOString().slice(0, 10);
-  if (quiet && !provisional && !overdue) return '';
+  /* Provisional dates are marked in the dates panel itself (round 8). */
+  if (quiet && !overdue) return '';
   return html`<aside class="freshness freshness--${kind || 'plain'}">
     ${quiet
       ? ''

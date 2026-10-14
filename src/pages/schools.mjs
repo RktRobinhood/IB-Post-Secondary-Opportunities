@@ -218,7 +218,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
   const cities = [...new Set(members.map((q) => q.city || inst.city || ''))];
   /* On its school's page a card names only a campus that is not the school's
      own city; away from it (the home page, with `country`) it always says where. */
-  const where = cities.length > 1 ? `${cities.length} campuses` : country ? [p.city || inst.city, country].filter(Boolean).join(', ') : p.city && p.city !== inst.city ? p.city : null;
+  const where = cities.length > 1 ? `${cities.length} campuses` : country ? p.city || inst.city || null : p.city && p.city !== inst.city ? p.city : null;
   const years = same((q) => q.years)
     ? yrs(p.years)
     : `${String(Math.min(...members.map((q) => q.years))).replace(/\.5$/, '½')}–${yrs(Math.max(...members.map((q) => q.years)))}`;
@@ -258,7 +258,7 @@ export function programmeCard(inst, group, { tuitionOnCard, headed, brief = fals
        every path explicitly records it. */
     tags: [members.every((q) => (q.selection || []).includes('open')) ? { label: 'Open entry', mod: 'ok' } : null].filter(Boolean),
     // At rest, the card says it opens a page.
-    meta: [at || (headed ? null : FIELD[p.field])].filter(Boolean),
+    meta: [at || (headed ? null : FIELD[p.field]), country].filter(Boolean),
   });
 }
 

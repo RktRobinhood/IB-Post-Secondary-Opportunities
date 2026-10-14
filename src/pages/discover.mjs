@@ -129,7 +129,7 @@ export function discoverSection(site) {
       field: g.lead.field || 'Other',
       dest: destCode(g.lead),
       members: () => g.members.map(facts),
-      html: () => renderProgrammeCard(programmeCard(site, g, { meta: [inst ? readableName(inst) : g.lead.institutionName] })),
+      html: () => renderProgrammeCard(programmeCard(site, g, { meta: [inst ? readableName(inst) : g.lead.institutionName, destOf(g.lead)?.name].filter(Boolean) })),
     };
   });
   const schoolFacts = (q, inst, c) => ({

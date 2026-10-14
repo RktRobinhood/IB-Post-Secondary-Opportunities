@@ -651,7 +651,7 @@ function dateItem(site, e) {
   /* `data-binding` is what dates-panel.js lifts to the top as dates pass: a
      deadline a final-year student plans around (`leadsFor`). */
   return html`<li class="dates-panel__item" data-date="${e.date}"${raw(e.endDate ? ` data-end="${e.endDate}"` : '')}${raw(leadsFor(e) ? ' data-binding="true"' : '')}${raw(e.forDiplomaHolders ? ' data-diploma-holders="true"' : '')}${raw(e.audience && e.audience !== 'any' && /^[a-z-]+$/.test(e.audience) ? ` data-who="${e.audience}"` : '')}${raw(e.provisional ? ' data-provisional="true"' : '')}>
-    <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html` <span class="dates-panel__prov">· provisional</span>` : ''}</p>
+    <p class="dates-panel__when">${formatWhen(e)}${e.provisional ? html`<span class="dates-panel__prov" title="Last year’s date, not yet confirmed">*</span>` : ''}</p>
     ${/* A line of the panel, not prose: the same school date is on each of
           its programmes' pages (the text-walls guard reads <p> as prose).
           "(yearly date)" is the record's reason for "provisional", which the
@@ -750,6 +750,7 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
               </details>`
             : ''}`
       : html`<p class="dates-panel__empty">No upcoming deadlines recorded for ${whose}.</p>`}
+    ${events.some((e) => e.provisional) ? html`<p class="dates-panel__provnote">* Last year’s date, not yet confirmed.</p>` : ''}
     ${sessions.length
       ? html`<h3 class="dates-panel__sub">Upcoming sessions</h3>
           <ol class="dates-panel__list" data-sessions>${sessions.map(sessionItem)}</ol>`

@@ -577,7 +577,7 @@ export function pathsTable(site, p, inst) {
     <p class="paths__lede">${
       differsAdmission
         ? 'Entry requirements differ between them.'
-        : `Same entry requirements on each${cutoffsDiffer ? '; last year’s cut-offs differed' : ''}.`
+        : cutoffsDiffer ? 'Last year’s cut-offs differed.' : ''
     }</p>
     <div class="table-scroll paths__scroll"><table class="data paths__table">
       <thead><tr><th scope="col">Path</th>${cols.map((c) => html`<th scope="col">${c.head}</th>`)}<th scope="col">What is different</th></tr></thead>
