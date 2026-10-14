@@ -38,7 +38,7 @@ import { homeChunkCards, homeIndex } from './lib/home-cards.mjs';
 import path from 'node:path';
 import { loadCanonical } from '../src/lib/canonical.mjs';
 import { assess, buildSubjectIndex, ibTermsFor } from '../src/lib/eligibility.mjs';
-import { requirementLine, requirementModel, floorShort } from '../src/lib/components.mjs';
+import { requirementLine, requirementModel, floorShort, cardForm } from '../src/lib/components.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.join(ROOT, 'dist');
@@ -205,6 +205,8 @@ function expected(entry) {
   for (const set of open) for (const o of set.open) for (const x of o.parts) if (x.kind === 'ib') allowed.add(cardText(x));
   // A card's short form stands for the full one: shown, it counts as shown.
   const alias = new Map(model.all.filter((x) => x.short).map((x) => [x.short, x.text]));
+  // A card writes a grade as "4+" (components.mjs cardForm): the same phrase.
+  for (const x of [...allowed]) { const f = cardForm(x); if (f !== x) { allowed.add(f); alias.set(f, alias.get(x) || x); } }
   return { card: { allowed, required: card, alias }, detail: { allowed, required: detail } };
 }
 

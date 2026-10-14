@@ -165,8 +165,15 @@ export function cutoffLabel(p) {
   const f = cutoffFact(p);
   if (!f) return null;
   // "All qualified" and "any Diploma" mean one thing to a student (round 10).
-  return `${f.when}: ${f.open || f.value === 'any Diploma' ? 'everyone eligible got in' : f.value}`;
+  if (f.open || f.value === 'any Diploma') return 'Open entry';
+  return `${f.when}: ${f.value}`;
 }
+
+/** The award, as the first thing a card's Needs line names. */
+const AWARD_NEED = {
+  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'the full Diploma',
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'the Diploma or Course Results',
+};
 
 const AWARD_TEXT = {
   [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'DP Course Results accepted',
@@ -222,7 +229,6 @@ function admissionOf(site, p) {
 export function cardTag({ cutoff = null, open = false, award = null } = {}) {
   if (cutoff) return { label: cutoff, mod: TAG_KINDS.cutoff };
   if (open) return { label: 'Open entry', mod: TAG_KINDS.open };
-  if (AWARD_TAG[award]) return { label: AWARD_TAG[award], mod: TAG_KINDS[award] };
   return null;
 }
 
@@ -380,7 +386,7 @@ export function familyCard(site, group, { campus = true } = {}) {
     title: group.family.name,
     href: lead.href,
     line,
-    req: requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(lead), pointFigures: tag?.mod !== TAG_KINDS.cutoff }),
+    req: requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(lead), pointFigures: tag?.mod !== TAG_KINDS.cutoff, prefix: awardDiffer ? null : AWARD_NEED[adm[0].awardKey] }),
     paths: {
       head: `${members.length} ${AXIS_HEAD[axis] || 'paths'}`,
       rows,
@@ -423,7 +429,7 @@ export function programmeCard(site, group, { meta = [] } = {}) {
     ? { ...p.entryRequirements, quotaFloors: [] }
     : p.entryRequirements;
   let req = entryForCard
-    ? requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(p), pointFigures: tag?.mod !== TAG_KINDS.cutoff })
+    ? requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(p), pointFigures: tag?.mod !== TAG_KINDS.cutoff, prefix: AWARD_NEED[adm.awardKey] })
     : selectionLine(p);
   /* A Needs line copied across most of one school's cards is not a useful
      distinction. Leave it to the linked programme pages instead of making

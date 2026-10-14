@@ -341,7 +341,10 @@ export function discoverSection(site) {
                    by one and made 25 researched countries read as tiny. */
                 /* One unit on every door (round 7): universities, which every
                    country has, where degrees are mapped only in some. */
-                plural(tiles.filter((c) => scopeOf(c.code) === d.key).reduce((n, c) => n + c.institutions.filter(isEnglishStudyOption).length, 0), 'university', 'universities')}</span>
+                plural(tiles.filter((c) => scopeOf(c.code) === d.key).reduce((n, c) => n + c.institutions.filter(isEnglishStudyOption).length, 0), 'university', 'universities')}${
+                /* The globe's Europe holds the school's own country too: the
+                   door says what it leaves out, so the two numbers agree. */
+                d.key === 'nearby' && tileBy.get(hereCode) ? ` beyond ${tileBy.get(hereCode).name}` : ''}</span>
             </button>`
           )}
         </div>

@@ -1065,7 +1065,7 @@ export function needsRarity(items) {
  * quota's "below that" all stay on the programme page, one tap down — the
  * whole card links there. Returns '' for an entry with nothing to show.
  */
-export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET, rarity = null, steps = [], pointFigures = true } = {}) {
+export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_BUDGET, rarity = null, steps = [], pointFigures = true, prefix = null } = {}) {
   if (!entry) return '';
   const model = requirementModel(entry);
   const units = [...needsUnits(model, model.first), ...stepUnits(steps)]
@@ -1095,11 +1095,14 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
   const hidden = units.length - picked.length;
 
   return html`<div class="req" data-req>
-    <p class="req__ib"><strong>${lead}</strong> ${picked.map((p, i) => html`${i ? ' · ' : ''}${p.html}`)}${
+    <p class="req__ib"><strong>${lead}</strong> ${prefix ? html`${prefix}${picked.length ? ' · ' : ''}` : ''}${picked.map((p, i) => html`${i ? ' · ' : ''}${raw(cardForm(toString(p.html)))}`)}${
       hidden ? html` <span class="req__count">+${hidden} more</span>` : ''
     }</p>
   </div>`;
 }
+
+/** A card's short form of a requirement: "4+" for "at least a 4", "or another" for "or Another". */
+export const cardForm = (s) => String(s).replace(/,?(?:\s|\u00a0)+at(?:\s|\u00a0)least(?:\s|\u00a0)a(?:\s|\u00a0)(\d)/g, ' $1+').replace(/ or Another /g, ' or another ');
 
 /** One item on a programme page: the IB terms, the grade, and whose rule it is. */
 function detailItem(r, { alternatives = false, phrase = null } = {}) {

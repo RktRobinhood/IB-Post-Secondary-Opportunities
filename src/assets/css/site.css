@@ -3501,3 +3501,18 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .section--glance .glance:not(:has(> :nth-child(4))) > .glance__item { grid-column: auto !important; }
 /* Less air between the section bar and the trail. */
 [data-template="university"] [data-slot="study"] { padding-top: var(--s6); }
+
+/* --- Template review, round 12 (Oct 2026) -------------------------------- */
+/* Card facts start right under a title box two lines tall, so a row's facts
+   still start level (#67) without a gap on a short card; the slack falls
+   above the foot rule. */
+@media (min-width: 40rem) {
+  .card--backdrop .card__title { margin-bottom: 0; }
+  .card--backdrop .card__foot { margin-top: auto; }
+}
+/* A card with no blurb: no rule under an empty body. */
+.card__title + .card__foot { border-top: 0; padding-top: 0; }
+/* A path's name stays on one line in its table. */
+.paths__table tbody th[scope="row"] { min-width: 9rem; }
+/* Less empty band above the footer. */
+.site-foot { margin-top: var(--s6); }
