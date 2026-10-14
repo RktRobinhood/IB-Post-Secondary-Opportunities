@@ -36,6 +36,7 @@ const cityLines = fs.readdirSync(path.join(DIR, 'cities'))
   .flatMap((f) => read(path.join(DIR, 'cities', f)))
   .filter((l) => l.country && l.commonsFile && !l.none);
 
+const onSite = Object.values(JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'images.json'), 'utf8'))).map((r) => r?.file).filter(Boolean);
 const countries = [...new Set([...picks.map((p) => p.country), ...cityLines.map((l) => l.country)])];
 const out = [];
 const report = [];
@@ -44,7 +45,8 @@ for (const cc of countries) {
   const cities = cityLines.filter((l) => l.country === cc);
   if (!cities.length) { out.push(...mine); continue; }
   const hero = mine.filter((p) => p.primary);
-  const seen = new Set(hero.map((p) => p.commonsFile));
+  // No photograph twice on the site: not the hero, not any page's own photo.
+  const seen = new Set([...hero.map((p) => p.commonsFile), ...onSite]);
   const take = (list, n) => {
     const got = [];
     for (const p of list) {
