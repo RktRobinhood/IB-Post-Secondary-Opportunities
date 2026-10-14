@@ -451,7 +451,10 @@ export function programmeCard(site, group, { meta = [] } = {}) {
         : selectionLine(other);
       return String(otherReq) === reqText;
     }).length;
-    if (matches >= 5 && peers.length - matches <= 1) {
+    /* A subject a degree requires is never repetition to leave out: only a
+       shared line that names no subject is (round 12, AU's Maths HL). */
+    const namesSubject = /\b(HL|SL|Maths|English|Physics|Chemistry|Biology|language|Economics|History)\b/i.test(reqText.replace(/<[^>]+>/g, ' '));
+    if (matches >= 5 && peers.length - matches <= 1 && !namesSubject) {
       /* Machine-readable reason for the absent visual line: the translation
          guard can distinguish this deliberate omission from a render bug. */
       req = html`<span data-req-omitted="repeated-at-school"></span>`;

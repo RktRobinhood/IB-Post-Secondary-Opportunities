@@ -995,7 +995,7 @@ function institutionCard(site, i) {
     shortName: i.shortName,
     // The note's own first sentence: the card is a way in, not the account of
     // the place. It used to be cut at 150 characters, mid-sentence (#37).
-    text: i.school?.summary || firstSentence(i.note, 32),
+    text: i.school?.summary || firstSentence(i.note, 32) || (i.englishBachelors && i.ibRecognitionStatement ? 'Teaches in English · recognises the IB Diploma' : i.englishBachelors ? 'Teaches in English' : null),
     image: pic ? { src: pic.src, alt: pic.alt } : null,
     meta: [i.city, listed ? plural(listed, 'programme') : i.school?.scope === 'catalogue' ? 'Nearly all in English' : null],
   };

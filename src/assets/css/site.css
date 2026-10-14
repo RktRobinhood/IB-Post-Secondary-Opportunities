@@ -3516,3 +3516,5 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .paths__table tbody th[scope="row"] { min-width: 9rem; }
 /* Less empty band above the footer. */
 .site-foot { margin-top: var(--s6); }
+/* The Europe door on a phone: the count alone, so it fits. */
+@media (max-width: 40rem) { .preset__beyond { display: none; } }

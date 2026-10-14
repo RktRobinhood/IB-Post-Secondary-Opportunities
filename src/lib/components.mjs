@@ -1102,8 +1102,20 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
   </div>`;
 }
 
-/** A card's short form of a requirement: "4+" for "at least a 4", "or another" for "or Another". */
-export const cardForm = (s) => String(s).replace(/,?(?:\s|\u00a0)+at(?:\s|\u00a0)least(?:\s|\u00a0)a(?:\s|\u00a0)(\d)/g, ' $1+').replace(/ or Another /g, ' or another ');
+/**
+ * A card's short form of a requirement, one pattern for every subject:
+ * Subject [AA/AI] [level] [grade+] \u2014 "Maths HL 5+", "Maths AA 4+".
+ * "(AA or AI)" and "(SL or HL)" name every option, so they say nothing on a
+ * card; "at least a 4" is "4+"; an alternative is lower case ("or another
+ * language", "one of any Maths"). The programme page keeps the full wording.
+ */
+export const cardForm = (s) => String(s)
+  .replace(/,?(?:\s|\u00a0)+at(?:\s|\u00a0)least(?:\s|\u00a0)a(?:\s|\u00a0)(\d)/g, ' $1+')
+  .replace(/(?:\s|\u00a0)\((?:AA or AI|SL or HL)\)/g, '')
+  .replace(/\bAny[\s ]IB[\s ](\w+),[\s ](\d)\+[\s ]in[\s ]\1[\s ]SL\b/g, '$1 HL, or $1 SL $2+')
+  .replace(/\bAny[\s ]IB[\s ]/g, 'Any ')
+  .replace(/\b(of|or) Any /g, '$1 any ')
+  .replace(/ or Another /g, ' or another ');
 
 /** One item on a programme page: the IB terms, the grade, and whose rule it is. */
 function detailItem(r, { alternatives = false, phrase = null } = {}) {

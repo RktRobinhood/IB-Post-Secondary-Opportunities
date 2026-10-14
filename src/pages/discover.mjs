@@ -344,7 +344,7 @@ export function discoverSection(site) {
                 plural(tiles.filter((c) => scopeOf(c.code) === d.key).reduce((n, c) => n + c.institutions.filter(isEnglishStudyOption).length, 0), 'university', 'universities')}${
                 /* The globe's Europe holds the school's own country too: the
                    door says what it leaves out, so the two numbers agree. */
-                d.key === 'nearby' && tileBy.get(hereCode) ? ` beyond ${tileBy.get(hereCode).name}` : ''}</span>
+                d.key === 'nearby' && tileBy.get(hereCode) ? html`<span class="preset__beyond"> beyond ${tileBy.get(hereCode).name}</span>` : ''}</span>
             </button>`
           )}
         </div>

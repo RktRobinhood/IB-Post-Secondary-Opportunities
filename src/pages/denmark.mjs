@@ -209,7 +209,7 @@ export function denmarkHub(site) {
         title: 'What it is actually like',
         short: notes[0]?.text ? firstSentence(notes[0].text, 26) : null,
         body: contextNotes(notes, { heading: false }),
-        more: `All ${plural(notes.length, 'observation')}`,
+        more: notes.length === 2 ? 'Both observations' : `All ${plural(notes.length, 'observation')}`,
       }),
   ].filter(Boolean);
 
