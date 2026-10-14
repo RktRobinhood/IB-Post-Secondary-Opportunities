@@ -32,7 +32,7 @@ import { hero, glance, crumbs, topic, topicHasContent, pager, stamp, facts, sour
  * @param {object} vm.need      { lead, extra, full, fullLabel, cta } — the requirement
  * @param {any}    [vm.notice]  how fresh the requirement is
  * @param {object} [vm.decided] { short, body, more } — how places are decided
- * @param {object} [vm.what]    { short, body, more } — what the degree is
+ * @param {object} [vm.what]    { short, body, more, lede } — what the degree is; with `lede`, `short` is shown whole under it
  * @param {object} [vm.more]    { title, cards } — more programmes to look at
  * @param {any}    [vm.evidence] the evidence disclosure, where records carry it
  * @param {Array}  vm.sources   [{ title, url, retrieved }]
@@ -49,13 +49,20 @@ export function programmeTemplate(vm) {
   /* The hero says what the degree is in its own first sentence, once; the
      facts are the strip's, and the eyebrow says only whose and where
      (round 8: the facts were said three times over the fold). */
-  const whatText = typeof vm.what?.short === 'string' ? vm.what.short.trim() : '';
+  /* A "What it is" paragraph that comes with its own opening line (`lede`)
+     is shown whole, under that line. */
+  const ownLede = typeof vm.what?.lede === 'string' ? vm.what.lede.trim() : '';
+  const whatText = !ownLede && typeof vm.what?.short === 'string' ? vm.what.short.trim() : '';
   const opening = whatText ? firstSentence(whatText, 26) : '';
   const usable = !vm.what?.shared && opening && !opening.endsWith('…') && opening.length < whatText.length + 1;
   const clause = !usable && !vm.what?.shared && whatText ? (whatText.match(/^[^—;:(]{20,140}?(?=\s*[—;:(])/) || [])[0] : null;
-  const lede = usable ? opening : clause ? `${clause.trim()}.` : vm.what?.shared ? vm.hero.lede : null;
+  const lede = ownLede || (usable ? opening : clause ? `${clause.trim()}.` : vm.what?.shared ? vm.hero.lede : null);
   const restOf = (head) => { const r = whatText.slice(head.length).replace(/^[\s—–;:,.-]+/, '').trim(); return r ? `${r[0].toUpperCase()}${r.slice(1)}` : null; };
-  const what = vm.what && (usable || clause) ? { ...vm.what, short: restOf(usable ? opening : clause) } : vm.what;
+  /* The overview is one prospectus paragraph, marked so the text-wall guard
+     holds it to its own budget (scripts/test-text-walls.mjs, `overview`). */
+  const what = ownLede
+    ? { ...vm.what, short: html`<p class="overview">${vm.what.short}</p>` }
+    : vm.what && (usable || clause) ? { ...vm.what, short: restOf(usable ? opening : clause) } : vm.what;
   const showWhat = topicHasContent(what);
   /* A phone shows where, when to apply, how places go and the fee; the rest
      fold under "More facts" (round 13). */

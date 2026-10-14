@@ -15,7 +15,8 @@
  *   - **Before the first action**: default-view words after the hero and before
  *     the first picture, control, card, table or disclosure. At most 120.
  *   - **Open note**: an `aside.note` in the default view. At most 60 words.
- *   - **One paragraph**: at most 90 words.
+ *   - **One paragraph**: at most 90 words; a programme's overview paragraph
+ *     (`<p class="overview">`, its "What it is") at most 130.
  *   - **Whole default view**: at most 1,500 words.
  *   - **Repeated sentence**: a visible sentence of 12+ words on more than 10
  *     pages is boilerplate, and belongs in a component or on one linked page.
@@ -53,6 +54,11 @@ export const BUDGET = {
   beforeAction: 120,
   note: 60,
   paragraph: 90,
+  /* A programme's "What it is" paragraph (`<p class="overview">`): the owner,
+     14 October 2026, asked for "a short paragraph, kind of like the course
+     description… something people would expect in a pamphlet", so it gets
+     a prospectus paragraph's room and no more. */
+  overview: 130,
   total: 1500,
   repeat: { words: 12, pages: 10 },
 };
@@ -67,8 +73,11 @@ export function measurePage(pageHtml) {
   const afterHero = view.replace(/^[\s\S]*?<section class="hero[\s\S]*?<\/section>/, '');
   const run = proseRuns(afterHero);
   const notes = [...view.matchAll(/<aside class="note[^"]*">([\s\S]*?)<\/aside>/gi)].map((x) => countWords(x[1]));
-  const paras = [...view.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)].map((x) => x[1]);
-  const sentences = paras
+  const all = [...view.matchAll(/<p\b([^>]*)>([\s\S]*?)<\/p>/gi)];
+  const isOverview = (attrs) => /\bclass="overview"/.test(attrs);
+  const paras = all.filter((x) => !isOverview(x[1])).map((x) => x[2]);
+  const overviews = all.filter((x) => isOverview(x[1])).map((x) => x[2]);
+  const sentences = all.map((x) => x[2])
     .flatMap((p) => p.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(/(?<=[.!?])\s+(?=[A-Z])/))
     .filter((s) => s.split(' ').length >= BUDGET.repeat.words)
     .map(sentenceKey);
@@ -78,6 +87,7 @@ export function measurePage(pageHtml) {
     beforeAction: wordsBeforeFirst(stripCardLists(afterHero)),
     note: Math.max(0, ...notes),
     paragraph: Math.max(0, ...paras.map(countWords)),
+    overview: Math.max(0, ...overviews.map(countWords)),
     total: countWords(view),
     sentences: [...new Set(sentences)],
   };
@@ -91,6 +101,7 @@ export function breaches(m) {
   if (m.beforeAction > BUDGET.beforeAction) out.push({ rule: 'beforeAction', value: m.beforeAction, budget: BUDGET.beforeAction });
   if (m.note > BUDGET.note) out.push({ rule: 'note', value: m.note, budget: BUDGET.note });
   if (m.paragraph > BUDGET.paragraph) out.push({ rule: 'paragraph', value: m.paragraph, budget: BUDGET.paragraph });
+  if (m.overview > BUDGET.overview) out.push({ rule: 'overview', value: m.overview, budget: BUDGET.overview });
   if (m.total > BUDGET.total) out.push({ rule: 'total', value: m.total, budget: BUDGET.total });
   return out;
 }
@@ -101,6 +112,7 @@ const RULE_WORDS = {
   beforeAction: 'words before the first picture, control, card, table or disclosure',
   note: 'words in an open note',
   paragraph: 'words in one paragraph',
+  overview: 'words in the overview paragraph',
   total: 'words in the whole default view',
 };
 
@@ -118,6 +130,12 @@ function selfTest() {
   if (!breaches(measurePage(wall)).length) problems.push('five 30-word paragraphs in a row passed');
   if (breaches(measurePage(split)).length) problems.push(`a disclosure after the third paragraph did not break the run (${JSON.stringify(breaches(measurePage(split)))})`);
   if (measurePage(cards).run.paras) problems.push('the items of a card list were read as prose');
+  // The overview's own room: 120 words pass as an overview and fail as a plain paragraph; 140 fail either way.
+  const words = (n) => Array.from({ length: n }, (_, i) => `w${i}`).join(' ');
+  const rule = (html) => breaches(measurePage(shell(html))).map((b) => b.rule);
+  if (rule(`<p class="overview">${words(120)}</p>`).length) problems.push('a 120-word overview failed');
+  if (!rule(`<p>${words(120)}</p>`).includes('paragraph')) problems.push('a 120-word plain paragraph passed');
+  if (!rule(`<p class="overview">${words(140)}</p>`).includes('overview')) problems.push('a 140-word overview passed');
   return problems;
 }
 

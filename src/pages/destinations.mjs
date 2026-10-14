@@ -141,13 +141,14 @@ function researchDepthNote(c, { freshnessNote = '', events = null, researched = 
  * download somebody pays for.
  */
 /**
- * The photographs that stand for a country: its own, then its gallery — other
- * cities, regions and student life, never a university (owner, 1 October
- * 2026: one photograph chosen for a whole country is a bias; a few, changing,
- * promote the country for study, and do not advertise an institution). The
- * card on /countries/ and the country page's hero cycle through the same list.
+ * The photographs that stand for a country: its own, then its gallery — the
+ * cities and regions its universities are in first, then a little of the
+ * country beyond them (owner, 14 October 2026: "focus on the areas of the
+ * country where there are universities… each city or region represented as
+ * well as some touristy stuff"). The card on /countries/ and the country
+ * page's hero cycle through the same list, one slide loaded at a time.
  */
-export const COUNTRY_SLIDES = 5;
+export const COUNTRY_SLIDES = 8;
 export function countrySlides(site, c, max = COUNTRY_SLIDES) {
   const own = picture(site, c.code, { prefer: 'commons' });
   if (!own?.src) return [];

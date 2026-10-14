@@ -368,8 +368,12 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
      is" has more to say; otherwise a line from the record's own fields. */
   const aboutFirst = p.about ? firstSentence(p.about, 40) : '';
   const aboutRest = aboutFirst && !aboutFirst.endsWith('…') ? p.about.trim().slice(aboutFirst.length).trim() : '';
-  const lede = aboutRest ? aboutFirst : describe(p, inst);
-  const whatItIs = aboutRest || p.about || null;
+  /* With an `overview` (the owner, 14 Oct 2026: "more like a short paragraph,
+     kind of like the course description"), the one-liner opens the page and
+     the paragraph is "What it is". */
+  const overview = p.overview?.trim() || '';
+  const lede = overview && p.about && !aboutFirst.endsWith('…') ? aboutFirst : aboutRest ? aboutFirst : describe(p, inst);
+  const whatItIs = overview || aboutRest || p.about || null;
 
   /* When it starts, only as a record says it; else the season. */
   const starts = startsOf(school, p, dl);
@@ -512,7 +516,7 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     decided,
     // A description several of the school's programmes share is not this one's
     // headline (round 11: eleven music pages opened on one sentence).
-    what: whatItIs ? { short: whatItIs, shared: ((tail) => school.programmes.filter((q) => q.about && (firstSentence(q.about, 26) === firstSentence(p.about || '', 26) || tail(q.about) === tail(p.about || ''))).length > 1)((t) => String(t).replace(/^[^—;:(]*[—;:(]s*/, '').trim().toLowerCase()) } : null,
+    what: overview ? { short: overview, lede } : whatItIs ? { short: whatItIs, shared: ((tail) => school.programmes.filter((q) => q.about && (firstSentence(q.about, 26) === firstSentence(p.about || '', 26) || tail(q.about) === tail(p.about || ''))).length > 1)((t) => String(t).replace(/^[^—;:(]*[—;:(]s*/, '').trim().toLowerCase()) } : null,
     more: siblings.length
       ? { title: `Other degrees at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
       : nearby.length

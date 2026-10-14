@@ -555,6 +555,11 @@ export async function mountGlobe(figure, { onFail } = {}) {
     .filter((p) => Number.isFinite(p.lat) && Number.isFinite(p.lon))
     .map((p) => ({ ...p, ...splitFlag(p.name), xyz: toXYZ(p.lat, p.lon), dim: false, selected: false }));
   const byId = new Map(places.map((p) => [p.id, p]));
+  /* A country is a place to go only when it holds a light (the owner, 14 Oct
+     2026: "you can't zoom into countries that don't have any schools").
+     Clicks, double clicks and the hover outline pass over the rest. */
+  let schooled = null;  // filled on first use, once every place knows its country
+  const holdsSchools = (c) => !!c && (schooled ||= new Set(places.map((p) => p.country).filter(Boolean))).has(c.id);
   /* Country → schools (the owner, #53: zooming into a big country should do
      "what Europe does … show the individual schools … as dots"). A light that
      stands for a whole country may carry the institutions inside it that have
@@ -3045,6 +3050,7 @@ export async function mountGlobe(figure, { onFail } = {}) {
   }
 
   function goToCountry(country, { focus = false, push = true } = {}) {
+    if (!holdsSchools(country)) return;
     if (push) remember({ kind: 'country', id: country.id });
     if (closeActive) { climbOut(() => goToCountry(country, { focus, push: false })); return; }
     selectedCountry = country;
@@ -3903,7 +3909,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
       // Hovering: which country is under the pointer.
       if (e.pointerType === 'mouse' && !e.target.closest('.world__pin, .world__cluster, .world__controls, .world__card, .world__trail')) {
         const hit = pick(e.clientX, e.clientY);
-        const c = hit ? geography.countryAt(hit.lat, hit.lon) : null;
+        const found = hit ? geography.countryAt(hit.lat, hit.lon) : null;
+        const c = holdsSchools(found) ? found : null;
         if (c !== hoverCountry) { hoverCountry = c; stage.style.cursor = c ? 'pointer' : ''; camDirty = true; kick(); }
       }
       return;
@@ -4052,6 +4059,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
       lastTap = null;
       if (levels) { levelStep(1, at); return; }
       const hit = pick(at.x, at.y);
+      const land = hit ? geography.countryAt(hit.lat, hit.lon) : null;
+      if (land && !holdsSchools(land)) { showHint(`No universities in ${pages.get(land.id)?.name || land.name} on this map yet`); return; }
       if (hit) flyTo({ lat: hit.lat, lon: hit.lon, alt: view.alt <= MIN_ALT * 1.05 ? rest.alt : view.alt * 0.4 });
       return;
     }
@@ -4060,8 +4069,8 @@ export async function mountGlobe(figure, { onFail } = {}) {
     clickTimer = setTimeout(() => {
       const hit = pick(at.x, at.y);
       const country = hit ? geography.countryAt(hit.lat, hit.lon) : null;
-      if (country && levels && !places.some((p) => p.country === country.id)) {
-        showHint(`No universities from ${country.name} on this map yet`);
+      if (country && !holdsSchools(country)) {
+        showHint(`No universities in ${pages.get(country.id)?.name || country.name} on this map yet`);
         return;
       }
       if (country) goToCountry(country);

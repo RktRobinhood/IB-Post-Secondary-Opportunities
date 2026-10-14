@@ -1,6 +1,6 @@
 # Project status
 
-**Last updated 9 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
+**Last updated 14 October 2026.** Live site: https://rktrobinhood.github.io/IB-Post-Secondary-Opportunities/
 
 This page says where the work stands, so the next session (human or agent) starts from facts rather than from memory. Update it at the end of every work session.
 
@@ -9,6 +9,33 @@ This page says where the work stands, so the next session (human or agent) start
 - A separate critic agent scores each piece 0–10, and 8 or more is accepted (`docs/QA_CRITIC_LOOP.md`).
 - Every commit is pushed at once, because the owner reviews the live site, not local files.
 - Before a push, the changed files are copied onto a clean worktree of `main` and the full gate is run there: `node scripts/qa.mjs` with `SITE_BASE=/IB-Post-Secondary-Opportunities`, currently 40 checks.
+
+## 14 October (afternoon): overviews, photos for everything, globe
+
+Owner: no zooming into countries without schools; "What it is" should be a
+pamphlet paragraph; images for everything (programmes freestyle,
+universities architecture-first, country carousels = the study cities plus
+some touristy shots); where a university's pages are thin, write an
+informed paragraph (overview only). **At most six agents at once** (the app
+crashed with nine).
+
+- Globe: `holdsSchools()` in globe.js — clicks, double clicks, hover and
+  `goToCountry` pass over countries with no lights. Verified in preview.
+- Overviews: `overview` field (schema), shown whole under "What it is"; the
+  one-liner `about` opens the page. Research in `docs/research/overviews/`
+  (BRIEF.md, batch-NN.tsv → batch-NN.results.jsonl, NOTES.md = follow-ups);
+  `node scripts/merge-overviews.mjs` writes them into the records without
+  reformatting. Batches 01–07, 09 done; 08, 10, 11 part-done; 12–21 to run.
+- Programme photos: `harvest-official-photos.mjs` run for every country
+  (official-candidates-<cc>.json + sheets); picks per PICK_BRIEF.md into
+  official-picks-<cc>.jsonl, then `apply-official-picks.mjs <cc>` and
+  `import-programme-images.mjs --only=<cc> --unsigned`. Degrees with no
+  candidate still need Commons subject photos (not started).
+- Carousels: COUNTRY_SLIDES 5 → 8; study-city photos in
+  `docs/research/country-gallery/cities/` (BRIEF.md, worklist.json,
+  batch-a/b/c.jsonl); `node scripts/merge-city-gallery.mjs` then
+  `import-country-gallery.mjs`. Batch c not started.
+- University photos: photo-pass round 2 (`batch-7.txt`, 62 keys).
 
 ## 9 October: the rest of the world, as outlines
 

@@ -58,3 +58,24 @@ international / undergraduate applicants** (not the homepage), add
 Agents write files only; the coordinating session runs git, merges staged
 decisions (`node scripts/stage-image.mjs merge`), pins Commons picks and runs
 the build and checks.
+
+## Round 2 (14 October, afternoon): architecture first, no gaps
+
+The owner: university photos should **prioritise architecture, "so you can
+see the school"** — the main building, a campus quad, a facade, a library.
+Students in a lecture hall or a laptop close-up are a last choice. And
+"we need something" for every university still without a picture: be
+aggressive, not precious, where there is nothing; be selective only where
+there are several candidates.
+
+Ladder for `batch-7.txt` (the universities still without a photo):
+1. Wikimedia Commons: the university's category, its Wikipedia article's
+   infobox image (in any language edition), "Quality images of …".
+2. The university's own site, any page (about, campus, visit, news, press),
+   including pages behind a bot wall: open them in your own browser tab
+   (`tabs_create`), wait 10–15 s for a challenge to pass, then read the
+   image addresses with `read_page`/`javascript_tool`.
+3. A web search to *find* a picture the university itself serves (its own
+   domain or its official Flickr) — then record it as an official image.
+A building shared with other tenants, or a branch campus in a tower, is
+fine when the photo shows that building.
