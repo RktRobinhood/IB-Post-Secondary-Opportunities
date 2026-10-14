@@ -702,7 +702,9 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
   const where = countryName || countryLabel(site, destinationCode(inst)) || 'this country';
   const everyDate = html`<p class="dates-panel__more"><a href="${url(calendarLink)}">Every date in ${where}</a></p>`;
   if (!events.length && !sessions.length) {
-    /* No date at all: the panel still opens on the page's answer. */
+    /* No date at all: the panel still opens on the page's answer. Its link
+       into the country's dates only where the country has some. */
+    const countryDates = (site.countries || []).find((c) => c.code === destinationCode(inst))?.deadlines?.length;
     return countryName || status
       ? html`<section class="dates-panel" id="${id}" aria-labelledby="${id}-title">
           <h2 class="dates-panel__title" id="${id}-title">Deadlines</h2>
@@ -710,7 +712,7 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
             ? html`<div class="dates-panel__status"><strong>${status.value}</strong>${status.note ? html`<span>${status.note}</span>` : ''}</div>`
             // A gap, said as one (QA 29 Sep: 147 panels were a heading and a link).
             : html`<p class="dates-panel__empty">No dates recorded for ${programme ? 'this programme' : 'this school'} yet: check its admissions page.</p>`}
-          ${everyDate}
+          ${countryDates ? everyDate : ''}
         </section>`
       : '';
   }

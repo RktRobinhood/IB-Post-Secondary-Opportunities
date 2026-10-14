@@ -1,6 +1,6 @@
 import { html, raw, md, plural } from '../lib/html.mjs';
 import { page, url, SITE } from '../lib/layout.mjs';
-import { hero, card, stats, crumbs, sectionHead, topic, pager, stamp } from '../lib/components.mjs';
+import { hero, card, stats, crumbs, sectionHead, topic, topicHasContent, pager, stamp } from '../lib/components.mjs';
 
 /**
  * The country page: one template for every country, Denmark included.
@@ -40,24 +40,28 @@ import { hero, card, stats, crumbs, sectionHead, topic, pager, stamp } from '../
  * @param {object} [vm.pager]     { prev, next }
  * @param {object} vm.page        { title, description, path, section, scripts }
  */
-/** The questions every country page answers, in order. A country without an
-    answer to one leaves it out; none adds its own. */
+/** The questions every country page answers, in order, in three bands. A
+    country without an answer to one leaves it out; none adds its own. */
 export const TOPICS = [
-  ['why', 'Why it might suit you'],
-  ['watch', 'What to watch for'],
-  ['ib', 'How your IB is read'],
-  ['subjects', 'How your subjects count'],
-  ['apply', 'How and when you apply'],
-  ['dates', 'Deadlines'],
-  ['selection', 'How places are decided'],
-  ['system', 'The shape of the system'],
-  ['money', 'Money'],
-  ['language', 'Language'],
-  ['living', 'Living there'],
-  ['citizens', 'If you are a citizen'],
-  ['context', 'What it is actually like'],
-  ['sources', 'Sources'],
+  ['why', 'Why it might suit you', 'choose'],
+  ['watch', 'What to watch for', 'choose'],
+  ['context', 'What it is actually like', 'choose'],
+  ['system', 'The shape of the system', 'choose'],
+  ['ib', 'How your IB is read', 'in'],
+  ['subjects', 'How your subjects count', 'in'],
+  ['apply', 'How and when you apply', 'in'],
+  ['dates', 'Deadlines', 'in'],
+  ['selection', 'How places are decided', 'in'],
+  ['language', 'Language', 'in'],
+  ['money', 'Money', 'life'],
+  ['living', 'Living there', 'life'],
+  ['citizens', 'If you are a citizen', 'life'],
+  ['sources', 'Sources', 'end'],
 ];
+const BANDS = { choose: 'Is it for you?', in: 'Getting in', life: 'Money and life' };
+/** The questions a student cannot plan without: when one has no answer,
+    the page says so in one line rather than leaving it out silently. */
+const CORE = ['ib', 'apply', 'money', 'living'];
 
 export function countryTemplate(vm) {
   const placeCard = (i) =>
@@ -72,11 +76,18 @@ export function countryTemplate(vm) {
   const grid = (cards) => html`<div class="grid grid--3 grid--places">${cards.map(placeCard)}</div>`;
   const groups = vm.places.groups.filter((g) => g.cards.length);
   const given = vm.details.topics || {};
-  const topics = TOPICS.filter(([slot]) => given[slot]).map(([slot, title]) => ({
+  const titleOf = (slot, title) => (slot === 'citizens' && vm.details.adjective ? `If you are ${vm.details.adjective}` : title);
+  const topics = TOPICS.filter(([slot]) => topicHasContent(given[slot])).map(([slot, title, band]) => ({
     ...given[slot],
     id: slot,
-    title: slot === 'citizens' && vm.details.adjective ? `If you are ${vm.details.adjective}` : title,
+    band,
+    title: titleOf(slot, title),
   }));
+  /* What is not known yet, in one line, never as a bare heading. */
+  const gaps = TOPICS.filter(([slot]) => CORE.includes(slot) && !topicHasContent(given[slot])).map(([, title]) => title);
+  const banded = topics.map((t, i) => html`${t.band !== topics[i - 1]?.band && BANDS[t.band]
+    ? html`<p class="topic-band">${BANDS[t.band]}</p>`
+    : ''}${topic(t)}`);
   const toc = [
     groups.length && ['#institutions', 'Where you can study'],
     ['#how', 'How it works'],
@@ -139,7 +150,11 @@ ${vm.stats.length >= 2
           ? html`<details class="topic__more"><summary>More on ${vm.hero.title}</summary>
               <div class="topic__body"><p>${vm.details.more}</p></div></details>`
           : ''}
-        ${topics.map((t) => topic(t))}
+        ${gaps.length
+          ? html`<div class="topic-gap"><span class="topic-gap__label">Ask each university about</span>
+              <ul class="tags">${gaps.map((g) => html`<li class="tag tag--gap">${g}</li>`)}</ul></div>`
+          : ''}
+        ${banded}
       </div>
       <aside class="layout-aside__side stack">
         ${stamp(vm.rail.checked)}

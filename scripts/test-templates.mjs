@@ -47,7 +47,7 @@ export const LEVELS = {
         .filter((p) => !isRedirect(p)),
   },
   programme: {
-    slots: ['glance', 'before', 'detail', 'pager'],
+    slots: ['glance', 'before', 'detail', 'more', 'pager'],
     pages: () => {
       const out = [];
       const dir = (d) => fs.readdirSync(path.join(DIST, d), { withFileTypes: true }).filter((x) => x.isDirectory());

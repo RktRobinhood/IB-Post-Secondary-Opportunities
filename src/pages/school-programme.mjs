@@ -511,10 +511,10 @@ export function schoolProgrammePage(site, inst, c, p, { prev, next } = {}) {
     decided,
     what: whatItIs ? { short: whatItIs } : null,
     more: siblings.length
-      ? { title: `More at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
+      ? { title: `Other degrees at ${short}`, cards: siblings.map((g) => programmeCard(inst, g, { tuitionOnCard: false, headed: false, brief: true, statusOf: (q) => statusOf(inst, q) })) }
       : nearby.length
         ? {
-            title: `More ${FIELD[p.field].toLowerCase()} in ${c.name}`,
+            title: `More ${FIELD[p.field].toLowerCase()} degrees in ${c.name}`,
             cards: nearby.map(({ school: s, group: g }) => programmeCard(s, g, { tuitionOnCard: false, headed: false, brief: true, at: s.shortName || s.name, statusOf: (q) => statusOf(s, q) })),
           }
         : null,

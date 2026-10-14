@@ -226,10 +226,15 @@ export function notesFor(school, p) {
   const notes = (school.notes || []).map((text) => ({
     text,
     mine: namesProgramme(text, p, schoolWords),
-    theirs: others.some((q) => namesProgramme(text, q, schoolWords)) || aboutOtherUnit(text, school, p),
+    theirs: others.some((q) => namesProgramme(text, q, schoolWords)) || aboutOtherUnit(text, school, p) || UNLISTED.test(text),
   }));
   return [...notes.filter((n) => n.mine), ...notes.filter((n) => !n.mine && !n.theirs)];
 }
+
+/* A note about degrees the school's list leaves out — taught mostly in
+   another language, or listed under another university — is the school
+   page's to say, not every listed programme's (template review, Oct 2026). */
+const UNLISTED = /\b(most of (the|each|their) degrees? (is|are) (taught )?in|teach(es)? (only )?part of their courses|is listed under|are listed under)\b/i;
 
 /* A part of a school with a name of its own: "Prince Claus Conservatoire",
    "Leiden University College", "Campus Steneby". */

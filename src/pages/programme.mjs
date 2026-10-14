@@ -99,7 +99,9 @@ export function programme(site, p, inst) {
       // "SDU · BEng · 3½ yrs · Sønderborg" (src/lib/paths.mjs).
       eyebrow: [inst.shortName || inst.name, credentialLine(facetsOf(site, p))].filter(Boolean).join(' · '),
       title: p.name,
-      lede: firstSentence(p.summary, 32),
+      // One factual line, as a school programme's hero has ("A three-year
+      // degree in Aarhus."); the description is "What it is", said once.
+      lede: plainLine(p, inst),
       /* The picture its card shows, so the page opens on the image the
          reader clicked (#67): its own photograph or its field's, else the
          institution's, else the design its card would draw. */
@@ -212,7 +214,7 @@ export function programme(site, p, inst) {
           more: 'Degree and length',
         }
       : null,
-    more: siblings.length ? { title: `More at ${inst.shortName || inst.name}`, cards: siblings } : null,
+    more: siblings.length ? { title: `Other degrees at ${inst.shortName || inst.name}`, cards: siblings } : null,
     /* One place for sources: where the rules carry evidence records, their
        disclosure is it; otherwise the pages the record was written from. */
     evidence: evidenceRecords.length
@@ -251,4 +253,13 @@ export function programme(site, p, inst) {
       section: dest?.section,
     },
   });
+}
+
+/** "A three-year degree in Aarhus.": the record's own fields in words. */
+const YEARS = { 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six' };
+function plainLine(p, inst) {
+  const y = Number(p.years);
+  const years = Number.isInteger(y) ? YEARS[y] || String(y) : y ? `${String(y).replace(/\.5$/, '½')}` : null;
+  const city = p.campus || inst.city;
+  return `A ${[years && `${years}-year`, 'degree'].filter(Boolean).join(' ')}${city ? ` in ${city}` : ''}.`;
 }

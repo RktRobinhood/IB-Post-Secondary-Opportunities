@@ -16,6 +16,21 @@ The owner: every country page, every university page and every programme page is
 
 Each template's header lists its slots in order. A change to how a level looks is made once, in its template; a new data source gets a new adapter, never a new page function. `scripts/test-templates.mjs` (gate check `templates`) fails the build if any built page at a level was not drawn by its template or its `data-slot`s are out of order, and if anything outside `src/templates/` writes those marks.
 
+### When data is absent (template review, October 2026)
+
+The same template draws a page with everything and a page with almost nothing. Absence is designed, not left over:
+
+- **A heading is never drawn without an answer.** A topic with no short answer and no body is left out (`topicHasContent` in `src/lib/components.mjs`).
+- **A core question with no answer is said once, as chips.** On a country page, an unanswered *How your IB is read*, *How and when you apply*, *Money* or *Living there* is listed in one "Ask each university about" row, never as bare headings and never as a sentence repeated on many pages (the text-walls and research-log guards).
+- **A university with no degree list says so in one boxed line**, with a targeted link to its admissions page when one is recorded (never its homepage: `test-school-pages`).
+- **No photograph is a tinted contour panel**, its hue from the name (`panelHue`), for heroes and institution cards alike; programme cards keep their designed backdrops.
+- **No dates:** the dates panel says so in one line, and links to the country's calendar only when the country has dates.
+- **A disclosure with one item is not a disclosure.** A one-reason list is its short answer alone.
+
+### Where one subject ends
+
+A programme page ends visibly: an "End of <programme>" rule, then other degrees in their own full-width band (`more` slot, "Not this programme"), so siblings never read as more about the programme above. Country details fall into three labelled bands: *Is it for you?*, *Getting in*, *Money and life*.
+
 ## Shared experience shell
 
 Every exploration surface uses one shared query state for filters, map, list, counts, comparison, and URL. The shell contains:

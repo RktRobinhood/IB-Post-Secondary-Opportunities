@@ -52,7 +52,8 @@ export function statementShort(statement) {
   if (statement.diplomaPolicy) return firstSentence(statement.diplomaPolicy, 30);
   const text = String(statement.text || '').trim();
   if (text && !/\btranscripts?\b/i.test(text)) return `${text[0].toUpperCase()}${text.slice(1)}.`;
-  return 'It publishes an IB recognition statement.';
+  // A chip, not a sentence: on a hundred pages a sentence is a wall (text-walls).
+  return html`<ul class="tags"><li class="tag">Recognises the IB Diploma</li></ul>`;
 }
 
 /* A short list is one grid. A long one is grouped under its fields

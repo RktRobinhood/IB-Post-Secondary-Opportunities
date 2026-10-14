@@ -3,7 +3,7 @@ import { url } from './layout.mjs';
 import { ibTermsLine, ibTermsPhrase, routesPhrase } from './eligibility.mjs';
 import { emptyPanel } from './imagery.mjs';
 import { CARD_SIZES, srcsetOf } from './programme-imagery.mjs';
-import { designedSvg } from './designed-backdrop.mjs';
+import { designedSvg, hash } from './designed-backdrop.mjs';
 import { flagged } from './primitives.mjs';
 
 /* --- Page furniture ------------------------------------------------------ */
@@ -72,6 +72,10 @@ export function sectionHead({ num, eyebrow: eb, title, lede, id }) {
  * situations and a reader can tell, which is the whole argument for not
  * collapsing them.
  */
+/** A stable hue for a place with no photograph, from its name, so two
+    neighbouring panels are not the same colour (template review, Oct 2026). */
+export const panelHue = (name) => hash(String(name || '')) % 360;
+
 export function hero(o) {
   const plain = o.variant === 'plain' || o.variant === 'panel';
   const cls = [
@@ -84,7 +88,8 @@ export function hero(o) {
   ]
     .filter(Boolean)
     .join(' ');
-  return html`<section class="${cls}"${o.image?.focal ? raw(` style="--focal:${o.image.focal}"`) : ''}>
+  const style = [o.image?.focal && `--focal:${o.image.focal}`, o.variant === 'panel' && `--ph:${panelHue(toString(o.title))}`].filter(Boolean).join(';');
+  return html`<section class="${cls}"${style ? raw(` style="${style}"`) : ''}>
     ${o.image
       ? html`<div class="hero__media"${
           // Further pictures of the same place, as data rather than as markup.
@@ -217,7 +222,7 @@ export function card({ href, title, text, image, flag, meta, tags, logo, externa
           ${flag ? html`<span class="card__flag" aria-hidden="true">${flagged(flag)}</span>` : ''}
         </div>`
       : panel
-      ? html`<div class="card__media card__media--empty" aria-hidden="true">
+      ? html`<div class="card__media card__media--empty" aria-hidden="true" style="--ph:${panelHue(panel.label)}">
           <span class="card__monogram">${panel.initials}</span>
           ${/* An institution whose name is already an acronym — LUNEX, RCSI,
                 KAIST — has a monogram identical to its label, and printing both
@@ -524,6 +529,13 @@ export function accordion(items) {
  * The heading stays outside the disclosure so that "On this page" links and
  * anchors from elsewhere still land on something visible.
  */
+/** Whether a topic has anything to say: a short answer, or a body with text in it.
+    A heading with neither is never drawn; templates list it as a gap instead. */
+export function topicHasContent(t) {
+  const text = (x) => String(x == null ? '' : typeof x === 'object' ? toString(x) : x).replace(/<[^>]*>/g, '').trim();
+  return !!(t && (text(t.short) || text(t.body)));
+}
+
 export function topic({ id, title, short, body, more = 'Read the full detail' }) {
   const hasBody = body && String(typeof body === 'object' ? toString(body) : body).trim();
   return html`<section class="topic" aria-labelledby="${id}">

@@ -90,6 +90,9 @@ const shortClause = (text) => {
 };
 
 /** The one page a student goes on to: the record's hand-off, else admissions. */
+/* "Taught in English." under the label "In English" says nothing twice. */
+const TAUTOLOGY = /^(all )?(taught|teaching) (entirely |fully )?in english\.?$/i;
+
 function handoffOf(inst) {
   if (inst.school?.handoff) return inst.school.handoff;
   if (inst.admissionsUrl && !isHomepage(inst.admissionsUrl, inst.website)) {
@@ -314,12 +317,17 @@ function programmeSection(site, inst, c) {
     };
   }
 
-  // Not researched yet: the profile's one-line answer, honestly labelled.
+  // Not researched yet: the profile's one-line answer, honestly labelled,
+  // and the way to the school's own list.
   const answer = wholeAnswer(inst.englishBachelors);
+  // A targeted page only, never a homepage (test-school-pages).
+  const own = inst.admissionsUrl && !isHomepage(inst.admissionsUrl, inst.website) ? inst.admissionsUrl : null;
   return {
     title: 'What you could study here',
-    handoff: html`${answer ? html`<p class="handoff__line">In English: ${answer}.</p>` : ''}
-      <p class="handoff__todo">Its programmes are not listed here yet.</p>`,
+    handoff: html`<div class="handoff__gap">
+      <p class="handoff__todo"><strong>Its degrees are not listed here yet.</strong>${answer && !TAUTOLOGY.test(answer) ? html` In English: ${answer}.` : ''}</p>
+      ${own ? html`<p><a class="btn btn--quiet" href="${own}" rel="noopener nofollow">See its degrees on ${hostOf(own)}<span aria-hidden="true"> ↗</span></a></p>` : ''}
+    </div>`,
   };
 }
 
@@ -347,6 +355,8 @@ export function schoolPage(site, inst, c, { prev, next }) {
       ? school.courses ? `All ${school.courses} degrees` : 'Every degree'
       : school?.scope === 'none'
       ? 'Nothing'
+      : TAUTOLOGY.test(String(inst.englishBachelors || '').trim())
+      ? 'All teaching'
       : shortClause(inst.englishBachelors);
 
   const ibLink = (u, label) => html`<p><a href="${u}" rel="noopener nofollow">${label}<span aria-hidden="true"> ↗</span></a></p>`;

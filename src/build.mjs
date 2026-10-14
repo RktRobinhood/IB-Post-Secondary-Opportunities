@@ -274,8 +274,8 @@ async function main() {
     const destOf = (x) => x.destination?.code ?? x.destination ?? null;
     const same = insts.filter((x) => destOf(x) === destOf(inst));
     const i = same.indexOf(inst);
-    const prev = same[i - 1] ? { href: same[i - 1].href, label: same[i - 1].shortName || same[i - 1].name } : null;
-    const next = same[i + 1] ? { href: same[i + 1].href, label: same[i + 1].shortName || same[i + 1].name } : null;
+    const prev = same[i - 1] ? { href: same[i - 1].href, label: same[i - 1].name } : null;
+    const next = same[i + 1] ? { href: same[i + 1].href, label: same[i + 1].name } : null;
     await write(inst.href, university(site, inst, { prev, next }));
     for (const p of inst.programmes) {
       await write(p.href, programme(site, p, inst));

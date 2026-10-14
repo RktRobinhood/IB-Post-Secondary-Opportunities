@@ -629,7 +629,7 @@ export function destination(site, c, { prev, next }) {
         id: 'why',
         title: 'Why it might suit you',
         short: one(c.whyConsider[0]),
-        body: html`<ul class="ticks">${c.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>`,
+        body: c.whyConsider.length > 1 ? html`<ul class="ticks">${c.whyConsider.map((x) => html`<li>${x}</li>`)}</ul>` : '',
         more: `All ${plural(c.whyConsider.length, 'reason')}`,
       }),
 
@@ -638,7 +638,7 @@ export function destination(site, c, { prev, next }) {
         id: 'watch',
         title: 'What to watch for',
         short: one(c.watchOuts[0]),
-        body: html`<ul class="crosses">${c.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>`,
+        body: c.watchOuts.length > 1 ? html`<ul class="crosses">${c.watchOuts.map((x) => html`<li>${x}</li>`)}</ul>` : '',
         more: `All ${plural(c.watchOuts.length, 'thing')} to watch`,
       }),
 

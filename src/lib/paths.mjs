@@ -577,7 +577,7 @@ export function pathsTable(site, p, inst) {
     ? where
     : [`${inst.shortName || inst.name} offers this as ${members.length} ${AXIS_HEAD[rec.family.axis] || 'paths'}.`, where].filter(Boolean).join(' ');
   return html`<section class="paths" aria-labelledby="paths-title">
-    <h2 id="paths-title">${onlyCampus ? `${rec.family.name} on ${members.length} campuses` : `${members.length} ways to study ${rec.family.name}`}</h2>
+    <h2 id="paths-title">${((w) => (onlyCampus ? `Taught on ${w} campuses` : `${w[0].toUpperCase()}${w.slice(1)} ways to take it`))(String(NUMBER_WORDS[members.length] || members.length))}</h2>
     <p class="paths__lede">${opening} ${
       differsAdmission
         ? 'What it takes to get in differs between them, so check each one.'

@@ -1,6 +1,6 @@
 import { html, plural } from '../lib/html.mjs';
 import { page, url } from '../lib/layout.mjs';
-import { hero, glance, crumbs, topic, pager, stamp, facts, note, sources } from '../lib/components.mjs';
+import { hero, glance, crumbs, topic, pager, stamp, facts, sources, sectionHead } from '../lib/components.mjs';
 
 /**
  * The programme page: one template for every degree in every country.
@@ -18,8 +18,8 @@ import { hero, glance, crumbs, topic, pager, stamp, facts, note, sources } from 
  *            admission, fee)
  *   before   one caveat to read before applying, when the record has one
  *   detail   trail; the dates; what you need; how places are decided; what
- *            it is; more at this university; sources — beside the rail with
- *            the official page
+ *            it is; sources — beside the rail with the official page
+ *   more     other degrees, in a band of their own after this one ends
  *   pager    previous and next programme at the same university
  *
  * @param {object} vm
@@ -71,18 +71,16 @@ ${vm.before
           ? html`<details class="topic__more"><summary>${vm.need.fullLabel || 'Requirements in full'}</summary><div class="topic__body">${vm.need.full}</div></details>`
           : ''}
         ${vm.need.cta ? html`<p class="need__cta"><a class="btn btn--primary" href="${url(vm.need.cta.href)}">${vm.need.cta.label}</a></p>` : ''}
+        ${/* On a phone the rail comes last; the way to the official page is not left there. */
+          vm.rail.official
+          ? html`<p class="need__official"><a href="${vm.rail.official}" rel="noopener nofollow">Check it on ${hostName(vm.rail.official)}<span aria-hidden="true"> ↗</span></a></p>`
+          : ''}
         ${vm.notice || ''}
         ${vm.decided ? topic({ id: 'selection', title: 'How places are decided', ...vm.decided }) : ''}
         ${vm.what ? topic({ id: 'what', title: 'What it is', ...vm.what }) : ''}
-        ${vm.more?.cards?.length
-          ? html`<section class="topic" aria-labelledby="more-here">
-              <h2 id="more-here">${vm.more.title}</h2>
-              <div class="prog-siblings">${vm.more.cards}</div>
-            </section>`
-          : ''}
         ${vm.evidence || ''}
         ${sourceList.length
-          ? html`<details class="sources-foot"><summary>Written from ${plural(sourceList.length, 'official page')}</summary>
+          ? html`<details class="sources-foot"><summary>Sources for this programme: ${plural(sourceList.length, 'official page')}</summary>
               ${sources(sourceList, { title: null })}</details>`
           : ''}
       </div>
@@ -91,14 +89,24 @@ ${vm.before
         ${/* The hand-off, as on a university page: the button, and where it goes. */
           vm.rail.official
           ? html`<div class="rail-action"><a class="btn btn--solid btn--block" href="${vm.rail.official}" rel="noopener nofollow">The official page ↗</a>
-              <p class="rail-note">This programme on ${hostName(vm.rail.official)}</p></div>`
+              <p class="rail-note">This programme on ${hostName(vm.rail.official)}. Requirements change each year: confirm them there before you apply.</p></div>`
           : ''}
         ${facts(vm.rail.rows || [])}
-        ${note('Requirements change between admission years. Check the official page before you apply.', { kind: 'warn', title: 'Always verify' })}
       </aside>
     </div>
   </div>
 </section>
+${/* Other degrees: a band of its own after this programme ends, so it never
+     reads as more about this one. */
+  vm.more?.cards?.length
+  ? html`<section class="section section--more" data-slot="more" aria-label="${vm.more.title}">
+      <div class="wrap">
+        <p class="more-end">End of ${vm.trail.title}</p>
+        ${sectionHead({ eyebrow: 'Not this programme', title: vm.more.title, lede: 'Each has its own requirements and deadlines.', id: 'more-here' })}
+        <div class="prog-siblings">${vm.more.cards}</div>
+      </div>
+    </section>`
+  : ''}
 ${vm.pager?.prev || vm.pager?.next
   ? html`<section class="section section--pager" data-slot="pager">
       <div class="wrap">${pager(vm.pager)}</div>
