@@ -3489,7 +3489,7 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 /* Programme facts on a phone: four, then "More facts"; on a wide screen all. */
 .glance__more { display: none; }
 @media (max-width: 40rem) {
-  [data-template="programme"] .section--glance .glance:first-child > .glance__item:nth-child(n+5) { display: none; }
+  [data-template="programme"] .section--glance .glance:first-child > .glance__item--minor { display: none; }
   [data-template="programme"] .glance__more { display: block; margin-top: var(--s3); }
   .glance__more > summary { cursor: pointer; font-weight: 600; color: var(--accent); }
   .glance__more[open] > summary { margin-bottom: var(--s3); }
@@ -3518,3 +3518,9 @@ body:has(.section-nav__action) .layout-aside__side .rail-action { display: none;
 .site-foot { margin-top: var(--s6); }
 /* The Europe door on a phone: the count alone, so it fits. */
 @media (max-width: 40rem) { .preset__beyond { display: none; } }
+
+/* Round 13: a card's requirement line is never cut on a phone, so "+N more" stays. */
+@media (max-width: 40rem) {
+  .card--backdrop .card__slot { max-height: none; }
+  .card--backdrop .card__slot .req__ib, .card--backdrop .card__slot:has(.card__paths) .req__ib { display: block; -webkit-line-clamp: unset; overflow: visible; }
+}

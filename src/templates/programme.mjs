@@ -57,14 +57,18 @@ export function programmeTemplate(vm) {
   const restOf = (head) => { const r = whatText.slice(head.length).replace(/^[\s—–;:,.-]+/, '').trim(); return r ? `${r[0].toUpperCase()}${r.slice(1)}` : null; };
   const what = vm.what && (usable || clause) ? { ...vm.what, short: restOf(usable ? opening : clause) } : vm.what;
   const showWhat = topicHasContent(what);
+  /* A phone shows where, when to apply, how places go and the fee; the rest
+     fold under "More facts" (round 13). */
+  const FIRST = /^(Where|Apply by|Last cut-off|Last year|Admission|EU\/EEA fee)$/;
+  const factList = vm.glance.filter(Boolean).map((f) => ({ ...f, minor: !FIRST.test(f.label) }));
   const eyebrow = [vm.trail.university?.name || vm.trail.university?.label, vm.trail.country?.label].filter(Boolean).join(' · ') || vm.hero.eyebrow;
   const body = html`
 ${hero({ ...vm.hero, eyebrow, lede, variant: 'compact' })}
 
 <section class="section section--tinted section--glance" data-slot="glance">
-  <div class="wrap">${glance(vm.glance.filter(Boolean))}
-    ${vm.glance.filter(Boolean).length > 4
-      ? html`<details class="glance__more"><summary>More facts</summary>${glance(vm.glance.filter(Boolean).slice(4))}</details>`
+  <div class="wrap">${glance(factList)}
+    ${factList.some((f) => f.minor)
+      ? html`<details class="glance__more"><summary>More facts</summary>${glance(factList.filter((f) => f.minor).map((f) => ({ ...f, minor: false })))}</details>`
       : ''}</div>
 </section>
 ${sectionNav([

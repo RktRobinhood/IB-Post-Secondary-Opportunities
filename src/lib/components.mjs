@@ -373,7 +373,7 @@ export function glance(items) {
   const real = items.filter((i) => i && i.value !== null && i.value !== undefined && i.value !== '');
   if (!real.length) return '';
   return html`<dl class="glance">${real.map(
-    (i) => html`<div class="glance__item">
+    (i) => html`<div class="glance__item${i.minor ? ' glance__item--minor' : ''}">
       <dt>${i.label}</dt>
       <dd>${i.value}${i.note ? html`<small>${i.note}</small>` : ''}</dd>
     </div>`
@@ -1075,7 +1075,10 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
   if (!units.length) return prefix ? html`<div class="req" data-req><p class="req__ib"><strong>${lead}</strong> ${prefix}</p></div>` : '';
 
   // What is distinctive, rarest first; if nothing is, what there is, in order.
-  const distinct = units.filter((u) => u.share < NEAR_UNIVERSAL);
+  /* Near-universal English may go unsaid; a Higher Level subject a degree
+     requires never does (round 13: AU's Maths HL vanished from its cards). */
+  const said = (u) => `${u.key} ${toString(u.html)}`;
+  const distinct = units.filter((u) => u.share < NEAR_UNIVERSAL || (/\bHL\b/.test(said(u)) && !/English/i.test(said(u))));
   /* A card whose only requirement is near-universal says nothing useful by
      repeating it. The programme page still carries the full rule. This is
      the Twente case: an English rule was the entire Needs line even though
@@ -1112,9 +1115,9 @@ export function requirementSummary(entry, { lead = 'Needs', budget = CARD_NEEDS_
 export const cardForm = (s) => String(s)
   .replace(/,?(?:\s|\u00a0)+at(?:\s|\u00a0)least(?:\s|\u00a0)a(?:\s|\u00a0)(\d)/g, ' $1+')
   .replace(/(?:\s|\u00a0)\((?:AA or AI|SL or HL)\)/g, '')
-  .replace(/\bAny[\s ]IB[\s ](\w+),[\s ](\d)\+[\s ]in[\s ]\1[\s ]SL\b/g, '$1 HL, or $1 SL $2+')
+  .replace(/\bAny[\s ]IB[\s ](\w+),[\s ](\d)\+[\s ]in[\s ]\1[\s ]SL\b/g, '$1 SL $2+ or $1 HL')
   .replace(/\bAny[\s ]IB[\s ]/g, 'Any ')
-  .replace(/\b(of|or) Any /g, '$1 any ')
+  .replace(/\b(of|or)((?:\s|\u00a0)+(?:<[^>]+>)*)Any /g, '$1$2any ')
   .replace(/ or Another /g, ' or another ');
 
 /** One item on a programme page: the IB terms, the grade, and whose rule it is. */

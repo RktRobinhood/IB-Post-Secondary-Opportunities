@@ -206,7 +206,9 @@ function expected(entry) {
   // A card's short form stands for the full one: shown, it counts as shown.
   const alias = new Map(model.all.filter((x) => x.short).map((x) => [x.short, x.text]));
   // A card writes a grade as "4+" (components.mjs cardForm): the same phrase.
-  for (const x of [...allowed]) { const f = cardForm(x); if (f !== x) { allowed.add(f); alias.set(f, alias.get(x) || x); } }
+  for (const x of [...allowed]) {
+    for (const f of [cardForm(x), cardForm(x).replace(/^Any /, 'any ')]) if (f !== x) { allowed.add(f); alias.set(f, alias.get(x) || x); }
+  }
   return { card: { allowed, required: card, alias }, detail: { allowed, required: detail } };
 }
 

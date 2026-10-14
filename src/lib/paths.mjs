@@ -18,7 +18,7 @@
  * Nothing here names a programme, an institution or a country; the guard in
  * scripts/test-unique-images.mjs reads this file back for literals.
  */
-import { html } from './html.mjs';
+import { html, toString } from './html.mjs';
 import { url, SITE } from './layout.mjs';
 import { requirementModel, requirementSummary, requirementLine, needsRarity, keepTogether } from './components.mjs';
 import { entryAward, ENTRY_AWARD } from './eligibility.mjs';
@@ -171,8 +171,7 @@ export function cutoffLabel(p) {
 
 /** The award, as the first thing a card's Needs line names. */
 const AWARD_NEED = {
-  [ENTRY_AWARD.DIPLOMA_REQUIRED]: 'the full Diploma',
-  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'the Diploma or Course Results',
+  [ENTRY_AWARD.COURSE_RESULTS_ACCEPTED]: 'Diploma or Course Results',
 };
 
 const AWARD_TEXT = {
@@ -425,9 +424,7 @@ export function programmeCard(site, group, { meta = [] } = {}) {
   const p = group.lead;
   const adm = admissionOf(site, p);
   const tag = cardTag({ cutoff: adm.cutoff, open: adm.open, award: adm.awardKey });
-  const entryForCard = tag?.mod === TAG_KINDS.cutoff && p.entryRequirements
-    ? { ...p.entryRequirements, quotaFloors: [] }
-    : p.entryRequirements;
+  const entryForCard = p.entryRequirements ? { ...p.entryRequirements, quotaFloors: [] } : p.entryRequirements;
   let req = entryForCard
     ? requirementSummary(entryForCard, { rarity: rarityOf(site), steps: stepsOf(p), pointFigures: tag?.mod !== TAG_KINDS.cutoff, prefix: AWARD_NEED[adm.awardKey] })
     : selectionLine(p);
@@ -437,7 +434,8 @@ export function programmeCard(site, group, { meta = [] } = {}) {
      a smaller cluster of genuinely similar degrees may share a rule without
      forming a wall. */
   if (req) {
-    const reqText = String(req);
+    // The markup, not "[object Object]": String() of a template made every line equal.
+    const reqText = toString(req);
     const peers = site.programmes.filter((other) => other.institutionId === p.institutionId);
     const matches = peers.filter((other) => {
       if (other === p || other.institutionId !== p.institutionId) return other === p;
@@ -449,7 +447,7 @@ export function programmeCard(site, group, { meta = [] } = {}) {
       const otherReq = otherEntry
         ? requirementSummary(otherEntry, { rarity: rarityOf(site), steps: stepsOf(other), pointFigures: otherTag?.mod !== TAG_KINDS.cutoff })
         : selectionLine(other);
-      return String(otherReq) === reqText;
+      return toString(otherReq) === reqText;
     }).length;
     /* A subject a degree requires is never repetition to leave out: only a
        shared line that names no subject is (round 12, AU's Maths HL). */

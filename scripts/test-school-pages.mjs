@@ -350,7 +350,7 @@ for (const [key, inst] of known) {
       const tile = body.match(/<dt>Apply by<\/dt>\s*<dd>([^<]+)/)?.[1];
       /* Rule 10: never a dropped tile, never a short strip. */
       if (!tile) fail(`${p.href}: no Apply-by tile`);
-      const strip = (body.match(/<dl class="glance">([\s\S]*?)<\/dl>/)?.[1] || '').match(/class="glance__item"/g)?.length || 0;
+      const strip = (body.match(/<dl class="glance">([\s\S]*?)<\/dl>/)?.[1] || '').match(/class="glance__item[" ]/g)?.length || 0;
       if (strip !== 8) fail(`${p.href}: the facts strip has ${strip} tiles, not 8`);
       const says = tile?.trim();
       const whyNot = {
