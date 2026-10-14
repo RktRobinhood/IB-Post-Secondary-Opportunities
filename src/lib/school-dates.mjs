@@ -765,7 +765,10 @@ export function datesPanel(site, inst, { programme = null, today = new Date().to
  */
 export function nextDeadline(site, inst, { keep = null, today = new Date().toISOString().slice(0, 10) } = {}) {
   const e = datesFor(site, inst)
-    .filter((x) => x.date && (x.endDate || x.date) >= today && forReader(x) && !x.forDiplomaHolders && isBinding(x) && (!x.kind || x.kind === 'closes') && (!keep || keep(x)))
+    .filter((x) => x.date && (x.endDate || x.date) >= today && forReader(x) && !x.forDiplomaHolders &&
+      /* Any application round's close, hard or not: the earliest one is the
+         next a student can make (IE's 6 November round, not its last). */
+      (x.kind ? x.kind === 'closes' || x.kind === 'early' : isBinding(x) || /\b(clos|deadline)/i.test(x.label || '')) && (!keep || keep(x)))
     .sort((a, b) => (a.endDate || a.date).localeCompare(b.endDate || b.date))[0];
   return e ? e.endDate || e.date : null;
 }
