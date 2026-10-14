@@ -1,5 +1,5 @@
 import { html, md, plural, raw, toString, truncate, firstSentence } from '../lib/html.mjs';
-import { datesPanel, nextDeadline } from '../lib/school-dates.mjs';
+import { datesPanel, nextDeadline, notPublished } from '../lib/school-dates.mjs';
 import { page, url } from '../lib/layout.mjs';
 import {
   hero, card, note, facts, sources, crumbs, sectionHead, emptyState, pager, topic, glance, institutionRail,
@@ -100,7 +100,7 @@ export function university(site, inst, { prev, next }) {
       { label: 'Founded', value: inst.founded ? String(inst.founded) : null },
     ],
     crumbs: [...(dest ? [{ href: `${dest.href}#institutions`, label: dest.name }] : []), { label: inst.shortName || inst.name }],
-    dates: datesPanel(site, inst),
+    dates: datesPanel(site, inst, { whenNone: notPublished(inst.links?.admissions ? { url: inst.links.admissions } : null) }),
     study: inst.programmes.length
       ? { title: 'What you could study here', cards: programmeCards }
       : {

@@ -4,7 +4,7 @@ import { universityTemplate, statementShort } from '../templates/university.mjs'
 import { picture } from '../lib/data.mjs';
 import { card } from '../lib/components.mjs';
 import { hostOf, isHomepage, displayName, AFTER_DIPLOMA, isEnglishStudyOption } from '../lib/schools.mjs';
-import { datesPanel, isBinding, nextDeadline } from '../lib/school-dates.mjs';
+import { datesPanel, isBinding, nextDeadline, notPublished } from '../lib/school-dates.mjs';
 import { deadlineOf } from '../lib/programme-deadline.mjs';
 import { schoolCardGroups } from '../lib/families.mjs';
 import { pathsBlock } from '../lib/paths.mjs';
@@ -366,6 +366,7 @@ export function schoolPage(site, inst, c, { prev, next }) {
   const dates = datesPanel(site, { ...inst, id: inst.key, destination: c.code }, {
     countryName: c.articleName || c.name,
     keep: school?.ownDeadline ? (e) => e.schoolOwn || !isBinding(e) : null,
+    whenNone: notPublished(go),
   });
 
   const inEnglish =

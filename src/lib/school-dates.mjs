@@ -703,11 +703,29 @@ function sessionItem(s) {
  * saying there are none. The link reads "Every date in <country>" on every
  * page, the country named from its record when the caller does not say.
  */
-export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null, status = null } = {}) {
+/**
+ * A Deadlines panel's answer when a university has no date recorded yet:
+ * not published, and where they will appear (its admissions page, when the
+ * record names one).
+ */
+export function notPublished(go) {
+  let host = null;
+  try { host = go?.url ? new URL(go.url).hostname.replace(/^www\./, '') : null; } catch { host = null; }
+  return {
+    value: 'Not published yet',
+    note: host ? html`<a href="${go.url}" rel="noopener nofollow">Watch ${host}<span aria-hidden="true"> ↗</span></a>` : null,
+  };
+}
+
+export function datesPanel(site, inst, { programme = null, today = new Date().toISOString().slice(0, 10), id = 'dates', countryName = null, keep = null, status: given = null, whenNone = null } = {}) {
   /* `keep`, when given, narrows the dates further (a school programme's page).
      Dates for applicants outside the EU/EEA are never this reader's. */
   const events = datesFor(site, inst, { programme }).filter((e) => e.date && endOf(e) >= today && forReader(e) && (!keep || keep(e)));
   const sessions = sessionsFor(site, inst, { programme }).filter((s) => endOf(s) >= today);
+  /* `whenNone`: the answer when nothing is dated, so every page at a level
+     keeps its Deadlines section (owner, 14 October 2026: the same template
+     for every university). */
+  const status = given || (!events.length && !sessions.length ? whenNone : null);
   const calendarLink = `/timeline/?destinations=${destinationCode(inst)}`;
   const where = countryName || countryLabel(site, destinationCode(inst)) || 'this country';
   const everyDate = html`<p class="dates-panel__more"><a href="${url(calendarLink)}">Every date in ${where}</a></p>`;
